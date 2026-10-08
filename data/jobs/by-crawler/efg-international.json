@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-10-08T09:18:25.708Z",
+  "assembledAt": "2026-10-08T21:11:18.628Z",
   "jobs": [
     {
       "id": "efg-6488",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:20.008Z",
+      "crawledAt": "2026-10-08T21:11:14.221Z",
       "slugByLocale": {
         "it": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
         "en": "global-regulatory-reporting-specialist-efg-geneve",
@@ -212,7 +212,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:20.002Z",
+      "crawledAt": "2026-10-08T21:11:14.218Z",
       "slugByLocale": {
         "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
@@ -424,7 +424,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.994Z",
+      "crawledAt": "2026-10-08T21:11:14.215Z",
       "slugByLocale": {
         "it": "it-analista-and-software-ingegnere-efg-international-ag-lugano",
         "en": "it-analyst-and-software-engineer-efg-lugano",
@@ -516,7 +516,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.984Z",
+      "crawledAt": "2026-10-08T21:11:14.211Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -610,7 +610,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.978Z",
+      "crawledAt": "2026-10-08T21:11:14.208Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -796,7 +796,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.975Z",
+      "crawledAt": "2026-10-08T21:11:14.206Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -889,7 +889,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.971Z",
+      "crawledAt": "2026-10-08T21:11:14.204Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1078,7 +1078,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.949Z",
+      "crawledAt": "2026-10-08T21:11:14.194Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -1214,7 +1214,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.943Z",
+      "crawledAt": "2026-10-08T21:11:14.190Z",
       "slugByLocale": {
         "it": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
         "en": "client-services-officer-russian-speaker-efg-geneve",
@@ -1399,7 +1399,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-08T09:18:19.932Z",
+      "crawledAt": "2026-10-08T21:11:14.184Z",
       "slugByLocale": {
         "it": "digital-marketing-manager-campagne-efg-international-ag-zurich",
         "en": "digital-marketing-manager-campaigns-efg-zurich",
@@ -2445,7 +2445,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2478,13 +2478,13 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "general-services-employee-efg-international-ag-geneve"
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "general-services-employee-efg-international-ag-geneve"
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve"
       ],
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
@@ -3338,9 +3338,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3366,16 +3366,18 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltstelle-operator-efg-international-ag-lugano"
+          "schaltnetzbetreiber-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "schaltstelle-operator-efg-international-ag-lugano"
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://www.efginternational.com/us/about/careers",

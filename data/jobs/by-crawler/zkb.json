@@ -1,29 +1,175 @@
 {
+  "crawlerKey": "zkb",
+  "assembledAt": "2026-10-08T21:16:15.332Z",
   "jobs": [
     {
-      "id": "zkb-42e4b6cb4bbe",
-      "slug": "senior-devops-engineer-application-integration-w-m-d-zkb-zurich",
+      "id": "zkb-eb85223e1cb0",
+      "slug": "workplace-engineer-microsoft-365-plattform-w-m-d-zkb-zurich",
       "slugByLocale": {
-        "de": "senior-devops-engineer-application-integration-w-m-d-zkb-zurich",
-        "it": "senior-devops-engineer-application-integration-w-m-d-zkb-zurich",
+        "de": "workplace-engineer-microsoft-365-plattform-w-m-d-zkb-zurich",
+        "it": "workplace-engineer-microsoft-365-plattform-w-m-d-zkb-zurich",
+        "en": "workplace-engineer-microsoft-365-plattform-w-m-d-zurcher-kantonalbank-zurich",
+        "fr": "workplace-engineer-microsoft-365-plattform-w-m-d-zkb-zurich"
+      },
+      "company": "Zürcher Kantonalbank",
+      "companyKey": "zkb",
+      "companyDomain": "zkb.ch",
+      "title": "Workplace Engineer Microsoft 365 Plattform (w/m/d)",
+      "titleByLocale": {
+        "de": "Workplace Ingenieur Microsoft 365 Plattform (w/m/d)",
+        "en": "Workplace Engineer Microsoft 365 Plattform (w/m/d)",
+        "it": "Workplace Ingegnere Microsoft 365 Plattform (w/m/d)",
+        "fr": "Workplace Ingénieur Microsoft 365 Plattform (w/m/d)"
+      },
+      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Team Digital Workplace Engineering betreibt zentrale Services wie Microsoft Teams, SharePoint Online und Exchange Online sowie die dazugehörigen Shared Services. Du bringst fundierte Erfahrung im Umgang mit Microsoft Purview im Microsoft-365-Umfeld mit und fühlst dich in der technischen Umsetzung und im Betrieb von Security- und Compliance-Lösungen zu Hause. Gemeinsam mit deinen Kolleginnen und Kollegen stellst du sicher, dass unsere Microsoft-365-Plattform sicher, stabil und regelkonform weiterentwickelt wird.\nDeine Aufgaben\n• Engineering und Betrieb der Microsoft-365-Plattform (Shared Services) mit Security-Fokus, unter anderem Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodelle, Servicehärtungen sowie WIZ-SSPM-Konfigurationen\n• Betreiben und Weiterentwickeln von Microsoft-Purview-Funktionen (z.B. DLP, Information Protection, Audit, eDiscovery) und Azure RMS gemäss vorgegebenen Richtlinien\n• Konfigurieren, Betreiben und Überwachen von Compliance Recording, insbesondere für Microsoft Teams\n• Automatisieren und Standardisieren von sicheren Microsoft-365-Konfigurationen (z.B. Tenant, Defender, Purview, Teams) mit PowerShell, Microsoft Graph und M365-Bordmitteln\n• Bearbeiten von Incidents, Changes, Microsoft Messages (Evergreening) und Service Requests im Bereich Microsoft-365-Plattform (Shared Services), Defender XDR und Purview\n• Eng mit Security- und Compliance-Teams zusammenarbeiten und deine technische Expertise einbringen\nDein Profil\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im Betrieb von Microsoft-365-sicherheitsrelevanten Shared Services (Entra ID, Defender XDR, Purview) sowie Microsoft-365-Services wie Teams, SharePoint Online und Exchange Online\n• Umfassende Praxis mit Microsoft Purview im M365-Umfeld, insbesondere DLP, Information Protection, Policy- und Label-Management sowie idealerweise Audit und eDiscovery\n• Fundierte Erfahrung mit Security- und Compliance-Mechanismen im M365-Kontext, einschliesslich Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodellen, Servicehärtungen sowie WIZ-SSPM\n• Erfahrung mit Scripting und Automatisierung, insbesondere mit PowerShell im M365- und Security-Kontext\n• Praxiserfahrung mit Compliance Recording im Microsoft-365-/Teams-Umfeld ist ein Pluspunkt\n• Du punktest mit ausgeprägtem Sicherheits- und Verantwortungsbewusstsein, einer analytischen und strukturierten Arbeitsweise sowie Freude an der Zusammenarbeit in einem agilen Team\n• Sehr gute Deutsch- und gute Englischkenntnisse\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung\n• Flexible Arbeitszeiten, Home Office, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
+      "descriptionByLocale": {
+        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Team Digital Workplace Engineering betreibt zentrale Services wie Microsoft Teams, SharePoint Online und Exchange Online sowie die dazugehörigen Shared Services. Du bringst fundierte Erfahrung im Umgang mit Microsoft Purview im Microsoft-365-Umfeld mit und fühlst dich in der technischen Umsetzung und im Betrieb von Security- und Compliance-Lösungen zu Hause. Gemeinsam mit deinen Kolleginnen und Kollegen stellst du sicher, dass unsere Microsoft-365-Plattform sicher, stabil und regelkonform weiterentwickelt wird.\nDeine Aufgaben\n• Engineering und Betrieb der Microsoft-365-Plattform (Shared Services) mit Security-Fokus, unter anderem Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodelle, Servicehärtungen sowie WIZ-SSPM-Konfigurationen\n• Betreiben und Weiterentwickeln von Microsoft-Purview-Funktionen (z.B. DLP, Information Protection, Audit, eDiscovery) und Azure RMS gemäss vorgegebenen Richtlinien\n• Konfigurieren, Betreiben und Überwachen von Compliance Recording, insbesondere für Microsoft Teams\n• Automatisieren und Standardisieren von sicheren Microsoft-365-Konfigurationen (z.B. Tenant, Defender, Purview, Teams) mit PowerShell, Microsoft Graph und M365-Bordmitteln\n• Bearbeiten von Incidents, Changes, Microsoft Messages (Evergreening) und Service Requests im Bereich Microsoft-365-Plattform (Shared Services), Defender XDR und Purview\n• Eng mit Security- und Compliance-Teams zusammenarbeiten und deine technische Expertise einbringen\nDein Profil\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im Betrieb von Microsoft-365-sicherheitsrelevanten Shared Services (Entra ID, Defender XDR, Purview) sowie Microsoft-365-Services wie Teams, SharePoint Online und Exchange Online\n• Umfassende Praxis mit Microsoft Purview im M365-Umfeld, insbesondere DLP, Information Protection, Policy- und Label-Management sowie idealerweise Audit und eDiscovery\n• Fundierte Erfahrung mit Security- und Compliance-Mechanismen im M365-Kontext, einschliesslich Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodellen, Servicehärtungen sowie WIZ-SSPM\n• Erfahrung mit Scripting und Automatisierung, insbesondere mit PowerShell im M365- und Security-Kontext\n• Praxiserfahrung mit Compliance Recording im Microsoft-365-/Teams-Umfeld ist ein Pluspunkt\n• Du punktest mit ausgeprägtem Sicherheits- und Verantwortungsbewusstsein, einer analytischen und strukturierten Arbeitsweise sowie Freude an der Zusammenarbeit in einem agilen Team\n• Sehr gute Deutsch- und gute Englischkenntnisse\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung\n• Flexible Arbeitszeiten, Home Office, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
+        "it": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Team Digital Workplace Engineering betreibt zentrale Services wie Microsoft Teams, SharePoint Online und Exchange Online sowie die dazugehörigen Shared Services. Du bringst fundierte Erfahrung im Umgang mit Microsoft Purview im Microsoft-365-Umfeld mit und fühlst dich in der technischen Umsetzung und im Betrieb von Security- und Compliance-Lösungen zu Hause. Gemeinsam mit deinen Kolleginnen und Kollegen stellst du sicher, dass unsere Microsoft-365-Plattform sicher, stabil und regelkonform weiterentwickelt wird.\nDeine Aufgaben\n• Engineering und Betrieb der Microsoft-365-Plattform (Shared Services) mit Security-Fokus, unter anderem Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodelle, Servicehärtungen sowie WIZ-SSPM-Konfigurationen\n• Betreiben und Weiterentwickeln von Microsoft-Purview-Funktionen (z.B. DLP, Information Protection, Audit, eDiscovery) und Azure RMS gemäss vorgegebenen Richtlinien\n• Konfigurieren, Betreiben und Überwachen von Compliance Recording, insbesondere für Microsoft Teams\n• Automatisieren und Standardisieren von sicheren Microsoft-365-Konfigurationen (z.B. Tenant, Defender, Purview, Teams) mit PowerShell, Microsoft Graph und M365-Bordmitteln\n• Bearbeiten von Incidents, Changes, Microsoft Messages (Evergreening) und Service Requests im Bereich Microsoft-365-Plattform (Shared Services), Defender XDR und Purview\n• Eng mit Security- und Compliance-Teams zusammenarbeiten und deine technische Expertise einbringen\nDein Profil\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im Betrieb von Microsoft-365-sicherheitsrelevanten Shared Services (Entra ID, Defender XDR, Purview) sowie Microsoft-365-Services wie Teams, SharePoint Online und Exchange Online\n• Umfassende Praxis mit Microsoft Purview im M365-Umfeld, insbesondere DLP, Information Protection, Policy- und Label-Management sowie idealerweise Audit und eDiscovery\n• Fundierte Erfahrung mit Security- und Compliance-Mechanismen im M365-Kontext, einschliesslich Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodellen, Servicehärtungen sowie WIZ-SSPM\n• Erfahrung mit Scripting und Automatisierung, insbesondere mit PowerShell im M365- und Security-Kontext\n• Praxiserfahrung mit Compliance Recording im Microsoft-365-/Teams-Umfeld ist ein Pluspunkt\n• Du punktest mit ausgeprägtem Sicherheits- und Verantwortungsbewusstsein, einer analytischen und strukturierten Arbeitsweise sowie Freude an der Zusammenarbeit in einem agilen Team\n• Sehr gute Deutsch- und gute Englischkenntnisse\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung\n• Flexible Arbeitszeiten, Home Office, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
+        "en": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Team Digital Workplace Engineering betreibt zentrale Services wie Microsoft Teams, SharePoint Online und Exchange Online sowie die dazugehörigen Shared Services. Du bringst fundierte Erfahrung im Umgang mit Microsoft Purview im Microsoft-365-Umfeld mit und fühlst dich in der technischen Umsetzung und im Betrieb von Security- und Compliance-Lösungen zu Hause. Gemeinsam mit deinen Kolleginnen und Kollegen stellst du sicher, dass unsere Microsoft-365-Plattform sicher, stabil und regelkonform weiterentwickelt wird.\nDeine Aufgaben\n• Engineering und Betrieb der Microsoft-365-Plattform (Shared Services) mit Security-Fokus, unter anderem Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodelle, Servicehärtungen sowie WIZ-SSPM-Konfigurationen\n• Betreiben und Weiterentwickeln von Microsoft-Purview-Funktionen (z.B. DLP, Information Protection, Audit, eDiscovery) und Azure RMS gemäss vorgegebenen Richtlinien\n• Konfigurieren, Betreiben und Überwachen von Compliance Recording, insbesondere für Microsoft Teams\n• Automatisieren und Standardisieren von sicheren Microsoft-365-Konfigurationen (z.B. Tenant, Defender, Purview, Teams) mit PowerShell, Microsoft Graph und M365-Bordmitteln\n• Bearbeiten von Incidents, Changes, Microsoft Messages (Evergreening) und Service Requests im Bereich Microsoft-365-Plattform (Shared Services), Defender XDR und Purview\n• Eng mit Security- und Compliance-Teams zusammenarbeiten und deine technische Expertise einbringen\nDein Profil\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im Betrieb von Microsoft-365-sicherheitsrelevanten Shared Services (Entra ID, Defender XDR, Purview) sowie Microsoft-365-Services wie Teams, SharePoint Online und Exchange Online\n• Umfassende Praxis mit Microsoft Purview im M365-Umfeld, insbesondere DLP, Information Protection, Policy- und Label-Management sowie idealerweise Audit und eDiscovery\n• Fundierte Erfahrung mit Security- und Compliance-Mechanismen im M365-Kontext, einschliesslich Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodellen, Servicehärtungen sowie WIZ-SSPM\n• Erfahrung mit Scripting und Automatisierung, insbesondere mit PowerShell im M365- und Security-Kontext\n• Praxiserfahrung mit Compliance Recording im Microsoft-365-/Teams-Umfeld ist ein Pluspunkt\n• Du punktest mit ausgeprägtem Sicherheits- und Verantwortungsbewusstsein, einer analytischen und strukturierten Arbeitsweise sowie Freude an der Zusammenarbeit in einem agilen Team\n• Sehr gute Deutsch- und gute Englischkenntnisse\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung\n• Flexible Arbeitszeiten, Home Office, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
+        "fr": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nUnser Team Digital Workplace Engineering betreibt zentrale Services wie Microsoft Teams, SharePoint Online und Exchange Online sowie die dazugehörigen Shared Services. Du bringst fundierte Erfahrung im Umgang mit Microsoft Purview im Microsoft-365-Umfeld mit und fühlst dich in der technischen Umsetzung und im Betrieb von Security- und Compliance-Lösungen zu Hause. Gemeinsam mit deinen Kolleginnen und Kollegen stellst du sicher, dass unsere Microsoft-365-Plattform sicher, stabil und regelkonform weiterentwickelt wird.\nDeine Aufgaben\n• Engineering und Betrieb der Microsoft-365-Plattform (Shared Services) mit Security-Fokus, unter anderem Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodelle, Servicehärtungen sowie WIZ-SSPM-Konfigurationen\n• Betreiben und Weiterentwickeln von Microsoft-Purview-Funktionen (z.B. DLP, Information Protection, Audit, eDiscovery) und Azure RMS gemäss vorgegebenen Richtlinien\n• Konfigurieren, Betreiben und Überwachen von Compliance Recording, insbesondere für Microsoft Teams\n• Automatisieren und Standardisieren von sicheren Microsoft-365-Konfigurationen (z.B. Tenant, Defender, Purview, Teams) mit PowerShell, Microsoft Graph und M365-Bordmitteln\n• Bearbeiten von Incidents, Changes, Microsoft Messages (Evergreening) und Service Requests im Bereich Microsoft-365-Plattform (Shared Services), Defender XDR und Purview\n• Eng mit Security- und Compliance-Teams zusammenarbeiten und deine technische Expertise einbringen\nDein Profil\n• Abgeschlossene Ausbildung oder Studium im Bereich Informatik oder eine vergleichbare Qualifikation\n• Mehrjährige Erfahrung im Betrieb von Microsoft-365-sicherheitsrelevanten Shared Services (Entra ID, Defender XDR, Purview) sowie Microsoft-365-Services wie Teams, SharePoint Online und Exchange Online\n• Umfassende Praxis mit Microsoft Purview im M365-Umfeld, insbesondere DLP, Information Protection, Policy- und Label-Management sowie idealerweise Audit und eDiscovery\n• Fundierte Erfahrung mit Security- und Compliance-Mechanismen im M365-Kontext, einschliesslich Security- und Compliance-Policies, CIS Benchmarks, Defender-Detection-Regeln, Entra-Rollen- und Gruppenmodellen, Servicehärtungen sowie WIZ-SSPM\n• Erfahrung mit Scripting und Automatisierung, insbesondere mit PowerShell im M365- und Security-Kontext\n• Praxiserfahrung mit Compliance Recording im Microsoft-365-/Teams-Umfeld ist ein Pluspunkt\n• Du punktest mit ausgeprägtem Sicherheits- und Verantwortungsbewusstsein, einer analytischen und strukturierten Arbeitsweise sowie Freude an der Zusammenarbeit in einem agilen Team\n• Sehr gute Deutsch- und gute Englischkenntnisse\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Wir bieten dir Raum für deine Ideen und gestalten so die Bank von morgen\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung\n• Flexible Arbeitszeiten, Home Office, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/792841/11422/pub/1",
+      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:16:11.184Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T12:56:40.228820+00:00",
+      "postedDate": "2026-10-08T12:56:40.228820+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/792841/11422/pub/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "11422",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-08T21:16:11.184Z"
+    },
+    {
+      "id": "zkb-8723d1fb4076",
+      "slug": "senior-spezialist-in-sales-marketing-prozesse-zkb-zurich",
+      "slugByLocale": {
+        "de": "senior-spezialist-in-sales-marketing-prozesse-zkb-zurich",
+        "it": "senior-spezialist-in-sales-marketing-prozesse-zkb-zurich",
+        "en": "senior-spezialist-in-sales-marketing-prozesse-zurcher-kantonalbank-zurich",
+        "fr": "senior-spezialist-in-sales-marketing-prozesse-zkb-zurich"
+      },
+      "company": "Zürcher Kantonalbank",
+      "companyKey": "zkb",
+      "companyDomain": "zkb.ch",
+      "title": "Senior Spezialist:in Sales- & Marketing-Prozesse",
+      "titleByLocale": {
+        "de": "Senior Spezialist:in Sales- & Marketing-Prozesse",
+        "en": "Senior Spezialist:in Sales- & Marketing-Prozesse",
+        "it": "Senior Spezialist:in Sales- & Marketing-Prozesse",
+        "fr": "Senior Spezialist:in Sales- & Marketing-Prozesse"
+      },
+      "description": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nIm Team Sales- und Marketingprozesse gestaltest du die Vertriebsplattform und -prozesse der Zürcher Kantonalbank aktiv mit. Du verantwortest Change-Projekte und Prozesse für Vertrieb, Sales und Marketing – von der Interessentengewinnung und -qualifizierung bis zur Konvertierung in Kundenbeziehungen sowie der Unterstützung von Cross-/Upselling und Churn-Aktivitäten bei bestehenden Kundinnen und Kunden. So leistest du einen direkten Beitrag dazu, dass wir unsere Kundschaft entlang der gesamten Customer Journey noch gezielter begleiten und die Interaktion mit unseren Kundinnen und Kunden bedarfsorientiert weiterentwickeln können.\nDeine Aufgaben\n• Leiten von Change-Projekten im Umfeld Vertriebs-, Sales- und Marketingprozesse\n• Vorantreiben und Weiterentwickeln der Bank-Capabilities im Funktionsbereich Sales- und Marketingprozesse\n• Gestalten und Optimieren von End-to-End-Prozessen im Bereich Vertrieb, Sales und Marketing\n• Übersetzen von fachlichen Anforderungen in Rahmenkonzepte, Lösungsvarianten und umsetzbare Spezifikationen\n• Unterstützen von Fachbereichen und dem Vertrieb in der Weiterentwicklung und der Prozessoptimierung des CRMs BSI\n• Führen und Koordinieren der beteiligten Fachbereiche bei der Einführung von IT-Systemen oder SaaS-Lösungen\nDein Profil\n• Abgeschlossener Hochschulabschluss (Uni/FH) im Bereich Wirtschaft, Marketing, Data/Business Analytics, Informatik oder eine gleichwertige Ausbildung\n• Mindestens 8-10 Jahre Berufserfahrung im digitalen Vertrieb sowie im Projekt- und Changemanagement im Bankenumfeld\n• Erfahrung in der Modellierung, im Design und in der Optimierung von Vertriebs- und Marketingprozessen über die gesamte End-to-End-Prozesskette im Filial- und digitalen Vertrieb\n• Sehr gute Kenntnisse in der Anwendung von Sales- und Marketing-Automation-Lösungen, ausgewiesene Expertise in BSI wird bevorzugt, sowie Erfahrung mit Analytics- und KI-gestützten Use-Cases im Vertrieb und Marketing\n• Sehr gute analytische und konzeptionelle Fähigkeiten\n• Ausgeprägte Kommunikations- und Auftrittskompetenz sowie eine hohe Resilienz in einem dynamischen Umfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Eine spannende und verantwortungsvolle Position in einem innovativen und zukunftsorientierten Umfeld\n• Die Möglichkeit, den Vertrieb der Zukunft aktiv mitzugestalten und einen direkten Einfluss auf die Weiterentwicklung unserer Sales- und Marketing-Tools und -Prozesse zu nehmen\n• Ein hochqualifiziertes, motiviertes und professionelles Team, das dich bei deinen Aufgaben unterstützt\n• Ein moderner Arbeitsplatz im Herzen des grössten Wirtschaftsraums der Schweiz\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNImisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+      "descriptionByLocale": {
+        "de": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nIm Team Sales- und Marketingprozesse gestaltest du die Vertriebsplattform und -prozesse der Zürcher Kantonalbank aktiv mit. Du verantwortest Change-Projekte und Prozesse für Vertrieb, Sales und Marketing – von der Interessentengewinnung und -qualifizierung bis zur Konvertierung in Kundenbeziehungen sowie der Unterstützung von Cross-/Upselling und Churn-Aktivitäten bei bestehenden Kundinnen und Kunden. So leistest du einen direkten Beitrag dazu, dass wir unsere Kundschaft entlang der gesamten Customer Journey noch gezielter begleiten und die Interaktion mit unseren Kundinnen und Kunden bedarfsorientiert weiterentwickeln können.\nDeine Aufgaben\n• Leiten von Change-Projekten im Umfeld Vertriebs-, Sales- und Marketingprozesse\n• Vorantreiben und Weiterentwickeln der Bank-Capabilities im Funktionsbereich Sales- und Marketingprozesse\n• Gestalten und Optimieren von End-to-End-Prozessen im Bereich Vertrieb, Sales und Marketing\n• Übersetzen von fachlichen Anforderungen in Rahmenkonzepte, Lösungsvarianten und umsetzbare Spezifikationen\n• Unterstützen von Fachbereichen und dem Vertrieb in der Weiterentwicklung und der Prozessoptimierung des CRMs BSI\n• Führen und Koordinieren der beteiligten Fachbereiche bei der Einführung von IT-Systemen oder SaaS-Lösungen\nDein Profil\n• Abgeschlossener Hochschulabschluss (Uni/FH) im Bereich Wirtschaft, Marketing, Data/Business Analytics, Informatik oder eine gleichwertige Ausbildung\n• Mindestens 8-10 Jahre Berufserfahrung im digitalen Vertrieb sowie im Projekt- und Changemanagement im Bankenumfeld\n• Erfahrung in der Modellierung, im Design und in der Optimierung von Vertriebs- und Marketingprozessen über die gesamte End-to-End-Prozesskette im Filial- und digitalen Vertrieb\n• Sehr gute Kenntnisse in der Anwendung von Sales- und Marketing-Automation-Lösungen, ausgewiesene Expertise in BSI wird bevorzugt, sowie Erfahrung mit Analytics- und KI-gestützten Use-Cases im Vertrieb und Marketing\n• Sehr gute analytische und konzeptionelle Fähigkeiten\n• Ausgeprägte Kommunikations- und Auftrittskompetenz sowie eine hohe Resilienz in einem dynamischen Umfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Eine spannende und verantwortungsvolle Position in einem innovativen und zukunftsorientierten Umfeld\n• Die Möglichkeit, den Vertrieb der Zukunft aktiv mitzugestalten und einen direkten Einfluss auf die Weiterentwicklung unserer Sales- und Marketing-Tools und -Prozesse zu nehmen\n• Ein hochqualifiziertes, motiviertes und professionelles Team, das dich bei deinen Aufgaben unterstützt\n• Ein moderner Arbeitsplatz im Herzen des grössten Wirtschaftsraums der Schweiz\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNImisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "it": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nIm Team Sales- und Marketingprozesse gestaltest du die Vertriebsplattform und -prozesse der Zürcher Kantonalbank aktiv mit. Du verantwortest Change-Projekte und Prozesse für Vertrieb, Sales und Marketing – von der Interessentengewinnung und -qualifizierung bis zur Konvertierung in Kundenbeziehungen sowie der Unterstützung von Cross-/Upselling und Churn-Aktivitäten bei bestehenden Kundinnen und Kunden. So leistest du einen direkten Beitrag dazu, dass wir unsere Kundschaft entlang der gesamten Customer Journey noch gezielter begleiten und die Interaktion mit unseren Kundinnen und Kunden bedarfsorientiert weiterentwickeln können.\nDeine Aufgaben\n• Leiten von Change-Projekten im Umfeld Vertriebs-, Sales- und Marketingprozesse\n• Vorantreiben und Weiterentwickeln der Bank-Capabilities im Funktionsbereich Sales- und Marketingprozesse\n• Gestalten und Optimieren von End-to-End-Prozessen im Bereich Vertrieb, Sales und Marketing\n• Übersetzen von fachlichen Anforderungen in Rahmenkonzepte, Lösungsvarianten und umsetzbare Spezifikationen\n• Unterstützen von Fachbereichen und dem Vertrieb in der Weiterentwicklung und der Prozessoptimierung des CRMs BSI\n• Führen und Koordinieren der beteiligten Fachbereiche bei der Einführung von IT-Systemen oder SaaS-Lösungen\nDein Profil\n• Abgeschlossener Hochschulabschluss (Uni/FH) im Bereich Wirtschaft, Marketing, Data/Business Analytics, Informatik oder eine gleichwertige Ausbildung\n• Mindestens 8-10 Jahre Berufserfahrung im digitalen Vertrieb sowie im Projekt- und Changemanagement im Bankenumfeld\n• Erfahrung in der Modellierung, im Design und in der Optimierung von Vertriebs- und Marketingprozessen über die gesamte End-to-End-Prozesskette im Filial- und digitalen Vertrieb\n• Sehr gute Kenntnisse in der Anwendung von Sales- und Marketing-Automation-Lösungen, ausgewiesene Expertise in BSI wird bevorzugt, sowie Erfahrung mit Analytics- und KI-gestützten Use-Cases im Vertrieb und Marketing\n• Sehr gute analytische und konzeptionelle Fähigkeiten\n• Ausgeprägte Kommunikations- und Auftrittskompetenz sowie eine hohe Resilienz in einem dynamischen Umfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Eine spannende und verantwortungsvolle Position in einem innovativen und zukunftsorientierten Umfeld\n• Die Möglichkeit, den Vertrieb der Zukunft aktiv mitzugestalten und einen direkten Einfluss auf die Weiterentwicklung unserer Sales- und Marketing-Tools und -Prozesse zu nehmen\n• Ein hochqualifiziertes, motiviertes und professionelles Team, das dich bei deinen Aufgaben unterstützt\n• Ein moderner Arbeitsplatz im Herzen des grössten Wirtschaftsraums der Schweiz\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNImisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "en": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nIm Team Sales- und Marketingprozesse gestaltest du die Vertriebsplattform und -prozesse der Zürcher Kantonalbank aktiv mit. Du verantwortest Change-Projekte und Prozesse für Vertrieb, Sales und Marketing – von der Interessentengewinnung und -qualifizierung bis zur Konvertierung in Kundenbeziehungen sowie der Unterstützung von Cross-/Upselling und Churn-Aktivitäten bei bestehenden Kundinnen und Kunden. So leistest du einen direkten Beitrag dazu, dass wir unsere Kundschaft entlang der gesamten Customer Journey noch gezielter begleiten und die Interaktion mit unseren Kundinnen und Kunden bedarfsorientiert weiterentwickeln können.\nDeine Aufgaben\n• Leiten von Change-Projekten im Umfeld Vertriebs-, Sales- und Marketingprozesse\n• Vorantreiben und Weiterentwickeln der Bank-Capabilities im Funktionsbereich Sales- und Marketingprozesse\n• Gestalten und Optimieren von End-to-End-Prozessen im Bereich Vertrieb, Sales und Marketing\n• Übersetzen von fachlichen Anforderungen in Rahmenkonzepte, Lösungsvarianten und umsetzbare Spezifikationen\n• Unterstützen von Fachbereichen und dem Vertrieb in der Weiterentwicklung und der Prozessoptimierung des CRMs BSI\n• Führen und Koordinieren der beteiligten Fachbereiche bei der Einführung von IT-Systemen oder SaaS-Lösungen\nDein Profil\n• Abgeschlossener Hochschulabschluss (Uni/FH) im Bereich Wirtschaft, Marketing, Data/Business Analytics, Informatik oder eine gleichwertige Ausbildung\n• Mindestens 8-10 Jahre Berufserfahrung im digitalen Vertrieb sowie im Projekt- und Changemanagement im Bankenumfeld\n• Erfahrung in der Modellierung, im Design und in der Optimierung von Vertriebs- und Marketingprozessen über die gesamte End-to-End-Prozesskette im Filial- und digitalen Vertrieb\n• Sehr gute Kenntnisse in der Anwendung von Sales- und Marketing-Automation-Lösungen, ausgewiesene Expertise in BSI wird bevorzugt, sowie Erfahrung mit Analytics- und KI-gestützten Use-Cases im Vertrieb und Marketing\n• Sehr gute analytische und konzeptionelle Fähigkeiten\n• Ausgeprägte Kommunikations- und Auftrittskompetenz sowie eine hohe Resilienz in einem dynamischen Umfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Eine spannende und verantwortungsvolle Position in einem innovativen und zukunftsorientierten Umfeld\n• Die Möglichkeit, den Vertrieb der Zukunft aktiv mitzugestalten und einen direkten Einfluss auf die Weiterentwicklung unserer Sales- und Marketing-Tools und -Prozesse zu nehmen\n• Ein hochqualifiziertes, motiviertes und professionelles Team, das dich bei deinen Aufgaben unterstützt\n• Ein moderner Arbeitsplatz im Herzen des grössten Wirtschaftsraums der Schweiz\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNImisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "fr": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nIm Team Sales- und Marketingprozesse gestaltest du die Vertriebsplattform und -prozesse der Zürcher Kantonalbank aktiv mit. Du verantwortest Change-Projekte und Prozesse für Vertrieb, Sales und Marketing – von der Interessentengewinnung und -qualifizierung bis zur Konvertierung in Kundenbeziehungen sowie der Unterstützung von Cross-/Upselling und Churn-Aktivitäten bei bestehenden Kundinnen und Kunden. So leistest du einen direkten Beitrag dazu, dass wir unsere Kundschaft entlang der gesamten Customer Journey noch gezielter begleiten und die Interaktion mit unseren Kundinnen und Kunden bedarfsorientiert weiterentwickeln können.\nDeine Aufgaben\n• Leiten von Change-Projekten im Umfeld Vertriebs-, Sales- und Marketingprozesse\n• Vorantreiben und Weiterentwickeln der Bank-Capabilities im Funktionsbereich Sales- und Marketingprozesse\n• Gestalten und Optimieren von End-to-End-Prozessen im Bereich Vertrieb, Sales und Marketing\n• Übersetzen von fachlichen Anforderungen in Rahmenkonzepte, Lösungsvarianten und umsetzbare Spezifikationen\n• Unterstützen von Fachbereichen und dem Vertrieb in der Weiterentwicklung und der Prozessoptimierung des CRMs BSI\n• Führen und Koordinieren der beteiligten Fachbereiche bei der Einführung von IT-Systemen oder SaaS-Lösungen\nDein Profil\n• Abgeschlossener Hochschulabschluss (Uni/FH) im Bereich Wirtschaft, Marketing, Data/Business Analytics, Informatik oder eine gleichwertige Ausbildung\n• Mindestens 8-10 Jahre Berufserfahrung im digitalen Vertrieb sowie im Projekt- und Changemanagement im Bankenumfeld\n• Erfahrung in der Modellierung, im Design und in der Optimierung von Vertriebs- und Marketingprozessen über die gesamte End-to-End-Prozesskette im Filial- und digitalen Vertrieb\n• Sehr gute Kenntnisse in der Anwendung von Sales- und Marketing-Automation-Lösungen, ausgewiesene Expertise in BSI wird bevorzugt, sowie Erfahrung mit Analytics- und KI-gestützten Use-Cases im Vertrieb und Marketing\n• Sehr gute analytische und konzeptionelle Fähigkeiten\n• Ausgeprägte Kommunikations- und Auftrittskompetenz sowie eine hohe Resilienz in einem dynamischen Umfeld\n• Sehr gute Deutschkenntnisse in Wort und Schrift\nUnser Angebot\n• Eine spannende und verantwortungsvolle Position in einem innovativen und zukunftsorientierten Umfeld\n• Die Möglichkeit, den Vertrieb der Zukunft aktiv mitzugestalten und einen direkten Einfluss auf die Weiterentwicklung unserer Sales- und Marketing-Tools und -Prozesse zu nehmen\n• Ein hochqualifiziertes, motiviertes und professionelles Team, das dich bei deinen Aufgaben unterstützt\n• Ein moderner Arbeitsplatz im Herzen des grössten Wirtschaftsraums der Schweiz\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNImisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/792841/11419/pub/1",
+      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:16:10.741Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T07:41:10.245827+00:00",
+      "postedDate": "2026-10-08T07:41:10.245827+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/792841/11419/pub/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "11419",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-08T21:16:10.741Z"
+    },
+    {
+      "id": "zkb-42e4b6cb4bbe",
+      "slug": "senior-devops-ingegnere-application-integration-w-m-d-zurcher-kantonalbank-zurich",
+      "slugByLocale": {
+        "it": "senior-devops-ingegnere-application-integration-w-m-d-zurcher-kantonalbank-zurich",
         "en": "senior-devops-engineer-application-integration-w-m-d-zurcher-kantonalbank-zurich",
-        "fr": "senior-devops-engineer-application-integration-w-m-d-zkb-zurich"
+        "de": "senior-devops-engineer-application-integration-w-m-d-zkb-zurich",
+        "fr": "senior-devops-ingenieur-application-integration-w-m-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
       "companyDomain": "zkb.ch",
       "title": "Senior DevOps Engineer Application Integration (w/m/d)",
       "titleByLocale": {
-        "de": "Senior DevOps Ingenieur Application Integration (w/m/d)",
-        "en": "Senior DevOps Engineer Application Integration (m/f/d)",
         "it": "Senior DevOps Ingegnere Application Integration (w/m/d)",
+        "en": "Senior DevOps Engineer Application Integration (m/f/d)",
+        "de": "Senior DevOps Ingenieur Application Integration (w/m/d)",
         "fr": "Senior DevOps Ingénieur Application Integration (w/m/d)"
       },
       "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nBei uns in der Informatik der Zürcher Kantonalbank entwickelst du gemeinsam mit rund 1'000 Kolleginnen und Kollegen die Technologie von morgen – mitten im Herzen von Zürich. Im Bereich Application Integration sorgst du dafür, dass Applikationen in der ZKB reibungslos miteinander kommunizieren. Mit unserer Eventstreaming-Plattform verantworten wir den neuen Backbone für die asynchrone Kommunikation der gesamten Bank. Dafür suchen wir eine engagierte Persönlichkeit mit fundierten Kenntnissen in der Softwareentwicklung mit Spring Boot sowie in Kubernetes. Idealerweise bringst du Erfahrung mit Kafka und der Eventstreaming-Welt mit, denkst analytisch, handelst proaktiv und schaust gerne über den Tellerrand hinaus.\nDeine Aufgaben\n• Weiterentwickeln der Eventstreaming-Plattform auf Basis von Confluent Kafka\n• Entwickeln und Warten von Integrationslösungen mit Spring Boot\n• Onboarden und Beraten der DevOps-Teams im Bereich Eventstreaming\n• Sicherstellen eines stabilen Betriebs der zentralen Kafka-Plattform im Sinne der DevOps-Philosophie\n• Mitwirken im gesamten Lifecycle von der Idee über Spezifikation und Story-Erarbeitung bis zu Implementierung, Testing und Betrieb nach dem Prinzip «You build it, you run it»\nDein Profil\n• Abgeschlossene Ausbildung im Bereich Informatik (Niveau FH) oder vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung in der Entwicklung von modernen (Web-)Applikationen\n• Gute Kenntnisse in Spring Boot sowie im Betrieb von Lösungen auf Kubernetes\n• Kenntnisse im Eventstreaming-Bereich, idealerweise mit Apache Kafka oder Confluent Kafka\n• Erfahrung mit Cloud-Technologien, vorzugsweise mit Azure, ist ein Pluspunkt\n• Du überzeugst durch eine schnelle Auffassungsgabe, hohe Lernbereitschaft und Qualitätsbewusstsein\n• Du punktest mit Teamfähigkeit, Verantwortungsbewusstsein und einem lösungsorientierten Vorgehen\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Stetige Weiterentwicklung – persönlich, fachlich und technisch\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Remote Work an zwei Tagen pro Woche sowie flexible Arbeitszeiten zur guten Vereinbarkeit von Beruf und Privatleben\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
       "descriptionByLocale": {
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nBei uns in der Informatik der Zürcher Kantonalbank entwickelst du gemeinsam mit rund 1'000 Kolleginnen und Kollegen die Technologie von morgen – mitten im Herzen von Zürich. Im Bereich Application Integration sorgst du dafür, dass Applikationen in der ZKB reibungslos miteinander kommunizieren. Mit unserer Eventstreaming-Plattform verantworten wir den neuen Backbone für die asynchrone Kommunikation der gesamten Bank. Dafür suchen wir eine engagierte Persönlichkeit mit fundierten Kenntnissen in der Softwareentwicklung mit Spring Boot sowie in Kubernetes. Idealerweise bringst du Erfahrung mit Kafka und der Eventstreaming-Welt mit, denkst analytisch, handelst proaktiv und schaust gerne über den Tellerrand hinaus.\nDeine Aufgaben\n• Weiterentwickeln der Eventstreaming-Plattform auf Basis von Confluent Kafka\n• Entwickeln und Warten von Integrationslösungen mit Spring Boot\n• Onboarden und Beraten der DevOps-Teams im Bereich Eventstreaming\n• Sicherstellen eines stabilen Betriebs der zentralen Kafka-Plattform im Sinne der DevOps-Philosophie\n• Mitwirken im gesamten Lifecycle von der Idee über Spezifikation und Story-Erarbeitung bis zu Implementierung, Testing und Betrieb nach dem Prinzip «You build it, you run it»\nDein Profil\n• Abgeschlossene Ausbildung im Bereich Informatik (Niveau FH) oder vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung in der Entwicklung von modernen (Web-)Applikationen\n• Gute Kenntnisse in Spring Boot sowie im Betrieb von Lösungen auf Kubernetes\n• Kenntnisse im Eventstreaming-Bereich, idealerweise mit Apache Kafka oder Confluent Kafka\n• Erfahrung mit Cloud-Technologien, vorzugsweise mit Azure, ist ein Pluspunkt\n• Du überzeugst durch eine schnelle Auffassungsgabe, hohe Lernbereitschaft und Qualitätsbewusstsein\n• Du punktest mit Teamfähigkeit, Verantwortungsbewusstsein und einem lösungsorientierten Vorgehen\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Stetige Weiterentwicklung – persönlich, fachlich und technisch\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Remote Work an zwei Tagen pro Woche sowie flexible Arbeitszeiten zur guten Vereinbarkeit von Beruf und Privatleben\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
         "it": "80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\nCon noi presso il dipartimento di informatica Zürcher Kantonalbank, insieme a circa 1.000 colleghi, svilupperete la tecnologia di domani – proprio nel cuore di Zurigo. Nell'area di Application Integration, assicurarsi che le applicazioni nello ZKB comunicano senza intoppi tra loro. Con la nostra piattaforma di streaming eventi, siamo responsabili della nuova spina dorsale per la comunicazione asincrona dell'intera banca. Per questo cerchiamo una personalità impegnata con una conoscenza approfondita dello sviluppo software con Spring Boot e Kubernetes. Idealmente, si porta esperienza con Kafka e il mondo di streaming eventi, pensare analiticamente, agire proattivamente e come guardare al di fuori della scatola.\nI tuoi compiti\n• Ulteriori sviluppi della piattaforma di streaming eventi basata su Confluent Kafka\n• Sviluppo e mantenimento di soluzioni di integrazione con Spring Boot\n• Onboarding e consulenza ai team DevOps in streaming eventi\n• Assicurare un funzionamento stabile della piattaforma centrale Kafka in linea con la filosofia DevOps\n• Partecipazione all'intero ciclo di vita dall'idea alla specificazione e allo sviluppo della storia all'implementazione, alla sperimentazione e al funzionamento secondo il principio \"Si costruisce, si esegue\"\nIl tuo profilo\n• Formazione completa in informatica (livello FH) o qualifica equivalente\n• Diversi anni di esperienza professionale nello sviluppo di applicazioni moderne (web)\n• Buona conoscenza in Spring Boot e nel funzionamento di soluzioni su Kubernetes\n• Conoscenza degli eventi in streaming, idealmente con Apache Kafka o Confluent Kafka\n• L'esperienza con le tecnologie cloud, preferibilmente con Azure, è un vantaggio\n• Convinci attraverso una rapida comprensione, un'alta disponibilità ad imparare e la consapevolezza della qualità\n• Si segna con il lavoro di squadra, il senso di responsabilità e un approccio orientato alla soluzione\n• Molto buone competenze in tedesco e buona inglese in parola e scrittura\nLa nostra offerta\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Ampia e diversificata gamma di attività con molte possibilità di rete\n• Grande libertà di decisione autonoma e partecipazione\n• Sviluppo costante – personale, professionale e tecnico\n• Posto di lavoro moderno nel distretto 5 con collegamenti di trasporto molto buoni (stazione di ponte difficile)\n• Lavoro remoto due giorni alla settimana e ore di lavoro flessibili per un buon equilibrio di vita lavorativa\n• Cultura di apprezzamento combinata con uno stile di comunicazione aperto e onesto\n• Pacchetto completo con uno stipendio base attraente, compensazione variabile e vantaggi versatili\nPer questa posizione, consideriamo solo applicazioni dirette.\nToni estate\nE' felice di aiutarti.\nTelefono: 044 292 27 95",
         "en": "80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\nWith us at the Zürcher Kantonalbank computer science department, together with around 1,000 colleagues, you will develop the technology of tomorrow – right in the heart of Zurich. In the area of Application Integration, you ensure that applications in the ZKB communicate smoothly with each other. With our event streaming platform, we are responsible for the new backbone for the asynchronous communication of the entire bank. For this we are looking for a committed personality with in-depth knowledge in software development with Spring Boot and in Kubernetes. Ideally, you bring experience with Kafka and the event streaming world, think analytically, act proactively and like to look outside the box.\nYour tasks\n• Further development of the event streaming platform based on Confluent Kafka\n• Developing and maintaining integration solutions with Spring Boot\n• Onboarding and advising DevOps teams on event streaming\n• Ensure stable operation of the central Kafka platform in line with the DevOps philosophy\n• Participation in the entire lifecycle from the idea to specification and story development to implementation, testing and operation according to the principle \"You build it, you run it\"\nYour profile\n• Completed training in computer science (FH level) or equivalent qualification\n• Several years of professional experience in the development of modern (web) applications\n• Good knowledge in Spring Boot and in the operation of solutions on Kubernetes\n• Knowledge of event streaming, ideally with Apache Kafka or Confluent Kafka\n• Experience with cloud technologies, preferably with Azure, is a plus\n• You convince through a quick comprehension, a high willingness to learn and quality awareness\n• You score with teamwork, sense of responsibility and a solution-oriented approach\n• Very good German and good English skills in word and writing\nOur offer\n• Mutual support and team spirit are important to us\n• Exciting and diverse range of tasks with many network possibilities\n• Great freedom for autonomous decisions and participation\n• Constant further development – personal, professional and technical\n• Modern workplace in district 5 with very good transport connections (hard bridge station)\n• Remote work two days a week and flexible working hours for a good work-life balance\n• Culture of appreciation combined with an open and honest communication style\n• Comprehensive package with attractive basic salary, variable compensation and versatile benefits\nFor this position, we only consider direct applications.\nToni summer\nHe is happy to help you.\nTelephone: 044 292 27 95",
+        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nBei uns in der Informatik der Zürcher Kantonalbank entwickelst du gemeinsam mit rund 1'000 Kolleginnen und Kollegen die Technologie von morgen – mitten im Herzen von Zürich. Im Bereich Application Integration sorgst du dafür, dass Applikationen in der ZKB reibungslos miteinander kommunizieren. Mit unserer Eventstreaming-Plattform verantworten wir den neuen Backbone für die asynchrone Kommunikation der gesamten Bank. Dafür suchen wir eine engagierte Persönlichkeit mit fundierten Kenntnissen in der Softwareentwicklung mit Spring Boot sowie in Kubernetes. Idealerweise bringst du Erfahrung mit Kafka und der Eventstreaming-Welt mit, denkst analytisch, handelst proaktiv und schaust gerne über den Tellerrand hinaus.\nDeine Aufgaben\n• Weiterentwickeln der Eventstreaming-Plattform auf Basis von Confluent Kafka\n• Entwickeln und Warten von Integrationslösungen mit Spring Boot\n• Onboarden und Beraten der DevOps-Teams im Bereich Eventstreaming\n• Sicherstellen eines stabilen Betriebs der zentralen Kafka-Plattform im Sinne der DevOps-Philosophie\n• Mitwirken im gesamten Lifecycle von der Idee über Spezifikation und Story-Erarbeitung bis zu Implementierung, Testing und Betrieb nach dem Prinzip «You build it, you run it»\nDein Profil\n• Abgeschlossene Ausbildung im Bereich Informatik (Niveau FH) oder vergleichbare Qualifikation\n• Mehrjährige Berufserfahrung in der Entwicklung von modernen (Web-)Applikationen\n• Gute Kenntnisse in Spring Boot sowie im Betrieb von Lösungen auf Kubernetes\n• Kenntnisse im Eventstreaming-Bereich, idealerweise mit Apache Kafka oder Confluent Kafka\n• Erfahrung mit Cloud-Technologien, vorzugsweise mit Azure, ist ein Pluspunkt\n• Du überzeugst durch eine schnelle Auffassungsgabe, hohe Lernbereitschaft und Qualitätsbewusstsein\n• Du punktest mit Teamfähigkeit, Verantwortungsbewusstsein und einem lösungsorientierten Vorgehen\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Stetige Weiterentwicklung – persönlich, fachlich und technisch\n• Moderner Arbeitsplatz im Kreis 5 mit sehr guter Verkehrsanbindung (Bahnhof Hardbrücke)\n• Remote Work an zwei Tagen pro Woche sowie flexible Arbeitszeiten zur guten Vereinbarkeit von Beruf und Privatleben\n• Kultur der Wertschätzung verbunden mit einem offenen und ehrlichen Kommunikationsstil\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\nToni Sommer\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 95",
         "fr": "80 % - 100 % de TI / Ingénierie d'affaires\nAvec nous au département d'informatique de la Zürcher Kantonalbank, avec près de 1000 collègues, vous développerez la technologie de demain – en plein cœur de Zurich. Dans le domaine de l'intégration des applications, vous veillez à ce que les applications de la ZKB communiquent en douceur entre elles. Avec notre plateforme de streaming événementiel, nous sommes responsables de la nouvelle colonne vertébrale de la communication asynchrone de toute la banque. Pour cela, nous recherchons une personnalité engagée avec une connaissance approfondie du développement logiciel avec Spring Boot et à Kubernetes. Idéalement, vous apportez de l'expérience avec Kafka et le monde de streaming événementiel, pensez analytiquement, agissez de manière proactive et aimez regarder en dehors de la boîte.\nVos tâches\n• Développement de la plateforme de streaming de l'événement basée sur Confluent Kafka\n• Développer et maintenir des solutions d'intégration avec Spring Boot\n• Introduisez et conseillez les équipes de DevOps sur la diffusion des événements\n• Assurer un fonctionnement stable de la plate-forme centrale Kafka conformément à la philosophie DevOps\n• Participation à l'ensemble du cycle de vie, de l'idée à l'élaboration de spécifications et d'histoires, à la mise en œuvre, à l'essai et à l'exploitation selon le principe \"Vous le construisez, vous le exécutez\"\nVotre profil\n• Formation complète en informatique (niveau FH) ou qualification équivalente\n• Plusieurs années d'expérience professionnelle dans le développement d'applications modernes (web)\n• Bonne connaissance de Spring Boot et du fonctionnement des solutions sur Kubernetes\n• Connaissance du streaming événementiel, idéalement avec Apache Kafka ou Confluent Kafka\n• L'expérience des technologies du cloud, de préférence avec Azure, est un plus\n• Vous convainquez par une compréhension rapide, une grande volonté d'apprendre et une sensibilisation de qualité\n• Vous marquez avec le travail d'équipe, le sens des responsabilités et une approche axée sur la solution\n• Très bonnes compétences en allemand et en anglais en paroles et en écriture\nNotre offre\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau\n• Grande liberté de décision autonome et de participation\n• Développement continu – personnel, professionnel et technique\n• Un lieu de travail moderne dans le quartier 5 avec de très bonnes liaisons de transport (pont dur)\n• Travail à distance deux jours par semaine et horaires flexibles pour un bon équilibre travail-vie personnelle\n• Culture d'appréciation associée à un style de communication ouvert et honnête\n• Ensemble complet avec salaire de base attrayant, rémunération variable et avantages polyvalents\nPour cette position, nous ne considérons que les demandes directes.\nToni été\nIl est heureux de vous aider.\nTéléphone : 044 292 27 95"
       },
       "needsRetranslation": true,
@@ -32,7 +178,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:29.183Z",
+      "crawledAt": "2026-10-08T21:16:10.297Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,13 +196,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/792841/11418/pub/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "11418",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "firstSeenAt": "2026-10-08T09:17:29.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-devops-engineer-application-integration-w-m-d-zkb-zurich"
+        ],
+        "fr": [
+          "senior-devops-engineer-application-integration-w-m-d-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-devops-engineer-application-integration-w-m-d-zkb-zurich"
+      ],
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -69,16 +225,86 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "zkb-3c19ec4ee752",
+      "slug": "product-owner-mobile-apps-m-w-d-zkb-zurich",
+      "slugByLocale": {
+        "de": "product-owner-mobile-apps-m-w-d-zkb-zurich",
+        "it": "product-owner-mobile-apps-m-w-d-zkb-zurich",
+        "en": "product-owner-mobile-apps-m-w-d-zurcher-kantonalbank-zurich",
+        "fr": "product-owner-mobile-apps-m-w-d-zkb-zurich"
       },
-      "firstSeenAt": "2026-10-08T09:17:29.183Z"
+      "company": "Zürcher Kantonalbank",
+      "companyKey": "zkb",
+      "companyDomain": "zkb.ch",
+      "title": "Product Owner Mobile Apps (m/w/d)",
+      "titleByLocale": {
+        "de": "Product Owner Mobile Apps (m/w/d)",
+        "en": "Product Owner Mobile Apps (m/w/d)",
+        "it": "Product Owner Mobile Apps (m/w/d)",
+        "fr": "Product Owner Mobile Apps (m/w/d)"
+      },
+      "description": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nUnser Client-Channels-Team ist verantwortlich für die Weiterentwicklung der physischen und digitalen Kontaktpunkte der Zürcher Kantonalbank. Auf diesen Touchpoints finden täglich mehrere Millionen Interaktionen statt. Gemeinsam mit unseren Mobile-Teams entwickeln wir das ZKB Mobile Banking kontinuierlich weiter und schaffen die technische und organisatorische Basis für ein sicheres, stabiles und überzeugendes digitales Kundenerlebnis.\nUnser System-Team für das Mobile Banking verantwortet die gemeinsame App-Basis und schafft die Voraussetzungen dafür, dass mehrere Feature Teams parallel aber trotzdem abgestimmt und auf einer Codebasis entwickeln und releasen können. In der Rolle als Product Owner übernimmst du eine zentrale Rolle für das ZKB Mobile Banking. Du verbindest Product Ownership mit Fachbereichsverantwortung und sorgst dafür, dass System, Qualität, Governance und Delivery über Teamgrenzen hinweg zusammenspielen.\nDeine Aufgaben\n• Steuern und Priorisieren des Backlogs der System-Teams mit Fokus auf App-Basis, systemübergreifende Anforderungen, Enabler und technische Weiterentwicklung\n• Enge Zusammenarbeit mit Business Engineers, Entwickler:innen und Architektur zur Integration mehrerer Team-Entwicklungen in eine konsistente, stabile und skalierbare Mobile-Banking-App mit den wachsenenden Anforderungen des Mobile Bankings\n• Verantworten des Release- und Deployment-Management der ZKB Mobile Banking App gemeinsam mit Testing und den Feature-Teams sowie Sicherstellen einer pragmatischen, qualitativ hochwertigen Umsetzung\n• Übernehmen der Fachbereichsverantwortung für die relevanten Mobile-Banking-Systeme und Sicherstellen von Sicherheits-, Risiko- und Governance-Vorgaben\n• Beurteilen von Testabdeckung, Risiken und Release Readiness vor Releases sowie Erteilen der fachlichen Freigaben\n• Orchestrierung der Zusammenarbeit mit internen Stakeholdern und Zusammenführen unterschiedlicher Interessen und Abhängigkeiten zu klaren Entscheiden\n• Sicherstellen von Stabilität, Sicherheit und Qualität der App, auch in kritischen Situationen und als Ganzes über die Optimierung eines einzelnen Teams\nDein Profil\n• Abgeschlossene höhere Ausbildung im Bereich Wirtschaft, Informatik oder vergleichbar\n• Mindestens 5 Jahre Erfahrung als Product Owner, Business Analyst oder in einer ähnlichen Rolle im digitalen Umfeld mit Mobile Apps, Digital Banking oder komplexen Plattform-/Systemprodukten ist ein grosses Plus\n• Fundierte Erfahrung in agiler Produktentwicklung mit Methoden wie Scrum, idealerweise ergänzt mit SAFe\n• Gutes technisches Verständnis von Architektur, Schnittstellen, App-Basis, Release-Prozessen und Software-Delivery\n• Ausgeprägte Kommunikationsfähigkeit mit hoher Entscheidungsstärke und Überzeugungskraft\n• Analytische, strukturierte und verlässliche Arbeitsweise mit einem hohen Verantwortungsbewusstsein\n• Eine End-to-End-Sicht über Teamgrenzen hinweg und die Fähigkeit, komplexe Abhängigkeiten zu strukturieren\n• Sehr gute Deutsch- und Englischkenntnisse\nUnser Angebot\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNimisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+      "descriptionByLocale": {
+        "de": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nUnser Client-Channels-Team ist verantwortlich für die Weiterentwicklung der physischen und digitalen Kontaktpunkte der Zürcher Kantonalbank. Auf diesen Touchpoints finden täglich mehrere Millionen Interaktionen statt. Gemeinsam mit unseren Mobile-Teams entwickeln wir das ZKB Mobile Banking kontinuierlich weiter und schaffen die technische und organisatorische Basis für ein sicheres, stabiles und überzeugendes digitales Kundenerlebnis.\nUnser System-Team für das Mobile Banking verantwortet die gemeinsame App-Basis und schafft die Voraussetzungen dafür, dass mehrere Feature Teams parallel aber trotzdem abgestimmt und auf einer Codebasis entwickeln und releasen können. In der Rolle als Product Owner übernimmst du eine zentrale Rolle für das ZKB Mobile Banking. Du verbindest Product Ownership mit Fachbereichsverantwortung und sorgst dafür, dass System, Qualität, Governance und Delivery über Teamgrenzen hinweg zusammenspielen.\nDeine Aufgaben\n• Steuern und Priorisieren des Backlogs der System-Teams mit Fokus auf App-Basis, systemübergreifende Anforderungen, Enabler und technische Weiterentwicklung\n• Enge Zusammenarbeit mit Business Engineers, Entwickler:innen und Architektur zur Integration mehrerer Team-Entwicklungen in eine konsistente, stabile und skalierbare Mobile-Banking-App mit den wachsenenden Anforderungen des Mobile Bankings\n• Verantworten des Release- und Deployment-Management der ZKB Mobile Banking App gemeinsam mit Testing und den Feature-Teams sowie Sicherstellen einer pragmatischen, qualitativ hochwertigen Umsetzung\n• Übernehmen der Fachbereichsverantwortung für die relevanten Mobile-Banking-Systeme und Sicherstellen von Sicherheits-, Risiko- und Governance-Vorgaben\n• Beurteilen von Testabdeckung, Risiken und Release Readiness vor Releases sowie Erteilen der fachlichen Freigaben\n• Orchestrierung der Zusammenarbeit mit internen Stakeholdern und Zusammenführen unterschiedlicher Interessen und Abhängigkeiten zu klaren Entscheiden\n• Sicherstellen von Stabilität, Sicherheit und Qualität der App, auch in kritischen Situationen und als Ganzes über die Optimierung eines einzelnen Teams\nDein Profil\n• Abgeschlossene höhere Ausbildung im Bereich Wirtschaft, Informatik oder vergleichbar\n• Mindestens 5 Jahre Erfahrung als Product Owner, Business Analyst oder in einer ähnlichen Rolle im digitalen Umfeld mit Mobile Apps, Digital Banking oder komplexen Plattform-/Systemprodukten ist ein grosses Plus\n• Fundierte Erfahrung in agiler Produktentwicklung mit Methoden wie Scrum, idealerweise ergänzt mit SAFe\n• Gutes technisches Verständnis von Architektur, Schnittstellen, App-Basis, Release-Prozessen und Software-Delivery\n• Ausgeprägte Kommunikationsfähigkeit mit hoher Entscheidungsstärke und Überzeugungskraft\n• Analytische, strukturierte und verlässliche Arbeitsweise mit einem hohen Verantwortungsbewusstsein\n• Eine End-to-End-Sicht über Teamgrenzen hinweg und die Fähigkeit, komplexe Abhängigkeiten zu strukturieren\n• Sehr gute Deutsch- und Englischkenntnisse\nUnser Angebot\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNimisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "it": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nUnser Client-Channels-Team ist verantwortlich für die Weiterentwicklung der physischen und digitalen Kontaktpunkte der Zürcher Kantonalbank. Auf diesen Touchpoints finden täglich mehrere Millionen Interaktionen statt. Gemeinsam mit unseren Mobile-Teams entwickeln wir das ZKB Mobile Banking kontinuierlich weiter und schaffen die technische und organisatorische Basis für ein sicheres, stabiles und überzeugendes digitales Kundenerlebnis.\nUnser System-Team für das Mobile Banking verantwortet die gemeinsame App-Basis und schafft die Voraussetzungen dafür, dass mehrere Feature Teams parallel aber trotzdem abgestimmt und auf einer Codebasis entwickeln und releasen können. In der Rolle als Product Owner übernimmst du eine zentrale Rolle für das ZKB Mobile Banking. Du verbindest Product Ownership mit Fachbereichsverantwortung und sorgst dafür, dass System, Qualität, Governance und Delivery über Teamgrenzen hinweg zusammenspielen.\nDeine Aufgaben\n• Steuern und Priorisieren des Backlogs der System-Teams mit Fokus auf App-Basis, systemübergreifende Anforderungen, Enabler und technische Weiterentwicklung\n• Enge Zusammenarbeit mit Business Engineers, Entwickler:innen und Architektur zur Integration mehrerer Team-Entwicklungen in eine konsistente, stabile und skalierbare Mobile-Banking-App mit den wachsenenden Anforderungen des Mobile Bankings\n• Verantworten des Release- und Deployment-Management der ZKB Mobile Banking App gemeinsam mit Testing und den Feature-Teams sowie Sicherstellen einer pragmatischen, qualitativ hochwertigen Umsetzung\n• Übernehmen der Fachbereichsverantwortung für die relevanten Mobile-Banking-Systeme und Sicherstellen von Sicherheits-, Risiko- und Governance-Vorgaben\n• Beurteilen von Testabdeckung, Risiken und Release Readiness vor Releases sowie Erteilen der fachlichen Freigaben\n• Orchestrierung der Zusammenarbeit mit internen Stakeholdern und Zusammenführen unterschiedlicher Interessen und Abhängigkeiten zu klaren Entscheiden\n• Sicherstellen von Stabilität, Sicherheit und Qualität der App, auch in kritischen Situationen und als Ganzes über die Optimierung eines einzelnen Teams\nDein Profil\n• Abgeschlossene höhere Ausbildung im Bereich Wirtschaft, Informatik oder vergleichbar\n• Mindestens 5 Jahre Erfahrung als Product Owner, Business Analyst oder in einer ähnlichen Rolle im digitalen Umfeld mit Mobile Apps, Digital Banking oder komplexen Plattform-/Systemprodukten ist ein grosses Plus\n• Fundierte Erfahrung in agiler Produktentwicklung mit Methoden wie Scrum, idealerweise ergänzt mit SAFe\n• Gutes technisches Verständnis von Architektur, Schnittstellen, App-Basis, Release-Prozessen und Software-Delivery\n• Ausgeprägte Kommunikationsfähigkeit mit hoher Entscheidungsstärke und Überzeugungskraft\n• Analytische, strukturierte und verlässliche Arbeitsweise mit einem hohen Verantwortungsbewusstsein\n• Eine End-to-End-Sicht über Teamgrenzen hinweg und die Fähigkeit, komplexe Abhängigkeiten zu strukturieren\n• Sehr gute Deutsch- und Englischkenntnisse\nUnser Angebot\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNimisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "en": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nUnser Client-Channels-Team ist verantwortlich für die Weiterentwicklung der physischen und digitalen Kontaktpunkte der Zürcher Kantonalbank. Auf diesen Touchpoints finden täglich mehrere Millionen Interaktionen statt. Gemeinsam mit unseren Mobile-Teams entwickeln wir das ZKB Mobile Banking kontinuierlich weiter und schaffen die technische und organisatorische Basis für ein sicheres, stabiles und überzeugendes digitales Kundenerlebnis.\nUnser System-Team für das Mobile Banking verantwortet die gemeinsame App-Basis und schafft die Voraussetzungen dafür, dass mehrere Feature Teams parallel aber trotzdem abgestimmt und auf einer Codebasis entwickeln und releasen können. In der Rolle als Product Owner übernimmst du eine zentrale Rolle für das ZKB Mobile Banking. Du verbindest Product Ownership mit Fachbereichsverantwortung und sorgst dafür, dass System, Qualität, Governance und Delivery über Teamgrenzen hinweg zusammenspielen.\nDeine Aufgaben\n• Steuern und Priorisieren des Backlogs der System-Teams mit Fokus auf App-Basis, systemübergreifende Anforderungen, Enabler und technische Weiterentwicklung\n• Enge Zusammenarbeit mit Business Engineers, Entwickler:innen und Architektur zur Integration mehrerer Team-Entwicklungen in eine konsistente, stabile und skalierbare Mobile-Banking-App mit den wachsenenden Anforderungen des Mobile Bankings\n• Verantworten des Release- und Deployment-Management der ZKB Mobile Banking App gemeinsam mit Testing und den Feature-Teams sowie Sicherstellen einer pragmatischen, qualitativ hochwertigen Umsetzung\n• Übernehmen der Fachbereichsverantwortung für die relevanten Mobile-Banking-Systeme und Sicherstellen von Sicherheits-, Risiko- und Governance-Vorgaben\n• Beurteilen von Testabdeckung, Risiken und Release Readiness vor Releases sowie Erteilen der fachlichen Freigaben\n• Orchestrierung der Zusammenarbeit mit internen Stakeholdern und Zusammenführen unterschiedlicher Interessen und Abhängigkeiten zu klaren Entscheiden\n• Sicherstellen von Stabilität, Sicherheit und Qualität der App, auch in kritischen Situationen und als Ganzes über die Optimierung eines einzelnen Teams\nDein Profil\n• Abgeschlossene höhere Ausbildung im Bereich Wirtschaft, Informatik oder vergleichbar\n• Mindestens 5 Jahre Erfahrung als Product Owner, Business Analyst oder in einer ähnlichen Rolle im digitalen Umfeld mit Mobile Apps, Digital Banking oder komplexen Plattform-/Systemprodukten ist ein grosses Plus\n• Fundierte Erfahrung in agiler Produktentwicklung mit Methoden wie Scrum, idealerweise ergänzt mit SAFe\n• Gutes technisches Verständnis von Architektur, Schnittstellen, App-Basis, Release-Prozessen und Software-Delivery\n• Ausgeprägte Kommunikationsfähigkeit mit hoher Entscheidungsstärke und Überzeugungskraft\n• Analytische, strukturierte und verlässliche Arbeitsweise mit einem hohen Verantwortungsbewusstsein\n• Eine End-to-End-Sicht über Teamgrenzen hinweg und die Fähigkeit, komplexe Abhängigkeiten zu strukturieren\n• Sehr gute Deutsch- und Englischkenntnisse\nUnser Angebot\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNimisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69",
+        "fr": "80% - 100% | Produkt- und Kanalmanagement | Zürich | Berufserfahrene\nUnser Client-Channels-Team ist verantwortlich für die Weiterentwicklung der physischen und digitalen Kontaktpunkte der Zürcher Kantonalbank. Auf diesen Touchpoints finden täglich mehrere Millionen Interaktionen statt. Gemeinsam mit unseren Mobile-Teams entwickeln wir das ZKB Mobile Banking kontinuierlich weiter und schaffen die technische und organisatorische Basis für ein sicheres, stabiles und überzeugendes digitales Kundenerlebnis.\nUnser System-Team für das Mobile Banking verantwortet die gemeinsame App-Basis und schafft die Voraussetzungen dafür, dass mehrere Feature Teams parallel aber trotzdem abgestimmt und auf einer Codebasis entwickeln und releasen können. In der Rolle als Product Owner übernimmst du eine zentrale Rolle für das ZKB Mobile Banking. Du verbindest Product Ownership mit Fachbereichsverantwortung und sorgst dafür, dass System, Qualität, Governance und Delivery über Teamgrenzen hinweg zusammenspielen.\nDeine Aufgaben\n• Steuern und Priorisieren des Backlogs der System-Teams mit Fokus auf App-Basis, systemübergreifende Anforderungen, Enabler und technische Weiterentwicklung\n• Enge Zusammenarbeit mit Business Engineers, Entwickler:innen und Architektur zur Integration mehrerer Team-Entwicklungen in eine konsistente, stabile und skalierbare Mobile-Banking-App mit den wachsenenden Anforderungen des Mobile Bankings\n• Verantworten des Release- und Deployment-Management der ZKB Mobile Banking App gemeinsam mit Testing und den Feature-Teams sowie Sicherstellen einer pragmatischen, qualitativ hochwertigen Umsetzung\n• Übernehmen der Fachbereichsverantwortung für die relevanten Mobile-Banking-Systeme und Sicherstellen von Sicherheits-, Risiko- und Governance-Vorgaben\n• Beurteilen von Testabdeckung, Risiken und Release Readiness vor Releases sowie Erteilen der fachlichen Freigaben\n• Orchestrierung der Zusammenarbeit mit internen Stakeholdern und Zusammenführen unterschiedlicher Interessen und Abhängigkeiten zu klaren Entscheiden\n• Sicherstellen von Stabilität, Sicherheit und Qualität der App, auch in kritischen Situationen und als Ganzes über die Optimierung eines einzelnen Teams\nDein Profil\n• Abgeschlossene höhere Ausbildung im Bereich Wirtschaft, Informatik oder vergleichbar\n• Mindestens 5 Jahre Erfahrung als Product Owner, Business Analyst oder in einer ähnlichen Rolle im digitalen Umfeld mit Mobile Apps, Digital Banking oder komplexen Plattform-/Systemprodukten ist ein grosses Plus\n• Fundierte Erfahrung in agiler Produktentwicklung mit Methoden wie Scrum, idealerweise ergänzt mit SAFe\n• Gutes technisches Verständnis von Architektur, Schnittstellen, App-Basis, Release-Prozessen und Software-Delivery\n• Ausgeprägte Kommunikationsfähigkeit mit hoher Entscheidungsstärke und Überzeugungskraft\n• Analytische, strukturierte und verlässliche Arbeitsweise mit einem hohen Verantwortungsbewusstsein\n• Eine End-to-End-Sicht über Teamgrenzen hinweg und die Fähigkeit, komplexe Abhängigkeiten zu strukturieren\n• Sehr gute Deutsch- und Englischkenntnisse\nUnser Angebot\n• Offene Kultur der Zusammenarbeit, in der gegenseitige Unterstützung und Austausch selbstverständlich sind\n• Wir unterstützen dich bei der Vereinbarkeit von Beruf und Privatleben - ob anhand von Teilzeit, hybridem Arbeiten, unbezahltem Urlaub oder flexiblen Arbeitszeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen und deshalb fördern und begleiten wir dich auf deinem Weg und unterstützen dich mit vielen Angeboten\n• Unser modernes Büro im pulsierenden Kreis 5 in Zürich bietet dir die ideale Umgebung, um kreativ und produktiv zu arbeiten\n• Wir bieten dir eine faire und transparente Vergütung, die auf klar definierten Lohnbändern basiert\n• Umfassendes Gesamtpaket, welches neben dem attraktiven Grundsalär und einer variablen Vergütung viele Benefits und Vergünstigungen bietet – von A wie Altersvorsorge bis Z wie ZVV-Bonuspass\nNimisha Kasamkattil\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 69"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/792841/11417/pub/1",
+      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:16:09.856Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T07:33:28.915546+00:00",
+      "postedDate": "2026-10-08T07:33:28.915546+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply.refline.ch/792841/11417/pub/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "11417",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "zkb-ede1e2dd8d41",
       "slug": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "de": "kundenberater-in-direktbank-zkb-zurich",
         "it": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
         "en": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+        "de": "kundenberater-in-direktbank-zkb-zurich",
         "fr": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
@@ -86,24 +312,25 @@
       "companyDomain": "zkb.ch",
       "title": "Kundenberater:in Direktbank",
       "titleByLocale": {
-        "de": "Kundenberater:in Direktbank",
         "it": "Consulente alla clientela banca diretta",
         "en": "Direct Bank Customer Advisor",
+        "de": "Kundenberater:in Direktbank",
         "fr": "Conseiller/ère à la clientèle banque directe"
       },
       "description": "80% - 100% | Direktbank / Service Center | Zürich | Berufseinsteiger:in, Berufserfahrene\nDie Direktbank Privatkunden der Zürcher Kantonalbank ist zuständig für 600'000 Kundinnen und Kunden und bietet ihnen die besten Lösungen durch ausgezeichnete Beratung und engagierten Support. Unser fast 80 köpfiger Bereich ist die erste telefonische Anlaufstelle für jegliche finanzielle Anliegen unserer Privatkundschaft.\nPotenzialansprachen sind deine persönliche Stärke und du möchtest zusammen mit uns das positive Image der Zürcher Kantonalbank prägen? Dann freuen wir uns, dich kennenzulernen.\nDeine Aufgaben\n• Telefonisches Beraten unserer Kundschaft zu sämtlichen Dienstleistungen und Bankbasisprodukten\n• Systematisches Ergründen von Bedürfnissen und Ausschöpfen von Kundenpotenzialen\n• Erkennen von Optimierungen bei Prozessen und Dienstleistungen sowie Triagieren an die geeigneten Fachstellen\n• Betreuen unserer Kundschaft mit viel Herzblut und Leidenschaft\n• Tägliches Vorleben von Empathie und Freundlichkeit\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung\n• Erfahrung in der (telefonischen) Kundenberatung, vorzugsweise in der Bankbranche\n• Du bringst die Fähigkeit mit, Kundenpotenziale zu erkennen und hast Freude daran, proaktiv passende Lösungen zu finden\n• Technikaffinität sowie ausgeprägte Multitasking-Fähigkeit zeichnen dich aus\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeit in Deutsch sowie sehr gute Französischkenntnisse\n• Fremdsprachenkenntnisse in Italienisch oder Spanisch sind von Vorteil\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Zentral gelegener Arbeitsplatz (Bahnhof Hardbrücke) im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und die Möglichkeit, im Homeoffice zu arbeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen, weshalb wir dich fördern und begleiten auf deinem Weg\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Einzigartiges Gesamtpaket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Zusatzleistungen (wie ÖV, Sport, Kinderbetreuung, Krankenkasse, u.v.m.)\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
       "descriptionByLocale": {
-        "de": "80% - 100% | Direktbank / Service Center | Zürich | Berufseinsteiger:in, Berufserfahrene\nDie Direktbank Privatkunden der Zürcher Kantonalbank ist zuständig für 600'000 Kundinnen und Kunden und bietet ihnen die besten Lösungen durch ausgezeichnete Beratung und engagierten Support. Unser fast 80 köpfiger Bereich ist die erste telefonische Anlaufstelle für jegliche finanzielle Anliegen unserer Privatkundschaft.\nPotenzialansprachen sind deine persönliche Stärke und du möchtest zusammen mit uns das positive Image der Zürcher Kantonalbank prägen? Dann freuen wir uns, dich kennenzulernen.\nDeine Aufgaben\n• Telefonisches Beraten unserer Kundschaft zu sämtlichen Dienstleistungen und Bankbasisprodukten\n• Systematisches Ergründen von Bedürfnissen und Ausschöpfen von Kundenpotenzialen\n• Erkennen von Optimierungen bei Prozessen und Dienstleistungen sowie Triagieren an die geeigneten Fachstellen\n• Betreuen unserer Kundschaft mit viel Herzblut und Leidenschaft\n• Tägliches Vorleben von Empathie und Freundlichkeit\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung\n• Erfahrung in der (telefonischen) Kundenberatung, vorzugsweise in der Bankbranche\n• Du bringst die Fähigkeit mit, Kundenpotenziale zu erkennen und hast Freude daran, proaktiv passende Lösungen zu finden\n• Technikaffinität sowie ausgeprägte Multitasking-Fähigkeit zeichnen dich aus\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeit in Deutsch sowie sehr gute Französischkenntnisse\n• Fremdsprachenkenntnisse in Italienisch oder Spanisch sind von Vorteil\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Zentral gelegener Arbeitsplatz (Bahnhof Hardbrücke) im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und die Möglichkeit, im Homeoffice zu arbeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen, weshalb wir dich fördern und begleiten auf deinem Weg\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Einzigartiges Gesamtpaket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Zusatzleistungen (wie ÖV, Sport, Kinderbetreuung, Krankenkasse, u.v.m.)\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
         "it": "80% - 100% | Direct Bank / Service Center | Zurich | Principianti: in, professionisti esperti\nLa banca privata Zürcher Kantonalbank è responsabile per 600.000 clienti e offre loro le migliori soluzioni attraverso un eccellente consiglio e un supporto dedicato. La nostra divisione di quasi 80 tempi è il primo punto di contatto telefonico per qualsiasi preoccupazione finanziaria dei nostri clienti privati.\nAffrontare il potenziale è la vostra forza personale e volete modellare l'immagine positiva della Zürcher Kantonalbank insieme a noi? Non vediamo l'ora di incontrarti.\nI tuoi compiti\n• Consulenza telefonica ai nostri clienti su tutti i servizi e prodotti bancari di base\n• esplorazione sistematica delle esigenze e sfruttamento del potenziale del cliente\n• Riconoscimento delle ottimizzazioni nei processi e nei servizi e triagulazione di organismi specializzati idonei\n• Cura per i nostri clienti con un sacco di cuore e passione\n• Esperienza quotidiana di empatia e gentilezza\nIl tuo profilo\n• Formazione professionale completata\n• Esperienza in (telefono) consulenza clienti, preferibilmente nel settore bancario\n• Hai la capacità di identificare il potenziale del cliente e godere attivamente di trovare soluzioni adatte\n• L'affinità tecnica e la pronunciata abilità multitasking ti distinguono\n• Eccellente capacità di comunicazione orale e scritta in tedesco e molto buona conoscenza del francese\n• La conoscenza delle lingue straniere in italiano o spagnolo è benefica\nLa nostra offerta\n• Il supporto reciproco e lo spirito di squadra sono importanti per noi\n• Posto di lavoro situato in posizione centrale (stazione di ponte rigido) nel vivace quartiere 5 con ottimi collegamenti di trasporto e la possibilità di lavorare nell'ufficio di casa\n• La tua carriera è importante per noi come datore di lavoro, motivo per cui ti sosteniamo e ti accompagniamo sulla tua strada\n• Diversi eventi e reti interne offrono la possibilità di rete rapidamente\n• Pacchetto complessivo unico con uno stipendio base attraente, compensazione variabile e servizi aggiuntivi versatili (come trasporto pubblico, sport, assistenza all'infanzia, assicurazione sanitaria, ecc.)\nFabian Herzig\nE' felice di aiutarti.\nTelefono: 044 292 27 96",
         "en": "80% - 100% | Direct Bank / Service Center | Zurich | Beginners: in, experienced professionals\nThe Zürcher Kantonalbank private bank is responsible for 600,000 customers and offers them the best solutions through excellent advice and dedicated support. Our almost 80-strong division is the first telephone contact point for any financial concerns of our private customers.\nAddressing potential is your personal strength and you want to shape the positive image of the Zürcher Kantonalbank together with us? We look forward to meeting you.\nYour tasks\n• Telephone advice to our customers on all services and basic banking products\n• Systematic exploration of needs and exploitation of customer potential\n• Recognition of optimizations in processes and services as well as triagulation of suitable specialist bodies\n• Caring for our customers with a lot of heart and passion\n• Daily Experience of Empathy and Kindness\nYour profile\n• Commercial training completed\n• Experience in (telephone) customer advice, preferably in the banking industry\n• You have the ability to identify customer potential and enjoy proactively finding suitable solutions\n• Technical affinity and pronounced multitasking ability distinguish you\n• Excellent oral and written communication skills in German and very good knowledge of French\n• Knowledge of foreign languages in Italian or Spanish is beneficial\nOur offer\n• Mutual support and team spirit are important to us\n• Centrally located workplace (hard bridge station) in the lively district 5 with very good transport connections and the possibility to work in the home office\n• Your career is important to us as an employer, which is why we support and accompany you on your way\n• Various events and internal networks offer you the opportunity to network quickly\n• Unique overall package with attractive basic salary, variable compensation and versatile additional services (such as public transport, sports, childcare, health insurance, etc.)\nFabian Herzig\nHe is happy to help you.\nTelephone: 044 292 27 96",
+        "de": "80% - 100% | Direktbank / Service Center | Zürich | Berufseinsteiger:in, Berufserfahrene\nDie Direktbank Privatkunden der Zürcher Kantonalbank ist zuständig für 600'000 Kundinnen und Kunden und bietet ihnen die besten Lösungen durch ausgezeichnete Beratung und engagierten Support. Unser fast 80 köpfiger Bereich ist die erste telefonische Anlaufstelle für jegliche finanzielle Anliegen unserer Privatkundschaft.\nPotenzialansprachen sind deine persönliche Stärke und du möchtest zusammen mit uns das positive Image der Zürcher Kantonalbank prägen? Dann freuen wir uns, dich kennenzulernen.\nDeine Aufgaben\n• Telefonisches Beraten unserer Kundschaft zu sämtlichen Dienstleistungen und Bankbasisprodukten\n• Systematisches Ergründen von Bedürfnissen und Ausschöpfen von Kundenpotenzialen\n• Erkennen von Optimierungen bei Prozessen und Dienstleistungen sowie Triagieren an die geeigneten Fachstellen\n• Betreuen unserer Kundschaft mit viel Herzblut und Leidenschaft\n• Tägliches Vorleben von Empathie und Freundlichkeit\nDein Profil\n• Abgeschlossene kaufmännische Ausbildung\n• Erfahrung in der (telefonischen) Kundenberatung, vorzugsweise in der Bankbranche\n• Du bringst die Fähigkeit mit, Kundenpotenziale zu erkennen und hast Freude daran, proaktiv passende Lösungen zu finden\n• Technikaffinität sowie ausgeprägte Multitasking-Fähigkeit zeichnen dich aus\n• Hervorragende mündliche und schriftliche Kommunikationsfähigkeit in Deutsch sowie sehr gute Französischkenntnisse\n• Fremdsprachenkenntnisse in Italienisch oder Spanisch sind von Vorteil\nUnser Angebot\n• Gegenseitige Unterstützung und Teamspirit werden bei uns grossgeschrieben\n• Zentral gelegener Arbeitsplatz (Bahnhof Hardbrücke) im lebendigen Kreis 5 mit sehr guter Verkehrsanbindung und die Möglichkeit, im Homeoffice zu arbeiten\n• Deine Karriere liegt uns als Arbeitgeberin am Herzen, weshalb wir dich fördern und begleiten auf deinem Weg\n• Verschiedene Anlässe und interne Netzwerke bieten dir die Möglichkeit, dich schnell zu vernetzen\n• Einzigartiges Gesamtpaket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Zusatzleistungen (wie ÖV, Sport, Kinderbetreuung, Krankenkasse, u.v.m.)\nFabian Herzig\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 96",
         "fr": "80% - 100% de la banque directe / Centre de service de Zurich de Zurich Débutants: in, professionnels expérimentés\nLa banque privée Zürcher Kantonalbank est responsable de 600 000 clients et leur offre les meilleures solutions grâce à d'excellents conseils et un soutien dédié. Notre division de près de 80 personnes est le premier point de contact téléphonique pour toute préoccupation financière de nos clients privés.\nVotre force personnelle est-elle en rapport avec le potentiel et vous voulez façonner l'image positive de la Zürcher Kantonalbank avec nous ? Nous sommes impatients de vous rencontrer.\nVos tâches\n• Conseils téléphoniques à nos clients sur tous les services et produits bancaires de base\n• Étude systématique des besoins et exploitation du potentiel client\n• Reconnaissance des optimisations dans les processus et les services ainsi que triagulation d'organismes spécialisés appropriés\n• Prendre soin de nos clients avec beaucoup de cœur et de passion\n• Expérience quotidienne d'empathie et de gentillesse\nVotre profil\n• Formation commerciale terminée\n• Expérience en conseil à la clientèle (téléphone), de préférence dans le secteur bancaire\n• Vous avez la capacité d'identifier le potentiel client et profiter de la recherche proactive de solutions appropriées\n• L'affinité technique et la capacité de multitâche prononcée vous distinguent\n• Excellentes compétences en communication orale et écrite en allemand et très bonne connaissance du français\n• La connaissance des langues étrangères en italien ou en espagnol est bénéfique\nNotre offre\n• Le soutien mutuel et l'esprit d'équipe sont importants pour nous\n• Lieu de travail central (pont dur) dans le quartier animé 5 avec de très bonnes connexions de transport et la possibilité de travailler dans le bureau à domicile\n• Votre carrière est importante pour nous en tant qu'employeur, c'est pourquoi nous vous soutenons et vous accompagnons sur votre chemin\n• Divers événements et réseaux internes vous offrent la possibilité de réseauter rapidement\n• Un forfait global unique avec un salaire de base attrayant, une rémunération variable et des services supplémentaires polyvalents (tels que les transports publics, les sports, les soins aux enfants, l'assurance maladie, etc.)\nFabian Herzig\nIl est heureux de vous aider.\nTéléphone : 044 292 27 96"
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/792841/11397/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:28.707Z",
+      "crawledAt": "2026-10-08T21:16:09.414Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -121,21 +348,20 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.refline.ch/792841/11397/pub/2",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "11397",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "kundenberater-in-direktbank-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-direktbank-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-direktbank-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-08T09:17:28.707Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -148,8 +374,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:17:28.707Z"
+      }
     },
     {
       "id": "zkb-07f0f5526388",
@@ -182,7 +407,7 @@
       "url": "https://apply.refline.ch/792841/11220/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:28.240Z",
+      "crawledAt": "2026-10-08T21:16:08.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,6 +430,9 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "frontend-engineer-ui-frameworks-designsysteme-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "frontend-engineer-ui-frameworks-designsysteme-m-w-d-zkb-zurich"
@@ -213,9 +441,6 @@
           "frontend-engineer-ui-frameworks-designsysteme-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "frontend-engineer-ui-frameworks-designsysteme-m-w-d-zkb-zurich"
-      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -228,7 +453,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T21:16:08.972Z"
     },
     {
       "id": "zkb-4176c6a76e40",
@@ -262,7 +488,7 @@
       "url": "https://apply.refline.ch/792841/11415/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:27.772Z",
+      "crawledAt": "2026-10-08T21:16:08.529Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -299,6 +525,7 @@
           "firmenkundenbetreuer-in-direktbank-zkb-zurich"
         ]
       },
+      "firstSeenAt": "2026-10-08T09:17:27.772Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -311,8 +538,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:17:27.772Z"
+      }
     },
     {
       "id": "zkb-e87c98b187fe",
@@ -346,7 +572,7 @@
       "url": "https://apply.refline.ch/792841/11255/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:27.307Z",
+      "crawledAt": "2026-10-08T21:16:08.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -369,15 +595,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-21T15:55:00.635Z",
+      "previousSlugs": [
+        "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-21T15:55:00.635Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -390,8 +616,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "zkb-5d3ca3a9011a",
@@ -425,7 +650,7 @@
       "url": "https://apply.refline.ch/792841/11406/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:26.843Z",
+      "crawledAt": "2026-10-08T21:16:07.648Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -448,15 +673,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-06T09:12:03.833Z",
+      "previousSlugs": [
+        "teamleiter-in-steuern-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-steuern-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "teamleiter-in-steuern-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-06T09:12:03.833Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -502,7 +727,7 @@
       "url": "https://apply.refline.ch/792841/11414/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:26.379Z",
+      "crawledAt": "2026-10-08T21:16:07.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -525,15 +750,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-06T09:12:03.412Z",
+      "previousSlugs": [
+        "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-06T09:12:03.412Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -580,7 +805,7 @@
       "url": "https://apply.refline.ch/792841/11410/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:25.915Z",
+      "crawledAt": "2026-10-08T21:16:06.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -603,16 +828,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-05T09:10:59.197Z",
-      "retranslationAttempts": 2,
+      "previousSlugs": [
+        "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-05T09:10:59.197Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -659,7 +883,7 @@
       "url": "https://apply.refline.ch/792841/11404/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:25.450Z",
+      "crawledAt": "2026-10-08T21:16:06.317Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -682,15 +906,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-05T09:10:58.776Z",
+      "previousSlugs": [
+        "leiter-in-wealth-planning-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-wealth-planning-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-wealth-planning-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-05T09:10:58.776Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -736,7 +960,7 @@
       "url": "https://apply.refline.ch/792841/11413/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:24.058Z",
+      "crawledAt": "2026-10-08T21:16:05.870Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -759,15 +983,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-05T21:24:34.980Z",
+      "previousSlugs": [
+        "devsecops-engineer-im-bereich-pki-hsm-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devsecops-engineer-im-bereich-pki-hsm-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devsecops-engineer-im-bereich-pki-hsm-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-05T21:24:34.980Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -814,7 +1038,7 @@
       "url": "https://apply.refline.ch/792841/11401/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:23.595Z",
+      "crawledAt": "2026-10-08T21:16:05.428Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -837,16 +1061,15 @@
       "pensumMin": 70,
       "pensumMax": 70,
       "pensum": "70%",
-      "firstSeenAt": "2026-10-03T09:13:48.392Z",
-      "retranslationAttempts": 2,
+      "previousSlugs": [
+        "senior-relationship-manager-hnwi-m-w-d-zkb-kloten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-relationship-manager-hnwi-m-w-d-zkb-kloten"
         ]
       },
-      "previousSlugs": [
-        "senior-relationship-manager-hnwi-m-w-d-zkb-kloten"
-      ],
+      "firstSeenAt": "2026-10-03T09:13:48.392Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -892,7 +1115,7 @@
       "url": "https://apply.refline.ch/792841/11403/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:23.132Z",
+      "crawledAt": "2026-10-08T21:16:04.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,15 +1138,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-03T09:13:47.969Z",
+      "previousSlugs": [
+        "senior-business-engineer-hr-successfactors-w-m-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-business-engineer-hr-successfactors-w-m-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "senior-business-engineer-hr-successfactors-w-m-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-03T09:13:47.969Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -969,7 +1192,7 @@
       "url": "https://apply.refline.ch/792841/11409/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:22.668Z",
+      "crawledAt": "2026-10-08T21:16:03.849Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -992,15 +1215,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-10-03T09:13:47.547Z",
+      "previousSlugs": [
+        "fx-precious-metals-money-market-operations-specialist-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fx-precious-metals-money-market-operations-specialist-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "fx-precious-metals-money-market-operations-specialist-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-10-03T09:13:47.547Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1047,7 +1270,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:22.203Z",
+      "crawledAt": "2026-10-08T21:16:03.407Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1134,7 +1357,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:21.737Z",
+      "crawledAt": "2026-10-08T21:16:02.966Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1217,7 +1440,7 @@
       "url": "https://apply.refline.ch/792841/11407/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:21.271Z",
+      "crawledAt": "2026-10-08T21:16:02.524Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1240,15 +1463,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-10-03T09:13:46.280Z",
+      "previousSlugs": [
+        "filialleiter-in-zkb-meilen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-zkb-meilen"
         ]
       },
-      "previousSlugs": [
-        "filialleiter-in-zkb-meilen"
-      ],
+      "firstSeenAt": "2026-10-03T09:13:46.280Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1295,7 +1518,7 @@
       "url": "https://apply.refline.ch/792841/11400/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:20.786Z",
+      "crawledAt": "2026-10-08T21:16:02.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1318,15 +1541,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-30T21:10:50.453Z",
+      "previousSlugs": [
+        "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-30T21:10:50.453Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1373,7 +1596,7 @@
       "url": "https://apply.refline.ch/792841/11395/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:20.322Z",
+      "crawledAt": "2026-10-08T21:16:01.629Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1443,7 +1666,7 @@
       "url": "https://apply.refline.ch/792841/11394/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:19.858Z",
+      "crawledAt": "2026-10-08T21:16:01.185Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1480,7 +1703,6 @@
         ]
       },
       "firstSeenAt": "2026-10-01T09:16:59.604Z",
-      "retranslationAttempts": 2,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1526,7 +1748,7 @@
       "url": "https://apply.refline.ch/792841/11388/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:19.394Z",
+      "crawledAt": "2026-10-08T21:16:00.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1581,10 +1803,10 @@
       "id": "zkb-f5a8e3192afb",
       "slug": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
       "slugByLocale": {
-        "it": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
+        "it": "senior-business-engineer-processi-di-apertura-digitali-m-f-d-zurcher-kantonalbank-zurich",
         "en": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
         "de": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "fr": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -1608,7 +1830,7 @@
       "url": "https://apply.refline.ch/792841/11392/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:18.927Z",
+      "crawledAt": "2026-10-08T21:16:00.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1633,14 +1855,15 @@
       "pensum": "80%",
       "previousSlugs": [
         "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
-        "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
+        "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich"
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
         ],
         "fr": [
-          "senior-business-engineer-processus-d-ouverture-numerique-h-f-d-zurcher-kantonalbank-zurich"
+          "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:12:15.459Z",
@@ -1690,7 +1913,7 @@
       "url": "https://apply.refline.ch/792841/11391/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:18.463Z",
+      "crawledAt": "2026-10-08T21:15:59.858Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1713,15 +1936,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-28T21:12:13.940Z",
+      "previousSlugs": [
+        "devops-engineer-solution-architekt-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-solution-architekt-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-solution-architekt-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-28T21:12:13.940Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1768,7 +1991,7 @@
       "url": "https://apply.refline.ch/792841/11390/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:17.997Z",
+      "crawledAt": "2026-10-08T21:15:59.416Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1838,7 +2061,7 @@
       "url": "https://apply.refline.ch/792841/11380/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:17.531Z",
+      "crawledAt": "2026-10-08T21:15:58.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1917,7 +2140,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:17.068Z",
+      "crawledAt": "2026-10-08T21:15:58.531Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1996,7 +2219,7 @@
       "url": "https://apply.refline.ch/792841/11383/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:16.602Z",
+      "crawledAt": "2026-10-08T21:15:58.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2019,15 +2242,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-24T14:19:49.306Z",
+      "previousSlugs": [
+        "devops-engineer-leidenschaftlicher-scrum-master-80-100-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-leidenschaftlicher-scrum-master-80-100-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-leidenschaftlicher-scrum-master-80-100-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-24T14:19:49.306Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2074,7 +2297,7 @@
       "url": "https://apply.refline.ch/792841/11381/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:16.137Z",
+      "crawledAt": "2026-10-08T21:15:57.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2097,16 +2320,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-24T14:19:48.872Z",
-      "retranslationAttempts": 2,
+      "previousSlugs": [
+        "business-engineer-core-banking-fokus-kontofuhrung-buchungsprozesse-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-engineer-core-banking-fokus-kontofuhrung-buchungsprozesse-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "business-engineer-core-banking-fokus-kontofuhrung-buchungsprozesse-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-24T14:19:48.872Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2153,7 +2375,7 @@
       "url": "https://apply.refline.ch/792841/11377/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:15.670Z",
+      "crawledAt": "2026-10-08T21:15:57.204Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2190,7 +2412,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:37:15.176Z",
-      "retranslationAttempts": 2,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2236,7 +2457,7 @@
       "url": "https://apply.refline.ch/792841/11311/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:14.003Z",
+      "crawledAt": "2026-10-08T21:15:56.762Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2320,7 +2541,7 @@
       "url": "https://apply.refline.ch/792841/11001/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:13.539Z",
+      "crawledAt": "2026-10-08T21:15:56.319Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2403,7 +2624,7 @@
       "url": "https://apply.refline.ch/792841/11371/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:13.063Z",
+      "crawledAt": "2026-10-08T21:15:55.876Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2488,7 +2709,7 @@
       "url": "https://apply.refline.ch/792841/11369/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:12.575Z",
+      "crawledAt": "2026-10-08T21:15:55.420Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2511,15 +2732,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-18T13:41:05.853Z",
+      "previousSlugs": [
+        "business-engineer-crm-losungen-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-engineer-crm-losungen-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "business-engineer-crm-losungen-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-18T13:41:05.853Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2565,7 +2786,7 @@
       "url": "https://apply.refline.ch/792841/11361/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:12.111Z",
+      "crawledAt": "2026-10-08T21:15:53.858Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2588,15 +2809,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-17T14:23:10.232Z",
+      "previousSlugs": [
+        "business-engineer-financial-crime-compliance-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-engineer-financial-crime-compliance-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "business-engineer-financial-crime-compliance-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-17T14:23:10.232Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2643,7 +2864,7 @@
       "url": "https://apply.refline.ch/792841/11290/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:11.647Z",
+      "crawledAt": "2026-10-08T21:15:53.416Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2666,15 +2887,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-16T23:43:20.920Z",
+      "previousSlugs": [
+        "leiter-in-it-architektur-office-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-it-architektur-office-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-it-architektur-office-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-16T23:43:20.920Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2721,7 +2942,7 @@
       "url": "https://apply.refline.ch/792841/11359/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:11.182Z",
+      "crawledAt": "2026-10-08T21:15:52.974Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2744,16 +2965,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-16T23:43:20.454Z",
-      "retranslationAttempts": 2,
+      "previousSlugs": [
+        "devops-engineer-linux-platform-engineering-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-linux-platform-engineering-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-linux-platform-engineering-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-16T23:43:20.454Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2799,7 +3019,7 @@
       "url": "https://apply.refline.ch/792841/11355/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:10.681Z",
+      "crawledAt": "2026-10-08T21:15:52.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2878,7 +3098,7 @@
       "url": "https://apply.refline.ch/792841/11209/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:10.216Z",
+      "crawledAt": "2026-10-08T21:15:52.090Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2901,15 +3121,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-16T23:43:19.518Z",
+      "previousSlugs": [
+        "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-16T23:43:19.518Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -2955,7 +3175,7 @@
       "url": "https://apply.refline.ch/792841/11352/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:09.640Z",
+      "crawledAt": "2026-10-08T21:15:51.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2978,15 +3198,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-11T23:05:06.318Z",
+      "previousSlugs": [
+        "teamleiter-in-erbschaften-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-erbschaften-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "teamleiter-in-erbschaften-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-11T23:05:06.318Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3032,7 +3252,7 @@
       "url": "https://apply.refline.ch/792841/11350/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:09.179Z",
+      "crawledAt": "2026-10-08T21:15:51.200Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3055,15 +3275,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-11T23:05:04.889Z",
+      "previousSlugs": [
+        "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-11T23:05:04.889Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3109,7 +3329,7 @@
       "url": "https://apply.refline.ch/792841/11227/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:08.713Z",
+      "crawledAt": "2026-10-08T21:15:50.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3188,7 +3408,7 @@
       "url": "https://apply.refline.ch/792841/11207/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:08.250Z",
+      "crawledAt": "2026-10-08T21:15:50.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3211,15 +3431,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-09T13:42:03.954Z",
+      "previousSlugs": [
+        "platform-engineer-backup-cyber-disaster-recovery-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "platform-engineer-backup-cyber-disaster-recovery-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "platform-engineer-backup-cyber-disaster-recovery-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-09T13:42:03.954Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3265,7 +3485,7 @@
       "url": "https://apply.refline.ch/792841/11167/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:07.784Z",
+      "crawledAt": "2026-10-08T21:15:49.856Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3293,11 +3513,11 @@
         "teamleiter-in-it-application-audit-zkb-zurich"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "teamleiter-in-it-application-audit-zurcher-kantonalbank-zurich"
-        ],
         "it": [
           "teamleiter-in-it-application-audit-zkb-zurich"
+        ],
+        "en": [
+          "teamleiter-in-it-application-audit-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:32:44.582Z",
@@ -3346,7 +3566,7 @@
       "url": "https://apply.refline.ch/792841/11241/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:07.318Z",
+      "crawledAt": "2026-10-08T21:15:49.411Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3449,7 +3669,7 @@
       "url": "https://apply.refline.ch/792841/11349/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:06.852Z",
+      "crawledAt": "2026-10-08T21:15:48.964Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3472,15 +3692,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-09-04T13:26:24.871Z",
+      "previousSlugs": [
+        "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-09-04T13:26:24.871Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3526,7 +3746,7 @@
       "url": "https://apply.refline.ch/792841/11343/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:06.388Z",
+      "crawledAt": "2026-10-08T21:15:48.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3631,7 +3851,7 @@
       "url": "https://apply.refline.ch/792841/11185/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:05.924Z",
+      "crawledAt": "2026-10-08T21:15:48.080Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3654,15 +3874,15 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "firstSeenAt": "2026-08-31T17:01:25.021Z",
+      "previousSlugs": [
+        "lead-it-asset-und-configuration-management-m-w-d-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lead-it-asset-und-configuration-management-m-w-d-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "lead-it-asset-und-configuration-management-m-w-d-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-08-31T17:01:25.021Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -3675,8 +3895,7 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "zkb-e2d2e487cf18",
@@ -3710,7 +3929,7 @@
       "url": "https://apply.refline.ch/792841/11342/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:05.459Z",
+      "crawledAt": "2026-10-08T21:15:47.637Z",
       "addressLocality": "Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3801,7 +4020,7 @@
       "url": "https://apply.refline.ch/792841/11337/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:04.985Z",
+      "crawledAt": "2026-10-08T21:15:47.193Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3890,7 +4109,7 @@
       "url": "https://apply.refline.ch/792841/11336/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:04.043Z",
+      "crawledAt": "2026-10-08T21:15:46.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3969,7 +4188,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:03.578Z",
+      "crawledAt": "2026-10-08T21:15:46.308Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3992,15 +4211,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-08-24T21:30:02.772Z",
+      "previousSlugs": [
+        "praktikant-in-it-way-up-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-it-way-up-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-it-way-up-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T21:30:02.772Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -4046,7 +4265,7 @@
       "url": "https://apply.refline.ch/792841/11319/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:03.113Z",
+      "crawledAt": "2026-10-08T21:15:45.863Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4069,15 +4288,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-08-24T21:30:01.380Z",
+      "previousSlugs": [
+        "praktikant-in-bem-bankeinstieg-nach-matura-zkb-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-bem-bankeinstieg-nach-matura-zkb-zurich"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-bem-bankeinstieg-nach-matura-zkb-zurich"
-      ],
+      "firstSeenAt": "2026-08-24T21:30:01.380Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -4124,7 +4343,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:02.636Z",
+      "crawledAt": "2026-10-08T21:15:45.421Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4210,7 +4429,7 @@
       "url": "https://apply.refline.ch/792841/11309/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:02.166Z",
+      "crawledAt": "2026-10-08T21:15:44.976Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4306,7 +4525,7 @@
       "url": "https://apply.refline.ch/792841/11315/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:01.699Z",
+      "crawledAt": "2026-10-08T21:15:43.752Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4392,7 +4611,7 @@
       "url": "https://apply.refline.ch/792841/11254/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:01.229Z",
+      "crawledAt": "2026-10-08T21:15:43.308Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4478,7 +4697,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:00.759Z",
+      "crawledAt": "2026-10-08T21:15:42.863Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4564,7 +4783,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:00.289Z",
+      "crawledAt": "2026-10-08T21:15:42.418Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4652,7 +4871,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:16:59.778Z",
+      "crawledAt": "2026-10-08T21:15:41.952Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4737,7 +4956,7 @@
       "url": "https://apply.refline.ch/792841/11149/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:16:59.309Z",
+      "crawledAt": "2026-10-08T21:15:41.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4800,7 +5019,5 @@
         }
       }
     }
-  ],
-  "crawlerKey": "zkb",
-  "assembledAt": "2026-10-08T09:17:36.220Z"
+  ]
 }
