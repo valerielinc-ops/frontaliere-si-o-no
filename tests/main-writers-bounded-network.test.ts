@@ -7,15 +7,20 @@ import {
   mkdirSync,
   mkdtempSync,
   readFileSync,
+  readdirSync,
   rmSync,
   writeFileSync,
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve } from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const COMMIT_DATA_SCRIPT = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const PUSH_WITH_RETRY_SCRIPT = resolve(ROOT, 'scripts/lib/git-push-with-retry.sh');
+const MAIN_WRITERS = ['scripts/lib/git-commit-data.sh', 'scripts/lib/git-push-with-retry.sh'];
+const BOUNDED_COMMAND_WRAPPER = 'scripts/lib/run-bounded-command.mjs';
+const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
 // The shim below stalls a push for 30 seconds. The script under test must
@@ -221,6 +226,57 @@ function unboundedNetworkCommands(helper: string): NetworkViolation[] {
   return violations;
 }
 
+type SparseCheckout = { where: string; patterns: string[]; cone: boolean };
+
+// Every sparse checkout of this repository declared in a workflow, with the
+// list as the YAML gives it. A list computed at run time has no patterns here.
+function sparseCheckouts(): { fixed: SparseCheckout[]; computed: string[] } {
+  const fixed: SparseCheckout[] = [];
+  const computed: string[] = [];
+  for (const file of readdirSync(WORKFLOWS_DIR).filter((name) => /\.ya?ml$/u.test(name)).sort()) {
+    const workflow = YAML.parse(readFileSync(join(WORKFLOWS_DIR, file), 'utf8'));
+    for (const [jobId, job] of Object.entries<any>(workflow?.jobs ?? {})) {
+      for (const step of Array.isArray(job?.steps) ? job.steps : []) {
+        if (!/^actions\/checkout@/u.test(String(step?.uses ?? ''))) continue;
+        const options = step.with ?? {};
+        const repository = String(options.repository ?? '');
+        if (repository && !/frontaliere-si-o-no$|github\.repository/u.test(repository)) continue;
+        if (options['sparse-checkout'] === undefined) continue;
+        const where = `${file} :: ${jobId}`;
+        const list = String(options['sparse-checkout']);
+        if (list.includes('${{')) computed.push(`${where} :: ${list.trim()}`);
+        else {
+          fixed.push({
+            where,
+            patterns: list.split('\n').map((line) => line.trim()).filter(Boolean),
+            cone: String(options['sparse-checkout-cone-mode'] ?? 'true') !== 'false',
+          });
+        }
+      }
+    }
+  }
+  return { fixed, computed };
+}
+
+// Whether a sparse list puts a file on disk. Cone mode lists directories and
+// always keeps root files; otherwise the patterns are gitignore-style, and a
+// later `!` pattern takes away what an earlier one gave.
+function materializes({ patterns, cone }: SparseCheckout, file: string) {
+  const prefixOf = (pattern: string) => pattern.replace(/^!?\//u, '').replace(/^!/u, '').replace(/\/$/u, '');
+  const under = (prefix: string) => file === prefix || file.startsWith(`${prefix}/`);
+  if (cone) return !file.includes('/') || patterns.some((pattern) => under(prefixOf(pattern)));
+  let included = false;
+  for (const pattern of patterns) {
+    if (pattern.startsWith('#')) continue;
+    const negated = pattern.startsWith('!');
+    const prefix = prefixOf(pattern);
+    const matches = prefix === '*' || under(prefix)
+      || (/[*?]/u.test(prefix) && new RegExp(`^${prefix.replace(/[.+^$()|[\]{}\\]/gu, '\\$&').replace(/\*/gu, '[^/]*').replace(/\?/gu, '[^/]')}(/|$)`, 'u').test(file));
+    if (matches) included = !negated;
+  }
+  return included;
+}
+
 type Scenario = {
   root: string;
   local: string;
@@ -362,6 +418,41 @@ describe('main writer network bounds', () => {
   it('requires every network command in git-push-with-retry.sh to use run_bounded', () => {
     const violations = unboundedNetworkCommands(readFileSync(PUSH_WITH_RETRY_SCRIPT, 'utf8'));
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
+  });
+
+  it('reads sparse lists the way the checkout applies them', () => {
+    const nonCone = { patterns: ['/*', '!/public/images/', '!/data/jobs/'], cone: false, where: '' };
+    expect(materializes(nonCone, BOUNDED_COMMAND_WRAPPER)).toBe(true);
+    expect(materializes(nonCone, 'data/jobs/by-crawler/acme.json')).toBe(false);
+    const exactFiles = { patterns: ['/scripts/lib/git-push-with-retry.sh', '/data/build-history/'], cone: false, where: '' };
+    expect(materializes(exactFiles, 'scripts/lib/git-push-with-retry.sh')).toBe(true);
+    expect(materializes(exactFiles, BOUNDED_COMMAND_WRAPPER)).toBe(false);
+    const cone = { patterns: ['scripts/ci'], cone: true, where: '' };
+    expect(materializes(cone, 'package.json')).toBe(true);
+    expect(materializes(cone, 'scripts/ci/housekeeping-sparse-paths.txt')).toBe(true);
+    expect(materializes(cone, BOUNDED_COMMAND_WRAPPER)).toBe(false);
+  });
+
+  it('puts the wrapper on disk in every sparse checkout that carries a main writer', () => {
+    // The writers start every network command through the wrapper. A job that
+    // checks one out without it cannot fetch or push at all, and nothing in the
+    // workflow names the wrapper: only the list on disk can be checked.
+    const { fixed, computed } = sparseCheckouts();
+    expect(fixed.length).toBeGreaterThan(100);
+    const missing = fixed
+      .filter((checkout) => MAIN_WRITERS.some((writer) => materializes(checkout, writer)))
+      .filter((checkout) => !materializes(checkout, BOUNDED_COMMAND_WRAPPER))
+      .map(({ where }) => where);
+    expect(missing).toEqual([]);
+
+    // One list is computed at run time, from a versioned file that carries the
+    // whole scripts directory; tests/housekeeping-sparse-paths.test.ts checks it.
+    expect(computed).toEqual([
+      'housekeeping-jobs-logic.yml :: housekeeping :: ${{ steps.sparse_paths.outputs.paths }}',
+    ]);
+    const housekeeping = readFileSync(resolve(ROOT, 'scripts/ci/housekeeping-sparse-paths.txt'), 'utf8')
+      .split('\n').map((line) => line.trim()).filter((line) => line && !line.startsWith('#'));
+    expect(materializes({ patterns: housekeeping, cone: true, where: '' }, BOUNDED_COMMAND_WRAPPER)).toBe(true);
   });
 
   it('keeps the stall longer than the time the scripts are allowed', () => {
