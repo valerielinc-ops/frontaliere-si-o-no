@@ -448,6 +448,13 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'every data/jobs/by-crawler slice is written and committed inside bare and cloned repositories created with mkdtemp under os.tmpdir(); the checkout read is limited to the script under test (PR 11758)',
   },
   {
+    file: 'tests/git-commit-data-attempt-timings.test.ts',
+    roots: ['data/jobs/'],
+    since: '2026-10-08',
+    evidence: 'review',
+    reason: 'every data/jobs/by-crawler slice is written and committed inside bare, cloned and blobless repositories created with mkdtemp under os.tmpdir(); the checkout read is limited to the script under test (issue 12379)',
+  },
+  {
     file: 'tests/git-commit-data-legacy-staging.test.ts',
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'every data/jobs path is created or asserted inside mkdtemp git repositories under os.tmpdir(); the checkout read is limited to the script under test',
