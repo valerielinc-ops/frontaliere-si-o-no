@@ -480,11 +480,6 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
   },
   {
-    file: 'tests/events-derived-dataset-reconcile.test.ts',
-    roots: ['data/events.json', 'public/data/'],
-    reason: 'event slices, caches and both derived dataset copies are created and read only inside mkdtemp git repositories; the checkout contributes only the reconciler and assembler source, which runs against the temporary inputs',
-  },
-  {
     file: 'tests/open-data-refresh-checkout.test.ts',
     roots: ['packages/articles/content/'],
     reason: 'the same fixture as merge-open-data-refresh: packages/articles/content/body.ts is written and symlinked inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the five refresh scripts under test (#10754)',

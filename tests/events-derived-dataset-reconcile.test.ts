@@ -12,7 +12,6 @@ import {
 
 const ROOT = path.resolve(__dirname, '..');
 const RECONCILE_SCRIPT = path.join(ROOT, 'scripts/ci/reconcile-data-refresh-main.mjs');
-const ORIGIN_RECONCILE_PATH = 'scripts/ci/reconcile-data-refresh-main.mjs';
 const TEST_GIT_ENV = {
   ...process.env,
   GIT_AUTHOR_NAME: 'events-reconcile-test',
@@ -214,14 +213,6 @@ function dataset(repository: string) {
   };
 }
 
-function originReconcilerSource() {
-  const readBlobUrl = pathToFileURL(path.join(ROOT, 'scripts/lib/read-git-blob.mjs')).href;
-  const mergeHelperUrl = pathToFileURL(path.join(ROOT, 'scripts/ci/open-data-refresh-merge.mjs')).href;
-  return git(ROOT, ['show', `origin/main:${ORIGIN_RECONCILE_PATH}`])
-    .replace("'../lib/read-git-blob.mjs'", JSON.stringify(readBlobUrl))
-    .replace("'./open-data-refresh-merge.mjs'", JSON.stringify(mergeHelperUrl));
-}
-
 describe('events derived dataset reconciliation', () => {
   it('publishes a crawl with both its new event and a rewrite that arrived on main', () => {
     const scenario = createScenario('crawl');
@@ -250,13 +241,33 @@ describe('events derived dataset reconciliation', () => {
     expect(JSON.parse(git(scenario.repository, ['show', 'HEAD:public/data/events.json']))).toEqual(dataset(scenario.repository));
   });
 
-  it('shows that the origin/main reconciler rejects the same derived conflict', () => {
+  it('names a conflict the opt-in does not cover, and leaves the branch where it was', () => {
+    const scenario = createScenario('crawl');
+    // Both sides also change a file that is neither a cache nor the dataset.
+    git(scenario.repository, ['checkout', '-q', '--detach', scenario.main]);
+    writeJson(scenario.repository, ['data', 'unexpected.json'], { side: 'main' });
+    const main = commitAll(scenario.repository, 'main also changes an unrelated file');
+    git(scenario.repository, ['checkout', '-q', 'refresh']);
+    writeJson(scenario.repository, ['data', 'unexpected.json'], { side: 'refresh' });
+    const refresh = commitAll(scenario.repository, 'refresh also changes an unrelated file');
+
+    const result = runReconciler({ ...scenario, main, refresh });
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(
+      'Unresolved refresh conflict outside event caches or derived datasets: data/unexpected.json',
+    );
+    // The dataset conflicts too, but the opt-in resolves it: it is not named.
+    expect(result.stderr).not.toContain('events.json');
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(refresh);
+  });
+
+  it('refuses the same conflict for a publisher that did not opt in, naming only what blocks it', () => {
     const scenario = createScenario('crawl');
     const result = spawnSync(process.execPath, [
-      '--input-type=module', '-e', originReconcilerSource(), 'origin-reconcile-test',
+      RECONCILE_SCRIPT,
       '--base', scenario.base,
       '--main', scenario.main,
-      '--message', 'origin reconcile test',
+      '--message', 'reconcile events test',
     ], {
       cwd: scenario.repository,
       env: { ...TEST_GIT_ENV, GIT_NO_LAZY_FETCH: '1' },
@@ -264,8 +275,13 @@ describe('events derived dataset reconciliation', () => {
     });
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain('Unresolved refresh conflict outside event caches:');
-    expect(result.stderr).toContain('data/events.json');
-    expect(result.stderr).toContain('public/data/events.json');
+    // The caches conflict too, and the reconciler can merge them: the message
+    // lists the two files that stop it, not every file in conflict.
+    expect(result.stderr).toContain(
+      'Unresolved refresh conflict outside event caches: data/events.json, public/data/events.json',
+    );
+    expect(result.stderr).not.toContain('data/events-geocode-cache.json');
+    // Nothing was committed: the refresh branch is where it was.
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
   });
 });

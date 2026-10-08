@@ -30,10 +30,6 @@ const EVENT_REWRITE_CACHE_PATH = 'data/events-description-rewrites.json';
 const EVENT_IMAGE_LIBRARY_PATH = 'data/event-image-library.json';
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
 
-// Input materialization must stay within the caller's already-fetched checkout;
-// never let a promisor repository turn a missing blob into an unbounded fetch.
-process.env.GIT_NO_LAZY_FETCH = '1';
-
 const options = {};
 for (let i = 2; i < process.argv.length; i += 2) {
   const flag = process.argv[i];
@@ -183,7 +179,10 @@ const [tree, ...conflicts] = mergeOutput ? mergeOutput.split('\n') : [];
 if (!tree) throw new Error(`Unable to merge main: ${merge.stderr || 'merge-tree returned no tree'}`);
 const blockers = conflicts.filter((file) => !EVENT_CACHE_PATHS.has(file) && !derivedDatasetPaths.has(file));
 if (blockers.length > 0) {
-  throw new Error(`Unresolved refresh conflict outside event caches or derived datasets: ${blockers.join(', ')}`);
+  // Only what stops the reconciliation is named. A caller that did not opt in
+  // keeps the wording its logs and tests already know.
+  const resolvable = derivedDatasetPaths.size > 0 ? 'event caches or derived datasets' : 'event caches';
+  throw new Error(`Unresolved refresh conflict outside ${resolvable}: ${blockers.join(', ')}`);
 }
 
 git(['read-tree', tree]);
