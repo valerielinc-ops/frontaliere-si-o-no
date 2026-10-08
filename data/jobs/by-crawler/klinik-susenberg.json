@@ -31,7 +31,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-10-01.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:42.857Z",
+      "crawledAt": "2026-10-08T22:42:14.598Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/05-Koch-Koechin-50-60_befristetJuni2027-2026-09-03.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:42.687Z",
+      "crawledAt": "2026-10-08T22:42:14.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:42.360Z",
+      "crawledAt": "2026-10-08T22:42:14.238Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -210,7 +210,6 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "firstSeenAt": "2026-08-31T17:35:13.482Z",
-      "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-hf-fh-40-60-klinik-susenberg-zurich"
@@ -266,7 +265,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:42.039Z",
+      "crawledAt": "2026-10-08T22:42:13.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -298,7 +297,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:35:10.897Z",
-      "retranslationAttempts": 3,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -346,7 +344,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:41.420Z",
+      "crawledAt": "2026-10-08T22:42:13.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -378,7 +376,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T22:24:52.083Z",
-      "retranslationAttempts": 3,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -397,5 +394,5 @@
     }
   ],
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-10-08T21:45:47.376Z"
+  "assembledAt": "2026-10-08T22:42:19.466Z"
 }

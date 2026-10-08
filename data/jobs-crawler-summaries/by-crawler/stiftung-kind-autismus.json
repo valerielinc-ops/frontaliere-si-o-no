@@ -1,7 +1,7 @@
 {
   "key": "stiftung-kind-autismus",
   "label": "Stiftung Kind und Autismus",
-  "generatedAt": "2026-10-08T21:48:01.936Z",
+  "generatedAt": "2026-10-08T22:41:10.916Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4705,
-  "avgDurationMs": 4705,
+  "unchangedCount": 1,
+  "durationMs": 7140,
+  "avgDurationMs": 7140,
   "durationHistory": [
-    4705
+    7140
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "stiftung-kind-autismus-a8888267502c",
       "slug": "psicomotricita-terapeuta-stiftung-kind-und-autismus-urdorf",
@@ -38,7 +36,7 @@
       "url": "https://app.reflinejobs.io/2044/0108/pub/102/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:47:50.979Z",
+      "crawledAt": "2026-10-08T22:40:54.906Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +65,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "stiftung-kind-autismus-30a978247924",
       "slug": "apprendistato-professionale-industria-alberghiera-efz-stiftung-kind-und-autismus-urdorf",
@@ -80,7 +81,7 @@
       "url": "https://app.reflinejobs.io/2044/0105/pub/101/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:47:50.195Z",
+      "crawledAt": "2026-10-08T22:40:53.850Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,5 +112,5 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }
