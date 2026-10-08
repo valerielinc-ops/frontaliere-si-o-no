@@ -327,11 +327,23 @@ describe('useNavigationState', () => {
 
     it('hands the page to the static article instead of the hub list, from the first frame', () => {
       const { result } = renderHook(() => useNavigationState());
+      const root = document.getElementById('root')!;
+      const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
       // staticOverlay is what makes App.tsx skip its own <main> and leave the
       // shard's article visible. It must be true synchronously — a value set
       // only after the async resolution would still flash the hub list.
       expect(result.current.staticOverlay).toBe(true);
       expect(result.current.blogArticle).toBeNull();
+      expect(result.current.articleStaticFallbackKey).toBe(
+        'frontaliere:poste-italiane-consulenti-finanziari-varese:it',
+      );
+
+      // This is the same startup sequence as index.tsx: the shared decision
+      // must leave the real DOM article outside #root before the hook owns it.
+      const { route } = parsePath(window.location.pathname);
+      expect(shouldAdoptStaticFallbackIntoRoot(route, false, 'article', true)).toBe(false);
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
+      expect(root.contains(fallback)).toBe(false);
     });
 
     it('keeps the static article outside #root while the initial owner is unresolved', () => {
@@ -341,7 +353,7 @@ describe('useNavigationState', () => {
 
       expect(result.current.staticOverlay).toBe(true);
       const { route } = parsePath(window.location.pathname);
-      const shouldAdopt = shouldAdoptStaticFallbackIntoRoot(route, false);
+      const shouldAdopt = shouldAdoptStaticFallbackIntoRoot(route, false, 'article', true);
       if (shouldAdopt) adoptStaticFallbackIntoRoot(root, fallback);
 
       expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
@@ -418,6 +430,9 @@ describe('useNavigationState', () => {
 
       expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
       expect(result.current.staticOverlay).toBe(false);
+      expect(result.current.articleStaticFallbackKey).toBe(
+        'frontaliere:poste-italiane-consulenti-finanziari-varese:it',
+      );
     });
 
     it('never reaches the network for an article this build already ships', async () => {
@@ -427,7 +442,20 @@ describe('useNavigationState', () => {
 
       expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
       expect(result.current.staticOverlay).toBe(false);
+      expect(result.current.articleStaticFallbackKey).toBe(
+        'frontaliere:poste-italiane-consulenti-finanziari-varese:it',
+      );
       expect(adoptRuntimeArticle).not.toHaveBeenCalled();
+    });
+
+    it('removes the landing article before a client-side navigation', () => {
+      const { result } = renderHook(() => useNavigationState());
+
+      act(() => { result.current.handleTabChange('calculator'); });
+
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).toBeNull();
+      expect(result.current.articleStaticFallbackKey).toBeNull();
+      expect(result.current.staticOverlay).toBe(false);
     });
 
     it('does not blank the page when there is no static article to fall back to', async () => {

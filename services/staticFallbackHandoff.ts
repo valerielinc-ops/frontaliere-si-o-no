@@ -22,6 +22,93 @@
  * the crossfade reserve is measured).
  */
 import type { AppRoute } from '@/services/router';
+import type { ArticleSection } from '@/services/articleSections';
+
+export type StaticFallbackKind = 'article' | 'canton-topic' | 'generic';
+
+/** Return the unresolved article identity carried by a route, if any. */
+export function pendingArticleSlug(route: AppRoute): { section: ArticleSection; slug: string } | null {
+  if (route.activeTab !== 'blog') return null;
+  if (route.blogSection === 'svizzera') {
+    return route.swissSlug && !route.swissArticle
+      ? { section: 'svizzera', slug: route.swissSlug }
+      : null;
+  }
+  if (route.blogSection?.startsWith('canton-')) {
+    return route.cantonSlug && !route.cantonArticle
+      ? { section: route.blogSection, slug: route.cantonSlug }
+      : null;
+  }
+  return route.blogSlug && !route.blogArticle
+    ? { section: 'frontaliere', slug: route.blogSlug }
+    : null;
+}
+
+function isArticleDetailRoute(route: AppRoute): boolean {
+  return route.activeTab === 'blog'
+    && Boolean(
+      route.blogSlug
+      || route.blogArticle
+      || route.swissSlug
+      || route.swissArticle
+      || route.cantonSlug
+      || route.cantonArticle,
+    );
+}
+
+/**
+ * Single ownership decision for static fallbacks that must survive the first
+ * React render. The caller supplies presence because this function is pure.
+ */
+export function shouldKeepStaticFallbackOutsideRoot(
+  route: AppRoute,
+  kind: StaticFallbackKind,
+  fallbackPresent: boolean,
+): boolean {
+  if (!fallbackPresent) return false;
+  if (kind === 'article') return isArticleDetailRoute(route);
+  if (kind === 'canton-topic') return route.activeTab === 'blog' && !!route.cantonTopic && !route.staticOverlay;
+  return false;
+}
+
+/** Stable identity used to pair readiness with one article URL. */
+export function staticArticleFallbackKey(section: string, article: string, locale: string): string {
+  return `${section}:${article}:${locale}`;
+}
+
+/** Build the readiness key for an article route, including unresolved slugs. */
+export function staticArticleFallbackRouteKey(route: AppRoute, locale: string): string | null {
+  if (!isArticleDetailRoute(route)) return null;
+  const article = route.blogArticle
+    || route.blogSlug
+    || route.swissArticle
+    || route.swissSlug
+    || route.cantonArticle
+    || route.cantonSlug;
+  if (!article) return null;
+  return staticArticleFallbackKey(route.blogSection || 'frontaliere', article, locale);
+}
+
+export interface StaticArticleReadiness {
+  deferUntilReady: boolean;
+  blogReady: boolean;
+  bodyReady: boolean;
+  articlePresent: boolean;
+  title: string;
+  titleKey: string;
+  bodySegmentCount: number;
+}
+
+/** The exact payload required before the SPA may replace a static article. */
+export function isStaticArticleReadyForTakeover(input: StaticArticleReadiness): boolean {
+  return input.deferUntilReady
+    && input.blogReady
+    && input.bodyReady
+    && input.articlePresent
+    && input.title.trim().length > 0
+    && input.title !== input.titleKey
+    && input.bodySegmentCount > 0;
+}
 
 /**
  * Whether the entry should perform the existing body-level fallback adoption.
@@ -31,10 +118,14 @@ import type { AppRoute } from '@/services/router';
  * generic SPA takeover behavior remains unchanged.
  */
 export function shouldAdoptStaticFallbackIntoRoot(
-  route: Pick<AppRoute, 'staticOverlay'>,
+  route: AppRoute,
   hasPlateAuctionFallback: boolean,
+  kind: StaticFallbackKind = 'generic',
+  fallbackPresent = false,
 ): boolean {
-  return !route.staticOverlay && !hasPlateAuctionFallback;
+  return !route.staticOverlay
+    && !hasPlateAuctionFallback
+    && !shouldKeepStaticFallbackOutsideRoot(route, kind, fallbackPresent);
 }
 
 export interface StaticFallbackAdoption {
