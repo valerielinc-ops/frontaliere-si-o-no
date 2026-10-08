@@ -127,7 +127,7 @@ jobs:
           reason="${{ steps.admission.outputs.admission_reason }}"
           echo "Rewrite skipped before planning: $reason ($detail)."
           echo "## Event description rewrite admission" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Esito: saltata prima del plan; motivo: `$reason` (`$detail`)." >> "$GITHUB_STEP_SUMMARY"
+          printf '%s\n' "- Esito: saltata prima del plan; motivo: ${reason} (${detail})." >> "$GITHUB_STEP_SUMMARY"
 
       - name: Read previous run state
         if: steps.admission.outputs.admitted == 'true'
