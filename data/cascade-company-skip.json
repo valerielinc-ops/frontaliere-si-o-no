@@ -1,13 +1,14 @@
 {
-  "run": 152,
+  "run": 153,
   "companies": {
     "jysk": {
       "sterile": 1,
       "signature": "ffc2b7bfa06ec22a"
     },
     "sintetica": {
-      "sterile": 1,
-      "signature": "13a42ca3204634c9"
+      "sterile": 0,
+      "signature": "13a42ca3204634c9",
+      "skipUntilRun": 156
     }
   }
 }

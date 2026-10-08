@@ -3332,7 +3332,7 @@
           "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:07:51.380Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -3348,7 +3348,8 @@
         }
       },
       "postalCode": "4303",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 0
     },
     {
       "id": "roche-d3397433e757",
@@ -9763,7 +9764,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",

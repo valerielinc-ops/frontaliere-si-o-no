@@ -2351,7 +2351,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6260"
+      "postalCode": "6260",
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-64862f7493df",
@@ -4097,7 +4098,7 @@
       "title": "Sales Support Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite Svizzera (m/f/d)",
-        "en": "Sales Support Schweiz (m/w/d)",
+        "en": "Sales Support Switzerland (m/f/d)",
         "de": "Sales Support Schweiz (m/w/d)",
         "fr": "Support commercial Suisse (h/f/d)"
       },
