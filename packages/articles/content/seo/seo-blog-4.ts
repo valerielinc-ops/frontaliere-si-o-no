@@ -415,13 +415,13 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Emergenze, catastrofi, blackout: in Ticino 160 punti',
  description: 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di',
  keywords: 'frontalieri, ticino, svizzera, italia, emergenze, catastrofi, blackout, punti',
- ogTitle: 'Emergenze, catastrofi, blackout: in Ticino 160 punti di',
+ ogTitle: 'Emergenze e blackout: in Ticino 160 punti di raccolta per i cittadini (dove la radio funziona sempre)',
  ogDescription: 'Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d\'urgenza (PRU) per garantire la sicurezza e l\'assistenza ai cittadini in caso di',
  canonicalPath: '/articoli-frontaliere/catastrofi-ticino-prontezza-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Emergenze, catastrofi, blackout: in Ticino 160 punti di raccolta per i",
+ "headline": "Emergenze e blackout: in Ticino 160 punti di raccolta per i cittadini (dove la radio funziona sempre)",
  "description": "Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d'urgenza (PRU) per garantire la sicurezza e l'assistenza ai cittadini in caso di",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/catastrofi-ticino-prontezza-2026.webp`,
@@ -706,7 +706,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Se salta l\'accordo con Lugano | Frontaliere Ticino',
  description: 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, salta, accordo, lugano, giustizia',
- ogTitle: 'Giustizia in bilico: futuro incerto per la Giustizia in',
+ ogTitle: 'Se salta l\'accordo con Lugano, Giustizia in città in bilico',
  ogDescription: 'La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico.',
  canonicalPath: '/articoli-frontaliere/giustizia-in-bilico-2026/',
  structuredData: {
@@ -793,7 +793,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Contrabbando ai confini: aumentano | Frontaliere Ticino',
  description: 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
  keywords: 'frontalieri, ticino, svizzera, italia, contrabbando, confini, aumentano, droga',
- ogTitle: 'Contrabbando ai confini: aumentano droga e sigarette |',
+ ogTitle: 'Contrabbando ai confini: aumentano droga e sigarette',
  ogDescription: 'Secondo i dati dell\'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.',
  canonicalPath: '/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette/',
  structuredData: {
@@ -964,7 +964,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-contratti-collettivi-salari-ticino': {
- title: 'Contratti collettivi di lavoro in Ticino: prevalenza sui',
+ title: 'Contratti collettivi di lavoro in Ticino: prevalenza sui salari minimi cantonali',
  description: 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi',
  keywords: 'frontalieri, ticino, svizzera, italia, contratti, collettivi, lavoro, prevalenza',
  ogTitle: 'Contratti collettivi di lavoro in Ticino: prevalenza',
@@ -1225,7 +1225,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-tassa-transito-automobilisti-ticino': {
- title: 'Tassa di transito in Ticino: cosa | Frontaliere Ticino',
+ title: 'Tassa di transito in Ticino: cosa cambia per gli automobilisti stranieri',
  description: 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
  keywords: 'frontalieri, ticino, svizzera, italia, tassa, transito, cosa, cambia',
  ogTitle: 'Tassa di transito in Ticino: cosa cambia',
@@ -2629,7 +2629,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-nei-test-neonati-ticinesi': {
- title: 'Test neonati, Ticino escluso dai | Frontaliere Ticino',
+ title: 'Test neonati, Ticino escluso dai controlli svizzeri',
  description: 'La Svizzera non ha effettuato test sui neonati ticinesi per la contaminazione nel latte: cosa fare subito. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, test, neonati, escluso, controlli',
  ogTitle: 'Test neonati Ticino: cosa fare',
@@ -2696,7 +2696,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Congresso Svizzera‑Italia a",
+ "headline": "Congresso Svizzera‑Italia a Varese: aggiornamenti fiscali per i frontalieri ticinesi",
  "description": "Scopri le novità fiscali, previdenziali e normative presentate il 16 aprile 2026 a Varese, pensate per i frontalieri tra Italia e Svizzera. Dati aggiornati 2026",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/congresso-svizzera-italia-varese-2026.webp`,
@@ -3666,7 +3666,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Permessi di dimora: diverse opinioni | Frontaliere Ticino',
  description: 'La questione dei permessi di dimora è sempre più attuale, soprattutto dopo l\'operazione antimafia a Roveredo. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, permessi, dimora, diverse, opinioni',
- ogTitle: 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale |',
+ ogTitle: 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale',
  ogDescription: 'La questione dei permessi di dimora è sempre più attuale, soprattutto dopo l\'operazione antimafia a Roveredo.',
  canonicalPath: '/articoli-frontaliere/permessi-dimora-diversi-opinioni/',
  structuredData: {
@@ -3891,7 +3891,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Vacanze di Pasqua: colonna al San | Frontaliere Ticino',
  description: 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato. Come percorso alternativo, il TCS consiglia di utilizzare',
  keywords: 'frontalieri, ticino, svizzera, italia, vacanze, pasqua, colonna, gottardo',
- ogTitle: 'OG title | Frontaliere Ticino: Vacanze di Pasqua al San Gottardo, 21 chilometri di',
+ ogTitle: 'Vacanze di Pasqua: colonna al San Gottardo tocca i 21 chilometri',
  ogDescription: 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato. Come percorso alternativo, il TCS consiglia di utilizzare',
  canonicalPath: '/articoli-frontaliere/vacanze-di-pasqua-san-gottardo/',
  structuredData: {
@@ -5010,7 +5010,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  },
 
  'blog-raffica-chiusure-a9-2026': {
- title: 'Chiusure e deviazioni sulla A9: cosa | Frontaliere Ticino',
+ title: 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
  description: 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, chiusure, deviazioni, sulla, cosa',
  ogTitle: 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
@@ -5229,7 +5229,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei",
+ "headline": "La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri",
  "description": "La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.webp`,
