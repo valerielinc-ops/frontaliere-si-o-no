@@ -179,7 +179,7 @@
       "slug": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "infermiere-a-di-psichiatria-spitaler-fmi-ag-unterseen",
-        "en": "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen",
+        "en": "psychiatric-nurse-spitaler-fmi-ag-unterseen",
         "de": "pflegefachperson-psychiatrie-stationar-60-100-fmi-unterseen",
         "fr": "infirmier-infirmiere-en-psychiatrie-spitaler-fmi-ag-unterseen"
       },
@@ -233,7 +233,7 @@
         "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
         "psycholog-in-psychiatrie-80-fmi-unterseen",
         "psychologue-en-psychiatrie-80-spitaler-fmi-ag-unterseen",
-        "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+        "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -246,7 +246,7 @@
         ],
         "en": [
           "psychologist-in-psychiatry-80-spitaler-fmi-ag-unterseen",
-          "psychiatric-nurse-spitaler-fmi-ag-unterseen"
+          "nursing-specialist-psychiatry-stationary-60-100-spitaler-fmi-ag-unterseen"
         ],
         "de": [
           "psycholog-in-psychiatrie-80-fmi-unterseen"
@@ -5404,12 +5404,12 @@
     },
     {
       "id": "fmi-1f4d4dc2b852",
-      "slug": "arztsekretar-in-60-fmi-frutigen",
+      "slug": "segretario-a-medico-a-60-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "de": "arztsekretar-in-60-fmi-frutigen",
-        "it": "arztsekretar-in-60-fmi-frutigen",
-        "en": "arztsekretar-in-60-fmi-frutigen",
-        "fr": "arztsekretar-in-60-fmi-frutigen"
+        "it": "segretario-a-medico-a-60-spitaler-fmi-ag-frutigen",
+        "en": "medical-secretary-60-spitaler-fmi-ag-frutigen",
+        "fr": "secretaire-medical-e-60-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5467,7 +5467,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:12:16.512Z"
+      "firstSeenAt": "2026-10-08T09:12:16.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-60-fmi-frutigen"
+        ],
+        "en": [
+          "arztsekretar-in-60-fmi-frutigen"
+        ],
+        "fr": [
+          "arztsekretar-in-60-fmi-frutigen"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-60-fmi-frutigen"
+      ]
     }
   ]
 }

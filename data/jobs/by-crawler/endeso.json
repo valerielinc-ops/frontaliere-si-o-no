@@ -709,9 +709,12 @@
     },
     {
       "id": "endeso-e64fd6455211",
-      "slug": "regionalbetreiber-zug-zug-endeso-ch",
+      "slug": "treno-operatore-regionale-endeso-gmbh-zug",
       "slugByLocale": {
-        "de": "regionalbetreiber-zug-zug-endeso-ch"
+        "de": "regionalbetreiber-zug-zug-endeso-ch",
+        "it": "treno-operatore-regionale-endeso-gmbh-zug",
+        "en": "regional-operator-train-endeso-gmbh-zug",
+        "fr": "train-d-operateur-regional-endeso-gmbh-zug"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -769,7 +772,15 @@
       },
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "regionalbetreiber-zug-zug-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regionalbetreiber-zug-zug-endeso-ch"
+      ]
     }
   ]
 }

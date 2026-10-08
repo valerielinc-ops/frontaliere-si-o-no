@@ -457,9 +457,12 @@
     },
     {
       "id": "clienia-ag-30687ff2470a",
-      "slug": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
+      "slug": "direttore-della-stazione-aggiunto-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "de": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
+        "de": "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich",
+        "it": "direttore-della-stazione-aggiunto-80-100-clienia-ag-pfaffikon-zh",
+        "en": "deputy-station-manager-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "directeur-adjoint-de-station-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -501,16 +504,24 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-r-stationsleiter-in-80-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-2672b13acfa4",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
+      "slug": "infermiera-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        "it": "infermiera-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "en": "dipl-nurse-hf-fh-m-f-d-80-100-clienia-ag-pfaffikon-zh",
+        "fr": "infirmiere-diplomee-hf-fh-h-f-d-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -554,7 +565,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-m-w-d-80-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-744b89c67169",
@@ -4627,12 +4652,12 @@
     },
     {
       "id": "clienia-ag-f6fb0417a615",
-      "slug": "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
+      "slug": "assistente-medico-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-        "it": "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-        "en": "assistenzarztin-assistenzarzt-100-clienia-ag-zurich",
-        "fr": "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+        "it": "assistente-medico-100-clienia-ag-pfaffikon-zh",
+        "en": "assistant-physician-100-clienia-ag-pfaffikon-zh",
+        "fr": "medecin-adjoint-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -4676,7 +4701,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-87d2a4960d67",

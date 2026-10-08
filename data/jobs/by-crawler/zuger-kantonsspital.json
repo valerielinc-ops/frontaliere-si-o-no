@@ -1020,9 +1020,9 @@
     },
     {
       "id": "zuger-kantonsspital-fd59a9344c28",
-      "slug": "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar",
+      "slug": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar",
+        "it": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
         "en": "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar",
         "de": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
         "fr": "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar"
@@ -1072,13 +1072,13 @@
       "previousSlugs": [
         "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
         "farmacista-ospedaliera-60-80-m-f-zuger-kantonsspital-baar",
-        "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar"
+        "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
           "farmacista-ospedaliera-60-80-m-f-zuger-kantonsspital-baar",
-          "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar"
+          "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar"
         ],
         "en": [
           "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
@@ -1104,11 +1104,11 @@
     },
     {
       "id": "zuger-kantonsspital-7c4a56e2329c",
-      "slug": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
+      "slug": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
       "slugByLocale": {
         "de": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
-        "it": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
-        "en": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar",
+        "it": "capo-medico-clinica-femminile-100-zuger-kantonsspital-baar",
+        "en": "chief-medical-secretary-women-s-clinic-100-zuger-kantonsspital-baar",
         "fr": "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
@@ -1168,7 +1168,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:31:46.560Z"
+      "firstSeenAt": "2026-10-08T09:31:46.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "chefarztsekretarin-frauenklinik-100-zuger-kantonsspital-baar"
+      ]
     }
   ]
 }

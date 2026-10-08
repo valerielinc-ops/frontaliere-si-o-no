@@ -4008,8 +4008,8 @@
       "slugByLocale": {
         "de": "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung",
         "it": "risorse-umane-business-partner-m-w-d-80-100-befristet-bis-ende-2027-con-option-auf-verlangerung-universitatsklinik-balgrist-zurich",
-        "en": "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung",
-        "fr": "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung"
+        "en": "hr-business-partner-m-f-d-80-100-fixed-term-until-the-end-of-2027-with-option-to-extend-universitatsklinik-balgrist",
+        "fr": "hr-business-partner-h-f-d-80-100-a-duree-determinee-jusqu-a-fin-2027-avec-possibilite-de-prolongation-universitatsklinik"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4057,6 +4057,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung"
+        ],
+        "en": [
+          "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung"
+        ],
+        "fr": [
           "hr-business-partner-m-w-d-80-100-befristet-bis-ende-2027-mit-option-auf-verlangerung"
         ]
       },

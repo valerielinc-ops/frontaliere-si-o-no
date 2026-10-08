@@ -329,7 +329,7 @@
       "id": "grand-resort-bad-ragaz-38035a9ac01c",
       "slug": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "masseur-20-40-m-w-i-grand-resort-bad-ragaz",
+        "it": "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -378,14 +378,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+        "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-          "massaggiatore-20-40-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
+          "masseur-20-40-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "fr": [
           "concierge-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -776,7 +774,7 @@
       "id": "grand-resort-bad-ragaz-d4c96e15445e",
       "slug": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
       "slugByLocale": {
-        "it": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz",
+        "it": "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "head-green-3-00-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "chef-greenkeeper-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -825,13 +823,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-        "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
+        "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz",
-          "capo-verde-3-00-m-p-i-grand-resort-bad-ragaz-bad-ragaz"
+          "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
         ],
         "en": [
           "stv-head-greenkeeper-100-m-w-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -2036,9 +2032,9 @@
     },
     {
       "id": "grand-resort-bad-ragaz-6375e00a9ef6",
-      "slug": "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "coordinatore-coordinatrice-di-riunioni-ed-eventi-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "coordinatore-coordinatrice-di-riunioni-ed-eventi-60-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "meetings-events-coordinateur-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -2098,16 +2094,24 @@
           "maxValue": 46800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "meetings-amp-events-coordinator-60-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-1ef9bea94166",
-      "slug": "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "salute-professionale-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz",
-        "it": "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz"
+        "it": "salute-professionale-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "professional-health-grand-resort-bad-ragaz-bad-ragaz",
+        "fr": "sante-professionnelle-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -2166,7 +2170,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:16:29.479Z"
+      "firstSeenAt": "2026-10-08T09:16:29.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     }
   ]
 }

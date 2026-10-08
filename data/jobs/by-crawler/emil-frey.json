@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "emil-frey-0b707ef6b4d0",
-      "slug": "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich",
+      "slug": "account-chiave-del-cliente-con-il-supporto-a-pagamento-emil-frey-zurich",
       "slugByLocale": {
         "de": "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich",
-        "it": "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich",
-        "en": "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich",
-        "fr": "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich"
+        "it": "account-chiave-del-cliente-con-il-supporto-a-pagamento-emil-frey-zurich",
+        "en": "customer-advisor-key-account-with-paid-media-reference-emil-frey-zurich",
+        "fr": "compte-cle-du-conseiller-client-avec-reference-media-payant-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -52,13 +52,29 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich"
+        ],
+        "en": [
+          "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich"
+        ],
+        "fr": [
+          "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-key-account-mit-paid-media-bezug-emil-frey-zurich"
+      ]
     },
     {
       "id": "emil-frey-fc1086783035",
-      "slug": "customer-service-representative-80-geneve-cornavin-emil-frey-geneve",
+      "slug": "rappresentante-del-servizio-clienti-80-ginevra-cornavin-emil-frey-geneve",
       "slugByLocale": {
-        "fr": "customer-service-representative-80-geneve-cornavin-emil-frey-geneve"
+        "fr": "customer-service-representative-80-geneve-cornavin-emil-frey-geneve",
+        "it": "rappresentante-del-servizio-clienti-80-ginevra-cornavin-emil-frey-geneve",
+        "de": "kundendienstmitarbeiter-80-genf-cornavin-emil-frey-geneve"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -103,13 +119,23 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-representative-80-geneve-cornavin-emil-frey-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-representative-80-geneve-cornavin-emil-frey-geneve"
+      ]
     },
     {
       "id": "emil-frey-d179afca006b",
-      "slug": "customer-service-representative-80-geneve-aeroport-emil-frey-geneve",
+      "slug": "rappresentante-del-servizio-clienti-80-geneve-aeroport-emil-frey-geneve",
       "slugByLocale": {
-        "fr": "customer-service-representative-80-geneve-aeroport-emil-frey-geneve"
+        "fr": "customer-service-representative-80-geneve-aeroport-emil-frey-geneve",
+        "it": "rappresentante-del-servizio-clienti-80-geneve-aeroport-emil-frey-geneve",
+        "de": "kundendienstmitarbeiter-80-geneve-aeroport-emil-frey-geneve"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -154,16 +180,24 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-representative-80-geneve-aeroport-emil-frey-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "customer-service-representative-80-geneve-aeroport-emil-frey-geneve"
+      ]
     },
     {
       "id": "emil-frey-baced354169a",
-      "slug": "fahrzeugaufbereiter-in-80-zug-emil-frey-zug",
+      "slug": "processore-del-veicolo-80-treno-emil-frey-zug",
       "slugByLocale": {
         "de": "fahrzeugaufbereiter-in-80-zug-emil-frey-zug",
-        "it": "fahrzeugaufbereiter-in-80-zug-emil-frey-zug",
-        "en": "fahrzeugaufbereiter-in-80-zug-emil-frey-zug",
-        "fr": "fahrzeugaufbereiter-in-80-zug-emil-frey-zug"
+        "it": "processore-del-veicolo-80-treno-emil-frey-zug",
+        "en": "vehicle-processor-80-train-emil-frey-zug",
+        "fr": "processeur-de-vehicule-80-train-emil-frey-zug"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -208,7 +242,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugaufbereiter-in-80-zug-emil-frey-zug"
+        ],
+        "en": [
+          "fahrzeugaufbereiter-in-80-zug-emil-frey-zug"
+        ],
+        "fr": [
+          "fahrzeugaufbereiter-in-80-zug-emil-frey-zug"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugaufbereiter-in-80-zug-emil-frey-zug"
+      ]
     },
     {
       "id": "emil-frey-3890bf9bc611",

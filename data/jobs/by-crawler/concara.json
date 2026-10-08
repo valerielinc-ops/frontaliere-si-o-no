@@ -4,7 +4,8 @@
       "id": "concara-b957b5a2d17a",
       "slug": "hr-business-partner-concara-bern",
       "slugByLocale": {
-        "de": "hr-business-partner-concara-bern"
+        "de": "hr-business-partner-concara-bern",
+        "fr": "partenaire-d-affaires-rh-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -52,12 +53,12 @@
     },
     {
       "id": "concara-1817ef15c25c",
-      "slug": "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee",
+      "slug": "responsabile-amministrazione-80-100-membro-del-consiglio-direttivo-concara-domicil-spitex-bern-munchenbuchsee",
       "slugByLocale": {
         "de": "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee",
-        "it": "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee",
-        "en": "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee",
-        "fr": "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee"
+        "it": "responsabile-amministrazione-80-100-membro-del-consiglio-direttivo-concara-domicil-spitex-bern-munchenbuchsee",
+        "en": "head-of-administration-80-100-member-of-the-executive-board-concara-domicil-spitex-bern-munchenbuchsee",
+        "fr": "chef-de-l-administration-80-100-membre-du-directoire-concara-domicil-spitex-bern-munchenbuchsee"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -102,7 +103,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee"
+        ],
+        "en": [
+          "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee"
+        ],
+        "fr": [
+          "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-administration-80-100-mitglied-der-geschaftsleitung-concara-munchenbuchsee"
+      ]
     },
     {
       "id": "concara-9eed920a9598",

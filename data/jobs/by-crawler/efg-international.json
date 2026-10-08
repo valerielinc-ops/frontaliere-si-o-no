@@ -3340,7 +3340,7 @@
       "slugByLocale": {
         "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -3370,12 +3370,13 @@
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano"
+          "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano"
+        "schaltnetzbetreiber-efg-international-ag-lugano",
+        "schaltstelle-operator-efg-international-ag-lugano"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://www.efginternational.com/us/about/careers",

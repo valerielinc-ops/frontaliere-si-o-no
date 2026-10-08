@@ -2,11 +2,11 @@
   "jobs": [
     {
       "id": "huntsman-c78cd5f80c52",
-      "slug": "intern-data-science-huntsman-ch",
+      "slug": "intern-scienza-dei-dati-huntsman-corporation-basel",
       "slugByLocale": {
         "en": "intern-data-science-huntsman-ch",
-        "it": "intern-data-science-huntsman-ch",
-        "de": "intern-data-science-huntsman-ch",
+        "it": "intern-scienza-dei-dati-huntsman-corporation-basel",
+        "de": "interne-datenwissenschaft-huntsman-corporation-basel",
         "fr": "intern-data-science-huntsman-ch"
       },
       "company": "Huntsman Corporation",
@@ -50,7 +50,18 @@
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-10-08T09:55:28.061Z",
-      "jobReqId": "J-020004"
+      "jobReqId": "J-020004",
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-data-science-huntsman-ch"
+        ],
+        "de": [
+          "intern-data-science-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intern-data-science-huntsman-ch"
+      ]
     },
     {
       "id": "huntsman-44c7f12fdf02",

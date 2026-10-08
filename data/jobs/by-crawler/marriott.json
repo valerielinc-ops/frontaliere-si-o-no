@@ -1287,12 +1287,12 @@
     },
     {
       "id": "marriott-69439d84a679",
-      "slug": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
+      "slug": "agente-di-benvenuto-intern-reception-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
-        "it": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
+        "it": "agente-di-benvenuto-intern-reception-w-verbier-marriott-international-verbier",
         "de": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
-        "fr": "welcome-agent-intern-reception-w-verbier-marriott-verbier"
+        "fr": "agent-de-bienvenue-stagiaire-reception-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1345,7 +1345,18 @@
         "jobField": "College/University",
         "accountName": "",
         "publishEndDate": "2026-11-21T14:16:00.000Z"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "welcome-agent-intern-reception-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "welcome-agent-intern-reception-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "welcome-agent-intern-reception-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-492547fefe14",

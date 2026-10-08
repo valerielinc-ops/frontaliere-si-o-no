@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "orell-fuessli-thalia-feee89be2dc8",
-      "slug": "hr-consultant-orell-fuessli-thalia-zurich",
+      "slug": "consulente-hr-orell-fussli-thalia-zurich",
       "slugByLocale": {
         "de": "hr-consultant-orell-fuessli-thalia-zurich",
-        "it": "hr-consultant-orell-fuessli-thalia-zurich",
-        "en": "hr-consultant-orell-fuessli-thalia-zurich",
-        "fr": "hr-consultant-orell-fuessli-thalia-zurich"
+        "it": "consulente-hr-orell-fussli-thalia-zurich",
+        "en": "hr-banana-orell-fussli-thalia-zurich",
+        "fr": "consultant-en-ressources-humaines-orell-fussli-thalia-zurich"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -53,7 +53,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-consultant-orell-fuessli-thalia-zurich"
+        ],
+        "en": [
+          "hr-consultant-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
+          "hr-consultant-orell-fuessli-thalia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-consultant-orell-fuessli-thalia-zurich"
+      ]
     },
     {
       "id": "orell-fuessli-thalia-f9a2a0d53c39",
@@ -882,12 +896,12 @@
     },
     {
       "id": "orell-fuessli-thalia-1c511c321e2a",
-      "slug": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+      "slug": "libreria-70-90-a-orell-fussli-thalia-bern",
       "slugByLocale": {
         "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "it": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "en": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "fr": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        "it": "libreria-70-90-a-orell-fussli-thalia-bern",
+        "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
+        "fr": "librairie-70-90-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -933,7 +947,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        ],
+        "en": [
+          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        ],
+        "fr": [
+          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        ]
+      },
+      "previousSlugs": [
+        "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+      ]
     },
     {
       "id": "orell-fuessli-thalia-552daafae8ee",

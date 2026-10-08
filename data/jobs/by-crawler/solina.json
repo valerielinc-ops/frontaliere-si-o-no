@@ -2,9 +2,11 @@
   "jobs": [
     {
       "id": "solina-39b68a0d5cf0",
-      "slug": "product-owner-digital-solutions-solina-standortubergreifend",
+      "slug": "product-owner-soluzioni-digitali-stiftung-solina-standortubergreifend",
       "slugByLocale": {
-        "de": "product-owner-digital-solutions-solina-standortubergreifend"
+        "de": "product-owner-digital-solutions-solina-standortubergreifend",
+        "it": "product-owner-soluzioni-digitali-stiftung-solina-standortubergreifend",
+        "fr": "proprietaire-du-produit-solutions-numeriques-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -48,16 +50,24 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-digital-solutions-solina-standortubergreifend"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-digital-solutions-solina-standortubergreifend"
+      ]
     },
     {
       "id": "solina-46537301d83a",
-      "slug": "projektleiter-in-fokus-caring-solina-standortubergreifend",
+      "slug": "project-manager-focus-caring-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "de": "projektleiter-in-fokus-caring-solina-standortubergreifend",
-        "it": "projektleiter-in-fokus-caring-solina-standortubergreifend",
+        "it": "project-manager-focus-caring-stiftung-solina-standortubergreifend",
         "en": "projektleiter-in-fokus-caring-solina-standortubergreifend",
-        "fr": "projektleiter-in-fokus-caring-solina-standortubergreifend"
+        "fr": "gestionnaire-de-projet-focus-caring-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -101,7 +111,18 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-fokus-caring-solina-standortubergreifend"
+        ],
+        "fr": [
+          "projektleiter-in-fokus-caring-solina-standortubergreifend"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-in-fokus-caring-solina-standortubergreifend"
+      ]
     },
     {
       "id": "solina-f31e697c58fd",

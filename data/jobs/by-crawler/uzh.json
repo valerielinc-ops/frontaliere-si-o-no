@@ -2131,7 +2131,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2178,12 +2178,12 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ],
         "it": [
           "professorship-of-neurology-uzh-zurich"
@@ -2969,9 +2969,9 @@
       "slug": "wissenschaftliche-assistenz-universitat-zurich",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-uzh-zurich",
-        "it": "wissenschaftliche-assistenz-universitat-zurich",
-        "en": "wissenschaftliche-assistenz-universitat-zurich",
-        "fr": "wissenschaftliche-assistenz-universitat-zurich"
+        "it": "assistenza-scientifica-universitat-zurich-zurich-6efc07",
+        "en": "scientific-assistance-universitat-zurich-zurich-6efc07",
+        "fr": "assistance-scientifique-universitat-zurich-zurich-6efc07"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -3019,21 +3019,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-assistenz-uzh-zurich",
-          "assistenza-scientifica-universitat-zurich-zurich-6efc07"
-        ],
-        "en": [
-          "scientific-assistance-universitat-zurich-zurich-6efc07"
-        ],
-        "fr": [
-          "assistance-scientifique-universitat-zurich-zurich-6efc07"
+          "wissenschaftliche-assistenz-uzh-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-assistenz-uzh-zurich",
-        "assistenza-scientifica-universitat-zurich-zurich-6efc07",
-        "scientific-assistance-universitat-zurich-zurich-6efc07",
-        "assistance-scientifique-universitat-zurich-zurich-6efc07"
+        "wissenschaftliche-assistenz-uzh-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

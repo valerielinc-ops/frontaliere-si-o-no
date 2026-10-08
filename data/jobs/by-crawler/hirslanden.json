@@ -18819,8 +18819,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-70-80-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital"
+        "en": "employee-housekeeping-a-70-80-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "employe-menage-a-70-80-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -18869,6 +18869,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-70-80-hirslanden-hirslanden-salem-spital"
         ]
       },
       "previousSlugs": [
@@ -18891,12 +18897,12 @@
     },
     {
       "id": "hirslanden-8f5901ce60d3",
-      "slug": "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden",
+      "slug": "addetta-specializzata-addetto-specializzato-in-economia-domestica-con-responsabilita-giornaliera-a-70-80-hirslanden",
       "slugByLocale": {
         "de": "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden",
-        "it": "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden",
-        "en": "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden",
-        "fr": "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden"
+        "it": "addetta-specializzata-addetto-specializzato-in-economia-domestica-con-responsabilita-giornaliera-a-70-80-hirslanden",
+        "en": "professional-specialist-housekeeping-with-daily-responsibility-a-70-80-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "professionnel-specialiste-menage-avec-responsabilite-quotidienne-a-70-80-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -18954,7 +18960,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:20:58.922Z"
+      "firstSeenAt": "2026-10-08T09:20:58.922Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden"
+        ],
+        "en": [
+          "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hauswirtschaft-mit-tagesverantwortung-a-70-80-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-36e7464cb5a5",
@@ -18962,8 +18982,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-40-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital"
+        "en": "employee-housekeeping-a-40-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "employe-menage-a-40-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -19011,6 +19031,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-40-hirslanden-hirslanden-salem-spital"
         ]
       },
@@ -25900,12 +25926,12 @@
     },
     {
       "id": "hirslanden-1e4c0b5378a7",
-      "slug": "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital",
+      "slug": "responsabile-del-rischio-a-50-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital",
-        "it": "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital",
-        "en": "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital",
-        "fr": "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital"
+        "it": "responsabile-del-rischio-a-50-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "risk-manager-a-50-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "gestionnaire-des-risques-a-50-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25963,7 +25989,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:17:47.793Z"
+      "firstSeenAt": "2026-10-08T09:17:47.793Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "risikomanagerin-risikomanager-a-50-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-879a1985b970",
@@ -26853,12 +26893,12 @@
     },
     {
       "id": "hirslanden-764a1cfee906",
-      "slug": "apprendistato-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-a-per-august-2027-hirslanden-klinik-linde",
+      "slug": "posto-di-apprendistato-apprendistato-impiegata-impiegato-d-albergo-economia-domestica-afc-a-per-agosto-2027-hirslanden",
       "slugByLocale": {
         "de": "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027",
-        "it": "apprendistato-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-a-per-august-2027-hirslanden-klinik-linde",
-        "en": "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027",
-        "fr": "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027"
+        "it": "posto-di-apprendistato-apprendistato-impiegata-impiegato-d-albergo-economia-domestica-afc-a-per-agosto-2027-hirslanden",
+        "en": "apprenticeship-apprenticeship-specialist-hotel-industry-specialist-efz-a-as-of-august-2027-hirslanden-klinik-hirslanden",
+        "fr": "apprentissage-apprentissage-industrie-hoteliere-efz-a-en-date-d-aout-2027-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26905,11 +26945,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027",
+          "apprendistato-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-a-per-august-2027-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027"
+        ],
+        "fr": [
           "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027"
+        "lehrstelle-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-a-per-august-2027",
+        "apprendistato-lehre-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-a-per-august-2027-hirslanden-klinik-linde"
       ],
       "salaryMin": 54000,
       "salaryMax": 68000,

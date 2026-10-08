@@ -76,12 +76,12 @@
     },
     {
       "id": "senevita-5bc5a7c2c1c7",
-      "slug": "praktikant-in-wms-100-senevita-be-muri-b-bern",
+      "slug": "tirocinante-wms-100-senevita-be-muri-b",
       "slugByLocale": {
-        "it": "praktikant-in-wms-100-senevita-be-muri-b-bern",
-        "en": "praktikant-in-wms-100-senevita-be-muri-b-bern",
+        "it": "tirocinante-wms-100-senevita-be-muri-b",
+        "en": "intern-wms-100-senevita-be-muri-b",
         "de": "praktikant-in-wms-100-senevita-be-muri-b-bern",
-        "fr": "praktikant-in-wms-100-senevita-be-muri-b-bern"
+        "fr": "stagiaire-wms-100-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -139,7 +139,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-wms-100-senevita-be-muri-b-bern"
+        ],
+        "en": [
+          "praktikant-in-wms-100-senevita-be-muri-b-bern"
+        ],
+        "fr": [
+          "praktikant-in-wms-100-senevita-be-muri-b-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-wms-100-senevita-be-muri-b-bern"
+      ]
     },
     {
       "id": "senevita-a3ccc48cf270",
@@ -1099,7 +1113,7 @@
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
         "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "fr": "collaborateur-trice-rh-50-senevita-bl-lausen"
+        "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1149,12 +1163,12 @@
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
-          "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+          "collaborateur-trice-rh-50-senevita-bl-lausen"
         ]
       },
       "previousSlugs": [
         "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+        "collaborateur-trice-rh-50-senevita-bl-lausen"
       ],
       "salaryMin": 31000,
       "salaryMax": 47000,
@@ -17072,8 +17086,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau",
         "it": "collaboratore-trice-hauswirtschaft-senevita-ag-aarau",
-        "en": "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau",
-        "fr": "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau"
+        "en": "housekeeping-employee-senevita-ag-aarau",
+        "fr": "collaborateur-trice-en-intendance-senevita-ag-aarau"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17122,6 +17136,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-senevita-ag-aarau"
         ]
       },
       "previousSlugs": [
@@ -17144,12 +17164,12 @@
     },
     {
       "id": "senevita-eb85da4d1fe1",
-      "slug": "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon",
+      "slug": "ausiliario-a-di-cura-srk-m-f-i-40-100-senevita-lu-ebikon",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon",
         "en": "nursing-assistant-in-srk-m-f-i-40-100-senevita-lu-ebikon",
         "fr": "assistant-infirmier-in-srk-m-f-i-40-100-senevita-lu-ebikon",
-        "it": "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon"
+        "it": "ausiliario-a-di-cura-srk-m-f-i-40-100-senevita-lu-ebikon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17207,7 +17227,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-m-w-i-40-100-senevita-lu-ebikon"
+      ]
     }
   ],
   "assembledAt": "2026-10-08T09:26:51.215Z",

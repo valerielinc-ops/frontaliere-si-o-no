@@ -333,12 +333,12 @@
     },
     {
       "id": "stellenpartner-01ebc834db89",
-      "slug": "zimmermann-zimmerin-per-top-einsatzfirma-stellenpartner-ag-laufenburg",
+      "slug": "carpentiere-carpentiera-per-un-azienda-cliente-di-prim-ordine-stellenpartner-ag-laufenburg-aargau",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch",
-        "it": "zimmermann-zimmerin-per-top-einsatzfirma-stellenpartner-ag-laufenburg",
-        "en": "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch",
-        "fr": "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch"
+        "it": "carpentiere-carpentiera-per-un-azienda-cliente-di-prim-ordine-stellenpartner-ag-laufenburg-aargau",
+        "en": "carpenter-for-a-top-client-company-stellenpartner-ag-laufenburg-aargau",
+        "fr": "charpentier-charpentiere-pour-une-entreprise-de-premier-plan-stellenpartner-ag-laufenburg-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -384,11 +384,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch",
+          "zimmermann-zimmerin-per-top-einsatzfirma-stellenpartner-ag-laufenburg"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch"
+        "zimmermann-zimmerin-fur-top-einsatzfirma-laufenburg-aargau-stellenpartner-ch",
+        "zimmermann-zimmerin-per-top-einsatzfirma-stellenpartner-ag-laufenburg"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -405,7 +413,7 @@
       },
       "postalCode": "5080",
       "firstSeenAt": "2026-10-08T09:36:16.177Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-6a079606d005",
@@ -2883,12 +2891,12 @@
     },
     {
       "id": "stellenpartner-9ff0305cb090",
-      "slug": "schreiner-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis",
+      "slug": "falegname-per-il-montaggio-di-porte-e-finestre-stellenpartner-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
-        "it": "schreiner-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis",
-        "en": "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
-        "fr": "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        "it": "falegname-per-il-montaggio-di-porte-e-finestre-stellenpartner-ag-affoltern-am-albis-zurich",
+        "en": "carpenter-for-door-and-window-installation-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "menuisier-ere-pour-le-montage-de-portes-et-de-fenetres-stellenpartner-ag-affoltern-am-albis-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -2934,11 +2942,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
+          "schreiner-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        "schreiner-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
+        "schreiner-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2955,7 +2971,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.172Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-4d263fab0733",
@@ -6883,12 +6899,12 @@
     },
     {
       "id": "stellenpartner-248dfd9d00a2",
-      "slug": "polymechaniker-in-per-fahrzeugwartung-e-reparatur-stellenpartner-ag-kussnacht-am-rigi",
+      "slug": "polimeccanico-a-per-la-manutenzione-e-la-riparazione-di-veicoli-stellenpartner-ag-kussnacht-am-rigi-schwyz",
       "slugByLocale": {
         "de": "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi",
-        "it": "polymechaniker-in-per-fahrzeugwartung-e-reparatur-stellenpartner-ag-kussnacht-am-rigi",
-        "en": "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi",
-        "fr": "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi"
+        "it": "polimeccanico-a-per-la-manutenzione-e-la-riparazione-di-veicoli-stellenpartner-ag-kussnacht-am-rigi-schwyz",
+        "en": "polymechanic-for-vehicle-maintenance-and-repair-stellenpartner-ag-kussnacht-am-rigi-schwyz",
+        "fr": "polymecanicien-ne-pour-l-entretien-et-la-reparation-de-vehicules-stellenpartner-ag-kussnacht-am-rigi-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -6934,14 +6950,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-kussnacht-am-rigi-schwyz"
+          "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-kussnacht-am-rigi-schwyz",
+          "polymechaniker-in-per-fahrzeugwartung-e-reparatur-stellenpartner-ag-kussnacht-am-rigi"
         ],
         "de": [
           "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-kussnacht-am-rigi-schwyz"
+        ],
+        "en": [
+          "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi"
+        ],
+        "fr": [
+          "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-kussnacht-am-rigi-schwyz"
+        "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-kussnacht-am-rigi-schwyz",
+        "polymechaniker-in-per-fahrzeugwartung-e-reparatur-stellenpartner-ag-kussnacht-am-rigi",
+        "polymechaniker-in-fur-fahrzeugwartung-und-reparatur-stellenpartner-ag-kussnacht-am-rigi"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6958,7 +6983,7 @@
       },
       "postalCode": "6403",
       "firstSeenAt": "2026-10-08T09:36:16.163Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-588b836b1f4a",
@@ -7801,12 +7826,12 @@
     },
     {
       "id": "stellenpartner-54d43f3ae86c",
-      "slug": "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch",
+      "slug": "polimeccanico-a-per-fresatura-a-5-assi-e-rettifica-a-coordinate-stellenpartner-ag-sursee-luzern",
       "slugByLocale": {
         "de": "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch",
-        "it": "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch",
-        "en": "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch",
-        "fr": "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch"
+        "it": "polimeccanico-a-per-fresatura-a-5-assi-e-rettifica-a-coordinate-stellenpartner-ag-sursee-luzern",
+        "en": "polymechanic-for-5-axis-milling-coordinate-grinding-stellenpartner-ag-sursee-luzern",
+        "fr": "polymecanicien-ne-fraisage-5-axes-rectification-par-coordonnees-stellenpartner-ag-sursee-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -7865,7 +7890,21 @@
       },
       "postalCode": "6210",
       "firstSeenAt": "2026-10-08T09:36:16.161Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-5-achs-frasen-amp-koordinatenschleifen-sursee-luzern-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-e87bb6a033aa",
@@ -11952,12 +11991,12 @@
     },
     {
       "id": "stellenpartner-1ac768e02e9f",
-      "slug": "montage-elektriker-in-per-elektroinstallationen-e-reparaturen-stellenpartner-ag-luzern",
+      "slug": "elettricista-addetto-a-al-montaggio-per-installazioni-elettriche-e-riparazioni-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern",
-        "it": "montage-elektriker-in-per-elektroinstallationen-e-reparaturen-stellenpartner-ag-luzern",
-        "en": "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern",
-        "fr": "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern"
+        "it": "elettricista-addetto-a-al-montaggio-per-installazioni-elettriche-e-riparazioni-stellenpartner-ag-luzern-luzern",
+        "en": "assembly-electrician-for-electrical-installations-and-repairs-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-ne-de-montage-pour-installations-electriques-et-reparations-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -12003,11 +12042,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern",
+          "montage-elektriker-in-per-elektroinstallationen-e-reparaturen-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern"
+        ],
+        "fr": [
           "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern"
+        "montage-elektriker-in-fur-elektroinstallationen-und-reparaturen-luzern-luzern",
+        "montage-elektriker-in-per-elektroinstallationen-e-reparaturen-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -12024,7 +12071,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.147Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-c32c275844e9",
@@ -13507,12 +13554,12 @@
     },
     {
       "id": "stellenpartner-aba1179e433c",
-      "slug": "metallbauer-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis",
+      "slug": "carpentiere-metallico-a-per-il-montaggio-di-porte-e-finestre-stellenpartner-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
-        "it": "metallbauer-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis",
-        "en": "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
-        "fr": "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        "it": "carpentiere-metallico-a-per-il-montaggio-di-porte-e-finestre-stellenpartner-ag-affoltern-am-albis-zurich",
+        "en": "metalworker-for-installing-doors-and-windows-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "constructeur-trice-metallique-pour-montage-de-portes-et-fenetres-stellenpartner-ag-affoltern-am-albis-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -13558,11 +13605,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
+          "metallbauer-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch"
+        "metallbauer-in-fur-montage-turen-und-fenster-affoltern-am-albis-zurich-stellenpartner-ch",
+        "metallbauer-in-per-montage-turen-e-fenster-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13579,7 +13634,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.142Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-f66dae979cc6",
@@ -15227,12 +15282,12 @@
     },
     {
       "id": "stellenpartner-ddeb522d9828",
-      "slug": "maurer-in-per-kundenarbeiten-stellenpartner-ag-bischofszell",
+      "slug": "muratore-trice-per-lavori-presso-clienti-stellenpartner-ag-bischofszell-thurgau",
       "slugByLocale": {
         "de": "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch",
-        "it": "maurer-in-per-kundenarbeiten-stellenpartner-ag-bischofszell",
-        "en": "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch",
-        "fr": "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch"
+        "it": "muratore-trice-per-lavori-presso-clienti-stellenpartner-ag-bischofszell-thurgau",
+        "en": "mason-for-customer-projects-stellenpartner-ag-bischofszell-thurgau",
+        "fr": "macon-ne-pour-travaux-chez-les-clients-stellenpartner-ag-bischofszell-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -15278,11 +15333,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch",
+          "maurer-in-per-kundenarbeiten-stellenpartner-ag-bischofszell"
+        ],
+        "en": [
+          "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch"
+        ],
+        "fr": [
           "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch"
+        "maurer-in-fur-kundenarbeiten-bischofszell-thurgau-stellenpartner-ch",
+        "maurer-in-per-kundenarbeiten-stellenpartner-ag-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15299,7 +15362,7 @@
       },
       "postalCode": "9220",
       "firstSeenAt": "2026-10-08T09:36:16.139Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-57a3682dd2be",
@@ -15541,12 +15604,12 @@
     },
     {
       "id": "stellenpartner-9f76505062cc",
-      "slug": "maler-in-per-neubau-e-renovationen-stellenpartner-ag-weinfelden",
+      "slug": "pittore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
       "slugByLocale": {
         "de": "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch",
-        "it": "maler-in-per-neubau-e-renovationen-stellenpartner-ag-weinfelden",
-        "en": "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch",
-        "fr": "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch"
+        "it": "pittore-trice-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-weinfelden-thurgau",
+        "en": "painter-for-new-construction-and-renovations-stellenpartner-ag-weinfelden-thurgau",
+        "fr": "peintre-pour-constructions-neuves-et-renovations-stellenpartner-ag-weinfelden-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -15592,11 +15655,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch",
+          "maler-in-per-neubau-e-renovationen-stellenpartner-ag-weinfelden"
+        ],
+        "en": [
+          "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch"
+        ],
+        "fr": [
           "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch"
+        "maler-in-fur-neubau-und-renovationen-weinfelden-thurgau-stellenpartner-ch",
+        "maler-in-per-neubau-e-renovationen-stellenpartner-ag-weinfelden"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15613,7 +15684,7 @@
       },
       "postalCode": "8570",
       "firstSeenAt": "2026-10-08T09:36:16.138Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-4e8a7e7d6e32",
@@ -17590,12 +17661,12 @@
     },
     {
       "id": "stellenpartner-7c3c0c09152e",
-      "slug": "logistiker-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag",
+      "slug": "logista-per-un-datore-di-lavoro-interessante-stellenpartner-ag-muri-ag-aargau",
       "slugByLocale": {
         "de": "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
-        "it": "logistiker-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag",
-        "en": "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
-        "fr": "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch"
+        "it": "logista-per-un-datore-di-lavoro-interessante-stellenpartner-ag-muri-ag-aargau",
+        "en": "logistics-specialist-for-an-attractive-employer-stellenpartner-ag-muri-ag-aargau",
+        "fr": "logisticien-ne-pour-un-employeur-attrayant-stellenpartner-ag-muri-ag-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -17641,11 +17712,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
+          "logistiker-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag"
+        ],
+        "en": [
+          "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch"
+        ],
+        "fr": [
           "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch"
+        "logistiker-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
+        "logistiker-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -17662,7 +17741,7 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-10-08T09:36:16.134Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-5d5a2e83064d",
@@ -21075,12 +21154,12 @@
     },
     {
       "id": "stellenpartner-793f2838cf25",
-      "slug": "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-affoltern-am-albis",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-con-competenze-tecniche-versatili-stellenpartner-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis",
-        "it": "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-affoltern-am-albis",
-        "en": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis",
-        "fr": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-con-competenze-tecniche-versatili-stellenpartner-ag-affoltern-am-albis-zurich",
+        "en": "gardener-gardening-and-landscaping-with-broad-expertise-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "jardinier-ere-amenagement-de-jardins-et-paysagisme-avec-de-vastes-connaissances-specialisees-stellenpartner-ag-affoltern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -21126,11 +21205,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis",
+          "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis"
+        "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-affoltern-am-albis",
+        "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21147,7 +21234,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.128Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-29c64909574c",
@@ -21861,12 +21948,12 @@
     },
     {
       "id": "stellenpartner-84105cd51768",
-      "slug": "gartner-in-garten-e-landschaftsbau-per-anspruchsvolle-projekte-stellenpartner-ag-winterthur",
+      "slug": "giardiniere-a-giardinaggio-e-paesaggistica-per-progetti-impegnativi-stellenpartner-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-stellenpartner-ag-winterthur",
-        "it": "gartner-in-garten-e-landschaftsbau-per-anspruchsvolle-projekte-stellenpartner-ag-winterthur",
-        "en": "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich",
-        "fr": "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
+        "it": "giardiniere-a-giardinaggio-e-paesaggistica-per-progetti-impegnativi-stellenpartner-ag-winterthur-zurich",
+        "en": "gardener-gardening-and-landscaping-for-demanding-projects-stellenpartner-ag-winterthur-zurich",
+        "fr": "jardinier-ere-amenagement-de-jardins-et-paysagisme-pour-des-projets-exigeants-stellenpartner-ag-winterthur-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -21912,14 +21999,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
+          "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich",
+          "gartner-in-garten-e-landschaftsbau-per-anspruchsvolle-projekte-stellenpartner-ag-winterthur"
         ],
         "de": [
+          "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich"
+        "gartner-in-garten-und-landschaftsbau-fur-anspruchsvolle-projekte-winterthur-zurich",
+        "gartner-in-garten-e-landschaftsbau-per-anspruchsvolle-projekte-stellenpartner-ag-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -21936,7 +22031,7 @@
       },
       "postalCode": "8400",
       "firstSeenAt": "2026-10-08T09:36:16.126Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-bb8255fb4c5b",
@@ -23044,12 +23139,12 @@
     },
     {
       "id": "stellenpartner-18f710c00033",
-      "slug": "installatore-trice-elettrico-a-in-con-selbstandiger-tatigkeit-stellenpartner-ag-schwyz",
+      "slug": "installatore-trice-elettrico-a-con-attivita-autonoma-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch",
-        "it": "installatore-trice-elettrico-a-in-con-selbstandiger-tatigkeit-stellenpartner-ag-schwyz",
-        "en": "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch"
+        "it": "installatore-trice-elettrico-a-con-attivita-autonoma-stellenpartner-ag-schwyz-schwyz",
+        "en": "electrical-installer-working-independently-stellenpartner-ag-schwyz-schwyz",
+        "fr": "installateur-trice-electricien-ne-exercant-une-activite-independante-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -23095,11 +23190,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch",
+          "installatore-trice-elettrico-a-in-con-selbstandiger-tatigkeit-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch"
+        "elektroinstallateur-in-mit-selbstandiger-tatigkeit-schwyz-schwyz-stellenpartner-ch",
+        "installatore-trice-elettrico-a-in-con-selbstandiger-tatigkeit-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -23847,7 +23950,7 @@
         "it": "installatori-elettrici-residenziali-commerciali-e-industriali-stellenpartner-ag-zug-zug",
         "en": "residential-commercial-and-industrial-electrical-installers-stellenpartner-ag-zug-zug",
         "de": "elektroinstallateur-in-fur-wohnungsbau-gewerbe-und-industrie-zug-zug-stellenpartner-ch",
-        "fr": "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -23892,7 +23995,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohnungsbau-gewerbe-und-industrie-zug-zug-stellenpartner-ch",
         "installateur-trice-electricien-ne-fur-wohnungsbau-gewerbe-und-industrie-stellenpartner-ag-zug",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
+        "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23900,7 +24003,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohnungsbau-gewerbe-und-industrie-stellenpartner-ag-zug",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
+          "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
         ]
       },
       "salaryMin": 78500,
@@ -24006,12 +24109,12 @@
     },
     {
       "id": "stellenpartner-48154330807e",
-      "slug": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-winterthur",
+      "slug": "installatore-trice-elettrico-a-per-installazioni-ad-alta-e-bassa-tensione-stellenpartner-ag-winterthur-zurich",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
-        "it": "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-winterthur",
-        "en": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
-        "fr": "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur"
+        "it": "installatore-trice-elettrico-a-per-installazioni-ad-alta-e-bassa-tensione-stellenpartner-ag-winterthur-zurich",
+        "en": "electrical-installer-for-high-and-low-voltage-installations-stellenpartner-ag-winterthur-zurich",
+        "fr": "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-winterthur"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -24059,22 +24162,23 @@
         "electrical-installer-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
         "installateur-trice-electricien-ne-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
         "installatore-trice-elettricista-per-installazioni-a-corrente-forte-e-debole-stellenpartner-ag-winterthur-zurich",
-        "electrical-installer-for-high-and-low-voltage-installations-stellenpartner-ag-winterthur-zurich",
-        "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-winterthur",
-        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich"
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
+        "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-winterthur",
+        "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "installatore-trice-elettricista-per-installazioni-a-corrente-forte-e-debole-stellenpartner-ag-winterthur-zurich",
-          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-winterthur-zurich",
+          "installatore-trice-elettrico-a-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-winterthur"
         ],
         "en": [
           "electrical-installer-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
-          "electrical-installer-for-high-and-low-voltage-installations-stellenpartner-ag-winterthur-zurich"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur"
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur",
-          "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-winterthur"
+          "elektroinstallateur-in-fur-stark-und-schwachstrominstallationen-stellenpartner-ag-winterthur"
         ]
       },
       "salaryMin": 83000,
@@ -24094,12 +24198,12 @@
     },
     {
       "id": "stellenpartner-65e69618d319",
-      "slug": "installatore-trice-elettrico-a-in-per-serviceeinsatze-im-kundendienst-stellenpartner-ag-willisau",
+      "slug": "installatore-trice-elettrico-a-per-interventi-di-assistenza-presso-i-clienti-stellenpartner-ag-willisau-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner",
-        "it": "installatore-trice-elettrico-a-in-per-serviceeinsatze-im-kundendienst-stellenpartner-ag-willisau",
-        "en": "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner"
+        "it": "installatore-trice-elettrico-a-per-interventi-di-assistenza-presso-i-clienti-stellenpartner-ag-willisau-luzern",
+        "en": "electrical-installer-for-customer-service-callouts-stellenpartner-ag-willisau-luzern",
+        "fr": "installateur-trice-electricien-ne-pour-interventions-de-service-a-la-clientele-stellenpartner-ag-willisau-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -24145,11 +24249,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner",
+          "installatore-trice-elettrico-a-in-per-serviceeinsatze-im-kundendienst-stellenpartner-ag-willisau"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner"
+        "elektroinstallateur-in-fur-serviceeinsatze-im-kundendienst-willisau-luzern-stellenpartner",
+        "installatore-trice-elettrico-a-in-per-serviceeinsatze-im-kundendienst-stellenpartner-ag-willisau"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -24169,12 +24281,12 @@
     },
     {
       "id": "stellenpartner-0684d0b5e516",
-      "slug": "installatore-trice-elettrico-a-in-per-stark-e-schwachstromanlagen-stellenpartner-ag-schwyz",
+      "slug": "installatore-trice-elettrico-a-per-impianti-ad-alta-e-bassa-tensione-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch",
-        "it": "installatore-trice-elettrico-a-in-per-stark-e-schwachstromanlagen-stellenpartner-ag-schwyz",
-        "en": "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch"
+        "it": "installatore-trice-elettrico-a-per-impianti-ad-alta-e-bassa-tensione-stellenpartner-ag-schwyz-schwyz",
+        "en": "electrical-installer-for-high-and-low-voltage-systems-stellenpartner-ag-schwyz-schwyz",
+        "fr": "installateur-trice-electricien-ne-pour-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -24220,11 +24332,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch",
+          "installatore-trice-elettrico-a-in-per-stark-e-schwachstromanlagen-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch"
+        "elektroinstallateur-in-fur-stark-und-schwachstromanlagen-schwyz-schwyz-stellenpartner-ch",
+        "installatore-trice-elettrico-a-in-per-stark-e-schwachstromanlagen-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -24554,12 +24674,12 @@
     },
     {
       "id": "stellenpartner-10dedc69fc13",
-      "slug": "installatore-trice-elettrico-a-in-per-instandsetzung-historischer-fahrzeuge-stellenpartner-ag-schwyz",
+      "slug": "installatore-trice-elettrico-a-per-la-riparazione-di-veicoli-storici-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz",
-        "it": "installatore-trice-elettrico-a-in-per-instandsetzung-historischer-fahrzeuge-stellenpartner-ag-schwyz",
-        "en": "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz",
-        "fr": "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz"
+        "it": "installatore-trice-elettrico-a-per-la-riparazione-di-veicoli-storici-stellenpartner-ag-schwyz-schwyz",
+        "en": "electrical-installer-for-the-restoration-of-historic-vehicles-stellenpartner-ag-schwyz-schwyz",
+        "fr": "installateur-trice-electricien-ne-pour-la-restauration-de-vehicules-historiques-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -24605,11 +24725,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz",
+          "installatore-trice-elettrico-a-in-per-instandsetzung-historischer-fahrzeuge-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz"
+        "elektroinstallateur-in-fur-instandsetzung-historischer-fahrzeuge-schwyz-schwyz",
+        "installatore-trice-elettrico-a-in-per-instandsetzung-historischer-fahrzeuge-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -24629,12 +24757,12 @@
     },
     {
       "id": "stellenpartner-59a4da7d8ef1",
-      "slug": "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeprojekte-stellenpartner-ag-frauenfeld",
+      "slug": "installatore-trice-elettrico-a-per-progetti-industriali-e-commerciali-stellenpartner-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner",
-        "it": "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeprojekte-stellenpartner-ag-frauenfeld",
-        "en": "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner",
-        "fr": "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner"
+        "it": "installatore-trice-elettrico-a-per-progetti-industriali-e-commerciali-stellenpartner-ag-frauenfeld-thurgau",
+        "en": "electrical-installer-for-industrial-and-commercial-projects-stellenpartner-ag-frauenfeld-thurgau",
+        "fr": "installateur-trice-electricien-ne-pour-projets-industriels-et-commerciaux-stellenpartner-ag-frauenfeld-thurgau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -24680,11 +24808,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner",
+          "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeprojekte-stellenpartner-ag-frauenfeld"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner"
+        "elektroinstallateur-in-fur-industrie-und-gewerbeprojekte-frauenfeld-thurgau-stellenpartner",
+        "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeprojekte-stellenpartner-ag-frauenfeld"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -25183,8 +25319,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-per-emsr-systeme-stellenpartner-ag-luzern",
-        "en": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch"
+        "en": "electrical-installer-for-emsr-systems-stellenpartner-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-pour-les-systemes-emsr-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -25231,6 +25367,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-fur-emsr-systeme-luzern-luzern-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
@@ -25258,8 +25400,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-per-autoparksysteme-stellenpartner-ag-dielsdorf",
-        "en": "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch"
+        "en": "electrical-installer-for-automated-parking-systems-stellenpartner-ag-dielsdorf-zurich",
+        "fr": "installateur-trice-electricien-ne-pour-systemes-de-parking-automobile-stellenpartner-ag-dielsdorf-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -25305,6 +25447,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-autoparksysteme-dielsdorf-zurich-stellenpartner-ch"
         ]
       },
@@ -26603,12 +26751,12 @@
     },
     {
       "id": "stellenpartner-7929c775ddce",
-      "slug": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
+      "slug": "meccatronico-a-automobilistico-a-con-impiego-versatile-nella-manutenzione-dei-veicoli-stellenpartner-ag-kussnacht-am",
       "slugByLocale": {
         "de": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
-        "it": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
-        "en": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am",
-        "fr": "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+        "it": "meccatronico-a-automobilistico-a-con-impiego-versatile-nella-manutenzione-dei-veicoli-stellenpartner-ag-kussnacht-am",
+        "en": "automotive-mechatronics-technician-with-versatile-assignments-in-vehicle-maintenance-stellenpartner-ag-kussnacht-am-rigi",
+        "fr": "mecatronicien-ne-d-automobiles-avec-des-activites-variees-dans-l-entretien-des-vehicules-stellenpartner-ag-kussnacht-am"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -26667,7 +26815,21 @@
       },
       "postalCode": "6403",
       "firstSeenAt": "2026-10-08T09:36:16.114Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+        ],
+        "en": [
+          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+        ],
+        "fr": [
+          "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+        ]
+      },
+      "previousSlugs": [
+        "automobil-mechatroniker-in-mit-vielseitigem-einsatz-in-der-fahrzeugwartung-kussnacht-am"
+      ]
     },
     {
       "id": "stellenpartner-31f416c7b59d",
@@ -27298,12 +27460,12 @@
     },
     {
       "id": "stellenpartner-3529eb05f0db",
-      "slug": "automatikmonteur-in-per-schaltanlagenbau-stellenpartner-ag-schwyz",
+      "slug": "montatore-trice-di-automazione-per-la-costruzione-di-quadri-elettrici-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch",
-        "it": "automatikmonteur-in-per-schaltanlagenbau-stellenpartner-ag-schwyz",
-        "en": "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch",
-        "fr": "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch"
+        "it": "montatore-trice-di-automazione-per-la-costruzione-di-quadri-elettrici-stellenpartner-ag-schwyz-schwyz",
+        "en": "automation-fitter-for-switchgear-construction-stellenpartner-ag-schwyz-schwyz",
+        "fr": "monteur-euse-automaticien-ne-pour-la-construction-de-tableaux-electriques-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -27349,11 +27511,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch",
+          "automatikmonteur-in-per-schaltanlagenbau-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch"
+        "automatikmonteur-in-fur-schaltanlagenbau-schwyz-schwyz-stellenpartner-ch",
+        "automatikmonteur-in-per-schaltanlagenbau-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -27370,16 +27540,16 @@
       },
       "postalCode": "6430",
       "firstSeenAt": "2026-10-08T09:36:16.112Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-97995884b01c",
-      "slug": "automatikmonteur-in-per-verdrahtung-e-anlagenumbauten-stellenpartner-ag-luzern",
+      "slug": "montatore-trice-automatico-a-per-il-cablaggio-e-la-trasformazione-degli-impianti-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch",
-        "it": "automatikmonteur-in-per-verdrahtung-e-anlagenumbauten-stellenpartner-ag-luzern",
-        "en": "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch",
-        "fr": "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch"
+        "it": "montatore-trice-automatico-a-per-il-cablaggio-e-la-trasformazione-degli-impianti-stellenpartner-ag-luzern-luzern",
+        "en": "automation-fitter-for-wiring-and-system-conversions-stellenpartner-ag-luzern-luzern",
+        "fr": "monteur-euse-automaticien-ne-pour-le-cablage-et-la-transformation-d-installations-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -27425,11 +27595,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch",
+          "automatikmonteur-in-per-verdrahtung-e-anlagenumbauten-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
           "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch"
+        "automatikmonteur-in-fur-verdrahtung-und-anlagenumbauten-luzern-luzern-stellenpartner-ch",
+        "automatikmonteur-in-per-verdrahtung-e-anlagenumbauten-stellenpartner-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -27446,7 +27624,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.112Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-2ae97f1a931d",
@@ -27903,12 +28081,12 @@
     },
     {
       "id": "stellenpartner-17eabdb1b18b",
-      "slug": "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch",
+      "slug": "automatista-con-un-ampia-gamma-di-mansioni-stellenpartner-ag-dielsdorf-zurich",
       "slugByLocale": {
         "de": "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch",
-        "it": "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch",
-        "en": "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch",
-        "fr": "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch"
+        "it": "automatista-con-un-ampia-gamma-di-mansioni-stellenpartner-ag-dielsdorf-zurich",
+        "en": "automation-technician-with-a-broad-range-of-responsibilities-stellenpartner-ag-dielsdorf-zurich",
+        "fr": "automaticien-ne-avec-un-large-eventail-de-taches-stellenpartner-ag-dielsdorf-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -27967,7 +28145,21 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-08T09:36:16.111Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "en": [
+          "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "fr": [
+          "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-mit-breitem-aufgabenspektrum-dielsdorf-zurich-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-34048d33d4dc",
@@ -28427,12 +28619,12 @@
     },
     {
       "id": "stellenpartner-006146174b64",
-      "slug": "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-stellenpartner-ag-luzern",
+      "slug": "automatista-per-impianti-emsr-e-sistemi-di-automazione-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner",
-        "it": "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-stellenpartner-ag-luzern",
-        "en": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner",
-        "fr": "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner"
+        "it": "automatista-per-impianti-emsr-e-sistemi-di-automazione-stellenpartner-ag-luzern-luzern",
+        "en": "automation-technician-for-emsr-systems-and-automation-systems-stellenpartner-ag-luzern-luzern",
+        "fr": "automaticien-ne-pour-installations-emsr-et-systemes-d-automatisation-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -28478,11 +28670,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner",
+          "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner"
+        ],
+        "fr": [
           "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner"
+        "automatiker-in-fur-emsr-anlagen-und-automatisierungssysteme-luzern-luzern-stellenpartner",
+        "automatiker-in-per-emsr-anlagen-e-automatisierungssysteme-stellenpartner-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28499,16 +28699,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.110Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-c7630f711568",
-      "slug": "automatiker-in-per-historische-e-moderne-fahrzeuge-stellenpartner-ag-schwyz",
+      "slug": "automatista-per-veicoli-storici-e-moderni-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch",
-        "it": "automatiker-in-per-historische-e-moderne-fahrzeuge-stellenpartner-ag-schwyz",
-        "en": "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch",
-        "fr": "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch"
+        "it": "automatista-per-veicoli-storici-e-moderni-stellenpartner-ag-schwyz-schwyz",
+        "en": "automation-technician-for-historic-and-modern-vehicles-stellenpartner-ag-schwyz-schwyz",
+        "fr": "automaticien-ne-pour-vehicules-historiques-et-modernes-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -28554,11 +28754,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch",
+          "automatiker-in-per-historische-e-moderne-fahrzeuge-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch"
+        "automatiker-in-fur-historische-und-moderne-fahrzeuge-schwyz-schwyz-stellenpartner-ch",
+        "automatiker-in-per-historische-e-moderne-fahrzeuge-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28575,16 +28783,16 @@
       },
       "postalCode": "6430",
       "firstSeenAt": "2026-10-08T09:36:16.110Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-7a262c7b829f",
-      "slug": "automatiker-in-per-schaltanlagenbau-e-prozessoptimierung-stellenpartner-ag-schwyz",
+      "slug": "automatista-per-la-costruzione-di-quadri-elettrici-e-l-ottimizzazione-dei-processi-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "de": "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch",
-        "it": "automatiker-in-per-schaltanlagenbau-e-prozessoptimierung-stellenpartner-ag-schwyz",
-        "en": "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch",
-        "fr": "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch"
+        "it": "automatista-per-la-costruzione-di-quadri-elettrici-e-l-ottimizzazione-dei-processi-stellenpartner-ag-schwyz-schwyz",
+        "en": "automation-technician-for-switchgear-construction-and-process-optimization-stellenpartner-ag-schwyz-schwyz",
+        "fr": "automaticien-ne-pour-la-construction-de-tableaux-electriques-et-l-optimisation-des-processus-stellenpartner-ag-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -28630,11 +28838,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch",
+          "automatiker-in-per-schaltanlagenbau-e-prozessoptimierung-stellenpartner-ag-schwyz"
+        ],
+        "en": [
+          "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch"
+        "automatiker-in-fur-schaltanlagenbau-und-prozessoptimierung-schwyz-schwyz-stellenpartner-ch",
+        "automatiker-in-per-schaltanlagenbau-e-prozessoptimierung-stellenpartner-ag-schwyz"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28651,7 +28867,7 @@
       },
       "postalCode": "6430",
       "firstSeenAt": "2026-10-08T09:36:16.110Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-ab599d6510b3",
@@ -28887,12 +29103,12 @@
     },
     {
       "id": "stellenpartner-09793a285f35",
-      "slug": "automatiker-in-cfc-per-schaltanlagen-e-steuerungen-stellenpartner-ag-luzern",
+      "slug": "automatista-efz-per-quadri-elettrici-e-sistemi-di-comando-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch",
-        "it": "automatiker-in-cfc-per-schaltanlagen-e-steuerungen-stellenpartner-ag-luzern",
-        "en": "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch",
-        "fr": "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch"
+        "it": "automatista-efz-per-quadri-elettrici-e-sistemi-di-comando-stellenpartner-ag-luzern-luzern",
+        "en": "automation-technician-efz-for-switchgear-and-control-systems-stellenpartner-ag-luzern-luzern",
+        "fr": "automaticien-ne-cfc-pour-tableaux-electriques-et-systemes-de-commande-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -28938,11 +29154,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch",
+          "automatiker-in-cfc-per-schaltanlagen-e-steuerungen-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
           "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch"
+        "automatiker-in-efz-fur-schaltanlagen-und-steuerungen-luzern-luzern-stellenpartner-ch",
+        "automatiker-in-cfc-per-schaltanlagen-e-steuerungen-stellenpartner-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28959,7 +29183,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.109Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-c88aac1a894d",
@@ -30670,12 +30894,12 @@
     },
     {
       "id": "stellenpartner-2bfeaba82138",
-      "slug": "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-zurich",
+      "slug": "giardiniere-giardiniera-giardinaggio-e-paesaggistica-con-competenze-specialistiche-diversificate-stellenpartner-ag",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich",
-        "it": "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-zurich",
-        "en": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich",
-        "fr": "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich"
+        "it": "giardiniere-giardiniera-giardinaggio-e-paesaggistica-con-competenze-specialistiche-diversificate-stellenpartner-ag",
+        "en": "gardener-gardening-and-landscaping-with-diverse-specialist-knowledge-stellenpartner-ag-zurich-zurich",
+        "fr": "jardinier-ere-amenagement-de-jardins-et-de-paysages-avec-de-vastes-connaissances-specialisees-stellenpartner-ag-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -30721,11 +30945,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich",
+          "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich"
+        ],
+        "fr": [
           "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich"
+        "gartner-in-garten-und-landschaftsbau-mit-vielseitigen-fachkenntnissen-zurich-zurich",
+        "gartner-in-garten-e-landschaftsbau-con-vielseitigen-fachkenntnissen-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -30742,7 +30974,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.103Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-241cce7d1b53",
@@ -31483,12 +31715,12 @@
     },
     {
       "id": "stellenpartner-a1567a92e2d0",
-      "slug": "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch",
+      "slug": "elettricista-di-montaggio-con-infrastrutture-moderne-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch",
-        "it": "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch",
-        "en": "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch",
-        "fr": "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch"
+        "it": "elettricista-di-montaggio-con-infrastrutture-moderne-stellenpartner-ag-luzern-luzern",
+        "en": "electrical-installer-with-modern-infrastructure-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-ne-de-montage-avec-une-infrastructure-moderne-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -31547,7 +31779,21 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.100Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-in-mit-moderner-infrastruktur-luzern-luzern-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-6d8c42ddf4d5",
@@ -33285,12 +33531,12 @@
     },
     {
       "id": "stellenpartner-806fa975fd20",
-      "slug": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-luzern",
+      "slug": "elettricista-di-montaggio-per-installazioni-a-corrente-forte-e-debole-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern",
-        "it": "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-luzern",
-        "en": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern",
-        "fr": "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern"
+        "it": "elettricista-di-montaggio-per-installazioni-a-corrente-forte-e-debole-stellenpartner-ag-luzern-luzern",
+        "en": "electrical-installer-for-high-and-low-voltage-installations-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-ne-de-montage-pour-les-installations-a-courant-fort-et-a-courant-faible-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -33336,11 +33582,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern",
+          "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern"
+        ],
+        "fr": [
           "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern"
+        "montage-elektriker-in-fur-stark-und-schwachstrominstallationen-luzern-luzern",
+        "montage-elektriker-in-per-stark-e-schwachstrominstallationen-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -33357,7 +33611,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.096Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-67ce73175993",
@@ -34005,12 +34259,12 @@
     },
     {
       "id": "stellenpartner-a36fd848530b",
-      "slug": "installatore-trice-elettrico-a-in-con-service-e-unterhaltsschwerpunkt-stellenpartner-ag-luzern",
+      "slug": "installatore-installatrice-elettrico-a-con-specializzazione-in-assistenza-e-manutenzione-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner",
-        "it": "installatore-trice-elettrico-a-in-con-service-e-unterhaltsschwerpunkt-stellenpartner-ag-luzern",
-        "en": "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner"
+        "it": "installatore-installatrice-elettrico-a-con-specializzazione-in-assistenza-e-manutenzione-stellenpartner-ag-luzern-luzern",
+        "en": "electrical-installer-with-a-focus-on-service-and-maintenance-stellenpartner-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-specialise-e-dans-le-service-et-la-maintenance-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -34056,11 +34310,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner",
+          "installatore-trice-elettrico-a-in-con-service-e-unterhaltsschwerpunkt-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner"
+        "elektroinstallateur-in-mit-service-und-unterhaltsschwerpunkt-luzern-luzern-stellenpartner",
+        "installatore-trice-elettrico-a-in-con-service-e-unterhaltsschwerpunkt-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -36178,12 +36440,12 @@
     },
     {
       "id": "stellenpartner-29259bb72e67",
-      "slug": "schreiner-in-cfc-per-innenausbau-stellenpartner-ag-dietikon",
+      "slug": "falegname-efz-per-allestimenti-interni-stellenpartner-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch",
-        "it": "schreiner-in-cfc-per-innenausbau-stellenpartner-ag-dietikon",
-        "en": "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch",
-        "fr": "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch"
+        "it": "falegname-efz-per-allestimenti-interni-stellenpartner-ag-dietikon-zurich",
+        "en": "joiner-efz-for-interior-construction-stellenpartner-ag-dietikon-zurich",
+        "fr": "menuisier-iere-cfc-pour-l-amenagement-interieur-stellenpartner-ag-dietikon-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -36229,11 +36491,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch",
+          "schreiner-in-cfc-per-innenausbau-stellenpartner-ag-dietikon"
+        ],
+        "en": [
+          "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch"
+        "schreiner-in-efz-fur-innenausbau-dietikon-zurich-stellenpartner-ch",
+        "schreiner-in-cfc-per-innenausbau-stellenpartner-ag-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -36250,7 +36520,7 @@
       },
       "postalCode": "8953",
       "firstSeenAt": "2026-10-08T09:36:16.091Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-ca7125e50871",
@@ -38763,12 +39033,12 @@
     },
     {
       "id": "stellenpartner-3c8ab2a622e1",
-      "slug": "gartner-in-per-gartenpflege-e-neuanlagen-stellenpartner-ag-affoltern-am-albis",
+      "slug": "giardiniere-a-per-la-manutenzione-dei-giardini-e-nuove-realizzazioni-stellenpartner-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch",
-        "it": "gartner-in-per-gartenpflege-e-neuanlagen-stellenpartner-ag-affoltern-am-albis",
-        "en": "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch",
-        "fr": "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch"
+        "it": "giardiniere-a-per-la-manutenzione-dei-giardini-e-nuove-realizzazioni-stellenpartner-ag-affoltern-am-albis-zurich",
+        "en": "gardener-for-garden-maintenance-and-new-plantings-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "horticulteur-trice-pour-l-entretien-des-jardins-et-les-nouveaux-amenagements-stellenpartner-ag-affoltern-am-albis-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -38814,11 +39084,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch",
+          "gartner-in-per-gartenpflege-e-neuanlagen-stellenpartner-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch"
+        "gartner-in-fur-gartenpflege-und-neuanlagen-affoltern-am-albis-zurich-stellenpartner-ch",
+        "gartner-in-per-gartenpflege-e-neuanlagen-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -38835,7 +39113,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.086Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-90076a1d8c8a",
@@ -39902,12 +40180,12 @@
     },
     {
       "id": "stellenpartner-b8239b5b803b",
-      "slug": "montage-elektriker-in-per-neubau-e-renovationen-stellenpartner-ag-luzern",
+      "slug": "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch",
-        "it": "montage-elektriker-in-per-neubau-e-renovationen-stellenpartner-ag-luzern",
-        "en": "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch",
-        "fr": "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch"
+        "it": "elettricista-di-montaggio-per-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-luzern-luzern",
+        "en": "installation-electrician-for-new-builds-and-renovations-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-ne-de-montage-pour-les-constructions-neuves-et-les-renovations-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -39953,11 +40231,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch",
+          "montage-elektriker-in-per-neubau-e-renovationen-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
           "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch"
+        "montage-elektriker-in-fur-neubau-und-renovationen-luzern-luzern-stellenpartner-ch",
+        "montage-elektriker-in-per-neubau-e-renovationen-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -39974,7 +40260,7 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.084Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-a7d6c5379740",
@@ -42180,9 +42466,9 @@
       "slug": "carpentiere-per-strutture-in-legno-e-montaggio-stellenpartner-ag-schwyz-schwyz",
       "slugByLocale": {
         "it": "carpentiere-per-strutture-in-legno-e-montaggio-stellenpartner-ag-schwyz-schwyz",
-        "en": "schreiner-in-fur-holzkonstruktionen-und-montage-stellenpartner-ag-schwyz",
+        "en": "carpenters-for-wooden-structures-and-assembly-stellenpartner-ag-schwyz-schwyz",
         "de": "schreiner-in-fur-holzkonstruktionen-und-montage-schwyz-schwyz-stellenpartner-ch",
-        "fr": "schreiner-in-fur-holzkonstruktionen-und-montage-stellenpartner-ag-schwyz"
+        "fr": "charpentiers-pour-structures-en-bois-et-assemblage-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -42226,18 +42512,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schreiner-in-fur-holzkonstruktionen-und-montage-schwyz-schwyz-stellenpartner-ch",
-        "carpenters-for-wooden-structures-and-assembly-stellenpartner-ag-schwyz-schwyz",
-        "charpentiers-pour-structures-en-bois-et-assemblage-stellenpartner-ag-schwyz-schwyz"
+        "schreiner-in-fur-holzkonstruktionen-und-montage-stellenpartner-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-holzkonstruktionen-und-montage-schwyz-schwyz-stellenpartner-ch"
         ],
         "en": [
-          "carpenters-for-wooden-structures-and-assembly-stellenpartner-ag-schwyz-schwyz"
+          "schreiner-in-fur-holzkonstruktionen-und-montage-stellenpartner-ag-schwyz"
         ],
         "fr": [
-          "charpentiers-pour-structures-en-bois-et-assemblage-stellenpartner-ag-schwyz-schwyz"
+          "schreiner-in-fur-holzkonstruktionen-und-montage-stellenpartner-ag-schwyz"
         ]
       },
       "needsRetranslation": true,
@@ -46997,9 +47282,9 @@
       "slug": "manutenzione-professionale-con-artigianalita-stellenpartner-ag-zug-zug",
       "slugByLocale": {
         "it": "manutenzione-professionale-con-artigianalita-stellenpartner-ag-zug-zug",
-        "en": "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-stellenpartner-ag-zug",
+        "en": "professional-maintenance-with-craftsmanship-stellenpartner-ag-zug-zug",
         "de": "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-zug-zug-stellenpartner-ch",
-        "fr": "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-stellenpartner-ag-zug"
+        "fr": "entretien-professionnel-avec-artisanat-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -47043,18 +47328,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-zug-zug-stellenpartner-ch",
-        "professional-maintenance-with-craftsmanship-stellenpartner-ag-zug-zug",
-        "entretien-professionnel-avec-artisanat-stellenpartner-ag-zug-zug"
+        "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-stellenpartner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-zug-zug-stellenpartner-ch"
         ],
         "en": [
-          "professional-maintenance-with-craftsmanship-stellenpartner-ag-zug-zug"
+          "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-stellenpartner-ag-zug"
         ],
         "fr": [
-          "entretien-professionnel-avec-artisanat-stellenpartner-ag-zug-zug"
+          "fachmann-frau-betriebsunterhalt-mit-handwerklichem-geschick-stellenpartner-ag-zug"
         ]
       },
       "needsRetranslation": true,
@@ -47307,12 +47591,12 @@
     },
     {
       "id": "stellenpartner-f1ab1df6a666",
-      "slug": "zimmermann-zimmerin-per-innenausbau-e-sanierungen-stellenpartner-ag-zurich",
+      "slug": "carpentiere-a-per-allestimenti-interni-e-risanamenti-stellenpartner-ag-zurich-zurich",
       "slugByLocale": {
         "de": "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch",
-        "it": "zimmermann-zimmerin-per-innenausbau-e-sanierungen-stellenpartner-ag-zurich",
-        "en": "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch",
-        "fr": "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch"
+        "it": "carpentiere-a-per-allestimenti-interni-e-risanamenti-stellenpartner-ag-zurich-zurich",
+        "en": "carpenter-for-interior-construction-and-renovations-stellenpartner-ag-zurich-zurich",
+        "fr": "charpentier-ere-pour-l-amenagement-interieur-et-les-renovations-stellenpartner-ag-zurich-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -47358,11 +47642,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch",
+          "zimmermann-zimmerin-per-innenausbau-e-sanierungen-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch"
+        "zimmermann-zimmerin-fur-innenausbau-und-sanierungen-zurich-zurich-stellenpartner-ch",
+        "zimmermann-zimmerin-per-innenausbau-e-sanierungen-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -47379,7 +47671,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.069Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-92b2d52a6dac",
@@ -47642,7 +47934,7 @@
         "it": "impianti-ed-apparecchi-per-la-lavorazione-di-lamiere-sottili-di-acciaio-al-cromo-nichel-stellenpartner-ag-bulach-zurich",
         "en": "plant-and-apparatus-builders-for-thin-sheet-metal-processing-of-chromium-nickel-steel-stellenpartner-ag-bulach-zurich",
         "de": "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-bulach-zurich",
-        "fr": "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-stellenpartner-ag-bulach"
+        "fr": "constructions-d-installations-et-d-appareils-pour-le-traitement-des-toles-minces-en-acier-chrome-nickel-stellenpartner"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -47686,14 +47978,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-bulach-zurich",
-        "constructions-d-installations-et-d-appareils-pour-le-traitement-des-toles-minces-en-acier-chrome-nickel-stellenpartner"
+        "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-stellenpartner-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-bulach-zurich"
         ],
         "fr": [
-          "constructions-d-installations-et-d-appareils-pour-le-traitement-des-toles-minces-en-acier-chrome-nickel-stellenpartner"
+          "anlagen-und-apparatebauer-in-fur-chromnickelstahl-dunnblechbearbeitung-stellenpartner-ag-bulach"
         ]
       },
       "needsRetranslation": true,
@@ -47716,12 +48008,12 @@
     },
     {
       "id": "stellenpartner-45698bc74218",
-      "slug": "schreiner-in-per-innenausbau-e-holzfassaden-stellenpartner-ag-zurich",
+      "slug": "falegname-per-allestimenti-interni-e-facciate-in-legno-stellenpartner-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch",
-        "it": "schreiner-in-per-innenausbau-e-holzfassaden-stellenpartner-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch",
-        "fr": "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch"
+        "it": "falegname-per-allestimenti-interni-e-facciate-in-legno-stellenpartner-ag-zurich-zurich",
+        "en": "carpenter-for-interior-construction-and-wooden-facades-stellenpartner-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-et-les-facades-en-bois-stellenpartner-ag-zurich-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -47767,11 +48059,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch",
+          "schreiner-in-per-innenausbau-e-holzfassaden-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch"
+        "schreiner-in-fur-innenausbau-und-holzfassaden-zurich-zurich-stellenpartner-ch",
+        "schreiner-in-per-innenausbau-e-holzfassaden-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -47788,7 +48088,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.068Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-a99d1830ff42",
@@ -48437,12 +48737,12 @@
     },
     {
       "id": "stellenpartner-834bafd7de64",
-      "slug": "schreiner-in-per-innenausbau-stellenpartner-ag-zurich",
+      "slug": "falegname-per-l-allestimento-d-interni-stellenpartner-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch",
-        "it": "schreiner-in-per-innenausbau-stellenpartner-ag-zurich",
-        "en": "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch",
-        "fr": "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch"
+        "it": "falegname-per-l-allestimento-d-interni-stellenpartner-ag-zurich-zurich",
+        "en": "carpenter-for-interior-construction-stellenpartner-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-l-amenagement-interieur-stellenpartner-ag-zurich-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -48488,11 +48788,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch",
+          "schreiner-in-per-innenausbau-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch"
+        "schreiner-in-fur-innenausbau-zurich-zurich-stellenpartner-ch",
+        "schreiner-in-per-innenausbau-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -48509,7 +48817,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.067Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-e00cffea40b3",
@@ -48983,12 +49291,12 @@
     },
     {
       "id": "stellenpartner-d8c7cf84f395",
-      "slug": "sanitarinstallateur-in-per-montagen-auf-baustellen-stellenpartner-ag-baden",
+      "slug": "installatore-trice-di-impianti-sanitari-per-montaggi-nei-cantieri-stellenpartner-ag-baden-aargau",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch",
-        "it": "sanitarinstallateur-in-per-montagen-auf-baustellen-stellenpartner-ag-baden",
-        "en": "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch",
-        "fr": "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch"
+        "it": "installatore-trice-di-impianti-sanitari-per-montaggi-nei-cantieri-stellenpartner-ag-baden-aargau",
+        "en": "sanitary-installer-for-installations-on-construction-sites-stellenpartner-ag-baden-aargau",
+        "fr": "installateur-trice-sanitaire-pour-les-montages-sur-les-chantiers-stellenpartner-ag-baden-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -49034,11 +49342,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch",
+          "sanitarinstallateur-in-per-montagen-auf-baustellen-stellenpartner-ag-baden"
+        ],
+        "en": [
+          "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch"
+        ],
+        "fr": [
           "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch"
+        "sanitarinstallateur-in-fur-montagen-auf-baustellen-baden-aargau-stellenpartner-ch",
+        "sanitarinstallateur-in-per-montagen-auf-baustellen-stellenpartner-ag-baden"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -49055,7 +49371,7 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-08T09:36:16.066Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-968dfbce35e3",
@@ -49617,12 +49933,12 @@
     },
     {
       "id": "stellenpartner-7207c8902ccf",
-      "slug": "polymechaniker-in-per-optik-e-feinmechanik-stellenpartner-ag-dielsdorf",
+      "slug": "polimeccanico-a-per-l-ottica-e-la-meccanica-di-precisione-stellenpartner-ag-dielsdorf-zurich",
       "slugByLocale": {
         "de": "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch",
-        "it": "polymechaniker-in-per-optik-e-feinmechanik-stellenpartner-ag-dielsdorf",
-        "en": "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch",
-        "fr": "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch"
+        "it": "polimeccanico-a-per-l-ottica-e-la-meccanica-di-precisione-stellenpartner-ag-dielsdorf-zurich",
+        "en": "polymechanic-for-optics-and-precision-mechanics-stellenpartner-ag-dielsdorf-zurich",
+        "fr": "polymecanicien-ne-en-optique-et-mecanique-de-precision-stellenpartner-ag-dielsdorf-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -49668,11 +49984,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch",
+          "polymechaniker-in-per-optik-e-feinmechanik-stellenpartner-ag-dielsdorf"
+        ],
+        "en": [
+          "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch"
+        "polymechaniker-in-fur-optik-und-feinmechanik-dielsdorf-zurich-stellenpartner-ch",
+        "polymechaniker-in-per-optik-e-feinmechanik-stellenpartner-ag-dielsdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -49689,7 +50013,7 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-08T09:36:16.063Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-6dc875b6a8e0",
@@ -50234,12 +50558,12 @@
     },
     {
       "id": "stellenpartner-32b372b53491",
-      "slug": "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch",
+      "slug": "elettricista-addetto-a-al-montaggio-con-contatto-con-la-clientela-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch",
-        "it": "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch",
-        "en": "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch",
-        "fr": "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch"
+        "it": "elettricista-addetto-a-al-montaggio-con-contatto-con-la-clientela-stellenpartner-ag-luzern-luzern",
+        "en": "installation-electrician-with-customer-contact-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-electricienne-de-montage-avec-contact-clientele-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -50298,7 +50622,21 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.061Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-in-mit-kundenkontakt-luzern-luzern-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-f5d7d1f00323",
@@ -51149,12 +51487,12 @@
     },
     {
       "id": "stellenpartner-1d978c83e8a5",
-      "slug": "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch",
+      "slug": "metalcostruttore-trice-operaio-a-ausiliario-a-con-saldatura-dell-alluminio-stellenpartner-ag-baden-aargau",
       "slugByLocale": {
         "de": "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch",
-        "it": "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch",
-        "en": "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch",
-        "fr": "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch"
+        "it": "metalcostruttore-trice-operaio-a-ausiliario-a-con-saldatura-dell-alluminio-stellenpartner-ag-baden-aargau",
+        "en": "metalworker-helper-with-aluminum-welding-stellenpartner-ag-baden-aargau",
+        "fr": "constructeur-constructrice-metallique-aide-ouvrier-aide-ouvriere-avec-soudage-de-l-aluminium-stellenpartner-ag-baden"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -51213,7 +51551,21 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-08T09:36:16.060Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch"
+        ],
+        "en": [
+          "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch"
+        ],
+        "fr": [
+          "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-in-hilfsarbeiter-in-mit-alu-schweissen-baden-aargau-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-c4d118fab751",
@@ -51464,12 +51816,12 @@
     },
     {
       "id": "stellenpartner-bb745b576b66",
-      "slug": "metallbauer-in-hilfsarbeiter-in-per-baumaschinenwartung-stellenpartner-ag-bulach",
+      "slug": "costruttore-costruttrice-metallico-a-operaio-a-ausiliario-a-per-la-manutenzione-di-macchine-edili-stellenpartner-ag",
       "slugByLocale": {
         "de": "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch",
-        "it": "metallbauer-in-hilfsarbeiter-in-per-baumaschinenwartung-stellenpartner-ag-bulach",
-        "en": "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch",
-        "fr": "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch"
+        "it": "costruttore-costruttrice-metallico-a-operaio-a-ausiliario-a-per-la-manutenzione-di-macchine-edili-stellenpartner-ag",
+        "en": "metalworker-laborer-for-construction-machinery-maintenance-stellenpartner-ag-bulach-zurich",
+        "fr": "constructeur-trice-metallique-aide-pour-l-entretien-d-engins-de-chantier-stellenpartner-ag-bulach-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -51515,11 +51867,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch",
+          "metallbauer-in-hilfsarbeiter-in-per-baumaschinenwartung-stellenpartner-ag-bulach"
+        ],
+        "en": [
+          "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch"
+        "metallbauer-in-hilfsarbeiter-in-fur-baumaschinenwartung-bulach-zurich-stellenpartner-ch",
+        "metallbauer-in-hilfsarbeiter-in-per-baumaschinenwartung-stellenpartner-ag-bulach"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -51536,7 +51896,7 @@
       },
       "postalCode": "8180",
       "firstSeenAt": "2026-09-28T21:34:10.345Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-6e1158f13add",
@@ -52027,12 +52387,12 @@
     },
     {
       "id": "stellenpartner-3c7fd7dd3990",
-      "slug": "maler-in-per-neu-e-umbauprojekte-stellenpartner-ag-muri-ag",
+      "slug": "pittore-trice-per-progetti-di-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-muri-ag-aargau",
       "slugByLocale": {
         "de": "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch",
-        "it": "maler-in-per-neu-e-umbauprojekte-stellenpartner-ag-muri-ag",
-        "en": "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch",
-        "fr": "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch"
+        "it": "pittore-trice-per-progetti-di-nuove-costruzioni-e-ristrutturazioni-stellenpartner-ag-muri-ag-aargau",
+        "en": "painter-for-new-build-and-renovation-projects-stellenpartner-ag-muri-ag-aargau",
+        "fr": "peintre-pour-projets-de-construction-et-de-renovation-stellenpartner-ag-muri-ag-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -52078,11 +52438,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch",
+          "maler-in-per-neu-e-umbauprojekte-stellenpartner-ag-muri-ag"
+        ],
+        "en": [
+          "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch"
+        ],
+        "fr": [
           "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch"
+        "maler-in-fur-neu-und-umbauprojekte-muri-ag-aargau-stellenpartner-ch",
+        "maler-in-per-neu-e-umbauprojekte-stellenpartner-ag-muri-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -52099,16 +52467,16 @@
       },
       "postalCode": "5000",
       "firstSeenAt": "2026-09-28T05:02:27.990Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-83e745950f34",
-      "slug": "maler-in-per-neubauten-e-renovationsprojekte-stellenpartner-ag-dielsdorf",
+      "slug": "imbianchino-a-per-nuove-costruzioni-e-progetti-di-ristrutturazione-stellenpartner-ag-dielsdorf-zurich",
       "slugByLocale": {
         "de": "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
-        "it": "maler-in-per-neubauten-e-renovationsprojekte-stellenpartner-ag-dielsdorf",
-        "en": "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
-        "fr": "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
+        "it": "imbianchino-a-per-nuove-costruzioni-e-progetti-di-ristrutturazione-stellenpartner-ag-dielsdorf-zurich",
+        "en": "painter-for-new-buildings-and-renovation-projects-stellenpartner-ag-dielsdorf-zurich",
+        "fr": "peintre-pour-constructions-neuves-et-projets-de-renovation-stellenpartner-ag-dielsdorf-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -52154,11 +52522,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
+          "maler-in-per-neubauten-e-renovationsprojekte-stellenpartner-ag-dielsdorf"
+        ],
+        "en": [
+          "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch"
+        "maler-in-fur-neubauten-und-renovationsprojekte-dielsdorf-zurich-stellenpartner-ch",
+        "maler-in-per-neubauten-e-renovationsprojekte-stellenpartner-ag-dielsdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -52175,7 +52551,7 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-08T09:36:16.058Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-e03385747a21",
@@ -52819,12 +53195,12 @@
     },
     {
       "id": "stellenpartner-f11122ac2009",
-      "slug": "holzbaubearbeiter-in-per-neubaubauten-e-innenausbau-stellenpartner-ag-zurich",
+      "slug": "addetto-a-alla-lavorazione-del-legno-per-nuove-costruzioni-e-finiture-interne-stellenpartner-ag-zurich-zurich",
       "slugByLocale": {
         "de": "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch",
-        "it": "holzbaubearbeiter-in-per-neubaubauten-e-innenausbau-stellenpartner-ag-zurich",
-        "en": "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch",
-        "fr": "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch"
+        "it": "addetto-a-alla-lavorazione-del-legno-per-nuove-costruzioni-e-finiture-interne-stellenpartner-ag-zurich-zurich",
+        "en": "timber-construction-worker-for-new-buildings-and-interior-construction-stellenpartner-ag-zurich-zurich",
+        "fr": "ouvrier-ouvriere-en-construction-bois-pour-constructions-neuves-et-amenagement-interieur-stellenpartner-ag-zurich-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -52870,11 +53246,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch",
+          "holzbaubearbeiter-in-per-neubaubauten-e-innenausbau-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch"
+        "holzbaubearbeiter-in-fur-neubaubauten-und-innenausbau-zurich-zurich-stellenpartner-ch",
+        "holzbaubearbeiter-in-per-neubaubauten-e-innenausbau-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -52891,7 +53275,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.056Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-f45a51f25e54",
@@ -53936,12 +54320,12 @@
     },
     {
       "id": "stellenpartner-6f3d381d9d82",
-      "slug": "gartner-in-per-anspruchsvolle-gartenprojekte-stellenpartner-ag-dietikon",
+      "slug": "giardiniere-a-per-progetti-di-giardinaggio-impegnativi-stellenpartner-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch",
-        "it": "gartner-in-per-anspruchsvolle-gartenprojekte-stellenpartner-ag-dietikon",
-        "en": "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch",
-        "fr": "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch"
+        "it": "giardiniere-a-per-progetti-di-giardinaggio-impegnativi-stellenpartner-ag-dietikon-zurich",
+        "en": "gardener-for-demanding-garden-projects-stellenpartner-ag-dietikon-zurich",
+        "fr": "jardinier-ere-pour-des-projets-de-jardinage-exigeants-stellenpartner-ag-dietikon-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -53987,11 +54371,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch",
+          "gartner-in-per-anspruchsvolle-gartenprojekte-stellenpartner-ag-dietikon"
+        ],
+        "en": [
+          "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch"
+        "gartner-in-fur-anspruchsvolle-gartenprojekte-dietikon-zurich-stellenpartner-ch",
+        "gartner-in-per-anspruchsvolle-gartenprojekte-stellenpartner-ag-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -54008,7 +54400,7 @@
       },
       "postalCode": "8953",
       "firstSeenAt": "2026-10-08T09:36:16.054Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-f8600379f4b3",
@@ -54312,12 +54704,12 @@
     },
     {
       "id": "stellenpartner-febb82760a8e",
-      "slug": "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-stellenpartner-ag-affoltern-am-albis",
+      "slug": "giardiniere-a-operaio-a-ausiliario-a-per-lavori-di-giardinaggio-e-paesaggistica-stellenpartner-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-stellenpartner-ag-affoltern-am-albis",
-        "it": "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-stellenpartner-ag-affoltern-am-albis",
-        "en": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich",
-        "fr": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
+        "it": "giardiniere-a-operaio-a-ausiliario-a-per-lavori-di-giardinaggio-e-paesaggistica-stellenpartner-ag-affoltern-am-albis",
+        "en": "gardener-helper-for-garden-and-landscaping-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "jardinier-ere-ouvrier-ere-auxiliaire-pour-les-travaux-de-jardinage-et-d-amenagement-paysager-stellenpartner-ag-affoltern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -54363,14 +54755,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
+          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich",
+          "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-stellenpartner-ag-affoltern-am-albis"
         ],
         "de": [
+          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
+        ],
+        "en": [
+          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
+        ],
+        "fr": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
         ]
       },
       "previousSlugs": [
-        "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich"
+        "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-affoltern-am-albis-zurich",
+        "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -54387,7 +54787,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.054Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-8248f41c544d",
@@ -54716,12 +55116,12 @@
     },
     {
       "id": "stellenpartner-85722c2d0e22",
-      "slug": "installatore-trice-elettrico-a-in-per-selbstandige-installationsarbeiten-stellenpartner-ag-luzern",
+      "slug": "installatore-trice-elettrico-a-per-lavori-di-installazione-autonomi-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner",
-        "it": "installatore-trice-elettrico-a-in-per-selbstandige-installationsarbeiten-stellenpartner-ag-luzern",
-        "en": "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner"
+        "it": "installatore-trice-elettrico-a-per-lavori-di-installazione-autonomi-stellenpartner-ag-luzern-luzern",
+        "en": "electrical-installer-for-independent-installation-work-stellenpartner-ag-luzern-luzern",
+        "fr": "installateur-trice-electricien-ne-pour-des-travaux-d-installation-autonomes-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -54767,11 +55167,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner",
+          "installatore-trice-elettrico-a-in-per-selbstandige-installationsarbeiten-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner"
+        "elektroinstallateur-in-fur-selbstandige-installationsarbeiten-luzern-luzern-stellenpartner",
+        "installatore-trice-elettrico-a-in-per-selbstandige-installationsarbeiten-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -54791,12 +55199,12 @@
     },
     {
       "id": "stellenpartner-678cdf0d7960",
-      "slug": "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner",
+      "slug": "elettronico-a-con-montaggio-preciso-di-gruppi-ottici-stellenpartner-ag-dielsdorf-zurich",
       "slugByLocale": {
         "de": "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner",
-        "it": "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner",
-        "en": "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner",
-        "fr": "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner"
+        "it": "elettronico-a-con-montaggio-preciso-di-gruppi-ottici-stellenpartner-ag-dielsdorf-zurich",
+        "en": "electronics-technician-with-precise-assembly-of-optical-assemblies-stellenpartner-ag-dielsdorf-zurich",
+        "fr": "electronicien-ne-specialise-e-dans-le-montage-precis-de-sous-ensembles-optiques-stellenpartner-ag-dielsdorf-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -54855,16 +55263,30 @@
       },
       "postalCode": "8157",
       "firstSeenAt": "2026-10-08T09:36:16.052Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner"
+        ],
+        "en": [
+          "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner"
+        ],
+        "fr": [
+          "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner"
+        ]
+      },
+      "previousSlugs": [
+        "elektroniker-in-mit-praziser-montage-optischer-baugruppen-dielsdorf-zurich-stellenpartner"
+      ]
     },
     {
       "id": "stellenpartner-d2d85b6f56e8",
-      "slug": "fachmann-frau-betriebsunterhalt-per-gartenbau-e-pflanzarbeiten-stellenpartner-ag-dietikon",
+      "slug": "specialista-della-manutenzione-aziendale-per-lavori-di-giardinaggio-e-piantumazione-stellenpartner-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon",
-        "it": "fachmann-frau-betriebsunterhalt-per-gartenbau-e-pflanzarbeiten-stellenpartner-ag-dietikon",
-        "en": "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon",
-        "fr": "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon"
+        "it": "specialista-della-manutenzione-aziendale-per-lavori-di-giardinaggio-e-piantumazione-stellenpartner-ag-dietikon-zurich",
+        "en": "facility-maintenance-specialist-for-gardening-and-planting-work-stellenpartner-ag-dietikon-zurich",
+        "fr": "agent-e-d-exploitation-pour-les-travaux-d-horticulture-et-de-plantation-stellenpartner-ag-dietikon-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -54910,14 +55332,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-dietikon-zurich"
+          "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-dietikon-zurich",
+          "fachmann-frau-betriebsunterhalt-per-gartenbau-e-pflanzarbeiten-stellenpartner-ag-dietikon"
         ],
         "de": [
           "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-dietikon-zurich"
+        ],
+        "en": [
+          "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon"
+        ],
+        "fr": [
+          "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-dietikon-zurich"
+        "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-dietikon-zurich",
+        "fachmann-frau-betriebsunterhalt-per-gartenbau-e-pflanzarbeiten-stellenpartner-ag-dietikon",
+        "fachmann-frau-betriebsunterhalt-fur-gartenbau-und-pflanzarbeiten-stellenpartner-ag-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -54934,7 +55365,7 @@
       },
       "postalCode": "8953",
       "firstSeenAt": "2026-10-08T09:36:16.052Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-b35629a41188",
@@ -56114,12 +56545,12 @@
     },
     {
       "id": "stellenpartner-b25372a27f72",
-      "slug": "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch",
+      "slug": "montatore-trice-in-automazione-con-progetti-diversificati-stellenpartner-ag-baden-aargau",
       "slugByLocale": {
         "de": "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch",
-        "it": "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch",
-        "en": "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch",
-        "fr": "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch"
+        "it": "montatore-trice-in-automazione-con-progetti-diversificati-stellenpartner-ag-baden-aargau",
+        "en": "automation-mechanic-with-a-variety-of-projects-stellenpartner-ag-baden-aargau",
+        "fr": "monteur-euse-automaticien-ne-avec-des-projets-varies-stellenpartner-ag-baden-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56178,7 +56609,21 @@
       },
       "postalCode": "5400",
       "firstSeenAt": "2026-10-08T09:36:16.049Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch"
+        ],
+        "en": [
+          "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch"
+        ],
+        "fr": [
+          "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatikmonteur-in-mit-vielseitigen-projekten-baden-aargau-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-1b055009736f",
@@ -56406,12 +56851,12 @@
     },
     {
       "id": "stellenpartner-3bd4de35c7ea",
-      "slug": "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch",
+      "slug": "operaio-a-edile-con-patente-di-guida-cat-b-stellenpartner-ag-andelfingen-zurich",
       "slugByLocale": {
         "de": "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch",
-        "it": "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch",
-        "en": "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch",
-        "fr": "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch"
+        "it": "operaio-a-edile-con-patente-di-guida-cat-b-stellenpartner-ag-andelfingen-zurich",
+        "en": "construction-worker-with-a-category-b-driver-s-licence-stellenpartner-ag-andelfingen-zurich",
+        "fr": "ouvrier-ere-de-chantier-avec-permis-de-conduire-cat-b-stellenpartner-ag-andelfingen-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56470,7 +56915,21 @@
       },
       "postalCode": "8450",
       "firstSeenAt": "2026-10-08T09:36:16.049Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch"
+        ],
+        "en": [
+          "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch"
+        ],
+        "fr": [
+          "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauarbeiter-in-mit-fuhrerausweis-kat-b-andelfingen-zurich-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-82d06d63737a",
@@ -56718,12 +57177,12 @@
     },
     {
       "id": "stellenpartner-e546e2a4e2e7",
-      "slug": "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch",
+      "slug": "elettricista-di-montaggio-con-svariate-competenze-tecniche-stellenpartner-ag-zug-zug",
       "slugByLocale": {
         "de": "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch",
-        "it": "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch",
-        "en": "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch",
-        "fr": "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch"
+        "it": "elettricista-di-montaggio-con-svariate-competenze-tecniche-stellenpartner-ag-zug-zug",
+        "en": "assembly-electrician-with-broad-technical-expertise-stellenpartner-ag-zug-zug",
+        "fr": "electricien-ne-de-montage-avec-de-vastes-connaissances-techniques-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56782,16 +57241,30 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-08T09:36:16.047Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-in-mit-vielseitigen-fachkenntnissen-zug-zug-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-b9b215921931",
-      "slug": "sanitarinstallateur-in-per-wohnungsbau-e-gewerbeinstallationen-stellenpartner-ag-luzern",
+      "slug": "installatore-trice-sanitario-a-per-l-edilizia-residenziale-e-le-installazioni-commerciali-stellenpartner-ag-luzern",
       "slugByLocale": {
         "de": "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern",
-        "it": "sanitarinstallateur-in-per-wohnungsbau-e-gewerbeinstallationen-stellenpartner-ag-luzern",
-        "en": "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern",
-        "fr": "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern"
+        "it": "installatore-trice-sanitario-a-per-l-edilizia-residenziale-e-le-installazioni-commerciali-stellenpartner-ag-luzern",
+        "en": "plumbing-installer-for-residential-construction-and-commercial-installations-stellenpartner-ag-luzern-luzern",
+        "fr": "installateur-trice-sanitaire-pour-la-construction-de-logements-et-les-installations-commerciales-stellenpartner-ag"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56837,11 +57310,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern",
+          "sanitarinstallateur-in-per-wohnungsbau-e-gewerbeinstallationen-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern"
+        ],
+        "fr": [
           "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern"
+        "sanitarinstallateur-in-fur-wohnungsbau-und-gewerbeinstallationen-luzern-luzern",
+        "sanitarinstallateur-in-per-wohnungsbau-e-gewerbeinstallationen-stellenpartner-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -56858,16 +57339,16 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.047Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-021c7dadc632",
-      "slug": "schreiner-in-per-montageeinsatze-e-auslieferung-stellenpartner-ag-zug",
+      "slug": "falegname-per-interventi-di-montaggio-e-consegne-stellenpartner-ag-zug-zug",
       "slugByLocale": {
         "de": "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch",
-        "it": "schreiner-in-per-montageeinsatze-e-auslieferung-stellenpartner-ag-zug",
-        "en": "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch",
-        "fr": "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch"
+        "it": "falegname-per-interventi-di-montaggio-e-consegne-stellenpartner-ag-zug-zug",
+        "en": "carpenter-for-assembly-assignments-and-deliveries-stellenpartner-ag-zug-zug",
+        "fr": "menuisier-ere-pour-des-interventions-de-montage-et-des-livraisons-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56913,11 +57394,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch",
+          "schreiner-in-per-montageeinsatze-e-auslieferung-stellenpartner-ag-zug"
+        ],
+        "en": [
+          "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch"
+        "schreiner-in-fur-montageeinsatze-und-auslieferung-zug-zug-stellenpartner-ch",
+        "schreiner-in-per-montageeinsatze-e-auslieferung-stellenpartner-ag-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -56934,16 +57423,16 @@
       },
       "postalCode": "6300",
       "firstSeenAt": "2026-10-08T09:36:16.047Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-ed46e767a773",
-      "slug": "schreiner-in-per-servicearbeiten-stellenpartner-ag-zurich",
+      "slug": "falegname-per-lavori-di-assistenza-stellenpartner-ag-zurich-zurich",
       "slugByLocale": {
         "de": "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch",
-        "it": "schreiner-in-per-servicearbeiten-stellenpartner-ag-zurich",
-        "en": "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch",
-        "fr": "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch"
+        "it": "falegname-per-lavori-di-assistenza-stellenpartner-ag-zurich-zurich",
+        "en": "carpenter-for-service-work-stellenpartner-ag-zurich-zurich",
+        "fr": "menuisier-ere-pour-des-travaux-de-service-stellenpartner-ag-zurich-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -56989,11 +57478,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch",
+          "schreiner-in-per-servicearbeiten-stellenpartner-ag-zurich"
+        ],
+        "en": [
+          "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch"
+        ],
+        "fr": [
           "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch"
+        "schreiner-in-fur-servicearbeiten-zurich-zurich-stellenpartner-ch",
+        "schreiner-in-per-servicearbeiten-stellenpartner-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -57010,16 +57507,16 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-10-08T09:36:16.047Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-f83d0903fff0",
-      "slug": "installatore-trice-elettrico-a-in-con-24h-service-e-kundenakquisition-stellenpartner-ag-luzern",
+      "slug": "installatore-trice-elettrico-a-con-servizio-24h-e-acquisizione-clienti-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner",
-        "it": "installatore-trice-elettrico-a-in-con-24h-service-e-kundenakquisition-stellenpartner-ag-luzern",
-        "en": "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner"
+        "it": "installatore-trice-elettrico-a-con-servizio-24h-e-acquisizione-clienti-stellenpartner-ag-luzern-luzern",
+        "en": "electrical-installer-with-24h-service-and-customer-acquisition-stellenpartner-ag-luzern-luzern",
+        "fr": "installateur-rice-electricien-ne-avec-service-24h-24-et-acquisition-de-clientele-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -57065,11 +57562,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner",
+          "installatore-trice-elettrico-a-in-con-24h-service-e-kundenakquisition-stellenpartner-ag-luzern"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner"
+        "elektroinstallateur-in-mit-24h-service-und-kundenakquisition-luzern-luzern-stellenpartner",
+        "installatore-trice-elettrico-a-in-con-24h-service-e-kundenakquisition-stellenpartner-ag-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -57089,12 +57594,12 @@
     },
     {
       "id": "stellenpartner-637d3a558781",
-      "slug": "installatore-trice-elettrico-a-in-con-fuhrerschein-kategorie-b-stellenpartner-ag-zug",
+      "slug": "installatore-trice-elettrico-a-con-patente-di-guida-categoria-b-stellenpartner-ag-zug-zug",
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch",
-        "it": "installatore-trice-elettrico-a-in-con-fuhrerschein-kategorie-b-stellenpartner-ag-zug",
-        "en": "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch"
+        "it": "installatore-trice-elettrico-a-con-patente-di-guida-categoria-b-stellenpartner-ag-zug-zug",
+        "en": "electrical-installer-with-a-category-b-driver-s-license-stellenpartner-ag-zug-zug",
+        "fr": "installateur-rice-electricien-ne-avec-permis-de-conduire-de-categorie-b-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -57140,11 +57645,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch",
+          "installatore-trice-elettrico-a-in-con-fuhrerschein-kategorie-b-stellenpartner-ag-zug"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch"
+        "elektroinstallateur-in-mit-fuhrerschein-kategorie-b-zug-zug-stellenpartner-ch",
+        "installatore-trice-elettrico-a-in-con-fuhrerschein-kategorie-b-stellenpartner-ag-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -57164,12 +57677,12 @@
     },
     {
       "id": "stellenpartner-76880e7ca535",
-      "slug": "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch",
+      "slug": "elettricista-di-montaggio-con-campo-di-attivita-vario-stellenpartner-ag-luzern-luzern",
       "slugByLocale": {
         "de": "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch",
-        "it": "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch",
-        "en": "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch",
-        "fr": "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch"
+        "it": "elettricista-di-montaggio-con-campo-di-attivita-vario-stellenpartner-ag-luzern-luzern",
+        "en": "assembly-electrician-with-a-diverse-range-of-duties-stellenpartner-ag-luzern-luzern",
+        "fr": "electricien-ne-de-montage-avec-un-domaine-d-activite-varie-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -57228,7 +57741,21 @@
       },
       "postalCode": "6003",
       "firstSeenAt": "2026-10-08T09:36:16.046Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch"
+        ],
+        "en": [
+          "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch"
+        ],
+        "fr": [
+          "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch"
+        ]
+      },
+      "previousSlugs": [
+        "montage-elektriker-in-mit-vielseitigem-tatigkeitsgebiet-luzern-luzern-stellenpartner-ch"
+      ]
     },
     {
       "id": "stellenpartner-cd0cc9c901d4",
@@ -57385,12 +57912,12 @@
     },
     {
       "id": "stellenpartner-bf7e09123e0d",
-      "slug": "gartner-in-hilfsarbeiter-in-per-neuanlagen-e-gartenpflege-stellenpartner-ag-affoltern-am-albis",
+      "slug": "giardiniere-a-operaio-a-ausiliario-a-per-nuove-realizzazioni-e-manutenzione-dei-giardini-stellenpartner-ag-affoltern-am",
       "slugByLocale": {
         "de": "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-stellenpartner-ag-affoltern-am-albis",
-        "it": "gartner-in-hilfsarbeiter-in-per-neuanlagen-e-gartenpflege-stellenpartner-ag-affoltern-am-albis",
-        "en": "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich",
-        "fr": "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
+        "it": "giardiniere-a-operaio-a-ausiliario-a-per-nuove-realizzazioni-e-manutenzione-dei-giardini-stellenpartner-ag-affoltern-am",
+        "en": "gardener-general-laborer-for-new-installations-and-garden-maintenance-stellenpartner-ag-affoltern-am-albis-zurich",
+        "fr": "jardinier-ere-ouvrier-ere-auxiliaire-pour-les-nouvelles-installations-et-l-entretien-des-jardins-stellenpartner-ag"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -57436,14 +57963,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
+          "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich",
+          "gartner-in-hilfsarbeiter-in-per-neuanlagen-e-gartenpflege-stellenpartner-ag-affoltern-am-albis"
         ],
         "de": [
+          "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
+        ],
+        "en": [
+          "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
+        ],
+        "fr": [
           "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
         ]
       },
       "previousSlugs": [
-        "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich"
+        "gartner-in-hilfsarbeiter-in-fur-neuanlagen-und-gartenpflege-affoltern-am-albis-zurich",
+        "gartner-in-hilfsarbeiter-in-per-neuanlagen-e-gartenpflege-stellenpartner-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -57460,7 +57995,7 @@
       },
       "postalCode": "8910",
       "firstSeenAt": "2026-10-08T09:36:16.045Z",
-      "translationHoldSince": "2026-10-08T09:36:33.301Z"
+      "translationHoldReleasedAt": "2026-10-08T13:45:49.542Z"
     },
     {
       "id": "stellenpartner-a820544353c9",
@@ -63492,7 +64027,7 @@
         "it": "elettricista-di-montaggio-con-progetti-impegnativi-stellenpartner-ag-luzern-luzern",
         "en": "assembly-electrician-with-challenging-projects-stellenpartner-ag-luzern-luzern",
         "de": "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-        "fr": "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
+        "fr": "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -63536,8 +64071,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-        "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern",
-        "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
+        "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63547,7 +64081,7 @@
           "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
         ],
         "fr": [
-          "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
+          "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
         ]
       },
       "salaryMin": 78500,

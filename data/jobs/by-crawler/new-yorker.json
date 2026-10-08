@@ -881,12 +881,12 @@
     },
     {
       "id": "new-yorker-27747",
-      "slug": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
+      "slug": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-bern",
       "slugByLocale": {
         "de": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "it": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "en": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "fr": "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+        "it": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-bern",
+        "en": "deputy-branch-management-m-f-d-new-yorker-bern",
+        "fr": "direction-generale-adjointe-h-f-d-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -930,7 +930,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+        ],
+        "en": [
+          "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+        ],
+        "fr": [
+          "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+      ]
     },
     {
       "id": "new-yorker-27701",
@@ -989,9 +1003,9 @@
       "slug": "filialleitung-m-w-d-new-yorker-bern",
       "slugByLocale": {
         "de": "filialleitung-m-w-d-new-yorker-bern",
-        "it": "filialleitung-m-w-d-new-yorker-bern",
-        "en": "filialleitung-m-w-d-new-yorker-bern",
-        "fr": "filialleitung-m-w-d-new-yorker-bern"
+        "it": "gestione-branch-m-f-d-new-yorker-bern",
+        "en": "branch-management-m-f-d-new-yorker-bern",
+        "fr": "direction-generale-h-f-d-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1632,9 +1646,9 @@
       "slug": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
       "slugByLocale": {
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-        "it": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-        "en": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern",
-        "fr": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-bern"
+        "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-bern",
+        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-bern",
+        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",

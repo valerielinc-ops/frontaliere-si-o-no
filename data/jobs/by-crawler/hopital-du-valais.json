@@ -5615,11 +5615,11 @@
     },
     {
       "id": "hopital-du-valais-2132e370ba2d",
-      "slug": "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig",
+      "slug": "professionista-di-cura-60-100-geriatrics-5-south-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig",
-        "it": "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig",
-        "en": "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig",
+        "it": "professionista-di-cura-60-100-geriatrics-5-south-hopital-du-valais-brig",
+        "en": "care-professional-60-100-geriatrics-5-south-hopital-du-valais-brig",
         "fr": "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
@@ -5680,16 +5680,27 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-08T09:16:17.271Z"
+      "firstSeenAt": "2026-10-08T09:16:17.271Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig"
+        ],
+        "en": [
+          "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-60-100-geriatrie-5-sud-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-a2443a98c628",
-      "slug": "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital",
+      "slug": "collaboratore-amministrativo-ve-30-40-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital",
-        "it": "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital",
-        "en": "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital",
-        "de": "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital"
+        "it": "collaboratore-amministrativo-ve-30-40-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre",
+        "en": "administrative-co-worker-ve-30-40-for-the-admissions-department-of-the-hospital-of-sierre-hopital-du-valais-sierre",
+        "de": "administrative-mitarbeiter-ve-30-40-fur-die-aufnahmeabteilung-des-krankenhauses-von-sierre-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5749,7 +5760,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-08T09:16:16.936Z"
+      "firstSeenAt": "2026-10-08T09:16:16.936Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-a-30-40-pour-le-service-des-admissions-de-l-hopital"
+      ]
     }
   ]
 }

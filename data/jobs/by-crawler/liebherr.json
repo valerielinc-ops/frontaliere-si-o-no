@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "posto-di-carico-gru-meccaniche-m-f-liebherr-daillens",
         "en": "mechanical-cranes-loading-place-m-f-liebherr-daillens",
-        "de": "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens",
+        "de": "maschinenkrane-ladeplatz-m-w-liebherr-daillens",
         "fr": "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -57,7 +57,7 @@
       "previousSlugs": [
         "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
         "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-        "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
+        "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -69,7 +69,7 @@
         "de": [
           "mecanicien-grues-place-de-chargement-h-f-liebherr-daillens",
           "mecanicien-grues-place-de-chargement-m-w-d-liebherr-daillens",
-          "maschinenkrane-ladeplatz-m-w-liebherr-daillens"
+          "kranfuhrer-verladeplatz-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-01T10:33:19.207Z",
@@ -1333,7 +1333,7 @@
       "slugByLocale": {
         "it": "attrezzature-di-consulenza-tecnica-earthmoving-m-f-liebherr-daillens",
         "en": "technical-advisor-equipment-earthmoving-m-f-liebherr-daillens",
-        "de": "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens",
+        "de": "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens",
         "fr": "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -1382,7 +1382,7 @@
       "previousSlugs": [
         "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
         "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-        "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+        "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1394,7 +1394,7 @@
         "de": [
           "conseiller-technique-equipement-terrassement-h-f-liebherr-daillens",
           "conseiller-technique-equipement-terrassement-m-w-d-liebherr-daillens",
-          "technische-beraterausrustung-erdbewegung-m-w-liebherr-daillens"
+          "technischer-berater-erdbewegungsgerate-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-09-08T13:53:09.548Z",
@@ -1685,9 +1685,9 @@
       "id": "liebherr-379cb1d188a3",
       "slug": "acquirente-di-materie-prime-m-w-d-liebherr-bulle",
       "slugByLocale": {
-        "it": "acquirente-di-materie-prime-m-w-d-liebherr-bulle",
+        "it": "commerciante-di-merci-m-f-d-liebherr-bulle",
         "en": "commodity-buyer-m-f-x-liebherr-bulle",
-        "de": "rohstoffeinkaufer-m-w-d-liebherr-bulle",
+        "de": "warenkaufer-m-w-x-liebherr-bulle",
         "fr": "acheteur-de-marchandises-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -1737,17 +1737,17 @@
         "commodity-buyer-m-f-x-liebherr-bulle",
         "commodity-buyer-m-w-d-liebherr-bulle",
         "commerciante-di-merci-m-f-d-liebherr-bulle",
-        "warenkaufer-m-w-x-liebherr-bulle"
+        "warenkaufer-m-w-x-liebherr-bulle",
+        "rohstoffeinkaufer-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commodity-buyer-m-f-x-liebherr-bulle",
-          "commodity-buyer-m-w-d-liebherr-bulle",
-          "commerciante-di-merci-m-f-d-liebherr-bulle"
+          "commodity-buyer-m-w-d-liebherr-bulle"
         ],
         "de": [
           "commodity-buyer-m-w-d-liebherr-bulle",
-          "warenkaufer-m-w-x-liebherr-bulle"
+          "rohstoffeinkaufer-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "commodity-buyer-m-w-d-liebherr-bulle"
@@ -2911,7 +2911,7 @@
         "it": "responsabile-della-sicurezza-del-prodotto-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-product-security-m-w-d-liebherr-bulle",
         "de": "leiter-produktsicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-product-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2959,7 +2959,7 @@
       "previousSlugs": [
         "responsabile-product-security-m-w-d-liebherr-bulle",
         "head-of-product-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+        "responsable-product-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2967,7 +2967,7 @@
           "head-of-product-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-produits-m-m-j-liebherr-bulle"
+          "responsable-product-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.378Z",
@@ -3077,7 +3077,7 @@
       "slugByLocale": {
         "it": "tecnico-di-gru-a-torre-h-f-liebherr-daillens",
         "en": "tower-crane-technician-h-f-liebherr-daillens",
-        "de": "turmkrantechniker-m-w-d-liebherr-daillens",
+        "de": "drehkrantechniker-h-f-liebherr-daillens",
         "fr": "technicien-grues-a-tour-h-f-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -3127,7 +3127,7 @@
         "turmkrantechniker-h-f-liebherr-daillens",
         "technicien-grues-a-tour-h-f-liebherr-daillens",
         "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-        "drehkrantechniker-h-f-liebherr-daillens"
+        "turmkrantechniker-m-w-d-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3140,7 +3140,7 @@
         "de": [
           "turmkrantechniker-h-f-liebherr-daillens",
           "technicien-grues-a-tour-m-w-d-liebherr-daillens",
-          "drehkrantechniker-h-f-liebherr-daillens"
+          "turmkrantechniker-m-w-d-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.412Z",
@@ -4153,7 +4153,7 @@
       "slugByLocale": {
         "it": "ingegnere-dei-sistemi-di-controllo-m-f-x-liebherr-bulle",
         "en": "control-systems-engineer-m-f-x-liebherr-bulle",
-        "de": "control-systems-ingenieur-m-w-d-liebherr-bulle",
+        "de": "regelungssystemingenieur-m-f-x-liebherr-bulle",
         "fr": "ingenieur-systemes-de-controle-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -4203,7 +4203,7 @@
         "control-systems-ingegnere-m-f-x-liebherr-bulle",
         "control-systems-ingenieur-m-f-x-liebherr-bulle",
         "control-systems-engineer-m-f-x-liebherr-bulle",
-        "regelungssystemingenieur-m-f-x-liebherr-bulle"
+        "control-systems-ingenieur-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4211,7 +4211,7 @@
           "control-systems-engineer-m-f-x-liebherr-bulle"
         ],
         "de": [
-          "regelungssystemingenieur-m-f-x-liebherr-bulle"
+          "control-systems-ingenieur-m-w-d-liebherr-bulle"
         ],
         "fr": [
           "control-systems-ingenieur-m-f-x-liebherr-bulle"
@@ -4423,7 +4423,7 @@
         "it": "responsabile-della-sicurezza-dei-dati-lun-mercredo-d-liebherr-bulle",
         "en": "head-of-data-security-m-w-d-liebherr-bulle",
         "de": "leiter-der-datensicherheit-m-w-d-liebherr-bulle",
-        "fr": "responsable-data-security-m-w-d-liebherr-bulle"
+        "fr": "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4471,7 +4471,7 @@
       "previousSlugs": [
         "responsabile-data-security-m-w-d-liebherr-bulle",
         "head-of-data-security-m-w-d-liebherr-bulle",
-        "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+        "responsable-data-security-m-w-d-liebherr-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4479,7 +4479,7 @@
           "head-of-data-security-m-w-d-liebherr-bulle"
         ],
         "fr": [
-          "chef-de-la-securite-des-donnees-m-w-d-liebherr-bulle"
+          "responsable-data-security-m-w-d-liebherr-bulle"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:08.373Z",
@@ -5000,7 +5000,7 @@
       "slugByLocale": {
         "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
         "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
-        "de": "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens",
+        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens",
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
       },
       "company": "Liebherr",
@@ -5050,7 +5050,7 @@
         "macchinari-meccanizzati-liebherr-daillens",
         "mechanic-earthworks-machinery-liebherr-daillens",
         "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+        "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5063,7 +5063,7 @@
         ],
         "de": [
           "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-          "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
+          "maschinen-fur-mechanische-erdarbeiten-liebherr-daillens"
         ]
       },
       "firstSeenAt": "2026-06-16T15:09:06.399Z",
@@ -5244,9 +5244,9 @@
       "id": "liebherr-d29c2cf02ba3",
       "slug": "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
       "slugByLocale": {
-        "it": "commodity-buyer-m-w-d-fusioni-liebherr-bulle",
+        "it": "acquirente-servizi-m-f-x-getti-liebherr-bulle",
         "en": "buyer-amenities-h-f-x-cast-parts-liebherr-bulle",
-        "de": "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle",
+        "de": "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle",
         "fr": "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5311,13 +5311,12 @@
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "servizi-dell-acquirente-h-f-x-liebherr-bulle",
           "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
-          "commodity-buyer-h-f-x-fusioni-liebherr-bulle",
-          "acquirente-servizi-m-f-x-getti-liebherr-bulle"
+          "commodity-buyer-h-f-x-fusioni-liebherr-bulle"
         ],
         "de": [
           "acheteur-commodites-h-f-x-pieces-moulees-liebherr-bulle",
           "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle",
-          "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
+          "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle"
         ],
         "fr": [
           "acquirente-servizi-m-f-x-getti-liebherr-bulle",
@@ -5335,7 +5334,7 @@
         "acheteur-commodites-h-f-x-pieces-de-fonderie-liebherr-bulle",
         "commodity-buyer-h-f-x-fusioni-liebherr-bulle",
         "warenkaufer-h-w-x-gusserzeugnisse-liebherr-bulle",
-        "ausstattung-des-kaufers-h-w-x-gussteile-liebherr-bulle"
+        "warenkaufer-m-w-d-gusserzeugnisse-liebherr-bulle"
       ],
       "firstSeenAt": "2026-06-26T11:46:30.973Z",
       "salaryMin": 68500,
@@ -5359,7 +5358,7 @@
       "slug": "meccanico-diagnostico-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "it": "meccanico-diagnostico-m-f-x-liebherr-bulle",
-        "en": "diagnostics-mechatronics-m-w-d-liebherr-bulle",
+        "en": "diagnostic-mechanic-m-f-x-liebherr-bulle",
         "de": "warranty-investigation-technician-m-w-d-liebherr-bulle",
         "fr": "mecanicien-de-diagnostic-m-f-x-liebherr-bulle"
       },
@@ -5419,7 +5418,7 @@
         "en": [
           "diagnostics-mechatronics-m-f-x-liebherr-bulle",
           "warranty-investigation-technician-m-f-x-liebherr-bulle",
-          "diagnostic-mechanic-m-f-x-liebherr-bulle"
+          "diagnostics-mechatronics-m-w-d-liebherr-bulle"
         ],
         "de": [
           "diagnostiker-mechaniker-m-f-x-liebherr-bulle",
@@ -5443,8 +5442,7 @@
         "diagnostics-mechatronics-technician-m-f-x-liebherr-bulle",
         "diagnostica-meccatronica-tecnica-m-f-x-liebherr-bulle",
         "warranty-investigation-technician-m-f-x-liebherr-bulle",
-        "diagnostiker-mechaniker-m-w-d-liebherr-bulle",
-        "diagnostic-mechanic-m-f-x-liebherr-bulle"
+        "diagnostiker-mechaniker-m-w-d-liebherr-bulle"
       ],
       "firstSeenAt": "2026-07-01T22:41:15.857Z",
       "salaryMin": 68500,

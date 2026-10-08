@@ -1091,7 +1091,7 @@
         "de": "controller-m-w-d-ameos-brunnen",
         "it": "controller-m-w-d-ameos-brunnen",
         "en": "controller-m-w-d-ameos-brunnen",
-        "fr": "controller-m-w-d-ameos-schweiz-brunnen"
+        "fr": "controleur-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -1149,7 +1149,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:13:34.247Z"
+      "firstSeenAt": "2026-10-08T09:13:34.247Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "controller-m-w-d-ameos-schweiz-brunnen"
+        ]
+      },
+      "previousSlugs": [
+        "controller-m-w-d-ameos-schweiz-brunnen"
+      ]
     },
     {
       "id": "ameos-ch-fcc20b46d678",

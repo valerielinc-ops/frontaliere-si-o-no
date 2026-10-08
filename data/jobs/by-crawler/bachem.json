@@ -3918,12 +3918,12 @@
     },
     {
       "id": "bachem-a23ebf2d4483",
-      "slug": "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf",
+      "slug": "laboratorio-chimico-oligo-r-d-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf",
-        "it": "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf",
-        "en": "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf",
-        "fr": "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf"
+        "it": "laboratorio-chimico-oligo-r-d-a-100-bachem-ag-bubendorf",
+        "en": "chemical-laboratory-oligo-r-d-a-100-bachem-ag-bubendorf",
+        "fr": "laboratoire-chimique-oligo-r-d-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3967,7 +3967,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf"
+        ],
+        "en": [
+          "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "chemielaborant-in-oligo-r-d-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-25ca654b3946",
@@ -4023,9 +4037,11 @@
     },
     {
       "id": "bachem-88e1bff667c8",
-      "slug": "it-service-delivery-manager-a-80-100-bachem-bubendorf",
+      "slug": "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "en": "it-service-delivery-manager-a-80-100-bachem-bubendorf"
+        "en": "it-service-delivery-manager-a-80-100-bachem-bubendorf",
+        "it": "responsabile-della-consegna-dei-servizi-it-a-80-100-bachem-ag-bubendorf",
+        "fr": "gestionnaire-de-la-prestation-des-services-informatiques-a-80-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4069,7 +4085,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "it-service-delivery-manager-a-80-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "it-service-delivery-manager-a-80-100-bachem-bubendorf"
+      ]
     }
   ],
   "assembledAt": "2026-10-08T09:24:23.526Z"

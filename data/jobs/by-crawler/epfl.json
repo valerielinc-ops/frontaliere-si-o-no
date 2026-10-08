@@ -5743,12 +5743,12 @@
     },
     {
       "id": "epfl-1b64f5760f18",
-      "slug": "assistant-e-administratif-ve-epfl-sion",
+      "slug": "assistente-amministrativo-ve-epfl-sion",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-epfl-sion",
-        "it": "assistant-e-administratif-ve-epfl-sion",
-        "en": "assistant-e-administratif-ve-epfl-sion",
-        "de": "assistant-e-administratif-ve-epfl-sion"
+        "it": "assistente-amministrativo-ve-epfl-sion",
+        "en": "administrative-assistant-ve-epfl-sion",
+        "de": "assistent-e-administratif-ve-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5809,7 +5809,21 @@
       },
       "postalCode": "1950",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-08T09:25:30.562Z"
+      "firstSeenAt": "2026-10-08T09:25:30.562Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-epfl-sion"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-epfl-sion"
+        ],
+        "de": [
+          "assistant-e-administratif-ve-epfl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-epfl-sion"
+      ]
     },
     {
       "id": "epfl-5362b0432e1e",

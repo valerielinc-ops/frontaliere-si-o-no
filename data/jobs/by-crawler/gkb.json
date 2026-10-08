@@ -1307,7 +1307,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
+        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1355,14 +1355,14 @@
       "previousSlugs": [
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
-        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
+        "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch"
         ],
         "en": [
-          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
+          "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
         ],
         "de": [
           "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis"
@@ -2053,12 +2053,12 @@
     },
     {
       "id": "gkb-d03788fd922b",
-      "slug": "produktmanager-in-finanzieren-40-60-gkb-ch",
+      "slug": "product-manager-finanziamenti-40-60-graubundner-kantonalbank-chur",
       "slugByLocale": {
         "de": "produktmanager-in-finanzieren-40-60-gkb-ch",
-        "it": "produktmanager-in-finanzieren-40-60-gkb-ch",
-        "en": "produktmanager-in-finanzieren-40-60-gkb-ch",
-        "fr": "produktmanager-in-finanzieren-40-60-gkb-ch"
+        "it": "product-manager-finanziamenti-40-60-graubundner-kantonalbank-chur",
+        "en": "product-manager-financing-40-60-graubundner-kantonalbank-chur",
+        "fr": "responsable-produit-financement-40-60-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -2119,7 +2119,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-08T09:14:21.495Z"
+      "firstSeenAt": "2026-10-08T09:14:21.495Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-in-finanzieren-40-60-gkb-ch"
+        ],
+        "en": [
+          "produktmanager-in-finanzieren-40-60-gkb-ch"
+        ],
+        "fr": [
+          "produktmanager-in-finanzieren-40-60-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-in-finanzieren-40-60-gkb-ch"
+      ]
     }
   ]
 }

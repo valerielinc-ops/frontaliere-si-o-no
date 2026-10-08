@@ -2892,7 +2892,7 @@
         "it": "dati-del-titolare-finanziario-bi-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
+        "fr": "controleur-financier-data-bi-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2938,11 +2938,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid"
+        "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid",
+        "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid"
+          "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid",
+          "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
         ],
         "it": [
           "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid"

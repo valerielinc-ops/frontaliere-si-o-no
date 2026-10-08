@@ -7,7 +7,7 @@
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -57,7 +57,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+        "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,7 +65,7 @@
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
-          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil"
+          "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
@@ -743,10 +743,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
-        "en": "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
+        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
+        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -794,22 +794,20 @@
       "previousSlugs": [
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
-        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
+        "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
-          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil"
+          "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+          "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:09:13.851Z",
@@ -4033,7 +4031,7 @@
       "id": "kanton-st-gallen-3ef9c351b1a6",
       "slug": "jurist-in-m-w-d-kanton-st-gallen",
       "slugByLocale": {
-        "it": "jurist-in-m-w-d-kanton-st-gallen",
+        "it": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
         "en": "lawyer-m-f-d-kanton-st-gallen-st-gallen",
         "de": "jurist-in-m-w-d-kanton-st-gallen-ch",
         "fr": "avocat-h-f-d-kanton-st-gallen-st-gallen"
@@ -4083,13 +4081,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "jurist-in-m-w-d-kanton-st-gallen-ch",
-        "avvocato-m-f-d-kanton-st-gallen-st-gallen"
+        "jurist-in-m-w-d-kanton-st-gallen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-m-w-d-kanton-st-gallen-ch",
-          "avvocato-m-f-d-kanton-st-gallen-st-gallen"
+          "jurist-in-m-w-d-kanton-st-gallen-ch"
         ],
         "en": [
           "jurist-in-m-w-d-kanton-st-gallen-ch"
@@ -7150,12 +7146,12 @@
     },
     {
       "id": "kanton-st-gallen-cdf433538667",
-      "slug": "revierforster-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "responsabile-forestale-di-distretto-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "de": "revierforster-in-m-w-d-kanton-st-gallen-ch",
-        "it": "revierforster-in-m-w-d-kanton-st-gallen-ch",
-        "en": "revierforster-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "revierforster-in-m-w-d-kanton-st-gallen-ch"
+        "it": "responsabile-forestale-di-distretto-m-f-d-kanton-st-gallen-oberuzwil",
+        "en": "district-forester-m-f-d-kanton-st-gallen-oberuzwil",
+        "fr": "garde-forestier-forestiere-h-f-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7214,16 +7210,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "revierforster-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "revierforster-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "revierforster-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "revierforster-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-fc6cf389a43a",
-      "slug": "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch",
+      "slug": "gestione-di-m-f-d-kanton-st-gallen-salez",
       "slugByLocale": {
         "de": "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch",
-        "it": "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch",
-        "en": "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch",
-        "fr": "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch"
+        "it": "gestione-di-m-f-d-kanton-st-gallen-salez",
+        "en": "management-of-m-f-d-kanton-st-gallen-salez",
+        "fr": "gestion-de-h-f-d-kanton-st-gallen-salez"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7283,7 +7293,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:20:44.062Z"
+      "firstSeenAt": "2026-10-08T09:20:44.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-abteilung-vollzug-m-w-d-kanton-st-gallen-ch"
+      ]
     }
   ]
 }

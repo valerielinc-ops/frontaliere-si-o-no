@@ -8254,7 +8254,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -8298,11 +8298,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ],
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
@@ -8563,7 +8563,7 @@
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
@@ -8607,16 +8607,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "en": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "fr": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
@@ -8647,8 +8645,8 @@
       "slugByLocale": {
         "de": "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch",
         "it": "kommunikationsspezialist-in-medienarbeit-video-e-social-media-m-w-d-eth-zurich",
-        "en": "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch",
-        "fr": "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch"
+        "en": "communications-specialist-media-relations-video-and-social-media-m-f-d-eth-zurich-zurich",
+        "fr": "specialiste-en-communication-relations-medias-video-et-reseaux-sociaux-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8693,6 +8691,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "kommunikationsspezialist-in-medienarbeit-video-und-social-media-m-w-d-eth-zurich-ch"
         ]
       },

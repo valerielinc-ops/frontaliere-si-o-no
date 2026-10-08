@@ -1042,8 +1042,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -1090,8 +1090,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-ch",
         "assistant-du-responsable-chiffrage-bkw-marly",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1099,10 +1099,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ],
         "fr": [
           "assistant-du-responsable-chiffrage-bkw-ch"
@@ -7559,8 +7559,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
-        "en": "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "fr": "bauleiter-in-elektro-alle-bkw-zuchwil"
+        "en": "construction-manager-in-electric-all-bkw-zuchwil",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -7612,16 +7612,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-zuchwil",
-        "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -16073,7 +16072,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -16131,7 +16130,8 @@
         ],
         "en": [
           "brandschutzfachmann-frau-alle-bkw-ch",
-          "fire-protection-specialist-woman-all-bkw-chur"
+          "fire-protection-specialist-woman-all-bkw-chur",
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ],
         "fr": [
           "brandschutzfachmann-frau-alle-bkw-ch"
@@ -18997,7 +18997,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -19046,7 +19046,7 @@
       "previousSlugs": [
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "rope-testing-laboratory-employee-all-bkw-bern",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19054,7 +19054,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -21420,7 +21420,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21466,14 +21466,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -24682,9 +24682,9 @@
     },
     {
       "id": "bkw-35db77347f93",
-      "slug": "responsabile-di-progetto-gebaudeautomation-alle-bkw-oberkirch",
+      "slug": "responsabile-di-progetto-automazione-degli-edifici-tutti-bkw-oberkirch",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-gebaudeautomation-alle-bkw-oberkirch",
+        "it": "responsabile-di-progetto-automazione-degli-edifici-tutti-bkw-oberkirch",
         "en": "building-automation-project-manager-all-bkw-oberkirch",
         "de": "projektleiter-in-gebaudeautomation-alle-bkw-ch",
         "fr": "chef-de-projet-en-automatisation-du-batiment-tous-bkw-oberkirch"
@@ -24732,11 +24732,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
+        "projektleiter-in-gebaudeautomation-alle-bkw-ch-3",
+        "responsabile-di-progetto-gebaudeautomation-alle-bkw-oberkirch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
+          "projektleiter-in-gebaudeautomation-alle-bkw-ch-3",
+          "responsabile-di-progetto-gebaudeautomation-alle-bkw-oberkirch"
         ],
         "en": [
           "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
@@ -24844,9 +24846,9 @@
     },
     {
       "id": "bkw-7e4904f8801b",
-      "slug": "responsabile-di-progetto-heizung-alle-bkw-kriens",
+      "slug": "responsabile-di-progetto-hk-riscaldamento-tutti-bkw-kriens",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-heizung-alle-bkw-kriens",
+        "it": "responsabile-di-progetto-hk-riscaldamento-tutti-bkw-kriens",
         "en": "heating-project-manager-all-bkw-kriens",
         "de": "projektleiter-in-heizung-alle-bkw-ch",
         "fr": "chef-de-projet-chauffage-tous-bkw-kriens"
@@ -24895,12 +24897,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-heizung-alle-bkw-ch",
-        "projektleiter-in-hk-heizung-alle-bkw-ch"
+        "projektleiter-in-hk-heizung-alle-bkw-ch",
+        "responsabile-di-progetto-heizung-alle-bkw-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-heizung-alle-bkw-ch",
-          "projektleiter-in-hk-heizung-alle-bkw-ch"
+          "projektleiter-in-hk-heizung-alle-bkw-ch",
+          "responsabile-di-progetto-heizung-alle-bkw-kriens"
         ],
         "en": [
           "projektleiter-in-heizung-alle-bkw-ch"
@@ -25738,12 +25742,12 @@
     },
     {
       "id": "bkw-5ab7c64fd5c9",
-      "slug": "heizungsinstallateur-in-efz-alle-bkw-ch-3",
+      "slug": "installatore-trice-di-impianti-di-riscaldamento-afc-tutti-e-bkw-st-gallen",
       "slugByLocale": {
         "de": "heizungsinstallateur-in-efz-alle-bkw-ch",
-        "it": "heizungsinstallateur-in-efz-alle-bkw-ch-3",
-        "en": "heizungsinstallateur-in-efz-alle-bkw-ch-3",
-        "fr": "heizungsinstallateur-in-efz-alle-bkw-ch-3"
+        "it": "installatore-trice-di-impianti-di-riscaldamento-afc-tutti-e-bkw-st-gallen",
+        "en": "heating-installer-efz-all-genders-bkw-st-gallen",
+        "fr": "installateur-trice-en-chauffage-cfc-tous-bkw-st-gallen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25802,16 +25806,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:13:33.470Z"
+      "firstSeenAt": "2026-09-03T23:13:33.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "en": [
+          "heizungsinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "fr": [
+          "heizungsinstallateur-in-efz-alle-bkw-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-in-efz-alle-bkw-ch-3"
+      ]
     },
     {
       "id": "bkw-1019c565aec3",
-      "slug": "bauleitende-r-monteur-in-luftung-alle-bkw-ch",
+      "slug": "montatore-trice-di-ventilazione-con-responsabilita-di-cantiere-tutti-bkw-winterthur",
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-luftung-alle-bkw-ch",
-        "it": "bauleitende-r-monteur-in-luftung-alle-bkw-ch",
-        "en": "bauleitende-r-monteur-in-luftung-alle-bkw-ch",
-        "fr": "bauleitende-r-monteur-in-luftung-alle-bkw-ch"
+        "it": "montatore-trice-di-ventilazione-con-responsabilita-di-cantiere-tutti-bkw-winterthur",
+        "en": "site-supervisor-installer-ventilation-all-bkw-winterthur",
+        "fr": "monteur-monteuse-responsable-de-chantier-en-ventilation-tous-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25870,16 +25888,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:19:33.870Z"
+      "firstSeenAt": "2026-10-08T09:19:33.870Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-luftung-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-luftung-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitende-r-monteur-in-luftung-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-luftung-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-1e7ced541915",
-      "slug": "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch",
+      "slug": "montatore-trice-responsabile-di-cantiere-riscaldamento-refrigerazione-tutti-bkw-winterthur",
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch",
-        "it": "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch",
-        "en": "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch",
-        "fr": "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch"
+        "it": "montatore-trice-responsabile-di-cantiere-riscaldamento-refrigerazione-tutti-bkw-winterthur",
+        "en": "site-supervisor-installer-heating-cooling-all-bkw-winterthur",
+        "fr": "monteur-monteuse-responsable-de-chantier-en-chauffage-froid-tous-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25938,7 +25970,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:19:33.869Z"
+      "firstSeenAt": "2026-10-08T09:19:33.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-monteur-in-heizung-kalte-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-711395de2756",

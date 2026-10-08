@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "spital-buelach-bc9729ae0265",
-      "slug": "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach",
+      "slug": "mpa-addestramento-professionale-pratica-di-emergenza-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach",
-        "it": "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach",
-        "en": "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach",
-        "fr": "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach"
+        "it": "mpa-addestramento-professionale-pratica-di-emergenza-spital-bulach-bulach",
+        "en": "mpa-vocational-trainer-emergency-practice-spital-bulach-bulach",
+        "fr": "mpa-formateur-professionnel-pratique-d-urgence-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -52,7 +52,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach"
+        ],
+        "en": [
+          "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach"
+        ],
+        "fr": [
+          "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-berufsbildner-in-notfallpraxis-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-4a5226ada0df",

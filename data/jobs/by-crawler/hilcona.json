@@ -2332,8 +2332,8 @@
       "slugByLocale": {
         "de": "lehrstelle-logistiker-logistikerin-efz-2027-hilcona-zell",
         "it": "apprendistato-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell",
-        "en": "lehrstelle-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell",
-        "fr": "lehrstelle-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell"
+        "en": "trainee-logistics-manager-efz-2027-bell-schweiz-ag-zell",
+        "fr": "gestionnaire-logistique-stagiaire-efz-2027-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2376,10 +2376,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-logistikerin-efz-2027-hilcona-zell"
+        ],
+        "en": [
+          "lehrstelle-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-logistiker-logistikerin-efz-2027-hilcona-zell"
+        "lehrstelle-logistiker-logistikerin-efz-2027-hilcona-zell",
+        "lehrstelle-logistiker-logistikerin-efz-2027-bell-schweiz-ag-zell"
       ],
       "salaryMin": 52000,
       "salaryMax": 70000,
@@ -3288,7 +3295,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3328,7 +3335,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3338,7 +3345,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",

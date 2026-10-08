@@ -1008,7 +1008,7 @@
       "slug": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "potenza-di-rimozione-e-pulizia-stadt-zurich-zurich",
-        "en": "detachment-and-cleaner-stadt-zurich",
+        "en": "removal-and-cleaning-power-stadt-zurich-zurich",
         "de": "abloser-in-und-reinigungskraft-stadt-zuerich-zurigo-51435",
         "fr": "puissance-d-enlevement-et-de-nettoyage-stadt-zurich-zurich"
       },
@@ -1062,7 +1062,7 @@
         "abloser-in-und-reinigungskraft-stadt-zurich-zurich",
         "abloser-in-e-reinigungskraft-stadt-zurich",
         "abloser-in-und-reinigungskraft-stadt-zurich",
-        "removal-and-cleaning-power-stadt-zurich-zurich"
+        "detachment-and-cleaner-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1072,7 +1072,7 @@
         ],
         "en": [
           "abloser-in-und-reinigungskraft-stadt-zurich",
-          "removal-and-cleaning-power-stadt-zurich-zurich"
+          "detachment-and-cleaner-stadt-zurich"
         ],
         "fr": [
           "abloser-in-und-reinigungskraft-stadt-zurich"
@@ -11347,12 +11347,12 @@
     },
     {
       "id": "stadt-zuerich-56ae382a0fc1",
-      "slug": "schulassistenz-stadt-zuerich-zurigo-51890",
+      "slug": "assistenza-scolastica-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulassistenz-stadt-zuerich-zurigo-51890",
-        "it": "schulassistenz-stadt-zuerich-zurigo-51890",
-        "en": "schulassistenz-stadt-zuerich-zurigo-51890",
-        "fr": "schulassistenz-stadt-zuerich-zurigo-51890"
+        "it": "assistenza-scolastica-stadt-zurich-zurich",
+        "en": "school-assistance-stadt-zurich-zurich",
+        "fr": "aide-scolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11414,7 +11414,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:58:41.280Z"
+      "firstSeenAt": "2026-10-08T09:58:41.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulassistenz-stadt-zuerich-zurigo-51890"
+        ],
+        "en": [
+          "schulassistenz-stadt-zuerich-zurigo-51890"
+        ],
+        "fr": [
+          "schulassistenz-stadt-zuerich-zurigo-51890"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-stadt-zuerich-zurigo-51890"
+      ]
     },
     {
       "id": "stadt-zuerich-91209bdba720",
@@ -11603,10 +11617,10 @@
       "id": "stadt-zuerich-a8ec3b1d4c21",
       "slug": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-presso-la-giardineria-comunale-stadt-zurich",
-        "en": "municipal-horticulture-intern-stadt-zurich",
+        "it": "allenamento-in-giardino-urbano-stadt-zurich-zurich",
+        "en": "trainee-in-urban-gardening-stadt-zurich-zurich",
         "de": "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-        "fr": "stagiaire-en-horticulture-urbaine-stadt-zurich"
+        "fr": "stage-en-jardinage-urbain-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11656,21 +11670,19 @@
       "previousSlugs": [
         "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
         "praktikant-in-stadtgartnerei-stadt-zurich",
-        "allenamento-in-giardino-urbano-stadt-zurich-zurich",
-        "trainee-in-urban-gardening-stadt-zurich-zurich",
-        "stage-en-jardinage-urbain-stadt-zurich-zurich"
+        "municipal-horticulture-intern-stadt-zurich",
+        "stagiaire-en-horticulture-urbaine-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-stadtgartnerei-stadt-zuerich-zurigo-51261",
-          "praktikant-in-stadtgartnerei-stadt-zurich",
-          "allenamento-in-giardino-urbano-stadt-zurich-zurich"
+          "praktikant-in-stadtgartnerei-stadt-zurich"
         ],
         "en": [
-          "trainee-in-urban-gardening-stadt-zurich-zurich"
+          "municipal-horticulture-intern-stadt-zurich"
         ],
         "fr": [
-          "stage-en-jardinage-urbain-stadt-zurich-zurich"
+          "stagiaire-en-horticulture-urbaine-stadt-zurich"
         ]
       },
       "salaryMin": 57500,
@@ -13005,8 +13017,8 @@
       "slugByLocale": {
         "de": "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich",
         "it": "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zurich",
-        "en": "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich",
-        "fr": "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich"
+        "en": "specialist-supervision-in-the-care-of-the-day-school-fluntern-temporary-stadt-zurich-zurich",
+        "fr": "supervision-specialisee-dans-les-soins-de-l-ecole-de-jour-flunterne-temporaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -13057,6 +13069,12 @@
       "referenceNumber": "51907",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich"
+        ],
+        "en": [
+          "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich"
+        ],
+        "fr": [
           "fachperson-betreuung-in-der-betreuung-der-tagesschule-fluntern-befristet-stadt-zuerich"
         ]
       },
@@ -13163,8 +13181,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf",
         "it": "collaboratore-trice-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-con-option-auf-festanstellung-stadt-zurich",
-        "en": "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf",
-        "fr": "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf"
+        "en": "street-cleaning-employee-southern-region-e-fixed-term-for-1-year-with-option-for-permanent-employment-stadt-zurich",
+        "fr": "collaborateur-rice-du-service-de-nettoyage-urbain-region-sud-e-contrat-a-duree-determinee-d-un-an-avec-possibilite-d"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -13216,6 +13234,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf"
+        ],
+        "en": [
+          "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf"
+        ],
+        "fr": [
+          "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf"
         ]
       },
       "previousSlugs": [
@@ -13242,8 +13266,8 @@
       "slugByLocale": {
         "de": "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater",
         "it": "mutterschaftsvertretung-fachperson-begabungs-e-begabtenforderung-sekundarschule-lavater-stadt-zurich",
-        "en": "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater",
-        "fr": "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater"
+        "en": "maternity-representation-specialist-gifted-and-gifted-promotion-secondary-school-lavater-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-representation-de-la-maternite-promotion-offerte-et-offerte-ecole-secondaire-lavater-stadt-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -13294,6 +13318,12 @@
       "referenceNumber": "51909",
       "previousSlugsByLocale": {
         "it": [
+          "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater"
+        ],
+        "en": [
+          "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater"
+        ],
+        "fr": [
           "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater"
         ]
       },
@@ -29059,8 +29089,8 @@
       "id": "stadt-zuerich-405b4ac0728d",
       "slug": "pedagogia-infantile-in-sss-stadt-zurich",
       "slugByLocale": {
-        "it": "pedagogia-infantile-in-sss-stadt-zurich",
-        "en": "childhoodeducator-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
+        "en": "childhood-education-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
         "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
@@ -29119,12 +29149,11 @@
           "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
           "childhood-education-hf-stadt-zurich-zurich-e49b8a",
           "kindheitspadagog-in-hf-stadt-zurich",
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
         ],
         "en": [
           "kindheitspadagog-in-hf-stadt-zurich",
-          "childhood-education-hf-stadt-zurich-zurich"
+          "childhoodeducator-hf-stadt-zurich"
         ],
         "fr": [
           "kindheitspadagog-in-hf-stadt-zurich"
@@ -29136,8 +29165,7 @@
         "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "kindheitspadagog-in-hf-stadt-zurich",
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich",
-        "childhood-education-hf-stadt-zurich-zurich"
+        "childhoodeducator-hf-stadt-zurich"
       ],
       "firstSeenAt": "2026-09-26T14:28:23.273Z",
       "salaryMin": 73500,
@@ -29591,7 +29619,7 @@
       "slug": "istruzione-sociale-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "istruzione-sociale-stadt-zurich-zurich",
-        "en": "socialworker-stadt-zurich",
+        "en": "social-education-stadt-zurich-zurich",
         "de": "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "fr": "education-sociale-stadt-zurich-zurich"
       },
@@ -29643,7 +29671,7 @@
       "previousSlugs": [
         "sozialpadagog-in-stadt-zuerich-zurigo-51327",
         "sozialpadagog-in-stadt-zurich",
-        "social-education-stadt-zurich-zurich"
+        "socialworker-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -29651,7 +29679,7 @@
         ],
         "en": [
           "sozialpadagog-in-stadt-zurich",
-          "social-education-stadt-zurich-zurich"
+          "socialworker-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.896Z",
@@ -32367,8 +32395,8 @@
       "id": "stadt-zuerich-c9ee943891a3",
       "slug": "kindheitspadagog-in-hf-stadt-zurich",
       "slugByLocale": {
-        "it": "kindheitspadagog-in-hf-stadt-zurich",
-        "en": "kindheitspadagog-in-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
+        "en": "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
         "fr": "kindheitspadagog-in-hf-stadt-zurich-zurich"
       },
@@ -32418,17 +32446,11 @@
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51136",
       "previousSlugs": [
-        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
-        "childhood-education-hf-stadt-zurich-zurich-e49b8a"
+        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a"
-        ],
-        "en": [
-          "childhood-education-hf-stadt-zurich-zurich-e49b8a"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
         ]
       },
       "needsRetranslation": true,

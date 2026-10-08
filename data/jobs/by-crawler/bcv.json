@@ -492,7 +492,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -549,14 +549,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
@@ -1852,12 +1852,12 @@
     },
     {
       "id": "bcv-677e3d1d0e08",
-      "slug": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
+      "slug": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "it": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "en": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "de": "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        "it": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
+        "en": "specialist-controlling-and-reporting-credits-banque-cantonale-vaudoise-lausanne",
+        "de": "spezialisierte-controlling-und-reporting-credits-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -1917,7 +1917,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:19:08.034Z"
+      "firstSeenAt": "2026-10-08T09:19:08.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "en": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "de": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-31f441e7888a",

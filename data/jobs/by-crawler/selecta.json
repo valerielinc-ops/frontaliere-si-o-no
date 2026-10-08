@@ -1253,7 +1253,7 @@
       "slugByLocale": {
         "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
         "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
-        "fr": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "fr": "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be",
         "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81"
       },
       "company": "Selecta",
@@ -1311,12 +1311,11 @@
           "sales-support-associate-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
-          "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+          "sales-support-associate-m-w-d-selecta-kirchberg-be"
         ]
       },
       "previousSlugs": [
-        "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1337,10 +1336,10 @@
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "servizio-clienti-m-w-d-selecta-wallis",
-        "en": "customer-service-provider-m-w-d-selecta-wallis",
+        "it": "account-manager-m-f-d-selecta-wallis",
+        "en": "account-manager-m-f-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1393,20 +1392,19 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "account-manager-m-f-d-selecta-wallis",
-        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "customer-service-provider-m-w-d-selecta-wallis",
+        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis",
-          "account-manager-m-f-d-selecta-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis"
         ],
         "en": [
-          "account-manager-m-f-d-selecta-wallis"
+          "customer-service-provider-m-w-d-selecta-wallis"
         ],
         "fr": [
-          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -1591,7 +1589,7 @@
         "it": "selettore-di-ordini-di-investimento-m-f-d-selecta-kirchberg-be",
         "en": "investment-order-picker-m-f-d-selecta-kirchberg-be",
         "de": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
-        "fr": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
+        "fr": "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1647,12 +1645,11 @@
           "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
-          "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+          "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
         ]
       },
       "previousSlugs": [
-        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
-        "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

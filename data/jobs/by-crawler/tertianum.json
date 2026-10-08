@@ -8292,9 +8292,9 @@
       "slug": "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-        "it": "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-        "en": "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-        "fr": "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
+        "it": "specialista-della-salute-efz-tertianum-zurich",
+        "en": "healthcare-specialist-efz-tertianum-zurich",
+        "fr": "specialiste-en-sante-efz-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -10660,9 +10660,9 @@
       "slug": "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-tertianum",
       "slugByLocale": {
         "de": "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-tertianum",
-        "it": "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-tertianum",
-        "en": "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-tertianum",
-        "fr": "ausbildung-zur-zum-dipl-pflegefachfrau-pflegefachmann-hf-mit-studienplatz-tertianum"
+        "it": "formazione-per-infermiere-professionale-diplomato-a-hf-con-posto-di-studio-tertianum-bazenheid",
+        "en": "training-for-dipl-care-professional-hf-with-study-place-tertianum-bazenheid",
+        "fr": "formation-pour-diplome-e-en-soins-infirmiers-hf-avec-place-d-etude-tertianum-bazenheid"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -12145,12 +12145,12 @@
     },
     {
       "id": "tertianum-69dbd08d86a4",
-      "slug": "pflegehelfer-in-srk-tertianum-egnach",
+      "slug": "assistente-infermieristico-srk-tertianum-egnach",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-tertianum-egnach",
-        "it": "pflegehelfer-in-srk-tertianum-egnach",
-        "en": "pflegehelfer-in-srk-tertianum-egnach",
-        "fr": "pflegehelfer-in-srk-tertianum-egnach"
+        "it": "assistente-infermieristico-srk-tertianum-egnach",
+        "en": "nursing-assistant-srk-tertianum-egnach",
+        "fr": "assistant-infirmier-srk-tertianum-egnach"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -12194,7 +12194,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-tertianum-egnach"
+      ]
     },
     {
       "id": "tertianum-44431e8e31b2",

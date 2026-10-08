@@ -7765,7 +7765,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7819,8 +7819,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-        "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7831,7 +7830,7 @@
         ],
         "fr": [
           "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-          "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -11085,12 +11084,12 @@
     },
     {
       "id": "ubs-4407d5ff8112",
-      "slug": "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich",
+      "slug": "consulente-alla-clientela-privata-affluent-zollikon-kusnacht-80-100-ubs-zurich",
       "slugByLocale": {
         "de": "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich",
-        "it": "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich",
+        "it": "consulente-alla-clientela-privata-affluent-zollikon-kusnacht-80-100-ubs-zurich",
         "en": "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich",
-        "fr": "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich"
+        "fr": "conseiller-ere-a-la-clientele-privee-affluent-zollikon-kusnacht-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11157,7 +11156,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-08T09:11:21.423Z"
+      "firstSeenAt": "2026-10-08T09:11:21.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich"
+        ],
+        "fr": [
+          "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-affluent-zollikon-kusnacht-80-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-312a37a06ddc",

@@ -4366,7 +4366,7 @@
       "slugByLocale": {
         "de": "ergotherapeut-in-hf-fh-60-100-spital-uster-ch",
         "it": "terapeuta-professionale-hf-fh-60-100-spital-uster-uster",
-        "en": "ergotherapeut-in-hf-fh-60-100-spital-uster-ch",
+        "en": "occupational-therapist-hf-fh-60-100-spital-uster-uster",
         "fr": "ergotherapeute-hf-fh-60-100-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -4413,6 +4413,9 @@
       "department": "Medizintechn. und medizintherapeutisches Personal",
       "previousSlugsByLocale": {
         "it": [
+          "ergotherapeut-in-hf-fh-60-100-spital-uster-ch"
+        ],
+        "en": [
           "ergotherapeut-in-hf-fh-60-100-spital-uster-ch"
         ]
       },
@@ -4533,7 +4536,7 @@
       "slugByLocale": {
         "de": "physiotherapeut-in-fh-80-100-spital-uster-ch",
         "it": "fisioterapista-fh-80-100-spital-uster-uster",
-        "en": "physiotherapeut-in-fh-80-100-spital-uster-ch",
+        "en": "physiotherapist-fh-80-100-spital-uster-uster",
         "fr": "physiotherapeute-en-fh-80-100-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -4580,6 +4583,9 @@
       "department": "Medizintechn. und medizintherapeutisches Personal",
       "previousSlugsByLocale": {
         "it": [
+          "physiotherapeut-in-fh-80-100-spital-uster-ch"
+        ],
+        "en": [
           "physiotherapeut-in-fh-80-100-spital-uster-ch"
         ]
       },

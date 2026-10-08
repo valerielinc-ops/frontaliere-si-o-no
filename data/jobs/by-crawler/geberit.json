@@ -2206,12 +2206,12 @@
     },
     {
       "id": "geberit-2279",
-      "slug": "strategischer-einkaufer-a-80-geberit-ch",
+      "slug": "acquirente-strategico-a-80-geberit-rapperswil-jona",
       "slugByLocale": {
         "de": "strategischer-einkaufer-a-80-geberit-ch",
-        "it": "strategischer-einkaufer-a-80-geberit-ch",
-        "en": "strategischer-einkaufer-a-80-geberit-ch",
-        "fr": "strategischer-einkaufer-a-80-geberit-ch"
+        "it": "acquirente-strategico-a-80-geberit-rapperswil-jona",
+        "en": "strategic-buyer-a-80-geberit-rapperswil-jona",
+        "fr": "acheteur-strategique-a-80-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2269,7 +2269,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:41:25.644Z"
+      "firstSeenAt": "2026-10-08T09:41:25.644Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategischer-einkaufer-a-80-geberit-ch"
+        ],
+        "en": [
+          "strategischer-einkaufer-a-80-geberit-ch"
+        ],
+        "fr": [
+          "strategischer-einkaufer-a-80-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "strategischer-einkaufer-a-80-geberit-ch"
+      ]
     },
     {
       "id": "geberit-2235",

@@ -2636,7 +2636,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2685,7 +2685,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2695,7 +2695,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4608,8 +4608,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
         "it": "collaboratore-trice-portier-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
+        "en": "porter-spitaler-schaffhausen-schaffhausen",
+        "fr": "employe-e-de-conciergerie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4658,10 +4658,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
+        "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

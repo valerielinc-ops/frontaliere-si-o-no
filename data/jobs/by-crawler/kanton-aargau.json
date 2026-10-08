@@ -320,7 +320,7 @@
       "slug": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
       "slugByLocale": {
         "it": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
-        "en": "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen",
+        "en": "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen",
         "de": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
         "fr": "professeur-d-ecole-secondaire-mathematiques-50-kanton-aargau-zofingen"
       },
@@ -371,12 +371,12 @@
       "previousSlugs": [
         "middle-school-teacher-mathematics-50-kanton-aargau-zofingen",
         "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen"
+        "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "en": [
           "middle-school-teacher-mathematics-50-kanton-aargau-zofingen",
-          "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen"
+          "mittelschullehrperson-mathematik-50-kanton-aargau-zofingen"
         ],
         "it": [
           "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
@@ -643,12 +643,12 @@
     },
     {
       "id": "kanton-aargau-8f8bf725ddf2",
-      "slug": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
+      "slug": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-suhr",
       "slugByLocale": {
         "de": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "it": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "en": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "fr": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        "it": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-suhr",
+        "en": "personnel-consultant-personnel-consultant-rav-80-100-kanton-aargau-suhr",
+        "fr": "consultant-en-personnel-conseiller-en-personnel-rav-80-100-kanton-aargau-suhr"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -709,7 +709,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:23:54.002Z"
+      "firstSeenAt": "2026-10-03T09:23:54.002Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-197d7d90157d",
@@ -1032,7 +1046,7 @@
       "slug": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
       "slugByLocale": {
         "it": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen",
+        "en": "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
         "de": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "fr": "professeur-de-mathematiques-60-80-kanton-aargau-wohlen"
       },
@@ -1083,7 +1097,7 @@
       "previousSlugs": [
         "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "mathematics-teacher-60-80-kanton-aargau-wohlen",
-        "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+        "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1092,7 +1106,7 @@
         "en": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
           "mathematics-teacher-60-80-kanton-aargau-wohlen",
-          "teacher-of-mathematics-60-80-kanton-aargau-wohlen"
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-wohlen"
         ],
         "fr": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
@@ -1354,9 +1368,9 @@
     },
     {
       "id": "kanton-aargau-70762918ed36",
-      "slug": "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen",
+      "slug": "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
       "slugByLocale": {
-        "it": "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen",
+        "it": "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
         "en": "secondary-school-teacher-italian-40-kanton-aargau-wettingen",
         "de": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
         "fr": "professeur-d-ecole-secondaire-italien-40-kanton-aargau-wettingen"
@@ -1408,13 +1422,13 @@
       "previousSlugs": [
         "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
         "insegnante-di-scuola-media-italiano-40-kanton-aargau-wettingen",
-        "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen"
+        "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
           "insegnante-di-scuola-media-italiano-40-kanton-aargau-wettingen",
-          "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen"
+          "mittelschullehrperson-italienisch-40-kanton-aargau-wettingen"
         ],
         "en": [
           "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
@@ -1604,12 +1618,12 @@
     },
     {
       "id": "kanton-aargau-a7c6b4b30f36",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-baden",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-baden",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-baden",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-baden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1672,11 +1686,19 @@
       },
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugs": [
-        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-iek9u7"
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-iek9u7",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-iek9u7"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-iek9u7",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ]
       }
     },
@@ -1764,7 +1786,7 @@
         "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
         "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
+        "fr": "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1813,12 +1835,12 @@
       "previousSlugs": [
         "laboratoire-de-biologie-50-kanton-aargau-zofingen",
         "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+        "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "laboratoire-de-biologie-50-kanton-aargau-zofingen",
-          "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
+          "biologielaborantin-biologielaborant-50-kanton-aargau-zofingen"
         ],
         "it": [
           "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
@@ -1917,12 +1939,12 @@
     },
     {
       "id": "kanton-aargau-ae2ce91fe4df",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-aarau",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-aarau",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1986,14 +2008,22 @@
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugs": [
         "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky"
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
       ],
       "previousSlugsByLocale": {
         "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "it": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-qsbtky",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-2"
         ]
       }
     },
@@ -2645,12 +2675,12 @@
     },
     {
       "id": "kanton-aargau-720a7166f1e5",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-rheinfelden",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4ky3jo",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-rheinfelden",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-rheinfelden",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-rheinfelden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2737,7 +2767,8 @@
         "stagiaire-en-droit-100-kanton-aargau-rheinfelden",
         "interno-legale-interno-legale-100-kanton-aargau-baden",
         "legal-intern-legal-intern-100-kanton-aargau-baden",
-        "stage-juridique-stage-juridique-100-kanton-aargau-baden"
+        "stage-juridique-stage-juridique-100-kanton-aargau-baden",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2763,13 +2794,16 @@
           "stagiaire-en-droit-100-kanton-aargau-lenzburg",
           "interno-legale-interno-legale-100-kanton-aargau-rheinfelden",
           "stagiaire-en-droit-100-kanton-aargau-rheinfelden",
-          "interno-legale-interno-legale-100-kanton-aargau-baden"
+          "interno-legale-interno-legale-100-kanton-aargau-baden",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
         ],
         "en": [
-          "legal-intern-legal-intern-100-kanton-aargau-rheinfelden"
+          "legal-intern-legal-intern-100-kanton-aargau-rheinfelden",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
         ],
         "fr": [
-          "stage-juridique-stage-juridique-100-kanton-aargau-rheinfelden"
+          "stage-juridique-stage-juridique-100-kanton-aargau-rheinfelden",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-3"
         ]
       }
     },
@@ -3484,12 +3518,12 @@
     },
     {
       "id": "kanton-aargau-7bb7d35fdb90",
-      "slug": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
+      "slug": "interno-legale-interno-legale-80-100-kanton-aargau-aarau-a40b12",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        "it": "interno-legale-interno-legale-80-100-kanton-aargau-aarau-a40b12",
+        "en": "legal-intern-legal-intern-80-100-kanton-aargau-aarau-a40b12",
+        "fr": "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau-a40b12"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3549,7 +3583,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-03T09:23:56.838Z"
+      "firstSeenAt": "2026-10-03T09:23:56.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-59d291ad1a63",
@@ -4252,12 +4300,12 @@
     },
     {
       "id": "kanton-aargau-0f8c93fee8e8",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-lenzburg",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-lenzburg",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4321,25 +4369,33 @@
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugs": [
         "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih"
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
       ],
       "previousSlugsByLocale": {
         "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "it": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-vh0yih",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-4"
         ]
       }
     },
     {
       "id": "kanton-aargau-1a31d2263dc4",
-      "slug": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
+      "slug": "interno-legale-interno-legale-100-kanton-aargau-aarau-870dc3",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr",
-        "it": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
-        "en": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5",
-        "fr": "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
+        "it": "interno-legale-interno-legale-100-kanton-aargau-aarau-870dc3",
+        "en": "legal-intern-legal-intern-100-kanton-aargau-aarau-870dc3",
+        "fr": "stage-juridique-stage-juridique-100-kanton-aargau-aarau-870dc3"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4402,14 +4458,22 @@
       "firstSeenAt": "2026-07-04T11:08:20.236Z",
       "previousSlugs": [
         "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch",
-        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr"
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr",
+        "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
       ],
       "previousSlugsByLocale": {
         "de": [
           "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch"
         ],
         "it": [
-          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr"
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-j2u2cr",
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-100-kanton-aargau-ch-5"
         ]
       }
     },
@@ -4492,9 +4556,9 @@
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+      "slug": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau",
+        "it": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
         "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
@@ -4546,13 +4610,13 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
         "esperto-di-strategia-politica-80-kanton-aargau-aarau",
-        "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
           "esperto-di-strategia-politica-80-kanton-aargau-aarau",
-          "esperto-esperto-strategia-politica-80-kanton-aargau-aarau"
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-aarau"
         ],
         "en": [
           "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
@@ -4834,7 +4898,7 @@
         "it": "tirocinante-legale-kanton-aargau-muri-und-zofingen",
         "en": "legal-trainee-kanton-aargau-muri-und-zofingen",
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
+        "fr": "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4883,12 +4947,12 @@
       "previousSlugs": [
         "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
         "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "stagiaire-en-droit-kanton-aargau-muri-und-zofingen",
-          "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-muri-und-zofingen"
         ],
         "it": [
           "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
@@ -6026,10 +6090,10 @@
     },
     {
       "id": "kanton-aargau-e9c44b40ece7",
-      "slug": "communication-designerin-designer-80-kanton-aargau-ch",
+      "slug": "designer-di-comunicazione-designer-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "communication-designerin-designer-80-kanton-aargau-ch",
-        "it": "communication-designerin-designer-80-kanton-aargau-ch",
+        "it": "designer-di-comunicazione-designer-80-kanton-aargau-aarau",
         "en": "communication-designerin-designer-80-kanton-aargau-ch",
         "fr": "communication-designerin-designer-80-kanton-aargau-ch"
       },
@@ -6092,7 +6156,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:20:33.062Z"
+      "firstSeenAt": "2026-10-08T09:20:33.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communication-designerin-designer-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "communication-designerin-designer-80-kanton-aargau-ch"
+      ]
     }
   ]
 }

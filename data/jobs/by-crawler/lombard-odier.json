@@ -3966,12 +3966,12 @@
     },
     {
       "id": "lombard-odier-ce9a9fa0eb4e",
-      "slug": "hr-strategy-transformation-specialist-80-100-lombard-odier-ch",
+      "slug": "risorse-umane-strategy-transformation-specialista-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "en": "hr-strategy-transformation-specialist-80-100-lombard-odier-ch",
-        "it": "hr-strategy-transformation-specialist-80-100-lombard-odier-ch",
+        "it": "risorse-umane-strategy-transformation-specialista-80-100-lombard-odier-geneva",
         "de": "hr-strategy-transformation-specialist-80-100-lombard-odier-ch",
-        "fr": "hr-strategy-transformation-specialist-80-100-lombard-odier-ch"
+        "fr": "ressources-humaines-strategy-transformation-specialiste-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -4030,16 +4030,27 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-08T09:37:55.967Z"
+      "firstSeenAt": "2026-10-08T09:37:55.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-strategy-transformation-specialist-80-100-lombard-odier-ch"
+        ],
+        "fr": [
+          "hr-strategy-transformation-specialist-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-strategy-transformation-specialist-80-100-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-bc0ce1e54c17",
-      "slug": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
+      "slug": "collaboratore-trice-tesoreria-cassa-e-carte-lombard-odier-geneva",
       "slugByLocale": {
         "fr": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
-        "it": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
-        "en": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch",
-        "de": "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
+        "it": "collaboratore-trice-tesoreria-cassa-e-carte-lombard-odier-geneva",
+        "en": "treasury-cash-and-cards-associate-lombard-odier-geneva",
+        "de": "mitarbeiter-in-treasury-kasse-und-karten-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -4098,7 +4109,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-08T09:37:55.083Z"
+      "firstSeenAt": "2026-10-08T09:37:55.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
+        ],
+        "en": [
+          "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
+        ],
+        "de": [
+          "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-tresor-caisse-et-cartes-lombard-odier-ch"
+      ]
     }
   ]
 }

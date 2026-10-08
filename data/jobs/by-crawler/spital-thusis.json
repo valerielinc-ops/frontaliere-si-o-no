@@ -869,12 +869,12 @@
     },
     {
       "id": "spital-thusis-77977a66dcb2",
-      "slug": "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital",
+      "slug": "tecnico-a-diplomato-a-di-sala-operatoria-sss-con-possibilita-di-assumere-una-funzione-di-vice-responsabile-40-100-spital",
       "slugByLocale": {
         "de": "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital",
-        "it": "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital",
-        "en": "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital",
-        "fr": "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital"
+        "it": "tecnico-a-diplomato-a-di-sala-operatoria-sss-con-possibilita-di-assumere-una-funzione-di-vice-responsabile-40-100-spital",
+        "en": "dipl-specialist-in-operating-room-technology-hf-with-the-option-of-a-deputy-management-role-40-100-spital-thusis-thusis",
+        "fr": "technicien-ne-diplome-e-en-technique-operatoire-es-avec-possibilite-d-assumer-une-fonction-de-direction-adjointe-40-100"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -944,7 +944,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-08T09:52:12.290Z"
+      "firstSeenAt": "2026-10-08T09:52:12.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-hf-mit-option-einer-stv-leitungsfunktion-40-100-spital"
+      ]
     },
     {
       "id": "spital-thusis-25241a900557",
@@ -1892,7 +1906,7 @@
         "de": "senior-controller-in-betriebsbuchhaltung-100-spital-thusis-ch",
         "it": "senior-controller-in-betriebsbuchhaltung-100-spital-thusis-ch",
         "en": "senior-controller-in-betriebsbuchhaltung-100-spital-thusis-ch",
-        "fr": "senior-controller-in-betriebsbuchhaltung-100-spital-thusis-ch"
+        "fr": "controleur-euse-senior-comptabilite-d-exploitation-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",

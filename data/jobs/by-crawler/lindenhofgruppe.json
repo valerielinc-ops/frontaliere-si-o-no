@@ -3699,7 +3699,7 @@
         "it": "assistente-di-direzione-cmo-cno-lindenhofgruppe-lindenhofspital",
         "en": "executive-assistant-cmo-cno-lindenhofgruppe-lindenhofspital",
         "de": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
-        "fr": "direktionsassistent-in-cmo-cno-lindenhofgruppe-lindenhofspital"
+        "fr": "assistant-e-de-direction-cmo-cno-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3744,7 +3744,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
-        "assistant-e-de-direction-cmo-cno-lindenhofgruppe-lindenhofspital"
+        "direktionsassistent-in-cmo-cno-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3755,7 +3755,7 @@
         ],
         "fr": [
           "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
-          "assistant-e-de-direction-cmo-cno-lindenhofgruppe-lindenhofspital"
+          "direktionsassistent-in-cmo-cno-lindenhofgruppe-lindenhofspital"
         ]
       },
       "needsRetranslation": true,
@@ -3776,12 +3776,12 @@
     },
     {
       "id": "lindenhofgruppe-154a918b00aa",
-      "slug": "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
+      "slug": "operatrice-sociosanitaria-operatore-sociosanitario-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital",
-        "en": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fr": "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "it": "operatrice-sociosanitaria-operatore-sociosanitario-lindenhofgruppe-lindenhofspital",
+        "en": "healthcare-specialist-lindenhofgruppe-lindenhofspital",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3829,11 +3829,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3852,12 +3860,12 @@
     },
     {
       "id": "lindenhofgruppe-6fb8b72ef542",
-      "slug": "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch",
+      "slug": "specialista-responsabile-delle-applicazioni-per-l-amministrazione-dei-pazienti-lindenhofgruppe-muristalden",
       "slugByLocale": {
         "de": "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch",
-        "it": "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch",
-        "en": "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch",
-        "fr": "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch"
+        "it": "specialista-responsabile-delle-applicazioni-per-l-amministrazione-dei-pazienti-lindenhofgruppe-muristalden",
+        "en": "application-responsibility-specialist-patient-administration-lindenhofgruppe-muristalden",
+        "fr": "specialiste-responsable-des-applications-de-l-administration-des-patients-lindenhofgruppe-muristalden"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3916,7 +3924,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:51:23.553Z"
+      "firstSeenAt": "2026-10-08T09:51:23.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-applikationsverantwortung-patientenadministration-lindenhofgruppe-ch"
+      ]
     }
   ]
 }

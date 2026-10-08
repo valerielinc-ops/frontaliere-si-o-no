@@ -721,7 +721,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -772,11 +772,11 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
-        "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+        "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+          "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "it": [
           "kunsttherapeut-in-pdgr-ch"
@@ -1305,7 +1305,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1360,8 +1360,7 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1369,8 +1368,7 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-pdgr-ch"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -2370,7 +2368,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       },
@@ -2430,7 +2428,7 @@
           "oberarztin-oberarzt-pdgr-ch"
         ],
         "en": [
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
@@ -2787,8 +2785,8 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
+        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur",
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -2849,11 +2847,13 @@
         ],
         "en": [
           "psychiatrist-psychiatrische-dienste-graubunden-chur",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns"
         ],
         "fr": [
           "psychiatre-psychiatrische-dienste-graubunden-chur",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns"
         ]
       },
       "previousSlugs": [
@@ -2885,7 +2885,7 @@
       "slug": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "it": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
       },

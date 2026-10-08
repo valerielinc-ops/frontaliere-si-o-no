@@ -2252,7 +2252,7 @@
       "slug": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
         "it": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
-        "en": "psychomotorik-therapeutin-40-m-w-d-luzerner-psychiatrie-lups-kriens",
+        "en": "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
         "fr": "psychomotrice-therapeutine-40-m-p-j-luzerner-psychiatrie-lups-kriens"
       },
@@ -2299,11 +2299,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
-        "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens"
+        "psychomotorik-therapeutin-40-m-w-d-luzerner-psychiatrie-lups-kriens"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "psychomotor-therapist-40-m-f-d-luzerner-psychiatrie-lups-kriens"
+          "psychomotorik-therapeutin-40-m-w-d-luzerner-psychiatrie-lups-kriens"
         ],
         "it": [
           "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
@@ -5210,7 +5210,7 @@
       "slug": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
-        "en": "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
+        "en": "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
         "de": "ergotherapeutin-m-w-d-60-lups-st-urban",
         "fr": "ergotherapeute-h-f-d-60-luzerner-psychiatrie-lups-st-urban"
       },
@@ -5257,8 +5257,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
-        "ergotherapeutin-m-w-d-60-lups-st-urban",
-        "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban"
+        "ergotherapeutin-m-w-d-60-lups-st-urban"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5266,7 +5265,7 @@
           "ergotherapeutin-m-w-d-60-lups-st-urban"
         ],
         "en": [
-          "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban"
+          "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
         ],
         "fr": [
           "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
@@ -5292,7 +5291,7 @@
       "slug": "segretario-medico-70-m-f-d-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "it": "segretario-medico-70-m-f-d-luzerner-psychiatrie-lups-luzern",
-        "en": "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern",
+        "en": "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern",
         "de": "arztsekretarin-70-m-w-d-lups-luzern",
         "fr": "secretaire-medical-70-h-f-d-luzerner-psychiatrie-lups-luzern"
       },
@@ -5339,11 +5338,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-70-m-w-d-lups-luzern",
-        "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern"
+        "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern"
+          "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern"
         ],
         "it": [
           "arztsekretarin-70-m-w-d-lups-luzern"
@@ -5890,12 +5889,12 @@
     },
     {
       "id": "lups-47c7346df4bb",
-      "slug": "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens",
+      "slug": "stage-in-educazione-sociale-m-f-d-100-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
         "de": "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens",
-        "it": "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens",
-        "en": "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens",
-        "fr": "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens"
+        "it": "stage-in-educazione-sociale-m-f-d-100-luzerner-psychiatrie-lups-kriens",
+        "en": "internship-in-social-education-m-f-d-100-luzerner-psychiatrie-lups-kriens",
+        "fr": "stage-dans-l-education-sociale-h-f-d-100-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5953,7 +5952,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:12:02.579Z"
+      "firstSeenAt": "2026-10-08T09:12:02.579Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens"
+        ],
+        "en": [
+          "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens"
+        ],
+        "fr": [
+          "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-ausbildung-sozialpadagogik-m-w-d-100-lups-kriens"
+      ]
     }
   ]
 }

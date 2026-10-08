@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "sodexo-af1cbaad9334",
-      "slug": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren",
+      "slug": "pulitore-di-manutenzione-m-f-d-15-ore-alla-settimana-sodexo-suisse-sa-schlieren",
       "slugByLocale": {
         "de": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren",
-        "it": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren",
-        "en": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren",
-        "fr": "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
+        "it": "pulitore-di-manutenzione-m-f-d-15-ore-alla-settimana-sodexo-suisse-sa-schlieren",
+        "en": "maintenance-cleaner-m-f-d-15-hours-per-week-sodexo-suisse-sa-schlieren",
+        "fr": "nettoyeur-d-entretien-h-f-d-15-heures-par-semaine-sodexo-suisse-sa-schlieren"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -52,16 +52,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
+        ],
+        "en": [
+          "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
+      ]
     },
     {
       "id": "sodexo-7bf7eb7fe267",
-      "slug": "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel",
+      "slug": "pulitore-di-manutenzione-m-f-d-12h-a-settimana-sodexo-suisse-sa-basel",
       "slugByLocale": {
         "de": "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel",
-        "it": "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel",
-        "en": "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel",
-        "fr": "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
+        "it": "pulitore-di-manutenzione-m-f-d-12h-a-settimana-sodexo-suisse-sa-basel",
+        "en": "maintenance-cleaner-m-f-d-12h-per-week-sodexo-suisse-sa-basel",
+        "fr": "nettoyeur-d-entretien-h-f-d-12h-par-semaine-sodexo-suisse-sa-basel"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -106,7 +120,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
+        ],
+        "en": [
+          "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
+        ]
+      },
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
+      ]
     },
     {
       "id": "sodexo-e1ec1fbbff24",
