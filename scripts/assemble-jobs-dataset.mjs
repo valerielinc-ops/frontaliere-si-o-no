@@ -89,7 +89,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
-import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
+import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
 import {
@@ -3056,17 +3056,32 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // in place forever. The pass only writes entries with a redirect or pruned
   // bucket, so the fleet-wide scan is order-independent without rewriting
   // unrelated slices.
-  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
-    .filter((filePath) => filePath !== slicePath)
-    .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
-    .filter((entry) => Array.isArray(entry.slice?.jobs));
+  //
+  // This writer owns one file. Its group siblings run in the same checkout and
+  // own theirs: a sibling's slice is written here only to carry out a redirect
+  // that involves this slice, and only if it is still the file that was read
+  // (issue 12467 — a sibling read in its seed state and written back after it
+  // had published reverted its master slugs to the raw parser form).
+  const fleet = readFleetForSingleOwner(listSliceFilePaths(JOBS_SLICES_DIR), {
+    ownPath: slicePath,
+    readSlice: (filePath) => readJson(filePath, null),
+    write: (filePath, slice) => writeJson(filePath, slice),
+  });
   const currentEntry = { filePath: slicePath, slice: payload };
   const ownership = decontaminateEntries(
-    [...fleetEntries, currentEntry],
-    { sourceEntries: [...fleetEntries, currentEntry], apply: true },
+    [...fleet.entries, currentEntry],
+    {
+      sourceEntries: [...fleet.entries, currentEntry],
+      ownedEntries: [currentEntry],
+      apply: true,
+      writeSlice: fleet.writeSlice,
+    },
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
+  }
+  if (fleet.refused.length > 0) {
+    console.log(`  🧭 prev-slug ownership: left ${fleet.refused.length} sibling slice(s) untouched because their owner rewrote them meanwhile (${fleet.refused.map((filePath) => path.basename(filePath)).join(', ')})`);
   }
   if (Array.isArray(options.housekeepingProof) && options.housekeepingProof.length > 0) {
     // The isolated commit helper validates the bytes after its own merge, not
