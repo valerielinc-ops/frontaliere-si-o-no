@@ -285,3 +285,41 @@ describe('events derived dataset reconciliation', () => {
     expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
   });
 });
+
+describe('shared blob reader of the refresh reconcilers', () => {
+  const readerUrl = pathToFileURL(path.join(ROOT, 'scripts/lib/read-git-blob.mjs')).href;
+
+  function readIfPresent(repository: string, ref: string, file: string) {
+    const script = `import { readGitBlobIfPresent } from ${JSON.stringify(readerUrl)};`
+      + ` const value = readGitBlobIfPresent(process.argv[1], process.argv[2]);`
+      + ` process.stdout.write(JSON.stringify({ value }));`;
+    return spawnSync(process.execPath, ['--input-type=module', '-e', script, ref, file], {
+      cwd: repository, env: { ...TEST_GIT_ENV, GIT_NO_LAZY_FETCH: '1' }, encoding: 'utf8',
+    });
+  }
+
+  it('reads a missing path as absent and an unreadable object as an error', () => {
+    const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-blob-reader-test-'));
+    temporaryRepositories.push(repository);
+    git(repository, ['init', '-q', '-b', 'main']);
+    writeJson(repository, ['cache', 'kept.json'], { side: 'stable' });
+    const head = commitAll(repository, 'one cached file');
+
+    const present = readIfPresent(repository, head, 'cache/kept.json');
+    expect(present.status, present.stderr).toBe(0);
+    expect(JSON.parse(JSON.parse(present.stdout).value)).toEqual({ side: 'stable' });
+
+    // A path one side never had: a normal add/delete state of a three-way merge.
+    const absent = readIfPresent(repository, head, 'cache/never-there.json');
+    expect(absent.status, absent.stderr).toBe(0);
+    expect(JSON.parse(absent.stdout)).toEqual({ value: null });
+
+    // The tree still lists the file, but its object is gone from the store:
+    // what a partial clone looks like when a blob cannot be fetched.
+    const oid = git(repository, ['rev-parse', `${head}:cache/kept.json`]);
+    fs.rmSync(path.join(repository, '.git', 'objects', oid.slice(0, 2), oid.slice(2)));
+    const unreadable = readIfPresent(repository, head, 'cache/kept.json');
+    expect(unreadable.status).not.toBe(0);
+    expect(unreadable.stdout).toBe('');
+  });
+});

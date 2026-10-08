@@ -17,7 +17,7 @@ import {
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { readGitBlob } from '../lib/read-git-blob.mjs';
+import { readGitBlobIfPresent } from '../lib/read-git-blob.mjs';
 import { EVENT_CACHE_PATHS, mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
 const EVENT_DERIVED_DATASET_RECONCILIATION = 'events';
@@ -51,18 +51,7 @@ function blob(ref, file) {
 }
 
 function readBlob(ref, file, options = {}) {
-  try {
-    return readGitBlob(ref, file, options);
-  } catch (error) {
-    if (error?.status === 128) {
-      const listed = git(['ls-tree', '-r', '--name-only', ref, '--', file])
-        .split('\n')
-        .filter(Boolean)
-        .includes(file);
-      if (!listed) return null;
-    }
-    throw error;
-  }
+  return readGitBlobIfPresent(ref, file, options);
 }
 
 function treeFiles(tree, prefix) {
