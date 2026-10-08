@@ -228,6 +228,12 @@ import { resolveCantonSection as resolveSeoCantonSection, legacyTiSectionRoot } 
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from '@/build-plugins/shared/jobSectorPaths';
 import { pushRoute, buildPath, getSeoSection, AppRoute, parsePath } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, GlossaryTermId } from '@/services/router';
+import {
+  afterRootCrossfade,
+  removeOwnedStaticSnapshot,
+  shouldKeepStaticFallbackOutsideRoot,
+  STATIC_SNAPSHOT_OWNER_ATTR,
+} from '@/services/staticFallbackHandoff';
 import { NavigationContext } from '@/services/NavigationContext';
 import type { NavigationContextType } from '@/services/NavigationContext';
 import type { UserProfileData } from '@/components/pages/UserProfile';
@@ -388,12 +394,13 @@ const App: React.FC = () => {
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
- jobBoardFilterParams, staticOverlay,
+ jobBoardFilterParams, staticOverlay, articleStaticFallbackKey,
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
  setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
+ markStaticArticleReady, clearStaticArticleFallback,
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
@@ -403,13 +410,32 @@ const App: React.FC = () => {
  // React equivalent; this makes the hydration handoff atomic and avoids both
  // a blank frame and a layout shift on slow mobile connections.
  const [cantonTopicReadyKey, setCantonTopicReadyKey] = useState<string | null>(null);
+ // Same release rule as the article: never while the mount's fade still has
+ // #root transparent. A key that lands late simply no longer matches the route.
+ const markCantonTopicReady = useCallback((key: string) => {
+   afterRootCrossfade(() => setCantonTopicReadyKey(key));
+ }, []);
  const cantonTopicRouteKey = blogSection.startsWith('canton-') && cantonTopic
    ? `${blogSection}:${cantonTopic}:${locale}`
    : null;
- const cantonTopicStaticFallback = !!cantonTopicRouteKey && cantonTopicReadyKey !== cantonTopicRouteKey;
+ const cantonTopicStaticFallback = !!cantonTopicRouteKey
+   && cantonTopicReadyKey !== cantonTopicRouteKey
+   && shouldKeepStaticFallbackOutsideRoot(
+     { activeTab: 'blog', blogSection, cantonTopic: cantonTopic || undefined, staticOverlay },
+     'canton-topic',
+     typeof document !== 'undefined' && !!document.querySelector('main.seo-static-content'),
+   );
  const cantonTopicDeferUntilReady = cantonTopicStaticFallback
    && typeof document !== 'undefined'
    && !!document.querySelector('main.seo-static-content');
+ const articleStaticFallback = !!articleStaticFallbackKey;
+ // A static snapshot (article, or canton topic hub) still owns the body. The
+ // SPA <main> has to be mounted, or its view could never load and say it is
+ // ready, but until then it must take no space and paint nothing: left in the
+ // flow it pushed the snapshot down by its own padding and showed the "last
+ // updated" line above it (0.05 of layout shift on a desktop article, and
+ // 0.86 more when that line jumped below the article at the swap).
+ const staticSnapshotOwnsBody = articleStaticFallback || cantonTopicStaticFallback;
 
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
  const contextualConversion = useMemo(
@@ -554,13 +580,21 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
-     // A canton topic hub has a React equivalent, but its first HTML is the
-     // corpus snapshot. Do not hide that snapshot until the runtime payload
-     // with the matching edge commit has rendered; on a soft navigation the
-     // old static main has already been removed, so the React loading shell is
+     // An article has a React equivalent, and so does a canton topic hub, but
+     // the first HTML of both is the corpus snapshot. Do not take that
+     // snapshot away until the SPA view has rendered (for the hub: the runtime
+     // payload with the matching edge commit); on a soft navigation the old
+     // static main has already been removed, so the React loading shell is
      // allowed to own the viewport.
-     if (cantonTopicStaticFallback) {
+     if (staticSnapshotOwnsBody) {
        staticMain.style.removeProperty('display');
+       staticMain.setAttribute(STATIC_SNAPSHOT_OWNER_ATTR, '');
+       continue;
+     }
+     // The SPA view took over in this very commit: the snapshot that owned
+     // the body goes, for good (see removeOwnedStaticSnapshot).
+     if (staticMain.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR) && !staticOverlay) {
+       removeOwnedStaticSnapshot(staticMain);
        continue;
      }
      if (staticOverlay) {
@@ -569,7 +603,7 @@ const App: React.FC = () => {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [activeTab, staticOverlay, cantonTopicStaticFallback]);
+ }, [activeTab, staticSnapshotOwnsBody, staticOverlay]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
@@ -2203,6 +2237,7 @@ const App: React.FC = () => {
  // Navigation context value — shared with child components via useNavigation()
  // navigateTo() is the canonical one-call navigation: sets tab + sub-tab + pushes URL.
  const navigateTo = useCallback((tab: ActiveTab, subTab?: string, canton?: string) => {
+ clearStaticArticleFallback();
  setActiveTab(tab);
  if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
  else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
@@ -2235,7 +2270,7 @@ const App: React.FC = () => {
  if (!(tab === 'job-board' && !subTab)) {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
- }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
+ }, [calcolatoreSubTab, clearStaticArticleFallback, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, author]);
 
  // JobAlertForm parks a guest's criteria before sending them to the existing
  // profile auth screen. Re-enter the board after auth so the mounted form can
@@ -2352,13 +2387,13 @@ const App: React.FC = () => {
      sticky descendant (the rails went blank past the first screenful on long
      articles). overflow-y stays visible (the min-h-screen column grows with
      content, so nothing vertical was ever clipped). */}
- <div className={`app-shell-col ${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
+ <div className={`app-shell-col ${(staticOverlay || staticSnapshotOwnsBody) ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-x-clip`}>
  {/* Skip-to-content: first focusable element so keyboard users — and browser
   * AI agents reading the accessibility tree — can bypass the nav/header chrome
   * and jump straight to <main id="main-content"> (WCAG 2.4.1 Bypass Blocks;
   * Google AI agent-readiness guidance). Rendered only on SPA routes where the
   * React <main> is mounted, so the anchor target always resolves. */}
- {!staticOverlay && (
+ {!staticOverlay && !staticSnapshotOwnsBody && (
  <a
  href="#main-content"
  className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-on-accent focus:text-sm focus:font-semibold focus:shadow-lg focus:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
@@ -2963,10 +2998,11 @@ const App: React.FC = () => {
  )}
 
  {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide and canton sections. */}
- <ArticleSectionNavigation
+ {!staticSnapshotOwnsBody && <ArticleSectionNavigation
   route={{ activeTab }}
   activeSection={blogSection}
   onSelect={(section) => {
+   clearStaticArticleFallback();
    setBlogArticle(null);
    setSwissArticle(null);
    setCantonArticle(null);
@@ -2974,7 +3010,7 @@ const App: React.FC = () => {
    setBlogSection(section);
    Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', section);
   }}
- />
+ />}
  </>)}
 
  {/* GPT ad surfaces need the framework on every job-board route, including
@@ -3000,7 +3036,12 @@ const App: React.FC = () => {
   */}
  {!staticOverlay && (
  <div
- className={sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
+ className={staticSnapshotOwnsBody
+   // Collapsed on the wrapper, not on <main>: <main> keeps its real width and
+   // padding, so what mounts inside measures the layout it will be shown in,
+   // and nothing of <main> changes (or transitions) at the swap.
+   ? 'h-0 overflow-hidden invisible'
+   : sideRailEligible ? 'ft-rail-grid-spa contents xlw:grid xlw:flex-grow xlw:gap-4' : 'contents'}
  // Track widths are JS-driven so an unfilled rail collapses to 0 (see
  // railsCollapsed). Default 160px keeps the gutter reserved for SSR /
  // pre-verdict / no-JS, matching the old fixed grid-cols. Ignored below the
@@ -3015,7 +3056,7 @@ const App: React.FC = () => {
  <main id="main-content" tabIndex={-1} className={`flex-grow mx-auto py-4 lg:py-8 scroll-mt-20 focus:outline-none transition-[max-width,padding] duration-300 ease-out relative z-10${activeTab === 'plate-auctions' ? ' plate-auctions-main' : ''} ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : activeTab === 'job-board' ? '!max-w-[2400px] !w-full px-3 sm:px-4' : `!max-w-[2400px] !w-[95%] px-3 sm:px-4${(sideRailEligible || activeTab === 'plate-auctions') ? ' xlw:!w-full' : ''}`
  }`}>
- <Suspense fallback={<LazyFallback />}>
+ <Suspense fallback={staticSnapshotOwnsBody ? null : <LazyFallback />}>
  {notFoundPath ? (
  <div className="max-w-2xl mx-auto">
  <NotFoundSuggestions
@@ -3069,12 +3110,16 @@ const App: React.FC = () => {
  <BlogArticles
  section={blogSection}
  topic={cantonTopic}
- onCantonTopicReady={setCantonTopicReadyKey}
+ onCantonTopicReady={markCantonTopicReady}
  deferUntilCantonTopicReady={cantonTopicDeferUntilReady}
+  articleReadyKey={articleStaticFallbackKey ?? undefined}
+  onArticleReady={markStaticArticleReady}
+  deferUntilArticleReady={articleStaticFallback}
  selectedArticle={blogSection === 'svizzera' ? swissArticle : blogSection.startsWith('canton-') ? cantonArticle : blogArticle}
  page={blogPage ?? undefined}
  onPageChange={(nextPage) => setBlogPage(nextPage)}
  onSelectArticle={(id) => {
+   clearStaticArticleFallback();
    if (blogSection === 'svizzera') setSwissArticle(id);
    else if (blogSection.startsWith('canton-')) setCantonArticle(id);
    else setBlogArticle(id as BlogArticleId);
@@ -3426,7 +3471,7 @@ const App: React.FC = () => {
    *   <div id="footer-root"></div>   ← portal target
    * so the footer flows naturally after the SEO content in visual order. */}
  {(() => {
-   const footerPortalTarget = (staticOverlay || cantonTopicStaticFallback || activeTab === 'job-board')
+   const footerPortalTarget = (staticOverlay || staticSnapshotOwnsBody || activeTab === 'job-board')
      ? document.getElementById('footer-root')
      : null;
    // CLS fix (Phase 6 — 2026-05-18): removed content-visibility:auto +

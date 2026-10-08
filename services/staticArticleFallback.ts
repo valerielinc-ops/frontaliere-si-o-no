@@ -91,6 +91,23 @@ export function hasStaticArticleFallback(expectedPath?: string): boolean {
 }
 
 /**
+ * True while the static article OF THIS PAGE is in the document, outside `#root`.
+ *
+ * Narrower than {@link hasStaticArticleFallback}, which is also satisfied by the
+ * detached clone. "There is something to restore" and "it is on the page right
+ * now" are different questions: a caller that keeps the SPA view back until its
+ * article is ready needs the second, or a visitor who returns to the landing URL
+ * with the back button — live node long removed, clone still stashed — would
+ * look at an empty page instead of the loading state.
+ */
+export function isStaticArticleFallbackInDocument(expectedPath?: string): boolean {
+  if (typeof document === 'undefined') return false;
+  const el = staticArticleFallback(expectedPath);
+  if (!el?.isConnected || !el.querySelector('article.ft-blog-article')) return false;
+  return !document.getElementById('root')?.contains(el);
+}
+
+/**
  * Put the static article back on screen, outside `#root` where the SPA's
  * overlay mode expects it. Idempotent; `false` means there was nothing to
  * restore and the caller must NOT switch to overlay mode — that would leave a

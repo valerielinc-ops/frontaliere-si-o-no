@@ -21,6 +21,174 @@
  * Pure DOM, no React: index.tsx owns the timing (after App has loaded, before
  * the crossfade reserve is measured).
  */
+import type { AppRoute } from '@/services/router';
+import type { ArticleSection } from '@/services/articleSections';
+
+export type StaticFallbackKind = 'article' | 'canton-topic' | 'generic';
+
+/** Return the unresolved article identity carried by a route, if any. */
+export function pendingArticleSlug(route: AppRoute): { section: ArticleSection; slug: string } | null {
+  if (route.activeTab !== 'blog') return null;
+  if (route.blogSection === 'svizzera') {
+    return route.swissSlug && !route.swissArticle
+      ? { section: 'svizzera', slug: route.swissSlug }
+      : null;
+  }
+  if (route.blogSection?.startsWith('canton-')) {
+    return route.cantonSlug && !route.cantonArticle
+      ? { section: route.blogSection, slug: route.cantonSlug }
+      : null;
+  }
+  return route.blogSlug && !route.blogArticle
+    ? { section: 'frontaliere', slug: route.blogSlug }
+    : null;
+}
+
+function isArticleDetailRoute(route: AppRoute): boolean {
+  return route.activeTab === 'blog'
+    && Boolean(
+      route.blogSlug
+      || route.blogArticle
+      || route.swissSlug
+      || route.swissArticle
+      || route.cantonSlug
+      || route.cantonArticle,
+    );
+}
+
+/**
+ * Single ownership decision for static fallbacks that must survive the first
+ * React render. The caller supplies presence because this function is pure.
+ */
+export function shouldKeepStaticFallbackOutsideRoot(
+  route: AppRoute,
+  kind: StaticFallbackKind,
+  fallbackPresent: boolean,
+): boolean {
+  if (!fallbackPresent) return false;
+  if (kind === 'article') return isArticleDetailRoute(route);
+  if (kind === 'canton-topic') return route.activeTab === 'blog' && !!route.cantonTopic && !route.staticOverlay;
+  return false;
+}
+
+/** Stable identity used to pair readiness with one article URL. */
+export function staticArticleFallbackKey(section: string, article: string, locale: string): string {
+  return `${section}:${article}:${locale}`;
+}
+
+/** Build the readiness key for an article route, including unresolved slugs. */
+export function staticArticleFallbackRouteKey(route: AppRoute, locale: string): string | null {
+  if (!isArticleDetailRoute(route)) return null;
+  const article = route.blogArticle
+    || route.blogSlug
+    || route.swissArticle
+    || route.swissSlug
+    || route.cantonArticle
+    || route.cantonSlug;
+  if (!article) return null;
+  return staticArticleFallbackKey(route.blogSection || 'frontaliere', article, locale);
+}
+
+export interface StaticArticleReadiness {
+  deferUntilReady: boolean;
+  blogReady: boolean;
+  bodyReady: boolean;
+  articlePresent: boolean;
+  title: string;
+  titleKey: string;
+  bodySegmentCount: number;
+}
+
+/** The exact payload required before the SPA may replace a static article. */
+export function isStaticArticleReadyForTakeover(input: StaticArticleReadiness): boolean {
+  return input.deferUntilReady
+    && input.blogReady
+    && input.bodyReady
+    && input.articlePresent
+    && input.title.trim().length > 0
+    && input.title !== input.titleKey
+    && input.bodySegmentCount > 0;
+}
+
+/**
+ * Marks a static snapshot the SPA left OUTSIDE `#root` to own the body until
+ * its own view is ready. App.tsx sets it; it is never in the served HTML.
+ */
+export const STATIC_SNAPSHOT_OWNER_ATTR = 'data-ft-snapshot-owner';
+
+/**
+ * Take a body-owning snapshot out of the document for good, with the
+ * build-time rail grid it may sit in.
+ *
+ * Removed, not hidden. Hidden it would stay in the DOM as a second copy of the
+ * page (two `<h1>` for a crawler that renders), its rail grid would stay in the
+ * flow as an empty band after the footer, and the next client-side move would
+ * find it and show it as the content of whatever page came next.
+ */
+export function removeOwnedStaticSnapshot(snapshot: Element): void {
+  (snapshot.closest('.ft-rail-grid') ?? snapshot).remove();
+}
+
+/** How long {@link afterRootCrossfade} waits for `#root` before releasing anyway. */
+export const ROOT_CROSSFADE_WAIT_MS = 10_000;
+
+export interface RootCrossfadeEnv {
+  root?: HTMLElement | null;
+  /** Run a callback on the next frame. */
+  schedule?: (callback: () => void) => unknown;
+  now?: () => number;
+  waitMs?: number;
+}
+
+/**
+ * Run `release` once `#root` is opaque again.
+ *
+ * The mount fades `#root` out and back in around the first render
+ * ({@link hideRootForCrossfade}). A snapshot kept OUTSIDE `#root` is not part of
+ * that fade: releasing it while `#root` is still transparent would swap an
+ * article a reader can see for one they cannot. It takes warm caches for the
+ * SPA view to be ready that early, which is exactly a returning reader.
+ *
+ * Synchronous when no fade is in progress — the ordinary case, and the one
+ * that keeps the swap inside the commit that drew the SPA view. Bounded, so a
+ * `#root` that never comes back cannot hold the snapshot for the session.
+ */
+export function afterRootCrossfade(release: () => void, env: RootCrossfadeEnv = {}): void {
+  const root = env.root !== undefined ? env.root : document.getElementById('root');
+  const opaque = () => !root || !root.isConnected
+    || Number.parseFloat(window.getComputedStyle(root).opacity || '1') >= 0.99;
+  if (opaque()) {
+    release();
+    return;
+  }
+  const schedule = env.schedule ?? ((callback: () => void) => window.requestAnimationFrame(callback));
+  const now = env.now ?? (() => performance.now());
+  const deadline = now() + (env.waitMs ?? ROOT_CROSSFADE_WAIT_MS);
+  const check = () => {
+    if (opaque() || now() >= deadline) release();
+    else schedule(check);
+  };
+  schedule(check);
+}
+
+/**
+ * Whether the entry should perform the existing body-level fallback adoption.
+ *
+ * This is deliberately extracted before the article-specific ownership rule is
+ * added: the entry point and its tests must share the same gate, while the
+ * generic SPA takeover behavior remains unchanged.
+ */
+export function shouldAdoptStaticFallbackIntoRoot(
+  route: AppRoute,
+  hasPlateAuctionFallback: boolean,
+  kind: StaticFallbackKind = 'generic',
+  fallbackPresent = false,
+): boolean {
+  return !route.staticOverlay
+    && !hasPlateAuctionFallback
+    && !shouldKeepStaticFallbackOutsideRoot(route, kind, fallbackPresent);
+}
+
 export interface StaticFallbackAdoption {
   /** The static sub-nav that was moved along with the fallback, if any. */
   subnav: HTMLElement | null;
