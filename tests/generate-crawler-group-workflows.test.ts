@@ -2718,6 +2718,9 @@ describe('cross-repo crawler execution artifacts', () => {
     // 2b (decisione del proprietario H7, 2026-10-05) e come ultimo tier delle
     // fasi 2d/2e, dopo Argos (decisione del 2026-09-25): stesso confinamento
     // del secret dei crawler, e il socket solo come output del broker.
+    // Dal 2026-10-07 lo usa anche la corsia titoli 2a.2 (PR 12158, poi 12179 e
+    // 12266): quarto consumatore, con lo stesso confinamento, verificato qui
+    // sotto per ogni passo del job.
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSteps: any[] = translation.jobs.translate.steps;
     const translationSetupStep = translationSteps.find(
@@ -2736,10 +2739,13 @@ describe('cross-repo crawler execution artifacts', () => {
     const translationConsumers = translationSteps.filter((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
       && step.name !== 'Cleanup Codex auth broker');
     expect(translationConsumers.map((step: any) => step.name)).toEqual([
+      'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)',
       'Phase 2b: Translate pending jobs (cascade top-up)',
       'Phase 2d: Fix untranslated titles (free cascade)',
       'Phase 2e: Fix untranslated descriptions (free cascade)',
     ]);
+    expect(translationConsumers.every((step: any) => step.env.CODEX_AUTH_BROKER_SOCKET
+      === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
     expect(translationSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
       && step.env?.AI_MODELS_PREFER === undefined
       && step.env?.CLAUDE_CODE_OAUTH_TOKEN === undefined)).toBe(true);

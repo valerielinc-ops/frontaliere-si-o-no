@@ -36,10 +36,6 @@ import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
-import {
-  listCiGeneratedDataTests,
-  shouldSkipCiGeneratedDataTests,
-} from './ci-generated-data-tests.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
@@ -51,11 +47,18 @@ const selectionOnly = process.argv.includes('--select-only');
 const sourceRe = GRAPH_SOURCE_RE;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 const runnerPath = 'scripts/ci/run-related-tests.mjs';
-const generatedDataPolicyPath = 'scripts/ci/ci-generated-data-tests.mjs';
 const globalVitestConfigPaths = new Set(['vitest.config.ts']);
-const ciGeneratedDataTests = shouldSkipCiGeneratedDataTests()
-  ? new Set(listCiGeneratedDataTests())
-  : new Set();
+// Questo selettore non esclude nessun test per il suo costo. Dal 06
+// all'08-10-2026 un elenco fisso teneva fuori da ogni esecuzione automatica i
+// due file che ricostruiscono artefatti generati
+// (`tests/generate-crawler-group-workflows.test.ts`, 145 casi, e
+// `tests/translation-state-drainer-v2.test.ts`, 31): il percorso dedicato che
+// doveva sostituire il gate non e' mai stato costruito, e 17 ore dopo la PR
+// 12158 ha aggiunto un quarto consumatore del broker Codex al workflow di
+// traduzione senza che il caso che ne fissa l'elenco girasse. Il costo si
+// limita con la precisione della selezione, non togliendo il test: in sette
+// giorni le PR che toccano la chiusura del primo file sono state 37 su 1263,
+// quelle che toccano la chiusura del secondo nessuna.
 // These tests exercise the runner through its real subprocess seam or pin its
 // CI wiring. They are deliberately explicit: broadening every `scripts/` or
 // `.github/` change into a full suite would undo the related-test bound.
@@ -73,6 +76,12 @@ const runnerRegressionTests = new Set([
 // fissa un conteggio letterale su un file riscritto da un cron).
 const testTreeLintTests = new Set([
   'tests/check-cron-count-literals.test.ts',
+  // Il guard «un test del gate non legge dati vivi» scandisce ogni file di
+  // test e li confronta con un inventario: deve girare sulla PR che aggiunge il
+  // test, ed e' l'unico momento in cui serve. Girava solo quando cambiavano i
+  // suoi import: `tests/license-audit.test.ts` (PR 12232) e' entrato senza una
+  // voce nell'inventario e il guard e' rimasto rosso su main in latenza.
+  'tests/live-data-test-guard.test.ts',
 ]);
 // Perimetro del transport verso nanako: il manifest e i path che consegna.
 // Letto alla prima domanda, non all'avvio: la maggior parte dei diff si ferma
@@ -246,6 +255,21 @@ const sourceTreeLintTests = new Map([
   // legge da disco ogni modulo sotto `scripts/` e non ne importa nessuno:
   // deve girare sul diff che aggiunge la chiamata.
   ['tests/gh-exec-buffer-census.test.ts', /^scripts\/.+\.mjs$/],
+  // Registri delle immagini: li riscrivono l'audit ricorrente delle licenze e
+  // le PR di dati delle immagini, senza che una persona ne scelga il
+  // contenuto. `data/` e `public/` sono fuori dal grafo, quindi quelle PR non
+  // sceglievano nessuno dei test che aprono cio' che cambiano: per il diff
+  // della PR 12306 (copertina rigenerata, ledger, registro, crediti) il
+  // selettore sceglieva quattro test, nessuno dei quali legge un registro
+  // delle immagini. Perimetro: i file che ciascun test apre dal checkout.
+  [
+    'tests/published-image-policy.test.ts',
+    /^(?:public\/)?data\/(?:event-image-library|generated-image-registry)\.json$/,
+  ],
+  [
+    'tests/generated-site-images.test.ts',
+    /^(?:data\/generated-image-registry\.json$|public\/images\/(?:authors|places)\/)/,
+  ],
   // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un
@@ -736,10 +760,8 @@ function loadGraph(files, assets) {
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
     && (sourceRe.test(file) || isRelatedAsset(file))
-    && !alwaysExcludedTests.has(file)
-    && !ciGeneratedDataTests.has(file)))];
+    && !alwaysExcludedTests.has(file)))];
 const runnerChanged = changed.includes(runnerPath);
-const runnerInfrastructureChanged = runnerChanged || changed.includes(generatedDataPolicyPath);
 const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths.has(file));
 const fullSuiteRequired = globalVitestConfigChanged;
 rejectDryRunInCi();
@@ -826,8 +848,7 @@ if (unreadable.length > 0) {
 }
 const isRunnableTest = (file) => testRe.test(file)
   && !corpusWideTests.has(file)
-  && !alwaysExcludedTests.has(file)
-  && !ciGeneratedDataTests.has(file);
+  && !alwaysExcludedTests.has(file);
 const allTests = tracked.filter(isRunnableTest);
 const reverse = new Map();
 for (const [file, entry] of Object.entries(graph)) {
@@ -840,11 +861,11 @@ const related = new Set(fullSuiteRequired ? allTests : candidates.filter(isRunna
 if (globalVitestConfigChanged) {
   console.log('vitest.config.ts changed → running all tracked tests because it configures the complete Vitest suite.');
 }
-if (runnerInfrastructureChanged && !fullSuiteRequired) {
+if (runnerChanged && !fullSuiteRequired) {
   for (const test of runnerRegressionTests) {
     if (isRunnableTest(test)) related.add(test);
   }
-  console.log('related-test runner/policy changed → running its explicit regression-test suite.');
+  console.log('related-test runner changed → running its explicit regression-test suite.');
 }
 if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   for (const test of testTreeLintTests) {

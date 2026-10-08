@@ -26,18 +26,33 @@ import { syncCorpusBlogCovers } from '../scripts/audit/sync-corpus-blog-covers.m
 const ROOT = process.cwd();
 const temporaryRoots: string[] = [];
 
+// Pinned copies of the records these cases need. The registries under `data/`
+// are rewritten by the recurring audit itself: on 2026-10-08 it regenerated the
+// cover the ledger case used as its sample, and the case turned red on `main`
+// without a code change. Each path is spelled out in full so the related-test
+// selector links the fixture to this file.
+const EVENT_LIBRARY_FIXTURE = 'tests/__fixtures__/license-audit/event-image-library.json';
+const BLOG_REGISTRY_FIXTURE = 'tests/__fixtures__/license-audit/blog-generated-image-registry.json';
+const BLOG_LEDGER_FIXTURE = 'tests/__fixtures__/license-audit/blog-cover-ledger.json';
+
+function readFixture(file: string) {
+  return JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
+}
+
 function tempRoot() {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'license-audit-test-'));
   temporaryRoots.push(directory);
   return directory;
 }
 
+function writeFile(root: string, relativePath: string, content: string) {
+  const file = path.join(root, relativePath);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, content);
+}
+
 function generatedFixture() {
-  const registry = JSON.parse(fs.readFileSync(
-    path.join(ROOT, 'data', 'event-image-library.json'),
-    'utf8',
-  ));
-  return registry.assets[0];
+  return readFixture(EVENT_LIBRARY_FIXTURE).assets[0];
 }
 
 afterEach(() => {
@@ -96,9 +111,10 @@ describe('license audit A — event image sources', () => {
       imageUrl: '/images/events/myswitzerland-old.webp',
     };
     expect(classifyEventImage({ event }).valid).toBe(false);
+    const root = tempRoot();
     const audit = auditEventSourceSlices({
-      root: ROOT,
-      slices: [{ file: path.join(ROOT, 'data/events/by-source/myswitzerland.json'), value: { events: [event] } }],
+      root,
+      slices: [{ file: path.join(root, 'data/events/by-source/myswitzerland.json'), value: { events: [event] } }],
     });
     expect(audit.control.status).toBe('fail');
     expect(audit.control.examples[0].sourceKey).toBe('myswitzerland');
@@ -146,25 +162,59 @@ describe('license audit B — published image records', () => {
 
   it('inherits a blog hero ledger record for its published thumbnail', () => {
     const key = '139-frontalieri-ticino-special-olympics';
+    const ledger = readFixture(BLOG_LEDGER_FIXTURE);
+    expect(ledger.covers[key]).toMatchObject({ evidence: 'inferred', recordFile: null });
     const audit = auditOtherImages({
-      root: ROOT,
+      root: tempRoot(),
       publicFiles: [
         `public/images/blog/${key}.webp`,
         `public/images/blog/thumbnails/${key}-480w.webp`,
       ],
       registries: { shared: { assets: [] }, blog: { assets: [] } },
-      ledger: JSON.parse(fs.readFileSync(path.join(ROOT, 'data/blog-cover-ledger.json'), 'utf8')),
+      ledger,
       blogKeys: new Set([key]),
     });
+    const hero = audit.inventory.find((row) => row.url === `/images/blog/${key}.webp`);
     const thumbnail = audit.inventory.find((row) => row.url.includes('/thumbnails/'));
+    expect(hero?.status).toBe('inferred');
     expect(thumbnail?.status).toBe('inferred');
     expect(thumbnail?.status).not.toBe('orfano');
     expect(audit.candidates).toHaveLength(0);
   });
 
+  it('follows the ledger once the audit has replaced the cover with a governed record', () => {
+    // The state that broke the pinned sample on `main`: the replacement turns
+    // the ledger entry into a pointer to a generated record. With that record in
+    // the blog registry both surfaces are valid; without it both are unresolved.
+    const key = '139-frontalieri-ticino-special-olympics';
+    const record = readFixture(BLOG_REGISTRY_FIXTURE).assets[0];
+    expect(record.imageUrl).toBe(`/images/blog/${key}.webp`);
+    const replaced = readFixture(BLOG_LEDGER_FIXTURE);
+    Object.assign(replaced.covers[key], {
+      action: 'generated',
+      evidence: 'generated-engine-record',
+      status: 'generated',
+      recordFile: `packages/articles/content/image-credits/blog/${key}.json`,
+    });
+    const publicFiles = [
+      `public/images/blog/${key}.webp`,
+      `public/images/blog/thumbnails/${key}-480w.webp`,
+    ];
+    const statuses = (blog: { assets: unknown[] }) => auditOtherImages({
+      root: tempRoot(),
+      publicFiles,
+      registries: { shared: { assets: [] }, blog },
+      ledger: replaced,
+      blogKeys: new Set([key]),
+    }).inventory.map((row) => row.status);
+
+    expect(statuses({ assets: [record] })).toEqual(['ok', 'ok']);
+    expect(statuses({ assets: [] })).toEqual(['senza record', 'senza record']);
+  });
+
   it('keeps real-author photos out of the replacement candidate set', () => {
     const audit = auditOtherImages({
-      root: ROOT,
+      root: tempRoot(),
       publicFiles: ['public/images/authors/samuele-valente.webp'],
       registries: { shared: { assets: [] }, blog: { assets: [] } },
       authorsByPath: new Map([['/images/authors/samuele-valente.webp', {
@@ -178,7 +228,7 @@ describe('license audit B — published image records', () => {
 
   it('keeps the logo-source inventory separate from auto-repair', () => {
     const audit = auditOtherImages({
-      root: ROOT,
+      root: tempRoot(),
       publicFiles: ['public/images/brands/unregistered.svg'],
       registries: { shared: { assets: [] }, blog: { assets: [] } },
       references: new Set(['/images/brands/unregistered.svg']),
@@ -188,14 +238,27 @@ describe('license audit B — published image records', () => {
   });
 
   it('teaches the logo inventory about dynamic fuel-station slugs and marks unused files as warnings', () => {
-    const dynamic = parseFuelBrandLogoReferences(ROOT);
-    expect(dynamic.references.size).toBe(18);
-    expect(dynamic.references).toContain('/images/brands/agipeni.svg');
-    expect(dynamic.references).toContain('/images/brands/cooppronto.svg');
+    // The price crawler rewrites the fuel data, so the brands are pinned here:
+    // two spellings of one brand, a brand named in the per-canton file only,
+    // and a brand without a logo, which must not become a reference.
+    const root = tempRoot();
+    writeFile(root, 'data/fuel-prices.json', JSON.stringify({
+      stations: [{ brand: 'Agip Eni' }, { brand: 'ENI' }, { brand: 'Pompe Bianche' }],
+    }));
+    writeFile(root, 'data/fuel-prices-cantons.json', JSON.stringify({
+      cantons: { TI: { stations: [{ brand: 'COOP' }] } },
+    }));
+    writeFile(root, 'public/images/brands/agipeni.svg', '<svg/>');
+    writeFile(root, 'public/images/brands/cooppronto.svg', '<svg/>');
+    const dynamic = parseFuelBrandLogoReferences(root);
+    expect([...dynamic.references].sort()).toEqual([
+      '/images/brands/agipeni.svg',
+      '/images/brands/cooppronto.svg',
+    ]);
     expect(dynamic.evidence.get('/images/brands/agipeni.svg')).toContain('data fuel brand');
 
     const audit = auditOtherImages({
-      root: ROOT,
+      root,
       publicFiles: [
         'public/images/brands/agipeni.svg',
         'public/images/brands/agip.svg',
@@ -344,7 +407,7 @@ describe('license audit replacement invariants', () => {
     const corpusRoot = tempRoot();
     const key = 'sync-fixture-cover';
     const imageUrl = `/images/blog/${key}.webp`;
-    const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/blog-generated-image-registry.json'), 'utf8')).assets[0];
+    const base = readFixture(BLOG_REGISTRY_FIXTURE).assets[0];
     const record = { ...base, assetId: key, imageUrl };
     fs.mkdirSync(path.join(siteRoot, 'data'), { recursive: true });
     fs.mkdirSync(path.join(siteRoot, 'public/images/blog/thumbnails'), { recursive: true });
@@ -408,7 +471,7 @@ describe('license audit replacement invariants', () => {
 
   it('writes a generated article record at the same URL with an injected generator', async () => {
     const root = tempRoot();
-    const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/blog-generated-image-registry.json'), 'utf8')).assets[0];
+    const base = readFixture(BLOG_REGISTRY_FIXTURE).assets[0];
     const generated = {
       ...base,
       assetId: 'fixture-article',
@@ -458,7 +521,7 @@ describe('license audit replacement invariants', () => {
       JSON.stringify({ events: [oldEvent] }),
     );
     fs.copyFileSync(
-      path.join(ROOT, 'data', 'event-image-library.json'),
+      path.resolve(EVENT_LIBRARY_FIXTURE),
       path.join(root, 'data', 'event-image-library.json'),
     );
 
