@@ -29,6 +29,11 @@ interface HubCopy {
   unavailable: string;
 }
 
+interface LoadedHubData {
+  key: string;
+  data: CantonTopicHubData;
+}
+
 const HUB_COPY: Record<'it' | 'en' | 'de' | 'fr', HubCopy> = {
   it: {
     updated: 'Aggiornato il',
@@ -156,25 +161,26 @@ function CantonTopicHub({
   onReady?: (key: string) => void;
 }) {
   const [locale] = useLocale();
-  const [data, setData] = useState<CantonTopicHubData | null>(null);
+  const [loaded, setLoaded] = useState<LoadedHubData | null>(null);
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
   const key = `${section}:${topic}:${locale}`;
   const copy = HUB_COPY[locale];
+  const data = loaded?.key === key ? loaded.data : null;
 
   useEffect(() => {
     let cancelled = false;
-    setData(null);
+    setLoaded(null);
     setLoading(true);
     setFailed(false);
     void loadCantonTopicHub(section, topic, locale).then((next) => {
       if (cancelled) return;
-      if (next) setData(next);
+      if (next) setLoaded({ key, data: next });
       else setFailed(true);
       setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [section, topic, locale]);
+  }, [key, section, topic, locale]);
 
   useEffect(() => {
     if (data) onReady?.(key);
