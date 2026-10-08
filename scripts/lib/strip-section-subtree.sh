@@ -79,8 +79,8 @@ if [ ! -f "$marker" ]; then
   fi
   # en/de/fr with the section LIVE: the retained copy is NOT a fallback. Every
   # /<loc>/* request reaches the Worker (wrangler routes), which resolves a
-  # section path against the SECTION origin only — serveShard never consults
-  # the locale shard for it. Measured 2026-10-08: /de/jobs-im-tessin/ and
+  # section path against the SECTION origin only — its shard handler never
+  # consults the locale shard for it. Measured 2026-10-08: /de/jobs-im-tessin/ and
   # /de/jobs-im-tessin/elektriker/ answer 200 on the apex and on
   # origin-ticino-de while origin-de answers 404, same for fr. Keeping the
   # subtree therefore protects nobody and only inflates the locale shard: in
