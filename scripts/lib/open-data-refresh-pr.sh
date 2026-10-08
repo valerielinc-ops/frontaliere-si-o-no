@@ -169,6 +169,7 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 # workflows, so `origin` is not allowed to be the authentication boundary.
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 
 check_old_history_ref() {
   local head_ref="$1"
@@ -448,6 +449,89 @@ if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT
   fi
 fi
 
+# Publishing a stable branch that does not exist on the remote yet (issue 12262).
+#
+# `git push` sends every object reachable from the pushed commit that is not
+# reachable from a remote branch tip this checkout also has. For a branch that
+# is not there yet, the only tip that can cover the checkout commit is main,
+# and only while main has not moved since this checkout last saw it. The
+# workflow checkout is shallow, and the history guard above leaves it a
+# treeless clone that holds main's whole commit graph as of the guard's fetch.
+# One push to main between that fetch and ours and no advertised tip is a local
+# commit: Git then counts the entire history as missing on the remote, and a
+# treeless clone has to download it before it can send it, one lazy fetch per
+# commit. The step printed its commit and went silent until the job timeout
+# (runs 37678484563 and 37697864009, both with a push to main inside the
+# guard's window; tests/open-data-refresh-checkout.test.ts replays it offline).
+#
+# So the branch is created on the remote first, at the commit this run started
+# from, which the remote necessarily has. The push is then a fast-forward from
+# a tip both sides know, whatever main does meanwhile, and the pack is this
+# run's commits and nothing else.
+REMOTE_BASE_CREATED=false
+REMOTE_BASE_TIMEOUT_SECONDS=60
+PUSH_TIMEOUT_SECONDS=180
+
+# No network command here may run until the job timeout: past its cap the
+# command is stopped and the log names it.
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
+create_remote_branch_at_base() {
+  local detail
+  if detail="$(run_bounded "$REMOTE_BASE_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
+    gh api -X POST "repos/${REPOSITORY}/git/refs" \
+      -f "ref=refs/heads/${BRANCH}" -f "sha=${REFRESH_BASE}" --silent 2>&1)"; then
+    REMOTE_BASE_CREATED=true
+    echo "Created ${BRANCH} on the remote at this run's base commit ${REFRESH_BASE}."
+    return 0
+  fi
+  # Not fatal by itself. Another run may have created the branch a moment ago
+  # (the push below then loses to it and the loop reconciles), or the API may
+  # be unavailable. The push still cannot hang: see push_new_stable_branch.
+  echo "::warning::${BRANCH} could not be created on the remote at this run's base commit before the push: $(printf '%s' "$detail" | tr '\n' ' ' | cut -c1-300)"
+}
+
+push_new_stable_branch() {
+  if [ "$REMOTE_BASE_CREATED" = false ]; then
+    create_remote_branch_at_base
+  fi
+  if [ "$RECONCILE_COMPAT" = true ]; then
+    # The compat publish merges main for real, so its commits can reference
+    # objects this checkout was only promised. The base above already bounds
+    # what is sent to the commits since this run's checkout.
+    run_bounded "$PUSH_TIMEOUT_SECONDS" "git push of the new stable branch ${BRANCH}" \
+      git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
+    return
+  fi
+  # Everything this push sends was written by this run, so it never needs to
+  # download an object. With lazy fetch off, a push that finds no common base
+  # after all stops at the first object it lacks instead of fetching history.
+  run_bounded "$PUSH_TIMEOUT_SECONDS" "git push of the new stable branch ${BRANCH}" \
+    env GIT_NO_LAZY_FETCH=1 \
+    git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
+}
+
+# A base this run created and never moved is not a refresh: leaving it would
+# make the next run reconcile on top of an empty branch. The deletion carries a
+# lease on the base commit, so the remote itself refuses it when another run
+# has advanced the branch: reading the tip first and deleting afterwards would
+# remove that run's refresh in between. A deletion sends no objects.
+remove_unused_remote_base() {
+  [ "$REMOTE_BASE_CREATED" = true ] || return 0
+  if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push that removes the unused base of ${BRANCH}" \
+    git -c http.https://github.com/.extraheader= push \
+    --force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}" \
+    "$PUSH_URL" ":refs/heads/${BRANCH}"; then
+    echo "Removed ${BRANCH} from the remote: it still pointed at this run's base commit and carried no refresh."
+  else
+    echo "::warning::${BRANCH} was not removed from the remote: it no longer points at this run's base commit ${REFRESH_BASE}, or the deletion failed; the next run reconciles on top of what is there"
+  fi
+}
+
 # A stable branch is intentionally shared by concurrent refreshes. The first
 # push may therefore lose the lease after the branch was reconciled above. A
 # bounded retry must rebuild the local branch from the newest remote tip before
@@ -458,12 +542,13 @@ push_attempt=1
 while :; do
   push_succeeded=false
   if [ -n "$REMOTE_HEAD" ]; then
-    if git -c http.https://github.com/.extraheader= push \
+    if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push over the stable branch ${BRANCH}" \
+      git -c http.https://github.com/.extraheader= push \
       --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \
       "$PUSH_URL" "HEAD:${BRANCH}"; then
       push_succeeded=true
     fi
-  elif git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"; then
+  elif push_new_stable_branch; then
     push_succeeded=true
   fi
 
@@ -471,14 +556,30 @@ while :; do
     break
   fi
   if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
+    remove_unused_remote_base
     echo "::error::stable refresh branch push failed after ${MAX_PUSH_ATTEMPTS} bounded attempts" >&2
     exit 1
   fi
 
-  echo "::warning::stable refresh branch moved during push attempt ${push_attempt}/${MAX_PUSH_ATTEMPTS}; reconciling the newest remote tip"
+  if [ -n "$REMOTE_HEAD" ]; then
+    echo "::warning::stable refresh branch moved during push attempt ${push_attempt}/${MAX_PUSH_ATTEMPTS}; reconciling the newest remote tip"
+  else
+    echo "::warning::push of the new stable refresh branch failed on attempt ${push_attempt}/${MAX_PUSH_ATTEMPTS}; reading the remote again before the next one"
+  fi
   push_attempt=$((push_attempt + 1))
   sleep "$((push_attempt - 1))"
   REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+  if [ "$REMOTE_BASE_CREATED" = true ]; then
+    if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
+      # Still the base this run created: no other run wrote to the branch, so
+      # there is nothing to reconcile and the same commit is pushed again.
+      REMOTE_HEAD=""
+    elif [ -z "$REMOTE_HEAD" ]; then
+      # The base is gone (an empty branch is fair game for a cleanup): the next
+      # attempt must create it again, or it would push with no common base.
+      REMOTE_BASE_CREATED=false
+    fi
+  fi
 
   if [ -n "$REMOTE_HEAD" ]; then
     git fetch --no-tags "$PUSH_URL" \
