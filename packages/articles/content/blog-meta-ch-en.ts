@@ -7904,6 +7904,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Energy incentives in the Canton of Lucerne: requirements and application',
     'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## TL;DR - In the Canton of Lucerne, incentives concern buildings and installations. - The requirements to be verified are technical. - The application must be submitted beforehand',
     'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Residential building undergoing energy renovation in Switzerland',
+    'blog.article.violazione-dati-publica-indagine.title': 'Cyberattack on Publica’s software provider',
+    'blog.article.violazione-dati-publica-indagine.excerpt': '## TL;DR - Cyberattack at the end of September - An external Publica provider was affected - The Public Prosecutor\'s Office has launched an investigation - Publica has',
+    'blog.article.violazione-dati-publica-indagine.imageAlt': 'Server rack in a Swiss technical room symbolising the cyberattack on a Publica software provider',
 };
 
 export default blogMetaChEn;

@@ -12780,6 +12780,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.kastritis-varese-momento-difficile.title': 'Kastritis : moment difficile, confiance pleine en équipe',
     'blog.article.kastritis-varese-momento-difficile.excerpt': 'Varese perd ses débuts en Ligue des champions à Murcie contre UCAM Murcia, en l\'absence de McDowell et Della Valle ; Kastritis met en avant l\'intensité défensive et la confiance du groupe, prochain match dans trois jours.',
     'blog.article.kastritis-varese-momento-difficile.imageAlt': 'Joueurs de Pallacanestro Varese en action défensive sur un terrain extérieur à Lugano avec le lac et les montagnes en arrière-plan',
+    'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.title': 'Opération Hermes : fraudes à la TVA 450 mln, saisies 11 mln',
+    'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.excerpt': '## En bref - Six mesures conservatoires et saisies pour environ 11 millions - Fraude à la TVA dans l\'électronique et l\'informatique - 93 sociétés dans la partie italienne de l\'enquête',
+    'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.imageAlt': 'Image éditoriale relative à: Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
 };
 
 export default blogMetaFr;

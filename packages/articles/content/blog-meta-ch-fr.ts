@@ -7904,6 +7904,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Incitations énergétiques du canton de Lucerne : conditions et demande',
     'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## En bref - Dans le canton de Lucerne, les incitations concernent les bâtiments et les installations. - Les conditions à vérifier sont techniques. - La demande doit être déposée avant',
     'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Bâtiment résidentiel en cours de rénovation énergétique en Suisse',
+    'blog.article.violazione-dati-publica-indagine.title': 'Attaque informatique contre le fournisseur de logiciels de Publica',
+    'blog.article.violazione-dati-publica-indagine.excerpt': '## En bref - Attaque informatique fin septembre - Un fournisseur externe de Publica touché - Le Ministère public a ouvert une enquête - Publica a',
+    'blog.article.violazione-dati-publica-indagine.imageAlt': 'Serveurs dans une salle technique suisse, symbolisant la cyberattaque contre un fournisseur de logiciels de Publica',
 };
 
 export default blogMetaChFr;

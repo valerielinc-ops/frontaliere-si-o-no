@@ -102855,6 +102855,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln': {
+    title: 'Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
+    description: '## In breve - Sei misure cautelari e sequestri per circa 11 milioni - Frode Iva in elettronica e informatica - 93 società nella parte italiana dell\'indagine',
+    keywords: 'frontalieri, ticino, svizzera, italia, operazione, hermes, frodi, sequestri',
+    ogTitle: 'Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
+    ogDescription: '## In breve - Sei misure cautelari e sequestri per circa 11 milioni - Frode Iva in elettronica e informatica - 93 società nella parte italiana dell\'indagine',
+    canonicalPath: '/articoli-frontaliere/operazione-hermes-frodi-iva-450-mln-sequestri-11-mln/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln",
+      "description": "## In breve - Sei misure cautelari e sequestri per circa 11 milioni - Frode Iva in elettronica e informatica - 93 società nella parte italiana dell'indagine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln"
+      },
+      "datePublished": "2026-10-08T07:59:56+00:00",
+      "dateModified": "2026-10-08T07:59:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operazione-hermes-frodi-iva-450-mln-sequestri-11-mln/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 
 };
 

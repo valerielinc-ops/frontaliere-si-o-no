@@ -7904,6 +7904,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Incentivi energetici Cantone Lucerna: requisiti e domanda',
     'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## In breve - Nel Cantone di Lucerna gli incentivi riguardano edifici e impianti. - I requisiti da verificare sono tecnici. - La domanda va presentata prima',
     'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Edificio residenziale in fase di ristrutturazione energetica in Svizzera',
+    'blog.article.violazione-dati-publica-indagine.title': 'Attacco informatico al fornitore software di Publica',
+    'blog.article.violazione-dati-publica-indagine.excerpt': '## In breve - Attacco informatico a fine settembre - Colpito un fornitore esterno di Publica - Il Ministero pubblico ha avviato un\'indagine - Publica ha',
+    'blog.article.violazione-dati-publica-indagine.imageAlt': 'Server in una sala tecnica svizzera, immagine simbolica dell\'attacco a un fornitore di Publica',
 };
 
 export default blogMetaChIt;

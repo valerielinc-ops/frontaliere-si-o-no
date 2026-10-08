@@ -43129,6 +43129,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'operazione-hermes-frodi-iva-450-mln-sequestri-11-mln',
+ category: 'novita',
+ date: '2026-10-08T07:59:56.704Z',
+ image: '/images/blog/article-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

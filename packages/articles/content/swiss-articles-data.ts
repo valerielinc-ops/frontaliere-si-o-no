@@ -26382,6 +26382,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'violazione-dati-publica-indagine',
+    category: 'pensione',
+    date: '2026-10-08T08:15:35.145Z',
+    image: '/images/blog/article-violazione-dati-publica-indagine.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

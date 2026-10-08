@@ -2657,6 +2657,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assistenza-sociale-lucerna-requisiti': { it: 'assistenza-sociale-lucerna-requisiti', en: 'social-assistance-lucerne-requirements', de: 'sozialhilfe-kanton-luzern-voraussetzungen', fr: 'aide-sociale-lucerne-exigences' },
  'imposta-autoveicoli-lucerna-calcolo': { it: 'imposta-autoveicoli-lucerna-calcolo', en: 'lucerne-vehicle-tax-calculation', de: 'luzern-motorfahrzeugsteuer-berechnung', fr: 'lucerne-impot-vehicules-calcul' },
  'incentivi-energetici-lucerna-requisiti': { it: 'incentivi-energetici-lucerna-requisiti', en: 'energy-incentives-lucerne-requirements', de: 'energiefoerderung-luzern-anforderungen', fr: 'subventions-energetiques-lucerne-exigences' },
+ 'violazione-dati-publica-indagine': { it: 'violazione-dati-publica-indagine', en: 'publica-data-breach-investigation', de: 'publica-datenleck-ermittlung', fr: 'fuite-donnees-publica-enquete' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

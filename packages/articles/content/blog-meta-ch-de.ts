@@ -7904,6 +7904,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Energieförderungen im Kanton Luzern: Voraussetzungen und Antrag',
     'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## Auf einen Blick - Im Kanton Luzern betreffen die Förderungen Gebäude und Anlagen. - Die zu prüfenden Voraussetzungen sind technischer Art. - Der Antrag muss vorher eingereicht werden',
     'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Wohngebäude während der energetischen Sanierung in der Schweiz',
+    'blog.article.violazione-dati-publica-indagine.title': 'Cyberangriff auf den Softwareanbieter von Publica',
+    'blog.article.violazione-dati-publica-indagine.excerpt': '## Auf einen Blick - Cyberangriff Ende September - Externer Anbieter von Publica betroffen - Die Staatsanwaltschaft hat eine Untersuchung eingeleitet - Publica hat',
+    'blog.article.violazione-dati-publica-indagine.imageAlt': 'Server in einem Schweizer Technikraum als Symbol für den Cyberangriff auf einen Publica-Softwareanbieter',
 };
 
 export default blogMetaChDe;
