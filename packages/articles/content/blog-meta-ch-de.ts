@@ -7898,6 +7898,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Sozialhilfe in Luzern: Anforderungen und Nachfrage',
     'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Leitfaden zur Sozialhilfe im Kanton Luzern: Bedarfsvoraussetzungen, zuständige Stellen, erforderliche Unterlagen und Mitwirkungspflichten.',
     'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Verwaltungsstellen für Sozialhilfe im Kanton Luzern',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Motorfahrzeugsteuer im Kanton Luzern: Berechnung und Zahlung',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Motorfahrzeugsteuer im Kanton Luzern: Berechnung, Fristen, Beträge und Zahlung. Fahrzeug- und Adresswechsel gemäß den kantonalen Regeln von Luzern.',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Unterlagen zur Motorfahrzeugsteuer und Kantonsstrasse in Luzern',
 };
 
 export default blogMetaChDe;

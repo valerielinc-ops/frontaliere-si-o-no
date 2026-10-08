@@ -98999,7 +98999,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - 5 ottobre 2026: Parmelin incontra i vertici indiani - Svizzera e India firmano due accordi - TEPA: un anno dall'entrata in vigore con l'AELS",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "url": `${BASE_URL}/images/blog/article-svizzera-india-accordi-bilaterali.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Palazzo Federale a Berna, sede del governo svizzero"
@@ -99457,7 +99457,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Requisiti, programmi riconosciuti, termini e contributi per la formazione continua nel Canton Berna: guida alla verifica sulla fonte ufficiale cantonale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "url": `${BASE_URL}/images/blog/article-contributi-formazione-berna-requisiti.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Persona consulta una domanda per la formazione continua nel Canton Berna."
@@ -99551,6 +99551,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assistenza-sociale-lucerna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-autoveicoli-lucerna-calcolo': {
+    title: 'Imposta sugli autoveicoli canton Lucerna: calcolo e pagamento',
+    description: 'Imposta sugli autoveicoli nel Cantone di Lucerna: calcolo, scadenze, importi e pagamento. Cambio veicolo e indirizzo secondo le regole cantonali di Lucerna.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, sugli, autoveicoli, canton',
+    ogTitle: 'Lucerna: calcolo e pagamento dell\'imposta auto',
+    ogDescription: 'Nel Cantone di Lucerna l\'imposta sugli autoveicoli segue regole e uffici cantonali. La guida separa calcolo, scadenze e pagamento e indica cosa verificare quando cambiano veicolo o indirizzo, senza applicare dati di altri cantoni.',
+    canonicalPath: '/articoli-svizzera/imposta-autoveicoli-lucerna-calcolo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sugli autoveicoli canton Lucerna: calcolo e pagamento",
+      "description": "Imposta sugli autoveicoli nel Cantone di Lucerna: calcolo, scadenze, importi e pagamento. Cambio veicolo e indirizzo secondo le regole cantonali di Lucerna.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-autoveicoli-lucerna-calcolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pratica per l'imposta sugli autoveicoli e strada cantonale a Lucerna"
+      },
+      "datePublished": "2026-10-08T03:11:14+00:00",
+      "dateModified": "2026-10-08T03:11:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-autoveicoli-lucerna-calcolo/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

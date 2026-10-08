@@ -12774,6 +12774,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.festival-racconto-varese-ottobre.title': 'Erzählfestival: zwei Termine in Varese',
     'blog.article.festival-racconto-varese-ottobre.excerpt': '## In Kürze - Zwei Kulturveranstaltungen in Varese am 9. und 11. Oktober - Dante im Mittelpunkt des Treffens am Freitag um 17:30 Uhr - Drei unveröffentlichte Geschichten von Carlo',
     'blog.article.festival-racconto-varese-ottobre.imageAlt': 'Villa Recalcati in Varese beherbergt das Festival del Racconto',
+    'blog.article.luvinate-progetto-motorio-materna.title': 'Luvinate: Das Bewegungsprojekt im Kindergarten startet',
+    'blog.article.luvinate-progetto-motorio-materna.excerpt': '## Auf einen Blick - In Luvinate startet das Bewegungsprojekt 26-27 - Die Schule arbeitet mit der Varese Basket School zusammen - Das Programm richtet sich an die Kinder der Schule',
+    'blog.article.luvinate-progetto-motorio-materna.imageAlt': 'Kinder spielen im Freien in einem Kindergarten',
+    'blog.article.pro-patria-varese-5-2-coppa-italia.title': 'Pro patria schlägt Varese 5-2 in der Coppa Italia',
+    'blog.article.pro-patria-varese-5-2-coppa-italia.excerpt': '## Auf einen Blick - Die Pro Patria schlägt Varese im Franco Ossola mit 5-2. - Maistrello, Mapelli und Bonaidi sorgen für das erste 3-0. - Gallotti und Castellucchio bringen zurück',
+    'blog.article.pro-patria-varese-5-2-coppa-italia.imageAlt': 'Luganersee bei Sonnenuntergang mit Bergspiegelung',
 };
 
 export default blogMetaDe;

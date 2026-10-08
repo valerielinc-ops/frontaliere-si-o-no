@@ -101186,7 +101186,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Due appuntamenti culturali a Varese il 9 e l'11 ottobre - Dante al centro dell'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/compatta-usata-frontalieri-varese-milano.webp`,
+        "url": `${BASE_URL}/images/blog/article-festival-racconto-varese-ottobre.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa Recalcati a Varese ospita il Festival del Racconto"
@@ -101206,6 +101206,83 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luvinate-progetto-motorio-materna': {
+    title: 'Luvinate: al via il progetto motorio alla scuola materna',
+    description: '## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola',
+    keywords: 'frontalieri, ticino, svizzera, italia, luvinate, progetto, motorio, alla',
+    ogTitle: 'Luvinate: al via il progetto motorio alla scuola materna',
+    ogDescription: '## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola',
+    canonicalPath: '/articoli-frontaliere/luvinate-progetto-motorio-materna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luvinate: al via il progetto motorio alla scuola materna",
+      "description": "## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-luvinate-progetto-motorio-materna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini che giocano all'aperto in una scuola dell'infanzia"
+      },
+      "datePublished": "2026-10-08T02:37:51+00:00",
+      "dateModified": "2026-10-08T02:37:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luvinate-progetto-motorio-materna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pro-patria-varese-5-2-coppa-italia': {
+    title: 'Pro patria batte Varese 5-2 in coppa Italia | Frontaliere Ticino',
+    description: '## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano',
+    keywords: 'frontalieri, ticino, svizzera, italia, patria, batte, varese, coppa',
+    ogTitle: 'Pro Patria batte Varese 5-2 in Coppa Italia',
+    ogDescription: '## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano',
+    canonicalPath: '/articoli-frontaliere/pro-patria-varese-5-2-coppa-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pro patria batte Varese 5-2 in coppa Italia",
+      "description": "## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pro-patria-varese-5-2-coppa-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano al tramonto con riflesso delle montagne"
+      },
+      "datePublished": "2026-10-08T02:56:22+00:00",
+      "dateModified": "2026-10-08T02:56:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pro-patria-varese-5-2-coppa-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

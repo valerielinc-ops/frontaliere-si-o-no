@@ -7898,6 +7898,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Social work in Lucerne: requirements and application',
     'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Guide to social assistance in the Canton of Lucerne: conditions of need, competent offices, necessary documentation and obligations of collaboration.',
     'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Administrative offices for social assistance in the Canton of Lucerne',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Motor vehicle tax in the canton of Lucerne: calculation and payment',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Motor vehicle tax in the Canton of Lucerne: calculation, deadlines, amounts and payment. Change of vehicle and address according to the cantonal rules of Lucerne.',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Vehicle tax paperwork and a Swiss cantonal road in Lucerne',
 };
 
 export default blogMetaChEn;

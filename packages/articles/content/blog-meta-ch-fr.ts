@@ -7898,6 +7898,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Assistance sociale à Lucerne : exigences et demande',
     'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Guide de l\'aide sociale dans le canton de Lucerne : conditions de besoin, bureaux compétents, documentation nécessaire et obligations de collaboration.',
     'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Bureaux administratifs pour l\'aide sociale dans le canton de Lucerne',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Impôt sur les véhicules à Lucerne : calcul et paiement',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Impôt sur les véhicules automobiles dans le canton de Lucerne : calcul, échéances, montants et paiement. Changement de véhicule et d’adresse selon les règles cantonales de Lucerne.',
+    'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Dossier de taxe automobile et route cantonale à Lucerne',
 };
 
 export default blogMetaChFr;
