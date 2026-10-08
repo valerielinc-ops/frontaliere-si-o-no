@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5047
+      "6": 5049
     },
-    "publishedCovers": 6759,
+    "publishedCovers": 6761,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179792,6 +179792,60 @@
         "imageUrl": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
         "evidence": "generated-engine-record"
       }
+    },
+    "article-agrivarese-angera-ottobre-2026": {
+      "cover": "/images/blog/article-agrivarese-angera-ottobre-2026.webp",
+      "hash": "03f097286e6b23bccb829cbe2c4d2f8752e325666be60bd59dafd08f368c0602",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "agrivarese-angera-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-08T01:08:40.395Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-salario-minimo-lucerna-requisiti": {
+      "cover": "/images/blog/article-salario-minimo-lucerna-requisiti.webp",
+      "hash": "04ce17e9ba5be5b0ae945593ab87fc8f3a889baa3906c7f825dfc4965e53d50c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "salario-minimo-lucerna-requisiti",
+          "category": "pratico",
+          "date": "2026-10-08T01:29:21.976Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
     }
   },
   "repair": {
