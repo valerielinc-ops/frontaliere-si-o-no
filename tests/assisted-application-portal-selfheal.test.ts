@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { clickSubmitButton, guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
 import { anonymizePath, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
@@ -13,6 +13,59 @@ describe('portal runner self-correction', () => {
     const turn = (submitRef: string) => ({ status: 'done', reason: '', advanceRef: '', submitRef, actions: [], questions: [] });
     expect(guardAgentStep(turn('e42'), null).submitRef).toBe('e42');
     expect(guardAgentStep(turn('button:has-text("Invia")'), null).submitRef).toBe('');
+  });
+
+  it('level 1: re-resolves an agent-named send button after SuccessFactors replaces its ref', async () => {
+    const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout while waiting for locator')) };
+    const fresh = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn().mockResolvedValue(undefined),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(fresh) };
+    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+
+    await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler' })).resolves.toBe('role');
+    expect(page.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
+    expect(fresh.click).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
+  it('level 1: does not retry a click whose dispatch outcome is ambiguous', async () => {
+    let dispatches = 0;
+    const dispatchedThenRejected = {
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const page = { getByRole: vi.fn() };
+
+    await expect(clickSubmitButton(page as any, { locator: dispatchedThenRejected, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(page.getByRole).not.toHaveBeenCalled();
+  });
+
+  it('level 1: stops after the first ambiguous fallback click', async () => {
+    let dispatches = 0;
+    const first = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const second = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn().mockResolvedValue(undefined),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
+    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+
+    await expect(clickSubmitButton(page as any, { locator: { click: vi.fn().mockRejectedValue(new Error('waiting for locator')) }, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(second.click).not.toHaveBeenCalled();
   });
 
   it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {

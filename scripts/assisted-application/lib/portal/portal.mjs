@@ -23,7 +23,7 @@
  */
 
 import path from 'node:path';
-import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
+import { AGENT_ROUNDS, advanceLocator, clickSubmitButton, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
@@ -1868,7 +1868,7 @@ export async function submitViaPortal(ctx) {
       // The final button: a usual or learned name (the runner's), or the one the agent named.
       const final = submit
         ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
-        : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => finalByAgent.locator.click({ timeout: 6_000 }) };
+        : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => clickSubmitButton(page, finalByAgent) };
       if (!final) {
         if (findButton(after.buttons, SUBMIT_RE, { includeDisabled: true }) && validationRetries < 1) {
           validationRetries += 1;

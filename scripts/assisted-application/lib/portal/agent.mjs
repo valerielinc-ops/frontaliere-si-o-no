@@ -375,6 +375,48 @@ export async function submitLocator(page, ref) {
   return { locator, name: info.name };
 }
 
+/**
+ * Click the final control an agent named, resolving it again when the portal
+ * replaces the DOM node between the accessibility snapshot and the guarded
+ * click (SuccessFactors, Rolex, 2026-10-08).  A missing ref is retried by
+ * accessible name only while an enabled visible button with that exact name
+ * is still present; if the first click already changed the page, no second
+ * click is attempted.
+ */
+export async function clickSubmitButton(page, target) {
+  try {
+    await target.locator.click({ timeout: ACTION_TIMEOUT_MS });
+    return 'ref';
+  } catch (error) {
+    // A timeout while Playwright is still waiting for the ref proves that no
+    // click was dispatched. Every other click failure is ambiguous: the
+    // browser may already have sent the event, so let the caller observe the
+    // page outcome instead of risking a duplicate application.
+    const message = String(error?.message || error);
+    if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(message)) return 'outcome';
+    if (!target?.name || typeof page.getByRole !== 'function') throw error;
+    const candidates = page.getByRole('button', { name: target.name, exact: true });
+    const count = await candidates.count().catch(() => 0);
+    for (let index = 0; index < count; index += 1) {
+      const candidate = candidates.nth(index);
+      if (!await candidate.isVisible().catch(() => false)) continue;
+      if (!await candidate.isEnabled({ timeout: 2000 }).catch(() => false)) continue;
+      try {
+        await candidate.click({ timeout: ACTION_TIMEOUT_MS });
+        return 'role';
+      } catch (candidateError) {
+        // A candidate click may have dispatched before rejecting. Do not try
+        // another same-name control; the caller must observe the outcome.
+        const candidateMessage = String(candidateError?.message || candidateError);
+        if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(candidateMessage)) return 'outcome';
+        // SuccessFactors can replace the button once more while it is being
+        // resolved; only a proven pre-dispatch miss may try the next exact-name control.
+      }
+    }
+    throw error;
+  }
+}
+
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
 export function advanceName(name) {
   const text = String(name || '');
