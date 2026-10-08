@@ -363,6 +363,40 @@ describe('old-history-guard', () => {
     }
   });
 
+  it('su un clone parziale non chiede il marker al promisor: decide senza scaricarlo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      // The monitors' checkout is shallow and blobless, so git has a promisor to
+      // ask, and this remote serves the previous history by id as the real one does.
+      git(fixture.remote, 'config', 'uploadpack.allowFilter', 'true');
+      git(fixture.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      const checkout = join(fixture.root, 'partial-checkout');
+      execFileSync('git', [
+        'clone', '--quiet', '--depth', '1', '--filter=blob:none', '--branch', 'main', `file://${fixture.remote}`, checkout,
+      ], { encoding: 'utf8', env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' }, stdio: ['ignore', 'pipe', 'pipe'] });
+      expect(git(checkout, 'config', '--get', 'remote.origin.promisor')).toBe('true');
+      const markerIsLocal = () => {
+        try {
+          execFileSync('git', ['cat-file', '-e', `${fixture.fixtureMarker}^{commit}`], {
+            cwd: checkout,
+            env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1', GIT_NO_LAZY_FETCH: '1' },
+            stdio: 'ignore',
+          });
+          return true;
+        } catch {
+          return false;
+        }
+      };
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(steps(trace)).toEqual(['refresh-base', 'bounded-proof']);
+      expect(markerIsLocal()).toBe(false);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
   it('non lascia nel checkout l’URL del remoto: né remoto promisor né FETCH_HEAD (issue 12320)', () => {
     const fixture = rewrittenRemoteFixture();
     try {

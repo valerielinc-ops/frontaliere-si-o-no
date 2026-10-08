@@ -142,7 +142,10 @@ describe('translation observability workflow', () => {
     expect(commitHelper).toContain('append_translation_stats_to_index');
     expect(commitHelper).toContain('TRANSLATION_STATS_AFTER_TREE');
     expect(commitHelper).toContain('git archive --format=tar "$tree_sha" data/jobs/by-crawler');
-    expect(commitHelper).toContain('GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo');
+    // The stats blob enters the PRIVATE index, through the helper that first
+    // proves the blob is in the local object store.
+    expect(commitHelper).toContain('stage_isolated_blob "$tmp_index" "100644" "$stats_blob" "data/translation-stats-history.json"');
+    expect(commitHelper).toContain('GIT_INDEX_FILE="$index_file" git update-index --add --cacheinfo');
     expect(commitHelper).toContain('Deliberately do NOT fast-forward refs/heads/main after the push');
   });
 

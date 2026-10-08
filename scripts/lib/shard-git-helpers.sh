@@ -1177,6 +1177,7 @@ shard_push_failure_reason() {
 # warning actionable without claiming that every PAT fallback means a broken
 # deploy key.
 shard_pat_push() {
+  shard_refspec_has_source "${3:-}" "${4:-shard}" || return 1
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}" force="${5:-1}" reason="${6:-unclassified SSH push failure}"
   # A plain string, not an array: `"${arr[@]}"` on an EMPTY array aborts under
   # `set -u` in bash 3.2 (still the default /bin/bash on macOS, where the test
@@ -1242,6 +1243,24 @@ shard_pat_push() {
   return 1
 }
 
+# shard_refspec_has_source <refspec> [label]
+# A refspec with an empty source side (":main") asks the remote to DELETE the
+# branch. The pushers build "<commit>:main" from a commit id they have just
+# computed, and they run without errexit: a failed `commit-tree` used to reach
+# `git push -f`, and then the PAT fallback, as ":main". GitHub refuses to
+# delete a default branch, which is the only reason that was harmless.
+# Returns 0 when the refspec names a source, 1 (with an ::error::) otherwise.
+shard_refspec_has_source() {
+  local refspec="${1:-}" label="${2:-shard}"
+  case "$refspec" in
+    ''|:*|+:*)
+      echo "::error::$label: refusing to push refspec '${refspec}' — its source is empty, which would delete the remote branch (the commit to push was never built)" >&2
+      return 1
+      ;;
+  esac
+  return 0
+}
+
 # shard_push_with_retry <push_dir> <shard_repo> <refspec> [label]
 # Force-pushes <refspec> from <push_dir> to <shard_repo>, retrying up to 3
 # attempts with exponential backoff (5s, 10s — $SHARD_PUSH_RETRY_DELAY seeds
@@ -1250,6 +1269,7 @@ shard_pat_push() {
 # shard_pat_push. Returns 0 on success, 1 if every credential failed.
 # [label] is cosmetic only (prefixes the ::warning:: lines).
 shard_push_with_retry() {
+  shard_refspec_has_source "${3:-}" "${4:-shard}" || return 1
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}"
   local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure'
   out="$(mktemp)"

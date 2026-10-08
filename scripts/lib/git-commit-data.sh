@@ -1923,6 +1923,51 @@ if (lines.length > 0) {
 NODE
 }
 
+# ── The private index on a partial clone ─────────────────────────────────────
+# The private index is seeded with the WHOLE remote tree (`read-tree
+# "$remote_sha"`) and then receives only this writer's files. A plain
+# `git write-tree` insists that every blob named by the index exists locally,
+# and on a partial clone it makes that true: one bulk fetch from the promisor
+# of every blob the checkout had left out. The three monitors that commit a
+# single series check out with `filter: blob:none` precisely not to download
+# the repository, and paid for all of it at commit time instead.
+#   Measured on unsubscribe-credential-monitor: from "1 file(s) computed" to
+#   the push result, 298 s on 2026-10-06 (run 37479001157) and 321 s on
+#   2026-10-08 (run 37756906498), where the push then lost the race for `main`
+#   and the rebuilt second attempt (blobs already local) took 19 s. The job
+#   cap is 10 minutes. On a partial clone of the real repository the same
+#   index is written by `write-tree --missing-ok` in 0.09 s.
+# `--missing-ok` is the right contract here, not a shortcut: every blob in the
+# tree is either one the remote already has (it came from `remote_sha`) or one
+# this run wrote, and the second kind is vouched for explicitly, one by one,
+# by stage_isolated_blob below. That check is also stricter than the implicit
+# one it replaces: `update-index --cacheinfo` records any id it is handed.
+stage_isolated_blob() {
+  local index_file="$1" mode="$2" blob="$3" path="$4"
+  if [ -z "$blob" ] || ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${blob}^{blob}" 2>/dev/null; then
+    echo "❌ grouped-isolated: the blob to stage for $path is not in the local object store (${blob:-empty id}) — refusing to publish a tree that references it"
+    return 1
+  fi
+  if ! GIT_INDEX_FILE="$index_file" git update-index --add --cacheinfo "${mode},${blob},${path}"; then
+    echo "❌ grouped-isolated: could not stage $path in the private index — refusing a commit that would silently leave it out"
+    return 1
+  fi
+}
+
+# Prints the tree id on stdout. This function runs with errexit suspended
+# (its caller is invoked through `||`), so a failed write must be turned into
+# a return code here: an empty tree id used to flow into `commit-tree`, and
+# the empty commit id that followed into `git push origin :refs/heads/main`,
+# which is a request to DELETE the branch.
+write_isolated_tree() {
+  local index_file="$1" tree
+  if ! tree="$(GIT_INDEX_FILE="$index_file" git write-tree --missing-ok)" || [ -z "$tree" ]; then
+    echo "❌ grouped-isolated: git write-tree failed — refusing to build a commit from an unwritten tree" >&2
+    return 1
+  fi
+  printf '%s\n' "$tree"
+}
+
 append_translation_stats_to_index() {
   local tmp_index="$1"
   local tree_sha="$2"
@@ -1962,7 +2007,10 @@ append_translation_stats_to_index() {
     return 1
   fi
   stats_blob="$(git hash-object -w -- "$stats_file")"
-  GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${stats_blob},data/translation-stats-history.json"
+  if ! stage_isolated_blob "$tmp_index" "100644" "$stats_blob" "data/translation-stats-history.json"; then
+    rm -rf "$stats_root"
+    return 1
+  fi
   rm -rf "$stats_root"
 }
 
@@ -2301,7 +2349,7 @@ commit_isolated_from_worktree() {
           mkdir -p "$ownership_root/data/jobs/by-crawler"
           git cat-file blob "${_ISOLATED_RESULT_OWNED_BLOB[$f]}" > "$ownership_root/$f"
         fi
-        GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${_ISOLATED_RESULT_BLOB[$f]},${f}"
+        stage_isolated_blob "$tmp_index" "$mode_to_stage" "${_ISOLATED_RESULT_BLOB[$f]}" "$f" || return 1
         reused_count=$((reused_count + 1))
         continue
       fi
@@ -2478,7 +2526,7 @@ commit_isolated_from_worktree() {
         esac
       fi
 
-      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
+      stage_isolated_blob "$tmp_index" "$mode_to_stage" "$blob_to_stage" "$f" || return 1
       if [ "$result_cacheable" = true ]; then
         _ISOLATED_RESULT_KEY[$f]="$result_key"
         _ISOLATED_RESULT_BLOB[$f]="$blob_to_stage"
@@ -2487,13 +2535,13 @@ commit_isolated_from_worktree() {
     done
     echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${computed_count} file(s) computed, ${reused_count} reused from the previous attempt"
 
-    new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    new_tree="$(write_isolated_tree "$tmp_index")" || return 1
     if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
       # The snapshot must happen after the remote refresh and every 3-way merge,
       # but before this exact index becomes the pushed commit. On a retry the
       # candidate is rebuilt and measured again against the newer remote tree.
       append_translation_stats_to_index "$tmp_index" "$new_tree" || return 1
-      new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+      new_tree="$(write_isolated_tree "$tmp_index")" || return 1
     fi
     if [ "$new_tree" = "$remote_tree" ]; then
       emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
@@ -2502,7 +2550,13 @@ commit_isolated_from_worktree() {
       return 0
     fi
 
-    new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")"
+    new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")" || new_commit=""
+    if [ -z "$new_commit" ]; then
+      # See write_isolated_tree: with an empty source the refspec below would
+      # read `:refs/heads/main`, a deletion of the branch.
+      echo "❌ grouped-isolated: git commit-tree failed — nothing to push"
+      return 1
+    fi
 
     ensure_git_auth
     # Capture the push output (echoed below either way, so the step log stays

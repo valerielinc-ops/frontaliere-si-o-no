@@ -47,19 +47,27 @@ function safeGitErrorDetail(error) {
     .trim();
 }
 
-function runGit(args, { cwd, stdio = 'ignore', timeout } = {}) {
+function runGit(args, { cwd, stdio = 'ignore', timeout, env } = {}) {
   const output = execFileSync('git', args, {
     cwd,
     encoding: 'utf8',
     stdio,
     timeout,
+    env,
   });
   return output ? output.trim() : '';
 }
 
+// An existence probe answers from the local object store, and nothing else.
+// On a partial clone a plain `cat-file -e` first asks the promisor for the
+// object: a fetch with no time limit that the trace never shows, and one that
+// succeeds for the marker, since the remote still serves the previous history
+// by id (2.7 s and 2.2 MB against the real remote from a blobless checkout).
+// Whoever needs a commit that is not local fetches it explicitly, bounded and
+// timed: fetchCommitObject, refreshOriginBranch, completeShallowHistory.
 function commitExists(ref, cwd) {
   try {
-    runGit(['cat-file', '-e', `${ref}^{commit}`], { cwd });
+    runGit(['cat-file', '-e', `${ref}^{commit}`], { cwd, env: { ...process.env, GIT_NO_LAZY_FETCH: '1' } });
     return true;
   } catch {
     return false;
