@@ -49,7 +49,7 @@ function stepsOf(rel: string): Step[] {
 }
 
 function expectedRepairLaneIf(rel: string, specific: string) {
-  const base = `always() && steps.checkout.outcome == 'success' && ${specific}`;
+  const base = `always() && !cancelled() && steps.checkout.outcome == 'success' && ${specific}`;
   return rel === '.github/corpus-workflows/translate-pending.yml'
     ? `${base} && ${RECOVERY_READY}`
     : base;
