@@ -1056,8 +1056,6 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.field.linkedin': "LinkedIn",
  'jobBoard.assisted.review.field.dateOfBirth': "Geburtsdatum",
  'jobBoard.assisted.review.field.nationality': "Nationalität",
- 'jobBoard.assisted.review.field.salutation': "Anrede",
- 'jobBoard.assisted.review.field.civilStatus': "Zivilstand",
  'jobBoard.assisted.review.field.workPermit': "Arbeitsbewilligung",
  'jobBoard.assisted.review.field.availability': "Verfügbarkeit",
  'jobBoard.assisted.review.field.salary': "Lohnvorstellung",

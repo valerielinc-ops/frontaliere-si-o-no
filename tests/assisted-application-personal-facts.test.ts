@@ -8,6 +8,7 @@ import {
   cvPersonalFacts,
   isCivilStatusField,
   isSalutation,
+  personalFieldLabel,
   salutationFor,
   salutationOptions,
 } from '../functions/src/lib/personalFacts.js';
@@ -15,10 +16,6 @@ import { buildFormAnswers, salutationQuestion } from '../functions/src/assistedA
 import { EDITABLE_FIELDS, candidateWithEdits, fieldView, formAnswersWithEdits, planCandidateEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { candidateAnswerForField, guardPlan, planSystemPrompt, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import itCore from '../services/locales/it-core';
-import deCore from '../services/locales/de-core';
-import frCore from '../services/locales/fr-core';
-import enCore from '../services/locales/en-core';
 
 // Owner question of 2026-10-08: an order whose CV said «Né le …» and «Marié» was asked «Quelle civilité
 // indiquer dans les formulaires de candidature ?». Every CV below is made up.
@@ -149,10 +146,14 @@ describe('what the CV says is not asked again', () => {
     const asking = draftOf(CV_FR, [{ id: 'salutation', question: 'Quelle civilité indiquer dans les formulaires de candidature ?', required: false }]);
     expect(view('salutation', asking)).toMatchObject({ editable: false, locked: 'question' });
     expect(Object.keys(EDITABLE_FIELDS)).toEqual(expect.arrayContaining(['salutation', 'civilStatus']));
-    // The page names both fields in the candidate's language (it falls back to the server's Italian label).
-    for (const copy of [itCore, deCore, frCore, enCore] as Array<Record<string, string>>) {
-      for (const key of ['salutation', 'civilStatus']) expect(copy[`jobBoard.assisted.review.field.${key}`]).toBeTruthy();
-    }
+    // The server names both fields in the candidate's language (the page shows the server's label for a field
+    // it has no name of its own for); every other field keeps the label it had.
+    const named = (locale: string) => fields.map((field: any) => fieldView(field, { draft: draftOf(CV_FR), locale })).filter((field: any) => ['salutation', 'civilStatus', 'firstName'].includes(field.key)).map((field: any) => field.label);
+    expect(named('it')).toEqual(['Appellativo', 'Nome', 'Stato civile']);
+    expect(named('de-CH')).toEqual(['Anrede', 'Nome', 'Zivilstand']);
+    expect(named('fr')).toEqual(['Civilité', 'Nome', 'État civil']);
+    expect(named('en')).toEqual(['Form of address', 'Nome', 'Marital status']);
+    expect(personalFieldLabel('toString', 'it')).toBe('');
   });
 
   it('takes a correction from the list, and nothing else', () => {

@@ -31,7 +31,7 @@ import {
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
-import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, salutationFor, salutationOptions } from './lib/personalFacts.js';
+import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationOptions } from './lib/personalFacts.js';
 
 const MESSAGES = {
   name: {
@@ -263,7 +263,8 @@ export function fieldView(field, { draft, locale = 'it' }) {
   const spec = EDITABLE_FIELDS[field.key];
   const view = {
     key: field.key,
-    label: field.label,
+    // The form of address and the civil status are named here, in the candidate's language, as their lists are.
+    label: personalFieldLabel(field.key, locale) || field.label,
     value: field.value,
     editable: !lock,
     locked: lock === 'alias' || lock === 'question' ? lock : null,

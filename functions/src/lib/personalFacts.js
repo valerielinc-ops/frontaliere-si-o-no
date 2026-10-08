@@ -109,6 +109,19 @@ export function salutationFor(gender, locale = 'it') {
   return gender === 'm' ? options[0] : gender === 'f' ? options[1] : '';
 }
 
+// The names of the two fields on the review page, in the candidate's language: sent with the field, next to
+// its list (the page shows the server's label for a field it has no name of its own for).
+const FIELD_LABELS = {
+  salutation: { it: 'Appellativo', de: 'Anrede', fr: 'Civilité', en: 'Form of address' },
+  civilStatus: { it: 'Stato civile', de: 'Zivilstand', fr: 'État civil', en: 'Marital status' },
+};
+
+/** The review page's name of a personal field ('salutation', 'civilStatus'); '' for any other field. */
+export function personalFieldLabel(key, locale = 'it') {
+  const labels = Object.hasOwn(FIELD_LABELS, key) ? FIELD_LABELS[key] : null;
+  return labels ? labels[languageOf(locale)] || labels.it : '';
+}
+
 /** One of the forms of address above, in any of the four languages. */
 export function isSalutation(text) {
   const value = tidy(text, 40);
