@@ -967,7 +967,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Contratti collettivi di lavoro in Ticino: prevalenza sui',
  description: 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi',
  keywords: 'frontalieri, ticino, svizzera, italia, contratti, collettivi, lavoro, prevalenza',
- ogTitle: 'Contratti collettivi di lavoro in Ticino: prevalenza sui',
+ ogTitle: 'Contratti collettivi di lavoro in Ticino: prevalenza',
  ogDescription: 'Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi',
  canonicalPath: '/articoli-frontaliere/contratti-collettivi-salari-ticino/',
  structuredData: {
@@ -1228,7 +1228,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  title: 'Tassa di transito in Ticino: cosa | Frontaliere Ticino',
  description: 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
  keywords: 'frontalieri, ticino, svizzera, italia, tassa, transito, cosa, cambia',
- ogTitle: 'Tassa di transito in Ticino: cosa cambia per gli',
+ ogTitle: 'Tassa di transito in Ticino: cosa cambia',
  ogDescription: 'Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.',
  canonicalPath: '/articoli-frontaliere/tassa-transito-automobilisti-ticino/',
  structuredData: {

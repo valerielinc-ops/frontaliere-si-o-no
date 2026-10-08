@@ -899,7 +899,6 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-di-succesione-e-donazione-canton-berna-aliquote': { it: 'imposta-di-succesione-e-donazione-canton-berna-aliquote', en: 'inheritance-and-donation-tax-canton-berne-rates', de: 'erbschafts-und-schenkungssteuer-kanton-bern-zahlungen', fr: 'taxe-sur-la-succesions-et-la-donation-canton-de-berne' },
  'trasparenza-fatture-ospedaliere-svizzera': { it: 'trasparenza-fatture-ospedaliere-svizzera', en: 'hospital-invoice-transparency-switzerland', de: 'transparenz-hospitalrechnungen-schweiz', fr: 'transparence-factures-hospitalieres-suisse' },
  'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi': { it: 'nuova-notifiche-di-cessazione-delle-inquieste-del-sisi', en: 'new-notice-of-cessation-of-investigations-of-the-sisi', de: 'neue-benachrichtigung-uber-die-einstellung-der-ermittlungen-des-sisi', fr: 'nouvelle-notification-de-cessation-des-enquetes-du-sisi' },
- 'abort-topical-relevance-trump-health': { it: 'abort-topical-relevance-trump-health', en: 'news-not-relevant', de: 'nicht-zutreffende-nachrichten', fr: 'information-non-pertinente' },
  'imposte-cantonali-canton-lucerna-aliquote': { it: 'imposte-cantonali-canton-lucerna-aliquote', en: 'canton-lucerne-cantonal-taxes-deductions', de: 'kantonssteuern-kanton-luzern-abzuege', fr: 'impots-cantonaux-canton-lucerne-baremes' },
  'premi-cassa-malati-lucerna-2026': { it: 'premi-cassa-malati-lucerna-2026', en: 'health-insurance-premiums-lucerne', de: 'krankenversicherungspramien-luzern', fr: 'primes-maladie-lucerne' },
  'permesso-dimora-b-lucerna-requisiti': { it: 'permesso-dimora-b-lucerna-requisiti', en: 'permesso-dimora-b-lucerne', de: 'b-erlaubnis-luzern', fr: 'permis-de-sejour-b-lucerne' },
@@ -2644,6 +2643,19 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-india-accordi-bilaterali': { it: 'svizzera-india-accordi-bilaterali', en: 'switzerland-india-bilateral-agreements', de: 'schweiz-indien-bilaterale-abkommen', fr: 'suisse-inde-accords-bilateraux' },
  'cancro-prostata-assistenza-svizzera': { it: 'cancro-prostata-assistenza-svizzera', en: 'prostate-cancer-good-care-in-switzerland-2020-2023', de: 'prostatakrebs-gute-versorgung-in-der-schweiz-2020-2023', fr: 'cancer-de-la-prostate-bonne-prise-en-charge-en-suisse-2020-2023' },
  'rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0': { it: 'rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0', en: 'swiss-bond-yields-rise-snb-at-0', de: 'renditen-schweizer-anleihen-steigen-snb-bei-0', fr: 'rendements-des-titres-suisses-en-hausse-bns-a-0' },
+ 'riserve-valutarie-settembre-stabili': { it: 'riserve-valutarie-settembre-stabili', en: 'stable-currency-reserves-september', de: 'waehrungsreserven-september-stabil', fr: 'reserves-devises-septembre-stables' },
+ 'ffs-sportelli-chiusi-stazioni': { it: 'ffs-sportelli-chiusi-stazioni', en: 'ffs-ticket-counter-closures-stations', de: 'ffs-schalterschliessungen-bahnhoefe', fr: 'ffs-fermeture-guichets-gares' },
+ 'intelligenza-artificiale-diritti-umani': { it: 'intelligenza-artificiale-diritti-umani', en: 'artificial-intelligence-human-rights', de: 'kuenstliche-intelligenz-menschenrechte', fr: 'intelligence-artificiale-droits-humains' },
+ 'lista-sanzioni-sesam-svizzera': { it: 'lista-sanzioni-sesam-svizzera', en: 'switzerland-un-sanctions-sesam-list', de: 'schweiz-un-sanktionen-sesam-liste', fr: 'suisse-sanctions-onu-liste-sesam' },
+ 'tamedia-41-licenziamenti-13-a-losanna-e-ginevra': { it: 'tamedia-41-licenziamenti-13-a-losanna-e-ginevra', en: 'tamedia-41-layoffs-13-in-lausanne-and-geneva', de: 'tamedia-41-entlassungen-13-in-lausanne-und-genf', fr: 'tamedia-41-licenciements-13-a-lausanne-et-geneve' },
+ 'marcel-salathe-ia-commento': { it: 'marcel-salathe-ia-commento', en: 'artificial-intelligence-will-not-kill-us-all', de: 'kunstliche-intelligenz-wird-uns-nicht-alle-toten', fr: 'l-intelligence-artificielle-ne-nous-tuera-pas-tous' },
+ 'carriere-politica-economica': { it: 'carriere-politica-economica', en: 'careers-swiss-economic-policy', de: 'karriere-schweizer-wirtschaftspolitik', fr: 'carrieres-politique-economique-suisse' },
+ 'parmelin-avs-ue': { it: 'parmelin-avs-ue', en: 'parmelin-avs-eu', de: 'parmelin-avs-eu', fr: 'parmelin-quitte-le-conseil-federal-le-31-decembre-2026' },
+ 'lavaggio-denaro-avvocatura': { it: 'lavaggio-denaro-avvocatura', en: 'money-laundering-lawyer-rules', de: 'geldwaesche-regeln-anwaelte', fr: 'regles-blanchiment-avocats' },
+ 'contributi-formazione-berna-requisiti': { it: 'contributi-formazione-berna-requisiti', en: 'bern-continuing-education-grants-requirements', de: 'bern-weiterbildung-beitrage-voraussetzungen', fr: 'berne-formation-continue-aides-conditions' },
+ 'salario-minimo-lucerna-requisiti': { it: 'salario-minimo-lucerna-requisiti', en: 'lucerne-minimum-wage-requirements', de: 'mindestlohnabhaengigkeit-kanton-luzern', fr: 'salaire-minimum-canton-lucerne-exigences' },
+ 'assistenza-sociale-lucerna-requisiti': { it: 'assistenza-sociale-lucerna-requisiti', en: 'social-assistance-lucerne-requirements', de: 'sozialhilfe-kanton-luzern-voraussetzungen', fr: 'aide-sociale-lucerne-exigences' },
+ 'imposta-autoveicoli-lucerna-calcolo': { it: 'imposta-autoveicoli-lucerna-calcolo', en: 'lucerne-vehicle-tax-calculation', de: 'luzern-motorfahrzeugsteuer-berechnung', fr: 'lucerne-impot-vehicules-calcul' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

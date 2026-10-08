@@ -63397,44 +63397,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-abort-topical-relevance-pre-saint-didier': {
-    title: 'Vivere a Pré-Saint-Didier e lavorare in Vallese',
-    description: 'Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026',
-    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pré-saint-didier, lavorare, vallese',
-    ogTitle: 'Vivere a Pré-Saint-Didier e lavorare in Vallese da frontaliere',
-    ogDescription: 'Analisi sulle norme per i frontalieri e il requisito della residenza nei comuni entro 20 km dal confine svizzero per chi vive a Pré-Saint-Didier.',
-    canonicalPath: '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Vivere a Pré-Saint-Didier e lavorare in Vallese",
-      "description": "Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/abort-topical-relevance-pre-saint-didier.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Paesaggio alpino al confine svizzero"
-      },
-      "datePublished": "2026-08-11T12:07:52+00:00",
-      "dateModified": "2026-08-11T12:07:52+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
     title: 'Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta',
@@ -63817,44 +63779,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-abort-saint-nicolas-non-frontaliero': {
-    title: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
-    description: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.',
-    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, saint-nicolas, fatti, analisi',
-    ogTitle: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
-    ogDescription: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo per i lavoratori.',
-    canonicalPath: '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Trasferirsi a Saint-Nicolas da frontaliere: i fatti",
-      "description": "Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/abort-saint-nicolas-non-frontaliero.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Veduta panoramica di un villaggio alpino svizzero"
-      },
-      "datePublished": "2026-08-11T16:40:10+00:00",
-      "dateModified": "2026-08-11T16:40:10+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere': {
     title: 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
@@ -100513,7 +100437,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Domenica 11 ottobre 2026 a Gorla Minore - Evento dalle 12:00 alle 18:00 vicino alla vecchia stazione - Pranzo, trenini, giochi antichi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mobilita-trenord-aumento-biglietti-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-fischiava-treno-gorla.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Evento ferroviario vicino alla vecchia stazione di Gorla Minore"
@@ -100581,7 +100505,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Quattro weekend di chiusura tra ottobre e novembre 2026 - Stop da venerdì alle 20:20 a lunedì alle 04:20 - RE80 salta Como San Giovanni e Como",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/como-crisi-abitativa-alloggi-sfitti.webp`,
+        "url": `${BASE_URL}/images/blog/article-monte-olimpino-treni-weekend.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Treno regionale su una linea transfrontaliera tra Como e la Svizzera"
@@ -100615,7 +100539,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Principe Leopoldo e Villa Sassa chiusi in Ticino: 140 licenziati. Daniele Lardi parla di riassumere buona parte e valuta misure per il personale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/hotel-ticino-76-licenziamenti.webp`,
+        "url": `${BASE_URL}/images/blog/article-hotel-ticino-140-licenziati.webp`,
         "width": 1200,
         "height": 675,
         "caption": "I due hotel Principe Leopoldo e Villa Sassa in Ticino"
@@ -100649,7 +100573,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Fermata alla stazione internazionale di Domodossola - Arrivava da Milano Centrale - Un chilo di hashish in dieci panetti - Valore stimato: oltre",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/affitti-friburgo-contestazione-canone.webp`,
+        "url": `${BASE_URL}/images/blog/article-domodossola-arresto-hashish-stazione.webp`,
         "width": 1200,
         "height": 675,
         "caption": "La stazione internazionale di Domodossola, dove è avvenuto l'arresto per traffico di stupefacenti"
@@ -100683,7 +100607,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carovita-sindacati-recupero-divario.webp`,
+        "url": `${BASE_URL}/images/blog/article-petizione-recupero-carovita-ticino.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lavoratori del settore pubblico ticinese con striscioni a sostegno della petizione per il recupero del carovita"
@@ -100946,6 +100870,419 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caduta-scala-locate-varesino': {
+    title: 'Locate Varesino, cade da una scala: grave un 79enne',
+    description: '## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un\'azienda agricola - Soccorsi attivati in codice rosso',
+    keywords: 'frontalieri, ticino, svizzera, italia, locate, varesino, cade, scala',
+    ogTitle: 'Caduta da una scala a Locate Varesino: 79enne grave',
+    ogDescription: '## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un\'azienda agricola - Soccorsi attivati in codice rosso',
+    canonicalPath: '/articoli-frontaliere/caduta-scala-locate-varesino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locate Varesino, cade da una scala: grave un 79enne",
+      "description": "## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un'azienda agricola - Soccorsi attivati in codice rosso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-caduta-scala-locate-varesino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contesto rurale di un'azienda agricola"
+      },
+      "datePublished": "2026-10-07T12:57:53+00:00",
+      "dateModified": "2026-10-07T12:57:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caduta-scala-locate-varesino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantello-teatro-dialettale-ottobre-2026': {
+    title: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
+    description: '## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantello, torna, teatro, dialettale',
+    ogTitle: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
+    ogDescription: '## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena',
+    canonicalPath: '/articoli-frontaliere/cantello-teatro-dialettale-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantello torna il teatro dialettale “Quei giargianes da giappunes”",
+      "description": "## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione editoriale del teatro dialettale al Teatro Pax di Cantello"
+      },
+      "datePublished": "2026-10-07T16:05:11+00:00",
+      "dateModified": "2026-10-07T16:05:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantello-teatro-dialettale-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vendemmia-mendrisiotto-lavoratori-terra': {
+    title: 'Frontalieri della vendemmia: 15 franchi l\'ora | Frontaliere Ticino',
+    description: '## In breve - Circa 50 frontalieri animano la vendemmia nel Mendrisiotto - Arrivano soprattutto dalla provincia di Varese - La paga è di circa 15 franchi netti',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendemmia, franchi, breve, circa',
+    ogTitle: 'Vendemmia in Ticino: 15 franchi netti l\'ora',
+    ogDescription: '## In breve - Circa 50 frontalieri animano la vendemmia nel Mendrisiotto - Arrivano soprattutto dalla provincia di Varese - La paga è di circa 15 franchi netti',
+    canonicalPath: '/articoli-frontaliere/vendemmia-mendrisiotto-lavoratori-terra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri della vendemmia: 15 franchi l'ora",
+      "description": "## In breve - Circa 50 frontalieri animano la vendemmia nel Mendrisiotto - Arrivano soprattutto dalla provincia di Varese - La paga è di circa 15 franchi netti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vendemmia-mendrisiotto-lavoratori-terra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori frontalieri raccolgono uva sui colli del Mendrisiotto durante la vendemmia"
+      },
+      "datePublished": "2026-10-07T21:11:35+00:00",
+      "dateModified": "2026-10-07T21:11:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vendemmia-mendrisiotto-lavoratori-terra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lifestyle-innovation-hub-chiasso': {
+    title: 'Lifestyle Innovation Hub a Chiasso: 30 milioni investiti',
+    description: '## In breve - Trasformazione dell\'ex sede di Credit Suisse con un investimento complessivo di 30 milioni di franchi - Inaugurato a Chiasso il 7 ottobre 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, lifestyle, innovation, chiasso, milioni',
+    ogTitle: 'Lifestyle Innovation Hub a Chiasso: 30 milioni investiti',
+    ogDescription: '## In breve - Trasformazione dell\'ex sede di Credit Suisse con un investimento complessivo di 30 milioni di franchi - Inaugurato a Chiasso il 7 ottobre 2026',
+    canonicalPath: '/articoli-frontaliere/lifestyle-innovation-hub-chiasso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lifestyle Innovation Hub a Chiasso: 30 milioni investiti",
+      "description": "## In breve - Trasformazione dell'ex sede di Credit Suisse con un investimento complessivo di 30 milioni di franchi - Inaugurato a Chiasso il 7 ottobre 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lifestyle-innovation-hub-chiasso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Lifestyle Innovation Hub inaugurato a Chiasso il 7 ottobre 2026, edificio di sei piani oltre 10'000 mq dedicato a innovazione, IA e settori travel, hospitality, design e media."
+      },
+      "datePublished": "2026-10-07T21:45:04+00:00",
+      "dateModified": "2026-10-07T21:45:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lifestyle-innovation-hub-chiasso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-coda-a8-castronno-solbiate': {
+    title: 'Incidente A8 tra Castronno e Solbiate: code | Frontaliere Ticino',
+    description: 'Incidente sulla A8 tra Castronno e Solbiate Arno: dalle 18 code tra Varese e Gallarate, traffico sulla Statale e ritorno alla normalità intorno alle 20.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, castronno, solbiate, code',
+    ogTitle: 'Code sulla A8 tra Castronno e Solbiate',
+    ogDescription: 'Lo scontro tra Castronno e Solbiate Arno ha provocato una lunga coda sulla A8 e paralizzato la viabilità tra Varese e Gallarate. Il traffico si è riversato sulla Statale, dove il semaforo a senso alternato del ponte ha creato un ulteriore imbuto.',
+    canonicalPath: '/articoli-frontaliere/coda-a8-castronno-solbiate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente A8 tra Castronno e Solbiate: code",
+      "description": "Incidente sulla A8 tra Castronno e Solbiate Arno: dalle 18 code tra Varese e Gallarate, traffico sulla Statale e ritorno alla normalità intorno alle 20.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-coda-a8-castronno-solbiate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda stradale dopo l'incidente sulla A8 tra Castronno e Solbiate Arno."
+      },
+      "datePublished": "2026-10-07T22:16:34+00:00",
+      "dateModified": "2026-10-07T22:16:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coda-a8-castronno-solbiate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-incidente-via-albisetti': {
+    title: 'Tradate, pedone investito: ferito un uomo di 58 anni',
+    description: '## In breve - Un uomo di 58 anni investito a Tradate - Incidente poco prima delle 20 in via Albisetti - Soccorsi della Croce Rossa di Busto e un\'automedica',
+    keywords: 'frontalieri, ticino, svizzera, italia, tradate, pedone, investito, ferito',
+    ogTitle: 'Tradate, pedone investito: ferito un uomo di 58 anni',
+    ogDescription: '## In breve - Un uomo di 58 anni investito a Tradate - Incidente poco prima delle 20 in via Albisetti - Soccorsi della Croce Rossa di Busto e un\'automedica',
+    canonicalPath: '/articoli-frontaliere/incidente-via-albisetti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tradate, pedone investito: ferito un uomo di 58 anni",
+      "description": "## In breve - Un uomo di 58 anni investito a Tradate - Incidente poco prima delle 20 in via Albisetti - Soccorsi della Croce Rossa di Busto e un'automedica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-incidente-via-albisetti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada urbana al tramonto, immagine di repertorio per la notizia di Tradate"
+      },
+      "datePublished": "2026-10-07T22:41:49+00:00",
+      "dateModified": "2026-10-07T22:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-via-albisetti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mcdonalds-pulizia-malnate-2026': {
+    title: 'McDonald\'s ripulisce Malnate: raccolti 20 kg di rifiuti',
+    description: '## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L\'iniziativa si è svolta lunedì 5 ottobre',
+    keywords: 'frontalieri, ticino, svizzera, italia, mcdonald, ripulisce, malnate, raccolti',
+    ogTitle: 'McDonald\'s ripulisce Malnate: 20 kg di rifiuti raccolti',
+    ogDescription: '## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L\'iniziativa si è svolta lunedì 5 ottobre',
+    canonicalPath: '/articoli-frontaliere/mcdonalds-pulizia-malnate-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "McDonald's ripulisce Malnate: raccolti 20 kg di rifiuti",
+      "description": "## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L'iniziativa si è svolta lunedì 5 ottobre",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/article-mcdonalds-pulizia-malnate-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area urbana pulita e riqualificata in una cittadina"
+      },
+      "datePublished": "2026-10-08T00:02:58+00:00",
+      "dateModified": "2026-10-08T00:02:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mcdonalds-pulizia-malnate-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agrivarese-angera-ottobre-2026': {
+    title: 'Agrivarese torna ad Angera: fiera agricola l\'11 ottobre',
+    description: '## In breve - Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera - La manifestazione sarà aperta dalle 9 alle 19 - In programma oltre 40 aziende',
+    keywords: 'frontalieri, ticino, svizzera, italia, agrivarese, torna, angera, fiera',
+    ogTitle: 'Agrivarese torna ad Angera: fiera agricola l\'11 ottobre',
+    ogDescription: '## In breve - Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera - La manifestazione sarà aperta dalle 9 alle 19 - In programma oltre 40 aziende',
+    canonicalPath: '/articoli-frontaliere/agrivarese-angera-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agrivarese torna ad Angera: fiera agricola l'11 ottobre",
+      "description": "## In breve - Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera - La manifestazione sarà aperta dalle 9 alle 19 - In programma oltre 40 aziende",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agrivarese-angera-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bancarelle di prodotti agricoli locali sul lungolago di Angera durante l'evento Agrivarese."
+      },
+      "datePublished": "2026-10-08T01:08:40+00:00",
+      "dateModified": "2026-10-08T01:08:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agrivarese-angera-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festival-racconto-varese-ottobre': {
+    title: 'Festival del Racconto: due appuntamenti a Varese',
+    description: '## In breve - Due appuntamenti culturali a Varese il 9 e l\'11 ottobre - Dante al centro dell\'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo',
+    keywords: 'frontalieri, ticino, svizzera, italia, festival, racconto, appuntamenti, varese',
+    ogTitle: 'Festival del Racconto: Dante e inediti di Carlo Linati',
+    ogDescription: '## In breve - Due appuntamenti culturali a Varese il 9 e l\'11 ottobre - Dante al centro dell\'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo',
+    canonicalPath: '/articoli-frontaliere/festival-racconto-varese-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festival del Racconto: due appuntamenti a Varese",
+      "description": "## In breve - Due appuntamenti culturali a Varese il 9 e l'11 ottobre - Dante al centro dell'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/article-festival-racconto-varese-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Recalcati a Varese ospita il Festival del Racconto"
+      },
+      "datePublished": "2026-10-08T01:52:55+00:00",
+      "dateModified": "2026-10-08T01:52:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festival-racconto-varese-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-luvinate-progetto-motorio-materna': {
+    title: 'Luvinate: al via il progetto motorio alla scuola materna',
+    description: '## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola',
+    keywords: 'frontalieri, ticino, svizzera, italia, luvinate, progetto, motorio, alla',
+    ogTitle: 'Luvinate: al via il progetto motorio alla scuola materna',
+    ogDescription: '## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola',
+    canonicalPath: '/articoli-frontaliere/luvinate-progetto-motorio-materna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luvinate: al via il progetto motorio alla scuola materna",
+      "description": "## In breve - A Luvinate parte il progetto motorio 26-27 - La scuola collabora con la Varese Basket School - Il percorso è rivolto ai bambini della Scuola",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-luvinate-progetto-motorio-materna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambini che giocano all'aperto in una scuola dell'infanzia"
+      },
+      "datePublished": "2026-10-08T02:37:51+00:00",
+      "dateModified": "2026-10-08T02:37:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luvinate-progetto-motorio-materna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pro-patria-varese-5-2-coppa-italia': {
+    title: 'Pro patria batte Varese 5-2 in coppa Italia | Frontaliere Ticino',
+    description: '## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano',
+    keywords: 'frontalieri, ticino, svizzera, italia, patria, batte, varese, coppa',
+    ogTitle: 'Pro Patria batte Varese 5-2 in Coppa Italia',
+    ogDescription: '## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano',
+    canonicalPath: '/articoli-frontaliere/pro-patria-varese-5-2-coppa-italia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pro patria batte Varese 5-2 in coppa Italia",
+      "description": "## In breve - La Pro Patria batte il Varese 5-2 al Franco Ossola. - Maistrello, Mapelli e Bonaidi firmano il primo 3-0. - Gallotti e Castellucchio riportano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pro-patria-varese-5-2-coppa-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano al tramonto con riflesso delle montagne"
+      },
+      "datePublished": "2026-10-08T02:56:22+00:00",
+      "dateModified": "2026-10-08T02:56:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pro-patria-varese-5-2-coppa-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

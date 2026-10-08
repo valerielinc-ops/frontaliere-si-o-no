@@ -446,7 +446,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Ticino sospende esportazioni di materiale bellico',
  description: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
  keywords: 'frontalieri, ticino, svizzera, italia, sospende, esportazioni, materiale, bellico',
- ogTitle: 'Ticino sospende esportazioni di materiale bellico verso gli',
+ ogTitle: 'Ticino sospende esportazioni di materiale bellico',
  ogDescription: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
  canonicalPath: '/articoli-frontaliere/stop-export-materiale-bellico/',
  structuredData: {

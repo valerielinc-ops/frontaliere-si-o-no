@@ -32989,17 +32989,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  authorName: 'Redazione Frontaliere Ticino',
  },
  {
- id: 'abort-topical-relevance-pre-saint-didier',
- category: 'fiscale',
- date: '2026-08-11T12:07:52.581Z',
- updatedAt: '2026-09-25',
- image: '/images/blog/abort-topical-relevance-pre-saint-didier.webp',
- hasCalculator: true,
- canton: ['VS'],
- authorSlug: 'marco-ferrari',
- authorName: 'Marco Ferrari',
- },
- {
  id: 'vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
  category: 'pratico',
  date: '2026-08-11T12:58:53.991Z',
@@ -33098,15 +33087,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  image: '/images/blog/vivere-oyace-lavorare-vallese-frontaliere.webp',
  hasCalculator: true,
  canton: ['VS'],
- authorSlug: 'marco-ferrari',
- authorName: 'Marco Ferrari',
- },
- {
- id: 'abort-saint-nicolas-non-frontaliero',
- category: 'fiscale',
- date: '2026-08-11T16:40:10.447Z',
- image: '/images/blog/abort-saint-nicolas-non-frontaliero.webp',
- hasCalculator: true,
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
@@ -33265,9 +33245,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_14: Article[] = [
  {
  id: 'quadro-rw-conto-corrente-svizzero',
  category: 'fiscale',
@@ -33286,6 +33263,9 @@ const RAW_ARTICLES_CHUNK_14: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_14: Article[] = [
  {
  id: 'bollettino-frontaliere-2026-08-12',
  category: 'novita',
@@ -35805,9 +35785,6 @@ const RAW_ARTICLES_CHUNK_14: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_15: Article[] = [
  {
  id: 'carate-urio-frontaliere-ticino',
  category: 'fiscale',
@@ -35830,6 +35807,9 @@ const RAW_ARTICLES_CHUNK_15: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_15: Article[] = [
  {
  id: 'vivere-grantola-lavorare-ticino',
  category: 'pratico',
@@ -38336,9 +38316,6 @@ const RAW_ARTICLES_CHUNK_15: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
-];
-
-const RAW_ARTICLES_CHUNK_16: Article[] = [
  {
  id: 'costo-vita-lugano-milano-scelta',
  category: 'pratico',
@@ -38360,6 +38337,9 @@ const RAW_ARTICLES_CHUNK_16: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_16: Article[] = [
  {
  id: 'como-export-svizzera-2026',
  category: 'novita',
@@ -40881,9 +40861,6 @@ const RAW_ARTICLES_CHUNK_16: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_17: Article[] = [
  {
  id: 'trenta-viaggiatori-gallarate-malpensa',
  category: 'pratico',
@@ -40905,6 +40882,9 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_17: Article[] = [
  {
  id: 'cannobio-caserma-spagnulo',
  category: 'novita',
@@ -42897,7 +42877,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'fischiava-treno-gorla',
  category: 'novita',
  date: '2026-10-07T04:45:21.777Z',
- image: '/images/blog/mobilita-trenord-aumento-biglietti-2026.webp',
+ image: '/images/blog/article-fischiava-treno-gorla.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
@@ -42917,7 +42897,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'monte-olimpino-treni-weekend',
  category: 'pratico',
  date: '2026-10-07T05:47:57.277Z',
- image: '/images/blog/como-crisi-abitativa-alloggi-sfitti.webp',
+ image: '/images/blog/article-monte-olimpino-treni-weekend.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
@@ -42927,7 +42907,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'hotel-ticino-140-licenziati',
  category: 'novita',
  date: '2026-10-07T06:29:50.676Z',
- image: '/images/blog/hotel-ticino-76-licenziamenti.webp',
+ image: '/images/blog/article-hotel-ticino-140-licenziati.webp',
  hasCalculator: true,
  articleType: 'news',
  canton: ['TI'],
@@ -42938,7 +42918,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'domodossola-arresto-hashish-stazione',
  category: 'pratico',
  date: '2026-10-07T06:58:03.077Z',
- image: '/images/blog/affitti-friburgo-contestazione-canone.webp',
+ image: '/images/blog/article-domodossola-arresto-hashish-stazione.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
@@ -42948,7 +42928,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'petizione-recupero-carovita-ticino',
  category: 'novita',
  date: '2026-10-07T08:24:41.849Z',
- image: '/images/blog/carovita-sindacati-recupero-divario.webp',
+ image: '/images/blog/article-petizione-recupero-carovita-ticino.webp',
  hasCalculator: true,
  articleType: 'news',
  canton: ['TI'],
@@ -43023,6 +43003,118 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  date: '2026-10-07T12:19:46.838Z',
  image: '/images/blog/controlli-locali-busto-arsizio-gallarate.webp',
  hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'caduta-scala-locate-varesino',
+ category: 'novita',
+ date: '2026-10-07T12:57:53.001Z',
+ image: '/images/blog/article-caduta-scala-locate-varesino.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cantello-teatro-dialettale-ottobre-2026',
+ category: 'novita',
+ date: '2026-10-07T16:05:11.490Z',
+ image: '/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vendemmia-mendrisiotto-lavoratori-terra',
+ category: 'pratico',
+ date: '2026-10-07T21:11:35.309Z',
+ image: '/images/blog/article-vendemmia-mendrisiotto-lavoratori-terra.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'lifestyle-innovation-hub-chiasso',
+ category: 'novita',
+ date: '2026-10-07T21:45:03.951Z',
+ image: '/images/blog/article-lifestyle-innovation-hub-chiasso.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'coda-a8-castronno-solbiate',
+ category: 'novita',
+ date: '2026-10-07T22:16:34.106Z',
+ image: '/images/blog/article-coda-a8-castronno-solbiate.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'incidente-via-albisetti',
+ category: 'novita',
+ date: '2026-10-07T22:41:48.924Z',
+ image: '/images/blog/article-incidente-via-albisetti.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'mcdonalds-pulizia-malnate-2026',
+ category: 'novita',
+ date: '2026-10-08T00:02:58.267Z',
+ image: '/images/blog/article-mcdonalds-pulizia-malnate-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'agrivarese-angera-ottobre-2026',
+ category: 'novita',
+ date: '2026-10-08T01:08:40.395Z',
+ image: '/images/blog/article-agrivarese-angera-ottobre-2026.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'festival-racconto-varese-ottobre',
+ category: 'novita',
+ date: '2026-10-08T01:52:55.465Z',
+ image: '/images/blog/article-festival-racconto-varese-ottobre.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'luvinate-progetto-motorio-materna',
+ category: 'novita',
+ date: '2026-10-08T02:37:51.586Z',
+ image: '/images/blog/article-luvinate-progetto-motorio-materna.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'pro-patria-varese-5-2-coppa-italia',
+ category: 'novita',
+ date: '2026-10-08T02:56:22.442Z',
+ image: '/images/blog/article-pro-patria-varese-5-2-coppa-italia.webp',
+ hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
