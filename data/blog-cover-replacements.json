@@ -3113,6 +3113,16 @@
           "authorSlug": "redazione"
         }
       ]
+    },
+    "139-frontalieri-ticino-special-olympics": {
+      "mode": "generated",
+      "status": "generated",
+      "fromCover": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+      "toCover": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+      "recordFile": "packages/articles/content/image-credits/blog/139-frontalieri-ticino-special-olympics.json",
+      "generatedAssetId": "139-frontalieri-ticino-special-olympics",
+      "provider": "openai-codex",
+      "generatedAt": "2026-10-08T00:13:19.371Z"
     }
   },
   "rewrittenArticles": 0,
