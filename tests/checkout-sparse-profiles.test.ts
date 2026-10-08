@@ -27,6 +27,8 @@ import {
   importedDataOrPublicPathsIn,
   pathsOutsideSparseRules,
   uncoveredAllowListCode,
+  uncoveredAllowListOpenedFiles,
+  openedByNameIn,
 } from '../scripts/ci/verify-checkout-profiles.mjs';
 import {
   BUCKETS,
@@ -371,6 +373,45 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
     const checkout = doc.jobs.watch.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
     const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
     expect(uncoveredAllowListCode(lines, WATCHDOG_ENTRIES, { cone: false })).toEqual([]);
+  }, TIMEOUT);
+
+  it('riconosce un file aperto per nome dalla radice, non una stringa qualsiasi', () => {
+    const source = [
+      "const workflow = resolve(process.cwd(), '.github/workflows/deploy-request.yml');",
+      "const ledger = path.join(ROOT, 'data/blog-cover-ledger.json');",
+      "const policy = fs.readFileSync('./scripts/ci/policy.json', 'utf8');",
+      "console.log('rigenera con scripts/ci/apply-checkout-profiles.mjs');",
+      "const output = path.join(outDir, 'report.json');",
+    ].join('\n');
+    expect([...openedByNameIn(source)].sort()).toEqual([
+      '.github/workflows/deploy-request.yml',
+      'data/blog-cover-ledger.json',
+      'scripts/ci/policy.json',
+    ]);
+  });
+
+  it('boccia la allow-list di deploy-request arrivata su main con la PR 12277, e accetta quella corretta', () => {
+    // Il dispatcher legge il paths-ignore del proprio workflow dalla cartella
+    // di lavoro: non e' un import, e la lista conteneva solo il codice. A ogni
+    // fine deploy il confronto dei path falliva con ENOENT (issue 12344).
+    const OLD_DISPATCHER_LIST = [
+      '/scripts/ci/request-latest-deploy.mjs',
+      '/scripts/check-pages-publish-lag.mjs',
+      '/scripts/ci/lib/run-listing-window.mjs',
+      '/scripts/lib/is-invoked-directly.mjs',
+      '/scripts/ci/mint-app-token.mjs',
+      '/scripts/lib/githubApiHeaders.mjs',
+      '/scripts/lib/int-from-env.mjs',
+      '/functions/src/githubApiHeaders.js',
+    ];
+    const DISPATCHER_ENTRIES = ['scripts/ci/mint-app-token.mjs', 'scripts/ci/request-latest-deploy.mjs'];
+    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false })).toEqual([]);
+    expect(uncoveredAllowListOpenedFiles(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
+      .toEqual(['.github/workflows/deploy-request.yml']);
+    const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-request.yml'), 'utf8'));
+    const checkout = doc.jobs.request.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
+    const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
+    expect(uncoveredAllowListOpenedFiles(lines, DISPATCHER_ENTRIES, { cone: false })).toEqual([]);
   }, TIMEOUT);
 
   it('verifica davvero le allow-list, non le salta', () => {
