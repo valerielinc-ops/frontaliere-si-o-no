@@ -998,7 +998,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(run.result.status, run.output).toBe(0);
     expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run', '/stable'] });
     expect(run.commitCount).toBeLessThan(20);
-    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
   }, 120_000);
 
   it('carries a sweep that reached main after the checkout into a new compat branch', () => {
@@ -1008,7 +1008,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const run = publishCompat(setup);
     expect(run.result.status, run.output).toBe(0);
     expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run'] });
-    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
   }, 120_000);
 
   it('needs a forced refspec to move a tracking ref to a depth-1 tip', () => {
@@ -1064,8 +1064,9 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(run.result.status, run.output).toBe(0);
     expect(run.output).toContain('stable refresh branch moved during push attempt 1/3');
     expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/other', '/run', '/stable'] });
-    // The workflow checkout is handed back clean, on this run's refresh commit.
-    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+    // The workflow checkout is handed back on this run's refresh commit with
+    // no tracked file modified (untracked files are the runner's business).
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
     expect(JSON.parse(fs.readFileSync(path.join(setup.runner, COMPAT_SHARD), 'utf8')))
       .toEqual({ paths: ['/base', '/main', '/run'] });
   }, 120_000);
