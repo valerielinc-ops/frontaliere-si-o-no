@@ -30,6 +30,7 @@ type FreeTranslate = typeof import('../scripts/lib/free-translate.mjs');
 type Messages = Array<{ role: string; content: string }>;
 
 const WORKFLOW = '.github/workflows/translate-pending-logic.yml';
+const PHASE_2A2 = 'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
@@ -112,7 +113,7 @@ async function loadCascade({
   for (const key of [
     'DEEPL_API_KEY_2', 'GOOGLE_APPLICATION_CREDENTIALS', 'HF_TOKEN', 'HUGGINGFACE_API_KEY',
     'LIBRETRANSLATE_SELF_HOSTED_URL', 'ENABLE_CODEX_ARTICLE_FALLBACK', 'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN',
-    'FREE_TRANSLATE_CODEX_TIER', 'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS',
+    'FREE_TRANSLATE_CODEX_TIER', 'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', 'FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS',
     'CODEX_AUTH_BROKER_SOCKET', 'FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS', 'FREE_TRANSLATE_CODEX_MAX_CALLS', 'FREE_TRANSLATE_CODEX_MAX_MS',
   ]) vi.stubEnv(key, '');
   // Le chiavi che Remote Config carica nella run (Azure la 2b la svuota da se').
@@ -164,13 +165,13 @@ afterEach(() => {
 });
 
 describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () => {
-  it('350 chiamate, 3 corsie e batch da 10 nelle fasi 2b/2d/2e; 25 minuti alla 2b, 15 alle corsie di riparazione', () => {
+  it('350 chiamate, 3 corsie, batch da 10 e budget 3000 caratteri nelle quattro fasi Codex', () => {
     const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), WORKFLOW), 'utf8')) as {
       jobs: { translate: { steps: Array<{ id?: string; name?: string; env?: Record<string, unknown> }> } };
     };
     const steps = workflow.jobs.translate.steps;
     expect(phase2bEnv().FREE_TRANSLATE_CODEX_MAX_CALLS).toBe('350');
-    for (const phase of [PHASE_2B, PHASE_2D, PHASE_2E]) {
+    for (const phase of [PHASE_2A2, PHASE_2B, PHASE_2D, PHASE_2E]) {
       const step = steps.find((candidate) => candidate.name === phase);
       expect(step?.env).toMatchObject({
         FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000',
@@ -178,7 +179,9 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
         // minuti residui (gate) e non devono essere saltate piu' spesso.
         FREE_TRANSLATE_CODEX_MAX_MS: phase === PHASE_2B ? '1500000' : '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
-        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+        // Descrizioni (2b, 2e): 25 righe per richiesta; titoli (2a.2, 2d): 10.
+        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: phase === PHASE_2B || phase === PHASE_2E ? '25' : '10',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000',
       });
     }
     const gate = steps.find((candidate) => candidate.id === 'repair_lane_budget');

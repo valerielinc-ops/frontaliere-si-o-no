@@ -553,6 +553,7 @@ jobs:
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           FREE_TRANSLATE_CODEX_LANES: "3"
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: "3000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
       - name: Re-assemble dataset after Argos bulk
@@ -607,7 +608,8 @@ jobs:
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_MAX_MS: "1500000"
           FREE_TRANSLATE_CODEX_LANES: "3"
-          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "25"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: "3000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -707,6 +709,7 @@ jobs:
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           FREE_TRANSLATE_CODEX_LANES: "3"
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: "3000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
@@ -730,7 +733,8 @@ jobs:
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
           FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           FREE_TRANSLATE_CODEX_LANES: "3"
-          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "25"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: "3000"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes

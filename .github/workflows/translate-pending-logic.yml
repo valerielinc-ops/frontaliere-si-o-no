@@ -424,6 +424,7 @@ jobs:
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           FREE_TRANSLATE_CODEX_LANES: '3'
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
@@ -527,7 +528,9 @@ jobs:
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
           FREE_TRANSLATE_CODEX_MAX_MS: '1500000'
           FREE_TRANSLATE_CODEX_LANES: '3'
-          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          # 25 righe per richiesta nelle fasi delle descrizioni: misura reale del 2026-10-08 (Codex Luna Max, 60 righe vere, una corsia): 10 righe/richiesta 6 richieste in 53,9 s; 25 righe 3 in 67,4 s; 50 righe 2 in 40,5 s; tutte tradotte e allineate. Il tempo per riga cambia poco, le richieste scendono di 2-3 volte.
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
@@ -679,6 +682,7 @@ jobs:
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           FREE_TRANSLATE_CODEX_LANES: '3'
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
@@ -712,7 +716,9 @@ jobs:
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
           FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           FREE_TRANSLATE_CODEX_LANES: '3'
-          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          # 25 righe per richiesta nelle fasi delle descrizioni: misura reale del 2026-10-08 (Codex Luna Max, 60 righe vere, una corsia): 10 righe/richiesta 6 richieste in 53,9 s; 25 righe 3 in 67,4 s; 50 righe 2 in 40,5 s; tutte tradotte e allineate. Il tempo per riga cambia poco, le richieste scendono di 2-3 volte.
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '25'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
 
