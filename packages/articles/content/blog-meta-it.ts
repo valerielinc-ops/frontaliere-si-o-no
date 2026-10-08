@@ -12788,6 +12788,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salute-lavoro-progetti-ticino.title': 'Salute mentale sul lavoro: progetti in Ticino',
     'blog.article.salute-lavoro-progetti-ticino.excerpt': '## In breve - In Svizzera una persona su tre è emotivamente spossata. - In Ticino quasi un apprendista su tre riferisce disturbi d\'ansia. - DSS e Forum GSA',
     'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Team di lavoro a Bellinzona per la salute mentale',
+    'blog.article.bellinzona-nord-svincolo.title': 'Bellinzona Nord, chiusura notturna dello svincolo',
+    'blog.article.bellinzona-nord-svincolo.excerpt': '## In breve - Chiusura tra venerdì 9 e sabato 10 ottobre - Stop dalle 20.00 alle 5.00 - Direzione: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46',
+    'blog.article.bellinzona-nord-svincolo.imageAlt': 'Svincolo autostradale di Bellinzona Nord durante una chiusura notturna',
 };
 
 export default blogMetaIt;

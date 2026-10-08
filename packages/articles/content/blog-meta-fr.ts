@@ -12789,6 +12789,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.salute-lavoro-progetti-ticino.title': 'Santé mentale au travail : projets au Tessin',
     'blog.article.salute-lavoro-progetti-ticino.excerpt': '## En bref - En Suisse, une personne sur trois est émotionnellement épuisée. - Au Tessin, près d’un apprenti sur trois fait état de troubles anxieux. - DSS et Forum GSA',
     'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Équipe discutant de la santé mentale au travail à Bellinzona',
+    'blog.article.bellinzona-nord-svincolo.title': 'Bellinzona Nord, fermeture nocturne de la jonction',
+    'blog.article.bellinzona-nord-svincolo.excerpt': '## En bref - Fermeture dans la nuit du vendredi 9 au samedi 10 octobre - Interruption de 20.00 à 5.00 - Direction : Chiasso/Saint-Gothard - Alternatives : Bellinzona Centre 46',
+    'blog.article.bellinzona-nord-svincolo.imageAlt': 'Échangeur autoroutier de Bellinzona Nord fermé durant la nuit',
 };
 
 export default blogMetaFr;

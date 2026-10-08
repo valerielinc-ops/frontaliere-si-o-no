@@ -12786,6 +12786,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.salute-lavoro-progetti-ticino.title': 'Psychische Gesundheit am Arbeitsplatz: Projekte im Tessin',
     'blog.article.salute-lavoro-progetti-ticino.excerpt': '## Auf einen Blick - In der Schweiz ist eine von drei Personen emotional erschöpft. - Im Tessin berichtet fast jeder dritte Lernende von Angststörungen. - DSS und Forum GSA',
     'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Teamgespräch über psychische Gesundheit am Arbeitsplatz in Bellinzona',
+    'blog.article.bellinzona-nord-svincolo.title': 'Bellinzona Nord, nächtliche Sperrung der Anschlussstelle',
+    'blog.article.bellinzona-nord-svincolo.excerpt': '## Auf einen Blick - Sperrung zwischen Freitag, dem 9., und Samstag, dem 10. Oktober - Stopp von 20.00 bis 5.00 - Richtung: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46',
+    'blog.article.bellinzona-nord-svincolo.imageAlt': 'Autobahnanschluss Bellinzona Nord während einer nächtlichen Sperrung',
 };
 
 export default blogMetaDe;

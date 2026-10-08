@@ -12787,6 +12787,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salute-lavoro-progetti-ticino.title': 'Mental health at work: projects in Ticino',
     'blog.article.salute-lavoro-progetti-ticino.excerpt': '## TL;DR - In Switzerland, one in three people is emotionally exhausted. - In Ticino, almost one in three apprentices reports anxiety disorders. - DSS and Forum GSA',
     'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Team discussion on workplace mental health in Bellinzona',
+    'blog.article.bellinzona-nord-svincolo.title': 'Bellinzona Nord, nighttime closure of the interchange',
+    'blog.article.bellinzona-nord-svincolo.excerpt': '## TL;DR - Closure from Friday, October 9 to Saturday, October 10 - Stop from 20.00 to 5.00 - Direction: Chiasso/San Gottardo - Alternatives: Bellinzona Centro 46',
+    'blog.article.bellinzona-nord-svincolo.imageAlt': 'Bellinzona Nord motorway interchange during a night closure',
 };
 
 export default blogMetaEn;

@@ -102972,6 +102972,39 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bellinzona-nord-svincolo': {
+    title: 'Bellinzona Nord, chiusura notturna dello svincolo',
+    description: '## In breve - Chiusura tra venerdì 9 e sabato 10 ottobre - Stop dalle 20.00 alle 5.00 - Direzione: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, nord, chiusura, notturna',
+    ogTitle: 'Bellinzona Nord, chiusura notturna dello svincolo',
+    ogDescription: '## In breve - Chiusura tra venerdì 9 e sabato 10 ottobre - Stop dalle 20.00 alle 5.00 - Direzione: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46',
+    canonicalPath: '/articoli-frontaliere/bellinzona-nord-svincolo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bellinzona Nord, chiusura notturna dello svincolo",
+      "description": "## In breve - Chiusura tra venerdì 9 e sabato 10 ottobre - Stop dalle 20.00 alle 5.00 - Direzione: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/centro-ovale-chiasso-nuova-proprieta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Svincolo autostradale di Bellinzona Nord durante una chiusura notturna"
+      },
+      "datePublished": "2026-10-08T10:36:56+00:00",
+      "dateModified": "2026-10-08T10:36:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-nord-svincolo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

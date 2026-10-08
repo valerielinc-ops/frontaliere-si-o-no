@@ -43161,6 +43161,17 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bellinzona-nord-svincolo',
+ category: 'pratico',
+ date: '2026-10-08T10:36:56.122Z',
+ image: '/images/blog/centro-ovale-chiasso-nuova-proprieta.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
