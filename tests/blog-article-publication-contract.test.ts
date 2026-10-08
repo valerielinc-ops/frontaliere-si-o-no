@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -15,7 +16,13 @@ describe('blog article publication contract', () => {
 
     expect(article).toContain(`image: '${COVER}'`);
     expect(metadata).toContain('${BASE_URL}' + COVER);
-    expect(fs.existsSync(path.join(ROOT, `public${COVER}`))).toBe(true);
+    const coverSize = execFileSync(
+      'git',
+      ['cat-file', '-s', `HEAD:public${COVER}`],
+      { cwd: ROOT, encoding: 'utf8' },
+    ).trim();
+
+    expect(Number(coverSize)).toBeGreaterThan(0);
     expect(generated.assets).toContainEqual(expect.objectContaining({
       assetId: 'article-mcdonalds-pulizia-malnate-2026',
       imageUrl: COVER,
