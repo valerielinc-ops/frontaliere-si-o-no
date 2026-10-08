@@ -50,7 +50,10 @@ for (const file of conflicts) {
   const oid = git(['hash-object', '-w', '--stdin'], content);
   git(['update-index', '--add', '--cacheinfo', `100644,${oid},${file}`]);
 }
-const mergedTree = git(['write-tree']);
+// `--missing-ok`: the index is the merged tree plus the blobs hashed above. The
+// refresh checkout holds branch tips only, and after a filtered fetch a plain
+// `write-tree` would download every blob of that tree it does not have.
+const mergedTree = git(['write-tree', '--missing-ok']);
 const commit = git(['commit-tree', mergedTree, '-p', head, '-p', options.main, '-m', options.message]);
 git(['update-ref', 'HEAD', commit, head]);
 process.stdout.write(`[reconcile-data-refresh-main] merged main; resolved ${conflicts.length} cache conflict(s)\n`);
