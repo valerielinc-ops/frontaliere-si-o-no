@@ -4805,10 +4805,10 @@
     },
     {
       "id": "unibe-de5702ce0895",
-      "slug": "studien-e-prufungssekretariat-universitat-bern",
+      "slug": "segreteria-per-gli-studi-e-gli-esami-universitat-bern-bern",
       "slugByLocale": {
         "de": "studien-und-prufungssekretariat-unibe-bern",
-        "it": "studien-e-prufungssekretariat-universitat-bern",
+        "it": "segreteria-per-gli-studi-e-gli-esami-universitat-bern-bern",
         "en": "secretariat-for-studies-and-examinations-universitat-bern-bern",
         "fr": "secretariat-pour-les-etudes-et-les-examens-universitat-bern-bern"
       },
@@ -4858,7 +4858,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "studien-und-prufungssekretariat-unibe-bern"
+          "studien-und-prufungssekretariat-unibe-bern",
+          "studien-e-prufungssekretariat-universitat-bern"
         ],
         "en": [
           "studien-und-prufungssekretariat-universitat-bern-bern"
@@ -4869,7 +4870,8 @@
       },
       "previousSlugs": [
         "studien-und-prufungssekretariat-unibe-bern",
-        "studien-und-prufungssekretariat-universitat-bern-bern"
+        "studien-und-prufungssekretariat-universitat-bern-bern",
+        "studien-e-prufungssekretariat-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

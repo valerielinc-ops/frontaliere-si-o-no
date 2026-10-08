@@ -1283,9 +1283,9 @@
     },
     {
       "id": "proton-375e455f983d",
-      "slug": "business-development-manager-proton-ch",
+      "slug": "responsabile-dello-sviluppo-commerciale-proton-geneva",
       "slugByLocale": {
-        "it": "business-development-manager-proton-ch",
+        "it": "responsabile-dello-sviluppo-commerciale-proton-geneva",
         "en": "business-development-manager-proton-ch",
         "de": "geschaftsentwicklungsleiter-proton-geneva",
         "fr": "directeur-du-developpement-des-affaires-proton-geneva-zurich"
@@ -1330,11 +1330,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-proton-geneva"
+        "business-development-manager-proton-geneva",
+        "business-development-manager-proton-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "business-development-manager-proton-geneva"
+        ],
+        "it": [
+          "business-development-manager-proton-ch"
         ]
       },
       "needsRetranslation": true,

@@ -1857,12 +1857,12 @@
     },
     {
       "id": "nestle-1429740633",
-      "slug": "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch",
+      "slug": "operazioni-partner-aziendali-hr-nestle-waters-suisse-sa-nestle-henniez",
       "slugByLocale": {
-        "it": "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch",
+        "it": "operazioni-partner-aziendali-hr-nestle-waters-suisse-sa-nestle-henniez",
         "en": "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch",
         "de": "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch",
-        "fr": "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
+        "fr": "operations-des-partenaires-d-affaires-rh-nestle-waters-suisse-sa-nestle-henniez"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1904,7 +1904,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
+        ],
+        "fr": [
+          "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1408799633",

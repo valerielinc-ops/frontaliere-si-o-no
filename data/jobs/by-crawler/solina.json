@@ -2148,7 +2148,7 @@
       "slug": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez",
-        "en": "associate-hauswirtschaft-stiftung-solina-spiez",
+        "en": "housekeeping-staff-member-stiftung-solina-spiez",
         "de": "mitarbeiter-in-hauswirtschaft-solina-spiez",
         "fr": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez"
       },
@@ -2195,11 +2195,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-solina-spiez"
+        "mitarbeiter-in-hauswirtschaft-solina-spiez",
+        "associate-hauswirtschaft-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-solina-spiez"
+        ],
+        "en": [
+          "associate-hauswirtschaft-stiftung-solina-spiez"
         ]
       },
       "salaryMin": 67500,

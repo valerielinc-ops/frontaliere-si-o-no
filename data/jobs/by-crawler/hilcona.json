@@ -1856,10 +1856,10 @@
     },
     {
       "id": "hilcona-65aa8476ba1d",
-      "slug": "apprendistato-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell",
+      "slug": "posto-di-apprendistato-come-agricoltore-agricoltrice-afc-nell-allevamento-di-pollame-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
-        "it": "apprendistato-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell",
+        "it": "posto-di-apprendistato-come-agricoltore-agricoltrice-afc-nell-allevamento-di-pollame-bell-schweiz-ag-zell",
         "en": "apprenticeship-farmer-in-efz-poultry-farming-bell-schweiz-ag-zell",
         "fr": "apprentissage-en-elevage-avicole-d-efz-bell-schweiz-ag-zell"
       },
@@ -1903,7 +1903,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell"
+          "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
+          "apprendistato-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
         ],
         "en": [
           "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
@@ -1914,7 +1915,8 @@
       },
       "previousSlugs": [
         "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
-        "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
+        "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell",
+        "apprendistato-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
       ],
       "salaryMin": 52000,
       "salaryMax": 70000,
@@ -2175,12 +2177,12 @@
     },
     {
       "id": "hilcona-cda182f0137d",
-      "slug": "apprendistato-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell",
+      "slug": "posto-di-apprendistato-come-operatore-operatrice-di-impianti-afc-2027-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell",
-        "it": "apprendistato-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell",
-        "en": "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell",
-        "fr": "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
+        "it": "posto-di-apprendistato-come-operatore-operatrice-di-impianti-afc-2027-bell-schweiz-ag-zell",
+        "en": "apprenticeship-plant-operator-plant-operator-efz-2027-bell-schweiz-ag-zell",
+        "fr": "place-d-apprentissage-d-operateur-operatrice-de-machines-automatisees-cfc-2027-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2222,11 +2224,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell"
+          "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell",
+          "apprendistato-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell"
+        "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell",
+        "apprendistato-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell",
+        "lehrstelle-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-zell"
       ],
       "salaryMin": 52000,
       "salaryMax": 70000,
@@ -4503,10 +4514,10 @@
     },
     {
       "id": "hilcona-8b27e739adb6",
-      "slug": "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel",
+      "slug": "posto-di-apprendistato-come-macellaio-macellaia-afc-2027-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
-        "it": "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel",
+        "it": "posto-di-apprendistato-come-macellaio-macellaia-afc-2027-bell-schweiz-ag-basel",
         "en": "apprenticeship-as-a-meat-specialist-meat-specialist-efz-2027-bell-schweiz-ag-basel",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-viande-specialiste-de-la-viande-efz-2027-bell-schweiz-ag-basel"
       },
@@ -4550,7 +4561,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel"
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
+          "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
         ],
         "en": [
           "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
@@ -4561,7 +4573,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
-        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
+        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel",
+        "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -4994,10 +5007,10 @@
     },
     {
       "id": "hilcona-438e6252a57b",
-      "slug": "apprendistato-come-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel",
+      "slug": "posto-di-apprendistato-come-praticante-nel-settore-alimentare-cfp-2027-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel",
-        "it": "apprendistato-come-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel",
+        "it": "posto-di-apprendistato-come-praticante-nel-settore-alimentare-cfp-2027-bell-schweiz-ag-basel",
         "en": "apprenticeship-as-a-food-practitioner-in-eba-2027-bell-schweiz-ag-basel",
         "fr": "apprentissage-en-tant-que-praticien-de-l-alimentation-en-eba-2027-bell-schweiz-ag-basel"
       },
@@ -5041,7 +5054,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel"
+          "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel",
+          "apprendistato-come-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
         ],
         "en": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
@@ -5052,7 +5066,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel",
-        "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
+        "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel",
+        "apprendistato-come-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -5073,10 +5088,10 @@
     },
     {
       "id": "hilcona-88f009c54165",
-      "slug": "apprendistato-come-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel",
+      "slug": "posto-di-apprendistato-come-assistente-macellaio-cfp-2027-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel",
-        "it": "apprendistato-come-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel",
+        "it": "posto-di-apprendistato-come-assistente-macellaio-cfp-2027-bell-schweiz-ag-basel",
         "en": "apprenticeship-as-a-meat-specialist-assistant-in-eba-2027-bell-schweiz-ag-basel",
         "fr": "apprentissage-comme-assistant-specialiste-de-la-viande-a-eba-2027-bell-schweiz-ag-basel"
       },
@@ -5120,7 +5135,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel"
+          "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel",
+          "apprendistato-come-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
         ],
         "en": [
           "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
@@ -5131,7 +5147,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel",
-        "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
+        "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel",
+        "apprendistato-come-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -5152,10 +5169,10 @@
     },
     {
       "id": "hilcona-f50096721519",
-      "slug": "apprendistato-come-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel",
+      "slug": "posto-di-apprendistato-come-meccanico-di-produzione-afc-2027-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel",
-        "it": "apprendistato-come-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel",
+        "it": "posto-di-apprendistato-come-meccanico-di-produzione-afc-2027-bell-schweiz-ag-basel",
         "en": "apprenticeship-as-a-production-mechanic-in-efz-2027-bell-schweiz-ag-basel",
         "fr": "apprentissage-en-tant-que-mecanicien-de-production-en-efz-2027-bell-schweiz-ag-basel"
       },
@@ -5199,7 +5216,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel"
+          "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel",
+          "apprendistato-come-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
         ],
         "en": [
           "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
@@ -5210,7 +5228,8 @@
       },
       "previousSlugs": [
         "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel",
-        "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
+        "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel",
+        "apprendistato-come-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,

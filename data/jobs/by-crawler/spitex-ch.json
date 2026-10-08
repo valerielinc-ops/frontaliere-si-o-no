@@ -2226,12 +2226,12 @@
     },
     {
       "id": "spitex-ch-37f8db566681",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch",
+      "slug": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-nella-cura-delle-ferite-60-100-spitex-spitex-rechtes-limmattal",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch",
-        "it": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch",
-        "en": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch"
+        "it": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-nella-cura-delle-ferite-60-100-spitex-spitex-rechtes-limmattal",
+        "en": "registered-nurse-hf-fh-specializing-in-wound-care-60-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "infirmier-ere-diplome-e-es-hes-avec-specialisation-d-expert-e-en-plaies-60-100-spitex-spitex-rechtes-limmattal-weiningen"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -2290,14 +2290,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:20:47.595Z"
+      "firstSeenAt": "2026-10-07T21:20:47.595Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch"
+      ]
     },
     {
       "id": "spitex-ch-24408172af88",
-      "slug": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
+      "slug": "operatrice-operatore-sociosanitario-afc-fage-nel-turno-serale-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
-        "it": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
+        "it": "operatrice-operatore-sociosanitario-afc-fage-nel-turno-serale-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "en": "health-professional-efz-fage-in-late-service-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "fr": "professionnels-de-la-sante-efz-fage-en-service-tardif-60-90-spitex-rechtes-limmattal-weiningen-zh"
       },
@@ -2358,14 +2372,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:20:46.739Z"
+      "firstSeenAt": "2026-10-07T21:20:46.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh"
+      ]
     },
     {
       "id": "spitex-ch-d4f02bf27904",
-      "slug": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren",
+      "slug": "guadagno-supplementare-con-orari-di-lavoro-flessibili-nell-ambito-dell-assistenza-del-sollievo-regiospitex-limmattal",
       "slugByLocale": {
         "de": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch",
-        "it": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren",
+        "it": "guadagno-supplementare-con-orari-di-lavoro-flessibili-nell-ambito-dell-assistenza-del-sollievo-regiospitex-limmattal",
         "en": "additional-earnings-with-flexible-working-hours-in-the-area-of-care-discharge-regiospitex-limmattal-schlieren",
         "fr": "gains-supplementaires-avec-horaires-de-travail-flexibles-dans-le-domaine-des-soins-conges-regiospitex-limmattal"
       },
@@ -2415,11 +2437,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch"
+          "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch",
+          "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren"
         ]
       },
       "previousSlugs": [
-        "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch"
+        "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch",
+        "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,

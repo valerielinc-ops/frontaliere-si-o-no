@@ -6979,12 +6979,12 @@
     },
     {
       "id": "kanton-st-gallen-74fe2d6169ff",
-      "slug": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
+      "slug": "consulente-del-personale-sargans-m-f-d-kanton-st-gallen-sargans",
       "slugByLocale": {
         "de": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
-        "it": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
-        "en": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
-        "fr": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+        "it": "consulente-del-personale-sargans-m-f-d-kanton-st-gallen-sargans",
+        "en": "recruitment-consultant-sargans-m-f-d-kanton-st-gallen-sargans",
+        "fr": "conseiller-ere-en-personnel-a-sargans-h-f-d-kanton-st-gallen-sargans"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7044,16 +7044,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:31:08.213Z"
+      "firstSeenAt": "2026-10-07T21:31:08.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-ff65b3835128",
-      "slug": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
+      "slug": "addetta-o-alla-gestione-della-formazione-continua-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
-        "it": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
-        "en": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
-        "fr": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+        "it": "addetta-o-alla-gestione-della-formazione-continua-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "administrative-clerk-continuing-education-management-m-f-d-kanton-st-gallen-st-gallen",
+        "fr": "collaborateur-rice-administratif-ve-en-gestion-de-la-formation-continue-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7113,7 +7127,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:31:07.395Z"
+      "firstSeenAt": "2026-10-07T21:31:07.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+      ]
     }
   ]
 }

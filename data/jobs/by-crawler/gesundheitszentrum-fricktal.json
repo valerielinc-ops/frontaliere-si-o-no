@@ -1009,10 +1009,10 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-904f287dd599",
-      "slug": "fisioterapista-in-m-f-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "fisioterapista-m-f-d-a-tempo-determinato-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "fisioterapista-in-m-f-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "physiotherapist-in-m-f-d-temporary-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "fisioterapista-m-f-d-a-tempo-determinato-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "physiotherapist-m-f-d-fixed-term-gesundheitszentrum-fricktal-rheinfelden",
         "de": "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "physiotherapeute-en-h-f-d-temporaire-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -1058,14 +1058,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
+        "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
+        "fisioterapista-in-m-f-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden",
+        "physiotherapist-in-m-f-d-temporary-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
+          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
+          "fisioterapista-in-m-f-d-temporaneo-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
-          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
+          "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden",
+          "physiotherapist-in-m-f-d-temporary-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
           "physiotherapeut-in-m-w-d-befristet-gesundheitszentrum-fricktal-rheinfelden"
@@ -1161,12 +1165,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-7389cb34bec7",
-      "slug": "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "infermiere-a-addetto-a-al-posizionamento-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "infermiere-a-addetto-a-al-posizionamento-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "patient-positioning-assistant-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "infirmier-ere-en-positionnement-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -1221,7 +1225,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "lagerungspfleger-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-471c08bda322",
@@ -2323,12 +2341,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-a9cbdbcc84bd",
-      "slug": "medizinische-r-praxisassistent-in-o-fachperson-gesundheit-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "assistente-di-studio-medico-o-professionista-sanitario-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum",
-        "it": "medizinische-r-praxisassistent-in-o-fachperson-gesundheit-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum",
-        "fr": "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum"
+        "it": "assistente-di-studio-medico-o-professionista-sanitario-a-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "medical-practice-assistant-or-healthcare-professional-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "assistant-e-medical-e-ou-professionnel-le-de-la-sante-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2376,11 +2394,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum",
+          "medizinische-r-praxisassistent-in-o-fachperson-gesundheit-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum"
+        "medizinische-r-praxisassistent-in-oder-fachperson-gesundheit-m-w-d-gesundheitszentrum",
+        "medizinische-r-praxisassistent-in-o-fachperson-gesundheit-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

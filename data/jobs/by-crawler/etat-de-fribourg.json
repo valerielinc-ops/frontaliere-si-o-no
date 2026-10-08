@@ -3449,9 +3449,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -3504,14 +3504,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340"
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340"
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -7865,12 +7865,12 @@
     },
     {
       "id": "etat-de-fribourg-109c98223bcb",
-      "slug": "praktikant-in-vor-der-hsw-etat-de-fribourg-ch",
+      "slug": "tirocinante-prima-di-hsw-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "praktikant-in-vor-der-hsw-etat-de-fribourg-ch",
-        "it": "praktikant-in-vor-der-hsw-etat-de-fribourg-ch",
-        "en": "praktikant-in-vor-der-hsw-etat-de-fribourg-ch",
-        "fr": "praktikant-in-vor-der-hsw-etat-de-fribourg-ch"
+        "it": "tirocinante-prima-di-hsw-etat-de-fribourg-fribourg",
+        "en": "intern-before-hsw-etat-de-fribourg-fribourg",
+        "fr": "stagiaire-avant-la-heg-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7933,7 +7933,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-07T21:49:40.831Z"
+      "firstSeenAt": "2026-10-07T21:49:40.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-vor-der-hsw-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "praktikant-in-vor-der-hsw-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "praktikant-in-vor-der-hsw-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-vor-der-hsw-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-403f691668b9",

@@ -658,10 +658,10 @@
     },
     {
       "id": "vitrea-gesundheit-5ab91d57cabb",
-      "slug": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
+      "slug": "infermiere-a-diplomato-a-con-compiti-speciali-a-50-100-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
-        "it": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
+        "it": "infermiere-a-diplomato-a-con-compiti-speciali-a-50-100-vitrea-gesundheit-seewis-im-prattigau",
         "en": "dipl-nurse-with-special-duties-a-50-100-vitrea-gesundheit-seewis-im-prattigau",
         "fr": "dipl-infirmiere-ayant-des-fonctions-speciales-a-50-100-vitrea-gesundheit-seewis-im-prattigau"
       },
@@ -721,7 +721,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:13:35.677Z"
+      "firstSeenAt": "2026-10-07T21:13:35.677Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im"
+      ]
     }
   ]
 }

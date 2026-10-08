@@ -20631,7 +20631,7 @@
       "slug": "galenica-amavita-assistente-di-farmacia-afc-buchs",
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-buchs",
-        "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-buchs",
+        "en": "pharmacy-assistant-afc-amavita-galenica-buchs",
         "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-buchs",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-buchs"
       },
@@ -20659,7 +20659,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-10-07T21:16:38.751Z"
+      "firstSeenAt": "2026-10-07T21:16:38.751Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-buchs"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",

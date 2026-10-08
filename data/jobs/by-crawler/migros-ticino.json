@@ -8267,7 +8267,7 @@
       },
       "slugByLocale": {
         "it": "vendita-di-dipendenti-migros-ticino-schafisheim",
-        "en": "mitarbeiter-in-sales-migros-ticino-schafisheim-8zluc3",
+        "en": "sales-associate-migros-ticino-schafisheim",
         "de": "mitarbeiter-in-verkauf-migros-ticino-schafisheim-8zluc3",
         "fr": "vente-de-salaries-migros-ticino-schafisheim"
       },
@@ -8292,12 +8292,16 @@
         ],
         "fr": [
           "mitarbeiter-in-vente-migros-ticino-schafisheim-8zluc3"
+        ],
+        "en": [
+          "mitarbeiter-in-sales-migros-ticino-schafisheim-8zluc3"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-verkauf-migros-ticino-schafisheim",
         "collaboratore-trice-in-vendita-migros-ticino-schafisheim-8zluc3",
-        "mitarbeiter-in-vente-migros-ticino-schafisheim-8zluc3"
+        "mitarbeiter-in-vente-migros-ticino-schafisheim-8zluc3",
+        "mitarbeiter-in-sales-migros-ticino-schafisheim-8zluc3"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -88599,7 +88603,7 @@
     },
     {
       "id": "company-x1t4jq",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-uznach",
+      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-uznach",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Uznach",
@@ -88672,7 +88676,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-uznach",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-uznach",
         "en": "fitness-instructor-m-w-d-activ-fitness-uznach-x1t4jq",
         "de": "fitness-instructor-m-w-d-activ-fitness-uznach-x1t4jq",
         "fr": "instructeur-de-fitness-h-f-d-activ-fitness-uznach"
@@ -88682,7 +88686,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-uznach-x1t4jq",
           "fitness-instructor-w-m-d-activ-fitness-uznach",
-          "istruttore-di-fitness-m-f-d-activ-fitness-uznach"
+          "fitness-instructor-m-w-d-activ-fitness-uznach"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uznach-x1t4jq"
@@ -88691,7 +88695,7 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-uznach-x1t4jq",
         "fitness-instructor-w-m-d-activ-fitness-uznach",
-        "istruttore-di-fitness-m-f-d-activ-fitness-uznach"
+        "fitness-instructor-m-w-d-activ-fitness-uznach"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -88713,7 +88717,7 @@
     },
     {
       "id": "company-80ko7o",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-pratteln",
+      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-pratteln",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Pratteln",
@@ -88786,7 +88790,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-pratteln",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-pratteln",
         "en": "fitness-instructor-m-w-d-activ-fitness-pratteln-80ko7o",
         "de": "fitness-instructor-m-w-d-activ-fitness-pratteln-80ko7o",
         "fr": "instructeur-de-fitness-h-f-d-activ-fitness-pratteln"
@@ -88796,7 +88800,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-pratteln-80ko7o",
           "fitness-instructor-w-m-d-activ-fitness-pratteln",
-          "istruttore-di-fitness-m-f-d-activ-fitness-pratteln"
+          "fitness-instructor-m-w-d-activ-fitness-pratteln"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-pratteln-80ko7o"
@@ -88805,7 +88809,7 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-pratteln-80ko7o",
         "fitness-instructor-w-m-d-activ-fitness-pratteln",
-        "istruttore-di-fitness-m-f-d-activ-fitness-pratteln"
+        "fitness-instructor-m-w-d-activ-fitness-pratteln"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -88827,7 +88831,7 @@
     },
     {
       "id": "company-n8io9t",
-      "slug": "fitness-instructor-m-w-d-activ-fitness-riehen",
+      "slug": "istruttore-di-fitness-m-f-d-activ-fitness-riehen",
       "company": "ACTIV FITNESS",
       "title": "Fitness Instructor (w/m/d)",
       "location": "Riehen",
@@ -88900,7 +88904,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "fitness-instructor-m-w-d-activ-fitness-riehen",
+        "it": "istruttore-di-fitness-m-f-d-activ-fitness-riehen",
         "en": "fitness-instructor-m-w-d-activ-fitness-riehen-n8io9t",
         "de": "fitness-instructor-m-w-d-activ-fitness-riehen-n8io9t",
         "fr": "instructeur-de-fitness-h-f-d-activ-fitness-riehen"
@@ -88910,7 +88914,7 @@
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-riehen-n8io9t",
           "fitness-instructor-w-m-d-activ-fitness-riehen",
-          "istruttore-di-fitness-m-f-d-activ-fitness-riehen"
+          "fitness-instructor-m-w-d-activ-fitness-riehen"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-riehen-n8io9t"
@@ -88919,7 +88923,7 @@
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-riehen-n8io9t",
         "fitness-instructor-w-m-d-activ-fitness-riehen",
-        "istruttore-di-fitness-m-f-d-activ-fitness-riehen"
+        "fitness-instructor-m-w-d-activ-fitness-riehen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -93036,7 +93040,7 @@
     },
     {
       "id": "company-mxlah0",
-      "slug": "chefmetzger-in-genossenschaft-migros-zurich-mxlah0",
+      "slug": "capo-macellaio-genossenschaft-migros-zurich-zurich",
       "company": "Genossenschaft Migros Zürich",
       "title": "Chefmetzger*in",
       "location": "Zürich",
@@ -93110,19 +93114,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "chefmetzger-in-genossenschaft-migros-zurich-mxlah0",
-        "en": "chefmetzger-in-genossenschaft-migros-zurich-mxlah0",
+        "it": "capo-macellaio-genossenschaft-migros-zurich-zurich",
+        "en": "chief-butcher-genossenschaft-migros-zurich-zurich",
         "de": "chefmetzger-in-genossenschaft-migros-zurich-mxlah0",
-        "fr": "chefmetzger-in-genossenschaft-migros-zurich-mxlah0"
+        "fr": "boucher-en-chef-genossenschaft-migros-zurich-zurich"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chefmetzger-in-genossenschaft-migros-zurich"
+          "chefmetzger-in-genossenschaft-migros-zurich",
+          "chefmetzger-in-genossenschaft-migros-zurich-mxlah0"
+        ],
+        "en": [
+          "chefmetzger-in-genossenschaft-migros-zurich-mxlah0"
+        ],
+        "fr": [
+          "chefmetzger-in-genossenschaft-migros-zurich-mxlah0"
         ]
       },
       "previousSlugs": [
-        "chefmetzger-in-genossenschaft-migros-zurich"
+        "chefmetzger-in-genossenschaft-migros-zurich",
+        "chefmetzger-in-genossenschaft-migros-zurich-mxlah0"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -94025,7 +94037,7 @@
       },
       "slugByLocale": {
         "it": "chef-asiatico-migros-restaurant-davos-platz",
-        "en": "asia-chef-migros-restaurant-davos-platz",
+        "en": "asian-chef-migros-restaurant-davos-platz",
         "de": "asia-koch-kochin-migros-restaurant-davos-platz-m3r7st",
         "fr": "chef-asiatique-migros-restaurant-davos-platz"
       },
@@ -94037,8 +94049,8 @@
         ],
         "en": [
           "asia-koch-kochin-migros-restaurant-davos-platz-m3r7st",
-          "asian-chef-migros-restaurant-davos-platz",
-          "asia-koch-kochin-migros-restaurant-davos-platz"
+          "asia-koch-kochin-migros-restaurant-davos-platz",
+          "asia-chef-migros-restaurant-davos-platz"
         ],
         "fr": [
           "asia-koch-kochin-migros-restaurant-davos-platz-m3r7st"
@@ -94047,7 +94059,7 @@
       "previousSlugs": [
         "asia-koch-kochin-migros-restaurant-davos-platz",
         "asia-koch-kochin-migros-restaurant-davos-platz-m3r7st",
-        "asian-chef-migros-restaurant-davos-platz"
+        "asia-chef-migros-restaurant-davos-platz"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -94141,7 +94153,7 @@
       },
       "slugByLocale": {
         "it": "assistente-cuoco-chef-migros-restaurant-uzwil",
-        "en": "hilfskoch-kochin-migros-restaurant-uzwil",
+        "en": "assistant-cook-chef-migros-restaurant-uzwil",
         "de": "hilfskoch-kochin-migros-restaurant-uzwil-085pfy",
         "fr": "chef-cuisinier-adjoint-migros-restaurant-uzwil"
       },
@@ -94153,8 +94165,8 @@
         ],
         "en": [
           "hilfskoch-kochin-migros-restaurant-uzwil-085pfy",
-          "assistant-cook-chef-migros-restaurant-uzwil",
-          "assistant-cook-migros-restaurant-uzwil"
+          "assistant-cook-migros-restaurant-uzwil",
+          "hilfskoch-kochin-migros-restaurant-uzwil"
         ],
         "fr": [
           "hilfskoch-kochin-migros-restaurant-uzwil-085pfy"
@@ -94163,7 +94175,6 @@
       "previousSlugs": [
         "hilfskoch-kochin-migros-restaurant-uzwil",
         "hilfskoch-kochin-migros-restaurant-uzwil-085pfy",
-        "assistant-cook-chef-migros-restaurant-uzwil",
         "assistant-cook-migros-restaurant-uzwil"
       ],
       "salarySource": "estimated",
@@ -94253,7 +94264,7 @@
       },
       "slugByLocale": {
         "it": "cucina-chef-migros-restaurant-schaffhausen",
-        "en": "koch-kochin-migros-restaurant-schaffhausen",
+        "en": "cook-chef-migros-restaurant-schaffhausen",
         "de": "koch-kochin-migros-restaurant-schaffhausen-4ailv2",
         "fr": "cuisson-chef-migros-restaurant-schaffhausen"
       },
@@ -94265,8 +94276,8 @@
         ],
         "en": [
           "koch-kochin-migros-restaurant-schaffhausen-4ailv2",
-          "cook-chef-migros-restaurant-schaffhausen",
-          "cook-migros-restaurant-schaffhausen"
+          "cook-migros-restaurant-schaffhausen",
+          "koch-kochin-migros-restaurant-schaffhausen"
         ],
         "fr": [
           "koch-kochin-migros-restaurant-schaffhausen-4ailv2"
@@ -94275,7 +94286,6 @@
       "previousSlugs": [
         "koch-kochin-migros-restaurant-schaffhausen",
         "koch-kochin-migros-restaurant-schaffhausen-4ailv2",
-        "cook-chef-migros-restaurant-schaffhausen",
         "cook-migros-restaurant-schaffhausen"
       ],
       "salarySource": "estimated",
@@ -95223,7 +95233,7 @@
     },
     {
       "id": "company-77r97m",
-      "slug": "adjoint-e-zone-mezzanine-migros-online-ecublens",
+      "slug": "agente-mezzanine-migros-online-ecublens",
       "company": "Migros Online",
       "title": "Adjoint/e zone Mezzanine",
       "location": "Ecublens",
@@ -95303,7 +95313,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "adjoint-e-zone-mezzanine-migros-online-ecublens",
+        "it": "agente-mezzanine-migros-online-ecublens",
         "en": "deputy-mezzanine-migros-online-ecublens",
         "de": "stellvertretender-mezzanine-migros-online-ecublens",
         "fr": "adjoint-e-zone-mezzanine-migros-online-ecublens-77r97m"
@@ -95312,8 +95322,8 @@
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-zone-mezzanine-migros-online-ecublens-77r97m",
-          "agente-mezzanine-migros-online-ecublens",
-          "assistente-di-area-mezzanino-migros-online-ecublens"
+          "assistente-di-area-mezzanino-migros-online-ecublens",
+          "adjoint-e-zone-mezzanine-migros-online-ecublens"
         ],
         "en": [
           "adjoint-e-zone-mezzanine-migros-online-ecublens-77r97m"
@@ -95324,8 +95334,8 @@
       },
       "previousSlugs": [
         "adjoint-e-zone-mezzanine-migros-online-ecublens-77r97m",
-        "agente-mezzanine-migros-online-ecublens",
-        "assistente-di-area-mezzanino-migros-online-ecublens"
+        "assistente-di-area-mezzanino-migros-online-ecublens",
+        "adjoint-e-zone-mezzanine-migros-online-ecublens"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -107865,7 +107875,7 @@
     },
     {
       "id": "company-s9ysia",
-      "slug": "collaboratore-trice-in-frische-genossenschaft-migros-aare-aarau-s9ysia",
+      "slug": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-aarau",
       "company": "Genossenschaft Migros Aare",
       "title": "Mitarbeiter*in Frische",
       "location": "Aarau",
@@ -107938,19 +107948,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-frische-genossenschaft-migros-aare-aarau-s9ysia",
-        "en": "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia",
+        "it": "addetto-a-al-reparto-freschi-genossenschaft-migros-aare-aarau",
+        "en": "fresh-foods-associate-genossenschaft-migros-aare-aarau",
         "de": "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia",
-        "fr": "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia"
+        "fr": "collaborateur-trice-fraicheur-genossenschaft-migros-aare-aarau"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau"
+          "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau",
+          "collaboratore-trice-in-frische-genossenschaft-migros-aare-aarau-s9ysia"
+        ],
+        "en": [
+          "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia"
+        ],
+        "fr": [
+          "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau"
+        "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau",
+        "collaboratore-trice-in-frische-genossenschaft-migros-aare-aarau-s9ysia",
+        "mitarbeiter-in-frische-genossenschaft-migros-aare-aarau-s9ysia"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -107972,7 +107991,7 @@
     },
     {
       "id": "company-13a593",
-      "slug": "studentenaushilfe-kasse-vendita-genossenschaft-migros-aare-wilderswil-13a593",
+      "slug": "studente-ssa-addetto-a-alla-cassa-alle-vendite-genossenschaft-migros-aare-wilderswil",
       "company": "Genossenschaft Migros Aare",
       "title": "Studentenaushilfe Kasse / Verkauf",
       "location": "Wilderswil",
@@ -108037,19 +108056,29 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "studentenaushilfe-kasse-vendita-genossenschaft-migros-aare-wilderswil-13a593",
-        "en": "studentenaushilfe-kasse-sales-genossenschaft-migros-aare-wilderswil-13a593",
+        "it": "studente-ssa-addetto-a-alla-cassa-alle-vendite-genossenschaft-migros-aare-wilderswil",
+        "en": "student-cashier-sales-assistant-genossenschaft-migros-aare-wilderswil",
         "de": "studentenaushilfe-kasse-verkauf-genossenschaft-migros-aare-wilderswil-13a593",
-        "fr": "studentenaushilfe-kasse-vente-genossenschaft-migros-aare-wilderswil-13a593"
+        "fr": "auxiliaire-etudiant-e-a-la-caisse-a-la-vente-genossenschaft-migros-aare-wilderswil"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "studentenaushilfe-kasse-verkauf-genossenschaft-migros-aare-wilderswil"
+          "studentenaushilfe-kasse-verkauf-genossenschaft-migros-aare-wilderswil",
+          "studentenaushilfe-kasse-vendita-genossenschaft-migros-aare-wilderswil-13a593"
+        ],
+        "en": [
+          "studentenaushilfe-kasse-sales-genossenschaft-migros-aare-wilderswil-13a593"
+        ],
+        "fr": [
+          "studentenaushilfe-kasse-vente-genossenschaft-migros-aare-wilderswil-13a593"
         ]
       },
       "previousSlugs": [
-        "studentenaushilfe-kasse-verkauf-genossenschaft-migros-aare-wilderswil"
+        "studentenaushilfe-kasse-verkauf-genossenschaft-migros-aare-wilderswil",
+        "studentenaushilfe-kasse-vendita-genossenschaft-migros-aare-wilderswil-13a593",
+        "studentenaushilfe-kasse-sales-genossenschaft-migros-aare-wilderswil-13a593",
+        "studentenaushilfe-kasse-vente-genossenschaft-migros-aare-wilderswil-13a593"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -108293,7 +108322,7 @@
     },
     {
       "id": "company-wmodxf",
-      "slug": "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf",
+      "slug": "aiuto-a-studentesco-a-alla-cassa-e-tuttofare-genossenschaft-migros-ostschweiz-churwalden",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Studentische Aushilfe Kasse & Allrounder*in",
       "location": "Churwalden",
@@ -108357,19 +108386,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf",
-        "en": "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf",
+        "it": "aiuto-a-studentesco-a-alla-cassa-e-tuttofare-genossenschaft-migros-ostschweiz-churwalden",
+        "en": "student-cashier-all-rounder-genossenschaft-migros-ostschweiz-churwalden",
         "de": "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf",
-        "fr": "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf"
+        "fr": "auxiliaire-etudiant-e-a-la-caisse-polyvalent-e-genossenschaft-migros-ostschweiz-churwalden"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden"
+          "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden",
+          "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf"
+        ],
+        "en": [
+          "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf"
+        ],
+        "fr": [
+          "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf"
         ]
       },
       "previousSlugs": [
-        "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden"
+        "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden",
+        "studentische-aushilfe-kasse-allrounder-in-genossenschaft-migros-ostschweiz-churwalden-wmodxf"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -108714,7 +108751,7 @@
     },
     {
       "id": "company-fqu1z8",
-      "slug": "spezialist-beistandschaften-e-erbschaften-alle-migros-bank-wallisellen-fqu1z8",
+      "slug": "specialista-in-curatele-e-successioni-tutti-migros-bank-wallisellen",
       "company": "Migros Bank",
       "title": "Spezialist Beistandschaften und Erbschaften (alle)",
       "location": "Wallisellen",
@@ -108783,7 +108820,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "spezialist-beistandschaften-e-erbschaften-alle-migros-bank-wallisellen-fqu1z8",
+        "it": "specialista-in-curatele-e-successioni-tutti-migros-bank-wallisellen",
         "en": "specialist-assistance-and-inheritance-all-migros-bank-wallisellen",
         "de": "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen-fqu1z8",
         "fr": "assistance-specialisee-et-heritage-tous-migros-bank-wallisellen"
@@ -108791,7 +108828,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen"
+          "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen",
+          "spezialist-beistandschaften-e-erbschaften-alle-migros-bank-wallisellen-fqu1z8"
         ],
         "en": [
           "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen-fqu1z8"
@@ -108802,7 +108840,8 @@
       },
       "previousSlugs": [
         "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen",
-        "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen-fqu1z8"
+        "spezialist-beistandschaften-und-erbschaften-alle-migros-bank-wallisellen-fqu1z8",
+        "spezialist-beistandschaften-e-erbschaften-alle-migros-bank-wallisellen-fqu1z8"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -108824,7 +108863,7 @@
     },
     {
       "id": "company-umtui2",
-      "slug": "collaboratore-trice-in-bewachung-migros-logistics-neuendorf-umtui2",
+      "slug": "addetto-a-alla-sorveglianza-migros-logistics-neuendorf",
       "company": "Migros Logistics",
       "title": "Mitarbeiter*in Bewachung",
       "location": "Neuendorf",
@@ -108897,19 +108936,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-bewachung-migros-logistics-neuendorf-umtui2",
-        "en": "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2",
+        "it": "addetto-a-alla-sorveglianza-migros-logistics-neuendorf",
+        "en": "security-staff-member-migros-logistics-neuendorf",
         "de": "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2",
-        "fr": "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2"
+        "fr": "agent-e-de-surveillance-migros-logistics-neuendorf"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-bewachung-migros-logistics-neuendorf"
+          "mitarbeiter-in-bewachung-migros-logistics-neuendorf",
+          "collaboratore-trice-in-bewachung-migros-logistics-neuendorf-umtui2"
+        ],
+        "en": [
+          "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2"
+        ],
+        "fr": [
+          "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-bewachung-migros-logistics-neuendorf"
+        "mitarbeiter-in-bewachung-migros-logistics-neuendorf",
+        "collaboratore-trice-in-bewachung-migros-logistics-neuendorf-umtui2",
+        "mitarbeiter-in-bewachung-migros-logistics-neuendorf-umtui2"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -108931,7 +108979,7 @@
     },
     {
       "id": "company-z16p0m",
-      "slug": "collaboratore-trice-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m",
+      "slug": "addetto-a-all-ufficio-sala-ospiti-buffet-migros-restaurant-thun",
       "company": "Migros Restaurant",
       "title": "Mitarbeiter*in Office/Gastraum/Buffet",
       "location": "Thun",
@@ -108998,19 +109046,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m",
-        "en": "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m",
+        "it": "addetto-a-all-ufficio-sala-ospiti-buffet-migros-restaurant-thun",
+        "en": "office-dining-room-buffet-staff-member-migros-restaurant-thun",
         "de": "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m",
-        "fr": "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m"
+        "fr": "employe-e-a-l-office-en-salle-au-buffet-migros-restaurant-thun"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun"
+          "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun",
+          "collaboratore-trice-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m"
+        ],
+        "en": [
+          "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m"
+        ],
+        "fr": [
+          "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun"
+        "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun",
+        "collaboratore-trice-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m",
+        "mitarbeiter-in-office-gastraum-buffet-migros-restaurant-thun-z16p0m"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -109254,7 +109311,7 @@
     },
     {
       "id": "company-2d7k5l",
-      "slug": "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15",
+      "slug": "addetta-alle-vendite-specializzata-nel-settore-alimentare-m-f-d-societe-cooperative-migros-geneve-geneve-15",
       "company": "Société coopérative Migros Genève",
       "title": "Vendeuse spécialisée Alimentaire(F/H/D)",
       "location": "Genève 15",
@@ -109323,7 +109380,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15",
+        "it": "addetta-alle-vendite-specializzata-nel-settore-alimentare-m-f-d-societe-cooperative-migros-geneve-geneve-15",
         "en": "specialized-food-seller-m-f-d-societe-cooperative-migros-geneve-geneve-15",
         "de": "spezialisierter-lebensmittelverkaufer-m-w-d-societe-cooperative-migros-geneve-geneve-15",
         "fr": "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l"
@@ -109331,7 +109388,8 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l"
+          "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l",
+          "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15"
         ],
         "en": [
           "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l"
@@ -109341,7 +109399,8 @@
         ]
       },
       "previousSlugs": [
-        "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l"
+        "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15-2d7k5l",
+        "vendeuse-specialisee-alimentaire-m-w-d-societe-cooperative-migros-geneve-15"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -109565,7 +109624,7 @@
     },
     {
       "id": "company-c0sj1k",
-      "slug": "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k",
+      "slug": "venditore-in-pane-prodotti-da-forno-e-quotidiano-genossenschaft-migros-luzern-steinhausen",
       "company": "Genossenschaft Migros Luzern",
       "title": "Verkäufer*in Brot/Backwaren & Daily",
       "location": "Steinhausen",
@@ -109639,19 +109698,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k",
-        "en": "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k",
+        "it": "venditore-in-pane-prodotti-da-forno-e-quotidiano-genossenschaft-migros-luzern-steinhausen",
+        "en": "salesperson-bread-baked-goods-daily-genossenschaft-migros-luzern-steinhausen",
         "de": "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k",
-        "fr": "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k"
+        "fr": "vendeur-e-de-pain-patisseries-daily-genossenschaft-migros-luzern-steinhausen"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen"
+          "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen",
+          "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k"
+        ],
+        "en": [
+          "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k"
+        ],
+        "fr": [
+          "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen"
+        "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen",
+        "verkaufer-in-brot-backwaren-daily-genossenschaft-migros-luzern-steinhausen-c0sj1k"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -110462,7 +110529,7 @@
     },
     {
       "id": "company-etrcg3",
-      "slug": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-etrcg3",
+      "slug": "cassiere-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
       "company": "Société coopérative Migros Vaud",
       "title": "Caissier polyvalent (H/F/D)",
       "location": "Lausanne",
@@ -110527,7 +110594,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-etrcg3",
+        "it": "cassiere-multiuso-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "en": "multipurpose-cashier-m-f-d-societe-cooperative-migros-vaud-lausanne",
         "de": "mehrzweck-kasse-m-w-d-societe-cooperative-migros-vaud-lausanne",
         "fr": "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-etrcg3"
@@ -110535,11 +110602,13 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne"
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne",
+          "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-etrcg3"
         ]
       },
       "previousSlugs": [
-        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne"
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne",
+        "caissier-polyvalent-m-w-d-societe-cooperative-migros-vaud-lausanne-etrcg3"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -110780,7 +110849,7 @@
     },
     {
       "id": "company-8p5crc",
-      "slug": "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens",
+      "slug": "sales-manager-latticini-m-f-d-societe-cooperative-migros-vaud-ecublens",
       "company": "Société coopérative Migros Vaud",
       "title": "Gestionnaire de vente Produits laitiers (H/F/D)",
       "location": "Ecublens",
@@ -110854,7 +110923,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens",
+        "it": "sales-manager-latticini-m-f-d-societe-cooperative-migros-vaud-ecublens",
         "en": "sales-manager-dairy-products-m-f-d-societe-cooperative-migros-vaud-ecublens",
         "de": "verkaufsleiter-milchprodukte-m-w-d-societe-cooperative-migros-vaud-ecublens",
         "fr": "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc"
@@ -110862,7 +110931,8 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc"
+          "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc",
+          "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens"
         ],
         "en": [
           "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc"
@@ -110872,7 +110942,8 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc"
+        "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens-8p5crc",
+        "gestionnaire-de-vente-produits-laitiers-m-w-d-societe-cooperative-migros-vaud-ecublens"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

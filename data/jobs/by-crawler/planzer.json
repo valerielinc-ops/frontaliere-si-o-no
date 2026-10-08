@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "planzer-127a7d44ec30",
-      "slug": "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-pratteln",
+      "slug": "posto-di-apprendistato-per-impiegato-a-di-commercio-afc-settore-trasporti-planzer-pratteln",
       "slugByLocale": {
-        "it": "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-pratteln",
-        "en": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln",
+        "it": "posto-di-apprendistato-per-impiegato-a-di-commercio-afc-settore-trasporti-planzer-pratteln",
+        "en": "commercial-apprenticeship-efz-transport-industry-planzer-pratteln",
         "de": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln",
-        "fr": "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln"
+        "fr": "place-d-apprentissage-d-employe-e-de-commerce-cfc-branche-transport-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -56,10 +56,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln"
+        "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln",
+        "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln",
+          "apprendistato-kaufmann-frau-cfc-branche-transport-planzer-pratteln"
+        ],
+        "en": [
+          "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln"
+        ],
+        "fr": [
           "lehrstelle-kaufmann-frau-efz-branche-transport-planzer-pratteln"
         ]
       },

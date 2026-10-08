@@ -665,12 +665,12 @@
     },
     {
       "id": "sfs-group-e7ba8983fe25",
-      "slug": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
+      "slug": "commissionatore-trice-di-logistica-2-turni-m-f-d-sfs-group-rotkreuz",
       "slugByLocale": {
-        "it": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
-        "en": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+        "it": "commissionatore-trice-di-logistica-2-turni-m-f-d-sfs-group-rotkreuz",
+        "en": "logistics-picking-2-shift-m-f-d-sfs-group-rotkreuz",
         "de": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "fr": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        "fr": "logisticien-ne-preparation-de-commandes-2-postes-h-f-d-sfs-group-rotkreuz"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -717,10 +717,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+        "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+          "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz"
+        ],
+        "en": [
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        ],
+        "fr": [
           "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
         ]
       }

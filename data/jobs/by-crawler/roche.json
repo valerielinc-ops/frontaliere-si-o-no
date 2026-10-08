@@ -9645,8 +9645,8 @@
       "slugByLocale": {
         "de": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch",
         "it": "qc-gmp-expert-in-per-nextlab-befristet-auf-2-jahre-roche-kaiseraugst",
-        "en": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch",
-        "fr": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        "en": "qc-gmp-expert-for-nextlab-limited-to-2-years-roche-kaiseraugst",
+        "fr": "expert-en-bpf-du-qc-pour-nextlab-limite-a-2-ans-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9691,6 +9691,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        ],
+        "en": [
+          "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        ],
+        "fr": [
           "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
         ]
       },

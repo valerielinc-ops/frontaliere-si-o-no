@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gim-architekten-58546e32c2db",
-      "slug": "dipl-architekt-in-gim-gim-architekten-bern",
+      "slug": "architetto-a-diplomato-a-gim-gim-architekten-ag-bern",
       "slugByLocale": {
-        "it": "dipl-architekt-in-gim-gim-architekten-bern",
-        "en": "dipl-architekt-in-gim-gim-architekten-bern",
+        "it": "architetto-a-diplomato-a-gim-gim-architekten-ag-bern",
+        "en": "dipl-architect-gim-gim-architekten-ag-bern",
         "de": "dipl-architekt-in-gim-gim-architekten-bern",
-        "fr": "dipl-architekt-in-gim-gim-architekten-bern"
+        "fr": "architecte-diplome-e-gim-gim-architekten-ag-bern"
       },
       "company": "GIM Architekten AG",
       "companyKey": "gim-architekten",
@@ -65,7 +65,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-architekt-in-gim-gim-architekten-bern"
+        ],
+        "en": [
+          "dipl-architekt-in-gim-gim-architekten-bern"
+        ],
+        "fr": [
+          "dipl-architekt-in-gim-gim-architekten-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-architekt-in-gim-gim-architekten-bern"
+      ]
     }
   ]
 }

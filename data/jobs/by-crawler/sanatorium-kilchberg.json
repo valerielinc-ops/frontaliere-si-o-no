@@ -1587,8 +1587,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg",
         "it": "collaboratore-trice-grundreinigung-sanatorium-kilchberg",
-        "en": "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg",
-        "fr": "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg"
+        "en": "basic-cleaning-employee-sanatorium-kilchberg-kilchberg",
+        "fr": "collaborateur-trice-au-nettoyage-de-fond-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1636,6 +1636,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
           "mitarbeiter-in-grundreinigung-sanatorium-kilchberg-kilchberg"
         ]
       },

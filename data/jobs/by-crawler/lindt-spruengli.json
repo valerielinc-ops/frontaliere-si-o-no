@@ -1566,12 +1566,12 @@
     },
     {
       "id": "lindt-spruengli-7fffa86be3b5",
-      "slug": "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg",
+      "slug": "membro-del-team-del-cafe-addetto-a-d-ufficio-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg",
-        "it": "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg",
-        "en": "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg",
-        "fr": "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg"
+        "it": "membro-del-team-del-cafe-addetto-a-d-ufficio-lindt-sprungli-kilchberg",
+        "en": "cafe-team-member-office-employee-lindt-sprungli-kilchberg",
+        "fr": "membre-de-l-equipe-du-cafe-employe-e-d-office-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1631,7 +1631,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:33:00.259Z"
+      "firstSeenAt": "2026-10-07T21:33:00.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg"
+        ],
+        "en": [
+          "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "cafe-team-member-officemitarbeiter-in-lindt-spruengli-kilchberg"
+      ]
     },
     {
       "id": "lindt-spruengli-062cd7441d45",

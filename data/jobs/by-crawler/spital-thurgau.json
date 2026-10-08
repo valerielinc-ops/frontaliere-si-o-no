@@ -13413,12 +13413,12 @@
     },
     {
       "id": "spital-thurgau-e730e088e5e5",
-      "slug": "sozialarbeiter-in-fh-stgag-ch",
+      "slug": "assistente-sociale-sup-spital-thurgau-stgag-romanshorn",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-fh-stgag-ch",
-        "en": "sozialarbeiter-in-fh-stgag-ch",
+        "it": "assistente-sociale-sup-spital-thurgau-stgag-romanshorn",
+        "en": "social-worker-fh-spital-thurgau-stgag-romanshorn",
         "de": "sozialarbeiter-in-fh-stgag-ch",
-        "fr": "sozialarbeiter-in-fh-stgag-ch"
+        "fr": "assistant-e-social-e-hes-spital-thurgau-stgag-romanshorn"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13475,7 +13475,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-fh-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-fh-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-a5da6092e252",

@@ -3650,8 +3650,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-okonomie-see-spital-ch",
         "it": "collaboratore-trice-in-okonomie-see-spital-horgen",
-        "en": "mitarbeiter-in-okonomie-see-spital-ch",
-        "fr": "mitarbeiter-in-okonomie-see-spital-ch"
+        "en": "economics-employee-see-spital-horgen",
+        "fr": "collaborateur-trice-en-economie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3700,6 +3700,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-okonomie-see-spital-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-okonomie-see-spital-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-okonomie-see-spital-ch"
         ]
       },

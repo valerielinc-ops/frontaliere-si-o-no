@@ -84,7 +84,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-cic-saxon-saxon",
         "en": "nurse-clinique-cic-saxon-saxon",
-        "de": "infirmier-ere-clinique-cic-saxon",
+        "de": "krankenschwester-clinique-cic-saxon-saxon",
         "fr": "infirmier-ere-clinique-cic-saxon"
       },
       "company": "Clinique CIC Saxon",
@@ -130,7 +130,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-cic-saxon",
-        "krankenschwester-clinique-cic-saxon-saxon",
         "krankenpfleger-in-clinique-cic-saxon-saxon"
       ],
       "previousSlugsByLocale": {
@@ -141,8 +140,8 @@
           "infirmier-ere-clinique-cic-saxon"
         ],
         "de": [
-          "krankenschwester-clinique-cic-saxon-saxon",
-          "krankenpfleger-in-clinique-cic-saxon-saxon"
+          "krankenpfleger-in-clinique-cic-saxon-saxon",
+          "infirmier-ere-clinique-cic-saxon"
         ]
       },
       "firstSeenAt": "2026-09-30T21:10:26.798Z",

@@ -15472,9 +15472,9 @@
     },
     {
       "id": "luks-0e0e13e84e32",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-per-das-neurologische-ms-e-infusionszentrum-50-luzerner-kantonsspital-luks-luzern",
+      "slug": "infermiera-infermiere-sss-sup-per-il-centro-neurologico-per-la-sm-e-le-infusioni-50-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-per-das-neurologische-ms-e-infusionszentrum-50-luzerner-kantonsspital-luks-luzern",
+        "it": "infermiera-infermiere-sss-sup-per-il-centro-neurologico-per-la-sm-e-le-infusioni-50-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-for-the-neurological-ms-and-infusion-center-50-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-la-sp-neurologique-et-le-centre-de-perfusion-50-luzerner-kantonsspital-luks"
@@ -15522,11 +15522,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks"
+        "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks",
+        "pflegefachfrau-pflegefachmann-hf-fh-per-das-neurologische-ms-e-infusionszentrum-50-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks"
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks",
+          "pflegefachfrau-pflegefachmann-hf-fh-per-das-neurologische-ms-e-infusionszentrum-50-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-das-neurologische-ms-und-infusionszentrum-50-luks"
@@ -16949,10 +16951,10 @@
     },
     {
       "id": "luks-28ad91b3be28",
-      "slug": "pflegefachfrau-pflegefachmann-per-la-gruppenweite-koordination-der-betten-e-op-kapazitaten-50-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "infermiera-infermiere-per-il-coordinamento-a-livello-di-gruppo-delle-capacita-dei-posti-letto-e-delle-sale-operatorie-50",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op",
-        "it": "pflegefachfrau-pflegefachmann-per-la-gruppenweite-koordination-der-betten-e-op-kapazitaten-50-100-luzerner-kantonsspital-luks-luzern",
+        "it": "infermiera-infermiere-per-il-coordinamento-a-livello-di-gruppo-delle-capacita-dei-posti-letto-e-delle-sale-operatorie-50",
         "en": "nursing-specialist-for-the-group-wide-coordination-of-bed-and-surgery-capacities-50-100-luzerner-kantonsspital-luks",
         "fr": "specialiste-des-soins-infirmiers-pour-la-coordination-a-l-echelle-du-groupe-des-capacites-de-lit-et-de-chirurgie-50-100"
       },
@@ -17002,7 +17004,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op"
+          "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op",
+          "pflegefachfrau-pflegefachmann-per-la-gruppenweite-koordination-der-betten-e-op-kapazitaten-50-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op"
@@ -17012,7 +17015,8 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op"
+        "pflegefachfrau-pflegefachmann-fur-die-gruppenweite-koordination-der-betten-und-op",
+        "pflegefachfrau-pflegefachmann-per-la-gruppenweite-koordination-der-betten-e-op-kapazitaten-50-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

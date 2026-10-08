@@ -7950,12 +7950,12 @@
     },
     {
       "id": "kliniken-valens-768331bcd9b6",
-      "slug": "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans",
+      "slug": "team-leader-controlling-m-f-a-100-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans",
+        "it": "team-leader-controlling-m-f-a-100-kliniken-valens-sargans",
         "en": "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans",
         "de": "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans",
-        "fr": "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans"
+        "fr": "chef-d-equipe-controle-de-gestion-h-f-a-100-kliniken-valens-sargans"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8011,7 +8011,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans"
+        ],
+        "fr": [
+          "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-controlling-m-w-a-100-kliniken-valens-sargans"
+      ]
     },
     {
       "id": "kliniken-valens-0187d9d0fbef",
@@ -8335,12 +8346,12 @@
     },
     {
       "id": "kliniken-valens-20995b3e4986",
-      "slug": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
+      "slug": "terapista-occupazionale-m-f-a-70-100-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
-        "en": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
+        "it": "terapista-occupazionale-m-f-a-70-100-kliniken-valens-walenstadtberg",
+        "en": "occupational-therapist-m-f-a-70-100-kliniken-valens-walenstadtberg",
         "de": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg",
-        "fr": "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+        "fr": "ergotherapeute-h-f-a-70-100-kliniken-valens-walenstadtberg"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8396,7 +8407,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+        ],
+        "en": [
+          "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+        ],
+        "fr": [
+          "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-m-w-a-70-100-kliniken-valens-walenstadtberg"
+      ]
     },
     {
       "id": "kliniken-valens-f0aeffab6ffd",

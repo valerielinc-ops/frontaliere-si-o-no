@@ -14716,12 +14716,12 @@
     },
     {
       "id": "usz-0e4647ee2a2d",
-      "slug": "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch",
+      "slug": "impiegato-a-amministrativo-a-dell-ambulatorio-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch",
-        "en": "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch",
+        "it": "impiegato-a-amministrativo-a-dell-ambulatorio-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "administrative-officer-outpatient-clinic-80-100-universitatsspital-zurich-usz-zurich",
         "de": "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch",
-        "fr": "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch"
+        "fr": "collaborateur-trice-administratif-ve-de-l-ambulatoire-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -14776,7 +14776,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-ambulatorium-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-edd6665d2603",
@@ -15348,9 +15362,9 @@
     },
     {
       "id": "usz-a2f7ae61917e",
-      "slug": "zivildienstleistender-come-therapie-assistenz-m-w-d-per-la-physiotherapie-ergotherapie-100-universitatsspital-zurich-usz-zurich",
+      "slug": "persona-in-servizio-civile-come-assistente-terapeutico-a-m-f-d-per-la-fisioterapia-e-la-terapia-occupazionale-100",
       "slugByLocale": {
-        "it": "zivildienstleistender-come-therapie-assistenz-m-w-d-per-la-physiotherapie-ergotherapie-100-universitatsspital-zurich-usz-zurich",
+        "it": "persona-in-servizio-civile-come-assistente-terapeutico-a-m-f-d-per-la-fisioterapia-e-la-terapia-occupazionale-100",
         "en": "civil-service-provider-as-therapy-assistant-m-f-d-for-physiotherapy-occupational-therapy-100-universitatsspital-zurich",
         "de": "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100",
         "fr": "fournisseur-de-services-publics-comme-assistant-therapeutique-h-f-d-pour-l-ergotherapie-physiotherapie-100"
@@ -15397,11 +15411,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100"
+        "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100",
+        "zivildienstleistender-come-therapie-assistenz-m-w-d-per-la-physiotherapie-ergotherapie-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100"
+          "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100",
+          "zivildienstleistender-come-therapie-assistenz-m-w-d-per-la-physiotherapie-ergotherapie-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "zivildienstleistender-als-therapie-assistenz-w-m-d-fur-die-physiotherapie-ergotherapie-100"
@@ -18178,10 +18194,10 @@
     },
     {
       "id": "usz-7781d4b4872d",
-      "slug": "mpa-fage-o-pflegefachperson-per-la-ambulante-gynakologie-60-100-universitatsspital-zurich-usz-zurich",
+      "slug": "mpa-fage-o-infermiere-a-diplomato-a-per-la-ginecologia-ambulatoriale-60-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch",
-        "it": "mpa-fage-o-pflegefachperson-per-la-ambulante-gynakologie-60-100-universitatsspital-zurich-usz-zurich",
+        "it": "mpa-fage-o-infermiere-a-diplomato-a-per-la-ginecologia-ambulatoriale-60-100-universitatsspital-zurich-usz-zurich",
         "en": "mpa-fage-or-nurse-for-outpatient-gynecology-60-100-universitatsspital-zurich-usz-zurich",
         "fr": "mpa-fage-ou-infirmiere-en-gynecologie-externe-60-100-universitatsspital-zurich-usz-zurich"
       },
@@ -18230,7 +18246,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
+          "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch",
+          "mpa-fage-o-pflegefachperson-per-la-ambulante-gynakologie-60-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
@@ -18240,7 +18257,8 @@
         ]
       },
       "previousSlugs": [
-        "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
+        "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch",
+        "mpa-fage-o-pflegefachperson-per-la-ambulante-gynakologie-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

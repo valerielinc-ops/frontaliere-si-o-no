@@ -69,9 +69,9 @@
     },
     {
       "id": "klinik-barmelweid-65919705caea",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-a-klinik-barmelweid-barmelweid",
+      "slug": "dipl-infermiera-dipl-infermieristica-professionale-hf-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "infermiere-dipl-infermiere-dipl-hf-a-klinik-barmelweid-barmelweid",
+        "it": "dipl-infermiera-dipl-infermieristica-professionale-hf-a-klinik-barmelweid-barmelweid",
         "en": "dipl-nurse-dipl-nursing-professional-hf-a-klinik-barmelweid-barmelweid",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-a-klinik-barmelweid-barmelweid",
         "fr": "dipl-infirmiere-dipl-infirmiere-professionnelle-hf-a-klinik-barmelweid-barmelweid"
@@ -119,11 +119,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-infermiera-dipl-infermieristica-professionale-hf-a-klinik-barmelweid-barmelweid"
+        "infermiere-dipl-infermiere-dipl-hf-a-klinik-barmelweid-barmelweid",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-a-klinik-barmelweid-barmelweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-dipl-infermieristica-professionale-hf-a-klinik-barmelweid-barmelweid"
+          "infermiere-dipl-infermiere-dipl-hf-a-klinik-barmelweid-barmelweid",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-a-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-10-03T09:18:50.140Z"

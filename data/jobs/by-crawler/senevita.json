@@ -1109,7 +1109,7 @@
       "slug": "koch-kochin-senevita-ag-wohlen",
       "slugByLocale": {
         "it": "cucina-chef-senevita-ag-wohlen",
-        "en": "koch-kochin-senevita-ag-wohlen",
+        "en": "cook-chef-senevita-ag-wohlen",
         "de": "koch-kochin-senevita-ag-wohlen",
         "fr": "cuisson-chef-senevita-ag-wohlen"
       },
@@ -1156,12 +1156,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cook-chef-senevita-ag-wohlen",
         "cook-senevita-ag-wohlen"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "cook-chef-senevita-ag-wohlen",
           "cook-senevita-ag-wohlen"
         ]
       },
@@ -1223,12 +1221,12 @@
     },
     {
       "id": "senevita-35e0eecc6535",
-      "slug": "geschaftsfuhrer-in-100-senevita-be-muri-b-bern",
+      "slug": "direttore-trice-generale-100-senevita-be-muri-b-bern",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-100-senevita-be-muri-b-bern",
-        "en": "geschaftsfuhrer-in-100-senevita-be-muri-b-bern",
+        "it": "direttore-trice-generale-100-senevita-be-muri-b-bern",
+        "en": "managing-director-100-senevita-be-muri-b-bern",
         "de": "geschaftsfuhrer-in-100-senevita-be-muri-b-bern",
-        "fr": "geschaftsfuhrer-in-100-senevita-be-muri-b-bern"
+        "fr": "directeur-trice-100-senevita-be-muri-b-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1271,7 +1269,21 @@
       "validThrough": "2026-11-01",
       "applyUrl": "https://jobs.senevita.ch/Geschaeftsfuehrer-in-100-de-j5544.html",
       "requirements": [],
-      "requirementsByLocale": {}
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-100-senevita-be-muri-b-bern"
+        ],
+        "en": [
+          "geschaftsfuhrer-in-100-senevita-be-muri-b-bern"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-100-senevita-be-muri-b-bern"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-100-senevita-be-muri-b-bern"
+      ]
     },
     {
       "id": "senevita-77219dc5ac9e",
@@ -2945,12 +2957,12 @@
     },
     {
       "id": "senevita-7e8d890a1823",
-      "slug": "pflegehelfer-in-srk-50-80-senevita-be-batterkinden",
+      "slug": "assistente-di-cura-srk-50-80-senevita-be-batterkinden",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-50-80-senevita-be-batterkinden",
-        "en": "pflegehelfer-in-srk-50-80-senevita-be-batterkinden",
+        "it": "assistente-di-cura-srk-50-80-senevita-be-batterkinden",
+        "en": "nursing-assistant-srk-50-80-senevita-be-batterkinden",
         "de": "pflegehelfer-in-srk-50-80-senevita-be-batterkinden",
-        "fr": "pflegehelfer-in-srk-50-80-senevita-be-batterkinden"
+        "fr": "auxiliaire-de-sante-crs-50-80-senevita-be-batterkinden"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2993,7 +3005,21 @@
       "validThrough": "2026-10-24",
       "applyUrl": "https://jobs.senevita.ch/PflegehelferIn-SRK-50-80-de-j5412.html",
       "requirements": [],
-      "requirementsByLocale": {}
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-50-80-senevita-be-batterkinden"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-50-80-senevita-be-batterkinden"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-50-80-senevita-be-batterkinden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-50-80-senevita-be-batterkinden"
+      ]
     },
     {
       "id": "senevita-8c39457de1e6",
