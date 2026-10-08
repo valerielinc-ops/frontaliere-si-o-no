@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "dxt-commodities",
+  "assembledAt": "2026-10-08T09:20:04.583Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
@@ -20,7 +22,7 @@
         "it": "Quant Internship - Mercato del Potere",
         "en": "Junior Accountant",
         "de": "Quant Internship - Strommarkt",
-        "fr": "Comptable junior"
+        "fr": "Junior Accountant"
       },
       "slugByLocale": {
         "it": "quant-internship-mercato-del-potere-dxt-commodities-s-a-lugano",
@@ -28,7 +30,7 @@
         "de": "quant-internship-strommarkt-dxt-commodities-s-a-lugano",
         "fr": "comptable-junior-dxt-commodities-s-a-lugano-dd946a"
       },
-      "slug": "junior-accountant-dxt",
+      "slug": "quant-internship-mercato-del-potere-dxt-commodities-s-a-lugano",
       "category": "general",
       "datePosted": "",
       "postedDate": "",
@@ -49,13 +51,15 @@
         "junior-legal-dxt-commodities-s-a-lugano-3z6x3l",
         "junior-legal-dxt",
         "nombre-de-stagiaires-marche-de-l-electricite-dxt-commodities-s-a-lugano",
-        "junior-accountant-dxt-commodities-s-a-lugano"
+        "junior-accountant-dxt-commodities-s-a-lugano",
+        "junior-accountant-dxt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quant-internship-power-market-dxt",
           "junior-power-analyst-dxt",
-          "junior-legal-dxt"
+          "junior-legal-dxt",
+          "junior-accountant-dxt"
         ],
         "en": [
           "quant-internship-power-market-dxt",
@@ -67,7 +71,27 @@
           "junior-accountant-dxt-commodities-s-a-lugano"
         ]
       },
-      "firstSeenAt": "2026-07-10T12:04:35.208Z"
+      "firstSeenAt": "2026-07-10T12:04:35.208Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Corso Elvezia 14",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI"
     }
   ]
 }
