@@ -16,6 +16,7 @@ import {
   run as runOgImageGate,
   verifyOgImageReferences,
 } from '../scripts/verify-og-images.mjs';
+import { isExplicitInferredCover, loadInferredCoverDecisions } from '../scripts/lib/blog-cover-decisions.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -80,6 +81,80 @@ describe('published image policy', () => {
       expect(
         policy.check(`${IMAGE_CDN_ORIGIN}/images/blog/not-in-ledger.webp`, { requireCdn: true }),
       ).toMatchObject({ valid: false, reason: 'missing-or-unpublishable-image-credit' });
+    });
+  });
+
+  // ── Historical covers kept without a credit (issue 12347) ─────────────────
+  // The owner keeps the covers whose source the audit could not prove. The
+  // ledger gate accepts them when ledger and index both record the decision;
+  // the og:image gate used to ask the credit reader alone and rejected them,
+  // 4975 of the 6769 published covers on 2026-10-08.
+  const LEDGER_DECISION = { proofLevel: 6, evidence: 'inferred', verifiedAt: '2026-10-07', status: 'no-credit' };
+  const INDEX_DECISION = { evidence: 'inferred', provider: null, verifiedAt: '2026-10-07', status: 'no-credit' };
+
+  function withInferredCovers<T>(run: (root: string) => T): T {
+    return withPinnedRoot((root) => {
+      fs.writeFileSync(path.join(root, 'data/blog-cover-ledger.json'), JSON.stringify({
+        covers: {
+          'kept-cover': LEDGER_DECISION,
+          'ledger-only': LEDGER_DECISION,
+          'other-date': LEDGER_DECISION,
+          'proven-elsewhere': { ...LEDGER_DECISION, proofLevel: 2 },
+        },
+      }));
+      fs.writeFileSync(path.join(root, 'data/image-credits-blog.json'), JSON.stringify({
+        covers: {
+          'kept-cover': INDEX_DECISION,
+          'index-only': INDEX_DECISION,
+          'other-date': { ...INDEX_DECISION, verifiedAt: '2026-10-06' },
+          'proven-elsewhere': INDEX_DECISION,
+        },
+      }));
+      return run(root);
+    });
+  }
+
+  it('lets og:image name a cover kept without credit only when ledger and index agree', () => {
+    withInferredCovers((root) => {
+      const policy = loadPublishedImagePolicy({ root });
+      const cover = (key: string) => `${IMAGE_CDN_ORIGIN}/images/blog/${key}.webp`;
+      expect(policy.checkOg(cover('kept-cover'))).toMatchObject({ valid: true, source: 'inferred-no-credit' });
+      expect(policy.checkOg(`${SITE_ORIGIN}/images/blog/kept-cover.webp`)).toMatchObject({ valid: true });
+      expect(policy.checkOg(cover('credited-cover'))).toMatchObject({ valid: true, source: 'image-credits' });
+      for (const key of ['ledger-only', 'index-only', 'other-date', 'proven-elsewhere', 'never-recorded']) {
+        expect(policy.checkOg(cover(key)), key).toMatchObject({
+          valid: false,
+          reason: 'missing-or-unpublishable-image-credit',
+        });
+      }
+    });
+  });
+
+  it('keeps a cover without credit away from every uploader', () => {
+    withInferredCovers((root) => {
+      const policy = loadPublishedImagePolicy({ root });
+      const kept = `${IMAGE_CDN_ORIGIN}/images/blog/kept-cover.webp`;
+      const rejected = { valid: false, reason: 'missing-or-unpublishable-image-credit' };
+      expect(policy.check(kept, { requireCdn: true })).toMatchObject(rejected);
+      expect(policy.check(kept)).toMatchObject(rejected);
+      // Not even when a caller hands the decisions over itself.
+      expect(policy.check(kept, { inferredCovers: { has: () => true } })).toMatchObject(rejected);
+    });
+  });
+
+  it('reads the decision the same way for the ledger gate and the og gate', () => {
+    expect(isExplicitInferredCover(LEDGER_DECISION, INDEX_DECISION)).toBe(true);
+    expect(isExplicitInferredCover(LEDGER_DECISION, undefined)).toBe(false);
+    expect(isExplicitInferredCover(undefined, INDEX_DECISION)).toBe(false);
+    expect(isExplicitInferredCover({ ...LEDGER_DECISION, status: 'ok' }, INDEX_DECISION)).toBe(false);
+    expect(isExplicitInferredCover(LEDGER_DECISION, { ...INDEX_DECISION, provider: 'wikimedia' })).toBe(false);
+    // The ledger gate imports the predicate instead of spelling it out again.
+    const ledgerGate = fs.readFileSync(path.join(ROOT, 'scripts/ci/verify-blog-cover-ledger.mjs'), 'utf8');
+    expect(ledgerGate).toContain('isExplicitInferredCover(inventoryItem, imageCreditsIndex.covers?.[key])');
+    expect(ledgerGate).not.toContain("indexEntry?.status === 'no-credit'");
+    // No file, no decision.
+    withPinnedRoot((root) => {
+      expect(loadInferredCoverDecisions({ root }).has('kept-cover')).toBe(false);
     });
   });
 
