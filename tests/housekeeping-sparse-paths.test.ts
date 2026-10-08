@@ -77,11 +77,14 @@ function housekeepingEntries(): string[] {
 /**
  * Script node che `scripts/lib/git-commit-data.sh` lancia nel ramo
  * `--slice-only`: l'analizzatore si ferma allo shell e non li vede, ma un loro
- * import fuori lista darebbe lo stesso ERR_MODULE_NOT_FOUND.
+ * import fuori lista darebbe lo stesso ERR_MODULE_NOT_FOUND. Il wrapper dei
+ * tetti di rete sta qui per lo stesso motivo: senza di lui non parte nessun
+ * fetch e nessun push.
  */
 const COMMIT_SCRIPT_ENTRIES = [
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/ci/canonicalize-expired-archive-slice.mjs',
+  'scripts/lib/run-bounded-command.mjs',
 ];
 
 /** Esegue lo step vero di verifica in un repo con la lista committata. */
