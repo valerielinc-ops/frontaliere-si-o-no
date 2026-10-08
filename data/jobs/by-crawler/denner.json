@@ -2436,10 +2436,10 @@
       "id": "denner-ca9795ad6942",
       "slug": "verkaufer-in-im-stundenlohn-denner-grosswangen",
       "titleByLocale": {
-        "en": "Verkäufer*in im Stundenlohn",
+        "en": "Hourly Wage Salesperson",
         "de": "Verkäufer*in im Stundenlohn",
-        "fr": "Verkäufer*in im Stundenlohn",
-        "it": "Verkäufer*in im Stundenlohn"
+        "fr": "Vendeur·euseà l'heure",
+        "it": "Venditore con retribuzione oraria"
       },
       "slugByLocale": {
         "it": "verkaufer-in-im-stundenlohn-denner-grosswangen",
@@ -2508,7 +2508,6 @@
           "verkaufer-in-im-stundenlohn-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T12:00:00.493Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -9975,10 +9974,10 @@
       "id": "denner-75dc332be45c",
       "slug": "venditore-denner-zug",
       "titleByLocale": {
-        "en": "Verkäufer*in",
+        "en": "shop assistant",
         "de": "Verkäufer*in",
-        "fr": "Verkäufer*in",
-        "it": "Verkäufer*in"
+        "fr": "Vendeur",
+        "it": "Venditore"
       },
       "slugByLocale": {
         "it": "venditore-denner-zug",
@@ -10039,8 +10038,6 @@
       "postingDateSource": "unknown",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "shop-assistant-denner-zug",
-        "vendeur-denner-zug",
         "verkaufer-in-denner-zug",
         "verkaufer-in-denner-zug-rtrz4s"
       ],
@@ -10049,17 +10046,14 @@
           "verkaufer-in-denner"
         ],
         "en": [
-          "shop-assistant-denner-zug",
           "verkaufer-in-denner-zug",
           "verkaufer-in-denner-zug-rtrz4s"
         ],
         "fr": [
-          "vendeur-denner-zug",
           "verkaufer-in-denner-zug",
           "verkaufer-in-denner-zug-rtrz4s"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -10269,7 +10263,6 @@
       },
       "previousSlugs": [
         "verkaufer-in-denner",
-        "seller-denner-ag-huttwil",
         "verkaufer-in-denner-huttwil"
       ],
       "firstSeenAt": "2026-06-01T14:22:16.288Z",
@@ -22034,9 +22027,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner",
-        "venditore-denner-ag-wattwil",
-        "seller-denner-ag-wattwil-8129f7"
+        "verkaufer-in-denner"
       ],
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "salaryMin": 68500,

@@ -683,7 +683,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Infermiere/a diplomato/a SUP/SUP",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3374,9 +3374,9 @@
     },
     {
       "id": "lindenhofgruppe-f6b643b447c5",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+        "it": "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital",
         "en": "qualified-nursing-specialist-fh-hf-lindenhofgruppe-lindenhofspital",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "fr": "infirmiere-diplomee-fh-hf-lindenhofgruppe-lindenhofspital"
@@ -3386,7 +3386,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Infermiere/a diplomato/a SUP/SUP",
         "en": "Qualified nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmière diplômée FH/HF"
@@ -3424,12 +3424,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "infermiere-a-diplomato-a-sup-sup-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
@@ -3438,7 +3438,6 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -833,8 +833,9 @@
           "it-division-des-partenaires-commerciaux-genie-civil-h-f-d-80-100-implenia-glattpark-opfikon"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-29T21:26:01.926Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:26:01.926Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "implenia-d0a090a286e1",
@@ -942,7 +943,7 @@
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-30T21:27:00.187Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1103,7 +1104,7 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:26:34.303Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "implenia-c5de849571f2",
@@ -2464,7 +2465,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-02T21:26:20.241Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "implenia-c31f56701a42",
@@ -3518,10 +3519,14 @@
         ],
         "en": [
           "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+        ],
+        "de": [
+          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud"
         ]
       },
       "previousSlugs": [
-        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
+        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud"
       ]
     },
     {

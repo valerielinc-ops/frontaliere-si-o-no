@@ -57,18 +57,25 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern",
-          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og"
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern"
         ],
         "en": [
-          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og"
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern"
         ],
         "fr": [
-          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og"
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern"
+        ],
+        "de": [
+          "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern"
         ]
       },
       "previousSlugs": [
         "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern",
-        "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og"
+        "hochschulpraktikant-in-portfoliomanagement-cer-ikt-swiss-armed-forces-vtg-bern-wba9og",
+        "hochschulpraktikant-in-portfoliomanagement-cer-ikt-confederazione-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -139,18 +146,25 @@
       "previousSlugsByLocale": {
         "it": [
           "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf",
-          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t"
+          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
+          "system-ingenieur-in-luftraumuberwachungssysteme-confederazione-dubendorf"
         ],
         "en": [
-          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t"
+          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
+          "system-ingenieur-in-luftraumuberwachungssysteme-confederazione-dubendorf"
         ],
         "fr": [
-          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t"
+          "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
+          "system-ingenieur-in-luftraumuberwachungssysteme-confederazione-dubendorf"
+        ],
+        "de": [
+          "system-ingenieur-in-luftraumuberwachungssysteme-confederazione-dubendorf"
         ]
       },
       "previousSlugs": [
         "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf",
-        "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t"
+        "system-ingenieur-in-luftraumuberwachungssysteme-swiss-armed-forces-vtg-dubendorf-tkd29t",
+        "system-ingenieur-in-luftraumuberwachungssysteme-confederazione-dubendorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12123,7 +12137,8 @@
       "postingDateSource": "reported",
       "postalCode": "3004",
       "salaryMin": 94500,
-      "salaryMax": 143000
+      "salaryMax": 143000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6gmxu3",
