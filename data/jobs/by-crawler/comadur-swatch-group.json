@@ -1,10 +1,10 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-10-07T21:26:48.875Z",
+  "assembledAt": "2026-10-08T09:20:30.519Z",
   "jobs": [
     {
       "id": "company-7uc1k7",
-      "slug": "meccanico-stampista-comadur-sa-boncourt",
+      "slug": "mecanicien-mouliste-comadur-sa-boncourt",
       "company": "Comadur SA",
       "title": "Mécanicien - Mouliste",
       "location": "Boncourt",
@@ -23,10 +23,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-07T09:25:35.556Z",
+      "crawledAt": "2026-10-08T09:20:25.783Z",
       "firstSeenAt": "2026-10-06T09:19:09.285Z",
       "titleByLocale": {
-        "it": "Meccanico - Stampista",
+        "it": "Mécanicien - Mouliste",
         "en": "Engineer - Moulist",
         "de": "Ingenieur - Moulist",
         "fr": "Mécanicien - Mouliste"
@@ -38,7 +38,7 @@
         "fr": "Mécanicien - Mouliste - Swatch Group\n\nMécanicien - Mouliste\nIntroduction de la société\nComadur SA, Leader mondial de la production de composants en matériaux durs Swiss Made. Nous faisons partie du Swatch Group, premier fabricant mondial de produits horlogers. Reconnus comme étant le partenaire privilégié des marques du Groupe pour la production de Céramiques, Glaces saphir et Pierres d’horlogerie destinés à l’industrie horlogère.\n• Dans le cadre de notre croissance et de notre développement, nous proposons, sur notre site de Boncourt, un poste :\n• MECANICIEN – MOULISTE\n• Vous devrez assurer le montage, la mise au point, l’homologation et l’entretien des moules d’injection, selon les règles de la sécurité et les impératifs de production.\n• Un espace de travail moderne et agréable.\n• Des conditions sociales de premier ordre.\n• Une équipe dynamique, exigeante, à l’écoute et toujours en quête de nouveaux défis.\n• Une volonté commune : collaborer et grandir ensemble pour devenir un partenaire incontournable.\n• Description du poste\n• Assurer le montage des moules neufs et l’entretien des moules de production\n• Assembler, régler, ajuster, et vérifier toutes les fonctions de nos moules d’injection ou d’un outillage\n• Mettre à la disposition de la production des moules répondant aux exigences qualitatives\n• Participer aux essais et effectuer les correctifs nécessaires\n• Analyser les disfonctionnements mécanqiues et proposer des mesures correctives adéquats\n• Assurer les nettoyages, l’entretien et la révision des moules\nDe plus, nous comptons sur votre expérience afin d’être force de proposition pour des modifications et/ou des améliorations de process. Nous attendons également que vous puissiez prendre en charge des activités ponctuelles de micromécanique générale pour d’autres secteurs\nProfil\n• CFC de mécanicien, polymécanicien ou formation équivalente\n• Au minimum 5 ans d’expérience\n• Maîtrise des machines conventionnelles et appareils de mesure\n• Connaissance en injection ou étampe serait un plus\n• Maîtrise des machines CNC serait un plus\n• Rigueur, précision, esprit d’analyse et orienté solutions\n• Flexibilité et disponibilité\n• Compétences requises\n• Nous recherchons une personne organisée, capable de travailler en multitâches avec d’excellentes qualités relationnelles tant avec les interlocuteurs externes et internes.\n• Dotée d’une bonne ouverture d’esprit, de créativité et de dynamisme, sachant prendre du recul et être à l’écoute.\n• Langues\n• Français\n• Personne de contact\n• Si vous êtes motivé(e) par ce nouveau défi, nous vous prions de nous transmette votre dossier de candidature complet via nos plateformes en ligne à l’attention de Madame Perrine YALA.\n• Lieu de travail\n• Rue du Temps\n• 2926 Boncourt (Jura)\n• Suisse\n• Adresse de l'entreprise\n• Comadur SA\n• Col-des-Roches 33\n• CH-2400 Le Locle\n• Postuler pour ce poste\n• Partagez cette annonce"
       },
       "slugByLocale": {
-        "it": "meccanico-stampista-comadur-sa-boncourt",
+        "it": "mecanicien-mouliste-comadur-sa-boncourt",
         "en": "engineer-moulist-comadur-sa-boncourt",
         "de": "ingenieur-moulist-comadur-sa-boncourt",
         "fr": "mecanicien-mouliste-comadur-sa-boncourt-7uc1k7"
@@ -48,8 +48,8 @@
       "previousSlugsByLocale": {
         "it": [
           "mecanicien-mouliste-comadur-sa-boncourt-7uc1k7",
-          "mecanicien-mouliste-comadur-sa-boncourt",
-          "ingegnere-moulist-comadur-sa-boncourt"
+          "ingegnere-moulist-comadur-sa-boncourt",
+          "meccanico-stampista-comadur-sa-boncourt"
         ],
         "en": [
           "mecanicien-mouliste-comadur-sa-boncourt-7uc1k7"
@@ -60,8 +60,8 @@
       },
       "previousSlugs": [
         "mecanicien-mouliste-comadur-sa-boncourt-7uc1k7",
-        "mecanicien-mouliste-comadur-sa-boncourt",
-        "ingegnere-moulist-comadur-sa-boncourt"
+        "ingegnere-moulist-comadur-sa-boncourt",
+        "meccanico-stampista-comadur-sa-boncourt"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -80,7 +80,7 @@
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
       "postalCode": "2926",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     }
   ]
 }
