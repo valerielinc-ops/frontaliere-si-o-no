@@ -7886,6 +7886,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parmelin-avs-ue.title': 'Parmelin quitte le Conseil fédéral le 31 décembre 2026',
     'blog.article.parmelin-avs-ue.excerpt': '## En bref - Guy Parmelin quittera le Conseil fédéral le 31 décembre 2026 - Les rentes AVS/AI augmenteront d\'environ 1,6% - Le paquet Suisse-UE est au Parlement',
     'blog.article.parmelin-avs-ue.imageAlt': 'Documents sur les décisions du Conseil fédéral suisse',
+    'blog.article.lavaggio-denaro-avvocatura.title': 'Blanchiment d’argent : des normes plus strictes pour la profession d’avocat',
+    'blog.article.lavaggio-denaro-avvocatura.excerpt': '## En bref - Nouvelles normes contre le blanchiment d’argent - Règles plus strictes pour la profession d’avocat - Mise en place d’un registre pour les entreprises ## Faits clés - Objet →',
+    'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Documents juridiques et registre d\'entreprise sur un bureau',
 };
 
 export default blogMetaChFr;

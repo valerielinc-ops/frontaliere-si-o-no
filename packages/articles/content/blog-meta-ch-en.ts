@@ -7886,6 +7886,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parmelin-avs-ue.title': 'Parmelin leaves the Federal Council on December 31, 2026',
     'blog.article.parmelin-avs-ue.excerpt': '## TL;DR - Guy Parmelin will leave the Federal Council on December 31, 2026 - OASI/DI pensions will rise by around 1,6% - The Switzerland-EU package is before Parliament',
     'blog.article.parmelin-avs-ue.imageAlt': 'Documents about decisions by the Swiss Federal Council',
+    'blog.article.lavaggio-denaro-avvocatura.title': 'Money laundering: stricter rules for the legal profession',
+    'blog.article.lavaggio-denaro-avvocatura.excerpt': '## TL;DR - New rules against money laundering - Stricter rules for the legal profession - A register for businesses introduced ## Key facts - Subject →',
+    'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Legal papers and a business register on an office desk',
 };
 
 export default blogMetaChEn;

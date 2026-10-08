@@ -7886,6 +7886,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parmelin-avs-ue.title': 'Parmelin lascia il Consiglio federale il 31.12.2026',
     'blog.article.parmelin-avs-ue.excerpt': '## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l\'1,6% - Il pacchetto Svizzera-UE è al Parlamento',
     'blog.article.parmelin-avs-ue.imageAlt': 'Documenti sulle decisioni del Consiglio federale svizzero',
+    'blog.article.lavaggio-denaro-avvocatura.title': 'Lavaggio di denaro: norme più severe per l\'avvocatura',
+    'blog.article.lavaggio-denaro-avvocatura.excerpt': '## In breve - Nuove norme contro il lavaggio di denaro - Regole più severe per l\'avvocatura - Introdotto un registro per le imprese ## Fatti chiave - Oggetto →',
+    'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Documenti legali e registro per le imprese su una scrivania',
 };
 
 export default blogMetaChIt;
