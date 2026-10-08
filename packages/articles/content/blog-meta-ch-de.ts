@@ -7943,6 +7943,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-soldi-delusione-lavoro.title': 'Wer nur wegen des Geldes in die Schweiz kommt, wird enttäuscht',
     'blog.article.svizzera-soldi-delusione-lavoro.excerpt': '80% der offenen Stellen werden mit lokalem Personal besetzt.',
     'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Berufstätiger arbeitet zu Hause mit Seeblick in der Schweiz',
+    'blog.article.linea-ginevra-friburgo-pressione.title': 'Genf-Freiburg, eine unter Druck stehende Bahnstrecke',
+    'blog.article.linea-ginevra-friburgo-pressione.excerpt': 'Dreizehn Unterbrechungen auf der Strecke seit Jahresbeginn Über 150’000 Fahrgäste und mehr als 700 Züge täglich Verbrannte Kabel, beschädigte Gleise und ein Vogel',
+    'blog.article.linea-ginevra-friburgo-pressione.imageAlt': 'Schweizer Zug an einem belebten Bahnhof',
 };
 
 export default blogMetaChDe;

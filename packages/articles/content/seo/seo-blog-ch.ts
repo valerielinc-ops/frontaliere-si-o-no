@@ -100135,6 +100135,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-linea-ginevra-friburgo-pressione': {
+    title: 'Ginevra-Friburgo, una tratta ferroviaria sotto pressione',
+    description: 'Tredici interruzioni sulla linea dall\'inizio dell\'anno Oltre 150’000 passeggeri e più di 700 treni ogni giorno Cavi incendiati, binari danneggiati e un volatile',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra-friburgo, tratta, ferroviaria, sotto',
+    ogTitle: 'Ginevra-Friburgo, una linea ferroviaria sotto pressione',
+    ogDescription: 'Tredici interruzioni sulla linea dall\'inizio dell\'anno Oltre 150’000 passeggeri e più di 700 treni ogni giorno Cavi incendiati, binari danneggiati e un volatile',
+    canonicalPath: '/articoli-svizzera/linea-ginevra-friburgo-pressione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra-Friburgo, una tratta ferroviaria sotto pressione",
+      "description": "Tredici interruzioni sulla linea dall'inizio dell'anno Oltre 150’000 passeggeri e più di 700 treni ogni giorno Cavi incendiati, binari danneggiati e un volatile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-linea-ginevra-friburgo-pressione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Convoglio svizzero in una stazione ferroviaria affollata"
+      },
+      "datePublished": "2026-10-08T21:08:07+00:00",
+      "dateModified": "2026-10-08T21:08:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/linea-ginevra-friburgo-pressione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

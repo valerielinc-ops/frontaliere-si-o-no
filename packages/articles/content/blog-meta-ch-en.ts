@@ -7943,6 +7943,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-soldi-delusione-lavoro.title': 'Anyone who comes to Switzerland just for the money will be disappointed.',
     'blog.article.svizzera-soldi-delusione-lavoro.excerpt': '80% of the vacant positions are filled by local staff.',
     'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Professional working from home with lake view in Switzerland',
+    'blog.article.linea-ginevra-friburgo-pressione.title': 'Geneva–Fribourg, a railway route under pressure',
+    'blog.article.linea-ginevra-friburgo-pressione.excerpt': 'Thirteen disruptions on the line since the beginning of the year More than 150’000 passengers and over 700 trains every day Burnt cables, damaged tracks and a bird',
+    'blog.article.linea-ginevra-friburgo-pressione.imageAlt': 'Swiss train at a busy railway station',
 };
 
 export default blogMetaChEn;

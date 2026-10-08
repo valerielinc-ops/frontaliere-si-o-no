@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5091
+      "6": 5092
     },
-    "publishedCovers": 6803,
+    "publishedCovers": 6804,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180566,6 +180566,33 @@
           "id": "kastritis-varese-momento-difficile",
           "category": "novita",
           "date": "2026-10-08T03:50:32.226Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-linea-ginevra-friburgo-pressione": {
+      "cover": "/images/blog/article-linea-ginevra-friburgo-pressione.webp",
+      "hash": "c71e573ad8b50dce339d29aed1c06b9ae7d63d7712561abc193b6a17f89ec89e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "linea-ginevra-friburgo-pressione",
+          "category": "novita",
+          "date": "2026-10-08T21:08:07.621Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

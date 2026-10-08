@@ -26512,6 +26512,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'linea-ginevra-friburgo-pressione',
+    category: 'novita',
+    date: '2026-10-08T21:08:07.621Z',
+    image: '/images/blog/article-linea-ginevra-friburgo-pressione.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['FR', 'GE'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
