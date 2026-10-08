@@ -51,4 +51,24 @@ describe('blog article publication contract', () => {
       sha256: '40161bee5a8662281eae77801b7ede56f9b78382aac0680cca2bb51871381476',
     }));
   });
+
+  it('keeps the Bern continuing education cover dedicated and ledger-backed', () => {
+    const cover = '/images/blog/article-contributi-formazione-berna-requisiti.webp';
+    const key = 'article-contributi-formazione-berna-requisiti';
+    const registry = fs.readFileSync(path.join(ROOT, 'packages/articles/content/swiss-articles-data.ts'), 'utf8');
+    const seo = fs.readFileSync(path.join(ROOT, 'packages/articles/content/seo/seo-blog-ch.ts'), 'utf8');
+    const ledger = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/blog-cover-ledger.json'), 'utf8'));
+    const article = registry.match(/id: 'contributi-formazione-berna-requisiti',[\s\S]*?\n\s*\},?/)?.[0];
+    const metadata = seo.match(/'blog-contributi-formazione-berna-requisiti': \{[\s\S]*?\n\s*\},\n\n/)?.[0];
+
+    expect(article).toContain(`image: '${cover}'`);
+    expect(metadata).toContain('${BASE_URL}' + cover);
+    expect(coverBlobSize(cover)).toBeGreaterThan(0);
+    expect(ledger.covers[key]).toEqual(expect.objectContaining({
+      cover,
+      hash: 'a06ebb2026a70ff9d90e0919094c3ac1e5b3f29d5aedde2a8f23d43223918960',
+      published: true,
+      currentlyPublished: true,
+    }));
+  });
 });
