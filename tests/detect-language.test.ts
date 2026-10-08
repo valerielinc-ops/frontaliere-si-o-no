@@ -81,6 +81,23 @@ describe('detectLanguage', () => {
     it('defaults fallback to en', () => {
       expect(detectLanguage('')).toBe('en');
     });
+
+    it('detects short Italian job titles even with a neutral AFC suffix', () => {
+      for (const text of [
+        'Assistente di farmacia AFC',
+        'Informatico/a AFC tecnica di sistemi',
+      ]) {
+        const result = detectLanguageWithConfidence(text, 'it');
+        expect(result.lang, text).toBe('it');
+        expect(result.confidence, text).toBeGreaterThanOrEqual(0.5);
+      }
+    });
+
+    it('keeps a short German title German instead of treating it as Italian', () => {
+      const result = detectLanguageWithConfidence('Sachbearbeiter/in Buchhaltung', 'it');
+      expect(result.lang).toBe('de');
+      expect(result.confidence).toBeGreaterThanOrEqual(0.5);
+    });
   });
 });
 

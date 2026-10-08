@@ -146,6 +146,22 @@ function titleFixCandidateContext(job, sourceTitle, locale) {
   };
 }
 
+function normalizeTitleMemoPart(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .replace(/\s+/gu, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function titleTranslationMemoKey(sourceTitle, sourceLang, targetLang) {
+  return JSON.stringify([
+    normalizeTitleMemoPart(sourceTitle),
+    normalizeTitleMemoPart(sourceLang),
+    normalizeTitleMemoPart(targetLang),
+  ]);
+}
+
 /**
  * Process the discovered queue with a bounded, priority-preserving pool.
  * The callback is called once per candidate; free-translate owns the Codex
@@ -182,6 +198,20 @@ export function runTitleFixCandidatePool({
   let totalFixed = 0;
   let totalNoop = 0;
   let totalFailed = 0;
+  const titleTranslationMemo = new Map();
+
+  const memoizedTranslate = (options) => {
+    const key = titleTranslationMemoKey(options.text, options.sourceLang, options.targetLang);
+    const cached = titleTranslationMemo.get(key);
+    if (cached) return cached;
+    // Store the promise before awaiting it so candidates launched in the same
+    // pool turn share both an in-flight request and its empty result.
+    const pending = Promise.resolve()
+      .then(() => translate(options))
+      .catch(() => '');
+    titleTranslationMemo.set(key, pending);
+    return pending;
+  };
 
   const processCandidate = async (candidate) => {
     const sliceData = sliceCache?.get(candidate.file);
@@ -201,7 +231,7 @@ export function runTitleFixCandidatePool({
 
     let translated = '';
     try {
-      translated = await translate({
+      translated = await memoizedTranslate({
         text: sourceTitle,
         sourceLang,
         targetLang: candidate.locale,

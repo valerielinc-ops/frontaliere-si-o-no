@@ -233,6 +233,58 @@ describe('fix-untranslated-titles.mjs candidate pool', () => {
     }
   });
 
+  it('memoizza una traduzione di titolo per chiave e la applica a candidati duplicati concorrenti', async () => {
+    const fixer = await loadTitleFixer();
+    const data = fixture(2);
+    data.jobs[1].title = data.jobs[0].title;
+    data.jobs[1].titleByLocale.it = data.jobs[0].titleByLocale.it;
+    const calls: string[] = [];
+
+    const result = await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: { version: 1, attempts: {} },
+      maxConcurrency: 2,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 0, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async ({ text }) => {
+        calls.push(text);
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        return translatedTitle(text);
+      },
+    });
+
+    expect(calls).toEqual([data.jobs[0].title]);
+    expect(result.totalFixed).toBe(2);
+    expect(result.totalFailed).toBe(0);
+    expect(Object.values(result.attemptState.attempts).map(({ attempts }) => attempts)).toEqual([1, 1]);
+    expect(data.jobs.every((job) => job.titleByLocale.it.startsWith('Ingegnere di sistema'))).toBe(true);
+  });
+
+  it('memoizza anche un risultato negativo e conserva il tentativo per ogni candidato', async () => {
+    const fixer = await loadTitleFixer();
+    const data = fixture(2);
+    data.jobs[1].title = data.jobs[0].title;
+    data.jobs[1].titleByLocale.it = data.jobs[0].titleByLocale.it;
+    let calls = 0;
+
+    const result = await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: { version: 1, attempts: {} },
+      maxConcurrency: 2,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 0, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async () => {
+        calls++;
+        return '';
+      },
+    });
+
+    expect(calls).toBe(1);
+    expect(result.totalFixed).toBe(0);
+    expect(result.totalFailed).toBe(2);
+    expect(Object.values(result.attemptState.attempts).map(({ attempts }) => attempts)).toEqual([1, 1]);
+  });
+
   it('alla deadline non avvia nuovi candidati e persiste il lavoro gia\u0300 completato', async () => {
     const fixer = await loadTitleFixer();
     const data = fixture(4);

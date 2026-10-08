@@ -46,7 +46,7 @@ const TRIGRAM_PROFILES = {
 const MARKER_WORDS = {
   de: /\b(und|oder|bei|wir|für|ist|auf|aus|mit|das|ein|eine|sich|werden|über|ihre|unser|nach|kann|sind|dieser|stellenanzeige|stellenbeschreibung|arbeitsort|erfahrung|verantwortlich|anforderungen|aufgaben|kenntnisse|qualifikationen|berufserfahrung|arbeitgeber|wochenstunden|vollzeit|teilzeit|festanstellung|bewerbung)\b/i,
   en: /\b(the|and|with|this|you|your|will|are|for|our|have|that|from|experience|requirements|responsibilities|qualifications|position|role|about|skills|ability|team|working|apply|required|career|opportunity|knowledge|proficiency|environment|benefits)\b/i,
-  it: /\b(requisiti|candidato|candidati|candidatura|offerta|competenze|esperienza|conoscenze|capacità|azienda|lavoro|profilo|responsabilità|ricerca|attività|sviluppo|gestione|cliente|settore|titolarecambio|formazione|contratto|inquadramento|mansioni|collaborare|analisi|supporto|commerciale)\b/i,
+  it: /\b(requisiti|candidato|candidati|candidatura|offerta|competenze|esperienza|conoscenze|capacità|azienda|lavoro|profilo|responsabilità|ricerca|attività|sviluppo|gestione|cliente|settore|titolarecambio|formazione|contratto|inquadramento|mansioni|collaborare|analisi|supporto|commerciale|assistente|farmacia|informatico(?:\/a)?|tecnica|sistemi)\b/i,
   fr: /\b(nous|vous|avec|pour|dans|votre|notre|sont|cette|être|avoir|vos|une|des|sur|les|par|qui|ses|tout|entreprise|expérience|compétences|poste|profil|missions|responsabilités|candidature|formation|environnement|recherche|gestion|développement|connaissance|capacité)\b/i,
 };
 
@@ -54,7 +54,7 @@ const MARKER_WORDS = {
 const STRONG_MARKERS = {
   de: /\b(und|oder|stellenanzeige|anforderungen|aufgaben|berufserfahrung|arbeitgeber|bewerbung|wochenstunden|festanstellung)\b/i,
   en: /\b(requirements|responsibilities|qualifications|proficiency|opportunity|benefits)\b/i,
-  it: /\b(requisiti|candidatura|candidato|competenze|inquadramento|mansioni)\b/i,
+  it: /\b(requisiti|candidatura|candidato|competenze|inquadramento|mansioni|assistente|farmacia|informatico(?:\/a)?|tecnica|sistemi)\b/i,
   fr: /\b(compétences|candidature|responsabilités|missions|environnement)\b/i,
 };
 
