@@ -163,6 +163,16 @@ jobs:
             echo "::error::Unable to fetch the stable events refresh branch"
             exit 1
           fi
+          # The crawl below starts from this pending refresh: its slices and
+          # checkpoints are the ones restored here, plus what this run adds.
+          # If the pending PR is merged while the crawl runs, main and this
+          # run both hold a change to the same files, and the publisher needs
+          # to know that one continues the other. The remote-tracking ref is
+          # moved by every later publisher call, so the starting commit gets a
+          # ref of its own, and the reconciler reads it by name.
+          git update-ref refs/crawl-events/carried-forward \
+            "$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
+          echo "EVENTS_REFRESH_CARRIED_REF=refs/crawl-events/carried-forward" >> "$GITHUB_ENV"
           # Restore only blobs present in the pending branch. A directory
           # restore would also delete files added to current main after that
           # branch was created, turning stale branch absence into data loss.

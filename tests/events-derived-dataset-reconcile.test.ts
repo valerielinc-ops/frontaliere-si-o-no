@@ -78,6 +78,21 @@ function crawlEvent() {
   };
 }
 
+function laterCrawlEvent() {
+  return {
+    id: 'fantasia:brina',
+    title: 'Mercato della Brina Dorata',
+    startDate: daysAhead(9),
+    endDate: daysAhead(9),
+    comune: 'Poggio Inventato',
+    canton: 'TI',
+    sourceKey: 'fantasia',
+    sourceName: 'Fantasia Agenda',
+    url: 'https://fantasia.example/events/brina',
+    description: 'Un mercato serale con banchi di artigiani e letture ad alta voce.',
+  };
+}
+
 function rewrittenItalianDescription() {
   return 'descrizione aggiornata dell evento nel luogo indicato. seconda frase informativa per il pubblico locale.';
 }
@@ -114,6 +129,15 @@ function writeSlice(repository: string, events: unknown[]) {
     assembledAt: new Date().toISOString(),
     events,
   });
+}
+
+const SLICE_PARTS = ['data', 'events', 'by-source', 'fantasia.json'];
+const CHECKPOINT_PARTS = ['data', 'events', 'checkpoints', 'fantasia.json'];
+const SLICE_IN_TREE = SLICE_PARTS.join('/');
+const CHECKPOINT_IN_TREE = CHECKPOINT_PARTS.join('/');
+
+function writeCheckpoint(repository: string, nextIndex: number) {
+  writeJson(repository, CHECKPOINT_PARTS, { nextIndex, updatedAt: new Date().toISOString() });
 }
 
 function assembleRepository(repository: string) {
@@ -189,7 +213,10 @@ function createScenario(refreshRole: 'crawl' | 'rewrite') {
   return { repository, base, main, refresh };
 }
 
-function runReconciler(scenario: ReturnType<typeof createScenario>) {
+function runReconciler(
+  scenario: { repository: string; base: string; main: string },
+  extraEnv: Record<string, string> = {},
+) {
   return spawnSync(process.execPath, [
     RECONCILE_SCRIPT,
     '--base', scenario.base,
@@ -202,9 +229,70 @@ function runReconciler(scenario: ReturnType<typeof createScenario>) {
       EVENTS_DERIVED_DATASET_RECONCILIATION: 'events',
       RECONCILE_SOURCE_ROOT: ROOT,
       GIT_NO_LAZY_FETCH: '1',
+      ...extraEnv,
     },
     encoding: 'utf8',
   });
+}
+
+const CARRIED_REF = 'refs/crawl-events/carried-forward';
+
+// The run of 2026-10-08: the crawl restores the slices and checkpoints of the
+// pending refresh, that refresh is merged into main while the crawl is still
+// running, and the publisher then meets main with a branch cut from the commit
+// the job checked out.
+function createCarriedScenario({ editedOnMain = false, droppedByCrawl = false } = {}) {
+  const repository = fs.mkdtempSync(path.join(os.tmpdir(), 'events-carried-reconcile-test-'));
+  temporaryRepositories.push(repository);
+  git(repository, ['init', '-q', '-b', 'main']);
+  git(repository, ['config', 'user.name', 'events-reconcile-test']);
+  git(repository, ['config', 'user.email', 'events-reconcile-test@example.invalid']);
+
+  const original = baseEvent();
+  writeSlice(repository, [original]);
+  writeCheckpoint(repository, 10);
+  writeJson(repository, ['data', 'events-description-rewrites.json'], { schemaVersion: 2, entries: {} });
+  writeJson(repository, ['data', 'events-geocode-cache.json'], {});
+  writeJson(repository, ['data', 'events-translation-cache.json'], {});
+  assembleRepository(repository);
+  const base = commitAll(repository, 'what the job checked out');
+
+  git(repository, ['checkout', '-q', '-b', 'pending']);
+  writeSlice(repository, [original, crawlEvent()]);
+  writeCheckpoint(repository, 20);
+  assembleRepository(repository);
+  const carried = commitAll(repository, 'pending refresh of the previous crawl');
+  git(repository, ['update-ref', CARRIED_REF, carried]);
+
+  // This crawl: the job's checkout, the pending source state restored on top
+  // of it, then one more event and a checkpoint further on.
+  git(repository, ['checkout', '-q', '-b', 'refresh', base]);
+  git(repository, ['restore', `--source=${carried}`, '--', SLICE_IN_TREE, CHECKPOINT_IN_TREE]);
+  writeSlice(repository, [original, crawlEvent(), laterCrawlEvent()]);
+  writeCheckpoint(repository, 30);
+  // No crawler removes a checkpoint today; a branch that did would not be
+  // carrying that file on.
+  if (droppedByCrawl) fs.rmSync(path.join(repository, ...CHECKPOINT_PARTS));
+  assembleRepository(repository);
+  const refresh = commitAll(repository, 'this crawl, on top of the pending refresh');
+
+  // Meanwhile the pending refresh lands on main, byte for byte, next to a
+  // description rewrite that makes the derived dataset conflict as well.
+  git(repository, ['checkout', '-q', 'main']);
+  git(repository, ['restore', `--source=${carried}`, '--', SLICE_IN_TREE, CHECKPOINT_IN_TREE]);
+  if (editedOnMain) {
+    // A second writer of the slices (the licence audit) drops a field after
+    // the merge and leaves the slice timestamp alone.
+    const slice = JSON.parse(fs.readFileSync(path.join(repository, ...SLICE_PARTS), 'utf8'));
+    for (const event of slice.events) delete event.description;
+    writeJson(repository, SLICE_PARTS, slice);
+  }
+  writeJson(repository, ['data', 'events-description-rewrites.json'], rewriteCache());
+  assembleRepository(repository);
+  const main = commitAll(repository, 'the pending refresh is merged while the crawl runs');
+
+  git(repository, ['checkout', '-q', 'refresh']);
+  return { repository, base, main, refresh, carried };
 }
 
 function dataset(repository: string) {
@@ -283,6 +371,145 @@ describe('events derived dataset reconciliation', () => {
     expect(result.stderr).not.toContain('data/events-geocode-cache.json');
     // Nothing was committed: the refresh branch is where it was.
     expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
+  });
+});
+
+describe('events source state carried over from a pending refresh', () => {
+  const conflictPrefix = 'Unresolved refresh conflict outside event caches or derived datasets: ';
+  const notContinuation = 'Not a continuation of the refresh this crawl started from '
+    + '(main holds something else, or this branch dropped the file): ';
+
+  it('continues the slices and checkpoints of a pending refresh merged while the crawl ran', () => {
+    const scenario = createCarriedScenario();
+    const result = runReconciler(scenario, { EVENTS_REFRESH_CARRIED_REF: CARRIED_REF });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('continued 2 source state file(s) from the carried refresh');
+    expect(result.stdout).toContain('resolved 0 cache conflict(s)');
+    expect(result.stdout).toContain('regenerated data/events.json, public/data/events.json');
+
+    // The source state is this crawl's, untouched: no merge of two slices.
+    for (const file of [SLICE_IN_TREE, CHECKPOINT_IN_TREE]) {
+      expect(git(scenario.repository, ['rev-parse', `HEAD:${file}`]))
+        .toBe(git(scenario.repository, ['rev-parse', `${scenario.refresh}:${file}`]));
+    }
+    expect(JSON.parse(git(scenario.repository, ['show', `HEAD:${CHECKPOINT_IN_TREE}`])).nextIndex).toBe(30);
+
+    // The dataset comes from that source state and from the rewrite on main.
+    const events = dataset(scenario.repository).events;
+    expect(events.map((event) => event.id)).toEqual(['fantasia:lanterna', 'fantasia:aurora', 'fantasia:brina']);
+    expect(events.find((event) => event.id === 'fantasia:lanterna')?.description)
+      .toBe(rewrittenItalianDescription());
+    expect(git(scenario.repository, ['show', 'HEAD:data/events.json'])).not.toContain('<<<<<<<');
+    expect(git(scenario.repository, ['rev-list', '--parents', '-n', '1', 'HEAD']).split(' ').slice(1))
+      .toEqual([scenario.refresh, scenario.main]);
+  });
+
+  it('takes the starting refresh as a commit id as well as a ref name', () => {
+    const scenario = createCarriedScenario();
+    const result = runReconciler(scenario, { EVENTS_REFRESH_CARRIED_REF: scenario.carried });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('continued 2 source state file(s) from the carried refresh');
+  });
+
+  it('stops when no starting refresh was recorded, and says that is why', () => {
+    const scenario = createCarriedScenario();
+    const result = runReconciler(scenario);
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(`${conflictPrefix}${SLICE_IN_TREE}, ${CHECKPOINT_IN_TREE}`);
+    expect(result.stderr).toContain('No starting refresh was recorded (EVENTS_REFRESH_CARRIED_REF)');
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
+  });
+
+  it('stops when main holds something other than the state the crawl started from', () => {
+    const scenario = createCarriedScenario({ editedOnMain: true });
+    const result = runReconciler(scenario, { EVENTS_REFRESH_CARRIED_REF: CARRIED_REF });
+
+    expect(result.status).toBe(1);
+    // The checkpoint on main is still the carried one, so only the slice blocks.
+    expect(result.stderr).toContain(`${conflictPrefix}${SLICE_IN_TREE}\n`);
+    expect(result.stderr).toContain(`${notContinuation}${SLICE_IN_TREE}`);
+    expect(result.stderr).not.toContain(CHECKPOINT_IN_TREE);
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
+  });
+
+  it('stops on a file the crawl removed, even when main still holds the starting state', () => {
+    const scenario = createCarriedScenario({ droppedByCrawl: true });
+    const result = runReconciler(scenario, { EVENTS_REFRESH_CARRIED_REF: CARRIED_REF });
+
+    expect(result.status).toBe(1);
+    // The slice is a continuation; the checkpoint has nothing to carry on.
+    expect(result.stderr).toContain(`${conflictPrefix}${CHECKPOINT_IN_TREE}\n`);
+    expect(result.stderr).toContain(`${notContinuation}${CHECKPOINT_IN_TREE}`);
+    expect(result.stderr).not.toContain(SLICE_IN_TREE);
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
+  });
+
+  it('finds the starting refresh from the worktree the publisher runs in', () => {
+    // open-data-refresh-pr.sh reconciles in a worktree it adds with --detach
+    // --no-checkout: the ref the crawl step wrote has to resolve there, and
+    // nothing may depend on a file being on disk.
+    const scenario = createCarriedScenario();
+    const publisher = fs.mkdtempSync(path.join(os.tmpdir(), 'events-carried-publisher-test-'));
+    temporaryRepositories.push(publisher);
+    git(scenario.repository, ['worktree', 'add', '-q', '--detach', '--no-checkout', publisher, scenario.refresh]);
+    expect(fs.readdirSync(publisher)).toEqual(['.git']);
+
+    const result = runReconciler({ ...scenario, repository: publisher }, { EVENTS_REFRESH_CARRIED_REF: CARRIED_REF });
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('continued 2 source state file(s) from the carried refresh');
+    for (const file of [SLICE_IN_TREE, CHECKPOINT_IN_TREE]) {
+      expect(git(publisher, ['rev-parse', `HEAD:${file}`]))
+        .toBe(git(publisher, ['rev-parse', `${scenario.refresh}:${file}`]));
+    }
+    expect(dataset(publisher).events.map((event) => event.id))
+      .toEqual(['fantasia:lanterna', 'fantasia:aurora', 'fantasia:brina']);
+    // Only the publisher's detached HEAD moved; the crawl's branch did not.
+    expect(git(scenario.repository, ['rev-parse', 'refs/heads/refresh'])).toBe(scenario.refresh);
+  });
+
+  it('refuses a starting refresh that is not a commit in the checkout', () => {
+    const scenario = createCarriedScenario();
+    const result = runReconciler(scenario, { EVENTS_REFRESH_CARRIED_REF: 'refs/crawl-events/never-written' });
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(
+      'EVENTS_REFRESH_CARRIED_REF names refs/crawl-events/never-written, which is not a commit in this checkout',
+    );
+    expect(git(scenario.repository, ['rev-parse', 'HEAD'])).toBe(scenario.refresh);
+  });
+
+  it('leaves a continued slice alone for a publisher that carried nothing over', () => {
+    // Without the variable the rule does not exist: the cache-only and the
+    // derived-dataset scenarios above behave exactly as before.
+    const scenario = createScenario('crawl');
+    const result = runReconciler(scenario);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).not.toContain('continued');
+  });
+
+  it('records the starting refresh in the crawl before restoring from it', () => {
+    const workflow = fs.readFileSync(path.join(ROOT, '.github', 'workflows', 'crawl-events.yml'), 'utf8');
+    const start = workflow.indexOf('- name: Carry forward pending events refresh PR');
+    const end = workflow.indexOf('- name: Validate targeted source inputs');
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const step = workflow.slice(start, end);
+
+    const fetched = step.indexOf('git fetch --no-tags --depth=1');
+    const recorded = step.indexOf(`git update-ref ${CARRIED_REF}`);
+    const exported = step.indexOf(`echo "EVENTS_REFRESH_CARRIED_REF=${CARRIED_REF}" >> "$GITHUB_ENV"`);
+    const restored = step.indexOf('bash scripts/lib/restore-stable-refresh-files.sh');
+    expect(fetched).toBeGreaterThan(-1);
+    expect(recorded).toBeGreaterThan(fetched);
+    expect(exported).toBeGreaterThan(recorded);
+    expect(restored).toBeGreaterThan(exported);
+    // The ref is written from the commit just fetched, not from a moving name.
+    expect(step).toContain('"$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"');
   });
 });
 
