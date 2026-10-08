@@ -129,6 +129,49 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(clicked).toEqual([1]);
   });
 
+  it('uses the canonical localized catalogue label and waits for an async filtered page', async () => {
+    let typed = '';
+    let filteredReads = 0;
+    let selected = '';
+    const clicked: number[] = [];
+    const control = {
+      click: vi.fn(),
+      press: vi.fn().mockResolvedValue(undefined),
+      pressSequentially: vi.fn(async (value: string) => { typed = value; }),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const options = {
+      first: () => ({ waitFor: vi.fn(async () => {}) }),
+      allInnerTexts: vi.fn(async () => {
+        if (!typed) return ['autrichienne'];
+        filteredReads += 1;
+        return filteredReads < 3 ? ['autrichienne'] : ['', 'allemande'];
+      }),
+      nth: (index: number) => ({ click: vi.fn(async () => { clicked.push(index); selected = 'allemande'; }) }),
+    };
+    const list = { getByRole: vi.fn(() => options) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id') ? { first: () => control } : list),
+    };
+    const page = {
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: true,
+      ownedList: 'nationality_list',
+    }], [{ fieldId: 'nationality', action: 'select', value: 'tedesca' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(typed).toBe('alle');
+    expect(filteredReads).toBeGreaterThanOrEqual(3);
+    expect(clicked).toEqual([1]);
+  });
+
   it('drops invented sensitive answers and turns the required ones into questions', () => {
     const guarded = guardPlan({
       actions: [

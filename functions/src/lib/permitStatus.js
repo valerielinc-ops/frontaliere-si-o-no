@@ -247,6 +247,12 @@ export function nationalityOf(text) {
   return code ? { code, group: NATIONALITIES.get(code).group } : null;
 }
 
+/** The catalogue's canonical label for a country code in one of the four form languages. */
+export function nationalityLabelOf(code, language = 'it') {
+  const entry = NATIONALITIES.get(String(code ?? '').trim().toUpperCase());
+  return entry?.forms[languageOf(language)] || '';
+}
+
 /** Every nationality of the table a text names: the whole, else each of its parts («italiana e albanese» → IT). */
 export function nationalityCodes(text) {
   const whole = nationalityOf(text);
