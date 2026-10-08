@@ -2128,7 +2128,7 @@ commit_isolated_from_worktree() {
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
-  local phase_started file_phase_started ownership_missing ownership_total
+  local phase_started file_phase_started ownership_listing ownership_missing ownership_total
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
@@ -2227,12 +2227,20 @@ commit_isolated_from_worktree() {
         # On a blobless checkout (what actions/checkout makes of a sparse one)
         # `git archive` asks the promisor for every slice that changed on main
         # since the checkout. Count them first, without fetching anything.
-        ownership_missing="$(git rev-list --objects --missing=print "${remote_sha}:data/jobs/by-crawler" 2>/dev/null | grep -c '^?' || true)"
+        # A listing that fails is reported as such: a silent zero would read as
+        # "every slice was already here".
+        if ownership_listing="$(git rev-list --objects --missing=print "${remote_sha}:data/jobs/by-crawler" 2>/dev/null)"; then
+          ownership_missing="$(grep -c '^?' <<< "$ownership_listing" || true)"
+        else
+          ownership_missing=unknown
+        fi
         if ! git archive --format=tar "$remote_sha" data/jobs/by-crawler | tar -xf - -C "$ownership_root"; then
           echo "❌ grouped-isolated: could not materialise remote crawler slices for ownership guard"
           return 1
         fi
-        if [ "${ownership_missing:-0}" -gt 0 ]; then
+        if [ "$ownership_missing" = unknown ]; then
+          _ISOLATED_PHASE_NOTE[ownership-view]="remote slices fetched on demand: count unavailable"
+        elif [ "${ownership_missing:-0}" -gt 0 ]; then
           ownership_total="$(git ls-tree -r --name-only "$remote_sha" -- data/jobs/by-crawler 2>/dev/null | grep -c . || true)"
           _ISOLATED_PHASE_NOTE[ownership-view]="${ownership_missing} of ${ownership_total} remote slices fetched on demand"
         fi
@@ -2702,6 +2710,10 @@ commit_isolated_from_worktree() {
     fi
 
     ensure_git_auth
+    # `push` is the network round trip alone: building the commit object and
+    # refreshing the credentials are charged to their own phase.
+    isolated_phase_add commit "$phase_started"
+    isolated_mark phase_started
     # Capture the push output (echoed below either way, so the step log stays
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.

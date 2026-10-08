@@ -17,7 +17,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const SLICE_DIR = 'data/jobs/by-crawler';
-const PHASES = ['fetch', 'history-guard', 'skip-scan', 'seed-index', 'ownership-view', 'files', 'tree', 'push'];
+const PHASES = ['fetch', 'history-guard', 'skip-scan', 'seed-index', 'ownership-view', 'files', 'tree', 'commit', 'push'];
 const TIMING_LINE = /^⏱️ grouped-isolated attempt (\d+) timings: (.+)$/gmu;
 
 function git(cwd: string, ...args: string[]) {
@@ -202,6 +202,54 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
     }
   }, 120_000);
 
+  it('charges the commit object to its own phase, so `push` is the round trip alone', () => {
+    const t = setup(['a', 'b']);
+    try {
+      edit(t.repoDir, 'a', [job('a', 1, { titleByLocale: { en: 'A1' } }), job('a', 2)]);
+      // A stall while the commit object is built must not read as a slow push.
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      t.shim('git', [
+        '#!/bin/bash',
+        'for arg in "$@"; do if [ "$arg" = "commit-tree" ]; then /bin/sleep 2; fi; done',
+        `exec '${realGit}' "$@"`,
+      ]);
+
+      const { status, log } = t.run();
+      expect(status, log).toBe(0);
+      const [line] = timingLines(log);
+      expect(phasesOf(line.body), line.body).toEqual(PHASES);
+      const seconds = (phase: string) => Number(new RegExp(`(?:^|, )${phase} (\\d+\\.\\d) s`, 'u').exec(line.body)?.[1]);
+      expect(seconds('commit'), line.body).toBeGreaterThanOrEqual(2);
+      expect(seconds('push'), line.body).toBeLessThan(2);
+      expect(seconds('tree'), line.body).toBeLessThan(2);
+    } finally {
+      t.cleanup();
+    }
+  }, 120_000);
+
+  it('says so when the missing slices cannot be counted, instead of reporting none', () => {
+    const t = setup(['a', 'b']);
+    try {
+      edit(t.repoDir, 'a', [job('a', 1), job('a', 2), job('a', 3)]);
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      t.shim('git', [
+        '#!/bin/bash',
+        'for arg in "$@"; do if [ "$arg" = "--missing=print" ]; then echo "fatal: simulated rev-list failure" >&2; exit 128; fi; done',
+        `exec '${realGit}' "$@"`,
+      ]);
+
+      const { status, log } = t.run();
+      // The count is observation only: the commit still lands.
+      expect(status, log).toBe(0);
+      expect(log).toContain('Pushed successfully');
+      const [line] = timingLines(log);
+      expect(phasesOf(line.body), line.body).toEqual(PHASES);
+      expect(line.body).toMatch(/(?:^|, )ownership-view \d+\.\d s \(remote slices fetched on demand: count unavailable\)/u);
+    } finally {
+      t.cleanup();
+    }
+  }, 120_000);
+
   it('counts the remote slices a blobless checkout has to fetch for the ownership view', () => {
     // The crawler groups run from a sparse checkout, which actions/checkout
     // turns into a partial clone without blobs (corpus run 37686343357:
@@ -256,7 +304,7 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       const lines = timingLines(log);
       expect(lines.map((line) => line.attempt), log).toEqual([1]);
       expect(phasesOf(lines[0].body), lines[0].body).toEqual(
-        PHASES.filter((phase) => phase !== 'ownership-view' && phase !== 'push'),
+        PHASES.filter((phase) => !['ownership-view', 'commit', 'push'].includes(phase)),
       );
       expect(log.indexOf('grouped-isolated attempt 1 timings:')).toBeLessThan(log.indexOf('nothing to commit'));
     } finally {
