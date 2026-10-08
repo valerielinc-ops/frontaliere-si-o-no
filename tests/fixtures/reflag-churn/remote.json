@@ -95,6 +95,25 @@
         "it": "Addetto alla logistica",
         "de": "Logistikmitarbeiter"
       }
+    },
+    {
+      "id": "coop-wave-a4485183",
+      "url": "https://jobs.coopjobs.ch/postes-vacantes/chargee-de-securite-f-h-d/a4485183-3ac1-4308-a790-9a636d25478c",
+      "sourceLang": "fr",
+      "title": "Chargé·e de sécurité (f/h/d)",
+      "description": "Coop source description for the security officer posting.",
+      "titleByLocale": {
+        "it": "Chargé·e de sécurité (f/m/d)",
+        "en": "Security Officer (m/f/d)",
+        "de": "Sicherheitsbeauftragter (m/w/d)",
+        "fr": "Chargé·e de sécurité (f/h/d)"
+      },
+      "descriptionByLocale": {
+        "it": "Italian translation for the security officer posting.",
+        "en": "English translation for the security officer posting.",
+        "de": "German translation for the security officer posting. This reduced fixture keeps a complete translated description so the merge guard can distinguish a valid remote slot from a short detector finding.",
+        "fr": "French source description for the security officer posting."
+      }
     }
   ]
 }
