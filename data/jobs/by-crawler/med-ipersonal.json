@@ -1,6 +1,6 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-10-08T21:38:57.098Z",
+  "assembledAt": "2026-10-08T22:29:58.626Z",
   "jobs": [
     {
       "id": "med-ipersonal-6dfc4bf39180",
@@ -33,7 +33,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-muttenz-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:50.772Z",
+      "crawledAt": "2026-10-08T22:29:53.413Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -50,15 +50,6 @@
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-muttenz-freie-stelle/",
-      "firstSeenAt": "2026-10-08T09:54:50.322Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reifenpraktiker-region-muttenz-ipersonal-ag-muttenz-basel-landschaft"
-        ]
-      },
-      "previousSlugs": [
-        "reifenpraktiker-region-muttenz-ipersonal-ag-muttenz-basel-landschaft"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -71,7 +62,16 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T09:54:50.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-region-muttenz-ipersonal-ag-muttenz-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-region-muttenz-ipersonal-ag-muttenz-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-08b76cb03e8d",
@@ -104,7 +104,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-baden-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:50.471Z",
+      "crawledAt": "2026-10-08T22:29:53.112Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:38:50.471Z"
+      "firstSeenAt": "2026-10-08T22:29:53.112Z"
     },
     {
       "id": "med-ipersonal-e1dde5fa96ce",
@@ -168,7 +168,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-gipf-oberfrick-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:50.170Z",
+      "crawledAt": "2026-10-08T22:29:52.811Z",
       "addressLocality": "Gipf-Oberfrick",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:38:50.170Z"
+      "firstSeenAt": "2026-10-08T22:29:52.811Z"
     },
     {
       "id": "med-ipersonal-21fa0606e149",
@@ -232,7 +232,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-unteraegeri-freie-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:49.869Z",
+      "crawledAt": "2026-10-08T22:29:52.510Z",
       "addressLocality": "Unterägeri",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -263,7 +263,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:38:49.869Z"
+      "firstSeenAt": "2026-10-08T22:29:52.510Z"
     },
     {
       "id": "med-ipersonal-ef412536e8b6",
@@ -296,7 +296,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-balterswil-gesucht-2/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:49.568Z",
+      "crawledAt": "2026-10-08T22:29:52.209Z",
       "addressLocality": "Balterswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -327,7 +327,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:38:49.568Z"
+      "firstSeenAt": "2026-10-08T22:29:52.209Z"
     },
     {
       "id": "med-ipersonal-0a415982d22f",
@@ -360,7 +360,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-charmey-gruyere-gesucht-jetzt-bewerben/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:49.267Z",
+      "crawledAt": "2026-10-08T22:29:51.908Z",
       "addressLocality": "Charmey (Gruyère)",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -391,7 +391,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T21:38:49.267Z"
+      "firstSeenAt": "2026-10-08T22:29:51.908Z"
     },
     {
       "id": "med-ipersonal-45a78bf0a766",
@@ -424,7 +424,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-rheinfelden-stellenangebot/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:48.966Z",
+      "crawledAt": "2026-10-08T22:29:51.606Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -488,7 +488,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-adliswil-temporaer-dauerstelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:48.664Z",
+      "crawledAt": "2026-10-08T22:29:51.305Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -505,11 +505,6 @@
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-adliswil-temporaer-dauerstelle/",
-      "previousSlugs": [
-        "reifenpraktiker-100-fur-die-region-adliswil-temporar-amp-dauerstelle-ipersonal-ag-adliswil",
-        "reifenpraktiker-100-fur-die-region-adliswil-temporar-dauerstelle-ipersonal-ag-adliswil",
-        "reifenpraktiker-100-per-la-region-adliswil-temporar-dauerstelle-ipersonal-ag-adliswil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "reifenpraktiker-100-fur-die-region-adliswil-temporar-amp-dauerstelle-ipersonal-ag-adliswil",
@@ -527,7 +522,11 @@
           "reifenpraktiker-100-fur-die-region-adliswil-temporar-dauerstelle-ipersonal-ag-adliswil"
         ]
       },
-      "firstSeenAt": "2026-10-08T09:54:48.215Z",
+      "previousSlugs": [
+        "reifenpraktiker-100-fur-die-region-adliswil-temporar-amp-dauerstelle-ipersonal-ag-adliswil",
+        "reifenpraktiker-100-fur-die-region-adliswil-temporar-dauerstelle-ipersonal-ag-adliswil",
+        "reifenpraktiker-100-per-la-region-adliswil-temporar-dauerstelle-ipersonal-ag-adliswil"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -540,7 +539,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T09:54:48.215Z"
     },
     {
       "id": "med-ipersonal-33f41fef76c3",
@@ -573,7 +573,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-biberist-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:48.363Z",
+      "crawledAt": "2026-10-08T22:29:51.004Z",
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -590,7 +590,6 @@
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-biberist-offene-stelle/",
-      "firstSeenAt": "2026-10-08T09:54:47.913Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -604,6 +603,7 @@
           "unitText": "YEAR"
         }
       },
+      "firstSeenAt": "2026-10-08T09:54:47.913Z",
       "previousSlugsByLocale": {
         "it": [
           "professionista-del-tiro-regione-biberista-ipersonal-ag-biberist-solothurn"
@@ -644,7 +644,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-ramlinsburg-offene-stelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:48.061Z",
+      "crawledAt": "2026-10-08T22:29:50.703Z",
       "addressLocality": "Ramlinsburg",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -661,15 +661,6 @@
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-in-der-region-ramlinsburg-offene-stelle/",
-      "firstSeenAt": "2026-10-08T09:54:47.612Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reifenpraktiker-region-ramlinsburg-ipersonal-ag-ramlinsburg-basel-landschaft"
-        ]
-      },
-      "previousSlugs": [
-        "reifenpraktiker-region-ramlinsburg-ipersonal-ag-ramlinsburg-basel-landschaft"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -682,7 +673,16 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T09:54:47.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-region-ramlinsburg-ipersonal-ag-ramlinsburg-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-region-ramlinsburg-ipersonal-ag-ramlinsburg-basel-landschaft"
+      ]
     },
     {
       "id": "med-ipersonal-268b1d6473a6",
@@ -715,7 +715,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-st-gallen-gesucht/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:47.759Z",
+      "crawledAt": "2026-10-08T22:29:50.400Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -732,15 +732,6 @@
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-st-gallen-gesucht/",
-      "firstSeenAt": "2026-10-08T09:54:47.310Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reifenpraktiker-region-st-gallen-ipersonal-ag-st-gallen-st-gallen"
-        ]
-      },
-      "previousSlugs": [
-        "reifenpraktiker-region-st-gallen-ipersonal-ag-st-gallen-st-gallen"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -753,7 +744,16 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T09:54:47.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-region-st-gallen-ipersonal-ag-st-gallen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-region-st-gallen-ipersonal-ag-st-gallen-st-gallen"
+      ]
     },
     {
       "id": "med-ipersonal-2b7dde6eed1c",
@@ -786,7 +786,7 @@
       "url": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-grenchen-temporaer-dauerstelle/",
       "source": "iPersonal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:38:47.457Z",
+      "crawledAt": "2026-10-08T22:29:50.093Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -803,15 +803,6 @@
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/reifenpraktiker-100-fuer-die-region-grenchen-temporaer-dauerstelle/",
-      "firstSeenAt": "2026-10-08T09:54:47.008Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reifenpraktiker-region-grenchen-ipersonal-ag-grenchen-solothurn"
-        ]
-      },
-      "previousSlugs": [
-        "reifenpraktiker-region-grenchen-ipersonal-ag-grenchen-solothurn"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -824,7 +815,16 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T09:54:47.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-region-grenchen-ipersonal-ag-grenchen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-region-grenchen-ipersonal-ag-grenchen-solothurn"
+      ]
     }
   ]
 }
