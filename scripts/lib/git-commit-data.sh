@@ -1240,7 +1240,8 @@ function sameNonEmptyLocaleMergeText(left, right) {
  * Protect only the narrow, observable regression:
  * - sourceLang is present in the merge base and the same on remote and local;
  * - the source field is present in the merge base and unchanged on both sides;
- * - local non-source slot is a normalized copy of that source field; and
+ * - local non-source slot is missing, too short, or a normalized copy of that
+ *   source field; and
  * - remote has a non-empty, different value for the same slot.
  *
  * If the source or source language changed, the local copy remains authoritative
@@ -1277,8 +1278,24 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
       if (locale === sourceLang) continue;
       const localValue = localMap[locale];
       const remoteValue = remoteMap[locale];
-      if (!sameNonEmptyLocaleMergeText(localValue, localSource)) continue;
-      if (normalizeLocaleMergeText(remoteValue).length === 0) continue;
+      const localText = normalizeLocaleMergeText(localValue);
+      const remoteText = normalizeLocaleMergeText(remoteValue);
+      const localIsSourceCopy = sameNonEmptyLocaleMergeText(localValue, localSource);
+      const localIsShort = localText.length < (field === 'title' ? 3 : 120);
+      const localSlotIsRegression = localText.length === 0
+        || localIsSourceCopy
+        || localIsShort;
+      if (!localSlotIsRegression) continue;
+      if (remoteText.length === 0) continue;
+      // A short local translation can also be a genuine detector finding. Only
+      // replace it when the remote side carries a complete value; source-copy
+      // and empty local slots remain unambiguous crawler regressions even when
+      // the reduced fixture uses a short remote string.
+      // An EMPTY local slot is not a short translation: it carries no
+      // detector finding to respect, so a valid short remote value (a title
+      // such as "HR") is still restored.
+      if (localText.length > 0 && localIsShort && !localIsSourceCopy
+          && remoteText.length < (field === 'title' ? 3 : 120)) continue;
       if (sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
       if (sameNonEmptyLocaleMergeText(localValue, remoteValue)) continue;
       repairs.push({ mapKey, locale, value: remoteValue });
@@ -1296,7 +1313,7 @@ function applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, 
     merged[mapKey][locale] = clone(value);
   }
 
-  // A crawler flag caused only by the source-copy regression is stale once both
+  // A crawler flag caused only by this stale-slot regression is stale once both
   // locale maps are exactly the pipeline's remote maps. Do not clear a marker
   // for a different detector finding or when the remote writer still has it.
   const mapsMatchRemote = ['titleByLocale', 'descriptionByLocale'].every((mapKey) => {
@@ -1312,10 +1329,10 @@ function applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, 
 
   const fields = repairs.map(({ mapKey, locale }) => `${mapKey}.${locale}`).join(', ');
   warnings.push(
-    `Preserved remote locale translation at ${pathLabel} (${fields}) because the local source copy had unchanged source text.`
+    `Preserved remote locale translation at ${pathLabel} (${fields}) because the local slot was missing, short, or a source copy while source text stayed unchanged.`
   );
   if (clearLocalFlag) {
-    warnings.push(`Preserved remote needsRetranslation state at ${pathLabel} after source-copy repair.`);
+    warnings.push(`Preserved remote needsRetranslation state at ${pathLabel} after stale-slot repair.`);
   }
   return clearLocalFlag;
 }
@@ -1327,16 +1344,65 @@ function applyLocaleTranslationProtectionToValue(
   merged,
   warnings,
   pathLabel,
+  forcedKey = '',
 ) {
-  if (!isPlainObject(merged)) return;
-  applyLocaleTranslationProtection(
-    isPlainObject(baseValue) ? baseValue : {},
-    isPlainObject(remoteValue) ? remoteValue : {},
-    isPlainObject(localValue) ? localValue : {},
-    merged,
-    warnings,
-    pathLabel,
+  if (isPlainObject(merged)) {
+    applyLocaleTranslationProtection(
+      isPlainObject(baseValue) ? baseValue : {},
+      isPlainObject(remoteValue) ? remoteValue : {},
+      isPlainObject(localValue) ? localValue : {},
+      merged,
+      warnings,
+      pathLabel,
+    );
+
+    // The root of a crawler slice is an object containing a jobs array. A
+    // base-equality fast path returns that object before mergeValue() reaches
+    // each job, so walk nested containers here as well. Otherwise a file whose
+    // remote root is unchanged bypasses the same protection that works when a
+    // different job made the root a normal object merge.
+    const baseObj = isPlainObject(baseValue) ? baseValue : {};
+    const remoteObj = isPlainObject(remoteValue) ? remoteValue : {};
+    const localObj = isPlainObject(localValue) ? localValue : {};
+    for (const key of Object.keys(merged)) {
+      const child = merged[key];
+      if (!isPlainObject(child) && !Array.isArray(child)) continue;
+      applyLocaleTranslationProtectionToValue(
+        baseObj[key],
+        remoteObj[key],
+        localObj[key],
+        child,
+        warnings,
+        `${pathLabel}.${key}`,
+        forcedKey,
+      );
+    }
+    return;
+  }
+  if (!Array.isArray(merged)) return;
+
+  const keyHint = detectArrayKey(
+    [baseValue, remoteValue, localValue, merged],
+    forcedKey,
   );
+  if (!keyHint) return;
+  const baseData = arrayToMap(Array.isArray(baseValue) ? baseValue : [], keyHint);
+  const remoteData = arrayToMap(Array.isArray(remoteValue) ? remoteValue : [], keyHint);
+  const localData = arrayToMap(Array.isArray(localValue) ? localValue : [], keyHint);
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of mergedData.order) {
+    const child = mergedData.map.get(key);
+    if (!isPlainObject(child)) continue;
+    applyLocaleTranslationProtectionToValue(
+      baseData.map.get(key),
+      remoteData.map.get(key),
+      localData.map.get(key),
+      child,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+      '',
+    );
+  }
 }
 
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
