@@ -19,11 +19,13 @@
 #
 # Required env (read exactly as the workflow does, via indirect expansion):
 #   SHARD_<LOCALE>_DEPLOY_KEY  — per-locale SSH deploy key, e.g. SHARD_EN_DEPLOY_KEY.
-#                                Missing → use SHARD_PUSH_PAT/GITHUB_PAT for a
-#                                complete full publish; if both are absent,
-#                                fail closed instead of leaving a stale shard.
-#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token (GITHUB_PAT is hydrated
-#                                from Remote Config in the deploy workflow).
+#                                Missing → use an owner-aware PAT fallback for
+#                                a complete full publish; if no matching token
+#                                is available, fail closed instead of leaving
+#                                a stale shard.
+#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token. For a transferred shard
+#                                owner, the matching owner-specific PAT is
+#                                selected by the shared helper.
 # Optional env:
 #   RUNNER_TEMP        — scratch dir + success-marker location (GitHub Actions sets
 #                        it). Falls back to a mktemp dir if unset (logged).
@@ -87,13 +89,14 @@ fi
 # on a real failure (the caller decides how to react).
 push_shard() {
   local loc="$1"
-  local key_var key_val stage keyfile src_n prev_n rc missing_deploy_key
+  local key_var key_val stage keyfile src_n prev_n rc missing_deploy_key fallback_token
   key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
   key_val="${!key_var:-}"
   missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    if [ -z "${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}" ]; then
-      echo "::error::no $key_var secret and no SHARD_PUSH_PAT/GITHUB_PAT — cannot publish $loc shard" >&2
+    fallback_token="$(shard_push_token_for_repo "$SHARD_REPO")"
+    if [ -z "$fallback_token" ]; then
+      echo "::error::no $key_var secret and no PAT for $SHARD_REPO — cannot publish $loc shard" >&2
       return 1
     fi
     missing_deploy_key=1
