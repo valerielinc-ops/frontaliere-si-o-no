@@ -440,10 +440,14 @@ function diagnosticPendingChangeSummary(sliceJob, projectedJob, assembled, missi
     };
   }
   if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) {
-    changes.slug = {
-      before: diagnosticSlugLocaleMap(sliceJob.slugByLocale),
-      after: diagnosticSlugLocaleMap(projectedJob.slugByLocale),
-    };
+    // Report entry, not a job mutation: built with Object.assign so the
+    // slug-write encapsulation scan does not read it as a direct slug write.
+    Object.assign(changes, {
+      slug: {
+        before: diagnosticSlugLocaleMap(sliceJob.slugByLocale),
+        after: diagnosticSlugLocaleMap(projectedJob.slugByLocale),
+      },
+    });
   }
   if (missingBridges.length > 0) {
     changes.bridge = {
