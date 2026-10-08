@@ -37,6 +37,7 @@ import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
+import { isArticlePublisherCodePath } from '../lib/article-chunk-publish-freshness.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 
@@ -178,6 +179,12 @@ const sourceTreeLintTests = new Map([
   // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
   // una regex che possa divergere da esso.
   ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
+  // Stessa forma per il codice che pubblica gli articoli: il test parte dagli
+  // script che il replay invoca e ne segue da disco import e processi figli,
+  // ma ne importa solo due. Un import nuovo in uno degli altri allarga la
+  // chiusura senza che il grafo scelga il test. Il perimetro e' l'elenco che
+  // il classificatore stesso usa.
+  ['tests/scripts/article-chunk-publish-freshness.test.ts', isArticlePublisherCodePath],
   // Il ledger durevole dei loop e' riletto a runtime contro il registry
   // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
   // illeggibile. Registry e ledger sono dati, nessun import li collega al test
