@@ -182,6 +182,32 @@ describe('run-related-tests selection contract', () => {
     expect(elsewhere.stdout).not.toContain(generated);
   });
 
+  it('runs the two readers of the static SEO image literals when seo-pages.ts changes', () => {
+    // Both tests judge `services/seo/seo-pages.ts` from disk and import none of
+    // it. Pull request 12329 changed 36 image literals there: the rights-fields
+    // test was not selected, and main stayed red for every later pull request
+    // that inherited it.
+    const rights = 'tests/static-pages-image-credit.test.ts';
+    const creators = 'tests/seo/imageObjectLd.test.ts';
+    const root = fixture({
+      'services/seo/seo-pages.ts': 'export const pages = {};\n',
+      'services/seo/other.ts': 'export const other = 1;\n',
+      [rights]: 'export const rights = true;\n',
+      [creators]: 'export const creators = true;\n',
+      'tests/other.test.ts': "import { other } from '../services/seo/other'; export const observed = other;\n",
+    });
+    const literals = select(root, ['services/seo/seo-pages.ts']);
+    expect(literals.status, literals.stderr || literals.stdout).toBe(0);
+    expect(literals.stdout).toContain(rights);
+    expect(literals.stdout).toContain(creators);
+
+    const elsewhere = select(root, ['services/seo/other.ts']);
+    expect(elsewhere.status, elsewhere.stderr || elsewhere.stdout).toBe(0);
+    expect(elsewhere.stdout).toContain('tests/other.test.ts');
+    expect(elsewhere.stdout).not.toContain(rights);
+    expect(elsewhere.stdout).not.toContain(creators);
+  });
+
   it('runs the live-data guard whenever a test file changes', () => {
     // The guard reads every test file and imports none of them: on the pull
     // request that adds a test reading live data, nothing else selects it.
