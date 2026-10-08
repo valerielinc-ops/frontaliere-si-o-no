@@ -421,9 +421,14 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # the checkout's main snapshot and force-replaces an unmerged sweep. The
   # custom driver performs the store's deterministic 3-way SET merge, keeping
   # distinct additions in the same shard deduped and sorted.
+  # A depth-1 tip has no ancestry on the runner, so Git cannot prove that it
+  # descends from the main this checkout already tracks and refuses an unforced
+  # update as a non-fast-forward. The history guard refreshed that ref moments
+  # ago, so main must move in between for it to matter; the retry below, which
+  # reads a branch another run just advanced, would hit it every time.
   run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch main for compatibility reconciliation" \
     git fetch --no-tags --depth=1 "$PUSH_URL" \
-    "refs/heads/main:refs/remotes/origin/main"
+    "+refs/heads/main:refs/remotes/origin/main"
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
   COMPAT_SHARD_ATTR="$(git check-attr merge -- data/seo-404-compat/part-00.json)"
@@ -621,18 +626,30 @@ while :; do
   fi
 
   if [ -n "$REMOTE_HEAD" ]; then
-    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
-      git fetch --no-tags --depth=1 "$PUSH_URL" \
-      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
-    check_old_history_ref "refs/remotes/refresh/${BRANCH}"
-    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    if [ "$RECONCILE_COMPAT" = true ]; then
+      # Compat names its merge bases: the newest tip is all it reads. Forced
+      # for the same reason as main above.
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
+        git fetch --no-tags --depth=1 "$PUSH_URL" \
+        "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      check_old_history_ref "refs/remotes/refresh/${BRANCH}"
+      # The tree-level reconciliation moved HEAD and the index, not the files.
+      # Everything this run produced is in REFRESH_COMMIT, so nothing is lost.
+      git checkout --force -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    else
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
+        git fetch --no-tags "$PUSH_URL" \
+        "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      check_old_history_ref "refs/remotes/refresh/${BRANCH}"
+      git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    fi
 
     if [ "$RECONCILE_COMPAT" = true ]; then
       # Re-read main as well: the stable branch race can overlap a new 404
       # sweep, and the compatibility merge must retain the newest main base.
       run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest main for compatibility reconciliation" \
         git fetch --no-tags --depth=1 "$PUSH_URL" \
-        "refs/heads/main:refs/remotes/origin/main"
+        "+refs/heads/main:refs/remotes/origin/main"
       COMPAT_REFRESH_BASE="$(compat_merge_base "$REMOTE_HEAD" "$REFRESH_BASE" "newest compatibility refresh compare")"
       reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"
       COMPAT_MAIN_HEAD="$(git rev-parse refs/remotes/origin/main)"

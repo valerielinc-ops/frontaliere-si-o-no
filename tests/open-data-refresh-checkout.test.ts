@@ -850,6 +850,17 @@ function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
   };
 }
 
+/** A sweep merged into main after the runner checked it out: the usual state of a run that takes minutes. */
+function advanceCompatMain(setup: ReturnType<typeof compatHistoryFixture>) {
+  const seed = path.join(setup.directory, 'seed');
+  git(seed, ['checkout', '-q', 'main']);
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/later', '/main'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'main compat data after the checkout']);
+  git(seed, ['push', '-q', 'origin', 'main:refs/heads/main']);
+  git(seed, ['checkout', '-q', COMPAT_BRANCH]);
+}
+
 /** Objects held in the remote's packs; with `receive.unpackLimit=1` a push adds exactly what it sent. */
 function packedObjects(remote: string) {
   const match = /^in-pack: (\d+)$/m.exec(git(remote, ['count-objects', '-v']));
@@ -907,7 +918,7 @@ function publishSitemap(setup: ReturnType<typeof movingMainFixture>, env: Record
  * shell run at those moments (`$refusals` counts the refusals): what someone
  * else does to the branch while this run is failing or cleaning up.
  */
-function refuseRefreshPushes(setup: ReturnType<typeof movingMainFixture>, { onRefusal = '', onDeletion = '' } = {}) {
+function refuseRefreshPushes(setup: { remote: string }, { onRefusal = '', onDeletion = '' } = {}) {
   const hook = path.join(setup.remote, 'hooks', 'pre-receive');
   fs.mkdirSync(path.dirname(hook), { recursive: true });
   fs.writeFileSync(hook, [
@@ -975,17 +986,112 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
       expect(run.shard).toEqual({ paths: ['/base', '/main', '/run', '/stable'] });
       expect(run.commitCount).toBeLessThan(20);
     }
+    // Ten times the history, the same commits on the runner: what it reads
+    // does not depend on how old the stable branch is.
     expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
+  }, 120_000);
 
-    const legacyHelper = execFileSync('git', [
-      'show', '58d06b3a4a5:scripts/lib/open-data-refresh-pr.sh',
-    ], { cwd: ROOT, encoding: 'utf8' });
-    const legacyRuns = [50, 500].map((historyLength) => publishCompat(compatHistoryFixture(historyLength, legacyHelper)));
-    // The old helper has already fetched the stale branch's history when its
-    // shallow merge refuses to continue; the reachable commit count is the
-    // counterexample for the bounded implementation.
-    expect(legacyRuns[0].commitCount).toBeGreaterThan(20);
-    expect(legacyRuns[1].commitCount).toBeGreaterThan(legacyRuns[0].commitCount);
+  it('carries a sweep that reached main after the checkout into the pending compat branch', () => {
+    const setup = compatHistoryFixture(50);
+    advanceCompatMain(setup);
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run', '/stable'] });
+    expect(run.commitCount).toBeLessThan(20);
+    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+  }, 120_000);
+
+  it('carries a sweep that reached main after the checkout into a new compat branch', () => {
+    const setup = compatHistoryFixture(50);
+    git(setup.remote, ['update-ref', '-d', `refs/heads/${COMPAT_BRANCH}`]);
+    advanceCompatMain(setup);
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run'] });
+    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+  }, 120_000);
+
+  it('needs a forced refspec to move a tracking ref to a depth-1 tip', () => {
+    // The Git rule behind the forced refspecs of the compat path: a commit
+    // fetched at depth 1 has no parents on the runner, so the update of a ref
+    // that already exists is never a provable fast-forward.
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-depth-one-'));
+    directories.push(directory);
+    const seed = path.join(directory, 'seed');
+    const remote = path.join(directory, 'remote.git');
+    const runner = path.join(directory, 'runner');
+    fs.mkdirSync(seed);
+    git(seed, ['init', '-q', '-b', 'main']);
+    write(seed, 'data/value.txt', 'one\n');
+    git(seed, ['add', '-A']);
+    git(seed, ['commit', '-q', '-m', 'one']);
+    git(directory, ['init', '--bare', '-q', remote]);
+    git(seed, ['push', '-q', remote, 'main:refs/heads/main']);
+    git(directory, ['clone', '-q', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
+    write(seed, 'data/value.txt', 'two\n');
+    git(seed, ['commit', '-q', '-am', 'two']);
+    git(seed, ['push', '-q', remote, 'main:refs/heads/main']);
+    const tip = git(seed, ['rev-parse', 'HEAD']);
+    const fetch = (refspec: string) => spawnSync('git', ['fetch', '--no-tags', '--depth=1', `file://${remote}`, refspec], {
+      cwd: runner, encoding: 'utf8', env: { ...process.env, ...identity },
+    });
+
+    const unforced = fetch('refs/heads/main:refs/remotes/origin/main');
+    expect(unforced.status, unforced.stderr).not.toBe(0);
+    expect(unforced.stderr).toContain('(non-fast-forward)');
+    expect(git(runner, ['rev-parse', 'refs/remotes/origin/main'])).not.toBe(tip);
+
+    const forced = fetch('+refs/heads/main:refs/remotes/origin/main');
+    expect(forced.status, forced.stderr).toBe(0);
+    expect(git(runner, ['rev-parse', 'refs/remotes/origin/main'])).toBe(tip);
+  }, 60_000);
+
+  it('rebuilds the compat branch from the tip another run pushed during this publish', () => {
+    const setup = compatHistoryFixture(50);
+    advanceCompatMain(setup);
+    // Another sweep lands on the stable branch while this run is pushing: the
+    // first push loses its lease and the retry must start from that tip.
+    const seed = path.join(setup.directory, 'seed');
+    write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/other', '/stable'] }, null, 2) + '\n');
+    git(seed, ['add', COMPAT_SHARD]);
+    git(seed, ['commit', '-q', '-m', 'concurrent compat sweep']);
+    const concurrent = git(seed, ['rev-parse', 'HEAD']);
+    git(seed, ['push', '-q', 'origin', `${concurrent}:refs/heads/fixture-concurrent`]);
+    refuseRefreshPushes(setup, {
+      onRefusal: `if [ "$refusals" -ge 2 ]; then exit 0; fi; git update-ref refs/heads/${COMPAT_BRANCH} ${concurrent}`,
+    });
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).toContain('stable refresh branch moved during push attempt 1/3');
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/other', '/run', '/stable'] });
+    // The workflow checkout is handed back clean, on this run's refresh commit.
+    expect(git(setup.runner, ['status', '--porcelain'])).toBe('');
+    expect(JSON.parse(fs.readFileSync(path.join(setup.runner, COMPAT_SHARD), 'utf8')))
+      .toEqual({ paths: ['/base', '/main', '/run'] });
+  }, 120_000);
+
+  it('stops on a stable compat branch that shares no history with main, without reading its history', () => {
+    const setup = compatHistoryFixture(50);
+    // The shape that left the Cloudflare 404 refresh stuck for three days: a
+    // stable branch nothing connects to main. There is no base to reconcile on.
+    const seed = path.join(setup.directory, 'seed');
+    git(seed, ['checkout', '-q', '--orphan', 'fixture-unrelated']);
+    git(seed, ['commit', '-q', '-m', 'unrelated root']);
+    for (let index = 1; index <= 40; index += 1) {
+      write(seed, 'data/long-history.txt', `unrelated ${index}\n`);
+      git(seed, ['add', 'data/long-history.txt']);
+      git(seed, ['commit', '-q', '-m', `unrelated ${index}`]);
+    }
+    const unrelated = git(seed, ['rev-parse', 'HEAD']);
+    git(seed, ['push', '-q', '--force', 'origin', `${unrelated}:refs/heads/${COMPAT_BRANCH}`]);
+    const startedAt = Date.now();
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).not.toBe(0);
+    expect(run.output).toContain('::error::Missing compatibility merge base');
+    expect(run.commitCount).toBeLessThan(20);
+    expect(Date.now() - startedAt).toBeLessThan(60_000);
+    // Nothing was pushed over the branch.
+    expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(unrelated);
   }, 120_000);
 
   it('stops in seconds, without downloading history, when the base cannot be created and main moved', () => {
