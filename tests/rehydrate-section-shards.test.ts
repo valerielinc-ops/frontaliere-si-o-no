@@ -226,6 +226,15 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(warningLines.length).toBeGreaterThanOrEqual(2); // clone-failed + no-subtree cases, unchanged
   });
 
+  it('restores a physical Ticino fan-out before moving a clone into canonical dist', () => {
+    expect(script).toContain('ticino-tree-fanout.sh');
+    const restoreIdx = script.indexOf('ticino_tree_unfanout_stage "$section" "$tmp/$sub"');
+    const moveIdx = script.indexOf('mv "$tmp/$sub" "dist/$sub"');
+    expect(restoreIdx).toBeGreaterThan(-1);
+    expect(moveIdx).toBeGreaterThan(restoreIdx);
+    expect(script).toContain('shard tree fan-out could not be restored to canonical paths');
+  });
+
   it('never introduces a working-tree file check on a --no-checkout clone (same class as defect A/B)', () => {
     expect(script).not.toMatch(/\[\s+-f\s+"\$tmp\//);
   });
@@ -280,7 +289,7 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
     const lib = join(root, 'scripts', 'lib');
     mkdirSync(lib, { recursive: true });
-    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh']) {
+    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh', 'ticino-tree-fanout.sh']) {
       copyFileSync(resolve('scripts/lib', f), join(lib, f));
     }
     const slugs: Record<string, Record<string, string>> = {};

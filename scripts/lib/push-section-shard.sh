@@ -106,6 +106,7 @@ verify_tool="$repo_root/scripts/ci/shard-push-verify.mjs"
 # compact-article-shard-history.sh (issue #4881, AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/shard-cdn-rewrite.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 offload_script="$repo_root/scripts/offload-generated-images-cdn.mjs"
 
 # Canonical section path per locale, from the shared single source of truth.
@@ -122,6 +123,23 @@ case "$loc" in
   en|de|fr) sub="$loc/$slug" ;;
   *) echo "::error::unsupported locale '$loc' (expected it|de|en|fr)" >&2; exit 1 ;;
 esac
+
+# The Ticino section has enough first-level entries for its Git tree object to
+# exceed GitHub's hard 50 MiB limit. Delta mode cannot describe the physical
+# _tree fan-out, so always use the full overlay for this section. The source
+# build and all integrity/shrink guards remain unchanged.
+if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" != full ]; then
+  echo "::notice::ticino-$loc shard: forcing full overlay because the physical _tree fan-out is not delta-addressable"
+  SHARD_PUSH_MODE=full
+fi
+if [ "$section" = ticino ] && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
+  # SHARD_PUSH_VERIFY is advisory delta-vs-full comparison plumbing. Its plan
+  # is path-based and cannot represent the physical fan-out without materializing
+  # the entire no-checkout verifier index; the real full push still runs all
+  # source-count, shrink, integrity and remote-push guards below.
+  echo "::notice::ticino-$loc shard: skipping advisory delta verifier because the physical _tree fan-out is not delta-addressable"
+  SHARD_PUSH_VERIFY=0
+fi
 
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 ORIGIN_HOST="origin-$section-$loc.frontaliereticino.ch"
@@ -441,6 +459,10 @@ push_section_shard() {
       # Copy the offloaded subtree at its canonical path (hardlink when same-fs).
       mkdir -p "$stage/$(dirname "$sub")"
       cp -al "$stage_src/dist/$sub" "$stage/$sub" 2>/dev/null || cp -r "$stage_src/dist/$sub" "$stage/$sub"
+      if ! ticino_tree_fanout_stage "$section" "$stage/$sub"; then
+        echo "::error::$section-$loc shard: unable to fan out the physical Ticino tree" >&2
+        exit 1
+      fi
       if { [ "$SHARD_PUSH_MODE" = delta ] || [ "$verify_ready" = 1 ]; } \
          && [ -n "$delta_snapshot" ] && [ -s "$delta_snapshot" ]; then
         mkdir -p "$stage/$(dirname "$delta_sidecar")"

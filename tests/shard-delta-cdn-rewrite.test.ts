@@ -36,7 +36,10 @@ const OFFLOAD = join(ROOT, 'scripts/offload-generated-images-cdn.mjs');
 const PUSH_SECTION = join(ROOT, 'scripts/lib/push-section-shard.sh');
 const CDN_LIB = join(ROOT, 'scripts/lib/shard-cdn-rewrite.sh');
 const CDN_BASE = 'https://cdn.frontaliereticino.ch';
-const SCOPE = 'en/find-jobs-ticino';
+// Ticino deliberately forces full mode because its physical tree is fanned
+// out for GitHub's 50 MiB tree-object limit. Keep this delta test on a sibling
+// section so it continues to exercise the generic delta contract.
+const SCOPE = 'en/find-jobs-switzerland';
 const KINDS = [
   'active-job',
   'expired-soft-landing',
@@ -186,7 +189,7 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
   try {
     const env: NodeJS.ProcessEnv = {
       ...process.env,
-      SHARD_TICINO_EN_DEPLOY_KEY: 'test-deploy-key',
+      SHARD_SVIZZERA_EN_DEPLOY_KEY: 'test-deploy-key',
       SHARD_REPO_OVERRIDE: scenario.remote,
       SHARD_INCREMENTAL_MANIFEST_DIR: scenario.manifestDir,
       RUNNER_TEMP: runnerTemp,
@@ -198,17 +201,17 @@ function push(scenario: Scenario, cdnRewrite: string): { output: string; staged:
       GIT_TERMINAL_PROMPT: '0',
       SHARD_DELTA_CDN_REWRITE: cdnRewrite,
     };
-    const result = spawnSync('bash', [PUSH_SECTION, 'ticino', 'en', scenario.dist], {
+    const result = spawnSync('bash', [PUSH_SECTION, 'svizzera', 'en', scenario.dist], {
       cwd: ROOT, env, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'],
     });
     const output = `${result.stdout || ''}${result.stderr || ''}`;
     expect(result.status, output).toBe(0);
     waitForBackground(runnerTemp);
-    const ready = spawnSync('bash', ['-c', `source "${CDN_LIB}"; shard_cdn_rewrite_ready "$1" ticino en`, '_', runnerTemp], {
+    const ready = spawnSync('bash', ['-c', `source "${CDN_LIB}"; shard_cdn_rewrite_ready "$1" svizzera en`, '_', runnerTemp], {
       encoding: 'utf8',
     });
     expect(ready.status, ready.stdout).toBe(0);
-    const stagedRoot = join(runnerTemp, 'ticino-src-en', 'dist');
+    const stagedRoot = join(runnerTemp, 'svizzera-src-en', 'dist');
     expect(statSync(stagedRoot).isDirectory()).toBe(true);
     return { output, staged: snapshotTree(stagedRoot) };
   } finally {
