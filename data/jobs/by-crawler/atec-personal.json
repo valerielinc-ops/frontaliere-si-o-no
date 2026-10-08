@@ -1,8 +1,10 @@
 {
+  "crawlerKey": "atec-personal",
+  "assembledAt": "2026-10-08T22:15:23.447Z",
   "jobs": [
     {
       "id": "atec-personal-d669949cd6dc",
-      "slug": "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch",
+      "slug": "apparecchiature-di-prova-e-misura-responsabili-del-processo-80-100-a-atec-personal-ag-dudingen-fr",
       "slugByLocale": {
         "it": "apparecchiature-di-prova-e-misura-responsabili-del-processo-80-100-a-atec-personal-ag-dudingen-fr",
         "en": "process-responsible-test-and-measurement-equipment-80-100-a-atec-personal-ag-dudingen-fr",
@@ -31,7 +33,7 @@
       "url": "https://atec-personal.ch/stellenangebot/prozessverantwortlicher-pruef-und-messmittel-80-100-a-3186-duedingen/cac94c1f-e85d-40e7-814b-e9f55ab36b29",
       "source": "ATEC Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:17:20.724Z",
+      "crawledAt": "2026-10-08T22:15:16.826Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -52,14 +54,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen"
+        "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen",
+        "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen"
+          "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen",
+          "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
         ]
       },
-      "firstSeenAt": "2026-09-21T16:01:42.369Z"
+      "firstSeenAt": "2026-09-21T16:01:42.369Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
