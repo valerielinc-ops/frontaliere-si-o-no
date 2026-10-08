@@ -253,6 +253,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // sweep; the publisher rewrites their inputs, so they belong in the live
   // partition rather than the blocking PR suite.
   { file: "tests/blog-cover-ledger.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
+  // Corpus genuinely the subject: this publication contract checks the live
+  // article and SEO registries against their dedicated cover assets and ledger.
+  { file: "tests/blog-article-publication-contract.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "review", runtime: true },
   { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/", "public/news-ticker-live.json"], since: "2026-10-07", evidence: "review", runtime: true },
   { file: "tests/sync-articles-sitemaps-parse-gate.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
@@ -321,6 +324,20 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  * classifying them as live-data tests would silently remove useful code gates.
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
+  {
+    file: 'tests/license-audit.test.ts',
+    roots: ['data/events/'],
+    since: '2026-10-08',
+    evidence: 'review',
+    reason: 'the ROOT-anchored event slice path is paired with an in-memory value passed to auditEventSourceSlices and is never opened; event files used by replacement tests live under mkdtemp fixtures',
+  },
+  {
+    file: 'tests/sync-published-blog-covers.test.ts',
+    roots: ['packages/articles/content/'],
+    since: '2026-10-08',
+    evidence: 'review',
+    reason: 'the article registry paths are created and read only inside a mkdtemp fixture; the checkout read is limited to the ledger writer under test',
+  },
   // ─── 2026-09-19: falsi positivi emersi quando la scansione e' diventata
   // ricorsiva. Ognuno nomina una radice viva nel sorgente, e la traccia a
   // runtime dell'intera suite (hook su fs + moduli + processi figli) non ha
