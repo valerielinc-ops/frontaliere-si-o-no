@@ -431,7 +431,7 @@ export function candidateAnswerForField(candidate, field) {
   // The civil status the candidate's CV states in its own words, or they corrected (candidateWithEdits
   // `personal`): the one option of the list that says it, or the words themselves in a text field.
   if (topic === 'civil_status') {
-    const stated = String(candidate?.profile?.civilStatus || '').trim();
+    const stated = statedCivilStatus(candidate);
     if (!civilStatusCode(stated)) return null;
     // A list takes its one option that says the status; a field with no list takes the CV's words as they are.
     const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
@@ -446,6 +446,12 @@ export function candidateAnswerForField(candidate, field) {
   const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
   return other ? { value: other.label, source: 'profile' } : null;
 }
+
+/**
+ * The civil status the candidate's CV states in its own words, or they corrected: as the planner's data hold it
+ * (candidateForForm, `profile.civilStatus`), or as candidateWithEdits returns it (`personal.civilStatus`).
+ */
+const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
 export function answeredByCandidate(candidate, question, answer) {
@@ -557,7 +563,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // answer to this very question, or declining. Never a planner's choice; the right option is put in
     // below (candidateAnswerForField) when the candidate has said it.
     if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label) === 'civil_status') {
-      const stated = civilStatusCode(candidate.profile?.civilStatus);
+      const stated = civilStatusCode(statedCivilStatus(candidate));
       if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
         ask(field);
         continue;

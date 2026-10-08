@@ -209,13 +209,17 @@ export function candidateWithEdits({ order, draft, flow }) {
   profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
-  // What the CV says is a default, never a rule. The candidate's own word comes first: their answer (a field
-  // they corrected stands as the answer already, even emptied: the loop above), then the field itself, and
-  // only where they touched neither, the CV. `has`, not truthiness: a field they emptied stays empty.
+  // What the CV says is a default, never a rule: the candidate's own word comes first. The field they
+  // corrected stands, even emptied (`has`, not truthiness) and whatever an older answer said; unless the
+  // draft asks the question again, where the answer is theirs to give and the newest word. Then an answer;
+  // and only where they touched neither, the CV.
   const cv = cvPersonalFacts(draft?.factSources?.text);
-  const answered = clean(answers.salutation, 40);
-  const salutation = answered || (has(overrides, 'salutation') ? overrides.salutation : salutationFor(cv.gender, order?.locale || 'it'));
-  if (salutation) answers.salutation = salutation;
+  const corrected = has(overrides, 'salutation');
+  const salutation = corrected && !asked.has('salutation')
+    ? overrides.salutation
+    : clean(answers.salutation, 40) || (corrected ? overrides.salutation : salutationFor(cv.gender, order?.locale || 'it'));
+  answers.salutation = salutation;
+  if (!salutation) delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };
 }

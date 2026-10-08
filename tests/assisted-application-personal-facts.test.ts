@@ -148,6 +148,21 @@ describe('what the CV says is not asked again', () => {
     }
   });
 
+  // Second review of #12348, its acceptance to the letter: an older answer and the field emptied since.
+  it('lets an emptied field win over an older answer, and a question the draft asks again win over both', () => {
+    const flow = { answers: { salutation: 'Monsieur' }, formOverrides: { salutation: '' } };
+    const cleared = candidateWithEdits({ order, draft: draftOf(CV_FR), flow });
+    expect(cleared.personal.salutation).toBe('');
+    expect('salutation' in cleared.answers).toBe(false);
+    expect(candidateWithEdits({ order, draft: draftOf('Karim Exemple'), flow }).personal.salutation).toBe('');
+    // The draft asks the form of address again, and the candidate answers it: their newest word.
+    const asking = draftOf(CV_FR, [{ id: 'salutation', question: 'Quelle civilité indiquer dans les formulaires de candidature ?', required: false }]);
+    expect(candidateWithEdits({ order, draft: asking, flow }).personal.salutation).toBe('Monsieur');
+    // Asked and not answered: the field they emptied stays empty, and a field they never touched takes the CV.
+    expect(candidateWithEdits({ order, draft: asking, flow: { formOverrides: { salutation: '' } } }).personal.salutation).toBe('');
+    expect(candidateWithEdits({ order, draft: asking, flow: {} }).personal.salutation).toBe('Monsieur');
+  });
+
   it('shows both among the form fields, to be corrected from a list, and only when known', () => {
     const fields = formAnswersWithEdits({ order, draft: draftOf(CV_FR), flow: {} });
     expect(fields.map((field: any) => field.key).slice(0, 2)).toEqual(['salutation', 'firstName']);
@@ -211,6 +226,10 @@ describe('a portal that asks the civil status', () => {
     expect(candidateAnswerForField(married, { id: 'f2', kind: 'text', label: 'État civil', required: true })).toEqual({ value: 'Marié', source: 'profile' });
     expect(candidateAnswerForField({ profile: { civilStatus: 'Marié' } }, { label: 'Marital status', type: 'text' })).toEqual({ value: 'Marié', source: 'profile' });
     expect(candidateAnswerForField({ profile: { civilStatus: 'Marié' } }, { id: 'f3', kind: 'text', label: 'Marital status', required: true, options: [] })).toEqual({ value: 'Marié', source: 'profile' });
+    // The same from the candidate as candidateWithEdits returns it (second review of #12348, to the letter).
+    expect(candidateAnswerForField({ personal: { civilStatus: 'Marié' }, profile: {} }, { label: 'Marital status', type: 'text' })).toEqual({ value: 'Marié', source: 'profile' });
+    expect(candidateAnswerForField({ personal: { civilStatus: 'Marié' }, profile: {} }, field)).toEqual({ value: 'Married (Switzerland)', source: 'profile' });
+    expect(guardPlan(select('Single (Switzerland)'), [field], { personal: { civilStatus: 'Marié' }, profile: {}, answers: {} }).actions).toEqual([expect.objectContaining({ value: 'Married (Switzerland)' })]);
     expect(guardPlan({ actions: [], missingRequired: [] }, [{ id: 'f3', kind: 'text', label: 'Marital status', required: true }], married).actions).toEqual([expect.objectContaining({ fieldId: 'f3', action: 'fill', value: 'Marié' })]);
   });
 
