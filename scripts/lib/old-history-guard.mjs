@@ -316,13 +316,16 @@ export function proveHeadAddsNoOldHistory({
 // The bounded proof is about the remote branch as it is now, so its base is
 // refreshed first. No `--filter` here, on purpose: this is the fetch a data
 // writer runs next anyway, and an ordinary fetch leaves the checkout the kind
-// of clone `actions/checkout` made, not a treeless one.
+// of clone `actions/checkout` made, not a treeless one. It also registers no
+// promisor remote: a filtered fetch names that remote after its URL, and the
+// callers that publish data pass a URL that carries their token (issue 12320).
 function refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }) {
   withHistoryGuardLock(cwd, () => {
     runGit([
       'fetch',
       '--quiet',
       '--no-tags',
+      '--no-write-fetch-head',
       remote,
       `+refs/heads/${branch}:${baseRef}`,
     ], { cwd, timeout: BOUNDED_PROOF_FETCH_TIMEOUT_MS });

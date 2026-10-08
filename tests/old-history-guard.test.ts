@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -358,6 +358,43 @@ describe('old-history-guard', () => {
       expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
       expect(() => git(checkout, 'cat-file', '-e', `${fixture.fixtureMarker}^{commit}`)).toThrow();
       expect(() => git(checkout, 'config', '--get', 'remote.origin.promisor')).toThrow();
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('non lascia nel checkout l’URL del remoto: né remoto promisor né FETCH_HEAD (issue 12320)', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      fixture.advanceMain(1);
+      // The data-refresh helper passes the push URL, which carries its token.
+      // A filtered fetch would register that URL as a promisor remote.
+      const remoteUrl = `file://${fixture.remote}`;
+      const fetchHead = () => {
+        try {
+          return readFileSync(join(checkout, '.git', 'FETCH_HEAD'), 'utf8');
+        } catch {
+          return null;
+        }
+      };
+      const fetchHeadBefore = fetchHead();
+
+      expect(checkOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: remoteUrl,
+        branch: 'main',
+      })).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+
+      const remoteKeys = git(checkout, 'config', '--local', '--name-only', '--get-regexp', '^remote\\.');
+      expect(remoteKeys.split('\n').filter((key) => !key.startsWith('remote.origin.'))).toEqual([]);
+      expect(remoteKeys).not.toContain('promisor');
+      expect(fetchHead()).toBe(fetchHeadBefore);
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
     } finally {
       fixture.cleanup();
     }
