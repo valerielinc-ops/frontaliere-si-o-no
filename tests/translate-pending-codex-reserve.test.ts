@@ -179,7 +179,8 @@ describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () =
         // minuti residui (gate) e non devono essere saltate piu' spesso.
         FREE_TRANSLATE_CODEX_MAX_MS: phase === PHASE_2B ? '1500000' : '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
-        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+        // Descrizioni (2b, 2e): 25 righe per richiesta; titoli (2a.2, 2d): 10.
+        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: phase === PHASE_2B || phase === PHASE_2E ? '25' : '10',
         FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000',
       });
     }

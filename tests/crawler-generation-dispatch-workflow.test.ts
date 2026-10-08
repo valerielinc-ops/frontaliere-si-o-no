@@ -302,7 +302,8 @@ describe('crawler generation PR B workflow wiring', () => {
       expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
       for (const phaseName of CODEX_PHASES) {
         const phase = findUniqueStep(steps, phaseName).step;
-        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, phaseName).toBe('10');
+        // Descrizioni (2b, 2e): 25 righe per richiesta; titoli (2a.2, 2d): 10.
+        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, phaseName).toBe(/Phase 2[be]:/.test(phaseName) ? '25' : '10');
         expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, phaseName).toBe('3000');
         expect(phase.env?.FREE_TRANSLATE_CODEX_TIER, phaseName).toBeUndefined();
       }

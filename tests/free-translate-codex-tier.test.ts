@@ -493,6 +493,39 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 
+  it('quattro gruppi di fila con una riga vuota ciascuno non fermano Codex: una richiesta che traduce azzera la serie', async () => {
+    // Con gruppi da decine di righe quasi ogni richiesta contiene una riga
+    // respinta (run 37791884167: 144 su 2860). Se una richiesta parziale
+    // entrasse nella serie, tre richieste riuscite di fila spegnerebbero il tier.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '50');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS', '50000');
+    try {
+      const calls = stubCodex((messages) => {
+        const items = batchItems(messages);
+        if (!items) return codexAnswer()(messages);
+        return JSON.stringify({ items: items.map(({ id, text }, index) => ({
+          id,
+          text: index === 0 ? '' : translationOf(text),
+        })) });
+      });
+      const all = numbered(16);
+      const { lines } = await captureLog(async () => {
+        for (let round = 0; round < 4; round += 1) {
+          await Promise.all(all.slice(round * 4, round * 4 + 4).map((text) => tr(text)));
+        }
+      });
+      expect(calls).toHaveLength(4);
+      expect(lines.filter((line) => line.includes('reason=empty'))).toHaveLength(4);
+      expect(lines.filter((line) => line.includes('fallimenti consecutivi'))).toHaveLength(0);
+      expect(ft.getCodexTierStats().stopReason).toBeNull();
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS', '');
+    }
+  });
+
   it('il burst breve di tre testi occupa un gruppo invece di tre singleton', async () => {
     vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
     vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');

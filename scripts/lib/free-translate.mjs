@@ -1874,15 +1874,16 @@ async function _translateGroupWithCodex(group) {
   });
   // Un eco sostanziale della sorgente non e' una traduzione: `tryTier` lo
   // rifiuta e lo conta fra i passthrough, e qui conta come fallimento.
-  // Una richiesta parziale conta una sola volta per lo streak, pur
-  // conservando i risultati buoni: le righe vuote/respinte ricadono nei tier
-  // successivi senza trasformare ogni riga in un fallimento della chiamata.
-  // L'eccezione e' una riga invariabile, che non consuma lo streak.
-  if (realFailures.size > 0) {
-    _codexFailedRequests += 1;
-    _noteCodexFailure(realFailures, targetLang);
-  }
-  else if (translated.size > 0) _resetCodexFailureStreak();
+  // Una richiesta che ha tradotto anche una sola riga prova che il tier
+  // funziona: azzera lo streak e conserva i risultati buoni, mentre le righe
+  // vuote/respinte ricadono nei tier successivi. Con gruppi da decine di righe
+  // quasi ogni richiesta contiene qualche riga respinta (run 37791884167: 144
+  // su 2860 nella 2b): contarla come fallimento spegnerebbe il tier dopo tre
+  // richieste riuscite. `failedRequests` resta una metrica, non lo streak.
+  // Solo una richiesta SENZA alcuna traduzione entra nello streak, una volta.
+  if (realFailures.size > 0) _codexFailedRequests += 1;
+  if (translated.size > 0) _resetCodexFailureStreak();
+  else if (realFailures.size > 0) _noteCodexFailure(realFailures, targetLang);
   else if (invariantEchoes.size > 0) _resetCodexFailureStreak();
   return results;
 }
