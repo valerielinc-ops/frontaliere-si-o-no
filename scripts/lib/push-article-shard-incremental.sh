@@ -144,6 +144,8 @@ if [ -z "${RUNNER_TEMP:-}" ]; then
   RUNNER_TEMP="$(mktemp -d)"
   echo "ℹ️ RUNNER_TEMP unset — using temp dir $RUNNER_TEMP"
 fi
+SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$section-$loc"
+: > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
 
 keyfile="$RUNNER_TEMP/article-shard_${section}_${loc}_key"
 printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
@@ -426,6 +428,13 @@ _attempt() {
   # Published for the PAT fallback below: it re-pushes THIS commit, so it must
   # outlive the function scope.
   last_commit="$commit"
+
+  local tree_check_rc=0
+  shard_report_largest_tree "$stage" "$commit" "$section-$loc article shard" || tree_check_rc=$?
+  if [ "$tree_check_rc" -ne 0 ]; then
+    if [ "$tree_check_rc" -eq 3 ]; then permanent_fail=1; fi
+    return "$tree_check_rc"
+  fi
 
   # Never `push -f`: a non-fast-forward here means someone else (the periodic
   # full deploy's push-section-shard.sh, or another fast-path publish) pushed

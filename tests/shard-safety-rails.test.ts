@@ -9,8 +9,10 @@
 // #6) — runtime behavior of that shared logic is covered separately in
 // tests/shard-git-helpers.test.ts against real temp-git-repo fixtures.
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { buildFailureIssue, readShardFailureReasons } from '../scripts/ci/report-shard-push-failure.mjs';
 
 const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
@@ -96,6 +98,17 @@ describe('shard push scripts — safety rail invariants (issue #4881)', () => {
         expect(script).toMatch(/shard_push_with_retry\s+"\$stage"/);
         expect(script).toMatch(/shard_orphan_flatten_and_push\s+"\$stage"/);
       });
+
+      it('preflights every direct stage push and skips orphan self-heal for observer rc 3', () => {
+        const pushCalls = [...script.matchAll(/(?:shard_push_with_retry|shard_pat_push)\s+"\$stage"/g)];
+        expect(pushCalls.length).toBeGreaterThan(0);
+        for (const match of pushCalls) {
+          const before = script.slice(Math.max(0, (match.index ?? 0) - 1800), match.index ?? 0);
+          expect(before).toContain('shard_report_largest_tree "$stage"');
+        }
+        expect(script).toMatch(/_push_rc[^\n]*-ne 3/);
+        expect(script).toMatch(/_push_attempted/);
+      });
     });
   }
 });
@@ -142,6 +155,46 @@ describe('scripts/lib/shard-git-helpers.sh — shape', () => {
     expect(script).toMatch(/pat_delay="\$\(shard_pat_retry_delay\)"/);
   });
 
+  it('espone il classificatore e l’osservatore del limite degli alberi', () => {
+    expect(script).toMatch(/shard_push_error_is_remote_object_limit\(\)/);
+    expect(script).toMatch(/SHARD_REMOTE_TREE_LIMIT_BYTES:-52428800/);
+    expect(script).toMatch(/SHARD_REMOTE_TREE_REJECT_BYTES:-52462972/);
+    expect(script).toMatch(/git\s+-C\s+"\$dir"\s+cat-file\s+--batch-check/);
+  });
+
+});
+
+describe('scripts/lib/push-article-shard-incremental.sh — tree preflight', () => {
+  const script = read('scripts/lib/push-article-shard-incremental.sh');
+
+  it('osserva il commit-tree blobless prima del push diretto e blocca il fallback PAT sul limite permanente', () => {
+    expect(script).toMatch(/shard_report_largest_tree\s+"\$stage"\s+"\$commit"/);
+    expect(script).toMatch(/if \[ "\$tree_check_rc" -eq 3 \]; then permanent_fail=1; fi/);
+    expect(script).toMatch(/\[ "\$permanent_fail" != 1 \] && \[ -n "\$last_commit" \]/);
+  });
+});
+
+describe('scripts/ci/report-shard-push-failure.mjs — cause ordering', () => {
+  it('apre l’issue con la causa letta dal file dello shard', () => {
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'shard-report-'));
+    const cause = 'GitHub remote object/tree size limit';
+    writeFileSync(join(runnerTemp, 'shard-fail-reason-ticino-de'), `${cause}\n`);
+    try {
+      const reasons = readShardFailureReasons({
+        locale: 'de',
+        shards: ['ticino'],
+        runnerTemp,
+      });
+      const issue = buildFailureIssue({ locale: 'de', shards: ['ticino'], reasons });
+      expect(issue.description).toContain(`- \`ticino-de\`: ${cause}`);
+      expect(issue.description.indexOf('### ⚠️ Causa rilevata dallo step di push')).toBeLessThan(
+        issue.description.indexOf('### Cosa guardare, in ordine'),
+      );
+      expect(issue.description).toContain('la lista ordinata sotto è una graduatoria di ipotesi');
+    } finally {
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('scripts/ci/prune-cdn-assets.mjs — PAT fallback shape', () => {

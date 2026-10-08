@@ -94,6 +94,19 @@ export function buildFailureIssue({ locale, shards, runUrl, reasons = {} }) {
   };
 }
 
+export function readShardFailureReasons({ locale, shards, runnerTemp = process.env.RUNNER_TEMP || '/tmp' }) {
+  const reasons = {};
+  for (const s of shards) {
+    try {
+      const raw = readFileSync(join(runnerTemp, `shard-fail-reason-${s}-${locale}`), 'utf8').trim();
+      if (raw) reasons[s] = raw;
+    } catch {
+      /* no recorded reason for this shard */
+    }
+  }
+  return reasons;
+}
+
 async function main() {
   const locale = arg('locale');
   const shards = (arg('shards') || '')
@@ -109,18 +122,10 @@ async function main() {
       ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
       : undefined;
 
-  // push-section-shard.sh drops one line per shard it refused, naming the real
+  // The push helpers drop one line per shard they refused, naming the real
   // cause. Absent file = cause not recorded (e.g. an auth failure inside the
   // push itself) — the ranked checklist still carries the issue.
-  const reasons = {};
-  for (const s of shards) {
-    try {
-      const raw = readFileSync(join(process.env.RUNNER_TEMP || '/tmp', `shard-fail-reason-${s}-${locale}`), 'utf8').trim();
-      if (raw) reasons[s] = raw;
-    } catch {
-      /* no recorded reason for this shard */
-    }
-  }
+  const reasons = readShardFailureReasons({ locale, shards });
 
   const { title, description } = buildFailureIssue({ locale, shards, runUrl, reasons });
   await createGithubIssue({

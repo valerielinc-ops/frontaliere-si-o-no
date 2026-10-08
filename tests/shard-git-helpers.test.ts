@@ -13,7 +13,8 @@ import { chmodSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-const HELPERS = join(process.cwd(), 'scripts/lib/shard-git-helpers.sh');
+const HELPERS =
+  process.env.SHARD_GIT_HELPERS_PATH || join(process.cwd(), 'scripts/lib/shard-git-helpers.sh');
 
 function sh(cmd: string, cwd?: string): string {
   return execSync(cmd, { cwd, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] }).trim();
@@ -310,7 +311,7 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       const rc = runHelperScript(
         `shard_orphan_flatten_and_push "${stage}" "${bare}" "flatten test commit" "test-label"; echo $?`,
       );
-      expect(rc).toBe('0');
+      expect(rc.split('\n').pop()).toBe('0');
 
       const verify = join(root, 'flatten-verify');
       sh(`git clone -q "${bare}" "${verify}"`);
@@ -368,6 +369,177 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       // rights" tail, which git prints here too).
       expect(out).not.toMatch(/auth failure \(not transient\)/);
     }, 30_000);
+
+    it('classifies a GitHub object-size rejection as permanent and never falls back to PAT', () => {
+      const sshRejecting = join(root, 'object-limit-ssh-remote.git');
+      const patRemote = join(root, 'object-limit-pat-remote.git');
+      const sshAttempts = join(root, 'object-limit-ssh.attempts');
+      const patAttempts = join(root, 'object-limit-pat.attempts');
+      const reasonFile = join(root, 'object-limit-fail-reason');
+      sh(`git init -q --bare -b main "${sshRejecting}"`);
+      sh(`git init -q --bare -b main "${patRemote}"`);
+      writeFileSync(sshAttempts, '0');
+      writeFileSync(patAttempts, '0');
+      writeFileSync(
+        join(sshRejecting, 'hooks/pre-receive'),
+        '#!/bin/sh\n' +
+          `attempts=$(cat "${sshAttempts}")\n` +
+          'attempts=$((attempts + 1))\n' +
+          `printf '%s' "$attempts" > "${sshAttempts}"\n` +
+          'echo "fatal: non-blob object size limit exceeded (tree 628cdcdb1f39807b81c60cec2278a1552a64be95 is 52462972 bytes)" >&2\n' +
+          'exit 1\n',
+        { mode: 0o755 },
+      );
+      writeFileSync(
+        join(patRemote, 'hooks/pre-receive'),
+        '#!/bin/sh\n' +
+          `attempts=$(cat "${patAttempts}")\n` +
+          'attempts=$((attempts + 1))\n' +
+          `printf '%s' "$attempts" > "${patAttempts}"\n` +
+          'exit 0\n',
+        { mode: 0o755 },
+      );
+      const stage = join(root, 'object-limit-stage');
+      sh(`mkdir -p "${stage}"`);
+      sh('git init -q -b main', stage);
+      gitIdentity(stage);
+      writeFileSync(join(stage, 'f.txt'), 'object limit');
+      sh('git add -A', stage);
+      sh('git commit -qm object-limit', stage);
+      sh(
+        `git -C "${stage}" config url."${sshRejecting}".insteadOf git@github.com:owner/frontaliere-object-limit.git`,
+      );
+      sh(
+        `git -C "${stage}" config url."${patRemote}".insteadOf https://github.com/owner/frontaliere-object-limit.git`,
+      );
+
+      const out = runHelperScript(
+        `SHARD_PUSH_RETRY_DELAY=0 SHARD_PUSH_PAT=dummy-token SHARD_PUSH_FAIL_REASON_FILE="${reasonFile}" ` +
+          `shard_push_with_retry "${stage}" "git@github.com:owner/frontaliere-object-limit.git" main object-limit 2>&1; echo "RC=$?"`,
+        20_000,
+      );
+      expect(out).toContain('RC=3');
+      expect(out).toMatch(/::error::.*GitHub.*size limit.*permanent.*not transient/);
+      expect(out).toContain('non-blob object size limit exceeded');
+      expect(out).not.toContain('retrying over HTTPS with a PAT');
+      expect(sh(`cat "${sshAttempts}"`)).toBe('1');
+      expect(sh(`cat "${patAttempts}"`)).toBe('0');
+      expect(readFileSync(reasonFile, 'utf8').trim()).toBe('GitHub remote object/tree size limit');
+    }, 25_000);
+
+    it('continua a ritentare un rifiuto remoto non classificato come limite oggetti', () => {
+      const bare = join(root, 'generic-reject-remote.git');
+      const attemptsFile = join(root, 'generic-reject.attempts');
+      sh(`git init -q --bare -b main "${bare}"`);
+      writeFileSync(attemptsFile, '0');
+      writeFileSync(
+        join(bare, 'hooks/pre-receive'),
+        '#!/bin/sh\n' +
+          `attempts=$(cat "${attemptsFile}")\n` +
+          'attempts=$((attempts + 1))\n' +
+          `printf '%s' "$attempts" > "${attemptsFile}"\n` +
+          'echo "pre-receive hook declined" >&2\n' +
+          'exit 1\n',
+        { mode: 0o755 },
+      );
+      const stage = join(root, 'generic-reject-stage');
+      sh(`mkdir -p "${stage}"`);
+      sh('git init -q -b main', stage);
+      gitIdentity(stage);
+      writeFileSync(join(stage, 'f.txt'), 'generic refusal');
+      sh('git add -A', stage);
+      sh('git commit -qm generic-refusal', stage);
+
+      const out = runHelperScript(
+        `SHARD_PUSH_RETRY_DELAY=0 shard_push_with_retry "${stage}" "${bare}" main generic-reject; echo "RC=$?"`,
+        20_000,
+      );
+      expect(out).toMatch(/push attempt 1\/3 failed/);
+      expect(out).toMatch(/push attempt 2\/3 failed/);
+      expect(out).toContain('RC=1');
+      expect(sh(`cat "${attemptsFile}"`)).toBe('3');
+    }, 25_000);
+  });
+
+  describe('shard_report_largest_tree', () => {
+    function treeFixture(name: string): string {
+      const repo = join(root, name);
+      const deep = join(repo, 'deep/canton');
+      sh(`mkdir -p "${deep}"`);
+      for (let i = 0; i < 64; i += 1) {
+        writeFileSync(join(deep, `page-${String(i).padStart(3, '0')}.html`), `<p>${i}</p>`);
+      }
+      writeFileSync(join(repo, 'root.txt'), 'root');
+      sh('git init -q -b main', repo);
+      gitIdentity(repo);
+      sh('git add -A', repo);
+      sh('git commit -qm tree-fixture', repo);
+      return repo;
+    }
+
+    it('riporta bytes e percorso dell’albero più grande, includendo la radice', () => {
+      const repo = treeFixture('largest-tree-repo');
+      const tree = sh(`git -C "${repo}" rev-parse HEAD:deep/canton`);
+      const bytes = sh(`git -C "${repo}" cat-file -s "${tree}"`);
+      const out = runHelperScript(
+        `shard_report_largest_tree "${repo}" HEAD observer; echo "RC=$?"`,
+      );
+      expect(out).toContain(`observer: largest tree ${bytes} bytes at deep/canton`);
+      expect(out).toMatch(/\([0-9]+\.[0-9]+% of the remote tree limit\)/);
+      expect(out).toContain('RC=0');
+    });
+
+    it('rifiuta prima del push quando la soglia configurata è raggiunta', () => {
+      const repo = treeFixture('largest-tree-reject-repo');
+      const tree = sh(`git -C "${repo}" rev-parse HEAD:deep/canton`);
+      const bytes = sh(`git -C "${repo}" cat-file -s "${tree}"`);
+      const bare = join(root, 'largest-tree-reject-remote.git');
+      const attempts = join(root, 'largest-tree-reject.attempts');
+      const reasonFile = join(root, 'largest-tree-reject-reason');
+      sh(`git init -q --bare -b main "${bare}"`);
+      writeFileSync(attempts, '0');
+      writeFileSync(
+        join(bare, 'hooks/pre-receive'),
+        '#!/bin/sh\n' +
+          `attempts=$(cat "${attempts}")\n` +
+          'attempts=$((attempts + 1))\n' +
+          `printf '%s' "$attempts" > "${attempts}"\n` +
+          'exit 0\n',
+        { mode: 0o755 },
+      );
+      const out = runHelperScript(
+        `SHARD_REMOTE_TREE_REJECT_BYTES=${bytes} SHARD_PUSH_FAIL_REASON_FILE="${reasonFile}" ` +
+          `tree_rc=0; shard_report_largest_tree "${repo}" HEAD observer || tree_rc=$?; ` +
+          'if [ "$tree_rc" -eq 0 ]; then git -C "' + repo + '" push "' + bare + '" HEAD:main; else echo PUSH_SKIPPED; fi; ' +
+          'echo "TREE_RC=$tree_rc"',
+      );
+      expect(out).toContain('TREE_RC=3');
+      expect(out).toContain('PUSH_SKIPPED');
+      expect(sh(`cat "${attempts}"`)).toBe('0');
+      expect(readFileSync(reasonFile, 'utf8').trim()).toContain('GitHub remote object/tree size limit');
+    });
+
+    it('funziona su un commit-tree con un blob mancante', () => {
+      const repo = treeFixture('largest-tree-blobless-repo');
+      const index = join(root, 'largest-tree-blobless.index');
+      const missingSha = sh(`printf '%s' missing | git -C "${repo}" hash-object -w --stdin`);
+      sh(`GIT_INDEX_FILE="${index}" git -C "${repo}" read-tree HEAD`);
+      sh(
+        `GIT_INDEX_FILE="${index}" git -C "${repo}" update-index --add --cacheinfo 100644,${missingSha},deep/canton/missing.html`,
+      );
+      const tree = sh(`GIT_INDEX_FILE="${index}" git -C "${repo}" write-tree --missing-ok`);
+      const commit = sh(
+        `GIT_AUTHOR_NAME="Test User" GIT_AUTHOR_EMAIL=test@example.com ` +
+          `GIT_COMMITTER_NAME="Test User" GIT_COMMITTER_EMAIL=test@example.com ` +
+          `git -C "${repo}" commit-tree "${tree}" -p HEAD -m blobless`,
+      );
+      rmSync(join(repo, '.git/objects', missingSha.slice(0, 2), missingSha.slice(2)), { force: true });
+      const out = runHelperScript(
+        `shard_report_largest_tree "${repo}" "${commit}" blobless; echo "RC=$?"`,
+      );
+      expect(out).toMatch(/blobless: largest tree [0-9]+ bytes at deep\/canton \(/);
+      expect(out).toContain('RC=0');
+    });
   });
 
   // ── PAT fallback (incident 2026-07-30, deploy run 30522223432) ────────────
@@ -475,6 +647,31 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
         'deploy-key authentication/authorization failure',
         'transient SSH transport failure',
       ]);
+    });
+
+    it('classifies all supported GitHub object-size refusals, but not transport/auth noise', () => {
+      const logs = [
+        'remote: fatal: non-blob object size limit exceeded (tree deadbeef is 52462972 bytes)\n',
+        "remote: error: exceeds GitHub's file size limit\n",
+        'remote: error: GH001: Large files detected\n',
+        'remote: fatal: pack exceeds maximum allowed size\n',
+      ];
+      const paths = logs.map((content, index) => {
+        const path = join(root, `object-limit-class-${index}.log`);
+        writeFileSync(path, content);
+        return path;
+      });
+      const earlyEof = join(root, 'object-limit-early-eof.log');
+      const permissionDenied = join(root, 'object-limit-permission-denied.log');
+      writeFileSync(earlyEof, 'fatal: early EOF\n');
+      writeFileSync(permissionDenied, 'Permission denied (publickey)\n');
+      const out = runHelperScript(
+        paths.map((path) => `shard_push_error_is_remote_object_limit "${path}" && echo YES || echo NO`).join('; ') +
+          `; shard_push_error_is_remote_object_limit "${earlyEof}" && echo YES || echo NO; ` +
+          `shard_push_error_is_remote_object_limit "${permissionDenied}" && echo YES || echo NO; ` +
+          `shard_push_failure_reason "${paths[0]}"`,
+      );
+      expect(out.split('\n')).toEqual(['YES', 'YES', 'YES', 'YES', 'NO', 'NO', 'GitHub remote object/tree size limit']);
     });
 
     it('short-circuits the SSH retries on an auth refusal instead of burning all 3', () => {

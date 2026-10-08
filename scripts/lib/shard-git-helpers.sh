@@ -1124,6 +1124,15 @@ shard_push_error_is_auth() {
   grep -qEi 'denied to (deploy key|user)|permission denied \(publickey\)|permission to .+ denied|repository not found|403 forbidden' "$1"
 }
 
+# shard_push_error_is_remote_object_limit <logfile>
+# True when GitHub has rejected the pack or one of its tree/blob objects for a
+# permanent size limit. These strings are GitHub's stable rejection forms:
+# the remote does not expose the tree limit as a machine-readable code, so the
+# exact stderr wording is the evidence we can classify without guessing.
+shard_push_error_is_remote_object_limit() {
+  grep -qEi "non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size" "$1"
+}
+
 # shard_push_error_is_transport <logfile>
 # True when a push was interrupted by the network/remote transport rather than
 # rejected by the credential. Keep this in one helper because both the SSH
@@ -1149,13 +1158,114 @@ shard_push_error_is_transient() {
 # must never be reported as a broken deploy key (incident 2026-09-14).
 shard_push_failure_reason() {
   local logfile="$1"
-  if shard_push_error_is_auth "$logfile"; then
+  if shard_push_error_is_remote_object_limit "$logfile"; then
+    printf '%s' 'GitHub remote object/tree size limit'
+  elif shard_push_error_is_auth "$logfile"; then
     printf '%s' 'deploy-key authentication/authorization failure'
   elif shard_push_error_is_transport "$logfile"; then
     printf '%s' 'transient SSH transport failure'
   else
     printf '%s' 'unclassified SSH push failure'
   fi
+}
+
+# Write one already-sanitized, single-line cause for report-shard-push-failure.
+# Callers set this only for a shard in the runner temp directory; no token is
+# ever interpolated into the value written here.
+shard_record_push_failure_reason() {
+  local reason="$1" file="${SHARD_PUSH_FAIL_REASON_FILE:-}"
+  [ -n "$file" ] || return 0
+  printf '%s\n' "$reason" > "$file" 2>/dev/null || true
+}
+
+# shard_report_largest_tree <git_dir> <commit-ish> <label>
+# Reports the largest tree object reachable from the commit that is about to
+# be published. GitHub does not print its remote tree limit, so the first
+# threshold is an inferred 50 MiB advisory reference; the second is the
+# smallest tree size that GitHub has actually rejected (run 37728960699).
+# Both can be overridden for tests or an owner-approved platform change.
+#
+# The traversal intentionally asks Git only for tree names and then sends all
+# OIDs through one cat-file batch. It never opens a blob, which is required for
+# commit-tree plans built with `git write-tree --missing-ok`.
+shard_report_largest_tree() {
+  local dir="$1" commitish="$2" label="${3:-shard}"
+  # 52428800 = 50 MiB, deduced from GitHub's behavior because GitHub does not
+  # publish this tree-object limit; use it only for the percentage/warning.
+  local tree_limit="${SHARD_REMOTE_TREE_LIMIT_BYTES:-52428800}"
+  # 52462972 = smallest rejected tree observed in run 37728960699.
+  local reject_limit="${SHARD_REMOTE_TREE_REJECT_BYTES:-52462972}"
+  local work root_tree tree_records tree_oids tree_sizes largest largest_bytes largest_path pct
+
+  case "$tree_limit" in ''|*[!0-9]*)
+    echo "::error::$label: SHARD_REMOTE_TREE_LIMIT_BYTES must be a non-negative integer" >&2
+    return 1
+    ;;
+  esac
+  case "$reject_limit" in ''|*[!0-9]*)
+    echo "::error::$label: SHARD_REMOTE_TREE_REJECT_BYTES must be a non-negative integer" >&2
+    return 1
+    ;;
+  esac
+
+  work="$(mktemp -d)" || return 1
+  tree_records="$work/tree-records"
+  tree_oids="$work/tree-oids"
+  tree_sizes="$work/tree-sizes"
+  if ! root_tree="$(git -C "$dir" rev-parse "$commitish^{tree}" 2>/dev/null)"; then
+    echo "::error::$label: cannot resolve tree for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  if ! git -C "$dir" ls-tree -r -d "$commitish" > "$work/ls-tree" 2>/dev/null; then
+    echo "::error::$label: cannot enumerate trees for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  {
+    printf '%s\t%s\n' "$root_tree" .
+    awk -F '\t' '{ split($1, fields, /[[:space:]]+/); if (fields[2] == "tree") print fields[3] "\t" $2 }' "$work/ls-tree"
+  } > "$tree_records"
+  cut -f1 "$tree_records" > "$tree_oids"
+  if ! git -C "$dir" cat-file --batch-check < "$tree_oids" > "$tree_sizes"; then
+    echo "::error::$label: cannot inspect tree object sizes for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  largest="$(awk -F '\t' '
+    NR == FNR { paths[FNR] = $2; next }
+    {
+      split($0, fields, /[[:space:]]+/)
+      if (fields[2] != "tree" || fields[3] !~ /^[0-9]+$/) next
+      if (fields[3] + 0 > max) { max = fields[3] + 0; max_path = paths[FNR] }
+    }
+    END { if (max_path != "") printf "%s\t%s", max, max_path }
+  ' "$tree_records" "$tree_sizes")"
+  if [ -z "$largest" ]; then
+    echo "::error::$label: no tree object size was returned for $commitish" >&2
+    rm -rf "$work"
+    return 1
+  fi
+  largest_bytes="${largest%%$'\t'*}"
+  largest_path="${largest#*$'\t'}"
+  pct="$(awk -v bytes="$largest_bytes" -v limit="$tree_limit" 'BEGIN {
+    if (limit == 0) { printf "inf"; exit }
+    printf "%.2f", bytes * 100 / limit
+  }')"
+  printf '%s: largest tree %s bytes at %s (%s%% of the remote tree limit)\n' \
+    "$label" "$largest_bytes" "$largest_path" "$pct"
+  rm -rf "$work"
+
+  if [ "$largest_bytes" -ge "$reject_limit" ]; then
+    local reason="GitHub remote object/tree size limit"
+    shard_record_push_failure_reason "$reason"
+    echo "::error::$label: GitHub remote tree/object size limit is permanent, not transient — refusing push before upload; largest tree $largest_bytes bytes at $largest_path (reject threshold $reject_limit bytes)" >&2
+    return 3
+  fi
+  if awk -v bytes="$largest_bytes" -v limit="$tree_limit" 'BEGIN { exit !(limit > 0 && bytes * 100 >= limit * 90) }'; then
+    echo "::warning::$label: largest tree $largest_bytes bytes at $largest_path is at or above 90% of the remote tree limit" >&2
+  fi
+  return 0
 }
 
 # shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force] [reason]
@@ -1246,12 +1356,14 @@ shard_pat_push() {
 # Force-pushes <refspec> from <push_dir> to <shard_repo>, retrying up to 3
 # attempts with exponential backoff (5s, 10s — $SHARD_PUSH_RETRY_DELAY seeds
 # the first delay). An auth-class failure short-circuits the remaining SSH
-# retries (see shard_push_error_is_auth). Either way the last resort is
-# shard_pat_push. Returns 0 on success, 1 if every credential failed.
+# retries (see shard_push_error_is_auth). A remote object-size rejection is
+# permanent: it returns 3 after the first attempt, without retrying or using
+# the PAT fallback. Otherwise the last resort is shard_pat_push. Returns 0 on
+# success, 1 if every credential failed, 3 for the permanent object limit.
 # [label] is cosmetic only (prefixes the ::warning:: lines).
 shard_push_with_retry() {
   local dir="$1" repo="$2" refspec="$3" label="${4:-shard}"
-  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure'
+  local delay="${SHARD_PUSH_RETRY_DELAY:-5}" try out rc fallback_reason='unclassified SSH push failure' remote_line
   out="$(mktemp)"
   for try in 1 2 3; do
     # Capture stderr to classify the failure, then put it back on stderr — see
@@ -1274,6 +1386,14 @@ shard_push_with_retry() {
     if [ "$rc" -eq 0 ]; then
       rm -f "$out"
       return 0
+    fi
+    if shard_push_error_is_remote_object_limit "$out"; then
+      fallback_reason="$(shard_push_failure_reason "$out")"
+      remote_line="$(grep -Ei "non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size" "$out" | head -n 1 || true)"
+      echo "::error::$label: GitHub remote object/tree size limit is permanent, not transient — remote: ${remote_line:-object-size rejection}" >&2
+      shard_record_push_failure_reason "$fallback_reason"
+      rm -f "$out"
+      return 3
     fi
     fallback_reason="$(shard_push_failure_reason "$out")"
     if shard_push_error_is_auth "$out"; then
@@ -1300,7 +1420,7 @@ shard_push_with_retry() {
 # compact-article-shard-history.sh's periodic history compaction — same
 # mechanism, not a second implementation (AGENTS.md #6).
 shard_orphan_flatten_and_push() {
-  local dir="$1" repo="$2" msg="$3" label="${4:-shard}"
+  local dir="$1" repo="$2" msg="$3" label="${4:-shard}" tree_rc
   rm -rf "${dir:?}/.git"
   shard_orphan_init "$dir"
   git -C "$dir" config user.email "valerielinc@gmail.com"
@@ -1308,6 +1428,9 @@ shard_orphan_flatten_and_push() {
   printf '%s' "1" > "$dir/.shard-deploys"
   git -C "$dir" add -A
   git -C "$dir" commit -qm "$msg"
+  tree_rc=0
+  shard_report_largest_tree "$dir" HEAD "$label" || tree_rc=$?
+  [ "$tree_rc" -eq 0 ] || return "$tree_rc"
   shard_push_with_retry "$dir" "$repo" "main" "$label"
 }
 

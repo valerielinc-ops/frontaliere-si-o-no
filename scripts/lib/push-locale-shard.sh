@@ -90,6 +90,8 @@ fi
 push_shard() {
   local loc="$1"
   local key_var key_val stage keyfile src_n prev_n rc missing_deploy_key fallback_token
+  SHARD_PUSH_FAIL_REASON_FILE="${RUNNER_TEMP:-/tmp}/shard-fail-reason-$loc"
+  : > "$SHARD_PUSH_FAIL_REASON_FILE" 2>/dev/null || true
   key_var="SHARD_$(echo "$loc" | tr a-z A-Z)_DEPLOY_KEY"
   key_val="${!key_var:-}"
   missing_deploy_key=0
@@ -450,18 +452,31 @@ push_shard() {
         _delta_tree="$(git write-tree --missing-ok)"
         _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [delta]")"
         _push_ok=0
-        if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$loc shard"; then
-          _push_ok=1
+        _push_rc=0
+        _push_attempted=0
+        _tree_rc=0
+        shard_report_largest_tree "$stage" "$_delta_commit" "$loc shard" || _tree_rc=$?
+        if [ "$_tree_rc" -eq 0 ]; then
+          _push_attempted=1
+          if shard_push_with_retry "$stage" "$SHARD_REPO" "$_delta_commit:main" "$loc shard"; then
+            _push_ok=1
+          else
+            _push_rc=$?
+          fi
+        else
+          _push_rc="$_tree_rc"
         fi
-        if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+        if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
           echo "::warning::$loc shard: delta self-heal required after 3 push attempts — flattening to a fresh orphan commit and retrying"
           if git -C "$stage" checkout-index -a; then
             if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
               _push_ok=1
+            else
+              _push_rc=$?
             fi
           fi
         fi
-        [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+        [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
       fi
     else
     cd "$stage"
@@ -492,12 +507,25 @@ push_shard() {
       # Full overlay: force-push the fresh commit as before. `-f` is harmless
       # on a cloned tip and required on the orphan path, so use it for both.
       _push_ok=0
-      if [ "$missing_deploy_key" = 1 ]; then
-        if shard_pat_push "$stage" "$SHARD_REPO" "main" "$loc shard" 1 "deploy-key missing"; then
+      _push_rc=0
+      _push_attempted=0
+      _tree_rc=0
+      shard_report_largest_tree "$stage" HEAD "$loc shard" || _tree_rc=$?
+      if [ "$_tree_rc" -eq 0 ]; then
+        _push_attempted=1
+        if [ "$missing_deploy_key" = 1 ]; then
+          if shard_pat_push "$stage" "$SHARD_REPO" "main" "$loc shard" 1 "deploy-key missing"; then
+            _push_ok=1
+          else
+            _push_rc=$?
+          fi
+        elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$loc shard"; then
           _push_ok=1
+        else
+          _push_rc=$?
         fi
-      elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$loc shard"; then
-        _push_ok=1
+      else
+        _push_rc="$_tree_rc"
       fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a
       # corrupted/diverged remote-tracking clone (the "not our ref" / "bad tree
@@ -507,13 +535,15 @@ push_shard() {
       # the corrupted local history and retry as a brand-new orphan commit — a
       # full pack that doesn't negotiate against the broken remote graph —
       # before giving up.
-      if [ "$_push_ok" != 1 ] && [ "$incremental" = 1 ]; then
+      if [ "$_push_ok" != 1 ] && [ "$_push_attempted" = 1 ] && [ "$incremental" = 1 ] && [ "$_push_rc" -ne 3 ]; then
         echo "::warning::$loc shard: 3 incremental push attempts failed — flattening to a fresh orphan commit and retrying"
         if shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" "locale shard $loc ${_sha} (run ${GITHUB_RUN_ID:-local}) [self-heal flatten]" "$loc shard flatten"; then
           _push_ok=1
+        else
+          _push_rc=$?
         fi
       fi
-      [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed after 3 attempts (+ flatten self-heal retry)"; exit 1; }
+      [ "$_push_ok" = 1 ] || { echo "::error::$loc shard push failed (rc=$_push_rc)"; exit "$_push_rc"; }
       if [ "$verify_ready" = 1 ]; then
         if actual_tree="$(git -C "$stage" rev-parse 'HEAD^{tree}' 2>/dev/null)"; then
           shard_delta_verify_report \
