@@ -3027,7 +3027,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "allrounder-in-vendita-genossenschaft-migros-luzern-grkcs8",
-        "en": "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern",
+        "en": "all-rounder-sales-genossenschaft-migros-luzern-luzern",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
         "fr": "polyvalent-en-vente-genossenschaft-migros-luzern-luzern"
       },
@@ -3052,7 +3052,7 @@
         ],
         "en": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
-          "all-rounder-sales-genossenschaft-migros-luzern-luzern"
+          "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern"
         ],
         "fr": [
           "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
@@ -3061,8 +3061,8 @@
       "previousSlugs": [
         "allrounder-in-verkauf-genossenschaft-migros-luzern",
         "allrounder-in-verkauf-genossenschaft-migros-luzern-grkcs8",
-        "all-rounder-sales-genossenschaft-migros-luzern-luzern",
-        "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8"
+        "allrounder-in-vente-genossenschaft-migros-luzern-grkcs8",
+        "allrounder-in-verkauf-genossenschaft-migros-luzern-luzern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -6318,7 +6318,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "allrounder-in-vendita-genossenschaft-migros-luzern-srnswm",
-        "en": "allrounder-in-verkauf-genossenschaft-migros-luzern",
+        "en": "all-rounder-sales-genossenschaft-migros-luzern-luzern-b16f38",
         "de": "allrounder-in-verkauf-genossenschaft-migros-luzern-srnswm",
         "fr": "vente-complete-genossenschaft-migros-luzern-luzern"
       },
@@ -6344,7 +6344,8 @@
         "en": [
           "allrounder-in-verkauf-genossenschaft-migros-luzern-srnswm",
           "all-rounder-sale-genossenschaft-migros-luzern-luzern",
-          "all-rounder-sales-genossenschaft-migros-luzern-luzern"
+          "all-rounder-sales-genossenschaft-migros-luzern-luzern",
+          "allrounder-in-verkauf-genossenschaft-migros-luzern"
         ],
         "fr": [
           "allrounder-in-vente-genossenschaft-migros-luzern-srnswm"
@@ -6355,7 +6356,8 @@
         "allrounder-in-verkauf-genossenschaft-migros-luzern-srnswm",
         "allrounder-in-vente-genossenschaft-migros-luzern-srnswm",
         "all-rounder-sale-genossenschaft-migros-luzern-luzern",
-        "all-rounder-sales-genossenschaft-migros-luzern-luzern"
+        "all-rounder-sales-genossenschaft-migros-luzern-luzern",
+        "allrounder-in-verkauf-genossenschaft-migros-luzern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -50451,7 +50453,7 @@
         "it": "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen",
         "en": "baker-confectioner-pastry-chef-genossenschaft-migros-ostschweiz-st-margrethen",
         "de": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
-        "fr": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen"
+        "fr": "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen"
       },
       "requirementsByLocale": {
         "de": [
@@ -50476,15 +50478,14 @@
         ],
         "fr": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
-          "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen",
-          "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen"
+          "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen",
+          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen"
         ]
       },
       "previousSlugs": [
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen",
         "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
         "sorry-i-can-t-help-with-that-genossenschaft-migros-ostschweiz-st-margrethen",
-        "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen",
         "boulangerie-confiserie-genossenschaft-migros-ostschweiz-st-margrethen"
       ],
       "baseSalary": {
@@ -51948,7 +51949,7 @@
       },
       "slugByLocale": {
         "it": "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf",
-        "en": "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
+        "en": "all-rounderstaff-restaurant-migros-logistics-neuendorf",
         "de": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
         "fr": "polyvalent-e-restaurant-du-personnel-migros-logistics-neuendorf"
       },
@@ -51973,8 +51974,8 @@
         ],
         "en": [
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
-          "all-rounderstaff-restaurant-migros-logistics-neuendorf",
-          "allrounder-staff-restaurant-migros-logistics-neuendorf"
+          "allrounder-staff-restaurant-migros-logistics-neuendorf",
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf"
         ],
         "fr": [
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
@@ -51983,7 +51984,6 @@
       "previousSlugs": [
         "allrounder-in-personalrestaurant-migros-logistics-neuendorf",
         "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
-        "all-rounderstaff-restaurant-migros-logistics-neuendorf",
         "allrounder-staff-restaurant-migros-logistics-neuendorf"
       ],
       "baseSalary": {
@@ -57367,7 +57367,7 @@
       },
       "slugByLocale": {
         "it": "gastro-allrounder-prendere-away-migros-paradis-migros-take-away-allschwil",
-        "en": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
+        "en": "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil",
         "de": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-paradis-migros-take-away-allschwil-trg7op"
       },
@@ -57379,13 +57379,12 @@
         ],
         "en": [
           "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
-          "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
+          "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil"
         ]
       },
       "previousSlugs": [
         "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
-        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
-        "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
+        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -57579,7 +57578,7 @@
       "firstSeenAt": "2026-08-23T21:52:47.238Z",
       "slugByLocale": {
         "it": "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel",
-        "en": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel",
+        "en": "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel",
         "de": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-mparc-migros-take-away-basel-bd41bv"
       },
@@ -57626,12 +57625,12 @@
       "previousSlugsByLocale": {
         "en": [
           "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
-          "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel"
+          "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel"
         ]
       },
       "previousSlugs": [
         "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
-        "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel"
+        "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel"
       ],
       "datePosted": "",
       "postingDateSource": "unknown",
