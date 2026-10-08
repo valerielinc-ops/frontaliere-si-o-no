@@ -1,7 +1,7 @@
 {
   "key": "adus-klinik",
   "label": "ADUS Klinik",
-  "generatedAt": "2026-10-08T09:38:18.131Z",
+  "generatedAt": "2026-10-08T21:28:35.009Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2019,
-  "avgDurationMs": 2019,
+  "unchangedCount": 1,
+  "durationMs": 4072,
+  "avgDurationMs": 4072,
   "durationHistory": [
-    2019
+    4072
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "adus-klinik-8cd04c15239f",
       "slug": "fisioterapista-dipl-20-30-su-base-oraria-adus-klinik-dielsdorf",
@@ -35,7 +37,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:04.265Z",
+      "crawledAt": "2026-10-08T21:28:21.433Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }
