@@ -450,15 +450,20 @@ export function candidateAnswerForField(candidate, field) {
 }
 
 /**
- * «Do you hold a driver qualification card?» on a form, with that very card among the documents attached to
- * this application: the field's own «yes» ('' for any other field). The upload is the answer (owner decision
- * 2026-10-08, lib/documentQuestions.js): the candidate was not asked, and is not asked here.
+ * The question only asks whether the candidate holds a document attached to this application («Do you hold a
+ * driver qualification card?», with that very card among `documents.extra`). The upload is the answer (owner
+ * decision 2026-10-08, lib/documentQuestions.js): the candidate was not asked, and is not asked on the portal.
+ * One reader for the planner's guard below and for the agentic fallback's (agent.mjs guardAgentStep).
  */
+export function asksAttachedDocument(candidate, question) {
+  const attached = Array.isArray(candidate?.documents?.extra) ? candidate.documents.extra : [];
+  return documentsHeldAsked({ question: questionFromLabel(question), type: 'yes_no' }, attached).length > 0;
+}
+
+/** That question as a form field with a yes/no list: the field's own «yes»; '' for any other field. */
 export function attachedDocumentYes(candidate, field) {
   const yes = yesOption(field?.options);
-  if (!yes) return '';
-  const attached = Array.isArray(candidate?.documents?.extra) ? candidate.documents.extra : [];
-  return documentsHeldAsked({ question: questionFromLabel(field?.label), type: 'yes_no' }, attached).length ? yes : '';
+  return yes && asksAttachedDocument(candidate, field?.label) ? yes : '';
 }
 
 /**

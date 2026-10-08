@@ -18,7 +18,8 @@ import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRu
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -168,6 +169,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     ...answered.map(questionTopic).filter(Boolean),
   ]);
   const isAnswered = (question) => Boolean(candidateAnswerForQuestion(candidate, question))
+    // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
+    || asksAttachedDocument(candidate, question)
     || answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
     || answeredTopics.has(topicOf(question))
     || (questionTopic(question) && answeredTopics.has(questionTopic(question)));
@@ -195,7 +198,10 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
-    if (fromCandidate || declines || quoted || (knockOut && knownValues === null)) grounded.add(action.question);
+    // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
+    // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
+    const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
+    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(action.question);
   }
   const refused = new Set();
   for (const action of sensitive) {

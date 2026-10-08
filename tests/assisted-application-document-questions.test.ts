@@ -3,9 +3,10 @@
 // the question is not asked, and where a portal's form asks it the attached document says «yes».
 // Every example here is invented.
 import { describe, expect, it } from 'vitest';
-import { documentsHeldAsked, yesOption } from '../functions/src/lib/documentQuestions.js';
+import { documentsHeldAsked, saysYes, yesOption } from '../functions/src/lib/documentQuestions.js';
 import { matchSystemPrompt, matchUserText } from '../functions/src/assistedApplicationAiPrompts.js';
-import { attachedDocumentYes, candidateRules, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { asksAttachedDocument, attachedDocumentYes, candidateRules, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const card = { id: 'card', label: 'carte de qualification de conducteur (OACP)', keywords: ['OACP', 'carta di qualificazione del conducente', 'Fahrerqualifizierungsnachweis', 'driver qualification card'] };
@@ -48,6 +49,8 @@ describe('a question that only asks whether the candidate holds a document they 
     expect(yesOption(['Sì', 'No', 'Forse', 'Altro'])).toBe('');
     expect(yesOption(['B', 'C'])).toBe('');
     expect(yesOption(undefined)).toBe('');
+    expect(['Oui', 'Ja', 'Sì', 'yes'].map(saysYes)).toEqual([true, true, true, true]);
+    expect(['Non', 'Nein', 'No', '', 'Oui, depuis 2020'].map(saysYes)).toEqual([false, false, false, false, false]);
   });
 
   it('tells the model which documents the candidate uploads, and not to ask about them', () => {
@@ -104,5 +107,30 @@ describe('a portal\'s own «do you hold…?» field, with that document attached
     // A list that is no yes/no.
     const list = { id: 'f4', kind: 'select', label: 'Permis de conduire', required: true, options: [{ label: 'B' }, { label: 'C' }, { label: 'D' }] };
     expect(attachedDocumentYes(candidate, list)).toBe('');
+  });
+
+  // The agentic fallback reads no option list: its own guard (guardAgentStep) grounds the «yes» in the upload.
+  it('lets the agentic fallback answer «yes» too, and only «yes»', () => {
+    const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'documents', evidence: '', ...action });
+    const turn = (actions: any[] = [], questions: any[] = []) => ({ status: 'act', reason: '', advanceRef: '', actions, questions });
+    const question = 'Avez-vous un permis de conduire ?';
+    expect(asksAttachedDocument(candidate, question)).toBe(true);
+    expect(asksAttachedDocument(none, question)).toBe(false);
+    // A knock-out question («permis de conduire»), answered from the document attached: the move runs.
+    const yes = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), candidate);
+    expect(yes).toMatchObject({ status: 'act', questions: [] });
+    expect(yes.actions.map((action: any) => action.ref)).toEqual(['e12']);
+    // Nothing attached: the candidate says.
+    const unknown = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), none);
+    expect(unknown).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(unknown.questions.map((item: any) => item.question)).toEqual([question]);
+    // «No» with the licence attached is never clicked, and never becomes a question: the upload answered it.
+    const denied = guardAgentStep(turn([act({ ref: 'e13', question, answer: 'Non' })]), candidate);
+    expect(denied).toMatchObject({ actions: [], questions: [] });
+    // A question the model itself wants to ask is not asked either.
+    expect(guardAgentStep(turn([], [{ question, why: '', type: 'yes_no', options: ['Oui', 'Non'] }]), candidate).questions).toEqual([]);
+    // More than «do you hold»: the usual gate.
+    const category = 'Votre permis de conduire couvre-t-il la catégorie D ?';
+    expect(guardAgentStep(turn([act({ ref: 'e14', question: category, answer: 'Oui' })]), candidate).questions.map((item: any) => item.question)).toEqual([category]);
   });
 });

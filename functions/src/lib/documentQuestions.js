@@ -93,6 +93,9 @@ an the your of already valid current currently up to date personal and
 const YES_RE = /^(?:ja|si|yes|oui|vero|true)$/;
 const NO_RE = /^(?:nein|no|non|falso|false)$/;
 
+/** The answer says «yes», in one of the four languages. */
+export const saysYes = (value) => YES_RE.test(fold(value));
+
 /**
  * The option that says «yes» of a yes/no choice (its own label), '' for any other list: one «yes», one «no», and
  * at most a prompt besides («Select one»).
