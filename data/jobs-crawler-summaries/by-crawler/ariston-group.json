@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-10-08T09:53:23.040Z",
+  "generatedAt": "2026-10-08T21:41:38.376Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8000,
-  "avgDurationMs": 8000,
+  "durationMs": 6800,
+  "avgDurationMs": 6800,
   "durationHistory": [
-    8000
+    6800
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -168,8 +168,8 @@
       "sourceIdentity": "url:https://careers.aristongroup.com/job/bern-servicetechniker-%c3%96l-%28mw%29-bern-3004/1434712933",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "postalCode": "3004",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,11 +206,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T23:22:54.730Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://careers.aristongroup.com/job/saint-moritz-servicetechniker-%c3%96l-%28mw%29-50-70-engadin-st_-7500/1435684633",
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7500",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -463,5 +463,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }
