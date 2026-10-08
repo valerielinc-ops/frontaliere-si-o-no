@@ -33095,44 +33095,6 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-abort-topical-relevance-trump-health': {
-    title: 'Notizia non pertinente | Frontaliere Ticino',
-    description: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, notizia, pertinente, fonte, trattata',
-    ogTitle: 'Notizia non pertinente',
-    ogDescription: 'Contenuto non pubblicato per mancanza di rilevanza con la Svizzera.',
-    canonicalPath: '/articoli-svizzera/abort-topical-relevance-trump-health/',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Notizia non pertinente",
-      "description": "Contenuto non pubblicato per mancanza di rilevanza con la Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/abort-topical-relevance-trump-health.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Redazione di notizie economiche in Svizzera"
-      },
-      "datePublished": "2026-08-14T01:37:12+00:00",
-      "dateModified": "2026-08-14T01:37:12+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
-        "name": "Redazione Frontaliere Ticino",
-        "url": "https://frontaliereticino.ch/autori/redazione/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abort-topical-relevance-trump-health/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-imposte-cantonali-canton-lucerna-aliquote': {
     title: 'Imposte cantonali canton Lucerna: aliquote e deduzioni',
@@ -57623,7 +57585,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori colpiti da siccità. Sospesi dazi su fieno, ridotte tariffe su mais. Agroscope',
     keywords: 'frontalieri, ticino, svizzera, italia, scarsità, foraggio, milioni, aiuti',
     ogTitle: 'Scarsità di foraggio: 54 milioni di aiuti federali',
-    ogDescription: 'La Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori svizzeri in difficoltà per scarsità di foraggio dovuta a siccità. Parmelin visita azienda che sperimenta sorgo e colture resistenti. Sospesi dazi su fieno e mais',
+    ogDescription: 'La Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori svizzeri in difficoltà per scarsità di foraggio dovuta a siccità. Parmelin visita azienda che sperimenta sorgo e colture resistenti. Sospesi dazi su fieno e mais.',
     canonicalPath: '/articoli-svizzera/foraggio-siccita-aiuti-federali/',
     structuredData: {
       "@context": "https://schema.org",
@@ -98901,7 +98863,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - Il diesel in Svizzera sfiora 2,50 franchi al litro - Cressier copre circa il 35% dei carburanti nazionali - La raffinazione europea ha capacità",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/diesel-rincaro-geopolitica-svizzera.webp`,
+        "url": `${BASE_URL}/images/blog/article-raffineria-cressier-carburanti.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Pompa di diesel in Svizzera con una raffineria sullo sfondo"
@@ -98935,7 +98897,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il 29 novembre si voterà su quattro nuovi oggetti: aumento dell'IVA per la 13esima AVS, due iniziative popolari e modifica della legge sul materiale bellico.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-quattro-oggetti-urne-novembre.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Urna svizzera e schede per il voto del 29 novembre"
@@ -98969,7 +98931,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - Il TCS confronta i prezzi di 19’000 punti svizzeri - 50 kWh costano tra 23 e 46 franchi - Il 5% delle ricariche avviene alle colonnine rapide",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "url": `${BASE_URL}/images/blog/article-auto-elettrica-come-risparmiare-fino-al-50.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Immagine editoriale relativa a: Auto elettrica: come risparmiare fino al 50%"
@@ -99003,7 +98965,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - FiberMotor: diametro da 1 a 3 millimetri - Quattro motori sollevano una barretta da 46 grammi - Il prototipo è stato integrato in un paio",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/apprendistato-e-formazione-canton-soletta.webp`,
+        "url": `${BASE_URL}/images/blog/article-motore-filo-epfl.webp`,
         "width": 1200,
         "height": 675,
         "caption": "FiberMotor e pantaloni robotici in un laboratorio di ricerca"
@@ -99037,7 +98999,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - 5 ottobre 2026: Parmelin incontra i vertici indiani - Svizzera e India firmano due accordi - TEPA: un anno dall'entrata in vigore con l'AELS",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "url": `${BASE_URL}/images/blog/article-svizzera-india-accordi-bilaterali.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Palazzo Federale a Berna, sede del governo svizzero"
@@ -99126,6 +99088,508 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-riserve-valutarie-settembre-stabili': {
+    title: 'Riserve di divise BNS stabili a settembre | Frontaliere Ticino',
+    description: '## In breve - BNS: riserve di divise a 771 miliardi - A settembre, +0,4 miliardi rispetto ad agosto - Euro +0,9%, dollaro +3%; insieme circa 80% ## Fatti chiave',
+    keywords: 'frontalieri, ticino, svizzera, italia, riserve, divise, stabili, settembre',
+    ogTitle: 'Riserve di divise BNS stabili a settembre',
+    ogDescription: '## In breve - BNS: riserve di divise a 771 miliardi - A settembre, +0,4 miliardi rispetto ad agosto - Euro +0,9%, dollaro +3%; insieme circa 80% ## Fatti chiave',
+    canonicalPath: '/articoli-svizzera/riserve-valutarie-settembre-stabili/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riserve di divise BNS stabili a settembre",
+      "description": "## In breve - BNS: riserve di divise a 771 miliardi - A settembre, +0,4 miliardi rispetto ad agosto - Euro +0,9%, dollaro +3%; insieme circa 80% ## Fatti chiave",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-riserve-valutarie-settembre-stabili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena urbana svizzera associata all'analisi delle riserve valutarie"
+      },
+      "datePublished": "2026-10-07T12:36:56+00:00",
+      "dateModified": "2026-10-07T12:36:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riserve-valutarie-settembre-stabili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ffs-sportelli-chiusi-stazioni': {
+    title: 'FFS chiude gli sportelli in 13 stazioni dal primo gennaio',
+    description: '## In breve - Dal primo gennaio chiudono gli sportelli in 13 stazioni. - I punti con personale passeranno da 115 a 102. - Il 97% dei titoli passa dai canali',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiude, sportelli, stazioni, primo',
+    ogTitle: 'FFS chiude gli sportelli in 13 stazioni dal primo gennaio',
+    ogDescription: '## In breve - Dal primo gennaio chiudono gli sportelli in 13 stazioni. - I punti con personale passeranno da 115 a 102. - Il 97% dei titoli passa dai canali',
+    canonicalPath: '/articoli-svizzera/ffs-sportelli-chiusi-stazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS chiude gli sportelli in 13 stazioni dal primo gennaio",
+      "description": "## In breve - Dal primo gennaio chiudono gli sportelli in 13 stazioni. - I punti con personale passeranno da 115 a 102. - Il 97% dei titoli passa dai canali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ffs-sportelli-chiusi-stazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria svizzera con sportello chiuso e macchine self service in primo piano"
+      },
+      "datePublished": "2026-10-07T14:55:43+00:00",
+      "dateModified": "2026-10-07T14:55:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-sportelli-chiusi-stazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-intelligenza-artificiale-diritti-umani': {
+    title: 'Intelligenza artificiale: impatto sui diritti umani',
+    description: '## In breve - 63a sessione del Consiglio dei diritti umani a Ginevra - La Svizzera ha guidato una coalizione sulla giustizia di transizione - Privacy',
+    keywords: 'frontalieri, ticino, svizzera, italia, intelligenza, artificiale, impatto, diritti',
+    ogTitle: 'Intelligenza artificiale: impatto sui diritti umani',
+    ogDescription: '## In breve - 63a sessione del Consiglio dei diritti umani a Ginevra - La Svizzera ha guidato una coalizione sulla giustizia di transizione - Privacy',
+    canonicalPath: '/articoli-svizzera/intelligenza-artificiale-diritti-umani/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intelligenza artificiale: impatto sui diritti umani",
+      "description": "## In breve - 63a sessione del Consiglio dei diritti umani a Ginevra - La Svizzera ha guidato una coalizione sulla giustizia di transizione - Privacy",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-intelligenza-artificiale-diritti-umani.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero con team che utilizza IA etica per risorse umane e alloggio"
+      },
+      "datePublished": "2026-10-07T15:29:13+00:00",
+      "dateModified": "2026-10-07T15:29:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/intelligenza-artificiale-diritti-umani/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lista-sanzioni-sesam-svizzera': {
+    title: 'Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera',
+    description: '## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell\'ONU ha modificato la lista. - La banca dati SESAM è stata',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, aggiornata, banca, dati',
+    ogTitle: 'Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera',
+    ogDescription: '## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell\'ONU ha modificato la lista. - La banca dati SESAM è stata',
+    canonicalPath: '/articoli-svizzera/lista-sanzioni-sesam-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera",
+      "description": "## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell'ONU ha modificato la lista. - La banca dati SESAM è stata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lista-sanzioni-sesam-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento amministrativo svizzero sul tema delle sanzioni ONU"
+      },
+      "datePublished": "2026-10-07T18:29:11+00:00",
+      "dateModified": "2026-10-07T18:29:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lista-sanzioni-sesam-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamedia-41-licenziamenti-13-a-losanna-e-ginevra': {
+    title: 'Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
+    description: '## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L\'assemblea romanda ha votato all\'unanimità contro',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, licenziamenti, losanna, ginevra',
+    ogTitle: 'Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
+    ogDescription: '## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L\'assemblea romanda ha votato all\'unanimità contro',
+    canonicalPath: '/articoli-svizzera/tamedia-41-licenziamenti-13-a-losanna-e-ginevra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra",
+      "description": "## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L'assemblea romanda ha votato all'unanimità contro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra"
+      },
+      "datePublished": "2026-10-07T19:46:58+00:00",
+      "dateModified": "2026-10-07T19:46:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-41-licenziamenti-13-a-losanna-e-ginevra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-marcel-salathe-ia-commento': {
+    title: 'L’intelligenza artificiale non ci ucciderà tutti',
+    description: '## In breve - Salathé giudica esagerati gli scenari apocalittici. - È professore al Politecnico federale di Losanna. - Le big tech si preparano a entrare',
+    keywords: 'frontalieri, ticino, svizzera, italia, intelligenza, artificiale, ucciderà, tutti',
+    ogTitle: 'L’intelligenza artificiale non ci ucciderà tutti',
+    ogDescription: '## In breve - Salathé giudica esagerati gli scenari apocalittici. - È professore al Politecnico federale di Losanna. - Le big tech si preparano a entrare',
+    canonicalPath: '/articoli-svizzera/marcel-salathe-ia-commento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’intelligenza artificiale non ci ucciderà tutti",
+      "description": "## In breve - Salathé giudica esagerati gli scenari apocalittici. - È professore al Politecnico federale di Losanna. - Le big tech si preparano a entrare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-marcel-salathe-ia-commento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne sullo sfondo, rappresenta il contesto svizzero del dibattito sull'intelligenza artificiale."
+      },
+      "datePublished": "2026-10-07T20:39:09+00:00",
+      "dateModified": "2026-10-07T20:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/marcel-salathe-ia-commento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carriere-politica-economica': {
+    title: 'Lavorare alla SECO: posti e percorsi professionali',
+    description: '## In breve - Oltre 900 collaboratori e dirigenti lavorano alla SECO - Collaboratori e dirigenti distribuiti in tre sedi svizzere - Circa 30 distaccati operano',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, alla, seco, posti',
+    ogTitle: 'Lavorare alla SECO: apprendistati e stage',
+    ogDescription: '## In breve - Oltre 900 collaboratori e dirigenti lavorano alla SECO - Collaboratori e dirigenti distribuiti in tre sedi svizzere - Circa 30 distaccati operano',
+    canonicalPath: '/articoli-svizzera/carriere-politica-economica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare alla SECO: posti e percorsi professionali",
+      "description": "## In breve - Oltre 900 collaboratori e dirigenti lavorano alla SECO - Collaboratori e dirigenti distribuiti in tre sedi svizzere - Circa 30 distaccati operano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carriere-politica-economica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Collaboratori al lavoro in un moderno ufficio svizzero"
+      },
+      "datePublished": "2026-10-07T22:29:39+00:00",
+      "dateModified": "2026-10-07T22:29:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carriere-politica-economica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-parmelin-avs-ue': {
+    title: 'Parmelin lascia il Consiglio federale il 31.12.2026',
+    description: '## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l\'1,6% - Il pacchetto Svizzera-UE è al Parlamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, lascia, consiglio, federale',
+    ogTitle: 'Parmelin lascia il Consiglio federale: novità 2026',
+    ogDescription: '## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l\'1,6% - Il pacchetto Svizzera-UE è al Parlamento',
+    canonicalPath: '/articoli-svizzera/parmelin-avs-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin lascia il Consiglio federale il 31.12.2026",
+      "description": "## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l'1,6% - Il pacchetto Svizzera-UE è al Parlamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-parmelin-avs-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sulle decisioni del Consiglio federale svizzero"
+      },
+      "datePublished": "2026-10-07T22:55:04+00:00",
+      "dateModified": "2026-10-07T22:55:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parmelin-avs-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lavaggio-denaro-avvocatura': {
+    title: 'Lavaggio di denaro: norme più severe per l\'avvocatura',
+    description: '## In breve - Nuove norme contro il lavaggio di denaro - Regole più severe per l\'avvocatura - Introdotto un registro per le imprese ## Fatti chiave - Oggetto →',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavaggio, denaro, norme, severe',
+    ogTitle: 'Lavaggio di denaro: avvocatura e registro imprese',
+    ogDescription: '## In breve - Nuove norme contro il lavaggio di denaro - Regole più severe per l\'avvocatura - Introdotto un registro per le imprese ## Fatti chiave - Oggetto →',
+    canonicalPath: '/articoli-svizzera/lavaggio-denaro-avvocatura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavaggio di denaro: norme più severe per l'avvocatura",
+      "description": "## In breve - Nuove norme contro il lavaggio di denaro - Regole più severe per l'avvocatura - Introdotto un registro per le imprese ## Fatti chiave - Oggetto →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lavaggio-denaro-avvocatura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti legali e registro per le imprese su una scrivania"
+      },
+      "datePublished": "2026-10-07T23:29:16+00:00",
+      "dateModified": "2026-10-07T23:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavaggio-denaro-avvocatura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-contributi-formazione-berna-requisiti': {
+    title: 'Formazione continua nel Canton Berna: requisiti e contributi',
+    description: 'Requisiti, programmi riconosciuti, termini e contributi per la formazione continua nel Canton Berna: guida alla verifica sulla fonte ufficiale cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, canton, berna',
+    ogTitle: 'Canton Berna: contributi per la formazione continua',
+    ogDescription: 'Nel Canton Berna la formazione continua segue regole e uffici cantonali. La guida separa programmi riconosciuti, requisiti, termini e importi, indicando come individuare la fonte ufficiale senza applicare automaticamente criteri di altri Cantoni.',
+    canonicalPath: '/articoli-svizzera/contributi-formazione-berna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione continua nel Canton Berna: requisiti e contributi",
+      "description": "Requisiti, programmi riconosciuti, termini e contributi per la formazione continua nel Canton Berna: guida alla verifica sulla fonte ufficiale cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/article-contributi-formazione-berna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona consulta una domanda per la formazione continua nel Canton Berna."
+      },
+      "datePublished": "2026-10-08T00:53:16+00:00",
+      "dateModified": "2026-10-08T00:53:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/contributi-formazione-berna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-minimo-lucerna-requisiti': {
+    title: 'Salario minimo a Lucerna: requisiti e applicazione',
+    description: 'Scopri la disciplina sui salari minimi nel Cantone di Lucerna, i contratti collettivi di lavoro, i controlli e le procedure per aziende e dipendenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, lucerna, requisiti',
+    ogTitle: 'Salario minimo a Lucerna: requisiti, CCL e controlli',
+    ogDescription: 'Approfondimento completo sulla disciplina dei salari minimi e dei contratti collettivi di lavoro nel Cantone di Lucerna. Analisi dei requisiti, delle procedure di controllo per le aziende e del ruolo delle amministrazioni cantonali.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-lucerna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo a Lucerna: requisiti e applicazione",
+      "description": "Scopri la disciplina sui salari minimi nel Cantone di Lucerna, i contratti collettivi di lavoro, i controlli e le procedure per aziende e dipendenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-salario-minimo-lucerna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Regolamentazione del salario minimo e contratti collettivi nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-10-08T01:29:22+00:00",
+      "dateModified": "2026-10-08T01:29:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-lucerna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistenza-sociale-lucerna-requisiti': {
+    title: 'Assistenza sociale a Lucerna: requisiti e domanda',
+    description: 'Scopri i requisiti, la documentazione e gli uffici competenti per richiedere l\'assistenza sociale nel Cantone di Lucerna. Guida completa e iter. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, sociale, lucerna, requisiti',
+    ogTitle: 'Assistenza sociale a Lucerna: requisiti e domanda',
+    ogDescription: 'Approfondimento completo sull\'assistenza sociale nel Cantone di Lucerna: condizioni di accesso, uffici di riferimento, documentazione necessaria e obblighi di collaborazione.',
+    canonicalPath: '/articoli-svizzera/assistenza-sociale-lucerna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza sociale a Lucerna: requisiti e domanda",
+      "description": "Scopri i requisiti, la documentazione e gli uffici competenti per richiedere l'assistenza sociale nel Cantone di Lucerna. Guida completa e iter. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assistenza-sociale-lucerna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici amministrativi per l'assistenza sociale nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-10-08T02:16:30+00:00",
+      "dateModified": "2026-10-08T02:16:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assistenza-sociale-lucerna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-autoveicoli-lucerna-calcolo': {
+    title: 'Imposta sugli autoveicoli canton Lucerna: calcolo e pagamento',
+    description: 'Imposta sugli autoveicoli nel Cantone di Lucerna: calcolo, scadenze, importi e pagamento. Cambio veicolo e indirizzo secondo le regole cantonali di Lucerna.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, sugli, autoveicoli, canton',
+    ogTitle: 'Lucerna: calcolo e pagamento dell\'imposta auto',
+    ogDescription: 'Nel Cantone di Lucerna l\'imposta sugli autoveicoli segue regole e uffici cantonali. La guida separa calcolo, scadenze e pagamento e indica cosa verificare quando cambiano veicolo o indirizzo, senza applicare dati di altri cantoni.',
+    canonicalPath: '/articoli-svizzera/imposta-autoveicoli-lucerna-calcolo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sugli autoveicoli canton Lucerna: calcolo e pagamento",
+      "description": "Imposta sugli autoveicoli nel Cantone di Lucerna: calcolo, scadenze, importi e pagamento. Cambio veicolo e indirizzo secondo le regole cantonali di Lucerna.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-autoveicoli-lucerna-calcolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pratica per l'imposta sugli autoveicoli e strada cantonale a Lucerna"
+      },
+      "datePublished": "2026-10-08T03:11:14+00:00",
+      "dateModified": "2026-10-08T03:11:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-autoveicoli-lucerna-calcolo/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
