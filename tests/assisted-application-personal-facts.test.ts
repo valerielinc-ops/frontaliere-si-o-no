@@ -149,17 +149,25 @@ describe('what the CV says is not asked again', () => {
   });
 
   // Second review of #12348, its acceptance to the letter: an older answer and the field emptied since.
-  it('lets an emptied field win over an older answer, and a question the draft asks again win over both', () => {
+  // Followed to the end, the reviewer's case was real: once emptied, the next draft asked the question again,
+  // and with the question asked the older answer came back.
+  it('lets the field the candidate corrected win over any answer, in every draft, and does not ask them again', () => {
     const flow = { answers: { salutation: 'Monsieur' }, formOverrides: { salutation: '' } };
-    const cleared = candidateWithEdits({ order, draft: draftOf(CV_FR), flow });
-    expect(cleared.personal.salutation).toBe('');
-    expect('salutation' in cleared.answers).toBe(false);
-    expect(candidateWithEdits({ order, draft: draftOf('Karim Exemple'), flow }).personal.salutation).toBe('');
-    // The draft asks the form of address again, and the candidate answers it: their newest word.
     const asking = draftOf(CV_FR, [{ id: 'salutation', question: 'Quelle civilité indiquer dans les formulaires de candidature ?', required: false }]);
-    expect(candidateWithEdits({ order, draft: asking, flow }).personal.salutation).toBe('Monsieur');
-    // Asked and not answered: the field they emptied stays empty, and a field they never touched takes the CV.
-    expect(candidateWithEdits({ order, draft: asking, flow: { formOverrides: { salutation: '' } } }).personal.salutation).toBe('');
+    for (const draft of [draftOf(CV_FR), draftOf('Karim Exemple'), asking]) {
+      const cleared = candidateWithEdits({ order, draft, flow });
+      expect(cleared.personal.salutation).toBe('');
+      expect('salutation' in cleared.answers).toBe(false);
+    }
+    // A correction to another form of address holds the same way.
+    expect(candidateWithEdits({ order, draft: asking, flow: { answers: { salutation: 'Monsieur' }, formOverrides: { salutation: 'Autre' } } }).personal.salutation).toBe('Autre');
+    // The next draft does not ask a candidate who corrected the field, even to nothing.
+    const edited = candidateWithEdits({ order, draft: draftOf(CV_FR), flow });
+    expect(salutationQuestion({ channel, questions: [], answers: edited.answers, locale: 'fr', corrected: Object.hasOwn(edited.overrides, 'salutation') })).toBeNull();
+    expect(salutationQuestion({ channel, questions: [], answers: {}, locale: 'fr', corrected: true })).toBeNull();
+    expect(salutationQuestion({ channel, questions: [], answers: {}, locale: 'fr' })).toMatchObject({ id: 'salutation' });
+    // A field they never touched: their answer, else the CV.
+    expect(candidateWithEdits({ order, draft: asking, flow: { answers: { salutation: 'Madame' } } }).personal.salutation).toBe('Madame');
     expect(candidateWithEdits({ order, draft: asking, flow: {} }).personal.salutation).toBe('Monsieur');
   });
 

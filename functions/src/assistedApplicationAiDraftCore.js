@@ -268,12 +268,15 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
  * application, nor when a question already asks it, nor when the candidate
  * has said it: by an answer, or in their CV's own words («Né le», «Mariée»:
  * lib/personalFacts.js; `answers.salutation` then holds it, see
- * candidateWithEdits).
+ * candidateWithEdits). Nor when they corrected the field on the review page
+ * (`corrected`), even to nothing: asked again, the question would bring an
+ * older answer back in place of what they chose.
  * @returns {object|null} the question for the review page
  */
-export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it' }) {
+export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it', corrected = false }) {
   const type = String(channel?.type || '').trim().toLowerCase();
   if (!type || type === 'email' || type === 'unknown') return null;
+  if (corrected) return null;
   if (String(answers?.salutation ?? '').trim()) return null;
   if (questions.some((question) => question?.id === 'salutation' || asksSalutation(question))) return null;
   // "de-CH", "fr-CH": the language of the locale.

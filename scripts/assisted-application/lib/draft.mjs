@@ -337,7 +337,8 @@ export async function buildDraft(ctx) {
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
-  const salutation = salutationQuestion({ channel, questions, answers, locale });
+  // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.
+  const salutation = salutationQuestion({ channel, questions, answers, locale, corrected: Object.hasOwn(edited.overrides, 'salutation') });
   if (salutation) questions.push(salutation);
 
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".

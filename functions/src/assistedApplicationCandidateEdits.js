@@ -209,19 +209,27 @@ export function candidateWithEdits({ order, draft, flow }) {
   profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
-  // What the CV says is a default, never a rule: the candidate's own word comes first. The field they
-  // corrected stands, even emptied (`has`, not truthiness) and whatever an older answer said; unless the
-  // draft asks the question again, where the answer is theirs to give and the newest word. Then an answer;
-  // and only where they touched neither, the CV.
   const cv = cvPersonalFacts(draft?.factSources?.text);
-  const corrected = has(overrides, 'salutation');
-  const salutation = corrected && !asked.has('salutation')
-    ? overrides.salutation
-    : clean(answers.salutation, 40) || (corrected ? overrides.salutation : salutationFor(cv.gender, order?.locale || 'it'));
+  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender, locale: order?.locale || 'it' });
   answers.salutation = salutation;
   if (!salutation) delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };
+}
+
+/**
+ * The candidate's form of address as of now. What the CV says is a default, never a rule; the candidate's
+ * own word comes first, in this order:
+ *  1. the field they corrected on the review page, even emptied (`has`, not truthiness), whatever an older
+ *     answer says: `answers.salutation` «Monsieur» with `formOverrides.salutation` «» gives «». It holds
+ *     across rounds, and a draft written afterwards does not ask the question again (lib/draft.mjs): the
+ *     older answer would otherwise come back with the question (review of #12348);
+ *  2. their answer to the question;
+ *  3. only where they touched neither, what their CV says in its own words (lib/personalFacts.js).
+ */
+function salutationNow({ answers, overrides, cvGender, locale }) {
+  if (has(overrides, 'salutation')) return overrides.salutation;
+  return clean(answers.salutation, 40) || salutationFor(cvGender, locale);
 }
 
 /**
@@ -298,8 +306,9 @@ function checkField(key, text, locale, todayIso) {
   const question = { type: 'text', required: false, validation: fieldRule(key, locale) };
   const result = validateAnswer(text, question);
   if (!result.ok) return answerMessage(result, question, locale);
-  // Only a text that is there: an emptied field was accepted above, and is no «not an option».
-  if (CHOICES[spec.choice] && !CHOICES[spec.choice].valid(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
+  // Only a text that is there is held to its list: an emptied field is accepted (above), never «not an option».
+  const list = CHOICES[spec.choice];
+  if (list && text && !list.valid(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
   if (spec.birthDate) {
     const iso = isoDateOf(text);
     if (!iso || iso > todayIso) return say('birthDate', locale);
