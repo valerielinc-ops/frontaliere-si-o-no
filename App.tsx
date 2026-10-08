@@ -234,8 +234,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import { SubTabNav } from '@/components/navigation/SubTabNav';
 import type { SubTabItem } from '@/components/navigation/SubTabNav';
-import ArticleSectionNav from '@/components/navigation/ArticleSectionNav';
-import LiveCantonArticleSections from '@/components/community/LiveCantonArticleSections';
+import { ArticleSectionNavigation } from '@/components/navigation/ArticleSectionNav';
 import {
  useAuth,
  getUserPhotoURL,
@@ -2963,10 +2962,9 @@ const App: React.FC = () => {
  />
  )}
 
- {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide */}
-{activeTab === 'blog' && (
- <>
- <ArticleSectionNav
+ {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide and canton sections. */}
+ <ArticleSectionNavigation
+  route={{ activeTab }}
   activeSection={blogSection}
   onSelect={(section) => {
    setBlogArticle(null);
@@ -2977,12 +2975,6 @@ const App: React.FC = () => {
    Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', section);
   }}
  />
- </>
-)}
-{/* Per-canton job-board landings are a second discovery surface for local
-    editorial sections. The registry-backed block stays empty when the corpus
-    registry is unavailable, so it never advertises a 404. */}
-{(activeTab === 'job-board' || activeTab === 'sitemap') && <LiveCantonArticleSections />}
  </>)}
 
  {/* GPT ad surfaces need the framework on every job-board route, including

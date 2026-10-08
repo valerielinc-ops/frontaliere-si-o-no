@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
 import { ChevronDown, Newspaper, X } from 'lucide-react';
-import { buildPath } from '@/services/router';
+import { buildPath, isArticleSectionRoute, type AppRoute } from '@/services/router';
 import { t, useLocale, type Locale } from '@/services/i18n';
 import {
   loadLiveCantonArticleSections,
@@ -51,6 +51,10 @@ interface ArticleSectionNavProps {
   onSelect: (section: ArticleSection) => void;
 }
 
+interface ArticleSectionNavigationProps extends ArticleSectionNavProps {
+  route: Pick<AppRoute, 'activeTab'>;
+}
+
 function linkClass(active: boolean, extra = '') {
   return `inline-flex min-h-11 min-w-0 items-center justify-center rounded-xl px-2 text-sm font-semibold leading-tight transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:px-3 ${extra} ${
     active
@@ -61,6 +65,12 @@ function linkClass(active: boolean, extra = '') {
 
 function focusableElements(panel: HTMLElement): HTMLElement[] {
   return Array.from(panel.querySelectorAll<HTMLElement>('button:not([disabled]), a[href][tabindex="0"]'));
+}
+
+/** Mount seam for the shell: the article nav has no DOM outside article routes. */
+export function ArticleSectionNavigation({ route, ...props }: ArticleSectionNavigationProps) {
+  if (!isArticleSectionRoute(route)) return null;
+  return <ArticleSectionNav {...props} />;
 }
 
 /** One compact article-hub control: two historical links plus a live canton disclosure. */
