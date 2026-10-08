@@ -306,6 +306,15 @@ const sourceTreeLintTests = new Map([
   // sorgenti giudicati sono letti da disco: dopo la PR 11327 la bio corretta nel
   // registro e' rimasta vecchia nelle copie a mano senza che nulla fallisse.
   ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts|build-plugins\/shared\/authorEditorial\.ts|scripts\/lib\/llms-txt-generator\.mjs|services\/seo\/authorProfileMetadata\.ts)$/], // Scope producers: build-plugins/shared/authorEditorial.ts, scripts/lib/llms-txt-generator.mjs, services/seo/authorProfileMetadata.ts.
+  // I letterali delle immagini in seo-pages.ts sono giudicati da due test che
+  // leggono il file da disco: i campi dei diritti tutti o nessuno
+  // (static-pages-image-credit) e l'identificatore del sito sui creator
+  // (imageObjectLd). La PR 12329 ha aggiunto un creator del sito a 36 letterali
+  // con credito di terzi: toccava seo-pages.ts, il primo test non e' stato
+  // selezionato e main e' rimasto rosso per ogni PR che lo ereditava (issue
+  // 12353).
+  ['tests/static-pages-image-credit.test.ts', /^services\/seo\/seo-pages\.ts$/],
+  ['tests/seo/imageObjectLd.test.ts', /^services\/seo\/seo-pages\.ts$/],
   // Profili sparse dei workflow contro il codice che i job caricano. Il test
   // legge da disco i YAML, le action locali, gli script npm di package.json e
   // la chiusura degli import di ogni job: nessun import lo lega a quei file.
