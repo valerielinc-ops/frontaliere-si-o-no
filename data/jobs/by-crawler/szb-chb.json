@@ -1,6 +1,6 @@
 {
   "crawlerKey": "szb-chb",
-  "assembledAt": "2026-10-08T09:18:25.120Z",
+  "assembledAt": "2026-10-08T21:23:44.264Z",
   "jobs": [
     {
       "id": "szb-chb-219d1c4efef4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3799/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:19.850Z",
+      "crawledAt": "2026-10-08T21:23:35.578Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/2738/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:19.084Z",
+      "crawledAt": "2026-10-08T21:23:34.740Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -135,15 +135,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/2738/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:11.231Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-60-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-angiologie-60-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-angiologie-60-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:11.231Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -190,7 +190,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3673/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:18.280Z",
+      "crawledAt": "2026-10-08T21:23:33.868Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -210,15 +210,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/3673/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:10.417Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-fh-pool-pflege-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-pool-pflege-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-pool-pflege-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:10.417Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -265,7 +265,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4190/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:17.491Z",
+      "crawledAt": "2026-10-08T21:23:33.029Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -341,7 +341,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3696/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:16.681Z",
+      "crawledAt": "2026-10-08T21:23:32.184Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,7 +424,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4205/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:15.865Z",
+      "crawledAt": "2026-10-08T21:23:31.360Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -501,7 +501,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4193/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:15.100Z",
+      "crawledAt": "2026-10-08T21:23:30.581Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -521,15 +521,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4193/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:07.613Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-geriatrie-60-80-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-geriatrie-60-80-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-geriatrie-60-80-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:07.613Z",
       "salaryMin": 92000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -575,7 +575,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4153/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:14.275Z",
+      "crawledAt": "2026-10-08T21:23:29.790Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -656,7 +656,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4359/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:13.527Z",
+      "crawledAt": "2026-10-08T21:23:28.948Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -739,7 +739,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4339/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:12.750Z",
+      "crawledAt": "2026-10-08T21:23:28.094Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -759,15 +759,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4339/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:04.284Z",
+      "previousSlugs": [
+        "digital-business-partner-in-applikationsmanager-in-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "digital-business-partner-in-applikationsmanager-in-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "digital-business-partner-in-applikationsmanager-in-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:04.284Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -814,7 +814,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4380/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:11.945Z",
+      "crawledAt": "2026-10-08T21:23:27.286Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -834,9 +834,6 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4380/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-inkasso-80-100-szb-chb-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "fachspezialist-in-inkasso-80-100-szb-chb-biel-bienne"
@@ -845,6 +842,9 @@
           "fachspezialist-in-inkasso-80-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "fachspezialist-in-inkasso-80-100-szb-chb-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-29T21:13:03.432Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -865,7 +865,7 @@
       "slug": "digital-business-partner-in-service-applikationsmanager-in-kis-e-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "digital-business-partner-in-service-applikationsmanager-in-kis-e-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier",
+        "en": "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
         "de": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel",
         "fr": "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
       },
@@ -892,7 +892,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4209/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:11.150Z",
+      "crawledAt": "2026-10-08T21:23:26.505Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -912,18 +912,18 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4209/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel",
+        "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel"
         ],
         "en": [
-          "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
+          "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-spitalzentrum-biel-centre-hospitalier"
         ]
       },
-      "previousSlugs": [
-        "digital-business-partner-in-service-applikationsmanager-in-kis-und-fm-80-100-szb-chb-biel",
-        "digital-business-partner-service-application-manager-kis-and-fm-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
-      ],
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -970,7 +970,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4440/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:10.405Z",
+      "crawledAt": "2026-10-08T21:23:25.946Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -990,15 +990,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4440/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:01.760Z",
+      "previousSlugs": [
+        "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:01.760Z",
       "salaryMin": 76500,
       "salaryMax": 107100,
       "salarySource": "estimated",
@@ -1044,7 +1044,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4436/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:09.605Z",
+      "crawledAt": "2026-10-08T21:23:25.077Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1064,15 +1064,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4436/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:00.874Z",
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-angiologie-60-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-angiologie-60-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-angiologie-60-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:00.874Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1119,7 +1119,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4454/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:08.851Z",
+      "crawledAt": "2026-10-08T21:23:24.261Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1192,7 +1192,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4446/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:08.066Z",
+      "crawledAt": "2026-10-08T21:23:23.425Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1266,7 +1266,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4325/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:07.292Z",
+      "crawledAt": "2026-10-08T21:23:22.610Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1349,7 +1349,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4475/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:06.508Z",
+      "crawledAt": "2026-10-08T21:23:21.802Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1431,7 +1431,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4394/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:05.765Z",
+      "crawledAt": "2026-10-08T21:23:21.014Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1451,14 +1451,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4394/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-betreuung-fachrichtung-kinderbetreuung-60-70-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-betreuung-fachrichtung-kinderbetreuung-60-70-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-betreuung-fachrichtung-kinderbetreuung-60-70-szb-chb-biel-bienne"
-      ],
       "salaryMin": 59500,
       "salaryMax": 83300,
       "salarySource": "estimated",
@@ -1505,7 +1505,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4397/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:04.985Z",
+      "crawledAt": "2026-10-08T21:23:20.140Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1525,15 +1525,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4397/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:55.784Z",
+      "previousSlugs": [
+        "teamleiter-in-restauration-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-restauration-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "teamleiter-in-restauration-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:55.784Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1580,7 +1580,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4502/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:04.195Z",
+      "crawledAt": "2026-10-08T21:23:19.304Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1600,15 +1600,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4502/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:54.929Z",
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-efz-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:54.929Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1655,7 +1655,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4166/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:03.409Z",
+      "crawledAt": "2026-10-08T21:23:18.465Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1680,14 +1680,14 @@
         "fachfrau-fachmann-gesundheit-80-90-akutmedizin-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-80-90-akutmedizin-szb-chb-biel-bienne"
+        ],
         "en": [
           "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "fr": [
           "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "it": [
-          "fachfrau-fachmann-gesundheit-80-90-akutmedizin-szb-chb-biel-bienne"
         ]
       },
       "salaryMin": 76500,
@@ -1736,7 +1736,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4494/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:02.617Z",
+      "crawledAt": "2026-10-08T21:23:17.656Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1756,15 +1756,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4494/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:52.382Z",
+      "previousSlugs": [
+        "technische-r-projektleiter-in-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-projektleiter-in-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "technische-r-projektleiter-in-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:52.382Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1811,7 +1811,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3728/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:01.842Z",
+      "crawledAt": "2026-10-08T21:23:16.798Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1831,14 +1831,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/3728/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarzt-arztin-interdisziplinare-notfallmedizin-60-90-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-interdisziplinare-notfallmedizin-60-90-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarzt-arztin-interdisziplinare-notfallmedizin-60-90-szb-chb-biel-bienne"
-      ],
       "salaryMin": 103500,
       "salaryMax": 144000,
       "salarySource": "estimated",
@@ -1885,7 +1885,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3821/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:01.099Z",
+      "crawledAt": "2026-10-08T21:23:15.958Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1905,14 +1905,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/3821/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "oberarztin-oberarzt-neurologie-mbf-stroke-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-neurologie-mbf-stroke-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-neurologie-mbf-stroke-100-szb-chb-biel-bienne"
-      ],
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -1959,7 +1959,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4014/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:18:00.318Z",
+      "crawledAt": "2026-10-08T21:23:15.154Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1979,15 +1979,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4014/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:49.914Z",
+      "previousSlugs": [
+        "leiter-in-haustechnik-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-haustechnik-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-haustechnik-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:49.914Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -2033,7 +2033,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4326/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:59.525Z",
+      "crawledAt": "2026-10-08T21:23:14.337Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2053,9 +2053,6 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4326/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-hamatologie-60-100-szb-chb-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "leitende-arztin-leitender-arzt-hamatologie-60-100-szb-chb-biel-bienne"
@@ -2064,6 +2061,9 @@
           "leitende-arztin-leitender-arzt-hamatologie-60-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-hamatologie-60-100-szb-chb-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-29T21:12:49.078Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -2110,7 +2110,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4528/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:58.748Z",
+      "crawledAt": "2026-10-08T21:23:13.559Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2192,7 +2192,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4449/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:57.138Z",
+      "crawledAt": "2026-10-08T21:23:11.960Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2273,7 +2273,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4120/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:56.270Z",
+      "crawledAt": "2026-10-08T21:23:11.122Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2349,7 +2349,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4470/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:55.485Z",
+      "crawledAt": "2026-10-08T21:23:10.288Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2369,9 +2369,6 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4470/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-szb-chb-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-logistiker-in-efz-szb-chb-biel-bienne"
@@ -2380,6 +2377,9 @@
           "lehrstelle-logistiker-in-efz-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "lehrstelle-logistiker-in-efz-szb-chb-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-29T21:12:44.990Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2426,7 +2426,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4471/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:54.642Z",
+      "crawledAt": "2026-10-08T21:23:09.488Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2446,15 +2446,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4471/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:44.163Z",
+      "previousSlugs": [
+        "lehrstelle-koch-kochin-efz-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-koch-kochin-efz-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-koch-kochin-efz-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:44.163Z",
       "salaryMin": 54000,
       "salaryMax": 68000,
       "salarySource": "estimated",
@@ -2500,7 +2500,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4472/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:53.843Z",
+      "crawledAt": "2026-10-08T21:23:08.666Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2520,15 +2520,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4472/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:43.388Z",
+      "previousSlugs": [
+        "lehrstelle-fachmann-frau-betreuung-kind-efz-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachmann-frau-betreuung-kind-efz-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-fachmann-frau-betreuung-kind-efz-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:43.388Z",
       "salaryMin": 49500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2574,7 +2574,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4496/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:53.065Z",
+      "crawledAt": "2026-10-08T21:23:07.814Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2594,15 +2594,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4496/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:42.570Z",
+      "previousSlugs": [
+        "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:42.570Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -2649,7 +2649,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4537/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:52.275Z",
+      "crawledAt": "2026-10-08T21:23:07.014Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2669,15 +2669,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4537/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:41.965Z",
+      "previousSlugs": [
+        "fachangestellte-r-gesundheit-station-mutter-und-kind-gynakologie-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachangestellte-r-gesundheit-station-mutter-und-kind-gynakologie-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "fachangestellte-r-gesundheit-station-mutter-und-kind-gynakologie-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:41.965Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2723,7 +2723,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4531/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:51.491Z",
+      "crawledAt": "2026-10-08T21:23:06.161Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2743,14 +2743,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4531/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretar-in-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "arztsekretar-in-100-szb-chb-biel-bienne"
-      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2797,7 +2797,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4580/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:50.721Z",
+      "crawledAt": "2026-10-08T21:23:05.317Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2817,14 +2817,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4580/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "geschaftsfuhrer-in-vorsorgestiftung-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsfuhrer-in-vorsorgestiftung-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "geschaftsfuhrer-in-vorsorgestiftung-80-100-szb-chb-biel-bienne"
-      ],
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2871,7 +2871,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4576/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:49.896Z",
+      "crawledAt": "2026-10-08T21:23:04.468Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2891,14 +2891,14 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4576/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ernahrungsberater-in-fur-adipositaszentrum-40-100-jobsharing-moglich-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-fur-adipositaszentrum-40-100-jobsharing-moglich-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "ernahrungsberater-in-fur-adipositaszentrum-40-100-jobsharing-moglich-szb-chb-biel-bienne"
-      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2945,7 +2945,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4582/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:49.151Z",
+      "crawledAt": "2026-10-08T21:23:03.623Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3024,7 +3024,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4562/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:48.390Z",
+      "crawledAt": "2026-10-08T21:23:02.779Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3106,7 +3106,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4447/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:47.626Z",
+      "crawledAt": "2026-10-08T21:23:01.964Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3187,7 +3187,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3676/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:46.855Z",
+      "crawledAt": "2026-10-08T21:23:01.175Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3269,7 +3269,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4399/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:46.051Z",
+      "crawledAt": "2026-10-08T21:23:00.334Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3346,7 +3346,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3445/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:45.267Z",
+      "crawledAt": "2026-10-08T21:22:59.476Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3423,7 +3423,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4555/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:44.511Z",
+      "crawledAt": "2026-10-08T21:22:58.641Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3505,7 +3505,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4626/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:43.701Z",
+      "crawledAt": "2026-10-08T21:22:57.825Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3594,7 +3594,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4514/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:42.909Z",
+      "crawledAt": "2026-10-08T21:22:56.986Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3678,7 +3678,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4433/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:42.127Z",
+      "crawledAt": "2026-10-08T21:22:56.176Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3754,7 +3754,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4486/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:41.361Z",
+      "crawledAt": "2026-10-08T21:22:55.336Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3833,7 +3833,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4641/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:40.563Z",
+      "crawledAt": "2026-10-08T21:22:54.519Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3910,12 +3910,13 @@
         "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Sind sie interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nIm Maison de la Santé, nur wenige Schritte vom Bahnhof Biel entfernt, schaffen wir einen Ort, an dem Kinder und ihre Familien im Mittelpunkt stehen und sich sicher, verstanden und gut aufgehoben fühlen.\nMit MEDIN Kids entsteht im Maison de la Santé in Biel ein neues ambulantes Kinderzentrum mit einem breiten Angebot an spezialisierten Sprechstunden. Unterschiedliche ärztliche und therapeutische Fachrichtungen arbeiten eng zusammen und bündeln ihre Expertise für eine umfassende, koordinierte Versorgung von Kindern und Jugendlichen unter einem Dach. Das Angebot umfasst unter anderem die Entwicklungspädiatrie, Psychologie, Kinderphysiotherapie und Kinderergotherapie.\nDie interprofessionelle Zusammenarbeit ermöglicht kurze Wege, abgestimmte Behandlungskonzepte und eine ganzheitliche Versorgung, die sich konsequent an den Bedürfnissen von Kindern, Jugendlichen und ihren Familien orientiert.\nAls Mitglied unseres Teams übernehmen Sie Verantwortung für Ihre Patientinnen und Patienten und gestalten den Aufbau und die Weiterentwicklung dieses zukunftsweisenden ambulanten Kinderzentrums aktiv mit.\nZur Verstärkung unseres Ärzteteams suchen wir per 1. Juni 2027 oder nach Vereinbarung eine:n\n\nOberarzt:in Kinder- und Jugendpsychiatrie 50–100 %\n\nDas tun Sie\n\n• Selbständige ambulante Abklärung und Behandlung von Kindern und Jugendlichen mit psychiatrischen Fragestellungen\n• Eigenständige psychiatrisch-psychotherapeutische Begleitung von Kindern, Jugendlichen und ihren Familien\n• Beurteilung komplexer entwicklungsbezogener, emotionaler und psychosozialer Fragestellungen\n• Enge interdisziplinäre Zusammenarbeit mit pädiatrischen Schwerpunktgebieten wie Entwicklungspädiatrie, Psychologie sowie therapeutischen Fachpersonen\n• Zusammenarbeit mit Schulen, Frühförderstellen, Behörden sowie weiteren externen Partnern\n• Aktive Mitgestaltung im Aufbau einer interdisziplinären Sprechstunde für frühkindliche Regulationsstörungen, Schmerzstörungen und Adoleszentenmedizin\n• Supervision von Mitarbeitenden\n\nDas zeichnet Sie aus\n\n• Facharzttitel Kinder- und Jugendpsychiatrie und -psychotherapie\n• Freude an einer interdisziplinären, familienorientierten und ganzheitlichen Arbeitsweise\n• Hohe Sozialkompetenz sowie ein wertschätzender Umgang mit Kindern, Jugendlichen, Familien und Mitarbeitenden\n• Selbstständige, verantwortungsbewusste und strukturierte Arbeitsweise\n• Engagement, ein neues ambulantes Kinderzentrum aktiv mitzugestalten\n• Interesse an Innovation, Qualität und der kontinuierlichen Weiterentwicklung der Versorgung\n• Sie können sich in Deutsch und Französisch verständigen und beherrschen eine der beiden Sprachen sicher in Wort und Schrift\n\nDavon profitieren Sie\n\n• Eine einzigartige Gelegenheit, ein neues ambulantes Kinderzentrum von Beginn an mitzugestalten\n• Psychiatrische und psychotherapeutische Tätigkeit in einem eng vernetzten medizinischen Umfeld mit direktem fachlichem Austausch zwischen Pädiatrie, Entwicklungspädiatrie, Psychologie und Therapien\n• Moderne Infrastruktur im Maison de la Santé, nur wenige Minuten vom Bahnhof Biel entfernt\n• Raum für Innovation sowie die Entwicklung neuer interdisziplinärer Versorgungsmodelle\n• Individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n• Fortschrittliche Anstellungsbedingungen und flexible Arbeitsmodelle",
         "fr": "Le centre hospitalier de Biel est le centre hospitalier de la région bilingue du Biel-Seeland-Berne Jura. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population?\n\nDans la Maison de la Santé, à quelques pas de la gare de Bienne, nous créons un lieu où les enfants et leurs familles sont au centre de l'attention et se sentent en sécurité, compris et entre de bonnes mains.\nAvec MEDIN Kids, un nouveau centre pour enfants ambulatoires est en cours de construction à la Maison de la Santé de Biel avec une large gamme d'heures de consultation spécialisées. Différentes disciplines médicales et thérapeutiques travaillent en étroite collaboration et regroupent leurs compétences pour une prise en charge globale et coordonnée des enfants et des adolescents sous un même toit. L'offre comprend la pédiatrie du développement, la psychologie, la physiothérapie pédiatrique et l'ergothérapie pédiatrique.\nLa coopération interprofessionnelle permet de réaliser de courts parcours, des concepts de traitement coordonnés et des soins holistiques qui sont constamment axés sur les besoins des enfants, des adolescents et de leur famille.\nEn tant que membre de notre équipe, vous assumez la responsabilité de vos patients et participez activement au développement et au développement de ce centre d'accueil pour enfants.\nPour renforcer notre équipe médicale, nous cherchons 1. Juin 2027 ou par arrangement un:n\n\nMédecin principal: en psychiatrie infantile et adolescente 50-100%\n\nC'est vrai.\n\n• Évaluation externe indépendante et traitement des enfants et adolescents souffrant de troubles psychiatriques\n• Soutien psychiatrique et psychothérapeutique indépendant des enfants, des adolescents et de leur famille\n• Évaluation des problèmes complexes de développement, d'émotion et de psychosocial\n• Coopération interdisciplinaire étroite avec des domaines d'intérêt pédiatrique tels que la pédiatrie du développement, la psychologie et les spécialistes thérapeutiques\n• Coopération avec les écoles, les organismes d'intervention précoce, les autorités et d'autres partenaires extérieurs\n• Participation active au développement d'une consultation interdisciplinaire sur les troubles de la régulation de la petite enfance, les troubles de la douleur et la médecine pour adolescents\n• Surveillance des salariés\n\nÇa les sépare.\n\n• Titre spécialisé de la psychiatrie et de la psychothérapie des enfants et des adolescents\n• Profitez d'une façon interdisciplinaire, familiale et holistique de travailler\n• Des compétences sociales élevées et une approche appréciée des enfants, des jeunes, des familles et des employés\n• Méthodes de travail indépendantes, responsables et structurées\n• Engagement à façonner activement un nouveau centre pour enfants ambulatoires\n• Intérêt pour l'innovation, la qualité et le développement continu des soins\n• Vous pouvez communiquer en allemand et en français et maîtriser l'une des deux langues en toute sécurité en parole et en écriture\n\nIls en profitent.\n\n• Une occasion unique de co-créer un nouveau centre ambulatoire pour enfants dès le début\n• Activité psychiatrique et psychothérapeutique dans un environnement médical étroitement en réseau avec un échange professionnel direct entre pédiatrie, pédiatrie du développement, psychologie et thérapies\n• Infrastructure moderne dans la Maison de la Santé, à quelques minutes de la gare de Biel\n• Espace d'innovation et développement de nouveaux modèles de soins interdisciplinaires\n• Possibilités individuelles de formation et de perfectionnement\n• Conditions d'emploi avancées et modèles de travail flexibles"
       },
+      "needsRetranslation": false,
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://jobs.szb-chb.ch/Vacancies/4593/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:39.744Z",
+      "crawledAt": "2026-10-08T21:22:53.681Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3941,15 +3942,15 @@
         "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
+          "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
         "en": [
           "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "fr": [
           "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "it": [
-          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
-          "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:33.580Z",
@@ -3999,7 +4000,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4592/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:38.989Z",
+      "crawledAt": "2026-10-08T21:22:52.861Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4082,7 +4083,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4585/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:38.201Z",
+      "crawledAt": "2026-10-08T21:22:52.018Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4158,7 +4159,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4504/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:37.404Z",
+      "crawledAt": "2026-10-08T21:22:51.187Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4178,10 +4179,6 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4504/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
-        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
@@ -4197,6 +4194,10 @@
           "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
         ]
       },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-spitalzentrum-biel-centre-hospitalier",
+        "medizinische-r-praxisassistent-in-nephrologie-60-100-mo-fr-fage-auch-moglich-szb-chb-biel"
+      ],
       "firstSeenAt": "2026-09-08T23:22:49.015Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4243,7 +4244,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4533/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:36.619Z",
+      "crawledAt": "2026-10-08T21:22:50.376Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4263,7 +4264,10 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4533/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-08T13:38:39.127Z",
+      "previousSlugs": [
+        "ict-system-specialist-100-szb-chb-biel-bienne",
+        "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-specialist-100-szb-chb-biel-bienne"
@@ -4272,10 +4276,7 @@
           "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "ict-system-specialist-100-szb-chb-biel-bienne",
-        "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-08T13:38:39.127Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -4321,7 +4322,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4536/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:36.081Z",
+      "crawledAt": "2026-10-08T21:22:49.525Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4341,15 +4342,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4536/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-08T13:38:38.344Z",
+      "previousSlugs": [
+        "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "medizinische-codiererin-medizinischer-codierer-80-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-08T13:38:38.344Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
@@ -4395,7 +4396,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4500/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:35.275Z",
+      "crawledAt": "2026-10-08T21:22:48.714Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4472,7 +4473,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4634/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:34.492Z",
+      "crawledAt": "2026-10-08T21:22:47.878Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4492,15 +4493,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4634/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:20.986Z",
+      "previousSlugs": [
+        "leiter-in-einkauf-80-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-einkauf-80-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-einkauf-80-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:20.986Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -4547,7 +4548,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4662/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:33.668Z",
+      "crawledAt": "2026-10-08T21:22:47.056Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4630,7 +4631,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4320/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:32.883Z",
+      "crawledAt": "2026-10-08T21:22:46.236Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4650,15 +4651,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4320/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:18.386Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-50-100-urologie-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:18.386Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4704,7 +4705,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4632/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:32.082Z",
+      "crawledAt": "2026-10-08T21:22:45.404Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4730,12 +4731,12 @@
         "arztsekretarin-nephrologie-40-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-nephrologie-40-100-szb-chb-biel-bienne"
+        ],
         "en": [
           "arztsekretarin-nephrologie-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "physician-secretary-nephrology-40-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "it": [
-          "arztsekretarin-nephrologie-40-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-29T21:12:17.567Z",
@@ -4784,7 +4785,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4524/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:31.308Z",
+      "crawledAt": "2026-10-08T21:22:44.604Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4804,9 +4805,6 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4524/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-onkologie-60-100-szb-chb-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "leitende-arztin-leitender-arzt-onkologie-60-100-szb-chb-biel-bienne"
@@ -4815,6 +4813,9 @@
           "leitende-arztin-leitender-arzt-onkologie-60-100-szb-chb-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-onkologie-60-100-szb-chb-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-29T21:12:16.720Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -4862,7 +4863,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4670/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:30.493Z",
+      "crawledAt": "2026-10-08T21:22:43.810Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4882,15 +4883,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4670/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:50:45.708Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-100-chirurgie-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-60-100-chirurgie-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-100-chirurgie-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:45.708Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4936,7 +4937,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4671/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:29.665Z",
+      "crawledAt": "2026-10-08T21:22:43.017Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4956,15 +4957,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4671/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:15.056Z",
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-mann-60-100-chirurgie-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-r-pflegefachfrau-mann-60-100-chirurgie-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "diplomierte-r-pflegefachfrau-mann-60-100-chirurgie-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:15.056Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -5011,7 +5012,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4599/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:28.869Z",
+      "crawledAt": "2026-10-08T21:22:42.152Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5031,15 +5032,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4599/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:50:44.218Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-100-akutgeriatrie-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-60-100-akutgeriatrie-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-100-akutgeriatrie-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-19T22:50:44.218Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -5086,7 +5087,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4691/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:28.082Z",
+      "crawledAt": "2026-10-08T21:22:41.311Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5169,7 +5170,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4669/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:27.333Z",
+      "crawledAt": "2026-10-08T21:22:40.486Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5251,7 +5252,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4600/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:26.544Z",
+      "crawledAt": "2026-10-08T21:22:39.606Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5328,7 +5329,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/3735/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:25.792Z",
+      "crawledAt": "2026-10-08T21:22:38.794Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5374,90 +5375,6 @@
       }
     },
     {
-      "id": "szb-chb-f8b722892441",
-      "slug": "settore-personale-emergenza-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-      "slugByLocale": {
-        "it": "settore-personale-emergenza-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "personnel-emergency-department-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne",
-        "fr": "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      },
-      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
-      "companyKey": "szb-chb",
-      "companyDomain": "szb-chb.ch",
-      "title": "Sachbearbeiter/in Notfallaufnahme (60-90%)",
-      "titleByLocale": {
-        "it": "Addetto/a al pronto soccorso (60-90%)",
-        "en": "Emergency room clerk (60-90%)",
-        "de": "Sachbearbeiter/in Notfallaufnahme (60-90%)",
-        "fr": "Responsable des urgences (60-90 %)"
-      },
-      "description": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\nDie Patientenadministration des Spitalzentrums Biel ist eine zentrale Dienstleistungseinheit an der Schnittstelle zwischen Patientinnen und Patienten und externen Stellen, aber auch zwischen verschiedenen internen Fachbereichen. Zur Unterstützung des Kerngeschäfts des Spitals erbringt sie Dienstleistungen in den Bereichen Empfang, Patienten- und Notfallaufnahme, Rechnungsstellung, Honorarwesen und Leistungserfassung.\nEs erwartet Sie ein abwechslungsreiches und interessantes Aufgabengebiet in einem spannenden Umfeld. Wenn Sie ein Flair für den Gesundheits- und Verwaltungsbereich haben, freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\n\nZur Verstärkung unseres Teams in der Notfallaufnahme suchen wir ab sofort oder nach Vereinbarung eine/n:\n\nSachbearbeiter/in Notfallaufnahme (60-90%)\n\nDas tun Sie\n\n• Persönlicher Empfang der Patienten in der Notfallaufnahme\n• Administrative Aufnahme, Bearbeitung der Patientendaten und Erstellung von Dokumenten\n• Sicherstellen einer vollständigen Kostengarantie (Abklärung von Versicherungsverhältnissen)\n• Mitgestaltung von Prozessen und Optimierung der internen Arbeitsmethoden\n• Fördern der interdisziplinären Zusammenarbeit (u. a. Pflege, Ärzte, Sicherheitsdienst)\n• Kommunikation und Koordination\n\nDas zeichnet Sie aus\n\n• Kaufmännische Grundausbildung oder gute Kenntnisse der Microsoft IT-Tools (Word, Outlook, Excel)\n• Deutsche oder französische Muttersprache mit sehr guten Kenntnissen (mündlich/schriftlich) der anderen Sprache . Englisch- und/oder Italienischkenntnisse sind von Vorteil\n• Organisatorisches Geschick und Schnelligkeit bei sich wiederholenden Aufgaben\n• Sie sind teamorientiert und flexibel, Ihre Einstellung ist dienstleistungsorientiert, Sie verfügen über gute soziale Kompetenzen und ein ausgeprägtes Qualitätsbewusstsein\n• Sie haben Freude an einer abwechslungsreichen Arbeit und am menschlichen Kontakt mit Patienten und der Ärzteschaft\n• Sie sind bereit, an Wochenenden, in der Nacht und an Feiertagen zu arbeiten\n\nDavon profitieren Sie\n\n• Sinnvolle Arbeit, die auf die volle Zufriedenheit der Patienten abzielt und im Einklang mit der lokalen Bevölkerung steht\n• Eine Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen verschiedenen Berufen in einem dynamischen Umfeld\n• Ein vielfältiges und gesundes Angebot, das es ermöglicht, seine Lebenspläne individuell zu gestalten\n• Sichere und moderne Arbeitsbedingungen, die dem Gesamtarbeitsvertrag (GAV) für das Personal der Berner Spitäler entsprechen",
-      "descriptionByLocale": {
-        "it": "Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione?\nL'amministrazione del paziente del Biel Hospital Center è un'unità di servizio centrale all'interfaccia tra pazienti e agenzie esterne, ma anche tra varie aree specialistiche interne. Per sostenere il core business dell'ospedale, fornisce servizi nelle aree di accoglienza, accoglienza paziente e di emergenza, fatturazione, commissioni e registrazione delle prestazioni.\nPuoi aspettarti un'area di responsabilità varia e interessante in un ambiente emozionante. Se avete un tocco per il settore della salute e dell'amministrazione, non vediamo l'ora dei vostri documenti applicativi completi.\n\nAl fine di rafforzare il nostro team nel reparto di emergenza, stiamo cercando un immediato o d'accordo:\n\nSettore personale/emergenza (60-90%)\n\nSi'.\n\n• Ricezione personale dei pazienti nel pronto soccorso\n• Registrazione amministrativa, elaborazione dei dati del paziente e preparazione dei documenti\n• Garantire una garanzia completa dei costi (certificazione dei rapporti assicurativi)\n• Co-design di processi e ottimizzazione dei metodi di lavoro interni\n• Promuovere la cooperazione interdisciplinare (incluso l'allattamento, i medici, il servizio di sicurezza)\n• Comunicazione e coordinamento\n\nQuesto li distingue.\n\n• Formazione commerciale di base o una buona conoscenza degli strumenti Microsoft IT (Word, Outlook, Excel)\n• Lingua madre tedesca o francese con buona conoscenza (orale/scritta) dell'altra lingua. Le competenze in inglese e/o italiana sono utili\n• Abilità organizzativa e velocità nei compiti ripetitivi\n• Siete orientati al team e flessibili, il vostro atteggiamento è orientato al servizio, avete buone capacità sociali e una forte consapevolezza della qualità\n• Essi godono di lavoro vario e contatto umano con i pazienti e la professione medica\n• Siete pronti a lavorare nei fine settimana, di notte e in vacanza\n\nNe beneficiano.\n\n• Lavoro significativo finalizzato alla piena soddisfazione dei pazienti e in armonia con la popolazione locale\n• Cooperazione con colleghi bilingue provenienti da diverse professioni in un ambiente dinamico\n• Un'offerta diversificata e salutare che ti permette di personalizzare i tuoi piani di vita\n• Condizioni di lavoro sicure e moderne che corrispondono al contratto generale di lavoro (GAV) per il personale degli ospedali di Berna",
-        "en": "The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population?\nThe patient administration of the Biel Hospital Center is a central service unit at the interface between patients and external agencies, but also between various internal specialist areas. To support the hospital’s core business, it provides services in the areas of reception, patient and emergency reception, billing, fees and performance recording.\nYou can expect a varied and interesting area of responsibility in an exciting environment. If you have a flair for the health and administration sector, we look forward to your complete application documents.\n\nIn order to strengthen our team in the emergency department, we are looking for an immediately or by agreement:\n\nPersonnel/emergency department (60-90%)\n\nThey do.\n\n• Personal reception of patients in the emergency room\n• Administrative recording, processing of patient data and preparation of documents\n• Ensuring a full cost guarantee (certification of insurance relationships)\n• Co-design of processes and optimization of internal working methods\n• Promoting interdisciplinary cooperation (including nursing, doctors, security service)\n• Communication and coordination\n\nThat sets them apart.\n\n• Basic commercial training or good knowledge of Microsoft IT tools (Word, Outlook, Excel)\n• German or French mother tongue with very good knowledge (oral/written) of the other language. English and/or Italian skills are beneficial\n• Organizational skill and speed in repetitive tasks\n• You are team-oriented and flexible, your attitude is service-oriented, you have good social skills and a strong quality awareness\n• They enjoy varied work and human contact with patients and the medical profession\n• You are ready to work on weekends, at night and on holidays\n\nThey benefit from it.\n\n• Meaningful work aimed at the full satisfaction of patients and in harmony with the local population\n• Cooperation with bilingual colleagues from many different professions in a dynamic environment\n• A diverse and healthy offer that allows you to customize your life plans\n• Safe and modern working conditions that correspond to the general employment contract (GAV) for the staff of the Bern hospitals",
-        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\nDie Patientenadministration des Spitalzentrums Biel ist eine zentrale Dienstleistungseinheit an der Schnittstelle zwischen Patientinnen und Patienten und externen Stellen, aber auch zwischen verschiedenen internen Fachbereichen. Zur Unterstützung des Kerngeschäfts des Spitals erbringt sie Dienstleistungen in den Bereichen Empfang, Patienten- und Notfallaufnahme, Rechnungsstellung, Honorarwesen und Leistungserfassung.\nEs erwartet Sie ein abwechslungsreiches und interessantes Aufgabengebiet in einem spannenden Umfeld. Wenn Sie ein Flair für den Gesundheits- und Verwaltungsbereich haben, freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\n\nZur Verstärkung unseres Teams in der Notfallaufnahme suchen wir ab sofort oder nach Vereinbarung eine/n:\n\nSachbearbeiter/in Notfallaufnahme (60-90%)\n\nDas tun Sie\n\n• Persönlicher Empfang der Patienten in der Notfallaufnahme\n• Administrative Aufnahme, Bearbeitung der Patientendaten und Erstellung von Dokumenten\n• Sicherstellen einer vollständigen Kostengarantie (Abklärung von Versicherungsverhältnissen)\n• Mitgestaltung von Prozessen und Optimierung der internen Arbeitsmethoden\n• Fördern der interdisziplinären Zusammenarbeit (u. a. Pflege, Ärzte, Sicherheitsdienst)\n• Kommunikation und Koordination\n\nDas zeichnet Sie aus\n\n• Kaufmännische Grundausbildung oder gute Kenntnisse der Microsoft IT-Tools (Word, Outlook, Excel)\n• Deutsche oder französische Muttersprache mit sehr guten Kenntnissen (mündlich/schriftlich) der anderen Sprache . Englisch- und/oder Italienischkenntnisse sind von Vorteil\n• Organisatorisches Geschick und Schnelligkeit bei sich wiederholenden Aufgaben\n• Sie sind teamorientiert und flexibel, Ihre Einstellung ist dienstleistungsorientiert, Sie verfügen über gute soziale Kompetenzen und ein ausgeprägtes Qualitätsbewusstsein\n• Sie haben Freude an einer abwechslungsreichen Arbeit und am menschlichen Kontakt mit Patienten und der Ärzteschaft\n• Sie sind bereit, an Wochenenden, in der Nacht und an Feiertagen zu arbeiten\n\nDavon profitieren Sie\n\n• Sinnvolle Arbeit, die auf die volle Zufriedenheit der Patienten abzielt und im Einklang mit der lokalen Bevölkerung steht\n• Eine Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen verschiedenen Berufen in einem dynamischen Umfeld\n• Ein vielfältiges und gesundes Angebot, das es ermöglicht, seine Lebenspläne individuell zu gestalten\n• Sichere und moderne Arbeitsbedingungen, die dem Gesamtarbeitsvertrag (GAV) für das Personal der Berner Spitäler entsprechen",
-        "fr": "Le centre hospitalier de Biel est le centre hospitalier de la région bilingue du Jura de Biel-Seeland-Berne. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population?\nL'administration des patients du centre hospitalier de Biel est une unité de service centrale à l'interface entre les patients et les organismes externes, mais aussi entre différents domaines spécialisés internes. Pour soutenir les activités principales de l'hôpital, il fournit des services dans les domaines de l'accueil, de la réception des patients et des urgences, de la facturation, des frais et de l'enregistrement des performances.\nVous pouvez vous attendre à un domaine de responsabilité varié et intéressant dans un environnement passionnant. Si vous avez un flair pour le secteur de la santé et de l'administration, nous attendons avec impatience vos documents de demande complets.\n\nAfin de renforcer notre équipe au service des urgences, nous recherchons immédiatement ou par accord :\n\nDépartement Personnel/urgence (60-90%)\n\nOui.\n\n• Réception personnelle des patients aux urgences\n• Enregistrement administratif, traitement des données du patient et préparation des documents\n• Garantir une garantie complète des coûts (certification des relations d'assurance)\n• Co-conception des processus et optimisation des méthodes de travail internes\n• Promotion de la coopération interdisciplinaire (y compris les soins infirmiers, les médecins, les services de sécurité)\n• Communication et coordination\n\nÇa les sépare.\n\n• Formation commerciale de base ou bonne connaissance des outils informatiques de Microsoft (Word, Outlook, Excel)\n• Langue maternelle allemande ou française avec une très bonne connaissance (orale/écrite) de l'autre langue. Les compétences en anglais et/ou en italien sont bénéfiques\n• Compétences organisationnelles et rapidité des tâches répétitives\n• Vous êtes orientés vers l'équipe et flexible, votre attitude est orientée vers le service, vous avez de bonnes compétences sociales et une forte sensibilisation de qualité\n• Ils bénéficient d'un travail varié et de contacts humains avec les patients et la profession médicale\n• Vous êtes prêt à travailler le week-end, la nuit et les vacances\n\nIls en profitent.\n\n• Un travail significatif visant à la pleine satisfaction des patients et en harmonie avec la population locale\n• Coopération avec des collègues bilingues de nombreuses professions dans un environnement dynamique\n• Une offre diversifiée et saine qui vous permet de personnaliser vos plans de vie\n• Conditions de travail sûres et modernes qui correspondent au contrat général de travail (GAV) pour le personnel des hôpitaux de Berne"
-      },
-      "needsRetranslation": false,
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://jobs.szb-chb.ch/Vacancies/4457/Description/1",
-      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:25.035Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "category": "Sanità / Ospedali",
-      "department": "Andere Berufe",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4457/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "sachbearbeiter-in-notfallaufnahme-60-90-szb-chb-biel-bienne",
-        "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "fr": [
-          "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "it": [
-          "sachbearbeiter-in-notfallaufnahme-60-90-szb-chb-biel-bienne"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T14:43:59.868Z",
-      "salaryMin": 76500,
-      "salaryMax": 107100,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76500,
-          "maxValue": 107100,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "szb-chb-7a50f2c8918e",
       "slug": "dipl-pflegefachfrau-mann-hno-30-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
@@ -5488,7 +5405,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4644/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:24.225Z",
+      "crawledAt": "2026-10-08T21:22:37.941Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5508,15 +5425,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4644/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:56:18.224Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hno-30-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-26T13:56:18.224Z",
       "salaryMin": 25500,
       "salaryMax": 35700,
       "salarySource": "estimated",
@@ -5562,7 +5479,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4645/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:23.413Z",
+      "crawledAt": "2026-10-08T21:22:37.158Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5644,7 +5561,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4649/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:22.619Z",
+      "crawledAt": "2026-10-08T21:22:36.297Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5724,7 +5641,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4660/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:21.820Z",
+      "crawledAt": "2026-10-08T21:22:35.411Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5801,7 +5718,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4708/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:21.009Z",
+      "crawledAt": "2026-10-08T21:22:34.595Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5821,15 +5738,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4708/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:12:03.514Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-hu-man-re-sour-ces-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-hu-man-re-sour-ces-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-hu-man-re-sour-ces-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-29T21:12:03.514Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5875,7 +5792,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4709/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:20.151Z",
+      "crawledAt": "2026-10-08T21:22:33.792Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5958,7 +5875,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4616/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:19.380Z",
+      "crawledAt": "2026-10-08T21:22:32.991Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6035,7 +5952,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4673/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:18.579Z",
+      "crawledAt": "2026-10-08T21:22:32.225Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6055,15 +5972,15 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4673/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:56:19.063Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-90-100-szb-chb-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-radiologie-90-100-szb-chb-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-radiologie-90-100-szb-chb-biel-bienne"
-      ],
+      "firstSeenAt": "2026-09-26T13:56:19.063Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -6109,7 +6026,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4705/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:17.780Z",
+      "crawledAt": "2026-10-08T21:22:31.350Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6193,7 +6110,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4696/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:17.011Z",
+      "crawledAt": "2026-10-08T21:22:30.489Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6213,13 +6130,10 @@
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4696/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiter-in-immobilienentwicklung-miag-80-100-szb-chb-biel-bienne",
-        "responsabile-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "leiter-in-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "leiter-in-immobilien-entwicklung-miag-80-100-szb-chb-biel-bienne"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "leiter-in-immobilien-entwicklung-miag-80-100-szb-chb-biel-bienne"
+        ],
         "it": [
           "leiter-in-immobilienentwicklung-miag-80-100-szb-chb-biel-bienne",
           "responsabile-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
@@ -6228,13 +6142,16 @@
         "en": [
           "leiter-in-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
-        "de": [
-          "leiter-in-immobilien-entwicklung-miag-80-100-szb-chb-biel-bienne"
-        ],
         "fr": [
           "leiter-in-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
+      "previousSlugs": [
+        "leiter-in-immobilienentwicklung-miag-80-100-szb-chb-biel-bienne",
+        "responsabile-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "leiter-in-immobilienentwicklung-miag-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "leiter-in-immobilien-entwicklung-miag-80-100-szb-chb-biel-bienne"
+      ],
       "firstSeenAt": "2026-09-23T19:50:10.926Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
@@ -6281,7 +6198,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4674/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:16.252Z",
+      "crawledAt": "2026-10-08T21:22:29.654Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6364,7 +6281,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4559/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:15.496Z",
+      "crawledAt": "2026-10-08T21:22:28.798Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6447,7 +6364,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4718/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:14.735Z",
+      "crawledAt": "2026-10-08T21:22:27.967Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6481,6 +6398,7 @@
           "dipl-pflegefachfrau-mann-neonatologie-uberwachungsstation-80-100-szb-chb-biel-bienne"
         ]
       },
+      "firstSeenAt": "2026-10-08T09:17:14.735Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6493,16 +6411,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:17:14.735Z"
+      }
     },
     {
       "id": "szb-chb-d30739567014",
       "slug": "contabile-senior-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "de": "senior-buchhalter-60-70-szb-chb-biel-bienne",
         "it": "contabile-senior-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "senior-accountant-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "senior-buchhalter-60-70-szb-chb-biel-bienne",
         "fr": "comptable-principal-60-70-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
@@ -6510,16 +6427,16 @@
       "companyDomain": "szb-chb.ch",
       "title": "Senior Buchhalter, 60-70%",
       "titleByLocale": {
-        "de": "Senior Buchhalter, 60-70%",
         "it": "Contabile senior, 60-70 %",
         "en": "Senior Accountant, 60-70 %",
+        "de": "Senior Buchhalter, 60-70%",
         "fr": "Comptable principal, 60-70 %"
       },
       "description": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nFür unsere Finanzbuchhaltung suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nSenior Buchhalter, 60-70%\n\nDas tun Sie\n\n• Führung und Überwachung der Buchhaltung mehrerer Tochtergesellschaften der Gruppe\n• Erstellung bestimmter Debitorenrechnungen und Überwachung offener Posten\n• Überwachung und Kontrolle der Kreditoren\n• Kontenabstimmungen und Kontenkontrolle\n• Mitarbeit bei den Abschlüssen\n• Vorbereitung der Abschlussbuchungen und der erforderlichen Belege\n• Aktive Mitwirkung am Konsolidierungsprozess der Konzernabschlüsse\n• Vorbereitung, Prüfung und Abstimmung der für die Konsolidierung erforderlichen Daten\n• Abstimmung und Überwachung der konzerninternen Salden\n• Anwendung der Buchhaltungssysteme Abacus und SAP\n• Zusammenarbeit mit verschiedenen internen Ansprechpartnern und der Finanzabteilung\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Buchhaltung/Finanzen oder gleichwertige Ausbildung\n• Nachweisbare Erfahrung im Rechnungswesen, idealerweise in einem konzernübergreifenden Umfeld\n• Erfahrung mit Abschlüssen\n• Erfahrung mit der Konsolidierung von Konzernabschlüssen von Vorteil\n• Gutes Verständnis für Konsolidierungsprozesse und konzerninterne Transaktionen\n• Gute Kenntnisse in Abacus und/oder SAP sowie in Excel\n• Selbstständiges, präzises und strukturiertes Arbeiten\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache.\n\nDavon profitieren Sie\n\nDas Gesundheitswesen und damit auch das Spitalzentrum Biel befinden sich in einer spannenden Transformationsphase, in welcher Initiative und eigenverantwortliches Handeln gefragt sind. Sie erhalten die Gelegenheit, aktiv mit einem motivierten Team die Zukunft des Spitals mitzugestalten. Das Spitalzentrum Biel bietet Ihnen attraktive Anstellungsbedingungen nach Gesamtarbeitsvertrag und verfügt über ein eigenes Restaurant mit vorteilhaften Preisen für das Personal sowie über eine Kindertagesstätte. In hausinternen Sprachkursen können sie Ihre Französisch- bzw. Deutschkenntnisse auffrischen.",
       "descriptionByLocale": {
-        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nFür unsere Finanzbuchhaltung suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nSenior Buchhalter, 60-70%\n\nDas tun Sie\n\n• Führung und Überwachung der Buchhaltung mehrerer Tochtergesellschaften der Gruppe\n• Erstellung bestimmter Debitorenrechnungen und Überwachung offener Posten\n• Überwachung und Kontrolle der Kreditoren\n• Kontenabstimmungen und Kontenkontrolle\n• Mitarbeit bei den Abschlüssen\n• Vorbereitung der Abschlussbuchungen und der erforderlichen Belege\n• Aktive Mitwirkung am Konsolidierungsprozess der Konzernabschlüsse\n• Vorbereitung, Prüfung und Abstimmung der für die Konsolidierung erforderlichen Daten\n• Abstimmung und Überwachung der konzerninternen Salden\n• Anwendung der Buchhaltungssysteme Abacus und SAP\n• Zusammenarbeit mit verschiedenen internen Ansprechpartnern und der Finanzabteilung\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Buchhaltung/Finanzen oder gleichwertige Ausbildung\n• Nachweisbare Erfahrung im Rechnungswesen, idealerweise in einem konzernübergreifenden Umfeld\n• Erfahrung mit Abschlüssen\n• Erfahrung mit der Konsolidierung von Konzernabschlüssen von Vorteil\n• Gutes Verständnis für Konsolidierungsprozesse und konzerninterne Transaktionen\n• Gute Kenntnisse in Abacus und/oder SAP sowie in Excel\n• Selbstständiges, präzises und strukturiertes Arbeiten\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache.\n\nDavon profitieren Sie\n\nDas Gesundheitswesen und damit auch das Spitalzentrum Biel befinden sich in einer spannenden Transformationsphase, in welcher Initiative und eigenverantwortliches Handeln gefragt sind. Sie erhalten die Gelegenheit, aktiv mit einem motivierten Team die Zukunft des Spitals mitzugestalten. Das Spitalzentrum Biel bietet Ihnen attraktive Anstellungsbedingungen nach Gesamtarbeitsvertrag und verfügt über ein eigenes Restaurant mit vorteilhaften Preisen für das Personal sowie über eine Kindertagesstätte. In hausinternen Sprachkursen können sie Ihre Französisch- bzw. Deutschkenntnisse auffrischen.",
         "it": "Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione?\n\nPer la nostra contabilità finanziaria stiamo cercando da 1. Dicembre 2026 o accordo uno o più\n\nContabile senior, 60-70 %\n\nSi'.\n\n• Gestione e supervisione dei conti di diverse filiali del gruppo\n• Preparazione di determinati conti concepibili e di controllo delle posizioni aperte\n• Monitoraggio e controllo dei creditori\n• Riconciliazione e controllo dei conti\n• Cooperazione nel bilancio\n• Preparazione dei conti e dei documenti di supporto\n• Partecipazione attiva al processo di consolidamento del bilancio consolidato\n• Preparazione, esame e riconciliazione dei dati necessari per il consolidamento\n• Coordinamento e monitoraggio dei bilanci intragruppo\n• Applicazione dei sistemi contabili Abacus e SAP\n• Cooperazione con vari contatti interni e il dipartimento finanziario\n\nQuesto li distingue.\n\n• Formazione contabile/finanziaria o formazione equivalente\n• Esperienza dimostrabile nella contabilità, idealmente in un ambiente di gruppo\n• Esperienza con bilancio\n• Il consolidamento del bilancio consolidato è vantaggioso\n• Buona comprensione dei processi di consolidamento e delle transazioni intragruppo\n• Buona conoscenza di Abacus e/o SAP ed Excel\n• Lavoro indipendente, preciso e strutturato\n• lingua madre tedesco o francese, con buona conoscenza dell'altra lingua.\n\nNe beneficiano.\n\nIl settore sanitario e così anche il Biel Hospital Center sono in una fase di trasformazione emozionante, in cui l'iniziativa e l'azione auto-responsabile sono necessari. Avrete l'opportunità di plasmare attivamente il futuro dell'ospedale con un team motivato. Il Biel Hospital Center offre interessanti condizioni di lavoro in base a un contratto collettivo di lavoro e ha un proprio ristorante con prezzi vantaggiosi per il personale e un centro di assistenza. Nei corsi di lingua in-house è possibile aggiornare le vostre abilità francesi o tedesche.",
         "en": "The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population?\n\nFor our financial accounting we are looking from 1. December 2026 or by agreement one or more\n\nSenior Accountant, 60-70 %\n\nYou do.\n\n• Management and supervision of the accounts of several subsidiaries of the group\n• Preparation of certain accounts receivable and monitoring of open positions\n• Monitoring and control of creditors\n• Reconciliation and control of accounts\n• Cooperation in financial statements\n• Preparation of accounts and supporting documents\n• Active participation in the consolidation process of consolidated financial statements\n• Preparation, examination and reconciliation of data required for consolidation\n• Coordination and monitoring of intra-group balances\n• Application of the accounting systems Abacus and SAP\n• Cooperation with various internal contacts and the finance department\n\nThat sets them apart.\n\n• Accounting/financial training or equivalent training\n• Demonstrable experience in accounting, ideally in a group-wide environment\n• Experience with financial statements\n• Experience consolidating consolidated financial statements is beneficial\n• Good understanding of consolidation processes and intra-group transactions\n• Good knowledge of Abacus and/or SAP and Excel\n• Independent, precise and structured work\n• mother tongue German or French, with good knowledge of the other language.\n\nThey benefit from it.\n\nThe healthcare sector and thus also the Biel Hospital Center are in an exciting transformation phase, in which initiative and self-responsible action are required. You will have the opportunity to actively shape the future of the hospital with a motivated team. The Biel Hospital Center offers you attractive employment conditions according to a collective employment contract and has its own restaurant with advantageous prices for the staff as well as a day care center. In in-house language courses you can refresh your French or German skills.",
+        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nFür unsere Finanzbuchhaltung suchen wir ab 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nSenior Buchhalter, 60-70%\n\nDas tun Sie\n\n• Führung und Überwachung der Buchhaltung mehrerer Tochtergesellschaften der Gruppe\n• Erstellung bestimmter Debitorenrechnungen und Überwachung offener Posten\n• Überwachung und Kontrolle der Kreditoren\n• Kontenabstimmungen und Kontenkontrolle\n• Mitarbeit bei den Abschlüssen\n• Vorbereitung der Abschlussbuchungen und der erforderlichen Belege\n• Aktive Mitwirkung am Konsolidierungsprozess der Konzernabschlüsse\n• Vorbereitung, Prüfung und Abstimmung der für die Konsolidierung erforderlichen Daten\n• Abstimmung und Überwachung der konzerninternen Salden\n• Anwendung der Buchhaltungssysteme Abacus und SAP\n• Zusammenarbeit mit verschiedenen internen Ansprechpartnern und der Finanzabteilung\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Buchhaltung/Finanzen oder gleichwertige Ausbildung\n• Nachweisbare Erfahrung im Rechnungswesen, idealerweise in einem konzernübergreifenden Umfeld\n• Erfahrung mit Abschlüssen\n• Erfahrung mit der Konsolidierung von Konzernabschlüssen von Vorteil\n• Gutes Verständnis für Konsolidierungsprozesse und konzerninterne Transaktionen\n• Gute Kenntnisse in Abacus und/oder SAP sowie in Excel\n• Selbstständiges, präzises und strukturiertes Arbeiten\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache.\n\nDavon profitieren Sie\n\nDas Gesundheitswesen und damit auch das Spitalzentrum Biel befinden sich in einer spannenden Transformationsphase, in welcher Initiative und eigenverantwortliches Handeln gefragt sind. Sie erhalten die Gelegenheit, aktiv mit einem motivierten Team die Zukunft des Spitals mitzugestalten. Das Spitalzentrum Biel bietet Ihnen attraktive Anstellungsbedingungen nach Gesamtarbeitsvertrag und verfügt über ein eigenes Restaurant mit vorteilhaften Preisen für das Personal sowie über eine Kindertagesstätte. In hausinternen Sprachkursen können sie Ihre Französisch- bzw. Deutschkenntnisse auffrischen.",
         "fr": "Le centre hospitalier de Biel est le centre hospitalier de la région bilingue du Biel-Seeland-Berne Jura. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population?\n\nPour notre comptabilité financière, nous cherchons 1. Décembre 2026 ou par accord un ou plusieurs\n\nComptable principal, 60-70 %\n\nC'est vrai.\n\n• Gestion et supervision des comptes de plusieurs filiales du groupe\n• Préparation de certains comptes débiteurs et suivi des positions ouvertes\n• Contrôle et contrôle des créanciers\n• Rapprochement et contrôle des comptes\n• Coopération dans les états financiers\n• Établissement des comptes et pièces justificatives\n• Participation active au processus de consolidation des états financiers consolidés\n• Préparation, examen et rapprochement des données nécessaires à la consolidation\n• Coordination et suivi des soldes intragroupe\n• Application des systèmes comptables Abacus et SAP\n• Coopération avec les différents contacts internes et le département des finances\n\nÇa les sépare.\n\n• Formation comptable/financière ou formation équivalente\n• Expérience démontrée en comptabilité, idéalement dans un environnement à l'échelle du groupe\n• Expérience des états financiers\n• L ' expérience de la consolidation des états financiers consolidés est bénéfique\n• Bonne compréhension des processus de consolidation et des transactions intragroupe\n• Bonne connaissance d'Abacus et/ou SAP et Excel\n• Travail indépendant, précis et structuré\n• langue maternelle allemand ou français, avec une bonne connaissance de l'autre langue.\n\nIls en profitent.\n\nLe secteur de la santé et donc aussi le centre hospitalier de Bienne sont dans une phase de transformation passionnante, dans laquelle l'initiative et l'action auto-responsable sont nécessaires. Vous aurez l'occasion de façonner activement l'avenir de l'hôpital avec une équipe motivée. Le centre hospitalier de Biel vous offre des conditions d'emploi attrayantes selon un contrat de travail collectif et a son propre restaurant avec des prix avantageux pour le personnel ainsi qu'une garderie. Dans les cours de langues internes, vous pouvez rafraîchir vos compétences en français ou en allemand."
       },
       "location": "Biel/Bienne",
@@ -6527,7 +6444,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4721/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:13.955Z",
+      "crawledAt": "2026-10-08T21:22:27.121Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6546,9 +6463,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4721/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-buchhalter-60-70-szb-chb-biel-bienne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+        ]
       },
+      "firstSeenAt": "2026-10-08T09:17:13.955Z",
       "salaryMin": 66200,
       "salaryMax": 100100,
       "salarySource": "estimated",
@@ -6561,22 +6491,162 @@
           "maxValue": 100100,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "szb-chb-f8b722892441",
+      "slug": "settore-personale-emergenza-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slugByLocale": {
+        "it": "settore-personale-emergenza-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "personnel-emergency-department-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "de": "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne",
+        "fr": "responsable-des-urgences-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
-      "firstSeenAt": "2026-10-08T09:17:13.955Z",
+      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "companyKey": "szb-chb",
+      "companyDomain": "szb-chb.ch",
+      "title": "Sachbearbeiter/in Notfallaufnahme (50-60%)",
+      "titleByLocale": {
+        "it": "Addetto/a al pronto soccorso (60-90%)",
+        "en": "Emergency room clerk (60-90%)",
+        "de": "Sachbearbeiter/in Notfallaufnahme (50-60%)",
+        "fr": "Responsable des urgences (60-90 %)"
+      },
+      "description": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\nDie Patientenadministration des Spitalzentrums Biel ist eine zentrale Dienstleistungseinheit an der Schnittstelle zwischen Patientinnen und Patienten und externen Stellen, aber auch zwischen verschiedenen internen Fachbereichen. Zur Unterstützung des Kerngeschäfts des Spitals erbringt sie Dienstleistungen in den Bereichen Empfang, Patienten- und Notfallaufnahme, Rechnungsstellung, Honorarwesen und Leistungserfassung.\nEs erwartet Sie ein abwechslungsreiches und interessantes Aufgabengebiet in einem spannenden Umfeld. Wenn Sie ein Flair für den Gesundheits- und Verwaltungsbereich haben, freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\n\nZur Verstärkung unseres Teams in der Notfallaufnahme suchen wir per 01.02.2027 eine/n:\n\nSachbearbeiter/in Notfallaufnahme (50-60%)\n\nDas tun Sie\n\n• Persönlicher Empfang der Patienten in der Notfallaufnahme\n• Administrative Aufnahme, Bearbeitung der Patientendaten und Erstellung von Dokumenten\n• Sicherstellen einer vollständigen Kostengarantie (Abklärung von Versicherungsverhältnissen)\n• Mitgestaltung von Prozessen und Optimierung der internen Arbeitsmethoden\n• Fördern der interdisziplinären Zusammenarbeit (u. a. Pflege, Ärzte, Sicherheitsdienst)\n• Kommunikation und Koordination\n\nDas zeichnet Sie aus\n\n• Kaufmännische Grundausbildung oder gute Kenntnisse der Microsoft IT-Tools (Word, Outlook, Excel)\n• Deutsche oder französische Muttersprache mit sehr guten Kenntnissen (mündlich/schriftlich) der anderen Sprache . Englisch- und/oder Italienischkenntnisse sind von Vorteil\n• Organisatorisches Geschick und Schnelligkeit bei sich wiederholenden Aufgaben\n• Sie sind teamorientiert und flexibel, Ihre Einstellung ist dienstleistungsorientiert, Sie verfügen über gute soziale Kompetenzen und ein ausgeprägtes Qualitätsbewusstsein\n• Sie haben Freude an einer abwechslungsreichen Arbeit und am menschlichen Kontakt mit Patienten und der Ärzteschaft\n• Sie sind bereit, an Wochenenden, in der Nacht und an Feiertagen zu arbeiten\n\nDavon profitieren Sie\n\n• Sinnvolle Arbeit, die auf die volle Zufriedenheit der Patienten abzielt und im Einklang mit der lokalen Bevölkerung steht\n• Eine Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen verschiedenen Berufen in einem dynamischen Umfeld\n• Ein vielfältiges und gesundes Angebot, das es ermöglicht, seine Lebenspläne individuell zu gestalten\n• Sichere und moderne Arbeitsbedingungen, die dem Gesamtarbeitsvertrag (GAV) für das Personal der Berner Spitäler entsprechen",
+      "descriptionByLocale": {
+        "it": "Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione?\nL'amministrazione del paziente del Biel Hospital Center è un'unità di servizio centrale all'interfaccia tra pazienti e agenzie esterne, ma anche tra varie aree specialistiche interne. Per sostenere il core business dell'ospedale, fornisce servizi nelle aree di accoglienza, accoglienza paziente e di emergenza, fatturazione, commissioni e registrazione delle prestazioni.\nPuoi aspettarti un'area di responsabilità varia e interessante in un ambiente emozionante. Se avete un tocco per il settore della salute e dell'amministrazione, non vediamo l'ora dei vostri documenti applicativi completi.\n\nAl fine di rafforzare il nostro team nel reparto di emergenza, stiamo cercando un immediato o d'accordo:\n\nSettore personale/emergenza (60-90%)\n\nSi'.\n\n• Ricezione personale dei pazienti nel pronto soccorso\n• Registrazione amministrativa, elaborazione dei dati del paziente e preparazione dei documenti\n• Garantire una garanzia completa dei costi (certificazione dei rapporti assicurativi)\n• Co-design di processi e ottimizzazione dei metodi di lavoro interni\n• Promuovere la cooperazione interdisciplinare (incluso l'allattamento, i medici, il servizio di sicurezza)\n• Comunicazione e coordinamento\n\nQuesto li distingue.\n\n• Formazione commerciale di base o una buona conoscenza degli strumenti Microsoft IT (Word, Outlook, Excel)\n• Lingua madre tedesca o francese con buona conoscenza (orale/scritta) dell'altra lingua. Le competenze in inglese e/o italiana sono utili\n• Abilità organizzativa e velocità nei compiti ripetitivi\n• Siete orientati al team e flessibili, il vostro atteggiamento è orientato al servizio, avete buone capacità sociali e una forte consapevolezza della qualità\n• Essi godono di lavoro vario e contatto umano con i pazienti e la professione medica\n• Siete pronti a lavorare nei fine settimana, di notte e in vacanza\n\nNe beneficiano.\n\n• Lavoro significativo finalizzato alla piena soddisfazione dei pazienti e in armonia con la popolazione locale\n• Cooperazione con colleghi bilingue provenienti da diverse professioni in un ambiente dinamico\n• Un'offerta diversificata e salutare che ti permette di personalizzare i tuoi piani di vita\n• Condizioni di lavoro sicure e moderne che corrispondono al contratto generale di lavoro (GAV) per il personale degli ospedali di Berna",
+        "en": "The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population?\nThe patient administration of the Biel Hospital Center is a central service unit at the interface between patients and external agencies, but also between various internal specialist areas. To support the hospital’s core business, it provides services in the areas of reception, patient and emergency reception, billing, fees and performance recording.\nYou can expect a varied and interesting area of responsibility in an exciting environment. If you have a flair for the health and administration sector, we look forward to your complete application documents.\n\nIn order to strengthen our team in the emergency department, we are looking for an immediately or by agreement:\n\nPersonnel/emergency department (60-90%)\n\nThey do.\n\n• Personal reception of patients in the emergency room\n• Administrative recording, processing of patient data and preparation of documents\n• Ensuring a full cost guarantee (certification of insurance relationships)\n• Co-design of processes and optimization of internal working methods\n• Promoting interdisciplinary cooperation (including nursing, doctors, security service)\n• Communication and coordination\n\nThat sets them apart.\n\n• Basic commercial training or good knowledge of Microsoft IT tools (Word, Outlook, Excel)\n• German or French mother tongue with very good knowledge (oral/written) of the other language. English and/or Italian skills are beneficial\n• Organizational skill and speed in repetitive tasks\n• You are team-oriented and flexible, your attitude is service-oriented, you have good social skills and a strong quality awareness\n• They enjoy varied work and human contact with patients and the medical profession\n• You are ready to work on weekends, at night and on holidays\n\nThey benefit from it.\n\n• Meaningful work aimed at the full satisfaction of patients and in harmony with the local population\n• Cooperation with bilingual colleagues from many different professions in a dynamic environment\n• A diverse and healthy offer that allows you to customize your life plans\n• Safe and modern working conditions that correspond to the general employment contract (GAV) for the staff of the Bern hospitals",
+        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\nDie Patientenadministration des Spitalzentrums Biel ist eine zentrale Dienstleistungseinheit an der Schnittstelle zwischen Patientinnen und Patienten und externen Stellen, aber auch zwischen verschiedenen internen Fachbereichen. Zur Unterstützung des Kerngeschäfts des Spitals erbringt sie Dienstleistungen in den Bereichen Empfang, Patienten- und Notfallaufnahme, Rechnungsstellung, Honorarwesen und Leistungserfassung.\nEs erwartet Sie ein abwechslungsreiches und interessantes Aufgabengebiet in einem spannenden Umfeld. Wenn Sie ein Flair für den Gesundheits- und Verwaltungsbereich haben, freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen.\n\nZur Verstärkung unseres Teams in der Notfallaufnahme suchen wir per 01.02.2027 eine/n:\n\nSachbearbeiter/in Notfallaufnahme (50-60%)\n\nDas tun Sie\n\n• Persönlicher Empfang der Patienten in der Notfallaufnahme\n• Administrative Aufnahme, Bearbeitung der Patientendaten und Erstellung von Dokumenten\n• Sicherstellen einer vollständigen Kostengarantie (Abklärung von Versicherungsverhältnissen)\n• Mitgestaltung von Prozessen und Optimierung der internen Arbeitsmethoden\n• Fördern der interdisziplinären Zusammenarbeit (u. a. Pflege, Ärzte, Sicherheitsdienst)\n• Kommunikation und Koordination\n\nDas zeichnet Sie aus\n\n• Kaufmännische Grundausbildung oder gute Kenntnisse der Microsoft IT-Tools (Word, Outlook, Excel)\n• Deutsche oder französische Muttersprache mit sehr guten Kenntnissen (mündlich/schriftlich) der anderen Sprache . Englisch- und/oder Italienischkenntnisse sind von Vorteil\n• Organisatorisches Geschick und Schnelligkeit bei sich wiederholenden Aufgaben\n• Sie sind teamorientiert und flexibel, Ihre Einstellung ist dienstleistungsorientiert, Sie verfügen über gute soziale Kompetenzen und ein ausgeprägtes Qualitätsbewusstsein\n• Sie haben Freude an einer abwechslungsreichen Arbeit und am menschlichen Kontakt mit Patienten und der Ärzteschaft\n• Sie sind bereit, an Wochenenden, in der Nacht und an Feiertagen zu arbeiten\n\nDavon profitieren Sie\n\n• Sinnvolle Arbeit, die auf die volle Zufriedenheit der Patienten abzielt und im Einklang mit der lokalen Bevölkerung steht\n• Eine Zusammenarbeit mit zweisprachigen Kolleginnen und Kollegen aus vielen verschiedenen Berufen in einem dynamischen Umfeld\n• Ein vielfältiges und gesundes Angebot, das es ermöglicht, seine Lebenspläne individuell zu gestalten\n• Sichere und moderne Arbeitsbedingungen, die dem Gesamtarbeitsvertrag (GAV) für das Personal der Berner Spitäler entsprechen",
+        "fr": "Le centre hospitalier de Biel est le centre hospitalier de la région bilingue du Jura de Biel-Seeland-Berne. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population?\nL'administration des patients du centre hospitalier de Biel est une unité de service centrale à l'interface entre les patients et les organismes externes, mais aussi entre différents domaines spécialisés internes. Pour soutenir les activités principales de l'hôpital, il fournit des services dans les domaines de l'accueil, de la réception des patients et des urgences, de la facturation, des frais et de l'enregistrement des performances.\nVous pouvez vous attendre à un domaine de responsabilité varié et intéressant dans un environnement passionnant. Si vous avez un flair pour le secteur de la santé et de l'administration, nous attendons avec impatience vos documents de demande complets.\n\nAfin de renforcer notre équipe au service des urgences, nous recherchons immédiatement ou par accord :\n\nDépartement Personnel/urgence (60-90%)\n\nOui.\n\n• Réception personnelle des patients aux urgences\n• Enregistrement administratif, traitement des données du patient et préparation des documents\n• Garantir une garantie complète des coûts (certification des relations d'assurance)\n• Co-conception des processus et optimisation des méthodes de travail internes\n• Promotion de la coopération interdisciplinaire (y compris les soins infirmiers, les médecins, les services de sécurité)\n• Communication et coordination\n\nÇa les sépare.\n\n• Formation commerciale de base ou bonne connaissance des outils informatiques de Microsoft (Word, Outlook, Excel)\n• Langue maternelle allemande ou française avec une très bonne connaissance (orale/écrite) de l'autre langue. Les compétences en anglais et/ou en italien sont bénéfiques\n• Compétences organisationnelles et rapidité des tâches répétitives\n• Vous êtes orientés vers l'équipe et flexible, votre attitude est orientée vers le service, vous avez de bonnes compétences sociales et une forte sensibilisation de qualité\n• Ils bénéficient d'un travail varié et de contacts humains avec les patients et la profession médicale\n• Vous êtes prêt à travailler le week-end, la nuit et les vacances\n\nIls en profitent.\n\n• Un travail significatif visant à la pleine satisfaction des patients et en harmonie avec la population locale\n• Coopération avec des collègues bilingues de nombreuses professions dans un environnement dynamique\n• Une offre diversifiée et saine qui vous permet de personnaliser vos plans de vie\n• Conditions de travail sûres et modernes qui correspondent au contrat général de travail (GAV) pour le personnel des hôpitaux de Berne"
+      },
+      "needsRetranslation": true,
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://jobs.szb-chb.ch/Vacancies/4457/Description/1",
+      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:22:26.281Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "category": "Sanità / Ospedali",
+      "department": "Andere Berufe",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4457/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "sachbearbeiter-in-notfallaufnahme-60-90-szb-chb-biel-bienne",
+        "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne",
+        "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+          "sachbearbeiter-in-notfallaufnahme-60-90-szb-chb-biel-bienne",
+          "sachbearbeiter-in-notfallaufnahme-50-60-szb-chb-biel-bienne"
         ],
         "en": [
-          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+          "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "fr": [
-          "senior-buchhalter-60-70-szb-chb-biel-bienne"
+          "sachbearbeiter-in-notfallaufnahme-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+          "departement-personnel-urgence-50-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
-      "previousSlugs": [
-        "senior-buchhalter-60-70-szb-chb-biel-bienne"
-      ]
+      "firstSeenAt": "2026-09-25T14:43:59.868Z",
+      "salaryMin": 76500,
+      "salaryMax": 107100,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76500,
+          "maxValue": 107100,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "szb-chb-c3036e778421",
+      "slug": "ict-system-specialist-vdi-microsoft-cloud-100-szb-chb-biel-bienne",
+      "slugByLocale": {
+        "de": "ict-system-specialist-vdi-microsoft-cloud-100-szb-chb-biel-bienne",
+        "it": "ict-system-specialist-vdi-microsoft-cloud-100-szb-chb-biel-bienne",
+        "en": "ict-system-specialist-vdi-microsoft-cloud-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "ict-system-specialist-vdi-microsoft-cloud-100-szb-chb-biel-bienne"
+      },
+      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "companyKey": "szb-chb",
+      "companyDomain": "szb-chb.ch",
+      "title": "ICT System Specialist (VDI) & Microsoft Cloud 100%",
+      "titleByLocale": {
+        "de": "ICT System Spezialist (VDI) & Microsoft Cloud 100%",
+        "en": "ICT System Specialist (VDI) & Microsoft Cloud 100%",
+        "it": "ICT System Specialista (VDI) & Microsoft Cloud 100%",
+        "fr": "ICT System Spécialiste (VDI) & Microsoft Cloud 100%"
+      },
+      "description": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nDas Digital & Technology ist für die Governance und das Management der Informationssysteme des Spitalzentrums Biel und seiner Tochtergesellschaften verantwortlich und richtet diese an der Strategie der Institution aus.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nICT System Specialist (VDI) & Microsoft Cloud 100%\n\nDas tun Sie\n\nBetrieb & kontinuierliche Verbesserung (Run)\n• Support auf Level 2: Bearbeitung von Tickets, Diagnose und Behebung von gängigen Störungen auf den Virtualisierungsinfrastrukturen VDI Omnissa Horizon, Workspace ONE, Windows und Linux\n• Tägliche Kontrolle der unterstellten Infrastrukturen, Überwachung und Bearbeitung von Infrastrukturwarnungen, Überprüfung von Reports, Behebung von gängigen Fehlern sowie Eskalation komplexer Fälle\n• Betrieb und laufende Verwaltung der VDI-Umgebung Omnissa Horizon: Wartungsarbeiten, Einspielen von Patches sowie Überwachung der Performance\n• Administration der Plattformen VMware vSphere und Workspace ONE sowie Überwachung ihres ordnungsgemässen Betriebs\n• Administration der Microsoft-365-Umgebung, mit besonderem Schwerpunkt auf Microsoft Entra ID (Azure AD) und SharePoint Online\n• Verwaltung und Administration der starken Authentifizierungslösung Imprivata\n• Koordination mit dem Netzwerkteam zur Integration der Netzwerkbedürfnisse in die Server- und Virtualisierungsinfrastrukturen, die in den eigenen Verantwortungsbereich fallen\n• Umsetzung und Überwachung der Cybersecurity-Richtlinien in Zusammenarbeit mit der Abteilung Cyber Security\n• Technische Wartung, Absicherung und kontinuierliche Weiterentwicklung der unterstellten IT-Infrastruktur\n• Aktive Mitarbeit bei Projekten im Zusammenhang mit der Modernisierung, Automatisierung und Optimierung dieser Infrastrukturen und Services\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\nDokumentation & Qualität\n• Erstellung und Pflege detaillierter Dokumentationen der Infrastrukturen in französischer oder deutscher Sprache\n• Erstellung technischer Dokumentationen in englischer Sprache\n• Einhaltung der definierten Eskalationsprozesse bei nicht auf Level 2 lösbaren Störungen\n• Umsetzung der von der Abteilung Cyber Security vorgegebenen Sicherheitsrichtlinien und -regeln sowie Meldung festgestellter Nichtkonformitäten\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Informatik (EFZ, Lehre oder gleichwertige Ausbildung)\n• Nachgewiesene Erfahrung im IT-Support auf Level 2 und/oder in der System- und Infrastrukturadministration, idealerweise in einem Spitalumfeld\n• Fundierte Kenntnisse in der VDI-Virtualisierung mit Omnissa Horizon sowie in der Administration von VMware vSphere\n• Gute Kenntnisse in der Installation und Administration von Windows- und Linux-Servern\n• Gute Kenntnisse der Microsoft-365-Umgebung, insbesondere Microsoft Entra ID (Azure AD) und SharePoint Online\n• Erfahrung in der Administration von Workspace ONE\n• Kenntnisse der starken Authentifizierungslösung Imprivata von Vorteil\n• Kenntnisse der Fortinet-Sicherheitslösungen (FortiGate, FortiAuthenticator, FortiMail) von Vorteil\n• Sensibilität für Cybersecurity-Themen sowie gute Kenntnisse der entsprechenden Best Practices\n• Mittlere bis fortgeschrittene Kenntnisse im PowerShell-Scripting\n• Mitarbeit bei der Aktualisierung und Pflege des Monitoring-Systems WhatsUp Gold\n• Ausgeprägte Teamfähigkeit und gute Kommunikationsfähigkeiten\n• Fähigkeit, definierte Aufgaben selbstständig zu bearbeiten und dabei eng mit den Mitarbeitenden des Digital & Technology zusammenzuarbeiten\n• Sorgfältige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache\n• Gute Grundkenntnisse in technischem Englisch\n\nDavon profitieren Sie\n\n• Ein motiviertes und solidarisches Team in einer offenen Unternehmenskultur\n• Eine umfassende Einarbeitung in Ihre neue Tätigkeit\n• Eine spannende Tätigkeit mit grossem Handlungsspielraum in einem innovativen Umfeld\n• Flexible Arbeitszeiten, die sich an den Bedürfnissen von Familien orientieren\n• Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung\n• Zusammenarbeit in einem bilingualen und interdisziplinären Umfeld\n• Moderne Anstellungsbedingungen gemäss Gesamtarbeitsvertrag (GAV)",
+      "descriptionByLocale": {
+        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nDas Digital & Technology ist für die Governance und das Management der Informationssysteme des Spitalzentrums Biel und seiner Tochtergesellschaften verantwortlich und richtet diese an der Strategie der Institution aus.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nICT System Specialist (VDI) & Microsoft Cloud 100%\n\nDas tun Sie\n\nBetrieb & kontinuierliche Verbesserung (Run)\n• Support auf Level 2: Bearbeitung von Tickets, Diagnose und Behebung von gängigen Störungen auf den Virtualisierungsinfrastrukturen VDI Omnissa Horizon, Workspace ONE, Windows und Linux\n• Tägliche Kontrolle der unterstellten Infrastrukturen, Überwachung und Bearbeitung von Infrastrukturwarnungen, Überprüfung von Reports, Behebung von gängigen Fehlern sowie Eskalation komplexer Fälle\n• Betrieb und laufende Verwaltung der VDI-Umgebung Omnissa Horizon: Wartungsarbeiten, Einspielen von Patches sowie Überwachung der Performance\n• Administration der Plattformen VMware vSphere und Workspace ONE sowie Überwachung ihres ordnungsgemässen Betriebs\n• Administration der Microsoft-365-Umgebung, mit besonderem Schwerpunkt auf Microsoft Entra ID (Azure AD) und SharePoint Online\n• Verwaltung und Administration der starken Authentifizierungslösung Imprivata\n• Koordination mit dem Netzwerkteam zur Integration der Netzwerkbedürfnisse in die Server- und Virtualisierungsinfrastrukturen, die in den eigenen Verantwortungsbereich fallen\n• Umsetzung und Überwachung der Cybersecurity-Richtlinien in Zusammenarbeit mit der Abteilung Cyber Security\n• Technische Wartung, Absicherung und kontinuierliche Weiterentwicklung der unterstellten IT-Infrastruktur\n• Aktive Mitarbeit bei Projekten im Zusammenhang mit der Modernisierung, Automatisierung und Optimierung dieser Infrastrukturen und Services\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\nDokumentation & Qualität\n• Erstellung und Pflege detaillierter Dokumentationen der Infrastrukturen in französischer oder deutscher Sprache\n• Erstellung technischer Dokumentationen in englischer Sprache\n• Einhaltung der definierten Eskalationsprozesse bei nicht auf Level 2 lösbaren Störungen\n• Umsetzung der von der Abteilung Cyber Security vorgegebenen Sicherheitsrichtlinien und -regeln sowie Meldung festgestellter Nichtkonformitäten\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Informatik (EFZ, Lehre oder gleichwertige Ausbildung)\n• Nachgewiesene Erfahrung im IT-Support auf Level 2 und/oder in der System- und Infrastrukturadministration, idealerweise in einem Spitalumfeld\n• Fundierte Kenntnisse in der VDI-Virtualisierung mit Omnissa Horizon sowie in der Administration von VMware vSphere\n• Gute Kenntnisse in der Installation und Administration von Windows- und Linux-Servern\n• Gute Kenntnisse der Microsoft-365-Umgebung, insbesondere Microsoft Entra ID (Azure AD) und SharePoint Online\n• Erfahrung in der Administration von Workspace ONE\n• Kenntnisse der starken Authentifizierungslösung Imprivata von Vorteil\n• Kenntnisse der Fortinet-Sicherheitslösungen (FortiGate, FortiAuthenticator, FortiMail) von Vorteil\n• Sensibilität für Cybersecurity-Themen sowie gute Kenntnisse der entsprechenden Best Practices\n• Mittlere bis fortgeschrittene Kenntnisse im PowerShell-Scripting\n• Mitarbeit bei der Aktualisierung und Pflege des Monitoring-Systems WhatsUp Gold\n• Ausgeprägte Teamfähigkeit und gute Kommunikationsfähigkeiten\n• Fähigkeit, definierte Aufgaben selbstständig zu bearbeiten und dabei eng mit den Mitarbeitenden des Digital & Technology zusammenzuarbeiten\n• Sorgfältige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache\n• Gute Grundkenntnisse in technischem Englisch\n\nDavon profitieren Sie\n\n• Ein motiviertes und solidarisches Team in einer offenen Unternehmenskultur\n• Eine umfassende Einarbeitung in Ihre neue Tätigkeit\n• Eine spannende Tätigkeit mit grossem Handlungsspielraum in einem innovativen Umfeld\n• Flexible Arbeitszeiten, die sich an den Bedürfnissen von Familien orientieren\n• Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung\n• Zusammenarbeit in einem bilingualen und interdisziplinären Umfeld\n• Moderne Anstellungsbedingungen gemäss Gesamtarbeitsvertrag (GAV)",
+        "it": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nDas Digital & Technology ist für die Governance und das Management der Informationssysteme des Spitalzentrums Biel und seiner Tochtergesellschaften verantwortlich und richtet diese an der Strategie der Institution aus.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nICT System Specialist (VDI) & Microsoft Cloud 100%\n\nDas tun Sie\n\nBetrieb & kontinuierliche Verbesserung (Run)\n• Support auf Level 2: Bearbeitung von Tickets, Diagnose und Behebung von gängigen Störungen auf den Virtualisierungsinfrastrukturen VDI Omnissa Horizon, Workspace ONE, Windows und Linux\n• Tägliche Kontrolle der unterstellten Infrastrukturen, Überwachung und Bearbeitung von Infrastrukturwarnungen, Überprüfung von Reports, Behebung von gängigen Fehlern sowie Eskalation komplexer Fälle\n• Betrieb und laufende Verwaltung der VDI-Umgebung Omnissa Horizon: Wartungsarbeiten, Einspielen von Patches sowie Überwachung der Performance\n• Administration der Plattformen VMware vSphere und Workspace ONE sowie Überwachung ihres ordnungsgemässen Betriebs\n• Administration der Microsoft-365-Umgebung, mit besonderem Schwerpunkt auf Microsoft Entra ID (Azure AD) und SharePoint Online\n• Verwaltung und Administration der starken Authentifizierungslösung Imprivata\n• Koordination mit dem Netzwerkteam zur Integration der Netzwerkbedürfnisse in die Server- und Virtualisierungsinfrastrukturen, die in den eigenen Verantwortungsbereich fallen\n• Umsetzung und Überwachung der Cybersecurity-Richtlinien in Zusammenarbeit mit der Abteilung Cyber Security\n• Technische Wartung, Absicherung und kontinuierliche Weiterentwicklung der unterstellten IT-Infrastruktur\n• Aktive Mitarbeit bei Projekten im Zusammenhang mit der Modernisierung, Automatisierung und Optimierung dieser Infrastrukturen und Services\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\nDokumentation & Qualität\n• Erstellung und Pflege detaillierter Dokumentationen der Infrastrukturen in französischer oder deutscher Sprache\n• Erstellung technischer Dokumentationen in englischer Sprache\n• Einhaltung der definierten Eskalationsprozesse bei nicht auf Level 2 lösbaren Störungen\n• Umsetzung der von der Abteilung Cyber Security vorgegebenen Sicherheitsrichtlinien und -regeln sowie Meldung festgestellter Nichtkonformitäten\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Informatik (EFZ, Lehre oder gleichwertige Ausbildung)\n• Nachgewiesene Erfahrung im IT-Support auf Level 2 und/oder in der System- und Infrastrukturadministration, idealerweise in einem Spitalumfeld\n• Fundierte Kenntnisse in der VDI-Virtualisierung mit Omnissa Horizon sowie in der Administration von VMware vSphere\n• Gute Kenntnisse in der Installation und Administration von Windows- und Linux-Servern\n• Gute Kenntnisse der Microsoft-365-Umgebung, insbesondere Microsoft Entra ID (Azure AD) und SharePoint Online\n• Erfahrung in der Administration von Workspace ONE\n• Kenntnisse der starken Authentifizierungslösung Imprivata von Vorteil\n• Kenntnisse der Fortinet-Sicherheitslösungen (FortiGate, FortiAuthenticator, FortiMail) von Vorteil\n• Sensibilität für Cybersecurity-Themen sowie gute Kenntnisse der entsprechenden Best Practices\n• Mittlere bis fortgeschrittene Kenntnisse im PowerShell-Scripting\n• Mitarbeit bei der Aktualisierung und Pflege des Monitoring-Systems WhatsUp Gold\n• Ausgeprägte Teamfähigkeit und gute Kommunikationsfähigkeiten\n• Fähigkeit, definierte Aufgaben selbstständig zu bearbeiten und dabei eng mit den Mitarbeitenden des Digital & Technology zusammenzuarbeiten\n• Sorgfältige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache\n• Gute Grundkenntnisse in technischem Englisch\n\nDavon profitieren Sie\n\n• Ein motiviertes und solidarisches Team in einer offenen Unternehmenskultur\n• Eine umfassende Einarbeitung in Ihre neue Tätigkeit\n• Eine spannende Tätigkeit mit grossem Handlungsspielraum in einem innovativen Umfeld\n• Flexible Arbeitszeiten, die sich an den Bedürfnissen von Familien orientieren\n• Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung\n• Zusammenarbeit in einem bilingualen und interdisziplinären Umfeld\n• Moderne Anstellungsbedingungen gemäss Gesamtarbeitsvertrag (GAV)",
+        "en": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nDas Digital & Technology ist für die Governance und das Management der Informationssysteme des Spitalzentrums Biel und seiner Tochtergesellschaften verantwortlich und richtet diese an der Strategie der Institution aus.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nICT System Specialist (VDI) & Microsoft Cloud 100%\n\nDas tun Sie\n\nBetrieb & kontinuierliche Verbesserung (Run)\n• Support auf Level 2: Bearbeitung von Tickets, Diagnose und Behebung von gängigen Störungen auf den Virtualisierungsinfrastrukturen VDI Omnissa Horizon, Workspace ONE, Windows und Linux\n• Tägliche Kontrolle der unterstellten Infrastrukturen, Überwachung und Bearbeitung von Infrastrukturwarnungen, Überprüfung von Reports, Behebung von gängigen Fehlern sowie Eskalation komplexer Fälle\n• Betrieb und laufende Verwaltung der VDI-Umgebung Omnissa Horizon: Wartungsarbeiten, Einspielen von Patches sowie Überwachung der Performance\n• Administration der Plattformen VMware vSphere und Workspace ONE sowie Überwachung ihres ordnungsgemässen Betriebs\n• Administration der Microsoft-365-Umgebung, mit besonderem Schwerpunkt auf Microsoft Entra ID (Azure AD) und SharePoint Online\n• Verwaltung und Administration der starken Authentifizierungslösung Imprivata\n• Koordination mit dem Netzwerkteam zur Integration der Netzwerkbedürfnisse in die Server- und Virtualisierungsinfrastrukturen, die in den eigenen Verantwortungsbereich fallen\n• Umsetzung und Überwachung der Cybersecurity-Richtlinien in Zusammenarbeit mit der Abteilung Cyber Security\n• Technische Wartung, Absicherung und kontinuierliche Weiterentwicklung der unterstellten IT-Infrastruktur\n• Aktive Mitarbeit bei Projekten im Zusammenhang mit der Modernisierung, Automatisierung und Optimierung dieser Infrastrukturen und Services\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\nDokumentation & Qualität\n• Erstellung und Pflege detaillierter Dokumentationen der Infrastrukturen in französischer oder deutscher Sprache\n• Erstellung technischer Dokumentationen in englischer Sprache\n• Einhaltung der definierten Eskalationsprozesse bei nicht auf Level 2 lösbaren Störungen\n• Umsetzung der von der Abteilung Cyber Security vorgegebenen Sicherheitsrichtlinien und -regeln sowie Meldung festgestellter Nichtkonformitäten\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Informatik (EFZ, Lehre oder gleichwertige Ausbildung)\n• Nachgewiesene Erfahrung im IT-Support auf Level 2 und/oder in der System- und Infrastrukturadministration, idealerweise in einem Spitalumfeld\n• Fundierte Kenntnisse in der VDI-Virtualisierung mit Omnissa Horizon sowie in der Administration von VMware vSphere\n• Gute Kenntnisse in der Installation und Administration von Windows- und Linux-Servern\n• Gute Kenntnisse der Microsoft-365-Umgebung, insbesondere Microsoft Entra ID (Azure AD) und SharePoint Online\n• Erfahrung in der Administration von Workspace ONE\n• Kenntnisse der starken Authentifizierungslösung Imprivata von Vorteil\n• Kenntnisse der Fortinet-Sicherheitslösungen (FortiGate, FortiAuthenticator, FortiMail) von Vorteil\n• Sensibilität für Cybersecurity-Themen sowie gute Kenntnisse der entsprechenden Best Practices\n• Mittlere bis fortgeschrittene Kenntnisse im PowerShell-Scripting\n• Mitarbeit bei der Aktualisierung und Pflege des Monitoring-Systems WhatsUp Gold\n• Ausgeprägte Teamfähigkeit und gute Kommunikationsfähigkeiten\n• Fähigkeit, definierte Aufgaben selbstständig zu bearbeiten und dabei eng mit den Mitarbeitenden des Digital & Technology zusammenzuarbeiten\n• Sorgfältige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache\n• Gute Grundkenntnisse in technischem Englisch\n\nDavon profitieren Sie\n\n• Ein motiviertes und solidarisches Team in einer offenen Unternehmenskultur\n• Eine umfassende Einarbeitung in Ihre neue Tätigkeit\n• Eine spannende Tätigkeit mit grossem Handlungsspielraum in einem innovativen Umfeld\n• Flexible Arbeitszeiten, die sich an den Bedürfnissen von Familien orientieren\n• Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung\n• Zusammenarbeit in einem bilingualen und interdisziplinären Umfeld\n• Moderne Anstellungsbedingungen gemäss Gesamtarbeitsvertrag (GAV)",
+        "fr": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nDas Digital & Technology ist für die Governance und das Management der Informationssysteme des Spitalzentrums Biel und seiner Tochtergesellschaften verantwortlich und richtet diese an der Strategie der Institution aus.\nZur Ergänzung unseres Teams suchen wir per sofort oder nach Vereinbarung eine/n\n\nICT System Specialist (VDI) & Microsoft Cloud 100%\n\nDas tun Sie\n\nBetrieb & kontinuierliche Verbesserung (Run)\n• Support auf Level 2: Bearbeitung von Tickets, Diagnose und Behebung von gängigen Störungen auf den Virtualisierungsinfrastrukturen VDI Omnissa Horizon, Workspace ONE, Windows und Linux\n• Tägliche Kontrolle der unterstellten Infrastrukturen, Überwachung und Bearbeitung von Infrastrukturwarnungen, Überprüfung von Reports, Behebung von gängigen Fehlern sowie Eskalation komplexer Fälle\n• Betrieb und laufende Verwaltung der VDI-Umgebung Omnissa Horizon: Wartungsarbeiten, Einspielen von Patches sowie Überwachung der Performance\n• Administration der Plattformen VMware vSphere und Workspace ONE sowie Überwachung ihres ordnungsgemässen Betriebs\n• Administration der Microsoft-365-Umgebung, mit besonderem Schwerpunkt auf Microsoft Entra ID (Azure AD) und SharePoint Online\n• Verwaltung und Administration der starken Authentifizierungslösung Imprivata\n• Koordination mit dem Netzwerkteam zur Integration der Netzwerkbedürfnisse in die Server- und Virtualisierungsinfrastrukturen, die in den eigenen Verantwortungsbereich fallen\n• Umsetzung und Überwachung der Cybersecurity-Richtlinien in Zusammenarbeit mit der Abteilung Cyber Security\n• Technische Wartung, Absicherung und kontinuierliche Weiterentwicklung der unterstellten IT-Infrastruktur\n• Aktive Mitarbeit bei Projekten im Zusammenhang mit der Modernisierung, Automatisierung und Optimierung dieser Infrastrukturen und Services\n• Teilnahme am Pikettdienst gemäss Einsatzplanung\nDokumentation & Qualität\n• Erstellung und Pflege detaillierter Dokumentationen der Infrastrukturen in französischer oder deutscher Sprache\n• Erstellung technischer Dokumentationen in englischer Sprache\n• Einhaltung der definierten Eskalationsprozesse bei nicht auf Level 2 lösbaren Störungen\n• Umsetzung der von der Abteilung Cyber Security vorgegebenen Sicherheitsrichtlinien und -regeln sowie Meldung festgestellter Nichtkonformitäten\n\nDas zeichnet Sie aus\n\n• Ausbildung im Bereich Informatik (EFZ, Lehre oder gleichwertige Ausbildung)\n• Nachgewiesene Erfahrung im IT-Support auf Level 2 und/oder in der System- und Infrastrukturadministration, idealerweise in einem Spitalumfeld\n• Fundierte Kenntnisse in der VDI-Virtualisierung mit Omnissa Horizon sowie in der Administration von VMware vSphere\n• Gute Kenntnisse in der Installation und Administration von Windows- und Linux-Servern\n• Gute Kenntnisse der Microsoft-365-Umgebung, insbesondere Microsoft Entra ID (Azure AD) und SharePoint Online\n• Erfahrung in der Administration von Workspace ONE\n• Kenntnisse der starken Authentifizierungslösung Imprivata von Vorteil\n• Kenntnisse der Fortinet-Sicherheitslösungen (FortiGate, FortiAuthenticator, FortiMail) von Vorteil\n• Sensibilität für Cybersecurity-Themen sowie gute Kenntnisse der entsprechenden Best Practices\n• Mittlere bis fortgeschrittene Kenntnisse im PowerShell-Scripting\n• Mitarbeit bei der Aktualisierung und Pflege des Monitoring-Systems WhatsUp Gold\n• Ausgeprägte Teamfähigkeit und gute Kommunikationsfähigkeiten\n• Fähigkeit, definierte Aufgaben selbstständig zu bearbeiten und dabei eng mit den Mitarbeitenden des Digital & Technology zusammenzuarbeiten\n• Sorgfältige, zuverlässige und dienstleistungsorientierte Arbeitsweise\n• Muttersprache Deutsch oder Französisch, mit guten Kenntnissen der jeweils anderen Sprache\n• Gute Grundkenntnisse in technischem Englisch\n\nDavon profitieren Sie\n\n• Ein motiviertes und solidarisches Team in einer offenen Unternehmenskultur\n• Eine umfassende Einarbeitung in Ihre neue Tätigkeit\n• Eine spannende Tätigkeit mit grossem Handlungsspielraum in einem innovativen Umfeld\n• Flexible Arbeitszeiten, die sich an den Bedürfnissen von Familien orientieren\n• Möglichkeiten zur persönlichen und beruflichen Weiterentwicklung\n• Zusammenarbeit in einem bilingualen und interdisziplinären Umfeld\n• Moderne Anstellungsbedingungen gemäss Gesamtarbeitsvertrag (GAV)"
+      },
+      "needsRetranslation": true,
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://jobs.szb-chb.ch/Vacancies/4668/Description/1",
+      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:22:25.457Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "category": "IT",
+      "department": "Andere Berufe",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4668/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-08T21:22:25.457Z"
     },
     {
       "id": "szb-chb-9579a8d7cea6",
@@ -6643,7 +6713,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:12:35.353Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salaryMin": 54800,
       "salaryMax": 83200,
       "salarySource": "estimated",
@@ -6720,7 +6790,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:12:13.501Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -6734,90 +6804,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "szb-chb-bfff5a812efc",
-      "slug": "collaboratore-trice-amministrativo-a-project-management-direzione-infermieristica-mtt-40-60-spitalzentrum-biel-centre",
-      "slugByLocale": {
-        "it": "collaboratore-trice-amministrativo-a-project-management-direzione-infermieristica-mtt-40-60-spitalzentrum-biel-centre",
-        "en": "admin-employee-project-management-directorate-nursing-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "de": "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-szb-chb-biel-bienne",
-        "fr": "collaborateur-trice-administratif-trice-en-gestion-de-projet-direction-des-soins-infirmiers-mtt-40-60-spitalzentrum-biel"
-      },
-      "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
-      "companyKey": "szb-chb",
-      "companyDomain": "szb-chb.ch",
-      "title": "Admin. Mitarbeiter/in Projektmanagement Direktion Pflege/MTT, 40 - 60%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice amministrativo/a Project Management Direzione Infermieristica/MTT, 40 - 60%",
-        "en": "Admin. Employee Project Management Directorate Nursing/MTT, 40 - 60%",
-        "de": "Admin. Mitarbeiter/in Projektmanagement Direktion Pflege/MTT, 40 - 60%",
-        "fr": "Collaborateur/trice administratif/trice en gestion de projet Direction des soins infirmiers/MTT, 40 - 60%"
-      },
-      "description": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nEine moderne und attraktive Spitalversorgung für die Region – dies gilt es mit unserem strategischen Neubauvorhaben in Brügg sicherzustellen. Im Einklang mit der kantonalen Versorgungsplanung, die uns beauftragt, unsere Rolle als Zentrums­spital für die Region Biel – Seeland – Berner Jura wahrzunehmen.\nAls administrative Unterstützung für das Neubauprojekt seitens der Direktion Pflege/MTT suchen wir per 1. Oktober 2026 oder nach Vereinbarung und befristet bis 31.12.2027\n\nAdmin. Mitarbeiter/in Projektmanagement Direktion Pflege/MTT, 40 - 60%\n\nDas tun Sie\n\n• Administrative und organisatorische Unterstützung der Teilprojektleitungen und Linienverantwortlichen der Direktion Pflege/MTT, schwergewichtig im Rahmen des Neubauprojekts\n• Erstellen und laufendes Aktualisieren der Übersichtsplanung, von Terminplänen und weiteren Arbeitsunterlagen.\n• Unterstützung bei der Erstellung und Dokumentation von Prozessen, Konzepten und Ablaufdarstellungen\n• Erfassen, Pflegen und Aktualisieren von Prozessen, Aufgaben und Projektinformationen in den dafür vorgesehenen Tools\n• Organisation und Koordination von Terminen und Sitzungen inklusive Einladungen und Raumreservationen\n• Vor- und Nachbereitung von Sitzungen sowie Protokollführung und Nachverfolgung von Pendenzen\n• Aufbau und Pflege einer strukturierten und nachvollziehbaren Dokumentenablage\n• Zusammenstellen, Aufbereiten und Aktualisieren von Projektunterlagen und Präsentationen\n• Administrative Unterstützung bei weiteren Projekten und Aufgaben der Direktion Pflege/MTT\n\nDas zeichnet Sie aus\n\n• Abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung\n• Erfahrung in der administrativen Unterstützung und Begleitung von Projekten\n• Erfahrung in der Erstellung und Pflege von Übersichten, Prozessdarstellungen und Projektdokumentationen\n• Organisation, Koordination sowie Vor- und Nachbereitung von Terminen und Sitzungen\n• Sicherstellung einer strukturierten Ablage und Nachverfolgung von Pendenzen, Aufgaben und Entscheiden\n• Sehr gute organisatorische Fähigkeiten sowie eine strukturierte und selbstständige Arbeitsweise\n• Sicherer Umgang mit den gängigen Office-Anwendungen\n• Gute Kommunikations- und Koordinationsfähigkeiten sowie Freude an der Zusammenarbeit mit unterschiedlichen Berufsgruppen und Projektbeteiligten\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\nDavon profitieren Sie\n\n• Ein spannendes, zukunftsweisendes Bauprojekt mit gesellschaftlicher Relevanz\n• Zusammenarbeit in engagierten, multidisziplinären Teams\n• Gestaltungsmöglichkeiten im Aufbau effizienter Projektstrukturen\n• Einbindung in ein professionelles Umfeld mit kurzen Entscheidungswegen\n• Flexible Arbeitszeiten und moderne Arbeitsbedingungen",
-      "descriptionByLocale": {
-        "it": "Il Biel Hospital Center è l'ospedale del centro pubblico della regione bilingue Biel-Seeland-Berne Jura. Sei interessato a lavorare insieme ai nostri 2.300 dipendenti per la salute della nostra popolazione?\n\nAssistenza ospedaliera moderna e attraente per la regione – questo deve essere garantito con il nostro nuovo progetto di costruzione strategico a Bruges. In accordo con la pianificazione cantonale dell'assistenza, che ci affida di svolgere il nostro ruolo di centro ospedaliero per la regione di Biel – Seeland – Berna Jura.\nCome supporto amministrativo per il nuovo progetto di costruzione da Management Care/MTT stiamo cercando 1. Ottobre 2026 o d'accordo e limitato al 31.12.2027\n\nAdmin. Dipendenti/in direzione di gestione del progetto Care/MTT, 40 - 60 %\n\nSi'.\n\n• Sostegno amministrativo e organizzativo della gestione dei sottoprogetti e dei direttori di linea della Direzione della Cura/MTT, pesante nel contesto del nuovo progetto di costruzione\n• Creare e aggiornare continuamente la pianificazione panoramica, gli orari e altri documenti di lavoro.\n• Supporto nella creazione e nella documentazione di processi, concetti e schede di flusso\n• Acquisire, mantenere e aggiornare processi, attività e informazioni di progetto negli strumenti dedicati\n• Organizzazione e coordinamento di appuntamenti e incontri, inclusi inviti e prenotazioni spaziali\n• Preparazione e follow-up di incontri, minuti e follow-up di pendenzie\n• Stabilimento e manutenzione di stoccaggio documentale strutturato e comprensibile\n• Raccolta, preparazione e aggiornamento dei documenti e delle presentazioni del progetto\n• Supporto amministrativo per ulteriori progetti e compiti della Direzione/MTT\n\nQuesto li distingue.\n\n• Formazione commerciale o aziendale completata\n• Esperienza nel sostegno amministrativo e sostegno dei progetti\n• Esperienza nella creazione e manutenzione di panoramiche, rappresentazioni di processo e documentazione di progetto\n• Organizzazione, coordinamento e preparazione e follow-up di appuntamenti e incontri\n• Garantire il deposito strutturato e il monitoraggio di sanzioni, compiti e decisioni\n• Molto buone capacità organizzative e un metodo di lavoro strutturato e indipendente\n• Gestione sicura delle applicazioni per uffici comuni\n• Buone capacità di comunicazione e di coordinamento e godere di lavorare con diversi gruppi professionali e partecipanti al progetto\n• Conoscenza molto buona del tedesco nella parola e nella scrittura; La conoscenza del francese è un vantaggio\n\nNe beneficiano.\n\n• Un entusiasmante progetto di costruzione orientato al futuro con rilevanza sociale\n• Collaborazione in team dedicati e multidisciplinari\n• Possibilità di progettazione per la costruzione di strutture di progetto efficienti\n• Integrazione in un ambiente professionale con brevi percorsi decisionali\n• Ore lavorative flessibili e condizioni di lavoro moderne",
-        "en": "The Biel Hospital Center is the public center hospital of the bilingual Biel-Seeland-Berne Jura region. Are you interested in working alongside our 2,300 employees for the health of our population?\n\nModern and attractive hospital care for the region – this must be ensured with our strategic new building project in Bruges. In accordance with the cantonal care planning, which entrusts us to perform our role as a center hospital for the Biel – Seeland – Bern Jura region.\nAs administrative support for the new construction project by the Management Care/MTT we are looking for 1. October 2026 or by agreement and limited to 31.12.2027\n\nAdmin. Employee/in Project Management Directorate Care/MTT, 40 - 60 %\n\nYou do.\n\n• Administrative and organizational support of the sub-project management and line managers of the Management of Care/MTT, heavy in the context of the new construction project\n• Creating and continuously updating the overview planning, schedules and other working documents.\n• Support in the creation and documentation of processes, concepts and flowcharts\n• Acquiring, maintaining and updating processes, tasks and project information in the dedicated tools\n• Organization and coordination of appointments and meetings including invitations and space reservations\n• Preparation and follow-up of meetings, minutes and follow-up of pendencies\n• Establishment and maintenance of structured and comprehensible document storage\n• Compilation, preparation and updating of project documents and presentations\n• Administrative support for further projects and tasks of the Management Care/MTT\n\nThat sets them apart.\n\n• Commercial or business training completed\n• Experience in administrative support and support of projects\n• Experience in creating and maintaining overviews, process representations and project documentation\n• Organisation, coordination and preparation and follow-up of appointments and meetings\n• Ensuring structured filing and tracking of penalties, tasks and decisions\n• Very good organizational skills as well as a structured and independent working method\n• Secure handling of common office applications\n• Good communication and coordination skills as well as enjoy working with different professional groups and project participants\n• Very good knowledge of German in word and writing; Knowledge of French is an advantage\n\nThey benefit from it.\n\n• An exciting, future-oriented construction project with social relevance\n• Collaboration in dedicated, multidisciplinary teams\n• Design possibilities for building efficient project structures\n• Integration into a professional environment with short decision paths\n• Flexible working hours and modern working conditions",
-        "de": "Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Bist du interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein?\n\nEine moderne und attraktive Spitalversorgung für die Region – dies gilt es mit unserem strategischen Neubauvorhaben in Brügg sicherzustellen. Im Einklang mit der kantonalen Versorgungsplanung, die uns beauftragt, unsere Rolle als Zentrums­spital für die Region Biel – Seeland – Berner Jura wahrzunehmen.\nAls administrative Unterstützung für das Neubauprojekt seitens der Direktion Pflege/MTT suchen wir per 1. Oktober 2026 oder nach Vereinbarung und befristet bis 31.12.2027\n\nAdmin. Mitarbeiter/in Projektmanagement Direktion Pflege/MTT, 40 - 60%\n\nDas tun Sie\n\n• Administrative und organisatorische Unterstützung der Teilprojektleitungen und Linienverantwortlichen der Direktion Pflege/MTT, schwergewichtig im Rahmen des Neubauprojekts\n• Erstellen und laufendes Aktualisieren der Übersichtsplanung, von Terminplänen und weiteren Arbeitsunterlagen.\n• Unterstützung bei der Erstellung und Dokumentation von Prozessen, Konzepten und Ablaufdarstellungen\n• Erfassen, Pflegen und Aktualisieren von Prozessen, Aufgaben und Projektinformationen in den dafür vorgesehenen Tools\n• Organisation und Koordination von Terminen und Sitzungen inklusive Einladungen und Raumreservationen\n• Vor- und Nachbereitung von Sitzungen sowie Protokollführung und Nachverfolgung von Pendenzen\n• Aufbau und Pflege einer strukturierten und nachvollziehbaren Dokumentenablage\n• Zusammenstellen, Aufbereiten und Aktualisieren von Projektunterlagen und Präsentationen\n• Administrative Unterstützung bei weiteren Projekten und Aufgaben der Direktion Pflege/MTT\n\nDas zeichnet Sie aus\n\n• Abgeschlossene kaufmännische oder betriebswirtschaftliche Ausbildung\n• Erfahrung in der administrativen Unterstützung und Begleitung von Projekten\n• Erfahrung in der Erstellung und Pflege von Übersichten, Prozessdarstellungen und Projektdokumentationen\n• Organisation, Koordination sowie Vor- und Nachbereitung von Terminen und Sitzungen\n• Sicherstellung einer strukturierten Ablage und Nachverfolgung von Pendenzen, Aufgaben und Entscheiden\n• Sehr gute organisatorische Fähigkeiten sowie eine strukturierte und selbstständige Arbeitsweise\n• Sicherer Umgang mit den gängigen Office-Anwendungen\n• Gute Kommunikations- und Koordinationsfähigkeiten sowie Freude an der Zusammenarbeit mit unterschiedlichen Berufsgruppen und Projektbeteiligten\n• Sehr gute Deutschkenntnisse in Wort und Schrift; Französischkenntnisse von Vorteil\n\nDavon profitieren Sie\n\n• Ein spannendes, zukunftsweisendes Bauprojekt mit gesellschaftlicher Relevanz\n• Zusammenarbeit in engagierten, multidisziplinären Teams\n• Gestaltungsmöglichkeiten im Aufbau effizienter Projektstrukturen\n• Einbindung in ein professionelles Umfeld mit kurzen Entscheidungswegen\n• Flexible Arbeitszeiten und moderne Arbeitsbedingungen",
-        "fr": "Le centre hospitalier de Biel est le centre hospitalier de la région bilingue du Biel-Seeland-Berne Jura. Êtes-vous intéressé à travailler avec nos 2300 employés pour la santé de notre population?\n\nDes soins hospitaliers modernes et attrayants pour la région doivent être assurés grâce à notre nouveau projet stratégique de construction à Bruges. Conformément à la planification cantonale des soins, qui nous confie notre rôle d'hôpital central pour la région du Biel – Seeland – Jura de Berne.\nEn tant que soutien administratif pour le nouveau projet de construction par le Management Care/MTT que nous recherchons 1. octobre 2026 ou par accord et limité au 31.12.2027\n\nAdmin. Employé/dans la Direction de la gestion de projet Soins/MTT, 40 - 60 %\n\nC'est vrai.\n\n• Appui administratif et organisationnel de la gestion du sous-projet et des gestionnaires hiérarchiques de la gestion des soins/MTT, lourd dans le contexte du nouveau projet de construction\n• Création et mise à jour continue de la planification générale, des calendriers et d'autres documents de travail.\n• Soutien à la création et à la documentation des processus, concepts et diagrammes de flux\n• Acquisition, maintenance et mise à jour des processus, des tâches et des informations sur les projets dans les outils dédiés\n• Organisation et coordination des nominations et des réunions, y compris les invitations et les réservations d ' espace\n• Préparation et suivi des réunions, procès-verbaux et suivi des faiblesses\n• Mise en place et maintien d'un stockage structuré et compréhensible des documents\n• Compilation, préparation et mise à jour des documents de projet et des exposés\n• Appui administratif à d'autres projets et tâches du Management Care/MTT\n\nÇa les sépare.\n\n• Formation commerciale ou commerciale terminée\n• Expérience en matière de soutien administratif et de soutien aux projets\n• Expérience dans la création et la tenue d'aperçus, de représentations de processus et de documentation de projet\n• Organisation, coordination, préparation et suivi des nominations et réunions\n• Assurer le dépôt structuré et le suivi des pénalités, des tâches et des décisions\n• Très bonnes compétences organisationnelles ainsi qu'une méthode de travail structurée et indépendante\n• Traitement sécurisé des demandes communes de services administratifs\n• Bonnes compétences en matière de communication et de coordination, ainsi que de la collaboration avec différents groupes professionnels et participants au projet\n• Très bonne connaissance de l'allemand en paroles et en écriture; La connaissance du français est un avantage\n\nIls en profitent.\n\n• Un projet de construction passionnant, orienté vers l'avenir et présentant une pertinence sociale\n• Collaboration dans des équipes pluridisciplinaires dédiées\n• Possibilités de conception de structures de projets efficaces\n• Intégration dans un environnement professionnel avec des pistes de décision courtes\n• Horaires de travail flexibles et conditions de travail modernes"
-      },
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "url": "https://jobs.szb-chb.ch/Vacancies/4639/Description/1",
-      "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:19:04.227Z",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2502",
-      "category": "Sanità / Ospedali",
-      "department": "Andere Berufe",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.szb-chb.ch/Vacancies/4639/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-szb-chb-biel-bienne",
-        "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel",
-        "admin-collaboratore-trice-projektmanagement-direktion-pflege-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-szb-chb-biel-bienne",
-          "admin-collaboratore-trice-projektmanagement-direktion-pflege-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
-        ],
-        "en": [
-          "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel"
-        ],
-        "fr": [
-          "admin-mitarbeiter-in-projektmanagement-direktion-pflege-mtt-40-60-spitalzentrum-biel-centre-hospitalier-bienne-biel"
-        ]
-      },
-      "firstSeenAt": "2026-09-29T21:12:20.151Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 71400,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
