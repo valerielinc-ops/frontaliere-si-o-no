@@ -33,6 +33,7 @@ const NETWORK_TEST_PROCESS_TIMEOUT_MS = 25_000;
 type ShellLine = { number: number; text: string };
 type ShellCommand = { lines: ShellLine[]; text: string };
 type NetworkViolation = { line: number; command: string };
+type NetworkCommand = NetworkViolation & { bounded: boolean };
 
 function stripShellComment(line: string) {
   let quote = '';
@@ -86,7 +87,14 @@ function findHereDoc(line: string) {
       quote = character;
       continue;
     }
-    if (character !== '<' || line[index + 1] !== '<' || line[index + 2] === '<') continue;
+    if (character !== '<' || line[index + 1] !== '<') continue;
+    if (line[index + 2] === '<') {
+      // A here-string (`<<<`) feeds one word, not the lines that follow. All
+      // three characters go: reading its last two as `<<` opened a heredoc
+      // that never closed, and the rest of the file was skipped in silence.
+      index += 2;
+      continue;
+    }
     let delimiterIndex = index + 2;
     const stripTabs = line[delimiterIndex] === '-';
     if (stripTabs) delimiterIndex += 1;
@@ -148,7 +156,7 @@ function logicalShellCommands(source: string): ShellCommand[] {
   const commands: ShellCommand[] = [];
   let current: ShellLine[] = [];
   let substitutionDepth = 0;
-  let heredoc: { delimiter: string; stripTabs: boolean } | undefined;
+  let heredoc: { delimiter: string; stripTabs: boolean; openedAt: number } | undefined;
   for (const [index, rawLine] of source.split('\n').entries()) {
     const number = index + 1;
     if (heredoc) {
@@ -161,11 +169,17 @@ function logicalShellCommands(source: string): ShellCommand[] {
     const commandLine = hereDoc ? line.slice(0, hereDoc.index) : line;
     if (current.length || commandLine.trim()) current.push({ number, text: commandLine });
     substitutionDepth = updateSubstitutionDepth(commandLine, substitutionDepth);
-    if (hereDoc) heredoc = { delimiter: hereDoc.delimiter, stripTabs: hereDoc.stripTabs };
+    if (hereDoc) heredoc = { delimiter: hereDoc.delimiter, stripTabs: hereDoc.stripTabs, openedAt: number };
     if (!hasLineContinuation(commandLine) && substitutionDepth === 0) {
       if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
       current = [];
     }
+  }
+  // Everything after a heredoc that does not close is a body, and a body is
+  // not read: a rule built on this reader would pass on lines it never saw.
+  if (heredoc) {
+    throw new Error(`heredoc <<${heredoc.delimiter} opened on line ${heredoc.openedAt} never closes: `
+      + 'the lines after it were not read');
   }
   if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
   return commands;
@@ -173,43 +187,53 @@ function logicalShellCommands(source: string): ShellCommand[] {
 
 const NETWORK_COMMAND = /\bgit(?:(?:\s+-[A-Za-z]\s+\S+)|(?:\s+--?\S+))*\s+(?:fetch|push|ls-remote|clone|pull)\b|\bgh\s+\S+/gu;
 
+type ShellContext = 'single' | 'double' | 'substitution' | 'single-script' | 'double-script';
+
+// Where a command can start: outside every quote, straight inside a command
+// substitution, or inside the script handed to `bash -c`. A quoted word inside
+// a substitution is a word again (the label of run_bounded is not a command),
+// so the contexts nest and only the innermost one decides.
 function executableAt(text: string, target: number) {
-  let quote = '';
-  let escaped = false;
-  let substitutions = 0;
+  const contexts: ShellContext[] = [];
   for (let index = 0; index < target; index += 1) {
     const character = text[index];
-    if (quote === "'") {
-      if (character === "'") quote = '';
+    const innermost = contexts.at(-1);
+    if (innermost === 'single' || innermost === 'single-script') {
+      if (character === "'") contexts.pop();
       continue;
     }
-    if (quote === '"') {
-      if (escaped) escaped = false;
-      else if (character === '\\') escaped = true;
-      else if (character === '"' && substitutions === 0) quote = '';
-      else if (character === '$' && text[index + 1] === '(') {
-        substitutions += 1;
-        index += 1;
-      } else if (character === ')' && substitutions > 0) {
-        substitutions -= 1;
-      }
-      continue;
-    }
-    if (escaped) escaped = false;
-    else if (character === '\\') escaped = true;
-    else if (character === "'" || character === '"') quote = character;
-    else if (character === '$' && text[index + 1] === '(') {
-      substitutions += 1;
+    if (character === '\\') {
       index += 1;
-    } else if (character === ')' && substitutions > 0) {
-      substitutions -= 1;
+      continue;
+    }
+    if (character === '$' && text[index + 1] === '(') {
+      contexts.push('substitution');
+      index += 1;
+      continue;
+    }
+    if (innermost === 'double' || innermost === 'double-script') {
+      if (character === '"') contexts.pop();
+      continue;
+    }
+    if (character === ')' && innermost === 'substitution') {
+      contexts.pop();
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      const script = /\b(?:ba)?sh\s+-c\s+$/u.test(text.slice(0, index));
+      if (character === "'") contexts.push(script ? 'single-script' : 'single');
+      else contexts.push(script ? 'double-script' : 'double');
     }
   }
-  return !quote || substitutions > 0;
+  const innermost = contexts.at(-1);
+  return innermost !== 'single' && innermost !== 'double';
 }
 
-function unboundedNetworkCommands(helper: string): NetworkViolation[] {
-  const violations: NetworkViolation[] = [];
+// Every network command the reader finds, bounded or not. The rule is only as
+// good as this list: the cases below pin it, so a reader that stops seeing a
+// command fails instead of passing.
+function networkCommands(helper: string): NetworkCommand[] {
+  const found: NetworkCommand[] = [];
   for (const command of logicalShellCommands(helper)) {
     NETWORK_COMMAND.lastIndex = 0;
     let match: RegExpExecArray | null;
@@ -219,11 +243,20 @@ function unboundedNetworkCommands(helper: string): NetworkViolation[] {
       const line = command.lines[offset]?.number ?? command.lines.at(-1)!.number;
       const before = command.text.slice(0, match.index);
       NETWORK_COMMAND.lastIndex = match.index + match[0].length;
-      if (/\brun_bounded\b/u.test(before)) continue;
-      violations.push({ line, command: match[0] });
+      found.push({ line, command: match[0], bounded: /\brun_bounded\b/u.test(before) });
     }
   }
-  return violations;
+  return found;
+}
+
+function networkVerbs(helper: string) {
+  return networkCommands(helper).map(({ command }) => command.split(/\s+/u).at(-1));
+}
+
+function unboundedNetworkCommands(helper: string): NetworkViolation[] {
+  return networkCommands(helper)
+    .filter(({ bounded }) => !bounded)
+    .map(({ line, command }) => ({ line, command }));
 }
 
 type SparseCheckout = { where: string; patterns: string[]; cone: boolean };
@@ -411,13 +444,49 @@ function runPushWithRetry(scenario: Scenario) {
 
 describe('main writer network bounds', () => {
   it('requires every network command in git-commit-data.sh to use run_bounded', () => {
-    const violations = unboundedNetworkCommands(readFileSync(COMMIT_DATA_SCRIPT, 'utf8'));
+    const source = readFileSync(COMMIT_DATA_SCRIPT, 'utf8');
+    // What the reader has to find, in file order: the full-history download,
+    // the retry-loop fetch, the isolated push, three pulls and the plain push.
+    // A rule that passes because it found nothing is the failure this pins.
+    expect(networkVerbs(source)).toEqual(['fetch', 'fetch', 'push', 'pull', 'pull', 'pull', 'push']);
+    const violations = unboundedNetworkCommands(source);
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
   });
 
   it('requires every network command in git-push-with-retry.sh to use run_bounded', () => {
-    const violations = unboundedNetworkCommands(readFileSync(PUSH_WITH_RETRY_SCRIPT, 'utf8'));
+    const source = readFileSync(PUSH_WITH_RETRY_SCRIPT, 'utf8');
+    expect(networkVerbs(source)).toEqual(['push', 'fetch']);
+    const violations = unboundedNetworkCommands(source);
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
+  });
+
+  it('keeps reading after a here-string, and stops on a heredoc that never closes', () => {
+    // git-push-with-retry.sh feeds its loops with `<<<`. Read as a heredoc, the
+    // first one hid every line after it, both network commands included, and
+    // the rule above passed on the script that had no ceiling at all.
+    const hereString = ['while read -r path <&9; do', '  :', 'done 9<<< "$paths"', 'git fetch origin main', ''];
+    expect(unboundedNetworkCommands(hereString.join('\n'))).toEqual([{ line: 4, command: 'git fetch' }]);
+
+    const hereDoc = ["node - <<'NODE'", "console.log('git push origin main');", 'NODE', 'git push origin main', ''];
+    expect(unboundedNetworkCommands(hereDoc.join('\n'))).toEqual([{ line: 4, command: 'git push' }]);
+
+    expect(() => logicalShellCommands('cat <<EOF\ngit push origin main\n')).toThrow(
+      'heredoc <<EOF opened on line 1 never closes',
+    );
+  });
+
+  it('tells a command from a quoted word, and reads the script of bash -c', () => {
+    const source = [
+      'out="$(run_bounded 5 "git push origin main" \\',
+      '  git push origin main 2>&1)"',
+      "bash -c 'git fetch origin main'",
+      'echo "git pull is only a word here"',
+      '',
+    ];
+    expect(networkCommands(source.join('\n'))).toEqual([
+      { line: 2, command: 'git push', bounded: true },
+      { line: 3, command: 'git fetch', bounded: false },
+    ]);
   });
 
   it('reads sparse lists the way the checkout applies them', () => {
