@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-basel",
-  "assembledAt": "2026-10-08T09:13:14.995Z",
+  "assembledAt": "2026-10-08T21:18:48.829Z",
   "jobs": [
     {
       "id": "spitex-basel-4326786dfc98",
@@ -33,7 +33,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/it-system-engineer/1307ff0f-8c32-46ff-9fd8-511341a229d9",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.158Z",
+      "crawledAt": "2026-10-08T21:18:30.328Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/87aae09c-082a-4750-ac3b-da589fdda140",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.154Z",
+      "crawledAt": "2026-10-08T21:18:30.322Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/a0b94b7e-6ce5-4a66-aac6-55703360f3d9",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.153Z",
+      "crawledAt": "2026-10-08T21:18:30.320Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -218,15 +218,15 @@
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/a0b94b7e-6ce5-4a66-aac6-55703360f3d9",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-11T13:54:05.063Z",
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
         ]
       },
-      "previousSlugs": [
-        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
-      ],
+      "firstSeenAt": "2026-09-11T13:54:05.063Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -273,7 +273,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/spezialistin-spezialist-lohn-und-sozialversicherungen/afbeaa4e-8b4d-4712-ac65-cadc48377684",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.148Z",
+      "crawledAt": "2026-10-08T21:18:30.315Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/849e11d1-85e5-4f38-a864-0d1d0636900c",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.144Z",
+      "crawledAt": "2026-10-08T21:18:30.312Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -450,7 +450,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/1658d732-abd6-4232-a634-2e8de90bc08c",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.141Z",
+      "crawledAt": "2026-10-08T21:18:30.309Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -507,9 +507,9 @@
       "id": "spitex-basel-a3c4e67c86e8",
       "slug": "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel-6bffc6",
       "slugByLocale": {
-        "de": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel",
         "it": "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel-6bffc6",
         "en": "graduate-nurse-hf-fh-kinder-spitex-pediatrics-spitex-basel-basel-6bffc6",
+        "de": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel",
         "fr": "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-spitex-basel-basel-6bffc6"
       },
       "company": "SPITEX BASEL",
@@ -517,16 +517,16 @@
       "companyDomain": "spitexbasel.ch",
       "title": "Diplomierte Pflegefachperson HF/FH, Kinder-Spitex, Pädiatrie",
       "titleByLocale": {
-        "de": "Diplomierte Pflegefachperson HF/FH, Kinder-Spitex, Pädiatrie",
         "it": "Infermiere di laurea HF/FH, Kinder-Spitex, Pediatria",
         "en": "Graduate nurse HF/FH, Kinder-Spitex, Pediatrics",
+        "de": "Diplomierte Pflegefachperson HF/FH, Kinder-Spitex, Pädiatrie",
         "fr": "Infirmière diplômée HF/FH, Kinder-Spitex, pédiatrie"
       },
       "description": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\n## Was du bei uns bewegst\n• Betreuen unserer jüngsten Kundinnen und Kunden am Tag\n• Mitverantwortlich für den Pflegeprozess\n• Selbstständiges Sicherstellen der differenzierten und spezialisierten Pflege\n• Durchführen von Evaluationen und Anpassen der elektronischen Dokumentation\n• Beraten und Unterstützen von Eltern und Angehörigen\n• Mitwirken bei der Qualitätssicherung und Weiterentwicklung der Pflegeprozesse\n\n## Was du mitbringst\n• Grundausbildung Pflegefachperson HF/FH\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende Kommunikation\n• Gute IT Anwenderkenntnisse\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## Bei uns zählt der Mensch!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Kinder und Jugendliche in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Fähigkeiten und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
       "descriptionByLocale": {
-        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\n## Was du bei uns bewegst\n• Betreuen unserer jüngsten Kundinnen und Kunden am Tag\n• Mitverantwortlich für den Pflegeprozess\n• Selbstständiges Sicherstellen der differenzierten und spezialisierten Pflege\n• Durchführen von Evaluationen und Anpassen der elektronischen Dokumentation\n• Beraten und Unterstützen von Eltern und Angehörigen\n• Mitwirken bei der Qualitätssicherung und Weiterentwicklung der Pflegeprozesse\n\n## Was du mitbringst\n• Grundausbildung Pflegefachperson HF/FH\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende Kommunikation\n• Gute IT Anwenderkenntnisse\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## Bei uns zählt der Mensch!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Kinder und Jugendliche in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Fähigkeiten und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
         "it": "Attività significativa in un ambiente di lavoro multiculturale, gerarchie piatte\n\n## Cosa fai con noi\n• Sostenere i nostri clienti più giovani il giorno\n• Condividi la responsabilità del processo di cura\n• Assicurazione indipendente di cure differenziate e specializzate\n• Eseguire valutazioni e adattare la documentazione elettronica\n• Consulenza e supporto ai genitori e ai parenti\n• Partecipazione alla garanzia della qualità e ulteriore sviluppo dei processi di cura\n\n## Cosa porti\n• Infermiere di base HF/FH\n• Valutazione indipendente delle situazioni di allattamento\n• Comunicazione apprezzata\n• Buona conoscenza degli utenti IT\n• Prontezza per viaggiare con il Velo\n\n## Con noi, l'essere umano conta!\nSPITEX BASEL supporta le persone in vita indipendente e contribuisce alla loro qualità di vita, con cura professionale, pulizia e cura. Vuoi prenderti cura indipendentemente e sostenere bambini e adolescenti in una varietà di situazioni di cura nella loro casa? Allora abbiamo un'offerta emozionante per voi.\nNon ci interessa quale genere sei, da dove vieni o quanti anni hai – tutti sono i benvenuti. Con noi, le tue abilità e la tua motivazione conta.\n\n## Cosa trovi con noi\nOpportunità di formazione interessanti\nVelo check-days, tutto-tempo adatto lavoro e abiti da lavoro, caffè gratuito, tè e frutta\nContributo sanitario annuale per le vostre esigenze sanitarie individuali\n\n## Informazioni su Spitex Basel\nSPITEX BASEL è una fondazione senza scopo di lucro, senza scopo di lucro, con un mandato di servizio del Cantone di Basilea-Stadt.\nCome organizzazione leader Spitex con un mandato di servizio pubblico, SPITEX BASEL offre servizi completi nelle aree di assistenza ambulatoriale e pulizia. Bambini, adolescenti e adulti sono sostenuti in ogni fase della vita.\nUlteriori informazioni su di noi",
         "en": "Meaningful activity in a multicultural working environment, flat hierarchies\n\n## What you do with us\n• Support our youngest customers on the day\n• Share responsibility for the care process\n• Independent assurance of differentiated and specialized care\n• Performing evaluations and adapting electronic documentation\n• Advising and supporting parents and relatives\n• Participation in quality assurance and further development of care processes\n\n## What you bring\n• Basic training nurse HF/FH\n• Independent assessment of nursing situations\n• Appreciative communication\n• Good IT user knowledge\n• Readiness to travel with the Velo\n\n## With us, the human being counts!\nSPITEX BASEL supports people in independent living and contributes to their quality of life, with professional care, housekeeping and care. Do you want to independently care for and support children and adolescents in a variety of care situations in their home? Then we have an exciting offer for you.\nWe don’t care what gender you are, where you come from or how old you are – everyone is welcome. With us, your skills and your motivation count.\n\n## What you find with us\nAttractive training opportunities\nVelo check-days, all-weather suitable work and work clothes, free coffee, tea and fruit\nAnnual health care contribution for your individual health needs\n\n## About Spitex Basel\nSPITEX BASEL is a non-profit, non-profit-oriented foundation with a service mandate from the Canton of Basel-Stadt.\nAs a leading Spitex organization with a public service mandate, SPITEX BASEL offers comprehensive services in the areas of outpatient care as well as housekeeping and care. Children, adolescents and adults are supported at every stage of life.\nMore about us",
+        "de": "Sinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\n## Was du bei uns bewegst\n• Betreuen unserer jüngsten Kundinnen und Kunden am Tag\n• Mitverantwortlich für den Pflegeprozess\n• Selbstständiges Sicherstellen der differenzierten und spezialisierten Pflege\n• Durchführen von Evaluationen und Anpassen der elektronischen Dokumentation\n• Beraten und Unterstützen von Eltern und Angehörigen\n• Mitwirken bei der Qualitätssicherung und Weiterentwicklung der Pflegeprozesse\n\n## Was du mitbringst\n• Grundausbildung Pflegefachperson HF/FH\n• Selbstständiges Einschätzen von pflegerischen Situationen\n• Wertschätzende Kommunikation\n• Gute IT Anwenderkenntnisse\n• Bereitschaft mit dem Velo unterwegs zu sein\n\n## Bei uns zählt der Mensch!\nSPITEX BASEL unterstützt Menschen in der selbstständigen Lebensführung und trägt zu ihrer Lebensqualität bei, mit professioneller Pflege, Hauswirtschaft und Betreuung. Möchtest du Kinder und Jugendliche in vielfältigen Pflegesituationen in ihrem Daheim eigenständig pflegen und unterstützen? Dann haben wir ein spannendes Angebot für dich.\nUns ist egal, welches Geschlecht du hast, woher du kommst oder wie alt du bist – alle sind willkommen. Bei uns zählen deine Fähigkeiten und deine Motivation.\n\n## Was du bei uns findest\nAttraktive Fort- und Weiterbildungsmöglichkeiten\nVelo Check-Tage, allwettertaugliche Berufs- und Arbeitskleidung, kostenlos Kaffee, Tee und Obst\nJährlicher Gesundheitskostenbeitrag für deine individuellen Gesundheitsbedürfnisse\n\n## Über SPITEX BASEL\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.\nMEHR ÜBER UNS",
         "fr": "Activité significative dans un environnement de travail multiculturel, hiérarchies plates\n\n## Ce que tu fais de nous\n• Soutenez nos plus jeunes clients le jour\n• Partager la responsabilité du processus de soins\n• Assurance indépendante des soins différenciés et spécialisés\n• Effectuer des évaluations et adapter la documentation électronique\n• Conseiller et soutenir les parents et les parents\n• Participation à l'assurance de la qualité et développement des processus de soins\n\n## Ce que vous apportez\n• Infirmière de formation de base HF/FH\n• Évaluation indépendante des situations de soins infirmiers\n• Communication reconnaissante\n• Bonne connaissance de l'utilisateur informatique\n• Prêt à voyager avec le Velo\n\n## Avec nous, l'être humain compte !\nSPITEX BASEL soutient les personnes dans la vie autonome et contribue à leur qualité de vie, avec des soins professionnels, des soins ménagers et des soins. Voulez-vous prendre en charge et soutenir les enfants et les adolescents dans diverses situations de soins à domicile? Alors nous avons une offre passionnante pour vous.\nNous ne nous soucions pas quel genre vous êtes, d'où vous venez ou quel âge vous êtes – tout le monde est le bienvenu. Avec nous, vos compétences et votre motivation comptent.\n\n## Ce que vous trouvez chez nous\nPossibilités de formation attrayantes\nJours fériés Velo, vêtements de travail adaptés à tous les temps, café gratuit, thé et fruits\nContribution annuelle aux soins de santé pour vos besoins individuels en matière de santé\n\n## À propos de Spitex Basel\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie.\nPlus sur nous"
       },
       "location": "Basel",
@@ -534,7 +534,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/9c0c409e-fda2-4501-8d36-c09fadaa296b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.137Z",
+      "crawledAt": "2026-10-08T21:18:30.305Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -553,9 +553,22 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/9c0c409e-fda2-4501-8d36-c09fadaa296b",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
+        ]
       },
+      "firstSeenAt": "2026-09-11T13:54:05.065Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -568,22 +581,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-11T13:54:05.065Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
-        ],
-        "en": [
-          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
-        ],
-        "fr": [
-          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
-        ]
-      },
-      "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel-2"
-      ]
+      }
     },
     {
       "id": "spitex-basel-40218b5e6d58",
@@ -616,7 +614,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/planerin-planer/f5566e45-5c8a-419f-9514-d76db6131dc5",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.133Z",
+      "crawledAt": "2026-10-08T21:18:30.301Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -703,7 +701,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/66ea89a3-9ae8-4568-be76-d0d85dfba0e1",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.128Z",
+      "crawledAt": "2026-10-08T21:18:30.298Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -792,7 +790,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/98188bdc-ddb8-4c74-b6d9-2c687f405a35",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.121Z",
+      "crawledAt": "2026-10-08T21:18:30.294Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -812,15 +810,15 @@
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/98188bdc-ddb8-4c74-b6d9-2c687f405a35",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T13:48:19.074Z",
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex"
         ]
       },
-      "previousSlugs": [
-        "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex"
-      ],
+      "firstSeenAt": "2026-09-04T13:48:19.074Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -867,7 +865,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-pflege-paediatrische-psychiatrie/d82d9d47-26a9-49cd-bb39-a612e635015b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:05.107Z",
+      "crawledAt": "2026-10-08T21:18:30.281Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -887,15 +885,15 @@
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-pflege-paediatrische-psychiatrie/d82d9d47-26a9-49cd-bb39-a612e635015b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:12:10.164Z",
+      "previousSlugs": [
+        "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
         ]
       },
-      "previousSlugs": [
-        "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
-      ],
+      "firstSeenAt": "2026-10-07T09:12:10.164Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
