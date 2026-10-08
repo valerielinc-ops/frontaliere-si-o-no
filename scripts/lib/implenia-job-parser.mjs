@@ -12,7 +12,12 @@
  */
 import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { decodeHtmlEntitiesOnce, detectLang } from './dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  decodeHtmlEntitiesOnce,
+  detectLang,
+  promotePreviousSlugToLegacy,
+} from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -87,9 +92,7 @@ export function impleniaJobMatchKey(jobOrUrl = '') {
 const IMPLENIA_LOCALE_MAP_FIELDS = [
   'titleByLocale',
   'descriptionByLocale',
-  'slugByLocale',
   'requirementsByLocale',
-  'previousSlugsByLocale',
 ];
 
 function mergeImpleniaLocaleMaps(older = {}, newer = {}) {
@@ -127,18 +130,43 @@ function normalizeStoredImpleniaJob(job) {
   return copy;
 }
 
+function addImpleniaDuplicateSlugHistory(merged, older, newer) {
+  for (const [locale, slugs] of Object.entries(newer.previousSlugsByLocale || {})) {
+    if (!Array.isArray(slugs)) continue;
+    for (const slug of slugs) {
+      addPreviousSlugForLocale(merged, locale, slug, undefined, 'implenia-duplicate-history');
+    }
+  }
+
+  const hasLocaleHistory = (slug) => Object.values(merged.previousSlugsByLocale || {})
+    .some((slugs) => Array.isArray(slugs) && slugs.includes(slug));
+  for (const slug of Array.isArray(newer.previousSlugs) ? newer.previousSlugs : []) {
+    if (!merged.previousSlugs?.includes(slug) && !hasLocaleHistory(slug)) {
+      promotePreviousSlugToLegacy(merged, slug, undefined, 'implenia-duplicate-history');
+    }
+  }
+
+  const olderSlugsByLocale = older.slugByLocale || {};
+  for (const [locale, slug] of Object.entries(newer.slugByLocale || {})) {
+    if (slug && normalizeSpace(slug) !== normalizeSpace(olderSlugsByLocale[locale] || '')) {
+      addPreviousSlugForLocale(merged, locale, slug, undefined, 'implenia-duplicate-active-bridge');
+    }
+  }
+
+  if (newer.slug && normalizeSpace(newer.slug) !== normalizeSpace(older.slug || '')) {
+    addPreviousSlugForLocale(merged, 'it', newer.slug, undefined, 'implenia-duplicate-active-bridge');
+  }
+}
+
 function mergeImpleniaDuplicateRecords(first, second) {
   const older = impleniaRecordAge(first) <= impleniaRecordAge(second) ? first : second;
   const newer = older === first ? second : first;
-  const merged = { ...newer, ...older };
+  const merged = structuredClone({ ...newer, ...older });
 
   for (const field of IMPLENIA_LOCALE_MAP_FIELDS) {
     merged[field] = mergeImpleniaLocaleMaps(older[field], newer[field]);
   }
-  merged.previousSlugs = [...new Set([
-    ...(Array.isArray(older.previousSlugs) ? older.previousSlugs : []),
-    ...(Array.isArray(newer.previousSlugs) ? newer.previousSlugs : []),
-  ])];
+  addImpleniaDuplicateSlugHistory(merged, older, newer);
 
   const firstSeen = [jobTimestamp(first, 'firstSeenAt'), jobTimestamp(second, 'firstSeenAt')]
     .filter((value) => value !== null)

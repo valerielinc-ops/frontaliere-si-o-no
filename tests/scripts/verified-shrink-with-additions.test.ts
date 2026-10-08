@@ -45,7 +45,7 @@ function job(code: string, descriptionChars: number): Job {
   };
 }
 
-const ENV_KEYS = ['SKIP_OWNERSHIP_GUARD', 'GITHUB_SHA', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'JOBS_HOUSEKEEPING_PROOF_DIR'] as const;
+const ENV_KEYS = ['SKIP_OWNERSHIP_GUARD', 'GITHUB_SHA', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'JOBS_HOUSEKEEPING_PROOF_DIR', 'JOBS_CRAWLER_SLICES_DIR'] as const;
 
 describe('writeJobsCrawlerSliceVerified — corroborated shrink that also adds jobs', () => {
   let dir: string;
@@ -56,16 +56,15 @@ describe('writeJobsCrawlerSliceVerified — corroborated shrink that also adds j
   beforeEach(() => {
     for (const key of ENV_KEYS) savedEnv[key] = process.env[key];
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-verified-additions-'));
-    // Same trick as tests/scripts/shrink-guard-evidence.test.ts: a crawler key
-    // relative to the real slice directory keeps every write in `dir`. The
-    // `data/jobs/by-crawler/` suffix is what makes the byte guard apply.
-    const sliceDir = path.resolve(__dirname, '../../data/jobs/by-crawler');
-    slicePath = path.join(dir, 'data', 'jobs', 'by-crawler', 'convit-replay.json');
+    // Keep the real writer and byte guard active, but redirect its complete
+    // active-slice fleet to os.tmpdir(). The `data/jobs/by-crawler/` suffix is
+    // what makes the byte guard apply; the env override also keeps the fleet
+    // ownership reconciliation out of tracked repository data.
+    const sliceDir = path.join(dir, 'data', 'jobs', 'by-crawler');
+    slicePath = path.join(sliceDir, 'convit-replay.json');
     fs.mkdirSync(path.dirname(slicePath), { recursive: true });
-    crawlerKey = path.relative(sliceDir, slicePath.slice(0, -'.json'.length));
-    if (path.join(sliceDir, `${crawlerKey}.json`) !== slicePath) {
-      throw new Error('test slice escaped the temporary directory');
-    }
+    crawlerKey = 'convit-replay';
+    process.env.JOBS_CRAWLER_SLICES_DIR = sliceDir;
     process.env.SKIP_OWNERSHIP_GUARD = '1';
     process.env.GITHUB_SHA = 'verified-additions-head';
     process.env.GITHUB_RUN_ID = 'verified-additions-run';

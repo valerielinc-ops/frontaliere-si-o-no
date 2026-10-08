@@ -150,12 +150,10 @@ describe('Implenia crawler parser', () => {
         it: 'Responsabile di immobili commerciali',
       });
       expect(prepared[0].descriptionByLocale).toMatchObject({ fr: descriptionFr, it: descriptionIt });
-      expect(prepared[0].slugByLocale).toMatchObject({ fr: 'gerant-fr', it: 'responsabile-it' });
-      expect(prepared[0].previousSlugs).toEqual(['slug-it-old', 'slug-fr-old']);
-      expect(prepared[0].previousSlugsByLocale).toMatchObject({
-        fr: ['slug-fr-old'],
-        it: ['slug-it-old'],
-      });
+      expect(prepared[0].slugByLocale).toEqual({ it: 'responsabile-it' });
+      expect(prepared[0].previousSlugs).toEqual(expect.arrayContaining(['slug-it-old', 'slug-fr-old', 'gerant-fr']));
+      expect(prepared[0].previousSlugsByLocale.it).toEqual(expect.arrayContaining(['slug-it-old']));
+      expect(prepared[0].previousSlugsByLocale.fr).toEqual(expect.arrayContaining(['slug-fr-old', 'gerant-fr']));
 
       const fresh = {
         id: 'implenia-fresh-hash',
