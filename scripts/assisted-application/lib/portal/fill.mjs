@@ -163,7 +163,11 @@ export function nationalityOptionLabel(value, options, language = '') {
   if (matches.length === 1) return matches[0];
   const preferred = nationalityLabelOf(wanted, language);
   const preferredKey = normalizedChoice(preferred).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '');
-  return preferredKey ? matches.find((option) => normalizedChoice(option).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '') === preferredKey) || '' : '';
+  if (preferredKey) {
+    const canonical = matches.find((option) => normalizedChoice(option).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '') === preferredKey);
+    if (canonical) return canonical;
+  }
+  return language ? matches[0] || '' : '';
 }
 
 export const nationalityFieldLanguage = (label) => {
@@ -269,14 +273,27 @@ async function fillCombobox(page, field, locator, value) {
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
   // The exact label only (review of #10715): "IT" never picks "Italy".
-  const option = frame.getByRole('option', { name: value, exact: true }).first();
+  let selectedLabel = value;
+  let option = frame.getByRole('option', { name: value, exact: true }).first();
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
   } catch {
-    await locator.press('Escape').catch(() => {});
-    throw new Error('option_not_found');
+    if (!isNationalityField(field.label)) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    const options = frame.getByRole('option');
+    const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
+    selectedLabel = nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label));
+    if (!selectedLabel) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    option = frame.getByRole('option', { name: selectedLabel, exact: true }).first();
+    await option.waitFor({ state: 'visible', timeout: 4000 });
   }
   await option.click({ timeout: ACTION_TIMEOUT_MS });
+  return selectedLabel;
 }
 
 /** SuccessFactors' picklist: open it, wait for its options to load, click the one named. */
@@ -576,7 +593,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         } else if (field.selectLike) {
           selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
         } else {
-          await fillCombobox(page, field, locator, action.value);
+          selectedLabel = await fillCombobox(page, field, locator, action.value);
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
         const registered = field.selectLike

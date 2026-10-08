@@ -78,6 +78,38 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'italienne' }, { timeout: 6000 });
   });
 
+  it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
+    let selected = '';
+    const localizedOption = {
+      waitFor: vi.fn(async () => {}),
+      click: vi.fn(async () => { selected = 'italienne'; }),
+    };
+    const rawOption = { first: () => ({ waitFor: vi.fn(async () => { throw new Error('not found'); }) }) };
+    const control = {
+      click: vi.fn(),
+      pressSequentially: vi.fn(),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected === data.wanted),
+    };
+    const frame = {
+      locator: vi.fn(() => ({ first: () => control })),
+      getByRole: vi.fn((_role: string, options?: { name?: string; exact?: boolean }) => options?.name === 'italiana'
+        ? rawOption
+        : options?.name === 'italienne'
+          ? { first: () => localizedOption }
+          : { allInnerTexts: vi.fn(async () => ['Italie', 'italienne']) }),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: false,
+    }], [{ fieldId: 'nationality', action: 'select', value: 'italiana' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(localizedOption.click).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
   it('keeps the original DOM index when a SuccessFactors picklist has a blank option', async () => {
     let selected = '';
     const clicked: number[] = [];
