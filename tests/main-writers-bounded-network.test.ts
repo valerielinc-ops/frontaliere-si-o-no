@@ -18,7 +18,12 @@ const COMMIT_DATA_SCRIPT = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
 const PUSH_WITH_RETRY_SCRIPT = resolve(ROOT, 'scripts/lib/git-push-with-retry.sh');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
-const NETWORK_TEST_PROCESS_TIMEOUT_MS = 15_000;
+// The shim below stalls a push for 30 seconds. The script under test must
+// finish well inside that: a run that waited for the stall is cut here and
+// reports no exit status, so the assertions on `status` are the proof of the
+// ceiling. No assertion on elapsed time: that would measure the runner.
+const NETWORK_TEST_STALL_SECONDS = 30;
+const NETWORK_TEST_PROCESS_TIMEOUT_MS = 25_000;
 
 type ShellLine = { number: number; text: string };
 type ShellCommand = { lines: ShellLine[]; text: string };
@@ -268,7 +273,7 @@ if [ "$is_push" = true ]; then
   attempts=$((attempts + 1))
   printf '%s\\n' "$attempts" > '${scenario.pushCounter}'
   if [ '${mode}' = 'always' ] || [ "$attempts" -eq 1 ]; then
-    /bin/sleep 30
+    /bin/sleep ${NETWORK_TEST_STALL_SECONDS}
   fi
 fi
 exec '${realGit}' "$@"
@@ -288,7 +293,6 @@ function commonEnvironment(scenario: Scenario) {
 }
 
 function runScript(scenario: Scenario, script: string, args: string[], extraEnv: Record<string, string>) {
-  const startedAt = Date.now();
   const result = spawnSync(BASH_BIN, [script, ...args], {
     cwd: scenario.local,
     encoding: 'utf8',
@@ -298,7 +302,6 @@ function runScript(scenario: Scenario, script: string, args: string[], extraEnv:
   return {
     status: result.status,
     output: `${result.stdout ?? ''}${result.stderr ?? ''}`,
-    elapsedMs: Date.now() - startedAt,
   };
 }
 
@@ -361,6 +364,23 @@ describe('main writer network bounds', () => {
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
   });
 
+  it('keeps the stall longer than the time the scripts are allowed', () => {
+    expect(NETWORK_TEST_STALL_SECONDS * 1000).toBeGreaterThan(NETWORK_TEST_PROCESS_TIMEOUT_MS);
+  });
+
+  it('gives the full-history download a ceiling of its own, above the ordinary fetch', () => {
+    const source = readFileSync(COMMIT_DATA_SCRIPT, 'utf8');
+    const ceiling = (name: string) =>
+      Number(new RegExp(`^${name}="\\$\\{${name}:-(\\d+)\\}"$`, 'mu').exec(source)?.[1]);
+    const fetchCeiling = ceiling('GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS');
+    const unshallowCeiling = ceiling('GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS');
+    expect(fetchCeiling).toBeGreaterThan(0);
+    expect(unshallowCeiling).toBeGreaterThan(fetchCeiling);
+    const unshallow = logicalShellCommands(source).filter(({ text }) => text.includes('fetch --unshallow'));
+    expect(unshallow).toHaveLength(1);
+    expect(unshallow[0].text).toContain('run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS"');
+  });
+
   it('retries a timed-out git-commit-data push and fails after the final timeout', () => {
     const scenario = setupScenario('main-writer-commit-data-timeout-');
     try {
@@ -369,7 +389,6 @@ describe('main writer network bounds', () => {
       const result = runCommitData(scenario);
 
       expect(result.status, result.output).toBe(1);
-      expect(result.elapsedMs).toBeLessThan(7_000);
       expect(pushAttempts(scenario)).toBe(2);
       expect(result.output).toContain(
         'git push --no-thin origin <commit>:refs/heads/main timed out after 1 second',
@@ -405,7 +424,6 @@ describe('main writer network bounds', () => {
       const result = runPushWithRetry(scenario);
 
       expect(result.status, result.output).toBe(1);
-      expect(result.elapsedMs).toBeLessThan(7_000);
       expect(pushAttempts(scenario)).toBe(2);
       expect(result.output).toContain('git push --no-thin origin HEAD:main timed out after 1 second');
       expect(result.output).toContain('Failed to push after 2 attempts');

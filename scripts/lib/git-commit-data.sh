@@ -67,7 +67,16 @@ BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounde
 # measurement; the push ceiling follows the 180-second refresh policy already
 # in use. These GIT_COMMIT_DATA_* overrides are only for the test bench;
 # production keeps the declared defaults.
+#
+# The unshallow fetch has a ceiling of its own, and it is not the fetch one.
+# It downloads the whole history of main: 31.44 GiB reachable from origin/main
+# across 124,981 commits, measured on a complete clone on 2026-10-08. Under the
+# ordinary 300 seconds it could never finish, and `ensure_full_history` would
+# turn "slow" into "refusing to guess" on every run. Its real duration has not
+# been measured in CI; an hour bounds a hung transfer without cutting one that
+# is still arriving. The crawler-group jobs that reach it allow 340 minutes.
 GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-300}"
+GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS:-3600}"
 GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
 GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
 
@@ -406,7 +415,7 @@ _SHALLOW_CHECKOUT_STATUS=""
 ensure_full_history() {
   if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
     if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
-      if run_bounded "$GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS" "git fetch --unshallow origin main" \
+      if run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS" "git fetch --unshallow origin main" \
         bash -c 'git fetch --unshallow origin main >/dev/null 2>&1' \
         && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
         _SHALLOW_CHECKOUT_STATUS="unshallowed"
