@@ -2661,6 +2661,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'crescita-lavoro-intelligenza-artificiale': { it: 'crescita-lavoro-intelligenza-artificiale', en: 'ai-jobs-market-growth-switzerland', de: 'ki-arbeitsmarkt-wachstum-schweiz', fr: 'croissance-emploi-ia-suisse' },
  'mercato-lavoro-ia-svizzera': { it: 'mercato-lavoro-ia-svizzera', en: 'swiss-ai-job-market', de: 'schweizer-ki-arbeitsmarkt', fr: 'marche-travail-ia-suisse' },
  'raiffeisen-pil-inflazione-2026': { it: 'raiffeisen-pil-inflazione-2026', en: 'raiffeisen-gdp-at-1-7-in-2026-inflation-at-0-7', de: 'raiffeisen-bip-2026-bei-1-7-inflation-bei-0-7', fr: 'raiffeisen-pib-2026-a-1-7-inflation-a-0-7' },
+ 'svizzera-leader-nella-robotica-217-aziende-e-7-000-posti': { it: 'svizzera-leader-nella-robotica-217-aziende-e-7-000-posti', en: 'switzerland-leads-in-robotics-217-companies-and-7-000-jobs', de: 'schweiz-fuhrend-in-der-robotik-217-unternehmen-und-7-000-arbeitsplatze', fr: 'la-suisse-leader-de-la-robotique-217-entreprises-et-7-000-emplois' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

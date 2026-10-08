@@ -7916,6 +7916,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen: BIP 2026 bei 1,7%, Inflation bei 0,7%',
     'blog.article.raiffeisen-pil-inflazione-2026.excerpt': '## Auf einen Blick - Raiffeisen hebt die BIP-Prognose für 2026 auf 1,7% an - Für 2027 bestätigt Raiffeisen ein Wachstum von 1,3% - Inflation 2026 bei 0,7%, gegenüber den geschätzten 0,5%',
     'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Schweizer Fachperson analysiert Wirtschaftsprognosen mit den Alpen im Hintergrund',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.title': 'Schweiz führend in der Robotik: 217 Unternehmen und 7\'000 Arbeitsplätze',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.excerpt': '## Auf einen Blick - 217 Unternehmen in der Schweizer Robotik - 109 stellen direkt Roboter her - 87% haben weniger als 100 Mitarbeitende - Etwa 7’000 Arbeitsplätze',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.imageAlt': 'Redaktionelles Bild zu: Svizzera leader nella robotica: 217 aziende e 7\'000 posti',
 };
 
 export default blogMetaChDe;

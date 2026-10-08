@@ -12791,6 +12791,23 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bellinzona-nord-svincolo.title': 'Bellinzona Nord, chiusura notturna dello svincolo',
     'blog.article.bellinzona-nord-svincolo.excerpt': '## In breve - Chiusura tra venerdì 9 e sabato 10 ottobre - Stop dalle 20.00 alle 5.00 - Direzione: Chiasso/San Gottardo - Alternative: Bellinzona Centro 46',
     'blog.article.bellinzona-nord-svincolo.imageAlt': 'Svincolo autostradale di Bellinzona Nord durante una chiusura notturna',
+    'blog.article.lugano-lucerna-partita-traffico.title': 'Lucerna fans in Lugano: road closures, traffic delays',
+    'blog.article.lugano-lucerna-partita-traffico.excerpt': '## In breve - Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo - Corteo ospite tra le 16 e le 17.30 circa - Piazzale della stazione chiuso dalle 15.50 - Attese',
+    'blog.article.lugano-lucerna-partita-traffico.imageAlt': 'Piazza stazione di Lugano con transenne e tifosi del Lucerna diretti allo stadio di Cornaredo',
+    'blog.article.tifosi-lucerna-lugano-traffico.title': 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
+    'blog.article.tifosi-lucerna-lugano-traffico.excerpt': '## In breve - Partita alle 18 allo stadio di Cornaredo - Corteo tra le 16 e le 17.30 circa - Attese tra 15 e 30 minuti sulle strade coinvolte - Via Ciani',
+    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Strade di Lugano con polizia e tifosi diretti allo stadio di Cornaredo',
+    'blog.article.elettrificazione-ferrovia-albate-molteno.title': 'Elettrificazione ferrovia albate-molteno: stop como-lecco',
+    'blog.article.elettrificazione-ferrovia-albate-molteno.excerpt': 'Cantieri a metà dicembre per elettrificazione Albate-Molteno, sospensione traffico Como-Lecco fino a giugno 2029. Investimento di 170 milioni di euro.',
+    'blog.article.elettrificazione-ferrovia-albate-molteno.imageAlt': 'Immagine di una stazione ferroviaria moderna in Ticino con un treno in arrivo, in una giornata luminosa.',
+    'blog.article.bollettino-frontaliere-2026-10-08.title': 'Bollettino del frontaliere – 8 ottobre 2026: 903 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-10-08.excerpt': 'I numeri di oggi, 8 ottobre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-08.imageAlt': 'I numeri del giorno per i frontalieri – 8 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-08.seoDescription': 'Bollettino frontalieri del 8 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-08.ogDescription': 'I numeri del 8 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.ferrovia-albate-molteno-elettrificazione.title': 'Elettrificazione Albate-Molteno: lavori da dicembre 2024',
+    'blog.article.ferrovia-albate-molteno-elettrificazione.excerpt': '## In breve - Cantieri per l\'elettrificazione al via a metà dicembre - Como-Lecco sospesa almeno fino a giugno 2029 - Albate-Molteno: da 24 a 34 treni al giorno',
+    'blog.article.ferrovia-albate-molteno-elettrificazione.imageAlt': 'Treno elettrico sulla linea Albate-Molteno vicino a Lugano con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

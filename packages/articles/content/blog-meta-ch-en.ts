@@ -7916,6 +7916,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen: GDP at 1.7% in 2026, inflation at 0.7%',
     'blog.article.raiffeisen-pil-inflazione-2026.excerpt': '## TL;DR - Raiffeisen raises the 2026 GDP estimate to 1,7% - For 2027, it confirms growth of 1,3% - 2026 inflation at 0,7%, versus the estimated 0,5%',
     'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Swiss professional analyzing economic forecasts with the Alps in the background',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.title': 'Switzerland leads in robotics: 217 companies and 7\'000 jobs',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.excerpt': '## TL;DR - 217 companies in Swiss robotics - 109 directly produce robots - 87% have fewer than 100 employees - Approximately 7’000 jobs',
+    'blog.article.svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.imageAlt': 'Editorial image related to: Svizzera leader nella robotica: 217 aziende e 7\'000 posti',
 };
 
 export default blogMetaChEn;

@@ -99784,6 +99784,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-leader-nella-robotica-217-aziende-e-7-000-posti': {
+    title: 'Svizzera leader nella robotica: 217 aziende e 7\'000 posti',
+    description: '## In breve - 217 aziende nella robotica svizzera - 109 producono direttamente robot - 87% ha meno di 100 collaboratori - Circa 7’000 posti di lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, leader, nella, robotica, aziende',
+    ogTitle: 'Svizzera leader nella robotica: 217 aziende e 7\'000 posti',
+    ogDescription: '## In breve - 217 aziende nella robotica svizzera - 109 producono direttamente robot - 87% ha meno di 100 collaboratori - Circa 7’000 posti di lavoro',
+    canonicalPath: '/articoli-svizzera/svizzera-leader-nella-robotica-217-aziende-e-7-000-posti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera leader nella robotica: 217 aziende e 7'000 posti",
+      "description": "## In breve - 217 aziende nella robotica svizzera - 109 producono direttamente robot - 87% ha meno di 100 collaboratori - Circa 7’000 posti di lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Svizzera leader nella robotica: 217 aziende e 7'000 posti"
+      },
+      "datePublished": "2026-10-08T11:04:25+00:00",
+      "dateModified": "2026-10-08T11:04:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-leader-nella-robotica-217-aziende-e-7-000-posti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

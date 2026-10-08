@@ -102003,7 +102003,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "L'inchiesta sul commercio di materie prime racconta l'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno nel racconto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pronto-consulto-mendrisiotto-basso-ceresio.webp`,
+        "url": `${BASE_URL}/images/blog/article-clan-nazarbayev-ceresio.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Ville sul Ceresio nel racconto sul clan Nazarbayev"
@@ -103002,6 +103002,196 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-nord-svincolo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lugano-lucerna-partita-traffico': {
+    title: 'Lucerna fans in Lugano: road closures, traffic delays',
+    description: '## In breve - Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo - Corteo ospite tra le 16 e le 17.30 circa - Piazzale della stazione chiuso dalle 15.50 - Attese',
+    keywords: 'frontalieri, ticino, svizzera, italia, lucerna, fans, lugano, road',
+    ogTitle: 'Lucerna fans in Lugano: road closures, traffic delays',
+    ogDescription: '## In breve - Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo - Corteo ospite tra le 16 e le 17.30 circa - Piazzale della stazione chiuso dalle 15.50 - Attese',
+    canonicalPath: '/articoli-frontaliere/lugano-lucerna-partita-traffico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lucerna fans in Lugano: road closures, traffic delays",
+      "description": "## In breve - Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo - Corteo ospite tra le 16 e le 17.30 circa - Piazzale della stazione chiuso dalle 15.50 - Attese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lugano-lucerna-partita-traffico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza stazione di Lugano con transenne e tifosi del Lucerna diretti allo stadio di Cornaredo"
+      },
+      "datePublished": "2026-10-08T11:18:04+00:00",
+      "dateModified": "2026-10-08T11:18:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-lucerna-partita-traffico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tifosi-lucerna-lugano-traffico': {
+    title: 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
+    description: '## In breve - Partita alle 18 allo stadio di Cornaredo - Corteo tra le 16 e le 17.30 circa - Attese tra 15 e 30 minuti sulle strade coinvolte - Via Ciani',
+    keywords: 'frontalieri, ticino, svizzera, italia, tifosi, lucerna, lugano, strade',
+    ogTitle: 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
+    ogDescription: '## In breve - Partita alle 18 allo stadio di Cornaredo - Corteo tra le 16 e le 17.30 circa - Attese tra 15 e 30 minuti sulle strade coinvolte - Via Ciani',
+    canonicalPath: '/articoli-frontaliere/tifosi-lucerna-lugano-traffico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tifosi Lucerna a Lugano: strade chiuse e traffico",
+      "description": "## In breve - Partita alle 18 allo stadio di Cornaredo - Corteo tra le 16 e le 17.30 circa - Attese tra 15 e 30 minuti sulle strade coinvolte - Via Ciani",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lucerna-voto-tifosi-ocse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strade di Lugano con polizia e tifosi diretti allo stadio di Cornaredo"
+      },
+      "datePublished": "2026-10-08T11:31:48+00:00",
+      "dateModified": "2026-10-08T11:31:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tifosi-lucerna-lugano-traffico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elettrificazione-ferrovia-albate-molteno': {
+    title: 'Elettrificazione ferrovia albate-molteno: stop como-lecco',
+    description: 'Cantieri per elettrificazione Albate-Molteno avviano a metà dicembre. Traffico Como-Lecco sospeso fino al 2029. Investimento di 170 milioni per più corse',
+    keywords: 'frontalieri, ticino, svizzera, italia, elettrificazione, ferrovia, albate-molteno, stop',
+    ogTitle: 'Elettrificazione ferrovia Albate-Molteno: stop Como-Lecco',
+    ogDescription: 'L\'elettrificazione della linea Albate-Molteno inizia a metà dicembre, causando la sospensione della tratta Como-Lecco fino a giugno 2029. Il progetto da 170 milioni di euro promette più corse e il prolungamento dei collegamenti TILO verso la Svizzera',
+    canonicalPath: '/articoli-frontaliere/elettrificazione-ferrovia-albate-molteno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elettrificazione ferrovia albate-molteno: stop como-lecco",
+      "description": "Cantieri per elettrificazione Albate-Molteno avviano a metà dicembre. Traffico Como-Lecco sospeso fino al 2029. Investimento di 170 milioni per più corse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-elettrificazione-ferrovia-albate-molteno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una stazione ferroviaria moderna in Ticino con un treno in arrivo, in una giornata luminosa."
+      },
+      "datePublished": "2026-10-08T11:47:10+00:00",
+      "dateModified": "2026-10-08T11:47:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elettrificazione-ferrovia-albate-molteno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-10-08': {
+    title: 'Bollettino del frontaliere – 8 ottobre 2026: 903 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 8 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 8 ottobre 2026: 903 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 8 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-08/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 8 ottobre 2026: 903 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 8 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "Deterministic media produced by frontaliereticino.ch.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-08.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 8 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-10-08T11:52:55+00:00",
+      "dateModified": "2026-10-08T11:52:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-08/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ferrovia-albate-molteno-elettrificazione': {
+    title: 'Elettrificazione Albate-Molteno: lavori da dicembre 2024',
+    description: '## In breve - Cantieri per l\'elettrificazione al via a metà dicembre - Como-Lecco sospesa almeno fino a giugno 2029 - Albate-Molteno: da 24 a 34 treni al giorno',
+    keywords: 'frontalieri, ticino, svizzera, italia, elettrificazione, albate-molteno, lavori, dicembre',
+    ogTitle: 'Elettrificazione Albate-Molteno: lavori da dicembre 2024',
+    ogDescription: '## In breve - Cantieri per l\'elettrificazione al via a metà dicembre - Como-Lecco sospesa almeno fino a giugno 2029 - Albate-Molteno: da 24 a 34 treni al giorno',
+    canonicalPath: '/articoli-frontaliere/ferrovia-albate-molteno-elettrificazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elettrificazione Albate-Molteno: lavori da dicembre 2024",
+      "description": "## In breve - Cantieri per l'elettrificazione al via a metà dicembre - Como-Lecco sospesa almeno fino a giugno 2029 - Albate-Molteno: da 24 a 34 treni al giorno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ferrovia-albate-molteno-elettrificazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno elettrico sulla linea Albate-Molteno vicino a Lugano con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-10-08T11:59:50+00:00",
+      "dateModified": "2026-10-08T11:59:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ferrovia-albate-molteno-elettrificazione/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -26422,6 +26422,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-leader-nella-robotica-217-aziende-e-7-000-posti',
+    category: 'novita',
+    date: '2026-10-08T11:04:25.747Z',
+    image: '/images/blog/article-svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.webp',
+    hasCalculator: false,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
