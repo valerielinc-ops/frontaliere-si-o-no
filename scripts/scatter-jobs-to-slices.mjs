@@ -18,7 +18,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES, stableSlugHash, isSelfCanonicalPreviousSlug } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
 import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
@@ -201,31 +201,41 @@ export function buildAssembledJobIndex(assembledJobs) {
  * @returns {object|null}
  */
 export function matchAssembledJob(sliceJob, index) {
+  return matchAssembledJobWithKind(sliceJob, index).job;
+}
+
+// Strength of the join, strongest first. `verifyScatterParity()` uses it to
+// tell a real ambiguity (two slice jobs joined at the same strength) from a
+// cross-crawler duplicate shadowed by the record that owns the assembled URL.
+const MATCH_STRENGTH = Object.freeze({ url: 3, stable: 2, diffKey: 1 });
+const NO_MATCH = Object.freeze({ job: null, kind: null });
+
+function matchAssembledJobWithKind(sliceJob, index) {
   const sliceUrl = normalizedJobUrl(sliceJob);
   const exact = uniqueIndexEntry(index?.byUrl, sliceUrl);
   if (exact.found) {
     const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
-    if (!exact.job || (byDiffKey.found && byDiffKey.job !== exact.job)) return null;
-    return exact.job;
+    if (!exact.job || (byDiffKey.found && byDiffKey.job !== exact.job)) return NO_MATCH;
+    return { job: exact.job, kind: 'url' };
   }
 
   const stableUrl = stableUrlIndexKey(sliceUrl);
   const stable = uniqueIndexEntry(index?.byStableUrl, stableUrl);
   if (stable.found) {
     const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
-    if (!stable.job || (byDiffKey.found && byDiffKey.job !== stable.job)) return null;
-    return stable.job;
+    if (!stable.job || (byDiffKey.found && byDiffKey.job !== stable.job)) return NO_MATCH;
+    return { job: stable.job, kind: 'stable' };
   }
 
   const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
-  if (!byDiffKey.found || !byDiffKey.job) return null;
+  if (!byDiffKey.found || !byDiffKey.job) return NO_MATCH;
 
   const assembledUrl = normalizedJobUrl(byDiffKey.job);
   if (sliceUrl && assembledUrl) {
     const assembledStableUrl = stableUrlIndexKey(assembledUrl);
-    if (sliceUrl !== assembledUrl && (!stableUrl || stableUrl !== assembledStableUrl)) return null;
+    if (sliceUrl !== assembledUrl && (!stableUrl || stableUrl !== assembledStableUrl)) return NO_MATCH;
   }
-  return byDiffKey.job;
+  return { job: byDiffKey.job, kind: 'diffKey' };
 }
 
 /**
@@ -261,10 +271,9 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   }
 
   const matchedKeys = new Set();
-  const assembledMatchCounts = new Map();
+  const assembledMatchKinds = new Map();
   const sliceKeys = new Set();
   let duplicateSliceKeys = 0;
-  let duplicateAssembledMatches = 0;
   let sliceJobs = 0;
   let unmatchedSliceJobs = 0;
   let missingBridges = 0;
@@ -278,14 +287,13 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
       if (sliceKey && sliceKeys.has(sliceKey)) duplicateSliceKeys++;
       if (sliceKey) sliceKeys.add(sliceKey);
 
-      const assembled = matchAssembledJob(sliceJob, index);
+      const { job: assembled, kind } = matchAssembledJobWithKind(sliceJob, index);
       if (!assembled) {
         unmatchedSliceJobs++;
         continue;
       }
-      const matchCount = (assembledMatchCounts.get(assembled) || 0) + 1;
-      assembledMatchCounts.set(assembled, matchCount);
-      if (matchCount > 1) duplicateAssembledMatches++;
+      if (!assembledMatchKinds.has(assembled)) assembledMatchKinds.set(assembled, []);
+      assembledMatchKinds.get(assembled).push(kind);
       matchedKeys.add(resolveJobDiffKey(assembled));
       const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
       missingBridges += collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length;
@@ -294,6 +302,22 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
       const effectiveSlugs = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
       if (!localeMapsEqual(effectiveSlugs, sliceJob.slugByLocale)) activeSlugMismatches++;
     }
+  }
+
+  // Two slice jobs joined to one assembled job at the SAME strength are an
+  // ambiguous identity: the projection cannot know which one the assembled
+  // record describes. A weaker join next to a stronger one is the same
+  // posting crawled twice (run 37723588903: jobs.admin.ch `…/posti-vacanti/…`
+  // in confederazione-ticino.json and `…/offene-stellen/…` in vtg.json, same
+  // host and posting id); assembly keeps one, exactly like the slice-only
+  // duplicates that share the full URL and are already allowed above.
+  let duplicateAssembledMatches = 0;
+  let shadowedSliceMatches = 0;
+  for (const kinds of assembledMatchKinds.values()) {
+    const strongest = Math.max(...kinds.map((kind) => MATCH_STRENGTH[kind]));
+    const atStrongest = kinds.filter((kind) => MATCH_STRENGTH[kind] === strongest).length;
+    duplicateAssembledMatches += atStrongest - 1;
+    shadowedSliceMatches += kinds.length - atStrongest;
   }
 
   const report = {
@@ -307,6 +331,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     unmatchedSliceJobs,
     duplicateSliceKeys,
     duplicateAssembledMatches,
+    shadowedSliceMatches,
     missingBridges,
     pendingWrites,
     activeSlugMismatches,
@@ -682,6 +707,13 @@ export function mergeLocaleMap(sliceMap, assembledMap) {
  * @returns {Array<{ locale: string|null, slug: string }>} ordered add-list
  */
 export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridges = new Set() } = {}) {
+  // Self-canonical verdicts are taken against the active slugs the slice will
+  // serve AFTER this projection: a caller may collect before it applies a
+  // rename, and the slug being renamed away is then a legitimate bridge.
+  const effectiveActive = {
+    slug: sliceJob.slug,
+    slugByLocale: mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale),
+  };
   const known = new Set();
   if (sliceJob.slug) known.add(String(sliceJob.slug));
   for (const s of Object.values(sliceJob.slugByLocale || {})) if (s) known.add(String(s));
@@ -724,7 +756,10 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
       const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
       for (const s of arr) {
         const v = String(s || '');
-        if (!v || bucket.includes(v) || skipBridges.has(v)) continue;
+        // A bridge the cleaner drops on its next pass (it equals this
+        // locale's active slug or the master slug) can never be persisted:
+        // it is not missing, and adding it would only be undone.
+        if (!v || bucket.includes(v) || skipBridges.has(v) || isSelfCanonicalPreviousSlug(effectiveActive, locale, v)) continue;
         const dedupKey = `${locale} ${v}`;
         if (seen.has(dedupKey)) continue;
         const consumesHeadroom = !known.has(v);
@@ -743,7 +778,7 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
   // legacy field rather than rotating a committed locale bucket.
   for (const s of (Array.isArray(assembled.previousSlugs) ? assembled.previousSlugs : [])) {
     const v = String(s || '');
-    if (!v || known.has(v) || skipBridges.has(v)) continue;
+    if (!v || known.has(v) || skipBridges.has(v) || isSelfCanonicalPreviousSlug(effectiveActive, null, v)) continue;
     if (adds.filter((a) => !a._free).length >= headroom) break;
     known.add(v);
     const hasItRoom = (localeHeadroom.get('it') || 0) > 0;
