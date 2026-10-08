@@ -7907,6 +7907,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.violazione-dati-publica-indagine.title': 'Cyberangriff auf den Softwareanbieter von Publica',
     'blog.article.violazione-dati-publica-indagine.excerpt': '## Auf einen Blick - Cyberangriff Ende September - Externer Anbieter von Publica betroffen - Die Staatsanwaltschaft hat eine Untersuchung eingeleitet - Publica hat',
     'blog.article.violazione-dati-publica-indagine.imageAlt': 'Server in einem Schweizer Technikraum als Symbol für den Cyberangriff auf einen Publica-Softwareanbieter',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.title': 'KI-Arbeitsmarkt: +32% Stellenanzeigen in einem Jahr',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.excerpt': '## Auf einen Blick - Fast 5\'000 KI-Stellenanzeigen zwischen Juli 2025 und Juni 2026 - Die KI-Nachfrage steigt in einem Jahr um 32% - Der öffentliche Sektor verzeichnet den größten Anstieg',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.imageAlt': 'Moderner Arbeitsplatz mit Datenanalyse auf dem Bildschirm in Lugano',
 };
 
 export default blogMetaChDe;

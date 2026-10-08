@@ -7907,6 +7907,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.violazione-dati-publica-indagine.title': 'Cyberattack on Publica’s software provider',
     'blog.article.violazione-dati-publica-indagine.excerpt': '## TL;DR - Cyberattack at the end of September - An external Publica provider was affected - The Public Prosecutor\'s Office has launched an investigation - Publica has',
     'blog.article.violazione-dati-publica-indagine.imageAlt': 'Server rack in a Swiss technical room symbolising the cyberattack on a Publica software provider',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.title': 'AI job market: +32% of job postings in one year',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.excerpt': '## TL;DR - Nearly 5\'000 AI job postings between July 2025 and June 2026 - AI demand grows by 32% in one year - The public sector records the largest jump',
+    'blog.article.crescita-lavoro-intelligenza-artificiale.imageAlt': 'Modern workstation with data analytics on screen in Lugano',
 };
 
 export default blogMetaChEn;
