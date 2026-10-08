@@ -43,6 +43,21 @@ describe('a question that only asks whether the candidate holds a document they 
     expect(documentsHeldAsked(null, documents)).toEqual([]);
   });
 
+  // A document's name may open with another's («certificat» and «certificat de travail»): the longer is read
+  // whole, whatever the order the documents come in, and a question about one never passes for the other.
+  it('reads the longest document name first, whatever the order of the documents', () => {
+    const certificate = { id: 'certificate', label: 'Certificat', keywords: [] };
+    const reference = { id: 'reference', label: 'Certificat de travail', keywords: ['Arbeitszeugnis'] };
+    for (const order of [[certificate, reference], [reference, certificate]]) {
+      const ids = (question: string) => documentsHeldAsked({ question, type: 'yes_no' }, order).map((document: any) => document.id);
+      expect(ids('Avez-vous un certificat de travail ?')).toEqual(['reference']);
+      expect(ids('Avez-vous un certificat ?')).toEqual(['certificate']);
+      expect(ids('Haben Sie ein Arbeitszeugnis?')).toEqual(['reference']);
+    }
+    // Only the bare one is uploaded: the longer question names more than it, and stays a question.
+    expect(documentsHeldAsked({ question: 'Avez-vous un certificat de travail ?', type: 'yes_no' }, [certificate])).toEqual([]);
+  });
+
   it('reads the «yes» of a yes/no choice, and of nothing else', () => {
     expect(yesOption(['Oui', 'Non'])).toBe('Oui');
     expect(yesOption([{ label: 'Ja' }, { label: 'Nein' }, { label: 'Bitte wählen' }])).toBe('Ja');
@@ -66,9 +81,10 @@ describe('a question that only asks whether the candidate holds a document they 
 
 describe('a portal\'s own «do you hold…?» field, with that document attached', () => {
   const yesNo = (id: string, label: string, extra: object = {}) => ({ id, kind: 'radio', label, required: true, options: [{ label: 'Oui' }, { label: 'Non' }], ...extra });
+  const file = (fileName: string) => ({ fileName, buffer: Buffer.from('%PDF-1.4'), key: `assisted-application-uploads/order_1/${fileName}`, type: 'pdf' });
   const candidate = candidateForForm({
     identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' },
-    extraDocuments: [{ slot: 'extra_1', ...licence, kind: 'other', files: [] }, { slot: 'extra_2', ...card, kind: 'certificate', files: [] }],
+    extraDocuments: [{ slot: 'extra_1', ...licence, kind: 'other', files: [file('licence.pdf')] }, { slot: 'extra_2', ...card, kind: 'certificate', files: [file('card.pdf')] }],
   });
   const none = candidateForForm({ identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' } });
 
@@ -107,6 +123,38 @@ describe('a portal\'s own «do you hold…?» field, with that document attached
     // A list that is no yes/no.
     const list = { id: 'f4', kind: 'select', label: 'Permis de conduire', required: true, options: [{ label: 'B' }, { label: 'C' }, { label: 'D' }] };
     expect(attachedDocumentYes(candidate, list)).toBe('');
+  });
+
+  // Review of #12363: a document the posting welcomes and the candidate did not give is not held. Listed with no
+  // file, it never reaches the planner's data, so neither guard answers «yes» for it.
+  it('answers nothing for a requested document the candidate gave no file for', () => {
+    const firstAid = { id: 'first_aid', label: 'Certificat de premiers secours', keywords: ['first aid certificate'] };
+    const some = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' },
+      extraDocuments: [
+        { slot: 'extra_1', ...licence, kind: 'other', files: [file('licence.pdf')] },
+        // Welcome, not demanded, and not given.
+        { slot: 'extra_2', ...firstAid, kind: 'certificate', required: false, files: [] },
+        { slot: 'extra_3', label: 'Portfolio', kind: 'portfolio' },
+      ],
+    });
+    expect(some.documents.extra.map((document: any) => document.slot)).toEqual(['extra_1']);
+    const field = yesNo('f5', 'Avez-vous un certificat de premiers secours ?');
+    // The question is the one the rule knows, about a document of this application: only the file is missing.
+    expect(documentsHeldAsked({ question: field.label, type: 'yes_no' }, [firstAid]).map((document: any) => document.id)).toEqual(['first_aid']);
+    expect(asksAttachedDocument(some, field.label)).toBe(false);
+    expect(attachedDocumentYes(some, field)).toBe('');
+    // The planner's guard: no «yes» of its own, a «yes» of the plan is refused, and the field is the candidate's.
+    const planned = guardPlan({ actions: [{ fieldId: 'f5', action: 'select', value: 'Oui', document: 'none', source: 'documents', evidence: '' }], missingRequired: [] }, [field], some);
+    expect(planned.actions).toEqual([]);
+    expect(planned.missingRequired.map((item: any) => item.fieldId)).toEqual(['f5']);
+    // The agentic fallback's guard: its «yes» is not clicked, and the question goes to the candidate.
+    const act = { ref: 'e21', action: 'click', value: '', document: 'none', question: field.label, answer: 'Oui', source: 'documents', evidence: '' };
+    const guarded = guardAgentStep({ status: 'act', reason: '', advanceRef: '', actions: [act], questions: [] }, some);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(guarded.questions.map((item: any) => item.question)).toEqual([field.label]);
+    // The document with a file is answered as before.
+    expect(attachedDocumentYes(some, yesNo('f6', 'Avez-vous un permis de conduire ?'))).toBe('Oui');
   });
 
   // The agentic fallback reads no option list: its own guard (guardAgentStep) grounds the «yes» in the upload.

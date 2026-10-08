@@ -135,16 +135,20 @@ export function documentsHeldAsked(question, documents) {
   if (!yesNo) return [];
   let rest = fold(question?.question || question?.label);
   if (!rest) return [];
-  const named = [];
-  for (const document of Array.isArray(documents) ? documents : []) {
-    const names = namesOf(document).filter((name) => holdsPhrase(rest, name));
-    if (!names.length) continue;
-    named.push(document);
-    for (const name of names) rest = withoutPhrase(rest, name);
+  const all = Array.isArray(documents) ? documents : [];
+  // The longest name first, across every document: «certificat de travail» is read whole before the bare
+  // «certificat» of another document can take its first word, whatever the order the documents come in.
+  const names = all.flatMap((document) => namesOf(document).map((name) => ({ name, document })))
+    .sort((left, right) => right.name.length - left.name.length);
+  const named = new Set();
+  for (const { name, document } of names) {
+    if (!holdsPhrase(rest, name)) continue;
+    named.add(document);
+    rest = withoutPhrase(rest, name);
   }
-  if (!named.length) return [];
+  if (!named.size) return [];
   const holds = HOLDS.find((phrase) => holdsPhrase(rest, phrase));
   if (!holds) return [];
   rest = withoutPhrase(rest, holds);
-  return rest.split(' ').filter((word) => word && !FILLERS.has(word)).length ? [] : named;
+  return rest.split(' ').filter((word) => word && !FILLERS.has(word)).length ? [] : all.filter((document) => named.has(document));
 }
