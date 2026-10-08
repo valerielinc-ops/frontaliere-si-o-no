@@ -87,6 +87,23 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 
 **Come si cambia.** Le parole dello stato civile nelle quattro lingue, gli elenchi mostrati al candidato e le forme di appellativo stanno in `functions/src/lib/personalFacts.js`. Una parola nuova si aggiunge lì, con il suo caso nel test `tests/assisted-application-personal-facts.test.ts` (anche il caso che non deve scattare: un nome, un testo corrente).
 
+## 3 ter. Documenti obbligatori: si caricano, non si chiedono e non si saltano
+
+**Fatti.**
+- Un annuncio può esigere documenti oltre al CV e alla lettera (pagelle, esiti di un test, una carta di qualifica, la patente). La bozza li elenca e il candidato li carica dalla pagina di revisione.
+- Ordine dell'8 ottobre 2026: lo stesso requisito tratteneva la candidatura due volte, come domanda obbligatoria «possiedi questo documento?» e come documento obbligatorio da caricare. La domanda non aggiunge nulla: chi carica il documento ha risposto.
+- Dal 2 ottobre 2026 il candidato poteva scegliere «non ho questo documento: invia la candidatura senza». La candidatura partiva priva di ciò che l'annuncio esige, per fermarsi al campo di caricamento obbligatorio del portale o essere scartata dal datore.
+
+**Decisione (8 ottobre 2026, sostituisce quella del 2 ottobre sui documenti obbligatori).**
+- Una domanda sì/no che chiede soltanto se il candidato possiede un documento obbligatorio non si fa: il caricamento è la risposta. Vale per la domanda scritta dal modello e per quella letta in anticipo dal modulo del portale.
+- Dove il modulo del portale la chiede, risponde «sì» il documento allegato a quella candidatura, qualunque cosa abbia scelto il pianificatore.
+- La regola è stretta di proposito: la domanda deve contenere solo «possiedi» più il nome del documento (la sua etichetta o una delle sue parole chiave) più parole che non chiedono altro («valido», «aggiornato», un articolo). Se chiede di più (una categoria, una media, una data) resta una domanda al candidato.
+- Un documento obbligatorio non si salta: finché manca il file la candidatura aspetta, con i solleciti di ogni attesa. Non esiste più «invia senza», e la rinuncia registrata da un flusso precedente non viene letta.
+- Resta del candidato la scelta di quale file inviare: un file che non sembra il documento chiesto riceve un avviso, non un blocco.
+- Un documento che l'annuncio gradisce ma non esige (`required: false`) non trattiene nulla e non toglie nessuna domanda.
+
+**Come si cambia.** Il riconoscimento della domanda sta in `functions/src/lib/documentQuestions.js` (le forme di «possiedi» nelle quattro lingue e le parole che non chiedono altro); una forma nuova si aggiunge lì, con il suo esempio in `tests/assisted-application-document-questions.test.ts`. Che cosa trattiene l'invio sta in `openRequiredDocuments` (`functions/src/assistedApplicationExtraDocuments.js`).
+
 ## 4. Formato consegnato
 
 **Fatti.** I datori ricevono PDF. La guida degli URC ticinesi chiede a chi cerca lavoro di conservare copia delle candidature inviate ([`fonti/dossier-in-un-pdf.md`](fonti/dossier-in-un-pdf.md), prove contrarie). Al 3 ottobre 2026 il candidato, dopo l'invio, non riceve né un file né un link; per una candidatura WhatsApp la lettera e il CV preparati non arrivano a nessuno. SDBB consiglia di tenere CV e lettera in un formato modificabile.

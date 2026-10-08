@@ -225,7 +225,17 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       coverLetter: draft.coverLetter?.text || '',
     },
     // The requested documents the candidate gave (assistedApplicationExtraDocuments.js), by form slot.
-    documents: { cv: true, cover_letter: true, extra: extraDocuments.map(({ slot, label, kind }) => ({ slot, label, kind })) },
+    // With its keywords: the names the same document goes by in the other languages, for the field that asks it
+    // and for a question that only asks whether the candidate holds it (plan.mjs).
+    // Only a document with a file: being listed here is what answers «do you hold it?» with a yes, and one
+    // requested but not given is not held (review of #12363; extraDocumentsToSend already drops them).
+    documents: {
+      cv: true,
+      cover_letter: true,
+      extra: extraDocuments
+        .filter((document) => Array.isArray(document?.files) && document.files.length > 0)
+        .map(({ slot, label, kind, keywords = [] }) => ({ slot, label, kind, keywords })),
+    },
   };
 }
 

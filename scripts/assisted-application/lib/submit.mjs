@@ -79,8 +79,9 @@ export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType, cvKey = 
 /**
  * The documents the posting requires besides the CV and the letter, as the
  * candidate gave them on the review page (flow.documents), downloaded and named.
- * `type`: the type its bytes were verified as at upload; `key`: where it is in Storage.
- * @returns {Promise<Array<{slot:string, label:string, kind:string, files:Array<{fileName:string, buffer:Buffer, key:string, type:string}>}>>}
+ * `type`: the type its bytes were verified as at upload; `key`: where it is in Storage. `keywords`: the names the
+ * document goes by in the other languages, for the form planner (plan.mjs attachedDocumentYes).
+ * @returns {Promise<Array<{slot:string, label:string, kind:string, keywords:string[], files:Array<{fileName:string, buffer:Buffer, key:string, type:string}>}>>}
  */
 export async function downloadExtraDocuments({ bucket, draft, flow, orderId, name }) {
   const out = [];
@@ -90,7 +91,7 @@ export async function downloadExtraDocuments({ bucket, draft, flow, orderId, nam
       const [buffer] = await bucket.file(file.key).download();
       files.push({ fileName: extraDocumentFileName({ label: document.label, index, count: document.files.length, name, type: file.detectedType }), buffer: Buffer.from(buffer), key: file.key, type: file.detectedType });
     }
-    out.push({ slot: document.slot, label: document.label, kind: document.kind, files });
+    out.push({ slot: document.slot, label: document.label, kind: document.kind, keywords: document.keywords, files });
   }
   return out;
 }

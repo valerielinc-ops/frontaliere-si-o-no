@@ -65,6 +65,7 @@ import { CV_TEXT_VERSION, readCvText } from './cv-text.mjs';
 import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { questionTopic } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -205,7 +206,17 @@ export async function buildDraft(ctx) {
     timeoutMs: CODEX_TIMEOUT_MS,
   });
   const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
-  const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale });
+  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
+  // A document the posting requires is uploaded, not asked about (owner decision 2026-10-08): «do you hold the
+  // driver qualification card?» next to that very card among the documents held the order twice for one
+  // requirement. The upload is the answer, here and on a portal's form (lib/documentQuestions.js, plan.mjs).
+  const mandatoryDocuments = requiredDocuments.filter((document) => document.required);
+  const notAnsweredByUpload = (question) => {
+    const held = documentsHeldAsked(question, mandatoryDocuments);
+    if (held.length) log('question answered by a required document', question.id, held.map((document) => document.id).join(','));
+    return !held.length;
+  };
+  const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
 
   const contactPerson = requirements.contactPerson || posting.contactPerson;
   // The CV text is the strict source of facts; the answers the candidate gave
@@ -296,7 +307,6 @@ export async function buildDraft(ctx) {
     log('fact repair', `${before} → ${factRepair.after}`);
   }
   const { documents, letterBody, emailSubject, factCheck } = texts;
-  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
   const letterAddress = letterAddressOf(posting, contactPerson);
 
   let channel = classifyApplicationChannel({
@@ -332,7 +342,7 @@ export async function buildDraft(ctx) {
       log,
     });
     const known = new Set(questions.map((question) => questionTopic(question.question) || question.id));
-    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question) || question.id)));
+    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question) || question.id)).filter(notAnsweredByUpload));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked

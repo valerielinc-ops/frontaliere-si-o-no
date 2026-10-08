@@ -206,7 +206,7 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
           { key: `assisted-application-uploads/${ORDER}/doc-reports-1.pdf`, detectedType: 'pdf' },
           { key: 'assisted-application-uploads/someone_else/doc.pdf', detectedType: 'pdf' },
         ] },
-        eva: { files: [], waivedAt: T0 },
+        eva: { files: [] },
       },
     }, { requiredDocuments: [
       { id: 'reports', label: 'Bulletins scolaires', kind: 'school_report', keywords: ['bulletin'] },

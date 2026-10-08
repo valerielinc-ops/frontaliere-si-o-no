@@ -7,7 +7,7 @@
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
 export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
-  | 'document_upload' | 'document_remove' | 'document_waive' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+  | 'document_upload' | 'document_remove' | 'photo_upload' | 'photo_remove' | 'cv_lines';
 
 /** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
 export interface ReviewCvLineChoice {
@@ -49,8 +49,6 @@ export interface ReviewDocument {
     uploadedAt: number | null;
     clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable'; matched: string };
   }>;
-  /** The candidate chose to send without it. */
-  waived: boolean;
 }
 
 /** A follow-up to the employer waiting for the candidate (af1 link). */
@@ -267,7 +265,6 @@ export async function sendReviewAction(
     contentBase64?: string;
     clientCheck?: { verdict: string; matched: string };
     fileId?: string;
-    waive?: boolean;
   } = {},
 ): Promise<{ ok: true; state: string }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
