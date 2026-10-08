@@ -26,10 +26,11 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, waitTermsApply } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
-import { TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
@@ -222,7 +223,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flow, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const result = transition(flow, event, {
+      draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs,
+      // Which point 6.5 of the Terms the order was placed under (waitTermsApply).
+      terms: { noRefundAfterWait: waitTermsApply(orderSnapshot.data() || {}) },
+    });
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
@@ -318,6 +323,8 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       reminderAt: null,
       reminderSentAt: null,
       heldBy: [],
+      // No draft of this flow has reached the candidate yet (assistedApplicationFlow.js roundsShown).
+      shownRounds: [],
       feedback: existing?.feedback || [],
       answers: existing?.answers || {},
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
@@ -360,11 +367,73 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
 
 // ── Sweep (clocks, reminders, watchdog) ────────────────────────────────────
 
+// How long the sweep waits for the look at one ad. A posting's page, its ATS and its redirects each have their
+// own timeout, and together they can outlast the sweep's run, which serves every due order: a look that takes
+// longer says nothing, and the reminder goes out.
+export const POSTING_LOOK_MS = 15_000;
+// How many ads are looked at together. A whole batch of due reminders (SWEEP_BATCH, 50) is then looked at in
+// 50 / 10 × 15 s = 75 s at worst, inside the 120 s of the scheduled sweep (functions/index.js) with room for
+// the ticks; one at a time it would take 750 s (review of #12366).
+export const POSTING_LOOKS_AT_ONCE = 10;
+
+/** The look's answer, or false when it fails or outlasts `ms`. */
+function lookWithin(look, ms) {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(false), ms);
+    timer.unref?.();
+    Promise.resolve().then(look).then((closed) => resolve(Boolean(closed)), () => resolve(false)).finally(() => clearTimeout(timer));
+  });
+}
+
+/** `work` over `items`, at most `size` at a time. */
+async function pooled(items, size, work) {
+  let next = 0;
+  const worker = async () => {
+    while (next < items.length) {
+      const item = items[next];
+      next += 1;
+      await work(item);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, worker));
+}
+
+/**
+ * The due orders whose ad says it is closed, looked at before the ticks and several at once. Only an order
+ * with a reminder to its candidate due is looked at (CANDIDATE_REMINDER_STATES, by the state the order
+ * mirrors, then by its flow's own reminder).
+ * @returns {Promise<Set<string>>} their ids
+ */
+async function closedPostingsAmong({ db, docs, nowMs, postingClosed, postingLookMs }) {
+  const closed = new Set();
+  // An order that mirrors no state yet is read too: its flow says.
+  const candidates = docs.filter((doc) => !doc.data()?.automationState || CANDIDATE_REMINDER_STATES.has(doc.data().automationState));
+  await pooled(candidates, POSTING_LOOKS_AT_ONCE, async (doc) => {
+    const flow = (await flowRefFor(db, doc.id).get().catch(() => null))?.data() || {};
+    const reminderDue = CANDIDATE_REMINDER_STATES.has(flow.state) && Number(flow.reminderAt) > 0 && Number(flow.reminderAt) <= nowMs;
+    if (reminderDue && await lookWithin(() => postingClosed({ db, orderId: doc.id, order: doc.data() || {} }), postingLookMs)) closed.add(doc.id);
+  });
+  return closed;
+}
+
+/**
+ * The order's ad says it is closed (assistedApplicationLiveness.js postingSaysClosed), read now at the address
+ * the runner reads before it submits. Any failure reads as «not known closed»: the reminder then goes out.
+ */
+export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
+  const draftSnapshot = await draftRefFor(db, orderId).get();
+  const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
+  return postingSaysClosed(await checkPostingLiveness({ order, posting: { applyUrl: postingAddressOf(draft) }, fetchImpl, resolve }));
+}
+
 /**
  * Every few minutes: fire due clocks and reminders, and re-dispatch (once) a
  * run that never reported back; a second silence hands the order to Valerie.
+ * `postingClosed` (functions/index.js passes postingClosedForOrder): asked before a reminder to a candidate,
+ * so that none goes out for an ad that closed (owner decision 2026-10-08). Left out, no ad is looked at.
+ * `postingLookMs`: how long one look may take (POSTING_LOOK_MS).
  */
-export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } = {}) {
+export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS } = {}) {
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
@@ -387,6 +456,10 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } =
       console.error('[assistedApplicationAutomation] refund retry failed for order', doc.id, error instanceof Error ? error.message : String(error));
     }
   }
+  // The ads of the orders about to be reminded, looked at together before any tick (closedPostingsAmong).
+  const closedPostings = postingClosed
+    ? await closedPostingsAmong({ db, docs: snapshot.docs || [], nowMs, postingClosed, postingLookMs })
+    : new Set();
   for (const doc of snapshot.docs || []) {
     try {
       const flowSnapshot = await flowRefFor(db, doc.id).get();
@@ -412,7 +485,9 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } =
         }
         continue;
       }
-      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick' }, actor: 'clock', runEffect, nowMs });
+      // The flow decides whether a reminder to the candidate is still due (the tick): it may have moved since the look.
+      const postingExpired = closedPostings.has(doc.id);
+      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
       if (result.ok) summary.ticks += 1;
       else {
         summary.ignored += 1;

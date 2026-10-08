@@ -22,6 +22,7 @@ import {
   sendOrderNotification,
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
+import { waitTermsApply } from './assistedApplicationConstants.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
 
@@ -60,6 +61,8 @@ export function automationEmailKey(effect, flow) {
   // One per wait for the candidate's answers (a wait may come back in the same round, at the portal).
   if (effect.kind === 'candidate_questions_reminder') return `auto_candidate_questions_reminder_${effect.since}_n${effect.nudge}`;
   if (effect.kind === 'owner_candidate_silent') return `auto_owner_candidate_silent_${effect.since}`;
+  // One per flow: the ad closed while the candidate was awaited.
+  if (effect.kind === 'owner_posting_expired') return `auto_owner_posting_expired_${effect.since}`;
   if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed') {
     return `auto_${effect.kind}`;
   }
@@ -106,6 +109,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         candidateEmail: customerEmailFor(order),
         days: effect.days,
         nudges: effect.nudges,
+        // Which point 6.5 of the Terms the order was placed under: what Valerie owes the candidate depends on it.
+        waitTerms: waitTermsApply(order),
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {
@@ -121,6 +126,7 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       openQuestions,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
+      waitTerms: waitTermsApply(order),
     });
   };
   return (deps.sendNotification || sendOrderNotification)({

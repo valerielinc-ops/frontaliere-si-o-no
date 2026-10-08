@@ -24,6 +24,7 @@ import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascad
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+  waitTermsApply,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -293,6 +294,7 @@ const COPY = {
     nextTitle: 'Cosa succede dopo',
     nextBody: "Entro 2 giorni lavorativi dalla ricezione dei documenti preparo la candidatura e la invio all'azienda attraverso il canale indicato nell'annuncio (portale o email). Ti scrivo appena è inviata. Se l'annuncio è chiuso o l'invio non è possibile, ti rimborso i {price}.",
     nextBodyAuto: "Appena ricevo il CV preparo la candidatura. Entro poche ore ti mando una seconda email con la bozza (la lettera e i testi che invieremo a tuo nome): potrai approvarla o chiedermi modifiche. Solo da quel momento hai 12 ore per rispondere; se non rispondi, la candidatura parte così com'è. Se il portale dell'azienda richiede un tuo passaggio finale, ti mando tutto pronto per completarlo in 2 minuti. Se l'annuncio viene chiuso prima che riusciamo a inviare la candidatura, ti rimborsiamo i {price}.",
+    refundException: "Fa eccezione il caso in cui l'annuncio venga chiuso o ritirato mentre aspettiamo documenti o risposte che ti abbiamo chiesto: in quel caso l'importo non è rimborsato (Termini, punto 6.5).",
     recoveryOut: "Se l'annuncio non ti interessa più, rispondimi con «rimborso» e ti restituisco i {price}; se preferisci, posso usare il pagamento per un annuncio simile che mi indichi tu.",
     noGuarantee: "Non posso garantire una risposta, un colloquio o l'assunzione: Frontaliere Ticino non è affiliato all'azienda.",
     signature: 'Valerie',
@@ -369,6 +371,7 @@ const COPY = {
     nextTitle: 'La suite',
     nextBody: "Dans les 2 jours ouvrables suivant la réception de vos documents, je prépare la candidature et je l'envoie à l'entreprise par le canal indiqué dans l'annonce (portail ou e-mail). Je vous écris dès qu'elle est envoyée. Si l'annonce est fermée ou si l'envoi est impossible, je vous rembourse les {price}.",
     nextBodyAuto: "Dès réception de votre CV, je prépare la candidature. Dans quelques heures, je vous envoie un second e-mail avec le brouillon (la lettre et les textes que nous enverrons en votre nom) : vous pourrez l'approuver ou me demander des modifications. C'est seulement à partir de ce moment que vous avez 12 heures pour répondre ; sans réponse, la candidature part telle quelle. Si le portail de l'entreprise demande une dernière étape de votre part, je vous envoie tout le nécessaire pour la terminer en 2 minutes. Si l'annonce est fermée avant que nous puissions envoyer la candidature, nous vous remboursons les {price}.",
+    refundException: "Exception : si l'annonce est fermée ou retirée pendant que nous attendons des documents ou des réponses que nous vous avons demandés, le montant n'est pas remboursé (Conditions, point 6.5).",
     recoveryOut: "Si l'annonce ne vous intéresse plus, répondez « remboursement » et je vous rends les {price} ; si vous préférez, je peux utiliser ce paiement pour une annonce similaire que vous m'indiquez.",
     noGuarantee: "Je ne peux garantir ni réponse, ni entretien, ni embauche : Frontaliere Ticino n'est pas affilié à l'entreprise.",
     signature: 'Valerie',
@@ -445,6 +448,7 @@ const COPY = {
     nextTitle: 'Wie es weitergeht',
     nextBody: 'Innerhalb von 2 Arbeitstagen nach Erhalt deiner Unterlagen bereite ich die Bewerbung vor und sende sie über den in der Anzeige genannten Kanal (Portal oder E-Mail) an das Unternehmen. Ich schreibe dir, sobald sie versendet ist. Ist die Stelle geschlossen oder der Versand nicht möglich, erstatte ich dir die {price}.',
     nextBodyAuto: "Sobald dein Lebenslauf da ist, bereite ich die Bewerbung vor. Innerhalb weniger Stunden schicke ich dir eine zweite E-Mail mit dem Entwurf (Motivationsschreiben und die Texte, die wir in deinem Namen senden): Du kannst ihn freigeben oder Änderungen verlangen. Erst ab dann hast du 12 Stunden Zeit; antwortest du nicht, wird die Bewerbung so versendet. Verlangt das Portal des Unternehmens einen letzten Schritt von dir, schicke ich dir alles vorbereitet, damit du ihn in 2 Minuten erledigst. Wird die Stelle geschlossen, bevor wir die Bewerbung senden können, erstatten wir dir die {price}.",
+    refundException: 'Ausnahme: Wird die Stelle geschlossen oder zurückgezogen, während wir auf Unterlagen oder Antworten warten, die wir von dir angefordert haben, wird der Betrag nicht erstattet (Nutzungsbedingungen, Ziffer 6.5).',
     recoveryOut: 'Falls dich die Stelle nicht mehr interessiert, antworte mit «Rückerstattung» und du bekommst die {price} zurück; wenn du willst, nutze ich die Zahlung auch für eine ähnliche Stelle, die du mir nennst.',
     noGuarantee: 'Ich kann keine Antwort, kein Vorstellungsgespräch und keine Anstellung garantieren: Frontaliere Ticino ist nicht mit dem Unternehmen verbunden.',
     signature: 'Valerie',
@@ -520,6 +524,7 @@ const COPY = {
     nextTitle: 'What happens next',
     nextBody: "Within 2 working days of receiving your documents I prepare the application and send it to the company through the channel the ad asks for (portal or email). I'll write to you as soon as it's sent. If the ad is closed or the application can't be sent, I'll refund your {price}.",
     nextBodyAuto: "As soon as I have your CV I prepare the application. Within a few hours I'll send you a second email with the draft (the cover letter and the texts we will send in your name): you can approve it or ask me for changes. Only from that moment do you have 12 hours to reply; if you don't, the application goes out as it is. If the company's portal needs a final step from you, I'll send you everything ready to finish it in 2 minutes. If the ad is closed before we manage to send the application, we refund your {price}.",
+    refundException: 'The exception: if the ad is closed or withdrawn while we are waiting for documents or answers we asked you for, the amount is not refunded (Terms, section 6.5).',
     recoveryOut: "If you're no longer interested in this job, reply «refund» and I'll give you back the {price}; if you prefer, I can use the payment for a similar job you point me to.",
     noGuarantee: "I can't guarantee a reply, an interview or a job: Frontaliere Ticino is not affiliated with the company.",
     signature: 'Valerie',
@@ -649,7 +654,10 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
     // With the automated flow on, the promise changes: a draft to approve,
     // 12 h auto-approval, refund only if the ad closes before sending.
-    const nextBody = automation ? copy.nextBodyAuto : copy.nextBody;
+    // An order placed under the Terms 6.5 of 2026-10 reads the exception next to the promise of a refund
+    // (waitTermsApply); an earlier one keeps the promise it was sold with.
+    const promise = automation ? copy.nextBodyAuto : copy.nextBody;
+    const nextBody = waitTermsApply(order) ? `${promise} ${copy.refundException}` : promise;
     htmlParts.push(brandInfoCard(copy.nextTitle, fillHtml(nextBody, vars)));
     textParts.push(`${copy.nextTitle}\n${fill(nextBody, vars)}`);
     if (kind === 'recovery') {

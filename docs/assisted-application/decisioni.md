@@ -178,6 +178,23 @@ Alla rigenerazione dello stesso ordine il CV su misura è stato scartato per un 
 
 **Come cambiarla.** `SEASONAL_TITLE_RE` e `SEASONAL_MAX_AGE_DAYS` in `functions/src/assistedApplicationLegitimacy.js`; `classifyWorkdayLiveness` e `CORROBORATED_CODES` in `scripts/assisted-application/lib/liveness.mjs`.
 
+## 8 ter. Attesa del candidato: round, annuncio che chiude, rimborso
+
+**Fatti.**
+- Il candidato ha tre versioni della bozza. Il flusso le contava dal numero del round, che però cresce anche quando è il proprietario a far riscrivere la bozza prima che arrivi al candidato. Ordine dell'8 ottobre 2026: «round 3 di 3», con il candidato che aveva visto una sola bozza; al suo primo rifiuto l'ordine sarebbe passato al proprietario come «3 rifiuti».
+- Quando la candidatura aspetta risposte o documenti che solo il candidato può dare non parte nulla: il candidato riceve due solleciti, poi il proprietario un avviso. Nessuno guardava l'annuncio durante l'attesa: un ordine fermo da sei giorni continuava a essere sollecitato per un annuncio che il datore aveva ritirato dal proprio portale.
+- Workday, per un annuncio ritirato, non risponde «non esiste» (404) ma «permesso negato» (403): da solo il 403 non distingue l'annuncio ritirato dal portale che rifiuta il nostro client. Lo distingue la ricerca dello stesso portale: risponde, e non elenca più quella posizione sotto nessun indirizzo.
+- L'unico rimborso promesso era «l'annuncio chiude prima che riusciamo a inviare la candidatura», ed era automatico in ogni caso, anche quando l'annuncio chiudeva mentre si aspettava il candidato da giorni.
+
+**Decisioni (8 ottobre 2026).**
+- **Round.** I tre round del candidato sono le bozze che gli sono state mostrate (`shownRounds` nel flusso), non il numero del round. Il numero continua a crescere a ogni rigenerazione, perché dà il nome alla bozza e fa scadere i link delle precedenti. La pagina di revisione dice quante versioni restano con lo stesso conto. Un flusso scritto prima di questa regola conta tutti i round fino al proprio, come allora.
+- **Niente solleciti ad annuncio chiuso.** Prima di ogni sollecito al candidato lo sweep guarda l'annuncio. Se l'annuncio stesso dice di essere chiuso (la sua pagina con un codice inequivocabile, o il suo portale che lo dichiara chiuso o ritirato), il sollecito non parte e non ne partono altri: sollecitare per una candidatura che non può più partire non ha senso. Si ferma anche l'orologio delle 12 ore: una candidatura non parte da sola verso un annuncio che risulta chiuso (se il candidato la approva di persona parte, e il runner riguarda l'annuncio prima di inviare). L'ordine resta in attesa, il proprietario riceve un solo avviso e decide come chiuderlo. Se il controllo non riesce, il sollecito parte come prima.
+- **Questo controllo non rimborsa nulla.** Il rimborso automatico resta quello del runner, che chiede anche la conferma del nostro dataset: una pagina che sembra vuota o un portale che blocca la lettura non rimborsano e non fermano i solleciti.
+- **Termini, punto 6.5.** Per gli ordini effettuati dal 12 ottobre 2026: se l'annuncio viene chiuso o ritirato mentre la candidatura è in attesa di documenti o risposte chiesti al candidato, l'importo non è rimborsato. Il flusso non sa quando l'annuncio ha chiuso, sa solo che in quel giro la candidatura ha atteso il candidato: in quel caso non rimborsa da solo, passa l'ordine al proprietario e glielo scrive. Gli ordini precedenti tengono la promessa con cui sono stati venduti.
+- **Il candidato lo legge prima.** Gli ordini soggetti al nuovo punto 6.5 trovano l'eccezione nell'e-mail di benvenuto, accanto alla promessa di rimborso, e in ogni e-mail che chiede loro risposte o documenti.
+
+**Come si cambia.** La data da cui vale il nuovo punto 6.5 è una costante sola, `ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS` in `functions/src/assistedApplicationConstants.js`; i Termini (`services/legal/terms.ts`) la nominano nelle quattro lingue, e `tests/assisted-application-wait-terms.test.ts` fallisce se le due cose divergono. Quali esiti del controllo fermano un sollecito sta in `postingSaysClosed` (`functions/src/assistedApplicationLiveness.js`); quali rimborsano da soli resta `isHardClosed`, nello stesso file.
+
 ## 9. Dove si compone il PDF
 
 **Fatti.** Dal deploy del renderer Typst (2 ottobre 2026) le bozze completate hanno lettera e CV composti con Typst. Un errore di Typst non ferma il documento: ricade sul generatore di riserva, che non stampa lettere come «č» e perde il layout svizzero. Al 3 ottobre 2026 una ricaduta lascia solo una riga di log.

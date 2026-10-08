@@ -16,7 +16,7 @@
  * submission.
  */
 
-import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
+import { MAX_REVIEW_ROUNDS, roundsShown } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { applicationFileName, checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { letterBlocksFor, rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
@@ -313,7 +313,9 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
     round: current,
-    roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - current),
+    // Of the drafts the candidate was shown, not of the round's number: one Valerie regenerated before it
+    // reached them cost them nothing (assistedApplicationFlow.js roundsShown).
+    roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - roundsShown(flow).length),
     deadlineAt: state === 'candidate_review' ? flow?.deadlineAt || null : null,
     locale: order?.locale || 'it',
     job: {

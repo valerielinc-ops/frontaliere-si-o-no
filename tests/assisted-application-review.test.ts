@@ -82,6 +82,20 @@ describe('candidate review API', () => {
     }
   });
 
+  // Owner decision 2026-10-08: the candidate's three rounds are the drafts they were shown. An order stood at
+  // «round 3» with the page saying no new version was left, and its candidate had seen that one draft only.
+  it('counts the new versions left from the drafts the candidate was shown, not from the round\'s number', async () => {
+    const order = store.db.collection('assisted_applications').doc(ORDER);
+    await order.collection('ai_drafts').doc('current').set(draft({ round: 3 }));
+    await order.collection('automation').doc('flow').set({ round: 3, shownRounds: [3] }, { merge: true });
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token(3) } }, deps())).body).toMatchObject({ round: 3, roundsLeft: 2 });
+    await order.collection('automation').doc('flow').set({ shownRounds: [1, 3] }, { merge: true });
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token(3) } }, deps())).body).toMatchObject({ roundsLeft: 1 });
+    // A flow written before the record counts every round up to its own, as it did.
+    await order.collection('automation').doc('flow').set({ state: 'candidate_review', round: 3, deadlineAt: null, answers: {}, feedback: [] });
+    expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token(3) } }, deps())).body).toMatchObject({ round: 3, roundsLeft: 0 });
+  });
+
   // Owner decision 2026-10-03: a profile that is not a full match goes on, and the candidate reads why above the questions.
   it('tells the candidate which decisive requirements the CV does not show, and nothing else of the analysis', async () => {
     const requirements = [
