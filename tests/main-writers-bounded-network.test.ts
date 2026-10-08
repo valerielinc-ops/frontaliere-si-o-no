@@ -490,9 +490,9 @@ describe('main writer network bounds', () => {
   });
 
   it('reads sparse lists the way the checkout applies them', () => {
-    const nonCone = { patterns: ['/*', '!/public/images/', '!/data/jobs/'], cone: false, where: '' };
+    const nonCone = { patterns: ['/*', '!/public/images/', '!/archive/snapshots/'], cone: false, where: '' };
     expect(materializes(nonCone, BOUNDED_COMMAND_WRAPPER)).toBe(true);
-    expect(materializes(nonCone, 'data/jobs/by-crawler/acme.json')).toBe(false);
+    expect(materializes(nonCone, 'archive/snapshots/2026.json')).toBe(false);
     const exactFiles = { patterns: ['/scripts/lib/git-push-with-retry.sh', '/data/build-history/'], cone: false, where: '' };
     expect(materializes(exactFiles, 'scripts/lib/git-push-with-retry.sh')).toBe(true);
     expect(materializes(exactFiles, BOUNDED_COMMAND_WRAPPER)).toBe(false);
