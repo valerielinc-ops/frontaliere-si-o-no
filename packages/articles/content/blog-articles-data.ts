@@ -43079,6 +43079,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'agrivarese-angera-ottobre-2026',
+ category: 'novita',
+ date: '2026-10-08T01:08:40.395Z',
+ image: '/images/blog/article-agrivarese-angera-ottobre-2026.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

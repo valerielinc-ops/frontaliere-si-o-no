@@ -26338,6 +26338,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salario-minimo-lucerna-requisiti',
+    category: 'pratico',
+    date: '2026-10-08T01:29:21.976Z',
+    image: '/images/blog/article-salario-minimo-lucerna-requisiti.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['LU'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -7892,6 +7892,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.contributi-formazione-berna-requisiti.title': 'Weiterbildung im Kanton Bern: Voraussetzungen und Beiträge',
     'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Im Kanton Bern richten sich die Voraussetzungen, Fristen und Beträge der Beiträge zur Weiterbildung nach kantonalen Regeln und müssen anhand der offiziellen Quelle überprüft werden.',
     'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Person prüft einen Antrag für Weiterbildung im Kanton Bern.',
+    'blog.article.salario-minimo-lucerna-requisiti.title': 'Mindestlohn in Luzern: Anforderungen und Anwendung',
+    'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analyse der Mindestlohnordnung im Kanton Luzern, Unterschiede zwischen kantonalen Anforderungen und Gesamtarbeitsverträgen, Kontrollen und Verfahren.',
+    'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Regelung des Mindestlohns und der Gesamtarbeitsverträge im Kanton Luzern',
 };
 
 export default blogMetaChDe;

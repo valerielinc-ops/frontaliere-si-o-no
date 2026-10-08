@@ -7892,6 +7892,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.contributi-formazione-berna-requisiti.title': 'Formation continue dans le canton de Berne : exigences et contributions',
     'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Dans le canton de Berne, les exigences, les délais et les montants des contributions à la formation continue suivent les règles cantonales et doivent être vérifiés dans la source officielle.',
     'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Personne consultant une demande de soutien à la formation continue à Berne.',
+    'blog.article.salario-minimo-lucerna-requisiti.title': 'Salaire minimum à Lucerne : exigences et application',
+    'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analyse de la réglementation sur les salaires minimaux dans le canton de Lucerne, différences entre les exigences cantonales et les conventions collectives de travail, contrôles et procédures.',
+    'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Régulation du salaire minimum et des conventions collectives dans le canton de Lucerne',
 };
 
 export default blogMetaChFr;

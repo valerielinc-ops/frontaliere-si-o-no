@@ -99477,6 +99477,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-lucerna-requisiti': {
+    title: 'Salario minimo a Lucerna: requisiti e applicazione',
+    description: 'Scopri la disciplina sui salari minimi nel Cantone di Lucerna, i contratti collettivi di lavoro, i controlli e le procedure per aziende e dipendenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, lucerna, requisiti',
+    ogTitle: 'Salario minimo a Lucerna: requisiti, CCL e controlli',
+    ogDescription: 'Approfondimento completo sulla disciplina dei salari minimi e dei contratti collettivi di lavoro nel Cantone di Lucerna. Analisi dei requisiti, delle procedure di controllo per le aziende e del ruolo delle amministrazioni cantonali.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-lucerna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo a Lucerna: requisiti e applicazione",
+      "description": "Scopri la disciplina sui salari minimi nel Cantone di Lucerna, i contratti collettivi di lavoro, i controlli e le procedure per aziende e dipendenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-salario-minimo-lucerna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Regolamentazione del salario minimo e contratti collettivi nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-10-08T01:29:22+00:00",
+      "dateModified": "2026-10-08T01:29:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-lucerna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

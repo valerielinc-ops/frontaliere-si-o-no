@@ -7892,6 +7892,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.contributi-formazione-berna-requisiti.title': 'Formazione continua nel Canton Berna: requisiti e contributi',
     'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Nel Canton Berna requisiti, termini e importi dei contributi alla formazione continua seguono regole cantonali e vanno verificati sulla fonte ufficiale.',
     'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Persona consulta una domanda per la formazione continua nel Canton Berna.',
+    'blog.article.salario-minimo-lucerna-requisiti.title': 'Salario minimo a Lucerna: requisiti e applicazione',
+    'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analisi della disciplina sui salari minimi nel Cantone di Lucerna, differenze tra requisiti cantonali e contratti collettivi di lavoro, controlli e procedure.',
+    'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Regolamentazione del salario minimo e contratti collettivi nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

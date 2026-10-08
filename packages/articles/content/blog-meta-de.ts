@@ -12768,6 +12768,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mcdonalds-pulizia-malnate-2026.title': 'McDonald\'s räumt Malnate auf: 20 kg Abfall gesammelt',
     'blog.article.mcdonalds-pulizia-malnate-2026.excerpt': '## Auf einen Blick - 16 Personen haben an der Säuberung von Malnate teilgenommen - 20 Kilo Abfall verschiedener Art gesammelt - Die Initiative fand am Montag, 5. Oktober, statt',
     'blog.article.mcdonalds-pulizia-malnate-2026.imageAlt': 'Sauberer und revitalisierter Stadtbereich in einer Kleinstadt',
+    'blog.article.agrivarese-angera-ottobre-2026.title': 'Agrivarese kehrt nach Angera zurück: Landwirtschaftsmesse am 11. Oktober',
+    'blog.article.agrivarese-angera-ottobre-2026.excerpt': '## Auf einen Blick - Am Sonntag, dem 11. Oktober, kommt Agrivarese an die Uferpromenade von Angera - Die Veranstaltung ist von 9 bis 19 Uhr geöffnet - Auf dem Programm stehen mehr als 40 Unternehmen',
+    'blog.article.agrivarese-angera-ottobre-2026.imageAlt': 'Lokale landwirtschaftliche Marktstände am Seeufer von Angera während des Agrivarese-Events.',
 };
 
 export default blogMetaDe;
