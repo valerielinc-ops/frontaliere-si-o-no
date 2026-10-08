@@ -1,3 +1,5 @@
+import { titleLooksUntranslated } from './job-locale-utils.mjs';
+
 // Reasons with a source-language marker strong enough to enter the title
 // repair lane. `source-overlap` stays out: overlap alone is deliberately a
 // secondary signal and can describe a valid title containing a shared term.
@@ -25,4 +27,29 @@ const TITLE_REPAIR_QUEUE_REASON_SET = new Set(TITLE_REPAIR_QUEUE_REASONS);
 export function isTitleRepairQueueVerdict(verdict) {
   return verdict?.untranslated === true
     && TITLE_REPAIR_QUEUE_REASON_SET.has(String(verdict.reason || ''));
+}
+
+/**
+ * Run the title detector with the exact job context used by the Codex lane.
+ * Keeping this context here prevents the Argos handoff from drifting on
+ * address/company stripping or on the source-locale fallback.
+ */
+export function titleRepairDetectorVerdict({ job, locale, title } = {}) {
+  const sourceLang = job?.sourceLang || 'it';
+  return titleLooksUntranslated({
+    title,
+    sourceTitle: String(job?.title || job?.titleByLocale?.[sourceLang] || '').trim(),
+    sourceLang,
+    targetLocale: locale,
+    company: job?.company || '',
+    location: job?.addressLocality || job?.location || '',
+  });
+}
+
+/**
+ * Whether an existing title is admitted to the Codex repair lane.
+ * `isTitleRepairQueueVerdict()` remains the single allowlist predicate.
+ */
+export function isTitleRepairQueueSlot({ job, locale, title } = {}) {
+  return isTitleRepairQueueVerdict(titleRepairDetectorVerdict({ job, locale, title }));
 }
