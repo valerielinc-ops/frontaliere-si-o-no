@@ -2434,7 +2434,49 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
   return resp;
 }
 
-export default {
+// ── Stale SRI on stable asset names (production outage 2026-10-08) ───────────
+// #12075 wrote `integrity` on <script>/<link> tags that point at
+// cdn.frontaliereticino.ch/assets/*, whose file names are NOT content-addressed.
+// The early CDN push of the next build overwrites those files hours before its
+// HTML is published, so the HTML still live pins bytes the CDN no longer serves
+// and the browser blocks every script ("Failed to find a valid digest in the
+// 'integrity' attribute"). The build stops emitting the attribute (#12340), but
+// HTML already published — Pages, the locale shards, the append-only section
+// shards — keeps it until each page is rebuilt. Dropping the attribute at the
+// edge is what unblocks those pages now. Scope: first-party /assets/ URLs only,
+// third-party integrity is left alone. Safe to delete once no published HTML
+// carries `integrity` on a first-party asset tag.
+export const FIRST_PARTY_ASSET_URL_RE =
+  /^(?:(?:https?:)?\/\/(?:[a-z0-9-]+\.)*frontaliereticino\.ch)?\/assets\//i;
+
+export const staleAssetIntegrityHandler = {
+  element(element) {
+    const ref = element.getAttribute('src') || element.getAttribute('href') || '';
+    if (FIRST_PARTY_ASSET_URL_RE.test(ref)) element.removeAttribute('integrity');
+  },
+};
+
+/**
+ * Fail-open by construction: any response that is not a GET HTML body, any
+ * runtime without HTMLRewriter (the vitest suite) and any thrown error return
+ * the router's response untouched.
+ */
+export function stripStaleAssetIntegrity(request, response) {
+  try {
+    const Rewriter = globalThis.HTMLRewriter;
+    if (typeof Rewriter !== 'function') return response;
+    if (request.method !== 'GET' || !response || !response.body) return response;
+    const contentType = response.headers.get('Content-Type') || '';
+    if (!/^text\/html\b/i.test(contentType)) return response;
+    return new Rewriter()
+      .on('script[integrity], link[integrity]', staleAssetIntegrityHandler)
+      .transform(response);
+  } catch {
+    return response;
+  }
+}
+
+const router = {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
 
@@ -2573,5 +2615,11 @@ export default {
     // the shared shard pipeline. match[1] is the request's locale, used to keep
     // any 404→301 recovery within-locale.
     return serveShard(request, url, SHARD_ORIGIN[match[1]], match[1], ctx);
+  },
+};
+
+export default {
+  async fetch(request, env, ctx) {
+    return stripStaleAssetIntegrity(request, await router.fetch(request, env, ctx));
   },
 };
