@@ -120,7 +120,7 @@ const VISION_SCHEMA = Object.freeze({
     is_topic_relevant: { type: 'boolean' },
     notes: { type: 'string' },
   },
-  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'looks_like_specific_real_event', 'is_photograph', 'notes'],
+  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'contains_recognizable_foreground_person', 'looks_like_specific_real_event', 'is_photograph', 'is_topic_relevant', 'notes'],
 });
 
 function listFilesRecursively(root) {
