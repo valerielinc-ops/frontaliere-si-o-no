@@ -37,7 +37,10 @@ export function isTitleRepairQueueVerdict(verdict) {
  */
 export function titleRepairSourceTitle(job) {
   const sourceLang = job?.sourceLang || 'it';
-  return String(job?.title || job?.titleByLocale?.[sourceLang] || '').trim();
+  // Trim before choosing: a whitespace-only `title` is an empty title, not a
+  // reason to skip the source-locale slot.
+  return String(job?.title || '').trim()
+    || String(job?.titleByLocale?.[sourceLang] || '').trim();
 }
 
 /**

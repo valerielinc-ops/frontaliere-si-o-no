@@ -112,6 +112,9 @@ describe('title repair queue admission', () => {
     expect(titleRepairSourceTitle(job)).toBe('Systemingenieur mit Projekterfahrung 80–100 %');
     expect(shouldQueueArgosSlot(job, { locale: 'it', field: 'title' })).toBe(false);
     expect(titleRepairQueueLocales(job, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    // A whitespace-only title is empty too: the fallback still applies.
+    expect(titleRepairQueueLocales({ ...job, title: '   ' }, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    expect(shouldQueueArgosSlot({ ...job, title: '   ' }, { locale: 'it', field: 'title' })).toBe(false);
     // No source title anywhere: neither lane takes the slot.
     expect(titleRepairQueueLocales({ ...job, titleByLocale: { it: job.titleByLocale.it } }, ['it', 'en', 'de', 'fr'])).toEqual([]);
   });
