@@ -232,12 +232,32 @@ async function chooseInOwnedList(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const entries = (await options.allInnerTexts())
+    let entries = (await options.allInnerTexts())
       .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
       .filter(({ label }) => Boolean(label));
-    const labels = entries.map(({ label }) => label);
-    const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-    const selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    const findSelectedLabel = () => {
+      const labels = entries.map(({ label }) => label);
+      const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
+      return exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    };
+    let selectedLabel = findSelectedLabel();
+    // Some SuccessFactors picklists do not expose the complete catalogue when
+    // opened; they only fetch the matching page after keystrokes. Nationality
+    // is safe to filter by a short country prefix, then resolve the localized
+    // option («italiana» → «italienne»/«Italie») by the shared catalogue.
+    if (!selectedLabel && isNationalityField(field.label)) {
+      const query = String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').match(/[a-z]{4,}/i)?.[0]?.slice(0, 4) || '';
+      if (query) {
+        await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+        await Promise.resolve(locator.press('Backspace')).catch(() => {});
+        await Promise.resolve(locator.pressSequentially(query, { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS })).catch(() => {});
+        await options.first().waitFor({ state: 'visible', timeout: 4000 }).catch(() => {});
+        entries = (await options.allInnerTexts())
+          .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
+          .filter(({ label }) => Boolean(label));
+        selectedLabel = findSelectedLabel();
+      }
+    }
     if (!selectedLabel) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
@@ -255,7 +275,14 @@ async function chooseInOwnedList(page, field, locator, value) {
     // choice_not_registered and submitting a blank nationality.
     const deadline = Date.now() + 5000;
     for (;;) {
-      if (await choiceRegistered(locator, field.kind, selectedLabel)) return selectedLabel;
+      if (await choiceRegistered(locator, field.kind, selectedLabel)) {
+        // The visible text can be updated before SuccessFactors commits the
+        // hidden form value. A real blur makes that delayed commit deterministic
+        // without using Enter (which can submit the form on this ATS).
+        await Promise.resolve(locator.press('Tab')).catch(() => {});
+        await page.waitForTimeout(100);
+        return selectedLabel;
+      }
       if (Date.now() >= deadline) break;
       await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
     }
