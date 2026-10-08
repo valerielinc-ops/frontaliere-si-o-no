@@ -1100,7 +1100,7 @@ shard_push_token_for_repo() {
   if owner="$(shard_github_repo_owner "$repo")"; then
     case "$owner" in
       nanakokyobashi-rgb)
-        printf '%s' "${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}"
+        printf '%s' "${GITHUB_PAT_NANAKO:-}"
         return 0
         ;;
     esac
