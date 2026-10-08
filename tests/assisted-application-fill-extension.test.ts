@@ -359,7 +359,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
   it('treats SuccessFactors’ French empty picklist as a select in both extension paths', async () => {
     const { F, document, read } = runnerPage(`<form>
       <label for="nationality">Nationalité *</label>
-      <input id="nationality" type="text" role="combobox" placeholder="Aucune sélection" aria-owns="nat:_listSelect" aria-required="true" class="rcmpaginatedselectinput">
+      <input id="nationality" type="text" role="combobox" value="Aucune sélection" aria-owns="nat:_listSelect" aria-required="true">
       <ul id="nat:_listSelect" role="listbox"></ul>
       <button type="button">Suivant</button>
     </form>`, 'https://career2.successfactors.eu/portalcareer');

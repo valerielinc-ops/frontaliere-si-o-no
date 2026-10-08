@@ -503,7 +503,9 @@
   const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   function selectLike(input) {
     return Boolean(input.getAttribute('aria-owns') || input.getAttribute('aria-controls'))
-      && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(input.className || '')));
+      && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
+        || SELECT_PROMPT_RE.test(input.value || '')
+        || /paginatedselect/i.test(String(input.className || '')));
   }
 
   async function chooseInCombobox(input, answer) {
