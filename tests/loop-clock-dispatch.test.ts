@@ -59,6 +59,7 @@ describe('loop clock table and cadence', () => {
       repo: 'site',
       workflow: 'runtime-reliability-watch.yml',
       everyMinutes: 30,
+      introducedAt: '2026-10-08T06:00:00Z',
     });
   });
 
@@ -68,6 +69,7 @@ describe('loop clock table and cadence', () => {
       repo: 'site',
       workflow: 'revenue-signal-monitor.yml',
       everyMinutes: 60,
+      introducedAt: '2026-10-07T16:50:03Z',
     });
   });
 
@@ -80,10 +82,11 @@ describe('loop clock table and cadence', () => {
     });
   });
 
-  // A field nothing reads is a promise nobody keeps: `introducedAt` was one,
-  // optional, and the second entry that needed it came without (#12284).
+  // A field nothing reads is a promise nobody keeps. `introducedAt` is read by
+  // the observer and stays optional: an entry without it is dated from the
+  // history of this table (#12284).
   it('carries in an entry only the fields the dispatcher or the observer read', () => {
-    const read = new Set(['id', 'repo', 'workflow', 'everyMinutes', 'condition', 'inputs']);
+    const read = new Set(['id', 'repo', 'workflow', 'everyMinutes', 'condition', 'inputs', 'introducedAt']);
     const unread = LOOP_CLOCK_ENTRIES.flatMap((entry) => (
       Object.keys(entry).filter((field) => !read.has(field)).map((field) => `${entry.id}.${field}`)
     ));
@@ -683,13 +686,10 @@ describe('loop clock observer', () => {
       expect(verdictOf(blind.report, established)).toMatchObject({ state: 'healthy' });
     });
 
-    // The entry of the runtime watchdog carried `introducedAt: 2026-10-08T06:00Z`,
-    // a date in the future that read like an activation. It never was one: the
-    // dispatcher does not read the field, and dispatched the entry from the
-    // deploy that carried it (first marked run 2026-10-07T22:35:04Z). These are
-    // the inputs the review of this change asked about.
-    it('owes nothing at 23:30Z to a 30-minute entry of a table changed at 22:22:51Z, and does not wait for a declared date', async () => {
-      const watchdog = { ...customEntry('site-runtime-reliability-watch'), everyMinutes: 30 };
+    // The inputs the review of this change asked about: the entry of the
+    // runtime watchdog declares a date ahead of its merge.
+    it('applies a declared date first: nothing is owed to the watchdog entry at 23:30Z, nor read from the history', async () => {
+      const watchdog = { ...customEntry('site-runtime-reliability-watch'), everyMinutes: 30, introducedAt: '2026-10-08T06:00:00Z' };
       const markedAt = (entry: { id: string }, iso: string) => ({
         createdAt: iso,
         databaseId: 1,
@@ -700,34 +700,54 @@ describe('loop clock observer', () => {
       });
       const observeAt = (now: string) => {
         const createIssueImpl = vi.fn(async () => ({ number: 1 }));
+        const tableChangedAtImpl = vi.fn(async () => Date.parse('2026-10-07T22:22:51Z'));
         return runLoopClockHealth({
           now,
           entries: [established, watchdog],
           repository: 'owner/site',
           listRunsImpl: async (_repository: string, workflow: string) => (
             workflow === established.workflow
-              ? [markedAt(established, '2026-10-07T12:20:00.000Z'), markedAt(established, new Date(Date.parse(now) - 5 * 60_000).toISOString())]
+              ? [markedAt(established, new Date(Date.parse(now) - 600 * 60_000).toISOString()), markedAt(established, new Date(Date.parse(now) - 5 * 60_000).toISOString())]
               : []
           ),
           untriagedIssuesImpl: async () => ({ count: 0 }),
-          tableChangedAtImpl: async () => Date.parse('2026-10-07T22:22:51Z'),
+          tableChangedAtImpl,
           createIssueImpl,
           resolveIssueImpl: async () => ({ resolved: 0 }),
-        }).then((report) => ({ report, createIssueImpl }));
+        }).then((report) => ({ report, createIssueImpl, tableChangedAtImpl }));
       };
 
       const asked = await observeAt('2026-10-07T23:30:00Z');
       expect(verdictOf(asked.report, watchdog)).toMatchObject({
         state: 'too_early',
-        reason: 'table_younger_than_threshold',
+        reason: 'entry_younger_than_threshold',
       });
       expect(asked.createIssueImpl).not.toHaveBeenCalled();
+      expect(asked.tableChangedAtImpl).not.toHaveBeenCalled();
 
-      // Ninety minutes after the change the entry is owed its dispatches: an
-      // entry the clock does not run is reported that night, not after 06:00Z.
-      const later = await observeAt('2026-10-08T00:00:00Z');
+      // One threshold after the declared date the entry is owed its
+      // dispatches like any other.
+      const later = await observeAt('2026-10-08T07:31:00Z');
       expect(verdictOf(later.report, watchdog)).toMatchObject({ state: 'stale', reason: 'no_marked_run_observed' });
       expect(later.createIssueImpl).toHaveBeenCalledTimes(1);
+    });
+
+    it('keeps the later of a declared date and the last change of the table', async () => {
+      const declaredLongAgo = { ...newcomer, introducedAt: minutesAgo(600) };
+      const sheltered = await observe([established, declaredLongAgo], [], {
+        listRunsImpl: runsOf(),
+        tableChangedAtImpl: async () => Date.parse(minutesAgo(8)),
+      });
+      expect(verdictOf(sheltered.report, declaredLongAgo)).toMatchObject({
+        state: 'too_early',
+        reason: 'table_younger_than_threshold',
+      });
+
+      const unreadable = await observe([established, { ...newcomer, introducedAt: 'soon' }], [], { listRunsImpl: runsOf() });
+      expect(verdictOf(unreadable.report, newcomer)).toMatchObject({
+        state: 'inconclusive',
+        reason: 'entry_introduced_at_unreadable',
+      });
     });
 
     it('does not shelter a clock that never dispatched, or one younger than the entry threshold', async () => {

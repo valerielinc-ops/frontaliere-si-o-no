@@ -10,12 +10,16 @@ const entries = [
   { id: 'site-closer', repo: 'site', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
   { id: 'site-retry-automerge', repo: 'site', workflow: 'retry-native-automerge.yml', everyMinutes: 20 },
   { id: 'site-production-canary', repo: 'site', workflow: 'production-canary.yml', everyMinutes: 15 },
-  // An entry that joins the running clock needs nothing here to be given its
-  // first slots: the observer dates the table from its last change on main
-  // (scripts/ci/loop-clock-health.mjs). There is no later activation to
-  // declare either: the dispatcher runs an entry from the deploy that carries
-  // it, whatever a field says.
-  { id: 'site-revenue-signal-monitor', repo: 'site', workflow: 'revenue-signal-monitor.yml', everyMinutes: 60 },
+  // This entry joined an already-running clock. The observer uses the
+  // introduction time for its first warm-up window; the dispatcher ignores
+  // this observer-only field.
+  {
+    id: 'site-revenue-signal-monitor',
+    repo: 'site',
+    workflow: 'revenue-signal-monitor.yml',
+    everyMinutes: 60,
+    introducedAt: '2026-10-07T16:50:03Z',
+  },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
   // (one Actions call per scheduled workflow) is budgeted once a day on the
@@ -29,8 +33,15 @@ const entries = [
   // `*/15` cron delivers a handful of runs a day and its deploy triggers are
   // skipped whenever a deploy is superseded: on 2026-10-07 it did not run once
   // in the five hours in which every re-rendered article page loaded a 404
-  // (#12270).
-  { id: 'site-runtime-reliability-watch', repo: 'site', workflow: 'runtime-reliability-watch.yml', everyMinutes: 30 },
+  // (#12270). `introducedAt` is set ahead of the merge: the entry starts when
+  // this function is deployed, and the observer must not call it stale before.
+  {
+    id: 'site-runtime-reliability-watch',
+    repo: 'site',
+    workflow: 'runtime-reliability-watch.yml',
+    everyMinutes: 30,
+    introducedAt: '2026-10-08T06:00:00Z',
+  },
 ];
 
 export const LOOP_CLOCK_ENTRIES = Object.freeze(

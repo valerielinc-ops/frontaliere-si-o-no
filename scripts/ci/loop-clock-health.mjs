@@ -380,13 +380,27 @@ export async function runLoopClockHealth({
       }
       let warmupSince = clockSeenSince;
       let warmupReason = 'clock_younger_than_threshold';
-      // An entry is not owed a dispatch for longer than the table has carried
-      // it, and nothing in the table is older than its last change. That date
-      // is read from the history instead of being declared in the entry: the
-      // optional field it replaces was left out the second time an entry
-      // joined the running clock, and the entry was called stale eight minutes
-      // after its merge (#12284). No verdict of absence without it.
-      if (clockSeenSince !== null && ageMinutes(clockSeenSince) >= freshness.thresholdMinutes) {
+      // A date declared in the entry counts first, and can lie ahead of the
+      // merge that carries it.
+      if (Object.prototype.hasOwnProperty.call(entry, 'introducedAt')) {
+        const introducedAt = Date.parse(String(entry.introducedAt ?? ''));
+        if (!Number.isFinite(introducedAt)) {
+          errors += 1;
+          results.push({ id: entry.id, state: 'inconclusive', reason: 'entry_introduced_at_unreadable' });
+          continue;
+        }
+        if (warmupSince !== null && introducedAt > warmupSince) {
+          warmupSince = introducedAt;
+          warmupReason = 'entry_younger_than_threshold';
+        }
+      }
+      // Declared or not, an entry is not owed a dispatch for longer than the
+      // table has carried it, and nothing in the table is older than its last
+      // change. That date is read from the history: `introducedAt` is
+      // optional, the second entry that joined the running clock came without
+      // it and was called stale eight minutes after its merge (#12284). No
+      // verdict of absence when the history cannot be read.
+      if (warmupSince !== null && ageMinutes(warmupSince) >= freshness.thresholdMinutes) {
         const changedAt = await tableChangedSince();
         if (changedAt === null) {
           errors += 1;
