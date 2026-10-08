@@ -5,6 +5,9 @@
 // source slices/cache and their derived dataset outputs together. The original
 // workflow checkout is used through RECONCILE_SOURCE_ROOT or GITHUB_WORKSPACE
 // to run the real assembler without expanding this isolated worktree.
+// Set EVENTS_REFRESH_CARRIED_REF to the pending refresh the crawl restored its
+// source slices and checkpoints from: a conflict on one of those files whose
+// main version is that very state is a continuation, not a concurrent edit.
 import { execFileSync, spawnSync } from 'node:child_process';
 import {
   existsSync,
@@ -26,6 +29,7 @@ const EVENT_DERIVED_DATASET_PATHS = [
   'public/data/events.json',
 ];
 const EVENT_SOURCE_SLICE_ROOT = 'data/events/by-source';
+const EVENT_SOURCE_CHECKPOINT_ROOT = 'data/events/checkpoints';
 const EVENT_REWRITE_CACHE_PATH = 'data/events-description-rewrites.json';
 const EVENT_IMAGE_LIBRARY_PATH = 'data/event-image-library.json';
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
@@ -74,6 +78,40 @@ function configuredDerivedDatasetPaths() {
     : new Set();
 }
 
+function isEventSourceState(file) {
+  return file.endsWith('.json')
+    && [EVENT_SOURCE_SLICE_ROOT, EVENT_SOURCE_CHECKPOINT_ROOT].includes(path.posix.dirname(file));
+}
+
+// The crawl restores the slices and checkpoints of the pending refresh before
+// it runs, and writes its own on top of them. When that pending refresh is
+// merged while the crawl is still running, main and this branch have both
+// changed the same files since the merge base, and a three-way merge calls it
+// a conflict. It is a chain: this branch holds the state main now has, plus
+// one crawl. That is only known when main's bytes are the bytes the crawl
+// started from. Anything else on main (a later crawl, the licence audit, which
+// also writes the slices) stays a conflict, and the publisher stops.
+function carriedRefreshRef() {
+  const ref = (process.env.EVENTS_REFRESH_CARRIED_REF || '').trim();
+  if (!ref) return null;
+  const resolved = spawnSync('git', ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
+    encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (resolved.status !== 0) {
+    throw new Error(`EVENTS_REFRESH_CARRIED_REF names ${ref}, which is not a commit in this checkout`);
+  }
+  return resolved.stdout.trim();
+}
+
+function continuesCarriedState(file, { carried, head, main }) {
+  if (!carried || !isEventSourceState(file)) return false;
+  const started = readBlob(carried, file, { encoding: null });
+  const onMain = readBlob(main, file, { encoding: null });
+  // A file this branch no longer has is not a state to carry on: it stops too.
+  return started !== null && onMain !== null && Buffer.compare(started, onMain) === 0
+    && readBlob(head, file, { encoding: null }) !== null;
+}
+
 function assemblerRoot() {
   const candidates = [
     process.env.RECONCILE_SOURCE_ROOT,
@@ -85,7 +123,7 @@ function assemblerRoot() {
   return null;
 }
 
-async function regenerateEventDataset({ tree, head, base, main, cacheOverrides }) {
+async function regenerateEventDataset({ tree, head, base, main, cacheOverrides, continuedSourceState }) {
   const sourceRoot = assemblerRoot();
   if (!sourceRoot) {
     throw new Error(
@@ -101,7 +139,9 @@ async function regenerateEventDataset({ tree, head, base, main, cacheOverrides }
 
   try {
     for (const file of treeFiles(tree, EVENT_SOURCE_SLICE_ROOT)) {
-      const content = readBlob(tree, file, { encoding: null });
+      // The merged tree holds conflict markers for a continued slice: the
+      // assembler reads this branch's version, the one the index now carries.
+      const content = readBlob(continuedSourceState.has(file) ? head : tree, file, { encoding: null });
       if (content !== null) {
         const target = path.join(tempRoot, file);
         mkdirSync(path.dirname(target), { recursive: true });
@@ -166,15 +206,29 @@ if (merge.status !== 0 && merge.status !== 1) {
 const mergeOutput = merge.stdout.trim();
 const [tree, ...conflicts] = mergeOutput ? mergeOutput.split('\n') : [];
 if (!tree) throw new Error(`Unable to merge main: ${merge.stderr || 'merge-tree returned no tree'}`);
-const blockers = conflicts.filter((file) => !EVENT_CACHE_PATHS.has(file) && !derivedDatasetPaths.has(file));
+const carried = carriedRefreshRef();
+const continuedSourceState = new Set(
+  conflicts.filter((file) => continuesCarriedState(file, { carried, head, main: options.main })),
+);
+const blockers = conflicts.filter((file) =>
+  !EVENT_CACHE_PATHS.has(file) && !derivedDatasetPaths.has(file) && !continuedSourceState.has(file));
 if (blockers.length > 0) {
   // Only what stops the reconciliation is named. A caller that did not opt in
   // keeps the wording its logs and tests already know.
   const resolvable = derivedDatasetPaths.size > 0 ? 'event caches or derived datasets' : 'event caches';
-  throw new Error(`Unresolved refresh conflict outside ${resolvable}: ${blockers.join(', ')}`);
+  const sourceState = blockers.filter(isEventSourceState);
+  const why = sourceState.length === 0
+    ? ''
+    : carried
+      ? `\nNot a continuation of the refresh this crawl started from (main holds something else, or this branch dropped the file): ${sourceState.join(', ')}`
+      : `\nNo starting refresh was recorded (EVENTS_REFRESH_CARRIED_REF), so a continuation cannot be told from a concurrent edit: ${sourceState.join(', ')}`;
+  throw new Error(`Unresolved refresh conflict outside ${resolvable}: ${blockers.join(', ')}${why}`);
 }
 
 git(['read-tree', tree]);
+for (const file of continuedSourceState) {
+  git(['update-index', '--add', '--cacheinfo', `100644,${git(['rev-parse', `${head}:${file}`])},${file}`]);
+}
 const cacheOverrides = new Map();
 for (const file of conflicts) {
   if (!EVENT_CACHE_PATHS.has(file)) continue;
@@ -192,6 +246,7 @@ if (derivedConflicts.length > 0 && derivedDatasetPaths.has('data/events.json')) 
     base: options.base,
     main: options.main,
     cacheOverrides,
+    continuedSourceState,
   });
 }
 // `--missing-ok`: the index is the merged tree plus the blobs hashed above. The
@@ -201,7 +256,10 @@ const mergedTree = git(['write-tree', '--missing-ok']);
 const commit = git(['commit-tree', mergedTree, '-p', head, '-p', options.main, '-m', options.message]);
 git(['update-ref', 'HEAD', commit, head]);
 process.stdout.write(
-  `[reconcile-data-refresh-main] merged main; resolved ${conflicts.length - derivedConflicts.length} cache conflict(s)`
+  `[reconcile-data-refresh-main] merged main; resolved ${conflicts.length - derivedConflicts.length - continuedSourceState.size} cache conflict(s)`
+    + (continuedSourceState.size > 0
+      ? `; continued ${continuedSourceState.size} source state file(s) from the carried refresh`
+      : '')
     + (derivedConflicts.length > 0 ? `; regenerated ${EVENT_DERIVED_DATASET_PATHS.join(', ')}` : '')
     + '\n',
 );
