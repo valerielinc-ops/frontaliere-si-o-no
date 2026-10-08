@@ -439,10 +439,27 @@ _attempt() {
   # Never `push -f`: a non-fast-forward here means someone else (the periodic
   # full deploy's push-section-shard.sh, or another fast-path publish) pushed
   # in the meantime. Re-clone onto the new tip and rebuild, don't overwrite it.
-  if git -C "$stage" push "$SHARD_REPO" "$commit":main; then
+  # stderr is captured to classify the rejection, then put back on stderr: the
+  # same shape as shard_push_with_retry, which this direct push does not use.
+  local push_err push_rc=0
+  push_err="$(mktemp)"
+  git -C "$stage" push "$SHARD_REPO" "$commit":main 2>"$push_err" || push_rc=$?
+  cat -- "$push_err" >&2
+  if [ "$push_rc" -eq 0 ]; then
+    rm -f -- "$push_err"
     echo "✅ $section-$loc article shard: pushed $commit ($new_count new file(s), filecount $prev_n -> $new_total)"
     return 0
   fi
+  if shard_push_error_is_remote_object_limit "$push_err"; then
+    # A size rejection is about the objects themselves: a fresh clone rebuilds
+    # the same tree and the PAT pushes the same pack. Stop here, with the cause.
+    shard_record_push_failure_reason "$(shard_push_failure_reason "$push_err")"
+    rm -f -- "$push_err"
+    echo "::error::$section-$loc article shard: GitHub remote object/tree size limit is permanent, not transient — not retrying and not falling back to the PAT" >&2
+    permanent_fail=1
+    return 3
+  fi
+  rm -f -- "$push_err"
   return 1
 }
 
