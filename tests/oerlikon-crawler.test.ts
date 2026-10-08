@@ -4,6 +4,7 @@ import {
   OERLIKON_COMPANY_NAME,
   isOerlikonJob,
   isTrustedDomain,
+  buildOerlikonJobUrl,
 } from '../scripts/lib/oerlikon-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -78,6 +79,11 @@ describe('Oerlikon crawler parser', () => {
       const long = 'a'.repeat(200);
       expect(slugify(long).length).toBeLessThanOrEqual(90);
     });
+  });
+
+  it('decodes an HTML-escaped SuccessFactors URL title once', () => {
+    expect(buildOerlikonJobUrl('Research&amp;Development-&apos;Team', '12345'))
+      .toBe("https://careers.oerlikon.com/job/Research&Development-'Team/12345-en_US");
   });
 
   // ── Job Shape Validation ──

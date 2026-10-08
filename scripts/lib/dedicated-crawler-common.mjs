@@ -5688,6 +5688,18 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
+// URL-bearing API fields need one pass over the original string. In
+// particular, `&amp;amp;` must become `&amp;`, not `&`, and percent-encoded
+// octets must remain untouched for the URL parser to interpret them later.
+const HTML_ENTITY_ONCE_RE = /&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi;
+
+export function decodeHtmlEntitiesOnce(value = '') {
+  return String(value || '').replace(
+    HTML_ENTITY_ONCE_RE,
+    (entity) => decodeHTML(entity, { scope: 'strict' }),
+  );
+}
+
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
     .replace(/&[a-z][a-z0-9]+;/gi, (entity) => decodeHTML(entity, { scope: 'strict' }))

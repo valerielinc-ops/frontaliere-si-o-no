@@ -37,7 +37,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 import { extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { decodeHtmlEntitiesOnce, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -65,6 +65,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/** Build the SuccessFactors detail URL from the API title with one entity pass. */
+export function buildOerlikonJobUrl(urlTitle = '', id = '') {
+  const reqId = String(id || '').trim();
+  if (!reqId) return '';
+  const title = String(urlTitle || '');
+  const rawUrl = title
+    ? `https://${CAREER_HOST}/job/${title}/${reqId}-${LOCALE}`
+    : `https://${CAREER_HOST}/job/${reqId}-${LOCALE}`;
+  return decodeHtmlEntitiesOnce(rawUrl);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -244,7 +255,7 @@ export async function fetchAllOerlikonJobs() {
     const id = listing.id || '';
     if (!title || !id) continue;
 
-    const publicUrl = `https://${CAREER_HOST}/job/${urlTitle}/${id}-${LOCALE}`;
+    const publicUrl = buildOerlikonJobUrl(urlTitle, id);
     console.log(`  📄 Fetching detail: ${title}`);
     const detail = await fetchJobDetail(publicUrl);
 

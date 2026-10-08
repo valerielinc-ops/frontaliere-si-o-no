@@ -222,6 +222,24 @@ describe('mergeUrlKey ETA SA requisition rule (Rule L — slug-drift class)', ()
   });
 });
 
+describe('mergeUrlKey Implenia requisition rule (Rule I — entity-slug class)', () => {
+  const entity = 'https://jobs.implenia.com/job/G%C3%A9rant-d&apos;immeubles-commerciaux-%28hfx%29%2C-Gen%C3%A8ve%2C-80-100/13849-de_DE';
+  const clean = "https://jobs.implenia.com/job/G%C3%A9rant-d'immeubles-commerciaux-%28hfx%29%2C-Gen%C3%A8ve%2C-80-100/13849-de_DE";
+
+  it('uses the five-digit requisition and ignores the HTML entity spelling', () => {
+    expect(mergeUrlKey(entity)).toBe('req:jobs.implenia.com:13849');
+    expect(mergeUrlKey(clean)).toBe('req:jobs.implenia.com:13849');
+    expect(extractStableJobId(entity)).toBe(extractStableJobId(clean));
+  });
+
+  it('is host- and path-gated', () => {
+    expect(mergeUrlKey('https://example.com/job/title/13849-de_DE'))
+      .toBe('url:https://example.com/job/title/13849-de_de');
+    expect(mergeUrlKey('https://jobs.implenia.com/search-results/13849-de_DE'))
+      .toBe('url:https://jobs.implenia.com/search-results/13849-de_de');
+  });
+});
+
 describe('mergeUrlKey Umantis vacancy rule (Rule U — tenant-id collision class)', () => {
   // The per-vacancy id (3-4 digits) lives in an ANCESTOR segment
   // (`/Vacancies/<id>/…`) and is below Rule B's ≥6-digit threshold, while the
