@@ -149,6 +149,18 @@ export function resolveJobsSeoPagesFlushed(): void {
 }
 
 /**
+ * FAST_BUILD deliberately omits jobsSeoPagesPlugin, so its completion signal
+ * has no producer in that mode. Full builds keep the existing barrier: the
+ * jobs sitemap must be final before downstream sitemap reconciliation reads
+ * it.
+ */
+export function shouldAwaitJobsSeoPagesFlushed(
+  fastBuild = Boolean(process.env.FAST_BUILD),
+): boolean {
+  return !fastBuild;
+}
+
+/**
  * The exact self-canonical job-detail URLs admitted by the current jobs
  * sitemap build.  Consumers use this registry to reject stale shard entries
  * even when the corresponding foreign-locale HTML is absent from the current
