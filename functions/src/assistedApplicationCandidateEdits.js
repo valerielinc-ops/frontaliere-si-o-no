@@ -209,9 +209,12 @@ export function candidateWithEdits({ order, draft, flow }) {
   profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
-  // A field the candidate emptied stays empty: what the CV says is a default, not a rule.
+  // What the CV says is a default, never a rule. The candidate's own word comes first: their answer (a field
+  // they corrected stands as the answer already, even emptied: the loop above), then the field itself, and
+  // only where they touched neither, the CV. `has`, not truthiness: a field they emptied stays empty.
   const cv = cvPersonalFacts(draft?.factSources?.text);
-  const salutation = clean(answers.salutation, 40) || (has(overrides, 'salutation') ? overrides.salutation : salutationFor(cv.gender, order?.locale || 'it'));
+  const answered = clean(answers.salutation, 40);
+  const salutation = answered || (has(overrides, 'salutation') ? overrides.salutation : salutationFor(cv.gender, order?.locale || 'it'));
   if (salutation) answers.salutation = salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
   return { identity, profile, answers, overrides, personal };
@@ -291,6 +294,7 @@ function checkField(key, text, locale, todayIso) {
   const question = { type: 'text', required: false, validation: fieldRule(key, locale) };
   const result = validateAnswer(text, question);
   if (!result.ok) return answerMessage(result, question, locale);
+  // Only a text that is there: an emptied field was accepted above, and is no «not an option».
   if (CHOICES[spec.choice] && !CHOICES[spec.choice].valid(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
   if (spec.birthDate) {
     const iso = isoDateOf(text);

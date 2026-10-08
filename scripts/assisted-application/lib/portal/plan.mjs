@@ -432,7 +432,9 @@ export function candidateAnswerForField(candidate, field) {
   // `personal`): the one option of the list that says it, or the words themselves in a text field.
   if (topic === 'civil_status') {
     const stated = String(candidate?.profile?.civilStatus || '').trim();
-    const value = civilStatusCode(stated) ? optionForAnswer(field, stated) : '';
+    if (!civilStatusCode(stated)) return null;
+    // A list takes its one option that says the status; a field with no list takes the CV's words as they are.
+    const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
     return value ? { value, source: 'profile' } : null;
   }
   if (topic !== 'current_school') return null;

@@ -130,6 +130,24 @@ describe('what the CV says is not asked again', () => {
     expect(emptied.answers.salutation || '').toBe('');
   });
 
+  // Review of #12348, its acceptance to the letter: a CV that says «Nata a Roma», both fields sent empty.
+  it('accepts an emptied field, saves it empty and reads it empty afterwards, whatever the CV or an older answer says', () => {
+    for (const text of ['Giulia Esempio\nNata a Roma il 12.03.1990', 'Giulia Esempio\nNata a Roma il 12.03.1990\nConiugata']) {
+      const giulia = { locale: 'it', fullName: 'Giulia Esempio', email: 'giulia.esempio@example.com' };
+      const draft = draftOf(text);
+      expect(candidateWithEdits({ order: giulia, draft, flow: {} }).personal.salutation).toBe('Signora');
+      const plan = planCandidateEdits({ fields: { salutation: '', civilStatus: '' } }, { order: giulia, draft, flow: {}, locale: 'it' });
+      expect(plan.errors).toEqual({});
+      expect(plan.overrides.salutation).toBe('');
+      for (const answers of [{}, { salutation: 'Signora' }]) {
+        const next = candidateWithEdits({ order: giulia, draft, flow: { answers, formOverrides: plan.overrides } });
+        expect(next.personal).toEqual({ salutation: '', civilStatus: '' });
+        expect(next.answers.salutation || '').toBe('');
+        expect(formAnswersWithEdits({ order: giulia, draft, flow: { answers, formOverrides: plan.overrides } }).some((field: any) => ['salutation', 'civilStatus'].includes(field.key))).toBe(false);
+      }
+    }
+  });
+
   it('shows both among the form fields, to be corrected from a list, and only when known', () => {
     const fields = formAnswersWithEdits({ order, draft: draftOf(CV_FR), flow: {} });
     expect(fields.map((field: any) => field.key).slice(0, 2)).toEqual(['salutation', 'firstName']);
@@ -188,8 +206,12 @@ describe('a portal that asks the civil status', () => {
       expect(guarded.missingRequired).toEqual([]);
       expect(guarded.actions).toEqual([expect.objectContaining({ fieldId: 'f1', action: 'select', value: 'Married (Switzerland)' })]);
     }
-    // A text field takes the CV's own words.
+    // A text field takes the CV's own words: with no list at all, or an empty one (review of #12348, its
+    // acceptance to the letter).
     expect(candidateAnswerForField(married, { id: 'f2', kind: 'text', label: 'État civil', required: true })).toEqual({ value: 'Marié', source: 'profile' });
+    expect(candidateAnswerForField({ profile: { civilStatus: 'Marié' } }, { label: 'Marital status', type: 'text' })).toEqual({ value: 'Marié', source: 'profile' });
+    expect(candidateAnswerForField({ profile: { civilStatus: 'Marié' } }, { id: 'f3', kind: 'text', label: 'Marital status', required: true, options: [] })).toEqual({ value: 'Marié', source: 'profile' });
+    expect(guardPlan({ actions: [], missingRequired: [] }, [{ id: 'f3', kind: 'text', label: 'Marital status', required: true }], married).actions).toEqual([expect.objectContaining({ fieldId: 'f3', action: 'fill', value: 'Marié' })]);
   });
 
   it('is a question for the candidate when the CV does not say, never a planner’s guess', () => {
