@@ -174,10 +174,13 @@ export async function buildDraft(ctx) {
   // What the candidate corrected on the review page (name, phone, place,
   // languages, permit, salary...) wins over the CV and over older answers:
   // every prompt, the questions and the saved draft use the corrected candidate.
-  const edited = candidateWithEdits({ order, draft: { profile }, flow });
+  // With the CV's text: what it says of the candidate in its own words (their form of address, their civil
+  // status) is known from here on, and neither is asked (lib/personalFacts.js).
+  const edited = candidateWithEdits({ order, draft: { profile, factSources: { text: cvText } }, flow });
   profile = edited.profile;
   const answers = edited.answers;
   const identity = edited.identity;
+  const personal = edited.personal;
 
   const locale = candidateLocale(order);
   const profileJson = JSON.stringify(profile);
@@ -317,14 +320,14 @@ export async function buildDraft(ctx) {
   // The portal's own required questions, read ahead on a single-page form
   // (career-ops apply.md): the candidate answers them on the first review,
   // not in a second round at submit time. Questions already asked are kept.
-  const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale });
+  const formAnswers = buildFormAnswers({ identity, profile, documents, answers, locale, personal });
   if (ctx.readPortalQuestions && channel.applyUrl) {
     const portal = await ctx.readPortalQuestions({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
       language,
       candidateLocale: locale,
-      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language }),
+      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal }),
       codex,
       log,
     });
@@ -334,7 +337,8 @@ export async function buildDraft(ctx) {
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
   // now, optional, so it does not cost the candidate a second round at submit time.
-  const salutation = salutationQuestion({ channel, questions, answers, locale });
+  // Not when the candidate corrected the field on the review page, even to nothing: they have spoken.
+  const salutation = salutationQuestion({ channel, questions, answers, locale, corrected: Object.hasOwn(edited.overrides, 'salutation') });
   if (salutation) questions.push(salutation);
 
   // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".

@@ -31,6 +31,7 @@ import {
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
+import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationOptions } from './lib/personalFacts.js';
 
 const MESSAGES = {
   name: {
@@ -124,6 +125,18 @@ export const EDITABLE_FIELDS = {
   salary: { rule: rule({ pattern: safePattern('.*\\d.*'), maxLength: 120, example: "CHF 80'000" }), message: 'salary', answerId: 'salary_expectation' },
   motivationShort: { rule: rule({ maxLength: 600 }), perRound: true },
   whyCompany: { rule: rule({ maxLength: 400 }), perRound: true },
+  // What the candidate said of themselves, by an answer or in their CV's own words (lib/personalFacts.js):
+  // shown only when known, so that they can correct it. Neither is asked once the CV says it.
+  salutation: { rule: rule({ maxLength: 40 }), answerId: 'salutation', choice: 'salutation' },
+  civilStatus: { rule: rule({ maxLength: 60 }), choice: 'civilStatus' },
+};
+
+// The closed lists a field is chosen from, in the candidate's language, and whether a text is one of a list
+// (in any of the four languages: a value kept from another locale stays valid).
+const CHOICES = {
+  permit: { options: permitOptions, valid: (text) => Boolean(permitStatusOf(text)) },
+  salutation: { options: salutationOptions, valid: isSalutation },
+  civilStatus: { options: civilStatusOptions, valid: (text) => Boolean(civilStatusCode(text)) },
 };
 
 /** Letter and e-mail lengths (the draft writes within them). */
@@ -156,7 +169,14 @@ function splitLanguages(text) {
  * `profile.permitStatus` is derived here at every read, never stored as a
  * source: the code of the status the candidate chose (lib/permitStatus.js),
  * '' when none.
- * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object}}
+ * `personal`: the form of address and the civil status, derived here at every
+ * read too: what the candidate answered or corrected, else what their CV says
+ * in its own words (lib/personalFacts.js, read from `draft.factSources.text`).
+ * A form of address the CV states also stands as `answers.salutation`, so the
+ * question is not asked and the portal's field is filled as if answered. The
+ * civil status stays out of `profile` and `answers`: the letter and the CV
+ * are written from those, and neither says whom the candidate married.
+ * @returns {{identity:{name:string,email:string,phone:string,firstName:string,lastName:string}, profile:object & {permitStatus:string}, answers:object, overrides:object, personal:{salutation:string, civilStatus:string}}}
  */
 export function candidateWithEdits({ order, draft, flow }) {
   const overrides = storedOverrides(flow?.formOverrides);
@@ -189,7 +209,27 @@ export function candidateWithEdits({ order, draft, flow }) {
   profile.permitStatus = permitStatusOf(clean(answers.work_permit, 200) || (has(overrides, 'workPermit') ? overrides.workPermit : ''));
   const availability = clean(answers.availability, 200);
   if (availability) profile.availability = availability;
-  return { identity, profile, answers, overrides };
+  const cv = cvPersonalFacts(draft?.factSources?.text);
+  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender, locale: order?.locale || 'it' });
+  answers.salutation = salutation;
+  if (!salutation) delete answers.salutation;
+  const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
+  return { identity, profile, answers, overrides, personal };
+}
+
+/**
+ * The candidate's form of address as of now. What the CV says is a default, never a rule; the candidate's
+ * own word comes first, in this order:
+ *  1. the field they corrected on the review page, even emptied (`has`, not truthiness), whatever an older
+ *     answer says: `answers.salutation` «Monsieur» with `formOverrides.salutation` «» gives «». It holds
+ *     across rounds, and a draft written afterwards does not ask the question again (lib/draft.mjs): the
+ *     older answer would otherwise come back with the question (review of #12348);
+ *  2. their answer to the question;
+ *  3. only where they touched neither, what their CV says in its own words (lib/personalFacts.js).
+ */
+function salutationNow({ answers, overrides, cvGender, locale }) {
+  if (has(overrides, 'salutation')) return overrides.salutation;
+  return clean(answers.salutation, 40) || salutationFor(cvGender, locale);
 }
 
 /**
@@ -205,7 +245,7 @@ export function factSourcesNow({ order, draft, flow }, sources = draft?.factSour
 /** The form fields with the candidate's changes (review page, handoff kit, owner queue). */
 export function formAnswersWithEdits({ order, draft, flow }) {
   if (!draft) return [];
-  const { identity, profile, answers } = candidateWithEdits({ order, draft, flow });
+  const { identity, profile, answers, personal } = candidateWithEdits({ order, draft, flow });
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   return buildFormAnswers({
     identity,
@@ -213,6 +253,7 @@ export function formAnswersWithEdits({ order, draft, flow }) {
     documents: { motivationShort: motivation.motivationShort, whyCompany: motivation.whyCompany },
     answers,
     locale: order?.locale || 'it',
+    personal,
   });
 }
 
@@ -237,7 +278,8 @@ export function fieldView(field, { draft, locale = 'it' }) {
   const spec = EDITABLE_FIELDS[field.key];
   const view = {
     key: field.key,
-    label: field.label,
+    // The form of address and the civil status are named here, in the candidate's language, as their lists are.
+    label: personalFieldLabel(field.key, locale) || field.label,
     value: field.value,
     editable: !lock,
     locked: lock === 'alias' || lock === 'question' ? lock : null,
@@ -248,8 +290,9 @@ export function fieldView(field, { draft, locale = 'it' }) {
   };
   // The permit status is chosen, never typed (decision 2): the six options in the candidate's language. A value
   // that is none of them (the CV's own words, an older text) stays shown and selected; no status is pre-selected.
-  if (!lock && spec?.choice === 'permit') {
-    const options = permitOptions(locale);
+  // So are the form of address and the civil status.
+  if (!lock && CHOICES[spec?.choice]) {
+    const options = CHOICES[spec.choice].options(locale);
     const value = String(field.value || '').trim();
     view.options = value && !options.includes(value) ? [value, ...options] : options;
   }
@@ -263,7 +306,9 @@ function checkField(key, text, locale, todayIso) {
   const question = { type: 'text', required: false, validation: fieldRule(key, locale) };
   const result = validateAnswer(text, question);
   if (!result.ok) return answerMessage(result, question, locale);
-  if (spec.choice === 'permit' && !permitStatusOf(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
+  // Only a text that is there is held to its list: an emptied field is accepted (above), never «not an option».
+  const list = CHOICES[spec.choice];
+  if (list && text && !list.valid(text)) return answerMessage({ ok: false, reason: 'not_an_option', message: '' }, {}, locale);
   if (spec.birthDate) {
     const iso = isoDateOf(text);
     if (!iso || iso > todayIso) return say('birthDate', locale);
