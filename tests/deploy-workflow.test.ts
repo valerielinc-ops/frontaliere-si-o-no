@@ -145,7 +145,9 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
 
   it('dist validation rehydrates once behind one timeout ceiling', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
-    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(300);
+    // 350, not 300: on a slow runner the gates alone need ~320 min (run
+    // 37754770528 was cut mid-gate at 300 and `publish` was skipped).
+    expect(workflow.jobs['validate-dist-postbuild']?.['timeout-minutes']).toBe(350);
     expect(workflow.jobs['validate-dist-source']).toBeUndefined();
     expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
     expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
