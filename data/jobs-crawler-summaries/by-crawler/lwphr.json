@@ -1,7 +1,7 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-08T09:16:54.593Z",
+  "generatedAt": "2026-10-08T21:23:09.514Z",
   "total": 16,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 4546,
-  "avgDurationMs": 4546,
+  "durationMs": 5432,
+  "avgDurationMs": 5432,
   "durationHistory": [
-    4546
+    5432
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -330,11 +330,11 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 79,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 23,
         "completeness": 13
       }
     },
@@ -584,5 +584,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }
