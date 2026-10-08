@@ -305,12 +305,10 @@ function enterSubmitting(next, reason) {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{draft?:object, answers?:object, nowMs?:number, terms?:{noRefundAfterWait?:boolean}}} context
- *   terms.noRefundAfterWait: the order was placed under the Terms 6.5 of 2026-10 (an ad that closes while the
- *   application waits for the candidate is not refunded: assistedApplicationConstants.js waitTermsApply)
+ * @param {{draft?:object, answers?:object, nowMs?:number}} context
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now(), terms = {} } = {}) {
+export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
@@ -505,16 +503,17 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = ['posting_closed'];
-      // Terms 6.5 as of 2026-10 (owner decision 2026-10-08), for the orders placed under them: an ad that
-      // closes while the application waits for documents or answers only the candidate can give is not
-      // refunded. The robot cannot tell when the ad closed, only that this round waited for the candidate:
-      // it refunds nothing by itself, and Valerie decides and writes to them.
-      if (terms.noRefundAfterWait && waitedForCandidate(current)) {
+      // Terms 6.5 (owner decision 2026-10-08): an ad that closes while the application waits for documents
+      // or answers only the candidate can give is not refunded. The robot cannot tell when the ad closed,
+      // only that this round waited for the candidate: it refunds nothing by itself, and Valerie decides
+      // and writes to them. For every order, with no day from which it holds (the owner's second word that
+      // day: the Terms name none); she can still refund from the queue an ad that was closed before the wait.
+      if (waitedForCandidate(current)) {
         effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }];
         break;
       }
-      // Owner decision 2026-09-30: the only refund the welcome e-mail promises
-      // is "the ad closed before we could send it" — so it is automatic.
+      // Owner decision 2026-09-30: the refund the welcome e-mail promises is
+      // "the ad closed before we could send it" — so it is automatic.
       // The candidate's "we refunded you" e-mail is sent by the refund effect
       // itself, only once the refund went through (retried if it fails).
       effects = [

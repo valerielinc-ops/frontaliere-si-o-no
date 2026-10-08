@@ -24,7 +24,6 @@ import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascad
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
-  waitTermsApply,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
@@ -654,10 +653,9 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
     textParts.push(`${copy.uploadAlt}\n${pageUrl}`);
     // With the automated flow on, the promise changes: a draft to approve,
     // 12 h auto-approval, refund only if the ad closes before sending.
-    // An order placed under the Terms 6.5 of 2026-10 reads the exception next to the promise of a refund
-    // (waitTermsApply); an earlier one keeps the promise it was sold with.
-    const promise = automation ? copy.nextBodyAuto : copy.nextBody;
-    const nextBody = waitTermsApply(order) ? `${promise} ${copy.refundException}` : promise;
+    // The exception of the Terms 6.5 next to the promise of a refund: the candidate reads both before they
+    // send anything.
+    const nextBody = `${automation ? copy.nextBodyAuto : copy.nextBody} ${copy.refundException}`;
     htmlParts.push(brandInfoCard(copy.nextTitle, fillHtml(nextBody, vars)));
     textParts.push(`${copy.nextTitle}\n${fill(nextBody, vars)}`);
     if (kind === 'recovery') {

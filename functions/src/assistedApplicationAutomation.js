@@ -26,7 +26,7 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION, waitTermsApply } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { CANDIDATE_REMINDER_STATES, TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
@@ -223,11 +223,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flow, event, {
-      draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs,
-      // Which point 6.5 of the Terms the order was placed under (waitTermsApply).
-      terms: { noRefundAfterWait: waitTermsApply(orderSnapshot.data() || {}) },
-    });
+    const result = transition(flow, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };

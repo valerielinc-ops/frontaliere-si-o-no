@@ -22,7 +22,6 @@ import {
   sendOrderNotification,
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
-import { waitTermsApply } from './assistedApplicationConstants.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
 
@@ -109,8 +108,6 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         candidateEmail: customerEmailFor(order),
         days: effect.days,
         nudges: effect.nudges,
-        // Which point 6.5 of the Terms the order was placed under: what Valerie owes the candidate depends on it.
-        waitTerms: waitTermsApply(order),
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {
@@ -126,7 +123,6 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
       openQuestions,
       reason: effect.reason || flow.heldBy?.[0],
       price: formatPrice(order, locale),
-      waitTerms: waitTermsApply(order),
     });
   };
   return (deps.sendNotification || sendOrderNotification)({
