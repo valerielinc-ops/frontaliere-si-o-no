@@ -7889,6 +7889,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavaggio-denaro-avvocatura.title': 'Geldwäsche: strengere Regeln für die Anwaltschaft',
     'blog.article.lavaggio-denaro-avvocatura.excerpt': '## Auf einen Blick - Neue Vorschriften gegen Geldwäsche - Strengere Regeln für die Anwaltschaft - Ein Register für Unternehmen eingeführt ## Wichtige Fakten - Gegenstand →',
     'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Rechtsdokumente und Unternehmensregister auf einem Büroschreibtisch',
+    'blog.article.contributi-formazione-berna-requisiti.title': 'Weiterbildung im Kanton Bern: Voraussetzungen und Beiträge',
+    'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Im Kanton Bern richten sich die Voraussetzungen, Fristen und Beträge der Beiträge zur Weiterbildung nach kantonalen Regeln und müssen anhand der offiziellen Quelle überprüft werden.',
+    'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Person prüft einen Antrag für Weiterbildung im Kanton Bern.',
 };
 
 export default blogMetaChDe;

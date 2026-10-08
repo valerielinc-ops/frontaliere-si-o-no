@@ -7889,6 +7889,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavaggio-denaro-avvocatura.title': 'Blanchiment d’argent : des normes plus strictes pour la profession d’avocat',
     'blog.article.lavaggio-denaro-avvocatura.excerpt': '## En bref - Nouvelles normes contre le blanchiment d’argent - Règles plus strictes pour la profession d’avocat - Mise en place d’un registre pour les entreprises ## Faits clés - Objet →',
     'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Documents juridiques et registre d\'entreprise sur un bureau',
+    'blog.article.contributi-formazione-berna-requisiti.title': 'Formation continue dans le canton de Berne : exigences et contributions',
+    'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Dans le canton de Berne, les exigences, les délais et les montants des contributions à la formation continue suivent les règles cantonales et doivent être vérifiés dans la source officielle.',
+    'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Personne consultant une demande de soutien à la formation continue à Berne.',
 };
 
 export default blogMetaChFr;

@@ -2652,6 +2652,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'carriere-politica-economica': { it: 'carriere-politica-economica', en: 'careers-swiss-economic-policy', de: 'karriere-schweizer-wirtschaftspolitik', fr: 'carrieres-politique-economique-suisse' },
  'parmelin-avs-ue': { it: 'parmelin-avs-ue', en: 'parmelin-avs-eu', de: 'parmelin-avs-eu', fr: 'parmelin-quitte-le-conseil-federal-le-31-decembre-2026' },
  'lavaggio-denaro-avvocatura': { it: 'lavaggio-denaro-avvocatura', en: 'money-laundering-lawyer-rules', de: 'geldwaesche-regeln-anwaelte', fr: 'regles-blanchiment-avocats' },
+ 'contributi-formazione-berna-requisiti': { it: 'contributi-formazione-berna-requisiti', en: 'bern-continuing-education-grants-requirements', de: 'bern-weiterbildung-beitrage-voraussetzungen', fr: 'berne-formation-continue-aides-conditions' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

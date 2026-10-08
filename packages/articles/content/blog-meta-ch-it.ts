@@ -7889,6 +7889,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavaggio-denaro-avvocatura.title': 'Lavaggio di denaro: norme più severe per l\'avvocatura',
     'blog.article.lavaggio-denaro-avvocatura.excerpt': '## In breve - Nuove norme contro il lavaggio di denaro - Regole più severe per l\'avvocatura - Introdotto un registro per le imprese ## Fatti chiave - Oggetto →',
     'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Documenti legali e registro per le imprese su una scrivania',
+    'blog.article.contributi-formazione-berna-requisiti.title': 'Formazione continua nel Canton Berna: requisiti e contributi',
+    'blog.article.contributi-formazione-berna-requisiti.excerpt': 'Nel Canton Berna requisiti, termini e importi dei contributi alla formazione continua seguono regole cantonali e vanno verificati sulla fonte ufficiale.',
+    'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Persona consulta una domanda per la formazione continua nel Canton Berna.',
 };
 
 export default blogMetaChIt;

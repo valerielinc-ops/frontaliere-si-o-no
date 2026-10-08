@@ -99443,6 +99443,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contributi-formazione-berna-requisiti': {
+    title: 'Formazione continua nel Canton Berna: requisiti e contributi',
+    description: 'Requisiti, programmi riconosciuti, termini e contributi per la formazione continua nel Canton Berna: guida alla verifica sulla fonte ufficiale cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, canton, berna',
+    ogTitle: 'Canton Berna: contributi per la formazione continua',
+    ogDescription: 'Nel Canton Berna la formazione continua segue regole e uffici cantonali. La guida separa programmi riconosciuti, requisiti, termini e importi, indicando come individuare la fonte ufficiale senza applicare automaticamente criteri di altri Cantoni.',
+    canonicalPath: '/articoli-svizzera/contributi-formazione-berna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione continua nel Canton Berna: requisiti e contributi",
+      "description": "Requisiti, programmi riconosciuti, termini e contributi per la formazione continua nel Canton Berna: guida alla verifica sulla fonte ufficiale cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona consulta una domanda per la formazione continua nel Canton Berna."
+      },
+      "datePublished": "2026-10-08T00:53:16+00:00",
+      "dateModified": "2026-10-08T00:53:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/contributi-formazione-berna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

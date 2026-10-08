@@ -7889,6 +7889,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavaggio-denaro-avvocatura.title': 'Money laundering: stricter rules for the legal profession',
     'blog.article.lavaggio-denaro-avvocatura.excerpt': '## TL;DR - New rules against money laundering - Stricter rules for the legal profession - A register for businesses introduced ## Key facts - Subject →',
     'blog.article.lavaggio-denaro-avvocatura.imageAlt': 'Legal papers and a business register on an office desk',
+    'blog.article.contributi-formazione-berna-requisiti.title': 'Continuing education in the Canton of Bern: requirements and contributions',
+    'blog.article.contributi-formazione-berna-requisiti.excerpt': 'In the Canton of Bern, requirements, deadlines and amounts of continuing education contributions follow cantonal rules and must be verified against the official source.',
+    'blog.article.contributi-formazione-berna-requisiti.imageAlt': 'Person reviewing an application for continuing education support in the canton of Bern.',
 };
 
 export default blogMetaChEn;
