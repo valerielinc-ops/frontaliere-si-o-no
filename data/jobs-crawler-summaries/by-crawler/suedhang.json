@@ -1,7 +1,7 @@
 {
   "key": "suedhang",
   "label": "Klinik Südhang",
-  "generatedAt": "2026-10-07T21:21:27.925Z",
+  "generatedAt": "2026-10-08T09:12:44.960Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 8270,
-  "avgDurationMs": 8270,
+  "unchangedCount": 0,
+  "durationMs": 7871,
+  "avgDurationMs": 7871,
   "durationHistory": [
-    8270
+    7871
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "suedhang-c5cfbbeecd8d",
       "slug": "collaboratore-tricein-pulizia-klinik-sudhang-kirchlindach",
@@ -37,7 +35,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:13.625Z",
+      "crawledAt": "2026-10-08T09:12:30.828Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -82,7 +80,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/sozialarbeiterin-bsc/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:13.111Z",
+      "crawledAt": "2026-10-08T09:12:30.339Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -127,7 +125,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:12.597Z",
+      "crawledAt": "2026-10-08T09:12:29.852Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -171,7 +169,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:12.084Z",
+      "crawledAt": "2026-10-08T09:12:29.368Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -216,7 +214,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:11.570Z",
+      "crawledAt": "2026-10-08T09:12:28.882Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -260,7 +258,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:11.057Z",
+      "crawledAt": "2026-10-08T09:12:28.395Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -304,7 +302,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:10.542Z",
+      "crawledAt": "2026-10-08T09:12:27.905Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -348,7 +346,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:21:10.027Z",
+      "crawledAt": "2026-10-08T09:12:27.413Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -381,5 +379,7 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

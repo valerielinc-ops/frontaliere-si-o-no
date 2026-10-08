@@ -1,7 +1,7 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-10-07T21:16:35.905Z",
+  "generatedAt": "2026-10-08T09:12:59.421Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4299,
-  "avgDurationMs": 4299,
+  "durationMs": 5187,
+  "avgDurationMs": 5187,
   "durationHistory": [
-    4299
+    5187
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Senior-Manager-National-Tax-&-Tax-Governance/1421384933/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:16:23.091Z",
+      "crawledAt": "2026-10-08T09:12:44.206Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -80,7 +80,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-AI-for-Sustainability-reporting/1442415333/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:16:22.459Z",
+      "crawledAt": "2026-10-08T09:12:43.631Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
