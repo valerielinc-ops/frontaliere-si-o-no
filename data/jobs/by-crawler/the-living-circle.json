@@ -1,6 +1,6 @@
 {
   "crawlerKey": "the-living-circle",
-  "assembledAt": "2026-10-08T21:18:15.656Z",
+  "assembledAt": "2026-10-08T22:13:37.361Z",
   "jobs": [
     {
       "title": "Aushilfe Servicemitarbeiter (all genders)",
@@ -2219,7 +2219,9 @@
         "fr": "f-b-et-gestionnaire-d-evenement-100-tous-les-sexes-the-living-circle-ascona"
       },
       "id": "the-living-circle-0bbc6621db52",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "f-b-und-event-manager-100-all-genders-the-living-circle-ascona"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-und-event-manager-100-all-genders-the-living-circle-ascona"
@@ -2228,9 +2230,8 @@
           "f-b-und-event-manager-100-all-genders-the-living-circle-ascona"
         ]
       },
-      "previousSlugs": [
-        "f-b-und-event-manager-100-all-genders-the-living-circle-ascona"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:38:48.303Z",
       "salaryMin": 72000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2245,8 +2246,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6612",
-      "firstSeenAt": "2026-09-11T13:38:48.303Z"
+      "postalCode": "6612"
     }
   ]
 }
