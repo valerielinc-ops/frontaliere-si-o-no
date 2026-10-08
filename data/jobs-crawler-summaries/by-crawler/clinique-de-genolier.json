@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-genolier",
   "label": "Clinique de Genolier",
-  "generatedAt": "2026-10-08T21:28:40.121Z",
+  "generatedAt": "2026-10-08T22:15:43.064Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 6962,
-  "avgDurationMs": 6962,
+  "unchangedCount": 0,
+  "durationMs": 8482,
+  "avgDurationMs": 8482,
   "durationHistory": [
-    6962
+    8482
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "clinique-de-genolier-4f2d464829d6",
       "slug": "carriera-clinique-de-genolier-genolier",
@@ -39,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150328649-aide-soignant-e-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:28:20.555Z",
+      "crawledAt": "2026-10-08T22:15:23.584Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,7 +79,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:28:20.553Z",
+      "crawledAt": "2026-10-08T22:15:23.583Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -116,13 +114,14 @@
       "companyKey": "clinique-de-genolier",
       "companyDomain": "swissmedical.net",
       "title": "Assistant/-e en pharmacie hospitalière",
+      "needsRetranslation": true,
       "location": "Genolier",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152884179-assistant-e-en-pharmacie-hospitaliere",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152884179-assistant-e-en-pharmacie-hospitaliere",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:28:20.551Z",
+      "crawledAt": "2026-10-08T22:15:23.581Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,5 +150,7 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abbott",
-  "assembledAt": "2026-10-08T21:30:34.964Z",
+  "assembledAt": "2026-10-08T22:16:07.413Z",
   "jobs": [
     {
       "id": "abbott-f7f92af67616",
@@ -34,7 +34,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Romandie_31154099",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:29.391Z",
+      "crawledAt": "2026-10-08T22:16:00.652Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -53,15 +53,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31154099",
-      "firstSeenAt": "2026-06-26T21:22:35.803Z",
+      "previousSlugs": [
+        "medical-educator-romandie-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medical-educator-romandie-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "medical-educator-romandie-abbott-ch"
-      ],
+      "firstSeenAt": "2026-06-26T21:22:35.803Z",
       "salaryMin": 72500,
       "salaryMax": 128500,
       "salarySource": "estimated",
@@ -109,7 +109,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/EHS-Specialist_31155192",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:28.647Z",
+      "crawledAt": "2026-10-08T22:15:59.960Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -128,15 +128,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31155192",
-      "firstSeenAt": "2026-07-07T12:02:27.288Z",
+      "previousSlugs": [
+        "ehs-specialist-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ehs-specialist-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "ehs-specialist-abbott-ch"
-      ],
+      "firstSeenAt": "2026-07-07T12:02:27.288Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -183,7 +183,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Business-Development-Manager--m-w-d--Neuromodulation---Schweiz_31156326",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:27.769Z",
+      "crawledAt": "2026-10-08T22:15:59.275Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -202,18 +202,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31156326",
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 6520,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-17T11:19:08.245Z",
+      "previousSlugs": [
+        "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "business-development-manager-m-w-d-neuromodulation-schweiz-abbott-ch"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6520,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-07-17T11:19:08.245Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -260,7 +260,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Analyst---People---Workforce-Analytics_31156643",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:26.503Z",
+      "crawledAt": "2026-10-08T22:15:57.753Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -279,15 +279,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31156643",
-      "firstSeenAt": "2026-07-24T11:09:45.544Z",
+      "previousSlugs": [
+        "senior-analyst-people-workforce-analytics-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-analyst-people-workforce-analytics-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-analyst-people-workforce-analytics-abbott-ch"
-      ],
+      "firstSeenAt": "2026-07-24T11:09:45.544Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -335,7 +335,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Commercial-Training-Manager-Austria---Switzerland--m-f-d-_31158062",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:25.808Z",
+      "crawledAt": "2026-10-08T22:15:57.061Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -354,15 +354,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31158062",
-      "firstSeenAt": "2026-08-05T11:28:06.215Z",
+      "previousSlugs": [
+        "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "commercial-training-manager-austria-switzerland-m-f-d-abbott-ch"
-      ],
+      "firstSeenAt": "2026-08-05T11:28:06.215Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -409,7 +409,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Country-Manager-Structural-Heart-Switzerland_31158803",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:25.016Z",
+      "crawledAt": "2026-10-08T22:15:56.408Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -428,15 +428,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31158803",
-      "firstSeenAt": "2026-08-13T21:49:42.379Z",
+      "previousSlugs": [
+        "country-manager-structural-heart-switzerland-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "country-manager-structural-heart-switzerland-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "country-manager-structural-heart-switzerland-abbott-ch"
-      ],
+      "firstSeenAt": "2026-08-13T21:49:42.379Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -484,7 +484,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-NPI-Engineer_31154974-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:24.317Z",
+      "crawledAt": "2026-10-08T22:15:55.732Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -503,15 +503,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31154974",
-      "firstSeenAt": "2026-07-01T21:41:10.087Z",
+      "previousSlugs": [
+        "senior-npi-engineer-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-npi-engineer-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-npi-engineer-abbott-ch"
-      ],
+      "firstSeenAt": "2026-07-01T21:41:10.087Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -559,7 +559,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director-of-Organizational-Effectiveness-and-Culture--EPD--m-f-d-_31159639",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:23.567Z",
+      "crawledAt": "2026-10-08T22:15:55.013Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -578,15 +578,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31159639",
-      "firstSeenAt": "2026-08-24T21:32:10.685Z",
+      "previousSlugs": [
+        "director-of-organizational-effectiveness-and-culture-epd-m-f-d-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-of-organizational-effectiveness-and-culture-epd-m-f-d-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "director-of-organizational-effectiveness-and-culture-epd-m-f-d-abbott-ch"
-      ],
+      "firstSeenAt": "2026-08-24T21:32:10.685Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -634,7 +634,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director--Global-Alliances---Biosimilars---Biologics--m-f-d-_31158409-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:22.844Z",
+      "crawledAt": "2026-10-08T22:15:54.350Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -653,15 +653,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31158409",
-      "firstSeenAt": "2026-08-31T17:29:21.270Z",
+      "previousSlugs": [
+        "director-global-alliances-biosimilars-biologics-m-f-d-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-global-alliances-biosimilars-biologics-m-f-d-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "director-global-alliances-biosimilars-biologics-m-f-d-abbott-ch"
-      ],
+      "firstSeenAt": "2026-08-31T17:29:21.270Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -708,7 +708,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Associate-Director--Patient-Strategy---Partnerships_31160531",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:22.085Z",
+      "crawledAt": "2026-10-08T22:15:53.701Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -727,15 +727,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31160531",
-      "firstSeenAt": "2026-08-31T17:29:18.893Z",
+      "previousSlugs": [
+        "global-associate-director-patient-strategy-partnerships-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "global-associate-director-patient-strategy-partnerships-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "global-associate-director-patient-strategy-partnerships-abbott-ch"
-      ],
+      "firstSeenAt": "2026-08-31T17:29:18.893Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -783,7 +783,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Sr-Operations---NPI-Engineer_31160727",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:21.221Z",
+      "crawledAt": "2026-10-08T22:15:52.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -802,15 +802,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31160727",
-      "firstSeenAt": "2026-09-03T13:52:34.410Z",
+      "previousSlugs": [
+        "sr-operations-npi-engineer-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sr-operations-npi-engineer-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "sr-operations-npi-engineer-abbott-ch"
-      ],
+      "firstSeenAt": "2026-09-03T13:52:34.410Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -858,7 +858,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Director--Head-of-Global-Marketing--EPD--m-f-d-_31161398",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:20.473Z",
+      "crawledAt": "2026-10-08T22:15:52.217Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -877,15 +877,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31161398",
-      "firstSeenAt": "2026-09-08T13:58:42.040Z",
+      "previousSlugs": [
+        "senior-director-head-of-global-marketing-epd-m-f-d-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-director-head-of-global-marketing-epd-m-f-d-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-director-head-of-global-marketing-epd-m-f-d-abbott-ch"
-      ],
+      "firstSeenAt": "2026-09-08T13:58:42.040Z",
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -932,7 +932,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Sales-Representative---Infectious-Diseases--m-w-d-_31161423",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:19.760Z",
+      "crawledAt": "2026-10-08T22:15:51.493Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -956,11 +956,11 @@
         "sales-representative-infectious-diseases-m-w-d-abbott-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "sales-representative-infectious-diseases-m-w-d-abbott-baar"
-        ],
         "it": [
           "sales-representative-infectious-diseases-m-w-d-abbott-ch"
+        ],
+        "fr": [
+          "sales-representative-infectious-diseases-m-w-d-abbott-baar"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1013,7 +1013,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Category-Manager-Procurement_31156551",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:19.066Z",
+      "crawledAt": "2026-10-08T22:15:50.795Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1037,11 +1037,11 @@
         "category-manager-procurement-abbott-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "category-manager-procurement-abbott-basel"
-        ],
         "it": [
           "category-manager-procurement-abbott-ch"
+        ],
+        "fr": [
+          "category-manager-procurement-abbott-basel"
         ]
       },
       "firstSeenAt": "2026-07-17T22:23:57.195Z",
@@ -1092,7 +1092,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Clinical-Specialist-Orbitale-Atherektomie---Imaging--m-w-d--Schweiz_31160038",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:18.337Z",
+      "crawledAt": "2026-10-08T22:15:50.101Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1177,7 +1177,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/TERRITORY-MANAGER---LAAO_31163198",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:17.385Z",
+      "crawledAt": "2026-10-08T22:15:49.402Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1196,15 +1196,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31163198",
-      "firstSeenAt": "2026-09-25T14:48:58.238Z",
+      "previousSlugs": [
+        "territory-manager-laao-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "territory-manager-laao-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "territory-manager-laao-abbott-ch"
-      ],
+      "firstSeenAt": "2026-09-25T14:48:58.238Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -1251,7 +1251,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/EPD-Product-Flows-Expert_31163022",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:16.677Z",
+      "crawledAt": "2026-10-08T22:15:48.720Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1270,15 +1270,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31163022",
-      "firstSeenAt": "2026-10-03T09:23:24.587Z",
+      "previousSlugs": [
+        "epd-product-flows-expert-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "epd-product-flows-expert-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "epd-product-flows-expert-abbott-ch"
-      ],
+      "firstSeenAt": "2026-10-03T09:23:24.587Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1326,7 +1326,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Sales-Representative-Elektrophysiologie---Schweiz_31163806",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:15.787Z",
+      "crawledAt": "2026-10-08T22:15:48.018Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1345,15 +1345,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31163806",
-      "firstSeenAt": "2026-10-05T21:37:41.590Z",
+      "previousSlugs": [
+        "sales-representative-elektrophysiologie-schweiz-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sales-representative-elektrophysiologie-schweiz-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "sales-representative-elektrophysiologie-schweiz-abbott-ch"
-      ],
+      "firstSeenAt": "2026-10-05T21:37:41.590Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -1400,7 +1400,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Financial-Analyst_31163154",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:15.073Z",
+      "crawledAt": "2026-10-08T22:15:47.336Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1419,15 +1419,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31163154",
-      "firstSeenAt": "2026-10-06T21:27:52.337Z",
+      "previousSlugs": [
+        "financial-analyst-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "financial-analyst-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "financial-analyst-abbott-ch"
-      ],
+      "firstSeenAt": "2026-10-06T21:27:52.337Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1474,7 +1474,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/TERRITORY-MANAGER---LAAO---Romandy_31164075",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:14.304Z",
+      "crawledAt": "2026-10-08T22:15:45.009Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1493,15 +1493,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "31164075",
-      "firstSeenAt": "2026-10-07T21:41:13.869Z",
+      "previousSlugs": [
+        "territory-manager-laao-romandy-abbott-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "territory-manager-laao-romandy-abbott-ch"
         ]
       },
-      "previousSlugs": [
-        "territory-manager-laao-romandy-abbott-ch"
-      ],
+      "firstSeenAt": "2026-10-07T21:41:13.869Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -1521,27 +1521,27 @@
       "id": "abbott-d232d65f3792",
       "slug": "clinical-site-lead-m-w-d-abbott-baar",
       "slugByLocale": {
-        "de": "clinical-site-lead-m-w-d-abbott-ch",
         "it": "clinical-site-lead-m-w-d-abbott-baar",
-        "fr": "site-clinique-plomb-h-f-d-abbott-baar",
-        "en": "clinical-site-lead-m-w-d-abbott-baar"
+        "en": "clinical-site-lead-m-w-d-abbott-baar",
+        "de": "clinical-site-lead-m-w-d-abbott-ch",
+        "fr": "site-clinique-plomb-h-f-d-abbott-baar"
       },
       "company": "Abbott",
       "companyKey": "abbott",
       "companyDomain": "abbott.com",
       "title": "Clinical Site Lead (m/w/d)",
       "titleByLocale": {
-        "de": "Clinical Site Lead (m/w/d)",
-        "en": "Clinical Site Lead (m/w/d)",
         "it": "Clinical Site Lead (m/w/d)",
+        "en": "Clinical Site Lead (m/w/d)",
+        "de": "Clinical Site Lead (m/w/d)",
         "fr": "Clinical Site Lead (m/w/d)"
       },
       "description": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
       "descriptionByLocale": {
-        "de": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
-        "it": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
-        "en": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
-        "fr": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable"
+        "it": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
+        "en": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
+        "de": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable",
+        "fr": "JOB DESCRIPTION:\nAbbott ist ein weltweit führendes Unternehmen im Gesundheitswesen, das bahnbrechende wissenschaftliche Erkenntnisse nutzt und Lösungen zur Verbesserung der Gesundheit der Menschen entwickelt. Wir blicken stets in die Zukunft und antizipieren Veränderungen in der medizinischen Wissenschaft und Technologie.\n\nARBEITEN BEI ABBOTT\nBei Abbott finden Sie eine Aufgabe, die von Bedeutung ist, und können sich weiterentwickeln und lernen, für sich und Ihre Familie sorgen, sich selbst verwirklichen und ein erfülltes Leben führen. Abbott bietet Ihnen:\n\n• Entwicklungsmöglichkeiten in einem internationalen Unternehmen, in dem Sie die Karriere machen können, von der Sie träumen\n\n• Eine herausfordernde Position in einer schnell wachsenden krisenunabhängigen Branche\n\n• Teil eines dynamischen, hochqualifizierten und motivierten Teams zu werden\n\n• Flache Hierarchien, offene, wertschätzende Mentalität und effiziente, konstruktive Kommunikationswege\n\n• Ein multinationales Umfeld, in dem wir die Entwicklung unserer Talente innerhalb des Unternehmens fördern\n\n• Ein Unternehmen, das als eine der Best Big Companies to Work For anerkannt ist, sowie als bester Arbeitsplatz für Vielfalt, arbeitende Mütter, weibliche Führungskräfte und Wissenschaftler:innen sowie als Top Employer Deutschlands ausgezeichnet wurde\n\nUnser Global Clinical Operations Team unterstützt die erfolgreiche Durchführung klinischer Studien über verschiedene Abbott Geschäftsbereiche hinweg. Wir arbeiten eng mit Prüfzentren, Studienleitungen und interdisziplinären Teams zusammen, um höchste Qualitäts- und Compliance-Standards sicherzustellen und innovative Therapien für Patient:innen weltweit voranzubringen.\n\nZur Verstärkung unseres Teams suchen wir zum 01.November 2026 nächstmöglichen Zeitpunkt eine/n\nClinical Site Lead (m/w/d)\nSchweiz | Home-Office based\n\nDer Clinical Site Lead (CSL) übernimmt die operative Verantwortung für die Durchführung klinischer Studien an zugeordneten Prüfzentren. In dieser Funktion sind Sie zentrale Ansprechperson für Studienzentren und stellen sicher, dass klinische Studien gemäß regulatorischen Anforderungen, Good Clinical Practice (GCP) sowie internen Abbott-Richtlinien durchgeführt werden. Darüber hinaus tragen Sie maßgeblich zur Erreichung von Rekrutierungszielen, Datenqualität und Studienerfolg bei.\n\nIHRE AUFGABEN\n\n• Eigenverantwortliche Betreuung und Steuerung von Prüfzentren innerhalb klinischer Studien\n\n• Zentrale Ansprechperson für interne und externe Stakeholder an den zugewiesenen Studienstandorten\n\n• Identifikation, Qualifizierung und Weiterentwicklung geeigneter Prüfzentren und Prüfärzt:innen\n\n• Durchführung und Koordination von Site-Start-up-Aktivitäten in Zusammenarbeit mit den Site Operations Teams\n\n• Sicherstellung einer fristgerechten Aktivierung von Prüfzentren sowie Erreichung definierter Rekrutierungsziele\n\n• Entwicklung und Umsetzung standortspezifischer Strategien zur Förderung der Patient:innenrekrutierung\n\n• Kontinuierliche Bewertung der Studienperformance sowie Identifikation von Verbesserungspotenzialen\n\n• Durchführung von Site Initiation Visits, Monitoring Visits und Close-out Visits\n\n• Überprüfung von Studiendaten und Quelldokumentationen auf Vollständigkeit, Genauigkeit und Qualität\n\n• Sicherstellung der Einhaltung von regulatorischen Anforderungen, GCP-Richtlinien und Studienprotokollen\n\n• Unterstützung bei Audits, Inspektionen und Compliance-Aktivitäten\n\n• Sicherstellung der fristgerechten Meldung von unerwünschten Ereignissen, Produktbeanstandungen und Protokollabweichungen\n\n• Analyse und Lösung von studien- oder standortbezogenen Herausforderungen sowie Einleitung geeigneter Korrekturmaßnahmen\n\n• Schulung und regelmäßige Auffrischung des Studienpersonals hinsichtlich Studienprotokollen und regulatorischen Anforderungen\n\n• Sicherstellung einer vollständigen und ordnungsgemäßen Studien- und Standortdokumentation\n\n• Zusammenarbeit mit Clinical Operations, Study Management und weiteren internen Stakeholdern zur Sicherstellung des Studienfortschritts\n\n• Unterstützung bei Budget- und Vertragsprozessen in enger Abstimmung mit den relevanten Fachbereichen\n\n• Regelmäßige Kommunikation des Studienstatus und relevanter Entwicklungen an interne und externe Stakeholder\n\nIHR PROFIL\n\n• Abgeschlossenes Studium im Bereich Naturwissenschaften, Gesundheitswissenschaften, Ingenieurwesen, Pflege oder einer vergleichbaren Fachrichtung\n\n• Alternativ vergleichbare Berufserfahrung im Bereich klinische Forschung, Kardiologie oder Medizintechnik\n\n• Mindestens 2 Jahre Berufserfahrung in Clinical Research, Clinical Operations oder Site Management\n\n• Fundierte Kenntnisse der Good Clinical Practice (ICH-GCP) sowie relevanter regulatorischer Anforderungen und Standards\n\n• Erfahrung in der Durchführung, Betreuung und Überwachung klinischer Studien\n\n• Gute Kenntnisse klinischer Studiendesigns und Forschungsprozesse\n\n• Sicherer Umgang mit MS Office sowie idealerweise Erfahrung mit klinischen Datenbanksystemen (z. B. Oracle)\n\n• Ausgeprägte Kommunikations-, Organisations- und Zeitmanagementfähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Eigeninitiative und ausgeprägtes Verantwortungsbewusstsein\n\n• Teamorientierte Persönlichkeit mit der Fähigkeit, erfolgreich in einem internationalen Matrixumfeld zu arbeiten\n\n• Sehr gute Kenntnisse medizinischer Fachterminologie\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Weitere europäische Sprachkenntnisse sind von Vorteil\n\n• Hohe Reisebereitschaft von ca. 70 %, einschließlich internationaler Reisetätigkeit\n\nHaben wir Ihr Interesse geweckt? Dann bewerben Sie sich bei uns.\nWir freuen uns auf Sie!\n\nFolgen Sie Ihren Karrierezielen bei Abbott für vielfältige Möglichkeiten mit einem Unternehmen, das Ihnen helfen kann, Ihre Zukunft aufzubauen und Ihr bestes Leben zu führen. Abbott ist ein Arbeitgeber für Chancengleichheit, der sich der Vielfalt der Mitarbeiter verschrieben hat.\n\nWir bitten um Ihr Verständnis, dass wir ausschließlich Online-Bewerbungen über unser Online-Bewerbungsportal berücksichtigen. Bewerbungen per E-Mail oder per Post können nicht verarbeitet werden. Originalunterlagen werden nicht zurückgeschickt.\n\nBleiben Sie in Kontakt über www.abbott.com , Facebook www.facebook.com/Abbott und X @AbbottNews and @AbbottGlobal.\n\nThe base pay for this position is\nN/A In specific locations, the pay range may vary from the range posted.\n\nJOB FAMILY:\nClinical Affairs / Statistics\nDIVISION:\nMD Medical Devices\nLOCATION:\nSwitzerland > Baar : Neuhofstrasse 23\nADDITIONAL LOCATIONS:\n\nWORK SHIFT:\nStandard\nTRAVEL:\nYes, 75 % of the Time\nMEDICAL SURVEILLANCE:\nNot Applicable\nSIGNIFICANT WORK ACTIVITIES:\nNot Applicable"
       },
       "needsRetranslation": true,
       "location": "Baar",
@@ -1549,7 +1549,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Clinical-Site-Lead--m-w-d-_31157389-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:13.609Z",
+      "crawledAt": "2026-10-08T22:15:44.332Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1566,20 +1566,19 @@
       "postingDateSource": "reported",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Clinical-Site-Lead--m-w-d-_31157389-1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "31157389",
+      "previousSlugs": [
+        "clinical-site-lead-m-w-d-abbott-ch",
+        "sito-clinico-piombo-m-f-d-abbott-baar"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "clinical-site-lead-m-w-d-abbott-ch",
           "sito-clinico-piombo-m-f-d-abbott-baar"
         ]
       },
-      "previousSlugs": [
-        "clinical-site-lead-m-w-d-abbott-ch",
-        "sito-clinico-piombo-m-f-d-abbott-baar"
-      ],
+      "firstSeenAt": "2026-08-24T21:32:12.175Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1593,8 +1592,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6340",
-      "firstSeenAt": "2026-08-24T21:32:12.175Z"
+      "postalCode": "6340"
     }
   ]
 }
