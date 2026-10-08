@@ -7,6 +7,7 @@ import { clearAssetCaches } from './services/resilientImport';
 import {
  adoptStaticFallbackIntoRoot,
  hideRootForCrossfade,
+ shouldAdoptStaticFallbackIntoRoot,
  waitForStaticFirstPaint,
 } from './services/staticFallbackHandoff';
 
@@ -175,8 +176,7 @@ const mountApp = async () => {
  try {
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
-   if (!parsedRoute.staticOverlay
-     && !hasPlateAuctionStaticFallback()) {
+   if (shouldAdoptStaticFallbackIntoRoot(parsedRoute, hasPlateAuctionStaticFallback())) {
      const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
      if (fallback && !rootElement.contains(fallback)) {
        // Modulepreload fetches JobBoard, but does not wait for its evaluation.

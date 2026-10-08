@@ -21,6 +21,22 @@
  * Pure DOM, no React: index.tsx owns the timing (after App has loaded, before
  * the crossfade reserve is measured).
  */
+import type { AppRoute } from '@/services/router';
+
+/**
+ * Whether the entry should perform the existing body-level fallback adoption.
+ *
+ * This is deliberately extracted before the article-specific ownership rule is
+ * added: the entry point and its tests must share the same gate, while the
+ * generic SPA takeover behavior remains unchanged.
+ */
+export function shouldAdoptStaticFallbackIntoRoot(
+  route: Pick<AppRoute, 'staticOverlay'>,
+  hasPlateAuctionFallback: boolean,
+): boolean {
+  return !route.staticOverlay && !hasPlateAuctionFallback;
+}
+
 export interface StaticFallbackAdoption {
   /** The static sub-nav that was moved along with the fallback, if any. */
   subnav: HTMLElement | null;

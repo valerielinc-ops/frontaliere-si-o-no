@@ -61,6 +61,7 @@ vi.mock('@/services/analyticsProxy', () => ({
 import { useNavigationState } from '@/hooks/useNavigationState';
 import { pushRoute, parseHashToPath, parsePath, resolveBlogSlug, learnRuntimeBlogSlugs, getSeoSection } from '@/services/router';
 import { adoptRuntimeArticle } from '@/services/runtimeArticleResolution';
+import { adoptStaticFallbackIntoRoot, shouldAdoptStaticFallbackIntoRoot } from '@/services/staticFallbackHandoff';
 import { prefetchTab } from '@/services/prefetch';
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
@@ -331,6 +332,20 @@ describe('useNavigationState', () => {
       // only after the async resolution would still flash the hub list.
       expect(result.current.staticOverlay).toBe(true);
       expect(result.current.blogArticle).toBeNull();
+    });
+
+    it('keeps the static article outside #root while the initial owner is unresolved', () => {
+      const { result } = renderHook(() => useNavigationState());
+      const root = document.getElementById('root')!;
+      const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+
+      expect(result.current.staticOverlay).toBe(true);
+      const { route } = parsePath(window.location.pathname);
+      const shouldAdopt = shouldAdoptStaticFallbackIntoRoot(route, false);
+      if (shouldAdopt) adoptStaticFallbackIntoRoot(root, fallback);
+
+      expect(document.querySelector('main.seo-static-content article.ft-blog-article')).not.toBeNull();
+      expect(root.contains(fallback)).toBe(false);
     });
 
     it('does not stamp the hub\'s SEO over the article\'s own head', () => {
