@@ -4774,7 +4774,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-320635-2",
-      "slug": "crew-mcdonalds-switzerland-lamone-p8-320635-2",
+      "slug": "equipaggio-mcdonald-s-switzerland-lamone",
       "location": "LAMONE",
       "addressLocality": "LAMONE",
       "addressRegion": "TI",
@@ -4801,7 +4801,7 @@
         "fr": "Crew"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-lamone-p8-320635-2",
+        "it": "equipaggio-mcdonald-s-switzerland-lamone",
         "en": "crew-mcdonalds-switzerland-lamone-p8-320635-2",
         "de": "besatzung-mcdonald-s-switzerland-lamone",
         "fr": "crew-mcdonald-s-switzerland-lamone"
@@ -4814,11 +4814,15 @@
       },
       "id": "mcdonald-s-switzerland-9db58bb5dc83",
       "previousSlugs": [
-        "crew-mcdonald-s-switzerland-lamone"
+        "crew-mcdonald-s-switzerland-lamone",
+        "crew-mcdonalds-switzerland-lamone-p8-320635-2"
       ],
       "previousSlugsByLocale": {
         "de": [
           "crew-mcdonald-s-switzerland-lamone"
+        ],
+        "it": [
+          "crew-mcdonalds-switzerland-lamone-p8-320635-2"
         ]
       },
       "needsRetranslation": true,
@@ -5943,7 +5947,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-317520-2",
-      "slug": "crew-mcdonalds-switzerland-kreuzlingen-p8-317520-2",
+      "slug": "equipaggio-mcdonald-s-switzerland-kreuzlingen",
       "location": "KREUZLINGEN",
       "addressLocality": "KREUZLINGEN",
       "addressRegion": "TG",
@@ -5971,7 +5975,7 @@
       },
       "slugByLocale": {
         "de": "besatzung-mcdonald-s-switzerland-kreuzlingen",
-        "it": "crew-mcdonalds-switzerland-kreuzlingen-p8-317520-2",
+        "it": "equipaggio-mcdonald-s-switzerland-kreuzlingen",
         "en": "crew-mcdonalds-switzerland-kreuzlingen-p8-317520-2",
         "fr": "crew-mcdonald-s-switzerland-kreuzlingen"
       },
@@ -5997,7 +6001,15 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-317520-2"
+      "applyUrl": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-317520-2",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-kreuzlingen-p8-317520-2"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-kreuzlingen-p8-317520-2"
+      ]
     },
     {
       "title": "Crew",
@@ -6312,7 +6324,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-317562-3",
-      "slug": "crew-mcdonalds-switzerland-emmenbruecke-p8-317562-3",
+      "slug": "equipaggio-mcdonald-s-switzerland-emmen",
       "location": "EMMEN",
       "addressLocality": "EMMEN",
       "addressRegion": "LU",
@@ -6339,7 +6351,7 @@
         "fr": "Crew"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-emmenbruecke-p8-317562-3",
+        "it": "equipaggio-mcdonald-s-switzerland-emmen",
         "en": "crew-mcdonalds-switzerland-emmenbruecke-p8-317562-3",
         "de": "besatzung-mcdonald-s-switzerland-emmen",
         "fr": "crew-mcdonald-s-switzerland-emmenbruecke"
@@ -6353,7 +6365,8 @@
       "id": "mcdonald-s-switzerland-60255cd0e7a2",
       "previousSlugsByLocale": {
         "it": [
-          "crew-mcdonalds-switzerland-emmen-p8-317562-3"
+          "crew-mcdonalds-switzerland-emmen-p8-317562-3",
+          "crew-mcdonalds-switzerland-emmenbruecke-p8-317562-3"
         ],
         "de": [
           "besatzung-mcdonald-s-switzerland-emmenbruecke",
@@ -6363,7 +6376,8 @@
       "previousSlugs": [
         "crew-mcdonalds-switzerland-emmen-p8-317562-3",
         "besatzung-mcdonald-s-switzerland-emmenbruecke",
-        "crew-mcdonald-s-switzerland-emmen"
+        "crew-mcdonald-s-switzerland-emmen",
+        "crew-mcdonalds-switzerland-emmenbruecke-p8-317562-3"
       ],
       "needsRetranslation": true,
       "salaryMin": 69500,

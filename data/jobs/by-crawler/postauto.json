@@ -1066,12 +1066,12 @@
     },
     {
       "id": "postauto-755e0afc927e",
-      "slug": "fachspezialist-in-leitsysteme-e-ereignisinformation-postauto-ag-bern",
+      "slug": "specialista-dei-sistemi-di-orientamento-e-delle-informazioni-sugli-eventi-postauto-ag-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern",
-        "it": "fachspezialist-in-leitsysteme-e-ereignisinformation-postauto-ag-bern",
-        "en": "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern",
-        "fr": "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern"
+        "it": "specialista-dei-sistemi-di-orientamento-e-delle-informazioni-sugli-eventi-postauto-ag-bern",
+        "en": "specialist-in-control-systems-and-event-information-postauto-ag-bern",
+        "fr": "specialiste-des-systemes-de-guidage-et-de-l-information-evenementielle-postauto-ag-bern"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1122,11 +1122,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern",
+          "fachspezialist-in-leitsysteme-e-ereignisinformation-postauto-ag-bern"
+        ],
+        "en": [
+          "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern"
+        ],
+        "fr": [
           "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern"
+        "fachspezialist-in-leitsysteme-und-ereignisinformation-postauto-bern",
+        "fachspezialist-in-leitsysteme-e-ereignisinformation-postauto-ag-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

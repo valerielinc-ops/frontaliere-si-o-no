@@ -2518,12 +2518,12 @@
     },
     {
       "id": "orell-fuessli-thalia-f9a2a0d53c39",
-      "slug": "collaboratore-trice-in-kundenberatung-geschaftskunden-80-100-a-orell-fussli-thalia-zurich",
+      "slug": "collaboratore-trice-consulenza-clienti-aziendali-80-100-a-orell-fussli-thalia-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich",
-        "it": "collaboratore-trice-in-kundenberatung-geschaftskunden-80-100-a-orell-fussli-thalia-zurich",
-        "en": "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich",
-        "fr": "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich"
+        "it": "collaboratore-trice-consulenza-clienti-aziendali-80-100-a-orell-fussli-thalia-zurich",
+        "en": "customer-advisor-for-business-customers-80-100-a-orell-fussli-thalia-zurich",
+        "fr": "collaborateur-rice-conseil-a-la-clientele-commerciale-80-100-a-orell-fussli-thalia-zurich"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2572,11 +2572,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich",
+          "collaboratore-trice-in-kundenberatung-geschaftskunden-80-100-a-orell-fussli-thalia-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich"
+        "mitarbeiter-in-kundenberatung-geschaftskunden-80-100-a-orell-fuessli-thalia-zurich",
+        "collaboratore-trice-in-kundenberatung-geschaftskunden-80-100-a-orell-fussli-thalia-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

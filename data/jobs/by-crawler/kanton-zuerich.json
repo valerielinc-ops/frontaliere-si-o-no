@@ -15910,12 +15910,12 @@
     },
     {
       "id": "kanton-zuerich-79f576be6ab0",
-      "slug": "informatikspezialist-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "specialista-informatico-a-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "informatikspezialist-in-kanton-zuerich-zurich",
-        "it": "informatikspezialist-in-kantonale-verwaltung-zurich-zurich",
-        "en": "informatikspezialist-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
+        "it": "specialista-informatico-a-kantonale-verwaltung-zurich-zurich",
+        "en": "it-specialist-kantonale-verwaltung-zurich-zurich",
+        "fr": "specialiste-en-informatique-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15966,11 +15966,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "informatikspezialist-in-kanton-zuerich-zurich"
+          "informatikspezialist-in-kanton-zuerich-zurich",
+          "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "informatikspezialist-in-kanton-zuerich-zurich"
+        "informatikspezialist-in-kanton-zuerich-zurich",
+        "informatikspezialist-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,

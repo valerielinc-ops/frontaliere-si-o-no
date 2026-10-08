@@ -234,12 +234,12 @@
     },
     {
       "id": "georg-fischer-12b2871e8228",
-      "slug": "praktikant-in-qm-georg-fischer-ch",
+      "slug": "stagista-qm-georg-fischer-sissach",
       "slugByLocale": {
-        "it": "praktikant-in-qm-georg-fischer-ch",
-        "en": "praktikant-in-qm-georg-fischer-ch",
+        "it": "stagista-qm-georg-fischer-sissach",
+        "en": "qm-intern-georg-fischer-sissach",
         "de": "praktikant-in-qm-georg-fischer-ch",
-        "fr": "praktikant-in-qm-georg-fischer-ch"
+        "fr": "stagiaire-qm-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -283,11 +283,21 @@
       "requirementsByLocale": {},
       "jobReqId": "JR10915",
       "previousSlugs": [
-        "praktikant-in-qm-georg-fischer-sissach"
+        "praktikant-in-qm-georg-fischer-sissach",
+        "praktikant-in-qm-georg-fischer-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-qm-georg-fischer-sissach"
+        ],
+        "it": [
+          "praktikant-in-qm-georg-fischer-ch"
+        ],
+        "en": [
+          "praktikant-in-qm-georg-fischer-ch"
+        ],
+        "fr": [
+          "praktikant-in-qm-georg-fischer-ch"
         ]
       }
     },

@@ -15562,12 +15562,12 @@
         "en": "Team Leader: Shipment Processing",
         "fr": "Responsable d’équipe en préparation des envois"
       },
-      "slug": "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen",
+      "slug": "responsabile-del-team-di-preparazione-delle-spedizioni-die-schweizerische-post-harkingen",
       "slugByLocale": {
         "de": "teamleader-in-sendungsaufbereitung-post",
-        "it": "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen",
-        "en": "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen",
-        "fr": "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen"
+        "it": "responsabile-del-team-di-preparazione-delle-spedizioni-die-schweizerische-post-harkingen",
+        "en": "team-leader-shipment-processing-die-schweizerische-post-harkingen",
+        "fr": "responsable-d-equipe-en-preparation-des-envois-die-schweizerische-post-harkingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -15589,11 +15589,19 @@
       "id": "posta-svizzera-centro-regionale-cac0462f9825",
       "previousSlugsByLocale": {
         "it": [
-          "teamleader-in-sendungsaufbereitung-post"
+          "teamleader-in-sendungsaufbereitung-post",
+          "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen"
+        ],
+        "en": [
+          "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen"
+        ],
+        "fr": [
+          "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen"
         ]
       },
       "previousSlugs": [
-        "teamleader-in-sendungsaufbereitung-post"
+        "teamleader-in-sendungsaufbereitung-post",
+        "teamleader-in-sendungsaufbereitung-die-schweizerische-post-harkingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

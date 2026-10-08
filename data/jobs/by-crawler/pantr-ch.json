@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
         "it": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "en": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+        "en": "business-controllers-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
         "fr": "controleur-d-entreprise-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
       },
       "slugDisambiguator": "9bb03bc2169d",
@@ -74,6 +74,9 @@
           "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
         ],
         "fr": [
+          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+        ],
+        "en": [
           "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
         ]
       },
@@ -168,8 +171,8 @@
       "slugByLocale": {
         "de": "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
         "it": "responsabile-finanzen-controlling-pantr-gmbh-gumligen",
-        "en": "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
-        "fr": "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+        "en": "head-of-finance-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
+        "fr": "responsable-finances-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
       },
       "slugDisambiguator": "71516d1b8477",
       "company": "Pantr GmbH",
@@ -218,6 +221,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+        ],
+        "en": [
+          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+        ],
+        "fr": [
           "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
         ]
       },
@@ -571,12 +580,12 @@
     },
     {
       "id": "pantr-ch-da4578af7f16",
-      "slug": "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen",
+      "slug": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
       "slugByLocale": {
         "de": "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "it": "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen",
-        "en": "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
-        "fr": "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
+        "it": "fiduciario-a-con-attestato-professionale-federale-o-in-formazione-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "en": "trustee-with-a-federal-diploma-of-higher-education-or-in-training-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "fr": "fiduciaire-avec-brevet-federal-ou-en-formation-pantr-gmbh-dudingen-bern-da4578af7f16"
       },
       "slugDisambiguator": "da4578af7f16",
       "company": "Pantr GmbH",
@@ -623,11 +632,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
+          "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
+        ],
+        "en": [
+          "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
+        ],
+        "fr": [
           "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
         ]
       },
       "previousSlugs": [
-        "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16"
+        "treuhander-in-mit-eidg-fachausweis-oder-in-ausbildung-pantr-gmbh-dudingen-bern-da4578af7f16",
+        "treuhander-in-con-eidg-fachausweis-o-in-ausbildung-pantr-gmbh-dudingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
