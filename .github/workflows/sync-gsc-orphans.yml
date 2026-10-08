@@ -39,7 +39,14 @@ jobs:
   sync-orphans:
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 45 e non 30 (issue 12276). Il 7 ottobre 2026 un runner lento ha raddoppiato
+    # gli step di sola CPU (assemble 710 s contro 266-357, reconcile 296 s contro
+    # 108-204): prima di «Commit and push» erano già passati 26,5 minuti, e il
+    # tetto ha tagliato il job a metà commit, cioè dopo aver fatto tutto il
+    # lavoro e prima di salvarlo. Il commit, misurato sulle run verdi, dura da
+    # 143 a 386 s, e nel caso peggiore fa 8 tentativi di push. Un job tagliato dal
+    # tetto non esegue gli step `if: failure()`: lo vede solo scan-job-timeouts.mjs.
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -170,8 +177,9 @@ jobs:
           # ritorna comunque exit 1 → job rosso → issue di failure (semantica
           # exit-code preservata, nessun mascheramento di errori reali — perciò
           # NON uso continue-on-error, che ingoierebbe anche gli exit 1 genuini).
-          # 8 tentativi = ~8 chance di vincere la ref-race, con margine ampio
-          # sotto i 30min.
+          # 8 tentativi = ~8 chance di vincere la ref-race. Il margine sotto il
+          # tetto del job non dipende solo da questo loop ma da quanto durano gli
+          # step prima: vedi la nota su `timeout-minutes` in testa al job.
           MAX_PUSH_ATTEMPTS: '8'
 
       - name: Trigger deploy if data changed
