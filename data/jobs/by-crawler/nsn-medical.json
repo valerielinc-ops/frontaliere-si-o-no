@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-10-08T21:25:56.685Z",
+  "assembledAt": "2026-10-08T22:18:42.518Z",
   "jobs": [
     {
       "id": "nsn-medical-75557ee37143",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/750/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:49.485Z",
+      "crawledAt": "2026-10-08T22:18:37.307Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,15 +54,15 @@
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/750/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:23:41.107Z",
+      "previousSlugs": [
+        "studierende-r-ernahrungsberater-in-zusatzmodul-b-c-60-80-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-r-ernahrungsberater-in-zusatzmodul-b-c-60-80-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "studierende-r-ernahrungsberater-in-zusatzmodul-b-c-60-80-nsn-medical-onkologie"
-      ],
+      "firstSeenAt": "2026-09-29T21:23:41.107Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
@@ -109,7 +109,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/788/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:48.911Z",
+      "crawledAt": "2026-10-08T22:18:36.687Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/787/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:48.359Z",
+      "crawledAt": "2026-10-08T22:18:36.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:47.775Z",
+      "crawledAt": "2026-10-08T22:18:35.479Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -290,15 +290,15 @@
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/817/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-01T14:18:54.321Z",
+      "previousSlugs": [
+        "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
-      ],
+      "firstSeenAt": "2026-09-01T14:18:54.321Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -317,9 +317,9 @@
       "id": "nsn-medical-a79485ca05f1",
       "slug": "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
         "it": "assistente-di-studio-medico-80-100-nsn-medical-group-onkologie",
         "en": "medical-practice-assistant-80-100-nsn-medical-group-onkologie",
+        "de": "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie",
         "fr": "assistant-e-medical-e-80-100-nsn-medical-group-onkologie"
       },
       "company": "NSN Medical Group",
@@ -327,16 +327,16 @@
       "companyDomain": "nsn.ch",
       "title": "Medizinische/r Praxisassistent/in 80-100%",
       "titleByLocale": {
-        "de": "Medizinische/r Praxisassistent/in 80-100%",
         "it": "Medizinische/r Praxisassistent/in 80-100%",
         "en": "Medizinische/r Praxisassistent/in 80-100%",
+        "de": "Medizinische/r Praxisassistent/in 80-100%",
         "fr": "Medizinische/r Praxisassistent/in 80-100%"
       },
       "description": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung",
       "descriptionByLocale": {
-        "de": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung",
         "it": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung",
         "en": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung",
+        "de": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung",
         "fr": "Das Zentrum für integrative Onkologie (ZIO) bietet ein ganzheitliches Abklärungs-, Behandlungs- und Betreuungskonzept für Patienten mit Tumor- und Blutkrankheiten an. Die Patienten werden in einer vertrauensvollen Atmosphäre von einem interdisziplinären Ärzte-, Pflege- und Therapeutenteam individuell betreut. Diagnostik- und Therapiestrategien werden nach neuesten Erkenntnissen gestaltet und eingehend mit den Patienten besprochen. Im Rahmen der Integrativen Onkologie verbinden wir an den Standorten Zürich, Winterthur, Richterswil und Glarus moderne onkologische Therapien mit den Verfahren der Komplementärmedizin.\nZur Verstärkung unseres Teams in Zürich suchen wir per sofort oder nach Vereinbarung eine/n:\n\nMedizinische/r Praxisassistent/in 80-100%\n\nDein Aufgabengebiet\n\n• Du organisierst, begleitest und unterstützt unsere Sprechstunden in einer harmonischen und gut strukturierten Weise – mit viel Herz und Hingabe\n• Du gewährleistest eine herzliche und reibungslose Patientenaufnahme und bist die erste Anlaufstelle für unsere Patienten, die bei dir stets gut aufgehoben sind\n• Du führst eigenständig Labordiagnostik durch und hilfst, wichtige Erkenntnisse für die medizinische Versorgung zu gewinnen.\n• Du setzt die ärztlich angeordneten diagnostischen und therapeutischen Massnahmen fachgerecht um und trägst damit zu einer ganzheitlichen Heilung bei\n\nDeine Kompetenzen\n\n• Du hast eine abgeschlossene Ausbildung als Medizinische/r Praxisassistent/in oder Fachfrau/-mann Gesundheit – und du fühlst dich in diesem Beruf zu Hause\n• Du beherrschst MS Office sicher und hast Erfahrung im Umgang mit Praxissoftware (z.B. Axenita), was dir die Arbeit erleichtert\n• Du sprichst gutes Deutsch, Fremdsprachenkenntnisse sind ein willkommener Bonus\n• Du zeigst hohe Flexibilität und Belastbarkeit und bist stets dienstleistungsorientiert\n• Du bist kommunikativ, gehst offen auf Patienten zu und trittst stets professionell auf\n\nUnser Angebot\n\n• Eine spannende und verantwortungsvolle Aufgabe in einem dynamischen, ganzheitlichen medizinischen Umfeld\n• Ein modernes, freundliches und inspirierendes Arbeitsumfeld, in dem Zusammenarbeit und gegenseitige Wertschätzung grossgeschrieben werden\n• Flexibilität in den Arbeitszeiten, damit du Arbeit und Privatleben in Einklang bringen kannst\n• Ein einzigartiges Arbeitsumfeld, in dem Schulmedizin mit anthroposophisch erweiterten Heilmethoden verbunden wird – für eine ganzheitliche und nachhaltige Patientenversorgung"
       },
       "needsRetranslation": true,
@@ -345,7 +345,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:47.157Z",
+      "crawledAt": "2026-10-08T22:18:34.882Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -364,17 +364,16 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/822/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-80-100-nsn-medical-onkologie"
-      ],
+      "firstSeenAt": "2026-07-20T11:58:28.705Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -387,8 +386,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-20T11:58:28.705Z"
+      }
     },
     {
       "id": "nsn-medical-0477713ef5d6",
@@ -421,7 +419,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/827/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:46.493Z",
+      "crawledAt": "2026-10-08T22:18:34.231Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -472,15 +470,15 @@
           "Comportement professionnel"
         ]
       },
-      "firstSeenAt": "2026-05-19T21:02:06.939Z",
+      "previousSlugs": [
+        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
         ]
       },
-      "previousSlugs": [
-        "facharztin-facharzt-anasthesiologie-mit-fuhrungsverantwortung-stv-arztliche-leitung-nsn"
-      ],
+      "firstSeenAt": "2026-05-19T21:02:06.939Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -526,7 +524,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:45.904Z",
+      "crawledAt": "2026-10-08T22:18:33.648Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -650,7 +648,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:45.406Z",
+      "crawledAt": "2026-10-08T22:18:32.920Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -758,7 +756,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:44.805Z",
+      "crawledAt": "2026-10-08T22:18:32.283Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -837,7 +835,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:44.195Z",
+      "crawledAt": "2026-10-08T22:18:31.679Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -924,7 +922,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/838/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:43.487Z",
+      "crawledAt": "2026-10-08T22:18:30.941Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1001,7 +999,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/839/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:43.108Z",
+      "crawledAt": "2026-10-08T22:18:30.319Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1021,15 +1019,15 @@
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/839/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:12:02.572Z",
+      "previousSlugs": [
+        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
         ]
       },
-      "previousSlugs": [
-        "leitung-controlling-im-gesundheitswesen-80-100-nsn-medical-zurich"
-      ],
+      "firstSeenAt": "2026-08-31T17:12:02.572Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1075,7 +1073,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/840/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:42.535Z",
+      "crawledAt": "2026-10-08T22:18:29.886Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1095,15 +1093,15 @@
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/840/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:03:16.950Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-onkologie-60-100-zurich-nsn-medical-onkologie"
-      ],
+      "firstSeenAt": "2026-09-19T23:03:16.950Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1150,7 +1148,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/841/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:42.107Z",
+      "crawledAt": "2026-10-08T22:18:29.253Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1170,15 +1168,15 @@
       "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/841/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T14:23:45.285Z",
+      "previousSlugs": [
+        "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"
         ]
       },
-      "previousSlugs": [
-        "co-leitung-ernahrungsberatung-60-80-nsn-medical-onkologie"
-      ],
+      "firstSeenAt": "2026-09-24T14:23:45.285Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
