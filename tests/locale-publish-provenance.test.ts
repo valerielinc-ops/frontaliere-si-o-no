@@ -333,11 +333,91 @@ describe('locale publish admission plan', () => {
         },
       }],
     });
-    expect(plan.allowed).toBe(false);
+    // A stale non-IT locale is reported, not a veto (owner rule 2026-10-07):
+    // run 37728960699 skipped Pages for the whole site because GitHub refused
+    // the ticino-de push (one git tree past 50 MiB), which never self-clears.
+    expect(plan.allowed).toBe(true);
     expect(plan.healthyLocales).toEqual(['it', 'en']);
     expect(plan.staleLocales).toEqual(['de', 'fr']);
-    expect(plan.reason).toContain('incomplete for de, fr');
+    expect(plan.staleReasons.de).toBeTruthy();
+    expect(plan.reason).toBe('admitted post-build tail for en; stale fallback for de, fr');
     expect(plan.readyLocales).toEqual(['en']);
+  });
+
+  it('publishes IT with a stale locale whose post-build receipt was rejected (the ticino-de shape)', () => {
+    const published = (locale: string) => ({
+      file: `${locale}.json`,
+      manifest: {
+        ...receipt(locale),
+        sourceRunId: SOURCE_RUN_ID,
+        artifactRunId: '36850086639',
+        artifactName: `locale-dist-${locale}-36850086639`,
+      },
+    });
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en', 'de', 'fr'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [
+        published('en'),
+        published('fr'),
+        {
+          file: 'de.json',
+          manifest: {
+            ...published('de').manifest,
+            cdnBuildId: '',
+            cdnStatus: 'deferred',
+            artifactName: 'locale-shard-source-de-36850086639',
+            payloadStatus: 'source-ready',
+            publishStatus: 'ready-for-tail',
+            published: false,
+            stale: true,
+            fallback: 'post-build-shard-tail',
+            crossLocaleSkew: 'deferred',
+          },
+        },
+      ],
+    });
+    expect(plan.allowed).toBe(true);
+    expect(plan.healthyLocales).toEqual(['it', 'en', 'fr']);
+    expect(plan.staleLocales).toEqual(['de']);
+    expect(plan.staleReasons.de).toContain('post-build provenance rejected');
+    expect(plan.reason).toBe('admitted post-build tail for en, fr; stale fallback for de');
+  });
+
+  it('NEGATIVE CASE — still blocks when the IT snapshot itself was not admitted', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: [],
+      sourceStaleLocales: ['it', 'en', 'de', 'fr'],
+      tailLocales: [],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [],
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.reason).toContain('incomplete for it');
+  });
+
+  it('NEGATIVE CASE — still blocks on unreadable receipts, which are unknown state rather than stale', () => {
+    const plan = resolveNonItPublishPlan({
+      sourceHealthyLocales: ['it'],
+      sourceStaleLocales: ['en', 'de', 'fr'],
+      tailLocales: ['en'],
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      expectedBuildId: BUILD_ID,
+      artifactRunId: '36850086639',
+      provenance: [],
+      provenanceErrors: ['en.json: invalid JSON'],
+    });
+    expect(plan.allowed).toBe(false);
+    expect(plan.failures).toEqual(['en.json: invalid JSON']);
   });
 });
 
