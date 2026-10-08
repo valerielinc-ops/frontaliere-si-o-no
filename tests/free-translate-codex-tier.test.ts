@@ -808,6 +808,53 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(0);
   });
 
+  it('tre echi distinti di titoli gia\' nella lingua di arrivo non fermano Codex (run 37788188781)', async () => {
+    // Titoli reali: sorgente etichettata `it`, testo gia' inglese. Il rilevatore
+    // non li attribuisce a nessuna lingua con confidenza, quindi l'eco non
+    // prova un guasto del modello.
+    const echoed = [
+      'Automation & MFT Specialist',
+      'Senior .NET Developer',
+      'Sales Project Engineer (a) Ticino',
+      'IT Business Intelligence Specialist',
+    ];
+    const translatable = `${IT} Titolo che va tradotto.`;
+    const calls = stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      const source = /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+      return echoed.includes(source) ? source : `CODEX ${EN}`;
+    });
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of [...echoed, translatable]) {
+        results.push(await ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'en', fieldType: 'title' }));
+      }
+      return results;
+    });
+
+    expect(value[4]).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(5);
+    expect(lines.filter((l) => l.includes('reason=echo-source'))).toHaveLength(4);
+    expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
+  });
+
+  it('un eco non provato non azzera la serie: due echi provati, uno non provato e un terzo provato fermano il tier', async () => {
+    const proven = [
+      `${IT} Titolo distinto uno.`,
+      `${IT} Titolo distinto due.`,
+      `${IT} Titolo distinto tre.`,
+    ];
+    const order = [proven[0], proven[1], 'Senior .NET Developer', proven[2]];
+    stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      return /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+    });
+    const { lines } = await captureLog(async () => {
+      for (const text of order) await ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'en', fieldType: 'title' });
+    });
+    expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+  });
+
   it('tre rifiuti su testi distinti fermano il tier come tre fallimenti (review della PR corpus 2166)', async () => {
     // Un rifiuto non e' un eco della sorgente: prima di questa guardia la lane
     // lo contava come traduzione riuscita, azzerava lo streak e non si fermava.
