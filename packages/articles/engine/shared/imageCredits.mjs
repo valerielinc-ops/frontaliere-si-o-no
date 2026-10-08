@@ -226,6 +226,7 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  *   license: string,
  *   acquireLicensePage: string,
  *   isBasedOn?: string,
+ *   description?: string,
  * }} ImageCreditImageObjectFields
  * @typedef {{
  *   kind: 'text' | 'title' | 'author' | 'licence',
@@ -1004,7 +1005,8 @@ function namesWikimediaCommons(name) {
  * The ImageObject fields of a credited cover, to spread into `imageObjectLd`
  * after `url`, in place of the site defaults it would otherwise fill in.
  * The five fields Google's image-licence metadata documents, plus `isBasedOn`
- * (the Commons file page: the cover is a cropped/resized derivative).
+ * (the source page) and, for a licensed photo, a machine-readable description
+ * of the crop/resize modification.
  *
  *   creator           Person/Organization from the record, never the site,
  *                     Commons or the uploader; a known profile URL is also
@@ -1056,6 +1058,11 @@ export function imageObjectCreditFields(record) {
     acquireLicensePage: pageUrl,
   };
   if (!isGeneratedRecord(record)) fields.isBasedOn = pageUrl;
+  if (isLicensedPhotoCredit(record)) {
+    fields.description = record.modified === 'cropped'
+      ? 'Cropped and resized derivative of the licensed source.'
+      : 'Resized derivative of the licensed source.';
+  }
   return fields;
 }
 

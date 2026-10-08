@@ -298,6 +298,7 @@ describe('licensed article-hero image records', () => {
       acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
       isBasedOn: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
       creator: { name: 'Ada Foto' },
+      description: 'Cropped and resized derivative of the licensed source.',
     });
   });
 });
