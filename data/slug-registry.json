@@ -172288,7 +172288,10 @@
     "canton": "ZH",
     "createdAt": "2026-05-20",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren"
+      "de": "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
+      "it": "infermiera-hf-fh-40-100-regiospitex-limmattal-schlieren",
+      "en": "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
+      "fr": "infirmiere-diplomee-hf-fh-40-100-regiospitex-limmattal-schlieren"
     }
   },
   "id|spitexjobs.ch|j951924": {
@@ -172562,7 +172565,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-04",
     "slugByLocale": {
-      "de": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch"
+      "de": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch",
+      "it": "guadagno-supplementare-con-orari-di-lavoro-flessibili-nell-ambito-dell-assistenza-del-sollievo-regiospitex-limmattal",
+      "en": "additional-earnings-with-flexible-working-hours-in-the-area-of-care-discharge-regiospitex-limmattal-schlieren",
+      "fr": "gains-supplementaires-avec-horaires-de-travail-flexibles-dans-le-domaine-des-soins-conges-regiospitex-limmattal"
     }
   },
   "id|spitexjobs.ch|j967187": {
@@ -172673,8 +172679,8 @@
     "createdAt": "2026-05-29",
     "slugByLocale": {
       "de": "fachfrau-fachmann-gesundheit-efz-40-80-spitex-ch-dietlikon",
-      "en": "fachfrau-fachmann-gesundheit-efz-40-80-spitex-ch-dietlikon",
-      "fr": "fachfrau-fachmann-gesundheit-efz-40-80-spitex-ch-dietlikon",
+      "en": "professional-health-efz-40-80-spitex-glattal-dietlikon",
+      "fr": "sante-professionnelle-efz-40-80-spitex-glattal-dietlikon",
       "it": "fachfrau-fachmann-gesundheit-cfc-40-80-spitex-glattal-dietlikon"
     }
   },
@@ -173095,7 +173101,8 @@
     "slugByLocale": {
       "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
       "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-      "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
+      "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen",
+      "it": "infermiere-sss-con-funzione-aggiuntiva-vice-responsabile-del-team-60-100-spitex-obwalden-sarnen"
     }
   },
   "id|spitexjobs.ch|j982209": {
@@ -177595,7 +177602,9 @@
     "createdAt": "2026-06-14",
     "slugByLocale": {
       "de": "audio-techniker-studio-mcr-mysports-40-sunrise-communications-ag-zurich",
-      "fr": "audio-technicien-studio-mcr-mysports-40-sunrise-communications-ag-zurich"
+      "fr": "audio-technicien-studio-mcr-mysports-40-sunrise-communications-ag-zurich",
+      "it": "studio-tecnico-audio-e-mcr-mysports-40-sunrise-communications-ag-zurich",
+      "en": "audio-technician-studio-mcr-mysports-40-sunrise-zurich"
     }
   },
   "id|sunrise.ch|head-of-data-science-analytics-80-100": {
@@ -297994,7 +298003,8 @@
     "slugByLocale": {
       "fr": "business-controller-in-kantonsspital-aarau-ksa-aarau",
       "it": "controllore-in-affari-kantonsspital-aarau-ksa-aarau",
-      "de": "business-controller-in-ksa-ch"
+      "de": "business-controller-in-ksa-ch",
+      "en": "business-controller-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-09",
     "canton": "AG"
@@ -305955,7 +305965,9 @@
   "id|lever.co|18f316bf-a257-4858-b727-65881686fc08": {
     "canonicalSlug": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf",
     "slugByLocale": {
-      "de": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf"
+      "de": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf",
+      "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-geneva-18f316bf",
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -305994,7 +306006,8 @@
   "id|lever.co|2408e25f-0f85-4539-aa16-bec60c8fbffe": {
     "canonicalSlug": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-2408e25f",
     "slugByLocale": {
-      "de": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-2408e25f"
+      "de": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-2408e25f",
+      "en": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-2408e25f"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306024,7 +306037,8 @@
   "id|lever.co|3bf907e0-b64f-45ba-a586-4f72b60df47a": {
     "canonicalSlug": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0",
     "slugByLocale": {
-      "de": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0"
+      "de": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0",
+      "en": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306054,7 +306068,9 @@
   "id|lever.co|4e5d6cdd-e727-4ab2-93d1-3a7513879e24": {
     "canonicalSlug": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd",
     "slugByLocale": {
-      "fr": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd"
+      "fr": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd",
+      "en": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd",
+      "de": "technicien-senior-vehicules-autonomes-robotaxi-flottenwartung-und-technischer-betrieb-tsmg-geneva-4e5d6cdd"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306073,7 +306089,8 @@
   "id|lever.co|62c18ec4-3d91-49d2-83bb-332794063bc2": {
     "canonicalSlug": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4",
     "slugByLocale": {
-      "fr": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4"
+      "fr": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4",
+      "en": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306167,7 +306184,8 @@
   "id|lever.co|a44805ef-ba91-4b7e-b9b9-b79bd40fb777": {
     "canonicalSlug": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef",
     "slugByLocale": {
-      "de": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef"
+      "de": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef",
+      "en": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306175,7 +306193,9 @@
   "id|lever.co|aed62f25-9ce4-4c18-afc1-680e4acd17c8": {
     "canonicalSlug": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25",
     "slugByLocale": {
-      "fr": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
+      "fr": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25",
+      "it": "responsable-des-operations-vehicules-autonomes-avos-responsabile-operazioni-veicoli-autonomi-tsmg-geneva-aed62f25",
+      "en": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306293,7 +306313,10 @@
   "id|lever.co|f52679ba-37a3-4258-88a1-73507db1173b": {
     "canonicalSlug": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba",
     "slugByLocale": {
-      "de": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba"
+      "de": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba",
+      "it": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-autonome-fahrzeuge-tsmg-geneva-f52679ba",
+      "en": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba",
+      "fr": "exploitation-autonome-de-vehicules-plomb-avos-exploitation-plomb-autonome-fahrzeuge-tsmg-geneva-f52679ba"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -312443,7 +312466,9 @@
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
     "slugByLocale": {
       "it": "dipl-pflegefachperson-hf-fh-per-den-fachbereich-psychiatrie-60-100-regiospitex-limmattal-schlieren",
-      "de": "dipl-pflegefachperson-hf-fh-fur-den-fachbereich-psychiatrie-60-100-spitex-ch-schlieren"
+      "de": "dipl-pflegefachperson-hf-fh-fur-den-fachbereich-psychiatrie-60-100-spitex-ch-schlieren",
+      "en": "dipl-nurse-hf-fh-for-the-department-of-psychiatry-60-100-regiospitex-limmattal-schlieren",
+      "fr": "dipl-infirmiere-hf-fh-pour-le-departement-de-psychiatrie-60-100-regiospitex-limmattal-schlieren"
     },
     "createdAt": "2026-07-11",
     "canton": "ZH"
@@ -375083,7 +375108,9 @@
     "canonicalSlug": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
     "slugByLocale": {
       "de": "equipment-operator-m-f-d-novartis-ch",
-      "fr": "equipment-operateur-m-f-d-novartis-muttenz-with-canteen"
+      "fr": "equipment-operateur-m-f-d-novartis-muttenz-with-canteen",
+      "it": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
+      "en": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
     },
     "createdAt": "2026-07-20",
     "canton": "BL"
@@ -390588,7 +390615,10 @@
   "id|recruitingapp-122706.umantis.com|5602": {
     "canonicalSlug": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
     "slugByLocale": {
-      "de": "med-praxisassistent-in-ksa-ch"
+      "de": "med-praxisassistent-in-ksa-ch",
+      "it": "assistente-medico-kantonsspital-aarau-ksa-aarau",
+      "en": "medical-practice-assistant-kantonsspital-aarau-ksa-aarau-e457f6",
+      "fr": "assistant-e-medical-e-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-07-22",
     "canton": "AG"
@@ -410027,7 +410057,8 @@
     "slugByLocale": {
       "it": "progettista-senior-dell-esperienza-utente-del-prodotto-hardware-logitech-lausanne-switzerland",
       "en": "senior-hardware-product-user-experience-designer-logitech-ch",
-      "fr": "createur-d-experience-utilisateur-de-produits-materiels-senior-logitech-lausanne-switzerland"
+      "fr": "createur-d-experience-utilisateur-de-produits-materiels-senior-logitech-lausanne-switzerland",
+      "de": "senior-hardware-produkt-nutzererlebnis-designer-logitech-lausanne-switzerland"
     },
     "createdAt": "2026-07-27",
     "canton": "VD"
@@ -423534,7 +423565,10 @@
   "id|stgag.ch|3726": {
     "canonicalSlug": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch-r134o4"
+      "de": "oberarzt-arztin-ambulante-erwachsenenpsychiatrie-80-100-stgag-ch-r134o4",
+      "it": "psichiatria-adulto-ambulatorio-medico-anziano-80-100-spital-thurgau-stgag-kreuzlingen",
+      "en": "senior-physician-ambulatory-adult-psychiatry-80-100-spital-thurgau-stgag-kreuzlingen",
+      "fr": "medecin-principal-ambulatoire-psychiatrie-adulte-80-100-spital-thurgau-stgag-kreuzlingen"
     },
     "createdAt": "2026-07-29",
     "canton": "TG"
@@ -423542,7 +423576,10 @@
   "id|stgag.ch|3729": {
     "canonicalSlug": "psychologe-in-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "psychologe-in-stgag-ch-r134o1"
+      "de": "psychologe-in-stgag-ch-r134o1",
+      "it": "psicologo-spital-thurgau-stgag-munsterlingen",
+      "en": "psychologist-spital-thurgau-stgag-munsterlingen",
+      "fr": "psychologue-spital-thurgau-stgag-munsterlingen"
     },
     "createdAt": "2026-07-29",
     "canton": "TG"
@@ -471681,7 +471718,10 @@
   "id|stgag.ch|3745": {
     "canonicalSlug": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch"
+      "de": "medizinische-n-praxisassistent-in-ambulatorium-frauenklinik-stgag-ch",
+      "it": "assistente-medico-ambulatorium-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "medical-assistant-ambulatorium-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "fr": "assistant-medical-en-ambulatoire-frauenklinik-spital-thurgau-stgag-kantonsspital-munsterlingen"
     },
     "createdAt": "2026-08-07",
     "canton": "TG"
@@ -478134,7 +478174,10 @@
   "id|stgag.ch|3751": {
     "canonicalSlug": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch"
+      "de": "arztliche-leitung-intensivmedizin-leitende-arztin-leitender-arzt-stgag-ch",
+      "it": "direttore-medico-di-medicina-intensiva-chief-doctor-senior-doctor-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "medical-director-of-intensive-care-medicine-chief-doctor-senior-doctor-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "fr": "directeur-medical-de-la-medecine-de-soins-intensifs-medecin-en-chef-medecin-principal-spital-thurgau-stgag-kantonsspital"
     },
     "createdAt": "2026-08-08",
     "canton": "TG"
@@ -482431,7 +482474,10 @@
   "id|stgag.ch|3749": {
     "canonicalSlug": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch"
+      "de": "praktikum-fachmatura-gesundheit-fmg-september-2027-stgag-ch",
+      "it": "internship-professional-health-fmg-settembre-2027-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "internship-professional-health-fmg-september-2027-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "fr": "sante-professionnelle-des-stagiaires-fmg-septembre-2027-spital-thurgau-stgag-kantonsspital-frauenfeld"
     },
     "createdAt": "2026-08-10",
     "canton": "TG"
@@ -482439,7 +482485,10 @@
   "id|stgag.ch|3744": {
     "canonicalSlug": "praktikant-in-fachmatura-gesundheit-fmg-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch"
+      "de": "praktikant-in-fachmatura-gesundheit-fmg-stgag-ch",
+      "it": "stage-in-salute-fmg-spital-thurgau-stgag-diessenhofen",
+      "en": "internship-in-health-fmg-spital-thurgau-stgag-diessenhofen",
+      "fr": "stage-en-sante-fmg-spital-thurgau-stgag-diessenhofen"
     },
     "createdAt": "2026-08-10",
     "canton": "TG"
@@ -494408,7 +494457,9 @@
     "canonicalSlug": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
     "slugByLocale": {
       "de": "development-engineer-electronics-with-emv-lead-komax-ch-i0zqmm",
-      "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon"
+      "fr": "development-ingenieur-electronics-with-emv-lead-komax-dierikon",
+      "it": "development-ingegnere-electronics-with-emv-lead-komax-dierikon",
+      "en": "development-engineer-electronics-with-emv-lead-komax-ch"
     },
     "createdAt": "2026-08-13",
     "canton": "LU"
@@ -531875,7 +531926,10 @@
   "id|stgag.ch|3757": {
     "canonicalSlug": "hebamme-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "hebamme-stgag-ch"
+      "de": "hebamme-stgag-ch",
+      "it": "mutua-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "midwife-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "fr": "une-sage-femme-spital-thurgau-stgag-kantonsspital-frauenfeld"
     },
     "createdAt": "2026-08-18",
     "canton": "TG"
@@ -557683,7 +557737,10 @@
   "id|stgag.ch|3763": {
     "canonicalSlug": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch"
+      "de": "oberarzt-arztin-je-nach-qualifikation-mbf-pneumologie-stgag-ch",
+      "it": "medico-senior-a-seconda-della-qualifica-mbf-pneumologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "senior-physician-depending-on-the-qualification-mbf-pneumology-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "fr": "medecin-principal-selon-la-qualification-mbf-pneumologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
     },
     "createdAt": "2026-08-25",
     "canton": "TG"
@@ -634613,7 +634670,10 @@
   "id|stgag.ch|3779": {
     "canonicalSlug": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch-r134jq"
+      "de": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-ch-r134jq",
+      "it": "amministrazione-paziente-fatturazione-ambulatoriale-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "patient-administration-outpatient-invoicing-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "fr": "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-spital-thurgau-stgag-kantonsspital-munsterlingen"
     },
     "createdAt": "2026-08-28",
     "canton": "TG"
@@ -749677,7 +749737,9 @@
     "canonicalSlug": "team-management-private-bed-station-medicine-kantonsspital-aarau-ksa-aarau",
     "slugByLocale": {
       "de": "teamleitung-privatbettenstation-medizin-ksa-ch",
-      "fr": "gestion-d-equipe-poste-de-lit-prive-medecine-kantonsspital-aarau-ksa-aarau"
+      "fr": "gestion-d-equipe-poste-de-lit-prive-medecine-kantonsspital-aarau-ksa-aarau",
+      "it": "team-management-private-bed-station-medicine-kantonsspital-aarau-ksa-aarau",
+      "en": "team-management-private-bed-station-medicine-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-09-18",
     "canton": "AG"
@@ -749773,7 +749835,10 @@
   "id|recruitingapp-122706.umantis.com|5746": {
     "canonicalSlug": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
     "slugByLocale": {
-      "de": "assistenzarztin-assistenzarzt-ksa-ch"
+      "de": "assistenzarztin-assistenzarzt-ksa-ch",
+      "it": "assistente-medico-assistente-medico-kantonsspital-aarau-ksa-aarau-4c9543",
+      "en": "assistant-doctor-assistant-doctor-kantonsspital-aarau-ksa-aarau-4c9543",
+      "fr": "assistant-medecin-assistant-medecin-kantonsspital-aarau-ksa-aarau-4c9543"
     },
     "createdAt": "2026-09-18",
     "canton": "AG"
@@ -749781,7 +749846,10 @@
   "id|recruitingapp-122706.umantis.com|5745": {
     "canonicalSlug": "fachfrau-fachmann-gesundheit-ksa-ch-5",
     "slugByLocale": {
-      "de": "fachfrau-fachmann-gesundheit-ksa-ch"
+      "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+      "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
+      "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
+      "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
     },
     "createdAt": "2026-09-18",
     "canton": "AG"
@@ -754546,7 +754614,9 @@
     "canonicalSlug": "building-materials-tester-laboratory-technician-subingen-strabag-subingen",
     "slugByLocale": {
       "en": "building-materials-tester-laboratory-technician-subingen-strabag-subingen",
-      "it": "tester-di-materiali-da-costruzione-subingen-tecnico-di-laboratorio-strabag-ag-subingen"
+      "it": "tester-di-materiali-da-costruzione-subingen-tecnico-di-laboratorio-strabag-ag-subingen",
+      "de": "baustoffprufer-in-laborant-in-subingen-strabag-subingen",
+      "fr": "controleur-des-materiaux-de-construction-laborantin-a-subingen-strabag-ag-subingen"
     },
     "createdAt": "2026-09-20",
     "canton": "SO"
@@ -754566,7 +754636,9 @@
     "canonicalSlug": "building-materials-tester-laboratory-technician-erstfeld-strabag-erstfeld",
     "slugByLocale": {
       "en": "building-materials-tester-laboratory-technician-erstfeld-strabag-erstfeld",
-      "it": "tester-di-materiali-da-costruzione-laboratorio-tecnico-erstfeld-strabag-ag-erstfeld"
+      "it": "tester-di-materiali-da-costruzione-laboratorio-tecnico-erstfeld-strabag-ag-erstfeld",
+      "de": "baustoffprufer-in-laborant-in-erstfeld-strabag-erstfeld",
+      "fr": "controleur-des-materiaux-de-construction-laborantin-a-erstfeld-strabag-ag-erstfeld"
     },
     "createdAt": "2026-09-20",
     "canton": "UR"
@@ -793498,7 +793570,10 @@
   "id|novartis.wd3.myworkdayjobs.com|req-10087275-2": {
     "canonicalSlug": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
     "slugByLocale": {
-      "en": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+      "en": "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+      "it": "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city",
+      "de": "forschungswissenschaftler-ii-laborautomation-drug-discovery-support-novartis-basel-city",
+      "fr": "chercheur-scientifique-ii-automatisation-de-laboratoire-et-soutien-a-la-decouverte-de-medicaments-novartis-basel-city"
     },
     "createdAt": "2026-09-25",
     "canton": "BS"
@@ -793507,7 +793582,9 @@
     "canonicalSlug": "director-translational-medicine-expert-neurodegeneration-novartis-ch",
     "slugByLocale": {
       "en": "director-translational-medicine-expert-neurodegeneration-novartis-ch",
-      "fr": "directeur-expert-en-medecine-translationnelle-neurodegeneration-novartis-basel-city"
+      "fr": "directeur-expert-en-medecine-translationnelle-neurodegeneration-novartis-basel-city",
+      "it": "direttore-translational-medicine-expert-neurodegeneration-novartis-basel-city",
+      "de": "direktor-translational-medicine-expert-neurodegeneration-novartis-basel-city"
     },
     "createdAt": "2026-09-25",
     "canton": "BS"
@@ -799126,7 +799203,9 @@
     "canonicalSlug": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
     "slugByLocale": {
       "de": "teamleiter-in-empfang-stgag-ch",
-      "fr": "reception-du-chef-d-equipe-spital-thurgau-stgag-kantonsspital-frauenfeld"
+      "fr": "reception-du-chef-d-equipe-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "it": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld"
     },
     "createdAt": "2026-09-26",
     "canton": "TG"
@@ -799135,7 +799214,9 @@
     "canonicalSlug": "pharma-assistent-in-pta-o-fachfrau-apotheke-cfc-spital-thurgau-stgag-munsterlingen",
     "slugByLocale": {
       "de": "pharma-assistent-in-pta-oder-fachfrau-apotheke-efz-stgag-ch",
-      "it": "pharma-assistent-in-pta-o-fachfrau-apotheke-cfc-spital-thurgau-stgag-munsterlingen"
+      "it": "pharma-assistent-in-pta-o-fachfrau-apotheke-cfc-spital-thurgau-stgag-munsterlingen",
+      "en": "pharmaceutical-assistant-pta-or-specialist-pharmacy-efz-spital-thurgau-stgag-munsterlingen",
+      "fr": "assistant-e-en-pharmacie-pta-ou-specialiste-en-pharmacie-cfc-spital-thurgau-stgag-munsterlingen"
     },
     "createdAt": "2026-09-26",
     "canton": "TG"
@@ -799232,7 +799313,8 @@
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh",
       "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
-      "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh"
+      "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh",
+      "it": "infermiere-diplomato-sss-sup-con-gestione-dei-casi-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -799240,7 +799322,10 @@
   "id|spitexjobs.ch|j992093": {
     "canonicalSlug": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal"
+      "de": "dipl-pflegefachperson-hf-fh-regionaler-nachtdienst-spitex-ch-liestal",
+      "it": "infermiere-sss-sup-servizio-notturno-regionale-spitex-regio-liestal-liestal",
+      "en": "qualified-nurse-hf-fh-regional-night-service-spitex-regio-liestal-liestal",
+      "fr": "infirmier-diplome-hf-fh-service-regional-de-nuit-spitex-regio-liestal-liestal"
     },
     "createdAt": "2026-09-26",
     "canton": "BL"
@@ -815919,7 +816004,9 @@
     "canonicalSlug": "lead-group-it-service-desk-w-m-d-komax-ch",
     "slugByLocale": {
       "en": "lead-group-it-service-desk-w-m-d-komax-ch",
-      "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon"
+      "fr": "groupe-principal-bureau-de-service-informatique-h-f-d-komax-dierikon",
+      "it": "gruppo-capofila-it-service-desk-m-f-d-komax-dierikon",
+      "de": "leitgruppe-it-service-desk-m-w-d-komax-dierikon-358ddd"
     },
     "createdAt": "2026-09-29",
     "canton": "LU"
@@ -842078,7 +842165,8 @@
     "slugByLocale": {
       "en": "senior-property-casualty-risk-manager-80-100-zurich-insurance-sede-ticino-zurich",
       "de": "senior-property-casual-risk-manager-80-100-zurich-insurance-zurich-1373463257",
-      "fr": "gestionnaire-principal-des-risques-lies-aux-biens-et-aux-pertes-80-100-zurich-insurance-zurich-1373463257"
+      "fr": "gestionnaire-principal-des-risques-lies-aux-biens-et-aux-pertes-80-100-zurich-insurance-zurich-1373463257",
+      "it": "responsabile-senior-del-rischio-di-proprieta-e-infortuni-80-100-zurich-insurance-zurich-1373463257"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -867368,7 +867456,9 @@
     "canonicalSlug": "senior-change-manager-life-m-w-d-zurich-insurance-sede-ticino-zurich",
     "slugByLocale": {
       "de": "senior-change-manager-life-m-w-d-zurich-insurance-sede-ticino-zurich",
-      "en": "senior-change-manager-life-m-w-d-zurich-insurance-zurich-1373954457"
+      "en": "senior-change-manager-life-m-w-d-zurich-insurance-zurich-1373954457",
+      "it": "senior-change-manager-life-m-f-d-zurich-insurance-zurich-1373954457",
+      "fr": "gestionnaire-de-changement-vie-h-f-d-zurich-insurance-zurich-1373954457"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -867377,7 +867467,9 @@
     "canonicalSlug": "project-officer-life-transformation-m-w-d-zurich-insurance-sede-ticino-zurich",
     "slugByLocale": {
       "de": "project-officer-life-transformation-m-w-d-zurich-insurance-sede-ticino-zurich",
-      "en": "project-officer-life-transformation-m-w-d-zurich-insurance-zurich-1373960657"
+      "en": "project-officer-life-transformation-m-w-d-zurich-insurance-zurich-1373960657",
+      "it": "project-officer-life-transformation-m-f-d-zurich-insurance-zurich-1373960657",
+      "fr": "agent-de-projet-transformation-de-la-vie-h-f-d-zurich-insurance-zurich-1373960657"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -874040,7 +874132,9 @@
   "id|solique.ch|4079887": {
     "canonicalSlug": "business-application-manager-in-gesundheitswesen-adullam-basel",
     "slugByLocale": {
-      "de": "business-application-manager-in-gesundheitswesen-adullam-basel"
+      "de": "business-application-manager-in-gesundheitswesen-adullam-basel",
+      "it": "responsabile-delle-applicazioni-aziendali-nel-settore-sanitario-adullam-stiftung-basel",
+      "fr": "responsable-des-applications-metier-dans-le-domaine-de-la-sante-adullam-stiftung-basel"
     },
     "createdAt": "2026-10-06",
     "canton": "BS"
@@ -876518,7 +876612,8 @@
     "slugByLocale": {
       "de": "teamleiter-in-steuern-zkb-zurich",
       "it": "imposte-del-team-leader-zurcher-kantonalbank-zurich",
-      "en": "team-leader-taxation-zurcher-kantonalbank-zurich"
+      "en": "team-leader-taxation-zurcher-kantonalbank-zurich",
+      "fr": "responsable-d-equipe-fiscalite-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -877222,7 +877317,9 @@
     "canonicalSlug": "projektingenieur-in-bau-e-responsabile-di-progetto-bau-con-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
     "slugByLocale": {
       "it": "projektingenieur-in-bau-e-responsabile-di-progetto-bau-con-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
-      "de": "projektingenieur-in-bau-und-projektleiter-in-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig"
+      "de": "projektingenieur-in-bau-und-projektleiter-in-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
+      "en": "project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
+      "fr": "ingenieur-de-projet-dans-la-construction-et-chef-de-projet-dans-la-construction-avec-un-potentiel-suppleant-directeur-de"
     },
     "createdAt": "2026-10-06",
     "canton": "VS"
@@ -877615,7 +877712,8 @@
     "canonicalSlug": "junior-talent-consulente-technik-gebaudetechnik-100-m-w-yellowshark-ag-zurich",
     "slugByLocale": {
       "it": "junior-talent-consulente-technik-gebaudetechnik-100-m-w-yellowshark-ag-zurich",
-      "de": "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch"
+      "de": "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch",
+      "fr": "consultant-junior-en-recrutement-technique-technique-du-batiment-100-h-f-yellowshark-ag-zurich-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -881527,7 +881625,8 @@
     "slugByLocale": {
       "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-luzern",
       "de": "kranfuhrer-mit-suva-ausweis-m-w-luzern-lu-yellowshark-ch",
-      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-luzern"
+      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-luzern",
+      "it": "gruista-con-documento-suva-m-f-yellowshark-ag-luzern-lu"
     },
     "createdAt": "2026-10-06",
     "canton": "LU"
@@ -881975,7 +882074,8 @@
     "slugByLocale": {
       "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-aarau",
       "de": "kranfuhrer-mit-suva-ausweis-m-w-aarau-ag-yellowshark-ch",
-      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-aarau"
+      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-aarau",
+      "it": "gruista-con-documento-suva-m-f-yellowshark-ag-aarau-ag"
     },
     "createdAt": "2026-10-06",
     "canton": "AG"
@@ -882247,7 +882347,8 @@
     "slugByLocale": {
       "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-zurich",
       "de": "kranfuhrer-mit-suva-ausweis-m-w-zurich-zh-yellowshark-ch",
-      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich"
+      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-zurich",
+      "it": "gruista-con-documento-suva-m-f-yellowshark-ag-zurich-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -883187,7 +883288,8 @@
     "slugByLocale": {
       "en": "project-responsibility-in-an-hlkse-subject-area-with-focus-on-integral-coordination-m-f-80-100-yellowshark-ag-zurich",
       "de": "projektverantwortung-in-einem-hlkse-fachgebiet-mit-fokus-auf-integrale-koordination-m-w-80",
-      "fr": "responsabilite-du-projet-dans-un-domaine-hlkse-axe-sur-la-coordination-integrale-h-f-80-100-yellowshark-ag-zurich"
+      "fr": "responsabilite-du-projet-dans-un-domaine-hlkse-axe-sur-la-coordination-integrale-h-f-80-100-yellowshark-ag-zurich",
+      "it": "responsabilita-di-progetto-in-un-area-specialistica-hvacse-con-particolare-attenzione-al-coordinamento-integrale-m-f-80"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -884146,7 +884248,8 @@
     "slugByLocale": {
       "en": "personnel-with-knowledge-of-french-m-f-100-yellowshark-ag-basel",
       "de": "sachbearbeiter-mit-franzosischkenntnissen-m-w-100-basel-bs-yellowshark-ch",
-      "fr": "personnel-ayant-une-connaissance-du-francais-h-f-100-yellowshark-ag-basel"
+      "fr": "personnel-ayant-une-connaissance-du-francais-h-f-100-yellowshark-ag-basel",
+      "it": "addetto-con-conoscenza-del-francese-m-f-100-yellowshark-ag-basel-bs"
     },
     "createdAt": "2026-10-06",
     "canton": "BS"
@@ -884571,7 +884674,8 @@
     "slugByLocale": {
       "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-bern",
       "de": "kranfuhrer-mit-suva-ausweis-m-w-bern-be-yellowshark-ch",
-      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern"
+      "fr": "operateur-de-grue-avec-suva-id-h-f-yellowshark-ag-bern",
+      "it": "gruista-con-documento-suva-m-f-yellowshark-ag-bern-be"
     },
     "createdAt": "2026-10-06",
     "canton": "BE"
@@ -885210,7 +885314,9 @@
     "canonicalSlug": "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
     "slugByLocale": {
       "en": "hr-specialist-m-f-80-100-yellowshark-ag-luzern",
-      "de": "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch"
+      "de": "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
+      "it": "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern-lu",
+      "fr": "specialiste-rh-h-f-80-100-yellowshark-ag-luzern-lu"
     },
     "createdAt": "2026-10-06",
     "canton": "LU"
@@ -885339,7 +885445,8 @@
     "slugByLocale": {
       "en": "bowl-m-f-yellowshark-ag-st-gallen-sg",
       "de": "schaler-m-w-st-gallen-sg-yellowshark-ch",
-      "fr": "echarpe-h-f-yellowshark-ag-st-gallen-sg"
+      "fr": "echarpe-h-f-yellowshark-ag-st-gallen-sg",
+      "it": "shell-m-f-yellowshark-ag-st-gallen-sg"
     },
     "createdAt": "2026-10-06",
     "canton": "SG"
@@ -885597,7 +885704,8 @@
     "slugByLocale": {
       "en": "crane-operator-with-suva-id-m-f-yellowshark-ag-chur-gr",
       "de": "kranfuhrer-mit-suva-ausweis-m-w-chur-gr-yellowshark-ch",
-      "fr": "conducteur-de-grue-avec-badge-suva-h-f-yellowshark-ag-chur-gr"
+      "fr": "conducteur-de-grue-avec-badge-suva-h-f-yellowshark-ag-chur-gr",
+      "it": "gruista-con-documento-suva-m-f-yellowshark-ag-chur-gr"
     },
     "createdAt": "2026-10-06",
     "canton": "GR"
@@ -886108,7 +886216,9 @@
     "canonicalSlug": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch",
     "slugByLocale": {
       "en": "hr-specialist-m-f-80-100-yellowshark-ag-uster",
-      "de": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch"
+      "de": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch",
+      "it": "professionista-hr-m-f-80-100-yellowshark-ag-uster-zh",
+      "fr": "specialiste-rh-h-f-80-100-yellowshark-ag-uster-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -886281,7 +886391,8 @@
     "slugByLocale": {
       "en": "computer-scientist-with-project-responsibility-m-f-100-yellowshark-ag-wettingen-ag",
       "de": "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch",
-      "fr": "informatique-responsable-du-projet-h-f-100-yellowshark-ag-wettingen-ag"
+      "fr": "informatique-responsable-du-projet-h-f-100-yellowshark-ag-wettingen-ag",
+      "it": "informatico-con-responsabilita-di-progetto-m-f-100-yellowshark-ag-wettingen-ag"
     },
     "createdAt": "2026-10-06",
     "canton": "AG"
@@ -886823,7 +886934,8 @@
     "canonicalSlug": "ict-system-ingegnere-e-support-specialista-m-w-d-80-100-yellowshark-ag-zurich",
     "slugByLocale": {
       "de": "ict-system-engineer-und-support-specialist-m-w-80-100-zurich-zh-yellowshark-ch",
-      "it": "ict-system-ingegnere-e-support-specialista-m-w-d-80-100-yellowshark-ag-zurich"
+      "it": "ict-system-ingegnere-e-support-specialista-m-w-d-80-100-yellowshark-ag-zurich",
+      "fr": "ingenieur-systeme-tic-et-specialiste-du-support-h-f-80-100-yellowshark-ag-zurich-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -886917,7 +887029,8 @@
   "url|https://jobs.yellowshark.com/job/sa068219": {
     "canonicalSlug": "sachbearbeiter-in-export-80-100-oetwil-am-see-zh-yellowshark-ch",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-export-80-100-oetwil-am-see-zh-yellowshark-ch"
+      "de": "sachbearbeiter-in-export-80-100-oetwil-am-see-zh-yellowshark-ch",
+      "fr": "responsable-des-exportations-80-100-yellowshark-ag-oetwil-am-see-zh"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -888693,7 +888806,9 @@
   "url|https://jobs.yellowshark.com/job/sa067711": {
     "canonicalSlug": "export-specialist-m-w-100-kussnacht-am-rigi-sz-yellowshark-ch",
     "slugByLocale": {
-      "de": "export-specialist-m-w-100-kussnacht-am-rigi-sz-yellowshark-ch"
+      "de": "export-specialist-m-w-100-kussnacht-am-rigi-sz-yellowshark-ch",
+      "it": "export-specialista-m-w-100-yellowshark-ag-kussnacht-am-rigi",
+      "fr": "export-specialiste-m-w-100-yellowshark-ag-kussnacht-am-rigi"
     },
     "createdAt": "2026-10-07",
     "canton": "SZ"
@@ -888712,7 +888827,10 @@
   "url|https://jobs.yellowshark.com/job/sa067615": {
     "canonicalSlug": "sachbearbeiter-in-buchhaltung-m-w-rotkreuz-zg-yellowshark-ch",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-buchhaltung-m-w-rotkreuz-zg-yellowshark-ch"
+      "de": "sachbearbeiter-in-buchhaltung-m-w-rotkreuz-zg-yellowshark-ch",
+      "it": "impiegato-contabile-m-f-yellowshark-ag-rotkreuz-zg",
+      "en": "accounting-clerk-m-f-yellowshark-ag-rotkreuz-zg",
+      "fr": "commis-comptable-h-f-yellowshark-ag-rotkreuz-zg"
     },
     "createdAt": "2026-10-07",
     "canton": "ZG"
@@ -888721,7 +888839,9 @@
     "canonicalSlug": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
     "slugByLocale": {
       "de": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
-      "en": "hr-specialist-m-f-80-100-yellowshark-ag-rotkreuz-zg"
+      "en": "hr-specialist-m-f-80-100-yellowshark-ag-rotkreuz-zg",
+      "it": "specialista-hr-m-f-80-100-yellowshark-ag-rotkreuz-zg",
+      "fr": "specialiste-des-rh-h-f-80-100-yellowshark-ag-rotkreuz-zg"
     },
     "createdAt": "2026-10-07",
     "canton": "ZG"
@@ -888763,7 +888883,8 @@
     "slugByLocale": {
       "de": "polymechaniker-efz-maschinenmonteur-sondermaschinen-100-m-w-lenzburg-ag-yellowshark-ch",
       "en": "polymechanic-efz-special-machine-assembly-100-m-f-yellowshark-ag-lenzburg-ag",
-      "fr": "efz-polymecanique-montage-de-machine-special-100-h-f-yellowshark-ag-lenzburg-ag"
+      "fr": "efz-polymecanique-montage-de-machine-special-100-h-f-yellowshark-ag-lenzburg-ag",
+      "it": "efz-polimeccanica-montatore-di-macchine-macchine-speciali-al-100-m-f-yellowshark-ag-lenzburg-ag"
     },
     "createdAt": "2026-10-07",
     "canton": "AG"
@@ -888781,7 +888902,9 @@
   "url|https://jobs.yellowshark.com/job/sa068354": {
     "canonicalSlug": "it-system-engineer-8211-microsoft-infrastruktur-m-w-80-100-bern-be-yellowshark-ch",
     "slugByLocale": {
-      "de": "it-system-engineer-8211-microsoft-infrastruktur-m-w-80-100-bern-be-yellowshark-ch"
+      "de": "it-system-engineer-8211-microsoft-infrastruktur-m-w-80-100-bern-be-yellowshark-ch",
+      "it": "it-system-ingegnere-microsoft-infrastruktur-m-w-80-100-yellowshark-ag-bern",
+      "fr": "it-system-ingenieur-microsoft-infrastruktur-m-w-80-100-yellowshark-ag-bern"
     },
     "createdAt": "2026-10-07",
     "canton": "BE"
@@ -888789,7 +888912,9 @@
   "url|https://jobs.yellowshark.com/job/sa068391": {
     "canonicalSlug": "it-infrastructure-engineer-workplace-038-server-sempach-lu-yellowshark-ch",
     "slugByLocale": {
-      "de": "it-infrastructure-engineer-workplace-038-server-sempach-lu-yellowshark-ch"
+      "de": "it-infrastructure-engineer-workplace-038-server-sempach-lu-yellowshark-ch",
+      "it": "it-infrastructure-ingegnere-workplace-server-yellowshark-ag-sempach",
+      "fr": "it-infrastructure-ingenieur-workplace-server-yellowshark-ag-sempach"
     },
     "createdAt": "2026-10-07",
     "canton": "LU"
@@ -888797,7 +888922,9 @@
   "url|https://jobs.yellowshark.com/job/sa068379": {
     "canonicalSlug": "cyber-security-engineer-luzern-lu-yellowshark-ch",
     "slugByLocale": {
-      "de": "cyber-security-engineer-luzern-lu-yellowshark-ch"
+      "de": "cyber-security-engineer-luzern-lu-yellowshark-ch",
+      "it": "cyber-security-ingegnere-yellowshark-ag-luzern",
+      "fr": "cyber-security-ingenieur-yellowshark-ag-luzern"
     },
     "createdAt": "2026-10-07",
     "canton": "LU"
@@ -888805,7 +888932,10 @@
   "url|https://jobs.yellowshark.com/job/sa068356": {
     "canonicalSlug": "betriebsmechaniker-80-8211-100-m-w-zurich-zh-yellowshark-ch",
     "slugByLocale": {
-      "de": "betriebsmechaniker-80-8211-100-m-w-zurich-zh-yellowshark-ch"
+      "de": "betriebsmechaniker-80-8211-100-m-w-zurich-zh-yellowshark-ch",
+      "it": "meccanico-operativo-80-100-m-f-yellowshark-ag-zurich-zh",
+      "en": "operating-mechanic-80-100-m-f-yellowshark-ag-zurich-zh",
+      "fr": "mecanicien-d-exploitation-80-100-h-f-yellowshark-ag-zurich-zh"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -888815,7 +888945,8 @@
     "slugByLocale": {
       "de": "automatiker-efz-elektromonteur-spezialmaschinen-100-m-w-wohlen-ag-ag-yellowshark-ch",
       "en": "automatic-engineer-efz-electro-installer-special-machines-100-m-f-yellowshark-ag-wohlen-ag-ag",
-      "fr": "ingenieur-automatique-efz-electro-installateur-machines-speciales-100-h-f-yellowshark-ag-wohlen-ag-ag"
+      "fr": "ingenieur-automatique-efz-electro-installateur-machines-speciales-100-h-f-yellowshark-ag-wohlen-ag-ag",
+      "it": "tecnico-automazione-efz-elettricista-macchine-speciali-al-100-m-f-yellowshark-ag-wohlen-ag-ag"
     },
     "createdAt": "2026-10-07",
     "canton": "AG"
@@ -888832,7 +888963,9 @@
   "url|https://jobs.yellowshark.com/job/sa068397": {
     "canonicalSlug": "senior-system-engineer-m-w-d-80-100-hinwil-zh-yellowshark-ch",
     "slugByLocale": {
-      "de": "senior-system-engineer-m-w-d-80-100-hinwil-zh-yellowshark-ch"
+      "de": "senior-system-engineer-m-w-d-80-100-hinwil-zh-yellowshark-ch",
+      "it": "senior-system-ingegnere-m-w-d-80-100-yellowshark-ag-hinwil",
+      "fr": "senior-system-ingenieur-m-w-d-80-100-yellowshark-ag-hinwil"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -891969,7 +892102,10 @@
   "id|stadt-zuerich.ch|1355229257": {
     "canonicalSlug": "praktikant-in-hps-stadt-zuerich-zurigo-49532",
     "slugByLocale": {
-      "de": "praktikant-in-hps-stadt-zuerich-zurigo-49532"
+      "de": "praktikant-in-hps-stadt-zuerich-zurigo-49532",
+      "it": "tirocinante-hps-stadt-zurich-zurich",
+      "en": "intern-hps-stadt-zurich-zurich",
+      "fr": "stagiaire-hps-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -892336,7 +892472,10 @@
   "id|recruitingapp-2800.umantis.com|6546": {
     "canonicalSlug": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
     "slugByLocale": {
-      "de": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch"
+      "de": "personalberater-in-sargans-m-w-d-kanton-st-gallen-ch",
+      "it": "consulente-del-personale-sargans-m-f-d-kanton-st-gallen-sargans",
+      "en": "recruitment-consultant-sargans-m-f-d-kanton-st-gallen-sargans",
+      "fr": "conseiller-ere-en-personnel-a-sargans-h-f-d-kanton-st-gallen-sargans"
     },
     "createdAt": "2026-10-08",
     "canton": "SG"
@@ -892344,7 +892483,10 @@
   "id|recruitingapp-2800.umantis.com|6545": {
     "canonicalSlug": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch"
+      "de": "sachbearbeiter-in-weiterbildungsmanagement-m-w-d-kanton-st-gallen-ch",
+      "it": "addetta-o-alla-gestione-della-formazione-continua-m-f-d-kanton-st-gallen-st-gallen",
+      "en": "administrative-clerk-continuing-education-management-m-f-d-kanton-st-gallen-st-gallen",
+      "fr": "collaborateur-rice-administratif-ve-en-gestion-de-la-formation-continue-h-f-d-kanton-st-gallen-st-gallen"
     },
     "createdAt": "2026-10-08",
     "canton": "SG"
@@ -892940,7 +893082,10 @@
   "url|https://apply.refline.ch/792841/11415/pub/2": {
     "canonicalSlug": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
     "slugByLocale": {
-      "de": "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+      "de": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
+      "it": "direzione-aziendale-banca-diretta-zurcher-kantonalbank-zurich",
+      "en": "corporate-management-direct-bank-zurcher-kantonalbank-zurich",
+      "fr": "banque-directe-de-gestion-d-entreprise-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -893745,6 +893890,1881 @@
       "en": "heating-installer-service-renovation-conversion-young-dynamic-team-target-permanent-position-stellentreff-ag-pfaffikon",
       "de": "heizungsinstallateur-in-service-sanierung-umbau-junges-dynamisches-team-ziel",
       "fr": "installateur-trice-de-chauffage-service-renovation-transformation-equipe-jeune-et-dynamique-objectif-du-poste-7d4bc6"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa065147": {
+    "canonicalSlug": "tecnico-di-servizio-internazionale-m-f-100-yellowshark-ag-effretikon-zh",
+    "slugByLocale": {
+      "de": "internationaler-servicetechniker-m-w-100-effretikon-zh-yellowshark-ch",
+      "it": "tecnico-di-servizio-internazionale-m-f-100-yellowshark-ag-effretikon-zh",
+      "en": "international-service-technician-m-f-100-yellowshark-ag-effretikon-zh",
+      "fr": "technicien-de-service-international-h-f-100-yellowshark-ag-effretikon-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa066996": {
+    "canonicalSlug": "senior-it-system-engineer-80-100-glattpark-opfikon-zh-yellowshark-ch",
+    "slugByLocale": {
+      "de": "senior-it-system-engineer-80-100-glattpark-opfikon-zh-yellowshark-ch"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa067127": {
+    "canonicalSlug": "specialista-di-produzione-cnc-100-m-f-yellowshark-ag-effretikon-zh",
+    "slugByLocale": {
+      "de": "cnc-fertigungsspezialist-100-m-w-effretikon-zh-yellowshark-ch",
+      "it": "specialista-di-produzione-cnc-100-m-f-yellowshark-ag-effretikon-zh",
+      "en": "cnc-manufacturing-specialist-100-m-f-yellowshark-ag-effretikon-zh",
+      "fr": "specialiste-de-la-fabrication-cnc-100-h-f-yellowshark-ag-effretikon-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa012166": {
+    "canonicalSlug": "falegname-m-f-yellowshark-ag-bern",
+    "slugByLocale": {
+      "it": "falegname-m-f-yellowshark-ag-bern",
+      "en": "carpenter-m-f-yellowshark-ag-bern",
+      "de": "schreiner-m-w-bern-be-yellowshark-ch",
+      "fr": "menuisier-h-f-yellowshark-ag-bern"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.yellowshark.com/job/sa037563": {
+    "canonicalSlug": "installatore-sanitario-di-riscaldamento-m-f-yellowshark-ag-zug-zg",
+    "slugByLocale": {
+      "it": "installatore-sanitario-di-riscaldamento-m-f-yellowshark-ag-zug-zg",
+      "en": "sanitary-heating-fitter-m-f-yellowshark-ag-zug-zg",
+      "de": "sanitar-heizungsmonteur-m-w-zug-zg-yellowshark-ch",
+      "fr": "installateur-sanitaire-chauffage-h-f-yellowshark-ag-zug-zg"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa056817": {
+    "canonicalSlug": "gruista-gru-a-rotazione-superiore-m-f-yellowshark-ag-schwyz-sz",
+    "slugByLocale": {
+      "it": "gruista-gru-a-rotazione-superiore-m-f-yellowshark-ag-schwyz-sz",
+      "en": "crane-operator-upper-slewing-crane-m-f-yellowshark-ag-schwyz-sz",
+      "de": "kranfuhrer-oberdrehkran-m-w-schwyz-sz-yellowshark-ch",
+      "fr": "conducteur-de-grue-grue-superieure-h-f-yellowshark-ag-schwyz-sz"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SZ"
+  },
+  "url|https://jobs.yellowshark.com/job/sa036358": {
+    "canonicalSlug": "operaio-di-carpenteria-in-legno-m-f-yellowshark-ag-aarau-ag",
+    "slugByLocale": {
+      "it": "operaio-di-carpenteria-in-legno-m-f-yellowshark-ag-aarau-ag",
+      "en": "timber-construction-worker-m-f-yellowshark-ag-aarau-ag",
+      "de": "holzbau-arbeiter-m-w-aarau-ag-yellowshark-ch",
+      "fr": "travailleur-de-la-construction-en-bois-h-f-yellowshark-ag-aarau-ag"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa036439": {
+    "canonicalSlug": "shell-m-f-yellowshark-ag-zurich",
+    "slugByLocale": {
+      "it": "shell-m-f-yellowshark-ag-zurich",
+      "en": "shell-m-f-yellowshark-ag-zurich",
+      "de": "schaler-m-w-zurich-zh-yellowshark-ch",
+      "fr": "shell-h-f-yellowshark-ag-zurich"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa037402": {
+    "canonicalSlug": "copritetto-lattoniere-m-f-yellowshark-ag-sarnen-ow",
+    "slugByLocale": {
+      "it": "copritetto-lattoniere-m-f-yellowshark-ag-sarnen-ow",
+      "en": "roofers-building-brushes-m-f-yellowshark-ag-sarnen-ow",
+      "de": "dachdecker-bauspengler-m-w-sarnen-ow-yellowshark-ch",
+      "fr": "couvreur-ferblantier-h-f-yellowshark-ag-sarnen-ow"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "OW"
+  },
+  "url|https://jobs.yellowshark.com/job/sa056754": {
+    "canonicalSlug": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
+    "slugByLocale": {
+      "it": "giardiniere-nuovi-impianti-m-f-yellowshark-ag-zurich-zh",
+      "en": "gardener-new-plants-m-f-yellowshark-ag-zurich-zh",
+      "de": "gartner-neuanlagen-m-w-zurich-zh-yellowshark-ch",
+      "fr": "jardinier-de-nouvelles-plantes-h-f-yellowshark-ag-zurich-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa036401": {
+    "canonicalSlug": "muratore-m-f-yellowshark-ag-chur-gr",
+    "slugByLocale": {
+      "it": "muratore-m-f-yellowshark-ag-chur-gr",
+      "en": "bricklayer-m-f-yellowshark-ag-chur-gr",
+      "de": "maurer-m-w-chur-gr-yellowshark-ch",
+      "fr": "macon-h-f-yellowshark-ag-chur-gr"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "url|https://jobs.yellowshark.com/job/sa036462": {
+    "canonicalSlug": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen",
+    "slugByLocale": {
+      "it": "costruttore-a-secco-m-f-yellowshark-ag-st-gallen",
+      "en": "drywall-builder-m-f-yellowshark-ag-st-gallen",
+      "de": "trockenbauer-m-w-st-gallen-sg-yellowshark-ch",
+      "fr": "constructeur-de-cloisons-seches-h-f-yellowshark-ag-st-gallen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa067939": {
+    "canonicalSlug": "it-product-manager-digitalizzazione-m-f-80-100-yellowshark-ag-baden",
+    "slugByLocale": {
+      "it": "it-product-manager-digitalizzazione-m-f-80-100-yellowshark-ag-baden",
+      "de": "it-product-manager-digitalisierung-m-w-80-100-baden-ag-yellowshark-ch",
+      "fr": "chef-de-produit-informatique-numerisation-h-f-80-100-yellowshark-ag-baden"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa037301": {
+    "canonicalSlug": "installatore-di-facciate-m-f-yellowshark-ag-chur",
+    "slugByLocale": {
+      "it": "installatore-di-facciate-m-f-yellowshark-ag-chur",
+      "en": "facade-fitter-m-f-yellowshark-ag-chur",
+      "de": "fassadenmonteur-m-w-chur-gr-yellowshark-ch",
+      "fr": "monteur-de-facade-h-f-yellowshark-ag-chur"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "url|https://jobs.yellowshark.com/job/sa056769": {
+    "canonicalSlug": "manutenzione-giardiniere-m-f-yellowshark-ag-liestal-bl",
+    "slugByLocale": {
+      "it": "manutenzione-giardiniere-m-f-yellowshark-ag-liestal-bl",
+      "en": "gardener-maintenance-m-f-yellowshark-ag-liestal-bl",
+      "de": "gartner-unterhalt-m-w-liestal-bl-yellowshark-ch",
+      "fr": "entretien-du-jardinier-h-f-yellowshark-ag-liestal-bl"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068250": {
+    "canonicalSlug": "account-manager-im-aussendienst-m-w-uitikon-waldegg-zh-yellowshark-ch",
+    "slugByLocale": {
+      "de": "account-manager-im-aussendienst-m-w-uitikon-waldegg-zh-yellowshark-ch",
+      "fr": "gestionnaire-de-comptes-dans-le-champ-h-f-yellowshark-ag-uitikon-waldegg-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068358": {
+    "canonicalSlug": "tecnico-per-la-riparazione-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-rothenburg-lu",
+    "slugByLocale": {
+      "it": "tecnico-per-la-riparazione-l-assistenza-di-elettrodomestici-m-f-80-100-yellowshark-ag-rothenburg-lu",
+      "en": "repair-service-technician-m-f-80-100-yellowshark-ag-rothenburg-lu",
+      "de": "techniker-fur-reparatur-038-service-von-haushaltsgeraten-m-w-80-8211-100-rothenburg-lu",
+      "fr": "technicien-en-reparation-et-service-h-f-80-100-yellowshark-ag-rothenburg-lu"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068398": {
+    "canonicalSlug": "consulente-tecnico-con-conoscenza-del-francese-yellowshark-ag-zurich-zh",
+    "slugByLocale": {
+      "it": "consulente-tecnico-con-conoscenza-del-francese-yellowshark-ag-zurich-zh",
+      "en": "technical-consultant-with-knowledge-of-french-yellowshark-ag-zurich-zh",
+      "de": "technischer-kundenberater-mit-franzosischkenntnissen-zurich-zh-yellowshark-ch",
+      "fr": "consultant-technique-avec-connaissance-du-francais-yellowshark-ag-zurich-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068399": {
+    "canonicalSlug": "team-leader-sistemi-di-produzione-it-80-100-m-f-d-yellowshark-ag-wetzikon-zh-zh",
+    "slugByLocale": {
+      "it": "team-leader-sistemi-di-produzione-it-80-100-m-f-d-yellowshark-ag-wetzikon-zh-zh",
+      "en": "team-leader-it-production-systems-80-100-m-f-d-yellowshark-ag-wetzikon-zh-zh",
+      "de": "teamleiter-it-produktionssysteme-80-100-m-w-d-wetzikon-zh-zh-yellowshark-ch",
+      "fr": "chef-d-equipe-systemes-de-production-informatique-80-100-h-f-d-yellowshark-ag-wetzikon-zh-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068064": {
+    "canonicalSlug": "tecnico-di-servizio-tecnico-automation-m-f-80-100-yellowshark-ag-baden-ag",
+    "slugByLocale": {
+      "it": "tecnico-di-servizio-tecnico-automation-m-f-80-100-yellowshark-ag-baden-ag",
+      "en": "service-technician-technician-automation-m-f-80-100-yellowshark-ag-baden-ag",
+      "de": "servicetechniker-techniker-automation-w-m-80-100-baden-ag-yellowshark-ch",
+      "fr": "technicien-de-service-technicien-automatisation-h-f-80-100-yellowshark-ag-baden-ag"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068384": {
+    "canonicalSlug": "senior-devops-ingegnere-c-m-w-80-100-yellowshark-ag-emmen",
+    "slugByLocale": {
+      "it": "senior-devops-ingegnere-c-m-w-80-100-yellowshark-ag-emmen",
+      "de": "senior-devops-engineer-c-m-w-80-8211-100-emmen-lu-yellowshark-ch",
+      "fr": "senior-devops-ingenieur-c-m-w-80-100-yellowshark-ag-emmen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068387": {
+    "canonicalSlug": "senior-devops-ingegnere-cms-m-w-80-100-yellowshark-ag-zug",
+    "slugByLocale": {
+      "it": "senior-devops-ingegnere-cms-m-w-80-100-yellowshark-ag-zug",
+      "de": "senior-devops-engineer-cms-m-w-80-8211-100-zug-zg-yellowshark-ch",
+      "fr": "senior-devops-ingenieur-cms-m-w-80-100-yellowshark-ag-zug"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068400": {
+    "canonicalSlug": "senior-contabile-finanza-specialista-80-100-yellowshark-ag-bern-be",
+    "slugByLocale": {
+      "it": "senior-contabile-finanza-specialista-80-100-yellowshark-ag-bern-be",
+      "de": "senior-accountant-038-finance-specialist-80-100-bern-be-yellowshark-ch",
+      "fr": "senior-comptable-finance-specialiste-80-100-yellowshark-ag-bern-be"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068412": {
+    "canonicalSlug": "sachbearbeiter-servizio-interno-m-w-d-80-100-yellowshark-ag-aarberg",
+    "slugByLocale": {
+      "de": "sachbearbeiter-innendienst-m-w-80-100-aarberg-be-yellowshark-ch",
+      "it": "sachbearbeiter-servizio-interno-m-w-d-80-100-yellowshark-ag-aarberg",
+      "en": "personnel-in-house-service-m-f-80-100-yellowshark-ag-aarberg-be",
+      "fr": "service-interne-du-personnel-h-f-80-100-yellowshark-ag-aarberg-be"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BE"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068359": {
+    "canonicalSlug": "project-manager-building-technology-m-f-100-yellowshark-ag-aarau-ag",
+    "slugByLocale": {
+      "it": "project-manager-building-technology-m-f-100-yellowshark-ag-aarau-ag",
+      "en": "project-manager-building-technology-m-f-100-yellowshark-ag-aarau",
+      "de": "projektleiter-gebaudetechnik-m-w-100-aarau-ag-yellowshark-ch",
+      "fr": "gestionnaire-de-projet-technologie-du-batiment-h-f-100-yellowshark-ag-aarau-ag"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068423": {
+    "canonicalSlug": "polymechaniker-cfc-prazisionsmontage-e-hydraulik-100-m-w-d-yellowshark-ag-wetzikon-zh",
+    "slugByLocale": {
+      "de": "polymechaniker-efz-prazisionsmontage-und-hydraulik-100-m-w-wetzikon-zh-zh-yellowshark-ch",
+      "it": "polymechaniker-cfc-prazisionsmontage-e-hydraulik-100-m-w-d-yellowshark-ag-wetzikon-zh",
+      "en": "polymechanic-efz-precision-assembly-and-hydraulics-100-m-f-yellowshark-ag-wetzikon-zh-zh",
+      "fr": "efz-polymecanique-montage-de-precision-et-hydraulique-100-h-f-yellowshark-ag-wetzikon-zh-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068209": {
+    "canonicalSlug": "dipendenti-it-digitalizzazione-80-100-yellowshark-ag-solothurn-so",
+    "slugByLocale": {
+      "it": "dipendenti-it-digitalizzazione-80-100-yellowshark-ag-solothurn-so",
+      "en": "employees-it-digitalization-80-100-yellowshark-ag-solothurn-so",
+      "de": "mitarbeiter-in-it-digitalisierung-80-100-solothurn-so-yellowshark-ch",
+      "fr": "employes-it-numerisation-80-100-yellowshark-ag-solothurn-so"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SO"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068351": {
+    "canonicalSlug": "acquirente-operativo-m-f-100-yellowshark-ag-ebikon-lu",
+    "slugByLocale": {
+      "it": "acquirente-operativo-m-f-100-yellowshark-ag-ebikon-lu",
+      "en": "operational-buyer-m-f-100-yellowshark-ag-ebikon-lu",
+      "de": "operativer-einkaufer-m-w-100-ebikon-lu-yellowshark-ch",
+      "fr": "acheteur-operationnel-h-f-100-yellowshark-ag-ebikon-lu"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068286": {
+    "canonicalSlug": "testa-di-sicurezza-100-yellowshark-ag-bottighofen-tg",
+    "slugByLocale": {
+      "it": "testa-di-sicurezza-100-yellowshark-ag-bottighofen-tg",
+      "en": "head-of-safety-100-yellowshark-ag-bottighofen-tg",
+      "de": "leiter-in-sicherheit-100-bottighofen-tg-yellowshark-ch",
+      "fr": "responsable-de-la-securite-100-yellowshark-ag-bottighofen-tg"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068385": {
+    "canonicalSlug": "lead-ingegnere-microsoft-workplace-cloud-yellowshark-ag-luzern",
+    "slugByLocale": {
+      "it": "lead-ingegnere-microsoft-workplace-cloud-yellowshark-ag-luzern",
+      "de": "lead-engineer-microsoft-workplace-038-cloud-luzern-lu-yellowshark-ch",
+      "fr": "lead-ingenieur-microsoft-workplace-cloud-yellowshark-ag-luzern"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068341": {
+    "canonicalSlug": "it-workplace-digital-playout-ingegnere-yellowshark-ag-zurich",
+    "slugByLocale": {
+      "it": "it-workplace-digital-playout-ingegnere-yellowshark-ag-zurich",
+      "de": "it-workplace-038-digital-playout-engineer-zurich-zh-yellowshark-ch",
+      "fr": "it-workplace-digital-playout-ingenieur-yellowshark-ag-zurich"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068393": {
+    "canonicalSlug": "responsabile-accounting-m-w-80-100-yellowshark-ag-munchenstein",
+    "slugByLocale": {
+      "it": "responsabile-accounting-m-w-80-100-yellowshark-ag-munchenstein",
+      "de": "head-of-accounting-m-w-80-100-munchenstein-bl-yellowshark-ch",
+      "fr": "responsable-accounting-m-w-80-100-yellowshark-ag-munchenstein"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BL"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068420": {
+    "canonicalSlug": "entwicklungsingenieur-antriebs-e-systemtechnik-100-m-w-d-yellowshark-ag-wetzikon-zh",
+    "slugByLocale": {
+      "de": "entwicklungsingenieur-antriebs-und-systemtechnik-100-m-w-wetzikon-zh-zh-yellowshark-ch",
+      "it": "entwicklungsingenieur-antriebs-e-systemtechnik-100-m-w-d-yellowshark-ag-wetzikon-zh",
+      "en": "development-engineer-drive-and-system-technology-100-m-f-yellowshark-ag-wetzikon-zh-zh",
+      "fr": "technologie-d-entrainement-et-systeme-d-ingenieur-de-developpement-100-h-f-yellowshark-ag-wetzikon-zh-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068421": {
+    "canonicalSlug": "progettista-elettrico-planner-hardware-eplan-p8-100-m-f-yellowshark-ag-ruti-zh-zh",
+    "slugByLocale": {
+      "de": "elektrokonstrukteur-hardwareplaner-eplan-p8-100-m-w-ruti-zh-zh-yellowshark-ch",
+      "it": "progettista-elettrico-planner-hardware-eplan-p8-100-m-f-yellowshark-ag-ruti-zh-zh",
+      "en": "electrical-designer-hardware-planner-eplan-p8-100-m-f-yellowshark-ag-ruti-zh-zh",
+      "fr": "designer-electrique-planificateur-materiel-eplan-p8-100-h-f-yellowshark-ag-ruti-zh-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://jobs.yellowshark.com/job/sa068422": {
+    "canonicalSlug": "automatiker-cfc-verdrahtung-e-systemmontage-100-m-w-d-yellowshark-ag-ruti-zh",
+    "slugByLocale": {
+      "de": "automatiker-efz-verdrahtung-und-systemmontage-100-m-w-ruti-zh-zh-yellowshark-ch",
+      "it": "automatiker-cfc-verdrahtung-e-systemmontage-100-m-w-d-yellowshark-ag-ruti-zh",
+      "en": "automatic-efz-wiring-and-system-assembly-100-m-f-yellowshark-ag-ruti-zh-zh",
+      "fr": "efz-automatique-cablage-et-montage-systeme-100-h-f-yellowshark-ag-ruti-zh-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|bbc8eb47-1b88-4ebb-856a-c36ac592c42d": {
+    "canonicalSlug": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-bbc8eb47",
+    "slugByLocale": {
+      "en": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-bbc8eb47",
+      "de": "technicien-senior-vehicules-autonomes-robotaxi-flottenwartung-und-technischer-betrieb-tsmg-furttal-bbc8eb47"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|21d94677-d556-4fb3-bd21-90f537f4cfbc": {
+    "canonicalSlug": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-21d94677",
+    "slugByLocale": {
+      "en": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-21d94677"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|fb58b102-1fbf-4ee1-807c-05a08e02ee13": {
+    "canonicalSlug": "specialiste-depot-operazioni-flotta-robotaxi-tsmg-geneva-fb58b102",
+    "slugByLocale": {
+      "it": "specialiste-depot-operazioni-flotta-robotaxi-tsmg-geneva-fb58b102",
+      "en": "specialiste-depot-robotaxi-fleet-operations-tsmg-geneva-fb58b102",
+      "de": "specialiste-depot-operationen-der-roboterflotte-tsmg-geneva-fb58b102"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GE"
+  },
+  "id|lever.co|40001b19-5e62-4ff5-ab8d-381445a390aa": {
+    "canonicalSlug": "specialiste-depot-operazioni-flotta-robotaxi-tsmg-furttal-40001b19",
+    "slugByLocale": {
+      "it": "specialiste-depot-operazioni-flotta-robotaxi-tsmg-furttal-40001b19",
+      "en": "specialiste-depot-robotaxi-fleet-operations-tsmg-furttal-40001b19",
+      "de": "specialiste-depot-operationen-der-roboterflotte-tsmg-furttal-40001b19"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|0f3648bc-674f-425d-9955-098c9c1c1eb5": {
+    "canonicalSlug": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-furttal-0f3648bc",
+    "slugByLocale": {
+      "en": "sicherheitsfahrer-autonomous-vehicle-safety-operator-safety-driver-tsmg-furttal-0f3648bc",
+      "de": "sicherheitsfahrer-autonomer-fahrzeugsicherheitsfahrer-safety-driver-tsmg-furttal-0f3648bc"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|c54966f1-27ce-4281-bbc8-4941894e1c26": {
+    "canonicalSlug": "tecnico-veicolo-autonomo-senior-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1",
+    "slugByLocale": {
+      "it": "tecnico-veicolo-autonomo-senior-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1",
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|1fc5969c-4370-403b-a3a7-8addf333d9f6": {
+    "canonicalSlug": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-furttal-1fc5969c",
+    "slugByLocale": {
+      "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-furttal-1fc5969c",
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-1fc5969c"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|15ea0f65-6efd-410c-9e5b-e8866cdf6451": {
+    "canonicalSlug": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-furttal-15ea0f65",
+    "slugByLocale": {
+      "en": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-furttal-15ea0f65"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|1a5fcb82-42ea-4852-9ade-4fd915ef9ec5": {
+    "canonicalSlug": "self-driving-systems-specialist-sds-specialist-tsmg-furttal-1a5fcb82",
+    "slugByLocale": {
+      "en": "self-driving-systems-specialist-sds-specialist-tsmg-furttal-1a5fcb82"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|2df5d631-bf3a-4efc-970a-044481e25f0c": {
+    "canonicalSlug": "responsable-des-operations-vehicules-autonomes-avos-responsabile-operazioni-veicoli-autonomi-tsmg-furttal-2df5d631",
+    "slugByLocale": {
+      "it": "responsable-des-operations-vehicules-autonomes-avos-responsabile-operazioni-veicoli-autonomi-tsmg-furttal-2df5d631",
+      "en": "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-furttal-2df5d631",
+      "fr": "responsable-des-operations-routieres-autonomes-avos-tsmg-furttal-2df5d631"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|a46cd81a-81a0-4f74-85af-31b395641c47": {
+    "canonicalSlug": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a",
+    "slugByLocale": {
+      "en": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a",
+      "fr": "operateur-de-securite-routiere-autonome-tsmg-geneva-a46cd81a"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GE"
+  },
+  "id|lever.co|2cb9488c-105a-483a-9552-278a129b610e": {
+    "canonicalSlug": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-furttal-2cb9488c",
+    "slugByLocale": {
+      "en": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-furttal-2cb9488c",
+      "fr": "operateur-de-securite-routiere-autonome-tsmg-furttal-2cb9488c"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|0086addb-ef55-4dd2-ac68-4867febc3cb9": {
+    "canonicalSlug": "autista-addetto-raccolta-dati-in-mont-tendre-switzerland-tsmg-mont-tendre-0086addb",
+    "slugByLocale": {
+      "en": "autista-addetto-raccolta-dati-in-mont-tendre-switzerland-tsmg-mont-tendre-0086addb",
+      "de": "fahrer-datenerfasser-in-mont-tendre-switzerland-tsmg-mont-tendre-0086addb",
+      "fr": "chauffeur-collecteur-de-donnees-in-mont-tendre-switzerland-tsmg-mont-tendre-0086addb"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|lever.co|6dde64d4-2af1-43bc-aeec-aaa2d0158ecc": {
+    "canonicalSlug": "autista-addetto-raccolta-dati-in-diablerets-switzerland-tsmg-les-diabterets-6dde64d4",
+    "slugByLocale": {
+      "en": "autista-addetto-raccolta-dati-in-diablerets-switzerland-tsmg-les-diabterets-6dde64d4",
+      "de": "fahrer-datenerfasser-in-diablerets-switzerland-tsmg-les-diabterets-6dde64d4",
+      "fr": "chauffeur-collecteur-de-donnees-in-diablerets-switzerland-tsmg-les-diabterets-6dde64d4"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|lever.co|f1d09940-046d-48c4-ba66-c4db0b91f4af": {
+    "canonicalSlug": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-furttal-f1d09940",
+    "slugByLocale": {
+      "en": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-furttal-f1d09940"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|39227b1a-b341-4631-8870-2514bd7e9a30": {
+    "canonicalSlug": "depot-specialist-robotaxi-fleet-operations-tsmg-furttal-39227b1a",
+    "slugByLocale": {
+      "en": "depot-specialist-robotaxi-fleet-operations-tsmg-furttal-39227b1a"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|a26e5a5e-dfcd-461d-bae8-af78fb860d73": {
+    "canonicalSlug": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-furttal-a26e5a5e",
+    "slugByLocale": {
+      "it": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-furttal-a26e5a5e",
+      "en": "autonomous-vehicle-safety-operator-safety-driver-tsmg-furttal-a26e5a5e",
+      "de": "sicherheitsbediener-fur-autonome-fahrzeuge-sicherheitsfahrer-tsmg-furttal-a26e5a5e"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|d113253a-498f-446f-9ce8-1f43255eee1f": {
+    "canonicalSlug": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-autonome-fahrzeuge-tsmg-furttal-d113253a",
+    "slugByLocale": {
+      "it": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-autonome-fahrzeuge-tsmg-furttal-d113253a",
+      "en": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-furttal-d113253a",
+      "de": "autonomes-fahrzeug-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-furttal-d113253a",
+      "fr": "exploitation-autonome-de-vehicules-plomb-avos-exploitation-plomb-autonome-fahrzeuge-tsmg-furttal-d113253a"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|lever.co|c226fd6b-b4b1-4b97-b528-366de5d51c20": {
+    "canonicalSlug": "autonoma-veicolo-operazioni-piombo-tsmg-furttal-c226fd6b",
+    "slugByLocale": {
+      "it": "autonoma-veicolo-operazioni-piombo-tsmg-furttal-c226fd6b",
+      "en": "autonomous-vehicle-operations-lead-tsmg-furttal-c226fd6b",
+      "de": "fuhrende-autonome-fahrzeugbetriebsfuhrung-tsmg-furttal-c226fd6b",
+      "fr": "chef-d-exploitation-autonome-des-vehicules-tsmg-furttal-c226fd6b"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148005": {
+    "canonicalSlug": "audio-machine-learning-data-ingegnere-logitech-lausanne",
+    "slugByLocale": {
+      "it": "audio-machine-learning-data-ingegnere-logitech-lausanne",
+      "en": "audio-machine-learning-data-engineer-logitech-ch",
+      "de": "audio-machine-learning-data-ingenieur-logitech-lausanne",
+      "fr": "audio-machine-learning-data-ingenieur-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148044": {
+    "canonicalSlug": "senior-sourcing-specialista-logitech-lausanne",
+    "slugByLocale": {
+      "it": "senior-sourcing-specialista-logitech-lausanne",
+      "en": "senior-sourcing-specialist-logitech-ch",
+      "de": "senior-sourcing-spezialist-logitech-lausanne",
+      "fr": "senior-sourcing-specialiste-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|147018": {
+    "canonicalSlug": "responsabile-analisi-e-approfondimenti-dei-dati-dtx-logitech-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-analisi-e-approfondimenti-dei-dati-dtx-logitech-lausanne",
+      "en": "dtx-data-analytics-insights-manager-logitech-ch",
+      "de": "dtx-datenanalyse-einblicke-manager-logitech-lausanne",
+      "fr": "gestionnaire-d-analyse-et-d-insights-de-donnees-dtx-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|147736": {
+    "canonicalSlug": "responsabile-marketing-globale-di-pws-logitech-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-marketing-globale-di-pws-logitech-lausanne",
+      "en": "pws-global-marketing-manager-logitech-ch",
+      "de": "pws-globaler-marketingleiter-logitech-lausanne",
+      "fr": "gestionnaire-mondial-de-marketing-pws-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148405": {
+    "canonicalSlug": "responsabile-del-progetto-tecnico-logitech-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-tecnico-logitech-lausanne",
+      "en": "technical-project-manager-logitech-ch",
+      "de": "technischer-projektleiter-logitech-lausanne",
+      "fr": "gestionnaire-de-projet-technique-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148448": {
+    "canonicalSlug": "tirocinante-finanza-logitech-lausanne",
+    "slugByLocale": {
+      "it": "tirocinante-finanza-logitech-lausanne",
+      "en": "intern-finance-logitech-ch",
+      "de": "praktikant-finanzen-logitech-lausanne",
+      "fr": "stagiaire-finance-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148457": {
+    "canonicalSlug": "manager-sr-analista-tax-logitech-lausanne",
+    "slugByLocale": {
+      "it": "manager-sr-analista-tax-logitech-lausanne",
+      "en": "manager-sr-analyst-tax-logitech-ch",
+      "de": "manager-sr-analyst-steuern-logitech-lausanne",
+      "fr": "manager-sr-analyste-tax-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148443": {
+    "canonicalSlug": "people-culture-project-management-tirocinante-6-month-contract-logitech-lausanne",
+    "slugByLocale": {
+      "it": "people-culture-project-management-tirocinante-6-month-contract-logitech-lausanne",
+      "en": "people-culture-project-management-intern-6-month-contract-logitech-ch",
+      "de": "people-culture-project-management-praktikant-6-month-contract-logitech-lausanne",
+      "fr": "people-culture-project-management-stagiaire-6-month-contract-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|logitech.wd5.myworkdayjobs.com|148498-1": {
+    "canonicalSlug": "responsabile-commercial-gtm-pws-bg-logitech-lausanne",
+    "slugByLocale": {
+      "it": "responsabile-commercial-gtm-pws-bg-logitech-lausanne",
+      "en": "head-of-commercial-gtm-pws-bg-logitech-ch",
+      "de": "leiter-commercial-gtm-pws-bg-logitech-lausanne",
+      "fr": "responsable-commercial-gtm-pws-bg-logitech-lausanne"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|jobs.ch|54250952-cc26-40d7-8180-2be25fc3edf7": {
+    "canonicalSlug": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+    "slugByLocale": {
+      "en": "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg",
+      "de": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+      "fr": "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "id|jobs.ch|c6c78d22-bfc5-4879-a7bd-bf9b6360a0de": {
+    "canonicalSlug": "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
+    "slugByLocale": {
+      "it": "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
+      "en": "site-manager-road-construction-and-civil-engineering-strabag-ag-olten",
+      "de": "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
+      "fr": "conducteur-de-travaux-dans-la-construction-de-routes-et-le-genie-civil-strabag-ag-olten"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SO"
+  },
+  "id|jobs.ch|1960ba42-35d1-48da-9e9e-598f007d678a": {
+    "canonicalSlug": "foreman-fottuman-costruzione-del-legno-strabag-ag-lindau-bei-effretikon",
+    "slugByLocale": {
+      "it": "foreman-fottuman-costruzione-del-legno-strabag-ag-lindau-bei-effretikon",
+      "en": "foreman-forewoman-timber-construction-strabag-lindau-bei-effretikon",
+      "de": "vorarbeiter-in-polier-in-holzbau-strabag-lindau-bei-effretikon",
+      "fr": "contremaitre-prefet-construction-de-bois-strabag-ag-lindau-bei-effretikon"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|jobs.ch|b08b176b-eab1-449c-a127-ca33eab62dcc": {
+    "canonicalSlug": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon",
+    "slugByLocale": {
+      "it": "zimmermann-camera-in-legno-strabag-ag-lindau-bei-effretikon",
+      "en": "carpenter-carpenter-in-timber-construction-strabag-lindau-bei-effretikon",
+      "de": "zimmermann-zimmerin-holzbau-strabag-lindau-bei-effretikon",
+      "fr": "charpentier-charpentier-dans-la-construction-de-bois-strabag-ag-lindau-bei-effretikon"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|jobs.ch|37cdaffe-c966-475b-b0c9-8312404ce9ee": {
+    "canonicalSlug": "estimator-acquisto-legname-costruzione-80-100-strabag-ag-lindau-bei-effretikon",
+    "slugByLocale": {
+      "it": "estimator-acquisto-legname-costruzione-80-100-strabag-ag-lindau-bei-effretikon",
+      "en": "calculator-purchaser-wood-construction-80-100-strabag-ag-lindau-bei-effretikon",
+      "de": "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon",
+      "fr": "estimation-acheteur-construction-de-bois-80-100-strabag-ag-lindau-bei-effretikon"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|jobs.ch|38430623-7887-46d9-b93d-5fe270aeae58": {
+    "canonicalSlug": "project-manager-ingegneria-civile-strabag-ag-schlieren",
+    "slugByLocale": {
+      "it": "project-manager-ingegneria-civile-strabag-ag-schlieren",
+      "en": "project-manager-civil-engineering-strabag-schlieren",
+      "de": "projektleiter-in-ingenieurbau-strabag-schlieren",
+      "fr": "gestionnaire-de-projet-genie-civil-strabag-ag-schlieren"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|jobs.ch|3e51e4ea-93e3-464f-812c-55a9a4814931": {
+    "canonicalSlug": "baukaufmann-baukauffrau-80-bis-100-strabag-schlieren",
+    "slugByLocale": {
+      "de": "baukaufmann-baukauffrau-80-bis-100-strabag-schlieren",
+      "fr": "agent-de-construction-agent-de-construction-80-a-100-strabag-ag-schlieren"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|jobs.ch|e9de6e5d-f553-46f5-8e84-6bdece492e67": {
+    "canonicalSlug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
+    "slugByLocale": {
+      "it": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
+      "en": "civil-engineeringand-road-construction-supervisor-strabag-ag-amriswil",
+      "de": "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
+      "fr": "conducteur-de-travaux-dans-le-genie-civil-et-la-construction-de-routes-strabag-ag-amriswil"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|jobs.ch|dca029bd-6265-4edb-b32d-d5fb6eaf9f4e": {
+    "canonicalSlug": "supervisore-ai-lavori-strade-strabag-ag-erstfeld",
+    "slugByLocale": {
+      "it": "supervisore-ai-lavori-strade-strabag-ag-erstfeld",
+      "en": "road-construction-supervisor-strabag-ag-erstfeld",
+      "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
+      "fr": "superviseur-de-la-construction-routiere-strabag-ag-erstfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "UR"
+  },
+  "id|jobs.ch|aaf3f8b4-3b6a-4007-b7c6-ebf279c0c23a": {
+    "canonicalSlug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
+    "slugByLocale": {
+      "it": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
+      "en": "technical-group-leader-civil-engineering-and-road-construction-strabag-ag-bern",
+      "de": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
+      "fr": "chef-de-groupe-technique-genie-civil-et-construction-routiere-strabag-ag-bern"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BE"
+  },
+  "id|jobs.ch|7f4d5794-f745-4340-a068-05fea7be1eb1": {
+    "canonicalSlug": "technische-r-controller-in-strabag-schlieren",
+    "slugByLocale": {
+      "de": "technische-r-controller-in-strabag-schlieren",
+      "en": "technical-controller-strabag-ag-schlieren",
+      "fr": "controleur-technique-strabag-ag-schlieren"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2904.umantis.com|1394": {
+    "canonicalSlug": "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+    "slugByLocale": {
+      "it": "dipendente-ufficio-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
+      "en": "office-employee-m-f-d-winter-season-2026-2027-tschuggen-collection-st-moritz",
+      "de": "officemitarbeiter-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "fr": "employe-de-bureau-h-f-d-hiver-saison-2026-2027-tschuggen-collection-st-moritz"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|recruitingapp-2904.umantis.com|1395": {
+    "canonicalSlug": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+    "slugByLocale": {
+      "it": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-arosa",
+      "en": "reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
+      "de": "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "fr": "gestionnaire-de-reservation-h-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|recruitingapp-2904.umantis.com|1393": {
+    "canonicalSlug": "reservation-manager-m-w-d-tschuggen-ch",
+    "slugByLocale": {
+      "it": "reservation-manager-m-w-d-tschuggen-ch",
+      "en": "reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-ascona",
+      "de": "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+      "fr": "reservation-manager-m-w-d-tschuggen-ch"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2904.umantis.com|1396": {
+    "canonicalSlug": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
+    "slugByLocale": {
+      "it": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-stagione-invernale-2026-27-tschuggen-collection-arosa",
+      "en": "restaurant-manager-gourmet-restaurant-la-brezza-m-f-d-winter-season-2026-27-tschuggen-collection-arosa",
+      "de": "restaurant-manager-gourmetrestaurant-la-brezza-m-w-d-wintersaison-2026-27-tschuggen-ch",
+      "fr": "restaurant-manager-gourmet-restaurant-la-brezza-h-f-d-saison-d-hiver-2026-27-tschuggen-collection-arosa"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|recruitingapp-2904.umantis.com|1359": {
+    "canonicalSlug": "assistente-di-pulizia-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+    "slugByLocale": {
+      "it": "assistente-di-pulizia-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+      "de": "housekeeping-attendant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "fr": "observateur-menager-h-f-d-saison-d-hiver-2026-2027-tschuggen-collection-arosa"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|recruitingapp-2904.umantis.com|1398": {
+    "canonicalSlug": "impiegato-a-d-ufficio-m-f-d-per-la-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+    "slugByLocale": {
+      "it": "impiegato-a-d-ufficio-m-f-d-per-la-stagione-invernale-2026-2027-tschuggen-collection-arosa",
+      "en": "office-employee-m-f-d-winter-season-2026-2027-tschuggen-collection-arosa",
+      "de": "office-mitarbeiter-in-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "fr": "employe-e-de-bureau-h-f-d-saison-d-hiver-2026-2027-tschuggen-collection-arosa"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|zurich.com|1374167957": {
+    "canonicalSlug": "hris-consulente-sap-hcm-e-successfactors-inhouse-m-w-d-zurich-insurance-zurich",
+    "slugByLocale": {
+      "it": "hris-consulente-sap-hcm-e-successfactors-inhouse-m-w-d-zurich-insurance-zurich",
+      "en": "hris-consultant-sap-hcm-und-successfactors-inhouse-m-w-d-zurich-insurance-zurich-1374167957",
+      "de": "hris-consultant-sap-hcm-und-successfactors-inhouse-m-w-d-zurich-insurance-sede-ticino"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374217357": {
+    "canonicalSlug": "lead-software-engineer-quality-platform-automation-m-w-d-zurich-insurance-sede-ticino",
+    "slugByLocale": {
+      "de": "lead-software-engineer-quality-platform-automation-m-w-d-zurich-insurance-sede-ticino",
+      "en": "lead-software-engineer-quality-platform-automation-m-w-d-zurich-insurance-zurich-1374217357"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374166557": {
+    "canonicalSlug": "specialista-sos-primo-livello-italiano-m-f-d-zurich-insurance-zurich-1374166557",
+    "slugByLocale": {
+      "it": "specialista-sos-primo-livello-italiano-m-f-d-zurich-insurance-zurich-1374166557",
+      "en": "specialist-sos-first-level-italian-m-f-d-zurich-insurance-zurich-1374166557",
+      "de": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "fr": "specialiste-sos-premier-niveau-italien-h-f-d-zurich-insurance-zurich-1374166557"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374162857": {
+    "canonicalSlug": "operazioni-di-conformita-degli-studenti-di-lavoro-zurich-insurance-zurich-1374162857",
+    "slugByLocale": {
+      "it": "operazioni-di-conformita-degli-studenti-di-lavoro-zurich-insurance-zurich-1374162857",
+      "en": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich",
+      "fr": "operations-de-conformite-des-etudiants-en-travail-zurich-insurance-zurich-1374162857"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374041557": {
+    "canonicalSlug": "servizi-di-supporto-specialistico-assicurazione-personale-m-f-d-zurich-insurance-kriens-1374041557",
+    "slugByLocale": {
+      "it": "servizi-di-supporto-specialistico-assicurazione-personale-m-f-d-zurich-insurance-kriens-1374041557",
+      "en": "specialist-support-services-personal-insurance-m-f-d-zurich-insurance-kriens-1374041557",
+      "de": "spezialist-support-leistungen-personenversicherungen-m-w-d-zurich-insurance-sede-ticino",
+      "fr": "services-de-soutien-specialises-assurance-personnelle-h-f-d-zurich-insurance-kriens-1374041557"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "id|zurich.com|1374082457": {
+    "canonicalSlug": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
+    "slugByLocale": {
+      "it": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
+      "en": "specialist-in-daily-sickness-benefit-ap-m-f-d-zurich-insurance-lugano-1374082457",
+      "de": "spezialist-im-taglichen-krankengeld-ap-m-w-d-zurich-insurance-lugano-1374082457",
+      "fr": "specialiste-des-prestations-journalieres-de-maladie-ap-h-f-d-zurich-insurance-lugano-1374082457"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TI"
+  },
+  "id|zurich.com|1374091557": {
+    "canonicalSlug": "responsabile-financial-lines-claims-m-w-d-zurich-insurance-zurich-1374091557",
+    "slugByLocale": {
+      "it": "responsabile-financial-lines-claims-m-w-d-zurich-insurance-zurich-1374091557",
+      "en": "head-of-financial-lines-claims-m-w-d-zurich-insurance-zurich-1374091557",
+      "de": "head-of-financial-lines-claims-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "fr": "responsable-financial-lines-claims-m-w-d-zurich-insurance-zurich-1374091557"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374049657": {
+    "canonicalSlug": "gestione-strategica-supporto-vita-m-f-d-zurich-insurance-zurich-1374049657",
+    "slugByLocale": {
+      "it": "gestione-strategica-supporto-vita-m-f-d-zurich-insurance-zurich-1374049657",
+      "en": "strategic-management-support-life-m-w-d-zurich-insurance-zurich-1374049657",
+      "de": "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "fr": "gestion-strategique-soutien-vie-h-f-d-zurich-insurance-zurich-1374049657"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|zurich.com|1374028457": {
+    "canonicalSlug": "working-student-finanza-transformation-80-100-12-months-zurich-insurance-zurich-1374028457",
+    "slugByLocale": {
+      "it": "working-student-finanza-transformation-80-100-12-months-zurich-insurance-zurich-1374028457",
+      "en": "working-student-finance-transformation-80-100-12-months-zurich-insurance-sede-ticino",
+      "de": "working-student-finanzen-transformation-80-100-12-months-zurich-insurance-zurich-1374028457",
+      "fr": "transformation-des-finances-etudiantes-80-100-12-mois-zurich-insurance-zurich-1374028457"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "url|https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4-5": {
+    "canonicalSlug": "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-fh-pdgr-ch",
+      "it": "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "en": "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis",
+      "fr": "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-4": {
+    "canonicalSlug": "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-raumpflege-pdgr-ch",
+      "it": "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
+      "en": "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
+      "fr": "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in-2": {
+    "canonicalSlug": "stv-pflege-standortleiter-in-pdgr-ch",
+    "slugByLocale": {
+      "it": "vice-responsabile-infermieristico-di-sede-psychiatrische-dienste-graubunden-ilanz",
+      "en": "deputy-nursing-site-manager-psychiatrische-dienste-graubunden-ilanz",
+      "de": "stv-pflege-standortleiter-in-pdgr-ch",
+      "fr": "adjoint-e-aux-soins-responsable-de-site-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GR"
+  },
+  "id|spitalzofingen.ch|f335fa59-ae29-4c25-b4f7-b974606cce1d": {
+    "canonicalSlug": "hr-business-partner-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "de": "hr-business-partner-spital-zofingen-zofingen",
+      "fr": "partenaire-d-affaires-rh-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|baa35958-7be4-4b07-94fe-56c109385eca": {
+    "canonicalSlug": "specialista-payroll-assenze-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "specialista-payroll-assenze-spital-zofingen-zofingen",
+      "en": "specialist-payroll-absences-spital-zofingen-zofingen",
+      "de": "fachspezialist-in-payroll-absenzen-spital-zofingen-zofingen",
+      "fr": "remuneration-des-specialistes-absentes-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10087155-1": {
+    "canonicalSlug": "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city",
+    "slugByLocale": {
+      "it": "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city",
+      "en": "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch",
+      "de": "translational-medicine-direktor-associate-cardiovascular-metabolic-novartis-basel-city",
+      "fr": "translational-medicine-directeur-associate-cardiovascular-metabolic-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10086418-2": {
+    "canonicalSlug": "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city",
+    "slugByLocale": {
+      "it": "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city",
+      "en": "director-therapeutic-area-strategy-neuroscience-novartis-ch",
+      "de": "direktor-therapeutic-area-strategy-neuroscience-novartis-basel-city",
+      "fr": "directeur-strategie-du-domaine-therapeutique-neuroscience-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10086875": {
+    "canonicalSlug": "alimentatore-di-droga-esperto-associato-novartis-basel-city",
+    "slugByLocale": {
+      "it": "alimentatore-di-droga-esperto-associato-novartis-basel-city",
+      "de": "associate-expert-drug-supply-novartis-ch",
+      "fr": "expert-associe-fourniture-de-medicaments-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10087767-1": {
+    "canonicalSlug": "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city",
+    "slugByLocale": {
+      "it": "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city",
+      "en": "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
+      "de": "executive-clinical-program-leader-translationale-klinische-onkologie-novartis-basel-city",
+      "fr": "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10087895-1": {
+    "canonicalSlug": "executive-direttore-pricing-contracting-novartis-basel-city",
+    "slugByLocale": {
+      "it": "executive-direttore-pricing-contracting-novartis-basel-city",
+      "en": "executive-director-pricing-contracting-novartis-ch",
+      "de": "executive-direktor-pricing-contracting-novartis-basel-city",
+      "fr": "executive-directeur-pricing-contracting-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10076283-1": {
+    "canonicalSlug": "qc-analista-ii-novartis-basel-land",
+    "slugByLocale": {
+      "it": "qc-analista-ii-novartis-basel-land",
+      "en": "qc-analyst-ii-novartis-ch",
+      "fr": "qc-analyste-ii-novartis-basel-land"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10084158-1": {
+    "canonicalSlug": "direttore-of-applied-ai-scaling-strategist-novartis-basel-city",
+    "slugByLocale": {
+      "it": "direttore-of-applied-ai-scaling-strategist-novartis-basel-city",
+      "en": "director-of-applied-ai-scaling-strategist-novartis-ch",
+      "de": "direktor-of-applied-ai-scaling-strategist-novartis-basel-city",
+      "fr": "directeur-of-applied-ai-scaling-strategist-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10089048-1": {
+    "canonicalSlug": "apprendista-specialista-ict-efz-novartis-basel-city",
+    "slugByLocale": {
+      "it": "apprendista-specialista-ict-efz-novartis-basel-city",
+      "en": "apprentice-ict-specialist-efz-novartis-basel-city",
+      "de": "lernende-r-ict-fachmann-frau-efz-novartis-ch",
+      "fr": "specialiste-tic-apprenti-efz-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10079472": {
+    "canonicalSlug": "direttore-tecnologia-e-ingegneria-per-software-e-workflow-novartis-basel-city",
+    "slugByLocale": {
+      "it": "direttore-tecnologia-e-ingegneria-per-software-e-workflow-novartis-basel-city",
+      "en": "director-technology-engineering-for-software-and-workflows-novartis-ch",
+      "de": "direktor-technology-engineering-for-software-and-workflows-novartis-basel-city",
+      "fr": "directeur-technologie-et-ingenierie-des-logiciels-et-des-flux-de-travail-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10088914-1": {
+    "canonicalSlug": "scientific-associate-biochimica-oncologia-novartis-basel-city",
+    "slugByLocale": {
+      "it": "scientific-associate-biochimica-oncologia-novartis-basel-city",
+      "en": "scientific-associate-biochemistry-oncology-novartis-ch",
+      "de": "wissenschaftlicher-mitarbeiter-biochemie-onkologie-novartis-basel-city",
+      "fr": "associe-scientifique-biochimie-oncologie-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10088320-2": {
+    "canonicalSlug": "direttore-pricing-and-contracting-immunology-novartis-basel-city",
+    "slugByLocale": {
+      "it": "direttore-pricing-and-contracting-immunology-novartis-basel-city",
+      "en": "director-pricing-and-contracting-immunology-novartis-ch",
+      "de": "direktor-pricing-and-contracting-immunology-novartis-basel-city",
+      "fr": "directeur-pricing-and-contracting-immunology-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10087836-2": {
+    "canonicalSlug": "paralegale-del-brevetto-senior-novartis-basel-city",
+    "slugByLocale": {
+      "it": "paralegale-del-brevetto-senior-novartis-basel-city",
+      "en": "senior-patent-paralegal-novartis-ch",
+      "de": "rechtswidriges-alteres-patent-novartis-basel-city",
+      "fr": "parajuriste-principal-en-brevets-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|sunrise.ch|sales-agent-zurich-shopville-und-bahnhofstrasse-50": {
+    "canonicalSlug": "sales-agent-zurich-shopville-e-bahnhofstrasse-50-sunrise-communications-ag-zurich",
+    "slugByLocale": {
+      "it": "sales-agent-zurich-shopville-e-bahnhofstrasse-50-sunrise-communications-ag-zurich",
+      "de": "sales-agent-zurich-shopville-und-bahnhofstrasse-50-sunrise-zurich",
+      "fr": "agent-de-vente-zurich-shopville-et-bahnhofstrasse-50-sunrise-communications-ag-zurich"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10086913-1": {
+    "canonicalSlug": "manager-global-management-reporting-novartis-ch",
+    "slugByLocale": {
+      "en": "manager-global-management-reporting-novartis-ch",
+      "fr": "gestionnaire-rapports-sur-la-gestion-mondiale-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|sunrise.ch|sales-agent-schaffhausen-herblingermarkt-60-100": {
+    "canonicalSlug": "agente-di-vendita-schaffhausen-herblingermarkt-60-100-sunrise-communications-ag-schaffhausen",
+    "slugByLocale": {
+      "it": "agente-di-vendita-schaffhausen-herblingermarkt-60-100-sunrise-communications-ag-schaffhausen",
+      "de": "sales-agent-schaffhausen-herblingermarkt-60-100-sunrise-schaffhausen",
+      "fr": "agent-de-vente-schaffhausen-herblingermarkt-60-100-sunrise-communications-ag-schaffhausen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SH"
+  },
+  "id|sunrise.ch|1st-level-tech-care-specialist-80-100": {
+    "canonicalSlug": "1st-level-tech-care-specialist-80-100-sunrise-zurich",
+    "slugByLocale": {
+      "en": "1st-level-tech-care-specialist-80-100-sunrise-zurich"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|holcimgroup.com|1365697857": {
+    "canonicalSlug": "allrounder-in-holcim-ch",
+    "slugByLocale": {
+      "en": "all-rounder-holcim-group-ingenbohl-brunnen",
+      "de": "allrounder-in-holcim-ch",
+      "fr": "polyvalent-e-holcim-group-ingenbohl-brunnen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SZ"
+  },
+  "id|holcimgroup.com|1369275457": {
+    "canonicalSlug": "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
+    "slugByLocale": {
+      "en": "gravel-concrete-recycling-driver-80-100-kirchberg-holcim-group-kirchberg",
+      "de": "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
+      "fr": "chauffeur-dans-le-gravier-le-beton-et-le-recyclage-80-100-kirchberg-holcim-group-kirchberg"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SG"
+  },
+  "id|holcimgroup.com|1374161257": {
+    "canonicalSlug": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
+    "slugByLocale": {
+      "it": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
+      "en": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+      "de": "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+      "fr": "commis-de-support-client-et-commercial-holcim-group-mulligen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|holcimgroup.com|1373604957": {
+    "canonicalSlug": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
+    "slugByLocale": {
+      "it": "kieswerkmaschinist-in-allrounder-in-holcim-group-kehrsiten",
+      "en": "gravel-machinist-allrounder-holcim-group-kehrsiten",
+      "de": "kieswerkmaschinist-in-allrounder-in-holcim-ch",
+      "fr": "machinistede-gravieres-polyvalente-holcim-group-kehrsiten"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "NW"
+  },
+  "id|holcimgroup.com|1373927957": {
+    "canonicalSlug": "conduttore-trice-di-navi-holcim-group-stansstad",
+    "slugByLocale": {
+      "it": "conduttore-trice-di-navi-holcim-group-stansstad",
+      "en": "boat-captain-holcim-group-stansstad",
+      "de": "schiffsfuhrer-in-holcim-ch",
+      "fr": "conducteur-trice-de-bateau-holcim-group-stansstad"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "NW"
+  },
+  "id|holcimgroup.com|1373927057": {
+    "canonicalSlug": "mechaniker-in-holcim-ch",
+    "slugByLocale": {
+      "en": "mechanic-holcim-group-oberdorf",
+      "de": "mechaniker-in-holcim-ch",
+      "fr": "mecanicien-ne-holcim-group-oberdorf"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "NW"
+  },
+  "id|holcimgroup.com|1373927257": {
+    "canonicalSlug": "disposizione-dell-economia-circolare-holcim-group-zurich",
+    "slugByLocale": {
+      "it": "disposizione-dell-economia-circolare-holcim-group-zurich",
+      "en": "circular-economy-disposition-holcim-group-zurich",
+      "de": "sachbearbeitung-disposition-kreislaufwirtschaft-holcim-ch",
+      "fr": "disposition-circulaire-de-l-economie-holcim-group-zurich"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|holcimgroup.com|1373033457": {
+    "canonicalSlug": "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+    "slugByLocale": {
+      "it": "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
+      "en": "multipurpose-worker-industrial-maintenance-holcim-group-eclepens",
+      "de": "mehrzweckarbeiter-industrielle-instandhaltung-holcim-group-eclepens",
+      "fr": "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VD"
+  },
+  "id|holcimgroup.com|1374160657": {
+    "canonicalSlug": "lastwagenfuhrer-in-holcim-group-luzern",
+    "slugByLocale": {
+      "it": "lastwagenfuhrer-in-holcim-group-luzern",
+      "en": "truck-driver-holcim-group-luzern",
+      "de": "lastwagenfuhrer-in-holcim-ch",
+      "fr": "conducteur-conductrice-de-camion-holcim-group-luzern"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "id|holcimgroup.com|1373504257": {
+    "canonicalSlug": "tirocinante-analista-holcim-group-zug",
+    "slugByLocale": {
+      "it": "tirocinante-analista-holcim-group-zug",
+      "en": "intern-analyst-holcim-ch",
+      "de": "praktikant-analyst-holcim-group-zug",
+      "fr": "stagiaire-analyste-holcim-group-zug"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZG"
+  },
+  "id|holcimgroup.com|1373697257": {
+    "canonicalSlug": "servizi-di-produzione-di-global-categoria-manager-holcim-group-zug",
+    "slugByLocale": {
+      "it": "servizi-di-produzione-di-global-categoria-manager-holcim-group-zug",
+      "en": "global-category-manager-production-services-holcim-ch"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZG"
+  },
+  "id|stgag.ch|3807": {
+    "canonicalSlug": "infermiere-a-diplomato-a-hf-fh-per-il-pronto-soccorso-spital-thurgau-stgag-kantonsspital-munsterlingen",
+    "slugByLocale": {
+      "it": "infermiere-a-diplomato-a-hf-fh-per-il-pronto-soccorso-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "qualified-nurse-hf-fh-for-the-emergency-ward-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "de": "dipl-pflegefachmann-frau-hf-fh-fur-die-notfallstation-stgag-ch",
+      "fr": "infirmier-infirmiere-diplome-e-es-hes-pour-le-service-des-urgences-spital-thurgau-stgag-kantonsspital-munsterlingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3821": {
+    "canonicalSlug": "medico-senior-pediatrico-spital-thurgau-stgag-kantonsspital-munsterlingen",
+    "slugByLocale": {
+      "it": "medico-senior-pediatrico-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "senior-physician-paediatrics-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "de": "oberarzt-arztin-padiatrie-stgag-ch",
+      "fr": "medecin-superieur-pediatre-spital-thurgau-stgag-kantonsspital-munsterlingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3819": {
+    "canonicalSlug": "assistente-sociale-sup-spital-thurgau-stgag-romanshorn",
+    "slugByLocale": {
+      "it": "assistente-sociale-sup-spital-thurgau-stgag-romanshorn",
+      "en": "social-worker-fh-spital-thurgau-stgag-romanshorn",
+      "de": "sozialarbeiter-in-fh-stgag-ch",
+      "fr": "assistant-e-social-e-hes-spital-thurgau-stgag-romanshorn"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3828": {
+    "canonicalSlug": "medico-senior-a-seconda-della-qualifica-mbf-nefrologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "medico-senior-a-seconda-della-qualifica-mbf-nefrologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "senior-physician-depending-on-the-qualification-mbf-nephrology-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "oberarzt-arztin-je-nach-qualifikation-mbf-nephrologie-stgag-ch",
+      "fr": "medecin-principal-selon-la-qualification-mbf-nephrologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3827": {
+    "canonicalSlug": "medico-senior-a-seconda-della-qualifica-mbf-angiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "medico-senior-a-seconda-della-qualifica-mbf-angiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "senior-physician-depending-on-the-qualification-mbf-angiology-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "oberarzt-arztin-je-nach-qualifikation-mbf-angiologie-stgag-ch",
+      "fr": "medecin-principal-selon-la-qualification-mbf-angiologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3825": {
+    "canonicalSlug": "tirocinante-a-all-asilo-nido-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "tirocinante-a-all-asilo-nido-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "trainee-daycare-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "praktikant-in-kita-stgag-ch",
+      "fr": "stagiaire-creche-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3830": {
+    "canonicalSlug": "infermiere-a-diplomato-a-hf-fh-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "infermiere-a-diplomato-a-hf-fh-diagnostica-medica-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "qualified-nursing-specialist-hf-fh-medical-diagnostics-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "dipl-pflegefachmann-frau-hf-fh-medizinische-diagnostik-stgag-ch",
+      "fr": "dipl-infirmier-infirmiere-es-hes-diagnostic-medical-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3833": {
+    "canonicalSlug": "primario-di-anestesia-terapia-intensiva-e-medicina-di-soccorso-direttore-dell-istituto-e-membro-della-direzione",
+    "slugByLocale": {
+      "it": "primario-di-anestesia-terapia-intensiva-e-medicina-di-soccorso-direttore-dell-istituto-e-membro-della-direzione",
+      "en": "chief-physician-for-anesthesia-intensive-care-and-rescue-medicine-institute-director-and-member-of-the-hospital",
+      "de": "chefarztin-chefarzt-fur-anasthesie-intensiv-und-rettungsmedizin-institutsdirektorin",
+      "fr": "medecin-en-chef-pour-l-anesthesie-les-soins-intensifs-et-la-medecine-de-secours-directeur-de-l-institut-et-membre-de-la"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3831": {
+    "canonicalSlug": "psicologo-a-con-perfezionamento-terapeutico-completato-o-avanzato-spital-thurgau-stgag-weinfelden",
+    "slugByLocale": {
+      "it": "psicologo-a-con-perfezionamento-terapeutico-completato-o-avanzato-spital-thurgau-stgag-weinfelden",
+      "en": "psychologist-with-completed-or-advanced-therapy-training-spital-thurgau-stgag-weinfelden",
+      "de": "psychologe-in-mit-abgeschlossener-oder-fortgeschrittener-therapieweiterbildung-stgag-ch",
+      "fr": "psychologue-avec-formation-continue-en-therapie-achevee-ou-avancee-spital-thurgau-stgag-weinfelden"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3817": {
+    "canonicalSlug": "responsabile-del-team-trasporti-in-cucina-spital-thurgau-stgag-munsterlingen",
+    "slugByLocale": {
+      "it": "responsabile-del-team-trasporti-in-cucina-spital-thurgau-stgag-munsterlingen",
+      "en": "kitchen-transport-team-leader-spital-thurgau-stgag-munsterlingen",
+      "de": "teamleiter-in-kuchentransporte-stgag-ch",
+      "fr": "chef-d-equipe-transports-de-cuisine-spital-thurgau-stgag-munsterlingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3837": {
+    "canonicalSlug": "responsabile-di-reparto-tariffe-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "responsabile-di-reparto-tariffe-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "head-of-department-tariffs-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "abteilungsleiter-in-tarife-ibi-care-stgag-ch",
+      "fr": "chef-fe-de-service-tarifs-ibi-care-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3835": {
+    "canonicalSlug": "segretario-a-medico-a-urologia-presso-la-sede-di-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen",
+    "slugByLocale": {
+      "it": "segretario-a-medico-a-urologia-presso-la-sede-di-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "en": "medical-secretary-urology-at-the-munsterlingen-site-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "de": "arztsekretar-in-urologie-am-standort-munsterlingen-stgag-ch",
+      "fr": "secretaire-medical-en-urologie-sur-le-site-de-munsterlingen-spital-thurgau-stgag-kantonsspital-munsterlingen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3826": {
+    "canonicalSlug": "infermiera-di-posizionamento-chirurgico-spital-thurgau-stgag-kantonsspital-frauenfeld",
+    "slugByLocale": {
+      "it": "infermiera-di-posizionamento-chirurgico-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "surgical-positioning-nurse-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "de": "op-lagerungspfleger-in-stgag-ch",
+      "fr": "infirmiere-en-positionnement-chirurgical-spital-thurgau-stgag-kantonsspital-frauenfeld"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3844": {
+    "canonicalSlug": "operatore-trice-sociosanitario-a-con-compito-principale-presso-la-segreteria-del-reparto-di-chirurgia-ortopedia-spital",
+    "slugByLocale": {
+      "it": "operatore-trice-sociosanitario-a-con-compito-principale-presso-la-segreteria-del-reparto-di-chirurgia-ortopedia-spital",
+      "en": "healthcare-specialist-with-primary-responsibility-in-the-ward-secretariat-for-surgery-orthopedics-spital-thurgau-stgag",
+      "de": "fachmann-frau-gesundheit-mit-hauptaufgabe-im-stationssekretariat-fur-chirurgie-orthopadie",
+      "fr": "assistant-e-en-soins-et-sante-communautaire-avec-mission-principale-au-secretariat-de-l-unite-de-chirurgie-orthopedie"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|stgag.ch|3838": {
+    "canonicalSlug": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-presso-il-reparto-a5-psicoterapia-per-la-depressione-spital-thurgau",
+    "slugByLocale": {
+      "it": "infermiere-a-diplomato-a-per-il-turno-notturno-fisso-presso-il-reparto-a5-psicoterapia-per-la-depressione-spital-thurgau",
+      "en": "dipl-nursing-professional-as-a-permanent-night-watch-for-station-a5-psychotherapy-for-depression-spital-thurgau-stgag",
+      "de": "dipl-pflegefachperson-als-dauernachtwache-fur-die-station-a5-psychotherapie-bei",
+      "fr": "dipl-soins-infirmiers-professionnels-en-tant-que-veille-nocturne-permanente-pour-la-station-a5-psychotherapie-pour-la"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "TG"
+  },
+  "id|spitexjobs.ch|j995077": {
+    "canonicalSlug": "infermiere-diplomato-sss-60-100-con-possibilita-di-sviluppo-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
+    "slugByLocale": {
+      "it": "infermiere-diplomato-sss-60-100-con-possibilita-di-sviluppo-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
+      "en": "graduated-nurse-hf-60-100-with-development-opportunities-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
+      "de": "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken",
+      "fr": "infirmiere-diplomee-hf-60-100-avec-des-possibilites-de-developpement-spitex-dulliken-obergosgen-starrkirch-wil-dulliken"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "SO"
+  },
+  "id|spitexjobs.ch|j991371": {
+    "canonicalSlug": "dipl-infermieristica-professionale-hf-psichiatria-spitex-region-entlebuch-wolhusen",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-psichiatria-spitex-region-entlebuch-wolhusen",
+      "en": "dipl-nursing-professional-hf-psychiatry-spitex-region-entlebuch-wolhusen",
+      "de": "dipl-pflegefachperson-hf-psychiatrie-spitex-ch-wolhusen",
+      "fr": "dipl-soins-infirmiers-professionnels-hf-psychiatrie-spitex-region-entlebuch-wolhusen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "LU"
+  },
+  "id|spitexjobs.ch|j995218": {
+    "canonicalSlug": "apprendistato-come-specialista-in-sanita-fage-afc-2027-spitex-baretswil-baretswil",
+    "slugByLocale": {
+      "it": "apprendistato-come-specialista-in-sanita-fage-afc-2027-spitex-baretswil-baretswil",
+      "en": "apprenticeship-as-a-specialist-in-health-fage-efz-2027-spitex-baretswil-baretswil",
+      "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
+      "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-2027-spitex-baretswil-baretswil"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j995230": {
+    "canonicalSlug": "responsabilita-specialistica-per-l-assistenza-familiare-e-l-economia-domestica-60-80-spitex-region-lenzburg-lenzburg",
+    "slugByLocale": {
+      "it": "responsabilita-specialistica-per-l-assistenza-familiare-e-l-economia-domestica-60-80-spitex-region-lenzburg-lenzburg",
+      "en": "professional-responsibility-family-help-and-housekeeping-60-80-spitex-region-lenzburg-lenzburg",
+      "de": "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
+      "fr": "responsabilite-professionnelle-aide-familiale-et-menage-60-80-spitex-region-lenzburg-lenzburg"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|spitexjobs.ch|j995330": {
+    "canonicalSlug": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-nella-cura-delle-ferite-60-100-spitex-spitex-rechtes-limmattal",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-fh-mit-schwerpunkt-wundexpert-in-60-100-spitex-spitex-ch",
+      "it": "infermiere-a-diplomato-a-hf-fh-con-specializzazione-nella-cura-delle-ferite-60-100-spitex-spitex-rechtes-limmattal",
+      "en": "registered-nurse-hf-fh-specializing-in-wound-care-60-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
+      "fr": "infirmier-ere-diplome-e-es-hes-avec-specialisation-d-expert-e-en-plaies-60-100-spitex-spitex-rechtes-limmattal-weiningen"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j995337": {
+    "canonicalSlug": "operatrice-operatore-sociosanitario-afc-fage-nel-turno-serale-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
+      "it": "operatrice-operatore-sociosanitario-afc-fage-nel-turno-serale-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+      "en": "health-professional-efz-fage-in-late-service-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+      "fr": "professionnels-de-la-sante-efz-fage-en-service-tardif-60-90-spitex-rechtes-limmattal-weiningen-zh"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-122706.umantis.com|5764": {
+    "canonicalSlug": "segretario-a-medico-a-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "segretario-a-medico-a-kantonsspital-aarau-ksa-aarau",
+      "en": "medical-secretary-kantonsspital-aarau-ksa-aarau",
+      "de": "arztsekretar-in-ksa-ch",
+      "fr": "secretaire-medical-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5771": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-14-10-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-14-10-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-14-10-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-14-10-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-14-10-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5772": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-12-10-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-12-10-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-12-10-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-12-10-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-12-10-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5773": {
+    "canonicalSlug": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-07-10-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-07-10-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "professional-elective-internship-dental-assistant-dental-assistant-07-10-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-07-10-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-07-10-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5774": {
+    "canonicalSlug": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-05-10-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-05-10-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "professional-elective-internship-dental-assistant-dental-assistant-05-10-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-05-10-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-05-10-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5775": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-22-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-22-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-22-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-22-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-22-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5776": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-20-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-20-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-20-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-20-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-20-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5777": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-15-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-15-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-15-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-15-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-15-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5778": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-13-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-13-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-13-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-13-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-13-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5779": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-08-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-08-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-08-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-08-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-08-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5780": {
+    "canonicalSlug": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-06-07-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "interno-elettivo-professionale-assistente-dentale-assistente-dentale-06-07-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "professional-elective-internship-dental-assistant-dental-assistant-06-07-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-06-07-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-06-07-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5781": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-22-04-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-22-04-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-22-04-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-22-04-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-22-04-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5782": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-20-04-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-20-04-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-20-04-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-20-04-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-20-04-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5783": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-15-04-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-15-04-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-15-04-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-15-04-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-15-04-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5784": {
+    "canonicalSlug": "assistente-dentale-assistente-dentale-13-04-2027-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-dentale-assistente-dentale-13-04-2027-kantonsspital-aarau-ksa-aarau",
+      "en": "vocational-elective-internship-dental-assistant-dental-assistant-13-04-2027-kantonsspital-aarau-ksa-aarau",
+      "de": "berufswahlpraktikum-dentalassistent-dentalassistentin-13-04-2027-ksa-ch",
+      "fr": "stage-professionnel-au-choix-assistant-dentaire-assistant-dentaire-13-04-2027-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5436": {
+    "canonicalSlug": "materiale-professionale-specializzato-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "materiale-professionale-specializzato-kantonsspital-aarau-ksa-aarau",
+      "en": "professional-specialist-material-kantonsspital-aarau-ksa-aarau",
+      "de": "fachfrau-fachmann-material-ksa-ch",
+      "fr": "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5768": {
+    "canonicalSlug": "primario-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "primario-kantonsspital-aarau-ksa-aarau",
+      "en": "senior-physician-kantonsspital-aarau-ksa-aarau-91d9e6",
+      "de": "oberarztin-oberarzt-ksa-ch",
+      "fr": "medecin-chef-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5680": {
+    "canonicalSlug": "medico-senior-chirurgia-della-mano-del-medico-senior-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "medico-senior-chirurgia-della-mano-del-medico-senior-kantonsspital-aarau-ksa-aarau",
+      "en": "senior-physician-senior-physician-hand-surgery-kantonsspital-aarau-ksa-aarau",
+      "de": "oberarztin-oberarzt-handchirurgie-ksa-ch",
+      "fr": "medecin-superieur-medecin-superieur-chirurgie-manuelle-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5696": {
+    "canonicalSlug": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau-87ca51",
+    "slugByLocale": {
+      "it": "medico-senior-medico-senior-kantonsspital-aarau-ksa-aarau-87ca51",
+      "en": "senior-physician-senior-physician-kantonsspital-aarau-ksa-aarau-87ca51",
+      "de": "oberarzt-oberarztin-ksa-ch",
+      "fr": "medecin-superieur-medecin-superieur-kantonsspital-aarau-ksa-aarau-87ca51"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5679": {
+    "canonicalSlug": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
+      "de": "hr-business-partner-ksa-ch",
+      "fr": "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5787": {
+    "canonicalSlug": "assistente-medico-assistente-medico-cardiologia-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "assistente-medico-assistente-medico-cardiologia-kantonsspital-aarau-ksa-aarau",
+      "en": "assistant-doctor-assistant-doctor-cardiology-kantonsspital-aarau-ksa-aarau",
+      "de": "assistenzarztin-assistenzarzt-kardiologie-ksa-ch",
+      "fr": "medecin-adjoint-medecin-adjoint-cardiologie-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5721": {
+    "canonicalSlug": "gestione-team-segreteria-ambulatorium-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "gestione-team-segreteria-ambulatorium-kantonsspital-aarau-ksa-aarau",
+      "en": "team-management-secretariat-ambulatorium-kantonsspital-aarau-ksa-aarau",
+      "de": "teamleitung-sekretariat-ambulatorium-ksa-ch",
+      "fr": "secretariat-de-gestion-d-equipe-ambulatoire-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5762": {
+    "canonicalSlug": "dipl-specialista-di-radiologia-hf-fh-mtra-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "dipl-specialista-di-radiologia-hf-fh-mtra-kantonsspital-aarau-ksa-aarau",
+      "en": "dipl-radiology-specialist-hf-fh-mtra-kantonsspital-aarau-ksa-aarau",
+      "de": "dipl-radiologiefachperson-hf-fh-mtra-ksa-ch",
+      "fr": "dipl-specialiste-de-radiologie-hf-fh-mtra-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5770": {
+    "canonicalSlug": "segretario-medico-o-assistente-medico-ambulatoriale-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "segretario-medico-o-assistente-medico-ambulatoriale-kantonsspital-aarau-ksa-aarau",
+      "en": "medical-secretary-or-medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
+      "de": "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch",
+      "fr": "secretaire-medical-e-ou-assistant-e-medical-e-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5759": {
+    "canonicalSlug": "medico-assistente-o-capoclinica-capoclinica-oncologia-integrativa-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "medico-assistente-o-capoclinica-capoclinica-oncologia-integrativa-kantonsspital-aarau-ksa-aarau",
+      "en": "assistant-doctor-assistant-doctor-or-senior-doctor-senior-doctor-integrative-oncology-kantonsspital-aarau-ksa-aarau",
+      "de": "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch",
+      "fr": "assistant-medecin-assistant-medecin-ou-senior-medecin-senior-medecin-oncologie-integrative-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|recruitingapp-122706.umantis.com|5785": {
+    "canonicalSlug": "capoclinica-capoclinica-o-fellow-neonatologia-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "capoclinica-capoclinica-o-fellow-neonatologia-kantonsspital-aarau-ksa-aarau",
+      "en": "senior-physician-senior-physician-or-fellow-neonatology-kantonsspital-aarau-ksa-aarau",
+      "de": "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch",
+      "fr": "medecin-principal-medecin-principal-ou-membre-de-la-neonatologie-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|ikea.com|mitarbeiter-in-verkauf-kuchenplanung-100": {
+    "canonicalSlug": "addetto-a-alle-vendite-kuchenplanung-100-ikea-spreitenbach",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch",
+      "it": "addetto-a-alle-vendite-kuchenplanung-100-ikea-spreitenbach",
+      "en": "sales-employee-kitchen-planning-100-ikea-spreitenbach-aargau",
+      "fr": "collaborateur-rice-vente-et-planification-de-cuisines-100-ikea-spreitenbach-aargau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|ikea.com|cuisinier-e-ikea-80-100": {
+    "canonicalSlug": "cooker-ikea-80-ikea-riddes-valais",
+    "slugByLocale": {
+      "it": "cooker-ikea-80-ikea-riddes-valais",
+      "en": "cooker-ikea-80-ikea-riddes",
+      "de": "cooker-ikea-80-ikea-riddes",
+      "fr": "cuisinier-e-ikea-100-ikea-ch"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "VS"
+  },
+  "id|ikea.com|collaborateur-trice-de-vente-40": {
+    "canonicalSlug": "collaboratore-venditrice-40-ikea-vernier-geneve",
+    "slugByLocale": {
+      "fr": "collaborateur-trice-de-vente-40-ikea-ch",
+      "it": "collaboratore-venditrice-40-ikea-vernier-geneve",
+      "en": "collaborator-saleswoman-40-ikea-vernier-geneve",
+      "de": "mitarbeiterin-verkauferin-40-ikea-vernier-geneve"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "GE"
+  },
+  "id|ikea.com|mitarbeiter-in-customer-support-50-60": {
+    "canonicalSlug": "collaboratore-trice-customer-support-50-60-ikea-spreitenbach",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-customer-support-50-60-ikea-ch",
+      "it": "collaboratore-trice-customer-support-50-60-ikea-spreitenbach",
+      "fr": "collaborateur-trice-customer-support-50-60-ikea-spreitenbach-aargau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|ikea.com|mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50": {
+    "canonicalSlug": "addetto-a-alle-vendite-reparto-ufficio-e-zona-pranzo-50-ikea-spreitenbach-aargau",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
+      "it": "addetto-a-alle-vendite-reparto-ufficio-e-zona-pranzo-50-ikea-spreitenbach-aargau",
+      "en": "sales-employee-office-and-dining-area-department-50-ikea-spreitenbach-aargau",
+      "fr": "collaborateur-rice-de-vente-departement-bureaux-et-salle-a-manger-50-ikea-spreitenbach-aargau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|spitexjobs.ch|j995057": {
+    "canonicalSlug": "infermiere-diplomato-sss-specializzazione-in-psichiatria-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+    "slugByLocale": {
+      "it": "infermiere-diplomato-sss-specializzazione-in-psichiatria-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+      "en": "dipl-nurse-hf-department-of-psychiatry-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+      "de": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
+      "fr": "dipl-infirmiere-hf-departement-de-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BL"
+  },
+  "id|recruitingapp-122706.umantis.com|5765": {
+    "canonicalSlug": "vicedirettore-della-gestione-dei-processi-della-qualita-e-dei-rischi-kantonsspital-aarau-ksa-aarau",
+    "slugByLocale": {
+      "it": "vicedirettore-della-gestione-dei-processi-della-qualita-e-dei-rischi-kantonsspital-aarau-ksa-aarau",
+      "en": "stv-head-of-process-quality-and-risk-management-kantonsspital-aarau-ksa-aarau",
+      "de": "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch",
+      "fr": "chef-du-processus-de-la-qualite-et-de-la-gestion-des-risques-kantonsspital-aarau-ksa-aarau"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "AG"
+  },
+  "id|novartis.wd3.myworkdayjobs.com|req-10088411-2": {
+    "canonicalSlug": "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city",
+    "slugByLocale": {
+      "it": "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city",
+      "en": "head-legal-cls-operations-launch-and-customer-activation-novartis-ch",
+      "de": "head-legal-cls-operations-launch-und-kundenaktivierung-novartis-basel-city",
+      "fr": "responsable-des-operations-lancement-et-activation-du-cls-juridique-novartis-basel-city"
+    },
+    "createdAt": "2026-10-08",
+    "canton": "BS"
+  },
+  "id|spitexjobs.ch|j995033": {
+    "canonicalSlug": "responsabile-dell-istruzione-60-80-spitex-glattal-dietlikon",
+    "slugByLocale": {
+      "it": "responsabile-dell-istruzione-60-80-spitex-glattal-dietlikon",
+      "en": "responsible-for-education-60-80-spitex-glattal-dietlikon",
+      "de": "bildungsverantwortliche-r-60-80-spitex-ch-dietlikon",
+      "fr": "responsable-de-l-education-60-80-spitex-glattal-dietlikon"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"

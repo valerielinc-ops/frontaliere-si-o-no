@@ -51,7 +51,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-02T23:14:07.120Z"
+      "firstSeenAt": "2026-06-02T23:14:07.120Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "csd-engineers-a4aba93a4096",
@@ -1021,7 +1022,7 @@
       "slugByLocale": {
         "it": "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln",
         "en": "construction-manager-f-m-d-100-csd-engineers-pratteln",
-        "de": "baumanager-w-m-d-100-csd-engineers-ch",
+        "de": "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch",
         "fr": "responsable-de-la-construction-f-m-d-a-100-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
@@ -1065,14 +1066,6 @@
       "applyUrl": "https://jobs.csd.ch/jobs/7856647-baumanager-w-m-d-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch"
-        ]
-      },
-      "previousSlugs": [
-        "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch"
-      ],
       "firstSeenAt": "2026-06-16T13:11:07.085Z"
     },
     {
@@ -1706,7 +1699,7 @@
       "slugByLocale": {
         "it": "erfahrener-projektleiter-genio-civile-ruckbau-80-100-m-w-d-csd-engineers-zurich",
         "en": "advanced-project-manager-civil-engineering-reconstruction-80-100-w-m-d-csd-engineers-zurich",
-        "de": "projektingenieur-planung-oder-projektleiter-tiefbau-80-100-w-m-d-csd-engineers-ch",
+        "de": "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch",
         "fr": "gestionnaire-de-projet-avance-genie-civil-reconstruction-80-100-m-j-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
@@ -1751,9 +1744,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
-        ],
         "it": [
           "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
         ],

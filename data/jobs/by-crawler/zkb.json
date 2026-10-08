@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "zkb",
-  "assembledAt": "2026-10-08T09:17:36.220Z",
   "jobs": [
     {
       "id": "zkb-42e4b6cb4bbe",
@@ -394,7 +392,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "zkb-5d3ca3a9011a",
@@ -607,6 +606,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-10-05T09:10:59.197Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "senior-product-manager-business-engineer-servicenow-m-w-d-zkb-zurich"
@@ -841,6 +841,7 @@
       "pensumMax": 70,
       "pensum": "70%",
       "firstSeenAt": "2026-10-03T09:13:48.392Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "senior-relationship-manager-hnwi-m-w-d-zkb-kloten"
@@ -919,6 +920,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-10-03T09:13:47.969Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "senior-business-engineer-hr-successfactors-w-m-d-zkb-zurich"
@@ -997,6 +999,7 @@
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-10-03T09:13:47.547Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "fx-precious-metals-money-market-operations-specialist-zkb-zurich"
@@ -1484,6 +1487,7 @@
         ]
       },
       "firstSeenAt": "2026-10-01T09:16:59.604Z",
+      "retranslationAttempts": 2,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1567,6 +1571,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:12:15.931Z",
+      "retranslationAttempts": 2,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2106,6 +2111,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-24T14:19:48.872Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "business-engineer-core-banking-fokus-kontofuhrung-buchungsprozesse-m-w-d-zkb-zurich"
@@ -2197,6 +2203,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:37:15.176Z",
+      "retranslationAttempts": 2,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2596,6 +2603,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-17T14:23:10.232Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "business-engineer-financial-crime-compliance-m-w-d-zkb-zurich"
@@ -2752,6 +2760,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-16T23:43:20.454Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-linux-platform-engineering-m-w-d-zkb-zurich"
@@ -2840,6 +2849,7 @@
         ]
       },
       "firstSeenAt": "2026-09-16T23:43:19.987Z",
+      "retranslationAttempts": 2,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2910,6 +2920,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-16T23:43:19.518Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "sql-software-engineer-im-bereich-application-integration-m-w-d-zkb-zurich"
@@ -3065,6 +3076,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-11T23:05:04.889Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "devops-engineer-workplace-client-engineering-m-w-d-zkb-zurich"
@@ -3153,6 +3165,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T22:14:35.006Z",
+      "retranslationAttempts": 2,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -3223,6 +3236,7 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-09T13:42:03.954Z",
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "platform-engineer-backup-cyber-disaster-recovery-m-w-d-zkb-zurich"
@@ -3313,6 +3327,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:32:44.582Z",
+      "retranslationAttempts": 2,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3688,7 +3703,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "zkb-e2d2e487cf18",
@@ -4813,5 +4829,7 @@
         }
       }
     }
-  ]
+  ],
+  "crawlerKey": "zkb",
+  "assembledAt": "2026-10-08T09:17:36.220Z"
 }

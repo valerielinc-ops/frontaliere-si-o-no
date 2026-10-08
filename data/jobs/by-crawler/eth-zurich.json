@@ -954,9 +954,10 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_0r4YkY1enc7TSSEEt4",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:28:57.480Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 8445
     },
     {
       "id": "eth-zurich-87bec8e2cb00",
