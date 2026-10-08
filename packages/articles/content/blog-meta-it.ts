@@ -12832,6 +12832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, festa per tre: Torri assoluta, Rossi e Bianchi nel Piede d\'Oro',
     'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Oltre 300 al Trofeo Rodero del 4 ottobre Torri vince l\'assoluta; Rossi e Bianchi il Piede d\'Oro Partenza e arrivo al campo sportivo comunale Restano due gare',
     'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Corridori durante il Trofeo Rodero nel paesaggio autunnale del Ticino',
+    'blog.article.cardano-al-campo-minorenne-arresto.title': 'Cardano al Campo: minorenne arrestato con hashish',
+    'blog.article.cardano-al-campo-minorenne-arresto.excerpt': 'Fermato a Cardano al Campo un minorenne in scooter Aveva sette dosi di hashish, per poco più di 11 grammi In casa trovati altri 88,3 grammi di hashish',
+    'blog.article.cardano-al-campo-minorenne-arresto.imageAlt': 'Minorenne fermato in scooter a Cardano al Campo con hashish sequestrato dai carabinieri',
 };
 
 export default blogMetaIt;

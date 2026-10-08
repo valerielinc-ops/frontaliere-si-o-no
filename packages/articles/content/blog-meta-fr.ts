@@ -12833,6 +12833,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, fête pour trois : Tours absolues, Rouges et Blancs dans le Pied d\'Or',
     'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Plus de 300 au Trophée Rodero du 4 octobre Torri remporte l\'absolue ; Rossi et Bianchi le Pied d\'Or Départ et arrivée au terrain de sport municipal Il reste deux courses',
     'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Coureurs lors du Trofeo Rodero dans le paysage automnal du Tessin',
+    'blog.article.cardano-al-campo-minorenne-arresto.title': 'Cardano al Campo : un mineur arrêté avec du haschich',
+    'blog.article.cardano-al-campo-minorenne-arresto.excerpt': 'Arrêté à Cardano al Campo, un mineur en scooter avait sept doses de haschisch, pour un peu plus de 11 grammes dans la maison trouvé 88,3 grammes de haschisch',
+    'blog.article.cardano-al-campo-minorenne-arresto.imageAlt': 'Adolescent arrêté en scooter à Cardano al Campo, haschisch saisi par les carabiniers',
 };
 
 export default blogMetaFr;

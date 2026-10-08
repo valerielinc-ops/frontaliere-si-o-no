@@ -43311,6 +43311,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cardano-al-campo-minorenne-arresto',
+ category: 'novita',
+ date: '2026-10-08T23:26:41.689Z',
+ image: '/images/blog/article-domodossola-arresto-hashish-stazione.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
