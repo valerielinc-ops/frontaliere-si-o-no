@@ -184,7 +184,7 @@ const nationalitySearchQuery = (value, label) => {
   return String(canonical || '').normalize('NFD').replace(/[̀-ͯ]/g, '').match(/[a-z]{4,}/i)?.[0]?.slice(0, 4) || '';
 };
 
-const readOwnedListEntries = async (options) => (await options.allInnerTexts())
+const readOwnedListEntries = async (options) => (await options.allInnerTexts().catch(() => []))
   .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
   .filter(({ label }) => Boolean(label));
 
@@ -313,6 +313,7 @@ async function fillCombobox(page, field, locator, value) {
 async function chooseInOwnedList(page, field, locator, value) {
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
   const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
+  const nationality = isNationalityField(field.label);
   for (let attempt = 0; attempt < 2; attempt += 1) {
     if (attempt) {
       await locator.press('Escape').catch(() => {});
@@ -321,23 +322,29 @@ async function chooseInOwnedList(page, field, locator, value) {
     await locator.click({ timeout: ACTION_TIMEOUT_MS });
     const options = list.getByRole('option');
     try {
-      await options.first().waitFor({ state: 'visible', timeout: 10_000 });
+      // Rolex's French nationality list is lazy: after the picklist opens it
+      // has no option yet and only requests the page after a search prefix.
+      // Keep the old long wait for ordinary picklists, but let nationality
+      // continue to that safe, language-aware query when its list is empty.
+      await options.first().waitFor({ state: 'visible', timeout: nationality ? 2_000 : 10_000 });
     } catch {
-      await locator.press('Escape').catch(() => {});
-      throw new Error('option_not_found');
+      if (!nationality) {
+        await locator.press('Escape').catch(() => {});
+        throw new Error('option_not_found');
+      }
     }
     let entries = await readOwnedListEntries(options);
     const findSelectedLabel = () => {
       const labels = entries.map(({ label }) => label);
       const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-      return exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label)) : '');
+      return exact?.label || (nationality ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label)) : '');
     };
     let selectedLabel = findSelectedLabel();
     // Some SuccessFactors picklists do not expose the complete catalogue when
     // opened; they only fetch the matching page after keystrokes. Nationality
     // is safe to filter by a short country prefix, then resolve the localized
     // option («italiana» → «italienne»/«Italie») by the shared catalogue.
-    if (!selectedLabel && isNationalityField(field.label)) {
+    if (!selectedLabel && nationality) {
       const query = nationalitySearchQuery(value, field.label);
       if (query) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
