@@ -1,7 +1,7 @@
 {
   "key": "chopard",
   "label": "Chopard",
-  "generatedAt": "2026-10-08T21:26:21.605Z",
+  "generatedAt": "2026-10-08T22:19:48.062Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 3486,
-  "avgDurationMs": 3486,
+  "durationMs": 4617,
+  "avgDurationMs": 4617,
   "durationHistory": [
-    3486
+    4617
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.763Z",
+      "crawledAt": "2026-10-08T22:19:33.968Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -80,7 +80,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.760Z",
+      "crawledAt": "2026-10-08T22:19:33.965Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -123,7 +123,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.757Z",
+      "crawledAt": "2026-10-08T22:19:33.962Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -166,7 +166,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.754Z",
+      "crawledAt": "2026-10-08T22:19:33.959Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -209,7 +209,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:26:06.732Z",
+      "crawledAt": "2026-10-08T22:19:33.936Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -252,7 +252,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.730Z",
+      "crawledAt": "2026-10-08T22:19:33.934Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -295,7 +295,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:26:06.727Z",
+      "crawledAt": "2026-10-08T22:19:33.931Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -327,5 +327,5 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }
