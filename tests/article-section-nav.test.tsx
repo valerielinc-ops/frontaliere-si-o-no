@@ -2,7 +2,7 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
-import ArticleSectionNav from '@/components/navigation/ArticleSectionNav';
+import ArticleSectionNav, { ArticleSectionNavigation } from '@/components/navigation/ArticleSectionNav';
 
 const { liveSections } = vi.hoisted(() => {
   const names = [
@@ -24,6 +24,7 @@ const { liveSections } = vi.hoisted(() => {
 
 vi.mock('@/services/router', () => ({
   buildPath: vi.fn(({ blogSection }: { blogSection?: string }) => blogSection ? `/${blogSection}/` : '/articoli-frontaliere/'),
+  isArticleSectionRoute: ({ activeTab }: { activeTab: string }) => activeTab === 'blog',
 }));
 
 vi.mock('@/services/i18n', async (importOriginal) => {
@@ -43,6 +44,30 @@ vi.mock('@/services/runtimeArticleSections', () => ({
 afterEach(() => cleanup());
 
 describe('ArticleSectionNav', () => {
+  it.each(['job-board', 'calculator', 'fisco', 'guida', 'stats', 'sitemap'] as const)('does not render on %s routes', (activeTab) => {
+    render(
+      <ArticleSectionNavigation
+        route={{ activeTab }}
+        activeSection="frontaliere"
+        onSelect={vi.fn()}
+      />,
+    );
+
+    expect(screen.queryByTestId('article-section-nav')).toBeNull();
+  });
+
+  it('renders through the route guard on article routes', async () => {
+    render(
+      <ArticleSectionNavigation
+        route={{ activeTab: 'blog' }}
+        activeSection="frontaliere"
+        onSelect={vi.fn()}
+      />,
+    );
+
+    expect(await screen.findByTestId('article-section-nav')).toBeInTheDocument();
+  });
+
   it('keeps all live canton hrefs in the DOM while the disclosure is closed', async () => {
     render(<ArticleSectionNav activeSection="frontaliere" onSelect={vi.fn()} />);
 

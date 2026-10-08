@@ -982,6 +982,18 @@ export interface AppRoute {
  staticOverlay?: boolean;
 }
 
+/**
+ * Single visibility guard for article-section navigation.
+ *
+ * Historical, canton, archive, article and topic-hub article routes all enter
+ * the SPA shell as `activeTab: 'blog'`, including static overlays. Every
+ * other surface must stay outside this navigation scope; callers should use
+ * this predicate instead of growing a list of excluded tabs.
+ */
+export function isArticleSectionRoute(route: Pick<AppRoute, 'activeTab'>): boolean {
+ return route.activeTab === 'blog';
+}
+
 // ── Internationalized slug maps ──────────────────────────────
 // SlugTable interface + SLUG_TABLES data live in ./routeSlugs.data (#4315 —
 // centralized so Node scripts/build plugins outside this TSX graph can share
