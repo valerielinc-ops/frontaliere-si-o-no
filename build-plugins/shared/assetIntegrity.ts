@@ -23,6 +23,47 @@ type OutputChunkLike = {
  */
 const integrityByAsset = new Map<string, string>();
 
+/**
+ * SRI on stable asset names is OFF (production outage 2026-10-08).
+ *
+ * `integrity` pins the bytes, but `assets/index-entry.js`, `App.js`, … keep
+ * the same URL across builds and the early CDN push of build N+1 overwrites
+ * them hours before build N+1's HTML is published. The HTML of build N that is
+ * still live then carries hashes of bytes the CDN no longer serves, and the
+ * browser blocks every script: build 1791399642332 went live at 01:03 UTC, the
+ * next build's push replaced index-entry.js at 03:41 UTC, and the whole site
+ * stopped executing JavaScript ("Failed to find a valid digest in the
+ * 'integrity' attribute … The resource has been blocked").
+ *
+ * While this is false nothing is registered and `addIntegrityToHtml` REMOVES
+ * the attribute from first-party asset tags, so HTML that already carries a
+ * hash (Vite's index.html, anything reused by an incremental build) is cleaned
+ * rather than left pinned. Do not flip it back before asset URLs are
+ * content-addressed end to end (file name, CDN push and every HTML emitter).
+ */
+const STABLE_ASSET_SRI_ENABLED: boolean = false;
+
+function isFirstPartyAssetUrl(resource: string): boolean {
+  if (!/\/assets\//i.test(resource)) return false;
+  if (!/^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(resource)) return true;
+  try {
+    const { hostname } = new URL(resource, 'https://frontaliereticino.ch');
+    return hostname === 'frontaliereticino.ch' || hostname.endsWith('.frontaliereticino.ch');
+  } catch {
+    return false;
+  }
+}
+
+function stripIntegrityFromHtml(html: string): string {
+  if (!/\bintegrity\s*=/i.test(html)) return html;
+  return html.replace(/<(script|link)\b([^>]*?)>/gi, (tag, kind: string, attrs: string) => {
+    if (!/\bintegrity\s*=/i.test(attrs)) return tag;
+    const resource = attrs.match(/\b(?:src|href)\s*=\s*["']([^"']+)["']/i)?.[1];
+    if (!resource || !isFirstPartyAssetUrl(resource)) return tag;
+    return `<${kind}${attrs.replace(/\s+integrity\s*=\s*["'][^"']*["']/gi, '')}>`;
+  });
+}
+
 function isIntegrityEligibleAsset(value: string): boolean {
   const pathname = value.split(/[?#]/, 1)[0] || value;
   return /\.(?:css|js|mjs|wasm)$/i.test(pathname);
@@ -45,6 +86,7 @@ export function sriIntegrity(content: string | Uint8Array): string {
 }
 
 export function registerAssetIntegrity(assetName: string, content: string | Uint8Array): void {
+  if (!STABLE_ASSET_SRI_ENABLED) return;
   integrityByAsset.set(normalizeAssetName(assetName), sriIntegrity(content));
 }
 
@@ -88,6 +130,7 @@ export function addIntegrityToHtml(
   html: string,
   registry: ReadonlyMap<string, string> = integrityByAsset,
 ): string {
+  if (!STABLE_ASSET_SRI_ENABLED) return stripIntegrityFromHtml(html);
   return html.replace(/<(script|link)\b([^>]*?)>/gi, (tag, _kind: string, attrs: string) => {
     const resource = attrs.match(/\b(?:src|href)\s*=\s*["']([^"']+)["']/i)?.[1];
     if (!resource || !/\/assets\//i.test(resource)) return tag;
