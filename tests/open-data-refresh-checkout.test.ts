@@ -43,6 +43,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/ci/merge-open-data-refresh.mjs',
   'scripts/ci/open-data-refresh-merge.mjs',
   'scripts/ci/reconcile-data-refresh-main.mjs',
+  'scripts/ci/merge-compat-shard.mjs',
 ];
 
 function fixture() {
@@ -743,6 +744,112 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
   };
 }
 
+const COMPAT_BRANCH = 'chore/compat-fixture';
+const COMPAT_SHARD = 'data/seo-404-compat/part-00.json';
+
+function compatHistoryFixture(
+  historyLength: number,
+  helperSource = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8'),
+) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-compat-history-'));
+  directories.push(directory);
+  const seed = path.join(directory, 'seed');
+  const remote = path.join(directory, 'remote.git');
+  const runner = path.join(directory, 'runner');
+  fs.mkdirSync(seed);
+  git(seed, ['init', '-q', '-b', 'main']);
+  git(seed, ['config', 'maintenance.auto', 'false']);
+  git(seed, ['config', 'gc.auto', '0']);
+  for (const file of PUBLISHER_RUNTIME_FILES) {
+    write(seed, file, file === 'scripts/lib/open-data-refresh-pr.sh'
+      ? helperSource
+      : fs.readFileSync(path.join(ROOT, file), 'utf8'));
+  }
+  write(seed, '.gitattributes', 'data/seo-404-compat/part-*.json merge=compat-shard\n');
+  write(seed, 'scripts/ci/pr-body-check-gate.mjs', 'process.exit(0);\n');
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base'] }, null, 2) + '\n');
+  write(seed, 'data/long-history.txt', 'history 0\n');
+  git(seed, ['add', '-A']);
+  git(seed, ['commit', '-q', '-m', 'compat base']);
+
+  for (let index = 1; index <= historyLength; index += 1) {
+    write(seed, 'data/long-history.txt', `history ${index}\n`);
+    git(seed, ['add', 'data/long-history.txt']);
+    git(seed, ['commit', '-q', '-m', `history ${index}`]);
+  }
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'main compat data']);
+  const stableBase = git(seed, ['rev-parse', `HEAD~${Math.max(3, Math.floor(historyLength / 2))}`]);
+  git(seed, ['checkout', '-q', '-b', COMPAT_BRANCH, stableBase]);
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/stable'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'stable compat data']);
+
+  git(directory, ['init', '--bare', '-q', remote]);
+  git(remote, ['config', 'uploadpack.allowFilter', 'true']);
+  git(remote, ['config', 'uploadpack.allowAnySHA1InWant', 'true']);
+  git(remote, ['config', 'maintenance.auto', 'false']);
+  git(remote, ['config', 'gc.auto', '0']);
+  git(remote, ['config', 'receive.autogc', 'false']);
+  git(seed, ['remote', 'add', 'origin', remote]);
+  git(seed, ['push', '-q', 'origin', 'main:refs/heads/main', `${COMPAT_BRANCH}:refs/heads/${COMPAT_BRANCH}`]);
+  git(directory, ['clone', '-q', '-c', 'maintenance.auto=false', '-c', 'gc.auto=0', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
+  git(runner, ['config', `url.${remote}.insteadOf`, PUSH_URL]);
+  git(runner, ['config', 'maintenance.auto', 'false']);
+  git(runner, ['config', 'gc.auto', '0']);
+
+  const bin = path.join(directory, 'bin');
+  fs.mkdirSync(bin);
+  const gh = path.join(bin, 'gh');
+  fs.writeFileSync(gh, [
+    '#!/usr/bin/env node',
+    "const { spawnSync } = require('node:child_process');",
+    `const remote = ${JSON.stringify(remote)};`,
+    'const args = process.argv.slice(2);',
+    "if (args[0] === 'api') {",
+    "  const endpoint = args.find((arg) => arg.startsWith('repos/fixture/publisher/compare/'));",
+    "  if (endpoint) {",
+    "    const compare = endpoint.slice(endpoint.indexOf('/compare/') + '/compare/'.length);",
+    "    const [left, right] = compare.split('...');",
+    "    const result = spawnSync('git', ['--git-dir=' + remote, 'merge-base', left, right], { encoding: 'utf8' });",
+    "    if (result.status !== 0) { process.stderr.write(result.stderr); process.exit(result.status || 1); }",
+    "    process.stdout.write(result.stdout); process.exit(0);",
+    '  }',
+    '}',
+    "if (args[0] === 'pr' && args[1] === 'create') process.stdout.write('https://github.com/fixture/publisher/pull/1\\n');",
+    'process.exit(0);',
+    '',
+  ].join('\n'));
+  fs.chmodSync(gh, 0o755);
+  const body = path.join(directory, 'body.md');
+  fs.writeFileSync(body, '## Implementato\n- Fixture compat.\n\n## Non implementato (ancora)\n- Nessuno.\n');
+
+  return { directory, remote, runner, bin, body };
+}
+
+function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
+  write(setup.runner, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main', '/run'] }, null, 2) + '\n');
+  const result = spawnSync('bash', [
+    'scripts/lib/open-data-refresh-pr.sh',
+    '--path', 'data/seo-404-compat', '--branch', COMPAT_BRANCH,
+    '--commit-message', 'fixture compat refresh', '--title', 'Fixture compat refresh', '--body-file', setup.body,
+  ], {
+    cwd: setup.runner, encoding: 'utf8', timeout: 120_000,
+    env: {
+      ...process.env, ...identity,
+      PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
+      GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+    },
+  });
+  return {
+    result,
+    output: `${result.stdout}${result.stderr}`,
+    commitCount: Number(git(setup.runner, ['rev-list', '--all', '--count'])),
+    shard: JSON.parse(git(setup.remote, ['show', `${COMPAT_BRANCH}:${COMPAT_SHARD}`])),
+  };
+}
+
 /** Objects held in the remote's packs; with `receive.unpackLimit=1` a push adds exactly what it sent. */
 function packedObjects(remote: string) {
   const match = /^in-pack: (\d+)$/m.exec(git(remote, ['count-objects', '-v']));
@@ -859,6 +966,27 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(setup.ghCalls()).toContain(`api -X POST repos/fixture/publisher/git/refs -f ref=refs/heads/${NEW_BRANCH} -f sha=${setup.checkout}`);
     expect(setup.ghCalls()).toContain('pr create');
   }, 60_000);
+
+  it('reconciles a stale compat branch with bounded history reads', () => {
+    const boundedRuns = [50, 500].map((historyLength) => publishCompat(compatHistoryFixture(historyLength)));
+    for (const run of boundedRuns) {
+      expect(run.result.status, run.output).toBe(0);
+      expect(run.output).toContain('old-history-guard:');
+      expect(run.shard).toEqual({ paths: ['/base', '/main', '/run', '/stable'] });
+      expect(run.commitCount).toBeLessThan(20);
+    }
+    expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
+
+    const legacyHelper = execFileSync('git', [
+      'show', '58d06b3a4a5:scripts/lib/open-data-refresh-pr.sh',
+    ], { cwd: ROOT, encoding: 'utf8' });
+    const legacyRuns = [50, 500].map((historyLength) => publishCompat(compatHistoryFixture(historyLength, legacyHelper)));
+    // The old helper has already fetched the stale branch's history when its
+    // shallow merge refuses to continue; the reachable commit count is the
+    // counterexample for the bounded implementation.
+    expect(legacyRuns[0].commitCount).toBeGreaterThan(20);
+    expect(legacyRuns[1].commitCount).toBeGreaterThan(legacyRuns[0].commitCount);
+  }, 120_000);
 
   it('stops in seconds, without downloading history, when the base cannot be created and main moved', () => {
     const setup = movingMainFixture({ afterHistoryGuard: true });
