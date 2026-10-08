@@ -7895,6 +7895,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-minimo-lucerna-requisiti.title': 'Mindestlohn in Luzern: Anforderungen und Anwendung',
     'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analyse der Mindestlohnordnung im Kanton Luzern, Unterschiede zwischen kantonalen Anforderungen und Gesamtarbeitsverträgen, Kontrollen und Verfahren.',
     'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Regelung des Mindestlohns und der Gesamtarbeitsverträge im Kanton Luzern',
+    'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Sozialhilfe in Luzern: Anforderungen und Nachfrage',
+    'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Leitfaden zur Sozialhilfe im Kanton Luzern: Bedarfsvoraussetzungen, zuständige Stellen, erforderliche Unterlagen und Mitwirkungspflichten.',
+    'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Verwaltungsstellen für Sozialhilfe im Kanton Luzern',
 };
 
 export default blogMetaChDe;

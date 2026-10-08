@@ -7895,6 +7895,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-minimo-lucerna-requisiti.title': 'Minimum wage in Lucerne: requirements and application',
     'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analysis of minimum wage regulations in the Canton of Lucerne, differences between cantonal requirements and collective labour agreements, controls and procedures.',
     'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Regulation of minimum wage and collective agreements in the Canton of Lucerne',
+    'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Social work in Lucerne: requirements and application',
+    'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Guide to social assistance in the Canton of Lucerne: conditions of need, competent offices, necessary documentation and obligations of collaboration.',
+    'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Administrative offices for social assistance in the Canton of Lucerne',
 };
 
 export default blogMetaChEn;

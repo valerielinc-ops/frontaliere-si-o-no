@@ -2654,6 +2654,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lavaggio-denaro-avvocatura': { it: 'lavaggio-denaro-avvocatura', en: 'money-laundering-lawyer-rules', de: 'geldwaesche-regeln-anwaelte', fr: 'regles-blanchiment-avocats' },
  'contributi-formazione-berna-requisiti': { it: 'contributi-formazione-berna-requisiti', en: 'bern-continuing-education-grants-requirements', de: 'bern-weiterbildung-beitrage-voraussetzungen', fr: 'berne-formation-continue-aides-conditions' },
  'salario-minimo-lucerna-requisiti': { it: 'salario-minimo-lucerna-requisiti', en: 'lucerne-minimum-wage-requirements', de: 'mindestlohnabhaengigkeit-kanton-luzern', fr: 'salaire-minimum-canton-lucerne-exigences' },
+ 'assistenza-sociale-lucerna-requisiti': { it: 'assistenza-sociale-lucerna-requisiti', en: 'social-assistance-lucerne-requirements', de: 'sozialhilfe-kanton-luzern-voraussetzungen', fr: 'aide-sociale-lucerne-exigences' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

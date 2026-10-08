@@ -7895,6 +7895,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-lucerna-requisiti.title': 'Salario minimo a Lucerna: requisiti e applicazione',
     'blog.article.salario-minimo-lucerna-requisiti.excerpt': 'Analisi della disciplina sui salari minimi nel Cantone di Lucerna, differenze tra requisiti cantonali e contratti collettivi di lavoro, controlli e procedure.',
     'blog.article.salario-minimo-lucerna-requisiti.imageAlt': 'Regolamentazione del salario minimo e contratti collettivi nel Cantone di Lucerna',
+    'blog.article.assistenza-sociale-lucerna-requisiti.title': 'Assistenza sociale a Lucerna: requisiti e domanda',
+    'blog.article.assistenza-sociale-lucerna-requisiti.excerpt': 'Guida all\'assistenza sociale nel Cantone di Lucerna: condizioni di bisogno, uffici competenti, documentazione necessaria e obblighi di collaborazione.',
+    'blog.article.assistenza-sociale-lucerna-requisiti.imageAlt': 'Uffici amministrativi per l\'assistenza sociale nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

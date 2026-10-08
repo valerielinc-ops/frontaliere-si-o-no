@@ -100573,7 +100573,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Fermata alla stazione internazionale di Domodossola - Arrivava da Milano Centrale - Un chilo di hashish in dieci panetti - Valore stimato: oltre",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/affitti-friburgo-contestazione-canone.webp`,
+        "url": `${BASE_URL}/images/blog/article-domodossola-arresto-hashish-stazione.webp`,
         "width": 1200,
         "height": 675,
         "caption": "La stazione internazionale di Domodossola, dove è avvenuto l'arresto per traffico di stupefacenti"
@@ -100607,7 +100607,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carovita-sindacati-recupero-divario.webp`,
+        "url": `${BASE_URL}/images/blog/article-petizione-recupero-carovita-ticino.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Lavoratori del settore pubblico ticinese con striscioni a sostegno della petizione per il recupero del carovita"
@@ -101186,7 +101186,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Due appuntamenti culturali a Varese il 9 e l'11 ottobre - Dante al centro dell'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/article-festival-racconto-varese-ottobre.webp`,
+        "url": `${BASE_URL}/images/blog/compatta-usata-frontalieri-varese-milano.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa Recalcati a Varese ospita il Festival del Racconto"
