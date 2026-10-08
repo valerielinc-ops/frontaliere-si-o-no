@@ -898,7 +898,7 @@
       "slugByLocale": {
         "it": "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
         "en": "stv-nursing-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
-        "de": "stv-pflege-standortleiter-in-pdgr-ch",
+        "de": "stv-pflege-standortleiter-in-pdgr-ch-exvy15",
         "fr": "stv-infirmiere-gestionnaire-de-site-in-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -957,6 +957,9 @@
           "stv-pflege-standortleiter-in-pdgr-ch"
         ],
         "fr": [
+          "stv-pflege-standortleiter-in-pdgr-ch"
+        ],
+        "de": [
           "stv-pflege-standortleiter-in-pdgr-ch"
         ]
       },
@@ -1257,7 +1260,10 @@
       "id": "pdgr-7ece1370e212",
       "slug": "dipl-pflegefachperson-hf-fh-pdgr-ch",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        "de": "dipl-pflegefachperson-hf-fh-pdgr-ch",
+        "it": "dipl-pflegefachperson-hf-fh-pdgr-ch",
+        "en": "dipl-pflegefachperson-hf-fh-pdgr-ch",
+        "fr": "dipl-pflegefachperson-hf-fh-pdgr-ch"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",

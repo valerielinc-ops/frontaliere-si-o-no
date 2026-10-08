@@ -3541,7 +3541,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -6750,7 +6751,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-424d64daef2a",
       "previousSlugsByLocale": {
         "de": [
@@ -7331,7 +7331,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a4a9f13d88c1",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9082,7 +9081,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-1fe78eb77ef8",
       "previousSlugsByLocale": {
         "de": [
@@ -9828,7 +9826,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-61e97033ec14",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -10530,7 +10527,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-630e2b9ad0e6",
       "previousSlugsByLocale": {
         "en": [
@@ -12411,12 +12407,14 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
-          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
         ],
         "en": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
@@ -14437,7 +14435,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d4509eb15173",
       "previousSlugsByLocale": {
         "de": [
@@ -21013,7 +21010,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-10ec4c14a409",
       "previousSlugsByLocale": {
         "de": [

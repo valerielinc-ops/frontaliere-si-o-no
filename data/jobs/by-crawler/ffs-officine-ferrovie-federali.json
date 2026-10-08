@@ -428,7 +428,6 @@
           "career-starter-signalling-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:39:17.141Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -622,7 +621,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fachspezialist-in-einsatzgruppe-transportpolizei/9aab0619-0f94-4f93-95e6-5e5973754975",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T21:28:29.270Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T09:20:34.342Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -708,7 +706,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-betriebsobjekte-immobilien-development/8825adcf-0f34-4db4-9cfd-dc798d136ba7",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T21:28:32.763Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:39:32.140Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -797,7 +794,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/hochschulpraktikant-in-in-diversen-bereichen/81c80080-07c9-4751-b65a-65ab4d40158a",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T21:28:34.763Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:39:37.637Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -1311,7 +1307,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-kreditorenverarbeitung/5bd14875-9e1f-43d8-ab58-042bdbaf1c1c",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3a925e18b3fd",
@@ -1944,7 +1941,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "9000",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in/21a1a152-fc54-4ff5-99ae-7010e655c7c8",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ff42a1e7fee0",
@@ -2157,7 +2155,8 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "postalCode": "3900",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-elektro-und-telecom/355090c1-9ae3-4852-9ca0-7e5745b79a93"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-elektro-und-telecom/355090c1-9ae3-4852-9ca0-7e5745b79a93",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-865bf0475be8",
@@ -3985,7 +3984,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2e7144cac881",
@@ -5623,7 +5623,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1444e8f8d837",
@@ -10032,7 +10033,8 @@
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -10438,7 +10440,8 @@
       "postalCode": "8001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -12383,7 +12386,6 @@
           "teamleiter-in-produktion-und-werkstatt-ffs-officine-ferrovie-federali-dulliken"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:40:21.057Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -12993,7 +12995,7 @@
         "it": "caposquadra-di-turno-nella-verniciatura-ffs-officine-ferrovie-federali-olten",
         "en": "shift-supervisor-in-the-paint-shop-ffs-officine-ferrovie-federali-olten",
         "de": "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-        "fr": "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
+        "fr": "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13037,7 +13039,7 @@
       "crawledAt": "2026-10-07T09:42:05.808Z",
       "previousSlugs": [
         "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-        "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten"
+        "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13048,7 +13050,7 @@
         ],
         "fr": [
           "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-          "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten"
+          "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-06T21:40:12.486Z",
@@ -13069,7 +13071,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-in-der-lackiererei/4c1a2378-fd77-4409-92bb-b08ad8a212ee",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3516ea42a0d8",
@@ -13606,8 +13609,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d/b53a5c9b-a21b-4334-b11e-7291422b5b7f",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-79d269ce7a6d",
@@ -13723,7 +13725,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1003",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/responsable-de-mandats-entretien-voie-ferree-h-f-d/cccde52e-8a79-4b74-91cd-8797d5b3d253",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-f3eee41ab471",
@@ -13842,7 +13845,7 @@
       "slug": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
       "slugByLocale": {
         "it": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
-        "en": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
+        "en": "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau",
         "de": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
         "fr": "une-catenaire-speciale-pour-ajusteurs-ffs-officine-ferrovie-federali-arth-goldau"
       },
@@ -13904,21 +13907,19 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:08.809Z",
       "previousSlugs": [
-        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-        "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "en": [
-          "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+          "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "fr": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -13943,9 +13944,9 @@
       "slug": "cavi-speciali-giuntrice-elettricista-elettricista-meccanico-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
         "it": "cavi-speciali-giuntrice-elettricista-elettricista-meccanico-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14005,19 +14006,17 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:09.307Z",
       "previousSlugs": [
-        "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz",
-        "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz"
+        "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "en": [
-          "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz"
+          "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "fr": [
-          "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz"
+          "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
       "needsRetranslation": true,
@@ -14046,9 +14045,9 @@
       "slug": "montatore-speciale-di-cavi-ingegneria-civile-giardiniere-muratore-ingegnere-civile-costruttore-di-percorsi-stradali-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
         "it": "montatore-speciale-di-cavi-ingegneria-civile-giardiniere-muratore-ingegnere-civile-costruttore-di-percorsi-stradali-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14105,19 +14104,17 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:09.824Z",
       "previousSlugs": [
-        "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz",
-        "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz"
+        "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "en": [
-          "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz"
+          "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "fr": [
-          "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz"
+          "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
       "needsRetranslation": true,
@@ -14203,7 +14200,6 @@
           "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:40:22.993Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -14307,7 +14303,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/6c635a45-7636-4854-a32e-233469630f4f",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:11.301Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -14631,7 +14626,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-frontdesk-finanzen/4c166ea6-e4d5-4765-9053-73803af7aedc",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:12.293Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -14727,7 +14721,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/lean-portfolio-manager-in-sap/64b97376-8f32-49a7-b269-22d2010e4e58",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T21:28:37.252Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:41:27.790Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -14817,7 +14810,6 @@
           "bauleiter-in-fachbauleiter-in-gleisbau-ffs-officine-ferrovie-federali-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:40:54.337Z",
       "salaryMin": 121500,
       "salaryMax": 206500,

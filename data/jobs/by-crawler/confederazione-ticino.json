@@ -46,7 +46,6 @@
         "fr": "jurist-in-recht-mwst-confederazione-bern"
       },
       "id": "confederazione-ticino-94581c9a134a",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -108,7 +107,6 @@
         "fr": "hochschulpraktikant-in-stab-direktionsbereich-kranken-und-unfallversicherung-confederazione-bern"
       },
       "id": "confederazione-ticino-6f8e4ccb9201",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -248,7 +246,6 @@
         "fr": "hochschulpraktikant-in-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-5712b824402e",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -426,7 +423,8 @@
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-bereich-familienfragen-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/-in",
@@ -1666,7 +1664,7 @@
         "fr": "## Auf den Punkt gebracht\n\nSorgen Sie gemeinsam mit einem engagierten Team für klare Regeln auf den Strassen der Schweiz.\n\n- Eintrittsdatum: 01.01.2027 oder nach Vereinbarung\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-20570\n- Arbeitsort: Pulverstrasse 13, 3063 Ittigen\n\n## Diesen Beitrag können Sie leisten\n\n- Die Verkehrsregeln und die Signalisation im Strassenverkehr weiterentwickeln\n- Mit Ihrem Fachwissen Kantone, Gemeinden und weitere Interessierte in Fragen zum Strassenverkehrsrecht unterstützen\n- Bei Bundesrats- und Parlamentsgeschäften zum Strassenverkehr mitarbeiten\n- Das ASTRA in Fachgremien und an Fachveranstaltungen vertreten\n\n## Das macht Sie einzigartig\n\n- Hochschulstudium (Master) in Rechtswissenschaften oder gleichwertige Ausbildung\n- Gute redaktionelle Fähigkeiten\n- Interesse am Strassenverkehrsrecht\n- Gute aktive Kenntnisse einer zweiten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Bewegt die Schweiz.\n\nDas Bundesamt für Strassen (ASTRA) ist für den Bau, den Unterhalt und den Betrieb des Nationalstrassennetzes verantwortlich und setzt sich für eine nachhaltige und sichere Mobilität auf der Strasse ein. Es ist Teil des Eidgenössischen Departements für Umwelt, Verkehr, Energie und Kommunikation (UVEK).\n\nAls Mitarbeiterin oder Mitarbeiter des ASTRA bewegen Sie die Schweiz. Sie übernehmen Verantwortung in herausfordernden Projekten, die alle Regionen voranbringen und verbinden. Das ASTRA bietet Ihnen die Möglichkeit, in einem modernen Arbeitsumfeld einen wesentlichen Beitrag für die erfolgreiche Entwicklung der Schweiz zu leisten."
       },
       "slugByLocale": {
-        "it": "jurist-in-strassenverkehr-confederazione-svizzera-ittigen-schweiz",
+        "it": "avvocato-a-circolazione-stradale-confederazione-svizzera-ittigen-schweiz",
         "en": "road-traffic-lawyer-confederazione-svizzera-ittigen-schweiz",
         "de": "jurist-in-strassenverkehr-confederazione-ittigen-schweiz",
         "fr": "juriste-en-circulation-routiere-confederazione-svizzera-ittigen-schweiz"
@@ -1692,8 +1690,7 @@
       "postalCode": "3001",
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-strassenverkehr-confederazione-ittigen-schweiz",
-          "avvocato-a-circolazione-stradale-confederazione-svizzera-ittigen-schweiz"
+          "jurist-in-strassenverkehr-confederazione-ittigen-schweiz"
         ],
         "en": [
           "jurist-in-strassenverkehr-confederazione-ittigen-schweiz"
@@ -1703,13 +1700,11 @@
         ]
       },
       "previousSlugs": [
-        "jurist-in-strassenverkehr-confederazione-ittigen-schweiz",
-        "avvocato-a-circolazione-stradale-confederazione-svizzera-ittigen-schweiz"
+        "jurist-in-strassenverkehr-confederazione-ittigen-schweiz"
       ],
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1936,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 1936
     },
     {
       "title": "Sachbearbeiter/-in Personaladministration",
@@ -2014,7 +2009,8 @@
       },
       "previousSlugs": [
         "steuerprufer-in-externe-prufung-mwst-zh-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Steuerspezialist/-in Erhebung MWST, Team 8",
@@ -2090,7 +2086,8 @@
       },
       "previousSlugs": [
         "steuerspezialist-in-erhebung-mwst-team-8-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Ingenieur/-in für Cloud und hybride Plattformen",
@@ -5996,12 +5993,13 @@
         "en": "project-manager-confederazione-svizzera-bern-ba8c84",
         "de": "projektkauffrau-mann-confederazione-bern",
         "fr": "employe-e-de-projet-confederazione-svizzera-bern",
-        "it": "impiegato-a-di-progetto-confederazione-svizzera-bern"
+        "it": "projektkauffrau-mann-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-4bcae3110151",
       "previousSlugsByLocale": {
         "it": [
-          "projektkauffrau-mann-confederazione-bern"
+          "projektkauffrau-mann-confederazione-bern",
+          "impiegato-a-di-progetto-confederazione-svizzera-bern"
         ],
         "en": [
           "project-manager-confederazione-svizzera-bern",
@@ -6013,7 +6011,8 @@
       },
       "previousSlugs": [
         "project-manager-confederazione-svizzera-bern",
-        "projektkauffrau-mann-confederazione-bern"
+        "projektkauffrau-mann-confederazione-bern",
+        "impiegato-a-di-progetto-confederazione-svizzera-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6146,7 +6145,7 @@
       },
       "slugByLocale": {
         "it": "hochschulpraktikant-in-risorse-umane-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-svizzera",
-        "en": "university-intern-hr-case-management-bgm-learning-development-communication-1341-confederazione-svizzera-zollikofen",
+        "en": "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen",
         "de": "hochschulpraktikant-in-personalwesen-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-svizzera",
         "fr": "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen"
       },
@@ -6170,7 +6169,7 @@
       "postingDateSource": "reported",
       "previousSlugsByLocale": {
         "en": [
-          "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen"
+          "university-intern-hr-case-management-bgm-learning-development-communication-1341-confederazione-svizzera-zollikofen"
         ],
         "it": [
           "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen"
@@ -6180,9 +6179,11 @@
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen"
+        "hochschulpraktikant-in-hr-casemanagement-bgm-learning-development-kommunikation-1341-confederazione-zollikofen",
+        "university-intern-hr-case-management-bgm-learning-development-communication-1341-confederazione-svizzera-zollikofen"
       ],
-      "postalCode": "3052"
+      "postalCode": "3052",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Kauffrau/-mann EFZ",
@@ -6223,12 +6224,13 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-altstatten",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-altstatten",
-        "it": "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-altstatten"
       },
       "id": "confederazione-ticino-4fb5290f45ac",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+          "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+          "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
@@ -6238,7 +6240,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-altstatten"
+        "lernende-r-kauffrau-mann-efz-confederazione-altstatten",
+        "apprendista-impiegato-a-di-commercio-afc-confederazione-svizzera-altstatten"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -8176,7 +8179,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-hr-recruiting-1341/68cf0380-a294-403e-be3d-d0df5034f007",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "postalCode": "3052"
+      "postalCode": "3052",
+      "needsRetranslation": true
     },
     {
       "title": "SAP BTP & Frontend Spezialist (Fiori / Build Workzone) - Wirtschaftsinformatiker Professional",
@@ -11362,7 +11366,7 @@
         "it": "compliance-officer-60-e-sezione-diritto-contrattuale-40-confederazione-svizzera-zollikofen",
         "en": "compliance-officer-60-and-contract-law-section-40-confederazione-svizzera-zollikofen",
         "de": "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen",
-        "fr": "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-svizzera-zollikofen"
+        "fr": "agent-de-conformite-60-et-section-du-droit-des-contrats-40-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-bb33724d2554",
       "previousSlugsByLocale": {
@@ -11371,8 +11375,8 @@
           "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen"
         ],
         "fr": [
-          "agent-de-conformite-60-et-section-du-droit-des-contrats-40-confederazione-svizzera-zollikofen",
-          "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen"
+          "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen",
+          "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-svizzera-zollikofen"
         ],
         "en": [
           "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen"
@@ -11381,7 +11385,7 @@
       "previousSlugs": [
         "compliance-officer-60-e-sektion-vertragsrecht-40-confederazione-svizzera-zollikofen",
         "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-zollikofen",
-        "agent-de-conformite-60-et-section-du-droit-des-contrats-40-confederazione-svizzera-zollikofen"
+        "compliance-officer-60-und-sektion-vertragsrecht-40-confederazione-svizzera-zollikofen"
       ],
       "salaryMin": 47100,
       "salaryMax": 80700,
@@ -11541,7 +11545,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-senior/af4a0093-e16d-4e5b-9362-08572d656e41",
       "datePosted": "2026-09-07T07:58:25Z",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "title": "DevOps Engineer & Fullstack Entwickler/-in (Java) Professional",
@@ -11603,7 +11608,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/devops-engineer-fullstack-entwickler-in-java-professional/169f5e39-1b8d-4e6c-a0a0-1e1b278df230",
       "datePosted": "2026-09-07T08:11:45Z",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "title": "HMS-Praktikant/in PAVV",
@@ -12177,19 +12183,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
         "fr": "gestionnaire-bim-et-chef-de-projet-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
-        "it": "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
       },
       "id": "confederazione-ticino-47ced81b7cdc",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+          "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+          "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp"
+        "bim-manager-in-und-projektleiter-in-confederazione-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930-visp",
+        "responsabile-bim-e-responsabile-di-progetto-confederazione-svizzera-uttigenstrasse-54-3600-thun-oder-bahnhofplatz-1-3930"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -12627,12 +12635,13 @@
         "en": "project-manager-civil-protection-coordination-confederazione-svizzera-guisanplatz-1b-3014-bern",
         "de": "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern",
         "fr": "chef-fe-de-projet-coordination-protection-civile-confederazione-svizzera-guisanplatz-1b-3014-bern",
-        "it": "capo-progetto-coordinamento-protezione-civile-confederazione-svizzera-guisanplatz-1b-3014-bern"
+        "it": "projektleiter-in-koordination-zivilschutz-confederazione-svizzera-guisanplatz-1b-3014-bern"
       },
       "id": "confederazione-ticino-8a755ba4b71e",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern"
+          "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern",
+          "capo-progetto-coordinamento-protezione-civile-confederazione-svizzera-guisanplatz-1b-3014-bern"
         ],
         "en": [
           "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern"
@@ -12642,7 +12651,8 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern"
+        "projektleiter-in-koordination-zivilschutz-confederazione-guisanplatz-1b-3014-bern",
+        "capo-progetto-coordinamento-protezione-civile-confederazione-svizzera-guisanplatz-1b-3014-bern"
       ],
       "salaryMin": 89000,
       "salaryMax": 147500,
@@ -13604,7 +13614,7 @@
         "en": "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-272d8fe2025d",
       "previousSlugsByLocale": {
@@ -13612,7 +13622,8 @@
           "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
           "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
           "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+          "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
         ],
         "en": [
           "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
@@ -13625,7 +13636,8 @@
         "apprenticeship-professional-cleaning-technology-efz-confederazione-svizzera-bern",
         "apprentissage-professionnel-technologie-de-nettoyage-efz-confederazione-svizzera-bern",
         "apprendistato-fachmann-frau-reinigungstechnik-cfc-confederazione-svizzera-bern-xd010j",
-        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-reinigungstechnik-efz-confederazione-bern",
+        "apprendistato-professionale-tecnologia-di-pulizia-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -13762,19 +13774,21 @@
         "en": "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
         "de": "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
         "fr": "gestionnaire-bim-et-gestionnaire-de-projet-confederazione-svizzera-winterthur",
-        "it": "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
+        "it": "bim-manager-in-e-projektleiter-in-confederazione-svizzera-winterthur"
       },
       "id": "confederazione-ticino-fd60d9620266",
       "previousSlugsByLocale": {
         "it": [
-          "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+          "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+          "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
         ],
         "fr": [
           "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
         ]
       },
       "previousSlugs": [
-        "bim-manager-in-und-projektleiter-in-confederazione-winterthur"
+        "bim-manager-in-und-projektleiter-in-confederazione-winterthur",
+        "bim-manager-e-project-manager-confederazione-svizzera-winterthur"
       ],
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -13988,7 +14002,7 @@
       },
       "slugByLocale": {
         "it": "esperienza-informatica-confederazione-svizzera-zollikofen",
-        "en": "erlebnistag-informatik-confederazione-svizzera-zollikofen",
+        "en": "computer-science-experience-day-confederazione-svizzera-zollikofen",
         "de": "erlebnistag-informatik-confederazione-zollikofen",
         "fr": "experience-en-informatique-confederazione-svizzera-zollikofen"
       },
@@ -14011,8 +14025,8 @@
       "previousSlugsByLocale": {
         "en": [
           "computer-science-experience-confederazione-svizzera-zollikofen",
-          "computer-science-experience-day-confederazione-svizzera-zollikofen",
-          "erlebnistag-informatik-confederazione-zollikofen"
+          "erlebnistag-informatik-confederazione-zollikofen",
+          "erlebnistag-informatik-confederazione-svizzera-zollikofen"
         ],
         "it": [
           "erlebnistag-informatik-confederazione-zollikofen"
@@ -14024,7 +14038,7 @@
       "previousSlugs": [
         "computer-science-experience-confederazione-svizzera-zollikofen",
         "erlebnistag-informatik-confederazione-zollikofen",
-        "computer-science-experience-day-confederazione-svizzera-zollikofen"
+        "erlebnistag-informatik-confederazione-svizzera-zollikofen"
       ],
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/erlebnistag-informatik/f70e5d7c-a0e5-4f8b-b609-04989fe4cb90",
       "needsRetranslation": true,
@@ -14666,12 +14680,13 @@
         "en": "apprentice-logistiker-in-efz-fachrichtung-lager-confederazione-svizzera-zollikofen",
         "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen",
         "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-confederazione-svizzera-zollikofen",
-        "it": "apprentice-logistica-efz-magazzino-di-dipartimento-confederazione-svizzera-zollikofen"
+        "it": "apprendista-logistiker-in-cfc-specializzazione-magazzino-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-3338750cd739",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen"
+          "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen",
+          "apprentice-logistica-efz-magazzino-di-dipartimento-confederazione-svizzera-zollikofen"
         ],
         "en": [
           "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen"
@@ -14681,7 +14696,8 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen"
+        "lernende-r-logistiker-in-efz-fachrichtung-lager-confederazione-zollikofen",
+        "apprentice-logistica-efz-magazzino-di-dipartimento-confederazione-svizzera-zollikofen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15620,16 +15636,18 @@
         "en": "apprenticeship-professional-female-maintenance-efz-confederazione-svizzera-bern",
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
         "fr": "apprentissage-professionnel-female-maintenance-efz-confederazione-svizzera-bern",
-        "it": "apprendistato-professional-female-manutenzione-efz-confederazione-svizzera-bern"
+        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-f3aa7fcaa234",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+          "apprendistato-professional-female-manutenzione-efz-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-confederazione-bern",
+        "apprendistato-professional-female-manutenzione-efz-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15986,16 +16004,18 @@
         "en": "apprentice-kauffrau-mann-eba-confederazione-svizzera-bern",
         "de": "lernende-r-kauffrau-mann-eba-confederazione-bern",
         "fr": "apprenti-e-kauffrau-mann-eba-confederazione-svizzera-bern",
-        "it": "apprentice-businessman-eba-confederazione-svizzera-bern"
+        "it": "apprendista-kauffrau-mann-afp-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-e6cde7c07b76",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-confederazione-bern"
+          "lernende-r-kauffrau-mann-eba-confederazione-bern",
+          "apprentice-businessman-eba-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-confederazione-bern"
+        "lernende-r-kauffrau-mann-eba-confederazione-bern",
+        "apprentice-businessman-eba-confederazione-svizzera-bern"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16117,16 +16137,18 @@
         "en": "apprentice-kauffrau-mann-efz-confederazione-svizzera-basel",
         "de": "lernende-r-kauffrau-mann-efz-confederazione-basel",
         "fr": "apprenti-e-kauffrau-mann-efz-confederazione-svizzera-basel",
-        "it": "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
+        "it": "apprendista-kauffrau-mann-cfc-confederazione-svizzera-basel"
       },
       "id": "confederazione-ticino-6cbfef4587e8",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-confederazione-basel"
+          "lernende-r-kauffrau-mann-efz-confederazione-basel",
+          "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
         ]
       },
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-confederazione-basel"
+        "lernende-r-kauffrau-mann-efz-confederazione-basel",
+        "apparecchio-merchant-man-efz-confederazione-svizzera-basel"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -17486,7 +17508,8 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/ict-devops-engineer-data-analytics-senior/cc6f8275-0088-4fea-847a-f640949bc33b",
       "datePosted": "2026-07-22T11:14:23Z",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Cyberkriminalität)",
@@ -17758,7 +17781,6 @@
         "fr": "ict-system-ingenieur-in-expert-m365-azure-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-de3a0f63b700",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -17820,7 +17842,6 @@
         "fr": "produktmanager-in-expert-996-confederazione-zollikofen"
       },
       "id": "confederazione-ticino-aa73345577e9",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -17882,7 +17903,6 @@
         "fr": "hochschulpraktikant-in-preise-und-tarife-confederazione-bern"
       },
       "id": "confederazione-ticino-fce147db1224",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-preise-und-tarife-confederazione-bern"
@@ -17952,7 +17972,6 @@
         "fr": "hochschulpraktikant-in-sektion-rechtsetzung-und-politische-geschafte-und-sektion-rechtsaufsicht-governance-und-massnahmen-confederazione-bern"
       },
       "id": "confederazione-ticino-520a51614c56",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-sektion-rechtsetzung-und-politische-geschafte-und-sektion-rechtsaufsicht-governance-und-massnahmen-confederazione-bern"
@@ -18022,7 +18041,6 @@
         "fr": "ict-system-spezialist-in-senior-1340-confederazione-bern"
       },
       "id": "confederazione-ticino-37b22a62ed9b",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -18084,7 +18102,6 @@
         "fr": "ubersetzer-in-englisch-confederazione-bern"
       },
       "id": "confederazione-ticino-bbdfe7d8a872",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -18222,7 +18239,6 @@
         "fr": "spezialist-in-kommunikation-stv-leiter-in-kommunikation-confederazione-bern"
       },
       "id": "confederazione-ticino-4f21eabb054e",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-kommunikation-stv-leiter-in-kommunikation-confederazione-bern"
@@ -18292,7 +18308,6 @@
         "fr": "gruppenleiter-in-vollzug-im-internationalen-artenschutz-confederazione-bern"
       },
       "id": "confederazione-ticino-28928a3fb7ad",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -18354,7 +18369,6 @@
         "fr": "praktikant-in-mas-studiengang-in-bibliotheks-und-informationswissenschaft-confederazione-bern"
       },
       "id": "confederazione-ticino-8dbe4ba51957",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-mas-studiengang-in-bibliotheks-und-informationswissenschaft-confederazione-bern"
@@ -19419,16 +19433,16 @@
         "fr": "Centre de recrutement des médecins adjoints Aarau"
       },
       "descriptionByLocale": {
-        "de": "## Auf den Punkt gebracht\n\nHier werden Rekrut/-innen auf Herz und Nieren geprüft – im wahrsten Sinne des Wortes!\nDie medizinische Rekrutierung ist im Rahmen der Alimentierung ein äusserst bedeutsamer Prozess innerhalb der Schweizer Armee. Übernehmen Sie diese verantwortungsvolle Aufgabe und geniessen Sie ein einzigartiges und abwechslungsreiches Arbeitsumfeld mit Entwicklungsmöglichkeiten und viel Lebensqualität dank regulären Arbeitszeiten.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20527\n- Arbeitsort: Kaserne , 5001 Aarau\n\n## Diesen Beitrag können Sie leisten\n\n- Den Chefarzt des Rekrutierungszentrums Aarau fachlich und personell vertreten\n- Medizinische Untersuchungen bei den Stellungspflichtigen in deutscher Sprache selbstständig durchführen\n- Diensttauglichkeit für Militärdienst und Zivilschutz beurteilen\n- Die medizinische Untersuchungskommission zur Beurteilung der Tauglichkeit führen\n- Erkenntnisse aus den Fachbereichen nach aussen kommunizieren und vertreten sowie eine enge Zusammenarbeit mit den Chef/-innen der medizinischen Grundversorgung und der medizinischen Rekrutierung pflegen\n\n## Das macht Sie einzigartig\n\n- Eidg. Diplom als Ärztin/ Arzt oder Äquivalent mit MEBEKO Anerkennung, Fachtitel Ärztin/ Arzt mit klinischer Erfahrung\n- Interesse an militärischen und militärmedizinischen Themen\n- Engagierte und umsichtige Führungspersönlichkeit mit Freude am Austausch in einem motivierten, interdisziplinären Team\n- Freude am Kontakt mit Angehörigen der Armee, sowie hohe Sozial- und Kommunikationskompetenz\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache und passive Kenntnisse einer dritten Amtssprache\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Ihr Einsatz für Sicherheit und Freiheit\n\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3’500 Mitarbeitenden und 12’000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9’000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeugen Sie sich auf armee.ch/vorteile.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "it": "## Metti al punto\n\nQui le reclute sono testate cuore e anima – nel senso più vero della parola!\nIl reclutamento medico nel contesto dell'alimentazione è un processo estremamente importante nell'esercito svizzero. Assumere questo compito responsabile e godere di un ambiente di lavoro unico e variegato con opportunità di sviluppo e molta qualità della vita grazie alle ore di lavoro regolari.\n\n- Data di entrata: 01.01.2027\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20527\n- Luogo di lavoro: Barracks, 5001 Aarau\n\n## Puoi dare questo contributo\n\n- Rappresentare il medico capo del Centro di reclutamento Aarau professionalmente e in termini di personale\n- Eseguire esami medici indipendentemente nella lingua tedesca per le persone responsabili\n- Valutazione dell'idoneità al servizio militare e alla protezione civile\n- Guidare il comitato di esame medico per valutare il fitness\n- Comunicare e rappresentare i risultati delle aree specialistiche esternamente e mantenere una stretta collaborazione con i capi di assistenza medica primaria e di reclutamento medico\n\n## Questo li rende unici.\n\n- Eidg. Diploma come medico o equivalente con riconoscimento MEBEKO, titolo specialistico Dottore / Dottore con esperienza clinica\n- Interessi in campo medico militare e militare\n- Leader impegnato e prudente con piacere nello scambio in un team motivato e interdisciplinare\n- Godere di contatto con i membri dell'esercito, così come alte capacità sociali e di comunicazione\n- Buona conoscenza attiva di almeno una seconda lingua ufficiale e conoscenza passiva di una terza lingua ufficiale\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Il vostro impegno per la sicurezza e la libertà\n\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l’esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell’esercito svizzero con i suoi circa 3’500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convinciti diarmee.ch/vantages.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nHere recruits are tested heart and soul – in the truest sense of the word!\nMedical recruitment in the context of alimentation is an extremely important process within the Swiss army. Take on this responsible task and enjoy a unique and varied working environment with development opportunities and a lot of quality of life thanks to regular working hours.\n\n- Entry date: 01.01.2027\n- Type of employment: perpetual\n- Reference No: JRQ$540-20527\n- Place of work: Barracks, 5001 Aarau\n\n## You can make this contribution\n\n- Represent the Chief Physician of the Aarau Recruitment Centre professionally and in terms of personnel\n- Carry out medical examinations independently in the German language for the persons responsible\n- Assessment of suitability for military service and civil protection\n- Lead the medical examination committee to assess fitness\n- Communicate and represent findings from the specialist areas externally and maintain a close cooperation with the heads of primary medical care and medical recruitment\n\n## This makes them unique.\n\n- Eidg. Diploma as a doctor or equivalent with MEBEKO recognition, specialist title Doctor / Doctor with clinical experience\n- Interest in military and military medical topics\n- Engaged and prudent leader with pleasure in the exchange in a motivated, interdisciplinary team\n- Enjoying contact with members of the army, as well as high social and communication skills\n- Good active knowledge of at least one second official language and passive knowledge of a third official language\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Your commitment to security and freedom\n\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3’500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nEmploying the Swiss Army makes sense and brings many advantages. Convince yourself ofarmee.ch/advantages.\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
-        "fr": "## Mettre au point\n\nIci, les recrues sont éprouvées cœur et âme – dans le sens le plus vrai du mot!\nLe recrutement médical dans le contexte de l'alimentation est un processus extrêmement important au sein de l'armée suisse. Prenez cette tâche responsable et profitez d'un environnement de travail unique et varié avec des possibilités de développement et beaucoup de qualité de vie grâce à des heures de travail régulières.\n\n- Date d'entrée: 01.01.2027\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20527\n- Lieu de travail: casernes, 5001 Aarau\n\n## Vous pouvez faire cette contribution\n\n- Représenter le médecin en chef du Centre de recrutement d'Aarau professionnellement et en termes de personnel\n- Effectuer des examens médicaux indépendants en langue allemande pour les personnes responsables\n- Évaluation de l'aptitude au service militaire et à la protection civile\n- Diriger le comité d'examen médical pour évaluer l'aptitude\n- Communiquer et représenter les résultats des domaines spécialisés à l ' extérieur et maintenir une coopération étroite avec les chefs des soins de santé primaires et du recrutement médical\n\n## Cela les rend uniques.\n\n- Oui. Diplôme de médecin ou équivalent avec reconnaissance MEBEKO, titre de spécialiste Docteur / Docteur avec expérience clinique\n- Intérêt pour les sujets médicaux militaires et militaires\n- Leader engagé et prudent avec plaisir dans l'échange dans une équipe interdisciplinaire motivée\n- Profitez des contacts avec les membres de l'armée, ainsi que des compétences sociales et de communication élevées\n- Bonne connaissance active d'au moins une seconde langue officielle et connaissance passive d'une troisième langue officielle\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Votre attachement à la sécurité et à la liberté\n\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques pour l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nEmployer l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous d'armee.ch/avantages.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
+        "de": "## Auf den Punkt gebracht\n\nHier werden Rekrut/-innen auf Herz und Nieren geprüft – im wahrsten Sinne des Wortes!\nDie medizinische Rekrutierung ist im Rahmen der Alimentierung ein äusserst bedeutsamer Prozess innerhalb der Schweizer Armee. Übernehmen Sie diese verantwortungsvolle Aufgabe und geniessen Sie ein einzigartiges und abwechslungsreiches Arbeitsumfeld mit Entwicklungsmöglichkeiten und viel Lebensqualität dank regulären Arbeitszeiten.\n\n- Eintrittsdatum: 01.01.2027\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20527\n- Arbeitsort: Kaserne , 5001 Aarau\n\nDiesen Beitrag können Sie leisten\n\n- Den Chefarzt des Rekrutierungszentrums Aarau fachlich und personell vertreten\n\n- Medizinische Untersuchungen bei den Stellungspflichtigen in deutscher Sprache selbstständig durchführen\n\n- Diensttauglichkeit für Militärdienst und Zivilschutz beurteilen\n\n- Die medizinische Untersuchungskommission zur Beurteilung der Tauglichkeit führen\n\n- Erkenntnisse aus den Fachbereichen nach aussen kommunizieren und vertreten sowie eine enge Zusammenarbeit mit den Chef/-innen der medizinischen Grundversorgung und der medizinischen Rekrutierung pflegen\n\nDas macht Sie einzigartig\n\n- Eidg. Diplom als Ärztin/ Arzt oder Äquivalent mit MEBEKO Anerkennung, Fachtitel Ärztin/ Arzt mit klinischer Erfahrung\n\n- Interesse an militärischen und militärmedizinischen Themen\n\n- Engagierte und umsichtige Führungspersönlichkeit mit Freude am Austausch in einem motivierten, interdisziplinären Team\n\n- Freude am Kontakt mit Angehörigen der Armee, sowie hohe Sozial- und Kommunikationskompetenz\n\n- Gute aktive Kenntnisse mindestens einer zweiten Amtssprache und passive Kenntnisse einer dritten Amtssprache\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeugen Sie sich auf armee.ch/vorteile.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+        "it": "## Metti al punto\n\nQui le reclute sono testate cuore e anima – nel senso più vero della parola!\nIl reclutamento medico nel contesto dell'alimentazione è un processo estremamente importante nell'esercito svizzero. Assumere questo compito responsabile e godere di un ambiente di lavoro unico e variegato con opportunità di sviluppo e molta qualità della vita grazie alle ore di lavoro regolari.\n\n- Data di entrata: 01.01.2027\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20527\n- Luogo di lavoro: Barracks, 5001 Aarau\n\nPuoi dare questo contributo\n\n- Rappresentare il medico capo del Centro di reclutamento Aarau professionalmente e in termini di personale\n\n- Eseguire esami medici indipendentemente nella lingua tedesca per le persone responsabili\n\n- Valutazione dell'idoneità al servizio militare e alla protezione civile\n\n- Guidare il comitato di esame medico per valutare il fitness\n\n- Comunicare e rappresentare i risultati delle aree specialistiche esternamente e mantenere una stretta collaborazione con i capi di assistenza medica primaria e di reclutamento medico\n\nQuesto li rende unici.\n\n- Eidg. Diploma come medico o equivalente con riconoscimento MEBEKO, titolo specialistico Dottore / Dottore con esperienza clinica\n\n- Interessi in campo medico militare e militare\n\n- Leader impegnato e prudente con piacere nello scambio in un team motivato e interdisciplinare\n\n- Godere di contatto con i membri dell'esercito, così come alte capacità sociali e di comunicazione\n\n- Buona conoscenza attiva di almeno una seconda lingua ufficiale e conoscenza passiva di una terza lingua ufficiale\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell'esercito svizzero con i suoi circa 3'500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convinciti diarmee.ch/vantages.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
+        "en": "## Put to the Point\n\nHere recruits are tested heart and soul – in the truest sense of the word!\nMedical recruitment in the context of alimentation is an extremely important process within the Swiss army. Take on this responsible task and enjoy a unique and varied working environment with development opportunities and a lot of quality of life thanks to regular working hours.\n\n- Entry date: 01.01.2027\n- Type of employment: perpetual\n- Reference No: JRQ$540-20527\n- Place of work: Barracks, 5001 Aarau\n\nYou can make this contribution\n\n- Represent the Chief Physician of the Aarau Recruitment Centre professionally and in terms of personnel\n\n- Carry out medical examinations independently in the German language for the persons responsible\n\n- Assessment of suitability for military service and civil protection\n\n- Lead the medical examination committee to assess fitness\n\n- Communicate and represent findings from the specialist areas externally and maintain a close cooperation with the heads of primary medical care and medical recruitment\n\nThis makes them unique.\n\n- Eidg. Diploma as a doctor or equivalent with MEBEKO recognition, specialist title Doctor / Doctor with clinical experience\n\n- Interest in military and military medical topics\n\n- Engaged and prudent leader with pleasure in the exchange in a motivated, interdisciplinary team\n\n- Enjoying contact with members of the army, as well as high social and communication skills\n\n- Good active knowledge of at least one second official language and passive knowledge of a third official language\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3'500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nEmploying the Swiss Army makes sense and brings many advantages. Convince yourself ofarmee.ch/advantages.\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
+        "fr": "## Mettre au point\n\nIci, les recrues sont éprouvées cœur et âme – dans le sens le plus vrai du mot!\nLe recrutement médical dans le contexte de l'alimentation est un processus extrêmement important au sein de l'armée suisse. Prenez cette tâche responsable et profitez d'un environnement de travail unique et varié avec des possibilités de développement et beaucoup de qualité de vie grâce à des heures de travail régulières.\n\n- Date d'entrée: 01.01.2027\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20527\n- Lieu de travail: casernes, 5001 Aarau\n\nVous pouvez faire cette contribution\n\n- Représenter le médecin en chef du Centre de recrutement d'Aarau professionnellement et en termes de personnel\n\n- Effectuer des examens médicaux indépendants en langue allemande pour les personnes responsables\n\n- Évaluation de l'aptitude au service militaire et à la protection civile\n\n- Diriger le comité d'examen médical pour évaluer l'aptitude\n\n- Communiquer et représenter les résultats des domaines spécialisés à l ' extérieur et maintenir une coopération étroite avec les chefs des soins de santé primaires et du recrutement médical\n\nCela les rend uniques.\n\n- Oui. Diplôme de médecin ou équivalent avec reconnaissance MEBEKO, titre de spécialiste Docteur / Docteur avec expérience clinique\n\n- Intérêt pour les sujets médicaux militaires et militaires\n\n- Leader engagé et prudent avec plaisir dans l'échange dans une équipe interdisciplinaire motivée\n\n- Profitez des contacts avec les membres de l'armée, ainsi que des compétences sociales et de communication élevées\n\n- Bonne connaissance active d'au moins une seconde langue officielle et connaissance passive d'une troisième langue officielle\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au profit de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nEmployer l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous d'armee.ch/avantages.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
       },
       "slugByLocale": {
-        "de": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau",
-        "it": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau",
-        "en": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau",
-        "fr": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-confederazione-aarau"
+        "de": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s",
+        "it": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s",
+        "en": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s",
+        "fr": "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau-hlgr7s"
       },
       "id": "confederazione-ticino-a4b6ace76fcb",
       "salaryMin": 64500,
@@ -19446,7 +19460,15 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-10-07T21:56:36.851Z"
+      "firstSeenAt": "2026-10-07T21:56:36.851Z",
+      "previousSlugs": [
+        "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-r-chefarztin-arzt-rekrutierungszentrum-aarau-swiss-armed-forces-vtg-aarau"
+        ]
+      }
     },
     {
       "title": "Hochschulpraktikant/-in Digital Real Estate",
@@ -19599,21 +19621,21 @@
       "description": "## Auf den Punkt gebracht\n\nTechnik, Verantwortung und Abwechslung: Bringe dein Können mit ein, halte unsere Raupenfahrzeuge auf Kurs und werde Teil eines Teams, das gemeinsam anpackt und Lösungen findet.\n\n- Eintrittsdatum: Nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20612\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\n## Diesen Beitrag kannst du leisten\n\n- Instandhaltungsarbeiten an Geschützen, Turm und Waffen Baugruppen aller Raupenfahrzeuge durchführen\n- Funktion und Justierung an optischen Geräten kontrollieren\n- Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen im Bereich Raupenfahrzeuge leisten\n- Daten von Instandhaltungsaufträgen, Reparaturen und Fristenarbeiten im Bereich Geschütz und Turm im SAP pflegen\n- Technischer Support bei Instandhaltungshaltungseinsätzen auf dezentralen Schiess- und Waffenplätzen von bis zu 10 Wochen pro Jahr leisten\n\n## Das macht dich einzigartig\n\n- Abgeschlossene Berufsausbildung als Mechatroniker/-in LKW oder Personenwagen sowie verwandte Berufe\n- Führerausweis der Kat B (Kat C, C1E und SUVA anerkannter Staplerausweis)\n- Kundenorientierter Dienstleistungsgedanke\n- Organisationstalent mit selbständiger Prioritätensetzung\n- Kooperative und flexible Persönlichkeit mit ausgeprägter Teamorientierung\n- Strukturierte und verantwortungsbewusster Arbeitsweise\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Dein Einsatz für Sicherheit und Freiheit\n\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3’500 Mitarbeitenden und 12’000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9’000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
       "titleByLocale": {
         "de": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge",
-        "it": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge",
-        "en": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge",
-        "fr": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge"
+        "it": "Meccatronico/a per sistemi d'arma di veicoli corazzati",
+        "en": "Mechatronics Technician – Armoured Vehicle Weapon Systems",
+        "fr": "Mécatronicien/ne pour systèmes d'armes de véhicules blindés"
       },
       "descriptionByLocale": {
-        "de": "## Auf den Punkt gebracht\n\nTechnik, Verantwortung und Abwechslung: Bringe dein Können mit ein, halte unsere Raupenfahrzeuge auf Kurs und werde Teil eines Teams, das gemeinsam anpackt und Lösungen findet.\n\n- Eintrittsdatum: Nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20612\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\n## Diesen Beitrag kannst du leisten\n\n- Instandhaltungsarbeiten an Geschützen, Turm und Waffen Baugruppen aller Raupenfahrzeuge durchführen\n- Funktion und Justierung an optischen Geräten kontrollieren\n- Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen im Bereich Raupenfahrzeuge leisten\n- Daten von Instandhaltungsaufträgen, Reparaturen und Fristenarbeiten im Bereich Geschütz und Turm im SAP pflegen\n- Technischer Support bei Instandhaltungshaltungseinsätzen auf dezentralen Schiess- und Waffenplätzen von bis zu 10 Wochen pro Jahr leisten\n\n## Das macht dich einzigartig\n\n- Abgeschlossene Berufsausbildung als Mechatroniker/-in LKW oder Personenwagen sowie verwandte Berufe\n- Führerausweis der Kat B (Kat C, C1E und SUVA anerkannter Staplerausweis)\n- Kundenorientierter Dienstleistungsgedanke\n- Organisationstalent mit selbständiger Prioritätensetzung\n- Kooperative und flexible Persönlichkeit mit ausgeprägter Teamorientierung\n- Strukturierte und verantwortungsbewusster Arbeitsweise\n\n## Das bieten wir\n\n- Arbeiten für die Schweiz: Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n- Gelebte Vielfalt: Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n- Gesund am Arbeitsplatz: Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\n## Dein Einsatz für Sicherheit und Freiheit\n\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3’500 Mitarbeitenden und 12’000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9’000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "it": "## Metti al punto\n\nTecnologia, responsabilità e varietà: portare le vostre competenze al tavolo, tenere i nostri veicoli tracciati in pista e diventare parte di un team che li affronta insieme e trova soluzioni.\n\n- Data di entrata: Contratto\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20612\n- Luogo di lavoro: Überlandstrasse 17, 8340 Hinwil\n\n## Puoi dare questo contributo\n\n- Eseguire lavori di manutenzione su pistole, torretta e assiemi di armi di tutti i veicoli tracciati\n- Funzione di controllo e regolazione su dispositivi ottici\n- Fornire supporto tecnico per trasferimenti materiali e prelievi materiali nell'area dei veicoli tracciati\n- Mantenere i dati da ordini di manutenzione, riparazioni e lavori di scadenza nel campo delle pistole e torrette in SAP\n- Fornire supporto tecnico per le operazioni di manutenzione a siti di tiro e armi decentrati fino a 10 settimane all'anno\n\n## Questo ti rende unico\n\n- Formazione professionale completata come tecnico meccatronico, autocarro o passeggeri e professioni correlate\n- Cat B patente di guida (cat C, C1E e SUVA carrelli elevatori riconosciuti)\n- Concetto di servizio orientato al cliente\n- Talenti organizzativi con priorità indipendente\n- Personalità cooperativa e flessibile con un forte orientamento del team\n- Funzionamento strutturato e responsabile\n\n## Offriamo questo\n\n- Lavorare per la Svizzera: Siamo impegnati al modello di successo svizzero e lavoriamo a beneficio della popolazione.\n- Vivi diversità: Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n- Salute al lavoro: Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\n## Il vostro impegno per la sicurezza e la libertà\n\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l’esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell’esercito svizzero con i suoi circa 3’500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convincetevi di Army.ch/vantages.\nLe offerte dei reclutatori non sono prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nTechnology, responsibility and variety: bring your skills to the table, keep our tracked vehicles on track and become part of a team that tackles them together and finds solutions.\n\n- Entry Date: By Agreement\n- Type of employment: perpetual\n- Reference No: JRQ$540-20612\n- Place of work: Überlandstrasse 17, 8340 Hinwil\n\n## You can make this contribution\n\n- Carry out maintenance work on guns, turret and weapons assemblies of all tracked vehicles\n- Control function and adjustment on optical devices\n- Provide technical support for material transfers and material withdrawals in the area of tracked vehicles\n- Maintain data from maintenance orders, repairs and deadline works in the field of guns and turrets in SAP\n- Provide technical support for maintenance operations at decentralized shooting and weapon sites of up to 10 weeks per year\n\n## This makes you unique\n\n- Completed vocational training as a mechatronics technician, truck or passenger car and related professions\n- Cat B driving licence (cat C, C1E and SUVA recognised forklift)\n- Customer-oriented service concept\n- Organizational talent with independent prioritization\n- Cooperative and flexible personality with a strong team orientation\n- Structured and responsible functioning\n\n## We offer this\n\n- Working for Switzerland: We are committed to the Swiss success model and work for the benefit of the population.\n- Living diversity: Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n- Healthy at work: We support and advise our employees in the field of physical and mental health.\n\n## Your commitment to security and freedom\n\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3’500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nEmploying the Swiss Army makes sense and brings many advantages. Convince yourself of Army.ch/advantages.\nOffers from recruiters are not taken into account.\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
-        "fr": "## Mettre au point\n\nTechnologie, responsabilité et variété : apportez vos compétences à la table, gardez nos véhicules sur la bonne voie et faites partie d'une équipe qui les aborde ensemble et trouve des solutions.\n\n- Date d'entrée : Par accord\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ540-20612$\n- Lieu de travail: Überlandstrasse 17, 8340 Hinwil\n\n## Vous pouvez faire cette contribution\n\n- Effectuer des travaux d'entretien des canons, des tourelles et des assemblages d'armes de tous les véhicules suivis\n- Fonction de commande et réglage des dispositifs optiques\n- Fournir un appui technique pour les transferts de matériel et les retraits de matériel dans le domaine des véhicules suivis\n- Maintenez les données des commandes d'entretien, des réparations et des travaux d'échéance dans le domaine des canons et tourelles dans SAP\n- Fournir un appui technique aux opérations d ' entretien sur des sites décentralisés de tir et d ' armes d ' une durée maximale de 10 semaines par an\n\n## Cela vous rend unique\n\n- Formation professionnelle complétée en tant que technicien en mécatronique, camion ou voiture de tourisme et professions connexes\n- Permis de conduire Cat B (élévateur à fourche reconnu cat C, C1E et VUSA)\n- Concept de service axé sur le client\n- Compétences organisationnelles avec priorité indépendante\n- Personnalité coopérative et flexible avec une forte orientation par équipe\n- Fonctionnement structuré et responsable\n\n## Nous offrons ceci\n\n- Travailler pour la Suisse : Nous sommes engagés dans le modèle de réussite suisse et travaillons au bénéfice de la population.\n- Diversité de vie : Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n- Santé au travail : Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\n## Votre attachement à la sécurité et à la liberté\n\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques pour l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nEmployer l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous des avantages de Army.ch.\nLes offres des recruteurs ne sont pas prises en compte.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
+        "de": "Auf den Punkt gebracht\n\nTechnik, Verantwortung und Abwechslung: Bringe dein Können mit ein, halte unsere Raupenfahrzeuge auf Kurs und werde Teil eines Teams, das gemeinsam anpackt und Lösungen findet.\n\n- Eintrittsdatum: Nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20612\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Instandhaltungsarbeiten an Geschützen, Turm und Waffen Baugruppen aller Raupenfahrzeuge durchführen\n\n- Funktion und Justierung an optischen Geräten kontrollieren\n\n- Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen im Bereich Raupenfahrzeuge leisten\n\n- Daten von Instandhaltungsaufträgen, Reparaturen und Fristenarbeiten im Bereich Geschütz und Turm im SAP pflegen\n\n- Technischer Support bei Instandhaltungshaltungseinsätzen auf dezentralen Schiess- und Waffenplätzen von bis zu 10 Wochen pro Jahr leisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufsausbildung als Mechatroniker/-in LKW oder Personenwagen sowie verwandte Berufe\n\n- Führerausweis der Kat B (Kat C, C1E und SUVA anerkannter Staplerausweis)\n\n- Kundenorientierter Dienstleistungsgedanke\n\n- Organisationstalent mit selbständiger Prioritätensetzung\n\n- Kooperative und flexible Persönlichkeit mit ausgeprägter Teamorientierung\n\n- Strukturierte und verantwortungsbewusster Arbeitsweise\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\nZusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
+        "it": "In breve\n\nTecnica, responsabilità e varietà: metti a frutto le tue competenze, mantieni i nostri veicoli cingolati sulla rotta e diventa parte di un team che si rimbocca le maniche e trova soluzioni insieme.\n\n- Data di inizio: da concordare\n- Tipo di contratto: a tempo indeterminato\n- N. di riferimento: JRQ$540-20612\n- Luogo di lavoro: Ueberlandstrasse 17, 8340 Hinwil\n\nEcco come puoi contribuire\n\n- Eseguire lavori di manutenzione su pezzi d’artiglieria, torrette e gruppi di armi di tutti i veicoli cingolati\n\n- Verificare il funzionamento e la taratura degli strumenti ottici\n\n- Fornire supporto tecnico-specialistico durante la presa in consegna e la restituzione dei materiali nel settore dei veicoli cingolati\n\n- Gestire in SAP i dati relativi agli ordini di manutenzione, alle riparazioni e agli interventi di manutenzione periodica nel settore del cannone e della torretta\n\n- Fornire supporto tecnico durante interventi di manutenzione presso poligoni di tiro e aree d'armi decentrati fino a 10 settimane all'anno\n\nCiò che ti rende unico\n\n- Formazione professionale completata come meccatronico/a per camion o autovetture, nonché in professioni affini\n\n- Patente di guida della categoria B (categorie C, C1E e patentino per carrelli elevatori riconosciuto dalla SUVA)\n\n- Attitudine al servizio orientata al cliente\n\n- Talento organizzativo con capacità di definire autonomamente le priorità\n\n- Personalità cooperativa e flessibile, con spiccata predisposizione al lavoro di squadra\n\n- Approccio al lavoro strutturato e responsabile\n\nCosa offriamo\n\n- Lavorare per la Svizzera Ci impegniamo per il modello di successo svizzero e lavoriamo per il bene della popolazione.\n\n- Diversità vissuta Grazie alle pari opportunità sviluppiamo le nostre competenze e apportiamo prospettive diverse.\n\n- Salute sul lavoro Offriamo sostegno e consulenza al nostro personale nell'ambito della salute fisica e mentale.\n\nIl tuo impegno per la sicurezza e la libertà\nLa Base logistica dell'esercito svizzero (LBA) è al servizio delle truppe. Fornisce tutti i servizi logistici all'esercito svizzero e gestisce, con i suoi circa 3'500 collaboratori e 12'000 membri della milizia, il materiale, i sistemi e le infrastrutture dell'esercito svizzero. Sia in officina che in ufficio, sia al chiuso che all'aperto: la LBA offre in tutta la Svizzera un'ampia gamma di posti di lavoro. Da noi c'è qualcosa per tutti.\n\nL'esercito svizzero impiega oltre 9'000 collaboratori in quattro professioni militari e circa 200 professioni civili – il tutto in 110 sedi in tutta la Svizzera. Anche per le nuove leve ci sono opportunità: l'esercito svizzero forma apprendisti in oltre 30 professioni.\n\nUlteriori informazioni\n\nUn impiego nell'esercito svizzero ha senso e offre molti vantaggi. Scoprili su armee.ch/vorteile.\nLe offerte delle agenzie di reclutamento non saranno prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le loro candidature sono pertanto particolarmente benvenute.",
+        "en": "In a nutshell\n\nTechnology, responsibility and variety: Contribute your skills, keep our tracked vehicles on course and become part of a team that works together to get things done and find solutions.\n\n- Start date: By agreement\n- Employment type: permanent\n- Reference no.: JRQ$540-20612\n- Work location: Ueberlandstrasse 17, 8340 Hinwil\n\nThis is how you can contribute\n\n- Perform maintenance work on guns, turrets and weapon assemblies of all tracked vehicles\n\n- Check the functionality and adjustment of optical equipment\n\n- Provide specialist technical support during material handovers and returns in the tracked vehicle area\n\n- Maintain data on maintenance orders, repairs and scheduled work in the gun and turret area in SAP\n\n- Provide technical support during maintenance deployments at decentralized shooting and weapons ranges for up to 10 weeks per year\n\nWhat makes you unique\n\n- Completed vocational training as a mechatronics technician for trucks or passenger cars, or in a related profession\n\n- Category B driver's license (categories C, C1E and a SUVA-recognized forklift license)\n\n- Customer-oriented service mindset\n\n- Organizational skills with the ability to set priorities independently\n\n- Cooperative and flexible personality with a strong team-oriented approach\n\n- Structured and responsible way of working\n\nWhat we offer\n\n- Working for Switzerland We are committed to the Swiss success model and work for the benefit of the population.\n\n- Diversity in action Thanks to equal opportunities, we develop our skills and contribute different perspectives.\n\n- Healthy at the workplace We support and advise our employees on physical and mental health.\n\nYour commitment to security and freedom\nThe Logistics Base of the Swiss Armed Forces (LBA) is there for the troops. It provides all logistical services for the Swiss Armed Forces and, with its approximately 3'500 employees and 12'000 militia members, manages the material, systems and infrastructure of the Swiss Armed Forces. Whether in the workshop or office, indoors or outdoors: the LBA offers a wide range of jobs throughout Switzerland. There is something for everyone here.\n\nThe Swiss Armed Forces employ over 9'000 people in four military and around 200 civilian professions – at 110 locations throughout Switzerland. The next generation is also catered for: the Swiss Armed Forces train apprentices in over 30 professions.\n\nAdditional information\n\nA position with the Swiss Armed Forces makes sense and comes with many benefits. See for yourself at armee.ch/vorteile.\nOffers from recruitment agencies will not be considered.\n\nWomen are still underrepresented in our administrative unit. Their applications are therefore particularly welcome.",
+        "fr": "En bref\n\nTechnique, responsabilité et diversité : mets tes compétences à profit, garde nos véhicules chenillés sur la bonne voie et rejoins une équipe qui retrousse ses manches et trouve des solutions ensemble.\n\n- Date d’entrée : À convenir\n- Type de contrat : à durée indéterminée\n- N° de référence : JRQ$540-20612\n- Lieu de travail : Ueberlandstrasse 17, 8340 Hinwil\n\nCe que tu peux apporter\n\n- Effectuer des travaux d’entretien sur les canons, la tourelle et les sous-ensembles d’armes de tous les véhicules chenillés\n\n- Contrôler le fonctionnement et le réglage des appareils optiques\n\n- Fournir un soutien technique spécialisé lors de la prise en charge et de la restitution du matériel dans le domaine des véhicules chenillés\n\n- Gérer dans SAP les données des ordres de maintenance, des réparations et des travaux à échéance dans le domaine du canon et de la tourelle\n\n- Assurer un soutien technique lors d’interventions de maintenance sur des places de tir et places d’armes décentralisées pendant jusqu’à 10 semaines par an\n\nCe qui te rend unique\n\n- Formation professionnelle achevée de mécatronicien/-ne pour poids lourds ou voitures de tourisme, ainsi que dans des métiers apparentés\n\n- Permis de conduire de catégorie B (catégories C, C1E et permis de cariste reconnu par la SUVA)\n\n- Esprit de service orienté clientèle\n\n- Sens de l’organisation avec capacité à fixer les priorités de manière autonome\n\n- Personnalité coopérative et flexible, dotée d’un sens aigu du travail en équipe\n\n- Méthode de travail structurée et responsable\n\nCe que nous offrons\n\n- Travailler pour la Suisse Nous nous engageons en faveur du modèle suisse à succès et œuvrons dans l’intérêt de la population.\n\n- La diversité vécue Grâce à l’égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- En bonne santé au travail Nous soutenons et conseillons notre personnel dans le domaine de la santé physique et psychique.\n\nTon engagement pour la sécurité et la liberté\nLa Base logistique de l’armée suisse (BLA) est au service de la troupe. Elle fournit toutes les prestations logistiques à l’armée suisse et gère, avec ses quelque 3'500 collaboratrices et collaborateurs et 12'000 membres de la milice, le matériel, les systèmes et les infrastructures de l’armée suisse. Que ce soit dans l’atelier ou au bureau, à l’intérieur ou à l’extérieur : la BLA offre un large éventail de postes de travail dans toute la Suisse. Chez nous, il y en a pour tout le monde.\n\nL’armée suisse emploie plus de 9'000 personnes dans quatre professions militaires et quelque 200 professions civiles – et ce sur 110 sites dans toute la Suisse. La relève est également assurée : l’armée suisse forme des apprentis dans plus de 30 professions.\n\nInformations complémentaires\n\nUn emploi au sein de l’armée suisse a du sens et offre de nombreux avantages. Vérifie par toi-même sur armee.ch/vorteile.\nLes offres des agences de placement ne sont pas prises en considération.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Leurs candidatures sont donc particulièrement bienvenues."
       },
       "slugByLocale": {
-        "de": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-        "it": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-        "en": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-        "fr": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil"
+        "de": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+        "it": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+        "en": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+        "fr": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn"
       },
       "id": "confederazione-ticino-35b08d94faa2",
       "needsRetranslation": true,
@@ -19632,7 +19654,15 @@
         }
       },
       "postalCode": "8340",
-      "firstSeenAt": "2026-10-07T21:56:36.851Z"
+      "firstSeenAt": "2026-10-07T21:56:36.851Z",
+      "previousSlugs": [
+        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil"
+        ]
+      }
     }
   ]
 }

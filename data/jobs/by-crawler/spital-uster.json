@@ -4,7 +4,10 @@
       "id": "spital-uster-efebdab76435",
       "slug": "unterassistent-in-100-frauenklinik-spital-uster-ch",
       "slugByLocale": {
-        "de": "unterassistent-in-100-frauenklinik-spital-uster-ch"
+        "de": "unterassistent-in-100-frauenklinik-spital-uster-ch",
+        "it": "unterassistent-in-100-frauenklinik-spital-uster-ch",
+        "en": "unterassistent-in-100-frauenklinik-spital-uster-ch",
+        "fr": "unterassistent-in-100-frauenklinik-spital-uster-ch"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -199,7 +202,6 @@
           "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:14:21.418Z"
     },
     {
@@ -261,7 +263,6 @@
           "wound-expert-60-70-spital-uster-uster"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:23:57.383Z"
     },
     {
@@ -1121,7 +1122,8 @@
       "requirementsByLocale": {},
       "department": "Administration/Management/Stab",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:35:20.777Z"
+      "firstSeenAt": "2026-09-11T13:35:20.777Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-c96b7c58fccb",
@@ -1175,7 +1177,8 @@
       "requirementsByLocale": {},
       "department": "Medizintechn. und medizintherapeutisches Personal",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:35:20.780Z"
+      "firstSeenAt": "2026-09-11T13:35:20.780Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-f0825ef5a269",
@@ -1884,7 +1887,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-03T12:33:39.411Z"
+      "firstSeenAt": "2026-08-03T12:33:39.411Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-2bf319b32f95",
@@ -2340,7 +2344,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-05T12:41:51.773Z"
+      "firstSeenAt": "2026-06-05T12:41:51.773Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-fb34ebe60d36",
@@ -2348,7 +2353,7 @@
       "slugByLocale": {
         "it": "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster",
         "en": "health-50-100-geriatric-acupuncture-late-and-night-service-spital-uster-uster",
-        "de": "fachperson-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
+        "de": "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
         "fr": "sante-50-100-acupuncture-geriatrique-service-tard-et-nuit-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -2394,9 +2399,6 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "previousSlugsByLocale": {
-        "de": [
-          "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital"
-        ],
         "it": [
           "fachpersonen-gesundheit-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital",
           "salute-50-100-agopuntura-geriatrica-servizio-notturno-spital-uster-uster"
@@ -2420,7 +2422,7 @@
       "slugByLocale": {
         "it": "medizinische-r-praxisassistent-in-e-o-arztsekretar-in-spital-uster",
         "en": "medical-practice-assistant-and-or-doctor-secretary-spital-uster-uster",
-        "de": "mpa-und-oder-arztsekretar-in-im-stundenlohn-spital-uster-ch",
+        "de": "medizinische-r-praxisassistent-in-und-oder-arztsekretar-in-spital-uster-ch",
         "fr": "assistant-medical-et-ou-medecin-secretaire-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -2467,8 +2469,7 @@
       "department": "Administration/Management/Stab",
       "previousSlugsByLocale": {
         "de": [
-          "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch",
-          "medizinische-r-praxisassistent-in-und-oder-arztsekretar-in-spital-uster-ch"
+          "medizinische-r-praxisassistent-in-arztsekretar-in-50-80-spital-uster-ch"
         ],
         "it": [
           "medizinische-r-praxisassistent-in-und-oder-arztsekretar-in-spital-uster-ch",
@@ -2760,7 +2761,7 @@
       "slugByLocale": {
         "it": "medico-specialista-in-medicina-interna-con-specializzazione-in-geriatria-spital-uster-uster",
         "en": "senior-physician-in-internal-medicine-with-focus-on-geriatrics-spital-uster-uster",
-        "de": "oberarzt-oberarztin-oder-leitender-arzt-leitende-arztin-80-100-allgemeine-innere-medizin",
+        "de": "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster",
         "fr": "medecin-specialiste-en-medecine-interne-avec-specialisation-en-geriatrie-spital-uster-uster"
       },
       "company": "Spital Uster",
@@ -2822,9 +2823,6 @@
       },
       "department": "Ärztliches Personal",
       "previousSlugsByLocale": {
-        "de": [
-          "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster"
-        ],
         "it": [
           "oberarzt-oberarztin-100-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie-spital-uster"
         ]
@@ -3084,7 +3082,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-26T14:04:22.951Z"
+      "firstSeenAt": "2026-05-26T14:04:22.951Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-6add59201030",
@@ -3500,7 +3499,8 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-26T14:04:22.967Z"
+      "firstSeenAt": "2026-05-26T14:04:22.967Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-b1da149f4c5b",
@@ -3584,8 +3584,9 @@
         ]
       },
       "department": "Lernende/Studierende/Praktikanten",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-05-26T14:04:22.968Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-26T14:04:22.968Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-uster-ffc6eeaeabbd",

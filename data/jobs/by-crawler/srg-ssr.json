@@ -74,7 +74,10 @@
       "id": "srg-ssr-baf6695d1696",
       "slug": "hr-partner-in-operationen-srg-ssr-zurich",
       "slugByLocale": {
-        "de": "hr-partner-in-operationen-srg-ssr-zurich"
+        "de": "hr-partner-in-operationen-srg-ssr-zurich",
+        "it": "hr-partner-in-operationen-srg-ssr-zurich",
+        "en": "hr-partner-in-operationen-srg-ssr-zurich",
+        "fr": "hr-partner-in-operationen-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -145,7 +148,10 @@
       "id": "srg-ssr-eb0e2b660c84",
       "slug": "hr-partner-operazioni-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "hr-partner-operazioni-srg-ssr-zurich"
+        "it": "hr-partner-operazioni-srg-ssr-zurich",
+        "en": "hr-partner-operazioni-srg-ssr-zurich",
+        "de": "hr-partner-operazioni-srg-ssr-zurich",
+        "fr": "hr-partner-operazioni-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -216,7 +222,10 @@
       "id": "srg-ssr-4376279da255",
       "slug": "hr-partner-operations-srg-ssr-zurich",
       "slugByLocale": {
-        "fr": "hr-partner-operations-srg-ssr-zurich"
+        "fr": "hr-partner-operations-srg-ssr-zurich",
+        "it": "hr-partner-operations-srg-ssr-zurich",
+        "en": "hr-partner-operations-srg-ssr-zurich",
+        "de": "hr-partner-operations-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -411,7 +420,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:23:10.190Z"
     },
     {
@@ -496,7 +504,6 @@
           "unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht-srg-ssr-geneve-8"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:23:11.479Z"
     },
     {
@@ -1841,7 +1848,8 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:37:03.185Z"
+      "firstSeenAt": "2026-08-17T21:37:03.185Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "srg-ssr-4295227a1917",
@@ -1952,7 +1960,32 @@
         "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
         "org": "rtr",
         "orgLabel": "RTR"
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "posizione-srg-ssr-cuira-44wrsa",
+          "job-opening-srg-ssr-cuira",
+          "stellenangebot-srg-ssr-cuira",
+          "offre-d-emploi-srg-ssr-cuira",
+          "posizione-srg-ssr-cuira"
+        ],
+        "en": [
+          "job-opening-srg-ssr-cuira"
+        ],
+        "de": [
+          "stellenangebot-srg-ssr-cuira"
+        ],
+        "fr": [
+          "offre-d-emploi-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "posizione-srg-ssr-cuira-44wrsa",
+        "job-opening-srg-ssr-cuira",
+        "stellenangebot-srg-ssr-cuira",
+        "offre-d-emploi-srg-ssr-cuira",
+        "posizione-srg-ssr-cuira"
+      ]
     },
     {
       "id": "srg-ssr-704bd07eb509",
@@ -1971,7 +2004,7 @@
         "it": "Giurista, titolare del brevetto dell'avvocato. E",
         "en": "Jurist, holder of the lawyer's patent. e",
         "de": "Jurist, Inhaber des Patents des Anwalts. e",
-        "fr": "Juriste, titulaire du brevet d&#39;avocat.e"
+        "fr": "Juriste, titulaire du brevet d'avocat.e"
       },
       "description": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein de l'équipe du Service juridique, vous assumez les responsabilités suivantes :\n• Conseil aux rédactions en matière de droit des médias ;\n\n• Rédaction de réponses aux plaintes destinées à l'Instance indépendante de recours en matière de radio et de télévision ainsi qu'au Conseil de la presse;\n\n• Suivi des procédures dans le cadre de la loi en matière de transparence de l'administration;\n\n• Gestion des dossiers contentieux de l'entreprise, le cas échéant en concertation avec les mandataires externes ;\n\n• Accompagnement juridique de projets technologiques de l'entreprise impliquant le traitement de données personnelles ;\n\n• Elaboration de contrats, avis juridiques, notes internes et autres documents afférents aux domaines d'activités concernés ;\n\n## Votre profil\n\n• Vous êtes au bénéfice d'un brevet d'avocat.e, avec une expérience de minimum 2 ans au sein d'une entreprise ou d'un cabinet d'avocats dans les domaines juridiques susmentionnés ;\n\n• Vous êtes de langue maternelle française. Vous avez de très bonnes connaissances de l'allemand, à l'écrit et à l'oral. Des connaissances d'italien et d'anglais seraient un atout.\n\n• Vous êtes une personne ouverte d'esprit, dynamique et résistante, dotée de solides compétences en communication et vous savez interagir avec aisance avec des parties prenantes très diverses.\n\n• Vous aimez travailler de manière pragmatique et axée sur les solutions ; vous possédez des compétences analytiques, rédactionnelles et conceptuelles, et vous négociez avec habileté et détermination.\n\n• Vous faites preuve d'un esprit d'équipe et appréciez une approche collaborative et interdisciplinaire du travail, tout en manifestant un intérêt pour les différentes régions linguistiques de la Suisse.\n\n## Ce que nous vous offrons\n\n• Une activité juridique au service de la liberté de presse, au plus proche de métiers éditoriaux ;\n\n• Des missions variées dans le cadre passionnant et dynamique du service public audiovisuel.\n\n• Une équipe dynamique, collégiale et diversifiée, composée de juristes issus de toutes les régions linguistiques de Suisse.\n\n• Travail autonome, associé aux avantages d'un travail d'équipe fructueux.\n\nDélai de dépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
       "descriptionByLocale": {
@@ -2036,7 +2069,7 @@
         "it": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/m/d)",
         "en": "Legal Counsel specializing in company and contract law (m/f/d)",
         "de": "Rechtsberater spezialisiert auf Gesellschafts- und Vertragsrecht (m/w/d)",
-        "fr": "Juriste d&#39;entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)"
+        "fr": "Juriste d'entreprise (Legal Counsel) spécialisé.e en droit des sociétés et des contrats (f/h/d)"
       },
       "description": "Le Service juridique guide l'entreprise et son personnel à travers les méandres du cadre légal et réglementaire et garantit l'intégrité juridique de la SSR.\n\n## Votre mission\n\nAu sein du Service juridique, votre cahier des charges englobe notamment les tâches suivantes:\n• conseil et assistance au Conseil d'administration, à la directrice générale et au Comité de direction pour les questions relevant du droit des sociétés et de la réglementation, à l'intersection entre les médias, la politique et le droit (des connaissances en droit de la radiodiffusion constituent un atout),\n\n• participation à l'élaboration de la gouvernance d'entreprise de la SSR et accompagnement de projets d'organisation, de restructuration et de transformation sous l'angle juridique,\n\n• assistance aux décideur.ses de la SSR dans l'application des réglementations internes; contribution au développement de celles-ci,\n\n• rédaction et vérification de contrats; conseil et accompagnement des client.es internes lors des négociations contractuelles, notamment dans le domaine de l'acquisition d'infrastructures, de matériel informatique et de logiciels.\n\n## Votre profil\n\n• Expérience acquise au sein d'une entreprise, d'une administration publique ou d'un cabinet d'avocats dans les domaines du droit des sociétés et/ou du droit des contrats; idéalement, titularité d'un brevet d'avocat suisse\n\n• Excellentes connaissances numériques; goût marqué pour les nouvelles technologies\n\n• Ouverture et vivacité d'esprit, résistance au stress, talent de communicateur.trice et orientation client; aisance relationnelle, quel que soit le groupe d'intérêt\n\n• Méthode de travail pragmatique et orientée solution; aptitudes analytiques, rédactionnelles et conceptuelles; talent pour la négociation\n\n• Langue maternelle allemande; maîtrise du français à l'oral comme à l'écrit assortie de bonnes connaissances de l'anglais\n\n• Esprit d'équipe; goût pour les approches collaboratives et interdisciplinaires; intérêt pour les différentes régions linguistiques de la Suisse\n\n## Ce que nous vous offrons\n\n• Des tâches variées dans l'environnement passionnant et dynamique du service public média\n\n• La dispense d'un conseil juridique au cœur des processus décisionnels de l'entreprise et des achats à l'échelle de l'entreprise\n\n• Un environnement dynamique et convivial, avec des juristes issu.es de toutes les régions linguistiques de la Suisse\n\n• Une activité autonome, associée aux avantages d'un travail en équipe performant\n\nDépôt de candidature: 25 octobre 2026\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
       "descriptionByLocale": {
@@ -2089,7 +2122,8 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:23:10.854Z"
+      "firstSeenAt": "2026-10-05T21:23:10.854Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "srg-ssr-34808d7ed73d",
@@ -2108,7 +2142,7 @@
         "it": "antenna testa RTS colore 3",
         "en": "Head antenna RTS Color 3",
         "de": "Kopfantenne RTS Color 3",
-        "fr": "Chef-fe d&#39;antenne RTS Couleur 3"
+        "fr": "Chef-fe d'antenne RTS Couleur 3"
       },
       "description": "La direction de l'Unité Musique met au concours le poste de Chef-fe d'antenne pour RTS Couleur 3.\nUn rôle de leader visionnaire et stratégique est souhaité pour ce poste d'encadrement où vous imaginez les grilles de programme de l'offre radio RTS Couleur 3, suivez son développement sur le digital et en assurez la qualité et le succès auprès du public.\n\n## Votre mission\n\n• Garantir la cohérence, la qualité et l'identité éditoriale et musicale de RTS Couleur 3, sur l'ensemble de ses expressions (radio, podcast, vidéo, terrain)\n\n• Coordonner le budget et la planification des ressources\n\n• Encadrer et accompagner les équipes, en favorisant leur développement et leur collaboration autour des objectifs de RTS Couleur 3\n\n• Assurer le rayonnement de l'offre RTS Couleur 3 sous toutes ses formes en collaboration avec le Marketing\n\n• Elaborer la grille des programmes en fonction des besoins du public et des objectifs d'audience\n\n• Superviser la transformation « digital first » des contenus de RTS Couleur 3, en audio comme en vidéo, ainsi que les déclinaisons vidéo des contenus audio\n\n• Décliner l'antenne lors d'événements terrain (festivals, concerts, soirées, opérations spéciales)\n\n• Imaginez et créez des événements spéciaux propres à Couleur3, en collaboration avec le Marketing\n\n• Développer et entretenir les collaborations avec le monde culturel et musical (labels, salles, festivals, associations, artistes)\n\n• Veiller aux résultats qualitatifs et quantitatifs (concepts de programmes, audiences) de la chaîne en lien direct avec le Département Distribution & Public\n\n• Gestion d'autres émissions musicales éditorialement proches commandées et diffusées sur d'autres chaînes, principalement RTSP\n\n## Votre profil\n\n• Formation supérieure, niveau universitaire ou équivalent\n\n• Expérience confirmée dans le management d'équipes et la conduite du changement\n\n• Leadership affirmé, fédérateur et mobilisateur associé à une approche moderne du management avec la capacité de donner un cap clair\n\n• Connaissances de l'allemand et de l'anglais au minimum niveau B1\n\n• Expérience dans le domaine radiophonique (suisse et/ou étranger) et des médias en général\n\n• Compréhension des typologies de la société romande\n\n• Bonne connaissance dans les domaines et matières traitées par sa chaîne\n\n• Bonne culture générale et intérêt marqué pour l'actualité\n\n• Intérêt pour l'évolution des médias, de leurs contenus, des méthodes de production, de la relation avec les publics, du marketing et des réseaux sociaux\n\n• Sens des responsabilités, force de proposition\n\n• Créativité, sens de l'innovation, capacité à anticiper les grandes tendances\n\n• Ouverture et curiosité pour les nouvelles technologies\n\n• Sens de l'organisation, de l'anticipation et de la gestion des priorités\n\n• Entregent, facilité à communiquer, à négocier et à rechercher des solutions.\n\n## Ce que nous vous offrons\n\nUn cadre de travail motivant dans un environnement captivant. Les prestations sociales d'une grande entreprise. Ne seront prises en compte que les candidatures adressées par le biais de ce site. Merci d'avance de votre compréhension.\n\nTaux d'activité : 100%\nLieu de travail : Ecublens\nDate d'entrée en fonction : à convenir\nDélai de dépôt de candidature : 16 octobre 2026\n\nNous vous remercions de bien vouloir nous transmettre votre dossier complet (lettre de motivation, CV, certificats de travail et diplômes) par le biais du portail emploi de la RTS.\n\n## Notre promesse\nToucher l'ensemble de la population suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la RTS!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
       "descriptionByLocale": {
@@ -2193,7 +2227,7 @@
         "it": "Controllore strategico del progetto e degli investimenti",
         "en": "Strategic project and investment controller",
         "de": "Strategischer Projekt- und Investmentcontroller",
-        "fr": "Contrôleur.se stratégique de projets et d&#39;investissements"
+        "fr": "Contrôleur.se stratégique de projets et d'investissements"
       },
       "description": "Nous agissons comme UNE équipe, pour le succès de la SSR. Avec d'autres domaines, les Finances répondent du pilotage stratégique et de l'allocation des moyens orientée objectifs; elles créent de la transparence pour des décisions durables.\n\n## Votre mission\n\nEn tant que contrôleur.se de projets et d'investissements vous assurez un pilotage transparent, efficace et conforme à la stratégie des investissements et des projets (notamment projets technologiques, immobiliers et de transformation) au sein de la SSR. Vous aidez le Comité de direction à prendre des décisions d'investissement éclairées et priorisez les dossiers dans l'intérêt du service public.\n\n• Pilotage financier du portefeuille stratégique de projets et d'initiatives de la SSR\n\n• Garantie de l'alignement financier des projets et des investissements par rapport à la stratégie de l'entreprise et transposition dans le processus de planification à moyen terme\n\n• Responsabilité de la vision financière globale et suivi de grands projets, tels que le développement stratégique de sites immobiliers comprenant plusieurs projets partiels\n\n• Planification budgétaire et prévisions associées à l'élaboration d'un reporting de management pertinent ; établissement de Business Cases et d'analyses de rentabilité solides\n\n• Suivi de la mise en œuvre financière de projets et d'initiatives stratégiques, en étroite coordination avec la gestion du portefeuille de projets du département Développement de l'entreprise ainsi qu'avec les domaines (Immobilier, Opérations)\n\n• Développement de directives et de normes en matière d'investissement et garantie de leur respect\n\nDans le cadre du processus transversal de stratégie et de développement de l'organisation «Enavant SRG SSR», vous avez la possibilité de co-façonner activement le futur controlling stratégique de projets et d'investissements.\n\n## Votre profil\n\n• Vous êtes un.e spécialiste expérimenté.e doté.e de solides compétences analytiques et conceptuelles. Titulaire d'un diplôme universitaire en finance et en controlling ou équivalent, vous justifiez d'une expérience professionnelle de plusieurs années dans le controlling stratégique, le controlling de projets et d'investissements ou encore le pilotage financier de projets et de portefeuilles complexes.\n\n• Approche stratégique et vision globale; capacité à adapter des contenus complexes en fonction du public visé\n\n• Mode de travail orienté solutions, esprit de coopération et aisance dans le dialogue avec les membres du Comité de direction et les parties prenantes\n\n• Expertise en controlling de projets et d'investissements, en gouvernance financière ainsi que dans l'élaboration de Business Cases et d'analyses de rentabilité\n\n• Très bonnes compétences en matière de données et de BI (Excel, outils de planification, modèles de données, logiques de scénarios)\n\n• Très bonne maîtrise de l'allemand et du français; la maîtrise de l'italien est un atout\n\n## Ce que nous vous offrons\n\n• Un rôle-clé dans le pilotage stratégique des projets et des investissements\n\n• Une marge de manœuvre associée à un haut degré d'autonomie dans le développement des processus, des modèles de pilotage et des outils stratégiques\n\n• Un poste dans un environnement national comprenant quatre régions linguistiques et offrant de multiples perspectives\n\n• Une équipe motivée, ouverte et compétente\n\n## Notre promesse\nToucher l'ensemble de la population Suisse avec des formats de grande qualité nécessite de l'expertise, de l'enthousiasme et un environnement stimulant et propice à la création, au sein duquel tout le monde peut s'investir et évoluer. Pour que les meilleurs donnent le meilleur d'eux-mêmes, ils ont besoin d'avoir une source d'inspiration: Bienvenue dans l'univers de la SSR!\n- Créer du contenu: Le journalisme de qualité constitue le cœur de notre activité et notre passion. Nous jouissons d’une liberté totale de rédaction, encourageons la créativité et accordons une autonomie favorisant la nouveauté et la qualité.\n- Vivre le numérique: Chez nous, le journalisme de qualité peut aussi revêtir une forme numérique. C’est pourquoi nous explorons de nouvelles opportunités et expérimentons de nouveaux formats et pratiques: numériques, interactifs et cross-médias. Nos contenus s’inscrivent dans l’air du temps et répondent aux préoccupations du public.\n- Etre humain: Nous entretenons des relations informelles, travaillons de manière autonome et contribuons à une bonne atmosphère de travail. Notre réussite repose aussi bien sur les points forts de chacun que sur les compétences techniques de l’ensemble de nos collaborateurs.\n- Donner du sens: Avec notre programme, nous touchons toute la Suisse. Nous agissons de manière indépendante et respectueuse pour encourager la formation de l’opinion et renforcer la diversité culturelle. Nous sommes fiers de notre travail et de ce que nous apportons à la Suisse.",
       "descriptionByLocale": {

@@ -19875,7 +19875,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -31830,7 +31829,6 @@
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -32820,7 +32818,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32870,7 +32868,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -32878,7 +32876,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -33129,7 +33127,6 @@
           "sachbearbeiter-in-finanz-rechnungswesen-stadt-zuerich-zurigo-51885"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T09:51:06.640Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -33207,7 +33204,6 @@
           "reinigungsmitarbeiter-in-stadt-zuerich-zurigo-51652"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:38.004Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -33367,7 +33363,6 @@
           "fachbearbeiter-in-verkehrssteuerung-stadt-zuerich-zurigo-51893"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.981Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -33529,7 +33524,6 @@
           "hochschulpraktikant-in-kulturabteilung-finanzen-und-prozesse-und-institutionelle-forderung"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.981Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -33607,7 +33601,6 @@
           "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zuerich-zurigo-51897"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.981Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -33685,7 +33678,6 @@
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -33763,7 +33755,6 @@
           "hochschulpraktikant-in-kulturforderung-stadt-zuerich-zurigo-51895"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.981Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -33847,7 +33838,6 @@
           "sozialpadagoge-in-lehrperson-fur-hortleitung-kappeli-primar-stadt-zuerich-zurigo-51869"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.981Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -33925,7 +33915,6 @@
           "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:45:37.980Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -34274,10 +34263,10 @@
       "id": "stadt-zuerich-98edc6f6c870",
       "slug": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
+        "it": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "en": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "de": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "fr": "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
+        "fr": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -34326,15 +34315,14 @@
       "referenceNumber": "51901",
       "previousSlugs": [
         "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+        "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901"
         ],
         "fr": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-07T09:49:25.035Z",

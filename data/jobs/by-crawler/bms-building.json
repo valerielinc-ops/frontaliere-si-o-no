@@ -1639,7 +1639,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:04:18.389Z"
+      "firstSeenAt": "2026-08-31T17:04:18.389Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "bms-building-05778ef4ed31",
@@ -2074,8 +2075,9 @@
           "Datenschutz"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-05-05T10:13:23.664Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-05T10:13:23.664Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "bms-building-5210958d7921",

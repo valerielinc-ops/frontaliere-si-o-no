@@ -49,7 +49,6 @@
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-10-07T21:49:09.712Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:36:24.260Z",
       "salaryMin": 65500,
       "salaryMax": 82500,
@@ -243,7 +242,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:53:04.281Z",
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -266,7 +264,7 @@
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -308,8 +306,7 @@
       "crawledAt": "2026-10-07T21:49:07.969Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
-        "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -319,7 +316,7 @@
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
-          "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ]
       },
       "needsRetranslation": true,

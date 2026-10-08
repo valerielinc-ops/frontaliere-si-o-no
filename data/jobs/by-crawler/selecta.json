@@ -1131,7 +1131,8 @@
         "location": "Steinhausen"
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:56:49.954Z"
+      "firstSeenAt": "2026-07-04T11:56:49.954Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "selecta-f525a4ac08a1",
@@ -1657,10 +1658,9 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2618,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-04T11:56:47.626Z"
     },
     {

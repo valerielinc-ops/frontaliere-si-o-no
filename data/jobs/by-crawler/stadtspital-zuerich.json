@@ -379,7 +379,7 @@
           "physiotherapeut-in-als-fachverantwortliche-r-kardiopulmonale-physiotherapie-stadtspital"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:26:33.532Z"
     },
     {
@@ -813,7 +813,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:29:25.187Z"
+      "firstSeenAt": "2026-10-03T09:29:25.187Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "stadtspital-zuerich-17e8bed5c47e",
@@ -1366,7 +1367,7 @@
       "slugByLocale": {
         "it": "assistente-medico-radiooncologia-80-100-stadtspital-zurich-zurich",
         "en": "assistant-physician-radio-oncology-80-100-stadtspital-zurich-zurich",
-        "de": "assistenzarztin-arzt-radio-onkologie-80-100-stadtspital-zuerich-51791",
+        "de": "assistenzarztin-arzt-radio-onkologie-80-100-stadtspital-zurich-zurich",
         "fr": "radio-oncologie-medecin-adjoint-80-100-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -1415,9 +1416,6 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51791",
       "previousSlugsByLocale": {
-        "de": [
-          "assistenzarztin-arzt-radio-onkologie-80-100-stadtspital-zurich-zurich"
-        ],
         "it": [
           "assistenzarztin-arzt-radio-onkologie-80-100-stadtspital-zurich-zurich"
         ],
@@ -2304,7 +2302,7 @@
       "slugByLocale": {
         "it": "assistent-in-gesundheit-e-soziales-stadtspital-zurich",
         "en": "assistant-in-health-and-social-affairs-stadtspital-zurich-zurich",
-        "de": "assistent-in-gesundheit-und-soziales-fur-die-universitare-klinik-fur-altersmedizin",
+        "de": "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179",
         "fr": "assistant-en-sante-et-affaires-sociales-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -2353,9 +2351,6 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "48179",
       "previousSlugsByLocale": {
-        "de": [
-          "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179"
-        ],
         "it": [
           "assistent-in-gesundheit-und-soziales-stadtspital-zuerich-48179"
         ],
@@ -3824,7 +3819,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-12T22:04:54.244Z"
+      "firstSeenAt": "2026-07-12T22:04:54.244Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "stadtspital-zuerich-82b7258c43e5",
@@ -3980,7 +3976,10 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
+        "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
+        "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -4703,7 +4702,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich",
         "en": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich",
-        "de": "dipl-pflegefachperson-urologie-wirbelsaulenchirurgie-und-belegarzt-innen-stadtspital",
+        "de": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zuerich-50958",
         "fr": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -4753,8 +4752,7 @@
       "referenceNumber": "50958",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zuerich-50950",
-          "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zuerich-50958"
+          "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zuerich-50950"
         ],
         "it": [
           "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zuerich-50958",
@@ -4782,7 +4780,7 @@
       "slugByLocale": {
         "it": "clers-di-ingegneria-medica-stadtspital-zurich-zurich",
         "en": "medical-engineering-clerks-stadtspital-zurich-zurich",
-        "de": "sachbearbeiter-in-medizintechnik-stadtspital-zuerich-50744",
+        "de": "sachbearbeiter-in-medizintechnik-stadtspital-zurich-zurich",
         "fr": "employes-de-genie-medical-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
@@ -4831,9 +4829,6 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "50744",
       "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-in-medizintechnik-stadtspital-zurich-zurich"
-        ],
         "it": [
           "sachbearbeiter-in-medizintechnik-stadtspital-zurich-zurich"
         ],
@@ -4855,7 +4850,7 @@
       "slugByLocale": {
         "it": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
         "en": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
-        "de": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
+        "de": "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich",
         "fr": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
       },
       "company": "Stadtspital Zürich",
@@ -4905,8 +4900,7 @@
       "referenceNumber": "51305",
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
-          "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich"
+          "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558"
         ],
         "it": [
           "fachperson-gesundheit-con-waidsicht-stadtspital-zurich-zurich",
@@ -4927,8 +4921,7 @@
         "health-professional-with-waid-vision-stadtspital-zurich-zurich",
         "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
         "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich",
-        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich",
-        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich"
+        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich"
       ],
       "firstSeenAt": "2026-08-13T10:43:44.167Z"
     },
@@ -5278,7 +5271,10 @@
       "id": "stadtspital-zuerich-ee9c8b1d2196",
       "slug": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718"
+        "de": "dipl-pflegefachperson-frauenklinik-schwerpunkt-wochenbett-stadtspital-zuerich-45718",
+        "it": "dipl-infermieristica-clinica-femminile-concentrarsi-sul-letto-post-partum-stadtspital-zurich-zurich",
+        "en": "dipl-nursing-specialist-women-s-clinic-focus-on-postpartum-bed-stadtspital-zurich-zurich",
+        "fr": "dipl-infirmiere-specialiste-clinique-pour-femmes-se-concentrer-sur-le-lit-post-partum-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5332,7 +5328,10 @@
       "id": "stadtspital-zuerich-d93443169ae7",
       "slug": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+        "de": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
+        "it": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
+        "en": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
+        "fr": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5386,7 +5385,10 @@
       "id": "stadtspital-zuerich-08f961a37dd3",
       "slug": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
       "slugByLocale": {
-        "de": "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
+        "de": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
+        "it": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
+        "en": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
+        "fr": "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",

@@ -545,7 +545,24 @@
       "externalId": "5f4892eda56765ec984926533ddab18a",
       "contractDuration": "permanent",
       "department": "Pflege- und Betreuungsberufe",
-      "firstSeenAt": "2026-08-18T21:40:15.117Z"
+      "firstSeenAt": "2026-08-18T21:40:15.117Z",
+      "previousSlugs": [
+        "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten",
+        "diet-cook-diet-cook-m-f-d-80-100-klinik-schonberg-ag-gunten",
+        "dipl-pflegefachperson-hf-fh-80-100-privatklinik-meiringen-thun-mg4eax"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten"
+        ],
+        "en": [
+          "diet-cook-diet-cook-m-f-d-80-100-klinik-schonberg-ag-gunten"
+        ],
+        "de": [
+          "diatkoch-diatkochin-w-m-d-80-100-klinik-schoenberg-gunten",
+          "dipl-pflegefachperson-hf-fh-80-100-privatklinik-meiringen-thun-mg4eax"
+        ]
+      }
     },
     {
       "id": "privatklinik-meiringen-7ae63225eb4d",
