@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 623,
+  "crawlerCount": 624,
   "groups": {
     "10": [
       "atec-personal",
@@ -415,6 +415,7 @@
       "migros-hq",
       "nestle",
       "pantr-ch",
+      "pianorm",
       "posta-svizzera-centro-regionale",
       "postauto",
       "postfinance",
@@ -1100,6 +1101,7 @@
     "pdgr": "data/jobs/by-crawler/pdgr.json",
     "pemsa": "data/jobs/by-crawler/pemsa.json",
     "pfister": "data/jobs/by-crawler/pfister.json",
+    "pianorm": "data/jobs/by-crawler/pianorm.json",
     "pictet": "data/jobs/by-crawler/pictet.json",
     "pigna": "data/jobs/by-crawler/pigna.json",
     "pkb-private-bank": "data/jobs/by-crawler/pkb-private-bank.json",
@@ -1300,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:74ac58984cda44b0c30573df3a13e0bfca2d49619177e36f9ceabf1ad81d0b8a"
+  "digest": "sha256:12aa398fe2d5321db3b349699aec70d8efc39f7d2ea78103e7a9486dad4c78e8"
 }
