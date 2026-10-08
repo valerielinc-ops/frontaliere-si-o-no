@@ -30,10 +30,15 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
   const gone = await datasetGone(order?.jobId, fetchImpl);
   const url = posting?.applyUrl && !/^mailto:/i.test(posting.applyUrl) ? posting.applyUrl : order?.jobUrl;
   let page = { result: 'uncertain', code: 'not_checked', reason: 'no public url' };
+  // The employer as the posting's own data names it (Workday's legal entity), for the runner's check that the
+  // form is the posting's where the page shows only a brand (portal.mjs sameEmployerFamily).
+  let organization = '';
   if (url) {
     try {
       // Workday's page is an empty shell (liveness.mjs): its own JSON answers first.
-      const workday = classifyWorkdayLiveness(await fetchWorkdayPosting(fetchImpl, url, resolve).catch(() => null));
+      const posting = await fetchWorkdayPosting(fetchImpl, url, resolve).catch(() => null);
+      const workday = classifyWorkdayLiveness(posting);
+      organization = String(posting?.organization || '');
       const response = workday ? null : await fetchPublicPage(fetchImpl, url, resolve);
       if (workday) {
         page = workday;
@@ -53,5 +58,5 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
       page = { result: 'uncertain', code: 'fetch_failed', reason: error instanceof Error ? error.message.slice(0, 80) : 'fetch failed' };
     }
   }
-  return { page, datasetGone: gone, closed: isHardClosed(page, { datasetGone: gone }) };
+  return { page, datasetGone: gone, closed: isHardClosed(page, { datasetGone: gone }), organization };
 }

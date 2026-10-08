@@ -44,7 +44,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0 };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -241,7 +241,9 @@ function fakePortal() {
         el('p2').required = next === 'create';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
-      el('swap').onclick = () => setTimeout(() => show(view === 'create' ? 'sign_in' : 'create', ''), 700);
+      // Between two pages nothing is drawn for a moment (in Actions the real page was read right then).
+      const blank = (ms, then) => { el('auth').style.display = 'none'; setTimeout(() => { then(); el('auth').style.display = ''; }, ms); };
+      el('swap').onclick = () => blank(700, () => show(view === 'create' ? 'sign_in' : 'create', ''));
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
       let redrawn = false;
@@ -265,7 +267,7 @@ function fakePortal() {
           const answer = await (await fetch(view === 'create' ? '/wd/register' : '/wd/login', { method: 'POST', body })).json();
           if (answer.silent) return;
           if (view === 'create') show(answer.ok ? 'sign_in' : 'create', answer.message);
-          else if (answer.ok) window.location.href = '/apply';
+          else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '/wd/form'; }, 1200); }
           else show('sign_in', answer.message);
         }, 1500);
       };
@@ -393,8 +395,83 @@ function fakePortal() {
       coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '', anrede: body.get('anrede'), birth: body.get('birth'), agency: body.get('agency') });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
-    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
-    if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/apply') : send(workdayAccountPage());
+    // The posting names the brand, never the company the order names; the form behind the account keeps
+    // the account page's title, and the site's language menu sits in its header (Workday, 2026-10-07). Its
+    // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
+    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
+    if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
+    // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
+    // anew for that country a moment later, as other elements («Address Line 1» becomes «Street Name»): what
+    // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
+    // seconds after Enter the only match is taken by itself and shown as that pill (also an «option» on the
+    // page); several matches are listed to choose from (Workday's «My Information», 2026-10-07).
+    // `workday.resumed`: the account already holds an application in progress. The first load of the form in
+    // a session is then the portal's own «Something went wrong. Please refresh the page and then try again»
+    // (its request for a new application is refused), the load after it is the application, and the CV an
+    // earlier run uploaded is listed with its «Delete» button.
+    if (route === 'GET /wd/form') {
+      if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
+      if (workday.resumed && !workday.refusedOnce.has(sessionOf(req))) {
+        workday.refusedOnce.add(sessionOf(req));
+        return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
+          <header><p>Acme Careers</p></header><main><h1>Verkaufsberater/in</h1><h2>Something went wrong</h2><p>Please refresh the page and then try again.</p><p>Error Code: VPS|0000</p></main></body></html>`);
+      }
+      return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
+        <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
+        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>
+        <form method="post" action="/wd/submit" enctype="multipart/form-data">
+          <label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required>
+          <label for="m">E-Mail *</label><input id="m" type="email" name="mail" required>
+          <div id="addr"></div><input type="hidden" name="country" id="countryValue" value="United States of America">
+          <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off">
+          <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
+          <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
+          <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
+          ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete CV_Luca_Bianchi.pdf" style="width:24px;height:24px"></button></div>' : ''}
+          <button type="submit">Bewerbung absenden</button>
+        </form>
+        <ul id="countries" role="listbox" style="display:none"><li role="option">Switzerland</li><li role="option">United States of America</li></ul>
+        <ul id="codes" role="listbox" style="display:none"></ul></main>
+        <script>
+          const el = (id) => document.getElementById(id);
+          const draw = (country) => {
+            el('addr').innerHTML = '<button type="button" id="country" aria-haspopup="listbox" aria-label="Country*">' + country + '</button>' + (country === 'Switzerland'
+              ? '<label for="st">Street Name</label><input id="st" name="street"><label for="pc">Postcode</label><input id="pc" name="postcode">'
+              : '<label for="a1">Address Line 1</label><input id="a1" name="address1"><label for="pc">Postal Code</label><input id="pc" name="postalCode">');
+            el('country').onclick = () => { el('countries').style.display = 'block'; };
+            el('country').onkeydown = (event) => { if (event.key === 'Escape') el('countries').style.display = 'none'; };
+          };
+          draw('United States of America');
+          if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
+          for (const option of el('countries').children) {
+            option.onclick = () => { el('countries').style.display = 'none'; el('countryValue').value = option.textContent; setTimeout(() => draw(option.textContent), 400); };
+          }
+          el('pcode').onkeydown = (event) => {
+            if (event.key !== 'Enter') return;
+            event.preventDefault();
+            const choose = (code) => { el('phoneCodeValue').value = code; el('pill').textContent = code; el('pcode').value = ''; el('codes').style.display = 'none'; };
+            setTimeout(() => {
+              const matches = ['Switzerland (+41)', 'Italy (+39)'].filter((code) => code.includes(el('pcode').value));
+              if (matches.length === 1) return choose(matches[0]);
+              el('codes').innerHTML = matches.map((code) => '<li role="option">' + code + '</li>').join('');
+              el('codes').style.display = 'block';
+              for (const option of el('codes').children) option.onclick = () => choose(option.textContent);
+            }, 2000);
+          };
+        </script></body></html>`);
+    }
+    if (route === 'POST /wd/submit') {
+      const raw = await readBody(req);
+      const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
+      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept') });
+      state.applications.push({ hasCv: /filename="CV_/.test(raw), first: part('first') });
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    if (route === 'POST /wd/delete-file') {
+      workday.deletedFiles += 1;
+      res.writeHead(204);
+      return res.end();
+    }
     if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
       workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
       res.writeHead(204);
@@ -609,6 +686,12 @@ async function fakeCodex({ prompt }) {
     if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
     if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
+    // Workday's first page: the country is a listbox, the address follows it, the phone code is a search.
+    if (/^country\*?$/i.test(field.label)) return act('select', 'Switzerland', { source: 'profile' });
+    if (/address line 1/i.test(field.label)) return act('fill', 'Via Esempio 1');
+    if (/street name/i.test(field.label)) return act('fill', 'Via Esempio');
+    if (/postcode|postal code/i.test(field.label)) return act('fill', '6830');
+    if (/phone code/i.test(field.label)) return act('fill', '+41');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
     if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
     // umantis' form: no photo and no other document to give, the letter in its own field.
@@ -641,8 +724,10 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     async discard(hostname) { saved.delete(hostname); },
     async waitForVerification() { return null; },
   };
-  const run = () => submitViaPortal({
-    applyUrl: `${base}/wd/job`, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
+  // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
+  const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
+  const run = (order = job) => submitViaPortal({
+    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
     launch: () => launchChromium({ headless: true, executablePath }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
@@ -670,6 +755,20 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
   // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
   // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  // The country is chosen before anything is typed, the form it redraws is planned again, and the phone
+  // code's matches are waited for: the address is in the fields of the chosen country, not in ones that are gone.
+  const sent = workday.forms.at(-1) || {};
+  check('Workday: the country is chosen first, the redrawn form planned again, the phone code picked from its late matches',
+    sent.country === 'Switzerland' && sent.street === 'Via Esempio' && sent.postcode === '6830' && sent.phoneCode === 'Switzerland (+41)'
+    && again.evidence.steps.some((step) => step.redrawn) && !again.evidence.steps.some((step) => (step.failures || []).length));
+  // The posting's page says only the brand: the employer is the order's by the posting's own data, and the
+  // form behind the account (whose title is still the account page's) is the posting's by its role.
+  check('Workday: the form is the posting’s by the employer its data names, another entity of the order’s company',
+    again.evidence.postingMatch === 'match' && again.evidence.postingMatchVia === 'posting_data');
+  state.sessions.clear();
+  const stranger = await run({ ...job, organization: 'Other Retail GmbH' });
+  check('Workday: with another company in the posting’s data the form is not the order’s',
+    stranger.event.type === 'submit_handoff' && stranger.event.reason === 'posting_mismatch' && state.applications.length === applications + 2);
   check('Workday: the «Sign In» link of the form is the one pressed, never the one in the site header', workday.headerSignIns === 0 && /create:ok/.test(authOf(again)) && /sign_in:ok/.test(authOf(again)));
   // The portal says no (the address is taken): its message is read, and no password is kept.
   saved.clear();
@@ -705,6 +804,18 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const afterCover = await run();
   check('Workday: the run after that stop creates the account and sends the application',
     afterCover.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password && saved.get(host)?.status === 'created');
+  // An application in progress from an earlier run (the one that stopped for a question, a dry run): the page
+  // after the sign-in asks to be refreshed and is, and the CV that run left is taken away before this run's
+  // goes in — one CV on the application, never two.
+  state.sessions.clear();
+  workday.resumed = true;
+  const resumed = await run();
+  workday.resumed = false;
+  const kept = workday.forms.at(-1) || {};
+  check('Workday: an application in progress is opened by the refresh the portal asks for, and its old CV replaced, not doubled',
+    resumed.event.type === 'submit_succeeded' && resumed.evidence.steps.some((step) => step.refreshed)
+    && workday.deletedFiles === 1 && kept.kept === '' && state.applications.at(-1)?.hasCv === true
+    && resumed.evidence.steps.some((step) => (step.replaced || []).includes('cv')));
 }
 
 async function main() {

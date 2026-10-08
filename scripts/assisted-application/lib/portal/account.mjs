@@ -35,7 +35,12 @@ export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?(konto (erst
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
 export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
 export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
-const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+const CODE_FIELD_RE = /code|codice|\bpin\b|\btoken\b|bestätigungs|one[- ]time (?:password|passcode)|\botp\b|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+// The code of an address, a phone, a discount or a file is no verification code: «Postal Code», «Country Phone
+// Code», «postalCode», «Code postal», «Codice fiscale». Workday's first page of the form was taken for a
+// verification page by its postal code, and the run waited ten minutes for an e-mail nobody sends (dry run
+// of 2026-10-07). Whole words otherwise: «Shipping» holds no PIN.
+const OTHER_CODE_RE = /(?:postal|post|zip|plz|area|dial(?:l?ing)?|country|l[aä]nder|landes|phone|telefon|telephone|mobile|promo(?:tion)?|aktions|discount|rabatt|coupon|voucher|gutschein|referral|tax|steuer|bank|swift|bic|sort|employee|company|job|requisition|currency|language|region|state|province)[\s_-]*(?:code|codice|kode)|(?:code|codice)\s+(?:postal|postale|fiscale|pays|paese|promo|sconto|r[ée]gion|area)/gi;
 const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
@@ -259,7 +264,7 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
 
 export function codeField(snapshot) {
   return snapshot.fields.find((field) => {
-    const label = `${field.label} ${field.name}`;
+    const label = `${field.label} ${field.name}`.replace(OTHER_CODE_RE, ' ');
     return CODE_FIELD_RE.test(label)
       && (field.kind === 'text' && field.inputType !== 'password'
         || field.inputType === 'password' && PASSWORD_CODE_FIELD_RE.test(label));

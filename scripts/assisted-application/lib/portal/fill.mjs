@@ -13,8 +13,12 @@ import { isNationalityField, nationalityOf } from '../../../../functions/src/lib
  *     (Workable re-renders break cached handles).
  */
 
+import { extractFields } from './fields.mjs';
+
 const TYPE_DELAY_MS = 25;
 const ACTION_TIMEOUT_MS = 6000;
+// How long a search box gets to list its matches after Enter: they come with a request.
+const SUGGESTIONS_TIMEOUT_MS = 5000;
 // A file sent as soon as it is chosen: how long it may travel, and how long nothing must be in flight.
 const UPLOAD_SETTLE_MS = 45_000;
 const UPLOAD_QUIET_MS = 700;
@@ -85,6 +89,34 @@ async function choiceRegistered(locator, kind, label) {
   }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
 }
 
+/**
+ * A choice that redrew the form takes its control with it: Workday's «Country» draws the name and address
+ * fields anew, the button that was pressed is another element, and choiceRegistered finds nothing to look
+ * at (2026-10-07: the country was set and reported as not registered). The field of the same name, read
+ * again, says whether the choice took.
+ */
+async function choiceShownAfterRedraw(page, field, label) {
+  // The redraw follows the choice by a moment (a request on Workday): three seconds for it.
+  for (let waited = 0; waited <= 3000; waited += 500) {
+    if (tidy(await valueShownNow(page, field)) === tidy(label)) return true;
+    await page.waitForTimeout(500);
+  }
+  return false;
+}
+
+const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+/** What the field of that name and kind shows in a fresh reading of the page ('' when it is not there). */
+async function valueShownNow(page, field) {
+  const fresh = await extractFields(page, { listboxOptions: false }).catch(() => null);
+  return String(fresh?.fields.find((candidate) => candidate.kind === field.kind && candidate.label === field.label)?.value || '');
+}
+
+/** A search box (fields.mjs `search`) already holds the answer: its chosen value names what would be typed. */
+export function searchHolds(shown, value) {
+  return Boolean(tidy(value)) && tidy(shown).includes(tidy(value));
+}
+
 const normalizedChoice = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
 /**
@@ -133,13 +165,31 @@ async function fillText(locator, value) {
  */
 async function pickSuggestion(page, field, locator, value) {
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  // A search box lists its matches only after Enter.
-  if (field.search) await locator.press('Enter').catch(() => {});
-  await page.waitForTimeout(field.search ? 1200 : 500);
   const options = frame.locator('[role="option"]:visible');
+  const needle = value.toLowerCase().trim();
+  if (field.search) {
+    // A search box answers after Enter and a request. Workday's takes the only match by itself («+41»
+    // becomes the chosen «Switzerland (+41)» 0.3 s after Enter, measured 2026-10-07): the box is answered
+    // when it SHOWS the value. A match is clicked only while it does not, never the chosen one again
+    // (read 1.2 s after Enter, the first «option» with «+41» was the value just chosen). Five seconds
+    // for it; then what is typed is no answer, and the field says so instead of leaving «+41» next to
+    // the code the form had picked by itself.
+    await locator.press('Enter').catch(() => {});
+    for (const deadline = Date.now() + SUGGESTIONS_TIMEOUT_MS; Date.now() < deadline;) {
+      await page.waitForTimeout(300);
+      if (searchHolds(await valueShownNow(page, field), value)) return;
+      const texts = await options.allInnerTexts().catch(() => []);
+      const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
+      if (index >= 0) await options.nth(index).click({ timeout: 4000 }).catch(() => {});
+    }
+    if (searchHolds(await valueShownNow(page, field), value)) return;
+    await locator.press('Tab').catch(() => {});
+    throw new Error('suggestion_not_chosen');
+  }
+  // A plain input shows its suggestions at once or has none.
+  await page.waitForTimeout(500);
   const texts = await options.allInnerTexts().catch(() => []);
   if (!texts.length) return;
-  const needle = value.toLowerCase().trim();
   const index = texts.findIndex((text) => text.toLowerCase().includes(needle));
   if (index >= 0) await options.nth(index).click({ timeout: 4000 });
   else await locator.press('Tab').catch(() => {});
@@ -437,12 +487,15 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
           await fillCombobox(page, field, locator, action.value);
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
-        if (!await choiceRegistered(locator, field.kind, selectedLabel)) throw new Error('choice_not_registered');
+        if (!await choiceRegistered(locator, field.kind, selectedLabel) && !await choiceShownAfterRedraw(page, field, selectedLabel)) throw new Error('choice_not_registered');
       } else if (field.kind === 'date') {
         await fillDatePicker(page, field, locator, action.value);
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
       } else if (field.widget === 'ui5-date') {
         await fillUi5Date(locator, field, action.value);
+      } else if (field.search && searchHolds(field.value, action.value)) {
+        // The search box already holds this answer (Workday sets the phone code with the country): typed
+        // and chosen again, it would be the chosen value that gets clicked.
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
         await fillText(locator, fitToLength(action.value, field.maxLength));

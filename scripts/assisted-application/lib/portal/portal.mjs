@@ -22,6 +22,7 @@
  * career-ops drives Playwright MCP. Next and the final submit stay here.
  */
 
+import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
@@ -32,7 +33,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -63,6 +64,22 @@ const AUTH_VIEW_TIMEOUT_MS = 8_000;
 // Between the last field typed and the reading that checks it is still there: a form drawn anew meanwhile
 // shows by then, and Workday counts a click in the first half second of its form as a robot's.
 const AUTH_TYPED_WAIT_MS = 600;
+// How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
+const REDRAW_WAIT_MS = 3000;
+const MAX_REDRAWS_PER_PAGE = 2;
+// A page with nothing to fill on which the portal itself asks to be loaded again («Something went wrong.
+// Please refresh the page and then try again»: Workday, when the account already holds an application in
+// progress for the posting; its first request for a new one is refused, and the page loaded next is the
+// application), and how often one address is loaded again for it.
+export const REFRESH_ASKED_RE = /(refresh (the|this) page|reload (the|this) page|seite (neu laden|aktualisieren)|laden sie die seite neu|aktualisieren sie die seite|ricaric(a|are|hi) la pagina|aggiorn(a|are|i) la pagina|(actualise[rz]|rafra[iî]chi(r|ssez)|recharge[rz]) la page)/i;
+const MAX_REFRESHES_PER_PAGE = 2;
+// The control that takes an uploaded file away again, by its name next to the file's («Delete CV_….pdf»).
+export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|rimuovi|supprimer|retirer)\b/i;
+
+/** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
+export function removalsOf(buttons, names) {
+  return (buttons || []).filter((button) => !button.disabled && REMOVE_FILE_RE.test(button.text) && names.some((name) => name && button.text.includes(name)));
+}
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -507,7 +524,38 @@ const FORM_VOCABULARY = new Set([
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
   'opportunity', 'opportunities', 'opportunite', 'opportunites', 'opportunita', 'karrierechancen', 'chancen',
+  // Workday keeps the title of its account page on every step of the form behind it («Create Account» over
+  // «My Information», 2026-10-07): an account page's own words name no employer either.
+  'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
+  'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
+// A country in a company's name says which national entity it is, not which company: «Rituals Cosmetics
+// Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities. Countries only:
+// «Acme Europe» and «Acme International» are two companies (review of #12292).
+const BRANCH_WORDS = new Set([
+  'schweiz', 'suisse', 'svizzera', 'switzerland', 'swiss', 'deutschland', 'germany', 'allemagne', 'germania', 'italia', 'italy', 'italien',
+  'italie', 'france', 'frankreich', 'francia', 'osterreich', 'austria', 'autriche', 'liechtenstein', 'nederland', 'netherlands',
+]);
+// What stands next to a country on a form because it labels a field of it, never because it names an
+// employer: «Country Switzerland», «Nationality: Switzerland», «Phone Switzerland». Any other word next to
+// the country of the order's company still declares someone else («Switzerland Bank», «Other Switzerland»).
+const FIELD_LABEL_WORDS = new Set([
+  'country', 'countries', 'land', 'lander', 'staat', 'paese', 'nazione', 'stato', 'pays', 'nationality', 'nationalitat', 'staatsangehorigkeit',
+  'nazionalita', 'cittadinanza', 'nationalite', 'citizenship', 'residence', 'wohnsitz', 'wohnort', 'residenza', 'domicile', 'domicilio',
+  'region', 'regione', 'location', 'standort', 'sede', 'lieu', 'phone', 'telefon', 'telefono', 'telephone', 'mobile', 'code', 'vorwahl',
+  'prefisso', 'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville', 'canton', 'kanton', 'cantone', 'province', 'provincia',
+  'select', 'selected', 'one',
+]);
+
+/**
+ * Two names of one employer: the same words once the legal form and the country of the branch are left out,
+ * and at least one word that is a name (never two «Hotel Schweiz» and «Hotel Deutschland» of anybody).
+ */
+export function sameEmployerFamily(one, other) {
+  const core = (name) => nameWords(name).filter((word) => !BRANCH_WORDS.has(word));
+  const first = core(one);
+  return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
+}
 // The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
 // the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
 // «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
@@ -547,7 +595,8 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
  * here: it is postingMatch's direct match.
  */
 export function namesAnotherEmployer(formText, job = {}) {
-  const ours = new Set(nameWords(job.company));
+  // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
+  const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
   const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
   const text = String(formText || '');
@@ -557,10 +606,14 @@ export function namesAnotherEmployer(formText, job = {}) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
       if (!ours.has(word)) continue;
+      // The country of the order's company is on any form as a country too: next to it, the word that labels
+      // the field says nothing about the employer. Next to any other word of the company, it still would.
+      const labels = BRANCH_WORDS.has(word) ? FIELD_LABEL_WORDS : null;
       for (const step of [-1, 1]) {
         let at = index + step;
-        while (words[at] !== undefined && filler(words[at])) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at])) return true;
+        // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
+        while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
+        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])) return true;
       }
     }
   }
@@ -964,36 +1017,51 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
  */
 async function awaitAuthOutcome(page, before, shown = []) {
   await settle(page);
-  const read = () => extractFields(page).catch(() => null); // a page that is reloading cannot be read yet
+  // A page that is reloading cannot be read yet. Read without opening its listboxes while waiting (the form
+  // behind a sign-in has several, and each reading would open and close them all); in full once it is there.
+  const read = () => extractFields(page, NAVIGATION).catch(() => null);
   const told = JSON.stringify(shown || []);
   const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
-  const deadline = Date.now() + AUTH_OUTCOME_TIMEOUT_MS;
+  const started = Date.now();
+  const deadline = started + AUTH_OUTCOME_TIMEOUT_MS;
   let after = await read();
-  while (unanswered(after) && Date.now() < deadline) {
+  let seen = '';
+  // The answer is a page read twice the same, with something to fill: between the sign-in form and the form
+  // behind it Workday shows a page with nothing on it for a second or two (measured 2026-10-07). A page that
+  // stays empty that long is the answer (a «check your e-mail», an account's home).
+  const settled = (view) => !unanswered(view) && authViewSignature(view) === seen
+    && (view.fields.length > 0 || Date.now() - started > AUTH_VIEW_TIMEOUT_MS);
+  while (!settled(after) && Date.now() < deadline) {
+    seen = after ? authViewSignature(after) : '';
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
-  return after || extractFields(page);
+  return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
+
+/** What tells one account page from another, and a page from the same one read a moment later. */
+const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}`;
 
 /**
  * The other account page, once the link to it has drawn it. Such a link changes the page in place: read at
  * once (0.2 s after the click, dry run of 2026-10-07 on Workday) it was still the page with the link, which
- * was pressed again.
+ * was pressed again; read between the two (0.8 s after, the next dry run) it had no field at all, and was
+ * taken for the form. So: another page than before, with fields, read twice the same.
  * @param {object} before the page the link was pressed on
  */
 async function awaitAuthView(page, before) {
   await settle(page);
-  const read = () => extractFields(page).catch(() => null);
-  const labels = (view) => view.fields.map((field) => field.label).join('|');
-  const same = (after) => !after || (authPageKind(after) === authPageKind(before) && labels(after) === labels(before));
+  const read = () => extractFields(page, NAVIGATION).catch(() => null);
+  const drawn = (after) => Boolean(after) && after.fields.length > 0 && authViewSignature(after) !== authViewSignature(before);
   const deadline = Date.now() + AUTH_VIEW_TIMEOUT_MS;
   let after = await read();
-  while (same(after) && Date.now() < deadline) {
+  let seen = '';
+  while ((!drawn(after) || authViewSignature(after) !== seen) && Date.now() < deadline) {
+    seen = after ? authViewSignature(after) : '';
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
-  return after || extractFields(page);
+  return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
 /**
@@ -1376,7 +1444,13 @@ export async function submitViaPortal(ctx) {
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
     const postingUrl = page.url();
-    const postingNamed = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`, ctx.job) === 'match';
+    const postingSeen = `${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`;
+    // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
+    // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
+    // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
+    // the page: the posting is the order's.
+    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
+    const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
@@ -1385,8 +1459,8 @@ export async function submitViaPortal(ctx) {
     const formMatch = async () => {
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
       const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
-      // Said in the evidence: the company was read on the posting, the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
+      // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
+      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
       return result;
     };
     const pendingOtpAccount = async (current) => {
@@ -1417,6 +1491,18 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    // How often a page was planned again because a choice redrew it, by address.
+    const redraws = new Map();
+    // How often a page was loaded again because the portal asked for it, by address.
+    const refreshes = new Map();
+    const refreshed = async (current) => {
+      const url = page.url();
+      if (current.fields.length || (refreshes.get(url) || 0) >= MAX_REFRESHES_PER_PAGE || !REFRESH_ASKED_RE.test(await pageText(page))) return null;
+      refreshes.set(url, (refreshes.get(url) || 0) + 1);
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      return awaitFields(page, await extractFields(page));
+    };
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
     const openTries = new Map();
@@ -1474,6 +1560,14 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      // The portal's own «refresh the page and try again»: loaded again, as it asks.
+      const again = await refreshed(snapshot);
+      if (again) {
+        evidence.steps.at(-1).refreshed = true;
+        snapshot = again;
+        step -= 1;
+        continue;
+      }
       // SuccessFactors can resume directly on its one-time-code page after a
       // previous run saved the password but did not consume the OTP. It has no
       // password field, so it must be handled before the application planner.
@@ -1567,6 +1661,13 @@ export async function submitViaPortal(ctx) {
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
         }
         snapshot = auth.snapshot;
+        // The page a sign-in lands on may be the portal's «refresh the page» (see REFRESH_ASKED_RE): loaded
+        // again here, before it is taken for a home page and left for the posting.
+        const signedInPage = await refreshed(snapshot);
+        if (signedInPage) {
+          evidence.steps.at(-1).refreshed = true;
+          snapshot = signedInPage;
+        }
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
@@ -1595,6 +1696,23 @@ export async function submitViaPortal(ctx) {
       // Nothing the filler can read (a page of custom widgets): straight to the agent.
       let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
 
+      // A file an earlier run left on the page under the name of one of this run's (the run that stopped for
+      // a question, a dry run) is taken away before the page is planned: the page asks for the file again and
+      // this run's goes in. One CV on the application and the current one: never two, and never the one of a
+      // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
+      // run uploaded itself stays.
+      const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
+        .flatMap((document) => removalsOf(snapshot.buttons, documentPaths(ctx.files, document).map((file) => path.basename(file))).map((button) => ({ document, button })));
+      if (earlier.length) {
+        for (const { button } of earlier) {
+          await clickButton(page, button).catch(() => {});
+          await page.waitForTimeout(800);
+        }
+        evidence.steps.at(-1).replaced = [...new Set(earlier.map((item) => item.document))];
+        snapshot = await extractFields(page);
+      }
+
       let after = snapshot;
       let unclearQuestions = [];
       if (workable(snapshot)) {
@@ -1612,7 +1730,31 @@ export async function submitViaPortal(ctx) {
         const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
         const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
-        const results = await applyActions(page, snapshot.fields, actions, ctx.files);
+        // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
+        // country), and what was typed before into fields that are no more is lost without a word (dry run of
+        // 2026-10-07: the address went into «Address Line 1», the country was chosen last, and the form that
+        // was saved had «Street Name» and «Postcode» empty). A choice the field already shows is not made again.
+        const fieldOf = (action) => snapshot.fields.find((field) => field.id === action.fieldId);
+        const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+        const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
+        const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
+        const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        const results = [
+          ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
+          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+        ];
+        // The form after the choices: with other fields than the ones planned it is read and planned again
+        // (twice at most for one page), and nothing is typed into what is no longer there.
+        const labelsOf = (view) => view.fields.map((field) => field.label).join('|');
+        let redrawn = false;
+        if (choices.length && (redraws.get(plannedUrl) || 0) < MAX_REDRAWS_PER_PAGE) {
+          for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
+            await page.waitForTimeout(500);
+            const now = await extractFields(page, NAVIGATION).catch(() => null);
+            redrawn = Boolean(now) && now.fields.length > 0 && labelsOf(now) !== labelsOf(snapshot);
+          }
+        }
+        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files));
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
@@ -1625,6 +1767,13 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        if (redrawn && page.url() === plannedUrl) {
+          redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
+          evidence.steps.at(-1).redrawn = true;
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1; // the same page, planned again
+          continue;
+        }
         if (ownAccount) {
           const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
           evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };

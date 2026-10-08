@@ -325,8 +325,9 @@
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
     if (element.disabled || !visible(element)) continue;
     const label = labelFor(element);
-    // The site's own language menu is not part of the application.
-    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`)) continue;
+    // The site's own language menu is not part of the application, nor any other menu of its header,
+    // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
+    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || inSiteChrome(element)) continue;
     fields.push({
       id: idFor(element),
       kind: 'listbox',

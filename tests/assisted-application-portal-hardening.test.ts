@@ -8,6 +8,9 @@ import {
   COOKIE_REJECT_RE,
   formPostingMatch,
   namesAnotherEmployer,
+  sameEmployerFamily,
+  REFRESH_ASKED_RE,
+  removalsOf,
   ownAccountForm,
   sendsApplication,
   privacyConsentControls,
@@ -97,6 +100,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
     // Review of #11064: the kind of employer is the page's vocabulary too, whatever the order's company is called.
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
+    // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
+    // every step of the form behind it (2026-10-07).
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+      expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
+    }
+    expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);
     expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch('Concierge — Other Hotel', palace, { postingMatched: true })).toBe('mismatch');
@@ -388,5 +397,83 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       submitted: { coverLetter: 'Gentili Signori, …', portalAnswers: [{ question: 'Disponibilità', answer: 'Dal 1° dicembre', source: 'answers' }] },
     });
     expect(JSON.parse(text).submitted).toEqual({ coverLetter: 'Gentili Signori, …', portalAnswers: [{ question: 'Disponibilità', answer: 'Dal 1° dicembre' }] });
+  });
+});
+
+// A real order of 2026-10-07 (Workday): the order names «Rituals Cosmetics Switzerland», the posting's page only
+// the brand, and the posting's own data (Workday's answer for that address) «Rituals Cosmetics Germany GmbH».
+describe('portal: one employer under two names', () => {
+  it('takes two national entities of one company for the same employer, and nothing looser', () => {
+    expect(sameEmployerFamily('Rituals Cosmetics Germany GmbH', 'Rituals Cosmetics Switzerland')).toBe(true);
+    expect(sameEmployerFamily('Muster Elektro (Schweiz) AG', 'Muster Elektro Deutschland GmbH')).toBe(true);
+    expect(sameEmployerFamily('Muster Elektro AG', 'Muster Elektro AG')).toBe(true);
+    // Another company, a longer or a shorter name, or nothing that is a name once the country is gone.
+    expect(sameEmployerFamily('Rituals Cosmetics Germany GmbH', 'Lush Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily('Rituals Germany GmbH', 'Rituals Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily('Muster Elektro Service AG', 'Muster Elektro AG')).toBe(false);
+    expect(sameEmployerFamily('Hotel Deutschland GmbH', 'Hotel Schweiz AG')).toBe(false);
+    expect(sameEmployerFamily('Schweiz AG', 'Deutschland GmbH')).toBe(false);
+    // Review of #12292: a continent or «International» is no country of a branch.
+    expect(sameEmployerFamily('Acme Europe', 'Acme International')).toBe(false);
+    expect(sameEmployerFamily('Acme Europe GmbH', 'Acme Switzerland')).toBe(false);
+    expect(sameEmployerFamily('', 'Rituals Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily(undefined as any, undefined as any)).toBe(false);
+  });
+
+  it('does not read the branch country on a form as the employer, nor the other entity as someone else', () => {
+    const job = { title: 'Weihnachtsaushilfe (m/w/d)', company: 'Rituals Cosmetics Switzerland', organization: 'Rituals Cosmetics Germany GmbH' };
+    // Workday's first step: the stale title, the brand next to the page's own word, the country as a country.
+    const form = 'Create Account\nRituals Careers\nCandidate Home\nWeihnachtsaushilfe (m/w/d)\nMy Information\nCountry Switzerland\nPhone Device Type Mobile\nSave and Continue';
+    expect(namesAnotherEmployer(form, job)).toBe(false);
+    expect(formPostingMatch(form, job, { postingMatched: true })).toBe('match');
+    // Without the posting having named the employer the form alone is still no match, and another role never is.
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    expect(formPostingMatch(form, { ...job, title: 'Store Manager' }, { postingMatched: true })).toBe('mismatch');
+    // Review of #12292: the country is skipped only next to a word that labels a field. Next to anything
+    // else it still declares someone else, as every other word of the company does.
+    expect(namesAnotherEmployer('Switzerland Bank', { company: 'Acme Switzerland' })).toBe(true);
+    expect(namesAnotherEmployer('Create Account\nOther Switzerland\nConcierge', { company: 'Acme Switzerland', title: 'Concierge' })).toBe(true);
+    for (const line of ['Country Switzerland', 'Country* Switzerland', 'Nationality: Switzerland', 'Land Schweiz', 'Paese Svizzera', 'Phone Switzerland (+41)', 'Switzerland']) {
+      expect(namesAnotherEmployer(`Create Account\n${line}`, { company: 'Acme Switzerland Schweiz Svizzera' })).toBe(false);
+    }
+    // The other entity's own words are the employer's: «Rituals Cosmetics Germany» on the form is nobody else.
+    expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, job)).toBe(false);
+    // A legal form next to a word of the company is no one's name; the word after it still counts.
+    expect(namesAnotherEmployer('Create Account\nAcme GmbH', { company: 'Acme AG' })).toBe(false);
+    expect(namesAnotherEmployer('Create Account\nAcme GmbH Partners', { company: 'Acme AG' })).toBe(true);
+    expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, { ...job, organization: '' })).toBe(true);
+    // Another employer next to the brand is still a stop; a data name of another company makes none of its
+    // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).
+    expect(namesAnotherEmployer(`${form}\nRituals Franchise Partner AG`, job)).toBe(true);
+    expect(namesAnotherEmployer(`${form}\nRituals Retail`, { ...job, organization: 'Lush Retail GmbH' })).toBe(true);
+  });
+});
+
+// 2026-10-07 (Workday): a run finds the application an earlier run left in progress.
+describe('portal: an application in progress from an earlier run', () => {
+  it('knows the portal’s own «refresh the page» from a page that only mentions a refresh', () => {
+    for (const text of [
+      'Something went wrong Please refresh the page and then try again. Error Code: VPS|0000',
+      'Ein Fehler ist aufgetreten. Bitte laden Sie die Seite neu.',
+      'Si è verificato un errore: ricarica la pagina e riprova.',
+      'Une erreur est survenue. Veuillez actualiser la page.',
+    ]) expect(REFRESH_ASKED_RE.test(text)).toBe(true);
+    for (const text of ['Refresh your skills with our training', 'My Information Save and Continue', 'Seite 2 von 4']) expect(REFRESH_ASKED_RE.test(text)).toBe(false);
+  });
+
+  it('takes away only the file of the same name, by the button that names it', () => {
+    const buttons = [
+      { id: 'b1', text: 'Select files' },
+      { id: 'b2', text: 'Delete CV_Luca_Bianchi.pdf' },
+      { id: 'b3', text: 'Delete Zeugnis_2019.pdf' },
+      { id: 'b4', text: 'CV_Luca_Bianchi.pdf entfernen' },
+      { id: 'b5', text: 'Download CV_Luca_Bianchi.pdf' },
+      { id: 'b6', text: 'Delete CV_Luca_Bianchi.pdf', disabled: true },
+      { id: 'b7', text: 'Delete' },
+    ];
+    expect(removalsOf(buttons, ['CV_Luca_Bianchi.pdf']).map((button: any) => button.id)).toEqual(['b2', 'b4']);
+    expect(removalsOf(buttons, ['Anschreiben_Luca_Bianchi.pdf'])).toEqual([]);
+    expect(removalsOf(buttons, [''])).toEqual([]);
+    expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
   });
 });

@@ -42,6 +42,18 @@ describe('portal account pages', () => {
     expect(codeField({ fields: [field('f1', 'password', 'Code confidentiel')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Verification code')] })?.id).toBe('f1');
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
+    // The code of an address, a phone or a discount is no verification code: Workday's first page of the form
+    // («Postal Code», name postalCode; «Country Phone Code») was taken for a verification page (2026-10-07).
+    for (const label of ['Postal Code', 'ZIP code', 'Zip-Code', 'Country Phone Code*', 'Area code', 'Code postal', 'Codice fiscale', 'Ländercode', 'Promo code', 'Gutscheincode', 'Referral code', 'Employee code']) {
+      expect(codeField({ fields: [field('f1', 'text', label)] })).toBeNull();
+    }
+    expect(codeField({ fields: [{ ...field('f1', 'text', 'Postal Code'), name: 'postalCode' }, { ...field('f2', 'text', 'Country Phone Code*'), name: 'countryPhoneCode' }] })).toBeNull();
+    // «Shipping address», «Opinion» and «Hotpoint» hold no PIN, token or OTP.
+    for (const label of ['Shipping address', 'Your opinion', 'Hotpoint reference']) expect(codeField({ fields: [field('f1', 'text', label)] })).toBeNull();
+    // A verification code stays one, next to an address code, on a phone, as a PIN.
+    for (const label of ['Verification code', 'Code', 'Enter the code sent to your phone', 'Codice di verifica', 'PIN', 'PIN-Code', 'Security token', 'OTP']) {
+      expect(codeField({ fields: [field('f0', 'text', 'Postal Code'), field('f1', 'text', label)] })?.id).toBe('f1');
+    }
     for (const label of ['Resend verification code', 'Neuen Code senden', 'Renvoyer un nouveau code', 'Inviare un nuovo codice']) {
       expect(RESEND_VERIFICATION_RE.test(label), label).toBe(true);
     }
