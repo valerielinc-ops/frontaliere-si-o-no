@@ -198,9 +198,9 @@
       "slug": "maschinenfuhrer-in-emmi-emmen",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-emmi-ch",
-        "it": "maschinenfuhrer-in-emmi-emmen",
-        "en": "maschinenfuhrer-in-emmi-emmen",
-        "fr": "maschinenfuhrer-in-emmi-emmen"
+        "it": "operatore-macchina-emmi-emmen-luzern",
+        "en": "machine-operator-emmi-emmen-luzern",
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -261,21 +261,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maschinenfuhrer-in-emmi-ch",
-          "operatore-macchina-emmi-emmen-luzern"
-        ],
-        "en": [
-          "machine-operator-emmi-emmen-luzern"
-        ],
-        "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "maschinenfuhrer-in-emmi-ch"
         ]
       },
       "previousSlugs": [
-        "maschinenfuhrer-in-emmi-ch",
-        "operatore-macchina-emmi-emmen-luzern",
-        "machine-operator-emmi-emmen-luzern",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "maschinenfuhrer-in-emmi-ch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6832,7 +6822,7 @@
         "it": "risorse-umane-assistant-international-emmi-luzern",
         "en": "hr-assistant-international-emmi-ch",
         "de": "hr-assistant-international-emmi-ch",
-        "fr": "hr-assistant-international-emmi-luzern"
+        "fr": "assistante-en-ressources-humaines-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6891,10 +6881,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-assistant-international-emmi-ch"
+        ],
+        "fr": [
+          "hr-assistant-international-emmi-luzern"
         ]
       },
       "previousSlugs": [
-        "hr-assistant-international-emmi-ch"
+        "hr-assistant-international-emmi-ch",
+        "hr-assistant-international-emmi-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

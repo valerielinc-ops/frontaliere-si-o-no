@@ -148,12 +148,12 @@
     },
     {
       "id": "nestle-1441924233",
-      "slug": "key-account-manager-nestle-ch",
+      "slug": "gestione-account-chiave-nestle-la-tour-de-peilz",
       "slugByLocale": {
         "en": "key-account-manager-nestle-ch",
-        "it": "key-account-manager-nestle-ch",
-        "de": "key-account-manager-nestle-ch",
-        "fr": "key-account-manager-nestle-ch"
+        "it": "gestione-account-chiave-nestle-la-tour-de-peilz",
+        "de": "schlusselkontoverwaltung-nestle-la-tour-de-peilz",
+        "fr": "gestionnaire-de-compte-cle-nestle-la-tour-de-peilz"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -211,7 +211,21 @@
       },
       "postalCode": "1814",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-17T11:43:55.042Z"
+      "firstSeenAt": "2026-07-17T11:43:55.042Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-nestle-ch"
+        ],
+        "de": [
+          "key-account-manager-nestle-ch"
+        ],
+        "fr": [
+          "key-account-manager-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1442315333",
@@ -4545,7 +4559,7 @@
       "slugByLocale": {
         "it": "operatore-operatrice-logistico-a-con-turni-4-8-m-f-d-nestle-romont",
         "en": "logistics-operator-in-4-8-hours-m-f-d-nestle-romont",
-        "de": "logistikmitarbeiter-in-im-4-8-schichtbetrieb-m-w-d-nestle-romont",
+        "de": "logistiker-in-4-8-stunden-m-w-d-nestle-romont",
         "fr": "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch"
       },
       "company": "Nestlé",
@@ -4589,14 +4603,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch",
-        "logistiker-in-4-8-stunden-m-w-d-nestle-romont"
+        "logistikmitarbeiter-in-im-4-8-schichtbetrieb-m-w-d-nestle-romont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-trice-logistique-en-horaires-4-8-h-f-d-nestle-ch"
         ],
         "de": [
-          "logistiker-in-4-8-stunden-m-w-d-nestle-romont"
+          "logistikmitarbeiter-in-im-4-8-schichtbetrieb-m-w-d-nestle-romont"
         ]
       },
       "firstSeenAt": "2026-09-26T14:26:40.916Z",

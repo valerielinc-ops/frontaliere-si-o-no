@@ -1451,7 +1451,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1497,15 +1497,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3696,12 +3695,12 @@
     },
     {
       "id": "hug-336ca445c05b",
-      "slug": "secretaire-80-hug-chene-bourg",
+      "slug": "segretario-80-hug-chene-bourg",
       "slugByLocale": {
         "fr": "secretaire-80-hug-chene-bourg",
-        "it": "secretaire-80-hug-chene-bourg",
-        "en": "secretaire-80-hug-chene-bourg",
-        "de": "secretaire-80-hug-chene-bourg"
+        "it": "segretario-80-hug-chene-bourg",
+        "en": "secretary-80-hug-chene-bourg",
+        "de": "sekretar-80-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3760,16 +3759,30 @@
         }
       },
       "postalCode": "1225",
-      "firstSeenAt": "2026-10-08T09:17:30.203Z"
+      "firstSeenAt": "2026-10-08T09:17:30.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-80-hug-chene-bourg"
+        ],
+        "en": [
+          "secretaire-80-hug-chene-bourg"
+        ],
+        "de": [
+          "secretaire-80-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-80-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-5c72c2026420",
-      "slug": "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg",
+      "slug": "techno-pedagogico-designer-o-designer-80-al-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg",
-        "it": "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg",
-        "en": "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg",
-        "de": "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg"
+        "it": "techno-pedagogico-designer-o-designer-80-al-100-hug-chene-bourg",
+        "en": "techno-pedagogical-designer-or-designer-80-to-100-hug-chene-bourg",
+        "de": "technopadagogischer-designer-oder-designer-80-bis-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3828,16 +3841,30 @@
         }
       },
       "postalCode": "1225",
-      "firstSeenAt": "2026-10-08T09:17:30.200Z"
+      "firstSeenAt": "2026-10-08T09:17:30.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg"
+        ],
+        "en": [
+          "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg"
+        ],
+        "de": [
+          "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "concepteur-ou-conceptrice-techno-pedagogique-80-a-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-7ea62e3edf5b",
-      "slug": "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene",
+      "slug": "coordinatore-di-progetti-e-programmi-di-formazione-80-al-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene",
-        "it": "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene",
-        "en": "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene",
-        "de": "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene"
+        "it": "coordinatore-di-progetti-e-programmi-di-formazione-80-al-100-hug-chene-bourg",
+        "en": "coordinator-of-training-projects-and-programmes-80-to-100-hug-chene-bourg",
+        "de": "koordinator-von-ausbildungsprojekten-und-programmen-80-bis-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3896,16 +3923,30 @@
         }
       },
       "postalCode": "1225",
-      "firstSeenAt": "2026-10-08T09:17:30.198Z"
+      "firstSeenAt": "2026-10-08T09:17:30.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene"
+        ],
+        "en": [
+          "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene"
+        ],
+        "de": [
+          "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-ou-coordinatrice-de-projets-et-programmes-de-formation-80-a-100-hug-chene"
+      ]
     },
     {
       "id": "hug-e5c5817e0e3c",
-      "slug": "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg",
+      "slug": "ufficiale-trainer-80-al-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg",
-        "it": "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg",
-        "en": "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg",
-        "de": "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg"
+        "it": "ufficiale-trainer-80-al-100-hug-chene-bourg",
+        "en": "officer-trainer-80-to-100-hug-chene-bourg",
+        "de": "offizier-trainer-80-bis-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3964,16 +4005,30 @@
         }
       },
       "postalCode": "1225",
-      "firstSeenAt": "2026-09-23T23:43:30.486Z"
+      "firstSeenAt": "2026-09-23T23:43:30.486Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg"
+        ],
+        "en": [
+          "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg"
+        ],
+        "de": [
+          "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "charge-ou-chargee-de-formation-80-a-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-c6ce97821a53",
-      "slug": "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex",
+      "slug": "capo-o-capo-di-clinica-in-acute-geriatrics-e-riabilitazione-50-al-100-hug-thonex",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex",
-        "it": "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex",
-        "en": "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex",
-        "de": "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex"
+        "it": "capo-o-capo-di-clinica-in-acute-geriatrics-e-riabilitazione-50-al-100-hug-thonex",
+        "en": "chief-or-head-of-clinic-in-acute-geriatrics-and-rehabilitation-50-to-100-hug-thonex",
+        "de": "chef-oder-leiter-der-klinik-fur-akute-geriatrie-und-rehabilitation-50-bis-100-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4032,7 +4087,21 @@
         }
       },
       "postalCode": "1226",
-      "firstSeenAt": "2026-10-08T09:17:30.180Z"
+      "firstSeenAt": "2026-10-08T09:17:30.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-en-geriatrie-aigue-et-readaptation-50-a-100-hug-thonex"
+      ]
     },
     {
       "id": "hug-257a49809b97",

@@ -1543,12 +1543,12 @@
     },
     {
       "id": "viva-luzern-bd569e8b0ec3",
-      "slug": "pflegefachfrau-mann-hf-viva-luzern-luzern",
+      "slug": "professionista-hf-viva-luzern-luzern",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "it": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "en": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "pflegefachfrau-mann-hf-viva-luzern-luzern"
+        "it": "professionista-hf-viva-luzern-luzern",
+        "en": "care-professional-hf-viva-luzern-luzern",
+        "fr": "soins-professionnels-hf-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1593,7 +1593,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-hf-viva-luzern-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-viva-luzern-luzern"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-hf-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-hf-viva-luzern-luzern"
+      ]
     }
   ]
 }
