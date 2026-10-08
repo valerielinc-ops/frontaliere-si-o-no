@@ -1,4 +1,4 @@
-import { isNationalityField, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
+import { isNationalityField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
 
 /**
  * Deterministic filler of the portal runner. Techniques, no code taken, from
@@ -120,6 +120,36 @@ export function searchHolds(shown, value) {
 const normalizedChoice = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
 /**
+ * A SuccessFactors combobox can paint the selected label before writing the
+ * value that its form actually submits. If an associated hidden control exists,
+ * require that control to carry the same label before the action is complete;
+ * controls without such a companion use the visible choice as their commit.
+ */
+async function choiceCommitted(locator, field, label) {
+  if (!await choiceRegistered(locator, field.kind, label)) return false;
+  const wanted = normalizedChoice(label);
+  return locator.evaluate((element, { field: snapshot, wanted: expected }) => {
+    const same = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase() === expected;
+    const visibleId = String(element.id || snapshot.id || '').trim();
+    const visibleName = String(element.getAttribute('name') || snapshot.name || '').trim();
+    const baseId = visibleId.replace(/(?:[-_:](?:in|input|select))$/i, '');
+    const roots = [
+      element.closest('[role="group"], .field, .form-group, .application-question, li'),
+      element.form,
+    ].filter(Boolean);
+    const hidden = [...new Set(roots.flatMap((root) => [...root.querySelectorAll('input[type="hidden"], select')]))];
+    const related = hidden.filter((candidate) => {
+      const candidateId = String(candidate.id || '').trim();
+      const candidateName = String(candidate.getAttribute('name') || '').trim();
+      if (visibleName && candidateName === visibleName) return true;
+      if (visibleId && (candidateId === visibleId || candidate.getAttribute('data-aa-for') === visibleId)) return true;
+      return Boolean(baseId && candidateId.startsWith(baseId));
+    });
+    return !related.length || related.some((candidate) => same(candidate.value || candidate.getAttribute('data-value')));
+  }, { field, wanted }, { timeout: 2000 }).catch(() => false);
+}
+
+/**
  * SuccessFactors sometimes gives a nationality picklist a country name in
  * the form language while the planner used the candidate's wording (for
  * example «italiana» vs «italienne»). This is safe only for nationality
@@ -131,6 +161,37 @@ export function nationalityOptionLabel(value, options) {
   const matches = [...new Set((options || []).map((option) => String(option || '').replace(/\s+/g, ' ').trim()))]
     .filter((option) => nationalityOf(option)?.code === wanted);
   return matches.length === 1 ? matches[0] : '';
+}
+
+const nationalityFieldLanguage = (label) => {
+  const text = String(label || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  if (/\bnationalite\b|citoyennete/.test(text)) return 'fr';
+  if (/staatsangeh|staatsburg/.test(text)) return 'de';
+  if (/nazionalit|cittadinanz/.test(text)) return 'it';
+  return 'en';
+};
+
+const nationalitySearchQuery = (value, label) => {
+  const code = nationalityOf(value)?.code;
+  const canonical = nationalityLabelOf(code, nationalityFieldLanguage(label)) || value;
+  return String(canonical || '').normalize('NFD').replace(/[̀-ͯ]/g, '').match(/[a-z]{4,}/i)?.[0]?.slice(0, 4) || '';
+};
+
+const readOwnedListEntries = async (options) => (await options.allInnerTexts())
+  .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
+  .filter(({ label }) => Boolean(label));
+
+async function waitForNationalityOption(page, options, value) {
+  const deadline = Date.now() + 5000;
+  let entries = [];
+  for (;;) {
+    entries = await readOwnedListEntries(options);
+    const selectedLabel = nationalityOptionLabel(value, entries.map(({ label }) => label));
+    if (selectedLabel) return { entries, selectedLabel };
+    const remaining = deadline - Date.now();
+    if (remaining <= 0) return { entries, selectedLabel: '' };
+    await page.waitForTimeout(Math.min(200, remaining));
+  }
 }
 
 /** The option's own element, or (after a re-render dropped our id) the radio with that label. */
@@ -232,12 +293,28 @@ async function chooseInOwnedList(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const entries = (await options.allInnerTexts())
-      .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
-      .filter(({ label }) => Boolean(label));
-    const labels = entries.map(({ label }) => label);
-    const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-    const selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    let entries = await readOwnedListEntries(options);
+    const findSelectedLabel = () => {
+      const labels = entries.map(({ label }) => label);
+      const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
+      return exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    };
+    let selectedLabel = findSelectedLabel();
+    // Some SuccessFactors picklists do not expose the complete catalogue when
+    // opened; they only fetch the matching page after keystrokes. Nationality
+    // is safe to filter by a short country prefix, then resolve the localized
+    // option («italiana» → «italienne»/«Italie») by the shared catalogue.
+    if (!selectedLabel && isNationalityField(field.label)) {
+      const query = nationalitySearchQuery(value, field.label);
+      if (query) {
+        await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+        await Promise.resolve(locator.press('Backspace')).catch(() => {});
+        await Promise.resolve(locator.pressSequentially(query, { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS })).catch(() => {});
+        const filtered = await waitForNationalityOption(page, options, value);
+        entries = filtered.entries;
+        selectedLabel = filtered.selectedLabel || findSelectedLabel();
+      }
+    }
     if (!selectedLabel) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
@@ -255,7 +332,19 @@ async function chooseInOwnedList(page, field, locator, value) {
     // choice_not_registered and submitting a blank nationality.
     const deadline = Date.now() + 5000;
     for (;;) {
-      if (await choiceRegistered(locator, field.kind, selectedLabel)) return selectedLabel;
+      if (await choiceRegistered(locator, field.kind, selectedLabel)) {
+        // The visible text can be updated before SuccessFactors commits the
+        // hidden form value. A real blur makes that delayed commit deterministic
+        // without using Enter (which can submit the form on this ATS).
+        await Promise.resolve(locator.press('Tab')).catch(() => {});
+        const commitDeadline = Date.now() + 5000;
+        for (;;) {
+          if (await choiceCommitted(locator, field, selectedLabel)) return selectedLabel;
+          const remaining = commitDeadline - Date.now();
+          if (remaining <= 0) break;
+          await page.waitForTimeout(Math.min(200, remaining));
+        }
+      }
       if (Date.now() >= deadline) break;
       await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
     }
@@ -487,7 +576,10 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
           await fillCombobox(page, field, locator, action.value);
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
-        if (!await choiceRegistered(locator, field.kind, selectedLabel) && !await choiceShownAfterRedraw(page, field, selectedLabel)) throw new Error('choice_not_registered');
+        const registered = field.selectLike
+          ? await choiceCommitted(locator, field, selectedLabel)
+          : await choiceRegistered(locator, field.kind, selectedLabel);
+        if (!registered && !await choiceShownAfterRedraw(page, field, selectedLabel)) throw new Error('choice_not_registered');
       } else if (field.kind === 'date') {
         await fillDatePicker(page, field, locator, action.value);
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');

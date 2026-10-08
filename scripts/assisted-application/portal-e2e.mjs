@@ -147,10 +147,12 @@ function fakePortal() {
               item.addEventListener('click', () => {
                 list.innerHTML = '';
                 // SuccessFactors writes the choice a moment after the click.
-                setTimeout(() => {
-                  if (item.textContent !== 'Bitte auswählen') { input.value = item.textContent; document.getElementById(hiddenId).value = item.textContent; }
-                  close();
-                }, writesAfterMs);
+                if (item.textContent !== 'Bitte auswählen') {
+                  // The visible widget paints first; the hidden form value is
+                  // the commit that the server receives.
+                  input.value = item.textContent;
+                  setTimeout(() => { document.getElementById(hiddenId).value = item.textContent; close(); }, writesAfterMs);
+                } else close();
               });
             }
           }, 1500);
