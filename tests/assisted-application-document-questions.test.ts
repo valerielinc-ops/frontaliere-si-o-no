@@ -60,8 +60,16 @@ describe('a question that only asks whether the candidate holds a document they 
 
   it('reads the «yes» of a yes/no choice, and of nothing else', () => {
     expect(yesOption(['Oui', 'Non'])).toBe('Oui');
+    // Besides the two, only the list's own prompt, in any of its usual wordings.
     expect(yesOption([{ label: 'Ja' }, { label: 'Nein' }, { label: 'Bitte wählen' }])).toBe('Ja');
+    expect(yesOption(['-- Select One --', 'Yes', 'No'])).toBe('Yes');
+    expect(yesOption(['—', 'Sì', 'No'])).toBe('Sì');
+    expect(yesOption(['Sélectionner', 'Oui', 'Non'])).toBe('Oui');
+    // A third choice of substance makes it another question (review of #12363).
+    expect(yesOption(['Yes', 'No', 'Not applicable'])).toBe('');
+    expect(yesOption(['Oui', 'Non', 'Je ne sais pas'])).toBe('');
     expect(yesOption(['Sì', 'No', 'Forse', 'Altro'])).toBe('');
+    expect(yesOption(['Yes', 'Yes, expired', 'No'])).toBe('');
     expect(yesOption(['B', 'C'])).toBe('');
     expect(yesOption(undefined)).toBe('');
     expect(['Oui', 'Ja', 'Sì', 'yes'].map(saysYes)).toEqual([true, true, true, true]);
@@ -123,6 +131,10 @@ describe('a portal\'s own «do you hold…?» field, with that document attached
     // A list that is no yes/no.
     const list = { id: 'f4', kind: 'select', label: 'Permis de conduire', required: true, options: [{ label: 'B' }, { label: 'C' }, { label: 'D' }] };
     expect(attachedDocumentYes(candidate, list)).toBe('');
+    // «Yes / No / Not applicable» about an attached document: not the yes/no the rule answers by itself.
+    const three = { id: 'f7', kind: 'select', label: 'Avez-vous un permis de conduire ?', required: true, options: [{ label: 'Oui' }, { label: 'Non' }, { label: 'Non applicable' }] };
+    expect(attachedDocumentYes(candidate, three)).toBe('');
+    expect(guardPlan({ actions: [], missingRequired: [] }, [three], candidate).missingRequired.map((item: any) => item.fieldId)).toEqual(['f7']);
   });
 
   // Review of #12363: a document the posting welcomes and the candidate did not give is not held. Listed with no

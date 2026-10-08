@@ -96,16 +96,22 @@ const NO_RE = /^(?:nein|no|non|falso|false)$/;
 /** The answer says «yes», in one of the four languages. */
 export const saysYes = (value) => YES_RE.test(fold(value));
 
+// The prompt of a list nothing was chosen from yet («Select one», «Bitte wählen», «— Seleziona —»), folded: a
+// label of dashes alone folds to nothing, and is one too.
+const PROMPT_RE = /^(?:select(?: one| an option)?|choose(?: one)?|please (?:select|choose)(?: one)?|bitte (?:aus)?wahlen|auswahlen|seleziona(?:re)?|scegli|selectionne[rz]?|choisi(?:r|ssez)|aucune selection(?:nee)?|keine auswahl|no selection|nothing selected)?$/;
+
 /**
  * The option that says «yes» of a yes/no choice (its own label), '' for any other list: one «yes», one «no», and
- * at most a prompt besides («Select one»).
+ * besides them only the list's prompt («Select one»). A third choice of substance («Not applicable», «Non lo
+ * so») makes it another question, which «yes» may not answer (review of #12363).
  * @param {Array<string|{label?:string}>} options
  */
 export function yesOption(options) {
   const labels = (Array.isArray(options) ? options : []).map((option) => String(option?.label ?? option ?? '').trim()).filter(Boolean);
   const yes = labels.filter((label) => YES_RE.test(fold(label)));
   const no = labels.filter((label) => NO_RE.test(fold(label)));
-  return yes.length === 1 && no.length === 1 && labels.length <= 3 ? yes[0] : '';
+  const others = labels.filter((label) => !yes.includes(label) && !no.includes(label));
+  return yes.length === 1 && no.length === 1 && others.every((label) => PROMPT_RE.test(fold(label))) ? yes[0] : '';
 }
 
 /** The names a document goes by, folded: its label (with and without what it holds in brackets) and its keywords. */
