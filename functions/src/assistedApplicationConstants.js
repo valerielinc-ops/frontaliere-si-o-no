@@ -61,24 +61,3 @@ export const ASSISTED_APPLICATION_CONSENT_VERSIONS = Object.freeze(['assisted-ap
 export function hasAssistedApplicationConsent(order) {
   return ASSISTED_APPLICATION_CONSENT_VERSIONS.includes(String(order?.consentVersion || '')) && order?.consentedAt != null;
 }
-
-/**
- * Terms 6.5 as rewritten on 2026-10-08 (services/legal/terms.ts, the four languages name this same day): an ad
- * that closes or is withdrawn while the application waits for documents or answers only the candidate can
- * give is not refunded. It binds the orders placed from this moment on (12 October 2026, 00:00 in Zurich);
- * an earlier order keeps the promise it was sold with: «the ad closed before we could send it» is refunded.
- */
-export const ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS = Date.UTC(2026, 9, 11, 22, 0, 0);
-
-const millisOf = (value) => {
-  if (typeof value?.toMillis === 'function') return value.toMillis();
-  if (value instanceof Date) return value.getTime();
-  const number = typeof value === 'string' ? Date.parse(value) : Number(value);
-  return Number.isFinite(number) ? number : 0;
-};
-
-/** The order was placed (paid, else created) under the Terms 6.5 of 2026-10. Unknown dates: the older promise. */
-export function waitTermsApply(order) {
-  const placedAt = millisOf(order?.paidAt) || millisOf(order?.createdAt);
-  return placedAt > 0 && placedAt >= ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS;
-}

@@ -2,7 +2,7 @@
 //   - the candidate's three rounds are the drafts they were shown, never one regenerated before it reached them;
 //   - an ad that closed while the candidate is awaited gets no reminder: Valerie hears of it, once;
 //   - Terms 6.5: an ad that closes while the application waits for the candidate's documents or answers is not
-//     refunded, for the orders placed from 12 October 2026 on.
+//     refunded. For every order: the Terms name no day from which it holds (the owner's second word that day).
 // Every order, name and posting here is invented.
 import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -18,7 +18,6 @@ import {
 import { POSTING_LOOKS_AT_ONCE, applyAutomationEvent, postingClosedForOrder, runAutomationSweep, startAutomation } from '../functions/src/assistedApplicationAutomation.js';
 import { automationEmailKey } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail, describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
-import { ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS, waitTermsApply } from '../functions/src/assistedApplicationConstants.js';
 import { fetchWorkdayPosting } from '../functions/src/assistedApplicationAiJob.js';
 import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from '../functions/src/assistedApplicationLiveness.js';
 import { buildCustomerEmail } from '../functions/src/assistedApplicationNotifications.js';
@@ -28,7 +27,6 @@ const T0 = Date.UTC(2026, 9, 20, 8, 0, 0);
 const HOUR = 60 * 60 * 1000;
 const clean = { status: 'ready', round: 1, job: { source: 'job_detail', title: 'Infermiera' }, channel: { type: 'email', email: 'hr@example.com' }, factCheck: { ok: true, unsupported: [] }, questions: [] as any[] };
 const asking = { ...clean, questions: [{ id: 'q1', required: true }] };
-const newTerms = { terms: { noRefundAfterWait: true } };
 
 describe('the candidate\'s three rounds are the drafts they were shown', () => {
   it('reads the record, and counts every round of a flow written before it', () => {
@@ -279,34 +277,31 @@ describe('the ad\'s own word that it is closed', () => {
 });
 
 describe('Terms 6.5: an ad that closes while the application waits for the candidate', () => {
-  const zurich = (locale: string) => new Intl.DateTimeFormat(locale, { timeZone: 'Europe/Zurich', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS));
+  const refundBlock = (locale: string) => {
+    const section = getTermsLegalDocument(locale as any).sections.find((item) => item.id === 'candidatura-assistita');
+    return (section?.blocks || []).map((block: any) => String(block.html || '')).find((html) => html.includes('6.5')) || '';
+  };
 
-  it('binds the orders placed from the day the Terms name, in the four languages', () => {
-    // The first instant of that day in Zurich, and the last of the day before.
-    expect(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Zurich', dateStyle: 'short', timeStyle: 'short' }).format(new Date(ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS))).toBe('12/10/2026, 00:00');
-    const days = { it: zurich('it-CH'), en: zurich('en-GB'), de: zurich('de-CH'), fr: zurich('fr-CH') };
-    expect(days).toEqual({ it: '12 ottobre 2026', en: '12 October 2026', de: '12. Oktober 2026', fr: '12 octobre 2026' });
-    for (const [locale, day] of Object.entries(days)) {
-      const section = getTermsLegalDocument(locale as any).sections.find((item) => item.id === 'candidatura-assistita');
-      const refund = (section?.blocks || []).map((block: any) => String(block.html || '')).find((html) => html.includes('6.5'));
-      expect(refund, locale).toContain(day);
+  it('says the exception in the four languages, and names no day from which it holds', () => {
+    const words = {
+      it: 'in attesa di documenti o risposte che ti abbiamo chiesto e che solo tu puoi fornire',
+      en: 'waiting for documents or answers that we have asked you for and that only you can provide',
+      de: 'auf Unterlagen oder Antworten wartet, die wir bei Ihnen angefordert haben und die nur Sie liefern können',
+      fr: 'attend des documents ou des réponses que nous vous avons demandés et que vous seul pouvez fournir',
+    };
+    const notRefunded = { it: 'l&apos;importo non è rimborsato', en: 'the amount is not refunded', de: 'der Betrag wird nicht erstattet', fr: 'le montant n’est pas remboursé' };
+    for (const [locale, sentence] of Object.entries(words)) {
+      const block = refundBlock(locale);
+      expect(block, locale).toContain(sentence);
+      expect(block, locale).toContain((notRefunded as any)[locale]);
+      // Owner, 2026-10-08: «aggiorniamo senza riferimento alla data». No year, no month: the rule holds for every order.
+      expect(block, locale).not.toMatch(/20\d\d|ottobre|October|Oktober|octobre/);
     }
-    const it = getTermsLegalDocument('it').sections.find((item) => item.id === 'candidatura-assistita')!.blocks.map((block: any) => block.html).join(' ');
-    expect(it).toContain('in attesa di documenti o risposte che ti abbiamo chiesto e che solo tu puoi fornire');
-    expect(it).toContain('l&apos;importo non è rimborsato');
-
-    const at = ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS;
-    expect(waitTermsApply({ paidAt: at })).toBe(true);
-    expect(waitTermsApply({ paidAt: at - 1 })).toBe(false);
-    // The payment's moment, else the order's; a Firestore timestamp, a date, a number.
-    expect(waitTermsApply({ createdAt: { toMillis: () => at + HOUR } })).toBe(true);
-    expect(waitTermsApply({ paidAt: new Date(at - HOUR), createdAt: at + HOUR })).toBe(false);
-    expect(waitTermsApply({ createdAt: new Date(at).toISOString() })).toBe(true);
-    // No date known: the promise the order was sold with.
-    expect([waitTermsApply({}), waitTermsApply(null), waitTermsApply({ paidAt: 'x' })]).toEqual([false, false, false]);
+    // The refund the service still promises stands next to it.
+    expect(refundBlock('it')).toContain('ti rimborsiamo automaticamente l&apos;intero importo');
   });
 
-  it('refunds nothing by itself when the round waited for the candidate, under those Terms only', () => {
+  it('refunds nothing by itself when the round waited for the candidate, whenever the order was placed', () => {
     const waiting = { state: 'candidate_review', round: 1, shownRounds: [1], heldBy: ['question:q1'], heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] };
     // The candidate answers ten days later: the wait ends and leaves its mark.
     const answered = transition(waiting, { type: 'candidate_answers' }, { draft: asking, answers: { q1: 'sì' }, nowMs: T0 + 240 * HOUR }).flow;
@@ -314,48 +309,50 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
     const submitting = transition(answered, { type: 'candidate_approve' }, { draft: asking, answers: { q1: 'sì' }, nowMs: T0 + 241 * HOUR }).flow;
     expect(submitting).toMatchObject({ state: 'submitting', lastWait: { round: 1 } });
 
-    // The runner finds the ad closed. Orders placed under the new point 6.5: Valerie decides, nothing is refunded.
-    const kept = transition(submitting, { type: 'posting_closed' }, { draft: asking, nowMs: T0 + 242 * HOUR, ...newTerms });
+    // The runner finds the ad closed: Valerie decides, nothing is refunded by the robot.
+    const kept = transition(submitting, { type: 'posting_closed' }, { draft: asking, nowMs: T0 + 242 * HOUR });
     expect(kept.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['posting_closed'] });
     expect(kept.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }]);
-    // An earlier order keeps the promise it was sold with.
-    const promised = transition(submitting, { type: 'posting_closed' }, { draft: asking, nowMs: T0 + 242 * HOUR });
-    expect(promised.effects).toEqual([{ type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' }, { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' }]);
+    // The same while the candidate is still awaited.
+    expect(transition(waiting, { type: 'posting_closed' }, { draft: asking, nowMs: T0 + HOUR }).effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }]);
   });
 
   it('still refunds by itself an ad that closed with nobody waiting for the candidate', () => {
     const refund = [{ type: 'refund', reason: 'posting_closed', notify: 'candidate_posting_closed' }, { type: 'email', kind: 'owner_takeover', reason: 'posting_closed' }];
     // Closed before the first draft, or after an approval that never waited for an answer.
-    expect(transition({ state: 'drafting', round: 1, shownRounds: [] }, { type: 'posting_closed' }, { draft: null, nowMs: T0, ...newTerms }).effects).toEqual(refund);
-    expect(transition({ state: 'submitting', round: 1, shownRounds: [1] }, { type: 'posting_closed' }, { draft: clean, nowMs: T0, ...newTerms }).effects).toEqual(refund);
+    expect(transition({ state: 'drafting', round: 1, shownRounds: [] }, { type: 'posting_closed' }, { draft: null, nowMs: T0 }).effects).toEqual(refund);
+    expect(transition({ state: 'submitting', round: 1, shownRounds: [1] }, { type: 'posting_closed' }, { draft: clean, nowMs: T0 }).effects).toEqual(refund);
+    expect(transition({ state: 'candidate_review', round: 1, shownRounds: [1], heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS }, { type: 'posting_closed' }, { draft: clean, nowMs: T0 }).effects).toEqual(refund);
     // The candidate was awaited in an earlier round, not in this one: its draft was being written by us.
     const later = { state: 'regenerating', round: 2, shownRounds: [1], lastWait: { round: 1, since: T0, until: T0 + HOUR } };
-    expect(transition(later, { type: 'posting_closed' }, { draft: clean, nowMs: T0 + 2 * HOUR, ...newTerms }).effects).toEqual(refund);
+    expect(transition(later, { type: 'posting_closed' }, { draft: clean, nowMs: T0 + 2 * HOUR }).effects).toEqual(refund);
   });
 
-  it('passes the order\'s own Terms to the flow, by the day it was placed', async () => {
-    const flow = { state: 'submitting', round: 1, shownRounds: [1], heldBy: [], lastWait: { round: 1, since: T0, until: T0 + HOUR }, dispatch: { mode: 'submit', round: 1 } };
-    const close = async (order: any) => {
+  it('treats every order alike, whenever it was paid: no day divides them', async () => {
+    const waited = { state: 'submitting', round: 1, shownRounds: [1], heldBy: [], lastWait: { round: 1, since: T0, until: T0 + HOUR }, dispatch: { mode: 'submit', round: 1 } };
+    const close = async (order: any, flow: any) => {
       const store = createMemoryFirestore({ 'assisted_applications/o1': order, 'assisted_applications/o1/automation/flow': flow, 'assisted_applications/o1/ai_drafts/current': clean });
       const effects: any[] = [];
       await applyAutomationEvent({ db: store.db, orderId: 'o1', event: { type: 'posting_closed' }, actor: 'runner', nowMs: T0 + 2 * HOUR, runEffect: async (context: any) => { effects.push(context.effect); return { ok: true }; } });
       return effects.map((effect) => effect.type === 'refund' ? 'refund' : effect.reason);
     };
-    expect(await close({ paidAt: ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS + HOUR })).toEqual(['posting_closed_waited']);
-    expect(await close({ paidAt: ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS - HOUR })).toEqual(['refund', 'posting_closed']);
+    // An order of last month and one of next year: the same.
+    for (const paidAt of [Date.UTC(2026, 8, 1), Date.UTC(2027, 0, 1)]) {
+      expect(await close({ paidAt }, waited)).toEqual(['posting_closed_waited']);
+      expect(await close({ paidAt }, { ...waited, lastWait: null })).toEqual(['refund', 'posting_closed']);
+    }
   });
 
-  it('tells the owner what was found and what the order\'s Terms say, and the candidate what the wait may cost', () => {
+  it('tells the owner what was found and what the Terms say, and the candidate what the wait may cost', () => {
     const vars = { job: 'Infermiera', company: 'Ospedale Esempio', orderId: 'o1', candidateEmail: 'maria.rossi@example.com' };
-    const underNew = buildOwnerAutomationEmail('owner_posting_expired', { ...vars, waitTerms: true });
-    expect(underNew.subject).toBe('[Candidatura] Annuncio chiuso durante l’attesa del candidato: Infermiera — Ospedale Esempio');
-    expect(underNew.text).toContain('Il sollecito NON è partito');
-    expect(underNew.text).toContain('non è stato rimborsato nulla');
-    expect(underNew.text).toContain('un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato');
-    expect(underNew.html).toContain('mailto:maria.rossi@example.com');
-    const underOld = buildOwnerAutomationEmail('owner_posting_expired', { ...vars, waitTerms: false });
-    expect(underOld.text).toContain('vale la promessa con cui è stato venduto');
-    expect(underOld.text).not.toContain('non è rimborsato.');
+    const notice = buildOwnerAutomationEmail('owner_posting_expired', vars);
+    expect(notice.subject).toBe('[Candidatura] Annuncio chiuso durante l’attesa del candidato: Infermiera — Ospedale Esempio');
+    expect(notice.text).toContain('Il sollecito NON è partito');
+    expect(notice.text).toContain('anche l’approvazione automatica dopo 12 ore è sospesa');
+    expect(notice.text).toContain('non è stato rimborsato nulla');
+    expect(notice.text).toContain('un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato');
+    expect(notice.text).toContain('rimborsa dalla coda');
+    expect(notice.html).toContain('mailto:maria.rossi@example.com');
     expect(describeTakeover({ reason: 'posting_closed_waited' }).reason).toContain('NESSUN rimborso automatico');
     expect(automationEmailKey({ kind: 'owner_posting_expired', since: 1000 }, { round: 2 })).toBe('auto_owner_posting_expired_1000');
 
@@ -363,25 +360,26 @@ describe('Terms 6.5: an ad that closes while the application waits for the candi
     const sentence = { it: 'l’importo non è rimborsato (Termini, punto 6.5)', de: 'wird nicht erstattet (Nutzungsbedingungen, Ziffer 6.5)', fr: 'n’est pas remboursé (Conditions, point 6.5)', en: 'is not refunded (Terms, section 6.5)' };
     for (const [locale, words] of Object.entries(sentence)) {
       // Said while they are awaited: the review held by questions or documents, its reminders, the portal's question.
-      expect(buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: true, waitTerms: true }).text, locale).toContain(words);
-      expect(buildCandidateAutomationEmail('candidate_questions_reminder', { ...base, locale, waitTerms: true }).html, locale).toContain(words);
-      expect(buildCandidateAutomationEmail('candidate_action_needed', { ...base, locale, waitTerms: true }).text, locale).toContain(words);
-      // Not to an order placed before, nor when nothing is asked of them.
-      expect(buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: true, waitTerms: false }).text, locale).not.toContain(words);
-      expect(buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: false, deadlineAt: T0, waitTerms: true }).text, locale).not.toContain(words);
-      expect(buildCandidateAutomationEmail('candidate_reminder', { ...base, locale, deadlineAt: T0, waitTerms: true }).text, locale).not.toContain(words);
+      expect(buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: true }).text, locale).toContain(words);
+      expect(buildCandidateAutomationEmail('candidate_questions_reminder', { ...base, locale }).html, locale).toContain(words);
+      expect(buildCandidateAutomationEmail('candidate_action_needed', { ...base, locale }).text, locale).toContain(words);
+      // Not when nothing is asked of them: the review with its 12 hours, and the reminder of those.
+      expect(buildCandidateAutomationEmail('candidate_review', { ...base, locale, held: false, deadlineAt: T0 }).text, locale).not.toContain(words);
+      expect(buildCandidateAutomationEmail('candidate_reminder', { ...base, locale, deadlineAt: T0 }).text, locale).not.toContain(words);
     }
   });
 
-  it('writes the exception next to the promise of a refund in the welcome e-mail of an order placed under it', () => {
-    const order = (placedAt: number, locale = 'it') => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 99, currency: 'eur', paidAt: placedAt });
-    const after = ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS + HOUR;
-    const before = ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS - HOUR;
+  it('writes the exception next to the promise of a refund in every welcome e-mail', () => {
+    const order = (locale: string) => ({ jobTitle: 'Infermiera', companyName: 'Ospedale Esempio', applicantName: 'Maria Rossi', applicantEmail: 'maria.rossi@example.com', locale, amountTotal: 99, currency: 'eur', paidAt: T0 });
     const exception = { it: 'in quel caso l\'importo non è rimborsato (Termini, punto 6.5)', fr: 'le montant n\'est pas remboursé (Conditions, point 6.5)', de: 'wird der Betrag nicht erstattet (Nutzungsbedingungen, Ziffer 6.5)', en: 'the amount is not refunded (Terms, section 6.5)' };
+    const promise = { it: 'rimbors', fr: 'rembours', de: 'erstatte', en: 'refund' };
     for (const [locale, words] of Object.entries(exception)) {
       for (const automation of [true, false]) {
-        expect(buildCustomerEmail('intro', order(after, locale), 'o1', { nowMs: after, automation }).text, `${locale} ${automation}`).toContain(words);
-        expect(buildCustomerEmail('intro', order(before, locale), 'o1', { nowMs: before, automation }).text, `${locale} ${automation}`).not.toContain(words);
+        const text = buildCustomerEmail('intro', order(locale), 'o1', { nowMs: T0, automation }).text;
+        expect(text, `${locale} ${automation}`).toContain(words);
+        // After the promise it qualifies, never instead of it.
+        expect(text.indexOf((promise as any)[locale]), `${locale} ${automation}`).toBeGreaterThan(-1);
+        expect(text.indexOf((promise as any)[locale]), `${locale} ${automation}`).toBeLessThan(text.indexOf(words));
       }
     }
   });
