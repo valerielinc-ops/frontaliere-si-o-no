@@ -1,59 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-08T21:15:16.089Z",
+  "generatedAt": "2026-10-08T22:09:00.017Z",
   "total": 8,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 6,
-  "durationMs": 17692,
-  "avgDurationMs": 17692,
+  "removedCount": 0,
+  "unchangedCount": 7,
+  "durationMs": 20216,
+  "avgDurationMs": 20216,
   "durationHistory": [
-    17692
+    20216
   ],
-  "newJobs": [
-    {
-      "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
-      "slug": "collaborateur-service-apres-vente-f-m-div-ref298012h-bosch-crissier",
-      "url": "https://jobs.bosch.com/en/job/REF298012H-collaborateur-service-apres-vente-f-m-div-ref298012h",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154361194-collaborateur-service-apres-vente-f-m-div-ref298012h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "fr",
-      "datePosted": "2026-10-08",
-      "postedDate": "2026-10-08",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-516be54a8f91",
-      "needsRetranslation": true,
-      "salaryMin": 72000,
-      "salaryMax": 111000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "1023",
-      "firstSeenAt": "2026-10-08T21:15:10.144Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 22
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
@@ -96,48 +55,48 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Betriebsmechaniker (w/m/d) REF283480O",
-      "slug": "meccanico-operativo-m-f-d-ref283480o-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF283480O-betriebsmechaniker-w-m-d-ref283480o",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152105859-betriebsmechaniker-w-m-d-ref283480o?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
+      "slug": "collaborateur-service-apres-vente-f-m-div-ref298012h-bosch-crissier",
+      "url": "https://jobs.bosch.com/en/job/REF298012H-collaborateur-service-apres-vente-f-m-div-ref298012h",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154361194-collaborateur-service-apres-vente-f-m-div-ref298012h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
       "addressCountry": "CH",
-      "canton": "TG",
+      "canton": "VD",
       "country": "CH",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "category": "engineering",
+      "category": "sales",
       "sector": "Energia",
       "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-28",
+      "sourceLang": "fr",
+      "datePosted": "2026-10-08",
+      "postedDate": "2026-10-08",
+      "postingDateSource": "reported",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-438f2a4189bb",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
+      "id": "bosch-thermotechnik-ag-516be54a8f91",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-28T21:13:35.447Z",
-      "datePosted": "2026-09-28",
-      "postingDateSource": "reported",
-      "postalCode": "8500",
-      "_qualityScore": 94,
+      "postalCode": "1023",
+      "firstSeenAt": "2026-10-08T21:15:10.144Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Fertigungs- und Problemlösungsmechaniker (w/m/div.) - REF297949Q",
       "slug": "meccanico-a-di-produzione-e-risoluzione-dei-problemi-m-f-div-ref297949q-bosch-thermotechnik-ag-st-niklaus",
@@ -376,5 +335,5 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

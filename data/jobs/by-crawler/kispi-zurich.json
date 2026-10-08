@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-10-08T21:17:06.134Z",
+  "assembledAt": "2026-10-08T22:14:46.274Z",
   "jobs": [
     {
       "id": "kispi-zurich-d6d4e0ac5eee",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2963/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:56.815Z",
+      "crawledAt": "2026-10-08T22:13:40.656Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,15 +53,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/2963/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:32.352Z",
+      "previousSlugs": [
+        "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:32.352Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -108,7 +108,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2476/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-08T21:16:54.794Z",
+      "crawledAt": "2026-10-08T22:13:38.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3060/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:52.809Z",
+      "crawledAt": "2026-10-08T22:13:36.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,15 +192,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3060/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:28.371Z",
+      "previousSlugs": [
+        "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:28.371Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -246,7 +246,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2697/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:50.812Z",
+      "crawledAt": "2026-10-08T22:13:34.647Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,15 +265,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/2697/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:26.371Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:26.371Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -320,7 +320,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1231/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:48.799Z",
+      "crawledAt": "2026-10-08T22:13:32.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -345,12 +345,12 @@
         "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        ],
         "fr": [
           "infirmieres-internes-h-f-100-universitats-kinderspital-zurich-kispi-zurich",
           "pflegepraktikantin-m-w-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:17:24.358Z",
@@ -400,7 +400,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3509/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:46.809Z",
+      "crawledAt": "2026-10-08T22:13:30.691Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -476,7 +476,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2348/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:43.695Z",
+      "crawledAt": "2026-10-08T22:13:27.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -495,15 +495,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/2348/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:19.203Z",
+      "previousSlugs": [
+        "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:19.203Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -550,7 +550,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1330/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:42.680Z",
+      "crawledAt": "2026-10-08T22:13:26.493Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -626,7 +626,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2929/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:41.805Z",
+      "crawledAt": "2026-10-08T22:13:25.676Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -651,12 +651,12 @@
         "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
+        ],
         "fr": [
           "etudiants-en-radiologie-medicale-technique-hf-h-f-100-universitats-kinderspital-zurich-kispi-zurich",
           "studierende-medizinisch-technische-radiologie-hf-m-w-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:17:17.370Z",
@@ -706,7 +706,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2448/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:39.804Z",
+      "crawledAt": "2026-10-08T22:13:23.681Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -787,7 +787,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3429/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:37.817Z",
+      "crawledAt": "2026-10-08T22:13:21.664Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -806,15 +806,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3429/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:07.368Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:07.368Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -860,7 +860,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:35.807Z",
+      "crawledAt": "2026-10-08T22:13:19.663Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -918,9 +918,9 @@
       "id": "kispi-zurich-1a58604068df",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -928,16 +928,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026\n\nNeonatologie Die Kleinsten sind für dich die Grössten?\n\nDeine Aufgaben\n• Du betreust früh- und neugeborene Kinder mit angeborenen Fehlbildungen, schweren Herzfehlern, Stoffwechselkrankheiten, postpartalen Anpassungsstörungen und Infektionen.\n• Du wendest sowohl CPAP- als auch Highflow-Therapie an.\n• Die Pflege gestaltest du auf der Basis des Pflegeprozesses und mit Beteiligung an der Bezugspflege.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du betreust unsere Studierenden Pflege und Lernenden FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Mindestens ein Jahr Berufserfahrung als Dipl. Pflegefachfrau im pädiatrischen Akutbereich\n• Erfahrung im Umgang mit kranken Neugeborenen\n• Interesse, die NDK-Module Neonatologie an der Z-INA zu absolvieren\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -946,7 +946,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:33.809Z",
+      "crawledAt": "2026-10-08T22:13:17.674Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -964,9 +964,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-28T21:11:53.814Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -979,8 +978,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+      }
     },
     {
       "id": "kispi-zurich-10f82b565fd5",
@@ -1014,7 +1012,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3684/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:31.808Z",
+      "crawledAt": "2026-10-08T22:13:15.676Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1062,9 +1060,9 @@
       "id": "kispi-zurich-8ee5f49744bc",
       "slug": "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2",
       "slugByLocale": {
-        "de": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
         "it": "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2",
         "en": "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2",
+        "de": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
         "fr": "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -1072,16 +1070,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Pflegepraktikantin (m/w) 100%",
       "titleByLocale": {
-        "de": "Pflegepraktikantin (m/w) 100%",
-        "fr": "Pflegepraktikantin (m/w) 100%",
         "it": "Pflegepraktikantin (m/w) 100%",
-        "en": "Pflegepraktikantin (m/w) 100%"
+        "en": "Pflegepraktikantin (m/w) 100%",
+        "de": "Pflegepraktikantin (m/w) 100%",
+        "fr": "Pflegepraktikantin (m/w) 100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 11.06.2026\n\nPflegepraktikant/in Kinder-Reha Schweiz\n\nKinder-Reha Schweiz, jeweils 3-4 Monate\n\nDeine Aufgaben\n• Deine Kernaufgabe ist die selbständige Organisation sowie Ausführung von hauswirtschaftlichen Tätigkeiten.\n• Die Betreuung der Patientinnen und Patienten in schul- und therapiefreien Zeiten gestalten deinen Alltag.\n• Die Gestaltung der Freizeit für Gruppen- und Einzelsituationen gehören ebenfalls zu deinen Aufgaben.\n• Du begleitest Patientinnen und Patienten in Therapien, zu Untersuchungen und erledigst mit ihnen zusammen Gruppeneinkäufe.\n• Das Pflegepersonal wir von dir bei pflegerischen Handlungen nach Instruktion im Tandem sowie in Esssituationen unterstützt.\n• Das Pflegen der Hilfsmittel von Patientinnen und Patienten\n\nDein Profil\n• Mindestalter 17 Jahre\n• Interesse am Gesundheitswesen sowie an der Zusammenarbeit mit Kindern und Jugendlichen\n• Gute Wahrnehmungsfähigkeit sowie psychische und physische Belastbarkeit\n• Teamfähig, flexibel und engagiert\n• Gute Deutschkenntnisse\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMarco Fenner HR Business Partner\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -1090,7 +1088,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3134/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:29.812Z",
+      "crawledAt": "2026-10-08T22:13:13.677Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1108,9 +1106,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3134/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-29T21:17:24.358Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1123,8 +1120,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-29T21:17:24.358Z"
+      }
     },
     {
       "id": "kispi-zurich-198fdf83b104",
@@ -1158,7 +1154,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:27.810Z",
+      "crawledAt": "2026-10-08T22:13:11.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1214,9 +1210,9 @@
       "id": "kispi-zurich-4e83e14e0e49",
       "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
       "slugByLocale": {
-        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
         "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2",
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-2"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -1224,16 +1220,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Berufsbildnerin Pflege (m/w)",
       "titleByLocale": {
-        "de": "Berufsbildnerin Pflege (m/w)",
         "it": "Berufsbildnerin Pflege (m/w)",
         "en": "Berufsbildnerin Pflege (m/w)",
+        "de": "Berufsbildnerin Pflege (m/w)",
         "fr": "Berufsbildnerin Pflege (m/w)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.06.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der Schwerpunktstation 3.1\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangeboten für Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozesse und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH.\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit.\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden.\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren.\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab.\n\nMatthias Giessler HR Business Partner\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -1242,7 +1238,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:25.792Z",
+      "crawledAt": "2026-10-08T22:13:09.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1260,9 +1256,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1275,8 +1270,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-18T23:11:57.218Z"
+      }
     },
     {
       "id": "kispi-zurich-31f27e1b98de",
@@ -1310,7 +1304,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:23.813Z",
+      "crawledAt": "2026-10-08T22:13:07.683Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1375,7 +1369,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3712/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:21.814Z",
+      "crawledAt": "2026-10-08T22:13:05.670Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1400,12 +1394,12 @@
         "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
+        ],
         "en": [
           "care-expert-apn-m-f-20-universitats-kinderspital-zurich-kispi-zurich",
           "pflegeexpertin-apn-m-w-20-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:47.349Z",
@@ -1427,9 +1421,9 @@
       "id": "kispi-zurich-bfeea9f00238",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -1437,16 +1431,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 23.07.2026\n\nGrosse Wirkung für kleine Patienten: Dein Neustart in der Kinderchirurgie\n\nDeine Aufgaben\n• Du betreust mit viel Herz Säuglinge, Kinder und Jugendliche mit chirurgischen Schwerpunkt in der Viszeralchirurgie\n• In enger Zusammenarbeit mit dem intra- und interdisziplinären Team und den Familien gestaltest Du die Bezugspflege und legst dabei grossen Wert auf den Pflegeprozess und familienzentrierte Betreuung.\n• Das Kind und seine Familie steht bei uns an erster Stelle – hohe Qualität ist Dir wichtig und Du trägst dazu bei, diese zu sichern.\n• Als Pflegefachperson begleitest du Studierende Pflege HF/FH und Lernende FaGe, um ihnen wertvolles Wissen in der pädiatrischen Pflege zu vermitteln.\n• Du möchtest Dich weiterentwickeln, mitgestalten und Teil eines begeisterten Teams sein.\n\nDein Profil\n• Diplom Pflege HF/FH\n• Idealerweise hast Du Erfahrung in der Pädiatrie und der Akutpflege oder möchtest hier Kompetenzen aufbauen\n• Du bist eine Teamplayerin, flexibel und verantwortungsbewusst\n• Bereitschaft, Entscheidungen zu treffen und im Behandlungsteam mitzutragen, ist Dir wichtig\n• Du bist eine empathische, aufgestellte und lernbereite Persönlichkeit\n\nSonja Schoch HR Business Partner +41 44 249 23 53\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -1455,7 +1449,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3502/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:19.810Z",
+      "crawledAt": "2026-10-08T22:13:03.676Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1473,9 +1467,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3502/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-29T21:17:13.351Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1488,8 +1481,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-29T21:17:13.351Z"
+      }
     },
     {
       "id": "kispi-zurich-db932a405122",
@@ -1523,7 +1515,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:15.810Z",
+      "crawledAt": "2026-10-08T22:12:59.671Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1547,11 +1539,11 @@
         "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "praktikantin-sporttherapie-w-m-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
         "it": [
           "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "praktikantin-sporttherapie-w-m-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 53500,
@@ -1599,7 +1591,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:13.815Z",
+      "crawledAt": "2026-10-08T22:12:57.651Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1618,15 +1610,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:16:37.371Z",
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:37.371Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1673,7 +1665,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1566/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:11.815Z",
+      "crawledAt": "2026-10-08T22:12:55.673Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1698,12 +1690,12 @@
         "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
+        ],
         "en": [
           "dipl-expert-dipl-expert-intensive-care-60-100-universitats-kinderspital-zurich-kispi-zurich",
           "dipl-expertin-dipl-experte-intensivpflege-60-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:35.368Z",
@@ -1752,7 +1744,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:09.808Z",
+      "crawledAt": "2026-10-08T22:12:53.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1771,14 +1763,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "diatkoch-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "diatkoch-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "diatkoch-80-100-kispi-zurich-zurich"
-      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1825,7 +1817,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:07.686Z",
+      "crawledAt": "2026-10-08T22:12:51.454Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1844,14 +1836,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
-      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1898,7 +1890,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:06.790Z",
+      "crawledAt": "2026-10-08T22:12:50.703Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1917,14 +1909,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
-      ],
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1970,7 +1962,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:04.795Z",
+      "crawledAt": "2026-10-08T22:12:48.637Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1989,14 +1981,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich"
-      ],
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -2043,7 +2035,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:02.800Z",
+      "crawledAt": "2026-10-08T22:12:46.645Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2062,14 +2054,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
-      ],
       "salaryMin": 64000,
       "salaryMax": 89600,
       "salarySource": "estimated",
@@ -2116,7 +2108,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3532/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:16:00.793Z",
+      "crawledAt": "2026-10-08T22:12:44.645Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2135,14 +2127,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3532/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "disponentin-m-w-70-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-m-w-70-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "disponentin-m-w-70-kispi-zurich-zurich"
-      ],
       "salaryMin": 64000,
       "salaryMax": 89600,
       "salarySource": "estimated",
@@ -2189,7 +2181,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:58.782Z",
+      "crawledAt": "2026-10-08T22:12:42.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2213,14 +2205,14 @@
         "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+        ],
         "en": [
           "mitarbeiterin-fallmanagement-90-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "mitarbeiterin-fallmanagement-90-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
         ]
       },
       "salaryMin": 82400,
@@ -2269,7 +2261,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:56.812Z",
+      "crawledAt": "2026-10-08T22:12:40.678Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2288,14 +2280,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
-      ],
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2342,7 +2334,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:54.808Z",
+      "crawledAt": "2026-10-08T22:12:38.664Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2361,14 +2353,14 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
-      ],
       "salaryMin": 42800,
       "salaryMax": 78800,
       "salarySource": "estimated",
@@ -2415,7 +2407,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/393/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:52.702Z",
+      "crawledAt": "2026-10-08T22:12:36.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2499,7 +2491,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:51.799Z",
+      "crawledAt": "2026-10-08T22:12:35.663Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2575,7 +2567,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3749/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:49.798Z",
+      "crawledAt": "2026-10-08T22:12:33.667Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2594,15 +2586,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3749/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-18T23:11:57.734Z",
+      "previousSlugs": [
+        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-18T23:11:57.734Z",
       "salaryMin": 50400,
       "salaryMax": 93200,
       "salarySource": "estimated",
@@ -2621,9 +2613,9 @@
       "id": "kispi-zurich-cf43ac7e40c5",
       "slug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "en": "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "fr": "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -2631,16 +2623,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Berufsbildnerin Pflege (m/w)",
       "titleByLocale": {
-        "de": "Berufsbildnerin Pflege (m/w)",
         "it": "Berufsbildnerin Pflege (m/w)",
         "en": "Berufsbildnerin Pflege (m/w)",
+        "de": "Berufsbildnerin Pflege (m/w)",
         "fr": "Berufsbildnerin Pflege (m/w)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 18.09.2026\n\nIn Kombination mit einer Anstellung als dipl. Pflegefachperson auf der IPS\n\nDeine Aufgaben\n• Du übernimmst delegiert Verantwortung für die Ausbildung von Lernenden und Studierenden.\n• Du planst und gestaltest individuelle Lernangebote für Studierende Pflege HF und FH sowie Lernende FaGe.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Lernenden und Studierenden.\n• Diese Aufgabe beinhaltet Arbeit im Schichtdienst.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Du bist bereit, im Verlauf die SVEB 1-Ausbildung zu absolvieren\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -2649,7 +2641,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:47.778Z",
+      "crawledAt": "2026-10-08T22:12:31.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2667,9 +2659,12 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
@@ -2681,11 +2676,7 @@
           "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
-      "previousSlugs": [
-        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
-        "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
-      ],
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2698,8 +2689,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-18T23:11:57.218Z"
+      }
     },
     {
       "id": "kispi-zurich-ac08735a244c",
@@ -2733,7 +2723,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:45.803Z",
+      "crawledAt": "2026-10-08T22:12:29.673Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2757,11 +2747,11 @@
         "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
-        ],
         "it": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:09.200Z",
@@ -2810,7 +2800,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3742/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:43.799Z",
+      "crawledAt": "2026-10-08T22:12:27.668Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2829,15 +2819,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3742/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:48:46.561Z",
+      "previousSlugs": [
+        "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-19T22:48:46.561Z",
       "salaryMin": 63500,
       "salaryMax": 112500,
       "salarySource": "estimated",
@@ -2884,7 +2874,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3751/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:41.801Z",
+      "crawledAt": "2026-10-08T22:12:25.674Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2909,12 +2899,12 @@
         "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "apothekerin-w-m-80-kispi-zurich-zurich"
+        ],
         "en": [
           "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
           "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "apothekerin-w-m-80-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-21T15:55:31.358Z",
@@ -2963,7 +2953,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3720/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:39.802Z",
+      "crawledAt": "2026-10-08T22:12:23.734Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2982,15 +2972,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3720/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:39:55.907Z",
+      "previousSlugs": [
+        "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-23T23:39:55.907Z",
       "salaryMin": 111600,
       "salaryMax": 155700,
       "salarySource": "estimated",
@@ -3036,7 +3026,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3753/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:37.796Z",
+      "crawledAt": "2026-10-08T22:12:21.663Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3118,7 +3108,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:35.805Z",
+      "crawledAt": "2026-10-08T22:12:19.638Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3137,15 +3127,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T14:19:04.756Z",
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-24T14:19:04.756Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3192,7 +3182,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3755/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:33.814Z",
+      "crawledAt": "2026-10-08T22:12:17.668Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3211,15 +3201,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3755/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T14:19:26.546Z",
+      "previousSlugs": [
+        "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-24T14:19:26.546Z",
       "salaryMin": 45800,
       "salaryMax": 64000,
       "salarySource": "estimated",
@@ -3266,7 +3256,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3748/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:15:16.206Z",
+      "crawledAt": "2026-10-08T22:12:15.650Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3311,6 +3301,74 @@
       }
     },
     {
+      "id": "kispi-zurich-ae0b2f3fc68d",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
+        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
+        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.09.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Kinder\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "descriptionByLocale": {
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.09.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Kinder\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.09.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Kinder\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.09.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Kinder\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.09.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Kinder\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T22:12:13.727Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+    },
+    {
       "id": "kispi-zurich-e452b255b8d6",
       "slug": "specialista-in-radiologia-dipl-sss-specialista-in-radiologia-dipl-sss-50-100-universitats-kinderspital-zurich-kispi",
       "slugByLocale": {
@@ -3342,7 +3400,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3592/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:14:35.799Z",
+      "crawledAt": "2026-10-08T22:12:03.849Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3389,74 +3447,6 @@
       }
     },
     {
-      "id": "kispi-zurich-0c19b1269ab9",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
-      "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-3"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-      "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.10.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Jugendliche\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-      "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.10.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Jugendliche\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.10.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Jugendliche\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.10.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Jugendliche\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.10.2026\n\nKinder-Reha Schweiz, Affoltern am Albis, Station Jugendliche\n\nDeine Aufgaben\n• Du pflegst und betreust Kinder und Jugendliche sowie deren Familien, welche durch die Folgen einer angeborenen oder erworbenen Krankheit oder nach einem Unfall einer intensiven stationären Rehabilitation bedürfen.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Angehörigen auf Grundlage des Pflegeprozesses.\n• Die Einhaltung und Entwicklung der Qualitätsstandards begleiten dich auf Schritt und Tritt.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF/FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und deren Familien\n• Aufgestellte Persönlichkeit mit hoher Sozialkompetenz\n• Teamfähig und Hands-on-Mentalität\n• Flexibel, engagiert und entscheidungsfreudig\n\nMarco Fenner HR Business Partner +41 44 249 23 08\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:14:08.839Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
-    },
-    {
       "id": "kispi-zurich-9bde70c0823e",
       "slug": "fatturazione-dei-dipendenti-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
@@ -3488,7 +3478,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3635/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:14:06.840Z",
+      "crawledAt": "2026-10-08T22:10:58.680Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3507,15 +3497,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3635/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:13:00.781Z",
+      "previousSlugs": [
+        "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-10-03T09:13:00.781Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3562,7 +3552,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3754/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:14:02.849Z",
+      "crawledAt": "2026-10-08T22:10:45.334Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3581,15 +3571,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3754/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-24T14:19:28.546Z",
+      "previousSlugs": [
+        "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-24T14:19:28.546Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -3636,7 +3626,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3760/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:14:00.815Z",
+      "crawledAt": "2026-10-08T22:10:44.279Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3712,7 +3702,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:58.816Z",
+      "crawledAt": "2026-10-08T22:10:43.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3737,12 +3727,12 @@
         "nursing-expert-nursing-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich"
+        ],
         "en": [
           "care-expert-care-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich",
           "nursing-expert-nursing-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich"
         ]
       },
       "salaryMin": 45800,
@@ -3763,9 +3753,9 @@
       "id": "kispi-zurich-fb9e32d758b0",
       "slug": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-3",
       "slugByLocale": {
-        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "it": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-3",
         "en": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-3",
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
         "fr": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-3"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -3773,16 +3763,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Berufsbildnerin Pflege (m/w)",
       "titleByLocale": {
-        "de": "Berufsbildnerin Pflege (m/w)",
         "it": "Berufsbildnerin Pflege (m/w)",
         "en": "Berufsbildnerin Pflege (m/w)",
+        "de": "Berufsbildnerin Pflege (m/w)",
         "fr": "Berufsbildnerin Pflege (m/w)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 06.10.2026\n\nIn Kombination mit einer Anstellung mit Schwerpunkt Onkologie, Stammzelltransplantation und Hämatologie\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Lernenden und Studierenden im ambulatorischen Zentrum für Onkologie, SZT und Hämatologie.\n• Du planst und gestaltest individuelle Lernangebote für die Studierenden Pflege HF und FH sowie Lernenden FAGE.\n• Du führst Ausbildungsgespräche, kontrollierst die Lernverlaufsdokumentation und erstellst die Qualifikation der Lernenden und Studierenden.\n\nDein Profil\n• abgeschlossenes Diplom Pflege HF / FH\n• Berufserfahrung in der pädiatrischen Onkologie\n• Weiterbildung SVEB 1 (oder Bereitschaft zur Absolvierung)\n• Erfahrung als Tagesbegleiter/in von Lernenden / Studierenden\n• Berufserfahrung bevorzugt in der Pädiatrie sowie der Onkologie- oder SZT-Pflege\n• vertieftes Wissen in evidenzbasierter Pflege\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -3791,7 +3781,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3563/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:56.838Z",
+      "crawledAt": "2026-10-08T22:10:42.110Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3809,9 +3799,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3563/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-18T23:11:57.218Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3824,8 +3813,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-18T23:11:57.218Z"
+      }
     },
     {
       "id": "kispi-zurich-4c829c162c85",
@@ -3859,7 +3847,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3761/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:54.849Z",
+      "crawledAt": "2026-10-08T22:10:41.042Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3884,12 +3872,12 @@
         "teacher-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-m-w-80-kispi-zurich-zurich"
+        ],
         "en": [
           "lehrperson-m-w-80-universitats-kinderspital-zurich-kispi-zurich",
           "teacher-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "it": [
-          "lehrperson-m-w-80-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:14:56.019Z",
@@ -3911,9 +3899,9 @@
       "id": "kispi-zurich-b0ad3a2d569a",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -3921,16 +3909,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%",
         "it": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%",
         "en": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%",
+        "de": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%",
         "fr": "Dipl. Pflegefachfrau / dipl. Pflegefachmann 80-100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nNeurologie, Neurochirurgie, Neuroonkologie und allgemeine Pädiatrie\n\nDeine Aufgaben\n• Du betreust Kinder und Jugendliche insbesondere mit neurologischen, neurochirurgischen, neuroonkologischen und allgemeinpädiatrischen Krankheitsbildern.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern auf der Grundlage des Pflegeprozesses und der familienzentrierten Pflege.\n• Du hältst unsere Qualitätsstandards ein und entwickelst diese weiter.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -3939,7 +3927,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3540/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:52.832Z",
+      "crawledAt": "2026-10-08T22:10:39.945Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3957,9 +3945,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3540/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-28T21:11:53.814Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3972,16 +3959,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-28T21:11:53.814Z"
+      }
     },
     {
       "id": "kispi-zurich-49eac8548186",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -3989,16 +3975,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 60-100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 07.10.2026\n\nFachliche Schwerpunkte: Adoleszentenmedizin & Psychosomatik, Endokrinologie (Diabetes), Ernährungs- und Regulationsstörungen, allgemeine Pädiatrie, EEG\n\nDeine Aufgaben\n• Als dipl. Pflegefachfrau / dipl. Pflegefachmann betreust du Kinder und Jugendliche mit pädiatrischen Krankheitsbildern sowie deren Familien.\n• Du gestaltest die Bezugspflege in enger Zusammenarbeit mit den Eltern anhand der Grundlage des Pflegeprozesses.\n• Du hältst unsere Qualitätsstandards ein und trägst zu deren Weiterentwicklung bei.\n• Du begleitest Studierende Pflege HF/FH und Lernende FaGe.\n\nDein Profil\n• Diplom in Pflege HF oder FH\n• Erfahrung im Umgang mit Kindern, Jugendlichen und ihren Familien\n• Fähigkeit zu teamorientiertem Arbeiten\n• Flexibilität in der Arbeitsorganisation\n• Bereitschaft, Entscheidungen zu treffen und mitzutragen\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -4007,7 +3993,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3196/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:50.829Z",
+      "crawledAt": "2026-10-08T22:10:38.859Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4025,9 +4011,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3196/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-29T21:17:13.351Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4040,8 +4025,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-29T21:17:13.351Z"
+      }
     },
     {
       "id": "kispi-zurich-e49394d1eb68",
@@ -4075,7 +4059,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3762/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:48.845Z",
+      "crawledAt": "2026-10-08T22:10:37.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4094,15 +4078,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3762/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:11:46.339Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-60-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-60-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-10-07T09:11:46.339Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4149,7 +4133,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3763/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:46.834Z",
+      "crawledAt": "2026-10-08T22:10:36.662Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4168,15 +4152,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3763/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T21:14:12.358Z",
+      "previousSlugs": [
+        "heilpadagogische-fruherzieherin-m-w-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "heilpadagogische-fruherzieherin-m-w-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "heilpadagogische-fruherzieherin-m-w-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-10-07T21:14:12.358Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4195,9 +4179,9 @@
       "id": "kispi-zurich-7d8259e257ad",
       "slug": "fellow-m-w-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "fellow-m-w-kispi-zurich-zurich",
         "it": "fellow-m-w-universitats-kinderspital-zurich-kispi-zurich",
         "en": "fellow-m-w-kispi-zurich-zurich",
+        "de": "fellow-m-w-kispi-zurich-zurich",
         "fr": "fellow-m-w-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -4205,16 +4189,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Fellow (m/w)",
       "titleByLocale": {
-        "de": "Fellow (m/w)",
         "it": "Fellow (m/w)",
         "en": "Fellow (m/w)",
+        "de": "Fellow (m/w)",
         "fr": "Fellow (m/w)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nStellenbezeichnung weiblich / Stellenbezeichnung männlich BG\n\nPädiatrische Radiologie\n\nDeine Aufgaben\n• In dieser Rolle übernimmst du die Befundung radiologischer Untersuchungen im gesamten Spektrum der pädiatrischen Bilddiagnostik.\n• Du führst Sonographien und Durchleuchtungen selbstständig durch und beurteilst die Ergebnisse fachgerecht.\n• In der interventionellen Kinderradiologie arbeitest du aktiv mit und entwickelst deine praktischen Fähigkeiten weiter.\n• Die Teilnahme an interdisziplinären Boards und Fallbesprechungen gehört zu deinem klinischen Alltag.\n• Du beteiligst dich am radiologischen Dienstbetrieb und übernimmst Nacht- und Wochenenddienste.\n• Mit zunehmender Erfahrung übernimmst du Verantwortung in der Supervision von Assistenzärztinnen und Assistenzärzten.\n• Du engagierst dich in klinischen und wissenschaftlichen Projekten und bringst eigene Ideen ein.\n• Fälle und Fachthemen bereitest du auf und präsentierst diese in internen sowie externen Fortbildungen.\n\nDein Profil\n• Du verfügst über einen Facharzttitel in Radiologie oder stehst kurz vor dessen Abschluss.\n• Ein besonderes Interesse an pädiatrischer Radiologie und interdisziplinärer Zusammenarbeit bringst du mit.\n• Deine Arbeitsweise ist engagiert, strukturiert und geprägt von hoher fachlicher Neugier.\n• Du hast Freude daran, dich fachlich weiterzuentwickeln und aktiv in Lehre und Weiterbildung einzubringen.\n• Idealerweise bringst du Interesse an wissenschaftlicher Tätigkeit mit und möchtest dich akademisch weiterentwickeln.\n\nIhre Aufgaben\n\nFliesstext oder\n• Aufgabe\n• Aufgabe\n\nSie bringen mit\n\nMatthias Giessler HR Business Partner +41 44 249 23 12\n\nWir bieten\n\nBei uns spüren Sie den Puls des Lebens und sind in einem universitären Spital mit ausgezeichnetem Ruf und internationaler Ausstrahlung tätig. Das Wohl der Kinder und deren Angehörigen steht bei uns an erster Stelle. Möchten auch Sie Ihren Beitrag dazu leisten und Teil unseres Teams werden?\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -4223,7 +4207,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1440/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:44.844Z",
+      "crawledAt": "2026-10-08T22:10:35.713Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4241,17 +4225,16 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1440/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fellow-m-w-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-m-w-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fellow-m-w-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-10-08T21:13:44.844Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4264,8 +4247,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T21:13:44.844Z"
+      }
     },
     {
       "id": "kispi-zurich-28426e2eb866",
@@ -4299,7 +4281,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3512/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:42.841Z",
+      "crawledAt": "2026-10-08T22:10:34.755Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4318,15 +4300,15 @@
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3512/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:17:15.345Z",
+      "previousSlugs": [
+        "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
-      ],
+      "firstSeenAt": "2026-09-29T21:17:15.345Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4345,9 +4327,9 @@
       "id": "kispi-zurich-56183ea8fedc",
       "slug": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-universitats-kinderspital-zurich",
       "slugByLocale": {
-        "de": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-kispi",
         "it": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-universitats-kinderspital-zurich",
         "en": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-universitats-kinderspital-zurich",
+        "de": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-kispi",
         "fr": "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -4355,16 +4337,16 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%",
       "titleByLocale": {
-        "de": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%",
         "it": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%",
         "en": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%",
+        "de": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%",
         "fr": "Teamleiterin (w/m) medizinische Praxisassistentin/Praxisassistent (MPA) Notfallpraxis 60%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
         "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 08.10.2026\n\nNotfallpraxis im Kinderspital Zürich, Betrieb an 365 Tagen im Schichtdienst, Einsatzzeiten verteilt über die ganze Woche (Montag bis Freitag von 12.00 bis 23.00 Uhr, an den Wochenenden und Feiertagen von 09.00 Uhr bis 23.00 Uhr)\n\nDeine Aufgaben\n• Du bist Teil des Führungsteams der Notfallpraxis und bringst deine Perspektive aktiv in Entscheidungen und die Weiterentwicklung der Praxis ein.\n• Du übernimmst gemeinsam mit der Gesamtleitung die fachliche und organisatorische Führung des MPA-Teams und sorgst für einen gut organisierten Arbeitsalltag.\n• Du vertrittst die Anliegen des MPA-Teams im Führungsteam und stellst einen transparenten Informationsfluss ins gesamte Team sicher.\n• Du koordinierst die verschiedenen Verantwortungsbereiche im MPA-Team und begleitest sowie unterstützt deine Kolleginnen und Kollegen im Alltag.\n• Du führst die Standortgespräche des MPA-Teams und wirkst bei Einstellungs-, Einführungs- und Einarbeitungsprozessen mit.\n• Du leitest gemeinsam mit der Gesamtleitung Teamsitzungen und arbeitest aktiv an Projekten und Weiterbildungen mit.\n• Du gestaltest die Optimierung von Abläufen sowie die Qualitätsentwicklung und -sicherung in der Notfallpraxis aktiv mit.\n• Du bist eine wichtige Ansprechperson für MPA-spezifische Anliegen und förderst eine offene, wertschätzende und konstruktive Zusammenarbeit im interprofessionellen Führungsteam.\n\nDein Profil\n• Abgeschlossene Ausbildung als MPA, FaGe oder Pflegefachperson, idealerweise mit mindestens zwei Jahren Berufserfahrung als MPA\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kommunikations-, Team- und Führungskompetenz\n• Professionelles, wertschätzendes und empathisches Auftreten gegenüber Mitarbeitenden, Patient*innen und deren Bezugspersonen\n• Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld mit wechselndem Arbeitsaufkommen\n• Rasche Auffassungsgabe, sicheres Auftreten und hohe Verantwortungsbereitschaft\n• Souveräner und lösungsorientierter Umgang mit herausfordernden und komplexen Situationen\n• Reflexionsfähigkeit sowie Bereitschaft zur persönlichen und fachlichen Weiterentwicklung in der Führungsrolle\n\nClaudia Guetg Senior HR Business Partner +41 44 249 23 15\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "needsRetranslation": true,
@@ -4373,7 +4355,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3756/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:13:40.854Z",
+      "crawledAt": "2026-10-08T22:10:33.795Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4391,17 +4373,16 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3756/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-kispi"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-kispi"
         ]
       },
-      "previousSlugs": [
-        "teamleiterin-w-m-medizinische-praxisassistentin-praxisassistent-mpa-notfallpraxis-60-kispi"
-      ],
+      "firstSeenAt": "2026-10-08T21:13:40.854Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
       "salarySource": "estimated",
@@ -4414,8 +4395,7 @@
           "maxValue": 76800,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T21:13:40.854Z"
+      }
     },
     {
       "id": "kispi-zurich-deeafc3ce4b0",
@@ -4468,7 +4448,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-21T15:55:30.527Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich"
