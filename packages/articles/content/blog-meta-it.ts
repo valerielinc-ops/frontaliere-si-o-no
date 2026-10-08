@@ -12767,6 +12767,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-via-albisetti.title': 'Tradate, pedone investito: ferito un uomo di 58 anni',
     'blog.article.incidente-via-albisetti.excerpt': '## In breve - Un uomo di 58 anni investito a Tradate - Incidente poco prima delle 20 in via Albisetti - Soccorsi della Croce Rossa di Busto e un\'automedica',
     'blog.article.incidente-via-albisetti.imageAlt': 'Strada urbana al tramonto, immagine di repertorio per la notizia di Tradate',
+    'blog.article.mcdonalds-pulizia-malnate-2026.title': 'McDonald\'s ripulisce Malnate: raccolti 20 kg di rifiuti',
+    'blog.article.mcdonalds-pulizia-malnate-2026.excerpt': '## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L\'iniziativa si è svolta lunedì 5 ottobre',
+    'blog.article.mcdonalds-pulizia-malnate-2026.imageAlt': 'Area urbana pulita e riqualificata in una cittadina',
 };
 
 export default blogMetaIt;

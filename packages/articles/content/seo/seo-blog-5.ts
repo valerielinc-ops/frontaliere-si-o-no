@@ -101099,6 +101099,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mcdonalds-pulizia-malnate-2026': {
+    title: 'McDonald\'s ripulisce Malnate: raccolti 20 kg di rifiuti',
+    description: '## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L\'iniziativa si è svolta lunedì 5 ottobre',
+    keywords: 'frontalieri, ticino, svizzera, italia, mcdonald, ripulisce, malnate, raccolti',
+    ogTitle: 'McDonald\'s ripulisce Malnate: 20 kg di rifiuti raccolti',
+    ogDescription: '## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L\'iniziativa si è svolta lunedì 5 ottobre',
+    canonicalPath: '/articoli-frontaliere/mcdonalds-pulizia-malnate-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "McDonald's ripulisce Malnate: raccolti 20 kg di rifiuti",
+      "description": "## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L'iniziativa si è svolta lunedì 5 ottobre",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/divario-salariale-genere-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area urbana pulita e riqualificata in una cittadina"
+      },
+      "datePublished": "2026-10-08T00:02:58+00:00",
+      "dateModified": "2026-10-08T00:02:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mcdonalds-pulizia-malnate-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
