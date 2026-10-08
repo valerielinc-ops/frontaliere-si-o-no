@@ -60,6 +60,9 @@ function verifiedLanding(after) {
 export function registrationOutcome(after) {
   if (authPageKind(after) === 'create') return 'refused';
   if (VERIFY_PAGE_RE.test(after.text) || codeField(after)) return 'verify';
+  // The sign-in page is where a portal sends a new account (Workday, with a notice of its own): its notice
+  // is no refusal. The sign-in that follows says whether the account is there.
+  if (authPageKind(after) === 'sign_in') return 'created';
   if (after.errors?.length) return 'refused';
   return 'created';
 }
@@ -197,7 +200,7 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       if (!entry?.passwordEnc) return null;
       const { password } = decryptJson(entry.passwordEnc, key);
       mask(password);
-      return { email: entry.email, password, createdAt: entry.createdAt || null, verifiedAt: entry.verifiedAt || null };
+      return { email: entry.email, password, createdAt: entry.createdAt || null, verifiedAt: entry.verifiedAt || null, status: entry.status || null };
     },
     /** Before the "create account" click: `pending` until the portal confirms it. */
     async save(host, { email, password }) {

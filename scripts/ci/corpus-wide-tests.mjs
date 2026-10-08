@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * corpus-wide-tests.mjs — il registro dei gate che iterano sull'INTERO corpus,
  * e la regola che decide quando restano bloccanti su una PR.
@@ -293,7 +295,7 @@ function readChangedPathsFromStdin() {
 // `--gha-output`     come sopra ma in forma `key=value` per $GITHUB_OUTPUT
 if (
   process.argv[1] &&
-  fileURLToPath(import.meta.url) === path.resolve(process.argv[1])
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()
 ) {
   const argv = process.argv.slice(2);
   if (argv.includes("--seconds")) {

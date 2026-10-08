@@ -1,7 +1,7 @@
 {
   "key": "zermatt-bergbahnen",
   "label": "Zermatt Bergbahnen",
-  "generatedAt": "2026-10-07T09:29:41.648Z",
+  "generatedAt": "2026-10-07T21:49:19.542Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 7264,
-  "avgDurationMs": 7264,
+  "durationMs": 6433,
+  "avgDurationMs": 6433,
   "durationHistory": [
-    7264
+    6433
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,7 +50,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:24.191Z",
+      "crawledAt": "2026-10-07T21:49:07.969Z",
       "needsRetranslation": true,
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -94,7 +94,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:25.852Z",
+      "crawledAt": "2026-10-07T21:49:09.712Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:36:24.260Z",
       "salaryMin": 65500,
@@ -136,7 +136,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:25.280Z",
+      "crawledAt": "2026-10-07T21:49:09.068Z",
       "needsRetranslation": true,
       "salaryMin": 49000,
       "salaryMax": 74500,
@@ -177,7 +177,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:24.711Z",
+      "crawledAt": "2026-10-07T21:49:08.518Z",
       "firstSeenAt": "2026-08-27T00:53:04.281Z",
       "needsRetranslation": true,
       "salaryMin": 57000,
@@ -219,7 +219,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:23.572Z",
+      "crawledAt": "2026-10-07T21:49:07.409Z",
       "firstSeenAt": "2026-08-31T17:33:46.526Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -260,7 +260,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:29:22.980Z",
+      "crawledAt": "2026-10-07T21:49:06.730Z",
       "firstSeenAt": "2026-09-29T09:26:34.385Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -275,5 +275,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

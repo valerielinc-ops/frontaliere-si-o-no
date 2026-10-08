@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated LIS (Lugano Istituti Sociali) crawler runner.
  * Runs only LIS jobs (Arca24 ATS at lavoraconnoi.lugano-lis.ch)
@@ -1259,6 +1261,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'LIS'));
 }

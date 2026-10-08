@@ -9,6 +9,7 @@
 import {
   GENERATED_IMAGE_CREDIT,
   GENERATED_IMAGE_LICENSE,
+  isLicensedPhotoRecord,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
 
@@ -41,6 +42,7 @@ export const EVENT_IMAGE_LIBRARY_SEASONS = Object.freeze([
   'primavera-estate',
   'autunno-inverno',
 ]);
+export const EVENT_IMAGE_LIBRARY_MAX_VARIANTS = 3;
 
 const CATEGORY_KEYWORDS = Object.freeze([
   ['musica', ['musica', 'music', 'jazz', 'pop', 'rock', 'concerto', 'concerti', 'classica', 'opera', 'danza']],
@@ -77,6 +79,91 @@ const AREA_LABELS = Object.freeze({
   'alpi-montagna': 'Alpi, vallate e paesaggio montano',
   laghi: 'rive dei laghi e piccoli centri lacustri',
 });
+
+/** English search vocabulary shared by Wikimedia, Pexels and Pixabay. */
+export const EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS = Object.freeze({
+  musica: Object.freeze(['live music concert', 'music stage', 'musical instruments']),
+  'teatro-spettacolo': Object.freeze(['theatre stage performance', 'performing arts', 'theater interior']),
+  'mostra-museo': Object.freeze(['museum exhibition', 'art gallery interior', 'cultural exhibition']),
+  cinema: Object.freeze(['cinema theater', 'movie theater interior', 'film screening']),
+  'festa-sagra-tradizione': Object.freeze(['Swiss traditional festival', 'local cultural festival', 'Swiss celebration']),
+  'mercato-natale': Object.freeze(['Christmas market', 'Swiss market stalls', 'winter market']),
+  gastronomia: Object.freeze(['Swiss food market', 'local cuisine', 'food festival']),
+  sport: Object.freeze(['outdoor sports', 'sports activity', 'Swiss sports landscape']),
+  'natura-escursione': Object.freeze(['hiking trail', 'nature landscape', 'outdoor excursion']),
+  'famiglia-bambini': Object.freeze(['family park', 'children playground', 'family outdoor activity']),
+  'conferenza-formazione': Object.freeze(['conference hall', 'lecture auditorium', 'education workshop']),
+  generico: Object.freeze(['Swiss local event', 'cultural event', 'Swiss gathering']),
+});
+
+export const EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS = Object.freeze({
+  'ticino-confine': Object.freeze([
+    'Lugano Ticino Switzerland',
+    'Locarno Ticino Switzerland',
+    'Bellinzona Ticino Switzerland',
+    'Mendrisio Ticino Switzerland',
+    'Como Italy Switzerland border',
+    'Varese Italy Switzerland border',
+  ]),
+  'svizzera-urbana': Object.freeze([
+    'Zurich Switzerland',
+    'Bern Switzerland',
+    'Basel Switzerland',
+    'Geneva Switzerland',
+    'Lausanne Switzerland',
+    'Lucerne Switzerland',
+    'St Gallen Switzerland',
+  ]),
+  'alpi-montagna': Object.freeze([
+    'Swiss Alps',
+    'Zermatt Switzerland',
+    'Engadin Switzerland',
+    'Valais Switzerland',
+    'Graubunden Switzerland',
+    'Davos Switzerland',
+  ]),
+  laghi: Object.freeze([
+    'Lake Lugano Switzerland',
+    'Lake Maggiore Switzerland',
+    'Lake Geneva Switzerland',
+    'Lake Zurich Switzerland',
+    'Lake Lucerne Switzerland',
+    'Lake Neuchatel Switzerland',
+  ]),
+});
+
+export const EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS = Object.freeze({
+  'primavera-estate': Object.freeze(['spring summer']),
+  'autunno-inverno': Object.freeze(['autumn winter']),
+});
+
+function searchTermKey(value, terms, fallback, labels = {}) {
+  const folded = fold(value);
+  if (terms[folded]) return folded;
+  return Object.keys(terms).find((key) => folded.includes(fold(key)) || folded === fold(labels[key])) || fallback;
+}
+
+/** Build a stable, most-specific-first query set for all licensed photo APIs. */
+export function eventImagePhotoSearchQueries({ category, area, season } = {}) {
+  const categoryKey = searchTermKey(category, EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS, 'generico');
+  const areaKey = searchTermKey(area, EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS, 'ticino-confine', AREA_LABELS);
+  const seasonKey = searchTermKey(season, EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS, 'primavera-estate');
+  const categoryTerms = EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS[categoryKey];
+  const areaTerms = EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS[areaKey];
+  const seasonTerm = EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS[seasonKey][0];
+  const primaryCategory = categoryTerms[0];
+  const primaryArea = areaTerms[0];
+  return [...new Set([
+    ...areaTerms.slice(0, 4).map((place) => `${primaryCategory} ${place} ${seasonTerm}`),
+    `${categoryTerms[1] || primaryCategory} ${primaryArea} ${seasonTerm}`,
+    `${primaryCategory} ${primaryArea} ${seasonTerm} photograph`,
+    `${primaryArea} ${seasonTerm} landscape photograph`,
+    `${primaryCategory} ${primaryArea}`,
+    `${primaryCategory} Switzerland ${seasonTerm}`,
+    `${primaryArea} Switzerland landscape photograph`,
+    `Switzerland ${seasonTerm} landscape photograph`,
+  ])];
+}
 
 const URBAN_CANTONS = new Set(['ZH', 'GE', 'BS', 'BL', 'VD', 'BE', 'AG', 'SG', 'LU', 'ZG', 'SO']);
 const ALPINE_CANTONS = new Set(['GR', 'VS', 'UR', 'OW', 'NW', 'GL', 'AI', 'AR']);
@@ -151,24 +238,34 @@ export function stableEventImageHash(value) {
   return hash >>> 0;
 }
 
-export function eventImageLibrarySlots() {
+export function eventImageLibrarySlots({ variants = 1 } = {}) {
   const slots = [];
+  const variantCount = Math.max(1, Math.min(EVENT_IMAGE_LIBRARY_MAX_VARIANTS, Number(variants) || 1));
   for (const category of EVENT_IMAGE_LIBRARY_CATEGORIES) {
     for (const area of EVENT_IMAGE_LIBRARY_AREAS) {
       for (const season of EVENT_IMAGE_LIBRARY_SEASONS) {
-        slots.push({
-          assetId: `event-${category}-${area}-${season}`,
-          category,
-          area,
-          season,
-          variant: '01',
-          subject: eventImageCategoryLabel(category),
-          areaLabel: AREA_LABELS[area],
-        });
+        for (let variantIndex = 1; variantIndex <= variantCount; variantIndex += 1) {
+          const variant = String(variantIndex).padStart(2, '0');
+          slots.push({
+            assetId: variantIndex === 1
+              ? `event-${category}-${area}-${season}`
+              : `event-${category}-${area}-${season}-v${variant}`,
+            category,
+            area,
+            season,
+            variant,
+            subject: eventImageCategoryLabel(category),
+            areaLabel: AREA_LABELS[area],
+          });
+        }
       }
     }
   }
   return slots;
+}
+
+export function eventImageLibraryVariantSlots() {
+  return eventImageLibrarySlots({ variants: EVENT_IMAGE_LIBRARY_MAX_VARIANTS });
 }
 
 function recordsFrom(value) {
@@ -181,6 +278,7 @@ export function selectEventImageAsset(event, registry) {
   const records = recordsFrom(registry).filter((record) => record?.scope === 'event-library'
     && record?.imageUrl?.startsWith(EVENT_IMAGE_LIBRARY_PREFIX)
     && record?.assetId
+    && (record?.license === GENERATED_IMAGE_LICENSE || isLicensedPhotoRecord(record))
     && validateGeneratedImageRecord(record).valid);
   if (!records.length) return null;
   const category = normalizeEventImageCategory(event);
@@ -223,17 +321,30 @@ export function assignEventImageAsset(event, registry, { sourceImageAllowed } = 
       imageLicenseUrl: _imageLicenseUrl,
       imageCredit: _imageCredit,
       imageProvider: _imageProvider,
+      imageAuthor: _imageAuthor,
+      imageSourcePageUrl: _imageSourcePageUrl,
+      imageCopyrightNotice: _imageCopyrightNotice,
+      imageAcquireLicensePage: _imageAcquireLicensePage,
+      imageModifications: _imageModifications,
       ...withoutImage
     } = event;
     return withoutImage;
   }
+  const licensedPhoto = isLicensedPhotoRecord(selected);
   return {
     ...event,
     imageUrl: selected.imageUrl,
     imageAssetId: selected.assetId,
-    imageLicense: GENERATED_IMAGE_LICENSE,
+    imageLicense: licensedPhoto ? selected.license : GENERATED_IMAGE_LICENSE,
     imageLicenseUrl: selected.licenseUrl,
-    imageCredit: GENERATED_IMAGE_CREDIT,
+    imageCredit: licensedPhoto ? selected.credit : GENERATED_IMAGE_CREDIT,
     imageProvider: selected.provider,
+    ...(licensedPhoto ? {
+      imageAuthor: selected.author,
+      imageSourcePageUrl: selected.sourcePageUrl || selected.pageUrl,
+      imageCopyrightNotice: selected.copyrightNotice,
+      imageAcquireLicensePage: selected.acquireLicensePage,
+      ...(selected.modifications ? { imageModifications: selected.modifications } : {}),
+    } : {}),
   };
 }

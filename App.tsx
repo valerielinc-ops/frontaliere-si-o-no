@@ -234,6 +234,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import { SubTabNav } from '@/components/navigation/SubTabNav';
 import type { SubTabItem } from '@/components/navigation/SubTabNav';
+import LiveCantonArticleSections from '@/components/community/LiveCantonArticleSections';
 import {
  useAuth,
  getUserPhotoURL,
@@ -385,12 +386,12 @@ const App: React.FC = () => {
  const {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
- blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, cantonArticle, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
  jobBoardFilterParams, staticOverlay,
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
- setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
  suppressNextRouteSyncForTabRef,
@@ -2191,7 +2192,7 @@ const App: React.FC = () => {
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
  else if (tab === 'autore' && subTab) setAuthor(subTab);
  // Programmatic nav into the blog tab defaults to the cross-border section.
- if (tab === 'blog') { setSwissArticle(null); setBlogSection('frontaliere'); }
+ if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
  if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
  if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
@@ -2940,22 +2941,29 @@ const App: React.FC = () => {
  )}
 
  {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide */}
- {activeTab === 'blog' && (
+{activeTab === 'blog' && (
+ <>
  <SubTabNav
  items={[
  { key: 'frontaliere' as const, icon: Newspaper, label: t('blog.section.frontalieri') },
  { key: 'svizzera' as const, icon: Newspaper, label: t('blog.section.svizzera') },
  ] satisfies SubTabItem<'frontaliere' | 'svizzera'>[]}
- activeKey={blogSection}
+ activeKey={blogSection === 'svizzera' ? 'svizzera' : 'frontaliere'}
  hubKey="frontaliere"
  hrefFor={(key) => buildPath(key === 'svizzera' ? { activeTab: 'blog', blogSection: 'svizzera' } : { activeTab: 'blog' })}
  onSelect={(key) => {
- if (key === 'svizzera') { setSwissArticle(null); setBlogSection('svizzera'); }
- else { setBlogArticle(null); setBlogSection('frontaliere'); }
+ if (key === 'svizzera') { setSwissArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('svizzera'); }
+ else { setBlogArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('frontaliere'); }
  Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', key);
  }}
  />
- )}
+ <LiveCantonArticleSections activeSection={blogSection} />
+ </>
+)}
+{/* Per-canton job-board landings are a second discovery surface for local
+    editorial sections. The registry-backed block stays empty when the corpus
+    registry is unavailable, so it never advertises a 404. */}
+{(activeTab === 'job-board' || activeTab === 'sitemap') && <LiveCantonArticleSections />}
  </>)}
 
  {/* GPT ad surfaces need the framework on every job-board route, including
@@ -3049,8 +3057,14 @@ const App: React.FC = () => {
  <div className="max-xlw:max-w-7xl xlw:max-w-[1600px] mx-auto">
  <BlogArticles
  section={blogSection}
- selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}
- onSelectArticle={(id) => { if (blogSection === 'svizzera') setSwissArticle(id); else setBlogArticle(id); }}
+ selectedArticle={blogSection === 'svizzera' ? swissArticle : blogSection.startsWith('canton-') ? cantonArticle : blogArticle}
+ page={blogPage ?? undefined}
+ onPageChange={(nextPage) => setBlogPage(nextPage)}
+ onSelectArticle={(id) => {
+   if (blogSection === 'svizzera') setSwissArticle(id);
+   else if (blogSection.startsWith('canton-')) setCantonArticle(id);
+   else setBlogArticle(id as BlogArticleId);
+ }}
  />
  </div>
  ) : activeTab === 'petition' ? (

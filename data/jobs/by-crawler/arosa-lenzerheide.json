@@ -1,10 +1,8 @@
 {
-  "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-10-07T09:11:23.979Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
-      "slug": "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide",
+      "slug": "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "it": "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide",
         "en": "associate-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
@@ -34,7 +32,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:11:18.501Z",
+      "crawledAt": "2026-10-07T21:18:01.961Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -54,40 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0045",
-      "previousSlugs": [
-        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide"
-        ],
-        "en": [
-          "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
-        ],
-        "fr": [
-          "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:20:12.754Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
+      "firstSeenAt": "2026-08-12T10:20:12.754Z"
     },
     {
       "id": "arosa-lenzerheide-e395443a90d0",
-      "slug": "collaboratore-trice-beschneiung-arosa-lenzerheide",
+      "slug": "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "it": "collaboratore-trice-beschneiung-arosa-lenzerheide",
         "en": "associate-beschneiung-arosa-lenzerheide-lenzerheide",
@@ -117,7 +86,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:11:17.712Z",
+      "crawledAt": "2026-10-07T21:18:01.299Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -137,36 +106,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0021",
-      "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-beschneiung-arosa-lenzerheide"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-beschneiung-arosa-lenzerheide"
-        ],
-        "en": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
-        ],
-        "fr": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
-        ]
-      },
-      "firstSeenAt": "2026-07-12T22:16:26.830Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
+      "firstSeenAt": "2026-07-12T22:16:26.830Z"
     }
   ]
 }

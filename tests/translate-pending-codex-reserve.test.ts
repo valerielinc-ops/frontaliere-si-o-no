@@ -70,7 +70,7 @@ function phase2bEnv(
   }
   env.FREE_TRANSLATE_CODEX_MAX_CALLS = env.FREE_TRANSLATE_CODEX_MAX_CALLS
     || workflowVars.FREE_TRANSLATE_CODEX_MAX_CALLS
-    || '180';
+    || '350';
   return env;
 }
 
@@ -164,12 +164,12 @@ afterEach(() => {
 });
 
 describe('translate-pending 2b: riserva Codex quando falliscono le chiavi', () => {
-  it('180 chiamate, 3 corsie e batch da 10 nelle fasi 2b/2d/2e; 25 minuti alla 2b, 15 alle corsie di riparazione', () => {
+  it('350 chiamate, 3 corsie e batch da 10 nelle fasi 2b/2d/2e; 25 minuti alla 2b, 15 alle corsie di riparazione', () => {
     const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), WORKFLOW), 'utf8')) as {
       jobs: { translate: { steps: Array<{ id?: string; name?: string; env?: Record<string, unknown> }> } };
     };
     const steps = workflow.jobs.translate.steps;
-    expect(phase2bEnv().FREE_TRANSLATE_CODEX_MAX_CALLS).toBe('180');
+    expect(phase2bEnv().FREE_TRANSLATE_CODEX_MAX_CALLS).toBe('350');
     for (const phase of [PHASE_2B, PHASE_2D, PHASE_2E]) {
       const step = steps.find((candidate) => candidate.name === phase);
       expect(step?.env).toMatchObject({
@@ -302,7 +302,7 @@ describe('report della riserva per la storia e per l\'allarme', () => {
 
   it('il rosso vero: Codex che non traduce niente, lane assente o nessun report', async () => {
     const report = await import('../scripts/lib/codex-reserve-report.mjs');
-    const base = { lanePresent: true, premiumDown: false, position: 'primary', maxCalls: 180, maxMs: 1500000 };
+    const base = { lanePresent: true, premiumDown: false, position: 'primary', maxCalls: 350, maxMs: 1500000 };
     const failed = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 3, accepted: 0, rejected: 3, stopReason: '3 fallimenti consecutivi' }, { calls: 40 });
     expect(report.codexReserveCoverage([failed]).verdict).toBe('codex-failed');
     // La lane primaria doveva entrare e non ha chiamato.
@@ -312,17 +312,17 @@ describe('report della riserva per la storia e per l\'allarme', () => {
     expect(report.codexReserveCoverage([noLane]).verdict).toBe('codex-unavailable');
     expect(report.codexReserveCoverage([]).verdict).toBe('unknown');
     // Budget speso dopo aver tradotto: non e' un guasto.
-    const spent = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 180, accepted: 41, stopReason: 'budget di 180 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)' }, { calls: 900 });
+    const spent = report.buildCodexReserveReport('2b-cascade', { ...base, calls: 350, accepted: 41, stopReason: 'budget di 350 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)' }, { calls: 900 });
     expect(report.codexReserveCoverage([spent]).verdict).toBe('covered');
     expect(report.codexReserveCoverage([spent]).verdict).toBe('covered');
-    expect(report.summarizeCodexReserve([spent])).toMatchObject({ calls: 180, translated: 41, rejected: 0 });
+    expect(report.summarizeCodexReserve([spent])).toMatchObject({ calls: 350, translated: 41, rejected: 0 });
   });
 
   it('il report si scrive all\'uscita della fase e si rilegge dalla cartella', async () => {
     const report = await import('../scripts/lib/codex-reserve-report.mjs');
     const dir = path.join(tmp, 'reports');
     fs.mkdirSync(dir, { recursive: true });
-    const phase = report.buildCodexReserveReport('2b-cascade', { lanePresent: true, calls: 2, accepted: 2, maxCalls: 180 }, { calls: 5 });
+    const phase = report.buildCodexReserveReport('2b-cascade', { lanePresent: true, calls: 2, accepted: 2, maxCalls: 350 }, { calls: 5 });
     fs.writeFileSync(path.join(dir, '2b-cascade.json'), JSON.stringify(phase));
     fs.writeFileSync(path.join(dir, 'rotto.json'), '{');
     expect(report.readCodexReserveReports(dir).map((entry: { phase: string }) => entry.phase)).toEqual(['2b-cascade']);

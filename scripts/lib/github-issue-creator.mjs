@@ -61,6 +61,69 @@ const PRIORITY_LABEL = {
 const DEDUP_TITLE_PREFIX_LEN = 60;
 const MAX_BODY_LEN = 60000; // GH issue body cap is 65536; leave margin
 
+// This file is intentionally executable as a standalone transport artifact:
+// deploy's no-checkout fallback downloads only this module at the run SHA, and
+// the identical corpus twin receives it without arbitrary relative imports.
+// Keep the bounded retry primitive here so both execution modes retain the
+// same post-condition and transient-error behavior.
+const MAX_TRANSIENT_GH_MUTATION_ATTEMPTS = 3;
+const TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
+const TRANSIENT_GH_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?(?:429|50[23])\b|bad gateway|service unavailable|rate[- ]limit|abuse[- ]detection|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
+
+function sleepForGithubMutationRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const wait = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(wait, 0, 0, delayMs);
+}
+
+function capturedGithubErrorOutput(error) {
+  if (typeof error === 'string') return error;
+  return [error?.message, error?.stderr, error?.stdout, error?.status]
+    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
+    .filter(Boolean)
+    .join('\n');
+}
+
+export function isTransientGithubMutationError(error) {
+  return TRANSIENT_GH_MUTATION_ERROR_RE.test(capturedGithubErrorOutput(error));
+}
+
+/**
+ * Retry a bounded GitHub operation only for known transient failures. A
+ * caller can inspect the resource after a lost mutation response through
+ * `findExisting`, avoiding a duplicate side effect before retrying.
+ */
+export function withTransientGithubMutationRetry(operation, {
+  findExisting = () => null,
+  attemptLimit = MAX_TRANSIENT_GH_MUTATION_ATTEMPTS,
+  delaysMs = TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS,
+  sleep = sleepForGithubMutationRetry,
+  onRetry = () => {},
+} = {}) {
+  if (typeof operation !== 'function') throw new TypeError('GitHub mutation retry operation must be a function');
+  if (typeof findExisting !== 'function') throw new TypeError('GitHub mutation existence lookup must be a function');
+  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
+    ? attemptLimit
+    : MAX_TRANSIENT_GH_MUTATION_ATTEMPTS;
+  const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS;
+  const wait = typeof sleep === 'function' ? sleep : sleepForGithubMutationRetry;
+  const notify = typeof onRetry === 'function' ? onRetry : () => {};
+
+  for (let attempt = 0; attempt < attempts; attempt += 1) {
+    try {
+      return { reused: false, value: operation(), attempts: attempt + 1 };
+    } catch (error) {
+      if (attempt + 1 >= attempts || !isTransientGithubMutationError(error)) throw error;
+      const existing = findExisting();
+      if (existing) return { reused: true, value: existing, attempts: attempt + 1 };
+      const delayMs = Number(delays[attempt]);
+      notify(attempt + 2, attempts, delayMs);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
+    }
+  }
+  throw new Error('GitHub mutation retry exhausted without an attempt');
+}
+
 // Crawler failure reporters fire from `if: failure()` steps with this stable
 // title. A SINGLE transient network blip (`fetch failed`, timeout, 429/5xx)
 // must NOT immediately open a priority:high issue — the layer-1 retry usually
@@ -165,6 +228,26 @@ function gh(args, { allowFailure = false } = {}) {
   } catch (err) {
     if (allowFailure) return null;
     throw err;
+  }
+}
+
+/**
+ * Run a GitHub call whose stderr must be inspected for a bounded transient
+ * retry. The normal `gh()` helper inherits stderr for legacy best-effort calls;
+ * this variant captures it on failure so GraphQL/5xx/network errors are
+ * distinguishable from permission and validation failures.
+ */
+function ghMutation(args) {
+  try {
+    return execFileSync(ghBin(), args, {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+  } catch (error) {
+    const stderr = error?.stderr;
+    if (stderr) process.stderr.write(Buffer.isBuffer(stderr) ? stderr : String(stderr));
+    throw error;
   }
 }
 
@@ -929,17 +1012,32 @@ function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) 
  * True only when `gh issue view` proves the issue is CLOSED. Unreadable
  * output is not a close: a refused or silent failure must stay visible.
  */
-function issueViewIsClosed(number) {
-  const out = gh(
+function issueViewState(number, { retryTransient = false } = {}) {
+  const read = () => ghMutation(
     ['issue', 'view', String(number), '--json', 'state', ...repoFlag()],
-    { allowFailure: true },
   );
-  if (typeof out !== 'string' || !out) return false;
+  let out;
   try {
-    return String(JSON.parse(out)?.state || '').toUpperCase() === 'CLOSED';
+    out = retryTransient
+      ? withTransientGithubMutationRetry(read, {
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue state read transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      }).value
+      : read();
   } catch {
-    return String(out).toUpperCase() === 'CLOSED';
+    return null;
   }
+  if (typeof out !== 'string' || !out) return null;
+  try {
+    return String(JSON.parse(out)?.state || '').toUpperCase();
+  } catch {
+    return String(out).toUpperCase();
+  }
+}
+
+function issueViewIsClosed(number, options = {}) {
+  return issueViewState(number, options) === 'CLOSED';
 }
 
 /** Close reasons `resolveGithubIssue` and `resolveGithubIssueByNumber` accept (`--reason` on the CLI). */
@@ -984,11 +1082,22 @@ function resolveCloseText(reason, { workflow, runUrl } = {}) {
 function closeGithubIssueByNumber(number, { title, url, workflow, runUrl, reason = 'completed' }) {
   const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
   gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
-  const closed = gh(
-    ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
-    { allowFailure: true },
-  );
-  if (issueViewIsClosed(number)) {
+  let closed = null;
+  try {
+    closed = withTransientGithubMutationRetry(
+      () => ghMutation(['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()]),
+      {
+        findExisting: () => issueViewIsClosed(number),
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue close transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      },
+    ).value;
+  } catch {
+    // Preserve the existing fail-closed contract below: a non-transient
+    // rejection (or an exhausted transient budget) is not a successful close.
+  }
+  if (issueViewIsClosed(number, { retryTransient: true })) {
     console.log(`[github-issue-creator] resolve: closed #${number} — ${title}`);
     return {
       number,

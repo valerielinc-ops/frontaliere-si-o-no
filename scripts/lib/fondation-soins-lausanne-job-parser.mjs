@@ -58,8 +58,9 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
-  decodeEntities,
   fetchJobupDetailDescription,
+  filterJobupCardsByEmployer,
+  parseJobupSearchCards,
   detectEmploymentTypeFromOccupation,
 } from './jobup-ch-feed-common.mjs';
 import {
@@ -88,56 +89,9 @@ const HQ = getCompanyDefaults(FONDATION_SOINS_LAUSANNE_KEY) || {
 
 /* ── SERP card parser ──────────────────────────────────────── */
 
-/** Extract a labelled card field ("Lieu de travail" / "Taux d'activité" / "Type de contrat"). */
-function serpFieldValue(segment, label) {
-  // jobup renders "<label><!-- -->:</span><p …>VALUE</p>"; the visually-hidden
-  // label span precedes the value paragraph.
-  const rx = new RegExp(`${label}<!-- -->:</span><p[^>]*>([^<]+)</p>`);
-  const m = segment.match(rx);
-  return m ? normalizeSpace(decodeEntities(m[1])) : '';
-}
-
-/**
- * Parse the jobup search SERP HTML into raw job cards.
- * Returns `[{ uuid, url, title, company, location, workRate, contract }]`.
- * The employer is NOT filtered here — call `filterFondationSoinsLausanneCards`.
- */
-export function parseJobupSerpCards(html = '') {
-  const out = [];
-  if (!html) return out;
-  // Each result card is a "job-link" anchor to a detail page; split on it so
-  // every segment holds exactly one card (title/fields/employer all inside).
-  const segments = String(html).split(/<a[^>]*\bdata-cy="job-link"[^>]*href="\/fr\/emplois\/detail\//i);
-  for (let i = 1; i < segments.length; i += 1) {
-    const seg = segments[i];
-    const uuid = (seg.match(/^([0-9a-f-]+)\//i) || [])[1];
-    if (!uuid) continue;
-
-    const title = normalizeSpace(decodeEntities((seg.match(/textStyle_body2[^>]*>([^<]+)</) || [])[1] || ''));
-    // Employer: the bold caption paragraph rendered under the avatar logo.
-    const company = normalizeSpace(
-      decodeEntities((seg.match(/<p class="[^"]*c_gray\.700[^"]*fw_bold">([^<]+)<\/p>/) || [])[1] || ''),
-    );
-    const location = serpFieldValue(seg, 'Lieu de travail');
-    const workRate = serpFieldValue(seg, "Taux d'activité");
-    const contract = serpFieldValue(seg, 'Type de contrat');
-
-    if (!title || title.length < 3) continue;
-    out.push({
-      uuid,
-      // jobup.ch è un portale esterno; /fr/ è la lingua canonica per un datore
-      // vodese francofono (FSL, Losanna), serve solo a estrarre la descrizione
-      // via Jina — non è un URL del nostro sito. locale-segment-ok: portale-esterno
-      url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
-      title,
-      company,
-      location,
-      workRate,
-      contract,
-    });
-  }
-  return out;
-}
+// Keep the exported FSL names stable for its tests and callers while the
+// selector/parser itself lives in the shared JobUp module.
+export const parseJobupSerpCards = parseJobupSearchCards;
 
 /**
  * STRICT employer filter: keep only cards whose employer is EXACTLY
@@ -146,10 +100,7 @@ export function parseJobupSerpCards(html = '') {
  * No fuzzy / substring matching.
  */
 export function filterFondationSoinsLausanneCards(cards = []) {
-  const target = FONDATION_SOINS_LAUSANNE_COMPANY_NAME.trim().toLowerCase();
-  return (Array.isArray(cards) ? cards : []).filter(
-    (c) => String(c?.company || '').trim().toLowerCase() === target,
-  );
+  return filterJobupCardsByEmployer(cards, FONDATION_SOINS_LAUSANNE_COMPANY_NAME);
 }
 
 /* ── Field helpers ─────────────────────────────────────────── */

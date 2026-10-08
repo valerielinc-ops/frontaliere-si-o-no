@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * fetch-health-premiums.mjs — Download official UFSP/BAG health insurance premiums
  * and commune-to-region mappings, producing data/health-premiums/{year}.json.
@@ -1056,7 +1057,7 @@ export function assertHealthPremiumsSnapshot(snapshot, { expectedYear, requireLu
   return snapshot;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(err => {
     console.error('❌ Fatal error:', err.message);
     process.exit(1);

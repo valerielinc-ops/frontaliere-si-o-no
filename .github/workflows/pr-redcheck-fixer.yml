@@ -19,33 +19,30 @@ name: PR ❌ check fixer (bounded, red required check on bot PRs)
 # NON agisce mai su PR scritte da umani, ne' su un rosso che non e' piu' quello
 # della HEAD corrente (un rosso stantio non e' un difetto da fixare).
 #
+# L'ammissione automatica non usa `workflow_run`: GitHub crea comunque una run
+# di questo workflow prima che il preflight possa scartare una PR draft, umana
+# o con un failure di processo. `tests.yml` emette invece un dispatch trusted
+# solo dopo aver verificato la PR e il job fallito; il dispatch manuale resta
+# disponibile per il recupero esplicito di una PR.
+#
 # ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N HEAD: <sha> -->`, cap 2 → `needs-human` e
 # STOP senza Claude, identico al gemello e per la stessa ragione: non ripetere
 # tentativi sullo stesso rosso quando il branch non sta avanzando.
 
 on:
-  workflow_run:
-    workflows: ['tests']
-    types: [completed]
-    # `tests` gira anche su ogni push su main: senza questo filtro ogni sua
-    # run creava una run di questo workflow poi `skipped` dal gate del job
-    # (86 run in 4 ore, 64 skipped, misura del 2026-09-19). Su main non c'e'
-    # nessuna PR da riparare. Il filtro e' sul branch, NON sull'evento: le
-    # head rebasate arrivano da `workflow_dispatch` di `tests` sul branch
-    # della PR e devono restare dentro.
-    branches-ignore: [main]
   workflow_dispatch:
     inputs:
       pr:
-        description: 'Numero PR da riparare (bypassa il gate workflow_run)'
+        description: 'Numero PR da riparare (manuale o segnale trusted da tests)'
         required: true
+      run_id:
+        description: 'Run tests esatta emessa dal producer trusted (vuoto nel recupero manuale)'
+        required: false
 
-# Serializzato per branch/PR: nel contesto `workflow_run` il numero non e'
-# affidabile (`pull_requests` e' vuoto in diversi casi), mentre `head_branch`
-# c'e' sempre. La cancellazione evita due writer body concorrenti; il wrapper
-# esegue comunque il CAS body+post-read prima di una scrittura.
+# Serializzato per PR. La cancellazione evita due writer body concorrenti; il
+# wrapper esegue comunque il CAS body+post-read prima di una scrittura.
 concurrency:
-  group: body-revision-${{ github.event.workflow_run.head_branch || github.event.inputs.pr }}
+  group: body-revision-${{ github.event.inputs.pr }}
   cancel-in-progress: true
 
 permissions:
@@ -56,21 +53,11 @@ permissions:
   id-token: write
 
 jobs:
-  # Preflight (no checkout, solo gh): risolve la PR dal `workflow_run` e applica
-  # OGNI gate prima di spendere un checkout. actionable=false → skip verde,
-  # nessun round consumato. Stessa forma del gemello.
+  # Preflight (no checkout, solo gh): risolve la PR dal dispatch e applica OGNI
+  # gate prima di spendere un checkout. actionable=false → skip verde, nessun
+  # round consumato. Stessa forma del gemello.
   preflight:
-    # `tests` gira su PR, ma anche via `workflow_dispatch` — e' cosi' che
-    # `pr-autorebase.yml` ri-testa una head appena rebasata, perche' un push con
-    # PAT su un branch di PR non ri-triggera affidabilmente i workflow
-    # `pull_request`. Gatare sul solo `pull_request` lascerebbe quindi fuori
-    # proprio i rossi delle head rebasate, che sono fra i piu' probabili.
-    # Escluso invece `push`: su main non c'e' nessuna PR da riparare (e il
-    # preflight lo confermerebbe comunque, non trovando PR aperte per il ramo).
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event.workflow_run.conclusion == 'failure' &&
-       github.event.workflow_run.event != 'push')
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -87,12 +74,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          EVENT_NAME: ${{ github.event_name }}
           DISPATCH_PR: ${{ github.event.inputs.pr }}
-          RUN_ID: ${{ github.event.workflow_run.id }}
-          RUN_SHA: ${{ github.event.workflow_run.head_sha }}
-          RUN_BRANCH: ${{ github.event.workflow_run.head_branch }}
-          RUN_HEAD_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
+          DISPATCH_RUN_ID: ${{ github.event.inputs.run_id }}
         run: |
           set -uo pipefail
           # GitHub API calls are part of the bounded preflight contract. A
@@ -105,55 +88,18 @@ jobs:
           }
           skip() { echo "$1"; echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0; }
 
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            PR="$DISPATCH_PR"
-            HEAD_SHA=$(gh_bounded gh api "repos/$REPO/pulls/$PR" --jq ".head.sha" 2>/dev/null || echo "")
-            if ! [[ "$HEAD_SHA" =~ ^[0-9a-f]{40}$ ]]; then
-              echo "::error::HEAD di #$PR illeggibile: senza SHA la ricerca per head_sha restituirebbe le run di qualunque PR."
-              exit 1
-            fi
-            # La run rossa si cerca per SHA, non fra le ultime 20 run del repo:
-            # main pusha ogni pochi minuti e una run di ieri ne era gia' fuori,
-            # cosi' il dispatch su una PR ferma finiva sempre in no-op (#9695,
-            # run rossa 36061365735 del 2026-09-24T23:39Z).
-            if ! RUN_ID=$(gh_bounded gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$HEAD_SHA&status=failure&per_page=1" \
-              --jq '.workflow_runs[0].id // empty'); then
-              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
-              exit 1
-            fi
-            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
-              skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
-            fi
-          else
-            # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
-            # cercare la PR aperta con questo head branch. Il filtro `head` viene
-            # applicato da GitHub prima della risposta: paginare l'intero pool di
-            # PR aperte ha lasciato il preflight bloccato fino al cap di 5 minuti
-            # (issue #7310). `--method GET` + `-f` codifica il branch senza
-            # interpolarlo nella query e `gh_bounded` rende il fallimento esplicito.
-            RUN_HEAD_REPO="${RUN_HEAD_REPO:-}"
-            if [[ ! "$RUN_HEAD_REPO" =~ ^[^/]+/[^/]+$ ]]; then
-              echo "::error::Repository sorgente della run mancante o non valido: atteso <owner>/<repo>; stop fail-closed prima della ricerca PR."
-              exit 1
-            fi
-            HEAD_OWNER="${RUN_HEAD_REPO%%/*}"
-            if ! PR_MATCHES=$(gh_bounded gh api "repos/$REPO/pulls" --method GET \
-              -f state=open \
-              -f head="$HEAD_OWNER:$RUN_BRANCH" \
-              -f per_page=100 \
-              --jq '.[].number'); then
-              echo "::error::Ricerca PR aperta per il branch '$RUN_BRANCH' illeggibile o scaduta: non la tratto come «nessuna PR»."
-              exit 1
-            fi
-            PR="${PR_MATCHES%%$'\n'*}"
-            if [ -z "$PR" ] || [ "$PR" = "null" ]; then
-              skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
-            fi
+          PR="$DISPATCH_PR"
+          if ! [[ "$PR" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Numero PR non valido: '$PR'; stop fail-closed."
+            exit 1
           fi
-
-          pr=$(gh_bounded gh api "repos/$REPO/pulls/$PR" 2>/dev/null || echo "")
+          if ! pr=$(gh_bounded gh api "repos/$REPO/pulls/$PR" 2>/dev/null); then
+            echo "::error::PR #$PR non leggibile: impossibile legare la run alla HEAD corrente."
+            exit 1
+          fi
           if [ -z "$pr" ]; then
-            skip "PR #$PR non leggibile → skip (no-op)."
+            echo "::error::PR #$PR ha restituito metadati vuoti: stop fail-closed."
+            exit 1
           fi
 
           state=$(printf '%s' "$pr" | jq -r '.state')
@@ -190,14 +136,45 @@ jobs:
             skip "PR #$PR e' di un umano ($author, head '$head_ref') senza label agent:autofix → fuori scope per design, skip (no-op)."
           fi
 
-          # Il rosso deve essere quello della HEAD CORRENTE. Un rosso su un SHA
-          # superato e' gia' stato risolto da un push successivo, e "fixarlo"
-          # significherebbe lavorare su una diagnosi vecchia — la trappola che
-          # `frontaliere-gate-giudica-build-vecchia` descrive.
-          if [ "$EVENT_NAME" != "workflow_dispatch" ] && [ "$RUN_SHA" != "$head_sha" ]; then
-            skip "Il rosso e' del commit $RUN_SHA ma la HEAD e' $head_sha → rosso stantio, gia' superato da un push. Skip (no-op)."
+          RUN_ID="${DISPATCH_RUN_ID:-}"
+          if [ -n "$RUN_ID" ]; then
+            if ! [[ "$RUN_ID" =~ ^[1-9][0-9]*$ ]]; then
+              echo "::error::Run tests non valida: '$RUN_ID'; stop fail-closed."
+              exit 1
+            fi
+          else
+            # Il recupero manuale senza run_id conserva il comportamento
+            # storico, ma limita la selezione alla HEAD corrente. Il producer
+            # automatico passa sempre l'ID esatto e non entra in questo ramo.
+            if ! RUN_ID=$(gh_bounded gh api "repos/$REPO/actions/workflows/tests.yml/runs?head_sha=$head_sha&status=failure&per_page=1" \
+              --jq '.workflow_runs[0].id // empty'); then
+              echo "::error::Run di tests.yml sulla HEAD di #$PR illeggibili: non le tratto come «nessuna run fallita»."
+              exit 1
+            fi
+            if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+              skip "Nessuna run tests fallita sulla HEAD di #$PR → niente da riparare (no-op)."
+            fi
           fi
 
+          if ! run=$(gh_bounded gh api "repos/$REPO/actions/runs/$RUN_ID" 2>/dev/null); then
+            echo "::error::Run tests $RUN_ID illeggibile: stop fail-closed."
+            exit 1
+          fi
+          run_path=$(printf '%s' "$run" | jq -r '.path // empty')
+          run_head_sha=$(printf '%s' "$run" | jq -r '.head_sha // empty')
+          run_status=$(printf '%s' "$run" | jq -r '.status // empty')
+          run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
+          if [ "$run_path" != ".github/workflows/tests.yml" ] \
+            || [ "$run_head_sha" != "$head_sha" ] \
+            || [ "$run_status" != "completed" ] \
+            || [ "$run_conclusion" != "failure" ]; then
+            echo "::error::Run $RUN_ID non e' un failure tests completato sulla HEAD corrente di #$PR ($run_path $run_head_sha $run_status/$run_conclusion)."
+            exit 1
+          fi
+
+          # La run esatta deve appartenere alla HEAD corrente risolta dalla PR:
+          # un rosso su uno SHA superato non puo' essere riusato dal dispatch,
+          # e due failure sullo stesso SHA non possono essere confusi fra loro.
           # La CI corrente deve essere DAVVERO rossa adesso: fra il trigger e qui
           # un re-run puo' aver rimesso verde, e allora non c'e' niente da fixare.
           if ! rollup=$(gh_bounded gh api "repos/$REPO/commits/$head_sha/check-runs?per_page=100" \

@@ -8,7 +8,7 @@ const {
   letterQualityIssues, letterSalutation, letterText, localityOf, parseLetterText, printedTitles, sanitizeProfile, swissTypography,
 } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { applicationEmailSubject, formatLetterDate, letterPlaceDate, letterSubject } = await import('../functions/src/assistedApplicationAiPrompts.js');
-const { checkTailoredCvFacts, groundedInCv, sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { checkTailoredCvFacts, groundedInCv, sanitizeTailoredCv, tailoredCvSystemPrompt } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { normalizeText } = await import('../functions/src/assistedApplicationAts.js');
 const { buildCoverLetterPdf, extractPdfText, wrapText } = await import('../functions/src/assistedApplicationAiDocuments.js');
 const { mentionsVocabularyTool, vocabularyTools } = await import('../functions/src/lib/toolVocabulary.js');
@@ -724,6 +724,17 @@ describe('fact gate of the tailored CV', () => {
     const facts = checkTailoredCvFacts(cv, { cvText: DEV.text, profile, answers: {} });
     expect(facts.ok).toBe(false);
     expect(facts.unsupported.map((item: any) => item.token)).toEqual(['Kubernetes', 'AWS']);
+  });
+
+  it('reads the posting’s company named in the summary as an employer never had: the prompt forbids naming it', () => {
+    // A real draft of 2026-10-07: the summary said «… targeting the … role at <the posting's company> …». The
+    // gate, whose sources are the candidate's alone, flagged the company and the whole tailored CV was dropped
+    // for the original one. The gate stays as it is (a company in a CV is one the candidate worked for).
+    const flags = (summary: string) => checkTailoredCvFacts(sanitizeTailoredCv(raw({ summary }), { profile, cvText: DEV.text, language: 'en' }), { cvText: DEV.text, profile, answers: {} })
+      .unsupported.map((item: any) => `${item.kind}:${item.token}`);
+    expect(flags('Full-stack developer with React and Node.js, targeting the frontend role at Acme Cosmetics.')).toEqual(['employer:Acme Cosmetics']);
+    expect(flags('Full-stack developer with React and Node.js, targeting a frontend role.')).toEqual([]);
+    expect(tailoredCvSystemPrompt('en')).toContain('Never name the company of the posting, anywhere: the summary names the role, not the employer');
   });
 
   it('keeps the role’s own highlights when a bullet names a vocabulary tool or another role’s figure', () => {

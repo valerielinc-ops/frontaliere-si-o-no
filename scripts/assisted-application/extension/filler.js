@@ -497,7 +497,10 @@
 
   /** react-select and its kin: type to filter, click the matching option. */
   // SuccessFactors' picklists: «Bitte auswählen», options loaded into the list it owns once opened (up to ~4 s).
-  const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez))\b/i;
+  // SuccessFactors localises the empty owned-picklist value too: Rolex's
+  // French form uses «Aucune sélection», which must remain an empty select
+  // rather than being treated as text already filled by the candidate.
+  const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   function selectLike(input) {
     return Boolean(input.getAttribute('aria-owns') || input.getAttribute('aria-controls'))
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(input.className || '')));

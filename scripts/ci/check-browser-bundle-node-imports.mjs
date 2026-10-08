@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Cammina il grafo dei moduli dall'entry SPA e conta le foglie che importano
  * un builtin Node.
@@ -131,7 +133,7 @@ export function measureBrowserGraph() {
   };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(import.meta.filename)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const result = measureBrowserGraph();
   if (process.argv.includes('--json')) {
     console.log(JSON.stringify(result, null, 2));

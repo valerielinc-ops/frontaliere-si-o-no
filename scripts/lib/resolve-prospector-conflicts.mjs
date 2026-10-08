@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Resolve the generated Prospector files when the queue commit is rebased.
  *
@@ -17,7 +19,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { gitShowStage } from './git-show-stage.mjs';
 
 export const PROSPECTOR_PATHS = Object.freeze({
@@ -469,5 +471,4 @@ export function main() {
   }
 }
 
-const thisFile = fileURLToPath(import.meta.url);
-if (process.argv[1] && path.resolve(process.argv[1]) === thisFile) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

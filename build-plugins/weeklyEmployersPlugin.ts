@@ -143,6 +143,10 @@ import {
   printSummary as __weProfPrint,
 } from './shared/weeklyEmployersProfiler';
 
+const WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS = {
+  allowNameOnlyOrganizationIds: false,
+} as const;
+
 // ── Canton-aware section helpers (P2.S1) ────────────────────────
 //
 // Phase 6 (Cathedral): replace TI-literal section slugs with canton-aware
@@ -2613,7 +2617,7 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
         item: organization,
       };
     }),
-  });
+  }, WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS);
   const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -2717,6 +2721,7 @@ ${faqHtml}
     // (existing callers/tests) — filter so we never emit an empty
     // `<script type="application/ld+json"></script>` (invalid JSON-LD).
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, topCompaniesItemListLd, faqLd].filter(Boolean),
+    ...WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS,
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
@@ -3250,7 +3255,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
         item: organization,
       };
     }),
-  });
+  }, WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS);
 
   const webPageLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -3395,6 +3400,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    ...WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS,
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
@@ -3704,7 +3710,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
             url: job.detailPath ? `${BASE_URL}${job.detailPath}` : `${BASE_URL}/`,
           };
     }),
-  });
+  }, WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS);
 
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -3954,6 +3960,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    ...WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS,
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },

@@ -35,6 +35,7 @@ const { healthVerdict, SEO_HEALTH_ISSUE_TITLE } = await import('../scripts/seo/s
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PLATES = '.github/workflows/refresh-plate-auctions.yml';
 const SEO = '.github/workflows/seo-health-loop.yml';
+const RUNTIME = '.github/workflows/runtime-reliability-watch.yml';
 
 type Entry = { workflowName: string; verdict: string; producers: string[]; owner: string };
 type StepDoc = {
@@ -126,8 +127,9 @@ function simulate(steps: StepDoc[], scenario: Scenario) {
 
 /**
  * Scenari per workflow registrato. `soloVerdict` = la run rossa per il SOLO verdetto
- * (la forma delle run misurate); `failures` = guasti veri, che il reporter generico deve
- * continuare a segnalare. Una voce nuova del registro senza scenari fa fallire la suite.
+ * (la forma delle run misurate); `failures` = guasti veri, che il reporter generico o lo
+ * scanner centrale devono continuare a segnalare. Una voce nuova del registro senza
+ * scenari fa fallire la suite.
  */
 const SCENARIOS: Record<string, { soloVerdict: Scenario; failures: Array<[string, Scenario]> }> = {
   '.github/workflows/crawler-health-monitor.yml': {
@@ -165,7 +167,20 @@ const SCENARIOS: Record<string, { soloVerdict: Scenario; failures: Array<[string
       ['il commit dello snapshot fallisce', { fail: ['Commit and push static snapshot'], outputs: { health: { blocking: 'false', health_failed: 'false' } } }],
     ],
   },
+  [RUNTIME]: {
+    // Il watchdog persiste l'issue di dominio e poi chiude rossa solo col verdetto.
+    soloVerdict: { outputs: { verify: { exit_code: '1' } } },
+    failures: [
+      ['la sonda runtime fallisce prima del verdetto', { fail: ['Probe live runtime'] }],
+      ['la verifica finale non è eseguibile', { fail: ['Verify live runtime after repair'] }],
+    ],
+  },
 };
+
+// Questo watchdog delega i guasti preliminari allo scanner centrale: aggiungere qui un
+// reporter `Workflow Failure:` duplicherà il thread proprio quando l'opener di dominio ha
+// già prodotto la diagnosi runtime.
+const CENTRAL_FAILURE_SCAN_ONLY = new Set([RUNTIME]);
 
 describe('registro degli step-verdetto: ogni voce ha uno scenario e un id', () => {
   it('ogni voce del registro ha i suoi scenari in questa suite', () => {
@@ -196,11 +211,15 @@ describe('il reporter generico `Workflow Failure:` esclude il caso solo-verdetto
       expect(isVerdictOnlyFailure(rel, sim.jobs)).toBe(true);
     });
 
-    it.each(failures)('guasto vero (%s): il reporter generico segnala, e la run non passa per verdetto', (_label, scenario) => {
+    it.each(failures)('guasto vero (%s): resta segnalabile, e la run non passa per verdetto', (_label, scenario) => {
       const sim = simulate(steps, scenario);
       expect(sim.jobFailed).toBe(true);
-      expect(reporters.length).toBeGreaterThan(0);
-      expect(reporters.some((r) => sim.ran.includes(r)), `nessun reporter generico è partito: ${sim.ran.join(' | ')}`).toBe(true);
+      if (CENTRAL_FAILURE_SCAN_ONLY.has(rel)) {
+        expect(reporters).toEqual([]);
+      } else {
+        expect(reporters.length).toBeGreaterThan(0);
+        expect(reporters.some((r) => sim.ran.includes(r)), `nessun reporter generico è partito: ${sim.ran.join(' | ')}`).toBe(true);
+      }
       expect(isVerdictOnlyFailure(rel, sim.jobs)).toBe(false);
     });
   });

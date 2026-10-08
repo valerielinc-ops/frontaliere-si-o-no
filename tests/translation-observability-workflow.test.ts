@@ -113,7 +113,9 @@ describe('translation observability workflow', () => {
     });
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
-    expect(titleFixScript).toContain('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
+    expect(titleFixScript).toContain('export function persistTitleFixWork({');
+    expect(titleFixScript).toContain('writeJson(path.join(byCrawlerDir, file), sliceCache.get(file));');
+    expect(titleFixScript).toContain('const result = await runTitleFixCandidatePool({');
     expect(titleFixScript).toContain('isTitleRepairQueueVerdict');
     expect(titleFixScript).toContain('const currentVerdict = titleLooksUntranslated({');
     expect(titleFixScript).toContain('const translatedVerdict = titleLooksUntranslated({');
@@ -205,14 +207,14 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
 
-    const loop = titleFixScript.slice(titleFixScript.indexOf('for (const file of files)'));
-    expect(loop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
+    const pool = titleFixScript.slice(titleFixScript.indexOf('export function runTitleFixCandidatePool'));
+    expect(pool.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     expect(titleFixScript).toContain('let deadlineReached = false;');
-    const persisted = loop.indexOf('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
-    const deadlineMarked = loop.indexOf('deadlineReached = true;');
-    expect(persisted).toBeGreaterThanOrEqual(0);
-    expect(deadlineMarked).toBeGreaterThanOrEqual(0);
-    expect(persisted).toBeGreaterThan(deadlineMarked);
+    const persistence = titleFixScript.slice(titleFixScript.indexOf('export function persistTitleFixWork'));
+    expect(persistence.indexOf('writeJson(path.join(byCrawlerDir, file), sliceCache.get(file));')).toBeGreaterThanOrEqual(0);
+    expect(pool.indexOf('deadlineReached = true;')).toBeGreaterThanOrEqual(0);
+    expect(titleFixScript.indexOf('const result = await runTitleFixCandidatePool({'))
+      .toBeGreaterThan(titleFixScript.indexOf('for (const file of files)'));
 
     expect(descriptionFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
     expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-10-07T09:30:52.603Z",
+  "assembledAt": "2026-10-07T21:49:04.890Z",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -34,7 +34,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:46.132Z",
+      "crawledAt": "2026-10-07T21:48:59.801Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Gynaekologie-und-Geburtshilfe-de-j37.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:45.518Z",
+      "crawledAt": "2026-10-07T21:48:59.214Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Chirurgie-und-Orthopaedie-de-j35.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:45.004Z",
+      "crawledAt": "2026-10-07T21:48:58.628Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -272,7 +272,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-mit-Zusatzfunktion-als-Berufsbildnerin-w-de-j409.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:44.497Z",
+      "crawledAt": "2026-10-07T21:48:58.150Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -305,15 +305,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri"
-        ]
-      },
-      "previousSlugs": [
-        "physiotherapeut-in-mit-zusatzfunktion-als-berufsbildner-in-w-m-d-80-100-kantonsspital-uri"
-      ]
+      }
     },
     {
       "id": "kantonsspital-uri-f16a011f5e45",
@@ -346,7 +338,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-wmd-70-100-de-j433.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:43.978Z",
+      "crawledAt": "2026-10-07T21:48:57.677Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -449,7 +441,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-arzt-Innere-Medizin-mit-Facharzt-Intensivmediz-de-j391.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:43.455Z",
+      "crawledAt": "2026-10-07T21:48:57.184Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -576,7 +568,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Zentralsterilisation-AEMP-wmd-70-de-j435.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:42.827Z",
+      "crawledAt": "2026-10-07T21:48:56.582Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -609,15 +601,7 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-zentralsterilisation-aemp-w-m-d-70-kantonsspital-uri-altdorf"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-zentralsterilisation-aemp-w-m-d-70-kantonsspital-uri-altdorf"
-      ]
+      }
     },
     {
       "id": "kantonsspital-uri-500c47320ada",
@@ -651,7 +635,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Raumpflege-in-der-Spezialreinigung-wmd-100-de-j436.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:42.301Z",
+      "crawledAt": "2026-10-07T21:48:56.098Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -673,7 +657,7 @@
       "requirementsByLocale": {},
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2617,
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -686,15 +670,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
-      ]
+      }
     },
     {
       "id": "kantonsspital-uri-4e686551b44b",
@@ -727,7 +703,7 @@
       "url": "https://stellen.ksuri.ch/Leitender-aerztinArzt-Innere-Medizin-mit-Facharzt-Intensiv-de-j429.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:41.643Z",
+      "crawledAt": "2026-10-07T21:48:55.453Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -842,7 +818,7 @@
       "url": "https://stellen.ksuri.ch/Leitende-aerztin-Leitender-Arzt-Gastroenterologie-60-100-w-de-j426.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:41.081Z",
+      "crawledAt": "2026-10-07T21:48:54.878Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -923,7 +899,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Operationstechnik-HF-wmd-80-100-de-j143.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:40.406Z",
+      "crawledAt": "2026-10-07T21:48:54.212Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1001,7 +977,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Gesundheit-FaGe-wmd-40-100-de-j399.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:39.766Z",
+      "crawledAt": "2026-10-07T21:48:53.589Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1082,7 +1058,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Betriebsunterhalt-wmd-80-100-de-j430.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:39.212Z",
+      "crawledAt": "2026-10-07T21:48:53.104Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1162,7 +1138,7 @@
       "url": "https://stellen.ksuri.ch/Expert-in-Intensivpflege-NDS-HF-wmd-60-100-de-j347.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:38.680Z",
+      "crawledAt": "2026-10-07T21:48:52.643Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1267,7 +1243,7 @@
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachperson-FH-mit-Fachverantwortung-Akutpflege--de-j369.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:38.037Z",
+      "crawledAt": "2026-10-07T21:48:52.009Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1373,7 +1349,7 @@
       "url": "https://stellen.ksuri.ch/ChefaerztinChefarzt-Anaesthesie-und-Rettungsmedizin-80-100-de-j434.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:37.426Z",
+      "crawledAt": "2026-10-07T21:48:51.410Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1455,7 +1431,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplaetze-Pflegefachfrau-mann-HF-wmd-100-de-j59.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:36.903Z",
+      "crawledAt": "2026-10-07T21:48:50.936Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1554,7 +1530,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Radiologiefachperson-HF-wmd-100-de-j397.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:36.382Z",
+      "crawledAt": "2026-10-07T21:48:50.466Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1632,7 +1608,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Anaesthesiepflege-NDS-HF-wmd-1-de-j407.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:35.823Z",
+      "crawledAt": "2026-10-07T21:48:49.971Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1710,7 +1686,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Dipl-FachfrauFachmann-Operationstechnik-H-de-j213.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:35.197Z",
+      "crawledAt": "2026-10-07T21:48:49.361Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1785,7 +1761,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Intensivpflege-NDS-HF-wmd-60-1-de-j210.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:34.597Z",
+      "crawledAt": "2026-10-07T21:48:48.767Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1853,11 +1829,11 @@
         "de": "Assistenzärztin / Assistenzarzt Allgemeine Innere Medizin (w/m/d) 100%",
         "fr": "Médecin Résident / Résidente en Médecine Interne Générale (w/m/d) 100%"
       },
-      "description": "Unser Spital stellt im Kanton Uri (Schweiz) mit seinem umfassenden Leistungsangebot eine erweiterte Grundversorgung für die Region und angrenzenden Gebiete mit rund 38‘500 Einwohnerinnen und Einwohnern sicher und bietet eine hochstehende medizinische und pflegerische Betreuung. Eingebettet in der schönen Bergwelt am südlichen Ende des Vierwaldstättersees ermöglicht die Region zahlreiche sportliche (30 Minuten zu diversen Skisportdestinationen) und kulturelle Freizeitmöglichkeiten sowie eine äusserst gute Anbindung an die Stadtregionen Zürich, Luzern und das Tessin. Die Klinik Innere Medizin des Kantonspitals Uri betreibt rund 50 Akutbetten. Wir betreuen mit Empathie und Kompetenz jährlich mehr als 1700 Patienten stationär und mehr als 2400 Patienten ambulant. Über 90% der Hospitalisationen erfolgen notfallmässig. WIR SUCHEN Wir haben offene Stellen als Assistenzärztin / Assistenzarzt (w/m/d) 100% für die Klinik Innere Medizin auf folgende Zeitpunkte:\n• Oktober 2026\n• Dezember 2027\n• Januar 2028\n• März 2028\n• Mai 2028\n• Oktober 2028\n• November 2028 WAS DICH ERWARTET In einem motivierten und engagierten Team wirkst du im lebhaften Betrieb eines regio­nalen und aktiven Spitals mit. Die Schwerpunkte unserer Klinik Innere Medizin liegen in der Gastroenterologie, Kardiologie, Onkologie, Nephrologie, Neurologie, Infektiologie, Notfallmedizin und Intensivmedizin. Die Angiologie, Pneumologie und Radiologie werden durch Konsiliarärzte/ärztinnen abgedeckt. Wir legen grossen Wert auf die Weiterbildung unserer Assistenzärzte/innen, was auch in der Beurteilung unserer Weiterbildungsstätte regelmässig bestätigt wird. Ausserdem vermitteln wir die Grundlagen der Sonographie. UNSER ANGEBOT Als Weiterbildungsstätte der Kategorie B ist die Stelle für Bewerbende für die Grundwei­terbildung für 2 Jahre in Allgemeiner Innerer Medizin oder als Fremdjahr geeignet. Ein bis zwei Jahre klinische Vorerfahrung ist von Vorteil, jedoch nicht Bedingung. Wir freuen uns auf eine motivierte, verantwortungsbewusste und engagierte Persönlich­keit, der eine teamorientierte, konstruktive und interdisziplinäre Zusammenarbeit am Her­zen liegt. Gleichzeitig bist du interessiert in einem kollegialen und dynamischen Umfeld zu arbeiten und sich weiterzuentwickeln. Bei Interesse bietet sich auch die Möglichkeit einer Rotation in eine Hausarztpraxis. Zusätzlich:\n• Topmoderne Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter Unser Chefarzt Innere Medizin, Dr. med. Beat Frank, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!",
+      "description": "Unser Spital stellt im Kanton Uri (Schweiz) mit seinem umfassenden Leistungsangebot eine erweiterte Grundversorgung für die Region und angrenzenden Gebiete mit rund 38‘500 Einwohnerinnen und Einwohnern sicher und bietet eine hochstehende medizinische und pflegerische Betreuung. Eingebettet in der schönen Bergwelt am südlichen Ende des Vierwaldstättersees ermöglicht die Region zahlreiche sportliche (30 Minuten zu diversen Skisportdestinationen) und kulturelle Freizeitmöglichkeiten sowie eine äusserst gute Anbindung an die Stadtregionen Zürich, Luzern und das Tessin. Die Klinik Innere Medizin des Kantonspitals Uri betreibt rund 50 Akutbetten. Wir betreuen mit Empathie und Kompetenz jährlich mehr als 1700 Patienten stationär und mehr als 2400 Patienten ambulant. Über 90% der Hospitalisationen erfolgen notfallmässig. WIR SUCHEN Wir haben offene Stellen als Assistenzärztin / Assistenzarzt (w/m/d) 100% für die Klinik Innere Medizin auf folgende Zeitpunkte:\n• Dezember 2027\n• Januar 2028\n• März 2028\n• Mai 2028\n• Oktober 2028\n• November 2028 WAS DICH ERWARTET In einem motivierten und engagierten Team wirkst du im lebhaften Betrieb eines regio­nalen und aktiven Spitals mit. Die Schwerpunkte unserer Klinik Innere Medizin liegen in der Gastroenterologie, Kardiologie, Onkologie, Nephrologie, Neurologie, Infektiologie, Notfallmedizin und Intensivmedizin. Die Angiologie, Pneumologie und Radiologie werden durch Konsiliarärzte/ärztinnen abgedeckt. Wir legen grossen Wert auf die Weiterbildung unserer Assistenzärzte/innen, was auch in der Beurteilung unserer Weiterbildungsstätte regelmässig bestätigt wird. Ausserdem vermitteln wir die Grundlagen der Sonographie. UNSER ANGEBOT Als Weiterbildungsstätte der Kategorie B ist die Stelle für Bewerbende für die Grundwei­terbildung für 2 Jahre in Allgemeiner Innerer Medizin oder als Fremdjahr geeignet. Ein bis zwei Jahre klinische Vorerfahrung ist von Vorteil, jedoch nicht Bedingung. Wir freuen uns auf eine motivierte, verantwortungsbewusste und engagierte Persönlich­keit, der eine teamorientierte, konstruktive und interdisziplinäre Zusammenarbeit am Her­zen liegt. Gleichzeitig bist du interessiert in einem kollegialen und dynamischen Umfeld zu arbeiten und sich weiterzuentwickeln. Bei Interesse bietet sich auch die Möglichkeit einer Rotation in eine Hausarztpraxis. Zusätzlich:\n• Topmoderne Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter Unser Chefarzt Innere Medizin, Dr. med. Beat Frank, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!",
       "descriptionByLocale": {
         "it": "Il nostro ospedale nel Cantone di Uri (Svizzera) fornisce cure di base estesa per la regione e le aree adiacenti con circa 38.500 abitanti e offre cure mediche e di cura di alta qualità. Immersa nelle splendide montagne dell'estremità meridionale del Lago di Vierwaldstätter, la regione offre numerosi sport (30 minuti a varie destinazioni sciistiche) e opportunità di svago culturale, nonché ottimi collegamenti con le regioni della città di Zurigo, Lucerna e Ticino. La Clinica di Medicina Interna dell'Ospedale cantonale Uri opera circa 50 letti acuti. Con empatia e competenza, serviamo più di 1.700 pazienti apatia e più di 2.400 pazienti ambulatoriale ogni anno. Più del 90% delle ricovero avviene come emergenza. Abbiamo posizioni aperte come assistente medico / assistente medico (m/f/d) 100% per la clinica Medicina interna ai seguenti tempi:\n• Ottobre 2026\n• Dicembre 2027\n• Gennaio 2028\n• Marzo 2028\n• maggio 2028\n• Ottobre 2028\n• Novembre 2028 Cosa ti aspetti In un team motivato e impegnato, sarete coinvolti nel vivace funzionamento di un ospedale regionale e attivo. Il focus della nostra clinica di medicina interna è sulla gastroenterologia, cardiologia, oncologia, nefrologia, neurologia, infettiologia, medicina di emergenza e medicina intensiva di cura. Angiologia, pneumologia e radiologia sono coperti da consulenti. Noi attribuiamo grande importanza all'ulteriore formazione dei nostri medici assistenti, che è anche regolarmente confermato nella valutazione del nostro istituto di istruzione superiore. Insegneremo anche le basi della sonografia. La nostra offerta Come istituzione di formazione della categoria B, la posizione è adatta per i candidati per l'istruzione di base per 2 anni in medicina interna generale o come anno straniero. Uno o due anni di esperienza clinica è vantaggioso, ma non una condizione. Non vediamo l'ora di una personalità motivata, responsabile e impegnata che si impegna a una collaborazione di team-oriented, costruttiva e interdisciplinare. Allo stesso tempo, siete interessati a lavorare e sviluppare in un ambiente collegiale e dinamico. Se interessati, c'è anche la possibilità di una rotazione in ufficio di un medico di famiglia. Inoltre:\n• Infrastrutture moderne\n• Gerarchie piatte e una cultura DU vissuta\n• Un ospedale regionale familiare e innovativo con carattere esemplare Il nostro medico principale medicina interna, Dr. med. Beat Frank, ti prego di darti maggiori informazioni. Attendiamo con ansia la vostra applicazione!",
         "en": "Our hospital in the Canton of Uri (Switzerland) provides extended basic care for the region and adjacent areas with around 38,500 inhabitants and offers high-quality medical and nursing care. Nestled in the beautiful mountains at the southern end of Lake Vierwaldstätter, the region offers numerous sporting (30 minutes to various skiing destinations) and cultural leisure opportunities as well as extremely good connections to the city regions of Zurich, Lucerne and Ticino. The Internal Medicine Clinic of the Cantonal Hospital Uri operates around 50 acute beds. With empathy and competence, we serve more than 1,700 patients inpatiently and more than 2,400 patients outpatiently every year. More than 90% of hospitalizations take place as an emergency. We have open positions as assistant physician / assistant physician (m/f/d) 100% for the clinic Internal Medicine at the following times:\n• October 2026\n• December 2027\n• January 2028\n• March 2028\n• May 2028\n• October 2028\n• November 2028 WHAT YOU EXPECT In a motivated and committed team, you will be involved in the lively operation of a regional and active hospital. The focus of our Internal Medicine Clinic is on gastroenterology, cardiology, oncology, nephrology, neurology, infectiology, emergency medicine and intensive care medicine. Angiology, pneumology and radiology are covered by consultants. We attach great importance to the further education of our assistant doctors, which is also regularly confirmed in the assessment of our further education institution. We also teach the basics of sonography. Our offer As a training institution of category B, the position is suitable for applicants for basic education for 2 years in general internal medicine or as a foreign year. One to two years of clinical experience is beneficial, but not a condition. We look forward to a motivated, responsible and committed personality who is committed to team-oriented, constructive and interdisciplinary cooperation. At the same time, you are interested in working and developing in a collegial and dynamic environment. If interested, there is also the possibility of a rotation into a family doctor's office. In addition:\n• Modern infrastructure\n• Flat hierarchies and a lived DU culture\n• A family and innovative regional hospital with exemplary character Our chief physician internal medicine, Dr. med. Beat Frank, please give you more information. We look forward to your application!",
-        "de": "Unser Spital stellt im Kanton Uri (Schweiz) mit seinem umfassenden Leistungsangebot eine erweiterte Grundversorgung für die Region und angrenzenden Gebiete mit rund 38‘500 Einwohnerinnen und Einwohnern sicher und bietet eine hochstehende medizinische und pflegerische Betreuung. Eingebettet in der schönen Bergwelt am südlichen Ende des Vierwaldstättersees ermöglicht die Region zahlreiche sportliche (30 Minuten zu diversen Skisportdestinationen) und kulturelle Freizeitmöglichkeiten sowie eine äusserst gute Anbindung an die Stadtregionen Zürich, Luzern und das Tessin. Die Klinik Innere Medizin des Kantonspitals Uri betreibt rund 50 Akutbetten. Wir betreuen mit Empathie und Kompetenz jährlich mehr als 1700 Patienten stationär und mehr als 2400 Patienten ambulant. Über 90% der Hospitalisationen erfolgen notfallmässig. WIR SUCHEN Wir haben offene Stellen als Assistenzärztin / Assistenzarzt (w/m/d) 100% für die Klinik Innere Medizin auf folgende Zeitpunkte:\n• Oktober 2026\n• Dezember 2027\n• Januar 2028\n• März 2028\n• Mai 2028\n• Oktober 2028\n• November 2028 WAS DICH ERWARTET In einem motivierten und engagierten Team wirkst du im lebhaften Betrieb eines regio­nalen und aktiven Spitals mit. Die Schwerpunkte unserer Klinik Innere Medizin liegen in der Gastroenterologie, Kardiologie, Onkologie, Nephrologie, Neurologie, Infektiologie, Notfallmedizin und Intensivmedizin. Die Angiologie, Pneumologie und Radiologie werden durch Konsiliarärzte/ärztinnen abgedeckt. Wir legen grossen Wert auf die Weiterbildung unserer Assistenzärzte/innen, was auch in der Beurteilung unserer Weiterbildungsstätte regelmässig bestätigt wird. Ausserdem vermitteln wir die Grundlagen der Sonographie. UNSER ANGEBOT Als Weiterbildungsstätte der Kategorie B ist die Stelle für Bewerbende für die Grundwei­terbildung für 2 Jahre in Allgemeiner Innerer Medizin oder als Fremdjahr geeignet. Ein bis zwei Jahre klinische Vorerfahrung ist von Vorteil, jedoch nicht Bedingung. Wir freuen uns auf eine motivierte, verantwortungsbewusste und engagierte Persönlich­keit, der eine teamorientierte, konstruktive und interdisziplinäre Zusammenarbeit am Her­zen liegt. Gleichzeitig bist du interessiert in einem kollegialen und dynamischen Umfeld zu arbeiten und sich weiterzuentwickeln. Bei Interesse bietet sich auch die Möglichkeit einer Rotation in eine Hausarztpraxis. Zusätzlich:\n• Topmoderne Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter Unser Chefarzt Innere Medizin, Dr. med. Beat Frank, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!",
+        "de": "Unser Spital stellt im Kanton Uri (Schweiz) mit seinem umfassenden Leistungsangebot eine erweiterte Grundversorgung für die Region und angrenzenden Gebiete mit rund 38‘500 Einwohnerinnen und Einwohnern sicher und bietet eine hochstehende medizinische und pflegerische Betreuung. Eingebettet in der schönen Bergwelt am südlichen Ende des Vierwaldstättersees ermöglicht die Region zahlreiche sportliche (30 Minuten zu diversen Skisportdestinationen) und kulturelle Freizeitmöglichkeiten sowie eine äusserst gute Anbindung an die Stadtregionen Zürich, Luzern und das Tessin. Die Klinik Innere Medizin des Kantonspitals Uri betreibt rund 50 Akutbetten. Wir betreuen mit Empathie und Kompetenz jährlich mehr als 1700 Patienten stationär und mehr als 2400 Patienten ambulant. Über 90% der Hospitalisationen erfolgen notfallmässig. WIR SUCHEN Wir haben offene Stellen als Assistenzärztin / Assistenzarzt (w/m/d) 100% für die Klinik Innere Medizin auf folgende Zeitpunkte:\n• Dezember 2027\n• Januar 2028\n• März 2028\n• Mai 2028\n• Oktober 2028\n• November 2028 WAS DICH ERWARTET In einem motivierten und engagierten Team wirkst du im lebhaften Betrieb eines regio­nalen und aktiven Spitals mit. Die Schwerpunkte unserer Klinik Innere Medizin liegen in der Gastroenterologie, Kardiologie, Onkologie, Nephrologie, Neurologie, Infektiologie, Notfallmedizin und Intensivmedizin. Die Angiologie, Pneumologie und Radiologie werden durch Konsiliarärzte/ärztinnen abgedeckt. Wir legen grossen Wert auf die Weiterbildung unserer Assistenzärzte/innen, was auch in der Beurteilung unserer Weiterbildungsstätte regelmässig bestätigt wird. Ausserdem vermitteln wir die Grundlagen der Sonographie. UNSER ANGEBOT Als Weiterbildungsstätte der Kategorie B ist die Stelle für Bewerbende für die Grundwei­terbildung für 2 Jahre in Allgemeiner Innerer Medizin oder als Fremdjahr geeignet. Ein bis zwei Jahre klinische Vorerfahrung ist von Vorteil, jedoch nicht Bedingung. Wir freuen uns auf eine motivierte, verantwortungsbewusste und engagierte Persönlich­keit, der eine teamorientierte, konstruktive und interdisziplinäre Zusammenarbeit am Her­zen liegt. Gleichzeitig bist du interessiert in einem kollegialen und dynamischen Umfeld zu arbeiten und sich weiterzuentwickeln. Bei Interesse bietet sich auch die Möglichkeit einer Rotation in eine Hausarztpraxis. Zusätzlich:\n• Topmoderne Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter Unser Chefarzt Innere Medizin, Dr. med. Beat Frank, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!",
         "fr": "Notre hôpital du canton d'Uri (Suisse) fournit des soins de base étendus pour la région et les zones adjacentes avec environ 38 500 habitants et offre des soins médicaux et infirmiers de haute qualité. Nichée dans les belles montagnes de l'extrémité sud du lac Vierwaldstätter, la région offre de nombreuses activités sportives (30 minutes pour diverses destinations de ski) et de loisirs culturels ainsi que des connexions extrêmement bonnes avec les régions de la ville de Zurich, Lucerne et Tessin. La clinique de médecine interne de l'hôpital cantonal Uri gère une cinquantaine de lits actifs. Avec empathie et compétence, nous servons plus de 1 700 patients hospitalisés et plus de 2 400 patients externes chaque année. Plus de 90 % des hospitalisations ont lieu en urgence. Nous avons des postes ouverts comme médecin adjoint / médecin adjoint (h/f/d) 100% pour la clinique Médecine interne aux heures suivantes:\n• Octobre 2026\n• Décembre 2027\n• Janvier 2028\n• Mars 2028\n• Mai 2028\n• Octobre 2028\n• Novembre 2028 QU'EST-CE QUE VOUS expectEZ Dans une équipe motivée et engagée, vous participerez au fonctionnement animé d'un hôpital régional et actif. Notre clinique de médecine interne se concentre sur la gastroentérologie, la cardiologie, l'oncologie, la néphrologie, la neurologie, l'infectiologie, la médecine d'urgence et la médecine des soins intensifs. L'angiologie, la pneumologie et la radiologie sont couvertes par des consultants. Nous attachons une grande importance à la formation continue de nos médecins adjoints, qui est également régulièrement confirmée dans l'évaluation de notre établissement d'enseignement supérieur. Nous enseignons aussi les bases de la sonographie. Notre offre En tant qu'établissement de formation de la catégorie B, le poste est adapté aux candidats à l'enseignement de base pendant deux ans en médecine interne générale ou en tant qu'année étrangère. Une à deux années d'expérience clinique est bénéfique, mais pas une condition. Nous attendons avec intérêt une personnalité motivée, responsable et engagée qui s'engage dans une coopération axée sur l'équipe, constructive et interdisciplinaire. En même temps, vous êtes intéressé par le travail et le développement dans un environnement collégial et dynamique. Si vous êtes intéressé, il y a aussi la possibilité d'une rotation dans le cabinet d'un médecin de famille. En outre:\n• Infrastructures modernes\n• Hiérarchies plates et culture DU vécue\n• Une famille et un hôpital régional innovateur à caractère exemplaire Notre médecin en chef en médecine interne, Dr. med. Beat Frank, s'il vous plaît donner plus d'informations. Nous nous réjouissons de votre candidature!"
       },
       "needsRetranslation": false,
@@ -1866,7 +1842,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Allgemeine-Innere-Medizin-w-de-j222.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:33.947Z",
+      "crawledAt": "2026-10-07T21:48:48.155Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1940,7 +1916,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:33.172Z",
+      "crawledAt": "2026-10-07T21:48:47.565Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * fix-untranslated-descriptions.mjs — Batch fix for jobs with source-copy descriptions.
  *
@@ -193,7 +195,7 @@ async function main() {
 // to be imported (e.g. by localize-vf-existing-jobs.mjs / re-localize-jobs.mjs)
 // without side effects.
 const isMainModule =
-  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMainModule) {
   installCodexReserveReport('2e-descriptions', () => ({ codex: getCodexTierStats(), cascade: getCascadeStats() }));

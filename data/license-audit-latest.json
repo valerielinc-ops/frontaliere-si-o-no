@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-07T23:28:59.726Z",
+  "commit": "7bbdc76734b14efe9f7329a1c41eecb61b6da509",
+  "mainRef": "origin/main",
+  "refsInspected": [
+    "origin/main",
+    "refs/audit/pr-12294",
+    "refs/audit/pr-12293",
+    "refs/audit/pr-12292",
+    "refs/audit/pr-12286",
+    "refs/audit/pr-12281",
+    "refs/audit/pr-12277",
+    "refs/audit/pr-12251",
+    "refs/audit/pr-12214"
+  ],
+  "sections": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "overall": "warn",
+  "summary": {
+    "pass": 10,
+    "warn": 5,
+    "fail": 0
+  },
+  "controls": [
+    {
+      "id": "A.event-source-slices",
+      "section": "A",
+      "title": "Slice eventi: nessuna immagine da fonte esclusa prima dell’assemblaggio",
+      "threshold": "invalid imageUrl in source slices = 0",
+      "status": "pass",
+      "counts": {
+        "slices": 9,
+        "images": 0,
+        "invalid": 0,
+        "excludedSourceImages": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "crawler policy and event-library"
+    },
+    {
+      "id": "A.events-published-images",
+      "section": "A",
+      "title": "Eventi pubblicati: immagini governate o fonte con licenza ammessa",
+      "threshold": "invalid imageUrl = 0",
+      "status": "pass",
+      "counts": {
+        "events": 11970,
+        "images": 11970,
+        "governedLibrary": 11970,
+        "licensedSources": 0,
+        "invalid": 0,
+        "noImage": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "event-library"
+    },
+    {
+      "id": "A.crawler-image-policy",
+      "section": "A",
+      "title": "Crawler eventi: nessun emettitore bypassa il gate immagini",
+      "threshold": "unguarded excluded-source image calls = 0",
+      "status": "pass",
+      "counts": {
+        "findings": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "B.published-image-records",
+      "section": "B",
+      "title": "Immagini pubblicate: record di licenza ammesso o record generativo valido",
+      "threshold": "published missing/unlicensed images = 0 after bounded repair",
+      "status": "warn",
+      "counts": {
+        "files": 11268,
+        "published": 11112,
+        "ok": 3453,
+        "inferred": 7659,
+        "withoutRecord": 0,
+        "unlicensed": 0,
+        "orphan": 137,
+        "autoRepairable": 0,
+        "nonRemediable": 0,
+        "unusedLogos": 19
+      },
+      "examples": [
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/142-linea-aiuto-vittime-violenza-ticino.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/142-violenza-ticino-2026.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/1maggio-eremo-monastero-legge-varese.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/20mila-firme-autostrada-pedaggio.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/25-centimetri-lago-maggiore-frontalieri.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/300-persone-pasto-vegetale-lugano-2026.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/a13-chiusure-mappo-minusio-2026.webp",
+          "status": "inferred"
+        }
+      ],
+      "alarm": false,
+      "remediation": "article-hero/place/editorial-profile; logos are inventory-only"
+    },
+    {
+      "id": "B.logo-source-inventory",
+      "section": "B",
+      "title": "Loghi: file presenti e fonte registrata, senza sostituzione automatica",
+      "threshold": "unregistered logo file = 0",
+      "status": "warn",
+      "counts": {
+        "inventory": 711,
+        "used": 692,
+        "registered": 692,
+        "unused": 19,
+        "withoutRegisteredSource": 0
+      },
+      "examples": [
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/agip.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/aral.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/efg-international.jpg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/eni.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ip.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/jet.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oil.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oilexpress.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ok.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/prada.png",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        }
+      ],
+      "alarm": false,
+      "remediation": "none; source registration is human-owned"
+    },
+    {
+      "id": "B.real-author-protection",
+      "section": "B",
+      "title": "Foto di autori reali: mai rimpiazzate dal motore",
+      "threshold": "protected real-author assets are never auto-selected",
+      "status": "pass",
+      "counts": {
+        "realAuthorFiles": 1,
+        "protectedCandidates": 1
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "alarm only for real authors"
+    },
+    {
+      "id": "B.og-image-sample",
+      "section": "B",
+      "title": "Campione og:image del build pubblicato",
+      "threshold": "sampled og:image values must be registered or site-owned",
+      "status": "warn",
+      "counts": {
+        "available": 0,
+        "files": 0,
+        "images": 0,
+        "invalid": 0
+      },
+      "examples": [
+        {
+          "reason": "dist sample unavailable; build/deploy gate will provide it"
+        }
+      ],
+      "alarm": false,
+      "remediation": "validate:og-images"
+    },
+    {
+      "id": "C.event-description-publication",
+      "section": "C",
+      "title": "Nessun testo di fonte nei dati eventi versionati",
+      "threshold": "existing gate errors = 0",
+      "status": "pass",
+      "counts": {
+        "gateOk": 1,
+        "gateErrors": 0,
+        "events": 11970
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none; reuse scripts/ci/check-event-description-publication.mjs"
+    },
+    {
+      "id": "C.events-without-rewritten-description",
+      "section": "C",
+      "title": "Eventi senza descrizione riscritta",
+      "threshold": "reported for remediation queue; does not block image repair",
+      "status": "warn",
+      "counts": {
+        "events": 11970,
+        "withoutDescription": 11642,
+        "rewritten": 328
+      },
+      "examples": [
+        {
+          "count": 11642
+        }
+      ],
+      "alarm": false,
+      "remediation": "description queue"
+    },
+    {
+      "id": "C.description-rewrite-queue",
+      "section": "C",
+      "title": "Coda residua delle riscritture eventi",
+      "threshold": "entries without complete rewrite = 0",
+      "status": "pass",
+      "counts": {
+        "entries": 329,
+        "residual": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none; separate rewrite workflow"
+    },
+    {
+      "id": "C.article-anti-copy-metrics",
+      "section": "C",
+      "title": "Metriche anti-copia articoli, se esposte",
+      "threshold": "when available: violations = 0; unavailable is non-blocking",
+      "status": "warn",
+      "counts": {
+        "available": 0,
+        "violations": 0
+      },
+      "examples": [
+        {
+          "reason": "metrics not exposed by the repository"
+        }
+      ],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "C.job-announcements-excluded",
+      "section": "C",
+      "title": "Annunci di lavoro esclusi dalla licenza testi per scelta del proprietario",
+      "threshold": "explicit owner choice",
+      "status": "pass",
+      "counts": {
+        "excluded": true
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "by choice"
+    },
+    {
+      "id": "D.origin-main-event-path",
+      "section": "D",
+      "title": "origin/main non contiene il vecchio public/images/events",
+      "threshold": "tracked paths under public/images/events = 0",
+      "status": "pass",
+      "counts": {
+        "paths": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "D.history-marker",
+      "section": "D",
+      "title": "Il commit marcatore non è raggiungibile dai ref ispezionati",
+      "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
+      "status": "pass",
+      "counts": {
+        "refsInspected": 9,
+        "refsContainingMarker": 0,
+        "markerObjectUnavailable": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "D.removed-cdn-prefixes",
+      "section": "D",
+      "title": "Prefissi CDN delle fonti rimosse",
+      "threshold": "live HTTP/R2 objects under removed prefixes = 0",
+      "status": "pass",
+      "counts": {
+        "prefixes": 8,
+        "httpProbes": 8,
+        "httpLive": 0,
+        "r2Keys": 0,
+        "r2Available": 1
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    }
+  ],
+  "details": {
+    "events": {
+      "total": 11970,
+      "rows": 11970,
+      "sourceSliceImages": 0,
+      "statusCounts": {
+        "ok": 11970
+      }
+    },
+    "images": {
+      "inventory": 11268,
+      "statusCounts": {
+        "ok": 3453,
+        "inferred": 7659,
+        "orfano": 137,
+        "inutilizzato": 19
+      },
+      "orphanRecords": 0,
+      "forcedReplacementUrls": []
+    },
+    "text": {
+      "gate": {
+        "ok": true,
+        "datasets": 1,
+        "events": 11970,
+        "rewritten": 328,
+        "cacheEntries": 329,
+        "rejectionMemoryEntries": 0
+      }
+    },
+    "history": {
+      "markerRows": []
+    }
+  },
+  "remediation": {
+    "candidateCount": 0,
+    "autoRepairableCount": 0,
+    "nonRemediableCount": 0,
+    "candidates": []
+  },
+  "alarm": {
+    "required": true,
+    "title": "License audit: non-remediable publication violations",
+    "nonRemediableFailures": [
+      {
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+      }
+    ]
+  },
+  "actions": {
+    "requested": 1,
+    "selected": 1,
+    "deferred": 0,
+    "generated": [],
+    "reused": [],
+    "failures": [
+      {
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+      }
+    ]
+  }
+}

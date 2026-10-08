@@ -22,7 +22,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   isReportableRun,
   isReportableScope,
@@ -46,6 +46,8 @@ import {
   closedIssueCoversRun,
   runBody,
   dormantBody,
+  isHandledExpectedFailure,
+  workflowSourceForRun,
   recoveryVerdict,
   RECOVERY_LISTING_SIZE,
 } from '../scripts/ci/scan-unreported-failures.mjs';
@@ -744,6 +746,95 @@ describe('corpo della issue: job illeggibili vs nessun job fallito', () => {
     const body = runBody({ run, workflowName: 'x', jobs: { total_count: 2, jobs: [] }, jobsReadable: true });
     expect(body).toContain('fallimento a livello di run');
     expect(body).not.toContain('lettura dei job NON riuscita');
+  });
+});
+
+describe('failure atteso già trattato dal monitor', () => {
+  const workflowSource = fs.readFileSync(
+    path.join(process.cwd(), '.github', 'workflows', 'crawler-health-monitor.yml'),
+    'utf8',
+  );
+
+  function jobs(overrides: Record<string, unknown> = {}) {
+    return {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+        ...overrides,
+      }],
+    };
+  }
+
+  it('non apre una CI Failure quando il failgate è l’unico rosso e il reporter interno è skipped', () => {
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: jobs() })).toBe(true);
+  });
+
+  it('resta fail-closed se l’opener della issue per-crawler fallisce', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+  });
+
+  it('resta fail-closed se un altro step fallisce o i job sono illeggibili', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Commit updated health state', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: null })).toBe(false);
+  });
+
+  it('non sopprime un reporter eseguito per un crash fuori dal failgate', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'skipped' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'success' },
+        ],
+      }),
+    })).toBe(false);
+  });
+
+  it('usa il workflow al head_sha della run, non quello corrente', () => {
+    const currentSource = workflowSource;
+    const historicalSource = currentSource.replace(/\bid:\s*failgate\b/, 'id: historical-gate');
+    const headSha = 'a'.repeat(40);
+    const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '{owner}/{repo}';
+    const read = vi.fn(() => Buffer.from(historicalSource, 'utf8').toString('base64'));
+    const resolved = workflowSourceForRun({
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      head_sha: headSha,
+    }, { read });
+
+    expect(resolved).toBe(historicalSource);
+    expect(isHandledExpectedFailure({ source: currentSource, jobs: jobs() })).toBe(true);
+    expect(isHandledExpectedFailure({ source: resolved, jobs: jobs() })).toBe(false);
+    expect(read).toHaveBeenCalledWith([
+      'api', '-X', 'GET',
+      `repos/${repo}/contents/.github/workflows/crawler-health-monitor.yml?ref=${headSha}`,
+      '--jq', '.content // empty',
+    ], { allowFailure: true });
   });
 });
 

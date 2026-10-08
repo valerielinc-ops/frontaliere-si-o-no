@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
+
 /**
  * Load secrets from Firebase Remote Config → environment variables
  *
@@ -353,6 +354,7 @@ export const RC_TO_ENV = {
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
   FAL_KEY:                        ['FAL_KEY'],
+  POLLINATIONS_API_KEY:            ['POLLINATIONS_API_KEY'],
   PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
 
   // Events crawler (scripts/crawl-openagenda-events.mjs, crawl-events.yml):
@@ -747,13 +749,7 @@ async function main() {
 const directInvocation = (() => {
   if (!process.argv[1]) return false;
   try {
-    const entryPath = fileURLToPath(import.meta.url);
-    const resolvedArgvPath = path.resolve(process.argv[1]);
-    try {
-      return realpathSync(entryPath) === realpathSync(resolvedArgvPath);
-    } catch {
-      return entryPath === resolvedArgvPath;
-    }
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
   } catch {
     return false;
   }

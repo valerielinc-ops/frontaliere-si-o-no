@@ -240,7 +240,7 @@ jobs:
 
       # Resolve the effective Codex reserve budget once, after Remote Config
       # has been loaded. An existing environment/input value wins; otherwise
-      # the repository variable is the rollback lever and 180 is only the
+      # the repository variable is the rollback lever and 350 is only the
       # unset default. Writing the result to GITHUB_ENV lets every translating
       # phase inherit the same setting without redefining it in its own env.
       - name: Resolve Codex reserve budget
@@ -253,7 +253,7 @@ jobs:
           elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
             printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
           else
-            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=180\n' >> "$GITHUB_ENV"
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=350\n' >> "$GITHUB_ENV"
           fi
 
       # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
@@ -518,7 +518,7 @@ jobs:
           AZURE_TRANSLATOR_KEY: ''
           AZURE_TRANSLATOR_KEY_2: ''
           # Codex reserve (see the broker step above): default tier position,
-          # at most the configured number of requests (180 by default) and 25
+          # at most the configured number of requests (350 by default) and 25
           # minutes of the 30-minute window per run. The jobs queue is traffic-
           # ordered, so the budget goes to the most visited jobs first. The phase writes its counters to
           # TRANSLATE_CODEX_RESERVE_DIR for the stats row and the credential
@@ -672,7 +672,7 @@ jobs:
           # ~125-155min, so this lane gets ~55-85min before it stops.
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
           # Codex primary lane (see the broker step above): at most the configured
-          # number of calls (180 by default) and 15 minutes per run, because the
+          # number of calls (350 by default) and 15 minutes per run, because the
           # subscription is shared with the owner's interactive use and this lane runs every day.
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'

@@ -3,7 +3,7 @@
  * the critical-CSS externalization, one stylesheet) as standalone files under
  * dist/assets/ at the end of the build. Used by:
  *
- *   GTAG_SNIPPET                  → /assets/gtag-init.js
+ *   GTAG_SNIPPET                  → /assets/gtag-init-<content-hash>.js
  *   ADSENSE_SNIPPET               → /assets/adsense-loader.js
  *   EARLY_BOOT_SCRIPT             → /assets/early-boot.js
  *                                   (concat of dark-mode-init + spa-action-redirect
@@ -35,10 +35,10 @@
  * once globally.
  *
  * Filenames are STABLE (no content hash) like every other bundler asset — see
- * vite.config.ts `chunkFileNames`/`assetFileNames` for the rationale. A content
- * change propagates via the serving stack's revalidation; the identity-bearing
- * gtag-init reference additionally carries a short content hash in its query
- * string so a stale CDN copy cannot emit page_view without emission_id (#9403).
+ * vite.config.ts `chunkFileNames`/`assetFileNames` for the rationale. The
+ * identity-bearing gtag-init producer is the deliberate exception: new HTML
+ * references its content-addressed filename, while the stable alias remains
+ * available for already-published HTML during cache convergence (#9403).
  *
  * The dark-mode + spa-action-redirect + self-heal merge collapses what would be
  * three synchronous <script> tags into one — dark-mode still runs first because
@@ -58,6 +58,7 @@ import type { Plugin } from 'vite';
 import {
   GTAG_INIT_CONTENT,
   GTAG_INIT_FILENAME,
+  GTAG_INIT_VERSIONED_FILENAME,
   ADSENSE_LOADER_CONTENT,
   ADSENSE_LOADER_FILENAME,
   EARLY_BOOT_CONTENT,
@@ -77,6 +78,29 @@ import {
   JOB_BOARD_FC_LOADER_FILENAME,
 } from './jobBoardGpt';
 
+/**
+ * Every file this plugin writes to dist/assets, as [name, content].
+ *
+ * Exported for tests/cdn-shell-producers.test.ts: a name derived from its own
+ * content reaches the CDN only with a full deploy, so each one listed here must
+ * also be published by the fast emitters before they push HTML
+ * (scripts/lib/cdn-shell-producers.mjs, #12270).
+ */
+export function listStaticScriptFiles(): Array<readonly [string, string]> {
+  return [
+    [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT],
+    [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
+    [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
+    [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
+    [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
+    [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
+    [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
+    [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
+    [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
+    [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
+  ];
+}
+
 export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
     name: 'static-scripts',
@@ -85,17 +109,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
       const outDir = path.resolve(rootDir, 'dist', 'assets');
       fs.mkdirSync(outDir, { recursive: true });
 
-      const files: Array<readonly [string, string]> = [
-        [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
-        [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
-        [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
-        [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
-        [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
-        [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
-        [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
-        [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
-        [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
-      ];
+      const files = listStaticScriptFiles();
 
       let totalBytes = 0;
       for (const [name, content] of files) {

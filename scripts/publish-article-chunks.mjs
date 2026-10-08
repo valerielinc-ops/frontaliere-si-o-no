@@ -1,4 +1,5 @@
 #!/usr/bin/env -S npx -y tsx
+import { realpathSync } from 'node:fs';
 // publish-article-chunks.mjs (issue #4881 Fase 3-bis) — publish the CLIENT-SIDE
 // article data chunks (`blog-articles-data.js`, `swiss-articles-data.js`) plus a
 // slim news-ticker payload to the CDN, OUTSIDE the full Vite/Rollup build, so a
@@ -533,7 +534,7 @@ async function main() {
   fs.rmSync(tmpDir, { recursive: true, force: true });
 }
 
-const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   main().catch((err) => {
     console.log(`::warning::[publish-article-chunks] unexpected error: ${err?.message ?? err}`);

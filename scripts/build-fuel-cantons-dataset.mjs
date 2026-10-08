@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Build `data/fuel-prices-cantons.json` (+ `public/data/` copy served by the
  * CDN): per canton URL group, the average / median / minimum fuel price on the
@@ -167,7 +169,7 @@ async function main() {
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'built=true\n');
 }
 
-const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const invokedAsCli = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   main().catch((err) => {
     console.error(err);

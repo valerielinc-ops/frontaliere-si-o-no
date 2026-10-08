@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * explain-job-verdict.mjs — scrive nello Step Summary della run DI CHE COSA è
  * fatto il rosso del check richiesto.
@@ -145,7 +147,7 @@ export function main() {
   if (summary) fs.appendFileSync(summary, `${formatJobFailureSummary(verdict, VITEST_CHECK_NAME)}\n`);
 }
 
-if (process.argv[1]?.endsWith('explain-job-verdict.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

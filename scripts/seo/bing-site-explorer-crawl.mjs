@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Deterministic, Bing-compatible sitemap/tree crawler.
@@ -15,8 +17,10 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import {
   BING_FRONTIER_CANONICAL_DRIFT,
   BING_FRONTIER_CANONICAL_EXPECTED,
@@ -56,6 +60,70 @@ export const REFERRER_REF_LIMIT = 3;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
 const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
+
+function pathnameAndOrigin(value) {
+  try {
+    const parsed = new URL(String(value ?? ''), DEFAULT_BASE_URL);
+    const pathname = parsed.pathname.replace(/\/+/g, '/') || '/';
+    return {
+      origin: parsed.origin,
+      pathname: pathname.length > 1 && !pathname.endsWith('/') ? `${pathname}/` : pathname,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function localeForJobBoardSection(section) {
+  if (section.startsWith('/en/')) return 'en';
+  if (section.startsWith('/de/')) return 'de';
+  if (section.startsWith('/fr/')) return 'fr';
+  if (section.startsWith('/cerca-lavoro-')) return 'it';
+  return null;
+}
+
+function searchPrefixForJobBoardSection(section) {
+  const locale = localeForJobBoardSection(section);
+  if (locale === 'en') return 'search-';
+  if (locale === 'de') return 'suche-';
+  if (locale === 'fr') return 'recherche-';
+  if (locale === 'it') return 'ricerca-';
+  return null;
+}
+
+/**
+ * Recognise the deliberate below-floor search bridge emitted by the job
+ * search generators. This is intentionally narrower than the historical
+ * SEARCH_COMBO_SEGMENT_PATTERN used by the GSC compatibility resolver: the
+ * crawl must prove both the emitted route shape and the bridge document, not
+ * infer intent from a substring in an arbitrary URL.
+ *
+ * The caller additionally requires frontier scope, noindex/follow and a
+ * canonical mismatch. Sitemap copies therefore remain actionable even when a
+ * bridge-shaped URL is accidentally advertised there.
+ */
+function isDeclaredSearchBridge({ url, canonical, html }) {
+  if (!String(html || '').includes(REDIRECT_STUB_MARKER)) return false;
+  const source = pathnameAndOrigin(url);
+  const target = pathnameAndOrigin(canonical);
+  if (!source || !target || source.origin !== target.origin) return false;
+
+  const sourceSection = getJobBoardSectionPrefix(source.pathname);
+  const targetSection = getJobBoardSectionPrefix(target.pathname);
+  if (!sourceSection || !targetSection) return false;
+  if (targetSection !== sourceSection) return false;
+
+  const sourceLocale = localeForJobBoardSection(sourceSection);
+  if (!sourceLocale || sourceLocale !== localeForJobBoardSection(targetSection)) return false;
+  if (target.pathname !== targetSection) return false;
+
+  const searchPrefix = searchPrefixForJobBoardSection(sourceSection);
+  const suffix = source.pathname.slice(sourceSection.length).replace(/\/+$/, '');
+  return Boolean(searchPrefix)
+    && suffix.length > searchPrefix.length
+    && suffix.startsWith(searchPrefix)
+    && !suffix.includes('/');
+}
 
 export function scopeForManifest(manifest) {
   return manifest?.kind === FRONTIER_SCOPE ? FRONTIER_SCOPE : SITEMAP_SCOPE;
@@ -635,11 +703,19 @@ export function classifyDocument({
   const exemption = canonicalMismatch
     ? classifyCanonicalMismatch({ url: finalUrl || url, canonical, html })
     : null;
+  const searchBridgeExemption = isFrontier
+    && noindex
+    && followableNoindex
+    && canonicalMismatch
+    && isDeclaredSearchBridge({ url: finalUrl || url, canonical, html })
+    ? 'search-bridge'
+    : null;
+  const canonicalExemption = exemption || searchBridgeExemption;
   if (noindex) {
-    const isDeclaredBridge = isFrontier && followableNoindex && canonicalMismatch && exemption;
+    const isDeclaredBridge = isFrontier && followableNoindex && canonicalMismatch && canonicalExemption;
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
-      ? `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${exemption}).`
+      ? `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
         ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
         : 'La pagina pubblicata in sitemap dichiara noindex.';
@@ -647,12 +723,12 @@ export function classifyDocument({
   }
   if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
   else if (canonicalMismatch) {
-    if (exemption) {
+    if (canonicalExemption) {
       findings.push(finding(
         isFrontier ? BING_FRONTIER_CANONICAL_EXPECTED : 'canonical-expected',
         url,
-        `Canonical ${canonical} consolidato correttamente (${exemption}).`,
-        { exemption },
+        `Canonical ${canonical} consolidato correttamente (${canonicalExemption}).`,
+        { exemption: canonicalExemption },
       ));
     } else {
       findings.push(finding(
@@ -1011,7 +1087,7 @@ async function main() {
   console.log(JSON.stringify({ mode: 'partition', partition: report.partition, partitions: report.partitions, manifestCount: report.manifestCount, checkedCount: report.checkedCount, findings: report.findings.length, out }, null, 2));
 }
 
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try { await main(); }
   catch (error) { console.error(error?.stack || error); process.exitCode = 1; }

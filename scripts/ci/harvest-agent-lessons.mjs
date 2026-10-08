@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // Lessons harvester — DETERMINISTIC aggregator (zero Claude).
 //
 // Scans recent reviewer findings, recurring issue classes and issue-fix
@@ -2224,6 +2226,6 @@ async function main() {
 // Run only as a script, never on import (lets the test import the pure helpers
 // above without firing gh / writing files). Same guard convention as
 // auto-merge-eval.mjs.
-if (process.argv[1]?.endsWith('harvest-agent-lessons.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   await main();
 }

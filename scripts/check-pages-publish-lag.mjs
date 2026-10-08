@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * check-pages-publish-lag.mjs — Watchdog for the deploy→PUBLISH gap.
  *
@@ -6,11 +7,11 @@
  * completion), does the actual `actions/deploy-pages` PUBLISH in the
  * deploy job's `concurrency: { group: pages-deploy, cancel-in-progress: false }`.
  * Per GitHub's documented 1-running+1-pending cap for a concurrency group, a
- * burst of push-triggered build completions (bot articles, jobs-sync,
- * dist-history-append commits...) routinely supersedes/skips most pending
- * publish attempts before `actions/deploy-pages` ever runs — deploy-
- * starvation, the same failure class `deploy.yml`'s own `paths-ignore`
- * comment names and partially mitigates.
+ * burst-triggered build completions (bot articles, jobs-sync,
+ * dist-history-append commits...) can supersede pending publish attempts
+ * before `actions/deploy-pages` ever runs — deploy-starvation. The build
+ * request queue now coalesces those arrivals before `deploy.yml`, while this
+ * watchdog still observes the independent publish tail.
  *
  * Content is not permanently lost — a later successful publish carries every
  * earlier commit forward, since main is linear — but it can sit
@@ -59,9 +60,9 @@
  *
  * This watchdog finds the last successful `github-pages` deployment (GitHub
  * Deployments API) and lists the files changed on `main` since that SHA. It
- * ignores exactly the paths `deploy.yml` itself ignores (parsed directly from
- * that file, not re-declared, so the two can never drift apart — AGENTS.md
- * #6). If real dist-affecting content has been waiting longer than the
+ * ignores exactly the paths `deploy-request.yml` itself ignores (parsed
+ * directly from that file, not re-declared, so the two can never drift apart
+ * — AGENTS.md #6). If real dist-affecting content has been waiting longer than the
  * threshold, it pages.
  *
  * TWO SIGNALS, deliberately different in kind (see DEFAULT_LAG_HOURS and
@@ -183,10 +184,10 @@ const DEFAULT_STALLED_QUEUE_MINUTES = 240;
 // ── Pure logic (unit-tested; NO network/IO) ─────────────────────────
 
 /**
- * Extract the `paths-ignore` glob list from deploy.yml's raw YAML text.
+ * Extract the `paths-ignore` glob list from deploy-request.yml's raw YAML text.
  * Deliberately NOT a full YAML parser: the block is a flat `- 'glob'` list
  * under a `paths-ignore:` key, and reading it as text keeps this script from
- * ever re-declaring (and drifting from) deploy.yml's own copy.
+ * ever re-declaring (and drifting from) deploy-request.yml's own copy.
  * @param {string} yamlText
  * @returns {string[]}
  */
@@ -215,7 +216,7 @@ export function parsePathsIgnore(yamlText) {
 /**
  * Minimal glob → RegExp. A double-star crosses directories, a single `*`
  * does not (stops at `/`). A bare pattern with no `/` (e.g. `*.md`) matches
- * only at the repo root, mirroring deploy.yml's own documented intent (root
+ * only at the repo root, mirroring deploy-request.yml's own documented intent (root
  * `*.md` vs a recursive `docs` glob, deliberately not a recursive `*.md` —
  * see that file's comment on why press-kit assets under public/ must stay
  * dist-bound).
@@ -364,7 +365,9 @@ async function getBuildQueueState(nowMs) {
     const data = await ghJson(`/repos/${REPO}/actions/workflows/deploy.yml/runs?per_page=100`);
     const runs = data.workflow_runs || [];
     if (runs.length === 0) return { buildInFlight: false, buildIdleMinutes: null };
-    const buildInFlight = runs.some((r) => r.status === 'in_progress' || r.status === 'queued');
+    const buildInFlight = runs.some((r) =>
+      ['in_progress', 'queued', 'pending', 'waiting', 'requested'].includes(r.status),
+    );
     // Newest timestamp of any kind: a run that was just created is as much a
     // sign of life as one that just finished.
     const newest = Math.max(
@@ -383,10 +386,10 @@ async function getBuildQueueState(nowMs) {
 async function main() {
   const lagHours = intFromEnv('LAG_HOURS', DEFAULT_LAG_HOURS);
 
-  const deployYmlPath = path.resolve(process.cwd(), '.github/workflows/deploy.yml');
-  const globs = parsePathsIgnore(fs.readFileSync(deployYmlPath, 'utf8'));
+  const requestYmlPath = path.resolve(process.cwd(), '.github/workflows/deploy-request.yml');
+  const globs = parsePathsIgnore(fs.readFileSync(requestYmlPath, 'utf8'));
   if (globs.length === 0) {
-    console.log('⚠️ Could not parse paths-ignore from deploy.yml — skipping (fail open)');
+    console.log('⚠️ Could not parse paths-ignore from deploy-request.yml — skipping (fail open)');
     process.exit(0);
   }
 
@@ -484,7 +487,7 @@ async function main() {
   process.exit(0);
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`[check-pages-publish-lag] Fatal: ${err.stack || err.message}`);

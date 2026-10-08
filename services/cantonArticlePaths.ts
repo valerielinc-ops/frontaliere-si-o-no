@@ -3,10 +3,9 @@
  *
  * The 24 canton sections × 4 locales are served by the CORPUS: prerendered
  * HTML on R2, answered by the Worker (`serveCorpusSection` in
- * infra/cloudflare-worker/locale-router.js). The SPA has no view for them, so
- * the router must leave their static HTML on screen (`staticOverlay`) instead
- * of falling through to `notFoundPath`, which hides `main.seo-static-content`
- * and shows NotFoundSuggestions.
+ * infra/cloudflare-worker/locale-router.js). Landing, archive and article
+ * paths are also recognized by the SPA; the corpus still owns the initial
+ * HTML and the live/inactive decision.
  *
  * The prefix set is the CLOSED one from the generated section core (every
  * canton, active or not); whether a section is live is decided at runtime by
@@ -31,6 +30,61 @@ const CANTON_ARTICLE_PREFIXES: readonly string[] = Object.values(CANTON_ARTICLE_
       locale === 'it' ? `/${entry.indexSlug.it}` : `/${locale}/${entry.indexSlug[locale]}`,
     ),
 );
+
+const ARCHIVE_ALL_SLUG: Record<(typeof LOCALES)[number], string> = {
+  it: 'tutti',
+  en: 'all',
+  de: 'alle',
+  fr: 'tous',
+};
+
+export type CantonArticlePathKind = 'landing' | 'archive' | 'article' | 'topic';
+
+export interface CantonArticlePathMatch {
+  section: `canton-${string}`;
+  locale: (typeof LOCALES)[number];
+  kind: CantonArticlePathKind;
+  /** Article slug, or the topic-hub path tail when kind === 'topic'. */
+  slug?: string;
+  /** One-based page number for `/tutti/page-N/`; page 1 is omitted. */
+  page?: number;
+}
+
+/** Parse a canton section path against the closed generated section core. */
+export function parseCantonArticlePath(pathname: string): CantonArticlePathMatch | null {
+  const clean = pathname.split(/[?#]/, 1)[0].replace(/\.html$/, '').replace(/\/$/, '').toLowerCase();
+  const parts = clean.split('/').filter(Boolean);
+  let locale: (typeof LOCALES)[number] = 'it';
+  if (parts[0] === 'en' || parts[0] === 'de' || parts[0] === 'fr') {
+    locale = parts.shift() as (typeof LOCALES)[number];
+  }
+  const indexSlug = parts.shift();
+  if (!indexSlug) return null;
+  const entry = Object.values(CANTON_ARTICLE_SECTION_CORE).find((candidate) => candidate.indexSlug[locale] === indexSlug);
+  if (!entry) return null;
+  const section = entry.section as `canton-${string}`;
+  if (parts.length === 0) return { section, locale, kind: 'landing' };
+
+  const first = parts[0];
+  if (first === ARCHIVE_ALL_SLUG[locale]) {
+    if (parts.length === 1) return { section, locale, kind: 'archive' };
+    const pageMatch = /^(?:page|pagina|seite)-(\d+)$/.exec(parts[1]);
+    if (pageMatch && parts.length === 2) {
+      const page = Number(pageMatch[1]);
+      if (Number.isInteger(page) && page > 0) {
+        return { section, locale, kind: 'archive', ...(page > 1 ? { page } : {}) };
+      }
+    }
+    return null;
+  }
+
+  // Topic hubs remain corpus-owned static overlays in this site PR.
+  if (entry.topicHubs && Object.values(entry.topicHubs).some((byLocale) => byLocale[locale] === first)) {
+    return { section, locale, kind: 'topic', slug: parts.join('/') };
+  }
+  if (parts.length === 1 && first) return { section, locale, kind: 'article', slug: first };
+  return null;
+}
 
 /**
  * True for a path inside a canton article section: the section root, its

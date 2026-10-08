@@ -522,6 +522,45 @@ describe('renderEventDetailPage', () => {
     expect(generatedPage.html).toContain('image/webp');
   });
 
+  it('renders a licensed library photo credit and its exact ImageObject licence fields', () => {
+    const photoEvent = {
+      ...EVENT,
+      id: 'event-library:photo',
+      imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
+      imageAssetId: 'event-lago-laghi-primavera-v02',
+      imageLicense: 'CC BY-SA 4.0',
+      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      imageCredit: 'Ada Wikimedia · CC BY-SA 4.0',
+      imageProvider: 'wikimedia',
+      imageAuthor: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
+      imageSourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+      imageCopyrightNotice: '© Ada Wikimedia',
+      imageAcquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+      imageModifications: ['cropped', 'resized', 'converted-to-webp'],
+    };
+    const ld = eventLd(photoEvent as never, 'it') as Record<string, any>;
+    expect(ld.image.creditText).toBe(`${photoEvent.imageCredit} · cropped, resized and converted to WebP`);
+    expect(ld.image.license).toBe(photoEvent.imageLicenseUrl);
+    expect(ld.image.copyrightNotice).toBe(photoEvent.imageCopyrightNotice);
+    expect(ld.image.acquireLicensePage).toBe(photoEvent.imageAcquireLicensePage);
+    expect(ld.image.creator).toMatchObject({ '@type': 'Person', name: 'Ada Wikimedia' });
+    const photoPage = renderEventDetailPage({
+      locale: 'it',
+      event: photoEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(photoEvent),
+      sameComuneEvents: [photoEvent] as never,
+      dateStamp: '2026-06-30',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    expect(photoPage.html).toMatch(/data-event-image-credit(?:="|=)licensed/);
+    expect(photoPage.html).toContain('Ada Wikimedia');
+    expect(photoPage.html).toContain('https://creativecommons.org/licenses/by-sa/4.0/');
+    expect(photoPage.html).toContain('ritagliata, ridimensionata e convertita in WebP');
+    expect(photoPage.html).not.toContain('Immagine illustrativa generata con IA');
+  });
+
   it('uses a German single-event title and a concrete search description', () => {
     const germanPage = renderEventDetailPage({
       locale: 'de',

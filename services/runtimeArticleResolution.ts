@@ -30,6 +30,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchArticleOverlay, type OverlayArticle, type OverlaySection } from '@/services/articlesOverlay';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
+import { articlesApiBase as corpusArticlesApiBase } from '@/services/articlesApiBase';
 import {
   staticArticleFallback,
   staticArticleFallbackPath,
@@ -43,32 +44,8 @@ const TIMEOUT_MS = 6000;
 
 const ARTICLE_LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 
-declare global {
-  interface Window {
-    /** Overrides the corpus API origin — set by tests and by the local dev server. */
-    __ARTICLES_API_BASE__?: string;
-  }
-}
-
-/**
- * Where the corpus publishes its JSON. Same default as
- * `scripts/lib/articles-api-base.mjs`, which every node-side reader imports,
- * so the site and its build scripts read one origin. The literal is repeated
- * here rather than imported because that module resolves `process.env`, which
- * does not exist in a browser — this copy is the client-side fallback for when
- * nothing injected `__ARTICLES_API_BASE__`, not a second source of truth.
- * The contract is JSON documents, never ES modules — see the
- * "Perché JSON e non un modulo" section of the frontaliere-articles README and
- * issue #4974: the previous module-shaped coupling silently changed export
- * shape between build tools and stranded every article page on a skeleton.
- */
-export function articlesApiBase(): string {
-  if (typeof window !== 'undefined') {
-    const injected = window.__ARTICLES_API_BASE__;
-    if (typeof injected === 'string' && injected) return injected.replace(/\/$/, '');
-  }
-  return 'https://nanakokyobashi-rgb.github.io/frontaliere-articles';
-}
+/** Public for existing consumers; the implementation lives in the leaf module. */
+export const articlesApiBase = corpusArticlesApiBase;
 
 async function fetchJson(url: string): Promise<unknown | null> {
   const controller = new AbortController();
@@ -99,6 +76,7 @@ interface SectionSlugMaps {
 export interface PublishedSlugMaps {
   frontaliere: SectionSlugMaps;
   svizzera: SectionSlugMaps;
+  cantons: Record<string, SectionSlugMaps>;
 }
 
 function isRecord(v: unknown): v is Record<string, unknown> {
@@ -141,6 +119,17 @@ function readReverse(raw: unknown): ReverseMap {
   return out;
 }
 
+function reverseFromForward(forward: ForwardMap): ReverseMap {
+  const reverse: ReverseMap = {};
+  for (const [id, slugs] of Object.entries(forward)) {
+    for (const [locale, slug] of Object.entries(slugs) as Array<[Locale, string | undefined]>) {
+      if (!slug) continue;
+      (reverse[locale] ?? (reverse[locale] = {}))[slug] = id;
+    }
+  }
+  return reverse;
+}
+
 let slugMapsPromise: Promise<PublishedSlugMaps | null> | null = null;
 
 /**
@@ -158,11 +147,32 @@ export function loadPublishedSlugMaps(): Promise<PublishedSlugMaps | null> {
       const maps: PublishedSlugMaps = {
         frontaliere: { forward: readForward(raw.blog), reverse: readReverse(raw.blogReverse) },
         svizzera: { forward: readForward(raw.swiss), reverse: readReverse(raw.swissReverse) },
+        cantons: {},
       };
+      if (isRecord(raw.cantons)) {
+        for (const [section, rawSection] of Object.entries(raw.cantons)) {
+          if (!isRecord(rawSection)) continue;
+          const forward = readForward(rawSection);
+          // The published canton shape is a nested id → locale-slug map. Be
+          // liberal about an envelope so a publisher-side additive change does
+          // not strand the existing runtime resolver.
+          const envelopeForward = readForward(rawSection.forward);
+          const usableForward = Object.keys(envelopeForward).length > 0 ? envelopeForward : forward;
+          const envelopeReverse = readReverse(rawSection.reverse);
+          maps.cantons[section] = {
+            forward: usableForward,
+            reverse: Object.keys(envelopeReverse).length > 0
+              ? envelopeReverse
+              : reverseFromForward(usableForward),
+          };
+        }
+      }
       // A document that parses but carries no usable pair is indistinguishable
       // from a failure for our purposes, and saying so lets callers keep one
       // fail-open branch instead of two.
-      const usable = Object.keys(maps.frontaliere.forward).length + Object.keys(maps.svizzera.forward).length;
+      const usable = Object.keys(maps.frontaliere.forward).length
+        + Object.keys(maps.svizzera.forward).length
+        + Object.values(maps.cantons).reduce((sum, map) => sum + Object.keys(map.forward).length, 0);
       return usable > 0 ? maps : null;
     }).catch(() => null);
   }
@@ -174,6 +184,8 @@ export function __resetRuntimeArticleResolution(): void {
   slugMapsPromise = null;
   runtimeRecords.frontaliere.clear();
   runtimeRecords.svizzera.clear();
+  for (const records of Object.values(runtimeRecords.cantons)) records.clear();
+  runtimeRecords.cantons = {};
 }
 
 // ── slug → id ───────────────────────────────────────────────────────────────
@@ -215,7 +227,16 @@ export async function resolveArticleBySlug(
 ): Promise<ResolvedArticle | null> {
   if (!slug) return null;
 
-  const indexed = await fetchArticleOverlay(section, locale).catch(() => [] as OverlayArticle[]);
+  // Historical sections use the recent window because their bundled registry
+  // supplies the baseline count. A canton section has no site bundle at all:
+  // ask the shared publisher helper to upgrade to its full index when the
+  // recent window does not cover the section total, so an older canton article
+  // can still hydrate into the same React view.
+  const indexed = await fetchArticleOverlay(
+    section,
+    locale,
+    section.startsWith('canton-') ? 0 : undefined,
+  ).catch(() => [] as OverlayArticle[]);
   const byId = new Map(indexed.map((a) => [a.id, a]));
 
   // Tier 1.
@@ -226,11 +247,16 @@ export async function resolveArticleBySlug(
 
   // Tier 2.
   const maps = await loadPublishedSlugMaps();
-  const id = maps?.[section].reverse[locale]?.[slug];
+  const sectionMaps = section === 'frontaliere'
+    ? maps?.frontaliere
+    : section === 'svizzera'
+      ? maps?.svizzera
+      : maps?.cantons[section];
+  const id = sectionMaps?.reverse[locale]?.[slug];
   if (!id) return null;
   return {
     id,
-    slugs: maps?.[section].forward[id] ?? { [locale]: slug },
+    slugs: sectionMaps?.forward[id] ?? { [locale]: slug },
     record: byId.get(id) ?? null,
   };
 }
@@ -261,7 +287,11 @@ export async function publishedSlugsForIds(
   if (ids.length === 0) return [];
   const maps = await loadPublishedSlugMaps().catch(() => null);
   if (!maps) return [];
-  const forward = maps[section].forward;
+  const forward = section === 'frontaliere'
+    ? maps.frontaliere.forward
+    : section === 'svizzera'
+      ? maps.svizzera.forward
+      : (maps.cantons[section]?.forward ?? {});
   const out: Array<[string, Partial<Record<Locale, string>>]> = [];
   for (const id of ids) {
     const slugs = forward[id];
@@ -272,9 +302,14 @@ export async function publishedSlugsForIds(
 
 // ── the records the SPA needs to render a runtime-resolved article ──────────
 
-const runtimeRecords: Record<OverlaySection, Map<string, OverlayArticle>> = {
+const runtimeRecords: {
+  frontaliere: Map<string, OverlayArticle>;
+  svizzera: Map<string, OverlayArticle>;
+  cantons: Record<string, Map<string, OverlayArticle>>;
+} = {
   frontaliere: new Map(),
   svizzera: new Map(),
+  cantons: {},
 };
 
 /**
@@ -283,11 +318,22 @@ const runtimeRecords: Record<OverlaySection, Map<string, OverlayArticle>> = {
  * `articleById.get(selectedArticle)` misses and BlogArticles renders nothing.
  */
 export function runtimeArticleRecords(section: OverlaySection): OverlayArticle[] {
-  return [...runtimeRecords[section].values()];
+  const records = section === 'frontaliere'
+    ? runtimeRecords.frontaliere
+    : section === 'svizzera'
+      ? runtimeRecords.svizzera
+      : (runtimeRecords.cantons[section] ?? new Map());
+  return [...records.values()];
 }
 
 function rememberRecord(section: OverlaySection, record: OverlayArticle | null): void {
-  if (record) runtimeRecords[section].set(record.id, record);
+  if (!record) return;
+  const records = section === 'frontaliere'
+    ? runtimeRecords.frontaliere
+    : section === 'svizzera'
+      ? runtimeRecords.svizzera
+      : (runtimeRecords.cantons[section] ?? (runtimeRecords.cantons[section] = new Map()));
+  records.set(record.id, record);
 }
 
 // ── body ────────────────────────────────────────────────────────────────────

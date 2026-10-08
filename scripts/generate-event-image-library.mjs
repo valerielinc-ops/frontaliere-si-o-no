@@ -15,18 +15,31 @@ if (!Number.isInteger(limit) || limit < 0 || limit > MAX_LIBRARY_GENERATIONS) {
 
 const registryPath = argument('--registry', 'data/event-image-library.json');
 const outputDir = argument('--output-dir', '.cache/event-image-library');
+const provider = argument('--provider', 'auto');
+const chain = argument('--chain', '');
+const replace = argument('--replace', '')
+  .split(/[;,\s]+/)
+  .map((assetId) => assetId.trim())
+  .filter(Boolean);
+const requestedProviders = chain || provider;
+const kind = argument('--kind', ['wikimedia', 'pexels', 'pixabay'].includes(requestedProviders.split(/[,\s]+/)[0]) ? 'photo' : 'generated');
 
 try {
   const result = await generateEventImageLibrary({
     registryPath,
     outputDir,
     limit,
-    onAssetGenerated: ({ record, generatedCount, providerCounts }) => {
+    provider,
+    chain: chain || undefined,
+    kind,
+    replaceAssetIds: replace,
+    onAssetGenerated: ({ record, generatedCount, providerCounts, providerFailures }) => {
       console.error(`Verified ${generatedCount} asset(s): ${record.assetId} ← ${record.provider}/${record.model}; attempts ${JSON.stringify(providerCounts)}.`);
     },
   });
   console.error(`Generated ${result.generated.length} event-library asset(s); registry now contains ${result.registry.assets.length}.`);
   console.error(`Provider attempts: ${JSON.stringify(result.providerCounts)} (${result.generationCalls}/${MAX_LIBRARY_GENERATIONS} budget).`);
+  if (Object.keys(result.providerFailures || {}).length) console.error(`Provider diagnostics: ${JSON.stringify(result.providerFailures)}.`);
   for (const item of result.generated) console.error(`  ${item.record.assetId} ← ${item.record.provider}/${item.record.model}`);
 } catch (error) {
   console.error(`Event image library generation failed: ${error.message}`);

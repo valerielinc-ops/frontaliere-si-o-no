@@ -306,7 +306,7 @@ describe('owner queue', () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     const { evaluateRedFlags } = await import('../functions/src/assistedApplicationFlow.js');
     const order = store.db.collection('assisted_applications').doc(ORDER);
-    const stopped = { state: 'owner_takeover', round: 1, heldBy: ['fact_check_not_acknowledged'], answers: {} };
+    const stopped = { state: 'owner_takeover', round: 1, heldBy: ['fact_check_not_acknowledged'], answers: {}, dispatch: { mode: 'submit', round: 1, requestedAt: T0, attempts: 1, reason: 'candidate_approved' } };
     const failing = { ok: false, unsupported: [{ field: 'coverLetter', kind: 'number', token: '45', context: 'un team di 45 persone' }], advisories: [], basis: 'pdf_text' };
     await order.collection('ai_drafts').doc('current').set({ ...readyDraft(), factCheck: failing });
     const retry = (extra: Record<string, unknown> = {}) => handleAutomationAdminAction(
@@ -326,6 +326,27 @@ describe('owner queue', () => {
     expect(store.read(`${ORDER_PATH}/ai_drafts/current`)).toMatchObject({ factCheckAcknowledgedAt: T0, factCheckAcknowledgedTokens: ['coverLetter:number:45'], acknowledgedBy: 'owner@example.com', factCheck: failing });
     expect(evaluateRedFlags(store.read(`${ORDER_PATH}/ai_drafts/current`)).owner).toEqual([]);
     expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'submitting', heldBy: [], dispatch: { mode: 'submit', reason: 'owner_retry' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+  });
+
+  // A real order of 2026-10-07: «Riprova l'invio automatico» on an order taken over while in the owner's
+  // review sent its draft to the portal, never seen by the candidate.
+  it('refuses to send again a round the candidate has not approved, and tells the queue which rounds may be', async () => {
+    const { handleAutomationAdminAction, loadAutomationForAdmin } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    const order = store.db.collection('assisted_applications').doc(ORDER);
+    await order.collection('ai_drafts').doc('current').set(readyDraft());
+    const retry = () => handleAutomationAdminAction(store.db, { action: 'automationRetrySubmit', orderId: ORDER }, 'owner@example.com', { runEffect, nowMs: T0 });
+    const paused = { state: 'owner_takeover', round: 1, heldBy: ['owner'], answers: {}, dispatch: { mode: 'draft', round: 1, requestedAt: T0, attempts: 1, reason: 'cv_verified' } };
+    await order.collection('automation').doc('flow').set(paused);
+    effects = [];
+    await expect(retry()).rejects.toMatchObject({ code: 'not_approved', status: 409 });
+    expect(effects).toEqual([]);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'owner_takeover', heldBy: ['owner'] });
+    expect((await loadAutomationForAdmin(store.db, ORDER))?.flow).toMatchObject({ state: 'owner_takeover', roundSent: false });
+    // The same order once the candidate approved and the portal stopped the robot.
+    await order.collection('automation').doc('flow').set({ ...paused, heldBy: ['portal:account'], dispatch: { ...paused.dispatch, mode: 'submit', reason: 'candidate_approved' } });
+    expect((await loadAutomationForAdmin(store.db, ORDER))?.flow).toMatchObject({ roundSent: true });
+    expect(await retry()).toEqual({ ok: true, state: 'submitting' });
     expect(effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
   });
 

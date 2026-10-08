@@ -7,10 +7,53 @@ runs:
       shell: bash
       run: |
         set -euo pipefail
+        timeout_bin=/usr/bin/timeout
+        [ -x "$timeout_bin" ] || {
+          echo '::error::Trusted timeout utility is unavailable; refusing to run an unbounded sandbox setup.'
+          exit 1
+        }
+        run_bounded() {
+          local label="$1" seconds="$2" status
+          shift 2
+          echo "Starting ${label} (timeout ${seconds}s)"
+          set +e
+          "$timeout_bin" --signal=TERM --kill-after=3s "${seconds}s" "$@"
+          status=$?
+          set -e
+          if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+            echo "::error::${label} timed out after ${seconds} seconds"
+            return 124
+          fi
+          if [ "$status" -ne 0 ]; then
+            echo "${label} failed with exit ${status}"
+            return "$status"
+          fi
+          echo "Completed ${label}"
+        }
+        run_retried() {
+          local label="$1" seconds="$2" attempts=2 retry_delay_seconds=4 attempt
+          shift 2
+          for attempt in $(seq 1 "$attempts"); do
+            if run_bounded "${label} (attempt ${attempt}/${attempts})" "$seconds" "$@"; then
+              return 0
+            fi
+            if [ "$attempt" -lt "$attempts" ]; then
+              echo "Retrying ${label} in ${retry_delay_seconds}s"
+              sleep "$retry_delay_seconds"
+            fi
+          done
+          echo "::error::${label} failed after ${attempts} attempts"
+          return 1
+        }
         # Ubuntu 24.04 restricts unprivileged namespaces. Use the distro bwrap
         # and its AppArmor profile, as documented by Codex, before loading auth.
         # Never disable AppArmor globally or retry the agent without a sandbox.
-        if [ -x /usr/bin/bwrap ] && /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true 2>/dev/null; then
+        # Worst-case budget, including the 3s kill-after and 4s retry sleeps:
+        # bwrap probes 2×(10+3)=26s; apt update/install each 2×(45+3)+4=100s;
+        # profile install is 8+3=11s; apparmor_parser is 2×(10+3)+4=30s:
+        # 267s (4m27s), below five minutes.
+        if [ -x /usr/bin/bwrap ] && run_bounded 'initial bubblewrap sandbox probe' 10 \
+          /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true; then
           exit 0
         fi
         # needrestart's apt hook otherwise restarts every daemon linked to an
@@ -20,15 +63,29 @@ runs:
         # daemons restarted: suspend the hook and keep needrestart list-only.
         # `env` runs under sudo, so sudo's env_reset cannot drop the variables.
         apt_env=(/usr/bin/env DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 NEEDRESTART_MODE=l)
-        /usr/bin/sudo "${apt_env[@]}" /usr/bin/apt-get update -qq
-        /usr/bin/sudo "${apt_env[@]}" /usr/bin/apt-get install -y -qq bubblewrap apparmor-profiles apparmor-utils
+        apt_options=(
+          -o Acquire::http::Timeout=15
+          -o Acquire::https::Timeout=15
+          -o Acquire::Retries=1
+          -o DPkg::Lock::Timeout=10
+        )
+        run_retried 'apt-get update' 45 \
+          /usr/bin/sudo "${apt_env[@]}" /usr/bin/apt-get "${apt_options[@]}" update || exit 1
+        run_retried 'apt-get install' 45 \
+          /usr/bin/sudo "${apt_env[@]}" /usr/bin/apt-get "${apt_options[@]}" install -y bubblewrap apparmor-profiles apparmor-utils || exit 1
         if [ -f /usr/share/apparmor/extra-profiles/bwrap-userns-restrict ]; then
-          /usr/bin/sudo /usr/bin/install -m 0644 \
-            /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
-            /etc/apparmor.d/bwrap-userns-restrict
+          run_bounded 'install AppArmor bwrap profile' 8 \
+            /usr/bin/sudo /usr/bin/install -m 0644 \
+              /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
+              /etc/apparmor.d/bwrap-userns-restrict || exit 1
         fi
         if [ -f /etc/apparmor.d/bwrap-userns-restrict ]; then
-          /usr/bin/sudo /usr/sbin/apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict
+          run_retried 'apparmor_parser' 10 \
+            /usr/bin/sudo /usr/sbin/apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict || exit 1
         fi
         [ -x /usr/bin/bwrap ] || { echo '::error::System bubblewrap is unavailable.'; exit 1; }
-        /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true
+        run_bounded 'final bubblewrap sandbox probe' 10 \
+          /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true || {
+            echo '::error::System bubblewrap sandbox probe failed; refusing to run without a sandbox.'
+            exit 1
+          }

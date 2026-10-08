@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-unsubscribe-credential-rate.mjs — the deferred item 3 of #5757
  * (follow-up(#5747): the third item PR #5762/#5763 explicitly left out).
@@ -395,8 +397,7 @@ async function main() {
   process.exit(verdict.alert ? 1 : 0);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('check-unsubscribe-credential-rate.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`❌ check-unsubscribe-credential-rate fallito: ${err?.message || err}`);

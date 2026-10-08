@@ -1,15 +1,16 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
 import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './crawler-generation-token.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const OUTCOMES = Object.freeze(['noop', 'pushed', 'push_contention', 'failed']);
 const OUTCOME_SET = new Set(OUTCOMES);
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
@@ -679,7 +680,7 @@ export function runCrawlerGroupCommitBatchReceiptsCli() {
   return descriptors.length;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     const command = process.argv[2];
     if (command === '--defer-group-commit') {

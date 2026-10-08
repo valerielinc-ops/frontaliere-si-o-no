@@ -3,9 +3,10 @@ name: Pages Publish-Lag Watchdog
 # Watchdog for the deploy→PUBLISH gap (see scripts/check-pages-publish-lag.mjs
 # for the full mechanism). deploy.yml only builds; deploy-publish.yml does the
 # actual actions/deploy-pages publish under the deploy job's single-slot
-# concurrency group (cancel-in-progress: false), so a burst of push-triggered builds routinely
-# supersedes most pending publish attempts — deploy-starvation, the failure
-# class deploy.yml's own paths-ignore comment names. Content isn't lost (a
+# concurrency group (cancel-in-progress: false). The request dispatcher
+# coalesces ordinary push bursts before the build, but recovery/manual builds
+# can still arrive in a burst and supersede pending publish attempts —
+# deploy-starvation. Content isn't lost (a
 # later successful publish carries every earlier commit forward) but can sit
 # built-and-not-live for hours with zero visibility. 2026-07-16: two published
 # articles weren't visible for hours and only surfaced because a journalist
@@ -138,7 +139,7 @@ jobs:
             --description "${{ steps.check.outputs.summary }}
 
           ### Why this happens
-          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of push-triggered builds can supersede most pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
+          \`deploy.yml\` only builds; \`deploy-publish.yml\` does the actual publish under a single-slot concurrency group (cancel-in-progress: false). A burst of completed builds (for example recovery or manual dispatches) can supersede pending publish attempts before they ever run — deploy-starvation. Nothing is permanently lost (the next successful publish carries every earlier commit forward), but content can sit invisible for hours.
 
           The summary above says which signal fired. **Publish LAG** means the pipeline may still be moving, just slower than its worst measured legitimate case (~7.6h) — check the cadence before assuming a fault. **Build queue STALLED** means no deploy.yml run is queued, running, or recently active while content waits: the pipeline has stopped, and that is always a real fault.
 
@@ -146,7 +147,7 @@ jobs:
           - \`gh run list --workflow=deploy-publish.yml --repo ${{ github.repository }}\` for a run of skipped/cancelled conclusions in this window.
           - \`gh api repos/${{ github.repository }}/deployments?environment=github-pages\` for the actual publish cadence.
           - If publishes are stuck (not just delayed), investigate \`deploy-publish.yml\`'s concurrency group directly.
-          - On a STALLED verdict, start at the build half instead: \`gh run list --workflow=deploy.yml --repo ${{ github.repository }}\` — if the newest run is hours old and none is in progress, pushes to main have stopped triggering builds at all.
+          - On a STALLED verdict, start at the request/build halves: \`gh run list --workflow=deploy-request.yml --repo ${{ github.repository }}\` and \`gh run list --workflow=deploy.yml --repo ${{ github.repository }}\` — if requests arrive but no dispatch starts, inspect the requester's App-token capability and the build lock.
 
           Note: a github-pages deployment can reach \`success\` server-side even when the \`deploy-publish.yml\` run shows cancelled/failure (issue #987 — \`actions/deploy-pages\` aborts at its 10-min polling cap while Pages finishes the publish anyway). Trust the Deployments API over the run conclusion.
 

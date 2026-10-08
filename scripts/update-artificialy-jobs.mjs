@@ -50,6 +50,7 @@ import {
   inferArtificialyCanton,
   inferArtificialyCategory,
   buildArtificialyLocalizedContent,
+  isArtificialyLinkedInJobUrl,
 } from './lib/artificialy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
@@ -154,10 +155,6 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
-function isLinkedInJobUrl(rawUrl = '') {
-  return /^https?:\/\/(?:[a-z-]+\.)?linkedin\.com\/jobs\/view\//i.test(String(rawUrl || ''));
-}
-
 /**
  * The career page is a listing surface: its cards carry only short summaries.
  * Resolve their LinkedIn detail pages before applying the source-body floor so
@@ -168,7 +165,7 @@ async function enrichArtificialyListings(listings) {
   const stats = { attempted: 0, fetchFailures: 0, selectorMisses: 0 };
 
   for (const listing of listings) {
-    if (meetsSourceBodyFloor(listing?.description || '') || !isLinkedInJobUrl(listing?.applyUrl)) {
+    if (meetsSourceBodyFloor(listing?.description || '') || !isArtificialyLinkedInJobUrl(listing?.applyUrl)) {
       enriched.push(listing);
       continue;
     }

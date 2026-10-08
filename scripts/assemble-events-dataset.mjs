@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scripts/assemble-events-dataset.mjs
  *
@@ -205,6 +207,7 @@ function hasAllowedMirroredSourceImage(ev) {
 export function stripUnauthorizedEventImage(ev) {
   const hasImageFields = ev && [
     'imageUrl', 'imageCredit', 'imageLicense', 'imageLicenseUrl', 'imageAssetId', 'imageProvider',
+    'imageAuthor', 'imageSourcePageUrl', 'imageCopyrightNotice', 'imageAcquireLicensePage', 'imageModifications',
   ].some((field) => Object.prototype.hasOwnProperty.call(ev, field));
   const licensedSourceImage = ev
     && (hasOpenAgendaImageEvidence(ev) || hasAllowedMirroredSourceImage(ev));
@@ -216,6 +219,11 @@ export function stripUnauthorizedEventImage(ev) {
     imageLicenseUrl: _imageLicenseUrl,
     imageAssetId: _imageAssetId,
     imageProvider: _imageProvider,
+    imageAuthor: _imageAuthor,
+    imageSourcePageUrl: _imageSourcePageUrl,
+    imageCopyrightNotice: _imageCopyrightNotice,
+    imageAcquireLicensePage: _imageAcquireLicensePage,
+    imageModifications: _imageModifications,
     ...withoutImage
   } = ev;
   return withoutImage;
@@ -879,7 +887,7 @@ function printStats(events, mergedAway, frontierAttached, cantonless, rewrittenD
 // tests/assemble-events-dedup.test.ts)
 // never runs assemble() as an import side effect and overwrites the tracked
 // data/events.json.
-const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+const isMainModule = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) {
   const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless, rewrittenDescriptions } = assemble();
   console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed; ${invalidRecords} invalid date record(s) skipped) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);

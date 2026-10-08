@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Tio.ch Agenda (events for the whole canton of Ticino).
  *
@@ -627,7 +628,7 @@ async function main() {
 
 // Only crawl when invoked directly (`node scripts/crawl-tio-agenda.mjs`), so
 // tests can import `parseDayHtml` without triggering a live fetch.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[tio-agenda] crawl failed: ${err?.message || err}`);
     process.exit(1);

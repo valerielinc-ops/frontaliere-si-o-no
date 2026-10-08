@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-hardcoded-locale-segments.mjs — guard contro l'antipattern i18n-naming
  * (zero-Claude, deterministico). Escalation lessons-harvester #1529.
@@ -284,6 +286,6 @@ export function main() {
 }
 
 // Esegui il gate solo come entrypoint CLI, non quando importato dai test.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   process.exit(main());
 }

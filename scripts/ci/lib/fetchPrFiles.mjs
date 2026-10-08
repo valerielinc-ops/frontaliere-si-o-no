@@ -48,6 +48,11 @@ export const GRAPHQL_FILES_CAP = 100;
  * mentre gli altri `complete:false` sono condizioni transitorie.
  */
 export const REST_FILES_HARD_CAP = 3000;
+const TRANSIENT_PR_FILE_SNAPSHOT_REASONS = new Set([
+  'list-fetch-failed',
+  'graphql-cap',
+  'short-of-oracle',
+]);
 
 /**
  * @param {number} number - numero PR
@@ -123,6 +128,16 @@ export function fetchPrFiles(number, ghFn, repo) {
   // Unknown non e' completo: e' il verso che tutto questo modulo difende.
   if (cappedExactly && !restConfirmed) complete = false;
   return { files, complete, expected, reason: incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) };
+}
+
+/**
+ * A bounded retry may re-read these incomplete snapshots. The hard REST cap
+ * and unknown reasons are not transiently recoverable and must remain
+ * fail-closed at every consumer.
+ */
+export function isRetryablePrFileSnapshot(snapshot) {
+  return snapshot?.complete !== true
+    && TRANSIENT_PR_FILE_SNAPSHOT_REASONS.has(snapshot?.reason);
 }
 
 /**

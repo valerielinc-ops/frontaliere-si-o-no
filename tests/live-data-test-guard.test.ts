@@ -259,6 +259,14 @@ describe('un test che NON legge dati vivi non puo` stare nell`inventario', () =>
     expect(excludedFromPrGate.has('tests/i18n-completeness.test.ts')).toBe(false);
     expect(monitor.has('tests/i18n-completeness.test.ts')).toBe(true);
   });
+
+  it('mantiene nel gate PR il test che legge solo il sorgente article engine', () => {
+    const file = 'tests/site-rendered-article-sections.test.ts';
+    const exemption = LIVE_DATA_SCAN_EXEMPTIONS.find((entry) => entry.file === file);
+    expect(exemption?.reason).toContain('packages/articles/engine/');
+    expect(KNOWN_LIVE_DATA_TESTS.map((entry) => entry.file)).not.toContain(file);
+    expect(listLiveDataTestsForCi()).not.toContain(file);
+  });
 });
 
 describe('il censimento 2026-09-19 regge le proprie premesse', () => {

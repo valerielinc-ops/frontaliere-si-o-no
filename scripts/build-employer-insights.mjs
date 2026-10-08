@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Build the employer-insights snapshot from a complete, documentable
  * analytics period.
@@ -3895,6 +3897,6 @@ function hasFlag(flag) {
   return argv.includes(flag);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => { console.error(error.message || error); process.exit(1); });
 }

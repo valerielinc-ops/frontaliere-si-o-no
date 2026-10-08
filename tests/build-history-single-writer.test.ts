@@ -208,6 +208,8 @@ const WRITER_FILES = [
   'scripts/lib/configure-main-push-auth.sh',
   'scripts/lib/clear-checkout-git-credentials.sh',
   'scripts/lib/git-push-rejection.sh',
+  'scripts/lib/old-history-guard.mjs',
+  'scripts/lib/single-flight-lock.mjs',
   'scripts/lib/accumulator-byte-floor-guard.mjs',
   'scripts/ci/assert-accumulator-write.mjs',
 ];

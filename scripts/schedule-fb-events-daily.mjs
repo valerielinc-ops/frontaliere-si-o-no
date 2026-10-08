@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Daily Facebook poster for Swiss events, nationwide (chained feature on
  * issue #2963, generalized to all cantons in #3647 — F5/5 of #3125).
@@ -440,7 +441,7 @@ export async function run(opts = {}) {
   return { ok: true, posted, dryRun, payloads };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run()
     .then((r) => process.exit(r.ok ? 0 : 0))
     .catch((err) => {

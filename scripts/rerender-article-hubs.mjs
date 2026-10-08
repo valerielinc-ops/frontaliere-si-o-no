@@ -55,7 +55,11 @@
 // CLI:
 //   npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs \
 //     --section <all|frontaliere|svizzera> --out <scratchDir> --summary <path> \
-//     [--locale <all|it|en|de|fr>] [--dry-run]
+//     [--locale <all|it|en|de|fr>] [--dry-run] [--allow-content-overlay]
+//
+// Content source follows the article rerender contract: CI overlays corpus
+// `main`; a local dry run renders from the checked-out site copy and says so;
+// a real local render requires `--allow-content-overlay`.
 //
 // `--dry-run` renders and VALIDATES and pushes nothing. It is a complete
 // exercise of everything that can go wrong locally, which is why the workflow
@@ -80,6 +84,11 @@ import {
   hubPathsByLocale,
   shardTokenForSection,
 } from './lib/render-and-push-hubs.mjs';
+import {
+  corpusArticleChangeTimestamp,
+  decideCorpusOverlayMode,
+  prepareCorpusContentOverlay,
+} from './lib/article-corpus-overlay.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -101,28 +110,14 @@ const FETCH_HEADERS = {
 };
 
 /**
- * How far behind the published corpus this repo's checked-out registry may be
- * before the push is refused.
- *
- * THE REGRESSION THIS PREVENTS. The archive pages on the shards are written by
- * whoever rendered last, and the corpus's own fast-publish renders from the
- * corpus's registry — always current by construction. This driver renders from
- * THIS repo's `packages/articles/content/`, which is a pull:
- * sync-articles-sitemaps.yml commits it on nanako's `articles-published`
- * dispatch, with a 12-hourly cron as the only backstop. If that pull is stuck
- * and this driver runs anyway, it re-renders an archive that is missing the
- * newest articles and pushes it over a live one that had them — a silent
- * un-publish, and the failure would look exactly like a successful run.
- *
- * The two counts ARE the same measurement when both sides are in sync —
- * measured 2026-08-09 against origin/main e88c4af8, svizzera: the archive
- * listed 649 and `manifest.counts.swissArticles` was 649, to the article. So
- * the tolerance is not slack for a systematic offset, it is slack for
- * TRANSIT: the manifest is read seconds after the render, and a publish
- * landing in between legitimately separates the two. A handful of articles is
- * normal; a pull that is stuck for hours is tens or hundreds.
+ * How far the rendered archive count may differ from the published manifest
+ * before the push is refused. The identity decision below is separate: after
+ * the corpus-main overlay, a small publication handoff can legitimately leave
+ * ids on opposite sides for a short time, but it must never publish either
+ * representation until the handoff converges.
  */
-const MAX_ARTICLES_BEHIND = 25;
+export const MAX_ARTICLES_BEHIND = 25;
+export const MAX_CORPUS_DRIFT_AGE_SECONDS = 24 * 60 * 60;
 
 const publishedSlugsPromiseBySection = new Map();
 
@@ -189,6 +184,124 @@ function unpublishedLocalIds(localRegistry, publishedIds) {
   return Object.keys(localRegistry).filter((id) => !publishedIdSet.has(id));
 }
 
+function driftDetails(missingIds, unpublishedIds) {
+  return [
+    missingIds.length > 0
+      && `published ids absent from corpus main (retired: ${missingIds.join(', ')})`,
+    unpublishedIds.length > 0
+      && `corpus-main ids absent from the published registry (not yet published: ${unpublishedIds.join(', ')})`,
+  ].filter(Boolean).join('; ');
+}
+
+/**
+ * Decide the only safe action for a corpus-main/published registry handoff.
+ * Hub rendering has no supported exclude-id input, so neither side of a
+ * mismatch is rendered selectively: both directions defer while bounded, and
+ * an old, large, or undated handoff fails visibly with the ids named.
+ */
+export function decideCorpusRegistryDrift({
+  section = 'article',
+  localRegistry,
+  publishedIds,
+  changeAtById = {},
+  nowEpochSeconds = Math.floor(Date.now() / 1000),
+  maxDriftIds = MAX_ARTICLES_BEHIND,
+  maxDriftAgeSeconds = MAX_CORPUS_DRIFT_AGE_SECONDS,
+} = {}) {
+  const missingIds = missingPublishedIds(localRegistry, publishedIds);
+  const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
+  const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
+  const details = driftDetails(missingIds, unpublishedIds);
+
+  if (driftIds.length === 0) {
+    return {
+      action: 'proceed',
+      ok: true,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds: [],
+      unknownTimestampIds: [],
+      note: `${section}: corpus-main and published article registries converge`,
+    };
+  }
+
+  // The quantity alone decides: an oversized handoff is refused without
+  // consulting a commit date, each of which is a history lookup for the caller.
+  if (driftIds.length > maxDriftIds) {
+    return {
+      action: 'fail',
+      ok: false,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds: [],
+      unknownTimestampIds: [],
+      note:
+        `${section}: ${details}; drift contains ${driftIds.length} id(s), limit ${maxDriftIds}; `
+        + 'refusing to publish a non-converged client registry',
+    };
+  }
+
+  const timestampFor = (id) => {
+    const value = typeof changeAtById === 'function' ? changeAtById(id) : changeAtById[id];
+    if (value === null || value === undefined || value === '') return null;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) ? numeric : null;
+  };
+  const unknownTimestampIds = driftIds.filter((id) => {
+    const timestamp = timestampFor(id);
+    return timestamp === null || timestamp > nowEpochSeconds;
+  });
+  const staleIds = driftIds.filter((id) => {
+    const timestamp = timestampFor(id);
+    return timestamp !== null && timestamp <= nowEpochSeconds
+      && nowEpochSeconds - timestamp > maxDriftAgeSeconds;
+  });
+  const reasons = [];
+  if (unknownTimestampIds.length > 0) {
+    reasons.push(`no valid corpus commit timestamp for ${unknownTimestampIds.join(', ')}`);
+  }
+  if (staleIds.length > 0) {
+    reasons.push(
+      `handoff is older than ${Math.round(maxDriftAgeSeconds / 3600)} hours for ${staleIds.join(', ')}`,
+    );
+  }
+
+  if (reasons.length > 0) {
+    return {
+      action: 'fail',
+      ok: false,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds,
+      unknownTimestampIds,
+      note:
+        `${section}: ${details}; ${reasons.join('; ')}; `
+        + 'refusing to publish a non-converged client registry',
+    };
+  }
+
+  return {
+    action: 'defer',
+    ok: false,
+    deferred: true,
+    missingIds,
+    unpublishedIds,
+    driftIds,
+    staleIds,
+    unknownTimestampIds,
+    note:
+      `${section}: ${details}; deferring hub rerender until the publication handoff converges `
+      + `(bounded to ${maxDriftIds} IDs and ${Math.round(maxDriftAgeSeconds / 3600)} hours; `
+      + 'no HTML or client chunks will be published)',
+  };
+}
+
 function missingLiveHubSlugs(localRegistry, liveSlugs) {
   const localItalianSlugs = new Set(
     Object.values(localRegistry)
@@ -199,7 +312,14 @@ function missingLiveHubSlugs(localRegistry, liveSlugs) {
 }
 
 function parseArgs(argv) {
-  const out = { section: 'all', locale: 'all', dryRun: false, out: null, summary: null };
+  const out = {
+    section: 'all',
+    locale: 'all',
+    dryRun: false,
+    allowContentOverlay: false,
+    out: null,
+    summary: null,
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--section') out.section = argv[++i];
@@ -207,6 +327,7 @@ function parseArgs(argv) {
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--summary') out.summary = argv[++i];
     else if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
     else {
       console.error(`${LOG} unknown argument "${a}"`);
       process.exit(1);
@@ -425,13 +546,24 @@ function validateRenderedSection({ section, distDir, pathsByLocale, archivePaths
  *
  * The count is only a coarse guard. A published fast-path article can make the
  * live hub and `slugs.json` move ahead without changing the manifest count that
- * this checkout reads. The identity checks below therefore compare the local
- * registry with both published IDs and the cards already served by the hub.
+ * the corpus-main overlay reads. The identity checks below therefore compare
+ * the corpus-main registry with both published IDs and the cards already
+ * served by the hub.
  * Any unreadable external source fails closed: this function authorises a
  * destructive replacement of live bytes, so an unproved snapshot is not safe
  * to publish.
  */
-export async function checkCorpusFreshness(section, itemCount, { localRegistry = readLocalRegistry(section) } = {}) {
+export async function checkCorpusFreshness(
+  section,
+  itemCount,
+  {
+    localRegistry = readLocalRegistry(section),
+    corpusCheckoutDir = null,
+    changeAtById = {},
+    nowEpochSeconds = Math.floor(Date.now() / 1000),
+    articleChangeTimestamp = corpusArticleChangeTimestamp,
+  } = {},
+) {
   let manifest;
   try {
     const res = await fetch(MANIFEST_URL, {
@@ -452,15 +584,6 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     return { ok: false, note: `${section}: manifest carries no usable count — refusing publication without a freshness proof` };
   }
   const behind = published - itemCount;
-  if (behind > MAX_ARTICLES_BEHIND) {
-    return {
-      ok: false,
-      note:
-        `${section}: this checkout's archive lists ${itemCount} articles, the published corpus has ${published} ` +
-        `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}). Refusing to push a stale archive over a fresher live one — ` +
-        'the corpus pull (sync-articles-sitemaps.yml) is behind; re-run this once it has caught up.',
-    };
-  }
 
   let publishedIds;
   try {
@@ -473,55 +596,47 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
   }
   const missingIds = missingPublishedIds(localRegistry, publishedIds);
   const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
-  if (missingIds.length > 0 || unpublishedIds.length > 0) {
-    const mismatchDetails = [
-      missingIds.length > 0 &&
-        `published ids absent locally (${missingIds.slice(0, 5).join(', ')})`,
-      unpublishedIds.length > 0 &&
-        `local ids absent from the published registry (${unpublishedIds.slice(0, 5).join(', ')})`,
-    ].filter(Boolean).join('; ');
-    // A fast-published article can legitimately reach the live registry before
-    // the corpus sync PR lands on this repository. That is not permission to
-    // render or publish this checkout: doing so would remove the newer live
-    // article. It is a safe, observable defer. A bounded one-for-one swap is
-    // the same transit state in both directions: the published manifest and
-    // this render have the same count, but the source registry moved between
-    // snapshots. The corpus sync owns the retirement/addition decision; this
-    // renderer must keep its bytes untouched until that decision converges.
-    // Unbounded or one-sided drift remains a hard failure.
-    if (
-      missingIds.length > 0
-      && missingIds.length <= MAX_ARTICLES_BEHIND
-      && unpublishedIds.length === 0
-    ) {
-      return {
-        ok: false,
-        deferred: true,
-        note:
-          `${section}: published article registry is ahead of this checkout (${mismatchDetails}); ` +
-          `deferring hub rerender until the corpus sync converges (bounded to ${MAX_ARTICLES_BEHIND} IDs)`,
-      };
-    }
-    if (
-      missingIds.length > 0
-      && missingIds.length === unpublishedIds.length
-      && missingIds.length <= MAX_ARTICLES_BEHIND
-      && published === itemCount
-    ) {
-      return {
-        ok: false,
-        deferred: true,
-        note:
-          `${section}: published and local article registries have bounded one-for-one drift (${mismatchDetails}); ` +
-          `deferring hub rerender until the corpus sync converges (no bytes published, tolerance ${MAX_ARTICLES_BEHIND} IDs)`,
-      };
-    }
+  const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
+  // The two quantity limits come first. Neither needs a commit date, and each
+  // date is a history lookup in the blobless corpus clone: a handoff too large
+  // to defer is refused before the first one.
+  if (behind > MAX_ARTICLES_BEHIND) {
+    const identityNote = driftIds.length > 0
+      ? ` Registry drift: ${driftDetails(missingIds, unpublishedIds)}.`
+      : '';
     return {
       ok: false,
       note:
-        `${section}: local and published article registry identities differ (${mismatchDetails}); ` +
-        'refusing to publish a non-converged client registry',
+        `${section}: the corpus-main archive lists ${itemCount} articles, the published corpus has ${published} ` +
+        `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}). Refusing to push a stale archive over a fresher live one — ` +
+        'the published corpus count is too far from the rendered snapshot; refusing the replacement.'
+        + identityNote,
     };
+  }
+  const driftTimestamps = { ...changeAtById };
+  if (driftIds.length <= MAX_ARTICLES_BEHIND) {
+    for (const id of driftIds) {
+      if (Object.prototype.hasOwnProperty.call(driftTimestamps, id) || !corpusCheckoutDir) continue;
+      try {
+        // Twice the tolerated age: enough to tell a recent handoff from a
+        // stale one, without walking the whole registry history.
+        driftTimestamps[id] = articleChangeTimestamp(corpusCheckoutDir, section, id, {
+          sinceEpochSeconds: nowEpochSeconds - 2 * MAX_CORPUS_DRIFT_AGE_SECONDS,
+        });
+      } catch {
+        driftTimestamps[id] = null;
+      }
+    }
+  }
+  const drift = decideCorpusRegistryDrift({
+    section,
+    localRegistry,
+    publishedIds,
+    changeAtById: driftTimestamps,
+    nowEpochSeconds,
+  });
+  if (drift.action !== 'proceed') {
+    return { ok: false, deferred: drift.deferred, note: drift.note };
   }
 
   let liveHub;
@@ -538,7 +653,7 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     return {
       ok: false,
       note:
-        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from this checkout ` +
+        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from corpus main ` +
         `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); refusing to move the client behind the hub`,
     };
   }
@@ -561,108 +676,134 @@ async function main() {
   const t0 = Date.now();
   const leaseRequired = !args.dryRun;
 
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: args.dryRun,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+
   // Refuse an armed direct invocation before rendering or publishing anything.
   // The workflow is the only supported non-dry caller because it owns the
   // shared R2 section lease and its watcher paths.
   assertArticleChunkLease({ required: leaseRequired });
 
-  // Before the first dynamic import of any build plugin — see the function's
-  // own doc comment for why later is a no-op.
-  pinRenderEnv();
-
-  const sections = args.section === 'all' ? SECTIONS : [args.section];
-  const targetLocales = args.locale === 'all' ? LOCALES : [args.locale];
-  const outRoot = path.resolve(args.out);
-  fs.mkdirSync(outRoot, { recursive: true });
-
-  const summary = { generatedAt: new Date().toISOString(), dryRun: args.dryRun, sections: {} };
-  let fatal = false;
-  let deferred = false;
-
-  // The hub HTML and the client registry are two representations of the same
-  // article snapshot. Render and validate every target section before
-  // publishing any client chunk: the corpus-freshness guard needs the rendered
-  // item count, and a stale checkout must not upload a registry only to fail
-  // before its matching hub can be pushed. Once every section has passed its
-  // local and freshness gates, strict companion/registry publication happens
-  // before the shard push so a hub never becomes servable before its matching
-  // client assets exist. On the armed workflow this all runs inside the shared
-  // section lease.
-
-  for (const section of sections) {
-    // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
-    // whole-dist walk and the topic sitemap is written per section, so sharing
-    // one dist across sections would make each section's offload re-walk the
-    // other's pages and give the push fan-out no way to tell them apart.
-    const distDir = path.join(outRoot, section);
-    fs.mkdirSync(distDir, { recursive: true });
-
-    console.log(`${LOG} ── rendering ${section} hubs into ${distDir}`);
-    const { hubResult, topicHubResult } = await renderHubsAndOffload({
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? prepareCorpusContentOverlay({
       rootDir: ROOT_DIR,
-      distDir,
-      section,
+      retainCheckout: true,
       logPrefix: LOG,
-    });
+    })
+    : { commit: null, contentRevision: null, checkoutDir: null, cleanup: null };
+  if (overlayMode.mode === 'local') console.log(`${LOG} ${overlayMode.reason}`);
 
-    const archivePathsByLocale = {};
-    for (const locale of LOCALES) {
-      archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
-    }
-    const pathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
-    const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
-    console.log(
-      `${LOG} ${section}: ${hubResult.written} archive file(s) + ${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
-    );
+  try {
+    // Before the first dynamic import of any build plugin — see the function's
+    // own doc comment for why later is a no-op.
+    pinRenderEnv();
 
-    // A topic-hub render that produced nothing is NOT fatal — step 6b is
-    // non-blocking by contract, and pushing the archive alone still repairs
-    // half the problem. It is loud, though: this driver's whole reason to
-    // exist is that nothing else re-renders the topic hubs at all.
-    if (topicHubResult.written === 0) {
-      console.warn(
-        `::warning::${LOG} ${section}: the topic-hub render produced no files — pushing the archive only`,
-      );
-    }
+    const sections = args.section === 'all' ? SECTIONS : [args.section];
+    const targetLocales = args.locale === 'all' ? LOCALES : [args.locale];
+    const outRoot = path.resolve(args.out);
+    fs.mkdirSync(outRoot, { recursive: true });
 
-    const { errors, notes, itemCount } = validateRenderedSection({
-      section,
-      distDir,
-      pathsByLocale,
-      archivePathsByLocale,
-    });
-    for (const n of notes) console.log(`${LOG} ${n}`);
-
-    const freshness = await checkCorpusFreshness(section, itemCount);
-    console.log(`${LOG} ${freshness.note}`);
-    if (freshness.deferred) {
-      console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
-      deferred = true;
-    } else if (!freshness.ok) {
-      errors.push(freshness.note);
-    }
-
-    if (errors.length > 0) {
-      for (const e of errors) console.error(`::error::${LOG} ${e}`);
-      fatal = true;
-    }
-
-    summary.sections[section] = {
-      shardToken: shardTokenForSection(section),
-      distDir,
-      archiveWritten: hubResult.written,
-      topicHubWritten: topicHubResult.written,
-      archiveLandingByLocale: Object.fromEntries(
-        LOCALES.map((l) => [l, findArchiveLanding(archivePathsByLocale[l])]),
-      ),
-      pathsByLocale,
-      sitemapPath: topicHubResult.sitemapPath ?? null,
-      announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
-      deferred: Boolean(freshness.deferred),
-      freshnessNote: freshness.note,
-      validationErrors: errors,
+    const summary = {
+      generatedAt: new Date().toISOString(),
+      dryRun: args.dryRun,
+      corpusCommit: corpusOverlay.commit,
+      corpusContentRevision: corpusOverlay.contentRevision,
+      contentOverlay: overlayMode,
+      sections: {},
     };
-  }
+    let fatal = false;
+    let deferred = false;
+
+    // The hub HTML and the client registry are two representations of the same
+    // article snapshot. Render and validate every target section before
+    // publishing any client chunk: the corpus-freshness guard needs the rendered
+    // item count, and a non-converged publication handoff must not upload a
+    // registry only to leave its matching hub on another snapshot. Once every
+    // section has passed its local and freshness gates, strict companion/registry
+    // publication happens before the shard push so a hub never becomes servable
+    // before its matching client assets exist. On the armed workflow this all
+    // runs inside the shared section lease.
+
+    for (const section of sections) {
+      // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
+      // whole-dist walk and the topic sitemap is written per section, so sharing
+      // one dist across sections would make each section's offload re-walk the
+      // other's pages and give the push fan-out no way to tell them apart.
+      const distDir = path.join(outRoot, section);
+      fs.mkdirSync(distDir, { recursive: true });
+
+      console.log(`${LOG} ── rendering ${section} hubs into ${distDir}`);
+      const { hubResult, topicHubResult } = await renderHubsAndOffload({
+        rootDir: ROOT_DIR,
+        distDir,
+        section,
+        logPrefix: LOG,
+      });
+
+      const archivePathsByLocale = {};
+      for (const locale of LOCALES) {
+        archivePathsByLocale[locale] = hubResult.pathsByLocale?.[locale] ?? [];
+      }
+      const pathsByLocale = hubPathsByLocale({ hubResult, topicHubResult }, LOCALES);
+      const totalPaths = Object.values(pathsByLocale).reduce((n, l) => n + l.length, 0);
+      console.log(
+        `${LOG} ${section}: ${hubResult.written} archive file(s) + ${topicHubResult.written} topic-hub file(s) written; ${totalPaths} path(s) to push`,
+      );
+
+      // A topic-hub render that produced nothing is NOT fatal — step 6b is
+      // non-blocking by contract, and pushing the archive alone still repairs
+      // half the problem. It is loud, though: this driver's whole reason to
+      // exist is that nothing else re-renders the topic hubs at all.
+      if (topicHubResult.written === 0) {
+        console.warn(
+          `::warning::${LOG} ${section}: the topic-hub render produced no files — pushing the archive only`,
+        );
+      }
+
+      const { errors, notes, itemCount } = validateRenderedSection({
+        section,
+        distDir,
+        pathsByLocale,
+        archivePathsByLocale,
+      });
+      for (const n of notes) console.log(`${LOG} ${n}`);
+
+      const freshness = await checkCorpusFreshness(section, itemCount, {
+        corpusCheckoutDir: corpusOverlay.checkoutDir,
+      });
+      console.log(`${LOG} ${freshness.note}`);
+      if (freshness.deferred) {
+        console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
+        deferred = true;
+      } else if (!freshness.ok) {
+        errors.push(freshness.note);
+      }
+
+      if (errors.length > 0) {
+        for (const e of errors) console.error(`::error::${LOG} ${e}`);
+        fatal = true;
+      }
+
+      summary.sections[section] = {
+        shardToken: shardTokenForSection(section),
+        distDir,
+        archiveWritten: hubResult.written,
+        topicHubWritten: topicHubResult.written,
+        archiveLandingByLocale: Object.fromEntries(
+          LOCALES.map((l) => [l, findArchiveLanding(archivePathsByLocale[l])]),
+        ),
+        pathsByLocale,
+        sitemapPath: topicHubResult.sitemapPath ?? null,
+        announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
+        deferred: Boolean(freshness.deferred),
+        freshnessNote: freshness.note,
+        validationErrors: errors,
+      };
+    }
 
   if (args.summary) {
     const summaryPath = path.resolve(args.summary);
@@ -673,14 +814,14 @@ async function main() {
 
   if (fatal) {
     console.error(`${LOG} validation failed — nothing pushed`);
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
-  // A published-ahead or bounded one-for-one registry mismatch is an expected
-  // handoff between the fast publisher and the corpus-sync PR. Preserve the
-  // strict no-publish decision above, but report it to the workflow as a
-  // successful defer so it does not open a duplicate failure issue while the
-  // sync is converging.
+  // A bounded registry mismatch is an expected handoff between corpus `main`
+  // and the published API. Preserve the strict no-publish decision above, but
+  // report it to the workflow as a successful defer so it does not open a
+  // duplicate failure issue while publication is converging.
   if (deferred) {
     if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
     console.log(`${LOG} freshness deferred — nothing pushed`);
@@ -730,6 +871,7 @@ async function main() {
     targetLocales,
     summary,
     pushScript,
+    articleContentRevision: corpusOverlay.contentRevision,
   });
 
   if (args.summary) {
@@ -737,7 +879,10 @@ async function main() {
   }
 
   console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  if (pushFailed) process.exit(1);
+  if (pushFailed) process.exitCode = 1;
+  } finally {
+    corpusOverlay.cleanup?.();
+  }
 }
 
 /**
@@ -750,6 +895,7 @@ export async function pushRenderedLocales({
   targetLocales,
   summary,
   pushScript,
+  articleContentRevision = '',
   spawn: spawnCommand = spawnAsync,
 }) {
   let pushFailed = false;
@@ -772,7 +918,11 @@ export async function pushRenderedLocales({
       const { status } = await spawnCommand(
         'bash',
         [pushScript, entry.shardToken, locale, entry.distDir, ...relpaths],
-        { stdio: 'inherit', env: process.env, cwd: ROOT_DIR },
+        {
+          stdio: 'inherit',
+          env: { ...process.env, ARTICLE_CONTENT_REVISION: articleContentRevision || '' },
+          cwd: ROOT_DIR,
+        },
       );
       results.push({ locale, status });
     }

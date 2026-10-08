@@ -356,6 +356,33 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
   });
 
+  it('treats SuccessFactors’ French empty picklist as a select in both extension paths', async () => {
+    const { F, document, read } = runnerPage(`<form>
+      <label for="nationality">Nationalité *</label>
+      <input id="nationality" type="text" role="combobox" placeholder="Aucune sélection" aria-owns="nat:_listSelect" aria-required="true" class="rcmpaginatedselectinput">
+      <ul id="nat:_listSelect" role="listbox"></ul>
+      <button type="button">Suivant</button>
+    </form>`, 'https://career2.successfactors.eu/portalcareer');
+    const input = document.getElementById('nationality') as HTMLInputElement;
+    const list = document.getElementById('nat:_listSelect')!;
+    input.addEventListener('click', () => {
+      list.innerHTML = '<li role="option">Aucune sélection</li><li role="option">Italie</li>';
+      list.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => {
+        input.value = option.textContent || '';
+        list.innerHTML = '';
+      }));
+    });
+    const field = read().fields.find((item: any) => /Nationalité/.test(item.label));
+    expect(field).toMatchObject({ kind: 'combobox', selectLike: true, ownedList: 'nat:_listSelect' });
+    const result = await F.fillPage(document, {
+      ...kit,
+      identity: { ...kit.identity, firstName: '', lastName: '', email: '', phone: '' },
+      answers: [{ question: field.label, answer: 'Italie', source: 'answers' }],
+    }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(input.value).toBe('Italie');
+    expect(result.missing).toEqual([]);
+  });
+
   /** A page with the runner's reading and the engine, every element laid out as in a browser. */
   function runnerPage(html: string, url: string) {
     const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url, runScripts: 'outside-only' });

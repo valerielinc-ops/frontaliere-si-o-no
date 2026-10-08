@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * clean-registry-source-copies.mjs — one-shot bonifica of poisoned slug-registry
  * entries (follow-up of the previousSlugs / registryPinnedLocaleSlug fix,
@@ -137,6 +139,6 @@ function main() {
 }
 
 // Allow importing cleanRegistrySourceCopies without running main (tests).
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

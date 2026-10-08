@@ -1,4 +1,8 @@
 name: Runtime reliability watchdog
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Runtime reliability watchdog [loop-clock {0}]', inputs.loop_clock) || 'Runtime reliability watchdog' }}
 
 # Detects the production failure mode that a normal 200 probe cannot see:
 # stable CDN asset URLs still serving a previous edge object next to the new
@@ -48,7 +52,20 @@ on:
   # two deploy triggers above are the real latency fix.
   schedule:
     - cron: '*/15 * * * *'
-  workflow_dispatch: {}
+  # The deploy triggers only see what a deploy changes. The fast emitters
+  # (single-article publish, corpus and hub re-render) change published HTML
+  # between deploys, and a deploy that is superseded skips this job: on
+  # 2026-10-07 every re-rendered article page loaded a script the CDN did not
+  # have for 2 h 40 min while this workflow did not run once in five hours
+  # (#12270). The external loop clock (functions/src/loopClockTable.js) gives
+  # it a real cadence, dispatched like the manual run below.
+  workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        default: ''
+        type: string
 
 # `workflow_run` fires on every completion of the build, including the ones
 # deploy.yml's newest-wins lock cancels (121 of 141 in 48 h, #5251) and the
@@ -308,6 +325,7 @@ jobs:
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail when runtime remains degraded
+        id: runtime_degraded_verdict
         if: steps.verify.outputs.exit_code != '0'
         run: |
           echo "::error::Runtime reliability watchdog remains degraded after safe targeted repair attempt"

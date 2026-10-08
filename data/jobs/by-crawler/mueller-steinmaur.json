@@ -1,10 +1,8 @@
 {
-  "crawlerKey": "mueller-steinmaur",
-  "assembledAt": "2026-10-07T09:18:20.147Z",
   "jobs": [
     {
       "id": "mueller-steinmaur-510b014742eb",
-      "slug": "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich",
+      "slug": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
       "slugByLocale": {
         "it": "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich",
         "en": "operational-mechanic-agricultural-machinery-mechanic-50-100-mueller-steinmaur-steinmaur-zurich",
@@ -33,7 +31,7 @@
       "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "source": "mueller-steinmaur Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:16.168Z",
+      "crawledAt": "2026-10-07T21:17:40.274Z",
       "addressLocality": "Steinmaur",
       "addressRegion": "Zürich",
       "addressCountry": "Schweiz",
@@ -53,36 +51,7 @@
       "applyUrl": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
-        "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
-          "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich"
-        ],
-        "en": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-        ],
-        "fr": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T15:58:11.754Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "firstSeenAt": "2026-09-21T15:58:11.754Z"
     }
   ]
 }

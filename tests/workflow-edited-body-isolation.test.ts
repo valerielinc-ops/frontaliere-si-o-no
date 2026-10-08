@@ -185,7 +185,10 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     // quella.
     expect(workflow.on.pull_request.types).not.toContain('edited');
     expect(workflow.on.pull_request.types).toContain('synchronize');
-    expect(workflow.on.workflow_dispatch).toBeUndefined();
+    // Il retest manuale/rebase identifica la PR, mentre il producer redcheck
+    // lega la run risultante alla HEAD corrente prima di dispatchare il fixer.
+    // Non accettare mai una SHA libera come input del workflow trusted.
+    expect(workflow.on.workflow_dispatch.inputs.pr.required).toBe(true);
     expect(readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8')).not.toContain('inputs.head_sha');
     expect(workflow.concurrency.group).not.toContain('inputs.head_sha');
     const recoveryWorkflowCheckout = job.steps.find((step: { uses?: string }) => step.uses?.startsWith('actions/checkout@')) as { with?: Record<string, string> } | undefined;

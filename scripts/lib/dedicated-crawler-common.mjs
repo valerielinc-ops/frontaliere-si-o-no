@@ -7051,6 +7051,20 @@ export function isLocationExplicitlyForeign(locationField) {
   return hasWholeWordMarker(lower, 'foreign-cities', foreignCities);
 }
 
+/**
+ * Check for an explicit foreign-country signal without treating a known
+ * foreign city name as sufficient evidence on its own. Composite office
+ * lists need this stricter distinction: a bare city can be an ambiguous
+ * unclassified component, while a country label/code proves that component
+ * is foreign.
+ */
+export function hasExplicitForeignCountrySignal(locationField) {
+  const lower = String(locationField || '').toLowerCase();
+  const bareCode = lower.trim().toUpperCase();
+  if (FOREIGN_COUNTRY_CODES.includes(bareCode)) return true;
+  return EXPLICIT_FOREIGN_COUNTRY_RE.test(lower) || hasExplicitForeignCountryCode(lower);
+}
+
 // A SuccessFactors / SAP "career site" job page (used by Swatch Group, Omega,
 // Longines, …) renders a structured address as:
 //   "Job location <street> <zip city state> <Country> Company address <HQ block>"

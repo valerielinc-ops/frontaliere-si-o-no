@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-10-07T09:43:12.296Z",
+  "generatedAt": "2026-10-07T21:51:14.665Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9384,
-  "avgDurationMs": 9384,
+  "durationMs": 12384,
+  "avgDurationMs": 12384,
   "durationHistory": [
-    9384
+    12384
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-19T12:39:04+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.752Z",
+      "crawledAt": "2026-10-07T21:51:04.842Z",
       "postalCode": "6874",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -87,7 +87,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.756Z",
+      "crawledAt": "2026-10-07T21:51:04.846Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -129,7 +129,7 @@
       "firstSeenAt": "2026-10-03T09:31:28.506Z",
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.748Z",
+      "crawledAt": "2026-10-07T21:51:04.837Z",
       "postalCode": "6874",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -169,7 +169,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.750Z",
+      "crawledAt": "2026-10-07T21:51:04.840Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -209,7 +209,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-11T17:56:17+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.754Z",
+      "crawledAt": "2026-10-07T21:51:04.844Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -249,7 +249,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-30T18:17:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.755Z",
+      "crawledAt": "2026-10-07T21:51:04.846Z",
       "postalCode": "6874",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -291,7 +291,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-07T09:42:59.757Z",
+      "crawledAt": "2026-10-07T21:51:04.847Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -301,5 +301,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

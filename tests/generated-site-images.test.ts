@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import { AUTHORS } from '../data/authors';
 import { verifyPublishedGeneratedSiteImages } from '../scripts/lib/generated-site-images.mjs';
-import { isPrivateGrantImageRecord } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import {
+  isPrivateGrantImageRecord,
+  validateGeneratedImageRegistry,
+} from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 describe('published editorial and place image registry', () => {
   it('covers every published author/place WebP and matches its bytes', async () => {
@@ -24,7 +29,7 @@ describe('published editorial and place image registry', () => {
         expect(isPrivateGrantImageRecord(record)).toBe(true);
         expect(record?.license).toBe('private-grant');
         expect(record?.provider).toBe('site-owned');
-        expect(record?.note).toBe('ritratto fornito dall\'autore; consenso da confermare dal proprietario');
+        expect(record?.note).toBe('ritratto, CV e LinkedIn forniti dall\'autore; consenso confermato dal proprietario il 2026-10-06');
       } else {
         expect(record?.license).toBe('generated-provider');
         expect(record?.provider).toBe('openai-codex');
@@ -33,5 +38,29 @@ describe('published editorial and place image registry', () => {
 
     expect(places.filter((record) => record.width === 1200 && record.height === 675)).toHaveLength(16);
     expect(places.filter((record) => record.width === 480 && record.height === 270)).toHaveLength(16);
+  });
+
+  it('registers the six site-owned publisher logo variants as private assets', () => {
+    const registry = JSON.parse(fs.readFileSync(
+      path.join(process.cwd(), 'data', 'generated-image-registry.json'),
+      'utf8',
+    ));
+    const validation = validateGeneratedImageRegistry(registry);
+    expect(validation.valid, validation.errors.join('\n')).toBe(true);
+    const publishers = registry.assets.filter((record: { scope?: string }) => record.scope === 'publisher');
+    expect(publishers).toHaveLength(6);
+    expect(publishers.every((record: { license: string; provider: string; note?: string; generatedAt?: string }) => (
+      isPrivateGrantImageRecord(record)
+      && record.note?.includes('scripts/generate-publisher-logos.mjs')
+      && !record.generatedAt
+    ))).toBe(true);
+    expect(new Set(publishers.map((record: { imageUrl: string }) => record.imageUrl))).toEqual(new Set([
+      '/images/publisher/logo-rect-400.png',
+      '/images/publisher/logo-rect-400.webp',
+      '/images/publisher/logo-square-1000.png',
+      '/images/publisher/logo-square-1000.webp',
+      '/images/publisher/logo-square-512.png',
+      '/images/publisher/logo-square-512.webp',
+    ]));
   });
 });

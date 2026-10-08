@@ -101,6 +101,11 @@ export interface OrganizationIdentityInput {
   '@type'?: unknown;
 }
 
+export interface OrganizationIdentityOptions {
+  /** Name-only entities need an explicit opt-in when the source has no anchor. */
+  readonly allowNameOnlyFallback?: boolean;
+}
+
 /**
  * Resolve the stable identifier for a JSON-LD Organization node.
  *
@@ -111,7 +116,10 @@ export interface OrganizationIdentityInput {
  * The site name without a URL is deliberately left anonymous: a same-name
  * newsroom supplied by an external source must not be merged into the site.
  */
-export function stableOrganizationId(record: OrganizationIdentityInput): string | undefined {
+export function stableOrganizationId(
+  record: OrganizationIdentityInput,
+  options: OrganizationIdentityOptions = {},
+): string | undefined {
   const name = typeof record.name === 'string' ? record.name.trim() : '';
   const url = httpUrl(record.url);
   const siteOwnedUrl = Boolean(url && url.startsWith(SITE_URL));
@@ -131,6 +139,7 @@ export function stableOrganizationId(record: OrganizationIdentityInput): string 
   // Unknown-author is a placeholder, not an entity that a crawler can merge.
   if (!name || name.toLowerCase() === 'unknown author') return undefined;
   if (name === SITE_ORGANIZATION_NAME) return undefined;
+  if (options.allowNameOnlyFallback === false) return undefined;
 
   const key = organizationNameKey(name);
   return key ? `${ORGANIZATION_ID_PREFIX}${key}` : undefined;
@@ -148,23 +157,21 @@ function isOrganizationRecord(record: Record<string, unknown>): boolean {
  * serializer, including article-engine emitters that cannot import the site's
  * larger schema normalizer because of the package boundary.
  */
-export function normalizeOrganizationIdentities<T>(value: T): T {
+export function normalizeOrganizationIdentities<T>(
+  value: T,
+  options: OrganizationIdentityOptions = {},
+): T {
   if (Array.isArray(value)) {
-    return value.map((item) => normalizeOrganizationIdentities(item)) as T;
+    return value.map((item) => normalizeOrganizationIdentities(item, options)) as T;
   }
   if (!value || typeof value !== 'object') return value;
 
   const cloned: Record<string, unknown> = {};
   for (const [key, nested] of Object.entries(value as Record<string, unknown>)) {
-    cloned[key] = normalizeOrganizationIdentities(nested);
-  }
-  if (isOrganizationRecord(cloned) && !stableOrganizationId(cloned)) {
-    // `stableOrganizationId` returns the explicit ID for identified nodes, so
-    // this branch only handles empty/invalid records and keeps them as-is.
-    return cloned as T;
+    cloned[key] = normalizeOrganizationIdentities(nested, options);
   }
   if (isOrganizationRecord(cloned)) {
-    const id = stableOrganizationId(cloned);
+    const id = stableOrganizationId(cloned, options);
     if (id) cloned['@id'] = id;
   }
   return cloned as T;

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * collect-followup-batch.mjs — produce the FINAL batch of merged PRs to triage in
  * ONE scheduled Claude session (zero-Claude, deterministico).
@@ -1207,7 +1209,7 @@ export function verifyPersistenceCli(prNumbers, {
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
 // An uncaught collection error emits an explicit failed output and exits nonzero;
 // the workflow verifier then fails the job, so the success watermark cannot advance.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   if (process.argv[2] === '--verify-persistence') {
     const prs = process.argv.slice(3).flatMap((arg) => arg.split(',')).map((s) => s.trim()).filter(Boolean);
     process.exitCode = verifyPersistenceCli(prs) ? 0 : 1;

@@ -106,7 +106,6 @@ function sourceNeedsGuardAst(source: string) {
   const remaining = factsForSource(withoutCanonicalGuards);
   return remaining.arg && (remaining.meta || remaining.marker);
 }
-
 function mergeFacts(target: GuardFacts, source: GuardFacts) {
   target.arg ||= source.arg;
   target.meta ||= source.meta;
@@ -288,7 +287,6 @@ describe('guard di entrypoint canonico (#7292)', () => {
     expect(sourceNeedsGuardAst(canonical)).toBe(false);
     expect(sourceNeedsGuardAst(`${canonical}; process.argv[1]?.endsWith('worker.mjs')`)).toBe(true);
   });
-
   it('la forma a due lati esegue dal symlink e non dall\'omonimo', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'entrypoint-guard-'));
     const moduleDir = path.join(dir, 'real');

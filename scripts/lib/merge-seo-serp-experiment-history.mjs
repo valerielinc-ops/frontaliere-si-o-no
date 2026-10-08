@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import { readGitBlob } from './read-git-blob.mjs';
 
@@ -38,7 +40,7 @@ function readGitFile(ref, file) {
   return JSON.parse(readGitBlob(ref, file));
 }
 
-if (process.argv[1] && process.argv[1].endsWith('merge-seo-serp-experiment-history.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const [, , sourceRef, targetFile = 'data/seo-serp-experiment-history.json'] = process.argv;
   if (!sourceRef) throw new Error('usage: merge-seo-serp-experiment-history.mjs <source-ref> [file]');
   const current = fs.existsSync(targetFile) ? JSON.parse(fs.readFileSync(targetFile, 'utf8')) : {};

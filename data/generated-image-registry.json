@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "registry": "editorial-profile-and-place-images",
-  "assetCount": 36,
+  "assetCount": 42,
   "generatedAt": "2026-10-06T19:39:59.463Z",
   "assets": [
     {
@@ -1383,6 +1383,96 @@
         "looks_like_specific_real_event": false,
         "notes": "Illustrazione paesaggistica generica, senza testo, loghi, volti riconoscibili o riferimenti a eventi reali specifici."
       }
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-rect-400-png",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "31a5ba79a954b2c68b5a4359656017a1506923f756b758cbb20853424f5c0d7d",
+      "bytes": 4322,
+      "width": 400,
+      "height": 80,
+      "format": "png",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-rect-400.png"
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-rect-400-webp",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "b2a73d517ef5d45fab38c96ac92c6a028fdfb92eff4aa91cb64ecbdbbddaecc5",
+      "bytes": 2598,
+      "width": 400,
+      "height": 80,
+      "format": "webp",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-rect-400.webp"
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-square-1000-png",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "5f61ae65c2c2a401ec67f72dd396846577601a207cbda76c31d3e9e508c5495f",
+      "bytes": 46965,
+      "width": 1000,
+      "height": 1000,
+      "format": "png",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-square-1000.png"
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-square-1000-webp",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "6fdca0ae441e9a31c687d54e777e7636883388a86e492e9612c5b60fa37ad60f",
+      "bytes": 10124,
+      "width": 1000,
+      "height": 1000,
+      "format": "webp",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-square-1000.webp"
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-square-512-png",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "1e293e451297cdd6398f2ab5462b0ad8d6c8d437ec68074e9a83dca257bd4229",
+      "bytes": 17894,
+      "width": 512,
+      "height": 512,
+      "format": "png",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-square-512.png"
+    },
+    {
+      "schema": 1,
+      "assetId": "publisher-logo-square-512-webp",
+      "provider": "site-owned",
+      "license": "private-grant",
+      "credit": "frontaliereticino.ch",
+      "note": "Asset proprietario generato da scripts/generate-publisher-logos.mjs con SVG inline del sito; introdotto nel commit 393411f5697.",
+      "sha256": "57f70a71bca4d7824d906cfa7ab522808383f27ebabde4374a45d6de07d4b8a7",
+      "bytes": 4858,
+      "width": 512,
+      "height": 512,
+      "format": "webp",
+      "scope": "publisher",
+      "imageUrl": "/images/publisher/logo-square-512.webp"
     }
   ]
 }
