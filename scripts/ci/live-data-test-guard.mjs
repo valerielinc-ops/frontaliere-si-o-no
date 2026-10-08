@@ -568,7 +568,7 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // file era nell'inventario per intero: la PR 12251 ha aggiunto un import al
   // pubblicatore senza eseguire il caso che tiene completo l'elenco del suo
   // codice, rimasto rosso su main fino a questa riclassificazione.
-  { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "replay", runtime: true },
+  { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/", "public/news-ticker-live.json"], since: "2026-10-08", evidence: "replay", runtime: true },
   { file: "tests/cf-hot-404-bridge.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/cippatrasporti-crawler.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/crawler-brand-domain-pairing.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
