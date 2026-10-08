@@ -1973,12 +1973,12 @@
     },
     {
       "id": "gkb-3edd13b93955",
-      "slug": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
+      "slug": "senior-product-manager-finanziamenti-60-100-graubundner-kantonalbank-chur",
       "slugByLocale": {
-        "it": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
-        "en": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
+        "it": "senior-product-manager-finanziamenti-60-100-graubundner-kantonalbank-chur",
+        "en": "senior-product-manager-financing-60-100-graubundner-kantonalbank-chur",
         "de": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
-        "fr": "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        "fr": "senior-product-manager-financement-60-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -2023,7 +2023,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -2037,7 +2036,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        ],
+        "en": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        ],
+        "fr": [
+          "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
+      ]
     },
     {
       "id": "gkb-5d333d7de515",

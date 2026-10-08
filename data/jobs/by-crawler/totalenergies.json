@@ -638,7 +638,7 @@
       "slugByLocale": {
         "en": "gas-power-emissions-gpe-shift-operator-totalenergies-geneve",
         "it": "gas-power-emissions-gpe-shift-operator-totalenergies-geneve",
-        "de": "gas-power-emissions-gpe-shift-operator-totalenergies-geneve",
+        "de": "schichtoperator-gas-strom-emissionen-gpe-totalenergies-geneve",
         "fr": "gas-power-emissions-gpe-shift-operator-totalenergies-geneve"
       },
       "company": "TotalEnergies",
@@ -687,7 +687,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",

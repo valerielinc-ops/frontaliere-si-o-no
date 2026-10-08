@@ -3332,7 +3332,7 @@
           "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:07:51.380Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -3348,7 +3348,8 @@
         }
       },
       "postalCode": "4303",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 0
     },
     {
       "id": "roche-d3397433e757",
@@ -9644,8 +9645,8 @@
       "slugByLocale": {
         "de": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch",
         "it": "qc-gmp-expert-in-per-nextlab-befristet-auf-2-jahre-roche-kaiseraugst",
-        "en": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch",
-        "fr": "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        "en": "qc-gmp-expert-for-nextlab-limited-to-2-years-roche-kaiseraugst",
+        "fr": "expert-en-bpf-du-qc-pour-nextlab-limite-a-2-ans-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9690,6 +9691,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        ],
+        "en": [
+          "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
+        ],
+        "fr": [
           "qc-gmp-expert-in-fur-nextlab-befristet-auf-2-jahre-roche-ch"
         ]
       },
@@ -9763,7 +9770,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",

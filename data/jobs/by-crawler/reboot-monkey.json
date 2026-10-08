@@ -8255,9 +8255,9 @@
     },
     {
       "id": "reboot-monkey-c665a63f0127",
-      "slug": "data-center-technician-jura-on-site-reboot-monkey-jura",
+      "slug": "tecnico-del-data-center-jura-in-sede-reboot-monkey-jura",
       "slugByLocale": {
-        "it": "data-center-technician-jura-on-site-reboot-monkey-jura",
+        "it": "tecnico-del-data-center-jura-in-sede-reboot-monkey-jura",
         "en": "data-center-technician-jura-on-site-reboot-monkey-jura",
         "de": "data-center-technician-jura-on-site-reboot-monkey-jura",
         "fr": "technicien-de-centre-de-donnees-jura-on-site-reboot-monkey-jura"
@@ -8331,7 +8331,6 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -8345,7 +8344,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "JU"
+      "addressRegion": "JU",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-technician-jura-on-site-reboot-monkey-jura"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-technician-jura-on-site-reboot-monkey-jura"
+      ]
     },
     {
       "id": "reboot-monkey-30dceeb6678f",

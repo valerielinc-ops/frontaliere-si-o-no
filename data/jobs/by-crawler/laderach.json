@@ -9,7 +9,7 @@
         "it": "risorse-umane-generalist-m-w-d-befristet-con-option-auf-festanstellung-laderach-schweiz-ag-glarus",
         "en": "hr-generalist-m-f-d-temporary-with-permanent-employment-option-laderach-schweiz-ag-glarus",
         "de": "hr-generalist-w-m-d-befristet-mit-option-auf-festanstellung-laderach-glarus",
-        "fr": "hr-generalist-w-m-d-befristet-mit-option-auf-festanstellung-laderach-glarus"
+        "fr": "generaliste-rh-h-f-d-a-duree-determinee-avec-possibilite-d-engagement-fixe-laderach-schweiz-ag-glarus"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -55,9 +55,11 @@
         ],
         "en": [
           "hr-generalist-w-m-d-befristet-mit-option-auf-festanstellung-laderach-glarus"
+        ],
+        "fr": [
+          "hr-generalist-w-m-d-befristet-mit-option-auf-festanstellung-laderach-glarus"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -380,7 +382,7 @@
       "slug": "stv-branch-manager-chocolaterie-landquart-outlet-m-f-d-laderach-schweiz-ag-landquart",
       "slugByLocale": {
         "it": "stv-branch-manager-chocolaterie-landquart-outlet-m-f-d-laderach-schweiz-ag-landquart",
-        "en": "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart",
+        "en": "deputy-store-manager-chocolaterie-landquart-outlet-m-f-d-laderach-schweiz-ag-landquart",
         "de": "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart",
         "fr": "stv-gestionnaire-de-succursale-chocolaterie-landquart-outlet-h-f-d-laderach-schweiz-ag-landquart"
       },
@@ -425,9 +427,11 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart"
+        ],
+        "en": [
+          "stv-filialleiter-chocolaterie-landquart-outlet-w-m-d-laderach-landquart"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 153000,
       "salarySource": "estimated",

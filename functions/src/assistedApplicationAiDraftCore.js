@@ -9,6 +9,7 @@ import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assiste
 import { sanitizeValidation } from './lib/answerRules.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
+import { SALUTATIONS } from './lib/personalFacts.js';
 
 export const LETTER_FILE_LABEL = {
   it: 'Lettera di presentazione',
@@ -244,10 +245,10 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
 }
 
 const SALUTATION_QUESTION = {
-  it: { question: 'Come vuoi essere indicato nei moduli di candidatura?', why: 'Molti portali lo chiedono come campo obbligatorio (Signor / Signora).', options: ['Signor', 'Signora', 'Altro'] },
-  de: { question: 'Welche Anrede sollen wir in Bewerbungsformularen angeben?', why: 'Viele Portale verlangen sie als Pflichtfeld (Herr / Frau).', options: ['Herr', 'Frau', 'Andere'] },
-  fr: { question: 'Quelle civilité indiquer dans les formulaires de candidature ?', why: 'Beaucoup de portails la demandent comme champ obligatoire (Monsieur / Madame).', options: ['Monsieur', 'Madame', 'Autre'] },
-  en: { question: 'Which form of address should we give in application forms?', why: 'Many portals ask for it as a required field (Mr / Ms).', options: ['Mr', 'Ms', 'Other'] },
+  it: { question: 'Come vuoi essere indicato nei moduli di candidatura?', why: 'Molti portali lo chiedono come campo obbligatorio (Signor / Signora).', options: SALUTATIONS.it },
+  de: { question: 'Welche Anrede sollen wir in Bewerbungsformularen angeben?', why: 'Viele Portale verlangen sie als Pflichtfeld (Herr / Frau).', options: SALUTATIONS.de },
+  fr: { question: 'Quelle civilité indiquer dans les formulaires de candidature ?', why: 'Beaucoup de portails la demandent comme champ obligatoire (Monsieur / Madame).', options: SALUTATIONS.fr },
+  en: { question: 'Which form of address should we give in application forms?', why: 'Many portals ask for it as a required field (Mr / Ms).', options: SALUTATIONS.en },
 };
 // A question that already asks the form of address (the portal's own, read ahead): by a word that
 // names it, or by its options. Never the bare word "title"/"titolo": «What is your job title?» asks
@@ -260,16 +261,22 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; nothing in a CV says it and
- * it is never guessed from the first name, so it used to come back as a second
- * round at submit time. Optional: a candidate who does not answer is not held,
- * and the portal's own question then comes at submit time as before. Never for
- * an e-mail application, nor when a question already asks it.
+ * Other», as most Swiss portals require «Anrede»; it is never guessed from the
+ * first name, so it used to come back as a second round at submit time.
+ * Optional: a candidate who does not answer is not held, and the portal's own
+ * question then comes at submit time as before. Never for an e-mail
+ * application, nor when a question already asks it, nor when the candidate
+ * has said it: by an answer, or in their CV's own words («Né le», «Mariée»:
+ * lib/personalFacts.js; `answers.salutation` then holds it, see
+ * candidateWithEdits). Nor when they corrected the field on the review page
+ * (`corrected`), even to nothing: asked again, the question would bring an
+ * older answer back in place of what they chose.
  * @returns {object|null} the question for the review page
  */
-export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it' }) {
+export function salutationQuestion({ channel, questions = [], answers = {}, locale = 'it', corrected = false }) {
   const type = String(channel?.type || '').trim().toLowerCase();
   if (!type || type === 'email' || type === 'unknown') return null;
+  if (corrected) return null;
   if (String(answers?.salutation ?? '').trim()) return null;
   if (questions.some((question) => question?.id === 'salutation' || asksSalutation(question))) return null;
   // "de-CH", "fr-CH": the language of the locale.
@@ -364,8 +371,11 @@ function field(key, label, value, { needsConfirmation = false, note = '' } = {})
  * Standard portal fields, in the order most forms ask them. Legal, salary and
  * availability answers come from the profile or the candidate's answers only.
  * `locale`: the candidate's, for the permit status they chose.
+ * `personal`: the form of address and the civil status the candidate gave or
+ * their CV states (candidateWithEdits). Each is a field only when known: one
+ * the CV does not state is never an empty box to fill.
  */
-export function buildFormAnswers({ identity, profile, documents, answers = {}, locale = 'it' }) {
+export function buildFormAnswers({ identity, profile, documents, answers = {}, locale = 'it', personal = {} }) {
   // The split the candidate chose on the review page, else the last word is the surname.
   const { firstName, lastName } = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const languages = (profile?.languages || []).map((item) => [item.language, item.level].filter(Boolean).join(' ')).filter(Boolean).join(', ');
@@ -373,7 +383,10 @@ export function buildFormAnswers({ identity, profile, documents, answers = {}, l
   const permit = permitLabel(clean(answers.work_permit, 200), locale) || profile?.workPermit || '';
   const availability = clean(answers.availability, 200) || profile?.availability || '';
   const salary = clean(answers.salary_expectation, 200);
+  const salutation = clean(personal?.salutation, 40);
+  const civilStatus = clean(personal?.civilStatus, 60);
   return [
+    ...(salutation ? [field('salutation', 'Appellativo', salutation)] : []),
     field('firstName', 'Nome', firstName),
     field('lastName', 'Cognome', lastName),
     field('email', 'Email', identity.email),
@@ -382,6 +395,7 @@ export function buildFormAnswers({ identity, profile, documents, answers = {}, l
     field('linkedin', 'LinkedIn', profile?.linkedin || ''),
     field('dateOfBirth', 'Data di nascita', profile?.dateOfBirth || ''),
     field('nationality', 'Nazionalità', profile?.nationality || ''),
+    ...(civilStatus ? [field('civilStatus', 'Stato civile', civilStatus)] : []),
     field('workPermit', 'Permesso di lavoro', permit, { needsConfirmation: !permit, note: permit ? '' : 'Da chiedere al candidato.' }),
     field('availability', 'Disponibilità / preavviso', availability, { needsConfirmation: !availability }),
     field('salary', 'Pretese salariali', salary, { needsConfirmation: !salary, note: salary ? '' : 'Mai inventate.' }),

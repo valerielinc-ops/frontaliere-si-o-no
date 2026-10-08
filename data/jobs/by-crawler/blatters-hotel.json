@@ -243,11 +243,11 @@
     },
     {
       "id": "blatters-hotel-d90e5bce2e58",
-      "slug": "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch",
+      "slug": "2-responsabile-di-servizio-chef-de-rang-blatter-arosa",
       "slugByLocale": {
         "de": "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch",
-        "it": "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch",
-        "en": "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch",
+        "it": "2-responsabile-di-servizio-chef-de-rang-blatter-arosa",
+        "en": "2-head-waiter-station-waiter-blatter-arosa",
         "fr": "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch"
       },
       "company": "Blatter",
@@ -307,7 +307,18 @@
         }
       },
       "postalCode": "7050",
-      "firstSeenAt": "2026-10-07T21:15:13.846Z"
+      "firstSeenAt": "2026-10-07T21:15:13.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch"
+        ],
+        "en": [
+          "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "2-chef-de-service-chef-de-rang-arosa-blatters-hotel-ch"
+      ]
     }
   ]
 }

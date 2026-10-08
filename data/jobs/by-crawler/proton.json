@@ -706,7 +706,7 @@
       },
       "firstSeenAt": "2026-09-26T14:07:26.125Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "proton-7c807d1d269c",
@@ -758,7 +758,7 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T12:41:17.657Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "proton-5ea14660b21d",
@@ -1283,9 +1283,9 @@
     },
     {
       "id": "proton-375e455f983d",
-      "slug": "business-development-manager-proton-ch",
+      "slug": "responsabile-dello-sviluppo-commerciale-proton-geneva",
       "slugByLocale": {
-        "it": "business-development-manager-proton-ch",
+        "it": "responsabile-dello-sviluppo-commerciale-proton-geneva",
         "en": "business-development-manager-proton-ch",
         "de": "geschaftsentwicklungsleiter-proton-geneva",
         "fr": "directeur-du-developpement-des-affaires-proton-geneva-zurich"
@@ -1330,11 +1330,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-proton-geneva"
+        "business-development-manager-proton-geneva",
+        "business-development-manager-proton-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "business-development-manager-proton-geneva"
+        ],
+        "it": [
+          "business-development-manager-proton-ch"
         ]
       },
       "needsRetranslation": true,

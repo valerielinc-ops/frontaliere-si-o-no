@@ -394,7 +394,7 @@
       "slug": "bar-service-collaboratore-trice-aushilfe-zfv-unternehmungen-horw",
       "slugByLocale": {
         "it": "bar-service-collaboratore-trice-aushilfe-zfv-unternehmungen-horw",
-        "en": "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-horw",
+        "en": "bar-service-employee-temporary-staff-zfv-unternehmungen-horw",
         "de": "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-horw",
         "fr": "bar-service-collaborateur-trice-aushilfe-zfv-unternehmungen-horw"
       },
@@ -448,6 +448,9 @@
           "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-horw"
         ],
         "fr": [
+          "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-horw"
+        ],
+        "en": [
           "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-horw"
         ]
       },
@@ -2738,7 +2741,6 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
         "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
@@ -4552,12 +4554,12 @@
     },
     {
       "id": "zfv-unternehmungen-5faf466ed917",
-      "slug": "management-praktikant-in-zfv-unternehmungen-zurich",
+      "slug": "stagista-in-ambito-management-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "management-praktikant-in-zfv-unternehmungen-zurich",
-        "en": "management-praktikant-in-zfv-unternehmungen-zurich",
+        "it": "stagista-in-ambito-management-zfv-unternehmungen-zurich",
+        "en": "management-intern-zfv-unternehmungen-zurich",
         "de": "management-praktikant-in-zfv-unternehmungen-zurich",
-        "fr": "management-praktikant-in-zfv-unternehmungen-zurich"
+        "fr": "stagiaire-en-management-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4582,7 +4584,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-07T21:28:17.759Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Flüelastrasse 51",
@@ -4613,7 +4614,21 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "management-praktikant-in-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "management-praktikant-in-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-9784b0ca162d",

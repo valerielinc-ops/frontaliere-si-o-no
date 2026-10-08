@@ -55,12 +55,12 @@
     },
     {
       "id": "migrolino-1885e3187a77",
-      "slug": "verkaufsmitarbeiter-in-migrolino-zurich",
+      "slug": "addetto-a-alle-vendite-migrolino-zurich",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-migrolino-zurich",
-        "en": "verkaufsmitarbeiter-in-migrolino-zurich",
+        "it": "addetto-a-alle-vendite-migrolino-zurich",
+        "en": "sales-associate-migrolino-zurich",
         "de": "verkaufsmitarbeiter-in-migrolino-zurich",
-        "fr": "verkaufsmitarbeiter-in-migrolino-zurich"
+        "fr": "employe-e-de-vente-migrolino-zurich"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -103,7 +103,21 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/dff799cb-4396-47ff-badb-481627862e74",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-migrolino-zurich"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-migrolino-zurich"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-migrolino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-migrolino-zurich"
+      ]
     },
     {
       "id": "migrolino-d194a0ebe388",

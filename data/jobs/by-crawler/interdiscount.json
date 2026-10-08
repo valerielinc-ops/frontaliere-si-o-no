@@ -6244,7 +6244,6 @@
       },
       "postalCode": "3001",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -6258,8 +6257,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-51027f96-4c5",
@@ -20818,7 +20816,6 @@
       },
       "postalCode": "3900",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -20832,8 +20829,7 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "interdiscount-e209ebbb-b34",
@@ -24027,12 +24023,12 @@
     },
     {
       "id": "interdiscount-87044a3e-5c5",
-      "slug": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
+      "slug": "responsabile-dello-sviluppo-frontend-80-100-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
-        "it": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
+        "it": "responsabile-dello-sviluppo-frontend-80-100-interdiscount-jegenstorf",
         "en": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf",
-        "fr": "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
+        "fr": "lead-developpeur-euse-front-end-80-100-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
       "companyKey": "interdiscount",
@@ -24092,7 +24088,6 @@
           "• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse"
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -24106,7 +24101,18 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
+        ],
+        "fr": [
+          "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "lead-frontend-entwickler-in-80-100-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-4d72e017-fa7",

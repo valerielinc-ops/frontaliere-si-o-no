@@ -2420,12 +2420,12 @@
     },
     {
       "id": "hornbach-155569",
-      "slug": "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
+      "slug": "vice-responsabile-del-team-cassa-hornbach-affoltern-am-albis",
       "slugByLocale": {
-        "it": "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
-        "en": "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
+        "it": "vice-responsabile-del-team-cassa-hornbach-affoltern-am-albis",
+        "en": "deputy-checkout-team-leader-hornbach-affoltern-am-albis",
         "de": "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis",
-        "fr": "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
+        "fr": "adjoint-e-au-a-la-responsable-d-equipe-caisse-hornbach-affoltern-am-albis"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2469,7 +2469,6 @@
       "jobReqId": "155569",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2482,7 +2481,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
+        ],
+        "en": [
+          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
+        ],
+        "fr": [
+          "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiter-in-kasse-hornbach-affoltern-am-albis"
+      ]
     },
     {
       "id": "hornbach-152576",

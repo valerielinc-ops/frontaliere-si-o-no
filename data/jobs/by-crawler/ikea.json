@@ -610,7 +610,6 @@
           "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -2365,7 +2364,6 @@
       "previousSlugs": [
         "teamleiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -2964,8 +2962,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch",
         "it": "addetto-a-alle-vendite-kuchenplanung-100-ikea-spreitenbach",
-        "en": "associate-sales-kuchenplanung-100-ikea-spreitenbach-aargau",
-        "fr": "collaborateur-trice-vente-kuchenplanung-100-ikea-spreitenbach-aargau"
+        "en": "sales-employee-kitchen-planning-100-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-rice-vente-et-planification-de-cuisines-100-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3010,20 +3008,23 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch"
+          "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch",
+          "associate-sales-kuchenplanung-100-ikea-spreitenbach-aargau"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch"
+          "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch",
+          "collaborateur-trice-vente-kuchenplanung-100-ikea-spreitenbach-aargau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch"
+        "mitarbeiter-in-verkauf-kuchenplanung-100-ikea-ch",
+        "associate-sales-kuchenplanung-100-ikea-spreitenbach-aargau",
+        "collaborateur-trice-vente-kuchenplanung-100-ikea-spreitenbach-aargau"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -3505,12 +3506,12 @@
     },
     {
       "id": "ikea-f870c92ecfef",
-      "slug": "addetto-a-alle-vendite-buro-e-essplatzabteilung-50-ikea-spreitenbach",
+      "slug": "addetto-a-alle-vendite-reparto-ufficio-e-zona-pranzo-50-ikea-spreitenbach-aargau",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
-        "it": "addetto-a-alle-vendite-buro-e-essplatzabteilung-50-ikea-spreitenbach",
-        "en": "associate-sales-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau",
-        "fr": "collaborateur-trice-vente-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau"
+        "it": "addetto-a-alle-vendite-reparto-ufficio-e-zona-pranzo-50-ikea-spreitenbach-aargau",
+        "en": "sales-employee-office-and-dining-area-department-50-ikea-spreitenbach-aargau",
+        "fr": "collaborateur-rice-de-vente-departement-bureaux-et-salle-a-manger-50-ikea-spreitenbach-aargau"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3555,20 +3556,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch"
+          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
+          "addetto-a-alle-vendite-buro-e-essplatzabteilung-50-ikea-spreitenbach"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch"
+          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
+          "associate-sales-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau"
         ],
         "fr": [
-          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch"
+          "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
+          "collaborateur-trice-vente-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch"
+        "mitarbeiter-in-verkauf-buro-und-essplatzabteilung-50-ikea-ch",
+        "addetto-a-alle-vendite-buro-e-essplatzabteilung-50-ikea-spreitenbach",
+        "associate-sales-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau",
+        "collaborateur-trice-vente-buro-und-essplatzabteilung-50-ikea-spreitenbach-aargau"
       ],
       "salaryMin": 37000,
       "salaryMax": 56800,

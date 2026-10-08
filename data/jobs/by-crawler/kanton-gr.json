@@ -1323,7 +1323,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-chur-thusis-kanton-gr-ch"
@@ -1685,12 +1684,12 @@
     },
     {
       "id": "kanton-gr-dc03932ce279",
-      "slug": "sozialarbeiter-in-kanton-gr-ch",
+      "slug": "assistente-sociale-kantonale-verwaltung-graubunden-landquart",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-kanton-gr-ch",
-        "en": "sozialarbeiter-in-kanton-gr-ch",
+        "it": "assistente-sociale-kantonale-verwaltung-graubunden-landquart",
+        "en": "social-worker-kantonale-verwaltung-graubunden-landquart",
         "de": "sozialarbeiter-in-kanton-gr-ch",
-        "fr": "sozialarbeiter-in-kanton-gr-ch"
+        "fr": "assistant-e-social-e-kantonale-verwaltung-graubunden-landquart"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1737,7 +1736,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1751,7 +1749,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-5ac60bb74e3c",

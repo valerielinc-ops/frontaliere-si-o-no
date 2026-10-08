@@ -883,7 +883,7 @@
       "slugByLocale": {
         "en": "head-fund-operations-jssif-jsafrasarasin-ch",
         "it": "operazioni-del-fondo-capo-jssif-j-safra-sarasin-basel-ch",
-        "de": "head-fund-operations-jssif-jsafrasarasin-ch",
+        "de": "leiter-fondsverwaltung-jssif-j-safra-sarasin-basel-ch",
         "fr": "operations-du-fonds-principal-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
@@ -928,7 +928,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -949,6 +948,9 @@
           "head-fund-operations-jssif-jsafrasarasin-ch"
         ],
         "fr": [
+          "head-fund-operations-jssif-jsafrasarasin-ch"
+        ],
+        "de": [
           "head-fund-operations-jssif-jsafrasarasin-ch"
         ]
       },

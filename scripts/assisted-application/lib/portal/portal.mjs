@@ -164,7 +164,7 @@ export function slugId(text) {
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -207,6 +207,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       // In the form the portals read.
       dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || '',
       nationality: profile.nationality || '',
+      // What the CV says in its own words, or the candidate corrected (candidateWithEdits `personal`): a
+      // portal that asks the civil status is answered from it, not by a question to the candidate. The form
+      // of address the CV states is in `answers.salutation` already.
+      civilStatus: personal?.civilStatus || '',
     },
     // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
     // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding

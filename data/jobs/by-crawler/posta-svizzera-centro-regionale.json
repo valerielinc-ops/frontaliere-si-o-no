@@ -15403,9 +15403,9 @@
       "slug": "responsabile-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil",
       "slugByLocale": {
         "it": "responsabile-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil",
-        "en": "leiter-in-distributionsgebiet-wadenswil-post",
+        "en": "head-of-distribution-area-wadenswil-die-schweizerische-post-wadenswil",
         "de": "leiter-in-distributionsgebiet-wadenswil-post",
-        "fr": "leiter-in-distributionsgebiet-wadenswil-post"
+        "fr": "responsable-de-la-zone-de-distribution-de-wadenswil-die-schweizerische-post-wadenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -15424,10 +15424,15 @@
         "canton": "ZH",
         "location": "Wädenswil"
       },
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-3843581c7d94",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-distributionsgebiet-wadenswil-post"
+        ],
+        "en": [
+          "leiter-in-distributionsgebiet-wadenswil-post"
+        ],
+        "fr": [
           "leiter-in-distributionsgebiet-wadenswil-post"
         ]
       },
