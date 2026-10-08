@@ -475,6 +475,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'data/jobs/by-crawler is only the anchor of a crawler key relative to the real slice directory: the slice, the housekeeping proofs and every write live in a mkdtemp directory under os.tmpdir(), and the test aborts if the resolved path escapes it',
   },
   {
+    file: 'tests/sync-published-blog-covers.test.ts',
+    roots: ['packages/articles/content/'],
+    reason: 'the two article registries, the ledger, the index, the baseline and the cover blob are written in a mkdtemp directory that becomes the cwd of the script under test; from the checkout the test resolves only the path of scripts/audit/sync-published-blog-covers.mjs',
+  },
+  {
     file: 'tests/translation-stats-honest-reporting.test.ts',
     roots: ['data/jobs/'],
     reason: 'data/jobs/by-crawler e` creato dentro un mkdtemp sotto os.tmpdir() e passato a log-translation-stats.mjs con TRANSLATION_STATS_ROOT; la storia e il sidecar della coorte nascono nella stessa cartella temporanea. Dal checkout si legge solo lo script sotto test (#11286)',
