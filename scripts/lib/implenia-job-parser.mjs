@@ -12,7 +12,12 @@
  */
 import { createHash } from 'node:crypto';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  decodeHtmlEntitiesOnce,
+  detectLang,
+  promotePreviousSlugToLegacy,
+} from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -58,6 +63,152 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Build the RMK detail URL from the API's URL title exactly once.
+ *
+ * The API sometimes serializes the title as an HTML attribute value even
+ * though it is returned in JSON (`&apos;`, `&#39;`, `&quot;`, `&amp;`). Decode the
+ * original URL once here; never feed the result through a second decoder.
+ */
+export function buildImpleniaJobUrl(urlTitle = '', id = '') {
+  const reqId = String(id || '').trim();
+  if (!reqId) return '';
+  const title = String(urlTitle || '');
+  const rawUrl = title
+    ? `https://${JOB_HOST}/job/${title}/${reqId}-de_DE`
+    : `https://${JOB_HOST}/job/${reqId}-de_DE`;
+  return decodeHtmlEntitiesOnce(rawUrl);
+}
+
+const IMPLENIA_REQUISITION_PATH_RE = /^https?:\/\/jobs\.implenia\.com\/job\/(?:[^/?#]+\/)?(\d+)-de_de$/i;
+
+/** Merge key used before detail fetching, on the stable requisition id. */
+export function impleniaJobMatchKey(jobOrUrl = '') {
+  const url = String(typeof jobOrUrl === 'string' ? jobOrUrl : jobOrUrl?.url || '');
+  // `/job/<titolo>/<req>-de_DE`: il titolo e' testo di presentazione (puo'
+  // differire solo per come e' scritta un'entita' HTML), il numero finale e'
+  // la posizione. La chiave resta in questo parser: la chiave URL comune
+  // (`job-url-key.mjs`) non cambia per gli altri crawler.
+  const match = IMPLENIA_REQUISITION_PATH_RE.exec(url.split(/[?#]/)[0]);
+  return match ? `req:${JOB_HOST}:${match[1]}` : '';
+}
+
+const IMPLENIA_LOCALE_MAP_FIELDS = [
+  'titleByLocale',
+  'descriptionByLocale',
+  'requirementsByLocale',
+];
+
+function mergeImpleniaLocaleMaps(older = {}, newer = {}) {
+  const merged = { ...(newer || {}) };
+  for (const [locale, oldValue] of Object.entries(older || {})) {
+    const newValue = merged[locale];
+    if (Array.isArray(oldValue) || Array.isArray(newValue)) {
+      merged[locale] = [...new Set([
+        ...(Array.isArray(oldValue) ? oldValue : []),
+        ...(Array.isArray(newValue) ? newValue : []),
+      ])];
+    } else if (oldValue !== undefined && oldValue !== null && oldValue !== '') {
+      merged[locale] = oldValue;
+    }
+  }
+  return merged;
+}
+
+function jobTimestamp(job, field) {
+  const value = Date.parse(String(job?.[field] || ''));
+  return Number.isFinite(value) ? value : null;
+}
+
+function impleniaRecordAge(job) {
+  return jobTimestamp(job, 'firstSeenAt')
+    ?? jobTimestamp(job, 'crawledAt')
+    ?? Number.POSITIVE_INFINITY;
+}
+
+function normalizeStoredImpleniaJob(job) {
+  const copy = { ...job };
+  for (const field of ['url', 'applyUrl']) {
+    if (copy[field]) copy[field] = decodeHtmlEntitiesOnce(copy[field]);
+  }
+  return copy;
+}
+
+function addImpleniaDuplicateSlugHistory(merged, older, newer) {
+  for (const [locale, slugs] of Object.entries(newer.previousSlugsByLocale || {})) {
+    if (!Array.isArray(slugs)) continue;
+    for (const slug of slugs) {
+      addPreviousSlugForLocale(merged, locale, slug, undefined, 'implenia-duplicate-history');
+    }
+  }
+
+  const hasLocaleHistory = (slug) => Object.values(merged.previousSlugsByLocale || {})
+    .some((slugs) => Array.isArray(slugs) && slugs.includes(slug));
+  for (const slug of Array.isArray(newer.previousSlugs) ? newer.previousSlugs : []) {
+    if (!merged.previousSlugs?.includes(slug) && !hasLocaleHistory(slug)) {
+      promotePreviousSlugToLegacy(merged, slug, undefined, 'implenia-duplicate-history');
+    }
+  }
+
+  const olderSlugsByLocale = older.slugByLocale || {};
+  for (const [locale, slug] of Object.entries(newer.slugByLocale || {})) {
+    if (slug && normalizeSpace(slug) !== normalizeSpace(olderSlugsByLocale[locale] || '')) {
+      addPreviousSlugForLocale(merged, locale, slug, undefined, 'implenia-duplicate-active-bridge');
+    }
+  }
+
+  if (newer.slug && normalizeSpace(newer.slug) !== normalizeSpace(older.slug || '')) {
+    addPreviousSlugForLocale(merged, 'it', newer.slug, undefined, 'implenia-duplicate-active-bridge');
+  }
+}
+
+function mergeImpleniaDuplicateRecords(first, second) {
+  const older = impleniaRecordAge(first) <= impleniaRecordAge(second) ? first : second;
+  const newer = older === first ? second : first;
+  const merged = structuredClone({ ...newer, ...older });
+
+  for (const field of IMPLENIA_LOCALE_MAP_FIELDS) {
+    merged[field] = mergeImpleniaLocaleMaps(older[field], newer[field]);
+  }
+  addImpleniaDuplicateSlugHistory(merged, older, newer);
+
+  const firstSeen = [jobTimestamp(first, 'firstSeenAt'), jobTimestamp(second, 'firstSeenAt')]
+    .filter((value) => value !== null)
+    .sort((a, b) => a - b)[0];
+  if (firstSeen !== undefined) merged.firstSeenAt = new Date(firstSeen).toISOString();
+
+  const crawled = [jobTimestamp(first, 'crawledAt'), jobTimestamp(second, 'crawledAt')]
+    .filter((value) => value !== null)
+    .sort((a, b) => b - a)[0];
+  if (crawled !== undefined) merged.crawledAt = new Date(crawled).toISOString();
+
+  return merged;
+}
+
+/**
+ * Collapse Implenia records on the stable requisition key. normalizeUrls is
+ * intended for stored rows only: fresh parser URLs have already gone through
+ * the one-pass decoder and must not be decoded a second time.
+ */
+export function dedupeImpleniaJobsByStableId(items = [], { normalizeUrls = false } = {}) {
+  const result = [];
+  const indexByKey = new Map();
+
+  for (const rawJob of Array.isArray(items) ? items : []) {
+    const job = normalizeUrls ? normalizeStoredImpleniaJob(rawJob) : rawJob;
+    const key = impleniaJobMatchKey(job);
+    if (!key || !indexByKey.has(key)) {
+      if (key) indexByKey.set(key, result.length);
+      result.push(job);
+      continue;
+    }
+    const index = indexByKey.get(key);
+    result[index] = mergeImpleniaDuplicateRecords(result[index], job);
+  }
+
+  return result;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -240,9 +391,7 @@ async function fetchJobListings() {
       if (!id || !title) continue;
 
       const urlTitle = r.unifiedUrlTitle || r.urlTitle || '';
-      const url = urlTitle
-        ? `https://jobs.implenia.com/job/${urlTitle}/${id}-de_DE`
-        : `https://jobs.implenia.com/job/${id}-de_DE`;
+      const url = buildImpleniaJobUrl(urlTitle, id);
 
       const { location, postalCode, streetAddress } = parseLocation(r.jobLocationShort);
       const jobFunction = Array.isArray(r.cust_JobFunction) ? r.cust_JobFunction[0] : '';
@@ -381,8 +530,11 @@ export async function fetchAllImpleniaJobs() {
     if (!title || title.length < 3) continue;
 
     const publicUrl = listing.url || CAREER_URL;
-    if (seen.has(publicUrl)) continue;
-    seen.add(publicUrl);
+    // Un URL fuori dal formato delle posizioni non ha chiave: resta distinto
+    // per URL, come prima, invece di collassare su una chiave vuota.
+    const matchKey = impleniaJobMatchKey(publicUrl) || publicUrl;
+    if (seen.has(matchKey)) continue;
+    seen.add(matchKey);
 
     const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
