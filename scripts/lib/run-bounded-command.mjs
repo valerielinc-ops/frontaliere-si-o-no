@@ -8,8 +8,10 @@
 // through. Past the cap the whole process group is stopped (SIGTERM, then
 // SIGKILL one second later), an `::error::` line names the label and the cap,
 // and the status is 124, like timeout(1). A signal sent to this wrapper is passed
-// on the same way. The label is what the log shows: never put a URL with
-// credentials in it.
+// on the same way. After a stop the wrapper answers only once the group is gone,
+// or once the SIGKILL has gone out: a helper that ignored the first signal does
+// not outlive the status its caller acts on. The label is what the log shows:
+// never put a URL with credentials in it.
 //
 // Why not timeout(1): the publisher scripts are exercised on macOS too, where
 // coreutils is not installed, and a network command that Git runs through
@@ -63,8 +65,12 @@ const child = spawn(command[0], command.slice(1), {
 
 let settled = false;
 let timedOut = false;
+let stopRequested = false;
+let forceSent = false;
+let closedStatus;
 let timer;
 let forceTimer;
+let groupPoll;
 
 function terminate(signal) {
   if (child.pid && process.platform !== 'win32') {
@@ -87,17 +93,43 @@ function finish(status) {
   settled = true;
   clearTimeout(timer);
   if (forceTimer) clearTimeout(forceTimer);
+  if (groupPoll) clearInterval(groupPoll);
   process.exitCode = status;
+}
+
+// Whether nothing is left of the command's process group. Signal 0 delivers
+// nothing; it only reports whether a member is still there.
+function groupIsGone() {
+  if (!child.pid || process.platform === 'win32') return true;
+  try {
+    process.kill(-child.pid, 0);
+    return false;
+  } catch (error) {
+    return error?.code === 'ESRCH';
+  }
+}
+
+function forceStop() {
+  forceSent = true;
+  terminate('SIGKILL');
+  // The command had already gone and only its helpers were being waited for.
+  if (closedStatus !== undefined) finish(closedStatus);
+}
+
+// The group gets the signal now and, if anything of it is still there one
+// second later, SIGKILL.
+function stop(signal) {
+  if (settled) return;
+  stopRequested = true;
+  terminate(signal);
+  if (!forceTimer) forceTimer = setTimeout(forceStop, 1000);
 }
 
 // A cancelled job signals this wrapper, not the detached group: pass it on, or
 // the command would outlive the step that started it. A command that ignores
 // the signal is stopped for good one second later, like one past its cap.
 for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
-  process.on(signal, () => {
-    terminate(signal);
-    if (!forceTimer) forceTimer = setTimeout(() => terminate('SIGKILL'), 1000);
-  });
+  process.on(signal, () => stop(signal));
 }
 
 child.once('error', (error) => {
@@ -110,19 +142,31 @@ timer = setTimeout(() => {
   if (settled) return;
   timedOut = true;
   process.stderr.write(`::error::${label} timed out after ${timeoutSeconds} second${timeoutSeconds === '1' ? '' : 's'}\n`);
-  terminate('SIGTERM');
-  forceTimer = setTimeout(() => terminate('SIGKILL'), 1000);
+  stop('SIGTERM');
 }, timeoutMs);
 
-child.once('close', (status, signal) => {
-  if (timedOut) {
-    finish(124);
-    return;
-  }
-  if (typeof status === 'number') {
-    finish(status);
-    return;
-  }
+function exitStatus(status, signal) {
+  if (timedOut) return 124;
+  if (typeof status === 'number') return status;
   // Ended by a signal: the shell convention, 128 plus its number.
-  finish(signal && constants.signals[signal] ? 128 + constants.signals[signal] : 1);
+  return signal && constants.signals[signal] ? 128 + constants.signals[signal] : 1;
+}
+
+child.once('close', (status, signal) => {
+  const exit = exitStatus(status, signal);
+  // The command is gone, but a helper it started may have ignored the signal
+  // (Git pushes through remote-https and pack-objects). Answering now would
+  // cancel the SIGKILL and let that helper finish the push after its caller
+  // had moved on to the retry: the force timer settles the wrapper instead.
+  if (stopRequested && !forceSent && !groupIsGone()) {
+    closedStatus = exit;
+    clearTimeout(timer);
+    // Helpers that did stop are reaped within moments: do not make every
+    // timeout wait out the full second for them.
+    groupPoll = setInterval(() => {
+      if (groupIsGone()) finish(exit);
+    }, 50);
+    return;
+  }
+  finish(exit);
 });

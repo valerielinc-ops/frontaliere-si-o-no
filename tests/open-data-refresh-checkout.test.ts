@@ -1258,4 +1258,57 @@ describe('bounded command runner', () => {
     expect(Date.now() - signalledAt).toBeLessThan(5_000);
     expect(status).toBe(137);
   });
+
+  // The command stops at the first signal; the helper it started ignores it.
+  const withStubbornHelper = (ready: string) => {
+    const helper = `process.on('SIGTERM', () => {}); require('node:fs').writeFileSync(${JSON.stringify(ready)}, String(process.pid)); setInterval(() => {}, 1000);`;
+    return `require('node:child_process').spawn(process.execPath, ['-e', ${JSON.stringify(helper)}], { stdio: 'ignore' }); setInterval(() => {}, 1000);`;
+  };
+  // A stopped helper is reaped a moment after the signal: give it that moment.
+  const stoppedWithin = async (pid: number, milliseconds: number) => {
+    const deadline = Date.now() + milliseconds;
+    for (;;) {
+      try {
+        process.kill(pid, 0);
+      } catch {
+        return true;
+      }
+      if (Date.now() >= deadline) break;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    // Not ours to leave behind when the assertion fails.
+    try { process.kill(pid, 'SIGKILL'); } catch { /* gone in the meantime */ }
+    return false;
+  };
+
+  it('stops a helper that ignores the signal after the command itself ended at the cap', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bounded-helper-cap-'));
+    directories.push(directory);
+    const ready = path.join(directory, 'ready');
+    const result = bounded(['--timeout-seconds', '3', '--label', 'helper', '--', process.execPath, '-e', withStubbornHelper(ready)]);
+    expect(result.status).toBe(124);
+    // Without the helper up before the cap the case would prove nothing.
+    expect(fs.existsSync(ready), 'the helper did not start within the cap').toBe(true);
+    expect(await stoppedWithin(Number(fs.readFileSync(ready, 'utf8')), 2_000)).toBe(true);
+  });
+
+  it('stops a helper that ignores the signal after the command ended on a cancelled job', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bounded-helper-signal-'));
+    directories.push(directory);
+    const ready = path.join(directory, 'ready');
+    const wrapper = spawn(process.execPath, [
+      'scripts/lib/run-bounded-command.mjs', '--timeout-seconds', '60', '--label', 'helper', '--', process.execPath, '-e', withStubbornHelper(ready),
+    ], { cwd: ROOT, stdio: 'ignore' });
+    const exited = once(wrapper, 'exit');
+    const deadline = Date.now() + 10_000;
+    while (!fs.existsSync(ready) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
+    expect(fs.existsSync(ready)).toBe(true);
+    const signalledAt = Date.now();
+    wrapper.kill('SIGTERM');
+    const [status] = await exited;
+    expect(Date.now() - signalledAt).toBeLessThan(5_000);
+    // The command ended on the signal that was passed on: 128 plus SIGTERM.
+    expect(status).toBe(143);
+    expect(await stoppedWithin(Number(fs.readFileSync(ready, 'utf8')), 2_000)).toBe(true);
+  });
 });
