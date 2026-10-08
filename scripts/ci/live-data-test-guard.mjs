@@ -325,13 +325,6 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
-    file: 'tests/license-audit.test.ts',
-    roots: ['data/events/'],
-    since: '2026-10-08',
-    evidence: 'review',
-    reason: 'the ROOT-anchored event slice path is paired with an in-memory value passed to auditEventSourceSlices and is never opened; event files used by replacement tests live under mkdtemp fixtures',
-  },
-  {
     file: 'tests/sync-published-blog-covers.test.ts',
     roots: ['packages/articles/content/'],
     since: '2026-10-08',
