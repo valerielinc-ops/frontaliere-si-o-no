@@ -257,6 +257,16 @@ describe('generated image provider contracts', () => {
       width: 6240,
       height: 4160,
     })).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec({
+      scope: 'article-hero',
+      title: 'Turismo in Valposchiavo',
+      topic: 'turismo',
+      place: 'Valposchiavo, Svizzera',
+    }, {
+      title: 'Cevio village in Ticino Switzerland',
+      width: 6240,
+      height: 4160,
+    })).toBe(false);
     expect(isSuitableArticlePhotoCandidate(spec, {
       type: 'photo',
       title: 'Zurich employment brand logo with text overlay',

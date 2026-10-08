@@ -725,6 +725,9 @@ const ARTICLE_PHOTO_FORBIDDEN_METADATA = Object.freeze([
   'brand', 'branding', 'lettering', 'logo', 'logos', 'signage', 'trademark', 'watermark',
   'poster', 'text overlay', 'typography', 'wordmark',
 ]);
+const ARTICLE_GENERIC_PLACE_TERMS = new Set([
+  'border', 'canton', 'cantons', 'cross', 'italian', 'italy', 'region', 'regions', 'swiss', 'switzerland', 'ticino',
+]);
 
 function foldArticlePhotoText(value) {
   return String(value ?? '')
@@ -778,9 +781,11 @@ export function isPhotoCandidateRelevantToSpec(spec, candidate) {
     const topic = context.topic.map((term) => term.toLowerCase());
     const place = context.place.map((term) => term.toLowerCase());
     const topicalTerms = topic.filter((term) => !place.includes(term));
+    const specificPlace = place.filter((term) => !ARTICLE_GENERIC_PLACE_TERMS.has(term));
     if (!text.length || !topicalTerms.length) return false;
     const hasTopic = topicalTerms.some((term) => text.includes(term));
-    const hasPlace = !context.requiresPlace || !place.length || place.some((term) => text.includes(term));
+    const placeTerms = specificPlace.length ? specificPlace : place;
+    const hasPlace = !context.requiresPlace || !placeTerms.length || placeTerms.some((term) => text.includes(term));
     return hasTopic && hasPlace;
   }
   const anchors = PHOTO_AREA_ANCHORS[String(spec?.area || '').trim()];
