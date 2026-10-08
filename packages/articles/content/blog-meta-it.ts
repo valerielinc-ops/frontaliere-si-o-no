@@ -12782,9 +12782,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.title': 'Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.excerpt': '## In breve - Sei misure cautelari e sequestri per circa 11 milioni - Frode Iva in elettronica e informatica - 93 società nella parte italiana dell\'indagine',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.imageAlt': 'Immagine editoriale relativa a: Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
-    'blog.article.bally-caslano-moratoria-tagli.title': 'Bally a Caslano: moratoria prorogata e tagli al personale',
-    'blog.article.bally-caslano-moratoria-tagli.excerpt': 'Dopo il licenziamento collettivo di 25 dipendenti, per Bally sono arrivate due offerte di acquisto dell\'azienda attiva a Caslano.',
-    'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Lago di Lugano vicino a Caslano, nel Canton Ticino',
+    'blog.article.bally-caslano-moratoria-tagli.title': 'Bally a Caslano: moratoria prorogata e altri tagli',
+    'blog.article.bally-caslano-moratoria-tagli.excerpt': 'La moratoria di Bally è stata prorogata. Dopo il licenziamento collettivo di 25 dipendenti, per l\'azienda attiva a Caslano ci sono state due offerte di acquisto.',
+    'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Caslano in Ticino, dove Bally era attiva nella vicenda sui tagli al personale',
 };
 
 export default blogMetaIt;
