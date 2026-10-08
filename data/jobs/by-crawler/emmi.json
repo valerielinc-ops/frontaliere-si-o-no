@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "emmi",
-  "assembledAt": "2026-10-08T09:20:48.996Z",
   "jobs": [
     {
       "id": "emmi-522a64170ebf",
@@ -6682,7 +6680,7 @@
       "companyDomain": "emmi.com",
       "title": "Anlagenführer:in Käsekonfektionierung",
       "titleByLocale": {
-        "it": "Anlagenführer:in Käsekonfektionierung",
+        "it": "Conduttore/trice d’impianto per il confezionamento del formaggio",
         "en": "Cheese Packaging Plant Manager",
         "de": "Anlagenführer:in Käsekonfektionierung",
         "fr": "Conducteur d'installation :dans la confection de fromage"
@@ -8193,5 +8191,7 @@
       },
       "firstSeenAt": "2026-10-08T09:20:41.984Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T09:20:48.996Z",
+  "crawlerKey": "emmi"
 }
