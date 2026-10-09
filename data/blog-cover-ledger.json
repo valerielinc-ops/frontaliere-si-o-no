@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5142
+      "6": 5143
     },
-    "publishedCovers": 6854,
+    "publishedCovers": 6855,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182151,6 +182151,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-costi-cure-domicilio-ticino-2026": {
+      "cover": "/images/blog/article-costi-cure-domicilio-ticino-2026.webp",
+      "hash": "669a204f24524f7a7910802dab0bebacbd6919fd2a35d71ba9fb62113624ebad",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "costi-cure-domicilio-ticino-2026",
+          "category": "novita",
+          "date": "2026-03-07T10:53:30.400Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

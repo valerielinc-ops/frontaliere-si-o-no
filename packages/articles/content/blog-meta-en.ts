@@ -866,7 +866,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.comuni-locarno-futuro-aggregazione.imageAlt': 'Realistic photo of Locarno with Lake Maggiore and surrounding mountains, DSLR scene.',
  'blog.article.costi-cure-domicilio-ticino-2026.title': 'Ticino: From 2026, Home Care Will Require a Fee',
  'blog.article.costi-cure-domicilio-ticino-2026.excerpt': 'Starting April 1, 2026, Ticino will introduce user fees for home care services, with a maximum contribution of 15 francs per day.',
- 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Nurse assisting an elderly person at home in Lugano, Ticino',
+ 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Illustration generated for this article',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.title': 'Lugano: Underused Park and Ride Facilities, Subsidized Buses on the Rise',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.excerpt': 'In 2024 Lugano spent 1.2 million on bus subscription subsidies, while park and ride lots see low usage and high costs.',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.imageAlt': 'Urban view of Lugano with buses and underused park and ride facility',

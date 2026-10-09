@@ -866,7 +866,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.comuni-locarno-futuro-aggregazione.imageAlt': 'Realistisches Foto von Locarno mit Lago Maggiore und Bergen, DSLR-Aufnahme.',
  'blog.article.costi-cure-domicilio-ticino-2026.title': 'Tessin: Ab 2026 wird für die häusliche Pflege bezahlt',
  'blog.article.costi-cure-domicilio-ticino-2026.excerpt': 'Ab dem 1. April 2026 gilt im Tessin die Kostenbeteiligung für die häusliche Pflege mit einem maximalen Beitrag von 15 Franken pro Tag.',
- 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Pflegekraft, die eine ältere Person zu Hause in Lugano, Tessin betreut',
+ 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.title': 'Lugano: Wenig genutzte Park-and-Ride-Anlagen, steigende subventionierte Bus-Abonnements',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.excerpt': 'Im Jahr 2024 hat Lugano 1,2 Millionen Franken für Bus-Abonnement-Subventionen ausgegeben, während die Park-and-Ride-Anlagen wenig frequentiert sind und hohe Kosten verursachen.',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.imageAlt': 'Städtische Ansicht von Lugano mit Bussen und wenig genutztem Park-and-Ride',

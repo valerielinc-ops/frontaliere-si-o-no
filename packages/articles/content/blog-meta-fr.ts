@@ -867,7 +867,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.comuni-locarno-futuro-aggregazione.imageAlt': 'Photo réaliste de Locarno avec le lac Majeur et les montagnes, scène DSLR.',
  'blog.article.costi-cure-domicilio-ticino-2026.title': 'Tessin : à partir de 2026, il faudra payer pour les soins à domicile',
  'blog.article.costi-cure-domicilio-ticino-2026.excerpt': 'À partir du 1er avril 2026, le Tessin introduira une participation aux coûts pour les soins à domicile, avec une contribution maximale de 15 francs par jour.',
- 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Infirmière assistant une personne âgée à domicile à Lugano, Tessin',
+ 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Illustration générée pour cet article',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.title': 'Lugano : Park and Ride peu utilisés, subventions bus en hausse',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.excerpt': 'En 2024, Lugano a dépensé 1,2 million en subventions pour les abonnements de bus, tandis que les parkings Park and Ride enregistrent une faible fréquentation et des coûts élevés.',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.imageAlt': 'Vue urbaine de Lugano avec bus et parking park and ride peu utilisé',

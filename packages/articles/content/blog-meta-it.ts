@@ -867,7 +867,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.comuni-locarno-futuro-aggregazione.imageAlt': 'Panorama di Locarno con Lago Maggiore e montagne, scena fotorealistica DSLR.',
  'blog.article.costi-cure-domicilio-ticino-2026.title': 'Ticino: dal 2026 si pagherà per le cure a domicilio',
  'blog.article.costi-cure-domicilio-ticino-2026.excerpt': 'Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.',
- 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Infermiere che assiste una persona anziana a domicilio a Lugano, Ticino',
+ 'blog.article.costi-cure-domicilio-ticino-2026.imageAlt': 'Illustrazione generata per questo articolo',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.title': 'Lugano: Park and Ride poco usati, bus sovvenzionati in crescita',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.excerpt': 'Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi.',
  'blog.article.lugano-park-ride-bus-sovvenzioni-2026.imageAlt': 'Vista urbana di Lugano con autobus e parcheggio park and ride poco utilizzato',
