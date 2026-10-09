@@ -1,22 +1,22 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-08T22:16:45.528Z",
+  "generatedAt": "2026-10-09T05:04:33.659Z",
   "total": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 2,
   "updatedCount": 1,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 324299,
-  "avgDurationMs": 324299,
+  "durationMs": 383385,
+  "avgDurationMs": 383385,
   "durationHistory": [
-    324299
+    383385
   ],
   "newJobs": [
     {
       "id": "company-7uc26r",
-      "slug": "qualitatspruferin-comadur-sa-bad-zurzach-7uc26r",
+      "slug": "qualitatspruferin-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Qualitätsprüferin",
       "location": "Bad ZurZach",
@@ -28,14 +28,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://swatchgroup.com/fr/job/33406",
-      "applyUrl": "https://swatchgroup.com/fr/job/33406",
+      "url": "https://www.swatchgroup.com/fr/job/33406",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/33406",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-08T22:16:29.915Z",
+      "crawledAt": "2026-10-09T05:04:21.762Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -44,17 +43,18 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "company-7uc26o",
-      "slug": "unterhaltsmechaniker-comadur-sa-bad-zurzach-7uc26o",
+      "slug": "meccanica-di-manutenzione-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Unterhaltsmechaniker",
       "location": "Bad ZurZach",
@@ -66,14 +66,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://swatchgroup.com/fr/job/33403",
-      "applyUrl": "https://swatchgroup.com/fr/job/33403",
+      "url": "https://www.swatchgroup.com/fr/job/33403",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/33403",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-08T22:16:29.915Z",
+      "crawledAt": "2026-10-09T05:04:21.762Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -82,11 +81,11 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
@@ -94,7 +93,7 @@
   "updatedJobs": [
     {
       "id": "company-7uc1k7",
-      "slug": "mecanicien-mouliste-comadur-sa-boncourt",
+      "slug": "ingegnere-moulist-comadur-sa-boncourt",
       "company": "Comadur SA",
       "title": "Mécanicien - Mouliste",
       "location": "Boncourt",
@@ -121,6 +120,7 @@
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
       "postalCode": "2926",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
   "removedJobs": [
     {
       "id": "company-7uc26r",
-      "slug": "qualitatspruferin-comadur-sa-bad-zurzach-7uc26r",
+      "slug": "revisore-di-qualita-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Qualitätsprüferin",
       "location": "Bad ZurZach",
@@ -146,14 +146,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/33406",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/33406",
+      "url": "https://swatchgroup.com/fr/job/33406",
+      "applyUrl": "https://swatchgroup.com/fr/job/33406",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-08T21:27:40.357Z",
+      "crawledAt": "2026-10-08T22:16:29.915Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -162,17 +161,17 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 20
       }
     },
     {
       "id": "company-7uc26o",
-      "slug": "unterhaltsmechaniker-comadur-sa-bad-zurzach-7uc26o",
+      "slug": "meccanica-di-manutenzione-comadur-sa-bad-zurzach",
       "company": "Comadur SA",
       "title": "Unterhaltsmechaniker",
       "location": "Bad ZurZach",
@@ -184,14 +183,13 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/33403",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/33403",
+      "url": "https://swatchgroup.com/fr/job/33403",
+      "applyUrl": "https://swatchgroup.com/fr/job/33403",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-10-08T21:27:40.357Z",
+      "crawledAt": "2026-10-08T22:16:29.915Z",
       "firstSeenAt": "2026-10-08T21:27:40.357Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -200,15 +198,15 @@
       "postalCode": "5330",
       "addressLocality": "Bad ZurZach",
       "addressRegion": "AG",
-      "_qualityScore": 81,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
   "unchangedJobs": [],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "c89e2846f9f34fde7799142b823ce941c8162c4e"
 }

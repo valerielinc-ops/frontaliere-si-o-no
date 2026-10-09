@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-10-08T22:13:56.650Z",
+  "generatedAt": "2026-10-09T04:58:04.622Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 16503,
-  "avgDurationMs": 16503,
+  "unchangedCount": 10,
+  "durationMs": 16341,
+  "avgDurationMs": 16341,
   "durationHistory": [
-    16503
+    16341
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,6 +46,46 @@
       "postingDateSource": "unknown",
       "postalCode": "8001",
       "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Servicetechniker/in Gas - Region Basel / Liestal (m/w/d) | Auch Quereinsteiger willkommen",
+      "slug": "tecnico-a-di-servizio-gas-m-w-d-hoval-harkingen",
+      "url": "https://www.hoval.it/it_IT/job/3953",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3953/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Härkingen",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-df03b358d6d4",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "4624",
+      "firstSeenAt": "2026-05-26T23:07:05.422Z",
+      "salarySource": "reported",
+      "datePosted": "",
+      "postingDateSource": "unknown",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,46 +206,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Servicetechniker/in Gas - Region Basel / Liestal (m/w/d) | Auch Quereinsteiger willkommen",
-      "slug": "tecnico-a-di-servizio-gas-m-w-d-hoval-harkingen",
-      "url": "https://www.hoval.it/it_IT/job/3953",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3953/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Härkingen",
-      "addressLocality": "Härkingen",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-df03b358d6d4",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "4624",
-      "firstSeenAt": "2026-05-26T23:07:05.422Z",
-      "salarySource": "reported",
-      "datePosted": "",
-      "postingDateSource": "unknown",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -487,5 +487,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "c89e2846f9f34fde7799142b823ce941c8162c4e"
 }
