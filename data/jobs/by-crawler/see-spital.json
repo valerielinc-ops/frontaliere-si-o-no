@@ -1,12 +1,12 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-10-09T09:18:50.016Z",
+  "assembledAt": "2026-10-09T21:25:31.971Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:41.811Z",
+      "crawledAt": "2026-10-09T21:25:25.034Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -56,11 +56,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -116,7 +118,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:40.678Z",
+      "crawledAt": "2026-10-09T21:25:23.904Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -204,7 +206,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:39.545Z",
+      "crawledAt": "2026-10-09T21:25:22.754Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -282,7 +284,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:38.417Z",
+      "crawledAt": "2026-10-09T21:25:21.641Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -423,7 +425,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:37.318Z",
+      "crawledAt": "2026-10-09T21:25:20.518Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -557,7 +559,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:36.185Z",
+      "crawledAt": "2026-10-09T21:25:19.369Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -654,7 +656,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:35.085Z",
+      "crawledAt": "2026-10-09T21:25:18.232Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -738,9 +740,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -764,7 +766,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:33.970Z",
+      "crawledAt": "2026-10-09T21:25:17.088Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -817,18 +819,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -878,7 +880,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:32.856Z",
+      "crawledAt": "2026-10-09T21:25:15.935Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -981,7 +983,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:31.766Z",
+      "crawledAt": "2026-10-09T21:25:14.819Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1080,7 +1082,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:30.655Z",
+      "crawledAt": "2026-10-09T21:25:13.681Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1186,7 +1188,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:29.554Z",
+      "crawledAt": "2026-10-09T21:25:12.566Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1295,7 +1297,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:28.439Z",
+      "crawledAt": "2026-10-09T21:25:11.431Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1402,7 +1404,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:27.317Z",
+      "crawledAt": "2026-10-09T21:25:10.306Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1511,7 +1513,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:26.180Z",
+      "crawledAt": "2026-10-09T21:25:09.203Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1608,7 +1610,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:25.051Z",
+      "crawledAt": "2026-10-09T21:25:08.084Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1718,7 +1720,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:23.946Z",
+      "crawledAt": "2026-10-09T21:25:06.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1823,7 +1825,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:22.864Z",
+      "crawledAt": "2026-10-09T21:25:05.824Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1929,7 +1931,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:21.751Z",
+      "crawledAt": "2026-10-09T21:25:04.704Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2033,7 +2035,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:20.653Z",
+      "crawledAt": "2026-10-09T21:25:03.552Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2153,7 +2155,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:19.510Z",
+      "crawledAt": "2026-10-09T21:25:02.358Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2262,7 +2264,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:18.398Z",
+      "crawledAt": "2026-10-09T21:25:01.177Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2345,7 +2347,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:17.244Z",
+      "crawledAt": "2026-10-09T21:25:00.055Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2427,7 +2429,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:16.141Z",
+      "crawledAt": "2026-10-09T21:24:58.936Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2509,7 +2511,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:15.025Z",
+      "crawledAt": "2026-10-09T21:24:57.788Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2590,7 +2592,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:13.905Z",
+      "crawledAt": "2026-10-09T21:24:56.672Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2645,7 +2647,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "pflegeexpert-in-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2671,7 +2673,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1283/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:12.788Z",
+      "crawledAt": "2026-10-09T21:24:55.555Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2694,7 +2696,7 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "pflegeexpert-in-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2702,7 +2704,7 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "pflegeexpert-in-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2756,7 +2758,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:11.720Z",
+      "crawledAt": "2026-10-09T21:24:54.478Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2839,7 +2841,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:10.559Z",
+      "crawledAt": "2026-10-09T21:24:53.375Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2936,7 +2938,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:09.439Z",
+      "crawledAt": "2026-10-09T21:24:52.280Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3018,7 +3020,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:08.302Z",
+      "crawledAt": "2026-10-09T21:24:51.182Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3099,7 +3101,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1298/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:07.170Z",
+      "crawledAt": "2026-10-09T21:24:50.118Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3181,7 +3183,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:06.027Z",
+      "crawledAt": "2026-10-09T21:24:49.035Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3263,7 +3265,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:04.899Z",
+      "crawledAt": "2026-10-09T21:24:47.869Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3344,7 +3346,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1294/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:03.808Z",
+      "crawledAt": "2026-10-09T21:24:46.739Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3426,7 +3428,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:02.674Z",
+      "crawledAt": "2026-10-09T21:24:45.599Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3485,7 +3487,7 @@
         "it": "controller-see-spital-horgen",
         "en": "controller-in-see-spital-ch",
         "de": "controller-in-see-spital-ch",
-        "fr": "controleur-see-spital-horgen"
+        "fr": "controller-in-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3509,7 +3511,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1304/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:18:01.601Z",
+      "crawledAt": "2026-10-09T21:24:44.516Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3531,14 +3533,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "controller-in-see-spital-ch",
-        "controller-in-see-spital-horgen"
+        "controleur-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "controller-in-see-spital-ch"
         ],
         "fr": [
-          "controller-in-see-spital-horgen"
+          "controleur-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:20:56.042Z",
@@ -3589,7 +3591,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-09T09:18:00.486Z",
+      "crawledAt": "2026-10-09T21:24:43.391Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3672,7 +3674,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1308/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:17:59.269Z",
+      "needsRetranslation": false,
+      "crawledAt": "2026-10-09T21:24:42.264Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3723,6 +3726,76 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-af008c5189b5",
+      "slug": "medizinische-r-praxisassistent-in-see-spital-ch",
+      "slugByLocale": {
+        "de": "medizinische-r-praxisassistent-in-see-spital-ch",
+        "it": "medizinische-r-praxisassistent-in-see-spital-ch",
+        "en": "medizinische-r-praxisassistent-in-see-spital-ch",
+        "fr": "medizinische-r-praxisassistent-in-see-spital-ch"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Medizinische*r Praxisassistent*in",
+      "titleByLocale": {
+        "de": "Medizinische*r Praxisassistent*in",
+        "it": "Medizinische*r Praxisassistent*in",
+        "en": "Medizinische*r Praxisassistent*in",
+        "fr": "Medizinische*r Praxisassistent*in"
+      },
+      "description": "Uroviva steht für ein modern geführtes medizinisches Netzwerk und umfasst eine Spezialklinik für Urologie, elf urologische Praxen sowie ein Andrologiezentrum. Mit jährlich rund 70'000 Konsultationen in Grund-, Spezial- und Notfallversorgung und über 5'000 Operationen aller Schweregrade ist Uroviva eine bedeutende Anbieterin urologischer Dienstleistungen in der Schweiz. Medizinische*r Praxisassistent*in\n80%\n\nIhr Aufgabengebiet\n\n• Betreuung der Patient*innen während den Untersuchungen\n• Selbständige Durchführung von Blutentnahmen, Urinanalysen und Injektionen\n• Selbstständige Durchführung von Blaseninstallationen und Katheterwechseln\n• Vor- und Nachbereitung der Untersuchungszimmer\n• Assistenz bei Zystoskopien und kleineren ambulanten urologischen Eingriffen\n• Planung, Organisation und Vorbereitung von Sprechstunden\n• Schreiben von Berichten\n• Allgemeine Büroarbeiten, terminieren von Aufgeboten\n• Patient*innenempfang\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in EFZ, Pflegefachperson HF oder Fachfrau*mann Gesundheit EFZ\n• Freundliche, zuverlässige und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n• Freude am regen Patient*innenkontakt\n• Gepflegtes Erscheinungsbild\n• Erfahrungen mit dem Betriebssystem Axenita von Vorteil (jedoch nicht zwingend)\n\nWas wir Ihnen bieten\nLiegt Ihnen der herzliche Umgang mit Menschen am Herzen? Dann freuen wir uns, Ihnen nebst einer abwechslungsreichen und verantwortungsvollen Tätigkeit Folgendes anzubieten:\n• Je nach Alter 5-6 Wochen Ferien\n• Umkleidezeit wird zeitlich oder finanziell abgegolten (nach Wunsch)\n• Attraktive, zeitgemässe Sozialleistungen\n• Private, weltweite Unfallversicherung\n• Kurze Entscheidungswege, flache Hierarchen, Möglichkeit eigene Ideen einzubringen Sind Sie eine motivierte, dienstleistungsorientierte Persönlichkeit und können sich die Mitarbeit in einem stetig wachsenden Unternehmen vorstellen? Dann freuen wir uns auf Ihre elektronische Bewerbung, vorzugsweise via unser Rekrutierungstool. Noch Fragen? Wir sind auch via WhatsApp-Chat erreichbar: 077 502 43 51 Kontakt Uroviva AG Jana Utzinger Leitung HR Telefonnummer: +41 44 22077 53\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+      "descriptionByLocale": {
+        "de": "Uroviva steht für ein modern geführtes medizinisches Netzwerk und umfasst eine Spezialklinik für Urologie, elf urologische Praxen sowie ein Andrologiezentrum. Mit jährlich rund 70'000 Konsultationen in Grund-, Spezial- und Notfallversorgung und über 5'000 Operationen aller Schweregrade ist Uroviva eine bedeutende Anbieterin urologischer Dienstleistungen in der Schweiz. Medizinische*r Praxisassistent*in\n80%\n\nIhr Aufgabengebiet\n\n• Betreuung der Patient*innen während den Untersuchungen\n• Selbständige Durchführung von Blutentnahmen, Urinanalysen und Injektionen\n• Selbstständige Durchführung von Blaseninstallationen und Katheterwechseln\n• Vor- und Nachbereitung der Untersuchungszimmer\n• Assistenz bei Zystoskopien und kleineren ambulanten urologischen Eingriffen\n• Planung, Organisation und Vorbereitung von Sprechstunden\n• Schreiben von Berichten\n• Allgemeine Büroarbeiten, terminieren von Aufgeboten\n• Patient*innenempfang\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in EFZ, Pflegefachperson HF oder Fachfrau*mann Gesundheit EFZ\n• Freundliche, zuverlässige und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n• Freude am regen Patient*innenkontakt\n• Gepflegtes Erscheinungsbild\n• Erfahrungen mit dem Betriebssystem Axenita von Vorteil (jedoch nicht zwingend)\n\nWas wir Ihnen bieten\nLiegt Ihnen der herzliche Umgang mit Menschen am Herzen? Dann freuen wir uns, Ihnen nebst einer abwechslungsreichen und verantwortungsvollen Tätigkeit Folgendes anzubieten:\n• Je nach Alter 5-6 Wochen Ferien\n• Umkleidezeit wird zeitlich oder finanziell abgegolten (nach Wunsch)\n• Attraktive, zeitgemässe Sozialleistungen\n• Private, weltweite Unfallversicherung\n• Kurze Entscheidungswege, flache Hierarchen, Möglichkeit eigene Ideen einzubringen Sind Sie eine motivierte, dienstleistungsorientierte Persönlichkeit und können sich die Mitarbeit in einem stetig wachsenden Unternehmen vorstellen? Dann freuen wir uns auf Ihre elektronische Bewerbung, vorzugsweise via unser Rekrutierungstool. Noch Fragen? Wir sind auch via WhatsApp-Chat erreichbar: 077 502 43 51 Kontakt Uroviva AG Jana Utzinger Leitung HR Telefonnummer: +41 44 22077 53\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "it": "Uroviva steht für ein modern geführtes medizinisches Netzwerk und umfasst eine Spezialklinik für Urologie, elf urologische Praxen sowie ein Andrologiezentrum. Mit jährlich rund 70'000 Konsultationen in Grund-, Spezial- und Notfallversorgung und über 5'000 Operationen aller Schweregrade ist Uroviva eine bedeutende Anbieterin urologischer Dienstleistungen in der Schweiz. Medizinische*r Praxisassistent*in\n80%\n\nIhr Aufgabengebiet\n\n• Betreuung der Patient*innen während den Untersuchungen\n• Selbständige Durchführung von Blutentnahmen, Urinanalysen und Injektionen\n• Selbstständige Durchführung von Blaseninstallationen und Katheterwechseln\n• Vor- und Nachbereitung der Untersuchungszimmer\n• Assistenz bei Zystoskopien und kleineren ambulanten urologischen Eingriffen\n• Planung, Organisation und Vorbereitung von Sprechstunden\n• Schreiben von Berichten\n• Allgemeine Büroarbeiten, terminieren von Aufgeboten\n• Patient*innenempfang\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in EFZ, Pflegefachperson HF oder Fachfrau*mann Gesundheit EFZ\n• Freundliche, zuverlässige und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n• Freude am regen Patient*innenkontakt\n• Gepflegtes Erscheinungsbild\n• Erfahrungen mit dem Betriebssystem Axenita von Vorteil (jedoch nicht zwingend)\n\nWas wir Ihnen bieten\nLiegt Ihnen der herzliche Umgang mit Menschen am Herzen? Dann freuen wir uns, Ihnen nebst einer abwechslungsreichen und verantwortungsvollen Tätigkeit Folgendes anzubieten:\n• Je nach Alter 5-6 Wochen Ferien\n• Umkleidezeit wird zeitlich oder finanziell abgegolten (nach Wunsch)\n• Attraktive, zeitgemässe Sozialleistungen\n• Private, weltweite Unfallversicherung\n• Kurze Entscheidungswege, flache Hierarchen, Möglichkeit eigene Ideen einzubringen Sind Sie eine motivierte, dienstleistungsorientierte Persönlichkeit und können sich die Mitarbeit in einem stetig wachsenden Unternehmen vorstellen? Dann freuen wir uns auf Ihre elektronische Bewerbung, vorzugsweise via unser Rekrutierungstool. Noch Fragen? Wir sind auch via WhatsApp-Chat erreichbar: 077 502 43 51 Kontakt Uroviva AG Jana Utzinger Leitung HR Telefonnummer: +41 44 22077 53\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "en": "Uroviva steht für ein modern geführtes medizinisches Netzwerk und umfasst eine Spezialklinik für Urologie, elf urologische Praxen sowie ein Andrologiezentrum. Mit jährlich rund 70'000 Konsultationen in Grund-, Spezial- und Notfallversorgung und über 5'000 Operationen aller Schweregrade ist Uroviva eine bedeutende Anbieterin urologischer Dienstleistungen in der Schweiz. Medizinische*r Praxisassistent*in\n80%\n\nIhr Aufgabengebiet\n\n• Betreuung der Patient*innen während den Untersuchungen\n• Selbständige Durchführung von Blutentnahmen, Urinanalysen und Injektionen\n• Selbstständige Durchführung von Blaseninstallationen und Katheterwechseln\n• Vor- und Nachbereitung der Untersuchungszimmer\n• Assistenz bei Zystoskopien und kleineren ambulanten urologischen Eingriffen\n• Planung, Organisation und Vorbereitung von Sprechstunden\n• Schreiben von Berichten\n• Allgemeine Büroarbeiten, terminieren von Aufgeboten\n• Patient*innenempfang\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in EFZ, Pflegefachperson HF oder Fachfrau*mann Gesundheit EFZ\n• Freundliche, zuverlässige und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n• Freude am regen Patient*innenkontakt\n• Gepflegtes Erscheinungsbild\n• Erfahrungen mit dem Betriebssystem Axenita von Vorteil (jedoch nicht zwingend)\n\nWas wir Ihnen bieten\nLiegt Ihnen der herzliche Umgang mit Menschen am Herzen? Dann freuen wir uns, Ihnen nebst einer abwechslungsreichen und verantwortungsvollen Tätigkeit Folgendes anzubieten:\n• Je nach Alter 5-6 Wochen Ferien\n• Umkleidezeit wird zeitlich oder finanziell abgegolten (nach Wunsch)\n• Attraktive, zeitgemässe Sozialleistungen\n• Private, weltweite Unfallversicherung\n• Kurze Entscheidungswege, flache Hierarchen, Möglichkeit eigene Ideen einzubringen Sind Sie eine motivierte, dienstleistungsorientierte Persönlichkeit und können sich die Mitarbeit in einem stetig wachsenden Unternehmen vorstellen? Dann freuen wir uns auf Ihre elektronische Bewerbung, vorzugsweise via unser Rekrutierungstool. Noch Fragen? Wir sind auch via WhatsApp-Chat erreichbar: 077 502 43 51 Kontakt Uroviva AG Jana Utzinger Leitung HR Telefonnummer: +41 44 22077 53\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant",
+        "fr": "Uroviva steht für ein modern geführtes medizinisches Netzwerk und umfasst eine Spezialklinik für Urologie, elf urologische Praxen sowie ein Andrologiezentrum. Mit jährlich rund 70'000 Konsultationen in Grund-, Spezial- und Notfallversorgung und über 5'000 Operationen aller Schweregrade ist Uroviva eine bedeutende Anbieterin urologischer Dienstleistungen in der Schweiz. Medizinische*r Praxisassistent*in\n80%\n\nIhr Aufgabengebiet\n\n• Betreuung der Patient*innen während den Untersuchungen\n• Selbständige Durchführung von Blutentnahmen, Urinanalysen und Injektionen\n• Selbstständige Durchführung von Blaseninstallationen und Katheterwechseln\n• Vor- und Nachbereitung der Untersuchungszimmer\n• Assistenz bei Zystoskopien und kleineren ambulanten urologischen Eingriffen\n• Planung, Organisation und Vorbereitung von Sprechstunden\n• Schreiben von Berichten\n• Allgemeine Büroarbeiten, terminieren von Aufgeboten\n• Patient*innenempfang\n\nIhr Profil\n\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in EFZ, Pflegefachperson HF oder Fachfrau*mann Gesundheit EFZ\n• Freundliche, zuverlässige und kompetente Persönlichkeit, die sich durch eine hohe Belastbarkeit und grosse Motivation auszeichnet\n• Freude am regen Patient*innenkontakt\n• Gepflegtes Erscheinungsbild\n• Erfahrungen mit dem Betriebssystem Axenita von Vorteil (jedoch nicht zwingend)\n\nWas wir Ihnen bieten\nLiegt Ihnen der herzliche Umgang mit Menschen am Herzen? Dann freuen wir uns, Ihnen nebst einer abwechslungsreichen und verantwortungsvollen Tätigkeit Folgendes anzubieten:\n• Je nach Alter 5-6 Wochen Ferien\n• Umkleidezeit wird zeitlich oder finanziell abgegolten (nach Wunsch)\n• Attraktive, zeitgemässe Sozialleistungen\n• Private, weltweite Unfallversicherung\n• Kurze Entscheidungswege, flache Hierarchen, Möglichkeit eigene Ideen einzubringen Sind Sie eine motivierte, dienstleistungsorientierte Persönlichkeit und können sich die Mitarbeit in einem stetig wachsenden Unternehmen vorstellen? Dann freuen wir uns auf Ihre elektronische Bewerbung, vorzugsweise via unser Rekrutierungstool. Noch Fragen? Wir sind auch via WhatsApp-Chat erreichbar: 077 502 43 51 Kontakt Uroviva AG Jana Utzinger Leitung HR Telefonnummer: +41 44 22077 53\n\nBenefits\nNebst zahlreichen Fringe Benefits (zusätzlichen Leistungen) profitieren Sie bei uns von gezielter Förderung und Weiterbildungsangeboten auf allen Stufen. Moderne Anstellungsbedingungen\n• 42 Stunden-Woche (Ärzte 50)\n• Überstunden werden i.d.R. durch Freizeit von gleicher Dauer entschädigt\n• 5 Wochen Ferien, ab 50. Altersjahr 6 Woche\n• Täglich 20 min bezahlte Pause\n• Umkleidezeit gilt als Arbeitszeit\n• Möglichkeit für Home Office\n\nLaufende Weiterbildungen\n• Interne Weiterbildungen für Mitarbeitende\n• Kosten- und Arbeitszeitbeteiligung für Fort- und Weiterbildungen durch Arbeitgeberin\n• Als Aus- und Weiterbildungsspital bieten wir diverse Praktikums- und Ausbildungsplätze\n• Führungsentwicklung Seminare\n\nRabatte und Konditionen\n• Vergünstigte Ernährungsberatung und Massage\n• Jährlich kostenlose Grippeimpfung\n• Spitalboot zum Mieten\n• Gratis Verpflegung für Nachtarbeitende\n• In Horgen und Umgebung gewähren verschiedene ausgewählte Unternehmen mindestens 10 % Rabatt beim Vorzeigen des Personalausweises (z.B. Gratis Zoo Zürich Jahreskarten, 15 % Rabatt im Alpamare, Brack.ch bis 25 % uvm.)\n• Flottenrabatte bei amag Partnern (Audi, VW, Seat, Skoda), BWM und Mini sowie Mercedes und Smart\n\nWeitreichende Versicherungen\n• Das See-Spital bietet 16 Wochen Mutterschaftsurlaub zu 100% Lohnfortzahlung statt der gesetzlich vorgeschriebenen 14 Wochen zu 80%\n• Prämie für Unfall-Zusatzversicherung (Privat) zulasten Arbeitgeberin\n\nWork-Life-Balance\n• Möglichkeit von Teilzeit- und Stundenlohnanstellung (auf Abruf)\n• Flexible Arbeitszeiten (Jahresarbeitszeit)\n• Möglichkeit für unbezahlten Urlaub\n\nBetriebliches Gesundheitsmanagement\n• Arbeitssicherheit und Gesundheitsschutz\n• Team- und spitalweite Aktivitäten (Sommerfest, Weihnachtsapéro)\n• Präsenzmanagement\n• Externes Case Management\n• Generationenmanagement\n\nSonstige Leistungen\n• Treueprämie ab 10 Dienstjahren alle 5 Jahre (Ferien oder Lohn)\n• 13. Monatslohn (Auszahlung Juni und Dezember)\n• Personalzimmer und -wohnungen in Horgen und Kilchberg\n• Personalkommission\n• Günstige Verpflegungsmöglichkeit im Personalrestaurant"
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "crawledAt": "2026-10-09T21:24:41.157Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-09T21:24:41.157Z"
     }
   ]
 }

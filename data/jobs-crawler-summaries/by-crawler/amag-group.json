@@ -1,18 +1,63 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-09T09:22:52.827Z",
-  "total": 5,
+  "generatedAt": "2026-10-09T21:30:12.208Z",
+  "total": 6,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 148008,
-  "avgDurationMs": 148008,
+  "unchangedCount": 5,
+  "durationMs": 147303,
+  "avgDurationMs": 147303,
   "durationHistory": [
-    148008
+    147303
   ],
   "newJobs": [
+    {
+      "title": "Apprendista Impiegato/a in logistica AFC 2027",
+      "slug": "apprendista-impiegato-a-in-logistica-afc-2027",
+      "url": "https://jobs.amag-group.ch/Apprendista-Impiegatoa-in-logistica-AFC-2027-it-j23749.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendista-Impiegatoa-in-logistica-AFC-2027-it-f23749.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "2026-10-09",
+      "postedDate": "2026-10-09",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2027-04-01",
+      "id": "amag-group-45c44c92a0e0",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-09T21:30:03.052Z",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
       "slug": "apprendista-carrozziere-a-verniciatore-trice-afc-m-f-estate-2027-amag-lugano",
@@ -38,25 +83,20 @@
       "contractType": "full-time",
       "validThrough": "2027-04-01",
       "id": "amag-group-6157920fea33",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-09T09:22:42.256Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Consulente tecnico (m/f) - 100%",
       "slug": "consulente-tecnico-m-f-100-amag-group-giubiasco",
@@ -217,5 +257,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
