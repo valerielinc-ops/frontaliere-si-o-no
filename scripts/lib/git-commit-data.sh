@@ -68,15 +68,13 @@ BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounde
 # in use. These GIT_COMMIT_DATA_* overrides are only for the test bench;
 # production keeps the declared defaults.
 #
-# The unshallow fetch has a ceiling of its own, and it is not the fetch one.
-# It downloads the whole history of main: 31.44 GiB reachable from origin/main
-# across 124,981 commits, measured on a complete clone on 2026-10-08. Under the
-# ordinary 300 seconds it could never finish, and `ensure_full_history` would
-# turn "slow" into "refusing to guess" on every run. Its real duration has not
-# been measured in CI; an hour bounds a hung transfer without cutting one that
-# is still arriving. The crawler-group jobs that reach it allow 340 minutes.
+# Retirement history is resolved through the GitHub Commits API when the local
+# checkout is shallow. That keeps the answer independent of the 31.44 GiB of
+# reachable blobs on origin/main (124,981 commits, measured on 2026-10-08).
+# This is a safety ceiling for one metadata lookup, not a latency target: an
+# unavailable or malformed response fails closed instead of guessing.
 GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-300}"
-GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS:-3600}"
+GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS:-60}"
 GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
 GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
 
@@ -403,30 +401,46 @@ NODE
 # .github/workflows/crawler-group-01-logic.yml:72), so `git log` only sees
 # the last 50 reachable commits. Beyond that boundary git truncates silently
 # — exit 0, empty output — indistinguishable from a path that never existed.
-# The retirement-vs-first-run disambiguation below depends on `git log`
-# telling the truth, so unshallow once (cached per process, mirroring the
-# roster cache above) before trusting an empty result. If the unshallow
-# itself fails, callers must fail closed instead of guessing: an empty `git
-# log` at that point could mean "never existed" (safe to create) or "retired
-# 51+ commits ago" (must stay dropped), and picking wrong either resurrects
-# retired data or permanently blocks a genuinely new slice.
-_SHALLOW_CHECKOUT_STATUS=""
-
-ensure_full_history() {
-  if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
-    if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
-      if run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS" "git fetch --unshallow origin main" \
-        bash -c 'git fetch --unshallow origin main >/dev/null 2>&1' \
-        && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
-        _SHALLOW_CHECKOUT_STATUS="unshallowed"
-      else
-        _SHALLOW_CHECKOUT_STATUS="shallow"
-      fi
-    else
-      _SHALLOW_CHECKOUT_STATUS="complete"
-    fi
+# The local log remains the cheap fast path. Only an empty result on a shallow
+# checkout reaches this lookup, which asks GitHub for one commit matching the
+# path without downloading any history blob. Return statuses are deliberately
+# tri-state: 0 means "history exists", 1 means "never committed", and 2 means
+# "the proof was unavailable". Callers must fail closed on status 2.
+lookup_remote_path_history() {
+  local slice_path="$1"
+  local history_repo history_credential history_count
+  history_repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
+  history_credential="${GH_TOKEN-}"
+  if [ -z "$history_credential" ]; then
+    history_credential="${GITHUB_TOKEN-}"
   fi
-  [ "$_SHALLOW_CHECKOUT_STATUS" != "shallow" ]
+
+  if [ -z "$history_repo" ] || [ -z "$history_credential" ]; then
+    echo "❌ grouped-isolated: cannot verify retirement history for $slice_path — GH_REPO/GITHUB_REPOSITORY and GH_TOKEN/GITHUB_TOKEN are required for the bounded lookup"
+    return 2
+  fi
+
+  # Refresh the explicit push credential before this network operation too;
+  # the API token is supplied by the workflow environment and is never printed.
+  if ! ensure_git_auth; then
+    echo "❌ grouped-isolated: cannot refresh git authentication before the history lookup for $slice_path — refusing to guess"
+    return 2
+  fi
+  if ! history_count="$(run_bounded "$GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS" "gh api commits path lookup" \
+    gh api --method GET "repos/${history_repo}/commits" \
+      -f sha=main -f path="$slice_path" -f per_page=1 --jq 'length')"; then
+    echo "❌ grouped-isolated: GitHub history lookup failed for $slice_path — refusing to guess between first-run create and resurrection"
+    return 2
+  fi
+
+  case "$history_count" in
+    0) return 1 ;;
+    ''|*[!0-9]*)
+      echo "❌ grouped-isolated: GitHub history lookup returned an invalid result for $slice_path — refusing to guess"
+      return 2
+      ;;
+    *) return 0 ;;
+  esac
 }
 
 append_resolved_file() {
@@ -2215,7 +2229,7 @@ isolated_phase_report() {
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
-  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
+  local f local_blob remote_blob base_blob history_blob history_status blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
@@ -2521,29 +2535,43 @@ commit_isolated_from_worktree() {
                 # so it is empty just as often for a path that was already
                 # retired before checkout as for one that has genuinely never
                 # existed. Distinguish the two with reachable history instead:
-                # a path that was ever committed still shows up in `git log`
-                # even after being removed from the tree, while a brand-new
-                # slice (issue #7151 item 1: pre-registration ordering between
-                # the roster-regeneration step and a crawler's first data
-                # commit isn't asserted anywhere else) has no history at all.
-                # `git log` only tells the truth about that if the checkout
-                # isn't shallow (issue #7221 review follow-up): crawler-group
-                # workflows pin fetch-depth 50, so a retirement more than 50
-                # commits before this checkout would otherwise be misread as
-                # first-run create and silently resurrected.
+                # a path that was ever committed still shows up in local `git
+                # log` even after being removed from the tree, while a
+                # genuinely new slice has no history at all. On the shallow
+                # crawler-group checkout, an empty local log is completed by a
+                # one-result GitHub Commits API lookup (issue #12457), not by
+                # downloading the entire main history. Any unavailable API
+                # proof remains fail-closed so a retired path cannot be
+                # resurrected silently.
                 isolated_mark file_phase_started
-                if ! ensure_full_history; then
-                  echo "❌ grouped-isolated: cannot verify retirement history for $f — checkout remains shallow after an unshallow attempt, refusing to guess between first-run create and resurrection"
+                if ! history_blob="$(GIT_NO_LAZY_FETCH=1 git log -1 --format=%H -- "$f" 2>/dev/null)"; then
+                  echo "❌ grouped-isolated: cannot read local retirement history for $f — refusing to guess between first-run create and resurrection"
                   return 1
                 fi
-                history_blob="$(git log -1 --format=%H -- "$f" 2>/dev/null || true)"
+                history_status=1
+                if [ -n "$history_blob" ]; then
+                  history_status=0
+                elif [ "$(git rev-parse --is-shallow-repository 2>/dev/null || true)" = "true" ]; then
+                  if lookup_remote_path_history "$f"; then
+                    history_status=0
+                  else
+                    history_status=$?
+                  fi
+                fi
                 isolated_file_phase_add retirement-history "$file_phase_started"
-                if [ -z "$history_blob" ]; then
+                case "$history_status" in
+                  1)
                   echo "⚠️ grouped-isolated: $f is absent from the primary slice registry and has no prior history — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
-                else
+                  ;;
+                  0)
                   echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
                   continue
-                fi
+                  ;;
+                  *)
+                    echo "❌ grouped-isolated: cannot verify retirement history for $f — refusing to guess between first-run create and resurrection"
+                    return 1
+                    ;;
+                esac
               fi
               ;;
             data/jobs/expired/by-crawler/*.json)
