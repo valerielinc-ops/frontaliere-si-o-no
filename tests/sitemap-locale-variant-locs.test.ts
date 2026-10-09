@@ -131,12 +131,25 @@ describe('collectLocaleVariantEntries — fixtures', () => {
       de: `${BASE}/de/anderes/`,
       fr: `${BASE}/fr/autre/`,
     };
-    const { entries, skipped } = collectLocaleVariantEntries(
-      [source(GROUP.it, GROUP), source(other.it, other)],
-      () => true,
-    );
-    expect(entries).toEqual([]);
-    expect(skipped.get('conflicting-group')).toBe(1);
+    const third = {
+      it: `${BASE}/dritto/`,
+      en: GROUP.en, // same EN URL, a third distinct group
+      de: `${BASE}/de/dritto/`,
+      fr: `${BASE}/fr/droit/`,
+    };
+    const groups = [source(GROUP.it, GROUP), source(other.it, other), source(third.it, third)];
+    const orders = [
+      [0, 1, 2], [0, 2, 1], [1, 0, 2],
+      [1, 2, 0], [2, 0, 1], [2, 1, 0],
+    ];
+    for (const order of orders) {
+      const { entries, skipped } = collectLocaleVariantEntries(
+        order.map((index) => groups[index]),
+        () => true,
+      );
+      expect(entries).toEqual([]);
+      expect(skipped.get('conflicting-group')).toBe(2);
+    }
   });
 
   it('ignores an incomplete group (fewer than 4 locales)', () => {

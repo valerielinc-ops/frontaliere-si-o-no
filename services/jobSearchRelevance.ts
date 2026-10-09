@@ -351,9 +351,11 @@ function matchesSpecialtyToken(token: string, evidence: PreparedJobSearchEvidenc
 
 function matchesProfessionalCore(profile: JobSearchRoleProfile, evidence: PreparedJobSearchEvidence): boolean {
   // Support markers are negative evidence only when the query asks for the
-  // physician profession. The same title family is a legitimate positive
-  // answer to "assistente medico" or "segretaria" queries.
-  if (evidence.supportTitle && profile.professionId !== 'assistente-medico' && profile.professionId !== 'segretaria') return false;
+  // physician profession. A nurse/anesthesia support title is a legitimate
+  // answer to an explicitly nursing query, while the same title must not
+  // satisfy a physician query. The support professions themselves remain
+  // searchable through their taxonomy ids.
+  if (evidence.supportTitle && profile.professionId === 'medico') return false;
   if (profile.professionId) {
     if (!evidence.professionIds.has(profile.professionId)) return false;
   }

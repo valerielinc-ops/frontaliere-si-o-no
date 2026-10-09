@@ -176,6 +176,12 @@ export function collectLocaleVariantEntries(
   // source groups. Keeping the other members would only create orphan
   // backfill entries that the final reciprocity sanitizer must remove anyway.
   const conflictedSignatures = new Set<string>();
+  const markSignatureConflicted = (signature: string) => {
+    conflictedSignatures.add(signature);
+    for (const [candidateUrl, candidate] of byUrl) {
+      if (signatureOf(candidate.paths) === signature) byUrl.delete(candidateUrl);
+    }
+  };
 
   for (const source of sources) {
     if (source.annotations.length === 0) continue;
@@ -242,12 +248,20 @@ export function collectLocaleVariantEntries(
 
     const signature = signatureOf(completePaths);
     if (conflictedSignatures.has(signature)) {
-      note('conflicting-group', candidates.length);
+      note('conflicting-group');
       continue;
     }
     for (const locale of candidates) {
+      if (conflictedSignatures.has(signature)) break;
       const url = completePaths[locale];
-      if (conflicted.has(url)) continue;
+      if (conflicted.has(url)) {
+        // A third distinct clique can arrive after this URL was already
+        // marked conflicted. It must be recorded and purged as a whole too;
+        // otherwise its other variants would survive as orphan entries.
+        markSignatureConflicted(signature);
+        note('conflicting-group');
+        break;
+      }
       const existing = byUrl.get(url);
       if (existing) {
         // Two different IT pages claiming the same locale URL with different
@@ -257,14 +271,10 @@ export function collectLocaleVariantEntries(
         if (signatureOf(existing.paths) !== signature) {
           byUrl.delete(url);
           conflicted.add(url);
-          conflictedSignatures.add(signatureOf(existing.paths));
-          conflictedSignatures.add(signature);
-          for (const [candidateUrl, candidate] of byUrl) {
-            if (conflictedSignatures.has(signatureOf(candidate.paths))) {
-              byUrl.delete(candidateUrl);
-            }
-          }
+          markSignatureConflicted(signatureOf(existing.paths));
+          markSignatureConflicted(signature);
           note('conflicting-group');
+          break;
         }
         continue;
       }

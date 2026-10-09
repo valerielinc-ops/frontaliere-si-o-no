@@ -102,6 +102,12 @@ describe('profession versus qualifier intent', () => {
     expect(matchesJobSearchRoleProfile({ title }, 'it', qualifiedProfile)).toBe(false);
   });
 
+  it('keeps a nursing query distinct from the physician support-title guard', () => {
+    const profile = getJobSearchRoleProfile('responsabile infermiere');
+    expect(profile.professionId).toBe('infermiere');
+    expect(matchesJobSearchRoleProfile({ title: 'Responsabile anesthesia nurse' }, 'en', profile)).toBe(true);
+  });
+
   it('does not promote a generic care responsibility in the description', () => {
     const evidence = classifyJobSearchOccupation({
       title: 'Facharzt Anästhesiologie',
