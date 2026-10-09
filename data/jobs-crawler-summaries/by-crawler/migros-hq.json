@@ -1,7 +1,7 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-10-08T22:37:01.508Z",
+  "generatedAt": "2026-10-09T09:44:53.253Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7662,
-  "avgDurationMs": 7662,
+  "durationMs": 7871,
+  "avgDurationMs": 7871,
   "durationHistory": [
-    7662
+    7871
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "migros-hq-079f2b04b15d",
       "slug": "talent-acquisition-partner-m-w-d-befristet-migros-hq-zurich",
@@ -34,7 +35,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/talent-acquisition-partner-wmd-befristet/e9d8b4ad-247b-4df6-b410-257b3e87c482",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:36:50.738Z",
+      "crawledAt": "2026-10-09T09:44:39.943Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -48,25 +49,23 @@
       "sector": "Retail",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-07T13:35:06+02:00",
-      "postedDate": "2026-10-07T13:35:06+02:00",
+      "datePosted": "2026-10-07T11:42:18+02:00",
+      "postedDate": "2026-10-07T11:42:18+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/talent-acquisition-partner-wmd-befristet/e9d8b4ad-247b-4df6-b410-257b3e87c482",
+      "firstSeenAt": "2026-10-08T22:36:50.738Z",
       "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T22:36:50.738Z",
-      "_qualityScore": 90,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "migros-hq-c13ef844ed5b",
       "slug": "ingegnere-software-fullstack-senior-m-w-d-migros-genossenschafts-bund-zurich-6tysqi",
@@ -79,7 +78,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:36:50.736Z",
+      "crawledAt": "2026-10-09T09:44:39.940Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -97,7 +96,9 @@
       "postedDate": "2026-09-28T03:29:13+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
-      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5304,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-08T11:17:49.458Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -122,7 +123,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:36:50.734Z",
+      "crawledAt": "2026-10-09T09:44:39.936Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -165,7 +166,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:36:50.717Z",
+      "crawledAt": "2026-10-09T09:44:39.913Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -199,5 +200,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

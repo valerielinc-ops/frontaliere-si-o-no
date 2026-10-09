@@ -1,6 +1,6 @@
 {
   "crawlerKey": "anicura",
-  "assembledAt": "2026-10-08T22:36:40.062Z",
+  "assembledAt": "2026-10-09T09:46:38.685Z",
   "jobs": [
     {
       "id": "anicura-8cd5c9f07b0e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:36:34.865Z",
+      "crawledAt": "2026-10-09T09:46:33.936Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,15 +53,15 @@
       "applyUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T15:08:56.323Z",
+      "previousSlugs": [
+        "tierarzt-in-80-100-w-m-d-thun-thun-anicura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "tierarzt-in-80-100-w-m-d-thun-thun-anicura-ch"
         ]
       },
-      "previousSlugs": [
-        "tierarzt-in-80-100-w-m-d-thun-thun-anicura-ch"
-      ],
+      "firstSeenAt": "2026-09-25T15:08:56.323Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",

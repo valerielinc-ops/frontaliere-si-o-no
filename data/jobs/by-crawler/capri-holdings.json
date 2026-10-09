@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "capri-holdings",
+  "assembledAt": "2026-10-09T09:42:15.458Z",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -49,16 +51,16 @@
         "location": "Landquart"
       },
       "id": "capri-holdings-3d3f64b95ee9",
-      "firstSeenAt": "2026-09-11T23:21:22.496Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "store-manager-landquart-capri-holdings"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "store-manager-landquart-capri-holdings"
         ]
       },
-      "previousSlugs": [
-        "store-manager-landquart-capri-holdings"
-      ],
+      "firstSeenAt": "2026-09-11T23:21:22.496Z",
+      "crawledAt": "",
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -74,7 +76,5 @@
         }
       }
     }
-  ],
-  "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-10-08T22:40:53.293Z"
+  ]
 }

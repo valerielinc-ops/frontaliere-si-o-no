@@ -1,7 +1,7 @@
 {
   "key": "fisba",
   "label": "FISBA AG",
-  "generatedAt": "2026-10-08T22:41:18.550Z",
+  "generatedAt": "2026-10-09T09:47:08.218Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8634,
-  "avgDurationMs": 8634,
+  "durationMs": 7973,
+  "avgDurationMs": 7973,
   "durationHistory": [
-    8634
+    7973
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:41:07.557Z",
+      "crawledAt": "2026-10-09T09:46:53.611Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:41:07.556Z",
+      "crawledAt": "2026-10-09T09:46:53.610Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:41:07.556Z",
+      "crawledAt": "2026-10-09T09:46:53.610Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -160,7 +160,7 @@
       "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:41:07.554Z",
+      "crawledAt": "2026-10-09T09:46:53.608Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -190,5 +190,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

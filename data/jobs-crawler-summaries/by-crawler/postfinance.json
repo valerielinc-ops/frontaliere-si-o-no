@@ -1,59 +1,59 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-08T22:37:40.668Z",
+  "generatedAt": "2026-10-09T09:50:26.760Z",
   "total": 28,
   "newCount": 1,
-  "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 28415,
-  "avgDurationMs": 28415,
+  "updatedCount": 14,
+  "removedCount": 1,
+  "unchangedCount": 13,
+  "durationMs": 43331,
+  "avgDurationMs": 43331,
   "durationHistory": [
-    28415
+    43331
   ],
   "newJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
-      "title": "Senior Third Party Risk Manager (m/w/d)",
+      "url": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
+      "title": "IT-Einstiegsprogramm Tech-Unternehmer:in",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "senior-third-party-risk-manager-m-w-d-postfinance",
+      "slug": "it-einstiegsprogramm-tech-unternehmer-in-postfinance",
       "sourceLang": "de",
       "department": [
-        "Büro-Recht und Compliance"
+        "Informatik und Digital Services"
       ],
       "category": [
-        "Büro-Recht und Compliance"
+        "Informatik und Digital Services"
       ],
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:11.499Z",
-      "validThrough": "05.11.26",
+      "crawledAt": "2026-10-09T09:49:38.091Z",
+      "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
+      "sector": "Servizi Finanziari",
+      "workload": "100-100%",
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
       "needsRetranslation": true,
-      "id": "postfinance-5ceb006621e3",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
+      "id": "postfinance-509e04b8f4f2",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-08T22:37:11.499Z",
+      "firstSeenAt": "2026-10-09T09:49:38.091Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -84,7 +84,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:28.215Z",
+      "crawledAt": "2026-10-09T09:50:12.301Z",
       "validThrough": "09.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -133,7 +133,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:24.234Z",
+      "crawledAt": "2026-10-09T09:50:05.279Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -181,7 +181,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:23.439Z",
+      "crawledAt": "2026-10-09T09:50:03.746Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -211,55 +211,6 @@
       }
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
-      "title": "Fachspezialist:in Testing Asset Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-di-testing-nella-gestione-patrimoniale-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:22.571Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-0cd1ab353779",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-26T14:14:15.597Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "url": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Sales-Coach-Leadership-&-Sales-Development-%28mwd%29/74651-de_DE",
       "title": "Sales Coach Leadership & Sales Development (m/w/d)",
@@ -279,7 +230,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:21.776Z",
+      "crawledAt": "2026-10-09T09:50:00.862Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -300,6 +251,445 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "title": "Kundenbetreuer:in Customer Center Niederurnen",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-niederurnen-postfinance-niederurnen",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:56.520Z",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-8433af2b03c4",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 73500,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8867",
+      "addressLocality": "Niederurnen",
+      "addressRegion": "GL",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
+      "title": "Standortleiter:in Customer Center Privatkunden Biel",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "responsabile-di-sede-customer-center-clienti-privati-bienne-postfinance-biel-bienne",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:52.281Z",
+      "validThrough": "02.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "90-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "id": "postfinance-4263a1af0523",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "title": "Athletenprogramm Asset Management (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:49.430Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "40-70%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-45a5161f48b7",
+      "firstSeenAt": "2026-10-05T09:36:41.204Z",
+      "needsRetranslation": true,
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Project-Portfolio-Steering-&-Business-Intelligence-%28wmd%29/74926-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Project-Portfolio-Steering-&-Business-Intelligence-%28wmd%29/74926-de_DE",
+      "title": "Athletenprogramm Project Portfolio Steering & Business Intelligence (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "programma-atletico-progetto-portfolio-steering-business-intelligence-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:48.004Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "40-70%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-8c17edc3b740",
+      "firstSeenAt": "2026-10-05T22:00:32.507Z",
+      "needsRetranslation": true,
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
+      "title": "Senior Third Party Risk Manager (m/w/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-third-party-risk-manager-m-w-d-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:45.232Z",
+      "validThrough": "05.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-5ceb006621e3",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-08T22:37:11.499Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Interne-Revision-%28wmd%29/74916-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Interne-Revision-%28wmd%29/74916-de_DE",
+      "title": "Traineeprogramm Interne Revision (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:43.727Z",
+      "validThrough": "11.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-2e73af385b97",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:36:42.012Z",
+      "salaryMin": 73500,
+      "salaryMax": 129000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Basic-Banking-Journeys-Privatkunden-%28wmd%29/74914-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Basic-Banking-Journeys-Privatkunden-%28wmd%29/74914-de_DE",
+      "title": "Traineeprogramm Basic Banking Journeys Privatkunden (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "programma-trainee-basic-banking-viaggi-clienti-privati-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:42.336Z",
+      "validThrough": "11.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-a376a680047d",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:36:39.478Z",
+      "salaryMin": 73500,
+      "salaryMax": 129000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Transformation-&-Projektmanagement-Customer-Experience-%28wmd%29/74915-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Transformation-&-Projektmanagement-Customer-Experience-%28wmd%29/74915-de_DE",
+      "title": "Traineeprogramm Transformation & Projektmanagement Customer Experience (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "programma-trainee-trasformazione-project-management-customer-experience-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:49:39.527Z",
+      "validThrough": "11.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-477301125e8d",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:36:40.421Z",
+      "salaryMin": 73500,
+      "salaryMax": 129000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
+      "title": "Kundenbetreuer:in Spezialteam TWINT",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "consulente-clienti-del-team-speciale-twint-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-08T22:37:19.436Z",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "50-60%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-4d53e2a2b190",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -349,6 +739,7 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
+      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -356,252 +747,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "title": "Athletenprogramm Asset Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:13.986Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "40-70%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-45a5161f48b7",
-      "firstSeenAt": "2026-10-05T09:36:41.204Z",
-      "needsRetranslation": true,
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Project-Portfolio-Steering-&-Business-Intelligence-%28wmd%29/74926-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Project-Portfolio-Steering-&-Business-Intelligence-%28wmd%29/74926-de_DE",
-      "title": "Athletenprogramm Project Portfolio Steering & Business Intelligence (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "programma-atletico-progetto-portfolio-steering-business-intelligence-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:13.194Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "40-70%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-8c17edc3b740",
-      "firstSeenAt": "2026-10-05T22:00:32.507Z",
-      "needsRetranslation": true,
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Interne-Revision-%28wmd%29/74916-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Interne-Revision-%28wmd%29/74916-de_DE",
-      "title": "Traineeprogramm Interne Revision (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:10.722Z",
-      "validThrough": "11.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-2e73af385b97",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:36:42.012Z",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Basic-Banking-Journeys-Privatkunden-%28wmd%29/74914-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Basic-Banking-Journeys-Privatkunden-%28wmd%29/74914-de_DE",
-      "title": "Traineeprogramm Basic Banking Journeys Privatkunden (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "programma-trainee-basic-banking-viaggi-clienti-privati-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:09.886Z",
-      "validThrough": "11.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-a376a680047d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:36:39.478Z",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-Transformation-&-Projektmanagement-Customer-Experience-%28wmd%29/74915-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-Transformation-&-Projektmanagement-Customer-Experience-%28wmd%29/74915-de_DE",
-      "title": "Traineeprogramm Transformation & Projektmanagement Customer Experience (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "programma-trainee-trasformazione-project-management-customer-experience-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:08.277Z",
-      "validThrough": "11.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-477301125e8d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:36:40.421Z",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/People-Attraction-Manager-%28wmd%29-befristet/74829-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/People-Attraction-Manager-%28wmd%29-befristet/74829-de_DE",
@@ -643,7 +791,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -653,7 +800,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
@@ -675,7 +821,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:29.043Z",
+      "crawledAt": "2026-10-09T09:50:13.727Z",
       "validThrough": "16.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -723,7 +869,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:27.429Z",
+      "crawledAt": "2026-10-09T09:50:10.906Z",
       "validThrough": "12.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -771,7 +917,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:26.566Z",
+      "crawledAt": "2026-10-09T09:50:09.511Z",
       "validThrough": "14.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -819,7 +965,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:25.783Z",
+      "crawledAt": "2026-10-09T09:50:08.120Z",
       "validThrough": "16.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -831,7 +977,6 @@
         "location": "Bern"
       },
       "id": "postfinance-8efde3e16ba8",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -868,7 +1013,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:25.021Z",
+      "crawledAt": "2026-10-09T09:50:06.713Z",
       "validThrough": "18.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -883,6 +1028,54 @@
       "firstSeenAt": "2026-09-23T11:57:45.123Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
+      "title": "Fachspezialist:in Testing Asset Management (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-di-testing-nella-gestione-patrimoniale-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Projektmanagement"
+      ],
+      "category": [
+        "Büro-Projektmanagement"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T09:50:02.291Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-0cd1ab353779",
+      "firstSeenAt": "2026-09-26T14:14:15.597Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3004",
@@ -916,7 +1109,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:21.012Z",
+      "crawledAt": "2026-10-09T09:49:59.388Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -928,7 +1121,6 @@
         "location": "Bern"
       },
       "id": "postfinance-706782f0824d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:42:03.998Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -965,7 +1157,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:20.230Z",
+      "crawledAt": "2026-10-09T09:49:57.985Z",
       "validThrough": "27.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -977,7 +1169,6 @@
         "location": "Bern"
       },
       "id": "postfinance-d0faf69cadb4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:42:03.998Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -986,104 +1177,6 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
-      "title": "Kundenbetreuer:in Spezialteam TWINT",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "kundenbetreuer-in-spezialteam-twint-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:19.436Z",
-      "validThrough": "30.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "50-60%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-4d53e2a2b190",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "title": "Kundenbetreuer:in Customer Center Niederurnen",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
-      "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-niederurnen-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:18.663Z",
-      "validThrough": "30.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
-      },
-      "id": "postfinance-8433af2b03c4",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 73500,
-      "salaryMax": 113000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8867",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1112,7 +1205,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:17.064Z",
+      "crawledAt": "2026-10-09T09:49:55.119Z",
       "validThrough": "31.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1161,7 +1254,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:16.292Z",
+      "crawledAt": "2026-10-09T09:49:53.673Z",
       "validThrough": "20.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1190,55 +1283,6 @@
       }
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
-      "title": "Standortleiter:in Customer Center Privatkunden Biel",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "standortleiter-in-customer-center-privatkunden-biel-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:15.523Z",
-      "validThrough": "02.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "90-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel/Bienne"
-      },
-      "id": "postfinance-4263a1af0523",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "2502",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "url": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
       "title": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
@@ -1258,7 +1302,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:14.771Z",
+      "crawledAt": "2026-10-09T09:49:50.836Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1306,7 +1350,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:12.279Z",
+      "crawledAt": "2026-10-09T09:49:46.626Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1354,7 +1398,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:09.065Z",
+      "crawledAt": "2026-10-09T09:49:40.920Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1384,5 +1428,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }
