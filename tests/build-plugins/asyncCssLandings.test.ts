@@ -196,6 +196,37 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     expect((grid.match(/<aside\b/g) ?? []).length).toBe(2);
   });
 
+  it('adds the marker class without rewriting a data-class attribute', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main data-class="x">Test</main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main data-class="x" class="seo-static-content">Test</main>');
+    expect(html).not.toContain('data-class="seo-static-content"');
+  });
+
+  it('ignores a literal closing main inside a trailing script', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main>Test</main><script>const s = "</main>";</script>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main class="seo-static-content">Test<script>const s = "</main>";</script></main>');
+  });
+
+  it('keeps quoted greater-than characters in the promoted opening tag', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main data-label="a>b">Test</main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main data-label="a>b" class="seo-static-content">Test</main>');
+  });
+
   it('keeps a non-lite-shell class when promoting an existing main', () => {
     const html = buildSimplePage({
       ...baseOpts,

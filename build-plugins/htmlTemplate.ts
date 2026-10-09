@@ -304,6 +304,173 @@ export interface SimplePageOpts {
  seoMainClass?: string;
 }
 
+interface LeadingMainTag {
+ prefix: string;
+ openingTag: string;
+ openingEnd: number;
+}
+
+interface MainClosingTag {
+ index: number;
+ tag: string;
+}
+
+interface MainClassAttribute {
+ start: number;
+ end: number;
+ value: string;
+}
+
+/** Find an HTML tag terminator without treating `>` inside quotes as a close. */
+function findHtmlTagEnd(source: string, start: number): number {
+ let quote: '"' | "'" | null = null;
+ for (let index = start; index < source.length; index++) {
+   const char = source[index];
+   if (quote) {
+     if (char === quote) quote = null;
+     continue;
+   }
+   if (char === '"' || char === "'") {
+     quote = char;
+     continue;
+   }
+   if (char === '>') return index;
+ }
+ return -1;
+}
+
+/** Locate a complete leading `<main>` opening tag, including quoted attrs. */
+function findLeadingMainTag(bodyHtml: string): LeadingMainTag | null {
+ const prefixMatch = bodyHtml.match(/^(\s*(?:<!--[\s\S]*?-->\s*)*)<main\b/i);
+ if (!prefixMatch) return null;
+ const mainStart = prefixMatch[1].length;
+ const tagEnd = findHtmlTagEnd(bodyHtml, mainStart);
+ if (tagEnd < 0) return null;
+ return {
+   prefix: bodyHtml.slice(0, mainStart),
+   openingTag: bodyHtml.slice(mainStart, tagEnd + 1),
+   openingEnd: tagEnd + 1,
+ };
+}
+
+/**
+ * Find the closing tag belonging to the leading main. Raw-text elements and
+ * comments are skipped so a literal `</main>` in an ad script cannot become a
+ * false boundary while trailing siblings are moved into the promoted main.
+ */
+function findLeadingMainClosingTag(source: string, openingEnd: number): MainClosingTag | null {
+ let depth = 0;
+ let cursor = openingEnd;
+ while (cursor < source.length) {
+   const tagStart = source.indexOf('<', cursor);
+   if (tagStart < 0) return null;
+
+   if (source.startsWith('<!--', tagStart)) {
+     const commentEnd = source.indexOf('-->', tagStart + 4);
+     if (commentEnd < 0) return null;
+     cursor = commentEnd + 3;
+     continue;
+   }
+
+   const rawTextMatch = source.slice(tagStart).match(/^<(script|style)\b/i);
+   if (rawTextMatch) {
+     const openingTagEnd = findHtmlTagEnd(source, tagStart);
+     if (openingTagEnd < 0) return null;
+     const closingPattern = new RegExp(`</${rawTextMatch[1]}\\s*>`, 'ig');
+     closingPattern.lastIndex = openingTagEnd + 1;
+     const rawTextClose = closingPattern.exec(source);
+     if (!rawTextClose) return null;
+     cursor = rawTextClose.index + rawTextClose[0].length;
+     continue;
+   }
+
+   const mainOpenMatch = source.slice(tagStart).match(/^<main\b/i);
+   if (mainOpenMatch) {
+     const openingTagEnd = findHtmlTagEnd(source, tagStart);
+     if (openingTagEnd < 0) return null;
+     const openingTag = source.slice(tagStart, openingTagEnd + 1);
+     if (!/\/\s*>$/.test(openingTag)) depth++;
+     cursor = openingTagEnd + 1;
+     continue;
+   }
+
+   const mainCloseMatch = source.slice(tagStart).match(/^<\/main\s*>/i);
+   if (mainCloseMatch) {
+     const closingTag = mainCloseMatch[0];
+     if (depth === 0) return { index: tagStart, tag: closingTag };
+     depth--;
+     cursor = tagStart + closingTag.length;
+     continue;
+   }
+
+   // Skip complete ordinary tags so `<main>` text inside a quoted attribute
+   // cannot be mistaken for a nested landmark.
+   const genericTagEnd = findHtmlTagEnd(source, tagStart);
+   cursor = genericTagEnd >= 0 ? genericTagEnd + 1 : tagStart + 1;
+ }
+ return null;
+}
+
+/** Parse the actual class attribute, excluding data-class and quoted values. */
+function findMainClassAttribute(openingTag: string): MainClassAttribute | null {
+ const mainPrefix = openingTag.match(/^<main\b/i)?.[0];
+ if (!mainPrefix) return null;
+ const tagEnd = openingTag.length - 1;
+ let cursor = mainPrefix.length;
+
+ while (cursor < tagEnd) {
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+   if (cursor >= tagEnd || openingTag[cursor] === '/') break;
+
+   const attrStart = cursor;
+   while (cursor < tagEnd && !/[\s=/>]/.test(openingTag[cursor])) cursor++;
+   const attrName = openingTag.slice(attrStart, cursor);
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+   if (openingTag[cursor] !== '=') continue;
+   cursor++;
+   while (cursor < tagEnd && /\s/.test(openingTag[cursor])) cursor++;
+
+   let value = '';
+   if (openingTag[cursor] === '"' || openingTag[cursor] === "'") {
+     const quote = openingTag[cursor];
+     const valueStart = ++cursor;
+     while (cursor < tagEnd && openingTag[cursor] !== quote) cursor++;
+     value = openingTag.slice(valueStart, cursor);
+     if (cursor < tagEnd) cursor++;
+   } else {
+     const valueStart = cursor;
+     while (cursor < tagEnd && !/\s/.test(openingTag[cursor])) cursor++;
+     value = openingTag.slice(valueStart, cursor);
+   }
+
+   if (attrName.toLowerCase() === 'class') {
+     return { start: attrStart, end: cursor, value };
+   }
+ }
+ return null;
+}
+
+function promoteMainClasses(openingTag: string, seoMainClass: string): string {
+ const requestedClasses = seoMainClass.split(/\s+/).filter(Boolean);
+ if (requestedClasses.length === 0) return openingTag;
+
+ const classAttribute = findMainClassAttribute(openingTag);
+ const existingClasses = classAttribute?.value.split(/\s+/).filter(Boolean) ?? [];
+ const mergedClasses = [...existingClasses];
+ for (const className of requestedClasses) {
+   if (!mergedClasses.includes(className)) mergedClasses.push(className);
+ }
+ const classValue = mergedClasses.join(' ');
+
+ if (classAttribute) {
+   return `${openingTag.slice(0, classAttribute.start)}class="${classValue}"${openingTag.slice(classAttribute.end)}`;
+ }
+
+ const tagEnd = openingTag.lastIndexOf('>');
+ const beforeTagEnd = openingTag.slice(0, tagEnd).replace(/\s+$/, '');
+ return `${beforeTagEnd} class="${classValue}"${openingTag.slice(tagEnd)}`;
+}
+
 export function buildSimplePage(opts: SimplePageOpts): string {
  const {
  locale,
@@ -343,46 +510,20 @@ export function buildSimplePage(opts: SimplePageOpts): string {
   * page content and raw inner HTML continues through the canonical wrapper.
   */
  const staticBody = seoContentOutsideRoot ? (() => {
-   const leadingMain = bodyHtml.match(/^(\s*(?:<!--[\s\S]*?-->\s*)*)<main\b[^>]*>/i);
+   const leadingMain = findLeadingMainTag(bodyHtml);
    if (!leadingMain) return `<main class="${seoMainClass}">\n${bodyHtml}\n</main>`;
 
-   const prefix = leadingMain[1];
-   const openingTag = leadingMain[0].slice(prefix.length);
-   const closingMainPattern = /<\/main\s*>/gi;
-   closingMainPattern.lastIndex = leadingMain[0].length;
-   let closingMain: RegExpExecArray | null = null;
-   let closingMatch: RegExpExecArray | null;
-   while ((closingMatch = closingMainPattern.exec(bodyHtml)) !== null) {
-     closingMain = closingMatch;
-   }
-   if (!closingMain) return `<main class="${seoMainClass}">\n${bodyHtml}\n</main>`;
-
-   const closingMainIndex = closingMain.index;
-   const closingMainEnd = closingMainIndex + closingMain[0].length;
-   const mainInnerHtml = bodyHtml.slice(leadingMain[0].length, closingMainIndex);
-   const trailingHtml = bodyHtml.slice(closingMainEnd);
-   const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(openingTag);
-   const requestedClasses = seoMainClass.split(/\s+/).filter(Boolean);
-   let promotedOpening = openingTag;
-
-   if (requestedClasses.length > 0) {
-     const existingClasses = classAttr
-       ? (classAttr[1] ?? classAttr[2] ?? classAttr[3] ?? '').split(/\s+/).filter(Boolean)
-       : [];
-     const mergedClasses = [...existingClasses];
-     for (const className of requestedClasses) {
-       if (!mergedClasses.includes(className)) mergedClasses.push(className);
-     }
-     const classValue = mergedClasses.join(' ');
-     if (classAttr) {
-       promotedOpening = `${openingTag.slice(0, classAttr.index)}class="${classValue}"${openingTag.slice(classAttr.index + classAttr[0].length)}`;
-     } else {
-       const mainName = openingTag.match(/^<main\b/i)?.[0] ?? '<main';
-       promotedOpening = `${mainName} class="${classValue}"${openingTag.slice(mainName.length)}`;
-     }
+   const promotedOpening = promoteMainClasses(leadingMain.openingTag, seoMainClass);
+   const closingMain = findLeadingMainClosingTag(bodyHtml, leadingMain.openingEnd);
+   if (!closingMain) {
+     // A malformed caller-owned main is repaired in place so the fallback
+     // still emits one well-formed landmark instead of nesting a wrapper.
+     return `${leadingMain.prefix}${promotedOpening}${bodyHtml.slice(leadingMain.openingEnd)}</main>`;
    }
 
-   return `${prefix}${promotedOpening}${mainInnerHtml}${trailingHtml}${closingMain[0]}`;
+   const mainInnerHtml = bodyHtml.slice(leadingMain.openingEnd, closingMain.index);
+   const trailingHtml = bodyHtml.slice(closingMain.index + closingMain.tag.length);
+   return `${leadingMain.prefix}${promotedOpening}${mainInnerHtml}${trailingHtml}${closingMain.tag}`;
  })() : '';
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
