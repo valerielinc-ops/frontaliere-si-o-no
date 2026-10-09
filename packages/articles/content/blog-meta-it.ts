@@ -12850,6 +12850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.karate-uisp-formazione-arcisate-2026.title': 'Karate UISP: la nuova stagione inizia da Arcisate',
     'blog.article.karate-uisp-formazione-arcisate-2026.excerpt': 'La nuova stagione UISP riparte da un incontro ad Arcisate.',
     'blog.article.karate-uisp-formazione-arcisate-2026.imageAlt': 'Pratica di karate Shotokan durante un incontro UISP a Varese.',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.title': 'Chiude Villa Sassa: 140 dipendenti senza lavoro',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.excerpt': 'Villa Sassa e Villa Principe Leopoldo chiusi per quattro mesi Circa 140 dipendenti restano senza lavoro Alternative invernali a St.',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.imageAlt': 'Vista sul Lago di Lugano con alberghi in ristrutturazione',
 };
 
 export default blogMetaIt;

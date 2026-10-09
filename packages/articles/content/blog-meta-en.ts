@@ -12849,6 +12849,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.karate-uisp-formazione-arcisate-2026.title': 'UISP Karate: the new season starts from Arcisate',
     'blog.article.karate-uisp-formazione-arcisate-2026.excerpt': 'The new UISP season starts again from a meeting at Arcisate.',
     'blog.article.karate-uisp-formazione-arcisate-2026.imageAlt': 'Shotokan karate practice during a UISP meeting in Varese.',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.title': 'Villa Sassa closes: 140 employees out of work',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.excerpt': 'Villa Sassa and Villa Principe Leopoldo closed for four months About 140 employees are out of work Winter alternatives in St.',
+    'blog.article.lardi-dotlife-chiusura-alberghi-lugano.imageAlt': 'View of Lugano lake with hotels under renovation',
 };
 
 export default blogMetaEn;

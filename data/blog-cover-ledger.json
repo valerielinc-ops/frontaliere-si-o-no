@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5102
+      "6": 5103
     },
-    "publishedCovers": 6814,
+    "publishedCovers": 6815,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180712,6 +180712,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lardi-dotlife-chiusura-alberghi-lugano": {
+      "cover": "/images/blog/article-lardi-dotlife-chiusura-alberghi-lugano.webp",
+      "hash": "fab4cf291f069c5e5e912de9a6386769dd6d6e3eff43ac94b98869f2bebdd68b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lardi-dotlife-chiusura-alberghi-lugano",
+          "category": "pratico",
+          "date": "2026-10-09T04:27:22.850Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
