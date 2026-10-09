@@ -95,12 +95,12 @@
     },
     {
       "id": "recruitingapp-1154-390771636cc9",
-      "slug": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
+      "slug": "consulente-per-clienti-privati-80-100-sgkb-bewerbermanagement-stellen-bazenheid",
       "slugByLocale": {
-        "it": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
-        "en": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
+        "it": "consulente-per-clienti-privati-80-100-sgkb-bewerbermanagement-stellen-bazenheid",
+        "en": "private-client-advisor-80-100-sgkb-bewerbermanagement-stellen-bazenheid",
         "de": "berater-in-privatkunden-80-100-recruitingapp-1154-ch",
-        "fr": "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        "fr": "conseiller-ere-clientele-privee-80-100-sgkb-bewerbermanagement-stellen-bazenheid"
       },
       "company": "SGKB Bewerbermanagement Stellen",
       "companyKey": "recruitingapp-1154",
@@ -155,7 +155,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        ],
+        "en": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        ],
+        "fr": [
+          "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-in-privatkunden-80-100-recruitingapp-1154-ch"
+      ]
     },
     {
       "id": "recruitingapp-1154-a1b5a6fb7e67",

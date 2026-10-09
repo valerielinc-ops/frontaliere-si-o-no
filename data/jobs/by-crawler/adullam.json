@@ -810,12 +810,12 @@
     },
     {
       "id": "adullam-d4e7713fbd0c",
-      "slug": "arztsekretar-in-adullam-basel",
+      "slug": "segretario-a-medico-a-adullam-stiftung-basel",
       "slugByLocale": {
-        "it": "arztsekretar-in-adullam-basel",
-        "en": "arztsekretar-in-adullam-basel",
+        "it": "segretario-a-medico-a-adullam-stiftung-basel",
+        "en": "medical-secretary-adullam-stiftung-basel",
         "de": "arztsekretar-in-adullam-basel",
-        "fr": "arztsekretar-in-adullam-basel"
+        "fr": "secretaire-medical-e-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -876,7 +876,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-adullam-basel"
+        ],
+        "en": [
+          "arztsekretar-in-adullam-basel"
+        ],
+        "fr": [
+          "arztsekretar-in-adullam-basel"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-adullam-basel"
+      ]
     },
     {
       "id": "adullam-cc3f32ef6ed8",

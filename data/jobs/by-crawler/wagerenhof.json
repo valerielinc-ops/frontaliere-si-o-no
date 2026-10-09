@@ -3,12 +3,12 @@
   "jobs": [
     {
       "id": "wagerenhof-0701f81281a6",
-      "slug": "teamleiter-in-bauernhof-90-wagerenhof-uster",
+      "slug": "responsabile-di-squadra-della-fattoria-90-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "teamleiter-in-bauernhof-90-wagerenhof-uster",
-        "it": "teamleiter-in-bauernhof-90-wagerenhof-uster",
-        "en": "teamleiter-in-bauernhof-90-wagerenhof-uster",
-        "fr": "teamleiter-in-bauernhof-90-wagerenhof-uster"
+        "it": "responsabile-di-squadra-della-fattoria-90-stiftung-wagerenhof-uster",
+        "en": "team-leader-farm-90-stiftung-wagerenhof-uster",
+        "fr": "chef-fe-d-equipe-a-la-ferme-90-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -65,7 +65,21 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-bauernhof-90-wagerenhof-uster"
+        ],
+        "en": [
+          "teamleiter-in-bauernhof-90-wagerenhof-uster"
+        ],
+        "fr": [
+          "teamleiter-in-bauernhof-90-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-bauernhof-90-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-eaad6add9529",

@@ -102,7 +102,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
+        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -177,12 +177,12 @@
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+          "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+        "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
       "salaryMin": 86500,
@@ -1048,12 +1048,12 @@
     },
     {
       "id": "ksow-fd616289c6a1",
-      "slug": "med-praxisassistent-in-notfallempfang-e-notfallpraxis-a-70-kantonsspital-obwalden-sarnen",
+      "slug": "assistente-di-studio-medico-a-per-l-accettazione-d-urgenza-e-l-ambulatorio-d-urgenza-a-70-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-notfallempfang-e-notfallpraxis-a-70-kantonsspital-obwalden-sarnen",
-        "en": "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen",
+        "it": "assistente-di-studio-medico-a-per-l-accettazione-d-urgenza-e-l-ambulatorio-d-urgenza-a-70-kantonsspital-obwalden-sarnen",
+        "en": "medical-practice-assistant-emergency-reception-and-emergency-clinic-a-70-kantonsspital-obwalden-sarnen",
         "de": "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen",
-        "fr": "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
+        "fr": "assistant-e-medical-e-a-l-accueil-des-urgences-et-au-cabinet-d-urgence-a-70-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1098,11 +1098,20 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen"
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen",
+        "med-praxisassistent-in-notfallempfang-e-notfallpraxis-a-70-kantonsspital-obwalden-sarnen",
+        "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen"
+          "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-ksow-sarnen",
+          "med-praxisassistent-in-notfallempfang-e-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "en": [
+          "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "med-praxisassistent-in-notfallempfang-und-notfallpraxis-a-70-kantonsspital-obwalden-sarnen"
         ]
       },
       "firstSeenAt": "2026-10-08T21:28:44.007Z",

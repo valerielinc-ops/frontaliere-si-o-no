@@ -237,12 +237,12 @@
     },
     {
       "id": "caritas-schweiz-d4af2c9377f8",
-      "slug": "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
+      "slug": "giurista-70-80-a-tempo-determinato-per-12-mesi-m-f-d-caritas-schweiz-luzern",
       "slugByLocale": {
-        "it": "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
-        "en": "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
+        "it": "giurista-70-80-a-tempo-determinato-per-12-mesi-m-f-d-caritas-schweiz-luzern",
+        "en": "lawyer-70-80-fixed-term-for-12-months-m-f-d-caritas-schweiz-luzern",
         "de": "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern",
-        "fr": "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
+        "fr": "juriste-70-80-a-duree-determinee-de-12-mois-h-f-d-caritas-schweiz-luzern"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -301,7 +301,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
+        ],
+        "en": [
+          "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
+        ],
+        "fr": [
+          "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-70-80-befristet-auf-12-monate-m-w-d-caritas-schweiz-luzern"
+      ]
     },
     {
       "id": "caritas-schweiz-46405d7e7155",

@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,14 +52,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -6186,7 +6186,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6229,7 +6229,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6239,7 +6239,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -7443,7 +7443,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -7487,12 +7487,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "salaryMin": 123000,
@@ -8587,7 +8591,7 @@
       "id": "roche-65ead38861c9",
       "slug": "clinical-pharmacology-lead-principal-scientist-roche-basel",
       "slugByLocale": {
-        "it": "clinical-pharmacology-lead-principal-scientist-roche-basel",
+        "it": "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel",
         "en": "clinical-pharmacology-lead-principal-scientist-roche-ch",
         "de": "klinische-pharmakologie-lead-hauptwissenschaftler-roche-basel",
         "fr": "responsable-de-la-pharmacologie-clinique-chercheur-principal-roche-basel"
@@ -8632,13 +8636,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "clinical-pharmacology-lead-principal-scientist-roche-ch",
-        "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel"
+        "clinical-pharmacology-lead-principal-scientist-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "clinical-pharmacology-lead-principal-scientist-roche-ch",
-          "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel"
+          "clinical-pharmacology-lead-principal-scientist-roche-ch"
         ]
       },
       "firstSeenAt": "2026-10-08T21:20:02.623Z",

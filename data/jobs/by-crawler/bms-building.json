@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "bms-building-df649286418b",
-      "slug": "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch",
+      "slug": "rappresentante-del-legno-del-vallese-centrale-m-f-d-100-bms-building-materials-conthey",
       "slugByLocale": {
-        "it": "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch",
-        "en": "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch",
-        "de": "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch",
+        "it": "rappresentante-del-legno-del-vallese-centrale-m-f-d-100-bms-building-materials-conthey",
+        "en": "trades-representative-of-central-valais-wood-m-f-d-100-bms-building-materials-conthey",
+        "de": "handelsvertreter-von-zentralwallis-holz-m-w-d-100-bms-building-materials-conthey",
         "fr": "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch"
       },
       "company": "BMS Building Materials",
@@ -93,13 +93,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch"
+        ],
+        "en": [
+          "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch"
+        ],
+        "de": [
+          "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "representant-metiers-du-bois-valais-central-f-h-d-100-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-d4037a85be73",
-      "slug": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
+      "slug": "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bussigny-pres-lausanne",
       "slugByLocale": {
-        "it": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
+        "it": "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bussigny-pres-lausanne",
         "en": "internal-sales-advisor-materials-100-civil-engineering-m-f-d-bms-building-materials-bussigny-pres-lausanne",
         "de": "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bussigny-pres-lausanne",
         "fr": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
@@ -188,13 +202,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-dc0750df51c2",
-      "slug": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
+      "slug": "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
       "slugByLocale": {
-        "it": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch",
+        "it": "consulente-vendite-interno-legno-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
         "en": "internal-sales-advisor-wood-100-m-f-d-bms-building-materials-bussigny-pres-lausanne",
         "de": "interner-verkaufsberater-wood-100-m-w-d-bms-building-materials-bussigny-pres-lausanne",
         "fr": "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
@@ -280,7 +302,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-interne-bois-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-5210958d7921",
@@ -386,9 +416,9 @@
     },
     {
       "id": "bms-building-3fde458c2d42",
-      "slug": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms",
+      "slug": "consulente-di-vendita-pavimenti-e-rivestimenti-per-pareti-e-sanitari-in-mostra-m-f-d-100-bms-building-materials",
       "slugByLocale": {
-        "it": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms",
+        "it": "consulente-di-vendita-pavimenti-e-rivestimenti-per-pareti-e-sanitari-in-mostra-m-f-d-100-bms-building-materials",
         "en": "sales-advisor-floor-and-wall-coatings-and-sanitary-exhibition-m-f-d-100-bms-building-materials-villeneuve",
         "de": "verkaufsberater-boden-und-wandbeschichtungen-und-sanitarausstellung-m-w-d-100-bms-building-materials-villeneuve",
         "fr": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms"
@@ -474,7 +504,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms"
+      ]
     },
     {
       "id": "bms-building-13196ee6ee0a",

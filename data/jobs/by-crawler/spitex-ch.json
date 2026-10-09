@@ -1350,12 +1350,12 @@
     },
     {
       "id": "spitex-ch-244cdc777569",
-      "slug": "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
+      "slug": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck",
-        "en": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+        "it": "operatore-trice-sociosanitario-a-afc-50-70-spitex-am-alten-rhein-rheineck",
+        "en": "health-professional-efz-50-70-spitex-am-alten-rhein-rheineck",
         "de": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
-        "fr": "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        "fr": "professionnels-de-la-sante-efz-50-70-spitex-am-alten-rhein-rheineck"
       },
       "company": "Spitex Am Alten Rhein",
       "companyKey": "spitex-ch",
@@ -1403,11 +1403,19 @@
       "firstSeenAt": "2026-10-08T21:23:03.773Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+          "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck"
+        "fachperson-gesundheit-efz-50-70-spitex-ch-rheineck",
+        "fachperson-gesundheit-cfc-50-70-spitex-am-alten-rhein-rheineck"
       ],
       "salaryMin": 42000,
       "salaryMax": 71400,
@@ -1425,12 +1433,12 @@
     },
     {
       "id": "spitex-ch-e89cfbf641a7",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+      "slug": "operatrice-sanitaria-operatore-sanitario-efz-50-80-per-il-centro-wetzikon-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "it": "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        "it": "operatrice-sanitaria-operatore-sanitario-efz-50-80-per-il-centro-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "en": "health-specialist-efz-50-80-for-the-center-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "specialiste-de-la-sante-efz-50-80-pour-le-centre-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1478,11 +1486,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+          "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh"
+        "fachfrau-fachmann-gesundheit-efz-50-80-fur-das-zentrum-wetzikon-spitex-ch-wetzikon-zh",
+        "fachfrau-fachmann-gesundheit-cfc-50-80-per-das-zentrum-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       ],
       "salaryMin": 63200,
       "salaryMax": 107600,

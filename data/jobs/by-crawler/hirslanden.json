@@ -26718,12 +26718,12 @@
     },
     {
       "id": "hirslanden-40d828f53a9f",
-      "slug": "stv-leiterin-leiter-notfall-a-70-100-hirslanden-klinik-hirslanden-salem-spital",
+      "slug": "capo-di-emergenza-a-70-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital",
-        "it": "stv-leiterin-leiter-notfall-a-70-100-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital",
-        "fr": "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital"
+        "it": "capo-di-emergenza-a-70-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "head-of-emergency-a-70-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "chef-de-l-urgence-a-70-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26767,10 +26767,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital"
+        "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital",
+        "stv-leiterin-leiter-notfall-a-70-100-hirslanden-klinik-hirslanden-salem-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital",
+          "stv-leiterin-leiter-notfall-a-70-100-hirslanden-klinik-hirslanden-salem-spital"
+        ],
+        "en": [
+          "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
           "stv-leiterin-leiter-notfall-a-70-100-hirslanden-hirslanden-salem-spital"
         ]
       },
@@ -26791,12 +26799,12 @@
     },
     {
       "id": "hirslanden-ae312e8a94e0",
-      "slug": "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "medico-di-emergenza-tra-il-50-e-il-100-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil",
-        "en": "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil"
+        "it": "medico-di-emergenza-tra-il-50-e-il-100-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "emergency-physician-between-50-and-100-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "notfallarzt-zwischen-50-und-100-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26852,16 +26860,30 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-urgentiste-entre-50-et-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-e86e2dd4fe5b",
-      "slug": "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-klinik-aarau",
+      "slug": "capo-della-radiologia-a-80-100-hirslanden-klinik-hirslanden-klinik-aarau",
       "slugByLocale": {
         "de": "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau",
-        "it": "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-klinik-aarau",
-        "en": "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau",
-        "fr": "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau"
+        "it": "capo-della-radiologia-a-80-100-hirslanden-klinik-hirslanden-klinik-aarau",
+        "en": "head-of-radiology-a-80-100-hirslanden-klinik-hirslanden-klinik-aarau",
+        "fr": "responsable-de-la-radiologie-a-80-100-hirslanden-klinik-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26905,10 +26927,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau"
+        "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau",
+        "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-klinik-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau",
+          "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-klinik-aarau"
+        ],
+        "en": [
+          "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau"
+        ],
+        "fr": [
           "leiterin-leiter-fachpersonal-radiologie-a-80-100-hirslanden-hirslanden-klinik-aarau"
         ]
       },
@@ -26929,12 +26959,12 @@
     },
     {
       "id": "hirslanden-80ea7c7086ee",
-      "slug": "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil",
+      "slug": "100-dpi-infermiera-di-riferimento-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "fr": "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil",
-        "it": "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil",
-        "en": "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil",
-        "de": "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil"
+        "it": "100-dpi-infermiera-di-riferimento-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "100-dpi-nurse-reference-hirslanden-klinik-hirslanden-clinique-cecil",
+        "de": "100-dpi-krankenschwester-referenz-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26990,7 +27020,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "referent-e-infirmier-ere-dpi-a-100-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-764a1cfee906",

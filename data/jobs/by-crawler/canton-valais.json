@@ -1286,9 +1286,9 @@
     },
     {
       "id": "canton-valais-33277e4deb02",
-      "slug": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion",
+      "slug": "un-dipendente-amministrativo-hr-o-un-dipendente-amministrativo-hr-80-100-canton-du-valais-sion",
       "slugByLocale": {
-        "it": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion",
+        "it": "un-dipendente-amministrativo-hr-o-un-dipendente-amministrativo-hr-80-100-canton-du-valais-sion",
         "en": "an-hr-administrative-employee-or-an-hr-administrative-employee-80-100-canton-du-valais-sion",
         "de": "hr-verwaltungsmitarbeiter-oder-hr-verwaltungsmitarbeiter-80-100-canton-du-valais-sion",
         "fr": "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton"
@@ -1340,14 +1340,14 @@
         "an-administrative-employee-80-100-canton-du-valais-sion",
         "verwaltungsangestellter-80-100-canton-du-valais-sion",
         "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
-        "un-dipendente-amministrativo-hr-o-un-dipendente-amministrativo-hr-80-100-canton-du-valais-sion"
+        "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
           "un-dipendente-amministrativo-80-100-canton-du-valais-sion",
           "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton",
-          "un-dipendente-amministrativo-hr-o-un-dipendente-amministrativo-hr-80-100-canton-du-valais-sion"
+          "un-collaborateur-administratif-rh-ou-une-collaboratrice-administrative-rh-80-100-canton-du-valais-sion"
         ],
         "en": [
           "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
@@ -1868,12 +1868,12 @@
     },
     {
       "id": "canton-valais-67b44190c9d6",
-      "slug": "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch",
+      "slug": "capo-dell-unita-di-gestione-e-controllo-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch",
-        "it": "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch",
-        "en": "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch",
-        "de": "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch"
+        "it": "capo-dell-unita-di-gestione-e-controllo-canton-du-valais-sion",
+        "en": "a-head-of-the-management-and-control-unit-canton-du-valais-sion",
+        "de": "ein-leiter-der-verwaltungs-und-kontrollabteilung-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1931,16 +1931,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:09.652Z"
+      "firstSeenAt": "2026-10-08T22:31:09.652Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch"
+        ],
+        "en": [
+          "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch"
+        ],
+        "de": [
+          "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-chef-ou-une-cheffe-de-l-unite-direction-et-controlling-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-61eed7b29833",
-      "slug": "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-du-valais-sion",
+      "slug": "segretario-generale-aggiunto-o-segretario-generale-aggiunto-80-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch",
-        "it": "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-du-valais-sion",
-        "en": "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch",
-        "de": "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch"
+        "it": "segretario-generale-aggiunto-o-segretario-generale-aggiunto-80-100-canton-du-valais-sion",
+        "en": "a-deputy-secretary-general-or-deputy-secretary-general-80-100-canton-du-valais-sion",
+        "de": "stellvertretender-generalsekretar-oder-stellvertretender-generalsekretar-80-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -1987,11 +2001,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch",
+          "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-du-valais-sion"
+        ],
+        "en": [
+          "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch"
+        ],
+        "de": [
           "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch"
+        "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-valais-ch",
+        "un-secretaire-general-adjoint-ou-une-secretaire-generale-adjointe-80-100-canton-du-valais-sion"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2010,12 +2032,12 @@
     },
     {
       "id": "canton-valais-4f5460437f3f",
-      "slug": "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch",
+      "slug": "un-cuoco-o-un-cuoco-50-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch",
-        "it": "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch",
-        "en": "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch",
-        "de": "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch"
+        "it": "un-cuoco-o-un-cuoco-50-canton-du-valais-sion",
+        "en": "a-cook-or-cook-50-canton-du-valais-sion",
+        "de": "ein-koch-oder-koch-50-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2073,16 +2095,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:08.334Z"
+      "firstSeenAt": "2026-10-08T22:31:08.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch"
+        ],
+        "en": [
+          "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch"
+        ],
+        "de": [
+          "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-cuisinier-ou-une-cuisiniere-50-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-2b1c847e9613",
-      "slug": "un-operateur-ou-une-operatrice-100-canton-valais-ch",
+      "slug": "operatore-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-operateur-ou-une-operatrice-100-canton-valais-ch",
-        "it": "un-operateur-ou-une-operatrice-100-canton-valais-ch",
-        "en": "un-operateur-ou-une-operatrice-100-canton-valais-ch",
-        "de": "un-operateur-ou-une-operatrice-100-canton-valais-ch"
+        "it": "operatore-100-canton-du-valais-sion",
+        "en": "operator-100-canton-du-valais-sion",
+        "de": "betreiber-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2140,16 +2176,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:07.693Z"
+      "firstSeenAt": "2026-10-08T22:31:07.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-operateur-ou-une-operatrice-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-operateur-ou-une-operatrice-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-operateur-ou-une-operatrice-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-operateur-ou-une-operatrice-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-701ebd27850e",
-      "slug": "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch",
+      "slug": "capo-del-circondario-della-gendarmeria-dell-alto-vallese-canton-du-valais-brig",
       "slugByLocale": {
         "de": "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch",
-        "it": "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch",
-        "en": "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch",
-        "fr": "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch"
+        "it": "capo-del-circondario-della-gendarmeria-dell-alto-vallese-canton-du-valais-brig",
+        "en": "head-of-the-upper-valais-gendarmerie-district-canton-du-valais-brig",
+        "fr": "chef-fe-du-cercle-de-gendarmerie-du-haut-valais-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2208,16 +2258,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:07.055Z"
+      "firstSeenAt": "2026-10-08T22:31:07.055Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch"
+        ],
+        "en": [
+          "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch"
+        ],
+        "fr": [
+          "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-in-des-gendarmeriekreises-oberwallis-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-d14bf4b92fac",
-      "slug": "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch",
+      "slug": "uno-o-piu-urbanisti-80-90-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch",
-        "it": "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch",
-        "en": "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch",
-        "de": "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch"
+        "it": "uno-o-piu-urbanisti-80-90-canton-du-valais-sion",
+        "en": "one-or-more-urban-planners-80-90-canton-du-valais-sion",
+        "de": "ein-oder-mehrere-stadtplaner-80-90-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2275,16 +2339,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:06.421Z"
+      "firstSeenAt": "2026-10-08T22:31:06.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch"
+        ],
+        "en": [
+          "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch"
+        ],
+        "de": [
+          "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-ou-une-amenagiste-urbaniste-80-90-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-591c809fd038",
-      "slug": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue",
+      "slug": "un-dipendente-specializzato-o-un-collaboratore-specializzato-di-lingua-tedesca-o-bilingue-francese-tedesco-100",
       "slugByLocale": {
         "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue",
-        "it": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue",
-        "en": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue",
-        "de": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue"
+        "it": "un-dipendente-specializzato-o-un-collaboratore-specializzato-di-lingua-tedesca-o-bilingue-francese-tedesco-100",
+        "en": "a-specialist-employee-or-a-specialist-german-speaking-or-bilingual-french-german-collaborator-100-jobsharing-50-50",
+        "de": "ein-spezialisierter-mitarbeiter-oder-ein-spezialisierter-deutschsprachiger-oder-zweisprachiger-franzosisch-deutscher"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2342,16 +2420,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:05.749Z"
+      "firstSeenAt": "2026-10-08T22:31:05.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue"
+        ],
+        "en": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue"
+        ],
+        "de": [
+          "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue"
+        ]
+      },
+      "previousSlugs": [
+        "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-germanophone-ou-bilingue"
+      ]
     },
     {
       "id": "canton-valais-643b50c1a64b",
-      "slug": "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch",
+      "slug": "un-infermiera-80-100-canton-du-valais-sion",
       "slugByLocale": {
         "fr": "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch",
-        "it": "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch",
-        "en": "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch",
-        "de": "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch"
+        "it": "un-infermiera-80-100-canton-du-valais-sion",
+        "en": "a-nurse-80-100-canton-du-valais-sion",
+        "de": "eine-krankenschwester-80-100-canton-du-valais-sion"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2409,16 +2501,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:31:05.030Z"
+      "firstSeenAt": "2026-10-08T22:31:05.030Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch"
+        ],
+        "en": [
+          "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch"
+        ],
+        "de": [
+          "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-infirmier-ou-une-infirmiere-80-100-canton-valais-ch"
+      ]
     },
     {
       "id": "canton-valais-68d6c8bbce8d",
-      "slug": "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig",
+      "slug": "3-posti-di-stage-come-stagista-bm-w-canton-du-valais-brig",
       "slugByLocale": {
         "de": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
-        "it": "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig",
-        "en": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
-        "fr": "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+        "it": "3-posti-di-stage-come-stagista-bm-w-canton-du-valais-brig",
+        "en": "3-internship-positions-for-bm-w-interns-canton-du-valais-brig",
+        "fr": "3-places-de-stage-en-tant-que-stagiaire-bm-w-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2465,11 +2571,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
+          "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig"
+        ],
+        "en": [
+          "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+        ],
+        "fr": [
           "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch"
+        "3-praktikumsplatze-als-bm-w-praktikant-in-canton-valais-ch",
+        "3-praktikumsplatze-come-bm-w-praktikant-in-canton-du-valais-brig"
       ],
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -2488,12 +2602,12 @@
     },
     {
       "id": "canton-valais-465da1d313f7",
-      "slug": "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig",
+      "slug": "5-posti-di-apprendistato-come-impiegata-impiegato-di-commercio-afc-canton-du-valais-brig",
       "slugByLocale": {
         "de": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
-        "it": "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig",
-        "en": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
-        "fr": "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+        "it": "5-posti-di-apprendistato-come-impiegata-impiegato-di-commercio-afc-canton-du-valais-brig",
+        "en": "5-apprenticeships-as-a-merchant-merchant-efz-canton-du-valais-brig",
+        "fr": "5-apprentissages-en-tant-que-commercant-commercant-efz-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2540,11 +2654,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
+          "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig"
+        ],
+        "en": [
+          "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+        ],
+        "fr": [
           "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch"
+        "5-ausbildungsplatze-als-kauffrau-kaufmann-efz-canton-valais-ch",
+        "5-ausbildungsplatze-come-kauffrau-kaufmann-cfc-canton-du-valais-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2563,12 +2685,12 @@
     },
     {
       "id": "canton-valais-02112774152f",
-      "slug": "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig",
+      "slug": "3-posti-di-apprendistato-come-addetta-addetto-d-esercizio-afc-canton-du-valais-brig",
       "slugByLocale": {
         "de": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
-        "it": "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig",
-        "en": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
-        "fr": "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+        "it": "3-posti-di-apprendistato-come-addetta-addetto-d-esercizio-afc-canton-du-valais-brig",
+        "en": "3-apprenticeships-as-a-specialist-in-operating-maintenance-efz-canton-du-valais-brig",
+        "fr": "3-apprentissages-en-tant-que-specialiste-de-la-maintenance-operationnelle-efz-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2615,11 +2737,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
+          "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig"
+        ],
+        "en": [
+          "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+        ],
+        "fr": [
           "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch"
+        "3-ausbildungsplatze-als-fachfrau-fachmann-betriebsunterhalt-efz-canton-valais-ch",
+        "3-ausbildungsplatze-come-fachfrau-fachmann-betriebsunterhalt-cfc-canton-du-valais-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2638,12 +2768,12 @@
     },
     {
       "id": "canton-valais-85257f369ce8",
-      "slug": "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig",
+      "slug": "1-posto-di-apprendistato-come-cuoca-cuoco-afc-canton-du-valais-brig",
       "slugByLocale": {
         "de": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
-        "it": "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig",
-        "en": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
-        "fr": "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+        "it": "1-posto-di-apprendistato-come-cuoca-cuoco-afc-canton-du-valais-brig",
+        "en": "1-apprenticeship-as-cook-chef-efz-canton-du-valais-brig",
+        "fr": "1-apprentissage-en-tant-que-cuisinier-chef-efz-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2690,11 +2820,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
+          "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig"
+        ],
+        "en": [
+          "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+        ],
+        "fr": [
           "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch"
+        "1-ausbildungsplatz-als-koch-kochin-efz-canton-valais-ch",
+        "1-ausbildungsplatz-come-koch-kochin-cfc-canton-du-valais-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2713,12 +2851,12 @@
     },
     {
       "id": "canton-valais-9d78b1ef7599",
-      "slug": "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig",
+      "slug": "1-posto-di-apprendistato-come-impiegata-impiegato-in-informazione-e-documentazione-afc-canton-du-valais-brig",
       "slugByLocale": {
         "de": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
-        "it": "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig",
-        "en": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
-        "fr": "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+        "it": "1-posto-di-apprendistato-come-impiegata-impiegato-in-informazione-e-documentazione-afc-canton-du-valais-brig",
+        "en": "1-apprenticeship-place-as-a-specialist-information-documentation-efz-canton-du-valais-brig",
+        "fr": "1-lieu-d-apprentissage-en-tant-que-specialiste-information-documentation-efz-canton-du-valais-brig"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
@@ -2765,11 +2903,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
+          "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig"
+        ],
+        "en": [
+          "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+        ],
+        "fr": [
           "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
         ]
       },
       "previousSlugs": [
-        "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch"
+        "1-ausbildungsplatz-als-fachfrau-fachmann-information-dokumentation-efz-canton-valais-ch",
+        "1-ausbildungsplatz-come-fachfrau-fachmann-information-dokumentation-cfc-canton-du-valais-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

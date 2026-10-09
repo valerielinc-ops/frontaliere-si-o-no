@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gavi-ee86033d5ad4",
-      "slug": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex",
+      "slug": "senior-manager-previsioni-sui-vaccini-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
-        "it": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex",
+        "it": "senior-manager-previsioni-sui-vaccini-gavi-the-vaccine-alliance-le-grand-saconnex",
         "en": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex",
         "de": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex",
-        "fr": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
+        "fr": "gestionnaire-principal-prevision-des-vaccins-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -67,7 +67,18 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
+        ],
+        "fr": [
+          "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
+      ]
     },
     {
       "id": "gavi-779c03b3dd09",

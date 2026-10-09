@@ -5778,11 +5778,11 @@
     },
     {
       "id": "hopital-du-valais-216a2c0af30f",
-      "slug": "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion",
+      "slug": "chief-medical-officer-in-oncologia-medica-a-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion",
-        "en": "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion",
-        "de": "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion",
+        "it": "chief-medical-officer-in-oncologia-medica-a-80-100-hopital-du-valais-sion",
+        "en": "chief-medical-officer-in-medical-oncology-at-80-100-hopital-du-valais-sion",
+        "de": "chief-medical-officer-in-der-medizinischen-onkologie-bei-80-100-hopital-du-valais-sion",
         "fr": "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -5843,16 +5843,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-en-oncologie-medicale-a-80-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-b533ddfe6c33",
-      "slug": "collaboratore-trice-hauswirtschaft-50-80-mittel-e-abenddienst-hopital-du-valais-brig",
+      "slug": "addetto-a-all-economia-domestica-50-80-turno-di-meta-giornata-e-serale-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "collaboratore-trice-hauswirtschaft-50-80-mittel-e-abenddienst-hopital-du-valais-brig",
-        "en": "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig",
+        "it": "addetto-a-all-economia-domestica-50-80-turno-di-meta-giornata-e-serale-hopital-du-valais-brig",
+        "en": "housekeeping-employee-50-80-midday-and-evening-shift-hopital-du-valais-brig",
         "de": "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig",
-        "fr": "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig"
+        "fr": "employe-e-en-intendance-50-80-service-intermediaire-et-du-soir-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5898,10 +5912,18 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig"
+        "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig",
+        "collaboratore-trice-hauswirtschaft-50-80-mittel-e-abenddienst-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig",
+          "collaboratore-trice-hauswirtschaft-50-80-mittel-e-abenddienst-hopital-du-valais-brig"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-50-80-mittel-und-abenddienst-hopital-du-valais-brig"
         ]
       },

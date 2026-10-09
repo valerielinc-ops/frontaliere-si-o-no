@@ -209,11 +209,11 @@
     },
     {
       "id": "h-ju-hopital-du-jura-396b0af87887",
-      "slug": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
+      "slug": "operatore-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
-        "it": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "en": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
-        "de": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont",
+        "it": "operatore-hopital-du-jura-h-ju-delemont",
+        "en": "operator-hopital-du-jura-h-ju-delemont",
+        "de": "betreiber-hopital-du-jura-h-ju-delemont",
         "fr": "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -280,7 +280,8 @@
         "strumentista-di-sala-operatoria-hopital-du-jura-h-ju-delemont",
         "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
         "operating-room-instrumentalist-hopital-du-jura-h-ju-delemont",
-        "instrumentalist-im-operationssaal-hopital-du-jura-h-ju-delemont"
+        "instrumentalist-im-operationssaal-hopital-du-jura-h-ju-delemont",
+        "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -290,13 +291,16 @@
           "strumentista-di-sala-operatoria-hopital-du-jura-h-ju-delemont",
           "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont-2",
           "operating-room-instrumentalist-hopital-du-jura-h-ju-delemont",
-          "instrumentalist-im-operationssaal-hopital-du-jura-h-ju-delemont"
+          "instrumentalist-im-operationssaal-hopital-du-jura-h-ju-delemont",
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
         ],
         "en": [
-          "operator-hopital-du-jura-h-ju-delemont"
+          "operator-hopital-du-jura-h-ju-delemont",
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
         ],
         "de": [
-          "betreiber-hopital-du-jura-h-ju-delemont"
+          "betreiber-hopital-du-jura-h-ju-delemont",
+          "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
         ]
       }
     },
@@ -885,7 +889,7 @@
       "slug": "terapeuta-del-lavoro-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-hopital-du-jura-h-ju-delemont",
-        "en": "ergotherapeute-hopital-du-jura-h-ju-delemont",
+        "en": "occupational-therapist-hopital-du-jura-h-ju-delemont",
         "de": "ergotherapeut-hopital-du-jura-h-ju-delemont",
         "fr": "ergotherapeute-h-ju-hopital-du-jura-delemont"
       },
@@ -935,7 +939,7 @@
       "previousSlugs": [
         "berufstherapeut-hopital-du-jura-h-ju-delemont",
         "ergotherapeute-h-ju-hopital-du-jura-delemont",
-        "occupational-therapist-hopital-du-jura-h-ju-delemont"
+        "ergotherapeute-hopital-du-jura-h-ju-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -943,7 +947,7 @@
         ],
         "en": [
           "ergotherapeute-h-ju-hopital-du-jura-delemont",
-          "occupational-therapist-hopital-du-jura-h-ju-delemont"
+          "ergotherapeute-hopital-du-jura-h-ju-delemont"
         ],
         "de": [
           "berufstherapeut-hopital-du-jura-h-ju-delemont",
@@ -1122,11 +1126,11 @@
     },
     {
       "id": "h-ju-hopital-du-jura-cef8f1c976b5",
-      "slug": "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy",
+      "slug": "segretario-medico-geriatrics-porrentruy-hopital-du-jura-h-ju-porrentruy",
       "slugByLocale": {
-        "it": "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy",
-        "en": "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy",
-        "de": "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy",
+        "it": "segretario-medico-geriatrics-porrentruy-hopital-du-jura-h-ju-porrentruy",
+        "en": "medical-secretary-geriatrics-porrentruy-hopital-du-jura-h-ju-porrentruy",
+        "de": "medizinische-sekretarin-geriatrie-porrentruy-hopital-du-jura-h-ju-porrentruy",
         "fr": "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -1185,7 +1189,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy"
+        ],
+        "en": [
+          "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy"
+        ],
+        "de": [
+          "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-geriatrie-porrentruy-h-ju-hopital-du-jura-porrentruy"
+      ]
     }
   ]
 }

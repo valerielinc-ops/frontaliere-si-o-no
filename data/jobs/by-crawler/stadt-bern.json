@@ -1927,9 +1927,9 @@
       "slug": "projektleiter-in-stadt-bern",
       "slugByLocale": {
         "it": "projektleiter-in-stadt-bern",
-        "en": "projektleiter-in-stadt-bern-bern",
+        "en": "project-manager-stadt-bern-bern-d7f501",
         "de": "projektleiter-in-stadt-bern-bern",
-        "fr": "projektleiter-in-stadt-bern-bern"
+        "fr": "chef-fe-de-projet-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1979,6 +1979,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-stadt-bern-bern"
+        ],
+        "en": [
+          "projektleiter-in-stadt-bern-bern"
+        ],
+        "fr": [
           "projektleiter-in-stadt-bern-bern"
         ]
       },
@@ -2074,12 +2080,12 @@
     },
     {
       "id": "stadt-bern-99bf953e8723",
-      "slug": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
+      "slug": "impiegato-a-amministrativo-a-per-la-protezione-degli-adulti-stadt-bern-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
-        "en": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
+        "it": "impiegato-a-amministrativo-a-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "adult-protection-caseworker-stadt-bern-bern",
         "de": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern",
-        "fr": "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
+        "fr": "collaborateur-rice-administratif-ve-en-protection-de-l-adulte-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2136,16 +2142,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-erwachsenenschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-2b096e79bab1",
-      "slug": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
+      "slug": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
       "slugByLocale": {
-        "it": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
-        "en": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
+        "it": "responsabile-di-sezione-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "section-head-adult-protection-stadt-bern-bern",
         "de": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern",
-        "fr": "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        "fr": "responsable-de-section-protection-de-l-adulte-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2203,7 +2223,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sektionsleiter-in-erwachsenenschutz-stadt-bern-bern"
+      ]
     }
   ],
   "assembledAt": "2026-10-08T22:06:03.280Z",

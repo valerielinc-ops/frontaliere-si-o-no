@@ -249,7 +249,7 @@
       "slugByLocale": {
         "it": "aiuto-a-tasso-variabile-fondation-de-nant-corsier-sur-vevey",
         "en": "variable-rate-helpers-fondation-de-nant-corsier-sur-vevey",
-        "de": "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey",
+        "de": "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey",
         "fr": "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -298,7 +298,7 @@
       "previousSlugs": [
         "aide-soignant-e-s-a-taux-variable-nant-corsier-sur-vevey",
         "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-        "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+        "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -306,7 +306,7 @@
         ],
         "de": [
           "aide-soignant-e-s-a-taux-variable-fondation-de-nant-corsier-sur-vevey",
-          "helfer-mit-variabler-rate-fondation-de-nant-corsier-sur-vevey"
+          "pflegehilfskrafte-mit-variablem-beschaftigungsgrad-fondation-de-nant-corsier-sur-vevey"
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:27.676Z",
@@ -330,7 +330,7 @@
       "slugByLocale": {
         "it": "95-hom-notte-infermiera-fondation-de-nant-corsier-sur-vevey",
         "en": "95-hom-night-nurse-fondation-de-nant-corsier-sur-vevey",
-        "de": "infirmier-ere-de-nuit-cdm-a-95-fondation-de-nant-corsier-sur-vevey",
+        "de": "95-hom-nachtkrankenschwester-fondation-de-nant-corsier-sur-vevey",
         "fr": "infirmier-ere-de-nuit-cdm-a-95-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -378,7 +378,7 @@
       "previousSlugs": [
         "infirmier-ere-de-nuit-cdm-a-95-nant-corsier-sur-vevey",
         "nachtpfleger-in-cdm-95-fondation-de-nant-corsier-sur-vevey",
-        "95-hom-nachtkrankenschwester-fondation-de-nant-corsier-sur-vevey"
+        "infirmier-ere-de-nuit-cdm-a-95-fondation-de-nant-corsier-sur-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -390,7 +390,7 @@
         "de": [
           "infirmier-ere-de-nuit-cdm-a-95-nant-corsier-sur-vevey",
           "nachtpfleger-in-cdm-95-fondation-de-nant-corsier-sur-vevey",
-          "95-hom-nachtkrankenschwester-fondation-de-nant-corsier-sur-vevey"
+          "infirmier-ere-de-nuit-cdm-a-95-fondation-de-nant-corsier-sur-vevey"
         ]
       },
       "firstSeenAt": "2026-10-01T09:10:07.500Z",
@@ -491,11 +491,11 @@
     },
     {
       "id": "nant-37ad31e543ad",
-      "slug": "educateur-trice-mistral-90-nant-corsier-sur-vevey",
+      "slug": "educatore-mistrale-90-fondation-de-nant-corsier-sur-vevey",
       "slugByLocale": {
-        "it": "educateur-trice-mistral-90-nant-corsier-sur-vevey",
-        "en": "educateur-trice-mistral-90-nant-corsier-sur-vevey",
-        "de": "educateur-trice-mistral-90-nant-corsier-sur-vevey",
+        "it": "educatore-mistrale-90-fondation-de-nant-corsier-sur-vevey",
+        "en": "mistral-educator-90-fondation-de-nant-corsier-sur-vevey",
+        "de": "mistral-erzieher-90-fondation-de-nant-corsier-sur-vevey",
         "fr": "educateur-trice-mistral-90-nant-corsier-sur-vevey"
       },
       "company": "Fondation de Nant",
@@ -554,7 +554,21 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "educateur-trice-mistral-90-nant-corsier-sur-vevey"
+        ],
+        "en": [
+          "educateur-trice-mistral-90-nant-corsier-sur-vevey"
+        ],
+        "de": [
+          "educateur-trice-mistral-90-nant-corsier-sur-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "educateur-trice-mistral-90-nant-corsier-sur-vevey"
+      ]
     }
   ]
 }

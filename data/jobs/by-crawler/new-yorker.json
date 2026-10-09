@@ -80,9 +80,9 @@
       "slug": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
       "slugByLocale": {
         "de": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "it": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "en": "stellvertretende-filialleitung-m-w-d-new-yorker-bern",
-        "fr": "stellvertretende-filialleitung-m-w-d-new-yorker-bern"
+        "it": "gestione-del-ramo-aggiunto-m-f-d-new-yorker-bern",
+        "en": "deputy-branch-management-m-f-d-new-yorker-bern",
+        "fr": "direction-generale-adjointe-h-f-d-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -127,22 +127,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "gestione-del-ramo-aggiunto-m-f-d-new-yorker-bern"
-        ],
-        "en": [
-          "deputy-branch-management-m-f-d-new-yorker-bern"
-        ],
-        "fr": [
-          "direction-generale-adjointe-h-f-d-new-yorker-bern"
-        ]
-      },
-      "previousSlugs": [
-        "gestione-del-ramo-aggiunto-m-f-d-new-yorker-bern",
-        "deputy-branch-management-m-f-d-new-yorker-bern",
-        "direction-generale-adjointe-h-f-d-new-yorker-bern"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -501,7 +485,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-bern",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-bern",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-bern"
       },
@@ -548,11 +532,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern"
+        "cooperation-m-w-d-in-sale-80-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-bern"
+          "cooperation-m-w-d-in-sale-80-new-yorker-bern"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-bern"
@@ -578,7 +562,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-zurich-sihlcity",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-zurich-sihlcity"
       },
@@ -625,11 +609,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity"
+        "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-zurich-sihlcity"
+          "cooperation-m-w-d-in-sale-80-new-yorker-zurich-sihlcity"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-zurich-sihlcity"
@@ -655,7 +639,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-rapperswil",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-rapperswil"
       },
@@ -702,11 +686,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil"
+        "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-rapperswil"
+          "cooperation-m-w-d-in-sale-80-new-yorker-rapperswil"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-rapperswil"
@@ -732,7 +716,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-ebikon",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-ebikon",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-ebikon"
       },
@@ -779,11 +763,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon"
+        "cooperation-m-w-d-in-sale-80-new-yorker-ebikon"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-ebikon"
+          "cooperation-m-w-d-in-sale-80-new-yorker-ebikon"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-ebikon"
@@ -809,7 +793,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-volketswil",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-volketswil",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-volketswil"
       },
@@ -856,11 +840,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil"
+        "cooperation-m-w-d-in-sale-80-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-volketswil"
+          "cooperation-m-w-d-in-sale-80-new-yorker-volketswil"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-volketswil"
@@ -886,7 +870,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-spreitenbach",
-        "en": "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach",
+        "en": "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-80-new-yorker-spreitenbach"
       },
@@ -933,11 +917,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach",
-        "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach"
+        "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-80-new-yorker-spreitenbach"
+          "cooperation-m-w-d-in-sale-80-new-yorker-spreitenbach"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-spreitenbach"
@@ -1141,7 +1125,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-spreitenbach",
-        "en": "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach",
+        "en": "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-70-new-yorker-spreitenbach"
       },
@@ -1188,11 +1172,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach",
-        "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach"
+        "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-70-new-yorker-spreitenbach"
+          "cooperation-m-w-d-in-sale-70-new-yorker-spreitenbach"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-spreitenbach"
@@ -1291,7 +1275,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-spreitenbach",
-        "en": "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach",
+        "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach",
         "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
         "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-spreitenbach"
       },
@@ -1338,11 +1322,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach",
-        "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach"
+        "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-60-new-yorker-spreitenbach"
+          "cooperation-m-w-d-in-sale-60-new-yorker-spreitenbach"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-spreitenbach"
@@ -1368,7 +1352,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-60-new-yorker-bern",
-        "en": "cooperation-m-w-d-in-sale-60-new-yorker-bern",
+        "en": "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern",
         "de": "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
         "fr": "mitarbeiter-m-w-d-im-vente-60-new-yorker-bern"
       },
@@ -1415,11 +1399,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern",
-        "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern"
+        "cooperation-m-w-d-in-sale-60-new-yorker-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-60-new-yorker-bern"
+          "cooperation-m-w-d-in-sale-60-new-yorker-bern"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-bern"
@@ -1445,7 +1429,7 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-70-new-yorker-volketswil",
-        "en": "cooperation-m-w-d-in-sale-70-new-yorker-volketswil",
+        "en": "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
         "fr": "mitarbeiter-m-w-d-im-vente-70-new-yorker-volketswil"
       },
@@ -1493,7 +1477,7 @@
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
         "mitarbeiter-m-w-d-im-verkauf-60-new-yorker-volketswil",
-        "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil"
+        "cooperation-m-w-d-in-sale-70-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1502,7 +1486,7 @@
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil",
-          "mitarbeiter-m-w-d-im-sales-70-new-yorker-volketswil"
+          "cooperation-m-w-d-in-sale-70-new-yorker-volketswil"
         ],
         "fr": [
           "mitarbeiter-m-w-d-im-verkauf-70-new-yorker-volketswil"
@@ -1685,9 +1669,9 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-volketswil",
-        "en": "cooperation-m-w-d-for-sale-50-new-yorker-volketswil",
+        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil",
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-        "fr": "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
+        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1732,15 +1716,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil",
-        "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil",
-        "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
+        "cooperation-m-w-d-for-sale-50-new-yorker-volketswil",
+        "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-50-new-yorker-volketswil"
+          "cooperation-m-w-d-for-sale-50-new-yorker-volketswil"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-im-vente-50-new-yorker-volketswil"
+          "cooperation-m-w-d-a-vendre-50-new-yorker-volketswil"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-volketswil"
@@ -1766,9 +1750,9 @@
       "slug": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-urtenen-schonbuhl",
-        "en": "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl",
+        "en": "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl",
         "de": "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-        "fr": "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
+        "fr": "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -1813,15 +1797,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl",
-        "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl",
-        "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
+        "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl",
+        "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mitarbeiter-m-w-d-im-sales-50-new-yorker-urtenen-schonbuhl"
+          "cooperation-m-w-d-for-sale-50-new-yorker-urtenen-schonbuhl"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-im-vente-50-new-yorker-urtenen-schonbuhl"
+          "cooperation-m-w-d-a-vendre-50-new-yorker-urtenen-schonbuhl"
         ],
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-urtenen-schonbuhl"
@@ -2230,9 +2214,9 @@
       "slug": "filialleitung-m-w-d-new-yorker-bern",
       "slugByLocale": {
         "de": "filialleitung-m-w-d-new-yorker-bern",
-        "it": "filialleitung-m-w-d-new-yorker-bern",
-        "en": "filialleitung-m-w-d-new-yorker-bern",
-        "fr": "filialleitung-m-w-d-new-yorker-bern"
+        "it": "gestione-branch-m-f-d-new-yorker-bern",
+        "en": "branch-management-m-f-d-new-yorker-bern",
+        "fr": "direction-generale-h-f-d-new-yorker-bern"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -2280,12 +2264,6 @@
           "gestione-branch-m-f-d-new-yorker-bern",
           "filialleitung-m-w-d-new-yorker-bern-z0bhtt",
           "filialleitung-m-w-d-new-yorker-bern-n5u750"
-        ],
-        "en": [
-          "branch-management-m-f-d-new-yorker-bern"
-        ],
-        "fr": [
-          "direction-generale-h-f-d-new-yorker-bern"
         ],
         "de": [
           "filialleitung-m-w-d-new-yorker-bern-z0bhtt"

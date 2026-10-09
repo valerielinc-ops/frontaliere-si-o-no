@@ -3101,9 +3101,9 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg",
+      "slug": "economista-etat-de-fribourg-fribourg-78c340",
       "slugByLocale": {
-        "it": "economiste-etat-de-fribourg",
+        "it": "economista-etat-de-fribourg-fribourg-78c340",
         "en": "economist-etat-de-fribourg-fribourg",
         "de": "okonom-etat-de-fribourg-fribourg",
         "fr": "economiste-etat-de-fribourg-ch"
@@ -3156,14 +3156,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340"
+        "economiste-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340"
+          "economiste-etat-de-fribourg"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -6413,7 +6413,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6460,15 +6460,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "needsRetranslation": true,
@@ -7357,12 +7353,12 @@
     },
     {
       "id": "etat-de-fribourg-727011a199cc",
-      "slug": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
+      "slug": "assistente-sociale-per-l-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
-        "it": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
-        "en": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
-        "fr": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        "it": "assistente-sociale-per-l-assistenza-extrafamiliare-etat-de-fribourg-fribourg",
+        "en": "social-worker-for-non-family-care-etat-de-fribourg-fribourg",
+        "fr": "travailleur-euse-social-e-pour-l-accompagnement-extrafamilial-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7425,16 +7421,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-08-28T05:35:45.788Z"
+      "firstSeenAt": "2026-08-28T05:35:45.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-2368c87bee04",
-      "slug": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
+      "slug": "assistente-sociale-per-l-assistenza-extrafamiliare-etat-de-fribourg-fribourg-3e3996",
       "slugByLocale": {
         "de": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-9vf6gu",
-        "it": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
-        "en": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2",
-        "fr": "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        "it": "assistente-sociale-per-l-assistenza-extrafamiliare-etat-de-fribourg-fribourg-3e3996",
+        "en": "social-worker-for-non-family-care-etat-de-fribourg-fribourg-3e3996",
+        "fr": "travailleur-euse-social-e-pour-l-accompagnement-extrafamilial-etat-de-fribourg-fribourg-3e3996"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7499,22 +7509,32 @@
       "addressRegion": "FR",
       "firstSeenAt": "2026-08-28T05:35:45.788Z",
       "previousSlugs": [
-        "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch",
+        "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
         "de": [
           "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch"
+        ],
+        "it": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        ],
+        "en": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "sozialarbeiter-in-familienexterne-betreuung-etat-de-fribourg-ch-2"
         ]
       }
     },
     {
       "id": "etat-de-fribourg-c63c069f360b",
-      "slug": "diplomassistent-in-etat-de-fribourg-ch",
+      "slug": "assistente-diplomato-a-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "diplomassistent-in-etat-de-fribourg-ch",
-        "it": "diplomassistent-in-etat-de-fribourg-ch",
-        "en": "diplomassistent-in-etat-de-fribourg-ch",
-        "fr": "diplomassistent-in-etat-de-fribourg-ch"
+        "it": "assistente-diplomato-a-etat-de-fribourg-fribourg",
+        "en": "diploma-assistant-etat-de-fribourg-fribourg",
+        "fr": "assistant-e-diplome-e-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7577,7 +7597,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:37.087Z"
+      "firstSeenAt": "2026-10-08T22:30:37.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomassistent-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "diplomassistent-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "diplomassistent-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "diplomassistent-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-bb74ae9d2bb8",
@@ -7754,8 +7788,8 @@
       "slugByLocale": {
         "de": "technische-r-mitarbeiter-in-etat-de-fribourg-ch",
         "it": "technische-r-collaboratore-trice-etat-de-fribourg",
-        "en": "technische-r-mitarbeiter-in-etat-de-fribourg-ch",
-        "fr": "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
+        "en": "technical-employee-etat-de-fribourg-fribourg",
+        "fr": "collaboratrice-collaborateur-technique-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7806,6 +7840,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "technische-r-mitarbeiter-in-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
@@ -7830,12 +7870,12 @@
     },
     {
       "id": "etat-de-fribourg-0c67734a570b",
-      "slug": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
+      "slug": "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
-        "it": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
+        "it": "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
         "en": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
-        "de": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        "de": "professor-offener-rang-lehrstuhl-fur-frauengesundheit-und-exposome-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7899,15 +7939,26 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:34.414Z"
+      "firstSeenAt": "2026-10-08T22:30:34.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-45c36211c918",
-      "slug": "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique",
+      "slug": "assistente-master-in-comunicazione-e-media-scienza-e-comunicazione-strategica-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique",
-        "it": "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique",
-        "en": "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique",
+        "it": "assistente-master-in-comunicazione-e-media-scienza-e-comunicazione-strategica-etat-de-fribourg-fribourg",
+        "en": "assistant-master-in-communication-media-science-and-strategic-communication-etat-de-fribourg-fribourg",
         "de": "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique"
       },
       "company": "Etat de Fribourg",
@@ -7971,16 +8022,27 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:33.744Z"
+      "firstSeenAt": "2026-10-08T22:30:33.744Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique"
+        ],
+        "en": [
+          "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-assistant-e-en-sciences-de-la-communication-des-medias-et-communication-strategique"
+      ]
     },
     {
       "id": "etat-de-fribourg-55eb55094fba",
-      "slug": "collaborateur-trice-technique-etat-de-fribourg-ch",
+      "slug": "collaboratore-tecnico-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-technique-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-technique-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-technique-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-technique-etat-de-fribourg-ch"
+        "it": "collaboratore-tecnico-etat-de-fribourg-fribourg",
+        "en": "technical-collaborator-etat-de-fribourg-fribourg",
+        "de": "technischer-mitarbeiter-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8043,16 +8105,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-10T23:21:54.082Z"
+      "firstSeenAt": "2026-09-10T23:21:54.082Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-technique-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-technique-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-technique-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-technique-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-0eacadce4a1d",
-      "slug": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+      "slug": "professore-open-rank-presidente-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-91sudg",
-        "it": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+        "it": "professore-open-rank-presidente-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
         "en": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
-        "fr": "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        "fr": "professeure-de-rang-ouvert-presidente-de-women-s-health-and-exposome-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8118,11 +8194,18 @@
       "addressRegion": "FR",
       "firstSeenAt": "2026-10-08T22:30:32.416Z",
       "previousSlugs": [
-        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
+        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
       ],
       "previousSlugsByLocale": {
         "de": [
           "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+        ],
+        "it": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        ],
+        "fr": [
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
         ]
       }
     },
@@ -8296,12 +8379,12 @@
     },
     {
       "id": "etat-de-fribourg-fe8e561f8c4a",
-      "slug": "specialiste-rh-etat-de-fribourg-ch",
+      "slug": "specialista-hr-etat-de-fribourg-hauterive-fr",
       "slugByLocale": {
         "fr": "specialiste-rh-etat-de-fribourg-ch",
-        "it": "specialiste-rh-etat-de-fribourg-ch",
-        "en": "specialiste-rh-etat-de-fribourg-ch",
-        "de": "specialiste-rh-etat-de-fribourg-ch"
+        "it": "specialista-hr-etat-de-fribourg-hauterive-fr",
+        "en": "hr-specialist-etat-de-fribourg-hauterive-fr",
+        "de": "hr-spezialist-etat-de-fribourg-hauterive-fr"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8363,16 +8446,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:30.391Z"
+      "firstSeenAt": "2026-10-08T22:30:30.391Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-rh-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "specialiste-rh-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "specialiste-rh-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-rh-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-eb9136d2b59d",
-      "slug": "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
+      "slug": "ufficiale-di-detenzione-velocita-chiusa-si-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "fr": "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
-        "it": "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
-        "en": "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch",
-        "de": "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+        "it": "ufficiale-di-detenzione-velocita-chiusa-si-etat-de-fribourg-mont-vully",
+        "en": "detention-officer-closed-speed-si-etat-de-fribourg-mont-vully",
+        "de": "inhaftierter-offizier-geschlossene-geschwindigkeit-si-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8434,16 +8531,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-07-10T12:09:45.049Z"
+      "firstSeenAt": "2026-07-10T12:09:45.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-detention-regime-ferme-si-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-3b98efbba5b2",
-      "slug": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+      "slug": "giudice-presso-il-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "it": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "en": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "fr": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        "it": "giudice-presso-il-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
+        "en": "judge-at-the-court-of-compulsory-measures-etat-de-fribourg-fribourg",
+        "fr": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8506,16 +8617,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:56.419Z"
+      "firstSeenAt": "2026-09-03T23:25:56.419Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-32b7dad097ee",
-      "slug": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+      "slug": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "it": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "en": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "de": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        "it": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
+        "en": "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
+        "de": "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8578,16 +8703,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:55.718Z"
+      "firstSeenAt": "2026-09-03T23:25:55.718Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-058404fa70a6",
-      "slug": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
+      "slug": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
       "slugByLocale": {
         "de": "hr-spezialist-in-etat-de-fribourg-ch",
-        "it": "hr-spezialist-in-etat-de-fribourg-hauterive-fr",
-        "en": "hr-spezialist-in-etat-de-fribourg-ch",
-        "fr": "hr-spezialist-in-etat-de-fribourg-ch"
+        "it": "specialista-hr-etat-de-fribourg-hauterive-fr-82b187",
+        "en": "hr-specialist-etat-de-fribourg-hauterive-fr-82b187",
+        "fr": "specialiste-rh-etat-de-fribourg-hauterive-fr"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8637,11 +8776,19 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "hr-spezialist-in-etat-de-fribourg-ch",
+          "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
+        ],
+        "en": [
+          "hr-spezialist-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "hr-spezialist-in-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "hr-spezialist-in-etat-de-fribourg-ch"
+        "hr-spezialist-in-etat-de-fribourg-ch",
+        "hr-spezialist-in-etat-de-fribourg-hauterive-fr"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8661,12 +8808,12 @@
     },
     {
       "id": "etat-de-fribourg-ce13c3cd5f7b",
-      "slug": "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch",
+      "slug": "5-apprentices-laborantine-e-s-cfc-orientamento-chimica-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch",
-        "it": "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch",
-        "en": "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch",
-        "de": "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch"
+        "it": "5-apprentices-laborantine-e-s-cfc-orientamento-chimica-etat-de-fribourg-fribourg",
+        "en": "5-apprentices-laborantine-e-s-cfc-orientation-chemistry-etat-de-fribourg-fribourg",
+        "de": "5-auszubildende-laborantine-e-s-cfc-orientierungschemie-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8729,16 +8876,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-08T22:30:26.998Z"
+      "firstSeenAt": "2026-10-08T22:30:26.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "5-apprenti-e-s-laborantin-e-s-cfc-orientation-chimie-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-69936f9d6355",
-      "slug": "fachmann-frau-per-justizvollzug-geschlossenes-regime-etat-de-fribourg-mont-vully",
+      "slug": "agente-di-custodia-regime-chiuso-etat-de-fribourg-mont-vully",
       "slugByLocale": {
         "de": "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch",
-        "it": "fachmann-frau-per-justizvollzug-geschlossenes-regime-etat-de-fribourg-mont-vully",
-        "en": "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch",
-        "fr": "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch"
+        "it": "agente-di-custodia-regime-chiuso-etat-de-fribourg-mont-vully",
+        "en": "correctional-officer-closed-regime-etat-de-fribourg-mont-vully",
+        "fr": "agent-e-de-detention-regime-ferme-etat-de-fribourg-mont-vully"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8788,11 +8949,19 @@
       "pensum": "90-100%",
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch",
+          "fachmann-frau-per-justizvollzug-geschlossenes-regime-etat-de-fribourg-mont-vully"
+        ],
+        "en": [
+          "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch"
+        "fachmann-frau-fur-justizvollzug-geschlossenes-regime-etat-de-fribourg-ch",
+        "fachmann-frau-per-justizvollzug-geschlossenes-regime-etat-de-fribourg-mont-vully"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

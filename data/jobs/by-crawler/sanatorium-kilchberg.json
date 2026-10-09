@@ -761,8 +761,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
         "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg",
-        "en": "pflegefachperson-hf-fh-sanatorium-kilchberg",
-        "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg"
+        "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg",
+        "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -827,10 +827,10 @@
           "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg"
         ],
         "en": [
-          "care-professional-hf-fh-sanatorium-kilchberg-kilchberg"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg"
         ],
         "fr": [
-          "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg"
+          "pflegefachperson-hf-fh-sanatorium-kilchberg"
         ],
         "de": [
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk2"
@@ -853,7 +853,8 @@
         "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
         "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
         "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
-        "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg"
+        "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg",
+        "pflegefachperson-hf-fh-sanatorium-kilchberg"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

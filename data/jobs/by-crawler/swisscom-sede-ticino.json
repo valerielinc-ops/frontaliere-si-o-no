@@ -1990,12 +1990,12 @@
         "de": "Sales Manager Digital Media & LMS",
         "fr": "Directeur des ventes Médias numériques & LMS"
       },
-      "slug": "sales-manager-digital-media-lms-swisscom-zurich-drxd07",
+      "slug": "responsabile-vendite-digital-media-lms-swisscom-zurich",
       "slugByLocale": {
-        "it": "sales-manager-digital-media-lms-swisscom-zurich-drxd07",
+        "it": "responsabile-vendite-digital-media-lms-swisscom-zurich",
         "en": "sales-manager-digital-media-lms-swisscom-zurich-drxd07",
         "de": "sales-manager-digital-media-lms-swisscom-zurich-drxd07",
-        "fr": "sales-manager-digital-media-lms-swisscom-zurich-drxd07"
+        "fr": "directeur-des-ventes-medias-numeriques-lms-swisscom-zurich"
       },
       "category": "sales",
       "datePosted": "",
@@ -2030,7 +2030,18 @@
       },
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-08T22:22:43.269Z"
+      "firstSeenAt": "2026-10-08T22:22:43.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-digital-media-lms-swisscom-zurich-drxd07"
+        ],
+        "fr": [
+          "sales-manager-digital-media-lms-swisscom-zurich-drxd07"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-digital-media-lms-swisscom-zurich-drxd07"
+      ]
     }
   ]
 }

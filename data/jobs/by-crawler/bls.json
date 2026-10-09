@@ -2120,12 +2120,12 @@
     },
     {
       "id": "bls-e790c3af2b34",
-      "slug": "automatiker-in-bls-ch",
+      "slug": "automatista-bls-ag-oberburg",
       "slugByLocale": {
-        "it": "automatiker-in-bls-ch",
-        "en": "automatiker-in-bls-ch",
+        "it": "automatista-bls-ag-oberburg",
+        "en": "automation-technician-bls-ag-oberburg",
         "de": "automatiker-in-bls-ch",
-        "fr": "automatiker-in-bls-ch"
+        "fr": "automaticien-ne-bls-ag-oberburg"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -2197,7 +2197,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-bls-ch"
+        ],
+        "en": [
+          "automatiker-in-bls-ch"
+        ],
+        "fr": [
+          "automatiker-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-bls-ch"
+      ]
     }
   ]
 }

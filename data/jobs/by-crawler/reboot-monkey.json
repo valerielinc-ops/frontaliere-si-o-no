@@ -7274,12 +7274,12 @@
     },
     {
       "id": "reboot-monkey-7b3299361d96",
-      "slug": "data-center-technician-ch-zug-on-site-reboot-monkey-zug",
+      "slug": "tecnico-del-data-center-ch-zug-in-sede-reboot-monkey-zug",
       "slugByLocale": {
         "en": "data-center-technician-ch-zug-on-site-reboot-monkey-zug",
         "de": "data-center-technician-ch-zug-vor-ort-reboot-monkey-zug",
         "fr": "technicien-en-centre-de-donnees-ch-zug-sur-place-reboot-monkey-zug",
-        "it": "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
+        "it": "tecnico-del-data-center-ch-zug-in-sede-reboot-monkey-zug"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7366,13 +7366,15 @@
       "previousSlugs": [
         "data-center-technician-ch-zug-on-site-reboot-monkey-zug-23bo9k",
         "technicien-data-center-ch-zug-on-site-reboot-monkey-zug",
-        "data-center-techniker-ch-zug-on-site-reboot-monkey-zug"
+        "data-center-techniker-ch-zug-on-site-reboot-monkey-zug",
+        "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-zug-on-site-reboot-monkey-zug-23bo9k",
           "technicien-data-center-ch-zug-on-site-reboot-monkey-zug",
-          "data-center-techniker-ch-zug-on-site-reboot-monkey-zug"
+          "data-center-techniker-ch-zug-on-site-reboot-monkey-zug",
+          "data-center-technician-ch-zug-on-site-reboot-monkey-zug"
         ]
       }
     },
@@ -10742,7 +10744,7 @@
       "slugByLocale": {
         "en": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
         "it": "data-center-technician-lucerna-in-sede-reboot-monkey-lucerne",
-        "de": "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne",
+        "de": "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne",
         "fr": "technicien-de-centre-de-donnees-lucerne-sur-site-reboot-monkey-lucerne"
       },
       "company": "Reboot Monkey",
@@ -10806,7 +10808,7 @@
           "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-cjh8bj"
         ],
         "de": [
-          "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne"
+          "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
         ],
         "en": [
           "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-cjh8bj"
@@ -10815,7 +10817,8 @@
       "previousSlugs": [
         "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
         "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne",
-        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-cjh8bj"
+        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-cjh8bj",
+        "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,

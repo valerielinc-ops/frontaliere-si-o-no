@@ -1299,7 +1299,7 @@
         "it": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-butzberg",
         "en": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105",
         "de": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "fr": "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
+        "fr": "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
       },
       "slugDisambiguator": "40105",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -1359,7 +1359,7 @@
       "previousSlugs": [
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105",
         "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2027-25-lektionen-volksschule-40105",
-        "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+        "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1370,7 +1370,7 @@
           "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-volksschule-40105"
         ],
         "fr": [
-          "teilpensenlehrperson-5-6-klasse-3-quartal-01-02-25-04-2026-25-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinn-40105"
+          "enseignant-a-temps-partiel-5-6-classe-3-trimestre-01-02-25-04-2027-25-lecons-ksml-kantonaler-stellenmarkt-fur-40105"
         ]
       },
       "firstSeenAt": "2026-08-25T10:02:57.762Z",
@@ -1468,7 +1468,7 @@
       "slug": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
       "slugByLocale": {
         "it": "part-time-psicomotricita-terapia-del-movimento-2-3-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
-        "en": "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach",
+        "en": "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
         "de": "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-schule-kallnach-kallnach-36735",
         "fr": "temps-partiel-psychomotricite-therapie-par-le-mouvement-2-3-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-un-36735"
       },
@@ -1555,7 +1555,7 @@
         "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
         "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-schule-kallnach-kallnach-36735",
-        "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+        "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1570,7 +1570,7 @@
           "partial-course-psychomotor-movement-therapy-2-3-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735",
           "partial-course-psychomotor-motion-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-36735",
           "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kan-36735",
-          "partial-course-psychomotor-movement-therapy-2-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-36735"
+          "teilpensum-psychomotorik-bewegungstherapie-2-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-kallnach"
         ],
         "fr": [
           "teilpensum-psychomotorik-bewegungstherapie-2-3-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-k-36735"
@@ -2150,12 +2150,12 @@
     },
     {
       "id": "ksml-a3b66aa741d9",
-      "slug": "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
+      "slug": "istruttore-di-classe-5-6-classe-20-l-5-funzione-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40432",
       "slugByLocale": {
-        "it": "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
-        "en": "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432",
+        "it": "istruttore-di-classe-5-6-classe-20-l-5-funzione-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40432",
+        "en": "class-instructor-5-6-class-20-l-5-function-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40432",
         "de": "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-schule-hindelbank-hindelbank-40432",
-        "fr": "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432"
+        "fr": "instructeur-de-classe-5-6-classe-20-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432"
       },
       "slugDisambiguator": "40432",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -2201,11 +2201,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-schule-hindelbank-hindelbank-40432"
+        "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-schule-hindelbank-hindelbank-40432",
+        "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
+        "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-schule-hindelbank-hindelbank-40432"
+          "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-schule-hindelbank-hindelbank-40432",
+          "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank"
+        ],
+        "en": [
+          "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432"
+        ],
+        "fr": [
+          "stv-klassenlehrperson-5-6-klasse-20-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40432"
         ]
       },
       "firstSeenAt": "2026-10-08T21:42:48.866Z",
@@ -4394,12 +4403,12 @@
     },
     {
       "id": "ksml-3370dd578adf",
-      "slug": "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mittelhausern-gemeinde-koniz",
+      "slug": "aggiustatori-insegnante-di-livello-di-base-durante-il-congedo-di-maternita-10-letterario-ksml-kantonaler-40431",
       "slugByLocale": {
-        "it": "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mittelhausern-gemeinde-koniz",
-        "en": "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40431",
+        "it": "aggiustatori-insegnante-di-livello-di-base-durante-il-congedo-di-maternita-10-letterario-ksml-kantonaler-40431",
+        "en": "adjusters-basic-level-teacher-during-maternity-leave-10-literary-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40431",
         "de": "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-schule-sternenberg-40431",
-        "fr": "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40431"
+        "fr": "regleurs-enseignant-de-base-pendant-le-conge-de-maternite-10-litteraires-ksml-kantonaler-stellenmarkt-fur-40431"
       },
       "slugDisambiguator": "40431",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -4445,11 +4454,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-schule-sternenberg-40431"
+        "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-schule-sternenberg-40431",
+        "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mittelhausern-gemeinde-koniz",
+        "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40431"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-schule-sternenberg-40431"
+          "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-schule-sternenberg-40431",
+          "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-mittelhausern-gemeinde-koniz"
+        ],
+        "en": [
+          "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40431"
+        ],
+        "fr": [
+          "stellvertr-basisstufen-lehrperson-wahrend-mutterschaftsurlaub-10-lekt-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40431"
         ]
       },
       "firstSeenAt": "2026-10-08T21:42:48.860Z",
@@ -5903,12 +5921,12 @@
     },
     {
       "id": "ksml-07e69938d267",
-      "slug": "sozialpadagoge-sozialpadagogin-hf-fh-o-klinischer-heilpadagoge-klinische-heilpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+      "slug": "educatore-educatrice-sociale-hf-fh-oppure-pedagogista-clinico-clinica-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40434",
       "slugByLocale": {
-        "it": "sozialpadagoge-sozialpadagogin-hf-fh-o-klinischer-heilpadagoge-klinische-heilpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
-        "en": "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434",
+        "it": "educatore-educatrice-sociale-hf-fh-oppure-pedagogista-clinico-clinica-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40434",
+        "en": "social-teacher-social-teacher-hf-fh-or-clinical-curative-teacher-clinical-curative-teacher-ksml-kantonaler-40434",
         "de": "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434",
-        "fr": "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434"
+        "fr": "enseignant-social-professeur-social-hf-fh-ou-professeur-clinique-curatif-professeur-clinique-curatif-ksml-40434"
       },
       "slugDisambiguator": "40434",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -5954,10 +5972,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434"
+        "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434",
+        "sozialpadagoge-sozialpadagogin-hf-fh-o-klinischer-heilpadagoge-klinische-heilpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434",
+          "sozialpadagoge-sozialpadagogin-hf-fh-o-klinischer-heilpadagoge-klinische-heilpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
+        ],
+        "en": [
+          "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434"
+        ],
+        "fr": [
           "sozialpadagoge-sozialpadagogin-hf-fh-oder-klinischer-heilpadagoge-klinische-heilpadagogin-40434"
         ]
       },
@@ -10999,7 +11025,7 @@
         "it": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-jegenstorf",
         "en": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297",
         "de": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "fr": "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
+        "fr": "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
       },
       "slugDisambiguator": "40297",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -11046,14 +11072,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297",
-        "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
+        "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-schulhaus-saget-40297"
         ],
         "fr": [
-          "klassenlehrperson-4-klasse-20-lektionen-plus-4-lektionen-an-der-3-klasse-ksml-kantonaler-stellenmarkt-fur-40297"
+          "professeur-de-classe-4eme-annee-20-lecons-plus-4-lecons-a-la-3eme-annee-ksml-kantonaler-stellenmarkt-fur-40297"
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.253Z",
@@ -16840,7 +16866,7 @@
         "it": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-hindelbank",
         "en": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289",
         "de": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289",
-        "fr": "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
+        "fr": "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
       },
       "slugDisambiguator": "40289",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -16887,11 +16913,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289",
-        "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
+        "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
+          "enseignant-de-classe-5e-6e-classe-26-l-5-fonction-klp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40289"
         ],
         "it": [
           "stv-klassenlehrperson-5-6-klasse-26-l-5-funktion-klp-schule-hindelbank-hindelbank-40289"

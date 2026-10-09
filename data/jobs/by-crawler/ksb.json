@@ -1807,9 +1807,9 @@
       "slug": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
-        "en": "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "en": "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
-        "fr": "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
+        "fr": "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -1857,8 +1857,8 @@
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0",
-        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
-        "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+        "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1866,14 +1866,14 @@
         ],
         "en": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden"
+          "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden"
         ],
         "de": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0"
         ],
         "fr": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+          "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-06-29T22:37:05.092Z",
@@ -8080,12 +8080,12 @@
     },
     {
       "id": "ksb-3e1796633345",
-      "slug": "oberarztin-arzt-inz-80-100-ksb-ch",
+      "slug": "medico-senior-inz-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "oberarztin-arzt-inz-80-100-ksb-ch",
-        "en": "oberarztin-arzt-inz-80-100-ksb-ch",
+        "it": "medico-senior-inz-80-100-kantonsspital-baden-ksb-baden",
+        "en": "senior-physician-inz-80-100-kantonsspital-baden-ksb-baden",
         "de": "oberarztin-arzt-inz-80-100-ksb-ch",
-        "fr": "oberarztin-arzt-inz-80-100-ksb-ch"
+        "fr": "medecin-principal-inz-80-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -8141,7 +8141,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-inz-80-100-ksb-ch"
+        ],
+        "en": [
+          "oberarztin-arzt-inz-80-100-ksb-ch"
+        ],
+        "fr": [
+          "oberarztin-arzt-inz-80-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-inz-80-100-ksb-ch"
+      ]
     }
   ],
   "crawlerKey": "ksb",

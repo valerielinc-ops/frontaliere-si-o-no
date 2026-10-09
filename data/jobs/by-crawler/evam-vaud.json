@@ -754,11 +754,11 @@
     },
     {
       "id": "evam-vaud-8509599",
-      "slug": "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
+      "slug": "hosting-multisito-100-cdi-evam-montagny-pres-yverdon",
       "slugByLocale": {
         "fr": "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
-        "it": "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
-        "en": "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
+        "it": "hosting-multisito-100-cdi-evam-montagny-pres-yverdon",
+        "en": "multisite-hosting-100-cdi-evam-montagny-pres-yverdon",
         "de": "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -815,7 +815,18 @@
         }
       },
       "applyUrl": "https://emploi.evam.ch/jobs/8509599-intendant-e-multi-sites-100-cdi",
-      "firstSeenAt": "2026-10-08T09:25:40.349Z"
+      "firstSeenAt": "2026-10-08T09:25:40.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
+      ]
     },
     {
       "id": "evam-vaud-8511521",

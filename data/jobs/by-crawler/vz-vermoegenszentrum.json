@@ -865,7 +865,7 @@
       "slug": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun",
       "slugByLocale": {
         "it": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun",
-        "en": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun",
+        "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-thun-bern",
         "de": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch",
         "fr": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun"
       },
@@ -1244,7 +1244,7 @@
         "it": "private-clients-consulente-vz-vermogenszentrum-zurich",
         "en": "private-clients-consultant-vz-vermogenszentrum-zurich",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "fr": "private-clients-consultant-vz-vermogenszentrum-zurich"
+        "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1308,6 +1308,9 @@
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
           "private-clients-consultant-vz-vermogenszentrum-zurich"
         ]
       },
@@ -2878,7 +2881,7 @@
         "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-baden-aargau",
         "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-baden-aargau",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-baden-aargau"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -2939,12 +2942,12 @@
           "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-baden-aargau"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
         ]
       },
       "previousSlugs": [
         "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-baden-aargau"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-baden"
       ],
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
       "salaryMin": 107000,
@@ -3046,12 +3049,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-645436c6083c",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-horgen-zurich",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-horgen-zurich",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-horgen-zurich",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-horgen-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3105,11 +3108,19 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
@@ -3226,12 +3237,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-c4aa2a93ea10",
-      "slug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
+      "slug": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-freienbach-schwyz",
       "slugByLocale": {
-        "it": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
-        "en": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
+        "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-freienbach-schwyz",
+        "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-freienbach-schwyz",
         "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "fr": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-freienbach-schwyz"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3285,11 +3296,19 @@
         ]
       },
       "previousSlugs": [
-        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+        "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        ],
+        "en": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
+        ],
+        "fr": [
+          "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach"
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:55.267Z",
@@ -3683,7 +3702,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3744,7 +3763,8 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3752,7 +3772,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
@@ -4440,7 +4460,7 @@
         "it": "private-clients-consulente-vz-vermogenszentrum-uster",
         "en": "private-clients-consultant-vz-vermogenszentrum-uster",
         "de": "private-clients-consultant-vz-vermoegenszentrum-ch",
-        "fr": "private-clients-consultant-vz-vermogenszentrum-uster"
+        "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-uster-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4504,6 +4524,9 @@
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-vz-vermoegenszentrum-ch-2",
+          "private-clients-consultant-vz-vermogenszentrum-uster"
+        ],
+        "fr": [
           "private-clients-consultant-vz-vermogenszentrum-uster"
         ]
       },

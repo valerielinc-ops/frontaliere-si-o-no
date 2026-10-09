@@ -7,7 +7,7 @@
       "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "interno-in-stiftung-solina-standortubergreifend",
-        "en": "trainee-stiftung-solina-standortubergreifend",
+        "en": "intern-in-stiftung-solina-standortubergreifend",
         "de": "praktikant-in-solina-standortubergreifend",
         "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
@@ -61,7 +61,7 @@
         "stagiaire-stagiaire-stiftung-solina-spiez",
         "praktikantin-praktikant-solina-spiez",
         "praktikant-in-solina-standortubergreifend",
-        "intern-in-stiftung-solina-standortubergreifend"
+        "trainee-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +76,7 @@
         "en": [
           "praktikant-in-stiftung-solina-standortubergreifend",
           "intern-intern-stiftung-solina-spiez",
-          "intern-in-stiftung-solina-standortubergreifend"
+          "trainee-stiftung-solina-standortubergreifend"
         ],
         "de": [
           "praktikantin-praktikant-solina-standortubergreifend",
@@ -857,9 +857,9 @@
       "slug": "salute-professionale-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
         "it": "salute-professionale-stiftung-solina-steffisburg-ziegelei",
-        "en": "fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei",
+        "en": "professional-health-stiftung-solina-steffisburg-ziegelei",
         "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "fr": "fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
+        "fr": "sante-professionnelle-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -904,18 +904,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "professional-health-stiftung-solina-steffisburg-ziegelei",
-        "sante-professionnelle-stiftung-solina-steffisburg-ziegelei"
+        "fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
         ],
         "en": [
-          "professional-health-stiftung-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
         ],
         "fr": [
-          "sante-professionnelle-stiftung-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:26.742Z",
@@ -1440,7 +1439,7 @@
         "it": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
         "en": "deputy-residential-areamanager-stiftung-solina-steffisburg-ziegelei",
         "de": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-        "fr": "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
+        "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1486,12 +1485,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
-        "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
+        "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
-          "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
+          "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:36.820Z",
@@ -2112,12 +2111,12 @@
     },
     {
       "id": "solina-94070d4c6685",
-      "slug": "wohnbereichsleitung-solina-steffisburg-ziegelei",
+      "slug": "linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei",
       "slugByLocale": {
-        "it": "wohnbereichsleitung-solina-steffisburg-ziegelei",
-        "en": "wohnbereichsleitung-solina-steffisburg-ziegelei",
+        "it": "linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei",
+        "en": "living-area-line-stiftung-solina-steffisburg-ziegelei",
         "de": "wohnbereichsleitung-solina-steffisburg-ziegelei",
-        "fr": "wohnbereichsleitung-solina-steffisburg-ziegelei"
+        "fr": "ligne-de-la-zone-habitable-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -2173,16 +2172,30 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnbereichsleitung-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "wohnbereichsleitung-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "wohnbereichsleitung-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "wohnbereichsleitung-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-f2d3c2708df2",
-      "slug": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend",
+      "slug": "leader-r-ufficio-anteriore-stiftung-solina-standortubergreifend",
       "slugByLocale": {
-        "it": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend",
+        "it": "leader-r-ufficio-anteriore-stiftung-solina-standortubergreifend",
         "en": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend",
         "de": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend",
-        "fr": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend"
+        "fr": "chef-de-file-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -2238,7 +2251,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend"
+        ],
+        "fr": [
+          "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend"
+        ]
+      },
+      "previousSlugs": [
+        "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend"
+      ]
     },
     {
       "id": "solina-b78b8da7f33c",

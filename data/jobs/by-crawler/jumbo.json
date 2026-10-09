@@ -18700,12 +18700,12 @@
     },
     {
       "id": "jumbo-c4069efd-bfe",
-      "slug": "verkaufsberater-in-jumbo-jumbo-murten",
+      "slug": "consulente-di-vendita-jumbo-jumbo-murten",
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-jumbo-murten",
-        "it": "verkaufsberater-in-jumbo-jumbo-murten",
-        "en": "verkaufsberater-in-jumbo-jumbo-murten",
-        "fr": "verkaufsberater-in-jumbo-jumbo-murten"
+        "it": "consulente-di-vendita-jumbo-jumbo-murten",
+        "en": "sales-advisor-jumbo-jumbo-murten",
+        "fr": "conseiller-ere-de-vente-jumbo-jumbo-murten"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18777,7 +18777,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-jumbo-jumbo-murten"
+        ],
+        "en": [
+          "verkaufsberater-in-jumbo-jumbo-murten"
+        ],
+        "fr": [
+          "verkaufsberater-in-jumbo-jumbo-murten"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-jumbo-jumbo-murten"
+      ]
     },
     {
       "id": "jumbo-57aa0c84-11a",

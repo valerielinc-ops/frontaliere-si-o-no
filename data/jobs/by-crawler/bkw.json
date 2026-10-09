@@ -612,8 +612,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -660,16 +660,16 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ],
         "it": [
           "assistant-du-responsable-chiffrage-bkw-ch"
@@ -1001,8 +1001,8 @@
       "slug": "installatore-trice-elettrico-a-in-alle-bkw-urdorf",
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
-        "en": "elektroinstallateur-in-alle-bkw-urdorf",
-        "fr": "elektroinstallateur-in-alle-bkw-urdorf",
+        "en": "electrical-installer-in-all-bkw-urdorf",
+        "fr": "electricien-tous-bkw-urdorf",
         "it": "installatore-trice-elettrico-a-in-alle-bkw-urdorf"
       },
       "company": "BKW",
@@ -1055,17 +1055,18 @@
           "elektroinstallateur-in-alle-bkw-ch-lgvfaw"
         ],
         "en": [
-          "electrical-installer-in-all-bkw-urdorf"
+          "elektroinstallateur-in-alle-bkw-urdorf"
         ],
         "fr": [
-          "electricien-tous-bkw-urdorf"
+          "elektroinstallateur-in-alle-bkw-urdorf"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-alle-bkw-ch",
         "electrical-installer-in-all-bkw-urdorf",
         "electricien-tous-bkw-urdorf",
-        "elektroinstallateur-in-alle-bkw-ch-lgvfaw"
+        "elektroinstallateur-in-alle-bkw-ch-lgvfaw",
+        "elektroinstallateur-in-alle-bkw-urdorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -1497,8 +1498,8 @@
       "slug": "responsabile-lavori-elettrici-tutti-bkw-urdorf",
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
-        "en": "bauleiter-in-elektro-alle-bkw-urdorf",
-        "fr": "bauleiter-in-elektro-alle-bkw-urdorf",
+        "en": "construction-manager-in-electric-all-bkw-urdorf",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-urdorf",
         "it": "responsabile-lavori-elettrici-tutti-bkw-urdorf"
       },
       "company": "BKW",
@@ -1550,16 +1551,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-urdorf"
+          "bauleiter-in-elektro-alle-bkw-urdorf"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-urdorf"
+          "bauleiter-in-elektro-alle-bkw-urdorf"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-urdorf",
-        "directeur-de-construction-en-electric-tous-bkw-urdorf"
+        "bauleiter-in-elektro-alle-bkw-urdorf"
       ],
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -1581,8 +1581,8 @@
       "slug": "installatore-trice-elettrico-a-in-alle-bkw-chur",
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
-        "en": "elektroinstallateur-in-alle-bkw-chur",
-        "fr": "elektroinstallateur-in-alle-bkw-chur",
+        "en": "electrician-all-bkw-chur",
+        "fr": "installateur-electrique-en-tous-bkw-chur",
         "it": "installatore-trice-elettrico-a-in-alle-bkw-chur"
       },
       "company": "BKW",
@@ -1635,17 +1635,18 @@
           "elektroinstallateur-in-alle-bkw-ch-k0fnlu"
         ],
         "en": [
-          "electrician-all-bkw-chur"
+          "elektroinstallateur-in-alle-bkw-chur"
         ],
         "fr": [
-          "installateur-electrique-en-tous-bkw-chur"
+          "elektroinstallateur-in-alle-bkw-chur"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-alle-bkw-ch",
         "electrician-all-bkw-chur",
         "installateur-electrique-en-tous-bkw-chur",
-        "elektroinstallateur-in-alle-bkw-ch-k0fnlu"
+        "elektroinstallateur-in-alle-bkw-ch-k0fnlu",
+        "elektroinstallateur-in-alle-bkw-chur"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1743,8 +1744,8 @@
       "slug": "costruzione-di-rete-per-elettricisti-di-rete-tutti-bkw-bern",
       "slugByLocale": {
         "de": "netzelektriker-in-netzbau-alle-bkw-ch",
-        "en": "netzelektriker-in-netzbau-alle-bkw-bern-3s2dap",
-        "fr": "netzelektriker-in-netzbau-alle-bkw-bern-3s2dap",
+        "en": "network-electrician-network-construction-all-bkw-bern",
+        "fr": "electricien-reseau-construction-de-reseaux-tous-bkw-bern",
         "it": "costruzione-di-rete-per-elettricisti-di-rete-tutti-bkw-bern"
       },
       "company": "BKW",
@@ -1803,11 +1804,13 @@
         ],
         "en": [
           "network-electrician-network-construction-all-bkw-bern",
-          "netzelektriker-in-netzbau-alle-bkw-bern"
+          "netzelektriker-in-netzbau-alle-bkw-bern",
+          "netzelektriker-in-netzbau-alle-bkw-bern-3s2dap"
         ],
         "fr": [
           "electricien-reseau-construction-de-reseaux-tous-bkw-bern",
-          "netzelektriker-in-netzbau-alle-bkw-bern"
+          "netzelektriker-in-netzbau-alle-bkw-bern",
+          "netzelektriker-in-netzbau-alle-bkw-bern-3s2dap"
         ],
         "de": [
           "netzelektriker-in-netzbau-alle-bkw-ch-3s2dap"
@@ -1822,7 +1825,8 @@
         "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern",
         "grid-electrician-in-grid-construction-all-bkw-bern",
         "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern",
-        "netzelektriker-in-netzbau-alle-bkw-ch-2"
+        "netzelektriker-in-netzbau-alle-bkw-ch-2",
+        "netzelektriker-in-netzbau-alle-bkw-bern-3s2dap"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1845,7 +1849,7 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "en": "construction-manager-in-electric-all-bkw-st-gallen",
-        "fr": "bauleiter-in-elektro-alle-bkw-st-gallen",
+        "fr": "chef-de-construction-electrique-tous-bkw-st-gallen",
         "it": "responsabile-della-costruzione-in-electric-tutti-bkw-st-gallen"
       },
       "company": "BKW",
@@ -1897,12 +1901,12 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "fr": [
-          "chef-de-construction-electrique-tous-bkw-st-gallen"
+          "bauleiter-in-elektro-alle-bkw-st-gallen"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "chef-de-construction-electrique-tous-bkw-st-gallen"
+        "bauleiter-in-elektro-alle-bkw-st-gallen"
       ],
       "salaryMin": 92000,
       "salaryMax": 140000,
@@ -2460,8 +2464,8 @@
       "slug": "elettricista-tutti-bkw-root",
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
-        "en": "elektroinstallateur-in-alle-bkw-root",
-        "fr": "elektroinstallateur-in-alle-bkw-root",
+        "en": "electrician-all-bkw-root",
+        "fr": "electricien-tous-bkw-root",
         "it": "elettricista-tutti-bkw-root"
       },
       "company": "BKW",
@@ -2514,17 +2518,18 @@
           "elektroinstallateur-in-alle-bkw-ch-ix12qs"
         ],
         "en": [
-          "electrician-all-bkw-root"
+          "elektroinstallateur-in-alle-bkw-root"
         ],
         "fr": [
-          "electricien-tous-bkw-root"
+          "elektroinstallateur-in-alle-bkw-root"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-alle-bkw-ch",
         "electrician-all-bkw-root",
         "electricien-tous-bkw-root",
-        "elektroinstallateur-in-alle-bkw-ch-ix12qs"
+        "elektroinstallateur-in-alle-bkw-ch-ix12qs",
+        "elektroinstallateur-in-alle-bkw-root"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -2641,8 +2646,8 @@
       "slug": "elettricista-di-rete-tutti-bkw-urdorf",
       "slugByLocale": {
         "de": "netzelektriker-in-alle-bkw-ch",
-        "en": "netzelektriker-in-alle-bkw-urdorf",
-        "fr": "netzelektriker-in-alle-bkw-urdorf",
+        "en": "grid-electrician-in-all-bkw-urdorf",
+        "fr": "electricien-du-reseau-en-tous-bkw-urdorf",
         "it": "elettricista-di-rete-tutti-bkw-urdorf"
       },
       "company": "BKW",
@@ -2702,10 +2707,10 @@
           "electricien-du-reseau-tous-bkw-uetendorf"
         ],
         "en": [
-          "grid-electrician-in-all-bkw-urdorf"
+          "netzelektriker-in-alle-bkw-urdorf"
         ],
         "fr": [
-          "electricien-du-reseau-en-tous-bkw-urdorf"
+          "netzelektriker-in-alle-bkw-urdorf"
         ],
         "de": [
           "netzelektriker-in-alle-bkw-ch-9kx9pe"
@@ -2722,7 +2727,8 @@
         "electricien-du-reseau-en-tous-bkw-wangen-an-der-aare",
         "griglia-elettricista-tutti-bkw-uetendorf",
         "grid-electrician-all-bkw-uetendorf",
-        "electricien-du-reseau-tous-bkw-uetendorf"
+        "electricien-du-reseau-tous-bkw-uetendorf",
+        "netzelektriker-in-alle-bkw-urdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2959,8 +2965,8 @@
       "slug": "tecnico-di-servizi-elettrici-tutti-bkw-kloten",
       "slugByLocale": {
         "de": "servicemonteur-in-elektro-alle-bkw-ch",
-        "en": "servicemonteur-in-elektro-alle-bkw-kloten",
-        "fr": "servicemonteur-in-elektro-alle-bkw-kloten",
+        "en": "electrical-service-technician-all-bkw-kloten",
+        "fr": "installateur-de-service-en-electric-tous-bkw-kloten",
         "it": "tecnico-di-servizi-elettrici-tutti-bkw-kloten"
       },
       "company": "BKW",
@@ -3012,17 +3018,18 @@
           "servicemonteur-in-elektro-alle-bkw-ch-0t69oj"
         ],
         "en": [
-          "electrical-service-technician-all-bkw-kloten"
+          "servicemonteur-in-elektro-alle-bkw-kloten"
         ],
         "fr": [
-          "installateur-de-service-en-electric-tous-bkw-kloten"
+          "servicemonteur-in-elektro-alle-bkw-kloten"
         ]
       },
       "previousSlugs": [
         "servicemonteur-in-elektro-alle-bkw-ch",
         "electrical-service-technician-all-bkw-kloten",
         "installateur-de-service-en-electric-tous-bkw-kloten",
-        "servicemonteur-in-elektro-alle-bkw-ch-0t69oj"
+        "servicemonteur-in-elektro-alle-bkw-ch-0t69oj",
+        "servicemonteur-in-elektro-alle-bkw-kloten"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -3123,8 +3130,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-nidau",
-        "en": "bauleiter-in-elektro-alle-bkw-nidau",
-        "fr": "bauleiter-in-elektro-alle-bkw-nidau"
+        "en": "construction-manager-in-electric-all-bkw-nidau",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-nidau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -3175,16 +3182,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-nidau"
+          "bauleiter-in-elektro-alle-bkw-nidau"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-nidau"
+          "bauleiter-in-elektro-alle-bkw-nidau"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-nidau",
-        "directeur-de-construction-en-electric-tous-bkw-nidau"
+        "bauleiter-in-elektro-alle-bkw-nidau"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -3381,8 +3387,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-gwatt-thun",
-        "en": "bauleiter-in-elektro-alle-bkw-gwatt-thun",
-        "fr": "bauleiter-in-elektro-alle-bkw-gwatt-thun"
+        "en": "construction-manager-in-electric-all-bkw-gwatt-thun",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-gwatt-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -3433,16 +3439,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-gwatt-thun"
+          "bauleiter-in-elektro-alle-bkw-gwatt-thun"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-gwatt-thun"
+          "bauleiter-in-elektro-alle-bkw-gwatt-thun"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-gwatt-thun",
-        "directeur-de-construction-en-electric-tous-bkw-gwatt-thun"
+        "bauleiter-in-elektro-alle-bkw-gwatt-thun"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -3465,8 +3470,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-alle-bkw-utzenstorf",
-        "en": "elektroinstallateur-in-alle-bkw-utzenstorf",
-        "fr": "elektroinstallateur-in-alle-bkw-utzenstorf"
+        "en": "electrical-installer-in-all-bkw-utzenstorf",
+        "fr": "installateur-electrique-en-tous-bkw-utzenstorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -3518,17 +3523,18 @@
           "elektroinstallateur-in-alle-bkw-ch-24bfui"
         ],
         "en": [
-          "electrical-installer-in-all-bkw-utzenstorf"
+          "elektroinstallateur-in-alle-bkw-utzenstorf"
         ],
         "fr": [
-          "installateur-electrique-en-tous-bkw-utzenstorf"
+          "elektroinstallateur-in-alle-bkw-utzenstorf"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-alle-bkw-ch",
         "electrical-installer-in-all-bkw-utzenstorf",
         "installateur-electrique-en-tous-bkw-utzenstorf",
-        "elektroinstallateur-in-alle-bkw-ch-24bfui"
+        "elektroinstallateur-in-alle-bkw-ch-24bfui",
+        "elektroinstallateur-in-alle-bkw-utzenstorf"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -3551,8 +3557,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-ostermundigen",
-        "en": "bauleiter-in-elektro-alle-bkw-ostermundigen",
-        "fr": "bauleiter-in-elektro-alle-bkw-ostermundigen"
+        "en": "construction-manager-in-electric-all-bkw-ostermundigen",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -3603,16 +3609,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-ostermundigen"
+          "bauleiter-in-elektro-alle-bkw-ostermundigen"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-ostermundigen"
+          "bauleiter-in-elektro-alle-bkw-ostermundigen"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-ostermundigen",
-        "directeur-de-construction-en-electric-tous-bkw-ostermundigen"
+        "bauleiter-in-elektro-alle-bkw-ostermundigen"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -3795,8 +3800,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-alle-bkw-frenkendorf",
-        "en": "elektroinstallateur-in-alle-bkw-frenkendorf",
-        "fr": "elektroinstallateur-in-alle-bkw-frenkendorf"
+        "en": "electrical-installer-in-all-bkw-frenkendorf",
+        "fr": "installateur-electrique-en-tous-bkw-frenkendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -3848,17 +3853,18 @@
           "elektroinstallateur-in-alle-bkw-ch-0lko1r"
         ],
         "en": [
-          "electrical-installer-in-all-bkw-frenkendorf"
+          "elektroinstallateur-in-alle-bkw-frenkendorf"
         ],
         "fr": [
-          "installateur-electrique-en-tous-bkw-frenkendorf"
+          "elektroinstallateur-in-alle-bkw-frenkendorf"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-alle-bkw-ch",
         "electrical-installer-in-all-bkw-frenkendorf",
         "installateur-electrique-en-tous-bkw-frenkendorf",
-        "elektroinstallateur-in-alle-bkw-ch-0lko1r"
+        "elektroinstallateur-in-alle-bkw-ch-0lko1r",
+        "elektroinstallateur-in-alle-bkw-frenkendorf"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -4450,8 +4456,8 @@
       "slugByLocale": {
         "de": "netzelektriker-in-alle-bkw-ch",
         "it": "griglia-elettricista-tutti-bkw-uetendorf",
-        "en": "netzelektriker-in-alle-bkw-uetendorf",
-        "fr": "netzelektriker-in-alle-bkw-uetendorf"
+        "en": "grid-electrician-all-bkw-uetendorf",
+        "fr": "electricien-du-reseau-tous-bkw-uetendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -4502,17 +4508,18 @@
           "netzelektriker-in-alle-bkw-ch-lx53vf"
         ],
         "en": [
-          "grid-electrician-all-bkw-uetendorf"
+          "netzelektriker-in-alle-bkw-uetendorf"
         ],
         "fr": [
-          "electricien-du-reseau-tous-bkw-uetendorf"
+          "netzelektriker-in-alle-bkw-uetendorf"
         ]
       },
       "previousSlugs": [
         "netzelektriker-in-alle-bkw-ch",
         "grid-electrician-all-bkw-uetendorf",
         "electricien-du-reseau-tous-bkw-uetendorf",
-        "netzelektriker-in-alle-bkw-ch-lx53vf"
+        "netzelektriker-in-alle-bkw-ch-lx53vf",
+        "netzelektriker-in-alle-bkw-uetendorf"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -4758,8 +4765,8 @@
       "slug": "responsabile-lavori-elettrici-tutti-bkw-root",
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
-        "en": "bauleiter-in-elektro-alle-bkw-root",
-        "fr": "bauleiter-in-elektro-alle-bkw-root",
+        "en": "construction-manager-electrical-all-bkw-root",
+        "fr": "chef-de-construction-electrique-tous-bkw-root",
         "it": "responsabile-lavori-elettrici-tutti-bkw-root"
       },
       "company": "BKW",
@@ -4811,16 +4818,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-electrical-all-bkw-root"
+          "bauleiter-in-elektro-alle-bkw-root"
         ],
         "fr": [
-          "chef-de-construction-electrique-tous-bkw-root"
+          "bauleiter-in-elektro-alle-bkw-root"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-electrical-all-bkw-root",
-        "chef-de-construction-electrique-tous-bkw-root"
+        "bauleiter-in-elektro-alle-bkw-root"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,
@@ -5094,8 +5100,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zuchwil",
+        "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zuchwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -5144,6 +5150,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -5170,8 +5182,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
-        "en": "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "fr": "bauleiter-in-elektro-alle-bkw-zuchwil"
+        "en": "construction-manager-in-electric-all-bkw-zuchwil",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -5222,16 +5234,15 @@
           "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ]
       },
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "construction-manager-in-electric-all-bkw-zuchwil",
-        "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -8939,9 +8950,9 @@
       "slug": "elektro-servicemonteur-in-alle-bkw-langenthal",
       "slugByLocale": {
         "de": "elektro-servicemonteur-in-alle-bkw-ch",
-        "it": "elektro-servicemonteur-in-alle-bkw-langenthal",
-        "en": "elektro-servicemonteur-in-alle-bkw-langenthal",
-        "fr": "elektro-servicemonteur-in-alle-bkw-langenthal"
+        "it": "installatore-di-servizio-elettrico-in-tutti-bkw-langenthal",
+        "en": "electrical-service-installer-in-all-bkw-langenthal",
+        "fr": "installateur-de-service-electrique-en-tous-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -8999,12 +9010,6 @@
           "elettrotecnico-di-servizio-tutti-bkw-kestenholz",
           "electrical-service-technician-all-bkw-kestenholz",
           "technicien-e-en-service-electrique-tous-bkw-kestenholz"
-        ],
-        "en": [
-          "electrical-service-installer-in-all-bkw-langenthal"
-        ],
-        "fr": [
-          "installateur-de-service-electrique-en-tous-bkw-langenthal"
         ],
         "de": [
           "elektro-servicemonteur-in-alle-bkw-ch-pxgyv7"
@@ -10205,12 +10210,12 @@
     },
     {
       "id": "bkw-4adb5239cc4c",
-      "slug": "responsabile-di-progetto-luftung-hlk-alle-bkw-volketswil",
+      "slug": "responsabile-di-progetto-ventilazione-hvac-tutti-bkw-volketswil",
       "slugByLocale": {
         "de": "projektleiter-in-luftung-hlk-alle-bkw-ch",
-        "it": "responsabile-di-progetto-luftung-hlk-alle-bkw-volketswil",
-        "en": "projektleiter-in-luftung-hlk-alle-bkw-ch",
-        "fr": "projektleiter-in-luftung-hlk-alle-bkw-ch"
+        "it": "responsabile-di-progetto-ventilazione-hvac-tutti-bkw-volketswil",
+        "en": "project-manager-ventilation-hvac-all-bkw-volketswil",
+        "fr": "chef-fe-de-projet-ventilation-cvc-tous-bkw-volketswil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -10256,11 +10261,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-luftung-hlk-alle-bkw-ch",
+          "responsabile-di-progetto-luftung-hlk-alle-bkw-volketswil"
+        ],
+        "en": [
+          "projektleiter-in-luftung-hlk-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-luftung-hlk-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-luftung-hlk-alle-bkw-ch"
+        "projektleiter-in-luftung-hlk-alle-bkw-ch",
+        "responsabile-di-progetto-luftung-hlk-alle-bkw-volketswil"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -16143,9 +16156,9 @@
       "slug": "netzelektriker-in-netzbau-alle-bkw-bern",
       "slugByLocale": {
         "de": "netzelektriker-in-netzbau-alle-bkw-ch",
-        "it": "netzelektriker-in-netzbau-alle-bkw-bern",
-        "en": "netzelektriker-in-netzbau-alle-bkw-bern",
-        "fr": "netzelektriker-in-netzbau-alle-bkw-bern"
+        "it": "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern",
+        "en": "grid-electrician-in-grid-construction-all-bkw-bern",
+        "fr": "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -16197,12 +16210,6 @@
           "griglia-elettricista-in-costruzione-grid-tutti-bkw-bern",
           "netzelektriker-in-netzbau-alle-bkw-ch-e89zap",
           "costruzione-di-rete-per-elettricisti-di-rete-tutti-bkw-bern-e89zap"
-        ],
-        "en": [
-          "grid-electrician-in-grid-construction-all-bkw-bern"
-        ],
-        "fr": [
-          "electricien-du-reseau-dans-la-construction-du-reseau-tous-bkw-bern"
         ]
       },
       "previousSlugs": [
@@ -18203,8 +18210,8 @@
       "slugByLocale": {
         "de": "gebaudetechnikplaner-in-luftung-alle-bkw-ch",
         "it": "pianificatore-di-costruzione-in-ventilazione-tutti-bkw-koniz",
-        "en": "project-manager-luftung-alle-bkw-koniz",
-        "fr": "chef-de-projet-luftung-alle-bkw-koniz"
+        "en": "building-engineering-planner-in-ventilation-all-bkw-koniz",
+        "fr": "ingenieur-du-batiment-dans-la-ventilation-tous-bkw-koniz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -18259,17 +18266,19 @@
           "projektleiter-in-luftung-alle-bkw-ch"
         ],
         "en": [
-          "building-engineering-planner-in-ventilation-all-bkw-koniz"
+          "project-manager-luftung-alle-bkw-koniz"
         ],
         "fr": [
-          "ingenieur-du-batiment-dans-la-ventilation-tous-bkw-koniz"
+          "chef-de-projet-luftung-alle-bkw-koniz"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-luftung-alle-bkw-ch",
         "building-engineering-planner-in-ventilation-all-bkw-koniz",
         "ingenieur-du-batiment-dans-la-ventilation-tous-bkw-koniz",
-        "projektleiter-in-luftung-alle-bkw-ch-brprsl"
+        "projektleiter-in-luftung-alle-bkw-ch-brprsl",
+        "project-manager-luftung-alle-bkw-koniz",
+        "chef-de-projet-luftung-alle-bkw-koniz"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -19754,7 +19763,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -19803,12 +19812,12 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ],
         "it": [
           "mitarbeiter-in-seilprufstelle-alle-bkw-ch"
@@ -19908,7 +19917,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -19957,8 +19966,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19967,7 +19975,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -20149,8 +20157,8 @@
       "slugByLocale": {
         "de": "bauleitende-r-heizungsinstallateur-in-alle-bkw-ch",
         "it": "direttore-della-costruzione-r-installatore-di-riscaldamento-in-tutti-bkw-ostermundigen",
-        "en": "bauleitende-r-heizungsinstallateur-in-alle-bkw-ostermundigen",
-        "fr": "bauleitende-r-heizungsinstallateur-in-alle-bkw-ostermundigen"
+        "en": "construction-manager-r-heating-installer-in-all-bkw-ostermundigen",
+        "fr": "directeur-de-la-construction-r-installateur-de-chauffage-in-all-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20206,10 +20214,10 @@
           "chef-de-chantier-installateur-de-chauffage-tous-bkw-ostermundigen"
         ],
         "en": [
-          "construction-manager-r-heating-installer-in-all-bkw-ostermundigen"
+          "bauleitende-r-heizungsinstallateur-in-alle-bkw-ostermundigen"
         ],
         "fr": [
-          "directeur-de-la-construction-r-installateur-de-chauffage-in-all-bkw-ostermundigen"
+          "bauleitende-r-heizungsinstallateur-in-alle-bkw-ostermundigen"
         ],
         "de": [
           "bauleitende-r-heizungsinstallateur-in-alle-bkw-ch-q27c7s"
@@ -20223,7 +20231,8 @@
         "responsabile-dei-lavori-installatore-di-riscaldamento-tutti-bkw-ostermundigen",
         "bauleitende-r-heizungsinstallateur-in-alle-bkw-ch-2",
         "construction-manager-heating-installer-all-bkw-ostermundigen",
-        "chef-de-chantier-installateur-de-chauffage-tous-bkw-ostermundigen"
+        "chef-de-chantier-installateur-de-chauffage-tous-bkw-ostermundigen",
+        "bauleitende-r-heizungsinstallateur-in-alle-bkw-ostermundigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21067,7 +21076,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21113,14 +21122,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -22550,8 +22559,8 @@
       "slugByLocale": {
         "de": "spezialist-in-engineering-alle-bkw-ch",
         "en": "specialist-engineering-all-bkw-oberkirch-1ca9c4",
-        "fr": "spezialist-in-engineering-alle-bkw-oberkirch",
-        "it": "spezialist-in-engineering-alle-bkw-ch"
+        "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch-1ca9c4",
+        "it": "specialista-engineering-tutti-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22600,7 +22609,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
-          "specialiste-en-ingenierie-tous-bkw-oberkirch-1ca9c4"
+          "spezialist-in-engineering-alle-bkw-oberkirch"
         ],
         "it": [
           "specialista-engineering-tutti-bkw-oberkirch",
@@ -22631,7 +22640,8 @@
         "engineering-specialist-all-bkw-oberkirch",
         "specialiste-en-genie-tous-bkw-oberkirch",
         "specialiste-en-ingenierie-tous-bkw-oberkirch",
-        "specialista-in-ingegneria-tutti-bkw-oberkirch"
+        "specialista-in-ingegneria-tutti-bkw-oberkirch",
+        "spezialist-in-engineering-alle-bkw-oberkirch"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -23276,8 +23286,8 @@
       "slugByLocale": {
         "de": "heizungsinstallateur-in-alle-bkw-ch",
         "it": "installatore-di-riscaldamento-tutti-bkw-rafz",
-        "en": "heizungsinstallateur-in-alle-bkw-rafz",
-        "fr": "heizungsinstallateur-in-alle-bkw-rafz"
+        "en": "heating-installer-all-bkw-rafz",
+        "fr": "installateur-de-chauffage-tous-bkw-rafz"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23337,10 +23347,10 @@
           "installateur-de-chauffage-tous-bkw-beringen"
         ],
         "en": [
-          "heating-installer-all-bkw-rafz"
+          "heizungsinstallateur-in-alle-bkw-rafz"
         ],
         "fr": [
-          "installateur-de-chauffage-tous-bkw-rafz"
+          "heizungsinstallateur-in-alle-bkw-rafz"
         ],
         "de": [
           "heizungsinstallateur-in-alle-bkw-ch-41zyrs"
@@ -23358,7 +23368,8 @@
         "heating-installer-in-all-bkw-sarnen",
         "heating-installer-all-bkw-beringen",
         "installateur-de-chauffage-dans-tous-bkw-sarnen",
-        "installateur-de-chauffage-tous-bkw-beringen"
+        "installateur-de-chauffage-tous-bkw-beringen",
+        "heizungsinstallateur-in-alle-bkw-rafz"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -23455,8 +23466,8 @@
       "slugByLocale": {
         "de": "bauleitende-r-monteur-in-heizung-alle-bkw-ch",
         "it": "responsabile-dei-lavori-per-il-riscaldamento-tutti-bkw-luzern",
-        "en": "bauleitende-r-monteur-in-heizung-alle-bkw-luzern",
-        "fr": "bauleitende-r-monteur-in-heizung-alle-bkw-luzern"
+        "en": "construction-manager-installer-heating-all-bkw-luzern",
+        "fr": "installateur-dans-le-chauffage-tous-bkw-luzern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23516,10 +23527,10 @@
           "installateur-dans-le-chauffage-tous-bkw-st-gallen"
         ],
         "en": [
-          "construction-manager-installer-heating-all-bkw-luzern"
+          "bauleitende-r-monteur-in-heizung-alle-bkw-luzern"
         ],
         "fr": [
-          "installateur-dans-le-chauffage-tous-bkw-luzern"
+          "bauleitende-r-monteur-in-heizung-alle-bkw-luzern"
         ],
         "de": [
           "bauleitende-r-monteur-in-heizung-alle-bkw-ch-714z7e"
@@ -23537,7 +23548,8 @@
         "bauleitender-monteur-heizung-w-m-bkw-ch",
         "chef-de-chantier-chauffage-f-m-bkw-st-gallen",
         "installer-in-heating-all-bkw-st-gallen",
-        "installateur-dans-le-chauffage-tous-bkw-st-gallen"
+        "installateur-dans-le-chauffage-tous-bkw-st-gallen",
+        "bauleitende-r-monteur-in-heizung-alle-bkw-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -24658,7 +24670,7 @@
       "slugByLocale": {
         "de": "monteur-in-freileitungsbau-alle-bkw-ch",
         "it": "montatore-trice-di-linee-aeree-tutti-bkw-wangen-an-der-aare",
-        "en": "monteur-in-freileitungsbau-alle-bkw-wangen-an-der-aare",
+        "en": "overhead-line-construction-technician-all-bkw-wangen-an-der-aare",
         "fr": "monteur-euse-de-lignes-aeriennes-tous-genres-bkw-wangen-an-der-aare"
       },
       "company": "BKW",
@@ -24712,7 +24724,7 @@
           "monteur-in-freileitungsbau-alle-bkw-ch-0jlvrz"
         ],
         "en": [
-          "overhead-line-construction-technician-all-bkw-wangen-an-der-aare"
+          "monteur-in-freileitungsbau-alle-bkw-wangen-an-der-aare"
         ],
         "de": [
           "monteur-in-freileitungsbau-alle-bkw-ch-0jlvrz"
@@ -24721,7 +24733,8 @@
       "previousSlugs": [
         "monteur-in-freileitungsbau-alle-bkw-ch",
         "overhead-line-construction-technician-all-bkw-wangen-an-der-aare",
-        "monteur-in-freileitungsbau-alle-bkw-ch-0jlvrz"
+        "monteur-in-freileitungsbau-alle-bkw-ch-0jlvrz",
+        "monteur-in-freileitungsbau-alle-bkw-wangen-an-der-aare"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -24817,9 +24830,9 @@
       "slug": "servicemonteur-in-alle-bkw-winterthur",
       "slugByLocale": {
         "de": "servicemonteur-in-alle-bkw-ch",
-        "it": "servicemonteur-in-alle-bkw-winterthur",
-        "en": "servicemonteur-in-alle-bkw-winterthur",
-        "fr": "servicemonteur-in-alle-bkw-winterthur"
+        "it": "tecnico-di-assistenza-tutti-bkw-winterthur",
+        "en": "service-technician-all-bkw-winterthur",
+        "fr": "technicien-de-service-tous-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24888,12 +24901,6 @@
           "installateur-de-service-en-tous-bkw-sursee",
           "technicien-de-service-tous-bkw-landquart"
         ],
-        "en": [
-          "service-technician-all-bkw-winterthur"
-        ],
-        "fr": [
-          "technicien-de-service-tous-bkw-winterthur"
-        ],
         "de": [
           "servicemonteur-in-alle-bkw-ch-0ytrou"
         ]
@@ -24947,8 +24954,8 @@
       "slug": "installatore-di-servizio-in-elettrico-tutti-bkw-urdorf",
       "slugByLocale": {
         "de": "servicemonteur-in-elektro-alle-bkw-ch",
-        "en": "servicemonteur-in-elektro-alle-bkw-urdorf",
-        "fr": "servicemonteur-in-elektro-alle-bkw-urdorf",
+        "en": "service-installer-in-electric-all-bkw-urdorf",
+        "fr": "technicien-en-service-electrique-tous-bkw-urdorf",
         "it": "installatore-di-servizio-in-elettrico-tutti-bkw-urdorf"
       },
       "company": "BKW",
@@ -25010,10 +25017,10 @@
           "installateur-de-service-en-electric-tous-bkw-kerzers"
         ],
         "en": [
-          "service-installer-in-electric-all-bkw-urdorf"
+          "servicemonteur-in-elektro-alle-bkw-urdorf"
         ],
         "fr": [
-          "technicien-en-service-electrique-tous-bkw-urdorf"
+          "servicemonteur-in-elektro-alle-bkw-urdorf"
         ],
         "de": [
           "servicemonteur-in-elektro-alle-bkw-ch-068s8n"
@@ -25032,7 +25039,8 @@
         "installateur-de-service-en-electric-tous-bkw-kloten",
         "installatore-di-servizio-in-elettrico-tutti-bkw-kerzers",
         "service-installer-in-electric-all-bkw-kerzers",
-        "installateur-de-service-en-electric-tous-bkw-kerzers"
+        "installateur-de-service-en-electric-tous-bkw-kerzers",
+        "servicemonteur-in-elektro-alle-bkw-urdorf"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -25982,12 +25990,12 @@
     },
     {
       "id": "bkw-6c79f97ffa03",
-      "slug": "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch",
+      "slug": "installatore-installatrice-di-impianti-sanitari-capocantiere-tutti-bkw-ostermundigen",
       "slugByLocale": {
         "de": "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch",
-        "it": "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch",
-        "en": "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch",
-        "fr": "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch"
+        "it": "installatore-installatrice-di-impianti-sanitari-capocantiere-tutti-bkw-ostermundigen",
+        "en": "lead-plumbing-installer-all-genders-bkw-ostermundigen",
+        "fr": "installateur-rice-sanitaire-chef-fe-de-chantier-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26044,7 +26052,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:11:53.267Z"
+      "firstSeenAt": "2026-10-08T22:11:53.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-sanitarinstallateur-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-277f82946ae7",
@@ -26196,12 +26218,12 @@
     },
     {
       "id": "bkw-3055a3dd984e",
-      "slug": "bauleitender-heizungsinstallateur-in-alle-bkw-ch",
+      "slug": "installatore-installatrice-di-impianti-di-riscaldamento-capocantiere-tutti-bkw-ostermundigen",
       "slugByLocale": {
         "de": "bauleitender-heizungsinstallateur-in-alle-bkw-ch",
-        "it": "bauleitender-heizungsinstallateur-in-alle-bkw-ch",
-        "en": "bauleitender-heizungsinstallateur-in-alle-bkw-ch",
-        "fr": "bauleitender-heizungsinstallateur-in-alle-bkw-ch"
+        "it": "installatore-installatrice-di-impianti-di-riscaldamento-capocantiere-tutti-bkw-ostermundigen",
+        "en": "lead-heating-installer-all-genders-bkw-ostermundigen",
+        "fr": "installateur-rice-en-chauffage-chef-fe-de-chantier-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26258,7 +26280,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T22:11:53.254Z"
+      "firstSeenAt": "2026-10-08T22:11:53.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitender-heizungsinstallateur-in-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleitender-heizungsinstallateur-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "bauleitender-heizungsinstallateur-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitender-heizungsinstallateur-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-9220d37db26b",

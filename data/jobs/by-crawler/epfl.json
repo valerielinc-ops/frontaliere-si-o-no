@@ -5755,8 +5755,8 @@
       "slugByLocale": {
         "en": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
         "it": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
-        "de": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
-        "fr": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne"
+        "de": "kryogene-elektronenmikroskopische-unterstutzung-fur-das-dubochet-center-for-imaging-epfl-lausanne",
+        "fr": "soutien-au-microscopie-electronique-cryogenique-pour-le-dubochet-center-for-imaging-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5819,12 +5819,12 @@
     },
     {
       "id": "epfl-2233e4cd81a0",
-      "slug": "chef-fe-de-projet-architecte-epfl-lausanne",
+      "slug": "responsabile-del-progetto-architetto-epfl-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-projet-architecte-epfl-lausanne",
-        "it": "chef-fe-de-projet-architecte-epfl-lausanne",
-        "en": "chef-fe-de-projet-architecte-epfl-lausanne",
-        "de": "chef-fe-de-projet-architecte-epfl-lausanne"
+        "it": "responsabile-del-progetto-architetto-epfl-lausanne",
+        "en": "head-of-project-architect-epfl-lausanne",
+        "de": "leiter-projektarchitekt-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5883,7 +5883,21 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-architecte-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-1b64f5760f18",

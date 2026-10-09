@@ -1757,11 +1757,11 @@
     },
     {
       "id": "audemars-piguet-1d77bec00c1a",
-      "slug": "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "produttore-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
-        "it": "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland",
-        "en": "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland",
-        "de": "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland",
+        "it": "produttore-audemars-piguet-le-locle-ne-switzerland",
+        "en": "manufacturer-audemars-piguet-le-locle-ne-switzerland",
+        "de": "hersteller-audemars-piguet-le-locle-ne-switzerland",
         "fr": "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland"
       },
       "company": "Audemars Piguet",
@@ -1820,14 +1820,28 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "de": [
+          "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-rice-mouvements-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-88373b01a6b7",
-      "slug": "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "simulazione-trainee-shock-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
-        "it": "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland",
-        "en": "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland",
+        "it": "simulazione-trainee-shock-audemars-piguet-le-locle-ne-switzerland",
+        "en": "trainee-shock-simulation-audemars-piguet-le-locle-ne-switzerland",
         "de": "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland",
         "fr": "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland"
       },
@@ -1887,13 +1901,24 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-simulation-des-chocs-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-f7ab48d356e6",
-      "slug": "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "trainee-logistics-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
-        "it": "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland",
+        "it": "trainee-logistics-audemars-piguet-le-locle-ne-switzerland",
         "en": "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland",
         "de": "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland",
         "fr": "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland"
@@ -1954,14 +1979,22 @@
           "maxValue": 77000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-logistique-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-31f3b3caabfa",
       "slug": "retail-food-designer-audemars-piguet-le-brassus",
       "slugByLocale": {
         "it": "retail-food-designer-audemars-piguet-le-brassus",
-        "en": "retail-designer-audemars-piguet-le-brassus",
+        "en": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "de": "einzelhandelsdesigner-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -2009,14 +2042,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "retail-designer-audemars-piguet-le-brassus-vd-switzerland",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+        "retail-designer-audemars-piguet-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "en": [
-          "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+          "retail-designer-audemars-piguet-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-11T13:45:00.551Z",
@@ -2036,9 +2069,9 @@
     },
     {
       "id": "audemars-piguet-be923e640734",
-      "slug": "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "dominio-database-di-piombo-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
-        "it": "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "dominio-database-di-piombo-audemars-piguet-le-brassus-vd-switzerland",
         "en": "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland",
         "de": "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland"
@@ -2099,7 +2132,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "domaine-lead-database-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     }
   ]
 }

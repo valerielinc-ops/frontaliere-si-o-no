@@ -310,12 +310,12 @@
     },
     {
       "id": "triaplus-7110ecc670e3",
-      "slug": "praktikant-pflege-m-w-d-per-6-12-monate-triaplus-ag-oberwil",
+      "slug": "tirocinante-in-cure-infermieristiche-m-f-d-per-6-12-mesi-triaplus-ag-oberwil",
       "slugByLocale": {
-        "it": "praktikant-pflege-m-w-d-per-6-12-monate-triaplus-ag-oberwil",
-        "en": "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d",
+        "it": "tirocinante-in-cure-infermieristiche-m-f-d-per-6-12-mesi-triaplus-ag-oberwil",
+        "en": "internship-care-m-f-d-for-6-12-months-triaplus-ag-oberwil",
         "de": "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d",
-        "fr": "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d"
+        "fr": "soins-de-stagiaire-h-f-d-pendant-6-12-mois-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -359,10 +359,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d"
+        "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d",
+        "praktikant-pflege-m-w-d-per-6-12-monate-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d",
+          "praktikant-pflege-m-w-d-per-6-12-monate-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d"
+        ],
+        "fr": [
           "praktikant-pflege-m-w-d-fur-6-12-monate-triaplus-praktikant-pflege-m-w-d"
         ]
       },
@@ -1055,7 +1063,7 @@
         "it": "consulente-nutrizionale-w-m-d-a-ore-triaplus-ag-oberwil",
         "en": "nutrition-consultant-w-m-d-hourly-triaplus-ag-oberwil",
         "de": "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
-        "fr": "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
+        "fr": "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1127,7 +1135,7 @@
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil",
         "ernahrungsberaterin-hf-w-m-d-triaplus-ernaehrungsberaterin-w-m-d-im-stundenlohn",
-        "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+        "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1138,7 +1146,7 @@
           "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil"
         ],
         "fr": [
-          "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+          "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:13.784Z",
@@ -1594,7 +1602,7 @@
         "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
         "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1639,7 +1647,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+        "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1650,7 +1658,7 @@
         ],
         "fr": [
           "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-          "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+          "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:24.738Z",

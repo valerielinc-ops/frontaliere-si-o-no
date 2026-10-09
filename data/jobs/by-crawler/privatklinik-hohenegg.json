@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "privatklinik-hohenegg-dcfb55bdfc33",
-      "slug": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+      "slug": "infermiere-infermiera-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-        "en": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "it": "infermiere-infermiera-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen",
+        "en": "hf-nurse-with-a-focus-on-psychiatry-60-100-privatklinik-hohenegg-meilen",
         "de": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-        "fr": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        "fr": "infirmiere-hf-axee-sur-la-psychiatrie-60-100-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -67,7 +67,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+      ]
     },
     {
       "id": "privatklinik-hohenegg-2e70dd667576",

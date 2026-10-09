@@ -228,7 +228,7 @@
         "it": "venditore-k-chiosco-15-ore-valora-group-uetendorf",
         "en": "seller-k-kiosk-15-hours-valora-group-uetendorf",
         "de": "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "fr": "verkauferin-verkaufer-k-kiosk-15-std-valora-group-uetendorf"
+        "fr": "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -276,7 +276,8 @@
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
         "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf",
-        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne",
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-group-uetendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -284,7 +285,7 @@
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
         ],
         "fr": [
-          "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-group-uetendorf"
         ],
         "de": [
           "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
@@ -473,7 +474,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -533,14 +534,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -783,7 +784,7 @@
         "it": "venditore-venditore-k-kiosk-20-ore-valora-group-kandersteg",
         "en": "seller-seller-k-kiosk-20-hours-valora-group-kandersteg",
         "de": "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "fr": "verkauferin-verkaufer-k-kiosk-20-std-valora-group-kandersteg"
+        "fr": "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -831,7 +832,8 @@
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
         "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg",
-        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2",
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-group-kandersteg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -839,7 +841,7 @@
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
         ],
         "fr": [
-          "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-group-kandersteg"
         ],
         "de": [
           "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
@@ -2677,12 +2679,12 @@
     },
     {
       "id": "valora-0de245132bb4",
-      "slug": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+      "slug": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf-488cfe",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "en": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "it": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf-488cfe",
+        "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf",
         "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "fr": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2739,7 +2741,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+      ]
     },
     {
       "id": "valora-887a9a043447",

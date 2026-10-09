@@ -83,9 +83,9 @@
       "slug": "junior-chauffeur-candidato-a-in-riqualificazione-landquart-m-w-d-galliker-transport-ag-landquart",
       "slugByLocale": {
         "it": "junior-chauffeur-candidato-a-in-riqualificazione-landquart-m-w-d-galliker-transport-ag-landquart",
-        "en": "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart",
+        "en": "junior-chauffeur-country-quarter-m-f-d-galliker-transport-ag-landquart",
         "de": "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart",
-        "fr": "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart"
+        "fr": "chauffeur-junior-quartier-pays-h-f-d-galliker-transport-ag-landquart"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -135,6 +135,12 @@
       "previousSlugsByLocale": {
         "it": [
           "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart"
+        ],
+        "en": [
+          "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart"
+        ],
+        "fr": [
+          "junior-chauffeur-quereinsteiger-landquart-m-w-d-galliker-landquart"
         ]
       },
       "previousSlugs": [
@@ -156,12 +162,12 @@
     },
     {
       "id": "galliker-5285e1c9b872",
-      "slug": "chauffeur-ce-nachttouren-a-galliker-mohlin",
+      "slug": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin",
       "slugByLocale": {
-        "it": "chauffeur-ce-nachttouren-a-galliker-mohlin",
-        "en": "chauffeur-ce-nachttouren-a-galliker-mohlin",
+        "it": "chauffeur-ce-tour-notturni-a-galliker-transport-ag-mohlin",
+        "en": "chauffeur-ce-night-tours-a-galliker-transport-ag-mohlin",
         "de": "chauffeur-ce-nachttouren-a-galliker-mohlin",
-        "fr": "chauffeur-ce-nachttouren-a-galliker-mohlin"
+        "fr": "chauffeur-ce-tours-de-nuit-a-galliker-transport-ag-mohlin"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -219,7 +225,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-ce-nachttouren-a-galliker-mohlin"
+        ],
+        "en": [
+          "chauffeur-ce-nachttouren-a-galliker-mohlin"
+        ],
+        "fr": [
+          "chauffeur-ce-nachttouren-a-galliker-mohlin"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-ce-nachttouren-a-galliker-mohlin"
+      ]
     },
     {
       "id": "galliker-cc845fcc71d2",
@@ -2013,7 +2033,7 @@
         "it": "pw-a-galliker-transport-ag-altishofen",
         "en": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
         "de": "carrosseriespengler-pw-a-galliker-altishofen",
-        "fr": "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+        "fr": "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -2063,7 +2083,8 @@
         "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
         "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
         "carrossier-pw-a-galliker-transport-ag-altishofen",
-        "carrosseriespengler-pw-a-galliker-altishofen"
+        "carrosseriespengler-pw-a-galliker-altishofen",
+        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2077,7 +2098,7 @@
         "fr": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
           "carrossier-pw-a-galliker-transport-ag-altishofen",
-          "carrosseriespengler-pw-a-galliker-transport-ag-altishofen"
+          "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:04.864Z",
@@ -3035,7 +3056,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logisticien-a-galliker-transport-ag-altishofen"
+        "fr": "logistique-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3083,7 +3104,7 @@
       "previousSlugs": [
         "logistiker-a-galliker-transport-ag-altishofen",
         "logistiker-a-galliker-altishofen",
-        "logistique-a-galliker-transport-ag-altishofen"
+        "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3095,7 +3116,7 @@
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
-          "logistique-a-galliker-transport-ag-altishofen"
+          "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:22.451Z",
@@ -3350,7 +3371,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
+        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3397,14 +3418,14 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
-          "soins-de-sante-a-galliker-transport-ag-altishofen"
+          "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:49:13.906Z",

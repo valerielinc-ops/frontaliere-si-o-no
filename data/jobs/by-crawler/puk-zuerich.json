@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "puk-zuerich-9946db8a3246",
-      "slug": "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
-        "it": "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "soccorritori-assistenti-pubblici-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "sub-assistants-sub-assistants-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "sous-assistants-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -60,11 +60,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1308,12 +1316,12 @@
     },
     {
       "id": "puk-zuerich-9d9183a5d874",
-      "slug": "oberarztin-oberarzt-puk-zuerich-zurich",
+      "slug": "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-zurich-c90446",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-puk-zuerich-zurich",
-        "it": "oberarztin-oberarzt-puk-zuerich-zurich",
-        "en": "oberarztin-oberarzt-puk-zuerich-zurich",
-        "fr": "oberarztin-oberarzt-puk-zuerich-zurich"
+        "it": "medico-senior-medico-senior-psychiatrische-universitatsklinik-zurich-zurich-c90446",
+        "en": "senior-physician-senior-physician-psychiatrische-universitatsklinik-zurich-zurich-c90446",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-universitatsklinik-zurich-zurich-c90446"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -1375,7 +1383,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:39:10.962Z"
+      "firstSeenAt": "2026-09-23T23:39:10.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-puk-zuerich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-puk-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-puk-zuerich-zurich"
+      ]
     },
     {
       "id": "puk-zuerich-f8ef9c11b21b",
@@ -3473,7 +3495,7 @@
       "slug": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "it": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich",
+        "en": "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
         "fr": "ergotherapie-ergotherapeute-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
       },
@@ -3527,7 +3549,7 @@
         "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
         "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
-        "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
+        "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3537,7 +3559,7 @@
         ],
         "en": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-          "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
+          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
@@ -5473,12 +5495,12 @@
     },
     {
       "id": "puk-zuerich-c19129873389",
-      "slug": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
+      "slug": "assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
-        "it": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        "it": "assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "docteur-assistant-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5529,11 +5551,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+          "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-puk-zuerich-zurich"
+        "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
+        "assistenzarztin-assistenzarzt-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5808,7 +5838,7 @@
         "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
+        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5924,7 +5954,7 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5962,7 +5992,7 @@
           "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+          "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-09-25T14:42:33.839Z",

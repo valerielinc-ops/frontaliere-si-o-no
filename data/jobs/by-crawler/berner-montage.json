@@ -966,12 +966,12 @@
     },
     {
       "id": "berner-montage-569f4990045a",
-      "slug": "aussendienstmitarbeiter-m-w-d-per-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach",
+      "slug": "collaboratore-trice-del-servizio-esterno-m-f-d-per-il-settore-dell-autoriparazione-regione-zurigo-nord-montagetechnik",
       "slugByLocale": {
-        "it": "aussendienstmitarbeiter-m-w-d-per-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach",
-        "en": "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach",
+        "it": "collaboratore-trice-del-servizio-esterno-m-f-d-per-il-settore-dell-autoriparazione-regione-zurigo-nord-montagetechnik",
+        "en": "field-service-employee-m-f-d-for-the-automotive-trade-zurich-north-region-montagetechnik-berner-ag-reinach",
         "de": "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-berner-montage-ch",
-        "fr": "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach"
+        "fr": "employe-du-service-mobile-h-f-d-pour-le-commerce-automobile-region-du-nord-de-zurich-montagetechnik-berner-ag-reinach"
       },
       "company": "Montagetechnik BERNER AG",
       "companyKey": "berner-montage",
@@ -1017,11 +1017,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-berner-montage-ch"
+        "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-berner-montage-ch",
+        "aussendienstmitarbeiter-m-w-d-per-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach",
+        "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-berner-montage-ch",
+          "aussendienstmitarbeiter-m-w-d-per-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach"
+        ],
+        "en": [
+          "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach"
+        ],
+        "fr": [
+          "aussendienstmitarbeiter-m-w-d-fur-das-kfz-handwerk-region-zurich-nord-montagetechnik-berner-ag-reinach"
         ]
       },
       "firstSeenAt": "2026-10-08T21:15:06.134Z",

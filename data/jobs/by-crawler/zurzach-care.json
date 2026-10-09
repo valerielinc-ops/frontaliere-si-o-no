@@ -5338,12 +5338,12 @@
     },
     {
       "id": "zurzach-care-09c380947d07",
-      "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care",
+      "slug": "infermiere-a-diplomato-a-80-100-con-funzione-di-vice-responsabile-di-reparto-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care",
-        "en": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care",
+        "it": "infermiere-a-diplomato-a-80-100-con-funzione-di-vice-responsabile-di-reparto-zurzach-care-bad-zurzach",
+        "en": "diploma-qualified-registered-nurse-80-100-with-deputy-ward-manager-duties-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care",
-        "fr": "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care"
+        "fr": "infirmiere-diplomee-infirmier-diplome-80-100-avec-suppleance-de-la-direction-de-l-unite-de-soins-zurzach-care-bad"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5399,16 +5399,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care"
+        ],
+        "en": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care"
+        ],
+        "fr": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-80-100-mit-stv-stationsleitung-zurzach-care"
+      ]
     },
     {
       "id": "zurzach-care-07f8db1dfe5f",
-      "slug": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+      "slug": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "en": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
+        "it": "infermiere-infermiere-specialista-60-80-dipartimento-di-cardiologia-zurzach-care-bad-zurzach",
+        "en": "certified-nurse-nurse-specialist-60-80-department-of-cardiology-zurzach-care-bad-zurzach",
         "de": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad",
-        "fr": "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+        "fr": "infirmiere-agreee-infirmiere-specialiste-60-80-departement-de-cardiologie-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5465,7 +5479,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+        ],
+        "en": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+        ],
+        "fr": [
+          "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-pflegefachfrau-pflegefachmann-60-80-fachbereich-kardiologie-zurzach-care-bad"
+      ]
     },
     {
       "id": "zurzach-care-d0c4035dc324",

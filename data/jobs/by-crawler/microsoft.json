@@ -71,12 +71,12 @@
     },
     {
       "id": "microsoft-200059045",
-      "slug": "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich",
+      "slug": "architettura-della-soluzione-cloud-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
       "slugByLocale": {
-        "it": "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich",
+        "it": "architettura-della-soluzione-cloud-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
         "en": "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich",
         "de": "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich",
-        "fr": "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich"
+        "fr": "cloud-solution-architecture-possibilites-pour-les-etudiants-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -134,16 +134,27 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cloud-solution-architecture-student-worker-opportunities-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200059049",
-      "slug": "solution-engineering-student-worker-opportunities-microsoft-zurich",
+      "slug": "ingegneria-della-soluzione-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
       "slugByLocale": {
-        "it": "solution-engineering-student-worker-opportunities-microsoft-zurich",
+        "it": "ingegneria-della-soluzione-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
         "en": "solution-engineering-student-worker-opportunities-microsoft-zurich",
-        "de": "solution-engineering-student-worker-opportunities-microsoft-zurich",
-        "fr": "solution-engineering-student-worker-opportunities-microsoft-zurich"
+        "de": "solution-engineering-moglichkeiten-fur-werkstudenten-microsoft-zurich",
+        "fr": "ingenierie-des-solutions-possibilites-pour-les-etudiants-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -201,7 +212,21 @@
         }
       },
       "streetAddress": "The Circle 02",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-engineering-student-worker-opportunities-microsoft-zurich"
+        ],
+        "de": [
+          "solution-engineering-student-worker-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "solution-engineering-student-worker-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "solution-engineering-student-worker-opportunities-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200058410",

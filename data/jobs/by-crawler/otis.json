@@ -223,7 +223,7 @@
       "id": "otis-df95b6c3ce48",
       "slug": "gestore-conto-m-f-d-otis-sa-wallisellen",
       "slugByLocale": {
-        "it": "gestore-conto-m-f-d-otis-sa-wallisellen",
+        "it": "account-manager-m-w-d-otis-wallisellen",
         "en": "account-manager-m-w-d-otis-wallisellen",
         "de": "account-manager-m-w-d-otis-dietlikon",
         "fr": "gestionnaire-de-comptes-h-f-d-otis-sa-dietlikon"
@@ -266,9 +266,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-08T22:30:20.969Z",
       "previousSlugsByLocale": {
-        "it": [
-          "account-manager-m-w-d-otis-wallisellen"
-        ],
         "de": [
           "account-manager-m-w-d-otis-wallisellen"
         ]
@@ -1408,8 +1405,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1451,16 +1448,15 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ],
         "it": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp"
@@ -1713,8 +1709,8 @@
       "slugByLocale": {
         "de": "servicetechniker-in-m-w-d-otis-reinach",
         "it": "tecnico-di-servizio-m-f-d-otis-sa-reinach",
-        "en": "servicetechniker-in-m-w-d-otis-sa-reinach",
-        "fr": "servicetechniker-in-m-w-d-otis-sa-reinach"
+        "en": "service-technician-m-f-d-otis-sa-reinach",
+        "fr": "technicien-de-service-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -1763,20 +1759,23 @@
           "technicien-de-service-h-f-d-otis-sa-reinach"
         ],
         "en": [
-          "service-technician-m-f-d-otis-sa-reinach"
+          "service-technician-m-f-d-otis-sa-reinach",
+          "servicetechniker-in-m-w-d-otis-sa-reinach"
         ],
         "de": [
           "servicetechniker-in-m-w-d-otis-reinach-mp6xrm"
         ],
         "fr": [
-          "technicien-de-service-h-f-d-otis-sa-reinach"
+          "technicien-de-service-h-f-d-otis-sa-reinach",
+          "servicetechniker-in-m-w-d-otis-sa-reinach"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-m-w-d-otis-reinach",
         "service-technician-m-f-d-otis-sa-reinach",
         "servicetechniker-in-m-w-d-otis-reinach-mp6xrm",
-        "technicien-de-service-h-f-d-otis-sa-reinach"
+        "technicien-de-service-h-f-d-otis-sa-reinach",
+        "servicetechniker-in-m-w-d-otis-sa-reinach"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,

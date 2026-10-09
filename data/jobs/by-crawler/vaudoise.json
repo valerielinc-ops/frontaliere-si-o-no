@@ -3834,11 +3834,11 @@
     },
     {
       "id": "vaudoise-fbe3a20ceaeb",
-      "slug": "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch",
+      "slug": "trainee-3-1-main-division-products-abbonamento-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch",
-        "en": "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch",
-        "de": "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch",
+        "it": "trainee-3-1-main-division-products-abbonamento-vaudoise-assurances-lausanne",
+        "en": "trainee-3-1-main-division-products-subscription-vaudoise-assurances-lausanne",
+        "de": "trainee-3-1-hauptabteilung-produkte-abonnement-vaudoise-assurances-lausanne",
         "fr": "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -3896,15 +3896,29 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-1-division-principale-produits-souscription-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-3e639d5bcd0c",
-      "slug": "stagiaire-3-1-comptabilite-vaudoise-ch",
+      "slug": "treno-3-1-contabilita-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-3-1-comptabilite-vaudoise-ch",
-        "en": "stagiaire-3-1-comptabilite-vaudoise-ch",
-        "de": "stagiaire-3-1-comptabilite-vaudoise-ch",
+        "it": "treno-3-1-contabilita-vaudoise-assurances-lausanne",
+        "en": "trainee-3-1-accounting-vaudoise-assurances-lausanne",
+        "de": "trainee-3-1-buchfuhrung-vaudoise-assurances-lausanne",
         "fr": "stagiaire-3-1-comptabilite-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -3962,7 +3976,21 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-1-comptabilite-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-3-1-comptabilite-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-3-1-comptabilite-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-1-comptabilite-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-b9a177df3613",
@@ -4048,11 +4076,11 @@
     },
     {
       "id": "vaudoise-3cd835f8213d",
-      "slug": "stagiaire-3-1-division-prestations-accident-vaudoise-ch",
+      "slug": "trainee-3-1-divisione-vantaggi-incidenti-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-3-1-division-prestations-accident-vaudoise-ch",
-        "en": "stagiaire-3-1-division-prestations-accident-vaudoise-ch",
-        "de": "stagiaire-3-1-division-prestations-accident-vaudoise-ch",
+        "it": "trainee-3-1-divisione-vantaggi-incidenti-vaudoise-assurances-lausanne",
+        "en": "trainee-3-1-accident-benefits-division-vaudoise-assurances-lausanne",
+        "de": "trainee-3-1-division-unfallleistungen-vaudoise-assurances-lausanne",
         "fr": "stagiaire-3-1-division-prestations-accident-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -4110,15 +4138,29 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-1-division-prestations-accident-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-3-1-division-prestations-accident-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-3-1-division-prestations-accident-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-1-division-prestations-accident-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-61f652edee08",
-      "slug": "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch",
+      "slug": "trainee-3-1-divisione-marketing-e-customer-experience-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch",
-        "en": "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch",
-        "de": "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch",
+        "it": "trainee-3-1-divisione-marketing-e-customer-experience-vaudoise-assurances-lausanne",
+        "en": "trainee-3-1-marketing-and-customer-experience-division-vaudoise-assurances-lausanne",
+        "de": "trainee-3-1-marketing-und-customer-experience-division-vaudoise-assurances-lausanne",
         "fr": "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -4176,13 +4218,27 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch"
+        ],
+        "en": [
+          "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch"
+        ],
+        "de": [
+          "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-1-division-marketing-et-experience-client-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-eb15310254e9",
-      "slug": "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch",
+      "slug": "trainee-3-1-divisione-corporate-real-estate-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch",
+        "it": "trainee-3-1-divisione-corporate-real-estate-vaudoise-assurances-lausanne",
         "en": "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch",
         "de": "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch",
         "fr": "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch"
@@ -4242,7 +4298,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-3-1-division-corporate-real-estate-vaudoise-ch"
+      ]
     }
   ]
 }

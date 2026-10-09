@@ -2334,12 +2334,12 @@
     },
     {
       "id": "accor-1766008bdcbd",
-      "slug": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
+      "slug": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
       "slugByLocale": {
-        "it": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
+        "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "fr": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
+        "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
       "company": "Ibis Budget",
@@ -2396,7 +2396,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        ],
+        "de": [
+          "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        ],
+        "fr": [
+          "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        ]
+      },
+      "previousSlugs": [
+        "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+      ]
     },
     {
       "id": "accor-5538f01b285e",
