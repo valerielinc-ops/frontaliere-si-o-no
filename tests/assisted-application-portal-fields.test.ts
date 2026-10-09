@@ -253,6 +253,19 @@ describe('portal field extraction', () => {
     );
     expect(page.buttons).toHaveLength(1);
     expect(page.buttons[0]).toMatchObject({ text: 'candidatura online »', href: 'https://jobs.example/forma-di-lavoro.html?yid=4288' });
+
+    const schemes = extract(
+      '<main>'
+      + '<div class="css_button"><a href="javascript:void(0)">Applica JS</a></div>'
+      + '<div class="css_button"><a href="mailto:apply@example.test">Applica mail</a></div>'
+      + '<div class="css_button"><a href="/forma-di-lavoro.html">Applica HTTP</a></div>'
+      + '</main>'
+    );
+    expect(schemes.buttons).toMatchObject([
+      { text: 'Applica JS', href: '' },
+      { text: 'Applica mail', href: '' },
+      { text: 'Applica HTTP', href: 'https://jobs.example/forma-di-lavoro.html' },
+    ]);
   });
 
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
