@@ -367,7 +367,7 @@
       ...dialogMeta(element),
       text: buttonName(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
-      href: element.tagName === 'A' ? (element.href || '') : '',
+      href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       ...(inSiteChrome(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
