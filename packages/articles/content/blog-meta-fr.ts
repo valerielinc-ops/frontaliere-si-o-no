@@ -12860,6 +12860,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.title': 'Varèse : plus de 400 000 euros soustraits par deux aidants',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.excerpt': 'Plus de 400 000 euros contestés à deux soignants La plainte a été déposée par la fille de l\'aîné Il Gip di Varese a ordonné une saisie préventive',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Image éditoriale relative à: Varese: oltre 400mila euro sottratti da due badanti',
+    'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia : collision auto-moto sur N394',
+    'blog.article.rancio-valcuvia-statale-394.excerpt': 'Accident peu après 7 heures sur la route 394 Collision entre une voiture et une moto à Rancio Valcuvia Femme de 26 ans secourue en code vert Trafic lourd',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Trafic matinal sur la route nationale 394 à Rancio Valcuvia après un accident auto-moto',
 };
 
 export default blogMetaFr;

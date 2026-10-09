@@ -12859,6 +12859,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.title': 'Varese: oltre 400mila euro sottratti da due badanti',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.excerpt': 'Oltre 400 mila euro contestati a due badanti La denuncia è partita dalla figlia dell\'anziano Il Gip di Varese ha disposto un sequestro preventivo',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Immagine editoriale relativa a: Varese: oltre 400mila euro sottratti da due badanti',
+    'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: scontro tra auto e moto sulla statale 394',
+    'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto',
 };
 
 export default blogMetaIt;

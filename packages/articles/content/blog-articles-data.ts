@@ -43401,6 +43401,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rancio-valcuvia-statale-394',
+ category: 'novita',
+ date: '2026-10-09T07:21:46.410Z',
+ image: '/images/blog/raduno-auto-moto-cocquio.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

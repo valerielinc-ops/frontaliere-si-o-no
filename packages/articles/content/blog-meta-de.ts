@@ -12857,6 +12857,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.title': 'Varese: über 400.000 Euro von zwei Pflegekräften abgezogen',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.excerpt': 'Mehr als 400.000 Euro angefochten gegen zwei Betreuer Die Beschwerde ging von der Tochter des Ältesten aus Der Gip von Varese ordnete eine vorbeugende Beschlagnahme an',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Redaktionelles Bild zu: Varese: oltre 400mila euro sottratti da due badanti',
+    'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: Zusammenstoß von Auto und Motorrad auf der Staatsstraße 394',
+    'blog.article.rancio-valcuvia-statale-394.excerpt': 'Unfall kurz nach 7 Uhr auf der Staatsstraße 394 Zusammenstoß eines Autos mit einem Motorrad bei Rancio Valcuvia 26-jährige Frau in grünem Code gerettet Schwerer Verkehr',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Morgenverkehr auf der Staatsstrasse 394 in Rancio Valcuvia nach einem Auto-Motorrad-Unfall',
 };
 
 export default blogMetaDe;

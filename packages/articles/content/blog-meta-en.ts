@@ -12858,6 +12858,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.title': 'Varese: over 400 thousand euros stolen by two carers',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.excerpt': 'Over 400 thousand euros disputed to two caregivers The complaint started from the daughter of the elderly The VIP of Varese ordered a preventive seizure',
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Editorial image related to: Varese: oltre 400mila euro sottratti da due badanti',
+    'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: clash between car and motorcycle on state road 394',
+    'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incident shortly after 7 am on state road 394 Crash between a car and a motorcycle at Rancio Valcuvia 26-year-old woman rescued in green code Heavy traffic',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Morning traffic on State Road 394 in Rancio Valcuvia after a car and motorcycle crash',
 };
 
 export default blogMetaEn;

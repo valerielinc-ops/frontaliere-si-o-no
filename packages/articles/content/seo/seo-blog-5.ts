@@ -103914,6 +103914,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rancio-valcuvia-statale-394': {
+    title: 'Rancio Valcuvia: scontro tra auto e moto sulla statale 394',
+    description: 'Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante',
+    keywords: 'frontalieri, ticino, svizzera, italia, rancio, valcuvia, scontro, auto',
+    ogTitle: 'Rancio Valcuvia: scontro tra auto e moto sulla statale 394',
+    ogDescription: 'Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante',
+    canonicalPath: '/articoli-frontaliere/rancio-valcuvia-statale-394/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rancio Valcuvia: scontro tra auto e moto sulla statale 394",
+      "description": "Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/raduno-auto-moto-cocquio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto"
+      },
+      "datePublished": "2026-10-09T07:21:46+00:00",
+      "dateModified": "2026-10-09T07:21:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rancio-valcuvia-statale-394/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
