@@ -7973,6 +7973,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Confiance des consommateurs suisses : baisse en septembre',
     'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'En septembre, la confiance baisse à -35,8 points.',
     'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Climat de confiance des consommateurs suisses et indicateurs',
+    'blog.article.lucerna-elezioni-calendario-voto.title': 'Élections cantonales dans le canton de Lucerne : calendrier et vote',
+    'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Lucerne : le guide couvre le système, le calendrier et le vote Listes et bureau électoral complètent la vérification Quatre dates annuelles concernent le vote fédéral Domaine →',
+    'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Bureau de vote cantonal suisse avec bulletins et urne',
 };
 
 export default blogMetaChFr;

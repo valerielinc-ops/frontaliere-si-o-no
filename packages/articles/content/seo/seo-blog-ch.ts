@@ -100525,6 +100525,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lucerna-elezioni-calendario-voto': {
+    title: 'Elezioni cantonali nel Canton Lucerna: calendario e voto',
+    description: 'Lucerna: la guida copre sistema, calendario e voto Liste e ufficio elettorale completano la verifica Quattro date annue riguardano il voto federale Ambito →',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, cantonali, canton, lucerna',
+    ogTitle: 'Elezioni cantonali nel Canton Lucerna: calendario e voto',
+    ogDescription: 'Lucerna: la guida copre sistema, calendario e voto Liste e ufficio elettorale completano la verifica Quattro date annue riguardano il voto federale Ambito →',
+    canonicalPath: '/articoli-svizzera/lucerna-elezioni-calendario-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elezioni cantonali nel Canton Lucerna: calendario e voto",
+      "description": "Lucerna: la guida copre sistema, calendario e voto Liste e ufficio elettorale completano la verifica Quattro date annue riguardano il voto federale Ambito →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lucerna-elezioni-calendario-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Seggio elettorale cantonale svizzero con schede e urna"
+      },
+      "datePublished": "2026-10-09T08:38:24+00:00",
+      "dateModified": "2026-10-09T08:38:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-elezioni-calendario-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

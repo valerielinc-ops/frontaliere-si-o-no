@@ -2680,6 +2680,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'furti-statistica-svizzera-passaporto': { it: 'furti-statistica-svizzera-passaporto', en: 'more-than-80-of-thefts-in-switzerland-involve-people-with-foreign-passports', de: 'mehr-als-80-der-diebstahle-in-der-schweiz-haben-einen-auslandischen-pass', fr: 'plus-de-80-des-vols-en-suisse-ont-un-passeport-etranger' },
  'luganistan-clan-ceresio': { it: 'luganistan-clan-ceresio', en: 'luganistan-nazarbayev-ceresio', de: 'luganistan-nazarbayev-ceresio', fr: 'luganistan-nazarbayev-ceresio' },
  'fiducia-consumatori-svizzeri-settembre': { it: 'fiducia-consumatori-svizzeri-settembre', en: 'swiss-consumer-confidence-september', de: 'schweizer-konsumentenvertrauen-september', fr: 'confiance-consommateurs-suisses-septembre' },
+ 'lucerna-elezioni-calendario-voto': { it: 'lucerna-elezioni-calendario-voto', en: 'lucerne-cantonal-elections-calendar-vote', de: 'luzern-kantonswahlen-wahlkalender', fr: 'elections-cantonales-lucerne-calendrier' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

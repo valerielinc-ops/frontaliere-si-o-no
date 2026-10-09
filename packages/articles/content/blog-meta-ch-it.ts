@@ -7973,6 +7973,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Fiducia dei consumatori svizzeri: calo a settembre',
     'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'A settembre la fiducia scende a -35,8 punti.',
     'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Clima di fiducia dei consumatori svizzeri e indicatori economici',
+    'blog.article.lucerna-elezioni-calendario-voto.title': 'Elezioni cantonali nel Canton Lucerna: calendario e voto',
+    'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Lucerna: la guida copre sistema, calendario e voto Liste e ufficio elettorale completano la verifica Quattro date annue riguardano il voto federale Ambito →',
+    'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Seggio elettorale cantonale svizzero con schede e urna',
 };
 
 export default blogMetaChIt;

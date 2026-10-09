@@ -7973,6 +7973,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Swiss consumer confidence: decline in September',
     'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'In September, confidence falls to -35,8 points.',
     'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Swiss consumer confidence climate and economic indicators',
+    'blog.article.lucerna-elezioni-calendario-voto.title': 'Cantonal elections in the Canton of Lucerne: schedule and voting',
+    'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Lucerne: the guide covers the system, calendar and voting Lists and the electoral office complete the verification Four annual dates concern federal voting Scope →',
+    'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Swiss cantonal polling station with ballot papers and a ballot box',
 };
 
 export default blogMetaChEn;

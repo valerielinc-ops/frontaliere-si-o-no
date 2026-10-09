@@ -7973,6 +7973,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Vertrauen der Schweizer Verbraucher: Rückgang im September',
     'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'Im September sinkt das Vertrauen auf -35,8 Punkte.',
     'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Schweizer Konsumklima und Wirtschaftsindikatoren',
+    'blog.article.lucerna-elezioni-calendario-voto.title': 'Kantonale Wahlen im Kanton Luzern: Kalender und Abstimmung',
+    'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Luzern: Der Leitfaden deckt System, Kalender und Abstimmung ab Listen und Wahlbüro vervollständigen die Überprüfung Vier jährliche Termine betreffen die eidgenössische Abstimmung Bereich →',
+    'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Schweizer kantonales Wahllokal mit Stimmzetteln und Urne',
 };
 
 export default blogMetaChDe;
