@@ -51118,17 +51118,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:42:32.094Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ],
-        "en": [
-          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
-      ],
       "salaryMin": 65000,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -51142,7 +51131,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9100"
+      "postalCode": "9100",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ],
+        "en": [
+          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-e36738694be8",
@@ -62051,7 +62051,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-sursee-temporaer-117234/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-fur-innenausbau-und-dacharbeiten-sursee-luzern-stellentreff-ch"
@@ -62668,7 +62667,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-buelach-temporaer-117564/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-zimmerin-vielseitige-holzbauarbeiten-bulach-zurich-stellentreff-ch"
