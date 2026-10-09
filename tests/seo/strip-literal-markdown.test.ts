@@ -55,6 +55,7 @@ describe('stripLiteralMarkdown', () => {
     expect(stripLiteralMarkdown('[Età][ref]')).toBe('Età');
     expect(stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))')).toBe('A B');
     expect(stripLiteralMarkdown(String.raw`[Età](https://example.com/a_\(b\))`)).toBe('Età');
+    expect(stripLiteralMarkdown(String.raw`\\[Età](https://example.com)`)).toBe(String.raw`\\Età`);
   });
 
   it('passes through clean strings and empty input untouched', () => {

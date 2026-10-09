@@ -26,6 +26,7 @@ async function probe() {
   out.stripLiteralMarkdownArithmetic = c.stripLiteralMarkdown('Calcolo: 8 * 5 * 4');
   out.stripLiteralMarkdownBalancedLink = c.stripLiteralMarkdown('[Età](https://en.wikipedia.org/wiki/Function_(mathematics))');
   out.stripLiteralMarkdownNestedLink = c.stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))');
+  out.stripLiteralMarkdownEvenEscapedLink = c.stripLiteralMarkdown(String.raw`\\[Età](https://example.com)`);
   out.stripLiteralMarkdownReferenceLink = c.stripLiteralMarkdown('[Età][ref]');
   out.stripLiteralMarkdownMarkupBoundaries = c.stripLiteralMarkdown('## Titolo ##');
   out.stripLiteralMarkdownPunctuation = c.stripLiteralMarkdown('Titolo:*term*—nota __Strong__');

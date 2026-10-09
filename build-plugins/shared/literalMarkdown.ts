@@ -32,12 +32,18 @@ function findClosingParenthesis(value: string, openingIndex: number): number {
   return -1;
 }
 
+function isEscaped(value: string, index: number): boolean {
+  let backslashes = 0;
+  for (let cursor = index - 1; cursor >= 0 && value[cursor] === '\\'; cursor -= 1) backslashes += 1;
+  return backslashes % 2 === 1;
+}
+
 function stripMarkdownLinks(value: string): string {
   let result = '';
   let cursor = 0;
 
   for (let index = 0; index < value.length; index += 1) {
-    if (value[index] !== '[' || (index > 0 && value[index - 1] === '\\')) continue;
+    if (value[index] !== '[' || isEscaped(value, index)) continue;
     const labelEnd = findClosingBracket(value, index);
     if (labelEnd < 0) continue;
 
@@ -52,7 +58,7 @@ function stripMarkdownLinks(value: string): string {
     }
     if (linkEnd < 0) continue;
 
-    const tokenStart = index > 0 && value[index - 1] === '!' && value[index - 2] !== '\\' ? index - 1 : index;
+    const tokenStart = index > 0 && value[index - 1] === '!' && !isEscaped(value, index - 1) ? index - 1 : index;
     result += value.slice(cursor, tokenStart);
     result += stripMarkdownLinks(value.slice(index + 1, labelEnd));
     cursor = linkEnd + 1;
