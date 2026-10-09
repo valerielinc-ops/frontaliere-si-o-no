@@ -102305,10 +102305,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pedemontana-avviso-truffa.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pedemontana-falso-pedaggio-sms.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista del lago di Lugano con le montagne e uno smartphone che mostra un SMS sospetto sul parabrezza di un'auto."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-07T10:51:03+00:00",
       "dateModified": "2026-10-07T10:51:03+00:00",
@@ -102339,10 +102344,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Arrestato a Como un 21enne egiziano",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/trenord-furto-di-cavi-sospesa-como-milano.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aggressione-van-villa-olmo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Strada lacustre notturna con un van parcheggiato"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-07T11:07:36+00:00",
       "dateModified": "2026-10-07T11:07:36+00:00",
@@ -102412,10 +102422,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Un altro bancomat è saltato in aria alla Bper di Gallarate in un colpo notturno. La fonte disponibile riporta il luogo e la dinamica essenziale della notizia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-locali-busto-arsizio-gallarate.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-notte-bper-gallarate-bancomat.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Banca in una strada del confine italo-svizzero durante la notte"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-07T12:19:46+00:00",
       "dateModified": "2026-10-07T12:19:46+00:00",
