@@ -12881,6 +12881,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.marchesi-mendrisiotto-priorita.title': 'Le travail de Marquis commence à partir du Mendrisiotto',
     'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi est le nouveau Conseiller d\'État.',
     'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Vue aérienne de la vallée du Mendrisiotto avec des collines verdoyantes et une autoroute traversant le territoire, illustrant les défis de mobilité et de territoire.',
+    'blog.article.incidente-a9-saronno-turate-code.title': 'Accident sur l’A9 Saronno-Turate : voiture renversée, bouchons vers Como',
+    'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Véhicule renversé sur l’A9 entre Saronno et Turate Accident vers 11:30 le vendredi 9 octobre Jusqu’à 2 km de bouchons vers Como et la Suisse Turate',
+    'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Accident sur l\'A9 entre Saronno et Turate avec voiture renversée et embouteillage vers Como',
 };
 
 export default blogMetaFr;

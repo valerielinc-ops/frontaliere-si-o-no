@@ -12880,6 +12880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marchesi-mendrisiotto-priorita.title': 'Il lavoro di Marchesi inizi dal Mendrisiotto',
     'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi è il nuovo Consigliere di Stato.',
     'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Vista aerea della valle del Mendrisiotto con colline verdi e un\'autostrada che attraversa il territorio, simbolo delle sfide di mobilità e territorio.',
+    'blog.article.incidente-a9-saronno-turate-code.title': 'Incidente A9 Saronno-Turate: auto ribaltata, code verso Como',
+    'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Veicolo ribaltato sulla A9 tra Saronno e Turate Incidente attorno alle 11:30 di venerdì 9 ottobre Fino a 2 km di coda verso Como e la Svizzera Turate',
+    'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Incidente sulla A9 tra Saronno e Turate con auto ribaltata e coda verso Como',
 };
 
 export default blogMetaIt;

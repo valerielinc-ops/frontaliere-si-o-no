@@ -12878,6 +12878,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.marchesi-mendrisiotto-priorita.title': 'Die Arbeit von Marchesi begann im Mendrisiotto',
     'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi ist der neue Staatsrat.',
     'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Luftaufnahme des Mendrisiotto-Tals mit grünen Hügeln und einer Autobahn, die die Landschaft durchquert, symbolisiert Mobilitäts- und Gebietsherausforderungen.',
+    'blog.article.incidente-a9-saronno-turate-code.title': 'Unfall A9 Saronno-Turate: Auto umgekippt, Stau gen Como',
+    'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Fahrzeug auf der A9 zwischen Saronno und Turate umgekippt Unfall gegen 11:30 Uhr am Freitag, 9. (Como)',
+    'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Unfall auf der A9 zwischen Saronno und Turate mit umgekipptem Auto und Stau Richtung Como',
 };
 
 export default blogMetaDe;

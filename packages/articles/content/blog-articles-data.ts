@@ -43478,6 +43478,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidente-a9-saronno-turate-code',
+ category: 'pratico',
+ date: '2026-10-09T10:34:07.641Z',
+ image: '/images/blog/article-incidente-a9-saronno-turate-code.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

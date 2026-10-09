@@ -12879,6 +12879,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marchesi-mendrisiotto-priorita.title': 'Marchesi\'s work began in Mendrisiotto',
     'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi is the new Councillor of State.',
     'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Aerial view of the Mendrisiotto valley with green hills and a highway crossing the landscape, representing mobility and territorial challenges.',
+    'blog.article.incidente-a9-saronno-turate-code.title': 'A9 Saronno-Turate incident: car overturned, queues toward Como',
+    'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Overturned vehicle on the A9 between Saronno and Turate Accident around 11:30 on Friday, October 9 Up to 2 km of tailbacks towards Como and Switzerland Turate',
+    'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Accident on the A9 between Saronno and Turate with overturned car and queue towards Como',
 };
 
 export default blogMetaEn;
