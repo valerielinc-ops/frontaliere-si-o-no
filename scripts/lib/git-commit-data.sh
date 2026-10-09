@@ -408,6 +408,7 @@ NODE
 # "the proof was unavailable". Callers must fail closed on status 2.
 lookup_remote_path_history() {
   local slice_path="$1"
+  local remote_sha="${2:-}"
   local history_repo history_credential history_count
   history_repo="${GH_REPO:-${GITHUB_REPOSITORY:-}}"
   history_credential="${GH_TOKEN-}"
@@ -415,8 +416,8 @@ lookup_remote_path_history() {
     history_credential="${GITHUB_TOKEN-}"
   fi
 
-  if [ -z "$history_repo" ] || [ -z "$history_credential" ]; then
-    echo "❌ grouped-isolated: cannot verify retirement history for $slice_path — GH_REPO/GITHUB_REPOSITORY and GH_TOKEN/GITHUB_TOKEN are required for the bounded lookup"
+  if [ -z "$history_repo" ] || [ -z "$history_credential" ] || [ -z "$remote_sha" ]; then
+    echo "❌ grouped-isolated: cannot verify retirement history for $slice_path — repository, credential and the captured remote SHA are required for the bounded lookup"
     return 2
   fi
 
@@ -428,7 +429,8 @@ lookup_remote_path_history() {
   fi
   if ! history_count="$(run_bounded "$GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS" "gh api commits path lookup" \
     gh api --method GET "repos/${history_repo}/commits" \
-      -f sha=main -f path="$slice_path" -f per_page=1 --jq 'length')"; then
+      -f sha="$remote_sha" -f path="$slice_path" -f per_page=1 \
+      --jq 'if type == "array" then length else error("expected an array") end')"; then
     echo "❌ grouped-isolated: GitHub history lookup failed for $slice_path — refusing to guess between first-run create and resurrection"
     return 2
   fi
@@ -2552,7 +2554,7 @@ commit_isolated_from_worktree() {
                 if [ -n "$history_blob" ]; then
                   history_status=0
                 elif [ "$(git rev-parse --is-shallow-repository 2>/dev/null || true)" = "true" ]; then
-                  if lookup_remote_path_history "$f"; then
+                  if lookup_remote_path_history "$f" "$remote_sha"; then
                     history_status=0
                   else
                     history_status=$?

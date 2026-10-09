@@ -29,6 +29,15 @@ function installHistoryApiStub(): string {
     ghPath,
     '#!/bin/sh\n'
       + '[ "$1" = "api" ] || exit 64\n'
+      + 'if [ -n "${GH_HISTORY_LOOKUP_EXPECTED_SHA:-}" ]; then\n'
+      + '  matched=0\n'
+      + '  for arg do\n'
+      + '    case "$arg" in\n'
+      + '      sha=*) [ "${arg#sha=}" = "$GH_HISTORY_LOOKUP_EXPECTED_SHA" ] && matched=1 ;;\n'
+      + '    esac\n'
+      + '  done\n'
+      + '  [ "$matched" -eq 1 ] || { echo "unexpected history lookup SHA" >&2; exit 65; }\n'
+      + 'fi\n'
       + 'if [ "${GH_HISTORY_LOOKUP_EXIT:-0}" -ne 0 ]; then exit "$GH_HISTORY_LOOKUP_EXIT"; fi\n'
       + 'printf "%s\\n" "${GH_HISTORY_LOOKUP_RESULT:-0}"\n',
   );
@@ -576,6 +585,11 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: shallowDir });
       expect(execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: shallowDir, encoding: 'utf8' }).trim())
         .toBe('true');
+      const capturedRemoteSha = execFileSync(
+        'git',
+        ['rev-parse', 'origin/main'],
+        { cwd: shallowDir, encoding: 'utf8' },
+      ).trim();
       expect(execFileSync(
         'git',
         ['log', '-1', '--format=%H', '--', UNREGISTERED_RETIRED_PATH],
@@ -602,6 +616,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
             GITHUB_REPOSITORY: '',
             GITHUB_OUTPUT: '',
             GH_REPO: 'owner/repo',
+            GH_HISTORY_LOOKUP_EXPECTED_SHA: capturedRemoteSha,
             GH_HISTORY_LOOKUP_RESULT: '1',
             GH_HISTORY_LOOKUP_EXIT: '0',
             PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
@@ -694,6 +709,37 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         ['cat-file', '-e', `origin/main:${RETIRED_PATH}`],
         { cwd: shallowDir, stdio: 'pipe' },
       )).toThrow();
+
+      let malformedOutput = '';
+      try {
+        execFileSync(
+          BASH_BIN,
+          [SCRIPT_PATH, '--slice-only', 'malformed history proof'],
+          {
+            cwd: shallowDir,
+            env: {
+              ...process.env,
+              JOBS_SLICE_FILE: '',
+              SKIP_AI_TRANSLATION: '1',
+              SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
+              GH_TOKEN: 'test-token',
+              GITHUB_TOKEN: '',
+              GITHUB_RUN_ID: '',
+              GITHUB_REPOSITORY: '',
+              GITHUB_OUTPUT: '',
+              GH_REPO: 'owner/repo',
+              GH_HISTORY_LOOKUP_RESULT: '{"message":"upstream"}',
+              GH_HISTORY_LOOKUP_EXIT: '0',
+              PATH: `${ghBinDir}:${process.env.PATH ?? ''}`,
+            },
+            stdio: 'pipe',
+          },
+        );
+      } catch (error) {
+        const failure = error as { stdout?: Buffer; stderr?: Buffer };
+        malformedOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+      }
+      expect(malformedOutput).toContain('invalid result');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
