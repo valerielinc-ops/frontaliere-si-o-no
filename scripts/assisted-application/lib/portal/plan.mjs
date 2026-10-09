@@ -127,7 +127,11 @@ export function planUserText({ snapshot, candidate }) {
 const AGE_UNDER_RE = /\b(?:(?:under|below)(?:\s+the\s+age\s+of)?|younger\s+than|less\s+than|moins\s+de|moins\s+d['’]|unter|j(?:ü|ue)nger\s+als|weniger\s+als|meno\s+di|minore\s+di|inferiore\s+a|sotto\s+(?:i|ai?))\s*(\d{1,3})\b/i;
 const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|of\s+work|di\s+lavoro|d['’]exp[ée]rience)\b/i;
 const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b/i;
-export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`, 'i');
+const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
+const SENSITIVE_TERMS = String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`;
+// Contact e-mail labels contain the word «adresse/address», but are ordinary
+// identity fields and must not be blocked by the residence-address guard.
+export const SENSITIVE = new RegExp(String.raw`^(?![\s\S]*${CONTACT_ADDRESS_RE.source})[\s\S]*(?:${SENSITIVE_TERMS})`, 'i');
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
@@ -239,7 +243,6 @@ const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|po
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
-const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
