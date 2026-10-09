@@ -12898,6 +12898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
     'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.smottamento-sementina-code.title': 'Smottamento a Sementina: traffico congestionato',
+    'blog.article.smottamento-sementina-code.excerpt': 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
+    'blog.article.smottamento-sementina-code.imageAlt': 'Detriti sulla strada cantonale a Sementina vicino al campo di calcio, con traffico deviato.',
 };
 
 export default blogMetaIt;

@@ -104436,6 +104436,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-smottamento-sementina-code': {
+    title: 'Smottamento a Sementina: traffico congestionato',
+    description: 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, smottamento, sementina, traffico, congestionato',
+    ogTitle: 'Smottamento a Sementina: traffico congestionato',
+    ogDescription: 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
+    canonicalPath: '/articoli-frontaliere/smottamento-sementina-code/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Smottamento a Sementina: traffico congestionato",
+      "description": "Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Detriti sulla strada cantonale a Sementina vicino al campo di calcio, con traffico deviato."
+      },
+      "datePublished": "2026-10-09T16:55:33+00:00",
+      "dateModified": "2026-10-09T16:55:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smottamento-sementina-code/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

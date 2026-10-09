@@ -12899,6 +12899,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestion des urgences : Extramuro se clôt entre le Tessin et la Lombardie',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La deuxième édition d’«Extramuro» s’est achevée à Erba Une dizaine d’officiers tessinois a suivi la formation au-delà de la frontière Le programme implique le Tessin',
     'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.smottamento-sementina-code.title': 'Glissement de terrain à Sementina : trafic congestionné',
+    'blog.article.smottamento-sementina-code.excerpt': 'Glissement de terrain sur la route cantonale à Sementina à 16.00 La chaussée est envahie par des débris et des pierres Tronçon fermé et trafic dévié dans les deux sens',
+    'blog.article.smottamento-sementina-code.imageAlt': 'Débris sur la route cantonale à Sementina près du terrain de football, circulation déviée.',
 };
 
 export default blogMetaFr;

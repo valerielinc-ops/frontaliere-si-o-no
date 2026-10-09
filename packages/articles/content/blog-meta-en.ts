@@ -12897,6 +12897,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Emergency management: Extramuro closes between Ticino and Lombardy',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'The second edition of «Extramuro» ended in Erba About ten officers from Ticino attended the training across the border The program involves Ticino',
     'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustration generated for this article',
+    'blog.article.smottamento-sementina-code.title': 'Landslide in Sementina: traffic congested',
+    'blog.article.smottamento-sementina-code.excerpt': 'Landslide on the cantonal road in Sementina at 16.00 The carriageway is covered with debris and rocks Road closed and traffic diverted in both directions',
+    'blog.article.smottamento-sementina-code.imageAlt': 'Debris on the cantonal road in Sementina near the football field, with traffic diverted.',
 };
 
 export default blogMetaEn;
