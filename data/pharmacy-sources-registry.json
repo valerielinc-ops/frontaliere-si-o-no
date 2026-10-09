@@ -4,6 +4,7 @@
     "aargau": {
       "canton": "Argovia",
       "officialSourceUrl": "https://apotheken-aargau.ch/notfall/",
+      "machineReadableUrl": "https://apotheken-aargau.ch/wp-json/wp/v2/pages/17434",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -22,6 +23,7 @@
     "appenzell-innerrhoden": {
       "canton": "Appenzello Interno",
       "officialSourceUrl": "https://ai.ch/themen/gesundheit-alter-und-soziales/gesundheitsversorgung/rettungswesen-und-notfallversorgung",
+      "machineReadableUrl": "https://ai.ch/themen/sicherheit/notfall/datein/vorgehen-bei-notfaellen",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -40,6 +42,7 @@
     "appenzell-ausserrhoden": {
       "canton": "Appenzello Esterno",
       "officialSourceUrl": "https://ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/abteilung-medizinische-dienste/kantonsaerztlicher-dienst/triagestelle/",
+      "machineReadableUrl": "https://ar.ch/fileadmin/user_upload/Departement_Gesundheit_Soziales/Amt_fuer_Gesundheit/04_AMD/04_Fachstelle_Heilmittelkontrolle/2025_Merkblatt_fuer_den_Umgang_mit_Medikamenten_in.pdf",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -58,6 +61,7 @@
     "bern": {
       "canton": "Berna",
       "officialSourceUrl": "https://apobern.ch/dienstleistungen/notfalldienst/",
+      "machineReadableUrl": "https://apobern.ch/wp-json/wp/v2/pages/1975",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -103,6 +107,7 @@
     "fribourg": {
       "canton": "Friburgo",
       "officialSourceUrl": "https://www.pharmaciesfribourg.ch/fr/prestations-et-conseils/pharmacie-de-garde",
+      "machineReadableUrl": "https://www.pharmaciesfribourg.ch/data/web/pharmaciesfribourg.ch/uploads/Pharmacies%20de%20Gardes%202023/2025/fy_a5_pharmacie_fr_2025.pdf",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -133,6 +138,7 @@
     "glarus": {
       "canton": "Glarona",
       "officialSourceUrl": "https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691",
+      "machineReadableUrl": "https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/gesundheitsversorgung/notfallnummern.html/1691/print/html",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -151,6 +157,7 @@
     "graubunden": {
       "canton": "Grigioni",
       "officialSourceUrl": "https://notfall.apotheke-chur.ch/",
+      "machineReadableUrl": "https://notfall.apotheke-chur.ch/",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -184,6 +191,7 @@
     "lucerne": {
       "canton": "Lucerna",
       "officialSourceUrl": "https://www.apoluzern.ch/apotheken/notfalldienst",
+      "machineReadableUrl": "https://www.apoluzern.ch/apotheken/notfalldienst",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -202,6 +210,7 @@
     "neuchatel": {
       "canton": "Neuchâtel",
       "officialSourceUrl": "https://www.pharmacies-gardes-ne.ch/",
+      "machineReadableUrl": "https://www.pharmacies-gardes-ne.ch/",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -220,6 +229,7 @@
     "nidwalden": {
       "canton": "Nidvaldo",
       "officialSourceUrl": "https://www.spital-nidwalden.ch/standorte/spital-nidwalden/hausarzt-notfallpraxis/",
+      "machineReadableUrl": "https://www.spital-nidwalden.ch/standorte/spital-nidwalden/hausarzt-notfallpraxis",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -238,6 +248,7 @@
     "obwalden": {
       "canton": "Obvaldo",
       "officialSourceUrl": "https://www.ksow.ch/notfall",
+      "machineReadableUrl": "https://www.ksow.ch/notfall",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -256,6 +267,7 @@
     "st-gallen": {
       "canton": "San Gallo",
       "officialSourceUrl": "https://www.hallo.sg.ch/de/gesundheit/medizinische-hilfe.html",
+      "machineReadableUrl": "https://www.hallo.sg.ch/de/gesundheit/medizinische-hilfe/_jcr_content/pdfonthefly.ocFile/medizinische-hilfe-de.pdf",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -301,6 +313,7 @@
     "schwyz": {
       "canton": "Svitto",
       "officialSourceUrl": "https://www.sz.ch/departement-des-innern/amt-fuer-gesundheit-und-soziales/gesundheit/medizinische-dienste/notfalldienste.html/8756-8758-8802-9317-9316-12587-12685-12632",
+      "machineReadableUrl": "https://www.sz.ch/departement-des-innern/amt-fuer-gesundheit-und-soziales/gesundheit/medizinische-dienste/notfalldienste.html/8756-8758-8802-9317-9316-12587-12685-12632/print/html",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -319,6 +332,7 @@
     "thurgau": {
       "canton": "Turgovia",
       "officialSourceUrl": "https://www.apotheken-thurgau.ch/pikettdienst/",
+      "machineReadableUrl": "https://www.apotheken-thurgau.ch/wp-json/wp/v2/pages/134",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -365,6 +379,7 @@
     "uri": {
       "canton": "Uri",
       "officialSourceUrl": "https://www.ur.ch/dienstleistungen/3677",
+      "machineReadableUrl": "https://www.ur.ch/dienstleistungen/3677",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",
@@ -383,6 +398,7 @@
     "vaud": {
       "canton": "Vaud",
       "officialSourceUrl": "https://garde.svph.ch/",
+      "machineReadableUrl": "https://garde.svph.ch/Default.asp",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -401,6 +417,7 @@
     "valais": {
       "canton": "Vallese",
       "officialSourceUrl": "https://www.pharmavalais.ch/pharmacie-valais/pharmacie-garde-51.html",
+      "machineReadableUrl": "https://www.pharmavalais.ch/data/documents/gardes/pharmacie_garde_2026t.pdf",
       "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
@@ -419,6 +436,7 @@
     "zug": {
       "canton": "Zugo",
       "officialSourceUrl": "https://zg.ch/de/gesundheit/notfall-und-rettungsdienst/verhalten-im-notfall",
+      "machineReadableUrl": "https://cdn.zg.ch/dam/jcr:aec3a29f-d059-4459-a46c-3a7609faa539/Kanton%20Zug_Merkblatt_Notfall_DE.pdf",
       "accessMethod": "manual",
       "fetchFrequency": "P30D",
       "timezone": "Europe/Zurich",

@@ -22,6 +22,27 @@ const ASSOCIATION_CANTON_KEYS = new Set([
   'zurich',
 ]);
 
+const MACHINE_READABLE_CANTON_KEYS = [
+  'aargau',
+  'appenzell-innerrhoden',
+  'appenzell-ausserrhoden',
+  'bern',
+  'fribourg',
+  'glarus',
+  'graubunden',
+  'lucerne',
+  'neuchatel',
+  'nidwalden',
+  'obwalden',
+  'st-gallen',
+  'schwyz',
+  'thurgau',
+  'uri',
+  'vaud',
+  'valais',
+  'zug',
+].sort();
+
 /**
  * Schema guard for `data/pharmacy-sources-registry.json` (#6397, prereq for
  * the #6173 pharmacy/pharmacy-duty MVP). The registry maps the complete
@@ -152,6 +173,24 @@ describe('pharmacy sources registry schema', () => {
     }
   });
 
+  it('registers exactly 18 official machine-readable references without activating their feeds', () => {
+    const machineReadableKeys = Object.entries(registry.sources)
+      .filter(([, source]) => source.machineReadableUrl !== undefined)
+      .map(([key]) => key)
+      .sort();
+
+    // cron-count-ok: il contratto dell'issue richiede esattamente una referenza per ciascuno dei 18 gruppi non attivi.
+    expect(machineReadableKeys).toHaveLength(18);
+    expect(machineReadableKeys).toEqual(MACHINE_READABLE_CANTON_KEYS);
+
+    for (const key of machineReadableKeys) {
+      const source = registry.sources[key];
+      expect(source.machineReadableUrl).toMatch(/^https:\/\/\S+$/);
+      expect(source.status).toBe('unverified');
+      expect(['official', 'association']).toContain(source.sourceType);
+    }
+  });
+
   it('marks Geneva active while its dedicated connector publishes a complete release', () => {
     expect(registry.sources.geneva).toMatchObject({
       officialSourceUrl: 'https://pharmageneve.swiss/pharmacie-de-garde/',
@@ -179,6 +218,12 @@ describe('pharmacy sources registry schema', () => {
     const invalid = { ...registry.sources.ticino, sourceType: 'bogus' };
     const errors = validatePharmacySourceEntry('ticino', invalid);
     expect(errors.some((e) => e.includes('sourceType'))).toBe(true);
+  });
+
+  it('rejects an invalid machine-readable reference', () => {
+    const invalid = { ...registry.sources.ticino, machineReadableUrl: 'http://example.test/source.json' };
+    const errors = validatePharmacySourceEntry('ticino', invalid);
+    expect(errors).toContain('ticino: invalid optional "machineReadableUrl" (expected an absolute https:// URL)');
   });
 
   it('rejects invalid metadata for a regional source', () => {

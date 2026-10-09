@@ -293,6 +293,12 @@ export interface PharmacySourceAudit {
 /** Shared source contract used by canton entries and regional duty feeds. */
 export interface PharmacySourceConfig {
   officialSourceUrl: string;
+  /**
+   * Machine-readable representation of the official source (JSON, HTML or
+   * PDF). This is provenance for future connectors, not proof of a complete
+   * duty feed and never enables publication on its own.
+   */
+  machineReadableUrl?: string;
   accessMethod: PharmacySourceAccessMethod;
   fetchFrequency: string;
   timezone: string;
@@ -406,6 +412,13 @@ function validatePharmacySourceAudit(key: string, audit: unknown, status: unknow
   return errors;
 }
 
+function validateOptionalMachineReadableUrl(key: string, entry: Record<string, unknown>): string[] {
+  if (entry.machineReadableUrl === undefined) return [];
+  return safePharmacyUrl(entry.machineReadableUrl) === undefined
+    ? [`${key}: invalid optional "machineReadableUrl" (expected an absolute https:// URL)`]
+    : [];
+}
+
 /** Accept only absolute HTTPS URLs from public directory enrichment. */
 export function safePharmacyUrl(value: unknown): string | undefined {
   if (typeof value !== 'string' || !value.trim()) return undefined;
@@ -464,6 +477,8 @@ export function validatePharmacySourceEntry(key: string, entry: unknown): string
     }
   }
 
+  errors.push(...validateOptionalMachineReadableUrl(key, e));
+
   if (typeof e.accessMethod === 'string' && !ACCESS_METHODS.includes(e.accessMethod as PharmacySourceAccessMethod)) {
     errors.push(`${key}: invalid accessMethod "${e.accessMethod}"`);
   }
@@ -509,6 +524,7 @@ function validatePharmacySourceConfig(key: string, entry: unknown): string[] {
       errors.push(`${key}: missing or empty required field "${field}"`);
     }
   }
+  errors.push(...validateOptionalMachineReadableUrl(key, e));
   if (typeof e.accessMethod === 'string' && !ACCESS_METHODS.includes(e.accessMethod as PharmacySourceAccessMethod)) {
     errors.push(`${key}: invalid accessMethod "${e.accessMethod}"`);
   }
