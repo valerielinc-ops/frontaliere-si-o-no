@@ -1,7 +1,7 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-10-08T22:42:27.360Z",
+  "generatedAt": "2026-10-09T09:36:11.721Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5651,
-  "avgDurationMs": 5651,
+  "unchangedCount": 5,
+  "durationMs": 6888,
+  "avgDurationMs": 6888,
   "durationHistory": [
-    5651
+    6888
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-susenberg-dc8381234762",
       "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
@@ -35,7 +37,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-10-01.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:42:14.598Z",
+      "crawledAt": "2026-10-09T09:35:56.691Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,7 +81,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/05-Koch-Koechin-50-60_befristetJuni2027-2026-09-03.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:42:14.437Z",
+      "crawledAt": "2026-10-09T09:35:56.512Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +125,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:42:14.238Z",
+      "crawledAt": "2026-10-09T09:35:56.283Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -142,6 +144,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1650,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-31T17:35:13.482Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
@@ -167,7 +172,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:42:13.938Z",
+      "crawledAt": "2026-10-09T09:35:55.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -186,6 +191,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1802,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-05T22:35:10.897Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -211,7 +219,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:42:13.355Z",
+      "crawledAt": "2026-10-09T09:35:55.281Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -230,6 +238,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2565,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-02T22:24:52.083Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -243,7 +254,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }
