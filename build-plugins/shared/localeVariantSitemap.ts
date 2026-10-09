@@ -172,6 +172,10 @@ export function collectLocaleVariantEntries(
   /** url → entry, plus the signature we first accepted for it. */
   const byUrl = new Map<string, LocaleVariantEntry>();
   const conflicted = new Set<string>();
+  // A conflicting alternate invalidates the complete hreflang clique for both
+  // source groups. Keeping the other members would only create orphan
+  // backfill entries that the final reciprocity sanitizer must remove anyway.
+  const conflictedSignatures = new Set<string>();
 
   for (const source of sources) {
     if (source.annotations.length === 0) continue;
@@ -237,6 +241,10 @@ export function collectLocaleVariantEntries(
     if (!cliqueComplete) continue;
 
     const signature = signatureOf(completePaths);
+    if (conflictedSignatures.has(signature)) {
+      note('conflicting-group', candidates.length);
+      continue;
+    }
     for (const locale of candidates) {
       const url = completePaths[locale];
       if (conflicted.has(url)) continue;
@@ -249,6 +257,13 @@ export function collectLocaleVariantEntries(
         if (signatureOf(existing.paths) !== signature) {
           byUrl.delete(url);
           conflicted.add(url);
+          conflictedSignatures.add(signatureOf(existing.paths));
+          conflictedSignatures.add(signature);
+          for (const [candidateUrl, candidate] of byUrl) {
+            if (conflictedSignatures.has(signatureOf(candidate.paths))) {
+              byUrl.delete(candidateUrl);
+            }
+          }
           note('conflicting-group');
         }
         continue;
@@ -260,6 +275,13 @@ export function collectLocaleVariantEntries(
         priority: source.priority,
       });
     }
+  }
+
+  // A signature can become conflicting after some of its candidates were
+  // accepted. Enforce the atomic rule once more so no partial clique survives
+  // merely because its collision was discovered later in source order.
+  for (const [url, entry] of byUrl) {
+    if (conflictedSignatures.has(signatureOf(entry.paths))) byUrl.delete(url);
   }
 
   // Deterministic output: identical input must produce a byte-identical file
