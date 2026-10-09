@@ -103714,6 +103714,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-concerti-borgo-musicale': {
+    title: 'Tre concerti per i 30 anni del Borgo musicale | Frontaliere Ticino',
+    description: 'Tre concerti in programma l’11, 17 e 18 ottobre Gli appuntamenti sono a Galliate Lombardo, Porto Ceresio e Clivio La Fondazione raddoppierà ogni euro donato',
+    keywords: 'frontalieri, ticino, svizzera, italia, concerti, anni, borgo, musicale',
+    ogTitle: 'Borgo musicale: tre concerti in ottobre',
+    ogDescription: 'Tre concerti in programma l’11, 17 e 18 ottobre Gli appuntamenti sono a Galliate Lombardo, Porto Ceresio e Clivio La Fondazione raddoppierà ogni euro donato',
+    canonicalPath: '/articoli-frontaliere/concerti-borgo-musicale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre concerti per i 30 anni del Borgo musicale",
+      "description": "Tre concerti in programma l’11, 17 e 18 ottobre Gli appuntamenti sono a Galliate Lombardo, Porto Ceresio e Clivio La Fondazione raddoppierà ogni euro donato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Concerto da camera con violino e chitarra per i 30 anni del Borgo musicale"
+      },
+      "datePublished": "2026-10-09T02:51:10+00:00",
+      "dateModified": "2026-10-09T02:51:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/concerti-borgo-musicale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

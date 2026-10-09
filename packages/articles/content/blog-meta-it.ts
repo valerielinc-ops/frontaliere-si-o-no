@@ -12844,6 +12844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidenti-notte-varese.title': 'Due incidenti nella notte a Varese: tre al pronto soccorso',
     'blog.article.incidenti-notte-varese.excerpt': 'Due incidenti nella notte a Varese: tre persone finiscono al pronto soccorso.',
     'blog.article.incidenti-notte-varese.imageAlt': 'Due incidenti nella notte a Varese: tre persone al pronto soccorso',
+    'blog.article.concerti-borgo-musicale.title': 'Tre concerti per i 30 anni del Borgo musicale',
+    'blog.article.concerti-borgo-musicale.excerpt': 'Tre concerti in programma l’11, 17 e 18 ottobre Gli appuntamenti sono a Galliate Lombardo, Porto Ceresio e Clivio La Fondazione raddoppierà ogni euro donato',
+    'blog.article.concerti-borgo-musicale.imageAlt': 'Concerto da camera con violino e chitarra per i 30 anni del Borgo musicale',
 };
 
 export default blogMetaIt;

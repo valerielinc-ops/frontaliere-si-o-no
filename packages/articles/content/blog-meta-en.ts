@@ -12843,6 +12843,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidenti-notte-varese.title': 'Two accidents at night in Varese: three in the emergency room',
     'blog.article.incidenti-notte-varese.excerpt': 'Two accidents in the night at Varese: three people end up in the emergency room.',
     'blog.article.incidenti-notte-varese.imageAlt': 'Two overnight incidents in Varese leave three people in the emergency room',
+    'blog.article.concerti-borgo-musicale.title': 'Three concerts for the 30th anniversary of the musical village',
+    'blog.article.concerti-borgo-musicale.excerpt': 'Three concerts scheduled for 11, 17 and 18 October The appointments are at Galliate Lombardo, Porto Ceresio and Clivio The Foundation will double every euro donated',
+    'blog.article.concerti-borgo-musicale.imageAlt': 'Chamber concert with violin and guitar for Borgo musicale’s 30th anniversary',
 };
 
 export default blogMetaEn;

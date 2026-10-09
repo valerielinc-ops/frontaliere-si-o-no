@@ -12842,6 +12842,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidenti-notte-varese.title': 'Zwei Unfälle in der Nacht in Varese: drei in der Notaufnahme',
     'blog.article.incidenti-notte-varese.excerpt': 'Zwei Unfälle in der Nacht auf Varese: Drei Personen landen in der Notaufnahme.',
     'blog.article.incidenti-notte-varese.imageAlt': 'Zwei nächtliche Unfälle in Varese: drei Menschen in der Notaufnahme',
+    'blog.article.concerti-borgo-musicale.title': 'Drei Konzerte zum 30-jährigen Jubiläum des Musikdorfes',
+    'blog.article.concerti-borgo-musicale.excerpt': 'Drei Konzerte sind für den 11., 17. (Galliate Lombardo, Porto Ceresio, Clivio)',
+    'blog.article.concerti-borgo-musicale.imageAlt': 'Kammerkonzert mit Violine und Gitarre zum 30-jährigen Bestehen des Borgo musicale',
 };
 
 export default blogMetaDe;
