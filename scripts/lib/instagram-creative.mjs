@@ -146,7 +146,159 @@ export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   }),
 });
 
-export const INSTAGRAM_CREATIVE_IDS = Object.freeze(Object.keys(INSTAGRAM_CREATIVE_FORMATS));
+/**
+ * Second experiment dimension. The objective stays fixed while the promise
+ * and hook change, so a `proof` result is not confused with a `save` result.
+ * The baseline ids remain stable for backwards-compatible ledger entries.
+ */
+export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
+  Object.freeze({ id: 'proof', baseId: 'proof', variant: 'baseline' }),
+  Object.freeze({
+    id: 'proof-local', baseId: 'proof', variant: 'local', label: 'Dato locale',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'TICINO, IERI', title: 'Quale lavoro ha attirato il Ticino?' }),
+      article: Object.freeze({ kicker: 'TICINO, IERI', title: 'Quale tema ha cercato il Ticino?' }),
+      border: Object.freeze({ kicker: 'TICINO, SETTIMANA', title: 'Quale valico ha retto meglio?' }),
+    }),
+    lead: Object.freeze({
+      job: 'Non è una lista generica: questi sono i ruoli che ieri hanno mosso più interesse nel Ticino.',
+      article: 'Queste letture raccontano le domande che ieri hanno mosso i frontalieri.',
+      border: 'Una classifica locale per scegliere il valico con un dato in più.',
+    }),
+    cta: Object.freeze({
+      job: '📤 Mandalo a chi cerca lavoro proprio in Ticino.',
+      article: '📤 Mandalo al collega che vive queste domande ogni giorno.',
+      border: '📤 Mandalo a chi passa da questo confine ogni mattina.',
+    }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'DATI DEL TERRITORIO', title: 'Il prossimo ruolo può essere vicino', body: 'Condividi una selezione nata dai clic reali della community.', cta: 'Condividi il post' }),
+      article: Object.freeze({ kicker: 'DATI DEL TERRITORIO', title: 'Una risposta utile parte da qui', body: 'Condividi l’aggiornamento con chi vive tra Italia e Svizzera.', cta: 'Condividi il post' }),
+      border: Object.freeze({ kicker: 'DATI DEL TERRITORIO', title: 'Il confine è una scelta quotidiana', body: 'Condividi il dato con chi attraversa questo valico.', cta: 'Condividi il post' }),
+    }),
+  }),
+  Object.freeze({
+    id: 'proof-surprise', baseId: 'proof', variant: 'surprise', label: 'Dato sorprendente',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'DATO INATTESO', title: 'Il clic più sorprendente di ieri' }),
+      article: Object.freeze({ kicker: 'DATO INATTESO', title: 'La domanda che non ti aspetti' }),
+      border: Object.freeze({ kicker: 'DATO INATTESO', title: 'Il valico che ha sorpreso' }),
+    }),
+    lead: Object.freeze({
+      job: 'Non avremmo indovinato questa classifica: i clic reali mostrano dove si è fermata l’attenzione.',
+      article: 'Non sempre il tema più rumoroso è quello più utile: ecco cosa ha attirato davvero letture.',
+      border: 'La percezione del traffico non basta: questa settimana i dati raccontano una sorpresa.',
+    }),
+    cta: Object.freeze({
+      job: '📤 Condividilo con chi avrebbe fatto un’altra previsione.',
+      article: '📤 Mandalo a chi discute sempre di questo tema.',
+      border: '📤 Mandalo a chi sceglie il valico “a memoria”.',
+    }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'NON INDOVINARE', title: 'Guarda cosa hanno scelto gli altri', body: 'Un dato reale vale più di una sensazione: condividilo.', cta: 'Condividi il post' }),
+      article: Object.freeze({ kicker: 'NON INDOVINARE', title: 'La prossima domanda può essere la tua', body: 'Condividi questa risposta prima che il tema cambi ancora.', cta: 'Condividi il post' }),
+      border: Object.freeze({ kicker: 'NON INDOVINARE', title: 'Controlla prima di partire', body: 'Condividi il dato con il tuo gruppo di pendolari.', cta: 'Condividi il post' }),
+    }),
+  }),
+  Object.freeze({ id: 'save', baseId: 'save', variant: 'baseline' }),
+  Object.freeze({
+    id: 'save-checklist', baseId: 'save', variant: 'checklist', label: 'Checklist da salvare',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'CHECKLIST', title: '5 lavori da controllare prima di candidarti' }),
+      article: Object.freeze({ kicker: 'CHECKLIST', title: '5 risposte da tenere a portata di mano' }),
+      border: Object.freeze({ kicker: 'CHECKLIST', title: '5 dati da controllare prima di partire' }),
+    }),
+    lead: Object.freeze({
+      job: 'Una lista breve da tenere aperta quando confronti le prossime candidature.',
+      article: 'Una lista breve da tenere aperta quando devi ricostruire una regola.',
+      border: 'Una lista breve da tenere aperta quando prepari il prossimo tragitto.',
+    }),
+    cta: Object.freeze({
+      job: '💾 Salvalo: ti servirà quando riaprirai la ricerca.',
+      article: '💾 Salvalo: le regole non si ricordano a memoria.',
+      border: '💾 Salvalo: controllalo prima di uscire di casa.',
+    }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'CHECKLIST PRONTA', title: 'Non ricominciare da zero', body: 'Salva questa lista e riaprila quando trovi un annuncio interessante.', cta: 'Salva il post' }),
+      article: Object.freeze({ kicker: 'CHECKLIST PRONTA', title: 'Tieni qui la risposta', body: 'Salva il post per ritrovare i punti essenziali quando ti servono.', cta: 'Salva il post' }),
+      border: Object.freeze({ kicker: 'CHECKLIST PRONTA', title: 'Parti con un dato in più', body: 'Salva la classifica e controlla gli aggiornamenti prima del viaggio.', cta: 'Salva il post' }),
+    }),
+  }),
+  Object.freeze({
+    id: 'save-moment', baseId: 'save', variant: 'moment', label: 'Promemoria del momento',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'QUANDO TI SERVE', title: '5 occasioni da non perdere' }),
+      article: Object.freeze({ kicker: 'QUANDO TI SERVE', title: '5 risposte da ritrovare' }),
+      border: Object.freeze({ kicker: 'QUANDO TI SERVE', title: '5 passaggi da preparare' }),
+    }),
+    lead: Object.freeze({
+      job: 'Non devi candidarti oggi: conserva queste opportunità per il momento giusto.',
+      article: 'Non devi risolvere tutto oggi: conserva queste risposte per quando arriverà il dubbio.',
+      border: 'Non devi partire adesso: conserva questi dati per il prossimo passaggio.',
+    }),
+    cta: Object.freeze({
+      job: '💾 Salvalo per il prossimo momento di ricerca.',
+      article: '💾 Salvalo per quando dovrai prendere una decisione.',
+      border: '💾 Salvalo per il prossimo attraversamento.',
+    }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'PROMEMORIA', title: 'Torna quando sei pronto', body: 'Il link di ogni voce resta nella bio: conserva la selezione.', cta: 'Salva il post' }),
+      article: Object.freeze({ kicker: 'PROMEMORIA', title: 'Torna quando ti serve', body: 'Una risposta salvata è una sorpresa in meno domani.', cta: 'Salva il post' }),
+      border: Object.freeze({ kicker: 'PROMEMORIA', title: 'Torna prima del viaggio', body: 'I dati cambiano: usa questa lista come punto di partenza.', cta: 'Salva il post' }),
+    }),
+  }),
+  Object.freeze({ id: 'question', baseId: 'question', variant: 'baseline' }),
+  Object.freeze({
+    id: 'question-choice', baseId: 'question', variant: 'choice', label: 'Scelta guidata',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'SCEGLI TU', title: 'Quale ruolo ti interessa di più?' }),
+      article: Object.freeze({ kicker: 'SCEGLI TU', title: 'Quale dubbio viene prima?' }),
+      border: Object.freeze({ kicker: 'SCEGLI TU', title: 'Quale valico scegli?' }),
+    }),
+    lead: Object.freeze({
+      job: 'La classifica è un punto di partenza: aiutaci a scegliere il prossimo settore da seguire.',
+      article: 'La classifica è un punto di partenza: aiutaci a scegliere la prossima risposta.',
+      border: 'La classifica è un punto di partenza: aiutaci a capire quale tragitto raccontare.',
+    }),
+    cta: Object.freeze({
+      job: '💬 Scrivi solo il settore: 1) sanità 2) ufficio 3) tecnico.',
+      article: '💬 Scrivi solo il tema: 1) tasse 2) sanità 3) permessi.',
+      border: '💬 Scrivi il valico: 1) Brogeda 2) Chiasso 3) altro.',
+    }),
+    question: Object.freeze({ job: 'Quale settore scegli: sanità, ufficio o tecnico?', article: 'Quale tema scegli: tasse, sanità o permessi?', border: 'Quale valico scegli più spesso?' }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'VOTO RAPIDO', title: 'Scegli il prossimo settore', body: 'Una risposta breve ci aiuta a costruire il prossimo contenuto.', cta: 'Rispondi nei commenti' }),
+      article: Object.freeze({ kicker: 'VOTO RAPIDO', title: 'Scegli il prossimo tema', body: 'Una risposta breve ci aiuta a costruire una guida migliore.', cta: 'Rispondi nei commenti' }),
+      border: Object.freeze({ kicker: 'VOTO RAPIDO', title: 'Scegli il prossimo confronto', body: 'Una risposta breve ci aiuta a raccontare il tragitto giusto.', cta: 'Rispondi nei commenti' }),
+    }),
+  }),
+  Object.freeze({
+    id: 'question-story', baseId: 'question', variant: 'story', label: 'Esperienza personale',
+    cover: Object.freeze({
+      job: Object.freeze({ kicker: 'RACCONTACI', title: 'Come è andata la tua ricerca?' }),
+      article: Object.freeze({ kicker: 'RACCONTACI', title: 'Cosa ti è successo davvero?' }),
+      border: Object.freeze({ kicker: 'RACCONTACI', title: 'Com’è il tuo tragitto?' }),
+    }),
+    lead: Object.freeze({
+      job: 'I clic dicono cosa interessa; la tua esperienza ci dice cosa manca davvero.',
+      article: 'Le letture dicono cosa interessa; la tua esperienza ci dice cosa manca davvero.',
+      border: 'Le medie dicono una cosa; il tuo tragitto può raccontarne un’altra.',
+    }),
+    cta: Object.freeze({
+      job: '💬 Racconta in una frase da quale settore parti.',
+      article: '💬 Racconta in una frase quale regola ti ha bloccato.',
+      border: '💬 Racconta in una frase quando attraversi il confine.',
+    }),
+    question: Object.freeze({ job: 'Da quale settore parti?', article: 'Quale regola ti ha bloccato?', border: 'Quando attraversi il confine?' }),
+    closing: Object.freeze({
+      job: Object.freeze({ kicker: 'ESPERIENZE REALI', title: 'La tua storia orienta il prossimo post', body: 'Raccontala senza dati personali: la useremo per fare una domanda migliore.', cta: 'Rispondi nei commenti' }),
+      article: Object.freeze({ kicker: 'ESPERIENZE REALI', title: 'La tua domanda può aiutare altri', body: 'Raccontala senza dati personali: la trasformiamo in una risposta verificata.', cta: 'Rispondi nei commenti' }),
+      border: Object.freeze({ kicker: 'ESPERIENZE REALI', title: 'Il tragitto non è una media', body: 'Raccontalo senza targhe o dettagli identificativi: confrontiamo le esperienze.', cta: 'Rispondi nei commenti' }),
+    }),
+  }),
+]);
+
+export const INSTAGRAM_CREATIVE_IDS = Object.freeze(INSTAGRAM_CREATIVE_VARIANTS.map((variant) => variant.id));
+const CREATIVE_VARIANT_BY_ID = new Map(INSTAGRAM_CREATIVE_VARIANTS.map((variant) => [variant.id, variant]));
 export const INSTAGRAM_MAX_CAPTION_LENGTH = 2200;
 
 const KIND_OFFSETS = Object.freeze({ article: 0, job: 1, border: 2 });
@@ -178,18 +330,21 @@ function dayIndex(day) {
 
 function definitionFor(kind, id) {
   if (!VALID_KINDS.has(kind)) throw new Error(`unknown Instagram creative kind: ${kind}`);
-  const definition = INSTAGRAM_CREATIVE_FORMATS[id];
+  const variant = CREATIVE_VARIANT_BY_ID.get(id) || CREATIVE_VARIANT_BY_ID.get('proof');
+  const definition = INSTAGRAM_CREATIVE_FORMATS[variant.baseId];
   return {
-    id: definition.id,
-    label: definition.label,
+    id: variant.id,
+    baseId: variant.baseId,
+    variant: variant.variant,
+    label: variant.label || definition.label,
     objective: definition.objective,
     primaryMetric: definition.primaryMetric,
     kind,
-    cover: definition.cover[kind],
-    lead: definition.lead[kind],
-    cta: definition.cta[kind],
-    question: definition.question[kind],
-    closing: definition.closing[kind],
+    cover: variant.cover?.[kind] || definition.cover[kind],
+    lead: variant.lead?.[kind] || definition.lead[kind],
+    cta: variant.cta?.[kind] || definition.cta[kind],
+    question: variant.question?.[kind] || definition.question[kind],
+    closing: variant.closing?.[kind] || definition.closing[kind],
   };
 }
 
@@ -254,6 +409,8 @@ export function instagramCreativeContent(creative, itemId) {
 export function instagramCreativeLedgerFields(creative) {
   return {
     creativeId: creative?.id || 'proof',
+    creativeBaseId: creative?.baseId || String(creative?.id || 'proof').split('-', 1)[0],
+    creativeVariant: creative?.variant || 'baseline',
     creativeLabel: creative?.label || 'Dato verificabile',
     creativeObjective: creative?.objective || 'share',
     primaryMetric: creative?.primaryMetric || 'shares',

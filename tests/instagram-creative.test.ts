@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   INSTAGRAM_CREATIVE_FORMATS,
   INSTAGRAM_CREATIVE_IDS,
+  INSTAGRAM_CREATIVE_VARIANTS,
   INSTAGRAM_MAX_CAPTION_LENGTH,
   buildInstagramCaption,
   chooseInstagramCreative,
@@ -18,8 +19,8 @@ const PICKS = [
 
 describe('Instagram creative system', () => {
   it('keeps every format complete for every content kind', () => {
-    for (const id of INSTAGRAM_CREATIVE_IDS) {
-      const format = INSTAGRAM_CREATIVE_FORMATS[id];
+    for (const format of Object.values(INSTAGRAM_CREATIVE_FORMATS)) {
+      expect(format).toBeTruthy();
       expect(format.objective).toBeTruthy();
       expect(format.primaryMetric).toBeTruthy();
       for (const kind of ['job', 'article', 'border']) {
@@ -29,15 +30,37 @@ describe('Instagram creative system', () => {
         expect(format.closing[kind].title).toBeTruthy();
       }
     }
+
+    const isoDay = (offset: number) => new Date(Date.UTC(2026, 9, 9 + offset)).toISOString().slice(0, 10);
+    const chosen = new Map(
+      Array.from({ length: INSTAGRAM_CREATIVE_IDS.length }, (_, offset) => {
+        const creative = chooseInstagramCreative({ kind: 'article', day: isoDay(offset) });
+        return [creative.id, creative] as const;
+      }),
+    );
+    expect(new Set(chosen.keys())).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
+    for (const variant of INSTAGRAM_CREATIVE_VARIANTS) {
+      const creative = chosen.get(variant.id)!;
+      expect(creative).toMatchObject({
+        id: variant.id,
+        baseId: variant.baseId,
+        variant: variant.variant,
+      });
+      expect(creative.cover.kicker).toBeTruthy();
+      expect(creative.cover.title).toBeTruthy();
+      expect(creative.cta).toBeTruthy();
+      expect(creative.closing.title).toBeTruthy();
+    }
   });
 
   it('rotates daily treatments and weekly border treatments', () => {
+    const isoDay = (offset: number) => new Date(Date.UTC(2026, 9, 3 + offset)).toISOString().slice(0, 10);
     for (const kind of ['job', 'article', 'border']) {
-      const days = kind === 'border' ? 21 : 7;
+      const days = kind === 'border' ? INSTAGRAM_CREATIVE_IDS.length * 7 : INSTAGRAM_CREATIVE_IDS.length;
       const ids = new Set(
         Array.from({ length: days }, (_, i) => chooseInstagramCreative({
           kind,
-          day: `2026-10-${String(3 + i).padStart(2, '0')}`,
+          day: isoDay(i),
         }).id),
       );
       expect(ids).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
@@ -98,6 +121,8 @@ describe('Instagram creative system', () => {
     expect(instagramCreativeContent(creative, 'job-123')).toBe(`${creative.id}-job-123`);
     expect(instagramCreativeLedgerFields(creative)).toEqual({
       creativeId: creative.id,
+      creativeBaseId: creative.baseId,
+      creativeVariant: creative.variant,
       creativeLabel: creative.label,
       creativeObjective: creative.objective,
       primaryMetric: creative.primaryMetric,
