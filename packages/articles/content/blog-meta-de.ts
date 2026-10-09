@@ -12875,6 +12875,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.arresto-cocaina-massagno.title': 'Kokain, 21-jähriger Albaner in Lugano verhaftet',
     'blog.article.arresto-cocaina-massagno.excerpt': '21-jähriger Albaner in Lugano verhaftet Die Festnahme erfolgte am 6.',
     'blog.article.arresto-cocaina-massagno.imageAlt': 'Festnahme eines 21-Jährigen und Wohnungsdurchsuchung im Luganese',
+    'blog.article.marchesi-mendrisiotto-priorita.title': 'Die Arbeit von Marchesi begann im Mendrisiotto',
+    'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi ist der neue Staatsrat.',
+    'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Luftaufnahme des Mendrisiotto-Tals mit grünen Hügeln und einer Autobahn, die die Landschaft durchquert, symbolisiert Mobilitäts- und Gebietsherausforderungen.',
 };
 
 export default blogMetaDe;

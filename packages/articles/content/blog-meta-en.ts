@@ -12876,6 +12876,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.arresto-cocaina-massagno.title': 'Cocaine, 21-year-old Albanian arrested in Lugano',
     'blog.article.arresto-cocaina-massagno.excerpt': 'Arrested a 21-year-old Albanian in Lugano The arrest took place on October 6 Found 140 grams of cocaine in the apartment The GPC confirmed the measure',
     'blog.article.arresto-cocaina-massagno.imageAlt': 'Arrest of a 21-year-old and apartment search in the Luganese region',
+    'blog.article.marchesi-mendrisiotto-priorita.title': 'Marchesi\'s work began in Mendrisiotto',
+    'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi is the new Councillor of State.',
+    'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Aerial view of the Mendrisiotto valley with green hills and a highway crossing the landscape, representing mobility and territorial challenges.',
 };
 
 export default blogMetaEn;

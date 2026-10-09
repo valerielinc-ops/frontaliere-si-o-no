@@ -12878,6 +12878,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.arresto-cocaina-massagno.title': 'Cocaïne, arrêté 21 ans albanais en Luganais',
     'blog.article.arresto-cocaina-massagno.excerpt': 'Arrestation d\'un Albanais de 21 ans à Luganese L\'arrestation a eu lieu le 6 octobre Trouvé 140 grammes de cocaïne dans l\'appartement Le GPC a confirmé la mesure',
     'blog.article.arresto-cocaina-massagno.imageAlt': 'Arrestation d\'un homme de 21 ans et perquisition dans le Luganese',
+    'blog.article.marchesi-mendrisiotto-priorita.title': 'Le travail de Marquis commence à partir du Mendrisiotto',
+    'blog.article.marchesi-mendrisiotto-priorita.excerpt': 'Marchesi est le nouveau Conseiller d\'État.',
+    'blog.article.marchesi-mendrisiotto-priorita.imageAlt': 'Vue aérienne de la vallée du Mendrisiotto avec des collines verdoyantes et une autoroute traversant le territoire, illustrant les défis de mobilité et de territoire.',
 };
 
 export default blogMetaFr;
