@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etavis",
-  "assembledAt": "2026-10-08T22:29:33.601Z",
+  "assembledAt": "2026-10-09T09:42:27.033Z",
   "jobs": [
     {
       "id": "etavis-41691dd30a59",
@@ -33,7 +33,7 @@
       "url": "https://etavis.softgarden.io/job/64622908/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=284304605&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:28.177Z",
+      "crawledAt": "2026-10-09T09:42:15.380Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -152,7 +152,7 @@
       "url": "https://etavis.softgarden.io/job/64588908/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=284304690&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:27.405Z",
+      "crawledAt": "2026-10-09T09:42:14.369Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -173,16 +173,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:48.093Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-uetendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-uetendorf"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-uetendorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:48.093Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -228,7 +228,7 @@
       "url": "https://etavis.softgarden.io/job/52143564/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=284304695&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:27.116Z",
+      "crawledAt": "2026-10-09T09:42:14.034Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "-",
@@ -249,15 +249,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:47.789Z",
+      "previousSlugs": [
+        "bauleitender-monteur-w-m-d-80-100-etavis-uetendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "bauleitender-monteur-w-m-d-80-100-etavis-uetendorf"
         ]
       },
-      "previousSlugs": [
-        "bauleitender-monteur-w-m-d-80-100-etavis-uetendorf"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:47.789Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -303,7 +303,7 @@
       "url": "https://etavis.softgarden.io/job/52142914/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=284304700&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:26.833Z",
+      "crawledAt": "2026-10-09T09:42:13.703Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "-",
@@ -352,16 +352,16 @@
         ]
       },
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:47.468Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "elektroinstallateur-w-m-d-80-100-etavis-uetendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-w-m-d-80-100-etavis-uetendorf"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-w-m-d-80-100-etavis-uetendorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:47.468Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -407,7 +407,7 @@
       "url": "https://etavis.softgarden.io/job/64588878/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=284304720&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:26.553Z",
+      "crawledAt": "2026-10-09T09:42:13.372Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -428,16 +428,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:47.167Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-uetendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-uetendorf"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-uetendorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:47.167Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -483,7 +483,7 @@
       "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2026?jobDbPVId=284304735&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:26.270Z",
+      "crawledAt": "2026-10-09T09:42:13.030Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -504,16 +504,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:46.529Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.529Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -559,7 +559,7 @@
       "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2026?jobDbPVId=284304740&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:25.988Z",
+      "crawledAt": "2026-10-09T09:42:12.696Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -580,16 +580,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:46.225Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.225Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -635,7 +635,7 @@
       "url": "https://etavis.softgarden.io/job/58904663/Service-Techniker-w-m-d-80%E2%80%93100-am-Standort-Liestal?jobDbPVId=284304750&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:25.705Z",
+      "crawledAt": "2026-10-09T09:42:12.350Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -656,15 +656,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:45.919Z",
+      "previousSlugs": [
+        "service-techniker-w-m-d-80-100-am-standort-liestal-etavis-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "service-techniker-w-m-d-80-100-am-standort-liestal-etavis-liestal"
         ]
       },
-      "previousSlugs": [
-        "service-techniker-w-m-d-80-100-am-standort-liestal-etavis-liestal"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:45.919Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -710,7 +710,7 @@
       "url": "https://etavis.softgarden.io/job/31803186/Projektleiter-Schaltanlagenbau-w-m-d-80%E2%80%93100-?jobDbPVId=284304785&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:25.423Z",
+      "crawledAt": "2026-10-09T09:42:12.019Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "-",
@@ -787,7 +787,7 @@
       "url": "https://etavis.softgarden.io/job/64623718/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=284304800&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:25.139Z",
+      "crawledAt": "2026-10-09T09:42:11.683Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -808,16 +808,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:45.011Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-wohlen-bei-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-wohlen-bei-bern"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-wohlen-bei-bern"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:45.011Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -863,7 +863,7 @@
       "url": "https://etavis.softgarden.io/job/64623753/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=284304825&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:24.857Z",
+      "crawledAt": "2026-10-09T09:42:11.349Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -894,8 +894,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:44.706Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:44.706Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -941,7 +941,7 @@
       "url": "https://etavis.softgarden.io/job/65160773/Projektleiter-Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=284455950&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:24.576Z",
+      "crawledAt": "2026-10-09T09:42:11.012Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Im Hölderli 26",
@@ -1053,7 +1053,7 @@
       "url": "https://etavis.softgarden.io/job/64633753/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=284455975&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:24.290Z",
+      "crawledAt": "2026-10-09T09:42:10.673Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -1145,7 +1145,7 @@
       "url": "https://etavis.softgarden.io/job/65939244/Application-Manager-Zeit-und-Leistungserfassung-w-m-d-80-100-?jobDbPVId=284455995&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:24.009Z",
+      "crawledAt": "2026-10-09T09:42:10.342Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -1262,7 +1262,7 @@
       "url": "https://etavis.softgarden.io/job/67357475/Servicetechniker-Industrieunterhalt-w-m-d-80-100-?jobDbPVId=284502460&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:23.726Z",
+      "crawledAt": "2026-10-09T09:42:10.009Z",
       "addressLocality": "Rorschach",
       "postalCode": "9400",
       "streetAddress": "Sankt Gallerstrasse 49",
@@ -1339,7 +1339,7 @@
       "url": "https://etavis.softgarden.io/job/64672289/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=284635630&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:23.431Z",
+      "crawledAt": "2026-10-09T09:42:09.674Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -1416,7 +1416,7 @@
       "url": "https://etavis.softgarden.io/job/51182698/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=284635645&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:23.146Z",
+      "crawledAt": "2026-10-09T09:42:09.332Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1437,16 +1437,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:46.482Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-muttenz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-muttenz"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-muttenz"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.482Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1492,7 +1492,7 @@
       "url": "https://etavis.softgarden.io/job/51571593/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=284635650&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:22.724Z",
+      "crawledAt": "2026-10-09T09:42:09.000Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1513,16 +1513,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:44.761Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-etavis-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-etavis-liestal"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-etavis-liestal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:44.761Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1568,7 +1568,7 @@
       "url": "https://etavis.softgarden.io/job/51193313/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=284635655&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:22.439Z",
+      "crawledAt": "2026-10-09T09:42:08.663Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1589,16 +1589,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:45.448Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-etavis-muttenz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-etavis-muttenz"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-etavis-muttenz"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.448Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1644,7 +1644,7 @@
       "url": "https://etavis.softgarden.io/job/51183473/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=284635660&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:22.142Z",
+      "crawledAt": "2026-10-09T09:42:08.332Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1665,16 +1665,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:46.819Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-liestal"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-liestal"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-liestal"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.819Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1720,7 +1720,7 @@
       "url": "https://etavis.softgarden.io/job/51190623/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=284635665&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:21.848Z",
+      "crawledAt": "2026-10-09T09:42:08.004Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1741,16 +1741,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:47.156Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:47.156Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1796,7 +1796,7 @@
       "url": "https://etavis.softgarden.io/job/51190918/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=284635670&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:21.567Z",
+      "crawledAt": "2026-10-09T09:42:07.672Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1817,16 +1817,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:45.812Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-etavis-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.812Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1872,7 +1872,7 @@
       "url": "https://etavis.softgarden.io/job/51191343/Lernende-Automatiker-EFZ-w-m-d-?jobDbPVId=284635675&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:21.282Z",
+      "crawledAt": "2026-10-09T09:42:07.338Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1893,16 +1893,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:45.116Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-automatiker-efz-w-m-d-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-automatiker-efz-w-m-d-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "lernende-automatiker-efz-w-m-d-etavis-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.116Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1948,7 +1948,7 @@
       "url": "https://etavis.softgarden.io/job/51190973/Lernende-Automatikmonteure-EFZ-w-m-d-?jobDbPVId=284635680&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:21.000Z",
+      "crawledAt": "2026-10-09T09:42:07.010Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -1969,16 +1969,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-13T13:02:46.149Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-automatikmonteure-efz-w-m-d-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-automatikmonteure-efz-w-m-d-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "lernende-automatikmonteure-efz-w-m-d-etavis-basel"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.149Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2024,7 +2024,7 @@
       "url": "https://etavis.softgarden.io/job/64698524/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=284877302&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:20.719Z",
+      "crawledAt": "2026-10-09T09:42:06.678Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2142,7 +2142,7 @@
       "url": "https://etavis.softgarden.io/job/64698834/Teamleiter-Gruppenleiter-w-m-d-80%E2%80%93100-?jobDbPVId=284877312&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:20.435Z",
+      "crawledAt": "2026-10-09T09:42:06.344Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2163,15 +2163,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:43.188Z",
+      "previousSlugs": [
+        "teamleiter-gruppenleiter-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-gruppenleiter-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
         ]
       },
-      "previousSlugs": [
-        "teamleiter-gruppenleiter-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:43.188Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2217,7 +2217,7 @@
       "url": "https://etavis.softgarden.io/job/64692079/Projektleiter-Elektroinstallation-w-m-d-80-100-?jobDbPVId=284877342&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:20.152Z",
+      "crawledAt": "2026-10-09T09:42:06.012Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2294,7 +2294,7 @@
       "url": "https://etavis.softgarden.io/job/64677789/Servicemonteur-Elektroinstallateur-EFZ-w-m-d-80%E2%80%93100-?jobDbPVId=284877352&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:19.867Z",
+      "crawledAt": "2026-10-09T09:42:05.676Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "streetAddress": "Winterthurerstrasse 35",
@@ -2403,7 +2403,7 @@
       "url": "https://etavis.softgarden.io/job/64691379/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=284877367&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:19.581Z",
+      "crawledAt": "2026-10-09T09:42:05.321Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2521,7 +2521,7 @@
       "url": "https://etavis.softgarden.io/job/64690859/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=284877387&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:19.296Z",
+      "crawledAt": "2026-10-09T09:42:04.970Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -2570,15 +2570,15 @@
         ]
       },
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:39.499Z",
+      "previousSlugs": [
+        "elektroinstallateur-w-m-d-80-100-etavis-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-w-m-d-80-100-etavis-zurich"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-w-m-d-80-100-etavis-zurich"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:39.499Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2624,7 +2624,7 @@
       "url": "https://etavis.softgarden.io/job/64691444/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=284877402&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:19.010Z",
+      "crawledAt": "2026-10-09T09:42:04.601Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2731,7 +2731,7 @@
       "url": "https://etavis.softgarden.io/job/64692864/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=284877412&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:18.728Z",
+      "crawledAt": "2026-10-09T09:42:04.268Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -2848,7 +2848,7 @@
       "url": "https://etavis.softgarden.io/job/64690814/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=284877427&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:18.447Z",
+      "crawledAt": "2026-10-09T09:42:03.934Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -2885,15 +2885,15 @@
         ]
       },
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:41.034Z",
+      "previousSlugs": [
+        "elektroinstallateur-w-m-d-80-100-etavis-baden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-w-m-d-80-100-etavis-baden"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-w-m-d-80-100-etavis-baden"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:41.034Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -2939,7 +2939,7 @@
       "url": "https://etavis.softgarden.io/job/64692879/Servicemonteur-w-m-d-80-100-?jobDbPVId=284877447&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:18.095Z",
+      "crawledAt": "2026-10-09T09:42:03.608Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -2960,15 +2960,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:40.417Z",
+      "previousSlugs": [
+        "servicemonteur-w-m-d-80-100-etavis-oftringen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servicemonteur-w-m-d-80-100-etavis-oftringen"
         ]
       },
-      "previousSlugs": [
-        "servicemonteur-w-m-d-80-100-etavis-oftringen"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:40.417Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3014,7 +3014,7 @@
       "url": "https://etavis.softgarden.io/job/64690639/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=284877467&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:17.808Z",
+      "crawledAt": "2026-10-09T09:42:03.274Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3057,14 +3057,14 @@
         "elektroinstallateur-w-m-d-80-100-etavis-oftringen"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-w-m-d-80-100-etavis-oftringen"
+        ],
         "en": [
           "electrical-installer-w-m-d-80-100-etavis-ag-oftringen"
         ],
         "fr": [
           "installateur-electrique-m-j-80-100-etavis-ag-oftringen"
-        ],
-        "it": [
-          "elektroinstallateur-w-m-d-80-100-etavis-oftringen"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:40.113Z",
@@ -3113,7 +3113,7 @@
       "url": "https://etavis.softgarden.io/job/64736116/Montatrice-tore-di-servizio-f-m-d-80-100-?jobDbPVId=284877512&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-08T22:29:17.524Z",
+      "crawledAt": "2026-10-09T09:42:02.933Z",
       "addressLocality": "Bellinzona",
       "postalCode": "6500",
       "streetAddress": "Viale Portone 12",
@@ -3180,7 +3180,7 @@
       "url": "https://etavis.softgarden.io/job/65309486/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=284877537&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:17.236Z",
+      "crawledAt": "2026-10-09T09:42:02.587Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -3257,7 +3257,7 @@
       "url": "https://etavis.softgarden.io/job/59896845/Kalkulator-Schaltanlagenbau-w-m-d-80-100-?jobDbPVId=284877557&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:16.952Z",
+      "crawledAt": "2026-10-09T09:42:02.252Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -3278,15 +3278,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:39.808Z",
+      "previousSlugs": [
+        "kalkulator-schaltanlagenbau-w-m-d-80-100-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kalkulator-schaltanlagenbau-w-m-d-80-100-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "kalkulator-schaltanlagenbau-w-m-d-80-100-etavis-basel"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:39.808Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3332,7 +3332,7 @@
       "url": "https://etavis.softgarden.io/job/67498032/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=285088412&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:16.668Z",
+      "crawledAt": "2026-10-09T09:42:01.918Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -3413,7 +3413,7 @@
       "url": "https://etavis.softgarden.io/job/67497802/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=285087927&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:16.382Z",
+      "crawledAt": "2026-10-09T09:42:01.578Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -3434,15 +3434,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-09-19T23:08:25.691Z",
+      "previousSlugs": [
+        "elektroinstallateur-w-m-d-80-100-etavis-chur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-w-m-d-80-100-etavis-chur"
         ]
       },
-      "previousSlugs": [
-        "elektroinstallateur-w-m-d-80-100-etavis-chur"
-      ],
+      "firstSeenAt": "2026-09-19T23:08:25.691Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3488,7 +3488,7 @@
       "url": "https://etavis.softgarden.io/job/67497772/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=285087652&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:16.096Z",
+      "crawledAt": "2026-10-09T09:42:01.233Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -3567,7 +3567,7 @@
       "url": "https://etavis.softgarden.io/job/66095773/Systemtechniker-ICT-Servicetechniker-w-m-d-80-100-?jobDbPVId=285057452&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:15.813Z",
+      "crawledAt": "2026-10-09T09:42:00.890Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Oststrasse 25",
@@ -3644,7 +3644,7 @@
       "url": "https://etavis.softgarden.io/job/51183648/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=285074762&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:15.526Z",
+      "crawledAt": "2026-10-09T09:42:00.559Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3665,16 +3665,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-08-17T10:26:16.929Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-etavis-baden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-etavis-baden"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-etavis-baden"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.929Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3720,7 +3720,7 @@
       "url": "https://etavis.softgarden.io/job/51186998/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=285074767&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:15.243Z",
+      "crawledAt": "2026-10-09T09:42:00.222Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3741,16 +3741,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-08-17T10:26:16.283Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-zurich"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.283Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3796,7 +3796,7 @@
       "url": "https://etavis.softgarden.io/job/51183483/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=285074772&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:14.954Z",
+      "crawledAt": "2026-10-09T09:41:59.890Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -3817,16 +3817,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-08-17T10:26:16.546Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-baden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-baden"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-baden"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.546Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3872,7 +3872,7 @@
       "url": "https://etavis.softgarden.io/job/51187003/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=285074777&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:14.670Z",
+      "crawledAt": "2026-10-09T09:41:59.559Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -3893,16 +3893,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-08-17T10:26:17.472Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-etavis-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-etavis-zurich"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-etavis-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:17.472Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3948,7 +3948,7 @@
       "url": "https://etavis.softgarden.io/job/51184078/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=285074782&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:14.384Z",
+      "crawledAt": "2026-10-09T09:41:59.223Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3969,16 +3969,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-08-17T10:26:16.009Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-etavis-oftringen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-etavis-oftringen"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-etavis-oftringen"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.009Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4024,7 +4024,7 @@
       "url": "https://etavis.softgarden.io/job/67502442/Servicetechniker-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=285101907&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:13.404Z",
+      "crawledAt": "2026-10-09T09:41:58.463Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -4101,7 +4101,7 @@
       "url": "https://etavis.softgarden.io/job/67502427/Bauleitender-Elektroinstallateur-Ladenbau-E-Mobility-w-m-d-80-100-%C3%BCberregionaler-Einsatz-ganze-Schweiz-?jobDbPVId=285101887&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:13.124Z",
+      "crawledAt": "2026-10-09T09:41:58.133Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -4178,7 +4178,7 @@
       "url": "https://etavis.softgarden.io/job/66798975/Senior-Modern-Workplace-Engineer-w-m-d-80-100-?jobDbPVId=285192147&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:12.822Z",
+      "crawledAt": "2026-10-09T09:41:57.802Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -4219,11 +4219,11 @@
         "senior-modern-workplace-engineer-w-m-d-80-100-etavis-zurich"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "senior-modern-workplace-ingenieur-w-m-d-80-100-vinci-energies-schweiz-ag-zurich"
-        ],
         "it": [
           "senior-modern-workplace-engineer-w-m-d-80-100-etavis-zurich"
+        ],
+        "fr": [
+          "senior-modern-workplace-ingenieur-w-m-d-80-100-vinci-energies-schweiz-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-18T10:22:03.621Z",
@@ -4272,7 +4272,7 @@
       "url": "https://etavis.softgarden.io/job/56797623/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=285375037&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:12.522Z",
+      "crawledAt": "2026-10-09T09:41:57.463Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -4293,15 +4293,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:37.029Z",
+      "previousSlugs": [
+        "bauleitender-monteur-w-m-d-80-100-etavis-biel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "bauleitender-monteur-w-m-d-80-100-etavis-biel"
         ]
       },
-      "previousSlugs": [
-        "bauleitender-monteur-w-m-d-80-100-etavis-biel"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:37.029Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -4347,7 +4347,7 @@
       "url": "https://etavis.softgarden.io/job/56797408/Elektroinstallateur-Industrie-Umgebung-Biel-sowie-Solothurn-w-m-d-80-100-?jobDbPVId=285375047&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:12.235Z",
+      "crawledAt": "2026-10-09T09:41:57.128Z",
       "addressLocality": "Biel",
       "postalCode": "2501",
       "streetAddress": "-",
@@ -4415,8 +4415,8 @@
           "installateur-electrique-industrie-ambiente-bienne-et-soleure-f-m-d-80-100-etavis-jag-jakob-biel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:36.724Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:36.724Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4462,7 +4462,7 @@
       "url": "https://etavis.softgarden.io/job/40351407/Elektroplaner-w-m-d-80%E2%80%93100-?jobDbPVId=285375057&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:11.944Z",
+      "crawledAt": "2026-10-09T09:41:56.790Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -4483,15 +4483,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:36.417Z",
+      "previousSlugs": [
+        "elektroplaner-w-m-d-80-100-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroplaner-w-m-d-80-100-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "elektroplaner-w-m-d-80-100-etavis-basel"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:36.417Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -4537,7 +4537,7 @@
       "url": "https://etavis.softgarden.io/job/31805316/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=285375062&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:11.660Z",
+      "crawledAt": "2026-10-09T09:41:56.455Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -4614,7 +4614,7 @@
       "url": "https://etavis.softgarden.io/job/66883765/Planificateur-%C3%A9lectricien?jobDbPVId=285375092&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:29:11.374Z",
+      "crawledAt": "2026-10-09T09:41:56.114Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue du Caudray 6",
@@ -4635,15 +4635,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-08-21T09:59:08.104Z",
+      "previousSlugs": [
+        "planificateur-electricien-etavis-renens"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "planificateur-electricien-etavis-renens"
         ]
       },
-      "previousSlugs": [
-        "planificateur-electricien-etavis-renens"
-      ],
+      "firstSeenAt": "2026-08-21T09:59:08.104Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4689,7 +4689,7 @@
       "url": "https://etavis.softgarden.io/job/62056279/ICT-Systemtechniker-IPTV-Multimedia-HF-Netzwerk-w-m-d-80-100-?jobDbPVId=285375107&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:11.094Z",
+      "crawledAt": "2026-10-09T09:41:55.769Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "-",
@@ -4710,15 +4710,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:35.498Z",
+      "previousSlugs": [
+        "ict-systemtechniker-iptv-multimedia-hf-netzwerk-w-m-d-80-100-etavis-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-systemtechniker-iptv-multimedia-hf-netzwerk-w-m-d-80-100-etavis-basel"
         ]
       },
-      "previousSlugs": [
-        "ict-systemtechniker-iptv-multimedia-hf-netzwerk-w-m-d-80-100-etavis-basel"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:35.498Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -4764,7 +4764,7 @@
       "url": "https://etavis.softgarden.io/job/60769212/ICT-Systemtechniker-Voice-UCC-w-m-d-80-100-?jobDbPVId=285375112&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:10.804Z",
+      "crawledAt": "2026-10-09T09:41:55.422Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4785,15 +4785,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:35.194Z",
+      "previousSlugs": [
+        "ict-systemtechniker-voice-ucc-w-m-d-80-100-etavis-wohlen-bei-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-systemtechniker-voice-ucc-w-m-d-80-100-etavis-wohlen-bei-bern"
         ]
       },
-      "previousSlugs": [
-        "ict-systemtechniker-voice-ucc-w-m-d-80-100-etavis-wohlen-bei-bern"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:35.194Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4839,7 +4839,7 @@
       "url": "https://etavis.softgarden.io/job/56776563/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=285375152&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:10.506Z",
+      "crawledAt": "2026-10-09T09:41:55.083Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -4893,18 +4893,18 @@
         "elektroinstallateur-w-m-d-80-100-etavis-wohlen-bei-bern"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-w-m-d-80-100-etavis-wohlen-bei-bern"
+        ],
         "en": [
           "elektroinstallateur-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
         ],
         "fr": [
           "elektroinstallateur-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
-        ],
-        "it": [
-          "elektroinstallateur-w-m-d-80-100-etavis-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:34.887Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:34.887Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4950,7 +4950,7 @@
       "url": "https://etavis.softgarden.io/job/67598172/Elektroinstallateur-EFZ-Infrastruktur-Projekte-w-m-d-80-100-?jobDbPVId=285547442&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:10.212Z",
+      "crawledAt": "2026-10-09T09:41:54.740Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Schaffhauserstrasse 611",
@@ -5027,7 +5027,7 @@
       "url": "https://etavis.softgarden.io/job/65476831/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=285811957&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:09.917Z",
+      "crawledAt": "2026-10-09T09:41:54.404Z",
       "addressLocality": "Widnau",
       "postalCode": "9443",
       "streetAddress": "Diepoldsauerstrasse 11",
@@ -5139,7 +5139,7 @@
       "url": "https://etavis.softgarden.io/job/65550956/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=285864757&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:09.626Z",
+      "crawledAt": "2026-10-09T09:41:54.058Z",
       "addressLocality": "Frick",
       "postalCode": "5070",
       "streetAddress": "Bahnhofplatz 1",
@@ -5179,14 +5179,14 @@
         "elektroinstallateur-w-m-d-80-100-etavis-frick"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-w-m-d-80-100-etavis-frick"
+        ],
         "en": [
           "electrical-installer-w-m-d-80-100-etavis-kriegel-schaffner-ag-frick"
         ],
         "fr": [
           "installateur-electrique-w-m-d-80-100-etavis-kriegel-schaffner-ag-frick"
-        ],
-        "it": [
-          "elektroinstallateur-w-m-d-80-100-etavis-frick"
         ]
       },
       "firstSeenAt": "2026-07-04T10:51:27.178Z",
@@ -5235,7 +5235,7 @@
       "url": "https://etavis.softgarden.io/job/63115909/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=286031607&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:09.344Z",
+      "crawledAt": "2026-10-09T09:41:53.712Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -5256,16 +5256,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:24.732Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-burgdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-burgdorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.732Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5311,7 +5311,7 @@
       "url": "https://etavis.softgarden.io/job/63115649/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=286031617&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:09.052Z",
+      "crawledAt": "2026-10-09T09:41:53.383Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -5332,16 +5332,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:24.426Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-ruegsau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-ruegsau"
         ]
       },
-      "previousSlugs": [
-        "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-ruegsau"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.426Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5387,7 +5387,7 @@
       "url": "https://etavis.softgarden.io/job/63115729/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=286031637&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:08.756Z",
+      "crawledAt": "2026-10-09T09:41:53.041Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -5408,16 +5408,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:24.118Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-burgdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-burgdorf"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.118Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5463,7 +5463,7 @@
       "url": "https://etavis.softgarden.io/job/63115294/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=286031642&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:08.459Z",
+      "crawledAt": "2026-10-09T09:41:52.706Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3417",
       "streetAddress": "Rüegsaustrasse 2",
@@ -5484,16 +5484,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Berufslehre",
-      "firstSeenAt": "2026-07-04T10:51:23.813Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-ruegsau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-ruegsau"
         ]
       },
-      "previousSlugs": [
-        "lernende-montage-elektriker-efz-w-m-d-2027-etavis-ruegsau"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:23.813Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5539,7 +5539,7 @@
       "url": "https://etavis.softgarden.io/job/63648764/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=286031657&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:08.163Z",
+      "crawledAt": "2026-10-09T09:41:52.369Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -5560,15 +5560,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:26.262Z",
+      "previousSlugs": [
+        "servicemonteur-w-m-d-80-100-etavis-biel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servicemonteur-w-m-d-80-100-etavis-biel"
         ]
       },
-      "previousSlugs": [
-        "servicemonteur-w-m-d-80-100-etavis-biel"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:26.262Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -5614,7 +5614,7 @@
       "url": "https://etavis.softgarden.io/job/62954924/Projektleiter-in-Elektroplanung-w-m-d-80%E2%80%93100-?jobDbPVId=286031682&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:07.684Z",
+      "crawledAt": "2026-10-09T09:41:52.033Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5691,7 +5691,7 @@
       "url": "https://etavis.softgarden.io/job/56292322/Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=286031692&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:07.393Z",
+      "crawledAt": "2026-10-09T09:41:51.693Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Wien-Strasse 2",
@@ -5776,9 +5776,9 @@
     },
     {
       "id": "etavis-868724ece206",
-      "slug": "responsabile-progetto-etavis-romandie-sa-fribourg",
+      "slug": "chef-de-projet-etavis-romandie-sa-fribourg",
       "slugByLocale": {
-        "it": "responsabile-progetto-etavis-romandie-sa-fribourg",
+        "it": "chef-de-projet-etavis-romandie-sa-fribourg",
         "en": "project-manager-etavis-romandie-sa-fribourg",
         "de": "projektleiter-etavis-romandie-sa-fribourg",
         "fr": "chef-de-projet-etavis-fribourg"
@@ -5805,7 +5805,7 @@
       "url": "https://etavis.softgarden.io/job/64303288/Chef-de-projet?jobDbPVId=286031697&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:29:07.099Z",
+      "crawledAt": "2026-10-09T09:41:51.356Z",
       "addressLocality": "Fribourg",
       "postalCode": "1700",
       "streetAddress": "-",
@@ -5861,14 +5861,14 @@
         "projektmanager-etavis-romandie-sa-fribourg",
         "responsabile-del-progetto-etavis-romandie-sa-fribourg",
         "chef-de-projet-etavis-fribourg",
-        "chef-de-projet-etavis-romandie-sa-fribourg"
+        "responsabile-progetto-etavis-romandie-sa-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-etavis-romandie-sa-fribourg",
           "responsabile-del-progetto-etavis-romandie-sa-fribourg",
           "chef-de-projet-etavis-fribourg",
-          "chef-de-projet-etavis-romandie-sa-fribourg"
+          "responsabile-progetto-etavis-romandie-sa-fribourg"
         ],
         "de": [
           "projektmanager-etavis-romandie-sa-fribourg"
@@ -5920,7 +5920,7 @@
       "url": "https://etavis.softgarden.io/job/64851897/KNX-Systemintegrator-w-m-d-80%E2%80%93100-?jobDbPVId=286260242&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:06.801Z",
+      "crawledAt": "2026-10-09T09:41:51.011Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Technoparkstrasse 1",
@@ -6038,7 +6038,7 @@
       "url": "https://etavis.softgarden.io/job/66391848/Projektleiter-Telematik-ICT-w-m-d-80-100-?jobDbPVId=286289007&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:06.275Z",
+      "crawledAt": "2026-10-09T09:41:50.654Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -6101,8 +6101,8 @@
           "projektleiter-telematik-ict-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-29T11:55:25.847Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:55:25.847Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -6148,7 +6148,7 @@
       "url": "https://etavis.softgarden.io/job/64998038/Elektroinstallateur-Service-und-Kleininstallationen-w-m-d-80%E2%80%93100-?jobDbPVId=286467737&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:05.797Z",
+      "crawledAt": "2026-10-09T09:41:50.062Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -6205,18 +6205,18 @@
         "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-etavis-wohlen-bei-bern"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-etavis-wohlen-bei-bern"
+        ],
         "en": [
           "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
         ],
         "fr": [
           "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
-        ],
-        "it": [
-          "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-etavis-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:23.504Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:23.504Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -6262,7 +6262,7 @@
       "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=286467749&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:05.508Z",
+      "crawledAt": "2026-10-09T09:41:49.727Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3033",
       "streetAddress": "Kappelenring 69",
@@ -6339,7 +6339,7 @@
       "url": "https://etavis.softgarden.io/job/67216705/Elektroinstallateur-w-m-d-mit-Erfahrung-im-Bereich-Photovoltaik-80%E2%80%93100-?jobDbPVId=286654337&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:04.944Z",
+      "crawledAt": "2026-10-09T09:41:49.386Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -6416,7 +6416,7 @@
       "url": "https://etavis.softgarden.io/job/65753281/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=286654357&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:29:04.647Z",
+      "crawledAt": "2026-10-09T09:41:49.045Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -6437,15 +6437,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "firstSeenAt": "2026-07-04T10:51:23.193Z",
+      "previousSlugs": [
+        "servicemonteur-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servicemonteur-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
         ]
       },
-      "previousSlugs": [
-        "servicemonteur-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
-      ],
+      "firstSeenAt": "2026-07-04T10:51:23.193Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
