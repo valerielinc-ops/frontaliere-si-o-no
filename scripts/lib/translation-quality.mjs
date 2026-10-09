@@ -23,6 +23,7 @@
 import { detectAiReasoningLeak, detectDegenerateRepetition } from './ai-output-fidelity.mjs';
 import { detectAiMetaResponse } from './ai-meta-response.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
+import { hasMojibake } from './repair-mojibake.mjs';
 
 // The deploy validator rejects locale titles shorter than three characters.
 // Keep this floor shared by every writer so a provider cannot persist a title
@@ -224,6 +225,10 @@ export function isAcceptableTranslation(source, translated) {
   if (typeof translated !== 'string') return false;
   const candidate = translated.trim();
   if (candidate.length < MIN_TRANSLATION_CHARS) return false;
+  // A provider result with double-encoded UTF-8 is not publishable content.
+  // Reject it here so the cascade can try another provider, and so an old
+  // cache hit is re-queued by translation-incomplete.mjs below.
+  if (hasMojibake(candidate)) return false;
   // A model answer carrying its reasoning or echoing the prompt is not a
   // translation, however long (see ai-output-fidelity.mjs). This predicate also
   // judges localize-job-v2 cache hits, so a stored leak is busted on read.

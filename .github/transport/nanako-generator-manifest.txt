@@ -86,6 +86,10 @@ scripts/lib/free-translate.mjs
 # carry its local closure as well so the transported generator can resolve the
 # top-level import before main().
 scripts/lib/translation-quality.mjs
+# Added 2026-10-09: translation-quality.mjs rejects malformed localized
+# candidates through the shared mojibake repair detector; carry its pure
+# helper so transported generators resolve the top-level import.
+scripts/lib/repair-mojibake.mjs
 scripts/lib/ai-output-fidelity.mjs
 # Added 2026-10-05: free-translate.mjs and translation-quality.mjs import the
 # model meta-response detector (refusals, requests for the input); it has no

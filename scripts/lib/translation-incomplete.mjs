@@ -21,6 +21,7 @@ import {
 } from './job-locale-utils.mjs';
 import { normalizeForLengthComparison } from './dedicated-crawler-common.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
+import { hasMojibake } from './repair-mojibake.mjs';
 import {
   detectDegenerateRepetition,
   repetitionProfile,
@@ -35,6 +36,13 @@ import {
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
 
+function containsMojibake(value) {
+  if (typeof value === 'string') return hasMojibake(value);
+  if (Array.isArray(value)) return value.some(containsMojibake);
+  if (value && typeof value === 'object') return Object.values(value).some(containsMojibake);
+  return false;
+}
+
 /**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
@@ -48,6 +56,12 @@ export function isIncomplete(job) {
   const sourceStructureDesc = hasStructuredContent(baseDesc)
     ? baseDesc
     : (dbl[srcLang] || baseDesc).trim();
+
+  // Requirements are rendered beside the description and may be arrays in
+  // crawler slices. A title/description-only check lets malformed bullets
+  // survive every completeness pass, so inspect the complete visible tree.
+  if (containsMojibake(job.requirements)
+    || containsMojibake(job.requirementsByLocale)) return true;
 
   // Source locale 85% guard: if the source locale copy has lost significant content
   // compared to the authoritative base, the job needs reprocessing.
@@ -76,6 +90,11 @@ export function isIncomplete(job) {
 
     // Missing or too short
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
+
+    // A visible locale slot with malformed UTF-8 must be regenerated even if
+    // it otherwise has plausible length, language and structure. This catches
+    // fossilized provider output that predates the publish-time repair.
+    if (hasMojibake(title) || hasMojibake(desc)) return true;
 
     // A slot holding a model's answer ABOUT the request instead of the text:
     // a refusal («Sorry, I can't help with that.»), a request for the input

@@ -65,6 +65,7 @@ import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublic
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
+import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
@@ -2739,6 +2740,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
 
+  // Repair recoverable malformed UTF-8 before the crawler slice is persisted.
+  // Ambiguous fragments stay in the source slice and receive
+  // needsRetranslation so the queue can inspect them; the assembly copy drops
+  // those unresolved values before publication.
+  const writeTimeMojibakeRepairs = hardened.jobs.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job),
+    0,
+  );
+  if (writeTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Encoding normalize: repaired ${writeTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+
   // ── Truncated "St" locality heal (issue #1158) ────────────────────────
   // A bare "St"/"St." addressLocality is a textContent artifact (e.g.
   // "St. Moritz" split on the period). It must never reach the committed
@@ -3709,7 +3722,18 @@ async function assembleJobs() {
   // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
   const cleaned = filterFixtureJobs(swissValidated, 'assemble-jobs-dataset');
 
-  return hardenJobsWithStructuredSalary(cleaned).jobs;
+  // Existing slices can predate the write-time funnel above. Normalize the
+  // assembled copy as well, so a deploy repairs already-published jobs before
+  // data/jobs.json and the SEO pages are generated.
+  const assembled = hardenJobsWithStructuredSalary(cleaned).jobs;
+  const assembleTimeMojibakeRepairs = assembled.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job, { dropUnrecoverable: true }),
+    0,
+  );
+  if (assembleTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Assembly encoding normalize: repaired ${assembleTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+  return assembled;
 }
 
 /**
