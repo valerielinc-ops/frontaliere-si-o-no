@@ -1,7 +1,7 @@
 {
   "key": "honegger",
   "label": "Honegger AG",
-  "generatedAt": "2026-10-08T22:10:40.486Z",
+  "generatedAt": "2026-10-09T09:13:42.148Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 17654,
-  "avgDurationMs": 17654,
+  "durationMs": 38690,
+  "avgDurationMs": 38690,
   "durationHistory": [
-    17654
+    38690
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:28.451Z",
+      "crawledAt": "2026-10-09T09:13:28.162Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -81,7 +81,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:23.211Z",
+      "crawledAt": "2026-10-09T09:13:24.297Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -125,7 +125,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:22.761Z",
+      "crawledAt": "2026-10-09T09:13:23.139Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -169,7 +169,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:22.238Z",
+      "crawledAt": "2026-10-09T09:13:21.911Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -213,7 +213,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:21.847Z",
+      "crawledAt": "2026-10-09T09:13:20.118Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -257,7 +257,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:17.398Z",
+      "crawledAt": "2026-10-09T09:13:06.373Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -301,7 +301,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-spezialreinigung-hoehenarbeiten-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:16.521Z",
+      "crawledAt": "2026-10-09T09:13:03.605Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -345,7 +345,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-aargau-und-zuerich-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:16.099Z",
+      "crawledAt": "2026-10-09T09:13:01.962Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -378,5 +378,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }
