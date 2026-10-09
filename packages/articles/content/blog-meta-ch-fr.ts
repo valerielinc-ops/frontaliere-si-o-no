@@ -7969,7 +7969,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Rue résidentielle suisse au crépuscule avec porte fermée et silhouette d\'un passant, symbole des vols',
     'blog.article.luganistan-clan-ceresio.title': 'Luganistan, l’arrière-cour d’une kleptocratie',
     'blog.article.luganistan-clan-ceresio.excerpt': 'Le quatrième épisode sur le commerce des matières premières raconte l’arrivée du clan Nazarbayev sur les rives du Ceresio, entre pétrole, villas et étranges permis de séjour.',
-    'blog.article.luganistan-clan-ceresio.imageAlt': 'Le Ceresio et les villas au bord du lac au cœur de l\'affaire Luganistan',
+    'blog.article.luganistan-clan-ceresio.imageAlt': 'Illustration générée pour cet article',
     'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Confiance des consommateurs suisses : baisse en septembre',
     'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'En septembre, la confiance baisse à -35,8 points.',
     'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Climat de confiance des consommateurs suisses et indicateurs',

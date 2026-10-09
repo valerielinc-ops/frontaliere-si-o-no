@@ -100466,10 +100466,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-clan-nazarbayev-ceresio.webp`,
+        "url": `${BASE_URL}/images/blog/article-luganistan-clan-ceresio.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Il Ceresio e le ville sul lago al centro del caso Luganistan"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T06:48:32+00:00",
       "dateModified": "2026-10-09T06:48:32+00:00",

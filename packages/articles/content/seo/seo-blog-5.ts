@@ -103982,10 +103982,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-operazione-trotta-ebike-monopattini.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Controllo della Polizia cantonale su e-bike e monopattini elettrici in Ticino durante l'operazione TROTTA"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T07:39:46+00:00",
       "dateModified": "2026-10-09T07:39:46+00:00",
@@ -104099,10 +104099,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-a9-chiusure-notturne-sion-sierre.webp`,
+        "url": `${BASE_URL}/images/blog/article-a8-manutenzione-cavalcavia-ottobre-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Cantieri notturni sul cavalcavia dell'A8 tra Castronno e Solbiate Arno"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T09:14:11+00:00",
       "dateModified": "2026-10-09T09:14:11+00:00",
