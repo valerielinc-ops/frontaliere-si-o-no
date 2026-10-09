@@ -100803,6 +100803,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cibersicurezza-svizzera-record-segnalazioni': {
+    title: 'Cibersicurezza: 1.587 segnalazioni in una settimana',
+    description: '1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall\'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, cibersicurezza, segnalazioni, settimana, volontarie',
+    ogTitle: 'Allarme cibersicurezza: 1.587 segnalazioni in una settimana',
+    ogDescription: '1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall\'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche',
+    canonicalPath: '/articoli-svizzera/cibersicurezza-svizzera-record-segnalazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cibersicurezza: 1.587 segnalazioni in una settimana",
+      "description": "1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un ufficio moderno in Svizzera che rappresenta la sicurezza informatica aziendale."
+      },
+      "datePublished": "2026-10-09T16:39:09+00:00",
+      "dateModified": "2026-10-09T16:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cibersicurezza-svizzera-record-segnalazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Oct 2026 15:39:39 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 16:39:09 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cybersecurity: 1.587 reports in one week</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/cybersecurity-switzerland-record-reports/</link>
+      <description><![CDATA[1.587 voluntary reports in one week New high at least since the beginning of 2025 41% of Deloitte companies suffered an attack 280 notifications]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- 1.587 voluntary reports in one week
+- New high since at least the beginning of 2025
+- 41% of companies surveyed by Deloitte have suffered an attack
+- 280 notifications involving critical infrastructure from January to August
+
+## Key facts
+- Authority → Federal Office for Cybersecurity (UFCS)
+- Record reports → 1.587 in one week
+- Previous record → 1.353, one month earlier
+- Notification obligation → in force since April 2025
+- Deloitte study → 281 board members; 41% of companies affected
+
+In the past week, the Federal Office for Cybersecurity (UFCS) recorded 1.587 voluntary reports, the highest weekly figure at least since the beginning of 2025. This figure exceeds the previous record, which stood at 1.353 reports and had been reached just one month earlier, by more than 17%.
+
+The figure comes in a Swiss context marked by attacks targeting the online platform Ricardo, the federal pension fund Publica, and the aerospace company Beyond Gravity. Distinct from one another, these incidents have brought the cybersecurity of companies and institutions back into the spotlight.
+
+### The record does not equate to damage
+
+The majority of reports received by the UFCS concern phishing attempts, scams and unsolicited messages. For this reason, the record cannot be read as a count of successful attacks: not all reports correspond to successful cyberattacks or incidents that caused damage.
+
+Between January and August, the UFCS recorded 280 reports of cyber incidents in critical infrastructures subject to the notification obligation. In the April–August period, there were 173 reports, compared with the 104 recorded in the same period of the previous year. The notification obligation has been in force since April 2025.
+
+An additional indicator is provided by a Deloitte study released in mid-September, based on interviews with 281 members of the boards of directors of small, medium-sized and large companies. The survey found that 41% of the companies involved had already suffered a cyberattack: compared with three years ago, the share has increased by 13 percentage points. Anyone consulting aziende che assumono will therefore find different information: here, cyber exposure is measured, not seat availability.
+
+Raphael Hauser, Abraxas's head of cybersecurity, argues that cybercriminals are increasingly combining vulnerabilities in widely used software, stolen login credentials and techniques for manipulating employees. The expert discussed this at the beginning of October in an interview with the specialized portal Swisscybersecurity.net. Experts also warn that artificial intelligence could further facilitate attacks.
+## How to read the data
+
+The first useful data point for anyone working at a Swiss company is the distinction between an alert and a successful attack. A phishing message or a scam can generate a report even when it causes no damage. The increase in reports therefore describes the events that came to the authority's attention; on its own, it does not make it possible to calculate how many systems were compromised. This distinction prevents a statistical peak from automatically becoming a measure of losses.
+
+### Three indicators, three interpretations
+
+| Indicator | Correct interpretation | Limitation of the data |
+| Voluntary reports | Include phishing, scams and unwanted messages | Are not equivalent to successful attacks |
+| Critical infrastructure | Concern incidents subject to mandatory notification | Do not represent every threat to companies |
+| Deloitte survey | Covers companies that report having suffered an attack | Does not quantify the economic damage |
+
+The second point concerns critical infrastructure. The series of incidents subject to notification and that of voluntary reports should not be added together automatically to obtain a total number of attacks in Switzerland: they describe different categories. For a board of directors, this distinction is crucial when comparing internal alerts with public data.
+
+The same caution is needed for the Deloitte survey. The percentage recorded measures the experience reported by the companies involved, not the weekly number of reports received by the UFCS. The sample includes members of the boards of directors of small, medium-sized and large companies; the result describes a proportion of exposed companies, not the flow of incidents reported to the authority.
+
+Raphael Hauser's analysis adds an operational element: vulnerabilities in widely used software, stolen credentials and the manipulation of employees can be exploited together. In a generic scenario, the visible message may be just one step in a broader chain. This does not make it possible to automatically attribute all vectors to a single case.
+
+Finally, artificial intelligence introduces a forward-looking warning. Experts indicate that it could make attacks easier to carry out. For those consulting annunci di lavoro, the topic therefore remains distinct from employment: here, the cyber exposure of companies is measured.
+
+## Recommended tools
+For an updated estimate, use the net salary calculator and the CHF-EUR exchange comparator.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
+## From reading to action
+
+The source information enables a cautious operational sequence, without conflating different categories. The starting point is not the absolute number of reports, but the nature of the signal and the technical or human vector described by the experts.
+
+### Four steps for a company
+
+1. Classify the event. Separate phishing, scams and unwanted messages from a successful cyberattack. The distinction prevents every alert from being considered already confirmed damage.
+
+2. Examine the combination. Review the three elements identified by Raphael Hauser: vulnerabilities in widely used software, stolen access credentials and employee manipulation. They are described as tools used with increasing frequency and combined with one another. The review must therefore remain broad, without attributing an unproven vector to a single incident.
+
+3. Establish the reporting regime. If the activity falls within critical infrastructure, keep incidents subject to the notification requirement separate from voluntary reports received by the UFCS. The relevant point in time to consider is April 2025, when the requirement came into force.
+
+4. Consider artificial intelligence. The experts warn that it can make attacks easier to carry out. It should therefore be treated as a factor to monitor, not as proof that an attack has already occurred.
+
+For management, the Deloitte survey can serve as an external benchmark for companies' exposure. However, it does not replace an examination of the individual case: a percentage reported by members of boards of directors and a report received by the UFCS belong to different levels. Internal records should keep at least the type of message, the presence of a successful attack and any connection to critical infrastructure separate. This framework follows the distinctions provided by the source without adding a technical procedure not described there.
+
+The timeline also needs to be read correctly. The record for one week, the series of incidents subject to notification and the survey published in mid-September have different observation periods. Comparing them as though they were the same indicator would lead to an incorrect conclusion.
+
+To complete the picture of Swiss work, use calcolatore stipendio.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1955847/informatici-segnalazioni-criminali-numero-record)*]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 16:39:09 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/cibersicurezza-svizzera-record-segnalazioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Ricardo: data of 890&apos;000 accounts exposed</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/ricardo-exposed-accounts/</link>
@@ -3858,84 +3939,6 @@ To complete the comparison of personal expenses, use the calcolatore stipendio.
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/auto-elettrica-come-risparmiare-fino-al-50</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-auto-elettrica-come-risparmiare-fino-al-50.webp" medium="image"/>
-    </item>
-    <item>
-      <title>November 29 vote: VAT, OASI and four proposals</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/four-ballot-items-november/</link>
-      <description><![CDATA[On November 29, voters will vote on four proposals: an increase in VAT for the 13th AHV pension, two popular initiatives, and an amendment to the law on war materiel.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- On November 29, four items will be put to a vote
-- The increase in VAT for the 13th AHV pension is on the agenda
-- Two initiatives concern fireworks and spouses
-- The law on war materiel is also put to a vote
-
-## Key facts
-- Date → November 29
-- Items → four
-- AVS → VAT increase for the 13th pension
-- Initiative → «For a limitation on fireworks»
-- Initiative → «Yes to fair federal taxes for spouses too»
-- Law → amendment to the Federal Act on War Material
-- Survey → Tamedia
-- Participation → a few minutes and a few clicks
-
-BERN – On November 29, voters will return to the polls to vote on four new ballot measures. The ballot includes an issue linking the VAT increase to the 13th AVS pension, two popular initiatives, and a legislative amendment.
-
-The first item is described as the VAT increase for the 13th AVS pension. The report does not give the amount of the increase or any other economic parameters: the available information is the explicit link between VAT and the 13th pension.
-
-The two popular initiatives follow. Their titles distinguish the topics: «For a limitation on fireworks» on the one hand and «Yes to fair federal taxes for spouses too» on the other. These are the wordings used in the presentation of the questions; the text adds no details about the effects or the positions for and against.
-
-The fourth item concerns an amendment to the Federal Act on War Material. Here too, the report does not describe which articles of the law would be amended or what the concrete effect would be. It does, however, clearly state that the issue will be part of the same electoral event.
-
-### Four topics on the same ballot
-The overview presents voters with four separate choices: one on VAT linked to the 13th AVS pension, one on limiting fireworks, one on federal taxes for spouses, and one on the Federal Act on War Material. Two items are explicitly described as popular initiatives; the others concern the VAT increase for the AVS pension and an amendment to a federal law. The report does not attribute positions to parties, authorities or committees and does not anticipate the outcome. It does not give percentages, recommendations or results of previous consultations.
-
-Alongside the report on the vote, readers are directly invited to say whether they already have an opinion and whether they know how they will vote by taking part in the new Tamedia survey. The initiative is described as quick: just a few minutes and a few clicks are enough. The survey is the action proposed by the report to gather the public's intentions on the four topics.
-## How to read the four items
-The ballot covers four different formulations. To find one's bearings, the most prudent approach is to separate the subject of each question and not attribute to a title details that the news item does not provide. The words used already indicate four directions: increase, limitation, taxes and amendment. The reference to spouses also appears in the title of the second initiative.
-
-| Item | Indicated theme | Indicated type |
-|---|---|---|
-| Increase in VAT for the 13th AHV pension | VAT and AHV | Item being voted on |
-| «For a limitation of fireworks» | Fireworks | Popular initiative |
-| «Yes to fair federal taxes for spouses too» | Federal taxes and spouses | Popular initiative |
-| Amendment to the Federal Act on war materiel | War materiel | Amendment to a law |
-
-This grid helps avoid overlapping the topics. The first item should be read as a specific proposal on VAT linked to the 13th AHV pension, not as a general description of the whole AHV. The initiative on fireworks remains a question about the limitation indicated in the title. The one on federal taxes highlights spouses. The law on war materiel is presented as an amendment to a federal law.
-
-For the part linked to the AHV, guide AVS e rendita can offer a separate in-depth look, without turning the title of the question into a promise about the outcome. For the tax topic, dichiarazione delle imposte can be used as a site tool, but the news item does not say that the vote will directly change the individual tax return.
-
-### Where the text stops
-The informational limit is clear: the text does not say what the amount of the VAT increase would be, does not quantify the effect on the 13th AHV pension, does not specify what type of limitation of fireworks is being proposed, and does not explain the tax measure intended for spouses. Nor does it explain the content of the amendment to the law on war materiel. These details cannot be derived from the list of items alone.
-
-The practical takeaway for anyone who needs to find their bearings is therefore the scope of the choice: four items, four titles and a common date. The news item makes it possible to know on which topics to express an opinion, not to calculate amounts or individual effects. Adding numbers or consequences that are not present would change the news item rather than rewrite it.
-
-## Useful planning tools
-To estimate your pension strategy, use the pension planner and the pillar 3 simulator.
-
-## Useful planning tools
-To estimate your pension strategy, use the pension planner and the pillar 3 simulator.
-## How to take part in the survey
-The source indicates a specific action: respond to the new Tamedia survey. To do so, one can follow a short path, based only on the available information.
-
-### Four steps
-1. Mark November 29 as the voting date.
-2. Recognize the four items separately: VAT and the 13th AVS pension; restriction of fireworks; federal taxes for spouses; Federal Act on war materiel.
-3. Ask yourself whether you already have an opinion on the issues and whether you know how you will vote: these are the two questions posed to readers.
-4. Take part in the Tamedia survey: the source indicates that a few minutes and a few clicks are enough.
-
-The process keeps voting and the collection of opinions separate: the news presents the items, while the invitation asks the reader to say whether they already have a position and whether they know how they will vote. No documents, alternative channels, or longer procedure for the survey are indicated. Therefore, it is not possible to add instructions on forms, times, or deadlines other than the date November 29.
-
-Those who have not yet decided can at least use the four titles as a starting point and address one issue at a time. The sequence follows the order of the news: first VAT and the 13th AVS pension, then the two popular initiatives, and finally the law on war materiel. This is not a voting recommendation, but a way not to miss one of the four indicated items.
-
-The time indicated remains limited: a few minutes and a few clicks. The text does not communicate the survey results, so the requested action is simply to take part and indicate your opinion on the issues listed. To organize your everyday tax situation, use the calcolatore stipendio e imposte.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1955186/sondaggio-voterai-sai-novembre-avs)*]]></content:encoded>
-      <pubDate>Wed, 07 Oct 2026 06:42:41 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/quattro-oggetti-urne-novembre</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-quattro-oggetti-urne-novembre.webp" medium="image"/>
     </item>
   </channel>
 </rss>

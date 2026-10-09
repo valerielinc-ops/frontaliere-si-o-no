@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5147
+      "6": 5148
     },
-    "publishedCovers": 6859,
+    "publishedCovers": 6860,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182140,6 +182140,33 @@
           "id": "carne-vino-dogana-mendrisiotto",
           "category": "pratico",
           "date": "2026-10-09T14:17:30.025Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-cibersicurezza-svizzera-record-segnalazioni": {
+      "cover": "/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp",
+      "hash": "786613f9ba2b578f49a252c59752255a0356be527f8da3f4d2161b598a974300",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "cibersicurezza-svizzera-record-segnalazioni",
+          "category": "novita",
+          "date": "2026-10-09T16:39:09.830Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

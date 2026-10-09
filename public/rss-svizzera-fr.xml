@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 09 Oct 2026 15:39:39 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 16:39:09 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,84 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cybersécurité : 1.587 signalements en une semaine</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/cybersecurite-suisse-record-signalements/</link>
+      <description><![CDATA[1.587 signalements volontaires en une semaine Nouveau maximum au moins depuis le début de 2025 41% des entreprises Deloitte ont subi une attaque 280 notifications]]></description>
+      <content:encoded><![CDATA[## En bref
+- 1.587 signalements volontaires en une semaine
+- Nouveau maximum au moins depuis le début de 2025
+- 41% des entreprises Deloitte ont subi une attaque
+- 280 notifications aux infrastructures critiques de janvier à août
+
+## Faits clés
+- Autorité → Office fédéral de la cybersécurité (OFCS)
+- Record de signalements → 1.587 en une semaine
+- Record précédent → 1.353, un mois plus tôt
+- Obligation de notification → en vigueur depuis avril 2025
+- Étude de Deloitte → 281 membres de conseils d'administration ; 41% des entreprises touchées
+
+Au cours de la semaine écoulée, l'Office fédéral de la cybersécurité (OFCS) a enregistré 1.587 signalements volontaires, soit la valeur hebdomadaire la plus élevée au moins depuis le début de 2025. Ce chiffre dépasse de plus de 17% le record précédent, qui s'élevait à 1.353 signalements et avait été atteint à peine un mois plus tôt.
+
+Ce chiffre s'inscrit dans un contexte suisse marqué par des attaques visant la plateforme en ligne Ricardo, la caisse de pensions fédérale Publica et l'entreprise aérospatiale Beyond Gravity. Distincts les uns des autres, ces incidents ont remis au premier plan la cybersécurité des entreprises et des institutions.
+
+### Le record ne correspond pas aux dommages
+
+La majorité des signalements reçus par l'OFCS concerne des tentatives d'hameçonnage, des escroqueries et des messages indésirables. C'est pourquoi le record ne peut pas être interprété comme un décompte des attaques réussies : tous les signalements ne correspondent pas à des cyberattaques réussies ou à des incidents ayant causé des dommages.
+
+Entre janvier et août, l'OFCS a enregistré 280 signalements d'incidents informatiques dans des infrastructures critiques soumises à l'obligation de notification. Sur la période avril-août, les signalements ont été au nombre de 173, contre 104 durant le même intervalle de l'année précédente. L'obligation de notification est en vigueur depuis avril 2025.
+
+Un autre indicateur est fourni par une étude de Deloitte publiée à la mi-septembre, fondée sur des entretiens avec 281 membres de conseils d'administration de petites, moyennes et grandes entreprises. L'enquête montre que 41% des entreprises concernées ont déjà subi une cyberattaque : par rapport à la situation d'il y a trois ans, la proportion a augmenté de 13 points de pourcentage. Quiconque consulte le aziende che assumono trouvera donc une information différente : ici, on mesure l'exposition informatique, et non la disponibilité de places.
+
+Raphael Hauser, responsable de la cybersécurité chez Abraxas, estime que les cybercriminels combinent de plus en plus souvent des failles dans les logiciels les plus répandus, des identifiants d'accès volés et des techniques visant à manipuler les employés. L'expert en a parlé début octobre dans une interview accordée au portail spécialisé Swisscybersecurity.net. Les experts avertissent en outre que l'intelligence artificielle pourrait faciliter encore davantage les attaques.
+## Comment lire les données
+
+La première donnée utile pour quiconque travaille dans une entreprise suisse est la distinction entre alerte et attaque réussie. Un message de phishing ou une arnaque peut produire un signalement même lorsqu'il ne cause pas de dommages. L'augmentation des signalements décrit donc les événements portés à l'attention de l'autorité ; à elle seule, elle ne permet pas de calculer combien de systèmes ont été compromis. Cette distinction évite de transformer un maximum statistique en mesure automatique des pertes.
+
+### Trois indicateurs, trois lectures
+
+| Indicateur | Lecture correcte | Limite de la donnée |
+| Signalements volontaires | Ils comprennent le phishing, les arnaques et les messages indésirables | Ils ne correspondent pas à des attaques réussies |
+| Infrastructures critiques | Ils concernent des incidents soumis à l'obligation de notification | Ils ne représentent pas toutes les menaces qui pèsent sur les entreprises |
+| Enquête Deloitte | Elle recueille des entreprises qui déclarent avoir subi une attaque | Elle ne quantifie pas le préjudice économique |
+
+Le deuxième point concerne les infrastructures critiques. La série des incidents soumis à notification et celle des signalements volontaires ne doivent pas être additionnées automatiquement pour obtenir un total des attaques en Suisse : elles décrivent des catégories différentes. Pour un conseil d'administration, cette distinction est décisive lorsqu'il compare les alertes internes aux données publiques.
+
+La même prudence s'impose pour l'enquête Deloitte. Le pourcentage relevé mesure l'expérience déclarée par les entreprises concernées, et non le nombre hebdomadaire de signalements reçus par l'UFCS. L'échantillon comprend des membres de conseils d'administration de petites, moyennes et grandes entreprises ; le résultat décrit une proportion d'entreprises exposées, et non le flux des incidents notifiés à l'autorité.
+
+L'analyse de Raphael Hauser ajoute un élément opérationnel : les vulnérabilités dans les logiciels les plus répandus, les identifiants volés et la manipulation des employés peuvent être exploités conjointement. Dans un scénario générique, le message visible peut n'être qu'une étape d'une chaîne plus vaste. Cela ne permet pas d'attribuer automatiquement tous les vecteurs à un cas unique.
+
+L'intelligence artificielle introduit enfin une mise en garde prospective. Les experts indiquent qu'elle pourrait rendre les attaques plus faciles à réaliser. Pour ceux qui consultent les annunci di lavoro, le sujet reste donc distinct de l'emploi : ici, c'est l'exposition informatique des entreprises qui est mesurée.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le change CHF-EUR et les banques pour frontaliers.
+## Passer de la lecture à l’action
+
+Les informations de la source permettent une séquence opérationnelle prudente, sans confondre différentes catégories. Le point de départ n’est pas le nombre absolu de signalements, mais la nature du signal et le vecteur technique ou humain décrit par les experts.
+
+### Quatre étapes pour une entreprise
+
+1. Classifier l’événement. Distinguer l’hameçonnage, l’escroquerie et le message indésirable d’une cyberattaque réussie. Cette distinction empêche de considérer chaque alerte comme un dommage déjà avéré.
+
+2. Examiner la combinaison. Passer en revue les trois éléments indiqués par Raphael Hauser : les vulnérabilités des logiciels les plus répandus, les identifiants d’accès volés et la manipulation des employés. Ils sont décrits comme des outils utilisés avec une fréquence croissante et combinés entre eux. Le contrôle doit donc rester large, sans attribuer à un épisode donné un vecteur qui n’a pas été démontré.
+
+3. Déterminer le régime du signalement. Si l’activité relève des infrastructures critiques, garder séparés les incidents soumis à l’obligation de notification et les signalements volontaires reçus par l’UFCS. La référence temporelle à retenir est avril 2025, lorsque l’obligation est entrée en vigueur.
+
+4. Prendre en compte l’intelligence artificielle. Les experts avertissent qu’elle peut rendre les attaques plus faciles à réaliser. Il faut donc la traiter comme un facteur à surveiller, et non comme la preuve qu’une attaque s’est déjà produite.
+
+Pour la direction, l’enquête de Deloitte peut servir de point de comparaison externe quant à l’exposition des entreprises. Elle ne remplace toutefois pas l’examen de chaque cas : un pourcentage rapporté par des membres de conseils d’administration et un signalement reçu par l’UFCS relèvent de niveaux différents. L’enregistrement interne devrait conserver séparés au moins le type de message, la présence d’une attaque réussie et l’éventuelle appartenance aux infrastructures critiques. Cette grille suit les distinctions fournies par la source sans ajouter de procédure technique non décrite.
+
+Le calendrier doit lui aussi être lu correctement. Le record d’une semaine, la série des incidents soumis à notification et l’enquête publiée à la mi-septembre ont des périodes d’observation différentes. Les comparer comme s’il s’agissait du même indicateur conduirait à une conclusion erronée.
+
+Pour compléter le tableau du travail suisse, utilise le calcolatore stipendio.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1955847/informatici-segnalazioni-criminali-numero-record)*]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 16:39:09 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/cibersicurezza-svizzera-record-segnalazioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Ricardo : données de 890&apos;000 comptes exposées</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/ricardo-comptes-exposes/</link>
@@ -3898,86 +3976,6 @@ Pour un calcul précis du salaire net, utilisez notre comparateur fiscal : compa
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/auto-elettrica-come-risparmiare-fino-al-50</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-auto-elettrica-come-risparmiare-fino-al-50.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Votation du 29 novembre : TVA, AVS et quatre objets</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/quatre-objets-vote-novembre/</link>
-      <description><![CDATA[Le 29 novembre, les citoyens voteront sur quatre objets : augmentation de la TVA pour la 13e rente AVS, deux initiatives populaires et modification de la loi sur le matériel de guerre.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Le 29 novembre, on vote sur quatre objets
-- À l'ordre du jour, l'augmentation de la TVA pour la 13e rente AVS
-- Deux initiatives concernent les feux d'artifice et les conjoints
-- On vote également sur la loi sur le matériel de guerre
-
-## Faits clés
-- Date → 29 novembre
-- Objets → quatre
-- AVS → hausse de la TVA pour la 13e rente
-- Initiative → « Pour une limitation des feux d'artifice »
-- Initiative → « Oui à des impôts fédéraux équitables aussi pour les couples mariés »
-- Loi → modification de la loi fédérale sur le matériel de guerre
-- Sondage → Tamedia
-- Participation → quelques minutes et quelques clics
-
-BERNE - Le 29 novembre prochain, les électeurs retourneront aux urnes pour se prononcer sur quatre nouveaux objets soumis au vote. Ce rendez-vous comprend un thème qui lie la hausse de la TVA à la 13e rente AVS, deux initiatives populaires et une modification législative.
-
-Le premier point est présenté comme la hausse de la TVA pour la 13e rente AVS. L'article ne précise ni le montant de la hausse ni d'autres paramètres économiques : l'information disponible est le lien explicite entre la TVA et la treizième rente.
-
-Viennent ensuite les deux initiatives populaires. Les titres distinguent les thèmes : « Pour une limitation des feux d'artifice » d'une part et « Oui à des impôts fédéraux équitables aussi pour les couples mariés » d'autre part. Ce sont les formulations reprises dans la présentation des questions ; le texte n'ajoute aucun détail sur les effets ou sur les positions favorables et défavorables.
-
-Le quatrième objet concerne la modification de la loi fédérale sur le matériel de guerre. Là encore, l'article ne décrit pas quels articles de la loi seraient modifiés ni quel serait l'effet concret. Il indique toutefois clairement que la question fera partie du même rendez-vous électoral.
-
-### Quatre thèmes au même rendez-vous
-L'ensemble présente aux votants quatre choix distincts : un sur la TVA liée à la 13e rente AVS, un sur la limitation des feux d'artifice, un sur les impôts fédéraux pour les couples mariés et un sur la loi fédérale sur le matériel de guerre. Deux points sont explicitement définis comme des initiatives populaires ; les autres concernent la hausse de la TVA pour la rente AVS et la modification d'une loi fédérale. L'article n'attribue de positions à aucun parti, aucune autorité ou aucun comité et ne préjuge pas de l'issue. Il n'indique ni pourcentages, ni recommandations, ni résultats de consultations précédentes.
-
-À côté de l'article sur le vote figure une invitation directe aux lecteurs : dire s'ils ont déjà une opinion et s'ils savent comment ils voteront, en participant au nouveau sondage Tamedia. L'initiative est décrite comme rapide : quelques minutes et quelques clics suffisent. Le sondage est l'action proposée par l'article pour recueillir les intentions du public sur les quatre thèmes.
-## Comment lire les quatre objets
-La consultation réunit quatre formulations différentes. Pour s’y retrouver, le critère le plus prudent consiste à séparer le sujet de chaque question et à ne pas attribuer à un titre des détails que la nouvelle ne fournit pas. Les mots utilisés indiquent déjà quatre directions : augmentation, limitation, impôts et modification. La référence aux conjoints figure en outre dans le titre de la deuxième initiative.
-
-| Objet | Thème indiqué | Type indiqué |
-|---|---|---|
-| Augmentation de la TVA pour la 13e rente AVS | TVA et AVS | Objet soumis au vote |
-| « Pour une limitation des feux d’artifice » | Feux d’artifice | Initiative populaire |
-| « Oui à des impôts fédéraux équitables aussi pour les conjoints » | Impôts fédéraux et conjoints | Initiative populaire |
-| Modification de la loi fédérale sur le matériel de guerre | Matériel de guerre | Modification de loi |
-
-Cette grille aide à ne pas superposer les thèmes. Le premier objet doit être compris comme une proposition spécifique sur la TVA liée à la 13e rente AVS, et non comme une description générale de l’ensemble de l’AVS. L’initiative sur les feux d’artifice reste une question portant sur la limitation indiquée dans le titre. Celle sur les impôts fédéraux met les conjoints en évidence. La loi sur le matériel de guerre est présentée comme une modification d’une loi fédérale.
-
-Pour la partie liée à l’AVS, le guide AVS e rendita peut offrir un approfondissement séparé, sans transformer le titre de la question en promesse quant au résultat. Pour le thème fiscal, on peut utiliser dichiarazione delle imposte comme outil du site, mais la nouvelle ne dit pas que la votation modifiera directement la déclaration individuelle.
-
-### Où le texte s’arrête
-La limite de l’information est claire : le texte ne dit pas quel serait le montant de l’augmentation de la TVA, ne quantifie pas l’effet sur la 13e rente AVS, ne précise pas quel type de limitation des feux d’artifice est proposé et n’expose pas la mesure fiscale envisagée pour les conjoints. Il n’explique pas non plus le contenu de la modification de la loi sur le matériel de guerre. Ces détails ne peuvent pas être déduits de la seule liste des objets.
-
-La donnée pratique pour qui doit s’y retrouver est donc le périmètre du choix : quatre objets, quatre titres et une date commune. La nouvelle permet de savoir sur quels thèmes s’exprimer, mais pas de calculer des montants ou des effets individuels. Ajouter des chiffres ou des conséquences absents modifierait la nouvelle au lieu de la réécrire.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
-## Comment participer au sondage
-La source indique une action précise : répondre au nouveau sondage Tamedia. Pour ce faire, il est possible de suivre une démarche courte, fondée uniquement sur les informations disponibles.
-
-### Quatre étapes
-1. Note le 29 novembre comme date du scrutin.
-2. Examine séparément les quatre objets : TVA et 13e rente AVS ; limitation des feux d'artifice ; impôts fédéraux pour les couples mariés ; loi fédérale sur le matériel de guerre.
-3. Demande-toi si tu as déjà une opinion sur les thèmes et si tu sais comment tu voteras : ce sont les deux questions proposées aux lecteurs.
-4. Participe au sondage Tamedia : la source indique que quelques minutes et quelques clics suffisent.
-
-La démarche distingue le vote de la collecte d'opinions : l'article présente les objets, tandis que l'invitation demande au lecteur de dire s'il a déjà une position et s'il sait comment il votera. Aucun document, canal alternatif ou procédure plus longue pour le sondage n'est indiqué. Il n'est donc pas possible d'ajouter des instructions concernant des formulaires, des horaires ou des échéances autres que la date du 29 novembre.
-
-Ceux qui n'ont pas encore décidé peuvent au moins utiliser les quatre titres comme point de départ et aborder un thème à la fois. La séquence suit l'ordre de l'article : d'abord la TVA et la 13e rente AVS, puis les deux initiatives populaires, enfin la loi sur le matériel de guerre. Il ne s'agit pas d'une recommandation de vote, mais d'une manière de ne perdre aucun des quatre objets indiqués.
-
-Le temps indiqué reste limité : quelques minutes et quelques clics. Le texte ne communique pas le résultat du sondage ; l'action demandée consiste donc simplement à participer et à indiquer son opinion sur les thèmes énumérés. Pour organiser son cadre fiscal quotidien, utilise le calcolatore stipendio e imposte.
-
-Pour un calcul précis du salaire net, utilisez notre comparateur fiscal : comparez permis G et permis B avec toutes les déductions 2026.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1955186/sondaggio-voterai-sai-novembre-avs)*]]></content:encoded>
-      <pubDate>Wed, 07 Oct 2026 06:42:41 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/quattro-oggetti-urne-novembre</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-quattro-oggetti-urne-novembre.webp" medium="image"/>
     </item>
   </channel>
 </rss>

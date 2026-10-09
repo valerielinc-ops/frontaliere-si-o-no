@@ -7994,6 +7994,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricardo-account-esposti.title': 'Ricardo : données de 890\'000 comptes exposées',
     'blog.article.ricardo-account-esposti.excerpt': 'Une faille a exposé environ 890\'000 comptes Ricardo Noms, adresses postales et numéros de téléphone publics Les e-mails et les mots de passe n\'ont pas été compromis IFPDT',
     'blog.article.ricardo-account-esposti.imageAlt': 'Ordinateur portable affichant une alerte de sécurité pour un compte de marketplace en Suisse',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.title': 'Cybersécurité : 1.587 signalements en une semaine',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.excerpt': '1.587 signalements volontaires en une semaine Nouveau maximum au moins depuis le début de 2025 41% des entreprises Deloitte ont subi une attaque 280 notifications',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Façade d\'un bureau moderne en Suisse symbolisant la cybersécurité des entreprises.',
 };
 
 export default blogMetaChFr;

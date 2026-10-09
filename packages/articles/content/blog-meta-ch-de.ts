@@ -7994,6 +7994,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ricardo-account-esposti.title': 'Ricardo: Daten von 890\'000 Konten offengelegt',
     'blog.article.ricardo-account-esposti.excerpt': 'Eine Sicherheitslücke hat etwa 890\'000 Konten offengelegt Namen, Postanschriften und Telefonnummern öffentlich E-Mail-Adressen und Passwörter wurden nicht kompromittiert IFPDT',
     'blog.article.ricardo-account-esposti.imageAlt': 'Laptop mit Sicherheitswarnung für ein Online-Marktplatzkonto in der Schweiz',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.title': 'Cybersicherheit: 1.587 Meldungen in einer Woche',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.excerpt': '1.587 freiwillige Meldungen in einer Woche Neuer Höchststand mindestens seit Anfang 2025 41% der Deloitte-Unternehmen waren von einem Angriff betroffen 280 Benachrichtigungen',
+    'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Moderne Bürofassade in der Schweiz, die die Cybersicherheit von Unternehmen symbolisiert.',
 };
 
 export default blogMetaChDe;

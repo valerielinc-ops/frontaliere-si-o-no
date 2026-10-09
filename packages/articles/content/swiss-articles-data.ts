@@ -26687,6 +26687,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cibersicurezza-svizzera-record-segnalazioni',
+    category: 'novita',
+    date: '2026-10-09T16:39:09.830Z',
+    image: '/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
