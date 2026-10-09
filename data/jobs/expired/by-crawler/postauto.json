@@ -80,8 +80,7 @@
       "carpostal-driver-carpostal-yverdon-les-bains",
       "carpostal-fahrer-carpostal-yverdon-les-bains",
       "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-      "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-      "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
+      "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -89,8 +88,7 @@
         "carpostal-driver-carpostal-yverdon-les-bains",
         "carpostal-fahrer-carpostal-yverdon-les-bains",
         "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-        "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
+        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
       ],
       "en": [
         "carpostal-driver-carpostal-yverdon-les-bains",
@@ -148,7 +146,6 @@
       "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
       "biglietteria-in-e-consulenza-clienti-postauto-chur",
-      "biglietteria-e-consulenza-clienti-postauto-ag-chur",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
       "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
       "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
@@ -173,7 +170,6 @@
         "controleur-de-billetterie-in-et-conseil-client-postauto-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-chur",
         "biglietteria-in-e-consulenza-clienti-postauto-chur",
-        "biglietteria-e-consulenza-clienti-postauto-ag-chur",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-bern",
         "ticketkontrolleur-in-und-kundenberatung-postauto-bern",
         "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
@@ -241,14 +237,12 @@
     "expiredAt": "2026-10-04T09:33:27.483Z",
     "previousSlugs": [
       "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-      "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
-      "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
+      "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
     ],
     "previousSlugsByLocale": {
       "it": [
         "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
-        "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
+        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
       ],
       "en": [
         "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne"
@@ -298,7 +292,6 @@
       "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
       "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
       "sicherheitsspezialist-in-offentlicher-verkehr-post",
-      "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
       "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
       "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
       "security-specialist-in-public-transport-postauto-ag-winterthur",
@@ -315,7 +308,6 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
         "sicherheitsspezialist-in-offentlicher-verkehr-post",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen",
         "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
         "security-specialist-in-public-transport-postauto-ag-winterthur",
@@ -571,7 +563,6 @@
     "expiredAt": "2026-09-26T15:41:03.743Z",
     "previousSlugs": [
       "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-      "centro-di-ammissione-del-personale-postauto-ag-spiez",
       "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
       "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez",
       "personnel-in-disposition-control-center-center-postauto-spiez",
@@ -582,7 +573,6 @@
     "previousSlugsByLocale": {
       "it": [
         "sachbearbeiter-in-disposition-leitstelle-mitte-postauto-spiez",
-        "centro-di-ammissione-del-personale-postauto-ag-spiez",
         "personale-nel-centro-di-controllo-di-disposizione-postauto-spiez",
         "personale-nel-centro-di-controllo-di-disposizione-postauto-ag-spiez"
       ],
@@ -632,13 +622,11 @@
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-09-26T15:41:03.743Z",
     "previousSlugs": [
-      "postauto-chauffeur-in-postauto-klosters",
-      "postauto-autista-postauto-ag-klosters"
+      "postauto-chauffeur-in-postauto-klosters"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "postauto-chauffeur-in-postauto-klosters",
-        "postauto-autista-postauto-ag-klosters"
+        "postauto-chauffeur-in-postauto-klosters"
       ]
     },
     "salaryMin": 57500,
@@ -1141,13 +1129,11 @@
     "expiredAt": "2026-09-03T13:44:02.125Z",
     "previousSlugs": [
       "specialiste-marketing-promotion-carpostal-delemont",
-      "specialiste-marketing-promotion-postauto-delemont",
-      "specialiste-marketing-promotion-post"
+      "specialiste-marketing-promotion-postauto-delemont"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "specialiste-marketing-promotion-postauto-delemont",
-        "specialiste-marketing-promotion-post"
+        "specialiste-marketing-promotion-postauto-delemont"
       ],
       "fr": [
         "specialiste-marketing-promotion-carpostal-delemont"
@@ -1328,14 +1314,12 @@
       "teamleiter-in-fahrpersonal-postauto-weinfelden",
       "team-leader-in-driving-personnel-postauto-ag-weinfelden",
       "chef-d-equipe-dans-le-personnel-de-conduite-postauto-ag-weinfelden",
-      "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
-      "team-leader-nel-personale-di-guida-postauto-weinfelden"
+      "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
     ],
     "previousSlugsByLocale": {
       "it": [
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden",
-        "team-leader-nel-personale-di-guida-postauto-weinfelden"
+        "team-leader-nel-personale-di-guida-postauto-ag-weinfelden"
       ],
       "en": [
         "teamleiter-in-fahrpersonal-postauto-weinfelden",
@@ -1424,13 +1408,11 @@
     "sector": "Trasporti pubblici / Autobus",
     "expiredAt": "2026-08-09T10:02:43.742Z",
     "previousSlugs": [
-      "postauto-fahrer-in-postauto-laax-gr",
-      "postbus-driver-in-postauto-ag-laax-gr"
+      "postauto-fahrer-in-postauto-laax-gr"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "postauto-fahrer-in-postauto-laax-gr",
-        "postbus-driver-in-postauto-ag-laax-gr"
+        "postauto-fahrer-in-postauto-laax-gr"
       ],
       "en": [
         "postauto-fahrer-in-postauto-laax-gr"
