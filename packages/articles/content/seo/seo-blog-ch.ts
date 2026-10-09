@@ -100642,6 +100642,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-solari-senza-permesso': {
+    title: 'Impianti solari senza autorizzazione: iniziativa fallita',
+    description: 'Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117\'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto',
+    keywords: 'frontalieri, ticino, svizzera, italia, impianti, solari, senza, autorizzazione',
+    ogTitle: 'Impianti solari senza autorizzazione: iniziativa fallita',
+    ogDescription: 'Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117\'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto',
+    canonicalPath: '/articoli-svizzera/iniziativa-solari-senza-permesso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impianti solari senza autorizzazione: iniziativa fallita",
+      "description": "Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-solari-senza-permesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pannelli solari sul tetto di un edificio in Svizzera"
+      },
+      "datePublished": "2026-10-09T13:20:01+00:00",
+      "dateModified": "2026-10-09T13:20:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-solari-senza-permesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

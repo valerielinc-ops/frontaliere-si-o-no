@@ -26647,6 +26647,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iniziativa-solari-senza-permesso',
+    category: 'novita',
+    date: '2026-10-09T13:20:01.685Z',
+    image: '/images/blog/article-iniziativa-solari-senza-permesso.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

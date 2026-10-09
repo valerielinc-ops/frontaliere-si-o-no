@@ -7982,6 +7982,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-convocazioni-indennita.title': 'Zivilschutz im Kanton Luzern: Voraussetzungen und Entschädigungen',
     'blog.article.lucerna-convocazioni-indennita.excerpt': 'Luzern: kantonal koordinierter Zivilschutz Der Bezugsrahmen ist das Bundesgesetz Aufgebote und Entschädigungen: Überprüfung bei der Behörde',
     'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Zivilschutz im Kanton Luzern',
+    'blog.article.iniziativa-solari-senza-permesso.title': 'Solaranlagen ohne Bewilligung: Initiative gescheitert',
+    'blog.article.iniziativa-solari-senza-permesso.excerpt': 'Solarinitiative ohne Bewilligung: Unterschriftensammlung gescheitert Das Komitee gab 117\'500 Unterschriften an Fast 20 Tausend Unterschriften waren nicht gültig Die Frist von 18 Monaten ist abgelaufen',
+    'blog.article.iniziativa-solari-senza-permesso.imageAlt': 'Solarmodule auf dem Dach eines Gebäudes in der Schweiz',
 };
 
 export default blogMetaChDe;

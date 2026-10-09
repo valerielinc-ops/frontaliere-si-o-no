@@ -2683,6 +2683,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucerna-elezioni-calendario-voto': { it: 'lucerna-elezioni-calendario-voto', en: 'lucerne-cantonal-elections-calendar-vote', de: 'luzern-kantonswahlen-wahlkalender', fr: 'elections-cantonales-lucerne-calendrier' },
  'trasporti-45-critiche-piano': { it: 'trasporti-45-critiche-piano', en: 'transport-45-criticism-plan', de: 'transport-45-kritik-plan', fr: 'transports-45-critiques-plan' },
  'lucerna-convocazioni-indennita': { it: 'lucerna-convocazioni-indennita', en: 'lucerne-civil-protection-allowance', de: 'luzern-zivilschutz-entschaedigung', fr: 'lucerne-protection-civile-indemnite' },
+ 'iniziativa-solari-senza-permesso': { it: 'iniziativa-solari-senza-permesso', en: 'solar-permit-initiative-fails', de: 'solarinitiative-ohne-bewilligung-gescheitert', fr: 'initiative-solaire-sans-permis-echoue' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

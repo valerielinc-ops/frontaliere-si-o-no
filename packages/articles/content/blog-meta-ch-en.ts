@@ -7982,6 +7982,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-convocazioni-indennita.title': 'Civil protection in the Canton of Lucerne: requirements and compensation',
     'blog.article.lucerna-convocazioni-indennita.excerpt': 'Lucerne: civil protection coordinated at cantonal level The framework is federal law Call-ups and compensation: check with the authority',
     'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Civil protection in the canton of Lucerne',
+    'blog.article.iniziativa-solari-senza-permesso.title': 'Unauthorized solar installations: failed initiative',
+    'blog.article.iniziativa-solari-senza-permesso.excerpt': 'Solar initiative without authorization: collection failed The committee indicated 117\'500 signatures Almost 20mila signatures were invalid The 18-month deadline has expired',
+    'blog.article.iniziativa-solari-senza-permesso.imageAlt': 'Solar panels on the roof of a building in Switzerland',
 };
 
 export default blogMetaChEn;

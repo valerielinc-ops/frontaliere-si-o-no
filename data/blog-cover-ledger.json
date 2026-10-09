@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5139
+      "6": 5140
     },
-    "publishedCovers": 6851,
+    "publishedCovers": 6852,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182113,6 +182113,33 @@
           "id": "a8-manutenzione-cavalcavia-ottobre-2026",
           "category": "pratico",
           "date": "2026-10-09T09:14:11.744Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-iniziativa-solari-senza-permesso": {
+      "cover": "/images/blog/article-iniziativa-solari-senza-permesso.webp",
+      "hash": "a6419dbc85547276accc2e6a5071987042fd16f576cee634f2c8c683e4950706",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "iniziativa-solari-senza-permesso",
+          "category": "novita",
+          "date": "2026-10-09T13:20:01.685Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

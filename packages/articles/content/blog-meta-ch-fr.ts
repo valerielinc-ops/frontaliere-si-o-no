@@ -7982,6 +7982,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucerna-convocazioni-indennita.title': 'Protection civile dans le canton de Lucerne : conditions et indemnités',
     'blog.article.lucerna-convocazioni-indennita.excerpt': 'Lucerne : protection civile coordonnée au niveau cantonal Le cadre de référence est la loi fédérale Convocations et indemnités : vérification auprès de l’autorité',
     'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Protection civile dans le canton de Lucerne',
+    'blog.article.iniziativa-solari-senza-permesso.title': 'Installations solaires sans autorisation : initiative échouée',
+    'blog.article.iniziativa-solari-senza-permesso.excerpt': 'Initiative solaire sans autorisation : collecte infructueuse Le comité indiquait 117\'500 signatures Près de 20 mille signatures n\'étaient pas valables Le délai de 18 mois a expiré',
+    'blog.article.iniziativa-solari-senza-permesso.imageAlt': 'Panneaux solaires sur le toit d\'un bâtiment en Suisse',
 };
 
 export default blogMetaChFr;
