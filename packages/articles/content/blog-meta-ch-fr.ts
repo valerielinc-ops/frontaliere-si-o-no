@@ -8012,6 +8012,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.referendum-nucleare-svizzera-2027.title': 'Référendum contre de nouvelles centrales nucléaires en Suisse',
     'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'Plus de 131.800 signatures remises à Berne par le PS, les Vert·e·s, les Vert\'libéraux et une partie du Centre pour maintenir l\'interdiction du nucléaire ; vote possible le 28 février 2027.',
     'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Vue panoramique des Alpes suisses avec des pylônes électriques et une ferme solaire au premier plan',
+    'blog.article.axpo-solare-argovia.title': 'Axpo : installation solaire sur un terrain agricole en Argovie',
+    'blog.article.axpo-solare-argovia.excerpt': 'Axpo construit à Suhr une installation solaire La puissance prévue est de 600 kWp Les modules occuperont 1,2 hectares sur 2,8 Le FiBL étudiera les récoltes, l’eau',
+    'blog.article.axpo-solare-argovia.imageAlt': 'Installation solaire sur une terre agricole à Suhr, dans le canton d\'Argovie',
 };
 
 export default blogMetaChFr;

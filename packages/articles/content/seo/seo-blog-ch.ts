@@ -101037,6 +101037,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-axpo-solare-argovia': {
+    title: 'Axpo: impianto solare su terreno agricolo in Argovia',
+    description: 'Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua',
+    keywords: 'frontalieri, ticino, svizzera, italia, axpo, impianto, solare, terreno',
+    ogTitle: 'Axpo: solare su terreno agricolo in Argovia',
+    ogDescription: 'Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua',
+    canonicalPath: '/articoli-svizzera/axpo-solare-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Axpo: impianto solare su terreno agricolo in Argovia",
+      "description": "Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-axpo-solare-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto solare su terreno agricolo a Suhr, nel canton Argovia"
+      },
+      "datePublished": "2026-10-09T23:11:13+00:00",
+      "dateModified": "2026-10-09T23:11:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/axpo-solare-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

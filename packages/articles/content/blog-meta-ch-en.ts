@@ -8012,6 +8012,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum against new nuclear power plants in Switzerland',
     'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'More than 131.800 signatures delivered to Bern by SP, Verdi, GLP and part of Centro to maintain the ban on nuclear power; vote possible on February 28, 2027.',
     'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Panoramic view of the Swiss Alps with electricity pylons and a solar farm in the foreground',
+    'blog.article.axpo-solare-argovia.title': 'Axpo: solar plant on agricultural land in Aargau',
+    'blog.article.axpo-solare-argovia.excerpt': 'Axpo is building a solar plant in Suhr The planned capacity is 600 kWp The modules will occupy 1,2 hectares out of 2,8 FiBL will study crops, water',
+    'blog.article.axpo-solare-argovia.imageAlt': 'Solar installation above cultivated land in Suhr, in the canton of Aargau',
 };
 
 export default blogMetaChEn;

@@ -26747,6 +26747,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'axpo-solare-argovia',
+    category: 'novita',
+    date: '2026-10-09T23:11:13.817Z',
+    image: '/images/blog/article-axpo-solare-argovia.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['AG'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

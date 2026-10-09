@@ -2693,6 +2693,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mastercard-pagamenti-rete-assente': { it: 'mastercard-pagamenti-rete-assente', en: 'mastercard-payments-without-internet', de: 'mastercard-zahlungen-ohne-internet', fr: 'mastercard-paiements-sans-internet' },
  'referendum-iva-2026-aumento-per-la-tredicesima-pensione': { it: 'referendum-iva-2026-aumento-per-la-tredicesima-pensione', en: '2026-vat-referendum-increase-for-the-thirteenth-pension-payment', de: 'mehrwertsteuer-referendum-2026-erhohung-fur-die-13-rente', fr: 'referendum-sur-la-tva-2026-hausse-pour-la-treizieme-rente' },
  'referendum-nucleare-svizzera-2027': { it: 'referendum-nucleare-svizzera-2027', en: 'referendum-nuclear-switzerland-2027', de: 'referendum-nuklear-schweiz-2027', fr: 'referendum-nucleaire-suisse-2027' },
+ 'axpo-solare-argovia': { it: 'axpo-solare-argovia', en: 'axpo-solar-aargau', de: 'axpo-solaranlage-aargau', fr: 'axpo-solaire-argovie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

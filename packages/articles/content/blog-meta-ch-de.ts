@@ -8012,6 +8012,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum gegen neue Kernkraftwerke in der Schweiz',
     'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'Mehr als 131.800 Unterschriften von SP, Grünen, GLP und einem Teil der Mitte in Bern eingereicht, um das Verbot der Kernenergie aufrechtzuerhalten; Abstimmung möglicherweise am 28.',
     'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Panoramablick auf die Schweizer Alpen mit Strommasten und einem Solarpark im Vordergrund',
+    'blog.article.axpo-solare-argovia.title': 'Axpo: Solaranlage auf landwirtschaftlichem Boden im Aargau',
+    'blog.article.axpo-solare-argovia.excerpt': 'Axpo baut in Suhr eine Solaranlage Die geplante Leistung beträgt 600 kWp Die Module werden 1,2 von 2,8 Hektar belegen Das FiBL wird Ernten und Wasser untersuchen',
+    'blog.article.axpo-solare-argovia.imageAlt': 'Solaranlage über Ackerland in Suhr im Kanton Aargau',
 };
 
 export default blogMetaChDe;
