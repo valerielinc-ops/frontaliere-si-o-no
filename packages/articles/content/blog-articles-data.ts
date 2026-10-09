@@ -43355,7 +43355,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'concerti-borgo-musicale',
  category: 'novita',
  date: '2026-10-09T02:51:10.022Z',
- image: '/images/places/lugano-view.webp',
+ image: '/images/blog/article-concerti-borgo-musicale.webp',
  hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',

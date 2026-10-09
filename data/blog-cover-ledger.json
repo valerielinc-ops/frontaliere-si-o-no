@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5130
+      "6": 5131
     },
-    "publishedCovers": 6842,
+    "publishedCovers": 6843,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180558,6 +180558,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-concerti-borgo-musicale": {
+      "cover": "/images/blog/article-concerti-borgo-musicale.webp",
+      "hash": "28b741b76f7720c50ed92d8c9c489ee29c957da11cc8da29703aab3e4560f76d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "concerti-borgo-musicale",
+          "category": "novita",
+          "date": "2026-10-09T02:51:10.022Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
