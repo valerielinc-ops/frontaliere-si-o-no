@@ -7955,6 +7955,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-edilizio-lucerna.title': 'Autorisation de construire dans le canton de Lucerne : exigences, procédure',
     'blog.article.permesso-edilizio-lucerna.excerpt': 'Dans le canton de Lucerne, l’autorisation, les documents, le rôle de la commune et du canton, les oppositions ou recours et l’arrêt des travaux sans permis sont importants.',
     'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documents et plans pour un permis de construire dans le canton de Lucerne',
+    'blog.article.nobel-economia-fehr-2026.title': 'Nobel d\'économie 2026 : Ernst Fehr parmi les lauréats potentiels',
+    'blog.article.nobel-economia-fehr-2026.excerpt': 'Le Nobel d\'économie 2026 sera annoncé le 12 octobre Ernst Fehr figure parmi les lauréats potentiels Clarivate a cité quatre économistes Polymarket estime Fehr',
+    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Ernst Fehr parmi les potentiels laureats du prix Nobel d\'economie',
 };
 
 export default blogMetaChFr;

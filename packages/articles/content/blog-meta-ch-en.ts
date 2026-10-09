@@ -7955,6 +7955,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-edilizio-lucerna.title': 'Building permit in the Canton of Lucerne: requirements, procedure',
     'blog.article.permesso-edilizio-lucerna.excerpt': 'In the Canton of Lucerne, authorization, documents, the roles of the municipality and canton, objections or appeals, and stopping work without a permit matter.',
     'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documents and plans for a building permit in the Canton of Lucerne',
+    'blog.article.nobel-economia-fehr-2026.title': '2026 Nobel Prize in Economics: Ernst Fehr among the possible winners',
+    'blog.article.nobel-economia-fehr-2026.excerpt': 'The 2026 Nobel Prize in Economics will be announced on October 12 Ernst Fehr is among the possible winners Clarivate has identified four economists Polymarket estimates Fehr',
+    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Ernst Fehr among potential Nobel Prize winners in economics',
 };
 
 export default blogMetaChEn;
