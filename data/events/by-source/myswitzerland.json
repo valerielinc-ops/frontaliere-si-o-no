@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-08T19:31:34.010Z",
+  "assembledAt": "2026-10-09T12:30:59.716Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -93976,10 +93976,10 @@
       "endDate": "2026-11-14",
       "startTime": "14:00",
       "category": "Event",
-      "venue": "Musée de la machine à écrire",
+      "venue": "Lausanne",
       "comune": "Lausanne",
       "canton": "VD",
-      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/atelier-journee-mondiale-du-faux-timbre-dartiste/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/atelier-journee-mondiale-du-faux-timbre-dartiste/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -93987,6 +93987,15 @@
         "lng": 6.6277196
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
       "sourceDescriptionHash": "cd0ab96ad3171820d22bb9f12d30d85fb8b12b94baad85a9634162f1f4be1928"
     },
     {
@@ -147999,11 +148008,11 @@
       "startDate": "2027-02-15",
       "endDate": "2027-02-19",
       "startTime": "01:00",
-      "category": "Sports",
-      "venue": "Schuleinheit Steinmürli",
+      "category": "Event",
+      "venue": "Dietikon",
       "comune": "Dietikon",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/gaming-sport-camp-dietikon-2027/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/gaming-sport-camp-dietikon-2027/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -148011,6 +148020,19 @@
         "lng": 8.396091
       },
       "recurring": true,
+      "performer": [
+        {
+          "name": "Gaming"
+        },
+        {
+          "name": "Sport"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "495276fa403e3b93e972ae80817e093df76070ccf9b0051accf4f278267f2f85"
     },
     {
@@ -177914,11 +177936,11 @@
       "startDate": "2026-12-27",
       "endDate": "2026-12-27",
       "startTime": "12:00",
-      "category": "Music",
-      "venue": "3925 Grächen",
+      "category": "Event",
+      "venue": "Grächen",
       "comune": "Grächen",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/summit-sounds-in-der-stafelbar-1/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/summit-sounds-in-der-stafelbar-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -177926,6 +177948,15 @@
         "lng": 7.8518251
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Grächen"
+      },
       "sourceDescriptionHash": "fbbcaab5ddd73a206d1183b92371ad81acce5e05acbe21b592d8b3b018a0a357"
     },
     {
@@ -262056,6 +262087,599 @@
         "name": "Solothurn"
       },
       "sourceDescriptionHash": "24850b99970a7c202aba3b2c40d9dd1f2e092fd623f76b53ec3fe1885604ceff"
+    },
+    {
+      "id": "myswitzerland:35d5eb3d59714bb08ae90d4b1a80fe6e",
+      "title": "Nena – Raclette-Dinner Package (inkl. Showticket)",
+      "titleByLocale": {
+        "it": "Nena – Raclette-Dinner Package (inkl. Showticket)",
+        "en": "Nena – Raclette-Dinner Package (inkl. Showticket)",
+        "de": "Nena – Raclette-Dinner Package (inkl. Showticket)",
+        "fr": "Nena – Raclette-Dinner Package (inkl. Showticket)"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/nena-raclettedinner-package-inkl-showticket-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Nena"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0917d5aade70a51d25fcb7865946dfb83fa1ca041d174e45fdf7f79af2c56738"
+    },
+    {
+      "id": "myswitzerland:34fbe45064a3409bb9001669f4b0d8c5",
+      "title": "Remember Trance",
+      "titleByLocale": {
+        "it": "Remember Trance",
+        "en": "Remember Trance",
+        "de": "Remember Trance",
+        "fr": "Remember Trance"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Lyss",
+      "comune": "Lyss",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/remember-trance/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0806676,
+        "lng": 7.2943308
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lyss"
+      },
+      "sourceDescriptionHash": "ea351090fd0a582b90095765518f2e9f8a848133843e798e47033b4af536d192"
+    },
+    {
+      "id": "myswitzerland:348a96b2aef84049ae87f62ac0479c2e",
+      "title": "Soirée Super",
+      "titleByLocale": {
+        "it": "Soirée Super",
+        "en": "Soirée Super",
+        "de": "Soirée Super",
+        "fr": "Soirée Super"
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2027-09-02",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Losanna",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/soiree-super/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5198901,
+        "lng": 6.6370125
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Losanna"
+      },
+      "sourceDescriptionHash": "6911078f9ce2841157a73da2e6297ee4d6e64c75cc614fc3476513453e4a5ccd"
+    },
+    {
+      "id": "myswitzerland:33c6ce9ad393476e902926406018c8f9",
+      "title": "Rumpelstilzli",
+      "titleByLocale": {
+        "it": "Rumpelstilzli",
+        "en": "Rumpelstilzli",
+        "de": "Rumpelstilzli",
+        "fr": "Rumpelstilzli"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-03-07",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rumpelstilzli-26/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Reisetheater",
+        "url": "https://www.myswitzerland.com/it-ch/experiences/events/rumpelstilzli-26/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "7ab03d50816b6b0d0d28d09df4ca57e3a695588e0451083da4740542a7957139"
+    },
+    {
+      "id": "myswitzerland:33b9c88adad441a3a35338a721e37d8b",
+      "title": "Wine & Dine «Graubünden»",
+      "titleByLocale": {
+        "it": "Wine & Dine «Graubünden»",
+        "en": "Wine & Dine «Graubünden»",
+        "de": "Wine & Dine «Graubünden»",
+        "fr": "Wine & Dine «Graubünden»"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Küssnacht am Rigi",
+      "comune": "Küssnacht (SZ)",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wine-dine-graubuenden/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0803362,
+        "lng": 8.4392227
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Kreditkarte"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "becf65bb30cf93042ead066c1fd962142f58e296153734a29fd86d8568b7799a"
+    },
+    {
+      "id": "myswitzerland:3288269f830c42edbd1f286f8846e74e",
+      "title": "Wine & Dine «Graubünden»",
+      "titleByLocale": {
+        "it": "Wine & Dine «Graubünden»",
+        "en": "Wine & Dine «Graubünden»",
+        "de": "Wine & Dine «Graubünden»",
+        "fr": "Wine & Dine «Graubünden»"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wine-dine-graubuenden-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9481939,
+        "lng": 7.4396202
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Kreditkarte"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "becf65bb30cf93042ead066c1fd962142f58e296153734a29fd86d8568b7799a"
+    },
+    {
+      "id": "myswitzerland:32619466aa574f3ba59c1b3916c04cf9",
+      "title": "KALIKA (FR) + SUPPORT",
+      "titleByLocale": {
+        "it": "KALIKA (FR) + SUPPORT",
+        "en": "KALIKA (FR) + SUPPORT",
+        "de": "KALIKA (FR) + SUPPORT",
+        "fr": "KALIKA (FR) + SUPPORT"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Losanna",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kalika-fr-support/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5200725,
+        "lng": 6.6315445
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Losanna"
+      },
+      "sourceDescriptionHash": "1b219675b47e59ef1097da00739f35e3b9ebbc6bec7a653ef5f5c92001db69b7"
+    },
+    {
+      "id": "myswitzerland:31a2323601704e3798b4e7ccc55b7cda",
+      "title": "Abendmusik: \"Sommerliches Mosaik\" - Klaviertrios von J.Haydn, P.Juon, E.Chausson",
+      "titleByLocale": {
+        "it": "Abendmusik: \"Sommerliches Mosaik\" - Klaviertrios von J.Haydn, P.Juon, E.Chausson",
+        "en": "Abendmusik: \"Sommerliches Mosaik\" - Klaviertrios von J.Haydn, P.Juon, E.Chausson",
+        "de": "Abendmusik: \"Sommerliches Mosaik\" - Klaviertrios von J.Haydn, P.Juon, E.Chausson",
+        "fr": "Abendmusik: \"Sommerliches Mosaik\" - Klaviertrios von J.Haydn, P.Juon, E.Chausson"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Olten",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/abendmusik-sommerliches-mosaik-klaviertrios-von-jhaydn-pjuon-echausson/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3521449,
+        "lng": 7.8972683
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Olten"
+      },
+      "sourceDescriptionHash": "fdd3af2d096cc29c3f37e63aa7f2628aff5ba0ae45e6dd3f0ac9688803a8d8cf"
+    },
+    {
+      "id": "myswitzerland:314f98d7682c40b787f04fdf8d9ec75e",
+      "title": "Stadtkeller Concert: Sergio Sardella",
+      "titleByLocale": {
+        "it": "Stadtkeller Concert: Sergio Sardella",
+        "en": "Stadtkeller Concert: Sergio Sardella",
+        "de": "Stadtkellerkonzert: Sergio Sardella",
+        "fr": "Concert au Stadtkeller : Sergio Sardella"
+      },
+      "startDate": "2027-01-19",
+      "endDate": "2027-01-19",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stadtkeller-concert-sergio-sardella/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Sergio Sardella"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "ebabbf2b66ee26d880374a7f16396b2c9a98dc220f55534a9f255e0af4f75d1a"
+    },
+    {
+      "id": "myswitzerland:31221cbba86242e48d53462c97049167",
+      "title": "Thee Marloes",
+      "titleByLocale": {
+        "it": "Thee Marloes",
+        "en": "Thee Marloes",
+        "de": "Thee Marloes",
+        "fr": "Thee Marloes"
+      },
+      "startDate": "2027-02-20",
+      "endDate": "2027-02-20",
+      "startTime": "20:30",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/thee-marloes/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "eb3f60e2cb1a8c85f46ec205053656e4441e2c1d44628211a75a0de181936f68"
+    },
+    {
+      "id": "myswitzerland:30d242b87db84f8e81f568b2a24d89b0",
+      "title": "Zdravko Colic",
+      "titleByLocale": {
+        "it": "Zdravko Colic",
+        "en": "Zdravko Colic",
+        "de": "Zdravko Colic",
+        "fr": "Zdravko Colic"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zdravko-colic/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Zdravko Čolić Zusatzinformationen:Kindern unter 10 Jahren ist der Zutritt zur Veranstaltung nicht gestattet"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "aa5d88c8613d5f6133225b66d1c7ce44c2854ff1eef094be77cea42a9ccce4ad"
+    },
+    {
+      "id": "myswitzerland:30493766ee9a478eb0195d23943b3d60",
+      "title": "Visite commentée – Blanc-Gatti. Le peintre des sons",
+      "titleByLocale": {
+        "it": "Visite commentée – Blanc-Gatti. Le peintre des sons",
+        "en": "Visite commentée – Blanc-Gatti. Le peintre des sons",
+        "de": "Visite commentée – Blanc-Gatti. Le peintre des sons",
+        "fr": "Visite commentée – Blanc-Gatti. Le peintre des sons"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2027-01-14",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/visite-commentee-blancgatti-le-peintre-des-sons/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184198,
+        "lng": 6.624533
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a"
+    },
+    {
+      "id": "myswitzerland:2fefef1b9a3f4a43a97a0ba08967e96d",
+      "title": "Weihnachtsmarkt im Schloss Zwingen",
+      "titleByLocale": {
+        "it": "Weihnachtsmarkt im Schloss Zwingen",
+        "en": "Weihnachtsmarkt im Schloss Zwingen",
+        "de": "Weihnachtsmarkt im Schloss Zwingen",
+        "fr": "Weihnachtsmarkt im Schloss Zwingen"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "startTime": "13:00",
+      "category": "Event",
+      "venue": "Zwingen BL",
+      "comune": "Zwingen",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtsmarkt-im-schloss-zwingen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.437637,
+        "lng": 7.526952
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zwingen BL"
+      },
+      "sourceDescriptionHash": "33fe1965c1d8c3310d299264422bfb5c5cf93239d8f5e73992c659e408094f82"
+    },
+    {
+      "id": "myswitzerland:2e1e75a884004ab69b998b84adfe9231",
+      "title": "Viaggio in Giappone: I sapori dell'autunno",
+      "titleByLocale": {
+        "it": "Viaggio in Giappone: I sapori dell'autunno",
+        "en": "Japanese Journey: A Taste of Autumn",
+        "de": "Japanese Journey: Taste of Autumn",
+        "fr": "Voyage au Japon : Saveurs d'automne"
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-17",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Zurigo",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/japanese-journey-taste-of-autumn/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3682811,
+        "lng": 8.5411576
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurigo"
+      },
+      "sourceDescriptionHash": "40cfdad41fbefe7e940ba7843c380e32201d2cb1fe714e4cb8d065d5cd82d9e1"
+    },
+    {
+      "id": "myswitzerland:2cfad2baab81449ab4282d17d065a0e1",
+      "title": "Sunset Session #3",
+      "titleByLocale": {
+        "it": "Sunset Session #3",
+        "en": "Sunset Session #3",
+        "de": "Sunset Session #3",
+        "fr": "Sunset Session #3"
+      },
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "startTime": "12:00",
+      "category": "Event",
+      "venue": "Churwalden",
+      "comune": "Churwalden",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sunset-session-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.783004,
+        "lng": 9.5196738
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Churwalden"
+      },
+      "sourceDescriptionHash": "8ea522404e7c129ec9a90951cedd5403c09f8aa683824e24f90833acd80c5a6a"
+    },
+    {
+      "id": "myswitzerland:2cd89c0659574fd1b120b5278aec27bd",
+      "title": "Loreena McKennitt – Raclette-Dinner im Jumi Chalet",
+      "titleByLocale": {
+        "it": "Loreena McKennitt – Raclette-Dinner im Jumi Chalet",
+        "en": "Loreena McKennitt – Raclette-Dinner im Jumi Chalet",
+        "de": "Loreena McKennitt – Raclette-Dinner im Jumi Chalet",
+        "fr": "Loreena McKennitt – Raclette-Dinner im Jumi Chalet"
+      },
+      "startDate": "2027-03-24",
+      "endDate": "2027-03-24",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/loreena-mckennitt-raclette-dinner-im-jumi-chalet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Raclette-Dinner im Jumi Chalet"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "4712018f80e2550b17d7d7a981d8ba0bfa7368fc1ed256cada20bdcd8532972a"
+    },
+    {
+      "id": "myswitzerland:2cbbaaee9d8349e4abbc48c81a677487",
+      "title": "Helle Nacht im Museum Burghalde Lenzburg: Steinzeitindustrie",
+      "titleByLocale": {
+        "it": "Helle Nacht im Museum Burghalde Lenzburg: Steinzeitindustrie",
+        "en": "Helle Nacht im Museum Burghalde Lenzburg: Steinzeitindustrie",
+        "de": "Helle Nacht im Museum Burghalde Lenzburg: Steinzeitindustrie",
+        "fr": "Helle Nacht im Museum Burghalde Lenzburg: Steinzeitindustrie"
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Lenzburg",
+      "comune": "Lenzburg",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/helle-nacht-im-museum-burghalde-lenzburg-steinzeitindustrie/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3855901,
+        "lng": 8.1831567
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Pfeil"
+        },
+        {
+          "name": "Bogen jagen kannst"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "b7d07bc17c8eab2c0c12711f2bd9790c51b4ae3c2308aeef8aedd53313e18e85"
     }
   ]
 }
