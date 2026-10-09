@@ -5338,7 +5338,7 @@
       "companyDomain": "baselland.ch",
       "title": "wiss. Mitarbeiterin/Mitarbeiter familienergänzende Kinderbetreuung",
       "titleByLocale": {
-        "it": "wiss. Mitarbeiterin/Collaboratore/trice familienergänzende Kinderbetreuung",
+        "it": "Assistente scientifico Assistenza all'infanzia per dipendenti",
         "en": "know. Employee supplementary child care",
         "de": "wiss. Mitarbeiterin/Mitarbeiter familienergänzende Kinderbetreuung",
         "fr": "Je sais. Soins supplémentaires pour les employés"
@@ -5420,7 +5420,7 @@
       "companyDomain": "baselland.ch",
       "title": "Wissenschaftliche Mitarbeiterin/wissenschaftlicher Mitarbeiter Behindertenrechte",
       "titleByLocale": {
-        "it": "Wissenschaftliche Mitarbeiterin/wissenschaftlicher Collaboratore/trice Behindertenrechte",
+        "it": "Diritti delle Disabilità come Assistente di Ricerca",
         "en": "Research staff member Disability rights",
         "de": "Wissenschaftliche Mitarbeiterin/wissenschaftlicher Mitarbeiter Behindertenrechte",
         "fr": "Personnel de recherche Droits des personnes handicapées"
@@ -5646,10 +5646,10 @@
     },
     {
       "id": "kanton-basel-landschaft-3722865cb5ee",
-      "slug": "mitarbeiterin-collaboratore-trice-scanning-e-aktenverarbeitung-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "dipendente-che-scansiona-e-elabora-file-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal",
-        "it": "mitarbeiterin-collaboratore-trice-scanning-e-aktenverarbeitung-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "dipendente-che-scansiona-e-elabora-file-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "employee-scanning-and-file-processing-kantonale-verwaltung-basel-landschaft-liestal",
         "fr": "analyse-des-employes-et-traitement-des-dossiers-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -5659,7 +5659,7 @@
       "title": "Mitarbeiterin/Mitarbeiter Scanning und Aktenverarbeitung",
       "titleByLocale": {
         "de": "Mitarbeiterin/Mitarbeiter Scanning und Aktenverarbeitung",
-        "it": "Mitarbeiterin/Collaboratore/trice Scanning e Aktenverarbeitung",
+        "it": "Dipendente che Scansiona e Elabora File",
         "en": "Employee Scanning and file processing",
         "fr": "Analyse des employés et traitement des dossiers"
       },
@@ -5700,7 +5700,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
+          "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal",
+          "mitarbeiterin-collaboratore-trice-scanning-e-aktenverarbeitung-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
@@ -5710,7 +5711,8 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
+        "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal",
+        "mitarbeiterin-collaboratore-trice-scanning-e-aktenverarbeitung-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

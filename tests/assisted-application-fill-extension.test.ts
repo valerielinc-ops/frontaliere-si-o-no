@@ -56,6 +56,11 @@ describe('fill extension: patterns', () => {
     }
   });
 
+  it('recognizes the Ticino portal’s classic online-application link', () => {
+    expect(APPLY_RE.test('candidatura online »')).toBe(true);
+    expect(APPLY_RE.test('candidatura manuale')).toBe(false);
+  });
+
   it('declares only what it needs and opens the queue bridge on the owner page alone', () => {
     const manifest = JSON.parse(readFileSync(resolve(extension, 'manifest.json'), 'utf8'));
     expect(manifest.manifest_version).toBe(3);

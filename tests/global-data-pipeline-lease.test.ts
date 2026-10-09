@@ -1,10 +1,13 @@
 import fs from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { generateKeyPairSync } from 'node:crypto';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT,
   GLOBAL_DATA_PIPELINE_LEASE_POLL_MS,
   GLOBAL_DATA_PIPELINE_LEASE_TTL_MS,
   GLOBAL_DATA_PIPELINE_LEASE_WAIT_MS,
+  acquireLease,
+  describeLeaseBusy,
   firestoreDocumentName,
   isRetryableLeaseError,
   leaseDecision,
@@ -85,5 +88,81 @@ describe('global data pipeline lease', () => {
       'projects/frontaliere-ticino/databases/(default)/documents/ci_leases/jobs-data-pipeline',
     );
     expect(firestoreDocumentName('frontaliere-ticino')).not.toContain('https://');
+  });
+
+  describe('busy acquire result', () => {
+    const credentials = {
+      project_id: 'frontaliere-ticino',
+      client_email: 'lease-test@example.iam.gserviceaccount.com',
+      private_key: generateKeyPairSync('rsa', { modulusLength: 2048 })
+        .privateKey.export({ type: 'pkcs8', format: 'pem' }).toString(),
+    };
+    const json = (status: number, body: unknown) => new Response(JSON.stringify(body), { status });
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+      vi.restoreAllMocks();
+    });
+
+    function stubFirestore(documentResponse: () => Response) {
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        if (url.startsWith('https://oauth2.googleapis.com/')) return json(200, { access_token: 'token' });
+        if (url.endsWith(':beginTransaction')) return json(200, { transaction: 'tx' });
+        return documentResponse();
+      }));
+    }
+
+    it('riporta owner, run e scadenza di chi detiene il lease', async () => {
+      const expiresAt = new Date(Date.now() + 90 * 60_000).toISOString();
+      stubFirestore(() => json(200, {
+        updateTime: '2026-09-14T12:00:00.000Z',
+        fields: {
+          owner: { stringValue: 'org/repo:Crawler Group 19:123456:1' },
+          repo: { stringValue: 'org/repo' },
+          workflow: { stringValue: 'Crawler Group 19' },
+          runId: { stringValue: '123456' },
+          acquiredAt: { timestampValue: '2026-09-14T12:00:00.000Z' },
+          expiresAt: { timestampValue: expiresAt },
+        },
+      }));
+
+      const result = await acquireLease({ credentials, owner: 'other-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+      expect(result).toMatchObject({
+        busy: true,
+        reason: 'active_owner',
+        holder: { owner: 'org/repo:Crawler Group 19:123456:1', runId: '123456', workflow: 'Crawler Group 19', expiresAt },
+      });
+      expect(result.transientError).toBeUndefined();
+      const message = describeLeaseBusy(result);
+      expect(message).toContain('reason=active_owner');
+      expect(message).toContain('run=https://github.com/org/repo/actions/runs/123456');
+      expect(message).toContain(`expiresAt=${expiresAt} (90 min left)`);
+    });
+
+    it('segnala una scadenza malformata invece di una scadenza inventata', () => {
+      const message = describeLeaseBusy({
+        busy: true,
+        reason: 'malformed_expiry',
+        holder: { owner: 'run-b', runId: 'abc', expiresAt: 'not-a-timestamp' },
+      });
+      expect(message).toContain('reason=malformed_expiry');
+      expect(message).toContain('expiresAt="not-a-timestamp" (malformed');
+      expect(message).not.toContain('run=https://');
+    });
+
+    it('distingue un errore Firestore transitorio da un lease occupato', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      stubFirestore(() => json(503, { error: { status: 'UNAVAILABLE' } }));
+
+      const result = await acquireLease({ credentials, owner: 'other-run', leaseDoc: 'ci_leases/test', waitMs: 0, ttlMs: 60_000 });
+      expect(result).toMatchObject({
+        busy: true,
+        transientError: true,
+        reason: 'transient_error',
+        error: 'Firestore REST request failed: 503',
+      });
+      expect(result.holder).toBeUndefined();
+      expect(describeLeaseBusy(result)).toContain('this is not a lease conflict');
+    });
   });
 });

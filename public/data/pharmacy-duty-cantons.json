@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-09T11:30:19.678Z",
+  "generatedAt": "2026-10-09T16:28:44.064Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,19 +9,10 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:29:30.256Z",
+      "fetchedAt": "2026-10-09T16:27:55.119Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
-        {
-          "pharmacy": "Stazione",
-          "city": "Biasca",
-          "coverageName": "Biasca e Valli",
-          "dutyType": "day",
-          "startsAt": "2026-10-02T16:00:00.000Z",
-          "endsAt": "2026-10-09T16:00:00.000Z",
-          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
-        },
         {
           "pharmacy": "Farmacia Bozzoreda",
           "city": "Pregassona",
@@ -102,6 +93,15 @@
           "startsAt": "2026-10-13T06:00:00.000Z",
           "endsAt": "2026-10-17T06:00:00.000Z",
           "sourceUrl": "https://www.ofct.ch/mendrisiotto/"
+        },
+        {
+          "pharmacy": "delle Alpi",
+          "city": "Faido",
+          "coverageName": "Biasca e Valli",
+          "dutyType": "day",
+          "startsAt": "2026-10-16T16:00:00.000Z",
+          "endsAt": "2026-10-23T16:00:00.000Z",
+          "sourceUrl": "https://www.ofct.ch/biasca-e-valli/"
         }
       ],
       "unresolvedDuties": 3
@@ -111,7 +111,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:30:18.093Z",
+      "fetchedAt": "2026-10-09T16:28:42.935Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -195,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:30:19.678Z",
+      "fetchedAt": "2026-10-09T16:28:44.064Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -324,7 +324,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:30:19.678Z",
+      "fetchedAt": "2026-10-09T16:28:44.064Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -408,7 +408,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:30:19.678Z",
+      "fetchedAt": "2026-10-09T16:28:44.064Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -492,7 +492,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-09T11:30:19.678Z",
+      "fetchedAt": "2026-10-09T16:28:44.064Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

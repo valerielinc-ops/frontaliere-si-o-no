@@ -2890,7 +2890,6 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "elettricista-in-completamento-stadler-rail-bussnang",
           "anderungselektriker-in-fertigstellung-stadler-rail-ch"
         ],
         "en": [
@@ -2905,7 +2904,6 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "elettricista-in-completamento-stadler-rail-bussnang",
         "anderungselektriker-in-fertigstellung-stadler-rail-ch"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
@@ -7143,7 +7141,7 @@
       "title": "Application-Manager E-CAD",
       "titleByLocale": {
         "it": "Responsabile Applicativo E-CAD",
-        "en": "Application-Manager E-CAD",
+        "en": "E-CAD Application Manager",
         "de": "Application-Manager E-CAD",
         "fr": "Responsable d'application E-CAD"
       },
@@ -7186,7 +7184,6 @@
           "application-manager-e-cad-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:52:13.484Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -8216,7 +8213,7 @@
       "slug": "progettista-di-vernici-e-superfici-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "progettista-di-vernici-e-superfici-stadler-rail-st-margrethen",
-        "en": "konstrukteur-in-lack-und-oberflache-stadler-rail-ch",
+        "en": "design-engineer-paint-and-surface-stadler-rail-st-margrethen",
         "de": "konstrukteur-in-lack-und-oberflache-stadler-rail-ch",
         "fr": "concepteur-dans-la-peinture-et-la-surface-stadler-rail-st-margrethen"
       },
@@ -8226,7 +8223,7 @@
       "title": "Konstrukteur:in Lack und Oberfläche",
       "titleByLocale": {
         "it": "Progettista di vernici e superfici",
-        "en": "Konstrukteur:in Lack und Oberfläche",
+        "en": "Design Engineer, Paint and Surface",
         "de": "Konstrukteur:in Lack und Oberfläche",
         "fr": "Concepteur :dans la peinture et la surface"
       },
@@ -8272,9 +8269,11 @@
         ],
         "fr": [
           "konstrukteur-in-lack-und-oberflache-stadler-rail-ch"
+        ],
+        "en": [
+          "konstrukteur-in-lack-und-oberflache-stadler-rail-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:37:54.394Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

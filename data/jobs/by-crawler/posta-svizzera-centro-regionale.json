@@ -13220,11 +13220,11 @@
         "en": "Specialist Safety/Investigations",
         "de": "Fachspezialist:in Sicherheit/Ermittlungen",
         "fr": "Spécialiste en sécurité/enquêtes",
-        "it": "Fachspezialist:in Sicherheit/Ermittlungen"
+        "it": "Specialista in sicurezza/indagini"
       },
-      "slug": "fachspezialist-in-sicherheit-ermittlungen-post",
+      "slug": "specialista-in-sicurezza-indagini-die-schweizerische-post-bern-lausanne-zurich-mulligen",
       "slugByLocale": {
-        "it": "fachspezialist-in-sicherheit-ermittlungen-post",
+        "it": "specialista-in-sicurezza-indagini-die-schweizerische-post-bern-lausanne-zurich-mulligen",
         "en": "specialist-safety-investigations-die-schweizerische-post-bern-lausanne-zurich-mulligen",
         "de": "fachspezialist-in-sicherheit-ermittlungen-post",
         "fr": "specialiste-en-securite-enquetes-die-schweizerische-post-bern-lausanne-zurich-mulligen"
@@ -13244,7 +13244,6 @@
         "location": "Bern"
       },
       "crawledAt": "2026-10-09T09:50:23.909Z",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-0bcc9f73953d",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -13265,7 +13264,15 @@
       "firstSeenAt": "2026-10-03T09:38:16.077Z",
       "postedDate": "2026-10-01",
       "postingDateSource": "reported",
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-sicherheit-ermittlungen-post"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-sicherheit-ermittlungen-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Detailhandelsfachmann-frau-EFZ/73913-de_DE",

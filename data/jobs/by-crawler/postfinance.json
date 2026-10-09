@@ -1079,11 +1079,11 @@
         "en": "Account Manager Customer Center Biel",
         "de": "Kundenbetreuer:in Customer Center Biel",
         "fr": "Conseiller à la clientèle :dans le Customer Center de Bienne",
-        "it": "Kundenbetreuer:in Customer Center Biel"
+        "it": "Addetto/a al servizio clienti Customer Center Biel"
       },
-      "slug": "kundenbetreuer-in-customer-center-biel-postfinance",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-customer-center-biel-postfinance",
+        "it": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
         "en": "account-manager-customer-center-biel-postfinance-biel-bienne",
         "de": "kundenbetreuer-in-customer-center-biel-postfinance",
         "fr": "conseiller-a-la-clientele-dans-le-customer-center-de-bienne-postfinance-biel-bienne"
@@ -1110,7 +1110,6 @@
         "location": "Biel/Bienne"
       },
       "id": "postfinance-a2e105d9ca29",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:32:58.564Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -1128,7 +1127,15 @@
       },
       "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-customer-center-biel-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-customer-center-biel-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
