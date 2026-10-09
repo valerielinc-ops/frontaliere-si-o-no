@@ -2472,7 +2472,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-kreditorenverarbeitung/5bd14875-9e1f-43d8-ab58-042bdbaf1c1c",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3a925e18b3fd",
@@ -5128,7 +5129,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dd7e9edd499e",
@@ -5213,7 +5215,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-in-der-lackiererei/4c1a2378-fd77-4409-92bb-b08ad8a212ee",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2e7144cac881",
@@ -7094,7 +7097,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1444e8f8d837",
@@ -10772,7 +10776,8 @@
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -11178,7 +11183,8 @@
       "postalCode": "8001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -11479,7 +11485,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in/6014e2c8-debd-4f8e-ac2a-5c08adaa1440",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3ea5f0531e97",
@@ -11576,7 +11583,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/spezialmonteur-in-kabel-tiefbau-landschaftsgaertner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in/3a885cd7-35b6-4282-bab1-ec9c26ce4f6a",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-4a6dd0fbc095",
@@ -12470,7 +12478,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ausbildungsleiter-in-gleisbau-und-logistik/270e6e87-c2f4-4aec-80d8-bde324476dc6",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-08T22:33:28.880Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsleiter-in-gleisbau-und-logistik-ffs-officine-ferrovie-federali-zurich-altstetten"
@@ -12581,7 +12588,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-disposition-flotte/d45c647d-7344-41ba-9f7e-94107869ac2a",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-08T22:34:24.394Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-disposition-flotte-ffs-officine-ferrovie-federali-bern"
@@ -12900,7 +12906,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/93b0aee8-2094-4a8c-bc27-6b819c420837",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-08T21:32:27.119Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-bern"
@@ -13037,7 +13042,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-management-systems-m-w-d/bfe92ed6-51dd-4416-90df-004ebef22c54",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-08T22:35:04.477Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -13140,7 +13144,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-disposizione-della-flotta/41f33835-ef41-489a-b5b6-006656434851",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-08T22:34:47.406Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",

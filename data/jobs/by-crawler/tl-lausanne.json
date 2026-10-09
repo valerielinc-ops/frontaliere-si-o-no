@@ -371,8 +371,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "firstSeenAt": "2026-10-05T21:51:51.365Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-05T21:51:51.365Z"
     },
     {
       "id": "tl-lausanne-d905137965df",
@@ -697,7 +696,6 @@
       "previousSlugs": [
         "elettricista-linea-di-contatto-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "electrician-linea-di-contatto-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "electricien-ne-ligne-de-contact-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "electricien-ne-ligne-de-contact-tl-lausanne-lausanne",
         "linea-di-contatto-elettrica-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
@@ -705,7 +703,6 @@
         "it": [
           "elettricista-linea-di-contatto-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "electrician-linea-di-contatto-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "electricien-ne-ligne-de-contact-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "electricien-ne-ligne-de-contact-tl-lausanne-lausanne",
           "linea-di-contatto-elettrica-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
@@ -956,14 +953,10 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
         "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "lehrlinge-offentliche-verkehrsbetriebe-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "apprenti-es-agent-es-de-transports-publics-tl-lausanne-lausanne",
           "auszubildende-im-offentlichen-verkehr-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
@@ -1023,14 +1016,10 @@
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
         "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
         "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "lehrlingsausbildung-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
           "auszubildender-logistiker-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "fr": [
@@ -1092,14 +1081,10 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
         "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "lehrlinge-industrielle-lackiermaschinen-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "apprenti-e-vernisseur-euse-industriel-tl-lausanne-lausanne",
           "auszubildender-industrielackier-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },
@@ -1158,21 +1143,14 @@
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
       "previousSlugs": [
-        "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
         "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "apprentices-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
           "automatic-learning-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
-          "lehrlinge-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "apprenti-es-automaticien-nes-tl-lausanne-lausanne",
           "automatisches-lernen-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ]
       },

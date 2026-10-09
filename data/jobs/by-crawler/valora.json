@@ -275,14 +275,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
-        "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
+        "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf"
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf",
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
         ],
         "fr": [
           "kiosque-du-vendeur-k-15-heures-valora-group-uetendorf"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-15-std-valora-uetendorf-jo1dne"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:13.456Z",
@@ -446,7 +451,6 @@
       "jobReqId": "21301",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:43:13.426Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -826,14 +830,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
-        "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
+        "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg",
+        "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg"
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg",
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
         ],
         "fr": [
           "vendeur-vendeur-k-kiosque-20-heures-valora-group-kandersteg"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-20-std-valora-kandersteg-jo0tq2"
         ]
       },
       "firstSeenAt": "2026-08-18T21:37:25.993Z",
@@ -1397,7 +1406,6 @@
           "lehrstelle-kaufmann-frau-efz-dienstleistung-und-administration-lt-br-gt-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:35:54.078Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -1977,7 +1985,6 @@
       "jobReqId": "21709",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:35:45.537Z",
       "salaryMin": 72000,
       "salaryMax": 110500,
@@ -2201,7 +2208,6 @@
           "agenturpartnerin-agenturpartner-sarganserland-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:43:13.468Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2505,7 +2511,6 @@
           "business-partner-agenturen-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2655,7 +2660,6 @@
           "it-program-manager-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:11:54.722Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -2797,7 +2801,6 @@
           "marketing-assistent-100-w-m-d-valora-muttenz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:12:24.630Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
@@ -2819,7 +2822,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf",
         "en": "seller-seller-k-kiosk-10-hours-valora-group-uetendorf-5b7d24",
-        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "de": "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0rh3",
         "fr": "kiosque-vendeur-vendeur-k-10-heures-valora-group-uetendorf-5b7d24"
       },
       "company": "Valora Group",
@@ -2879,6 +2882,9 @@
         ],
         "fr": [
           "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-2"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
         ]
       },
       "salaryMin": 77500,

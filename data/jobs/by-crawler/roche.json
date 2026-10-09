@@ -8641,7 +8641,6 @@
           "piombo-di-farmacologia-clinica-principale-scienziato-roche-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-08T21:20:02.623Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -8892,7 +8891,7 @@
           "praktikum-fur-studierende-im-bereich-pharmazie-pharmatechnik-biotechnologie"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:07:56.322Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -8909,7 +8908,8 @@
       },
       "postalCode": "4303",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 0
     },
     {
       "id": "roche-07b1aa61f678",
@@ -9140,7 +9140,7 @@
           "praktikum-fur-studierende-der-naturwissenschaften-pharmazie-chemie-biotechnologie-im"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:07:51.380Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -9157,7 +9157,8 @@
       },
       "postalCode": "4303",
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "retranslationAttempts": 0
     },
     {
       "id": "roche-7141a0664cd0",

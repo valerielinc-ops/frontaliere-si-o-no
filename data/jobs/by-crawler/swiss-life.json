@@ -222,7 +222,7 @@
       "previousSlugs": [
         "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -451,7 +451,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-ost"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1053,18 +1052,26 @@
       },
       "jobReqId": "R09071",
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp",
+          "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
         ],
         "fr": [
           "conseiller-en-matiere-de-pensions-et-de-finances-h-f-d-bienvenue-dans-les-destinations-transfrontalieres-general-agentur"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp"
         ]
       },
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "conseiller-en-matiere-de-pensions-et-de-finances-h-f-d-bienvenue-dans-les-destinations-transfrontalieres-general-agentur"
+        "conseiller-en-matiere-de-pensions-et-de-finances-h-f-d-bienvenue-dans-les-destinations-transfrontalieres-general-agentur",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp",
+        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -1374,7 +1381,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bern-west"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1831,7 +1837,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-baden-swiss"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -1904,11 +1909,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -2060,11 +2067,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-lsuzu3"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-lsuzu3"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -2213,7 +2222,7 @@
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2738,7 +2747,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-schaffhausen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -3271,7 +3279,7 @@
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-themes-de"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -3489,11 +3497,32 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+          "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
+          "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
+          "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-morges-la-cote"
+        ],
+        "en": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-morges-la-cote"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -3636,14 +3665,18 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk",
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9lnk"
         ],
         "en": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9lnk"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -3837,14 +3870,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
+          "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
+          "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
+          "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
+          "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
         ],
         "en": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la",
+        "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
+        "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
+        "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
+        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -4082,7 +4123,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:36.431Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4432,7 +4473,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.261Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -4737,7 +4777,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-st-gallen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -4890,7 +4929,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-thurgau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -5038,11 +5076,16 @@
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-bh9q4m"
+        ],
+        "de": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-bh9q4m"
         ]
       },
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
+        "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte-bh9q4m"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -5197,7 +5240,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -5274,7 +5316,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-spezialisierung-anlagethemen-generalagentur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -5579,7 +5620,7 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-pfannenstiel-swiss"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -6418,7 +6459,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteiger-willkommen-generalagentur-luzern-stans"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -6871,11 +6911,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r"
         ]
       },
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -6959,7 +7001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:30.363Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -7036,7 +7077,6 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-aarau-swiss"
       ],
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -7257,7 +7297,6 @@
       "jobReqId": "R06653",
       "hiringOrganization": "Swiss Life AG Svizzera italiana",
       "firstSeenAt": "2026-09-19T23:00:25.656Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",

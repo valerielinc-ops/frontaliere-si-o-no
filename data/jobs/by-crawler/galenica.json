@@ -1152,11 +1152,13 @@
       "postingDateSource": "unknown",
       "id": "galenica-d57b2fe53fb1",
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+        "farmacista-farmacista-m-f-d-galenica-galenica-sirnach-nx24ld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+          "farmacista-farmacista-m-f-d-galenica-galenica-sirnach-nx24ld"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
@@ -3813,7 +3815,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -6632,7 +6635,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-25082493d1d6",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6692,7 +6694,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f0ffbc082b32",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -6903,7 +6904,6 @@
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6963,7 +6963,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-ed28c9713a09",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7173,7 +7172,6 @@
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7302,7 +7300,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a4a9f13d88c1",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7648,7 +7645,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f06075688be3",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7926,7 +7922,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-ed9e3621d65e",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7995,7 +7990,6 @@
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chur"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -8984,7 +8978,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-740c37ce8660",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9125,7 +9118,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-3d4b20b4f97c",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -9256,7 +9248,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-c2b6dabff8f0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9529,7 +9520,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-7a2a86ba3856",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -9546,7 +9536,19 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+        "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+        ]
+      }
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9731,7 +9733,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-8bd5a501512d",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -10471,7 +10472,6 @@
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -11624,7 +11624,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-61e97033ec14",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -11823,7 +11822,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-0da6365b6fc0",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12411,7 +12409,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-87491e77d88c",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -13066,7 +13063,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-4d7f67e26c36",
       "previousSlugsByLocale": {
         "de": [
@@ -13582,7 +13578,6 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14641,7 +14636,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-dd51a8881f1e",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -14855,7 +14849,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-7118abba4965",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -15277,7 +15270,6 @@
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15336,7 +15328,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-b6d7fbd2bf6d",
       "previousSlugsByLocale": {
         "de": [
@@ -15703,7 +15694,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-ad3467fdb62c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -16410,7 +16400,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-5289723b7fb0",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -18143,7 +18132,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a8684ee95757",
       "salaryMin": 81500,
       "salaryMax": 114000,

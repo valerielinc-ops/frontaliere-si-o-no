@@ -1615,7 +1615,7 @@
       "legalEntity": "Media Markt Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:57:57.171Z"
     },
     {
@@ -2253,7 +2253,7 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-afp-en-aout-2027-m-w-d-mediamarkt-conthey"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:57:57.180Z"
     },
     {
@@ -2664,8 +2664,7 @@
           "apprendistato-ab-sommer-2027-come-detailhandelsfachperson-cfc-afp-m-w-d-mediamarkt-zurich"
         ]
       },
-      "firstSeenAt": "2026-10-05T21:57:57.181Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-05T21:57:57.181Z"
     },
     {
       "id": "mediamarkt-98343",
@@ -2728,8 +2727,7 @@
           "apprendistato-ab-sommer-2027-come-detailhandelsfachperson-cfc-afp-m-w-d-mediamarkt-thun"
         ]
       },
-      "firstSeenAt": "2026-10-05T21:57:57.181Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-05T21:57:57.181Z"
     },
     {
       "id": "mediamarkt-98341",
@@ -2792,8 +2790,7 @@
           "apprendistato-ab-sommer-2027-come-detailhandelsfachperson-cfc-afp-m-w-d-mediamarkt-dietlikon"
         ]
       },
-      "firstSeenAt": "2026-10-05T21:57:57.182Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-05T21:57:57.182Z"
     },
     {
       "id": "mediamarkt-98381",
@@ -2856,8 +2853,7 @@
           "apprendistato-ab-sommer-2027-come-detailhandelsfachperson-cfc-afp-m-w-d-mediamarkt-chur"
         ]
       },
-      "firstSeenAt": "2026-10-05T21:57:57.182Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-10-05T21:57:57.182Z"
     }
   ]
 }

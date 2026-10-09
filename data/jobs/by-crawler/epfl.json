@@ -4326,7 +4326,7 @@
       "slug": "ricercatore-postdottorale-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna-epfl-lausanne",
       "slugByLocale": {
         "it": "ricercatore-postdottorale-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna-epfl-lausanne",
-        "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
+        "en": "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hurg",
         "de": "postdoc-im-digitalen-und-kognitiven-musiklabor-epfl-lausanne-epfl-lausanne",
         "fr": "postdoctorant-au-laboratoire-de-musicologie-numerique-et-cognitive-epfl-lausanne-epfl-lausanne"
       },
@@ -4375,8 +4375,7 @@
       "previousSlugs": [
         "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne",
         "assegno-di-ricerca-postdoc-al-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna-epfl-lausanne",
-        "chercheur-postdoctoral-au-laboratoire-de-musicologie-numerique-et-cognitive-epfl-lausanne-epfl-lausanne",
-        "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hurg"
+        "chercheur-postdoctoral-au-laboratoire-de-musicologie-numerique-et-cognitive-epfl-lausanne-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4388,7 +4387,7 @@
           "chercheur-postdoctoral-au-laboratoire-de-musicologie-numerique-et-cognitive-epfl-lausanne-epfl-lausanne"
         ],
         "en": [
-          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-77hurg"
+          "postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.707Z",
@@ -4406,7 +4405,9 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "epfl-d3fbf1d979eb",
