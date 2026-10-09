@@ -12896,6 +12896,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.title': '82 kilos de viande et 492 bouteilles : amendes douanières',
     'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'À Vacallo, 82 kilos de viande non déclarée trouvés À Stabio, 492 bouteilles de vin découvertes Les contrôles ont eu lieu les 3 et 7 octobre Amendes et dédouanement',
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Contrôle douanier à Stabio avec fourgon et bouteilles de vin non déclarées',
+    'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestion des urgences : Extramuro se clôt entre le Tessin et la Lombardie',
+    'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La deuxième édition d’«Extramuro» s’est achevée à Erba Une dizaine d’officiers tessinois a suivi la formation au-delà de la frontière Le programme implique le Tessin',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Réunion de protection civile entre le Tessin et la Lombardie',
 };
 
 export default blogMetaFr;

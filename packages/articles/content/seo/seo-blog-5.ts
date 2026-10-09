@@ -104397,6 +104397,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gestione-emergenze-ticino-lombardia': {
+    title: 'Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia',
+    description: 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
+    keywords: 'frontalieri, ticino, svizzera, italia, gestione, emergenze, chiude, extramuro',
+    ogTitle: 'Gestione emergenze transfrontaliere: il bilancio di Extramuro',
+    ogDescription: 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
+    canonicalPath: '/articoli-frontaliere/gestione-emergenze-ticino-lombardia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia",
+      "description": "La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carburanti-rincari-confine-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro di protezione civile tra Ticino e Lombardia"
+      },
+      "datePublished": "2026-10-09T15:24:27+00:00",
+      "dateModified": "2026-10-09T15:24:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gestione-emergenze-ticino-lombardia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

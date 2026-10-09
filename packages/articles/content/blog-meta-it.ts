@@ -12895,6 +12895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.title': '82 chili di carne e 492 bottiglie: multe doganali',
     'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Controllo doganale a Stabio con furgone e bottiglie di vino non dichiarate',
+    'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia',
+    'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Incontro di protezione civile tra Ticino e Lombardia',
 };
 
 export default blogMetaIt;

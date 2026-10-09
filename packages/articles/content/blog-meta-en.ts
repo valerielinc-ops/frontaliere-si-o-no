@@ -12894,6 +12894,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.title': '82 kilograms of meat and 492 bottles: customs fines',
     'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'In Vacallo, 82 kilos of undeclared meat found In Stabio, 492 bottles of wine found The inspections took place on October 3 and 7 Fines and customs clearance',
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Customs check in Stabio with a van and undeclared wine bottles',
+    'blog.article.gestione-emergenze-ticino-lombardia.title': 'Emergency management: Extramuro closes between Ticino and Lombardy',
+    'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'The second edition of «Extramuro» ended in Erba About ten officers from Ticino attended the training across the border The program involves Ticino',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Civil protection meeting between Ticino and Lombardy',
 };
 
 export default blogMetaEn;

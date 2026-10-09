@@ -12893,6 +12893,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.title': '82 Kilo Fleisch und 492 Flaschen: Zollbussen',
     'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'In Vacallo wurden 82 Kilo nicht deklariertes Fleisch gefunden In Stabio wurden 492 Flaschen Wein entdeckt Die Kontrollen fanden am 3.',
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Zollkontrolle bei Stabio mit Lieferwagen und nicht deklarierten Weinflaschen',
+    'blog.article.gestione-emergenze-ticino-lombardia.title': 'Notfallmanagement: Extramuro zwischen dem Tessin und der Lombardei geht zu Ende',
+    'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'Die zweite Ausgabe von «Extramuro» ist in Erba zu Ende gegangen Etwa zehn Tessiner Offiziere haben die Ausbildung jenseits der Grenze absolviert Das Programm bezieht das Tessin ein',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Zivilschutztreffen zwischen dem Tessin und der Lombardei',
 };
 
 export default blogMetaDe;
