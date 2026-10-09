@@ -1,6 +1,6 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-10-09T09:13:59.120Z",
+  "assembledAt": "2026-10-09T21:19:13.292Z",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.740Z",
+      "crawledAt": "2026-10-09T21:18:29.059Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "professionnel-de-soins-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -131,7 +131,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.738Z",
+      "crawledAt": "2026-10-09T21:18:29.054Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
         "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
-        "professionnel-de-soins-viva-luzern"
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -205,7 +205,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "professionnel-de-soins-viva-luzern"
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
@@ -255,7 +255,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.737Z",
+      "crawledAt": "2026-10-09T21:18:29.053Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.736Z",
+      "crawledAt": "2026-10-09T21:18:29.052Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -440,7 +440,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.735Z",
+      "crawledAt": "2026-10-09T21:18:29.050Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -492,6 +492,83 @@
       }
     },
     {
+      "id": "viva-luzern-cdef27786435",
+      "slug": "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern",
+      "slugByLocale": {
+        "it": "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern",
+        "en": "nursing-professional-hf-no-shared-care-services-viva-luzern-luzern",
+        "de": "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
+        "fr": "soins-infirmiers-professionnels-pas-de-services-de-soins-partages-viva-luzern-luzern"
+      },
+      "company": "Viva Luzern",
+      "companyKey": "viva-luzern",
+      "companyDomain": "viva-luzern.ch",
+      "title": "Pflegefachfrau/-mann HF (keine geteilten Dienste im Bereich Pflege)",
+      "titleByLocale": {
+        "it": "Infermieristica professionale HF (senza servizi di assistenza condivisa)",
+        "en": "Nursing professional HF (no shared care services)",
+        "de": "Pflegefachfrau/-mann HF (keine geteilten Dienste im Bereich Pflege)",
+        "fr": "Soins infirmiers professionnels (pas de services de soins partagés)"
+      },
+      "description": "access_time 40-100%\nplace Viva Luzern Staffelnhof\ncalendar_today per sofort oder nach Vereinbarung\n\n## Deine Tätigkeiten sind\n• Verantwortung für den Pflegeprozess und eine angemessene individuelle Pflege und Betreuung der Bewohnerinnen und Bewohner\n• Bezugs- und Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige\n• Verantwortung für die interprofessionelle Zusammenarbeit und die Visitenführung\n• Unterstützung der Mitarbeitenden, Studierenden und Lernenden bei fachlichen Fragestellungen\n• Freude und Interesse am Umgang mit Menschen mit einer Demenzerkrankung\n• Möglichkeit Zusatzfunktion Berufsbildner\n\n## Du verfügst über\n• Abgeschlossene Ausbildung HF oder gleichwertiges\n• Dienstleistungs- und Kundenorientierung\n• Erfahrung in der Langzeit- oder Demenzpflege und die Bereitschaft, sich spezifisch weiterzubilden\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n• Belastbarkeit und Flexibilität an ganzen oder halben Tagen zu arbeiten\n• Berufsbildnerkurs\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Staffelnhof\nAn sonnenverwöhnter Lage im quirligen Wohnquartier Reussbühl liegt Viva Luzern Staffelnhof. Hier spielen Farben eine wichtige Rolle. Sie stehen symbolisch für Individualität, Energie und Lebensfreude. Die grosszügigen Zimmer erlauben viel Privatsphäre.\nErfahre mehr über Viva Luzern Staffelnhof\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 900 Bewohnenden in den fünf Betagtenzentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
+      "descriptionByLocale": {
+        "it": "tempo di accesso 40-100 %\nLuogo Viva Lucerna Staffelnhof\ncalendario oggi immediatamente o con accordo\n\n## Le tue attività sono\n• Responsabilità per il processo di cura e la cura individuale adeguata dei residenti\n• Referenza e referente per i residenti e i loro parenti\n• Responsabilità per la cooperazione interprofessionale e la visita\n• Supporto per dipendenti, studenti e studenti in questioni tecniche\n• Gioia e interesse nel trattare con persone con demenza\n• Possibilità Funzione aggiuntiva Formazione professionale\n\n## Hai finito\n• Formazione completa HF o equivalente\n• Servizio e orientamento al cliente\n• Esperienza nella cura a lungo termine o demenza e la volontà di sviluppare specificamente\n• Metodi di lavoro orientati alla soluzione e legati al processo\n• Resilienza e flessibilità di lavoro per interi o mezzo giorni\n• Corso di formazione professionale\nVi offriamo\n\n## Essere ben addestrato\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale\n\n## Godetevi il tempo libero\n• Almeno 25 giorni di vacanza (da 50 anni di età 30 e da 60 anni 33 giorni)\n• 15 giorni\n• 30 minuti di pausa pagata per giorno lavorativo completo\n• Per i dipendenti in abbigliamento professionale 15 minuti pagati che cambiano tempo al giorno lavorativo\n• L'orario è min. Quattro settimane di anticipo\n• Possibilità di progettare il vostro roster voi stessi come un pool di personale dipendente\n• 20 giorni lavorativi di congedo di paternità pagato o per altri genitori o adozione\n• Possibilità di congedo non retribuito\n• congedo supplementare da 10 anni di servizio ogni 5 anni\n\n## Rimani sano\n• Attività di promozione della salute, di sicurezza e di protezione della salute sul lavoro\n• Consulenza gratuita per difficoltà finanziarie, sociali, personali o altre\n\n## Ben assicurati\n• In caso di incidente e malattia prosecuzione salariale al 100% fino a 730 giorni\n• Prestazioni previdenziali\n• 16 settimane di congedo di maternità retribuito\n\n## Avere di più nel portafoglio\n• Lei beneficia di uno standard industriale salario lordo\n• Detrazioni assicurative profonde: Viva Lucerne occupa gran parte del contributo del fondo pensionistico e dell'assicurazione malattia\n• 30% di sconto sul cibo nei ristoranti di Viva Lucerne\n• Una bevanda calda gratuita al giorno\n• Notte, fine settimana e ferie pubbliche\n• Indennità speciale di CHF 300 al mese\n• CHF 1'000 per un posto di lavoro di successo\n• Gli studenti e gli studenti ricevono CHF 200.00 per l'acquisto di un laptop\n\n## Vantaggio delle condizioni speciali\nA Viva Lucerne si beneficiano di oltre 300 perks e...\n• Più economico per le vacanze\n• Pagare meno per vestiti e scarpe\n• acquisti ben noti prodotti di marca su termini preferenziali\n• Godetevi innumerevoli offerte per il tempo libero ai migliori prezzi\n\n## Viva Lucerna Staffelnhof\nIn posizione soleggiata nel vivace quartiere residenziale di Reussbühl si trova Viva Lucerna Staffelnhof. I colori giocano un ruolo importante qui. Sono simboli di individualità, energia e joie de vivre. Le camere spaziose permettono un sacco di privacy.\nScopri di più su Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nLa gioia della vita non è una questione di età, ma di qualità della vita. Questo è esattamente ciò che Viva Lucerne offre ai suoi 900 residenti nei cinque centri betagten e nel vivere con servizi nella città di Lucerna. Viva Lucerna è il fornitore leader di cure a lungo termine nella Svizzera centrale.",
+        "en": "access time 40-100 %\nplace Viva Lucerne Staffelnhof\ncalendar today immediately or by agreement\n\n## Your activities are\n• Responsibility for the care process and adequate individual care and care of residents\n• Reference and contact person for the residents and their relatives\n• Responsibility for interprofessional cooperation and visitation\n• Support for employees, students and learners in technical issues\n• Joy and interest in dealing with people with dementia\n• Possibility Additional function Vocational trainers\n\n## You have over\n• Completed training HF or equivalent\n• Service and customer orientation\n• Experience in long-term or dementia care and the willingness to develop specifically\n• Solution-oriented and process-related working methods\n• Resilience and flexibility to work on whole or half days\n• Vocational training course\nWe offer you\n\n## Be well trained\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice\n\n## Enjoy free time\n• At least 25 days of holiday (from 50 years of age 30 and from 60 years of age 33 days)\n• 15 paid holidays\n• 30 minutes paid break per full working day\n• For employees in professional clothing 15 minutes paid changing time per working day\n• Schedule is min. Four weeks in advance\n• Possibility to design your roster yourself as an employee staff pool\n• 20 working days of paid paternity leave or for other parents or adoption\n• Possibility of unpaid leave\n• Additional leave from 10 years of service every 5 years\n\n## Stay healthy\n• Targeted health promotion, occupational safety and health protection activities\n• Free advice for financial, social, personal or other difficulties\n\n## Well-insured\n• In case of accident and illness 100% wage continuation up to 730 days\n• Above-average occupational pension benefits\n• 16 weeks of paid maternity leave\n\n## Have more in your wallet\n• You benefit from an industry standard gross wage\n• Deep insurance deductions: Viva Lucerne takes over a large part of the pension fund contribution and the sickness allowance insurance\n• 30% discount on food in the restaurants of Viva Lucerne\n• One free hot drink per day\n• Night, weekend and public holiday allowances\n• Special family allowance of CHF 300 per month\n• CHF 1'000 for a successful job placement\n• Learners and students receive CHF 200.00 for the purchase of a laptop\n\n## Benefit from special conditions\nAt Viva Lucerne you benefit from over 300 perks and...\n• Get cheaper on holidays\n• Pay less for clothes and shoes\n• purchases well-known branded products on preferential terms\n• Enjoy countless leisure offers at the best prices\n\n## Viva Lucerne Staffelnhof\nOn a sun-drenched location in the lively residential district of Reussbühl is Viva Lucerne Staffelnhof. Colors play an important role here. They are symbolic of individuality, energy and joie de vivre. The spacious rooms allow a lot of privacy.\nLearn more about Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nThe joy of life is not a question of age, but of quality of life. This is exactly what Viva Lucerne offers its 900 residents in the five betagten centers and in living with services in the city of Lucerne. Viva Lucerne is the leading provider of long-term care in Central Switzerland.",
+        "de": "access_time 40-100%\nplace Viva Luzern Staffelnhof\ncalendar_today per sofort oder nach Vereinbarung\n\n## Deine Tätigkeiten sind\n• Verantwortung für den Pflegeprozess und eine angemessene individuelle Pflege und Betreuung der Bewohnerinnen und Bewohner\n• Bezugs- und Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige\n• Verantwortung für die interprofessionelle Zusammenarbeit und die Visitenführung\n• Unterstützung der Mitarbeitenden, Studierenden und Lernenden bei fachlichen Fragestellungen\n• Freude und Interesse am Umgang mit Menschen mit einer Demenzerkrankung\n• Möglichkeit Zusatzfunktion Berufsbildner\n\n## Du verfügst über\n• Abgeschlossene Ausbildung HF oder gleichwertiges\n• Dienstleistungs- und Kundenorientierung\n• Erfahrung in der Langzeit- oder Demenzpflege und die Bereitschaft, sich spezifisch weiterzubilden\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n• Belastbarkeit und Flexibilität an ganzen oder halben Tagen zu arbeiten\n• Berufsbildnerkurs\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Staffelnhof\nAn sonnenverwöhnter Lage im quirligen Wohnquartier Reussbühl liegt Viva Luzern Staffelnhof. Hier spielen Farben eine wichtige Rolle. Sie stehen symbolisch für Individualität, Energie und Lebensfreude. Die grosszügigen Zimmer erlauben viel Privatsphäre.\nErfahre mehr über Viva Luzern Staffelnhof\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 900 Bewohnenden in den fünf Betagtenzentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
+        "fr": "temps d'accès 40-100 %\nlieu Viva Lucerne Staffelnhof\ncalendrier aujourd'hui immédiatement ou par accord\n\n## Vos activités sont\n• Responsabilité du processus de prise en charge et des soins individuels appropriés des résidents\n• Personne de référence et de contact pour les résidents et leurs proches\n• Responsabilité de la coopération interprofessionnelle et des visites\n• Soutien aux employés, aux étudiants et aux apprenants en matière technique\n• La joie et l'intérêt pour les personnes atteintes de démence\n• Possibilité Fonction supplémentaire\n\n## Vous avez fini\n• Formation terminée HF ou équivalent\n• Service et orientation client\n• Expérience en soins de longue durée ou en démence et volonté de se développer\n• Méthodes de travail axées sur les solutions et les processus\n• Résilience et flexibilité pour travailler pendant des jours ou demi\n• Cours de formation professionnelle\nNous vous offrons\n\n## Être bien entraîné\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunéré temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre équipe comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour les autres parents ou adoption\n• Possibilité de congé non rémunéré\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Restez en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions d'assurance importantes: Viva Lucerne reprend une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• CHF 1'000 pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions spéciales\nChez Viva Lucerne vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Viva Lucerne Staffelnhof\nSur un emplacement ensoleillé dans le quartier résidentiel animé de Reussbühl est Viva Lucerne Staffelnhof. Les couleurs jouent ici un rôle important. Elles sont symboliques de l'individualité, de l'énergie et de la joie de vivre. Les chambres spacieuses permettent beaucoup d'intimité.\nEn savoir plus sur Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 900 résidents dans les cinq centres bestigen et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
+      },
+      "needsRetranslation": false,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
+      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-09T21:18:29.049Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Staffelnhofstrasse 60",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-07-02T23:17:19.767Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "viva-luzern-78534e424536",
       "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
       "slugByLocale": {
@@ -522,7 +599,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.734Z",
+      "crawledAt": "2026-10-09T21:18:29.047Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -572,83 +649,6 @@
       }
     },
     {
-      "id": "viva-luzern-cdef27786435",
-      "slug": "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern",
-      "slugByLocale": {
-        "it": "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern",
-        "en": "nursing-professional-hf-no-shared-care-services-viva-luzern-luzern",
-        "de": "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "fr": "soins-infirmiers-professionnels-pas-de-services-de-soins-partages-viva-luzern-luzern"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "Pflegefachfrau/-mann HF (keine geteilten Dienste im Bereich Pflege)",
-      "titleByLocale": {
-        "it": "Infermieristica professionale HF (senza servizi di assistenza condivisa)",
-        "en": "Nursing professional HF (no shared care services)",
-        "de": "Pflegefachfrau/-mann HF (keine geteilten Dienste im Bereich Pflege)",
-        "fr": "Soins infirmiers professionnels (pas de services de soins partagés)"
-      },
-      "description": "access_time 40-100%\nplace Viva Luzern Staffelnhof\ncalendar_today per sofort oder nach Vereinbarung\n\n## Deine Tätigkeiten sind\n• Verantwortung für den Pflegeprozess und eine angemessene individuelle Pflege und Betreuung der Bewohnerinnen und Bewohner\n• Bezugs- und Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige\n• Verantwortung für die interprofessionelle Zusammenarbeit und die Visitenführung\n• Unterstützung der Mitarbeitenden, Studierenden und Lernenden bei fachlichen Fragestellungen\n• Freude und Interesse am Umgang mit Menschen mit einer Demenzerkrankung\n• Möglichkeit Zusatzfunktion Berufsbildner\n\n## Du verfügst über\n• Abgeschlossene Ausbildung HF oder gleichwertiges\n• Dienstleistungs- und Kundenorientierung\n• Erfahrung in der Langzeit- oder Demenzpflege und die Bereitschaft, sich spezifisch weiterzubilden\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n• Belastbarkeit und Flexibilität an ganzen oder halben Tagen zu arbeiten\n• Berufsbildnerkurs\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Staffelnhof\nAn sonnenverwöhnter Lage im quirligen Wohnquartier Reussbühl liegt Viva Luzern Staffelnhof. Hier spielen Farben eine wichtige Rolle. Sie stehen symbolisch für Individualität, Energie und Lebensfreude. Die grosszügigen Zimmer erlauben viel Privatsphäre.\nErfahre mehr über Viva Luzern Staffelnhof\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 900 Bewohnenden in den fünf Betagtenzentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
-      "descriptionByLocale": {
-        "it": "tempo di accesso 40-100 %\nLuogo Viva Lucerna Staffelnhof\ncalendario oggi immediatamente o con accordo\n\n## Le tue attività sono\n• Responsabilità per il processo di cura e la cura individuale adeguata dei residenti\n• Referenza e referente per i residenti e i loro parenti\n• Responsabilità per la cooperazione interprofessionale e la visita\n• Supporto per dipendenti, studenti e studenti in questioni tecniche\n• Gioia e interesse nel trattare con persone con demenza\n• Possibilità Funzione aggiuntiva Formazione professionale\n\n## Hai finito\n• Formazione completa HF o equivalente\n• Servizio e orientamento al cliente\n• Esperienza nella cura a lungo termine o demenza e la volontà di sviluppare specificamente\n• Metodi di lavoro orientati alla soluzione e legati al processo\n• Resilienza e flessibilità di lavoro per interi o mezzo giorni\n• Corso di formazione professionale\nVi offriamo\n\n## Essere ben addestrato\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale\n\n## Godetevi il tempo libero\n• Almeno 25 giorni di vacanza (da 50 anni di età 30 e da 60 anni 33 giorni)\n• 15 giorni\n• 30 minuti di pausa pagata per giorno lavorativo completo\n• Per i dipendenti in abbigliamento professionale 15 minuti pagati che cambiano tempo al giorno lavorativo\n• L'orario è min. Quattro settimane di anticipo\n• Possibilità di progettare il vostro roster voi stessi come un pool di personale dipendente\n• 20 giorni lavorativi di congedo di paternità pagato o per altri genitori o adozione\n• Possibilità di congedo non retribuito\n• congedo supplementare da 10 anni di servizio ogni 5 anni\n\n## Rimani sano\n• Attività di promozione della salute, di sicurezza e di protezione della salute sul lavoro\n• Consulenza gratuita per difficoltà finanziarie, sociali, personali o altre\n\n## Ben assicurati\n• In caso di incidente e malattia prosecuzione salariale al 100% fino a 730 giorni\n• Prestazioni previdenziali\n• 16 settimane di congedo di maternità retribuito\n\n## Avere di più nel portafoglio\n• Lei beneficia di uno standard industriale salario lordo\n• Detrazioni assicurative profonde: Viva Lucerne occupa gran parte del contributo del fondo pensionistico e dell'assicurazione malattia\n• 30% di sconto sul cibo nei ristoranti di Viva Lucerne\n• Una bevanda calda gratuita al giorno\n• Notte, fine settimana e ferie pubbliche\n• Indennità speciale di CHF 300 al mese\n• CHF 1'000 per un posto di lavoro di successo\n• Gli studenti e gli studenti ricevono CHF 200.00 per l'acquisto di un laptop\n\n## Vantaggio delle condizioni speciali\nA Viva Lucerne si beneficiano di oltre 300 perks e...\n• Più economico per le vacanze\n• Pagare meno per vestiti e scarpe\n• acquisti ben noti prodotti di marca su termini preferenziali\n• Godetevi innumerevoli offerte per il tempo libero ai migliori prezzi\n\n## Viva Lucerna Staffelnhof\nIn posizione soleggiata nel vivace quartiere residenziale di Reussbühl si trova Viva Lucerna Staffelnhof. I colori giocano un ruolo importante qui. Sono simboli di individualità, energia e joie de vivre. Le camere spaziose permettono un sacco di privacy.\nScopri di più su Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nLa gioia della vita non è una questione di età, ma di qualità della vita. Questo è esattamente ciò che Viva Lucerne offre ai suoi 900 residenti nei cinque centri betagten e nel vivere con servizi nella città di Lucerna. Viva Lucerna è il fornitore leader di cure a lungo termine nella Svizzera centrale.",
-        "en": "access time 40-100 %\nplace Viva Lucerne Staffelnhof\ncalendar today immediately or by agreement\n\n## Your activities are\n• Responsibility for the care process and adequate individual care and care of residents\n• Reference and contact person for the residents and their relatives\n• Responsibility for interprofessional cooperation and visitation\n• Support for employees, students and learners in technical issues\n• Joy and interest in dealing with people with dementia\n• Possibility Additional function Vocational trainers\n\n## You have over\n• Completed training HF or equivalent\n• Service and customer orientation\n• Experience in long-term or dementia care and the willingness to develop specifically\n• Solution-oriented and process-related working methods\n• Resilience and flexibility to work on whole or half days\n• Vocational training course\nWe offer you\n\n## Be well trained\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice\n\n## Enjoy free time\n• At least 25 days of holiday (from 50 years of age 30 and from 60 years of age 33 days)\n• 15 paid holidays\n• 30 minutes paid break per full working day\n• For employees in professional clothing 15 minutes paid changing time per working day\n• Schedule is min. Four weeks in advance\n• Possibility to design your roster yourself as an employee staff pool\n• 20 working days of paid paternity leave or for other parents or adoption\n• Possibility of unpaid leave\n• Additional leave from 10 years of service every 5 years\n\n## Stay healthy\n• Targeted health promotion, occupational safety and health protection activities\n• Free advice for financial, social, personal or other difficulties\n\n## Well-insured\n• In case of accident and illness 100% wage continuation up to 730 days\n• Above-average occupational pension benefits\n• 16 weeks of paid maternity leave\n\n## Have more in your wallet\n• You benefit from an industry standard gross wage\n• Deep insurance deductions: Viva Lucerne takes over a large part of the pension fund contribution and the sickness allowance insurance\n• 30% discount on food in the restaurants of Viva Lucerne\n• One free hot drink per day\n• Night, weekend and public holiday allowances\n• Special family allowance of CHF 300 per month\n• CHF 1'000 for a successful job placement\n• Learners and students receive CHF 200.00 for the purchase of a laptop\n\n## Benefit from special conditions\nAt Viva Lucerne you benefit from over 300 perks and...\n• Get cheaper on holidays\n• Pay less for clothes and shoes\n• purchases well-known branded products on preferential terms\n• Enjoy countless leisure offers at the best prices\n\n## Viva Lucerne Staffelnhof\nOn a sun-drenched location in the lively residential district of Reussbühl is Viva Lucerne Staffelnhof. Colors play an important role here. They are symbolic of individuality, energy and joie de vivre. The spacious rooms allow a lot of privacy.\nLearn more about Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nThe joy of life is not a question of age, but of quality of life. This is exactly what Viva Lucerne offers its 900 residents in the five betagten centers and in living with services in the city of Lucerne. Viva Lucerne is the leading provider of long-term care in Central Switzerland.",
-        "de": "access_time 40-100%\nplace Viva Luzern Staffelnhof\ncalendar_today per sofort oder nach Vereinbarung\n\n## Deine Tätigkeiten sind\n• Verantwortung für den Pflegeprozess und eine angemessene individuelle Pflege und Betreuung der Bewohnerinnen und Bewohner\n• Bezugs- und Ansprechperson für die Bewohnerinnen und Bewohner und deren Angehörige\n• Verantwortung für die interprofessionelle Zusammenarbeit und die Visitenführung\n• Unterstützung der Mitarbeitenden, Studierenden und Lernenden bei fachlichen Fragestellungen\n• Freude und Interesse am Umgang mit Menschen mit einer Demenzerkrankung\n• Möglichkeit Zusatzfunktion Berufsbildner\n\n## Du verfügst über\n• Abgeschlossene Ausbildung HF oder gleichwertiges\n• Dienstleistungs- und Kundenorientierung\n• Erfahrung in der Langzeit- oder Demenzpflege und die Bereitschaft, sich spezifisch weiterzubilden\n• Lösungsorientierte und prozessbezogene Arbeitsweise\n• Belastbarkeit und Flexibilität an ganzen oder halben Tagen zu arbeiten\n• Berufsbildnerkurs\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Staffelnhof\nAn sonnenverwöhnter Lage im quirligen Wohnquartier Reussbühl liegt Viva Luzern Staffelnhof. Hier spielen Farben eine wichtige Rolle. Sie stehen symbolisch für Individualität, Energie und Lebensfreude. Die grosszügigen Zimmer erlauben viel Privatsphäre.\nErfahre mehr über Viva Luzern Staffelnhof\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 900 Bewohnenden in den fünf Betagtenzentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
-        "fr": "temps d'accès 40-100 %\nlieu Viva Lucerne Staffelnhof\ncalendrier aujourd'hui immédiatement ou par accord\n\n## Vos activités sont\n• Responsabilité du processus de prise en charge et des soins individuels appropriés des résidents\n• Personne de référence et de contact pour les résidents et leurs proches\n• Responsabilité de la coopération interprofessionnelle et des visites\n• Soutien aux employés, aux étudiants et aux apprenants en matière technique\n• La joie et l'intérêt pour les personnes atteintes de démence\n• Possibilité Fonction supplémentaire\n\n## Vous avez fini\n• Formation terminée HF ou équivalent\n• Service et orientation client\n• Expérience en soins de longue durée ou en démence et volonté de se développer\n• Méthodes de travail axées sur les solutions et les processus\n• Résilience et flexibilité pour travailler pendant des jours ou demi\n• Cours de formation professionnelle\nNous vous offrons\n\n## Être bien entraîné\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunéré temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre équipe comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour les autres parents ou adoption\n• Possibilité de congé non rémunéré\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Restez en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions d'assurance importantes: Viva Lucerne reprend une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• CHF 1'000 pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions spéciales\nChez Viva Lucerne vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Viva Lucerne Staffelnhof\nSur un emplacement ensoleillé dans le quartier résidentiel animé de Reussbühl est Viva Lucerne Staffelnhof. Les couleurs jouent ici un rôle important. Elles sont symboliques de l'individualité, de l'énergie et de la joie de vivre. Les chambres spacieuses permettent beaucoup d'intimité.\nEn savoir plus sur Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 900 résidents dans les cinq centres bestigen et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
-      },
-      "needsRetranslation": false,
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.734Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Staffelnhofstrasse 60",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
-        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
-          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-07-02T23:17:19.767Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "viva-luzern-d284b9a04df5",
       "slug": "teamleiter-in-betreuung-e-pflege-per-la-demenz-wohngruppe-viva-luzern",
       "slugByLocale": {
@@ -680,7 +680,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.733Z",
+      "crawledAt": "2026-10-09T21:18:29.045Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -760,7 +760,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fuer-die-demenz-wohngruppe/ccbfa5c2-4beb-43d0-8b7f-f12e5f5c5fd5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.732Z",
+      "crawledAt": "2026-10-09T21:18:29.043Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -835,7 +835,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.731Z",
+      "crawledAt": "2026-10-09T21:18:29.041Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -910,7 +910,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.730Z",
+      "crawledAt": "2026-10-09T21:18:29.038Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1004,7 +1004,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.729Z",
+      "crawledAt": "2026-10-09T21:18:29.036Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1084,7 +1084,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-palliative-care/78c1f742-8405-4637-8b09-24f62e33ee5d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.728Z",
+      "crawledAt": "2026-10-09T21:18:29.034Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1165,7 +1165,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aufnahmeverantwortliche-r/8d474404-5306-4e6b-a842-9dbff53d0ec3",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.727Z",
+      "crawledAt": "2026-10-09T21:18:29.032Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1254,7 +1254,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/28359277-7f1b-49c3-8572-694ea25e16fd",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.726Z",
+      "crawledAt": "2026-10-09T21:18:29.030Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1328,7 +1328,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.724Z",
+      "crawledAt": "2026-10-09T21:18:29.026Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1375,7 +1375,7 @@
       "slug": "cuocere-cucinare-viva-luzern-luzern",
       "slugByLocale": {
         "it": "cuocere-cucinare-viva-luzern-luzern",
-        "en": "cook-cook-viva-luzern-luzern",
+        "en": "kochin-koch-viva-luzern",
         "de": "kochin-koch-viva-luzern-luzern",
         "fr": "cuisiniere-viva-luzern-luzern"
       },
@@ -1402,7 +1402,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch/801ef47f-7193-477c-ba0c-38bd7c0cae1d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.722Z",
+      "crawledAt": "2026-10-09T21:18:29.023Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1424,14 +1424,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-viva-luzern-luzern",
-        "kochin-koch-viva-luzern"
+        "cook-cook-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-viva-luzern-luzern"
         ],
         "en": [
-          "kochin-koch-viva-luzern"
+          "cook-cook-viva-luzern-luzern"
         ]
       },
       "salaryMin": 69000,
@@ -1474,12 +1474,13 @@
         "de": "access_time 4 Abend Dienste (16.30 bis 19.00 Uhr) pro Woche / ca. 20% Pensum\nplace Viva Luzern Staffelnhof\ncalendar_today nach Vereinbarung\n\n## Deine Hauptaufgaben sind\n• Service des Abendessens im Wohnbereich\n• Servicevorbereitungen für den Frühstücksservice und Aufräumarbeiten\n• Einhalten der Lebensmittelhygiene\n\n## Du verfügst über\n• Dienstleistungsorientierte Persönlichkeit\n• Erfahrung im Dienstleistungsbereich oder im Bereich Gastronomie\n• Freude am Umgang mit älteren Menschen\n• Bereitschaft für flexible Einsätze auch am Wochenende\n• Gute mündliche und schriftliche Deutschkenntnisse\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Staffelnhof\nAn sonnenverwöhnter Lage im quirligen Wohnquartier Reussbühl liegt Viva Luzern Staffelnhof. Hier spielen Farben eine wichtige Rolle. Sie stehen symbolisch für Individualität, Energie und Lebensfreude. Die grosszügigen Zimmer erlauben viel Privatsphäre.\nErfahre mehr über Viva Luzern Staffelnhof\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
         "fr": "temps d'accès 4 services du soir (16.30 à 19.00) par semaine\nlieu Viva Lucerne Staffelnhof\ncalendrier aujourd'hui par accord\n\n## Vos principales tâches sont :\n• Dîner dans le salon\n• Préparations pour le service de petit déjeuner et nettoyage\n• Respect de l'hygiène alimentaire\n\n## C'est fini\n• Personnalité axée sur le service\n• Expérience en service ou gastronomie\n• La joie de traiter avec les personnes âgées\n• Préparation pour les missions flexibles également le week-end\n• Bonne connaissance orale et écrite de l'allemand\nNous vous offrons\n\n## Être bien formé\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunéré temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre liste comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour d'autres parents ou adoption\n• Possibilité de congé sans solde\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Rester en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions importantes au titre de l'assurance: Viva Lucerne prend en charge une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• CHF 1'000 pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions particulières\nChez Viva Lucerne, vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Viva Lucerne Staffelnhof\nSur un emplacement ensoleillé dans le quartier résidentiel animé de Reussbühl est Viva Lucerne Staffelnhof. Les couleurs jouent ici un rôle important. Elles sont symboliques de l'individualité, de l'énergie et de la joie de vivre. Les chambres spacieuses permettent beaucoup d'intimité.\nEn savoir plus sur Viva Lucerne Staffelnhof\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 850 résidents dans les centres de six ans et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
       },
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.721Z",
+      "crawledAt": "2026-10-09T21:18:29.021Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1553,7 +1554,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-oder-fachfrau-mann-gesundheit-efz-im-nachtdienst/6d0fe6ae-81a5-4704-9267-25382f53ca73",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.719Z",
+      "crawledAt": "2026-10-09T21:18:29.019Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1628,7 +1629,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/fd8f79b8-ca1f-4e5e-952b-63da72aac07f",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.718Z",
+      "crawledAt": "2026-10-09T21:18:29.016Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1709,7 +1710,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachfrau-mann-hf/af9e65bf-275f-40d3-b653-4faa1a279cda",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.717Z",
+      "crawledAt": "2026-10-09T21:18:29.013Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1790,7 +1791,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stellvertretung-teamleitung-pflege/48f0632b-dec9-47aa-a003-4890eb58772b",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:20.706Z",
+      "crawledAt": "2026-10-09T21:18:28.997Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1906,7 +1907,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
