@@ -238,7 +238,8 @@ const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|st
 const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
-const NON_RESIDENCE_ADDRESS_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
+const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
@@ -246,9 +247,10 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 export function addressQuestionTopic(text) {
   const value = String(text || '');
   if (NON_RESIDENCE_ADDRESS_RE.test(value)) return '';
-  if (POSTAL_CODE_RE.test(value)) return 'residence_postal_code';
-  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return 'residence_country';
-  if (CITY_RE.test(value)) return 'residence_city';
+  const residenceContext = RESIDENCE_CONTEXT_RE.test(value);
+  if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
+  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
+  if (CITY_RE.test(value)) return residenceContext ? 'residence_city' : '';
   const street = STREET_ADDRESS_RE.test(text);
   const houseNumber = HOUSE_NUMBER_RE.test(text);
   const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);

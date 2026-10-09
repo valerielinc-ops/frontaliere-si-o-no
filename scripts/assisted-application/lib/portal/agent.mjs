@@ -189,7 +189,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const answer = action.answer || action.value;
     const addressTopic = questionTopic(action.question);
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
-      && ['address', 'address_street', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
+      && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
       const knownAddress = candidateAnswerForField(candidate, { label: action.question, options: [] });
       if (knownAddress) {

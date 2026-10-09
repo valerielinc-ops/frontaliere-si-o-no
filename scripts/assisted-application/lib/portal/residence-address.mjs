@@ -96,7 +96,9 @@ function explicitCountry(value) {
 }
 
 function explicitPostalCode(cvText, city, province) {
-  const lines = String(cvText || '').split(/\r?\n/).filter((line) => /residen|domicil|indirizz|address|adresse|wohn|via\b|rue\b|street\b/i.test(line));
+  const lines = String(cvText || '').split(/\r?\n/)
+    .filter((line) => /\b(?:residen\w*|domicil\w*|indirizzo\s+(?:di\s+)?residen\w*|home\s+address|current\s+address|adresse\s+(?:de\s+)?(?:r[eé]sidence|residence)|wohn(?:sitz|adresse)\w*)\b/i.test(line))
+    .filter((line) => !/\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|address|country|city|town))|job\s+(?:location|address|city|town)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i.test(line));
   const codes = [...new Set(lines.flatMap((line) => line.match(/\b\d{5}\b/g) || []))];
   if (codes.length !== 1) return '';
   const known = resolveItalianPostalCode(city, province);

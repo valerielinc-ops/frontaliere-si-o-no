@@ -1,9 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
-import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -577,10 +578,14 @@ describe('portal runner helpers', () => {
     const address = { id: 'address', kind: 'text', label: 'Qual è la via e il numero civico?', required: true };
     const school = { id: 'school', kind: 'select', label: 'In quale scuola sei attualmente?', required: true, options: [{ label: 'Ecole de Commerce' }, { label: 'Autre' }] };
     expect(questionTopic('Qual è la tua via e il numero civico?')).toBe('address');
-    expect(questionTopic('Qual è il tuo codice postale?')).toBe('residence_postal_code');
+    expect(questionTopic('Qual è il tuo CAP di residenza?')).toBe('residence_postal_code');
+    expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
     expect(questionTopic('Qual è la tua nazione di residenza?')).toBe('residence_country');
     expect(questionTopic('Employer country')).toBe('');
     expect(questionTopic('Work city')).toBe('');
+    expect(addressQuestionTopic('Country of birth')).toBe('');
+    expect(addressQuestionTopic('City of birth')).toBe('');
+    expect(addressQuestionTopic('Country of residence')).toBe('residence_country');
     expect(questionTopic('Street address')).toBe('address_street');
     expect(questionTopic('Hausnummer')).toBe('address_house_number');
     expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
@@ -642,6 +647,10 @@ describe('portal runner helpers', () => {
       },
     });
     expect(candidate.identity.address).toMatchObject({ postalCode: '', country: '' });
+  });
+
+  it('does not take a CAP from an employer address line in the CV', () => {
+    expect(resolveResidenceAddress({}, '', 'Employer address: Via Roma 1, 43039').postalCode).toBe('');
   });
 
   it('deduplicates a portal question after an ATS changes its wording', () => {

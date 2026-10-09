@@ -117,18 +117,20 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
       profile: {
         location: 'Salsomaggiore T. (PR)',
-        address: { street: 'Via Test 1', postalCode: '', city: 'Salsomaggiore T. (PR)', country: '' },
+        address: { street: 'Via Test 12', postalCode: '', city: 'Salsomaggiore T. (PR)', country: '' },
       },
       language: 'it',
     });
     const guarded = guardAgentStep(turn('act', [
       act({ ref: 'e1', action: 'fill', value: '00000', question: 'Qual è il tuo CAP di residenza?', answer: '00000', source: 'rule' }),
       act({ ref: 'e2', action: 'select', value: 'Svizzera', question: 'Qual è la tua nazione di residenza?', answer: 'Svizzera', source: 'rule' }),
+      act({ ref: 'e3', action: 'fill', value: '99', question: 'House number', answer: '99', source: 'model' }),
     ]), candidate);
     expect(guarded).toMatchObject({ status: 'act', questions: [] });
     expect(guarded.actions.map((action: any) => [action.value, action.source])).toEqual([
       ['43039', 'identity'],
       ['Italia', 'identity'],
+      ['12', 'identity'],
     ]);
 
     const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
