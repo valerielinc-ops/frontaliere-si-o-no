@@ -861,6 +861,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     }
     for (const label of ['Permis de conduire', 'Country', 'E-Mail-Adresse', 'Email address']) expect([label, SENSITIVE.test(label)]).toEqual([label, false]);
     expect(SENSITIVE.test('email e nazionalità')).toBe(true);
+    expect(SENSITIVE.test('E-Mail-Adresse (required)')).toBe(false);
+    expect(SENSITIVE.test('Email address (obligatoire)')).toBe(false);
   });
 
   it('never ticks a consent that also declares a work authorisation or a citizenship', () => {
