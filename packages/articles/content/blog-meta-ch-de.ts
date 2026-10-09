@@ -7939,7 +7939,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont: bei Montblanc 17 Versetzungen und 6 Entlassungen',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont versetzt 17 Mitarbeitende von Montblanc Sechs Mitarbeitende wurden entlassen Unia weist auf die Krise der Uhrenindustrie hin Begriff Wert Unternehmen',
-    'blog.article.richemont-montblanc-tagli.imageAlt': 'Uhrenatelier in Le Locle vor dem Hintergrund der Branchenkrise',
+    'blog.article.richemont-montblanc-tagli.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.svizzera-soldi-delusione-lavoro.title': 'Wer nur wegen des Geldes in die Schweiz kommt, wird enttäuscht',
     'blog.article.svizzera-soldi-delusione-lavoro.excerpt': '80% der offenen Stellen werden mit lokalem Personal besetzt.',
     'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Berufstätiger arbeitet zu Hause mit Seeblick in der Schweiz',
@@ -7979,6 +7979,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, eine Flut von Kritik am Bundesplan',
     'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 sieht bis 2045 50 Milliarden vor Das erste Paket ist 2027 11 Milliarden wert Der Bahn fehlen 10 Milliarden Die Regierung schlägt vor',
     'blog.article.trasporti-45-critiche-piano.imageAlt': 'Verkehrsinfrastruktur in der Schweiz für das Projekt Transport45',
+    'blog.article.lucerna-convocazioni-indennita.title': 'Zivilschutz im Kanton Luzern: Voraussetzungen und Entschädigungen',
+    'blog.article.lucerna-convocazioni-indennita.excerpt': 'Luzern: kantonal koordinierter Zivilschutz Der Bezugsrahmen ist das Bundesgesetz Aufgebote und Entschädigungen: Überprüfung bei der Behörde',
+    'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Zivilschutz im Kanton Luzern',
 };
 
 export default blogMetaChDe;

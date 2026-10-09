@@ -43284,7 +43284,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'treno-foliage-locarno-2026',
  category: 'novita',
  date: '2026-10-08T16:34:16.718Z',
- image: '/images/blog/article-treno-foliage-locarno-domodossola.webp',
+ image: '/images/blog/article-treno-foliage-locarno-2026.webp',
  hasCalculator: false,
  articleType: 'news',
  canton: ['TI'],

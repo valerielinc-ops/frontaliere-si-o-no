@@ -7939,7 +7939,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Illustration générée pour cet article',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont : chez Montblanc, 17 transferts et 6 licenciements',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont transfère 17 employés de Montblanc Six collaborateurs ont été licenciés Unia signale la crise de l\'industrie horlogère Terme Valeur Entreprise',
-    'blog.article.richemont-montblanc-tagli.imageAlt': 'Atelier horloger au Locle dans le contexte de la crise du secteur',
+    'blog.article.richemont-montblanc-tagli.imageAlt': 'Illustration générée pour cet article',
     'blog.article.svizzera-soldi-delusione-lavoro.title': 'Quiconque vient en Suisse uniquement pour l\'argent reste déçu',
     'blog.article.svizzera-soldi-delusione-lavoro.excerpt': '80% des postes vacants sont pourvus par du personnel local.',
     'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Professionnel travaillant à domicile avec vue sur le lac en Suisse',
@@ -7979,6 +7979,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, une pluie de critiques sur le plan fédéral',
     'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 prévoit 50 milliards d’ici 2045 Le premier paquet vaut 11 milliards en 2027 Le rail accuse un déficit de 10 milliards Le Gouvernement propose',
     'blog.article.trasporti-45-critiche-piano.imageAlt': 'Infrastructure de transport en Suisse pour le projet Transports45',
+    'blog.article.lucerna-convocazioni-indennita.title': 'Protection civile dans le canton de Lucerne : conditions et indemnités',
+    'blog.article.lucerna-convocazioni-indennita.excerpt': 'Lucerne : protection civile coordonnée au niveau cantonal Le cadre de référence est la loi fédérale Convocations et indemnités : vérification auprès de l’autorité',
+    'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Protection civile dans le canton de Lucerne',
 };
 
 export default blogMetaChFr;

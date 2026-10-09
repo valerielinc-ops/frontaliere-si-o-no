@@ -7939,7 +7939,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont: a Montblanc 17 trasferimenti e 6 licenziamenti',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont trasferisce 17 dipendenti di Montblanc Sei collaboratori sono stati licenziati Unia segnala la crisi dell\'industria orologiera Termine Valore Azienda',
-    'blog.article.richemont-montblanc-tagli.imageAlt': 'Atelier di orologeria a Le Locle nel quadro della crisi del settore',
+    'blog.article.richemont-montblanc-tagli.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.svizzera-soldi-delusione-lavoro.title': 'Chi viene in Svizzera solo per i soldi rimane deluso',
     'blog.article.svizzera-soldi-delusione-lavoro.excerpt': 'L\'80% dei posti vacanti è coperto da personale locale.',
     'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Persona lavorante da casa con vista lago in Svizzera',
@@ -7979,6 +7979,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, pioggia di critiche sul piano federale',
     'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 prevede 50 miliardi entro il 2045 Il primo pacchetto vale 11 miliardi nel 2027 La ferrovia ha un ammanco di 10 miliardi Il Governo propone',
     'blog.article.trasporti-45-critiche-piano.imageAlt': 'Infrastrutture di trasporto in Svizzera per il progetto Trasporti45',
+    'blog.article.lucerna-convocazioni-indennita.title': 'Protezione civile nel Canton Lucerna: requisiti e indennità',
+    'blog.article.lucerna-convocazioni-indennita.excerpt': 'Lucerna: protezione civile coordinata a livello cantonale Il quadro di riferimento è la legge federale Convocazioni e indennità: verifica presso l\'autorità',
+    'blog.article.lucerna-convocazioni-indennita.imageAlt': 'Protezione civile nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

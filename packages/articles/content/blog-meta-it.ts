@@ -12825,7 +12825,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incanto-brusimpiano-regina-acqua.imageAlt': 'Spettacolo teatrale per bambini «La regina dell’acqua» al Salone SOMS di Brusimpiano, con costumi colorati e scenografia legata all’acqua.',
     'blog.article.treno-foliage-locarno-2026.title': 'Treno del Foliage 2026 tra Locarno e Domodossola',
     'blog.article.treno-foliage-locarno-2026.excerpt': 'Dal 10 ottobre al 15 novembre 2026 Itinerario panoramico tra Locarno e Domodossola 52 km tra Canton Ticino e Piemonte Ferrovia storica tra Italia e Svizzera',
-    'blog.article.treno-foliage-locarno-2026.imageAlt': 'Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola',
+    'blog.article.treno-foliage-locarno-2026.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.como-bocciato-piano-scuole.title': 'Como, bocciato il piano scuole del sindaco Rapinese',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'Il Consiglio provinciale boccia la proposta del Comune di Como.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Palazzo municipale di Como, sede dell\'amministrazione comunale',

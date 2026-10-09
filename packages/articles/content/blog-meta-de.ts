@@ -12823,7 +12823,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incanto-brusimpiano-regina-acqua.imageAlt': 'Kindertheateraufführung «La regina dell’acqua» im Salone SOMS, Brusimpiano, mit bunten Kostümen und wasserbezogener Kulisse.',
     'blog.article.treno-foliage-locarno-2026.title': 'Treno del Foliage 2026 zwischen Locarno und Domodossola',
     'blog.article.treno-foliage-locarno-2026.excerpt': 'Vom 10. Oktober bis zum 15. November 2026 Panoramastrecke zwischen Locarno und Domodossola 52 km zwischen dem Kanton Tessin und dem Piemont Historische Bahnstrecke zwischen Italien und der Schweiz',
-    'blog.article.treno-foliage-locarno-2026.imageAlt': 'Der Foliage-Zug fährt durch Herbstlandschaften zwischen Locarno und Domodossola',
+    'blog.article.treno-foliage-locarno-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.como-bocciato-piano-scuole.title': 'Como, lehnte den Schulplan des Bürgermeisters Rapinese ab',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'Der Landtag lehnt den Vorschlag der Gemeinde von Como ab.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Rathaus von Como, Sitz der Stadtverwaltung',

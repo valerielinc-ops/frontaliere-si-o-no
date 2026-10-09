@@ -12824,7 +12824,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incanto-brusimpiano-regina-acqua.imageAlt': 'Children\'s theater performance «La regina dell’acqua» at Salone SOMS, Brusimpiano, featuring colorful costumes and water-themed set.',
     'blog.article.treno-foliage-locarno-2026.title': 'Foliage Train 2026 between Locarno and Domodossola',
     'blog.article.treno-foliage-locarno-2026.excerpt': 'From October 10 to November 15, 2026 Scenic itinerary between Locarno and Domodossola 52 km between Canton Ticino and Piedmont Historic railway between Italy and Switzerland',
-    'blog.article.treno-foliage-locarno-2026.imageAlt': 'The Foliage Train crosses autumn landscapes between Locarno and Domodossola',
+    'blog.article.treno-foliage-locarno-2026.imageAlt': 'Illustration generated for this article',
     'blog.article.como-bocciato-piano-scuole.title': 'Como, rejected the school plan of the mayor of Rapinese',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'The Provincial Council rejects the Municipality\'s proposal of Como.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Como city hall, seat of the municipal administration',

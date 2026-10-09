@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5127
+      "6": 5130
     },
-    "publishedCovers": 6839,
+    "publishedCovers": 6842,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -181157,6 +181157,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-lucerna-convocazioni-indennita": {
+      "cover": "/images/blog/article-lucerna-convocazioni-indennita.webp",
+      "hash": "e0299257d4c8bac43eddf18bcfc1e29c6142a99455d84d4652b0e33058823dc3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-convocazioni-indennita",
+          "category": "pratico",
+          "date": "2026-10-09T11:15:58.644Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-lucerna-elezioni-calendario-voto": {
       "cover": "/images/blog/article-lucerna-elezioni-calendario-voto.webp",
       "hash": "cf643577c5c6301e20adaf343bdea1000155e5e52fa5b55428e1460a71c07c5a",
@@ -181481,6 +181508,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-richemont-montblanc-tagli": {
+      "cover": "/images/blog/article-richemont-montblanc-tagli.webp",
+      "hash": "b2710abd6fcbf07e5328bc92567c1850c7aa2961a1d2d590f220a58aebde24ca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "richemont-montblanc-tagli",
+          "category": "novita",
+          "date": "2026-10-08T18:19:39.642Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-salari-svizzera-talenti-stranieri": {
       "cover": "/images/blog/article-salari-svizzera-talenti-stranieri.webp",
       "hash": "6a3da64fc7eeae332fc286b7f579bc033e731bbe1a10443e51e27b448dc3f1ac",
@@ -181751,6 +181805,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-treno-foliage-locarno-2026": {
+      "cover": "/images/blog/article-treno-foliage-locarno-2026.webp",
+      "hash": "70f0dc95d2c24ab7a1f81369f8e643397bd4852064235b83ad8fb16bc7d54c39",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "treno-foliage-locarno-2026",
+          "category": "novita",
+          "date": "2026-10-08T16:34:16.718Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-treno-foliage-locarno-domodossola": {
       "cover": "/images/blog/article-treno-foliage-locarno-domodossola.webp",
       "hash": "36f90e9c41662798f2bd665f9eb1ae652486164f2e840cc2720bac909ef7ec66",
@@ -181762,14 +181843,6 @@
           "id": "treno-foliage-locarno-domodossola",
           "category": "novita",
           "date": "2026-10-07T09:13:12.596Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        },
-        {
-          "section": "frontaliere",
-          "id": "treno-foliage-locarno-2026",
-          "category": "novita",
-          "date": "2026-10-08T16:34:16.718Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

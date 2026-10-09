@@ -100076,10 +100076,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-richemont-montblanc-tagli.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Atelier di orologeria a Le Locle nel quadro della crisi del settore"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T18:19:39+00:00",
       "dateModified": "2026-10-08T18:19:39+00:00",
@@ -100599,6 +100599,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporti-45-critiche-piano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lucerna-convocazioni-indennita': {
+    title: 'Protezione civile nel Canton Lucerna: requisiti e indennità',
+    description: 'Lucerna: protezione civile coordinata a livello cantonale Il quadro di riferimento è la legge federale Convocazioni e indennità: verifica presso l\'autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, canton, lucerna',
+    ogTitle: 'Protezione civile nel Canton Lucerna: requisiti e indennità',
+    ogDescription: 'Lucerna: protezione civile coordinata a livello cantonale Il quadro di riferimento è la legge federale Convocazioni e indennità: verifica presso l\'autorità',
+    canonicalPath: '/articoli-svizzera/lucerna-convocazioni-indennita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile nel Canton Lucerna: requisiti e indennità",
+      "description": "Lucerna: protezione civile coordinata a livello cantonale Il quadro di riferimento è la legge federale Convocazioni e indennità: verifica presso l'autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lucerna-convocazioni-indennita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protezione civile nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-10-09T11:15:58+00:00",
+      "dateModified": "2026-10-09T11:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-convocazioni-indennita/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
