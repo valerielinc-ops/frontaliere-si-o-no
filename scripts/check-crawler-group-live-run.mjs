@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import {
   acquireLease,
+  describeLeaseBusy,
   firestoreDocumentName,
   releaseLease,
 } from './lib/global-data-pipeline-lease.mjs';
@@ -34,6 +35,11 @@ export const LIVE_RUN_QUERY_MAX_BUFFER_BYTES = 64 * 1024 * 1024;
 // finalization/release, and normal runs delete it immediately on completion.
 export const CRAWLER_GROUP_LIVE_LEASE_TTL_MS = 6 * 60 * 60 * 1000;
 export const CRAWLER_GROUP_LIVE_LEASE_WAIT_MS = 0;
+// The zero wait above is for an active owner only. With no wait budget, one
+// transient Firestore error also comes back as busy, so the guard retries that
+// case a few times before it refuses the run as a Firestore error.
+export const CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS = 3;
+export const CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_RETRY_MS = 10_000;
 export const CRAWLER_GROUP_LIVE_LEASE_OWNED_ENV = 'CRAWLER_GROUP_LIVE_LEASE_OWNED';
 export const CRAWLER_GROUP_LIVE_LEASE_DOC_ENV = 'CRAWLER_GROUP_LIVE_LEASE_DOC';
 
@@ -190,18 +196,29 @@ export async function runGuard({
   probe = hasLiveRun,
   persist = persistLeaseOwnership,
   logger = console,
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
   const leaseDoc = crawlerGroupLeaseDoc(groupFile);
   let leaseOwned = false;
 
   try {
-    const result = await acquire({
+    const acquireOnce = () => acquire({
       leaseDoc,
       ttlMs: CRAWLER_GROUP_LIVE_LEASE_TTL_MS,
       waitMs: CRAWLER_GROUP_LIVE_LEASE_WAIT_MS,
     });
+    let result = await acquireOnce();
+    for (let attempt = 1; result?.transientError && attempt < CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS; attempt += 1) {
+      warning(logger, `cross-entry crawler lease ${leaseDoc}: transient Firestore error on attempt ${attempt}/${CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS} (${result.error || 'unknown error'}); retrying in ${CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_RETRY_MS}ms`);
+      await sleep(CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_RETRY_MS);
+      result = await acquireOnce();
+    }
+    if (result?.transientError) {
+      error(logger, `could not read cross-entry crawler lease ${leaseDoc} for ${groupFile} after ${CRAWLER_GROUP_LIVE_LEASE_TRANSIENT_ATTEMPTS} attempts: ${describeLeaseBusy(result)}. Refusing to launch because the lease state is unknown. Re-run the job.`);
+      return { proceed: false, reason: 'lease-error', leaseDoc, leaseOwned: false };
+    }
     if (result?.busy) {
-      error(logger, `${groupFile} is already protected by a live cross-entry crawler lease (${leaseDoc}); refusing to launch a concurrent run. Retry once it finishes.`);
+      error(logger, `${groupFile} is already protected by a live cross-entry crawler lease (${leaseDoc}; ${describeLeaseBusy(result)}); refusing to launch a concurrent run. Retry once it finishes.`);
       return { proceed: false, reason: 'lease-busy', leaseDoc, leaseOwned: false };
     }
     leaseOwned = result?.acquired === true;

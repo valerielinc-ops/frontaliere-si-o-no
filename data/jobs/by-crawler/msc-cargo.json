@@ -9,7 +9,7 @@
         "it": "risorse-umane-direttore-msc-group-geneva",
         "en": "hr-director-msc-geneva",
         "de": "personalwesen-direktor-msc-group-geneva",
-        "fr": "hr-director-msc-group-geneva"
+        "fr": "directeur-des-ressources-humaines-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -55,7 +55,7 @@
       "previousSlugs": [
         "directeur-rh-msc-group-geneva",
         "hr-director-msc-geneva",
-        "directeur-des-ressources-humaines-msc-group-geneva"
+        "hr-director-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +63,7 @@
         ],
         "fr": [
           "directeur-rh-msc-group-geneva",
-          "directeur-des-ressources-humaines-msc-group-geneva"
+          "hr-director-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-03T09:25:31.059Z",
@@ -89,7 +89,7 @@
         "en": "consumer-communications-director-msc-geneva",
         "it": "consumer-communications-director-msc-geneva",
         "de": "consumer-communications-director-msc-geneva",
-        "fr": "consumer-communications-director-msc-geneva"
+        "fr": "directeur-des-communications-avec-les-consommateurs-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -150,9 +150,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-10-03T09:25:30.228Z",
       "previousSlugsByLocale": {
-        "fr": [
-          "directeur-des-communications-avec-les-consommateurs-msc-group-geneva"
-        ],
         "it": [
           "consumer-communications-direttore-msc-group-geneva",
           "consumer-communications-direktor-msc-group-geneva",
@@ -253,12 +250,12 @@
     },
     {
       "id": "msc-cargo-cc1a353fd70d",
-      "slug": "manager-cruise-development-and-execution-msc-geneva",
+      "slug": "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
       "slugByLocale": {
         "en": "manager-cruise-development-and-execution-msc-geneva",
-        "it": "manager-cruise-development-and-execution-msc-geneva",
+        "it": "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
         "de": "manager-cruise-development-and-execution-msc-geneva",
-        "fr": "manager-cruise-development-and-execution-msc-geneva"
+        "fr": "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -320,15 +317,15 @@
       "firstSeenAt": "2026-09-27T11:33:51.809Z",
       "previousSlugsByLocale": {
         "it": [
-          "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
           "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
           "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
           "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
-          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
+          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
+          "manager-cruise-development-and-execution-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva",
-          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
+          "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
+          "manager-cruise-development-and-execution-msc-geneva"
         ],
         "de": [
           "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
@@ -336,12 +333,11 @@
         ]
       },
       "previousSlugs": [
-        "manager-sviluppo-crociera-e-esecuzione-msc-group-geneva",
-        "gestionnaire-developpement-et-execution-des-croisieres-msc-group-geneva",
         "manager-cruise-development-und-ausfuhrung-msc-group-geneva",
         "manager-sviluppo-ed-esecuzione-crociere-msc-group-geneva",
         "manager-entwicklung-und-umsetzung-der-kreuzfahrt-msc-group-geneva",
-        "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva"
+        "responsable-du-developpement-et-de-l-execution-des-croisieres-msc-group-geneva",
+        "manager-cruise-development-and-execution-msc-geneva"
       ]
     },
     {
@@ -742,12 +738,12 @@
     },
     {
       "id": "msc-cargo-eea3761c3310",
-      "slug": "retail-learning-development-manager-msc-geneva",
+      "slug": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-learning-development-manager-msc-geneva",
-        "it": "retail-learning-development-manager-msc-geneva",
-        "de": "retail-learning-development-manager-msc-geneva",
-        "fr": "retail-learning-development-manager-msc-geneva"
+        "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
+        "de": "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
+        "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -809,40 +805,39 @@
       "firstSeenAt": "2026-09-28T05:02:31.217Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
           "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
           "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
           "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
           "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
+          "retail-learning-development-manager-msc-geneva"
         ],
         "de": [
-          "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
-          "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva"
+          "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
+          "retail-learning-development-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva"
+          "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
+          "retail-learning-development-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
-        "manager-fur-einzelhandel-lernen-und-entwicklung-msc-group-geneva",
         "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
         "responsabile-formazione-e-sviluppo-del-retail-msc-group-geneva",
         "einzelhandels-lern-und-entwicklungsmanager-msc-group-geneva",
         "responsable-de-l-apprentissage-et-du-developpement-du-commerce-de-detail-msc-group-geneva",
-        "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva"
+        "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
+        "retail-learning-development-manager-msc-geneva"
       ]
     },
     {
       "id": "msc-cargo-b06079cfe661",
-      "slug": "jewellery-product-development-senior-manager-msc-geneva",
+      "slug": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
       "slugByLocale": {
         "en": "jewellery-product-development-senior-manager-msc-geneva",
-        "it": "jewellery-product-development-senior-manager-msc-geneva",
-        "de": "jewellery-product-development-senior-manager-msc-geneva",
-        "fr": "jewellery-product-development-senior-manager-msc-geneva"
+        "it": "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
+        "de": "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+        "fr": "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -904,28 +899,27 @@
       "firstSeenAt": "2026-10-04T09:20:24.512Z",
       "previousSlugsByLocale": {
         "it": [
-          "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
           "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
           "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
           "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva"
+          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "de": [
-          "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva"
+          "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "fr": [
-          "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
-          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+          "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+          "jewellery-product-development-senior-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva",
         "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-de-bijouterie-msc-group-geneva",
         "senior-manager-dello-sviluppo-dei-prodotti-di-gioielleria-msc-group-geneva",
         "senior-manager-fur-schmuckproduktentwicklung-msc-group-geneva",
-        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva"
+        "directeur-principal-du-developpement-de-produits-bijoux-msc-group-geneva",
+        "jewellery-product-development-senior-manager-msc-geneva"
       ]
     },
     {
@@ -1198,7 +1192,7 @@
       "titleByLocale": {
         "it": "Revenue Management Senior Business Analista",
         "en": "Revenue Management Senior Business Analyst",
-        "de": "Revenue Management Senior Business Analyst",
+        "de": "Senior Business Analyst im Ertragsmanagement",
         "fr": "Revenue Management Senior Business Analyste"
       },
       "description": "Where passion meets opportunity\n\nThe best of your adventures is the one you have yet to sail!\n\nYour Purpose\n\nThe Revenue Management Senior Business Analyst is responsible for analysing business performance and delivering integrated, objective, and actionable insights to support strategic decision-making.\n\nAs a key member of the Revenue Management & Sales Services Analytics team, he/she will have the opportunity to work with large-scale datasets and advanced technologies, developing deep expertise in the core business. To succeed in this role, the Revenue Management Senior Business Analyst must have a strong passion for data analysis, reporting, and uncovering meaningful insights. The role requires the ability to interpret complex information, assess business implications, and provide impactful recommendations that drive revenue growth and improve overall business performance.\n\nYour Impact\n\nReporting directly to the Revenue Management Business Analytics Manager, the Revenue Management Senior Business Analyst will be responsible for:\n\n- Supporting the full lifecycle of the budgeting and forecasting processes, ensuring the delivery of accurate and timely analyses.\n\n- Partnering with business stakeholders to identify needs, define requirements, and translate them into actionable analytical solutions.\n\n- Gathering, documenting, and maintaining data requirements to support both recurring and ad hoc business analyses.\n\n- Developing expertise across multiple data sources and business domains to generate meaningful insights and drive informed decision-making.\n\n- Collaborating with vendors, third-party providers, and cross-functional corporate teams in a dynamic and agile environment.\n\n- Contributing to the continuous enhancement of analytical frameworks, reporting capabilities, and data-driven business processes.\n\nData Analysis and Insights. Main activities include:\n\n- QA data to ensure accuracy\n\n- Analyze and mine data to find opportunities in time allotted\n\n- Undertake proactive and reactive ad-hoc requests as needed\n\n- Make business recommendations based on the data findings\n\n- Drive more efficient and sophisticated analytical insights\n\nAnalysis Distribution. Main activities include:\n\n- Design effective and impactful reports and visualizations for both large and small scale distribution\n\n- Create presentations to highlight recommendations and tell the story\n\n- Ensure partners understand the analysis presented\n\nAnalytical Innovation. Main activities include:\n\n- Drive efficiencies to current processes through tools and processes\n\n- Increase the level of sophistication of analyses through statistical, machine learning, and artificial intelligence techniques\n\nYour Journey so far\n\n- Four plus years of relevant experience in a fast paced, rapidly changing operations environment\n\n- Experience with “big data” environments and tool\n\n- Experience data and analytics\n\n- Experience with budgeting and forecasting processes\n\n- Bachelor’s in mathematics, business administration or IT\n\nYour Essentials\n\n- Fluent English (Knowledge of a second European language is preferred but not essential)\n\n- Excellent analytical skills.\n\n- Previous experience in Revenue Management is essential, possibly in the tourism industry.\n\n- Ability to build business cases from analysis to be sold to senior management, including Chief Revenue Management and Sales, Executive Directors and CEO.\n\n- Strong problem solving and decision-making attitude.\n\n- Experience with analytics tools (PYTHON, SAP, ZENZ, QLIK SENSE) would be a strong advantage\n\nOur commitment\n\nWe are committed to building a future that values diverse perspectives, embraces the world beyond borders, and fosters an inclusive environment where every individual feels valued, respected and empowered to be their authentic selves. Our commitment extends to taking meaningful, measurable actions that have a long-term positive impact on our guests, our employees and our planet.\n\nReady to turn your passion into something extraordinary? Join us at MSC Cruises, where new opportunities await. Apply today to be part of a global team that is pushing boundaries and achieving something remarkable. Your journey starts here!",

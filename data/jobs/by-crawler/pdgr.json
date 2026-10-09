@@ -531,8 +531,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -588,16 +588,17 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 73000,
@@ -778,7 +779,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-cazis",
+        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -834,7 +835,7 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "senior-physician-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -847,7 +848,7 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-t5tvx5",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        "senior-physician-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1307,9 +1308,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1368,12 +1369,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+          "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatre-psychiatrische-dienste-graubunden-chur"
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1381,8 +1382,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1404,7 +1405,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1458,8 +1459,7 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1468,8 +1468,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1575,7 +1574,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1630,8 +1629,7 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1639,8 +1637,7 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-pdgr-ch"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -1676,7 +1673,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1725,8 +1722,7 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1737,7 +1733,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -2298,7 +2294,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
+        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2349,14 +2345,14 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
-        "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+        "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kunsttherapeut-in-pdgr-ch"
         ],
         "en": [
-          "art-therapists-psychiatrische-dienste-graubunden-ilanz"
+          "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:49.979Z",
@@ -3263,12 +3259,12 @@
     },
     {
       "id": "pdgr-1d54ab2f7437",
-      "slug": "hilfskochin-hilfskoch-pdgr-ch",
+      "slug": "assistente-cuoco-cuoco-ausiliario-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-pdgr-ch",
-        "it": "hilfskochin-hilfskoch-pdgr-ch",
+        "it": "assistente-cuoco-cuoco-ausiliario-psychiatrische-dienste-graubunden-cazis",
         "en": "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-cazis",
-        "fr": "hilfskochin-hilfskoch-pdgr-ch"
+        "fr": "cuisinier-adjoint-cuisinier-auxiliaire-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3276,16 +3272,16 @@
       "title": "Hilfsköchin / Hilfskoch",
       "titleByLocale": {
         "de": "Hilfsköchin / Hilfskoch",
-        "en": "Hilfsköchin / Hilfskoch",
-        "it": "Hilfsköchin / Hilfskoch",
-        "fr": "Hilfsköchin / Hilfskoch"
+        "en": "Assistant cook/auxiliary cook",
+        "it": "Assistente cuoco / cuoco ausiliario",
+        "fr": "Cuisinier adjoint/cuisinier auxiliaire"
       },
       "description": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze in der Klinik Waldhaus oder Heimzentrum Rothenbrunnen\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
       "descriptionByLocale": {
         "de": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze in der Klinik Waldhaus oder Heimzentrum Rothenbrunnen\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "it": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze in der Klinik Waldhaus oder Heimzentrum Rothenbrunnen\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "en": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze in der Klinik Waldhaus oder Heimzentrum Rothenbrunnen\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
-        "fr": "Ihre Umgebung:\nIn der Küche erwartet Sie ein motiviertes Team und ein modernes Arbeitsumfeld, in dem Sauberkeit, Hygiene und Teamgeist im Mittelpunkt stehen. Mit Ihrer Arbeit leisten Sie einen wichtigen Beitrag zum Wohlbefinden unserer Patientinnen und Patienten.\n\nIhre Aufgaben:\n- Sie unterstützen uns bei der täglichen Arbeit in der kalten und warmen Küche\n\n- Sie helfen beim Tablettieren der Patientenmahlzeiten mit\n\n- Sie sind mitverantwortlich für die Warenbewirtschaftung (Warenannahme mit entsprechender Kontrolle)\n\n- Sie übernehmen Standortübergreifende Einsätze in der Klinik Waldhaus oder Heimzentrum Rothenbrunnen\n\n- Sie arbeiten auch vereinzelt in der Abwaschküche mit\n\nUnser Anforderungsprofil:\n- Sie kennen das HACCP-Konzept und wissen es anzuwenden\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie sind belastbar und haben keine Probleme schwere Pfannen und Geräte zu reinigen\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie arbeiten speditiv und sauber und zeichnen sich durch Ordnungssinn, Flexibilität und Zuverlässigkeit aus\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen"
+        "it": "I dintorni:\nIn cucina, ci si può aspettare un team motivato e un ambiente di lavoro moderno in cui la pulizia, l'igiene e lo spirito di squadra sono al centro. Con il tuo lavoro contribuirai in modo importante al benessere dei nostri pazienti.\n\nI loro compiti:\n- Ci sostengono nel nostro lavoro quotidiano nella cucina fredda e calda\n\n- Aiutano a tablet pasti pazienti con\n\n- Lei è responsabile congiuntamente della gestione delle merci (accettazione delle merci con controllo appropriato)\n\n- Voi assumete incarichi di trasferimento incrociato presso Klinik Waldhaus o Heimzentrum Rothenbrunnen\n\n- Lavorano anche di tanto in tanto nella cucina dei piatti\n\nIl nostro profilo di requisito:\n- Conosci il concetto HACCP e sai come applicarlo\n\n- Hanno un aspetto ben tenuto e buona conoscenza del tedesco\n\n- Essi sono resilienti e non hanno problemi di pulizia pani pesanti e attrezzature\n\n- Portano anche la disponibilità per l'azione nei fine settimana\n\n- Lavorano velocemente e puliti e sono caratterizzati da un senso di ordine, flessibilità e affidabilità\n\nVi offriamo:\n- Un'attività versatile e variegata in un'operazione vivace\n\n- Puoi contribuire alla tua esperienza in varie aree del settore dell'ospitalità\n\n- Lavori in un ambiente piacevole e sociale\n\n- Si beneficiano di condizioni di lavoro progressive (sopra i benefici sociali medi, crediti per le vacanze di almeno 30 giorni)\n\n- Hai la possibilità di frequentare ulteriori corsi di istruzione",
+        "en": "Your surroundings:\nIn the kitchen, you can expect a motivated team and a modern working environment in which cleanliness, hygiene and team spirit are the focus. With your work you make an important contribution to the well-being of our patients.\n\nTheir tasks:\n- They support us in our daily work in the cold and warm kitchen\n\n- They help to tablet patient meals with\n\n- You are jointly responsible for the goods management (acceptance of goods with appropriate control)\n\n- You take on cross-location assignments at Klinik Waldhaus or Heimzentrum Rothenbrunnen\n\n- They also work occasionally in the dishes kitchen\n\nOur requirement profile:\n- You know the HACCP concept and know how to apply it\n\n- They have a well-kept appearance and good knowledge of German\n\n- They are resilient and have no problems cleaning heavy pans and equipment\n\n- They also bring readiness for action on weekends\n\n- They work fast and clean and are characterized by a sense of order, flexibility and reliability\n\nWe offer you:\n- A versatile and varied activity in a lively operation\n\n- You can contribute your experience in various areas of the hospitality industry\n\n- You work in a pleasant, social environment\n\n- You benefit from progressive working conditions (above average social benefits, holiday credits of at least 30 days)\n\n- You have the opportunity to attend further education courses",
+        "fr": "Votre environnement:\nDans la cuisine, vous pouvez vous attendre à une équipe motivée et un environnement de travail moderne dans lequel la propreté, l'hygiène et l'esprit d'équipe sont au centre. Avec votre travail, vous contribuez grandement au bien-être de nos patients.\n\nLeurs tâches:\n- Ils nous soutiennent dans notre travail quotidien dans la cuisine froide et chaude\n\n- Ils aident à comprimér les repas\n\n- Vous êtes conjointement responsable de la gestion des biens (acceptation des biens avec contrôle approprié)\n\n- Vous effectuez des missions de cross-location à Klinik Waldhaus ou Heimzentrum Rothenbrunnen\n\n- Ils travaillent aussi occasionnellement dans la cuisine\n\nNotre profil d'exigence:\n- Vous connaissez le concept HACCP et savez l'appliquer\n\n- Ils ont une apparence bien gardée et une bonne connaissance de l'allemand\n\n- Ils sont résistants et n'ont aucun problème à nettoyer les casseroles et les équipements lourds\n\n- Ils sont également prêts à intervenir le week-end.\n\n- Ils fonctionnent rapidement et propres et se caractérisent par un sens de l'ordre, de la flexibilité et de la fiabilité\n\nNous vous offrons:\n- Une activité polyvalente et variée dans une opération animée\n\n- Vous pouvez apporter votre expérience dans différents domaines de l'industrie hôtelière\n\n- Vous travaillez dans un environnement social agréable\n\n- Vous bénéficiez de conditions de travail progressives (au-dessus des prestations sociales moyennes, crédits de vacances d'au moins 30 jours)\n\n- Vous avez la possibilité de suivre des cours de perfectionnement"
       },
       "location": "Cazis",
       "canton": "GR",
@@ -3316,7 +3312,6 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -3331,7 +3326,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-31T17:24:54.636Z"
+      "firstSeenAt": "2026-08-31T17:24:54.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-50243c271eb8",

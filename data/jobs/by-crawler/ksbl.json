@@ -3089,6 +3089,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
@@ -3099,6 +3100,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
           "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "de": [
@@ -7124,9 +7126,9 @@
     },
     {
       "id": "ksbl-d0f9aedb55b1",
-      "slug": "mitarbeiterin-collaboratore-trice-medizintechnik-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "dipendente-in-tecnologia-medica-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-medizintechnik-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "dipendente-in-tecnologia-medica-a-kantonsspital-baselland-ksbl-liestal",
         "en": "employee-of-medical-technology-a-kantonsspital-baselland-ksbl-liestal",
         "de": "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal",
         "fr": "employe-de-technologie-medicale-a-kantonsspital-baselland-ksbl-liestal"
@@ -7136,7 +7138,7 @@
       "companyDomain": "ksbl.ch",
       "title": "Mitarbeiterin/Mitarbeiter Medizintechnik (a)",
       "titleByLocale": {
-        "it": "Mitarbeiterin/Collaboratore/trice Medizintechnik (a)",
+        "it": "Dipendente in Tecnologia Medica (a)",
         "en": "Employee of medical technology (a)",
         "de": "Mitarbeiterin/Mitarbeiter Medizintechnik (a)",
         "fr": "Employé de technologie médicale a)"
@@ -7174,11 +7176,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal"
+        "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal",
+        "mitarbeiterin-collaboratore-trice-medizintechnik-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal"
+          "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal",
+          "mitarbeiterin-collaboratore-trice-medizintechnik-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-medizintechnik-a-ksbl-liestal"

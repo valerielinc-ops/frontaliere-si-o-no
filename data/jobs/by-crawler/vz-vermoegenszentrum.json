@@ -294,9 +294,9 @@
       "title": "ICT Infrastructure Engineer mit Fokus Core Services & Network",
       "titleByLocale": {
         "de": "ICT Infrastructure Ingenieur mit Fokus Core Services & Network",
-        "en": "ICT Infrastructure Engineer mit Fokus Core Services & Network",
+        "en": "ICT Infrastructure Engineer with focus on Core Services & Network",
         "it": "ICT Infrastructure Ingegnere con Fokus Core Services & Network",
-        "fr": "ICT Infrastructure Ingénieur mit Fokus Core Services & Network"
+        "fr": "Ingénieur/e en infrastructure ICT avec un focus sur les services centraux et le réseau"
       },
       "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen zu allen Themen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung für unser IT-Team an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du betreibst und entwickelst sicherheitsrelevante Netzwerkservices wie Firewalls, VPN-Lösungen, Webgateways und DLP-Systeme kontinuierlich weiter.\n\n• Du übernimmst die fachliche Steuerung unserer externen Netzwerk- und Security-Dienstleister. Dabei analysierst du Anforderungen, führst Verbindungs- und Log-Analysen durch, definierst die notwendigen Änderungen und stellst deren qualitativ hochwertige Umsetzung sicher.\n\n• Du verantwortest den stabilen Betrieb sowie die kontinuierliche Weiterentwicklung unserer zentralen Infrastruktur-Services wie Active Directory, DNS, DHCP und weiterer Windows-Server-basierter Plattformdienste.\n\n• Du stellst gemeinsam mit Fachabteilungen und externen Partnern die erforderlichen Server- und Infrastrukturplattformen für neue Applikationen bereit und begleitest diese von der Planung bis zur Inbetriebnahme.\n\n• Du verantwortest den Betrieb, die Überwachung und die Weiterentwicklung unserer Monitoring- und Observability-Lösungen und sorgst für Transparenz über den Zustand unserer IT-Plattformen.\n\n• Du arbeitest aktiv in Infrastruktur- und Transformationsprojekten mit und bringst deine Expertise bei Architektur-, Automatisierungs- und Standardisierungsthemen ein.\n\n• Du unterstützt interne Fachbereiche bei technischen Fragestellungen und berätst sie bei der Nutzung und Integration unserer Infrastruktur-Services.\n\n• Abgeschlossene Informatik-Ausbildung (EFZ, HF, FH oder vergleichbar) oder mehrjährige praktische Erfahrung in den verantworteten Bereichen der IT-Infrastruktur.\n\n• Fundierte Erfahrung im Bereich Enterprise Networking und IT-Security, insbesondere bei Firewalls, VPN-Technologien, Proxy- und Webgateway-Lösungen.\n\n• Erfahrung in der Zusammenarbeit mit externen Dienstleistern und Freude daran, technische Anforderungen zu koordinieren, kritisch zu hinterfragen und deren Umsetzung nachzuverfolgen.\n\n• Gute Kenntnisse im Betrieb von Windows-Server-Infrastrukturen sowie zentralen Basisdiensten wie Active Directory, DNS, DHCP, Zertifikatsdiensten oder Gruppenrichtlinien.\n\n• Interesse an modernen Infrastruktur- und Cloud-Technologien, idealerweise mit ersten Erfahrungen in Microsoft Azure.\n\n• Analytische und strukturierte Arbeitsweise sowie Freude daran, technische Zusammenhänge zu verstehen und nachhaltige Lösungen zu entwickeln.\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie gute Englischkenntnisse für die Zusammenarbeit mit Herstellern und Partnern.\n\n• Bereitschaft für gelegentliche Einsätze an unseren Standorten in der Schweiz und in Deutschland.\n\n• Jedes Jahr stehen dir drei Tage und CHF 1'000 für Weiterbildungen zur freien Verfügung. Grössere externe Weiterbildungen unterstützen wir im Rahmen deines Jobprofils.\n\n• Du arbeitest an einem modernen und klimatisierten Arbeitsplatz im Zentrum von Zürich und hast die Möglichkeit auf zwei Tage Home-Office pro Woche.\n\n• In einem kollegialen Arbeitsumfeld mit regelmässigen Social Events erwartet dich ein spannendes Tätigkeitsgebiet sowie die Möglichkeit, Verantwortung zu übernehmen und selbstständig zu arbeiten.\n\n• Die Stelle ist auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
@@ -348,7 +348,6 @@
           "• Bereitschaft für gelegentliche Einsätze an unseren Standorten in der Schweiz und in Deutschland."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "ict-infrastructure-engineer-mit-fokus-core-services-network-vz-vermoegenszentrum-ch"
@@ -3708,7 +3707,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3769,7 +3768,8 @@
       },
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
-        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
+        "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
+        "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3777,7 +3777,7 @@
           "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+          "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:16.194Z",

@@ -1,9 +1,10 @@
 import { describe, expect, it, vi } from 'vitest';
-import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -57,6 +58,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(nationalityOptionLabel('italiana', ['allemande', 'italienne', 'suisse'])).toBe('italienne');
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
     expect(nationalityOptionLabel('italiana', ['Italie', 'italienne'], 'fr')).toBe('italienne');
+    expect(residenceCountryOptionLabel('Italia', ['Switzerland', 'Italy'])).toBe('Italy');
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
@@ -76,6 +78,25 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'italienne' }, { timeout: 6000 });
+  });
+
+  it('chooses a localized residence country option from the deterministic country answer', async () => {
+    let selected = '';
+    const control = {
+      selectOption: vi.fn(async ({ label }: { label: string }) => { selected = label; }),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'residence-country',
+      kind: 'select',
+      label: 'Country of residence',
+      options: [{ label: 'Italy' }, { label: 'Switzerland' }],
+    }], [{ fieldId: 'residence-country', action: 'select', value: 'Italia' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
+    expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
@@ -557,8 +578,17 @@ describe('portal runner helpers', () => {
     const address = { id: 'address', kind: 'text', label: 'Qual è la via e il numero civico?', required: true };
     const school = { id: 'school', kind: 'select', label: 'In quale scuola sei attualmente?', required: true, options: [{ label: 'Ecole de Commerce' }, { label: 'Autre' }] };
     expect(questionTopic('Qual è la tua via e il numero civico?')).toBe('address');
+    expect(questionTopic('Qual è il tuo CAP di residenza?')).toBe('residence_postal_code');
     expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
+    expect(questionTopic('Qual è la tua nazione di residenza?')).toBe('residence_country');
+    expect(questionTopic('Employer country')).toBe('');
+    expect(questionTopic('Work city')).toBe('');
+    expect(addressQuestionTopic('Country of birth')).toBe('');
+    expect(addressQuestionTopic('City of birth')).toBe('');
+    expect(addressQuestionTopic('Country of residence')).toBe('residence_country');
     expect(questionTopic('Street address')).toBe('address_street');
+    expect(questionTopic('E-Mail-Adresse')).toBe('');
+    expect(questionTopic('Email address')).toBe('');
     expect(questionTopic('Hausnummer')).toBe('address_house_number');
     expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
     expect(questionTopic('Which Swiss work permit do you hold?')).toBe('permit');
@@ -584,6 +614,45 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: school.id, action: 'select', value: 'Autre', source: 'profile' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('resolves a locality and province into residence CAP and country answers', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      profile: {
+        location: 'Salsomaggiore T. (PR)',
+        address: { street: 'Via Test 1', postalCode: '', city: 'Salsomaggiore T. (PR)', country: 'Svizzera' },
+      },
+    });
+    expect(candidate.identity.address).toMatchObject({ postalCode: '43039', country: 'Italia' });
+    const cap = { id: 'cap', kind: 'text', label: 'Qual è il tuo CAP di residenza?', required: true, options: [] };
+    const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
+    expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
+    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
+    const guarded = guardPlan({ actions: [
+      { fieldId: 'cap', action: 'fill', value: '00000', document: 'none', source: 'rule', evidence: '' },
+      { fieldId: 'country', action: 'select', value: 'Svizzera', document: 'none', source: 'rule', evidence: '' },
+    ], missingRequired: [] }, [cap, country], candidate);
+    expect(guarded.actions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ fieldId: 'cap', value: '43039', source: 'identity' }),
+      expect.objectContaining({ fieldId: 'country', value: 'Italia', source: 'identity' }),
+    ]));
+    expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('does not infer a country from an unrecognised province code alone', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: {
+        location: 'San Juan (PR)',
+        address: { street: 'Via Test 1', postalCode: '', city: 'San Juan (PR)', country: '' },
+      },
+    });
+    expect(candidate.identity.address).toMatchObject({ postalCode: '', country: '' });
+  });
+
+  it('does not take a CAP from an employer address line in the CV', () => {
+    expect(resolveResidenceAddress({}, '', 'Employer address: Via Roma 1, 43039').postalCode).toBe('');
   });
 
   it('deduplicates a portal question after an ATS changes its wording', () => {

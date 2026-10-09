@@ -242,6 +242,40 @@ describe('portal field extraction', () => {
     expect(widgets.fields.map((field: any) => field.name)).toEqual(['privacy', 'cv']);
   });
 
+  // Ticino Rexx (IAS, 2026-10-09): action links are plain anchors inside
+  // .css_button, so treating only buttons/role=button as controls made the
+  // runner report no_form_controls on the job detail page.
+  it('recognizes classic portal action links without promoting content links', () => {
+    const page = extract(
+      '<main><h1>Consulenti IAS</h1>'
+      + '<div class="css_button" id="btn_online_application"><a href="forma-di-lavoro.html?yid=4288" title="candidatura online »">candidatura online »</a></div>'
+      + '<p><a href="/documenti/bando.pdf">Scarica il bando</a></p></main>'
+    );
+    expect(page.buttons).toHaveLength(1);
+    expect(page.buttons[0]).toMatchObject({ text: 'candidatura online »', href: 'https://jobs.example/forma-di-lavoro.html?yid=4288' });
+
+    const schemes = extract(
+      '<main>'
+      + '<div class="css_button"><a href="javascript:void(0)">Applica JS</a></div>'
+      + '<div class="css_button"><a href="mailto:apply@example.test">Applica mail</a></div>'
+      + '<div class="css_button"><a href="/forma-di-lavoro.html">Applica HTTP</a></div>'
+      + '</main>'
+    );
+    expect(schemes.buttons).toMatchObject([
+      { text: 'Applica JS', href: '' },
+      { text: 'Applica mail', href: '' },
+      { text: 'Applica HTTP', href: 'https://jobs.example/forma-di-lavoro.html' },
+    ]);
+  });
+
+  it('does not let a same-label content link hide a real submit control', () => {
+    const page = extract(
+      '<div><button type="submit" tabindex="-1" aria-hidden="true">Submit</button>'
+      + '<a href="/article">Submit</a></div>'
+    );
+    expect(page.buttons).toMatchObject([{ text: 'Submit', href: '' }]);
+  });
+
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
   it('keeps a drawn button that is only aria-hidden, and leaves out what lies under an open modal dialog', () => {
     // A submit some portal marks aria-hidden with no overlay next to it is still the one to press: alone, out

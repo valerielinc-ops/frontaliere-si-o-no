@@ -1,18 +1,61 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-09T11:26:42.227Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-10-09T12:13:18.512Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 17181,
-  "avgDurationMs": 17181,
+  "durationMs": 16299,
+  "avgDurationMs": 16299,
   "durationHistory": [
-    17181
+    16299
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
+      "applyUrl": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
+      "title": "Team Leader dei reparti di supporto alla produzione",
+      "company": "Mikron Group",
+      "companyKey": "mikron",
+      "location": "Agno",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6982",
+      "streetAddress": "Via Ginnasio 17, 6982 Agno",
+      "slug": "team-leader-dei-reparti-di-supporto-alla-produzione-mikron",
+      "sourceLang": "it",
+      "category": "management",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T12:12:54.388Z",
+      "source": "mikron-html-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Manifattura / Precision Manufacturing",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Agno"
+      },
+      "needsRetranslation": true,
+      "addressLocality": "Agno",
+      "addressRegion": "TI",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-09T12:12:54.388Z",
+      "_qualityScore": 69,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -33,7 +76,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T11:26:15.087Z",
+      "crawledAt": "2026-10-09T12:12:55.694Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -75,7 +118,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T11:26:18.859Z",
+      "crawledAt": "2026-10-09T12:12:59.207Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -117,7 +160,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T11:26:20.067Z",
+      "crawledAt": "2026-10-09T12:13:00.351Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -159,7 +202,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T11:26:23.723Z",
+      "crawledAt": "2026-10-09T12:13:03.963Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -200,7 +243,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T11:26:25.001Z",
+      "crawledAt": "2026-10-09T12:13:05.096Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -259,6 +302,7 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -268,5 +312,5 @@
       }
     }
   ],
-  "codeCommit": "56508c1f85b8c3bf231960f34f6eeaad428412e7"
+  "codeCommit": "13cf9b35f3a1bee7aa293c231956252d951b3dec"
 }

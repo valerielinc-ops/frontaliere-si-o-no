@@ -626,7 +626,7 @@
           "zimmermann-zimmerin-fur-fenstermontage-und-service-zug-zug-stellenpartner-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2201,9 +2201,9 @@
     },
     {
       "id": "stellenpartner-2420c3681771",
-      "slug": "schreiner-in-konstrukteur-in-avor-speziallosungen-buromobel-kulm-aargau-stellenpartner-ch",
+      "slug": "ingegnere-di-progettazione-falegname-avor-special-solutions-arredamento-per-ufficio-stellenpartner-ag-kulm-aargau",
       "slugByLocale": {
-        "it": "schreiner-in-konstrukteur-in-avor-speziallosungen-buromobel-kulm-aargau-stellenpartner-ch",
+        "it": "ingegnere-di-progettazione-falegname-avor-special-solutions-arredamento-per-ufficio-stellenpartner-ag-kulm-aargau",
         "en": "carpenter-design-engineer-avor-special-solutions-office-furniture-stellenpartner-ag-kulm-aargau",
         "de": "schreiner-in-konstrukteur-in-avor-speziallosungen-buromobel-kulm-aargau-stellenpartner-ch",
         "fr": "menuisier-ere-concepteur-trice-avor-solutions-speciales-mobilier-de-bureau-stellenpartner-ag-kulm-aargau"
@@ -2213,7 +2213,7 @@
       "companyDomain": "stellenpartner.ch",
       "title": "Schreiner/in Konstrukteur:in AVOR Speziallösungen Büromöbel",
       "titleByLocale": {
-        "it": "Schreiner/in Konstrukteur:in AVOR Speziallösungen Büromöbel",
+        "it": "Ingegnere di progettazione falegname, AVOR Special Solutions Arredamento per ufficio",
         "en": "Carpenter Design Engineer AVOR Special Solutions Office Furniture",
         "de": "Schreiner/in Konstrukteur:in AVOR Speziallösungen Büromöbel",
         "fr": "Menuisier/-ère Concepteur/-trice AVOR Solutions spéciales Mobilier de bureau"
@@ -2269,11 +2269,15 @@
         ],
         "fr": [
           "menuisier-ere-concepteur-trice-avor-solutions-speciales-mobilier-de-bureau-stellenpartner-ag-kulm"
+        ],
+        "it": [
+          "schreiner-in-konstrukteur-in-avor-speziallosungen-buromobel-kulm-aargau-stellenpartner-ch"
         ]
       },
       "previousSlugs": [
         "carpenter-design-engineer-avor-special-solutions-office-furniture-stellenpartner-ag-kulm",
-        "menuisier-ere-concepteur-trice-avor-solutions-speciales-mobilier-de-bureau-stellenpartner-ag-kulm"
+        "menuisier-ere-concepteur-trice-avor-solutions-speciales-mobilier-de-bureau-stellenpartner-ag-kulm",
+        "schreiner-in-konstrukteur-in-avor-speziallosungen-buromobel-kulm-aargau-stellenpartner-ch"
       ]
     },
     {
@@ -25387,7 +25391,7 @@
         "it": "installatori-elettrici-residenziali-commerciali-e-industriali-stellenpartner-ag-zug-zug",
         "en": "residential-commercial-and-industrial-electrical-installers-stellenpartner-ag-zug-zug",
         "de": "elektroinstallateur-in-fur-wohnungsbau-gewerbe-und-industrie-zug-zug-stellenpartner-ch",
-        "fr": "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -25432,7 +25436,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohnungsbau-gewerbe-und-industrie-zug-zug-stellenpartner-ch",
         "installateur-trice-electricien-ne-fur-wohnungsbau-gewerbe-und-industrie-stellenpartner-ag-zug",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
+        "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25440,7 +25444,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohnungsbau-gewerbe-und-industrie-stellenpartner-ag-zug",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-stellenpartner-ag-zug-zug"
+          "installateur-trice-electricien-ne-pour-la-construction-residentielle-le-commerce-et-l-industrie-stellenpartner-ag-zug"
         ]
       },
       "salaryMin": 78500,
@@ -37253,7 +37257,7 @@
           "zimmermann-zimmerin-fur-montage-und-baustellenkoordination-zug-zug-stellenpartner-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:42:50.073Z",
       "salaryMin": 69500,
       "salaryMax": 106000,

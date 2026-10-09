@@ -55,7 +55,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.649Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -157,8 +156,7 @@
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
       "addressRegion": "BL",
-      "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T23:11:06.356Z"
     },
     {
       "id": "otis-2fe25b9333f6",
@@ -215,7 +213,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -350,7 +347,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-09T09:43:36.378Z",
       "firstSeenAt": "2026-09-01T10:16:05.174Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -430,7 +426,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:19:02.274Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -453,8 +448,8 @@
       "slugByLocale": {
         "it": "aufzugsreparateur-in-servizio-m-f-d-otis-sa-belp",
         "en": "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "de": "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-        "fr": "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
+        "de": "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+        "fr": "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
       },
       "company": "Otis SA",
       "companyKey": "otis-sa",
@@ -496,19 +491,18 @@
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
-        "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-        "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsreparateur-in-service-m-w-d-otis-belp"
         ],
         "de": [
-          "srrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "aufzugsreparateur-in-service-m-w-d-otis-sa-belp"
         ],
         "fr": [
           "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
-          "oui-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+          "reparateur-service-d-ascenseur-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:43.487Z",
@@ -590,7 +584,6 @@
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1418,7 +1411,7 @@
       "id": "otis-df95b6c3ce48",
       "slug": "gestore-conto-m-f-d-otis-sa-wallisellen",
       "slugByLocale": {
-        "it": "gestore-conto-m-f-d-otis-sa-wallisellen",
+        "it": "account-manager-m-w-d-otis-wallisellen",
         "en": "account-manager-m-w-d-otis-wallisellen",
         "de": "account-manager-m-w-d-otis-dietlikon",
         "fr": "gestionnaire-de-comptes-h-f-d-otis-sa-dietlikon"
@@ -1462,9 +1455,6 @@
       "crawledAt": "2026-10-09T09:43:31.704Z",
       "previousSlugsByLocale": {
         "de": [
-          "account-manager-m-w-d-otis-wallisellen"
-        ],
-        "it": [
           "account-manager-m-w-d-otis-wallisellen"
         ]
       },
@@ -1637,7 +1627,6 @@
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-13T10:19:36.343Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -1723,7 +1712,6 @@
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen"
       ],
       "firstSeenAt": "2026-08-11T21:48:39.808Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",

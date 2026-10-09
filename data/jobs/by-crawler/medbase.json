@@ -912,10 +912,10 @@
       "id": "medbase-2e9f422f8973",
       "slug": "assistente-di-studio-medico-a-40-medbase-frauenfeld",
       "slugByLocale": {
-        "it": "assistente-di-studio-medico-a-40-medbase-frauenfeld",
+        "it": "assistenza-medica-a-40-medbase-frauenfeld",
         "en": "medical-practice-assistance-a-40-medbase-frauenfeld",
         "de": "medizinische-praxisassistenz-a-40-medbase-ch",
-        "fr": "assistant-medical-a-40-medbase-frauenfeld"
+        "fr": "assistance-medicale-a-40-medbase-frauenfeld"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -962,21 +962,19 @@
       "previousSlugs": [
         "medizinische-praxisassistenz-a-40-medbase-ch",
         "medizinische-praxisassistenz-a-40-medbase-frauenfeld",
-        "assistenza-medica-a-40-medbase-frauenfeld",
-        "assistance-medicale-a-40-medbase-frauenfeld"
+        "assistant-medical-a-40-medbase-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-40-medbase-ch",
-          "medizinische-praxisassistenz-a-40-medbase-frauenfeld",
-          "assistenza-medica-a-40-medbase-frauenfeld"
+          "medizinische-praxisassistenz-a-40-medbase-frauenfeld"
         ],
         "en": [
           "medizinische-praxisassistenz-a-40-medbase-frauenfeld"
         ],
         "fr": [
           "medizinische-praxisassistenz-a-40-medbase-frauenfeld",
-          "assistance-medicale-a-40-medbase-frauenfeld"
+          "assistant-medical-a-40-medbase-frauenfeld"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:56.599Z",
@@ -2155,9 +2153,9 @@
       "slug": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
       "slugByLocale": {
         "it": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
-        "en": "pharmacist-a-60-80-medbase-dubendorf",
+        "en": "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
         "de": "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "fr": "pharmacien-a-60-80-medbase-dubendorf"
+        "fr": "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -2203,8 +2201,8 @@
       "jobReqId": "JR06924",
       "previousSlugs": [
         "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
-        "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
+        "pharmacist-a-60-80-medbase-dubendorf",
+        "pharmacien-a-60-80-medbase-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2212,11 +2210,11 @@
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "expert-specialist-pharmacy-a-60-80-medbase-dubendorf"
+          "pharmacist-a-60-80-medbase-dubendorf"
         ],
         "fr": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
+          "pharmacien-a-60-80-medbase-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:21.452Z",
@@ -4711,7 +4709,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-vevey",
         "en": "apprentice-medical-assistant-all-kinds-medbase-vevey",
-        "de": "lehrlingsarzt-alle-arten-medbase-vevey",
+        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmwzw"
       },
       "company": "Medbase",
@@ -4758,7 +4756,8 @@
       "jobReqId": "JR07151",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
+        "lehrlingsarzt-alle-arten-medbase-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4769,7 +4768,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
         ],
         "de": [
-          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
+          "lehrlingsarzt-alle-arten-medbase-vevey"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -4797,7 +4796,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-lausanne",
         "en": "apprentice-medical-assistant-all-kinds-medbase-lausanne",
-        "de": "lehrlingsarzt-alle-arten-medbase-lausanne",
+        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmxs5"
       },
       "company": "Medbase",
@@ -4844,7 +4843,8 @@
       "jobReqId": "JR07037",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
+        "lehrlingsarzt-alle-arten-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4855,7 +4855,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
         ],
         "de": [
-          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
+          "lehrlingsarzt-alle-arten-medbase-lausanne"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -4966,7 +4966,7 @@
       "slugByLocale": {
         "it": "assistente-medico-apprendista-medbase-bulle",
         "en": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
-        "de": "auszubildender-arzt-medbase-bulle",
+        "de": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
         "fr": "apprenti-e-assistant-e-medical-e-medbase-ch"
       },
       "company": "Medbase",
@@ -5013,7 +5013,8 @@
       "jobReqId": "JR06840",
       "previousSlugs": [
         "apprenti-e-assistant-e-medical-e-medbase-ch",
-        "apprenti-e-assistant-e-medical-e-medbase-ch-2"
+        "apprenti-e-assistant-e-medical-e-medbase-ch-2",
+        "auszubildender-arzt-medbase-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5021,7 +5022,7 @@
           "apprenti-e-assistant-e-medical-e-medbase-ch-2"
         ],
         "de": [
-          "apprenti-e-assistant-e-medical-e-medbase-ch-2"
+          "auszubildender-arzt-medbase-bulle"
         ]
       },
       "firstSeenAt": "2026-07-31T22:19:14.606Z",
@@ -6159,7 +6160,7 @@
         "it": "farmacista-in-a-40-60-medbase-basel",
         "en": "pharmacist-in-a-40-60-medbase-basel",
         "de": "apotheker-in-a-40-60-medbase-ch",
-        "fr": "pharmacien-ne-a-40-60-medbase-basel"
+        "fr": "pharmacie-en-a-40-60-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -6223,7 +6224,7 @@
         "fr": [
           "apotheker-in-a-40-60-medbase-ch",
           "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-          "pharmacie-en-a-40-60-medbase-basel"
+          "pharmacien-ne-a-40-60-medbase-basel"
         ]
       },
       "previousSlugs": [
@@ -6233,7 +6234,7 @@
         "managing-director-r-pharmacist-in-a-100-medbase-basel",
         "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
         "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-        "pharmacie-en-a-40-60-medbase-basel"
+        "pharmacien-ne-a-40-60-medbase-basel"
       ],
       "firstSeenAt": "2026-07-04T11:44:29.235Z",
       "salaryMin": 62000,
@@ -8054,7 +8055,7 @@
         "it": "fisioterapista-in-a-40-medbase-uzwil",
         "en": "physiotherapist-in-a-40-medbase-uzwil",
         "de": "physiotherapeut-in-a-40-medbase-ch",
-        "fr": "kinesitherapeute-a-40-medbase-uzwil"
+        "fr": "physiotherapeute-en-a-40-medbase-uzwil"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -8101,7 +8102,7 @@
       "previousSlugs": [
         "physiotherapeut-in-a-40-medbase-ch",
         "physiotherapeut-in-a-40-medbase-uzwil",
-        "physiotherapeute-en-a-40-medbase-uzwil"
+        "kinesitherapeute-a-40-medbase-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8113,7 +8114,7 @@
         ],
         "fr": [
           "physiotherapeut-in-a-40-medbase-uzwil",
-          "physiotherapeute-en-a-40-medbase-uzwil"
+          "kinesitherapeute-a-40-medbase-uzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:03.938Z",
@@ -8217,10 +8218,10 @@
       "id": "medbase-b5825a90149b",
       "slug": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
       "slugByLocale": {
-        "it": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
+        "it": "assistenza-medica-a-60-80-medbase-schaffhausen",
         "en": "medical-practice-assistance-a-60-80-medbase-schaffhausen",
         "de": "medizinische-praxisassistenz-a-60-80-medbase-ch",
-        "fr": "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
+        "fr": "assistance-medicale-a-60-80-medbase-schaffhausen"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -8267,21 +8268,19 @@
       "previousSlugs": [
         "medizinische-praxisassistenz-a-60-80-medbase-ch",
         "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-        "assistenza-medica-a-60-80-medbase-schaffhausen",
-        "assistance-medicale-a-60-80-medbase-schaffhausen"
+        "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-60-80-medbase-ch",
-          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-          "assistenza-medica-a-60-80-medbase-schaffhausen"
+          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
         ],
         "fr": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-          "assistance-medicale-a-60-80-medbase-schaffhausen"
+          "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:43:57.081Z",
@@ -9228,7 +9227,7 @@
       "id": "medbase-5d5a130eab24",
       "slug": "specialista-in-reumatologia-50-60-a-medbase-baden",
       "slugByLocale": {
-        "it": "specialista-in-reumatologia-50-60-a-medbase-baden",
+        "it": "riumatologia-specialistica-50-60-a-medbase-baden",
         "en": "specialist-rheumatology-50-60-a-medbase-baden",
         "de": "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
         "fr": "specialiste-en-rhumatologie-50-60-a-medbase-baden"
@@ -9276,13 +9275,11 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04333",
       "previousSlugs": [
-        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
-        "riumatologia-specialistica-50-60-a-medbase-baden"
+        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
-          "riumatologia-specialistica-50-60-a-medbase-baden"
+          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
         ],
         "en": [
           "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
@@ -11027,9 +11024,9 @@
     },
     {
       "id": "medbase-3e1b14dd11fb",
-      "slug": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+      "slug": "farmacista-responsabile-a-100-medbase-zurich",
       "slugByLocale": {
-        "it": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+        "it": "farmacista-responsabile-a-100-medbase-zurich",
         "en": "executive-pharmacist-a-100-medbase-zurich",
         "de": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
         "fr": "directeur-pharmacien-en-a-100-medbase-zurich"
@@ -11039,7 +11036,7 @@
       "companyDomain": "medbase.ch",
       "title": "Geschäftsführende:r Apotheker:in (a) 100%",
       "titleByLocale": {
-        "it": "Geschäftsführende:r Apotheker:in (a) 100%",
+        "it": "Farmacista responsabile (a) 100%",
         "en": "Executive Pharmacist (a) 100%",
         "de": "Geschäftsführende:r Apotheker:in (a) 100%",
         "fr": "Directeur : Pharmacien :en (a) 100 %"
@@ -11051,7 +11048,6 @@
         "de": "Herzlich willkommen bei der der Zur Rose Shop-in-Shop-Apotheke Limmatplaz\n\nDas Konzept der Zur Rose Shop-in-Shop -Apotheken ist einzigartig und kundenorientiert. Die Apotheken befinden sich direkt in ausgewählten Migros-Supermärkten , sodass Kundinnen und Kunden ihren Einkauf von Lebensmitteln und Apothekenprodukten bequem an einem Ort erledigen können.\nWir verbinden klassische Apothekenprodukte und persönliche Beratung mit einem modernen , durch LED-Displays und iPads unterstützten Layout , um unseren Kunden ein zeitgemässes, angenehmes und bequemes Einkaufserlebnis zu bieten.\nZusätzlich profitieren die Kundinnen und Kunden von der Möglichkeit, Cumulus-Punkte zu sammeln und dadurch einen echten Mehrwert zu erhalten. Die Shop-in-Shop-Apotheken werden von der Medbase Apotheken AG betrieben, einem Unternehmen der Medbase Gruppe, die für hohe Qualitätsstandards und eine enge Verbindung zu den Bedürfnissen der Kundschaft steht.\n\nDer Alltag in der Zur Rose Shop-in-Shop-Apotheke ist agil und dynamisch , mit einem kleinen Team von 6 bis 9 Personen. Die Apotheke befindet sich direkt im Migros-Supermarkt im Einkaufszentrum am Limmatplatz und bietet eine ideale Arbeitsumgebung in zentraler Lage.\nNur 8 Gehminuten entfernt liegt das Aktiv Gym, mit dem eine Partnerschaft besteht, sodass Mitarbeitende von einem vergünstigten Abonnement profitieren können.\n\nDas Arbeiten in dieser Zur Rose Shop-in-Shop-Apotheke bedeutet, Teil eines innovativen und modernen Konzepts zu sein, das mit einem vielseitigen Dienstleistungsangebot echten Mehrwert für die Kundschaft schafft.\n\nDas können Sie bewegen\n\nSie gestalten den Alltag in unserer Apotheke und führen ein Team, das sich durch Innovation, Kundennähe und hohe Qualitätsstandards auszeichnet. Bei Medbase erhalten Sie die Unterstützung eines starken Netzwerks, das Ihnen Freiraum für eigene Ideen lässt.\n\n• Ganzheitliche Kundenberatung mit Fokus auf Erschwinglichkeit und Qualität\n\n• Führung der Apotheke, Teamleitung und Förderung und Entwicklung innovativer Dienstleistungen\n\n• Leitung und Unterstützung von Projekten im Bereich Grundversorgung und QMS\n\n• Sicherstellung reibungsloser Abläufe und aktive Mitgestaltung im Tagesgeschäft\n\nWas Sie mitbringen\n\n• Abschluss als eidg. dipl. Apotheker/in oder mit entsprechender Diplomanerkennung (BAB, FPH-Titel)\n\n• Bewiesene Führungskompetenz und kundenorientiertes Denken sowie Flexibilität\n\n• Erfahrung im Qualitätsmanagement (QMS)\n\n• Flexibilität in Bezug auf die Einsatzplanung (Schichtbetrieb zwischen 7:30-20:00 Uhr)\n\n• IT-Kenntnisse (von Vorteil ProPharmaX)\n\n• Gute Deutschkenntnisse (mind. B2 Niveau)\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
         "fr": "Bienvenue dans la pharmacie Zur Rose Shop-in-Shop Limmatplaz\n\nLe concept de pharmacies Zur Rose Shop-in-Shop est unique et axé sur le client. Les pharmacies sont situées directement dans certains supermarchés Migros, de sorte que les clients peuvent facilement faire leurs achats de nourriture et de produits pharmaceutiques en un seul endroit.\nNous combinons des produits pharmaceutiques classiques et des conseils personnels avec une disposition moderne soutenue par des écrans LED et des iPads pour offrir à nos clients une expérience d'achat contemporaine, agréable et pratique.\nEn outre, les clients bénéficient de la possibilité de collecter des points Cumulus et ainsi recevoir une valeur ajoutée réelle. Les pharmacies en magasin sont gérées par Medbase Apotheken AG, une société du groupe Medbase qui représente des normes de qualité élevées et un lien étroit avec les besoins de ses clients.\n\nLa vie quotidienne à la pharmacie en magasin de Zur Rose est agile et dynamique, avec une petite équipe de 6 à 9 personnes. La pharmacie est située directement dans le supermarché Migros dans le centre commercial de Limmatplatz et offre un environnement de travail idéal dans un emplacement central.\nA seulement 8 minutes se trouve l'Aktiv Gym, avec lequel il y a un partenariat, afin que les employés puissent bénéficier d'un abonnement à prix réduit.\n\nTravailler dans cette pharmacie en magasin Zur Rose signifie faire partie d'un concept innovant et moderne qui crée une réelle valeur ajoutée pour les clients avec une gamme polyvalente de services.\n\nTu peux bouger ça.\n\nIls façonnent la vie quotidienne dans notre pharmacie et dirigent une équipe caractérisée par l'innovation, la proximité des clients et des normes de qualité élevées. À Medbase, vous obtenez le soutien d'un réseau fort qui vous donne de l'espace pour vos propres idées.\n\n• Conseils clients holistiques en mettant l'accent sur l'abordabilité et la qualité\n\n• Gestion de pharmacie, gestion d'équipe, promotion et développement de services innovants\n\n• Diriger et appuyer des projets dans le domaine des services de base et du SGQ\n\n• Assurer des processus sans heurts et une participation active aux activités quotidiennes\n\nCe que vous apportez\n\n• Diplôme de docteur fédéral. Pharmacie ou avec reconnaissance de diplôme correspondante (BAB, titre FPH)\n\n• Compétences éprouvées en leadership et en pensée axée sur le client ainsi que flexibilité\n\n• Expérience en gestion de la qualité (SGQ)\n\n• Flexibilité en matière de planification opérationnelle (opération de changement de poste entre 7 h 30 et 20 heures)\n\n• Connaissances informatiques (avantage ProPharmaX)\n\n• Bonne connaissance de l'allemand (niveau minimum B2)\n\n#Nous sommes Medbase\n\nLe groupe Medbase est l'une des principales entreprises de soins ambulatoires.\nCela signifie des services allant de la promotion de la santé aux soins aux toxicomanes et au traitement aigu à la réadaptation.\nLes professionnels de la santé de diverses disciplines travaillent main dans la main pour fournir aux gens à travers la Suisse des soins médicaux intégrés et de classe mondiale.\nAvec les services logistiques et les solutions numériques, nous soutenons les médecins afin qu'ils puissent se concentrer pleinement sur les patients.\n\nLe groupe Medbase comprend les marques Medbase Pharmacies, Zur Rose, Dental Center.ch, WePractice et Bluecare.\n\nAvez-vous été recommandé par un employé de Medbase ?\n\nS'il vous plaît sélectionner cette option dans votre application dans la question Comment avez-vous découvert à notre sujet?\n\nSur nous\n\nLe groupe Medbase exploite plus de 150 établissements médicaux, pharmaceutiques et dentaires en Suisse. De cette façon, elle a considérablement élargi son poste de principal fournisseur de soins ambulatoires intégrés au cours des dernières années. Environ 3 200 employés s'occupent des patients de façon holistique - de la prévention à la médecine aiguë et à la réadaptation. Plus de 480 médecins de famille et spécialistes, 340 thérapeutes, 190 pharmaciens, environ 360 dentistes et spécialistes en orthodontie, implants et hygiène dentaire travaillent ensemble de manière coordonnée et interprofessionnelle dans le groupe. Pour les entreprises, Medbase Corporate Health propose des services de conseil spécifiques et des projets holistiques en gestion de la santé au travail. Dans ses 12 centres de médecine sportive, Medbase supervise et traite les athlètes dans le domaine des loisirs et des sports d'élite. Medbase fournit également des chercheurs juniors dans le secteur de la santé et forme environ 340 jeunes femmes et hommes.\n\nMedbase – Un employeur qui vous donne des pouvoirs.\n\nÀ Medbase, nos employés sont au cœur de notre succès.\nC'est pourquoi nous nous efforçons de créer un milieu de travail attrayant et favorable, axé sur le perfectionnement professionnel, l'équilibre entre le travail et la vie personnelle et la santé personnelle.\nPourquoi Medbase est un excellent employeur\nÉquilibre entre le travail et la vie personnelle : Avec des modèles de travail flexibles, des congés non rémunérés et des congés supplémentaires à partir de 50 ans. Pendant la vie de l'enfant, nous établissons un équilibre sain entre vie professionnelle et vie privée.\nUne rémunération attrayante et des services supplémentaires : Nos employés bénéficient d'une caisse de retraite généreuse, de services d'assurance intégrale et de primes pour les recommandations des employés.\nNous investissons dans l'avenir de nos employés avec un budget annuel de formation, des programmes de soutien individuels et des possibilités de carrière ciblées.\nSport & Loisirs : Avec un soutien financier pour les abonnements de fitness, les événements sportifs, les offres culturelles et les avantages touristiques attractifs, nous favorisons un mode de vie actif et équilibré.\n\nApprenez à connaître notre équipe – des gens réels, de vraies histoires.\n\nDerrière Medbase, plus de 4'300 personnes dévouées façonnent les soins de santé avec passion, esprit d'équipe et expertise. Mais qu'est - ce qui les motive? Quelle expérience ont-ils eue ? Et qu'est-ce qui leur rend Medbase spéciale ?\nDans notre podcast, nos employés partagent leurs histoires personnelles – directement de leur travail quotidien. Apprenez directement ce que signifie faire partie de Medbase, les défis et les réussites qu'ils éprouvent et pourquoi ils sont enthousiastes chaque jour. Écoutez maintenant et découvrez notre monde Medbase: Medbase Podcast"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Zrich/Geschftsfhrende-r-Apotheker-in--a--100-_JR07810",
@@ -11090,7 +11086,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-7e74222b6880",
@@ -11106,7 +11110,7 @@
       "companyDomain": "medbase.ch",
       "title": "Payroll Spezialist:in (a) 80-100%",
       "titleByLocale": {
-        "it": "Payroll Spezialist:in (a) 80-100%",
+        "it": "Specialista payroll (a) 80-100%",
         "en": "Payroll Specialist (a) 80-100%",
         "de": "Payroll Spezialist:in (a) 80-100%",
         "fr": "Spécialiste de la paie :en (a) 80-100 %"
@@ -11118,7 +11122,6 @@
         "de": "Herzlich willkommen in der Medbase Zentrale Winterthur\n\nUnser modernes Bürogebäude befindet sich nur drei Minuten vom Bahnhof Winterthur entfernt, in einer urbanen Umgebung , die ideale Voraussetzungen für konzentriertes Arbeiten und kreative Zusammenarbeit bietet.\nIn unserer Zentrale arbeiten rund 150 Spezialistinnen und Spezialisten aus den Bereichen IT, HR, Marketing und Finanzen Hand in Hand, um gemeinsam innovative Lösungen zu entwickeln und unsere Unternehmensziele zu erreichen.\nMit flexiblen Arbeitsplätzen und modernen Meeting Pods fördern wir eine offene und effiziente Arbeitskultur . Bei Medbase legen wir grossen Wert auf Teamarbeit und den Austausch zwischen den Abteilungen, um gemeinsam erfolgreich zu sein.\nHier treffen sich Kolleginnen und Kollegen aus unseren Schwesterunternehmen wie Zur Rose, WePractice oder dem Zahnarztzentrum, was den interdisziplinären Austausch weiter bereichert.\n\nDeine Aufgaben\n\n• Selbständige Durchführung einer korrekten und termingerechten Payroll unter Einhaltung gesetzlicher, regulatorischer und interner Vorgaben\n\n• Verantwortung für alle lohnrelevanten Mutationen entlang des Employee Life Cycle (Eintritte, Austritte, Vertragsänderungen, Absenzen usw.)\n\n• Fachliche Bearbeitung von Sozialversicherungsfällen (EO, Familienzulagen, Mutterschafts- und Vaterschaftsentschädigungen, Krankentaggeld, Unfallversicherung)\n\n• Erstellung und Kontrolle von Quellensteuerabrechnungen sowie Unterstützung bei Revisionen und Jahresabschlussarbeiten\n\n• Beratung von Mitarbeitenden, Führungskräften und HR Business Partnern bei Fragestellungen rund um Lohn, Sozialversicherungen und Zeitwirtschaft\n\n• Sicherstellung einer hohen Datenqualität in den HR- und Payroll-Systemen\n\n• Mitarbeit bei der Weiterentwicklung und Digitalisierung von Payroll-Prozessen sowie bei Systemoptimierungen\n\nDas bringst du mit\n\n• Mehrjährige Erfahrung in der Payroll\n\n• Fundierte Kenntnisse des Schweizer Sozialversicherungs- und Lohnwesens\n\n• Erfahrung mit modernen HR- und Payroll-Systemen, idealerweise Abacus, Workday oder vergleichbaren Lösungen\n\n• Hohe Affinität zu digitalen Prozessen, Datenqualität und Systemanwendungen\n\n• Analytische Denkweise sowie Freude daran, Prozesse zu hinterfragen und zu verbessern\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Ausgeprägte Dienstleistungsorientierung sowie Freude an der Zusammenarbeit mit unterschiedlichen Anspruchsgruppen\n\n• Sehr gute Deutschkenntnisse, sowie Französisch von Vorteil\n\n• Gegebenenfalls Kaufmännische Grundausbildung sowie eine Weiterbildung im Bereich Payroll oder Sozialversicherungen\n\nBereit für die Zukunft? Jetzt bewerben.\n\n#WeAreMedbase\n\nDie Medbase Gruppe ist eines der führenden Unternehmen in der ambulanten Gesundheitsversorgung.\nDas bedeutet Dienstleistungen von der Gesundheitsförderung über Medikamentenversorgung und Akutbehandlung bis zur Rehabilitation.\nGesundheitsfachpersonen verschiedener Disziplinen arbeiten Hand in Hand, um den Menschen in der ganzen Schweiz eine integrierte und erstklassige medizinische Rundumbetreuung zu bieten.\nMit Logistik-Dienstleistungen und digitalen Lösungen unterstützen wir Ärztinnen und Ärzte, damit auch sie sich voll und ganz auf Patientinnen und Patienten konzentrieren können.\n\nZur Medbase Gruppe gehören die Marken Medbase Apotheken, Zur Rose, zahnarztzentrum.ch, WePractice und Bluecare.\n\nWurden Sie von einem Medbase Mitarbeitenden empfohlen?\n\nBitte wählen Sie in Ihrer Bewerbung bei der Frage „Wie haben Sie von uns erfahren?“ diese Option aus: „Mitarbeiter:in Empfehlung.“\n\nÜber uns\n\nDie Medbase Gruppe betreibt über 150 medizinische, pharmazeutische und zahnärztliche Standorte in der Schweiz. Sie hat damit ihre Stellung als führende Leistungserbringerin für ambulante, integrierte Medizin in den letzten Jahren stark ausgebaut. Rund 3200 Mitarbeitende betreuen die Patientinnen und Patienten ganzheitlich - von der Prävention über die Akutmedizin bis zur Rehabilitation. Über 480 Haus- und Spezialärztinnen und -ärzte, 340 Therapeutinnen und Therapeuten, 190 Apothekerinnen und Apotheker, rund 360 Zahnärztinnen und Zahnärzte sowie Spezialistinnen und Spezialisten für Kieferorthopädie, Implantate und Dentalhygiene arbeiten koordiniert und interprofessionell in der Gruppe zusammen. Für Firmen bietet Medbase Corporate Health spezifische Beratungen und ganzheitliche Projekte im betrieblichen Gesundheitsmanagement an. In ihren 12 Sports Medical Centern betreut und behandelt Medbase Sportlerinnen und Sportler in Freizeit- und Spitzensport. Medbase sorgt zudem für Nachwuchs im Gesundheitswesen und bildet rund 340 junge Frauen und Männer aus.\n\nMedbase – Ein Arbeitgeber, der dich stärkt.\n\nBei Medbase stehen unsere Mitarbeitenden im Mittelpunkt – sie sind das Herzstück unseres Erfolgs.\nDeshalb setzen wir alles daran, ein attraktives und unterstützendes Arbeitsumfeld zu schaffen, das berufliche Entwicklung, Work-Life-Balance und persönliche Gesundheit in den Fokus stellt.\nWarum Medbase ein ausgezeichneter Arbeitgeber ist\n✅ Work-Life-Balance : Mit flexiblen Arbeitsmodellen, unbezahltem Urlaub und zusätzlichen Ferientagen ab dem 50. Lebensjahr ermöglichen wir eine gesunde Balance zwischen Berufs- und Privatleben.\n✅ Attraktive Vergütungen & Zusatzleistungen : Unsere Mitarbeitenden profitieren von einer grosszügigen Pensionskasse , umfassenden Versicherungsleistungen und Prämien für Mitarbeiterempfehlungen.\n✅ Weiterbildung & Karriere : Wir investieren in die Zukunft unserer Mitarbeitenden mit einem jährlichen Weiterbildungsbudget, individuellen Förderprogrammen und gezielten Karrieremöglichkeiten.\n✅ Sport & Freizeit : Mit finanzieller Unterstützung für Fitnessabonnements, Sportevents, Kulturangebote und attraktiven Reisevergünstigungen fördern wir einen aktiven und ausgeglichenen Lebensstil.\n\nLerne unser Team kennen – echte Menschen, echte Geschichten.\n\nHinter Medbase stehen über 4'300 engagierte Menschen, die mit Leidenschaft, Teamgeist und Fachkompetenz die Gesundheitsversorgung prägen. Doch was motiviert sie? Welche Erfahrungen haben sie gemacht? Und was macht Medbase für sie besonders?\nIn unserem Podcast teilen unsere Mitarbeitenden ihre persönlichen Geschichten – direkt aus ihrem Arbeitsalltag. Erfahre aus erster Hand, was es bedeutet, Teil von Medbase zu sein, welche Herausforderungen und Erfolge sie erleben und warum sie jeden Tag mit Begeisterung dabei sind. Jetzt reinhören und unsere Medbase-Welt entdecken: Medbase Podcast",
         "fr": "Bienvenue à la Medbase Zentrale Winterthur\n\nNotre immeuble moderne est situé à seulement trois minutes de la gare de Winterthur, dans un cadre urbain qui offre des conditions idéales pour un travail ciblé et une collaboration créative.\nAu siège, quelque 150 spécialistes des domaines IT, RH, marketing et finance travaillent main dans la main pour développer conjointement des solutions innovantes et atteindre nos objectifs d'entreprise.\nAvec des lieux de travail flexibles et des modules de réunions modernes, nous favorisons une culture de travail ouverte et efficace. À Medbase, nous attachons une grande importance au travail d'équipe et à l'échange entre les ministères afin de réussir ensemble.\nIci, des collègues de nos sociétés soeurs telles que Zur Rose, WePractice ou le centre dentaire se rencontrent, ce qui enrichit encore l'échange interdisciplinaire.\n\nVos tâches\n\n• Mise en œuvre indépendante d'une paie correcte et en temps voulu, conformément aux exigences juridiques, réglementaires et internes\n\n• Responsabilité pour toutes les mutations liées à la rémunération tout au long du cycle de vie des employés (entrée, retrait, changements de contrat, absences, etc.)\n\n• Traitement technique des affaires de sécurité sociale (OC, allocations familiales, allocations de maternité et de paternité, indemnités de maladie, assurance accidents)\n\n• Préparation et contrôle des relevés de retenue à la source et appui aux audits et aux comptes annuels\n\n• Conseiller les employés, les gestionnaires et les partenaires sociaux sur les questions relatives aux salaires, à l'assurance sociale et à la gestion du temps\n\n• Assurer une qualité élevée des données dans les systèmes de gestion des ressources humaines et des états de paie\n\n• Coopération pour le développement et la numérisation des processus de paie ainsi que pour l ' optimisation des systèmes\n\nApporte ça avec toi.\n\n• Plusieurs années d'expérience dans la paie\n\n• Connaissance approfondie du système suisse de sécurité sociale et de rémunération\n\n• Expérience avec les systèmes modernes de RH et de paie, idéalement Abacus, Workday ou solutions comparables\n\n• Haute affinité pour les processus numériques, la qualité des données et les applications système\n\n• Pensée analytique et plaisir à interroger et à améliorer les processus\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Orientation et plaisir de travailler avec les différentes parties prenantes\n\n• Très bonne connaissance de l'allemand, ainsi que du français est avantageux\n\n• Le cas échéant, formation commerciale de base et perfectionnement dans le domaine des salaires ou de la sécurité sociale\n\nPrêt pour l'avenir ? Demande maintenant.\n\n#Nous sommes Medbase\n\nLe groupe Medbase est l'une des principales entreprises de soins ambulatoires.\nCela signifie des services allant de la promotion de la santé aux soins aux toxicomanes et au traitement aigu à la réadaptation.\nLes professionnels de la santé de diverses disciplines travaillent main dans la main pour fournir aux gens à travers la Suisse des soins médicaux intégrés et de classe mondiale.\nAvec les services logistiques et les solutions numériques, nous soutenons les médecins afin qu'ils puissent se concentrer pleinement sur les patients.\n\nLe groupe Medbase comprend les marques Medbase Pharmacies, Zur Rose, Dental Center.ch, WePractice et Bluecare.\n\nAvez-vous été recommandé par un employé de Medbase ?\n\nS'il vous plaît sélectionner cette option dans votre application dans la question Comment avez-vous découvert à notre sujet?\n\nSur nous\n\nLe groupe Medbase exploite plus de 150 établissements médicaux, pharmaceutiques et dentaires en Suisse. De cette façon, elle a considérablement élargi son poste de principal fournisseur de soins ambulatoires intégrés au cours des dernières années. Environ 3 200 employés s'occupent des patients de façon holistique - de la prévention à la médecine aiguë et à la réadaptation. Plus de 480 médecins de famille et spécialistes, 340 thérapeutes, 190 pharmaciens, environ 360 dentistes et spécialistes en orthodontie, implants et hygiène dentaire travaillent ensemble de manière coordonnée et interprofessionnelle dans le groupe. Pour les entreprises, Medbase Corporate Health propose des services de conseil spécifiques et des projets holistiques en gestion de la santé au travail. Dans ses 12 centres de médecine sportive, Medbase supervise et traite les athlètes dans le domaine des loisirs et des sports d'élite. Medbase fournit également des chercheurs juniors dans le secteur de la santé et forme environ 340 jeunes femmes et hommes.\n\nMedbase – Un employeur qui vous donne des pouvoirs.\n\nÀ Medbase, nos employés sont au cœur de notre succès.\nC'est pourquoi nous nous efforçons de créer un milieu de travail attrayant et favorable, axé sur le perfectionnement professionnel, l'équilibre entre le travail et la vie personnelle et la santé personnelle.\nPourquoi Medbase est un excellent employeur\nÉquilibre entre le travail et la vie personnelle : Avec des modèles de travail flexibles, des congés non rémunérés et des congés supplémentaires à partir de 50 ans. Pendant la vie de l'enfant, nous établissons un équilibre sain entre vie professionnelle et vie privée.\nUne rémunération attrayante et des services supplémentaires : Nos employés bénéficient d'une caisse de retraite généreuse, de services d'assurance intégrale et de primes pour les recommandations des employés.\nNous investissons dans l'avenir de nos employés avec un budget annuel de formation, des programmes de soutien individuels et des possibilités de carrière ciblées.\nSport & Loisirs : Avec un soutien financier pour les abonnements de fitness, les événements sportifs, les offres culturelles et les avantages touristiques attractifs, nous favorisons un mode de vie actif et équilibré.\n\nApprenez à connaître notre équipe – des gens réels, de vraies histoires.\n\nDerrière Medbase, plus de 4'300 personnes dévouées façonnent les soins de santé avec passion, esprit d'équipe et expertise. Mais qu'est - ce qui les motive? Quelle expérience ont-ils eue ? Et qu'est-ce qui leur rend Medbase spéciale ?\nDans notre podcast, nos employés partagent leurs histoires personnelles – directement de leur travail quotidien. Apprenez directement ce que signifie faire partie de Medbase, les défis et les réussites qu'ils éprouvent et pourquoi ils sont enthousiastes chaque jour. Écoutez maintenant et découvrez notre monde Medbase: Medbase Podcast"
       },
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://medbase.wd502.myworkdayjobs.com/en-US/Medbase_jobs/job/Winterthur/Payroll-Spezialist-in--a--80-100-_JR07819",

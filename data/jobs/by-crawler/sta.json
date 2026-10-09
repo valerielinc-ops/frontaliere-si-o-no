@@ -658,7 +658,7 @@
           "zimmermann-zimmerin-mit-handwerklichem-geschick-sta-personal-ag-pfaffikon"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1314,7 +1314,7 @@
           "zimmermann-zimmerin-fur-vielseitige-holzkonstruktionen-winterthur-zurich-sta-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:57:19.113Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1924,7 +1924,7 @@
           "zimmermann-zimmerin-fur-rohbau-und-montage-frauenfeld-thurgau-sta-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2818,7 +2818,7 @@
           "zimmermann-zimmerin-fur-holz-und-dachkonstruktionen-sta-personal-ag-zofingen"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5666,7 +5666,7 @@
         "it": "carpenter-con-talento-organizzativo-sta-personal-ag-luzern-luzern",
         "en": "carpenter-with-organizational-talent-sta-personal-ag-luzern-luzern",
         "de": "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
-        "fr": "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
+        "fr": "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -5711,7 +5711,7 @@
       "previousSlugs": [
         "schreiner-in-mit-organisationstalent-luzern-luzern-sta-ch",
         "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-        "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+        "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5719,7 +5719,7 @@
         ],
         "fr": [
           "schreiner-in-mit-organisationstalent-sta-personal-ag-luzern",
-          "charpentier-avec-talent-organisationnel-sta-personal-ag-luzern-luzern"
+          "menuisier-ere-ayant-le-sens-de-l-organisation-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -11911,7 +11911,7 @@
         "it": "carpentieri-di-assemblaggio-della-cucina-sta-personal-ag-schaffhausen-schaffhausen",
         "en": "kitchen-assembly-carpenters-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
+        "fr": "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -11956,7 +11956,7 @@
       "previousSlugs": [
         "schreiner-in-fur-kuchenmontage-schaffhausen-schaffhausen-sta-ch",
         "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-        "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+        "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11967,7 +11967,7 @@
         ],
         "fr": [
           "schreiner-in-fur-kuchenmontage-sta-personal-ag-schaffhausen",
-          "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-schaffhausen-schaffhausen"
+          "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-schaffhausen"
         ]
       },
       "salaryMin": 57500,
@@ -12073,12 +12073,12 @@
     },
     {
       "id": "sta-a5f986b93270",
-      "slug": "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau",
+      "slug": "falegname-per-la-realizzazione-di-cucine-e-interni-sta-personal-ag-willisau-luzern",
       "slugByLocale": {
         "de": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
-        "it": "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau",
-        "en": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
-        "fr": "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+        "it": "falegname-per-la-realizzazione-di-cucine-e-interni-sta-personal-ag-willisau-luzern",
+        "en": "carpenter-for-kitchen-and-interior-construction-sta-personal-ag-willisau-luzern",
+        "fr": "menuisier-ere-pour-l-amenagement-de-cuisines-et-d-interieurs-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -12086,16 +12086,16 @@
       "title": "Schreiner/in für Küchen- und Innenausbau",
       "titleByLocale": {
         "de": "Schreiner/in für Küchen- und Innenausbau",
-        "it": "Schreiner/in per Küchen- e Innenausbau",
-        "en": "Schreiner/in für Küchen- und Innenausbau",
-        "fr": "Schreiner/in für Küchen- und Innenausbau"
+        "it": "Falegname per la realizzazione di cucine e interni",
+        "en": "Carpenter for Kitchen and Interior Construction",
+        "fr": "Menuisier/ère pour l’aménagement de cuisines et d’intérieurs"
       },
       "description": "Tätigkeiten\n- Fertigung von Küchen- und Innenausbaukomponenten\n- Produktionsaufträge an Maschinen und Anlagen ausführen\n- Werkstücke präzise bearbeiten und laufend kontrollieren\nAnforderungen\n- Lehre als Schreiner/in EFZ oder Praxis als Maschinist/in\n- Freude an genauer Arbeit mit Maschinen\n- Strukturierte und verlässliche Arbeitsweise\n- Veratwortungsvoller Umgang mit Produktionsanlagen\nAngebot\n- Eigenständiger Arbeitsbereich mit Verantwortung\n- Zeitgemässe Werkstatt mit hochwertiger Infrastruktur\n- Aufgestelltes Team mit starkem Handwerksbezug\nIn einer modernen Werkstatt entstehen hochwertige Küchen- und Innenausbaukomponenten. Das eigenständige Arbeiten an Maschinen fordert deine Genauigkeit und Zuverlässigkeit. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Fertigung von Küchen- und Innenausbaukomponenten\n- Produktionsaufträge an Maschinen und Anlagen ausführen\n- Werkstücke präzise bearbeiten und laufend kontrollieren\nAnforderungen\n- Lehre als Schreiner/in EFZ oder Praxis als Maschinist/in\n- Freude an genauer Arbeit mit Maschinen\n- Strukturierte und verlässliche Arbeitsweise\n- Veratwortungsvoller Umgang mit Produktionsanlagen\nAngebot\n- Eigenständiger Arbeitsbereich mit Verantwortung\n- Zeitgemässe Werkstatt mit hochwertiger Infrastruktur\n- Aufgestelltes Team mit starkem Handwerksbezug\nIn einer modernen Werkstatt entstehen hochwertige Küchen- und Innenausbaukomponenten. Das eigenständige Arbeiten an Maschinen fordert deine Genauigkeit und Zuverlässigkeit. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Tätigkeiten\n- Fertigung von Küchen- und Innenausbaukomponenten\n- Produktionsaufträge an Maschinen und Anlagen ausführen\n- Werkstücke präzise bearbeiten und laufend kontrollieren\nAnforderungen\n- Lehre als Schreiner/in EFZ oder Praxis als Maschinist/in\n- Freude an genauer Arbeit mit Maschinen\n- Strukturierte und verlässliche Arbeitsweise\n- Veratwortungsvoller Umgang mit Produktionsanlagen\nAngebot\n- Eigenständiger Arbeitsbereich mit Verantwortung\n- Zeitgemässe Werkstatt mit hochwertiger Infrastruktur\n- Aufgestelltes Team mit starkem Handwerksbezug\nIn einer modernen Werkstatt entstehen hochwertige Küchen- und Innenausbaukomponenten. Das eigenständige Arbeiten an Maschinen fordert deine Genauigkeit und Zuverlässigkeit. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten\n- Fertigung von Küchen- und Innenausbaukomponenten\n- Produktionsaufträge an Maschinen und Anlagen ausführen\n- Werkstücke präzise bearbeiten und laufend kontrollieren\nAnforderungen\n- Lehre als Schreiner/in EFZ oder Praxis als Maschinist/in\n- Freude an genauer Arbeit mit Maschinen\n- Strukturierte und verlässliche Arbeitsweise\n- Veratwortungsvoller Umgang mit Produktionsanlagen\nAngebot\n- Eigenständiger Arbeitsbereich mit Verantwortung\n- Zeitgemässe Werkstatt mit hochwertiger Infrastruktur\n- Aufgestelltes Team mit starkem Handwerksbezug\nIn einer modernen Werkstatt entstehen hochwertige Küchen- und Innenausbaukomponenten. Das eigenständige Arbeiten an Maschinen fordert deine Genauigkeit und Zuverlässigkeit. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Fertigung von Küchen- und Innenausbaukomponenten\n- Produktionsaufträge an Maschinen und Anlagen ausführen\n- Werkstücke präzise bearbeiten und laufend kontrollieren\nAnforderungen\n- Lehre als Schreiner/in EFZ oder Praxis als Maschinist/in\n- Freude an genauer Arbeit mit Maschinen\n- Strukturierte und verlässliche Arbeitsweise\n- Veratwortungsvoller Umgang mit Produktionsanlagen\nAngebot\n- Eigenständiger Arbeitsbereich mit Verantwortung\n- Zeitgemässe Werkstatt mit hochwertiger Infrastruktur\n- Aufgestelltes Team mit starkem Handwerksbezug\nIn einer modernen Werkstatt entstehen hochwertige Küchen- und Innenausbaukomponenten. Das eigenständige Arbeiten an Maschinen fordert deine Genauigkeit und Zuverlässigkeit. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "Attività\n- Fabbricazione di componenti per cucina e interni\n- Eseguire ordini di produzione per macchinari e attrezzature\n- Precisa lavorazione di pezzi e monitoraggio continuo\nRequisiti\n- Insegnamento come falegname o pratica come macchinista\n- Godere di un lavoro accurato con le macchine\n- Metodi di lavoro strutturati e affidabili\n- Gestione adattiva degli impianti di produzione\nOfferta\n- Area di lavoro indipendente con responsabilità\n- Workshop contemporaneo con infrastrutture di alta qualità\n- Team fortemente artigianale\nIn un laboratorio moderno, vengono creati componenti di cucina e interni di alta qualità. Lavorare indipendentemente sulle macchine richiede la vostra precisione e affidabilità. Per il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Manufacture of kitchen and interior components\n- Carry out production orders for machinery and equipment\n- Precise machining of workpieces and continuous monitoring\nRequirements\n- Teaching as a carpenter or practice as a machinist\n- Enjoying accurate work with machines\n- Structured and reliable working methods\n- Adaptive handling of production facilities\nOffer\n- Independent work area with responsibility\n- Contemporary workshop with high-quality infrastructure\n- Strongly crafted team\nIn a modern workshop, high-quality kitchen and interior components are created. Working independently on machines demands your accuracy and reliability. For our client we are looking for a",
+        "fr": "Activités\n- Fabrication de composants de cuisine et d'intérieur\n- Exécution de commandes de production de machines et d'équipements\n- Usinage précis des pièces et surveillance continue\nExigences\n- Enseignement comme menuisier ou pratique comme machiniste\n- Profitez d'un travail précis avec les machines\n- Méthodes de travail structurées et fiables\n- Manipulation adaptative des installations de production\nOffre\n- Domaine de travail indépendant\n- Atelier contemporain avec une infrastructure de haute qualité\n- Une équipe bien formée\nDans un atelier moderne, des composants de cuisine et d'intérieur de haute qualité sont créés. Travailler indépendamment sur les machines exige votre précision et votre fiabilité. Pour notre client, nous cherchons"
       },
       "location": "Willisau, Luzern",
       "canton": "LU",
@@ -12122,23 +12122,26 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "falegname-falegname-per-cucine-e-interni-sta-personal-ag-willisau-luzern",
         "carpenter-for-kitchen-and-interior-design-sta-personal-ag-willisau-luzern",
         "charpentier-pour-la-cuisine-et-la-decoration-interieure-sta-personal-ag-willisau-luzern",
-        "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+        "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
+        "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "falegname-falegname-per-cucine-e-interni-sta-personal-ag-willisau-luzern",
-          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
+          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch",
+          "schreiner-in-per-kuchen-e-innenausbau-sta-personal-ag-willisau"
         ],
         "en": [
-          "carpenter-for-kitchen-and-interior-design-sta-personal-ag-willisau-luzern"
+          "carpenter-for-kitchen-and-interior-design-sta-personal-ag-willisau-luzern",
+          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
         ],
         "fr": [
-          "charpentier-pour-la-cuisine-et-la-decoration-interieure-sta-personal-ag-willisau-luzern"
+          "charpentier-pour-la-cuisine-et-la-decoration-interieure-sta-personal-ag-willisau-luzern",
+          "schreiner-in-fur-kuchen-und-innenausbau-willisau-luzern-sta-ch"
         ]
       },
       "salaryMin": 69500,
@@ -19557,7 +19560,7 @@
       "slug": "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "it": "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-sta-personal-ag-zofingen-aargau",
-        "en": "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-sta-personal-ag-zofingen",
+        "en": "production-mechanic-with-a-focus-on-sheet-metal-forming-sta-personal-ag-zofingen-aargau",
         "de": "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-zofingen-aargau-sta-ch",
         "fr": "mecanicien-de-production-avec-un-accent-sur-le-formage-de-la-tole-sta-personal-ag-zofingen-aargau"
       },
@@ -19604,8 +19607,7 @@
       "previousSlugs": [
         "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-zofingen-aargau-sta-ch",
         "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-sta-personal-ag-zofingen",
-        "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-sta-personal-ag-zofingen",
-        "production-mechanic-with-a-focus-on-sheet-metal-forming-sta-personal-ag-zofingen-aargau"
+        "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19614,7 +19616,7 @@
           "meccanico-di-produzione-con-particolare-attenzione-alla-formatura-della-lamiera-sta-personal-ag-zofingen"
         ],
         "en": [
-          "production-mechanic-with-a-focus-on-sheet-metal-forming-sta-personal-ag-zofingen-aargau"
+          "produktionsmechaniker-in-mit-schwerpunkt-blechumformung-sta-personal-ag-zofingen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:57:19.008Z",
@@ -21079,7 +21081,7 @@
         "it": "produktionsmechaniker-in-instandhaltung-con-hydraulik-e-pneumatikkenntnissen-sta-personal-ag-willisau",
         "en": "production-mechanic-maintenance-with-hydraulic-and-pneumatic-knowledge-sta-personal-ag-willisau-luzern",
         "de": "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
-        "fr": "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
+        "fr": "mecanicien-ne-de-production-maintenance-avec-connaissances-hydrauliques-et-pneumatiques-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -21124,7 +21126,7 @@
       "previousSlugs": [
         "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
         "mecanicien-de-production-maintenance-avec-connaissances-en-hydraulique-et-pneumatique-sta-personal-ag-willisau-luzern",
-        "mecanicien-ne-de-production-maintenance-avec-connaissances-hydrauliques-et-pneumatiques-sta-personal-ag-willisau-luzern"
+        "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21136,7 +21138,7 @@
         "fr": [
           "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-willisau",
           "mecanicien-de-production-maintenance-avec-connaissances-en-hydraulique-et-pneumatique-sta-personal-ag-willisau-luzern",
-          "mecanicien-ne-de-production-maintenance-avec-connaissances-hydrauliques-et-pneumatiques-sta-personal-ag-willisau-luzern"
+          "produktionsmechaniker-in-instandhaltung-mit-hydraulik-und-pneumatikkenntnissen-sta-personal-ag-willisau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:57:18.999Z",
@@ -33059,7 +33061,7 @@
         "it": "polimeccanico-manutenzione-con-responsabilita-personale-sta-personal-ag-zurich-zurich",
         "en": "polymechanic-maintenance-with-personal-responsibility-sta-personal-ag-zurich-zurich",
         "de": "polymechaniker-in-8211-instandhaltung-mit-eigenverantwortung-zurich-zurich-sta-ch",
-        "fr": "polymecanicien-ne-maintenance-en-toute-autonomie-sta-personal-ag-zurich"
+        "fr": "polymecanique-entretien-avec-responsabilite-personnelle-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -33104,7 +33106,7 @@
       "previousSlugs": [
         "polymechaniker-in-instandhaltung-mit-eigenverantwortung-zurich-zurich-sta-ch",
         "polymechaniker-in-instandhaltung-mit-eigenverantwortung-sta-personal-ag-zurich",
-        "polymecanique-entretien-avec-responsabilite-personnelle-sta-personal-ag-zurich-zurich"
+        "polymecanicien-ne-maintenance-en-toute-autonomie-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -33118,7 +33120,7 @@
         ],
         "fr": [
           "polymechaniker-in-instandhaltung-mit-eigenverantwortung-sta-personal-ag-zurich",
-          "polymecanique-entretien-avec-responsabilite-personnelle-sta-personal-ag-zurich-zurich"
+          "polymecanicien-ne-maintenance-en-toute-autonomie-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -34773,7 +34775,7 @@
         "it": "polimeccanica-manutenzione-sta-personal-ag-zurich-zurich",
         "en": "polymechanics-maintenance-sta-personal-ag-zurich-zurich",
         "de": "polymechaniker-in-8211-instandhaltung-zurich-zurich-sta-ch",
-        "fr": "polymecanicien-ne-maintenance-sta-personal-ag-zurich"
+        "fr": "polymecanique-entretien-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -34818,7 +34820,7 @@
       "previousSlugs": [
         "polymechaniker-in-instandhaltung-zurich-zurich-sta-ch",
         "polymechaniker-in-instandhaltung-sta-personal-ag-zurich",
-        "polymecanique-entretien-sta-personal-ag-zurich-zurich"
+        "polymecanicien-ne-maintenance-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -34832,7 +34834,7 @@
         ],
         "fr": [
           "polymechaniker-in-instandhaltung-sta-personal-ag-zurich",
-          "polymecanique-entretien-sta-personal-ag-zurich-zurich"
+          "polymecanicien-ne-maintenance-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -56413,7 +56415,7 @@
       "slug": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "it": "lavoratori-di-metalli-sta-personal-ag-zurich-zurich",
-        "en": "metalworker-sta-personal-ag-zurich",
+        "en": "metalworkers-sta-personal-ag-zurich-zurich",
         "de": "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "fr": "metaux-sta-personal-ag-zurich-zurich"
       },
@@ -56460,7 +56462,7 @@
       "previousSlugs": [
         "metallbauer-in-monteur-in-zurich-zurich-sta-ch",
         "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-        "metalworkers-sta-personal-ag-zurich-zurich"
+        "metalworker-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -56468,7 +56470,7 @@
         ],
         "en": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich",
-          "metalworkers-sta-personal-ag-zurich-zurich"
+          "metalworker-sta-personal-ag-zurich"
         ],
         "fr": [
           "metallbauer-in-monteur-in-sta-personal-ag-zurich"
@@ -68648,9 +68650,9 @@
     },
     {
       "id": "sta-a40469b2894d",
-      "slug": "heizungsinstallateur-in-servicemonteur-sta-personal-ag-zofingen",
+      "slug": "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
-        "it": "heizungsinstallateur-in-servicemonteur-sta-personal-ag-zofingen",
+        "it": "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-sta-personal-ag-zofingen-aargau",
         "en": "heating-installer-service-technician-sta-personal-ag-zofingen-aargau",
         "de": "heizungsinstallateur-in-servicemonteur-zofingen-aargau-sta-ch",
         "fr": "technicien-de-service-installation-de-chauffage-sta-personal-ag-zofingen-aargau"
@@ -68698,13 +68700,13 @@
       "previousSlugs": [
         "heizungsinstallateur-in-servicemonteur-zofingen-aargau-sta-ch",
         "tecnico-di-assistenza-installatore-di-riscaldamento-sta-personal-ag-zofingen-aargau",
-        "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-sta-personal-ag-zofingen-aargau"
+        "heizungsinstallateur-in-servicemonteur-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "heizungsinstallateur-in-servicemonteur-zofingen-aargau-sta-ch",
           "tecnico-di-assistenza-installatore-di-riscaldamento-sta-personal-ag-zofingen-aargau",
-          "installatore-trice-di-riscaldamento-installatore-trice-di-servizio-sta-personal-ag-zofingen-aargau"
+          "heizungsinstallateur-in-servicemonteur-sta-personal-ag-zofingen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:57:18.737Z",
@@ -70864,7 +70866,7 @@
         "it": "giardinieri-con-cura-degli-alberi-sta-personal-ag-zurich-zurich",
         "en": "gardeners-with-tree-care-sta-personal-ag-zurich-zurich",
         "de": "gartner-in-mit-baumpflege-zurich-zurich-sta-ch",
-        "fr": "jardinier-ere-arboriculteur-ere-sta-personal-ag-zurich"
+        "fr": "jardiniers-avec-soin-des-arbres-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -70909,7 +70911,7 @@
       "previousSlugs": [
         "gartner-in-mit-baumpflege-zurich-zurich-sta-ch",
         "gartner-in-mit-baumpflege-sta-personal-ag-zurich",
-        "jardiniers-avec-soin-des-arbres-sta-personal-ag-zurich-zurich"
+        "jardinier-ere-arboriculteur-ere-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -70920,7 +70922,7 @@
         ],
         "fr": [
           "gartner-in-mit-baumpflege-sta-personal-ag-zurich",
-          "jardiniers-avec-soin-des-arbres-sta-personal-ag-zurich-zurich"
+          "jardinier-ere-arboriculteur-ere-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -71480,7 +71482,7 @@
         "it": "vivai-da-giardino-e-giardinieri-esterni-sta-personal-ag-zurich-zurich",
         "en": "garden-nurseries-and-outdoor-gardeners-sta-personal-ag-zurich-zurich",
         "de": "gartner-in-fur-gartenpflege-und-aussenunterhalt-zurich-zurich-sta-ch",
-        "fr": "jardinier-ere-pour-l-entretien-du-jardin-et-l-entretien-exterieur-sta-personal-ag-zurich"
+        "fr": "jardinieres-et-jardiniers-exterieurs-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -71525,7 +71527,7 @@
       "previousSlugs": [
         "gartner-in-fur-gartenpflege-und-aussenunterhalt-zurich-zurich-sta-ch",
         "gartner-in-fur-gartenpflege-und-aussenunterhalt-sta-personal-ag-zurich",
-        "jardinieres-et-jardiniers-exterieurs-sta-personal-ag-zurich-zurich"
+        "jardinier-ere-pour-l-entretien-du-jardin-et-l-entretien-exterieur-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71536,7 +71538,7 @@
         ],
         "fr": [
           "gartner-in-fur-gartenpflege-und-aussenunterhalt-sta-personal-ag-zurich",
-          "jardinieres-et-jardiniers-exterieurs-sta-personal-ag-zurich-zurich"
+          "jardinier-ere-pour-l-entretien-du-jardin-et-l-entretien-exterieur-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -87198,7 +87200,7 @@
         "it": "installazione-solare-installatore-elettrico-sta-personal-ag-zurich-zurich",
         "en": "solar-installation-electrical-installer-sta-personal-ag-zurich-zurich",
         "de": "elektroinstallateur-in-fur-solaranlagenmontage-zurich-zurich-sta-ch",
-        "fr": "installateur-electricien-ne-pour-le-montage-d-installations-solaires-sta-personal-ag-zurich"
+        "fr": "installation-solaire-installation-electrique-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -87243,7 +87245,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-solaranlagenmontage-zurich-zurich-sta-ch",
         "installateur-trice-electricien-ne-fur-solaranlagenmontage-sta-personal-ag-zurich",
-        "installation-solaire-installation-electrique-sta-personal-ag-zurich-zurich"
+        "installateur-electricien-ne-pour-le-montage-d-installations-solaires-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -87251,7 +87253,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-solaranlagenmontage-sta-personal-ag-zurich",
-          "installation-solaire-installation-electrique-sta-personal-ag-zurich-zurich"
+          "installateur-electricien-ne-pour-le-montage-d-installations-solaires-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 83000,
@@ -89743,7 +89745,7 @@
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-andelfingen",
         "en": "new-and-conversion-electrical-installers-sta-personal-ag-andelfingen-zurich",
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
-        "fr": "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-andelfingen"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -89788,7 +89790,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-neu-und-umbauten-andelfingen-zurich-sta-ch",
         "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen",
-        "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+        "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-andelfingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -89796,7 +89798,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-andelfingen",
-          "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-andelfingen-zurich"
+          "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-andelfingen"
         ]
       },
       "salaryMin": 83000,
@@ -90127,7 +90129,7 @@
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-kreuzlingen",
         "en": "new-and-conversion-electrical-installers-sta-personal-ag-kreuzlingen-thurgau",
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-kreuzlingen-thurgau-sta-ch",
-        "fr": "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-kreuzlingen"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-kreuzlingen-thurgau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -90172,7 +90174,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-neu-und-umbauten-kreuzlingen-thurgau-sta-ch",
         "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-kreuzlingen",
-        "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-kreuzlingen-thurgau"
+        "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -90180,7 +90182,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-kreuzlingen",
-          "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-kreuzlingen-thurgau"
+          "electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-kreuzlingen"
         ]
       },
       "salaryMin": 67000,
@@ -90205,7 +90207,7 @@
         "it": "installatore-trice-elettrico-a-in-per-neu-e-umbauten-sta-personal-ag-winterthur",
         "en": "new-and-conversion-electrical-installers-sta-personal-ag-winterthur-zurich",
         "de": "elektroinstallateur-in-fur-neu-und-umbauten-winterthur-zurich-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-winterthur"
+        "fr": "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-winterthur-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -90250,7 +90252,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-neu-und-umbauten-winterthur-zurich-sta-ch",
         "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-winterthur",
-        "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-winterthur-zurich"
+        "installateur-trice-electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -90258,7 +90260,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-neu-und-umbauten-sta-personal-ag-winterthur",
-          "installateurs-electriques-neufs-et-de-conversion-sta-personal-ag-winterthur-zurich"
+          "installateur-trice-electricien-ne-pour-les-constructions-neuves-et-les-transformations-sta-personal-ag-winterthur"
         ]
       },
       "salaryMin": 83000,
@@ -90283,7 +90285,7 @@
         "it": "installatori-elettrici-sta-personal-ag-luzern-luzern",
         "en": "electrical-installers-sta-personal-ag-luzern-luzern",
         "de": "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
+        "fr": "installateurs-electriques-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -90328,7 +90330,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-ladenbau-luzern-luzern-sta-ch",
         "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-        "installateurs-electriques-sta-personal-ag-luzern-luzern"
+        "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -90336,7 +90338,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-ladenbau-sta-personal-ag-luzern",
-          "installateurs-electriques-sta-personal-ag-luzern-luzern"
+          "installateur-trice-electricien-ne-pour-l-agencement-de-magasins-sta-personal-ag-luzern"
         ]
       },
       "salaryMin": 78500,
@@ -91042,7 +91044,7 @@
         "it": "installatore-trice-elettrico-a-in-per-industrie-e-gewerbeinstallationen-sta-personal-ag-zurich",
         "en": "industrial-and-commercial-electrical-installers-sta-personal-ag-zurich-zurich",
         "de": "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
-        "fr": "installateur-electricien-installatrice-electricienne-pour-des-installations-industrielles-et-commerciales-sta-personal-ag-zurich"
+        "fr": "installateurs-electriques-industriels-et-commerciaux-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -91087,7 +91089,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-industrie-und-gewerbeinstallationen-zurich-zurich-sta-ch",
         "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
-        "installateurs-electriques-industriels-et-commerciaux-sta-personal-ag-zurich-zurich"
+        "installateur-electricien-installatrice-electricienne-pour-des-installations-industrielles-et-commerciales-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -91095,7 +91097,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-sta-personal-ag-zurich",
-          "installateurs-electriques-industriels-et-commerciaux-sta-personal-ag-zurich-zurich"
+          "installateur-electricien-installatrice-electricienne-pour-des-installations-industrielles-et-commerciales-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 83000,
@@ -97020,12 +97022,12 @@
     },
     {
       "id": "sta-37d2922c2b03",
-      "slug": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
+      "slug": "operatore-trice-automatico-a-con-interventi-di-assistenza-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "it": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "en": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "fr": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
+        "it": "operatore-trice-automatico-a-con-interventi-di-assistenza-sta-personal-ag-wil-sg-st-gallen",
+        "en": "automation-technician-with-service-assignments-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "automaticien-ne-avec-interventions-de-service-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -97033,16 +97035,16 @@
       "title": "Automatiker/in mit Serviceeinsätzen",
       "titleByLocale": {
         "de": "Automatiker/in mit Serviceeinsätzen",
-        "it": "Automatiker/in con Serviceeinsätzen",
-        "en": "Automatiker/in mit Serviceeinsätzen",
-        "fr": "Automatiker/in mit Serviceeinsätzen"
+        "it": "Operatore/trice automatico/a con interventi di assistenza",
+        "en": "Automation technician with service assignments",
+        "fr": "Automaticien/ne avec interventions de service"
       },
       "description": "Tätigkeiten\n- Elektrische Arbeiten an Anlagen und Steuerungen selbstständig ausführen\n- Störungen systematisch suchen, beheben und Wartungsarbeiten durchführen\n- Anlagen beim Kunden anschliessen, prüfen und in Betrieb nehmen\n- Bei Interesse auch internationale Serviceeinsätze übernehmen\nAnforderungen\n- Abgeschlossene Ausbildung als Automatiker/in, Automatikmonteur/in oder vergleichbar\n- Gutes technisches Verständnis für Steuerungen und Elektroschemas\n- Zuverlässige, strukturierte und verantwortungsbewusste Arbeitsweise\n- Führerausweis Kategorie B\nAngebot\n- Gezielte Weiterbildungen und fachspezifische Schulungen\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entschädigung\n- Modernes Arbeitsumfeld in einem familiären Unternehmen\nDie Tätigkeit umfasst das selbstständige Ausführen von elektrischen Arbeiten und das Prüfen von Anlagen. Du profitierst von abwechslungsreichen Einsätzen inklusive Montage und Wartung direkt beim Kunden. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Elektrische Arbeiten an Anlagen und Steuerungen selbstständig ausführen\n- Störungen systematisch suchen, beheben und Wartungsarbeiten durchführen\n- Anlagen beim Kunden anschliessen, prüfen und in Betrieb nehmen\n- Bei Interesse auch internationale Serviceeinsätze übernehmen\nAnforderungen\n- Abgeschlossene Ausbildung als Automatiker/in, Automatikmonteur/in oder vergleichbar\n- Gutes technisches Verständnis für Steuerungen und Elektroschemas\n- Zuverlässige, strukturierte und verantwortungsbewusste Arbeitsweise\n- Führerausweis Kategorie B\nAngebot\n- Gezielte Weiterbildungen und fachspezifische Schulungen\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entschädigung\n- Modernes Arbeitsumfeld in einem familiären Unternehmen\nDie Tätigkeit umfasst das selbstständige Ausführen von elektrischen Arbeiten und das Prüfen von Anlagen. Du profitierst von abwechslungsreichen Einsätzen inklusive Montage und Wartung direkt beim Kunden. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Tätigkeiten\n- Elektrische Arbeiten an Anlagen und Steuerungen selbstständig ausführen\n- Störungen systematisch suchen, beheben und Wartungsarbeiten durchführen\n- Anlagen beim Kunden anschliessen, prüfen und in Betrieb nehmen\n- Bei Interesse auch internationale Serviceeinsätze übernehmen\nAnforderungen\n- Abgeschlossene Ausbildung als Automatiker/in, Automatikmonteur/in oder vergleichbar\n- Gutes technisches Verständnis für Steuerungen und Elektroschemas\n- Zuverlässige, strukturierte und verantwortungsbewusste Arbeitsweise\n- Führerausweis Kategorie B\nAngebot\n- Gezielte Weiterbildungen und fachspezifische Schulungen\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entschädigung\n- Modernes Arbeitsumfeld in einem familiären Unternehmen\nDie Tätigkeit umfasst das selbstständige Ausführen von elektrischen Arbeiten und das Prüfen von Anlagen. Du profitierst von abwechslungsreichen Einsätzen inklusive Montage und Wartung direkt beim Kunden. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten\n- Elektrische Arbeiten an Anlagen und Steuerungen selbstständig ausführen\n- Störungen systematisch suchen, beheben und Wartungsarbeiten durchführen\n- Anlagen beim Kunden anschliessen, prüfen und in Betrieb nehmen\n- Bei Interesse auch internationale Serviceeinsätze übernehmen\nAnforderungen\n- Abgeschlossene Ausbildung als Automatiker/in, Automatikmonteur/in oder vergleichbar\n- Gutes technisches Verständnis für Steuerungen und Elektroschemas\n- Zuverlässige, strukturierte und verantwortungsbewusste Arbeitsweise\n- Führerausweis Kategorie B\nAngebot\n- Gezielte Weiterbildungen und fachspezifische Schulungen\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entschädigung\n- Modernes Arbeitsumfeld in einem familiären Unternehmen\nDie Tätigkeit umfasst das selbstständige Ausführen von elektrischen Arbeiten und das Prüfen von Anlagen. Du profitierst von abwechslungsreichen Einsätzen inklusive Montage und Wartung direkt beim Kunden. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Elektrische Arbeiten an Anlagen und Steuerungen selbstständig ausführen\n- Störungen systematisch suchen, beheben und Wartungsarbeiten durchführen\n- Anlagen beim Kunden anschliessen, prüfen und in Betrieb nehmen\n- Bei Interesse auch internationale Serviceeinsätze übernehmen\nAnforderungen\n- Abgeschlossene Ausbildung als Automatiker/in, Automatikmonteur/in oder vergleichbar\n- Gutes technisches Verständnis für Steuerungen und Elektroschemas\n- Zuverlässige, strukturierte und verantwortungsbewusste Arbeitsweise\n- Führerausweis Kategorie B\nAngebot\n- Gezielte Weiterbildungen und fachspezifische Schulungen\n- Attraktive Anstellungsbedingungen und leistungsgerechte Entschädigung\n- Modernes Arbeitsumfeld in einem familiären Unternehmen\nDie Tätigkeit umfasst das selbstständige Ausführen von elektrischen Arbeiten und das Prüfen von Anlagen. Du profitierst von abwechslungsreichen Einsätzen inklusive Montage und Wartung direkt beim Kunden. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "Attività\n- Eseguire lavori elettrici su attrezzature e controlli indipendentemente\n- Ricerca sistemica, riparazione e manutenzione di guasti\n- Collegamento di apparecchiature al cliente, controllo e messa in servizio\n- Se interessati, intraprendere missioni di servizio internazionali\nRequisiti\n- Formazione completa come tecnico automatico, installatore automatico o equivalente\n- Buona comprensione tecnica dei controlli e degli schemi elettrici\n- Metodi di lavoro affidabili, strutturati e responsabili\n- Titolo di guida della categoria B\nOfferta\n- Formazione mirata e formazione specifica\n- Condizioni di lavoro interessanti e compensazione basata sulle prestazioni\n- Ambiente di lavoro moderno in un business familiare\nL'attività comprende le prestazioni indipendenti del lavoro elettrico e il test delle attrezzature. L'utente beneficia di varie operazioni tra cui montaggio e manutenzione direttamente presso il cliente. Per il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Carry out electrical work on equipment and controls independently\n- Systematic search, repair and maintenance of faults\n- Connecting equipment to the customer, checking and commissioning\n- If interested, take on international service missions\nRequirements\n- Completed training as an automatic technician, automatic installer or equivalent\n- Good technical understanding of controls and electrical schemes\n- Reliable, structured and responsible working methods\n- Category B driving licence\nOffer\n- Targeted training and subject-specific training\n- Attractive employment conditions and performance-based compensation\n- Modern working environment in a family business\nThe activity includes the independent performance of electrical work and the testing of equipment. You benefit from varied operations including assembly and maintenance directly at the customer. For our client we are looking for a",
+        "fr": "Activités\n- Effectuer des travaux électriques sur les équipements et les commandes indépendamment\n- Recherche, réparation et entretien systématiques des défauts\n- Équipement de connexion au client, contrôle et mise en service\n- Si vous êtes intéressé, effectuez des missions de service international\nExigences\n- Formation complète en tant que technicien automatique, installateur automatique ou équivalent\n- Bonne compréhension technique des commandes et des systèmes électriques\n- Méthodes de travail fiables, structurées et responsables\n- Permis de conduire de catégorie B\nOffre\n- Formation ciblée et formation spécifique\n- Conditions d'emploi attrayantes et rémunération fondée sur le rendement\n- Un environnement de travail moderne dans une entreprise familiale\nL'activité comprend la performance indépendante des travaux électriques et les essais d'équipement. Vous bénéficiez d'opérations variées incluant l'assemblage et la maintenance directement chez le client. Pour notre client, nous cherchons"
       },
       "location": "Wil SG, St. Gallen",
       "canton": "SG",
@@ -97069,17 +97071,24 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+          "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch",
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
         ],
         "de": [
           "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
+        ],
+        "fr": [
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+        "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch",
+        "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -97096,7 +97105,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-06T22:13:13.884Z",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-31ee1e2b1d79",
@@ -97185,16 +97194,16 @@
       "title": "Automatiker/in mit Serviceeinsätzen",
       "titleByLocale": {
         "de": "Automatiker/in mit Serviceeinsätzen",
-        "it": "Automatiker/in con Serviceeinsätzen",
-        "en": "Automatiker/in mit Serviceeinsätzen",
-        "fr": "Automatiker/in mit Serviceeinsätzen"
+        "it": "Operatore/trice automatico/a con interventi di assistenza",
+        "en": "Automation technician with service assignments",
+        "fr": "Automaticien/ne avec interventions de service"
       },
       "description": "Tätigkeiten\n- Maschinen und Anlagen nach Plänen elektrisch verdrahten\n- Hydraulische Systeme gemäss Stücklisten verkabeln\n- Funktionsprüfungen an ausgeführten Verdrahtungen vornehmen\n- Service- und Montageeinsätze im In- und Ausland übernehmen\n- Schaltanlagen erweitern und anpassen\nAnforderungen\n- Lehrabschluss als Automatikerin oder Automatiker EFZ\n- Bereitschaft für Reisetätigkeiten im Umfang von etwa 20%\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse in Wort und Schrift\n- Handwerkliches Geschick für präzise Arbeiten\nAngebot\n- Verantwortungsvolle Aufgaben in einem internationalen Technologiebetrieb\n- Sorgfältige Einführung in das neue Aufgabengebiet\n- Möglichkeiten zur fachlichen Weiterentwicklung\nMaschinen und Anlagen werden nach Plänen elektrisch verdrahtet. Der Betrieb unterstützt dich mit einer sorgfältigen Einführung in die neuen Tätigkeiten. Du findest vielseitige Entwicklungsmöglichkeiten für deine berufliche Zukunft. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Maschinen und Anlagen nach Plänen elektrisch verdrahten\n- Hydraulische Systeme gemäss Stücklisten verkabeln\n- Funktionsprüfungen an ausgeführten Verdrahtungen vornehmen\n- Service- und Montageeinsätze im In- und Ausland übernehmen\n- Schaltanlagen erweitern und anpassen\nAnforderungen\n- Lehrabschluss als Automatikerin oder Automatiker EFZ\n- Bereitschaft für Reisetätigkeiten im Umfang von etwa 20%\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse in Wort und Schrift\n- Handwerkliches Geschick für präzise Arbeiten\nAngebot\n- Verantwortungsvolle Aufgaben in einem internationalen Technologiebetrieb\n- Sorgfältige Einführung in das neue Aufgabengebiet\n- Möglichkeiten zur fachlichen Weiterentwicklung\nMaschinen und Anlagen werden nach Plänen elektrisch verdrahtet. Der Betrieb unterstützt dich mit einer sorgfältigen Einführung in die neuen Tätigkeiten. Du findest vielseitige Entwicklungsmöglichkeiten für deine berufliche Zukunft. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Tätigkeiten\n- Maschinen und Anlagen nach Plänen elektrisch verdrahten\n- Hydraulische Systeme gemäss Stücklisten verkabeln\n- Funktionsprüfungen an ausgeführten Verdrahtungen vornehmen\n- Service- und Montageeinsätze im In- und Ausland übernehmen\n- Schaltanlagen erweitern und anpassen\nAnforderungen\n- Lehrabschluss als Automatikerin oder Automatiker EFZ\n- Bereitschaft für Reisetätigkeiten im Umfang von etwa 20%\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse in Wort und Schrift\n- Handwerkliches Geschick für präzise Arbeiten\nAngebot\n- Verantwortungsvolle Aufgaben in einem internationalen Technologiebetrieb\n- Sorgfältige Einführung in das neue Aufgabengebiet\n- Möglichkeiten zur fachlichen Weiterentwicklung\nMaschinen und Anlagen werden nach Plänen elektrisch verdrahtet. Der Betrieb unterstützt dich mit einer sorgfältigen Einführung in die neuen Tätigkeiten. Du findest vielseitige Entwicklungsmöglichkeiten für deine berufliche Zukunft. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten\n- Maschinen und Anlagen nach Plänen elektrisch verdrahten\n- Hydraulische Systeme gemäss Stücklisten verkabeln\n- Funktionsprüfungen an ausgeführten Verdrahtungen vornehmen\n- Service- und Montageeinsätze im In- und Ausland übernehmen\n- Schaltanlagen erweitern und anpassen\nAnforderungen\n- Lehrabschluss als Automatikerin oder Automatiker EFZ\n- Bereitschaft für Reisetätigkeiten im Umfang von etwa 20%\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse in Wort und Schrift\n- Handwerkliches Geschick für präzise Arbeiten\nAngebot\n- Verantwortungsvolle Aufgaben in einem internationalen Technologiebetrieb\n- Sorgfältige Einführung in das neue Aufgabengebiet\n- Möglichkeiten zur fachlichen Weiterentwicklung\nMaschinen und Anlagen werden nach Plänen elektrisch verdrahtet. Der Betrieb unterstützt dich mit einer sorgfältigen Einführung in die neuen Tätigkeiten. Du findest vielseitige Entwicklungsmöglichkeiten für deine berufliche Zukunft. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Maschinen und Anlagen nach Plänen elektrisch verdrahten\n- Hydraulische Systeme gemäss Stücklisten verkabeln\n- Funktionsprüfungen an ausgeführten Verdrahtungen vornehmen\n- Service- und Montageeinsätze im In- und Ausland übernehmen\n- Schaltanlagen erweitern und anpassen\nAnforderungen\n- Lehrabschluss als Automatikerin oder Automatiker EFZ\n- Bereitschaft für Reisetätigkeiten im Umfang von etwa 20%\n- Sehr gute mündliche und schriftliche Deutschkenntnisse\n- Gute Englischkenntnisse in Wort und Schrift\n- Handwerkliches Geschick für präzise Arbeiten\nAngebot\n- Verantwortungsvolle Aufgaben in einem internationalen Technologiebetrieb\n- Sorgfältige Einführung in das neue Aufgabengebiet\n- Möglichkeiten zur fachlichen Weiterentwicklung\nMaschinen und Anlagen werden nach Plänen elektrisch verdrahtet. Der Betrieb unterstützt dich mit einer sorgfältigen Einführung in die neuen Tätigkeiten. Du findest vielseitige Entwicklungsmöglichkeiten für deine berufliche Zukunft. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "Attività\n- Macchinari e attrezzature elettricamente cablati secondo i piani\n- Sistemi idraulici di cablaggio secondo le liste dei pezzi\n- Eseguire test funzionali sul cablaggio eseguito\n- Operazioni di assistenza e assemblaggio in patria e all'estero\n- Interruttore esteso e adattato\nRequisiti\n- Corso di insegnamento come automatista EFZ\n- Prontezza per attività di viaggio pari a circa il 20 %\n- Molto buona conoscenza orale e scritta del tedesco\n- Buone competenze in inglese in Word e scrittura\n- Artigianato per lavori precisi\nOfferta\n- Compiti responsabili in un'azienda tecnologica internazionale\n- Introduzione attenta alla nuova area di responsabilità\n- Opportunità di sviluppo professionale\nMacchine e impianti sono cablati elettricamente secondo i piani. L'azienda vi supporta con un'attenta introduzione alle nuove attività. Troverete opportunità di sviluppo versatili per il vostro futuro professionale. Per il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Electrically wired machinery and equipment according to plans\n- Wiring hydraulic systems according to parts lists\n- Perform functional tests on wiring performed\n- Taking over service and assembly operations at home and abroad\n- Switchgear extended and adapted\nRequirements\n- Teaching degree as an automatist EFZ\n- Readiness for travel activities amounting to approximately 20 %\n- Very good oral and written knowledge of German\n- Good English skills in Word and Writing\n- Craftsmanship for precise work\nOffer\n- Responsible tasks in an international technology company\n- Careful introduction to the new area of responsibility\n- Opportunities for professional development\nMachines and plants are electrically wired according to plans. The company supports you with a careful introduction to the new activities. You will find versatile development opportunities for your professional future. For our client we are looking for a",
+        "fr": "Activités\n- Machines et équipements électriques filés selon les plans\n- Systèmes hydrauliques de câblage selon les listes de pièces\n- Effectuer des essais fonctionnels sur le câblage\n- Prise en charge des opérations de service et de montage au pays et à l'étranger\n- Switchgear étendu et adapté\nExigences\n- Diplôme d'enseignement en tant qu'automatiste EFZ\n- Préparation aux activités de voyage, soit environ 20 %\n- Très bonne connaissance orale et écrite de l'allemand\n- Bonnes compétences en anglais en Word and Writing\n- Artisanat pour un travail précis\nOffre\n- Tâches responsables dans une entreprise technologique internationale\n- Introduction attentive au nouveau domaine de responsabilité\n- Possibilités de perfectionnement professionnel\nLes machines et les installations sont électriquement câblées selon les plans. L'entreprise vous accompagne avec une introduction attentive aux nouvelles activités. Vous trouverez des possibilités de développement polyvalentes pour votre avenir professionnel. Pour notre client, nous cherchons"
       },
       "location": "Hinwil, Zürich",
       "canton": "ZH",
@@ -97221,7 +97230,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-mit-serviceeinsatzen-hinwil-zurich-sta-ch"
@@ -97244,7 +97252,7 @@
         }
       },
       "postalCode": "8340",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-20016e83e83e",
@@ -97334,16 +97342,16 @@
       "title": "Automatiker/in mit Serviceeinsätze und Inbetriebnahme",
       "titleByLocale": {
         "de": "Automatiker/in mit Serviceeinsätze und Inbetriebnahme",
-        "it": "Automatiker/in con Serviceeinsätze e Inbetriebnahme",
-        "en": "Automatiker/in mit Serviceeinsätze und Inbetriebnahme",
-        "fr": "Automatiker/in mit Serviceeinsätze und Inbetriebnahme"
+        "it": "Operatore/trice automatico/a con interventi di assistenza e messa in servizio",
+        "en": "Automation technician with service assignments and commissioning",
+        "fr": "Automaticien/ne avec interventions de service et mise en service"
       },
       "description": "Tätigkeiten\n- Störungen an Maschinen und Anlagen im Service beheben\n- Anlagen und Maschinen direkt beim Kunden montieren\n- Technische Anlagen regelmässig instand halten\n- Maschinen fachkundig reparieren\n- Neuanlagen vor Ort in Betrieb nehmen\nAnforderungen\n- Grundausbildung EFZ als Polymechanikerin oder Polymechaniker oder Automatikerin oder Automatiker\n- Sehr fundierte Fachkenntnisse in der Mechanik\n- Solides Verständnis für Elektrotechnik und Schemata\n- Erfahrung im Service zählt als Pluspunkt\nAngebot\n- Sorgfältige Einarbeitung in den Tätigkeitsbereich\n- Vielseitiges Aufgabengebiet im Aussendienst\n- Hohe Selbstständigkeit im Arbeitsalltag\nDer Betrieb wartet und repariert komplexe technische Anlagen direkt bei Kunden vor Ort. Du profitierst von einer sorgfältigen Einarbeitung und einem abwechslungsreichen Tätigkeitsfeld im Aussendienst. Zur Verstärkung unseres Kunden suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Störungen an Maschinen und Anlagen im Service beheben\n- Anlagen und Maschinen direkt beim Kunden montieren\n- Technische Anlagen regelmässig instand halten\n- Maschinen fachkundig reparieren\n- Neuanlagen vor Ort in Betrieb nehmen\nAnforderungen\n- Grundausbildung EFZ als Polymechanikerin oder Polymechaniker oder Automatikerin oder Automatiker\n- Sehr fundierte Fachkenntnisse in der Mechanik\n- Solides Verständnis für Elektrotechnik und Schemata\n- Erfahrung im Service zählt als Pluspunkt\nAngebot\n- Sorgfältige Einarbeitung in den Tätigkeitsbereich\n- Vielseitiges Aufgabengebiet im Aussendienst\n- Hohe Selbstständigkeit im Arbeitsalltag\nDer Betrieb wartet und repariert komplexe technische Anlagen direkt bei Kunden vor Ort. Du profitierst von einer sorgfältigen Einarbeitung und einem abwechslungsreichen Tätigkeitsfeld im Aussendienst. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "it": "Tätigkeiten\n- Störungen an Maschinen und Anlagen im Service beheben\n- Anlagen und Maschinen direkt beim Kunden montieren\n- Technische Anlagen regelmässig instand halten\n- Maschinen fachkundig reparieren\n- Neuanlagen vor Ort in Betrieb nehmen\nAnforderungen\n- Grundausbildung EFZ als Polymechanikerin oder Polymechaniker oder Automatikerin oder Automatiker\n- Sehr fundierte Fachkenntnisse in der Mechanik\n- Solides Verständnis für Elektrotechnik und Schemata\n- Erfahrung im Service zählt als Pluspunkt\nAngebot\n- Sorgfältige Einarbeitung in den Tätigkeitsbereich\n- Vielseitiges Aufgabengebiet im Aussendienst\n- Hohe Selbstständigkeit im Arbeitsalltag\nDer Betrieb wartet und repariert komplexe technische Anlagen direkt bei Kunden vor Ort. Du profitierst von einer sorgfältigen Einarbeitung und einem abwechslungsreichen Tätigkeitsfeld im Aussendienst. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "en": "Tätigkeiten\n- Störungen an Maschinen und Anlagen im Service beheben\n- Anlagen und Maschinen direkt beim Kunden montieren\n- Technische Anlagen regelmässig instand halten\n- Maschinen fachkundig reparieren\n- Neuanlagen vor Ort in Betrieb nehmen\nAnforderungen\n- Grundausbildung EFZ als Polymechanikerin oder Polymechaniker oder Automatikerin oder Automatiker\n- Sehr fundierte Fachkenntnisse in der Mechanik\n- Solides Verständnis für Elektrotechnik und Schemata\n- Erfahrung im Service zählt als Pluspunkt\nAngebot\n- Sorgfältige Einarbeitung in den Tätigkeitsbereich\n- Vielseitiges Aufgabengebiet im Aussendienst\n- Hohe Selbstständigkeit im Arbeitsalltag\nDer Betrieb wartet und repariert komplexe technische Anlagen direkt bei Kunden vor Ort. Du profitierst von einer sorgfältigen Einarbeitung und einem abwechslungsreichen Tätigkeitsfeld im Aussendienst. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Störungen an Maschinen und Anlagen im Service beheben\n- Anlagen und Maschinen direkt beim Kunden montieren\n- Technische Anlagen regelmässig instand halten\n- Maschinen fachkundig reparieren\n- Neuanlagen vor Ort in Betrieb nehmen\nAnforderungen\n- Grundausbildung EFZ als Polymechanikerin oder Polymechaniker oder Automatikerin oder Automatiker\n- Sehr fundierte Fachkenntnisse in der Mechanik\n- Solides Verständnis für Elektrotechnik und Schemata\n- Erfahrung im Service zählt als Pluspunkt\nAngebot\n- Sorgfältige Einarbeitung in den Tätigkeitsbereich\n- Vielseitiges Aufgabengebiet im Aussendienst\n- Hohe Selbstständigkeit im Arbeitsalltag\nDer Betrieb wartet und repariert komplexe technische Anlagen direkt bei Kunden vor Ort. Du profitierst von einer sorgfältigen Einarbeitung und einem abwechslungsreichen Tätigkeitsfeld im Aussendienst. Zur Verstärkung unseres Kunden suchen wir eine/n"
+        "it": "Attività\n- Risolvere malfunzionamenti su macchine e attrezzature in servizio\n- Installare impianti e macchine direttamente al cliente\n- Mantenere regolarmente attrezzature tecniche\n- Macchine di riparazione esperto\n- Funzionamento di nuovi impianti in loco\nRequisiti\n- Formazione di base EFZ come tecnico polimeccanico o polimeccanico o automatico\n- Esperienza molto approfondita nella meccanica\n- Solida comprensione dell'ingegneria elettrica e degli schemi\n- L'esperienza nel servizio conta come punto più\nOfferta\n- Allenamento attento nel campo dell'attività\n- Campo di lavoro versatile nel servizio sul campo\n- Alto livello di indipendenza nel lavoro quotidiano\nL'azienda mantiene e ripara strutture tecniche complesse direttamente presso i clienti in loco. L'utente beneficia di un'attenta formazione e di un vario campo di attività nel campo delle vendite. Per rafforzare il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Resolving malfunctions on machines and equipment in service\n- Install plants and machines directly at the customer\n- Maintain technical equipment regularly\n- Repair machines expertly\n- Operation of new plants on site\nRequirements\n- Basic training EFZ as a polymechanic or polymechanic or automatic technician\n- Very in-depth expertise in mechanics\n- Solid understanding of electrical engineering and schemes\n- Experience in service counts as a plus point\nOffer\n- Careful training in the field of activity\n- Versatile field of work in the field service\n- High level of independence in everyday work\nThe company maintains and repairs complex technical facilities directly at customers on site. You benefit from careful training and a varied field of activity in the field of sales. To strengthen our customer we are looking for a",
+        "fr": "Activités\n- Résolution des dysfonctionnements des machines et des équipements en service\n- Installer des installations et des machines directement au client\n- Entretien régulier du matériel technique\n- Réparateurs experts\n- Exploitation de nouvelles installations sur place\nExigences\n- Formation de base en tant que technicien polymécanique ou polymécanique ou automatique\n- Une expertise très approfondie en mécanique\n- Compréhension solide du génie et des systèmes électriques\n- L'expérience dans le service compte comme un point plus\nOffre\n- Formation attentive dans le domaine d'activité\n- Domaine d ' activité polyvalent du Service mobile\n- Niveau élevé d'indépendance dans le travail quotidien\nLa société entretient et répare des installations techniques complexes directement auprès des clients sur place. Vous bénéficiez d'une formation soignée et d'un champ d'activité varié dans le domaine des ventes. Pour renforcer notre client, nous recherchons"
       },
       "location": "Pfäffikon, Zürich",
       "canton": "ZH",
@@ -97370,7 +97378,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-mit-serviceeinsatze-und-inbetriebnahme-pfaffikon-zurich-sta-ch"
@@ -97393,7 +97400,7 @@
         }
       },
       "postalCode": "8330",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-ccb142c2fcc3",
@@ -97401,8 +97408,8 @@
       "slugByLocale": {
         "de": "automatiker-in-mit-selbstandiger-arbeitsweise-zurich-zurich-sta-ch",
         "it": "operatore-automatico-con-metodo-di-lavoro-indipendente-sta-personal-ag-zurich-zurich",
-        "en": "automatiker-in-mit-selbstandiger-arbeitsweise-sta-personal-ag-zurich",
-        "fr": "automatiker-in-mit-selbstandiger-arbeitsweise-sta-personal-ag-zurich"
+        "en": "automatic-operator-with-independent-working-method-sta-personal-ag-zurich-zurich",
+        "fr": "operateur-automatique-avec-methode-de-travail-independante-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -97410,16 +97417,16 @@
       "title": "Automatiker/in mit selbständiger Arbeitsweise",
       "titleByLocale": {
         "de": "Automatiker/in mit selbständiger Arbeitsweise",
-        "it": "Automatiker/in con selbständiger Arbeitsweise",
-        "en": "Automatiker/in mit selbständiger Arbeitsweise",
-        "fr": "Automatiker/in mit selbständiger Arbeitsweise"
+        "it": "Operatore/trice automatico/a con modalità di lavoro indipendente",
+        "en": "Automation technician with independent working methods",
+        "fr": "Technicien en automatisation avec des méthodes de travail indépendantes"
       },
       "description": "Tätigkeiten\n- Messungen, Funktions- und Sicherheitstests durchführen\n- Gesamtanlagen verdrahten und in Betrieb nehmen\n- Kundenvorabnahmen im Unternehmen durchführen\n- Bei Bedarf sporadische Serviceeinsätze im In- und Ausland übernehmen\nAnforderungen\n- Abgeschlossene elektromechanische Grundausbildung als Automatiker oder Elektromechaniker mit Berufserfahrung\n- Gute Deutschkenntnisse\n- Analytisches Denkvermögen kombiniert mit strukturierter und effizienter Arbeitsweise\n- Selbständige und lösungsorientierte Arbeitsweise\nAngebot\n- Abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld\n- Möglichkeit zur Weiterentwicklung durch vielseitige Einsätze\n- Gelegentliche Auslandserfahrungen bei Serviceeinsätzen\nMessungen sowie Funktions- und Sicherheitstests gehören zu den Hauptaufgaben. Der Betrieb bietet ein dynamisches Umfeld mit vielseitigen Tätigkeiten. Zur Verstärkung unseres Kunden suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Messungen, Funktions- und Sicherheitstests durchführen\n- Gesamtanlagen verdrahten und in Betrieb nehmen\n- Kundenvorabnahmen im Unternehmen durchführen\n- Bei Bedarf sporadische Serviceeinsätze im In- und Ausland übernehmen\nAnforderungen\n- Abgeschlossene elektromechanische Grundausbildung als Automatiker oder Elektromechaniker mit Berufserfahrung\n- Gute Deutschkenntnisse\n- Analytisches Denkvermögen kombiniert mit strukturierter und effizienter Arbeitsweise\n- Selbständige und lösungsorientierte Arbeitsweise\nAngebot\n- Abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld\n- Möglichkeit zur Weiterentwicklung durch vielseitige Einsätze\n- Gelegentliche Auslandserfahrungen bei Serviceeinsätzen\nMessungen sowie Funktions- und Sicherheitstests gehören zu den Hauptaufgaben. Der Betrieb bietet ein dynamisches Umfeld mit vielseitigen Tätigkeiten. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "it": "Tätigkeiten\n- Messungen, Funktions- und Sicherheitstests durchführen\n- Gesamtanlagen verdrahten und in Betrieb nehmen\n- Kundenvorabnahmen im Unternehmen durchführen\n- Bei Bedarf sporadische Serviceeinsätze im In- und Ausland übernehmen\nAnforderungen\n- Abgeschlossene elektromechanische Grundausbildung als Automatiker oder Elektromechaniker mit Berufserfahrung\n- Gute Deutschkenntnisse\n- Analytisches Denkvermögen kombiniert mit strukturierter und effizienter Arbeitsweise\n- Selbständige und lösungsorientierte Arbeitsweise\nAngebot\n- Abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld\n- Möglichkeit zur Weiterentwicklung durch vielseitige Einsätze\n- Gelegentliche Auslandserfahrungen bei Serviceeinsätzen\nMessungen sowie Funktions- und Sicherheitstests gehören zu den Hauptaufgaben. Der Betrieb bietet ein dynamisches Umfeld mit vielseitigen Tätigkeiten. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "en": "Tätigkeiten\n- Messungen, Funktions- und Sicherheitstests durchführen\n- Gesamtanlagen verdrahten und in Betrieb nehmen\n- Kundenvorabnahmen im Unternehmen durchführen\n- Bei Bedarf sporadische Serviceeinsätze im In- und Ausland übernehmen\nAnforderungen\n- Abgeschlossene elektromechanische Grundausbildung als Automatiker oder Elektromechaniker mit Berufserfahrung\n- Gute Deutschkenntnisse\n- Analytisches Denkvermögen kombiniert mit strukturierter und effizienter Arbeitsweise\n- Selbständige und lösungsorientierte Arbeitsweise\nAngebot\n- Abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld\n- Möglichkeit zur Weiterentwicklung durch vielseitige Einsätze\n- Gelegentliche Auslandserfahrungen bei Serviceeinsätzen\nMessungen sowie Funktions- und Sicherheitstests gehören zu den Hauptaufgaben. Der Betrieb bietet ein dynamisches Umfeld mit vielseitigen Tätigkeiten. Zur Verstärkung unseres Kunden suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Messungen, Funktions- und Sicherheitstests durchführen\n- Gesamtanlagen verdrahten und in Betrieb nehmen\n- Kundenvorabnahmen im Unternehmen durchführen\n- Bei Bedarf sporadische Serviceeinsätze im In- und Ausland übernehmen\nAnforderungen\n- Abgeschlossene elektromechanische Grundausbildung als Automatiker oder Elektromechaniker mit Berufserfahrung\n- Gute Deutschkenntnisse\n- Analytisches Denkvermögen kombiniert mit strukturierter und effizienter Arbeitsweise\n- Selbständige und lösungsorientierte Arbeitsweise\nAngebot\n- Abwechslungsreiche Tätigkeiten in einem dynamischen Umfeld\n- Möglichkeit zur Weiterentwicklung durch vielseitige Einsätze\n- Gelegentliche Auslandserfahrungen bei Serviceeinsätzen\nMessungen sowie Funktions- und Sicherheitstests gehören zu den Hauptaufgaben. Der Betrieb bietet ein dynamisches Umfeld mit vielseitigen Tätigkeiten. Zur Verstärkung unseres Kunden suchen wir eine/n"
+        "it": "Attività\n- Eseguire misurazioni, test funzionali e di sicurezza\n- cablaggio e messa in servizio di sistemi completi\n- Eseguire i progressi dei clienti in azienda\n- Assumere sporadici missioni di servizio in patria e all'estero, se necessario\nRequisiti\n- Allenamento elettromeccanico di base completo come tecnico automatico o elettromeccanico con esperienza professionale\n- Buona conoscenza del tedesco\n- Pensiero analitico combinato con metodi di lavoro strutturati ed efficienti\n- Metodo di lavoro indipendente e orientato alla soluzione\nOfferta\n- Variazioni in un ambiente dinamico\n- Possibilità di ulteriore sviluppo attraverso applicazioni versatili\n- Esperienza occasionale all'estero in incarichi di servizio\nLe misure e i test funzionali e di sicurezza sono tra i compiti principali. L'operazione offre un ambiente dinamico con attività versatili. Per rafforzare il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Perform measurements, functional and safety tests\n- Wiring and commissioning of complete systems\n- Carry out customer advances in the company\n- Assume sporadic service missions at home and abroad if necessary\nRequirements\n- Completed basic electromechanical training as an automatic technician or electromechanic with professional experience\n- Good knowledge of German\n- Analytical thinking combined with structured and efficient working methods\n- Independent and solution-oriented working method\nOffer\n- Varied activities in a dynamic environment\n- Possibility for further development through versatile applications\n- Occasional experience abroad in service assignments\nMeasurements as well as functional and safety tests are among the main tasks. The operation offers a dynamic environment with versatile activities. To strengthen our customer we are looking for a",
+        "fr": "Activités\n- Effectuer des mesures, des essais fonctionnels et de sécurité\n- Câblage et mise en service de systèmes complets\n- Effectuer des avances client dans l'entreprise\n- Assumer des missions de service sporadiques au pays et à l'étranger si nécessaire\nExigences\n- Formation électromécanique de base en tant que technicien automatique ou électromécanique ayant une expérience professionnelle\n- Bonne connaissance de l'allemand\n- La pensée analytique combinée à des méthodes de travail structurées et efficaces\n- Méthode de travail indépendante et axée sur la solution\nOffre\n- Activités variées dans un environnement dynamique\n- Possibilité de développement par des applications polyvalentes\n- Expérience occasionnelle à l'étranger dans les missions de service\nLes mesures ainsi que les essais de fonctionnement et de sécurité figurent parmi les tâches principales. L'opération offre un environnement dynamique avec des activités polyvalentes. Pour renforcer notre client, nous recherchons"
       },
       "location": "Zürich, Zürich",
       "canton": "ZH",
@@ -97446,22 +97453,20 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-mit-selbstandiger-arbeitsweise-zurich-zurich-sta-ch"
         ],
         "en": [
-          "automatic-operator-with-independent-working-method-sta-personal-ag-zurich-zurich"
+          "automatiker-in-mit-selbstandiger-arbeitsweise-sta-personal-ag-zurich"
         ],
         "fr": [
-          "operateur-automatique-avec-methode-de-travail-independante-sta-personal-ag-zurich-zurich"
+          "automatiker-in-mit-selbstandiger-arbeitsweise-sta-personal-ag-zurich"
         ]
       },
       "previousSlugs": [
         "automatiker-in-mit-selbstandiger-arbeitsweise-zurich-zurich-sta-ch",
-        "automatic-operator-with-independent-working-method-sta-personal-ag-zurich-zurich",
-        "operateur-automatique-avec-methode-de-travail-independante-sta-personal-ag-zurich-zurich"
+        "automatiker-in-mit-selbstandiger-arbeitsweise-sta-personal-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -97477,7 +97482,7 @@
         }
       },
       "postalCode": "8001",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-b350e042afac",
@@ -98629,7 +98634,7 @@
       "slug": "automatiker-in-con-entwicklungsperspektive-come-servicetechniker-sta-personal-ag-zurich",
       "slugByLocale": {
         "it": "automatiker-in-con-entwicklungsperspektive-come-servicetechniker-sta-personal-ag-zurich",
-        "en": "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-sta-personal-ag-zurich",
+        "en": "automation-technician-with-a-development-perspective-as-a-service-technician-sta-personal-ag-zurich-zurich",
         "de": "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-sta-ch",
         "fr": "technicien-en-automatisation-avec-des-perspectives-de-developpement-en-tant-que-technicien-de-service-sta-personal-ag"
       },
@@ -98676,7 +98681,7 @@
       "previousSlugs": [
         "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-sta-ch",
         "automation-technician-with-development-prospects-as-a-service-technician-sta-personal-ag-zurich-zurich",
-        "automation-technician-with-a-development-perspective-as-a-service-technician-sta-personal-ag-zurich-zurich"
+        "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -98685,7 +98690,7 @@
         "en": [
           "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-sta-ch",
           "automation-technician-with-development-prospects-as-a-service-technician-sta-personal-ag-zurich-zurich",
-          "automation-technician-with-a-development-perspective-as-a-service-technician-sta-personal-ag-zurich-zurich"
+          "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-sta-personal-ag-zurich"
         ],
         "fr": [
           "automatiker-in-mit-entwicklungsperspektive-als-servicetechniker-zurich-zurich-sta-ch"
@@ -102215,7 +102220,7 @@
         "it": "ingegnere-automatico-come-installatore-di-servizio-in-ingegneria-meccanica-sta-personal-ag-zurich-zurich",
         "en": "automatic-engineer-as-service-installer-in-mechanical-engineering-sta-personal-ag-zurich-zurich",
         "de": "automatiker-in-als-servicemonteur-in-im-maschinenbau-zurich-zurich-sta-ch",
-        "fr": "automatiker-in-als-servicemonteur-in-im-maschinenbau-sta-personal-ag-zurich"
+        "fr": "ingenieur-automatique-comme-installateur-de-service-en-genie-mecanique-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -102259,8 +102264,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-als-servicemonteur-in-im-maschinenbau-zurich-zurich-sta-ch",
-        "automatiker-in-als-servicemonteur-in-im-maschinenbau-sta-personal-ag-zurich",
-        "ingenieur-automatique-comme-installateur-de-service-en-genie-mecanique-sta-personal-ag-zurich-zurich"
+        "automatiker-in-als-servicemonteur-in-im-maschinenbau-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -102270,7 +102274,7 @@
           "automatiker-in-als-servicemonteur-in-im-maschinenbau-sta-personal-ag-zurich"
         ],
         "fr": [
-          "ingenieur-automatique-comme-installateur-de-service-en-genie-mecanique-sta-personal-ag-zurich-zurich"
+          "automatiker-in-als-servicemonteur-in-im-maschinenbau-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -102888,7 +102892,7 @@
       "slug": "tecnico-dell-automazione-elettricista-aziendale-sta-personal-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "tecnico-dell-automazione-elettricista-aziendale-sta-personal-ag-schaffhausen-schaffhausen",
-        "en": "automatiker-in-betriebselektriker-in-sta-personal-ag-schaffhausen",
+        "en": "automation-technician-company-electrician-sta-personal-ag-schaffhausen-schaffhausen",
         "de": "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-sta-ch",
         "fr": "technicien-en-automatisation-electricien-d-entreprise-sta-personal-ag-schaffhausen-schaffhausen"
       },
@@ -102934,7 +102938,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-sta-ch",
-        "automation-technician-company-electrician-sta-personal-ag-schaffhausen-schaffhausen"
+        "automatiker-in-betriebselektriker-in-sta-personal-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -102942,7 +102946,7 @@
         ],
         "en": [
           "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-sta-ch",
-          "automation-technician-company-electrician-sta-personal-ag-schaffhausen-schaffhausen"
+          "automatiker-in-betriebselektriker-in-sta-personal-ag-schaffhausen"
         ],
         "fr": [
           "automatiker-in-betriebselektriker-in-schaffhausen-schaffhausen-sta-ch"
@@ -102969,7 +102973,7 @@
       "slug": "operatore-automatico-macchina-operativa-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
         "it": "operatore-automatico-macchina-operativa-sta-personal-ag-zurich-zurich",
-        "en": "automatiker-in-betriebsmechaniker-in-sta-personal-ag-zurich",
+        "en": "automatic-operator-operating-mechanic-sta-personal-ag-zurich-zurich",
         "de": "automatiker-in-betriebsmechaniker-in-zurich-zurich-sta-ch",
         "fr": "operateur-automatique-mecanicien-en-service-sta-personal-ag-zurich-zurich"
       },
@@ -103015,15 +103019,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-betriebsmechaniker-in-zurich-zurich-sta-ch",
-        "automatiker-in-betriebsmechaniker-in-sta-personal-ag-zurich",
-        "automatic-operator-operating-mechanic-sta-personal-ag-zurich-zurich"
+        "automatiker-in-betriebsmechaniker-in-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-betriebsmechaniker-in-zurich-zurich-sta-ch"
         ],
         "en": [
-          "automatic-operator-operating-mechanic-sta-personal-ag-zurich-zurich"
+          "automatiker-in-betriebsmechaniker-in-sta-personal-ag-zurich"
         ],
         "fr": [
           "automatiker-in-betriebsmechaniker-in-sta-personal-ag-zurich"
@@ -109241,7 +109244,7 @@
         "it": "apparecchiature-per-interni-sta-personal-ag-zurich-zurich",
         "en": "interior-fitting-carpenters-sta-personal-ag-zurich-zurich",
         "de": "schreiner-in-fur-montage-von-innenausbauten-zurich-zurich-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-d-amenagements-interieurs-sta-personal-ag-zurich"
+        "fr": "charpentiers-d-amenagement-interieur-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -109286,7 +109289,7 @@
       "previousSlugs": [
         "schreiner-in-fur-montage-von-innenausbauten-zurich-zurich-sta-ch",
         "schreiner-in-fur-montage-von-innenausbauten-sta-personal-ag-zurich",
-        "charpentiers-d-amenagement-interieur-sta-personal-ag-zurich-zurich"
+        "menuisier-ere-pour-le-montage-d-amenagements-interieurs-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -109297,7 +109300,7 @@
         ],
         "fr": [
           "schreiner-in-fur-montage-von-innenausbauten-sta-personal-ag-zurich",
-          "charpentiers-d-amenagement-interieur-sta-personal-ag-zurich-zurich"
+          "menuisier-ere-pour-le-montage-d-amenagements-interieurs-sta-personal-ag-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -115386,9 +115389,9 @@
       "slug": "interruttori-per-lavori-di-officina-e-assemblaggio-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
         "it": "interruttori-per-lavori-di-officina-e-assemblaggio-sta-personal-ag-zofingen-aargau",
-        "en": "sheet-metal-worker-for-workshop-and-assembly-work-sta-personal-ag-zofingen",
+        "en": "spengler-in-fur-werkstatt-und-montagearbeiten-sta-personal-ag-zofingen",
         "de": "spengler-in-fur-werkstatt-und-montagearbeiten-zofingen-aargau-sta-ch",
-        "fr": "ferblantier-ere-pour-travaux-d-atelier-et-de-montage-sta-personal-ag-zofingen"
+        "fr": "spengler-in-fur-werkstatt-und-montagearbeiten-sta-personal-ag-zofingen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -115432,17 +115435,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spengler-in-fur-werkstatt-und-montagearbeiten-zofingen-aargau-sta-ch",
-        "spengler-in-fur-werkstatt-und-montagearbeiten-sta-personal-ag-zofingen"
+        "sheet-metal-worker-for-workshop-and-assembly-work-sta-personal-ag-zofingen",
+        "ferblantier-ere-pour-travaux-d-atelier-et-de-montage-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spengler-in-fur-werkstatt-und-montagearbeiten-zofingen-aargau-sta-ch"
         ],
         "en": [
-          "spengler-in-fur-werkstatt-und-montagearbeiten-sta-personal-ag-zofingen"
+          "sheet-metal-worker-for-workshop-and-assembly-work-sta-personal-ag-zofingen"
         ],
         "fr": [
-          "spengler-in-fur-werkstatt-und-montagearbeiten-sta-personal-ag-zofingen"
+          "ferblantier-ere-pour-travaux-d-atelier-et-de-montage-sta-personal-ag-zofingen"
         ]
       },
       "salaryMin": 62000,
@@ -115465,7 +115469,7 @@
       "slug": "lavoratori-per-il-montaggio-di-recinzioni-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "it": "lavoratori-per-il-montaggio-di-recinzioni-sta-personal-ag-luzern-luzern",
-        "en": "metalworker-unskilled-worker-for-installation-of-fencing-systems-sta-personal-ag-luzern",
+        "en": "metalworkers-for-the-assembly-of-fences-sta-personal-ag-luzern-luzern",
         "de": "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-luzern-luzern-sta-ch",
         "fr": "metaux-pour-l-assemblage-de-clotures-sta-personal-ag-luzern-luzern"
       },
@@ -115512,7 +115516,7 @@
       "previousSlugs": [
         "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-luzern-luzern-sta-ch",
         "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-sta-personal-ag-luzern",
-        "metalworkers-for-the-assembly-of-fences-sta-personal-ag-luzern-luzern"
+        "metalworker-unskilled-worker-for-installation-of-fencing-systems-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -115520,7 +115524,7 @@
         ],
         "en": [
           "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-sta-personal-ag-luzern",
-          "metalworkers-for-the-assembly-of-fences-sta-personal-ag-luzern-luzern"
+          "metalworker-unskilled-worker-for-installation-of-fencing-systems-sta-personal-ag-luzern"
         ],
         "fr": [
           "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-sta-personal-ag-luzern"
@@ -116074,7 +116078,7 @@
         "it": "installatore-trice-elettrico-a-in-per-wohn-gewerbe-e-industrieinstallationen-sta-personal-ag-lenzburg",
         "en": "residential-commercial-and-industrial-electrical-installers-sta-personal-ag-lenzburg-aargau",
         "de": "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
-        "fr": "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
+        "fr": "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -116119,7 +116123,7 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-wohn-gewerbe-und-industrieinstallationen-lenzburg-aargau-sta-ch",
         "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-        "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+        "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -116127,7 +116131,7 @@
         ],
         "fr": [
           "installateur-trice-electricien-ne-fur-wohn-gewerbe-und-industrieinstallationen-sta-personal-ag-lenzburg",
-          "installateurs-electriques-residentiels-commerciaux-et-industriels-sta-personal-ag-lenzburg-aargau"
+          "installateur-trice-electricien-ne-pour-installations-residentielles-commerciales-et-industrielles-sta-personal-ag-lenzburg"
         ]
       },
       "salaryMin": 72500,
@@ -119129,9 +119133,9 @@
     },
     {
       "id": "sta-0b20fa3c083d",
-      "slug": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-sta-personal-ag-luzern",
+      "slug": "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
-        "it": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-sta-personal-ag-luzern",
+        "it": "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-sta-personal-ag-luzern-luzern",
         "en": "assembly-electrician-with-experience-in-industrial-installations-sta-personal-ag-luzern-luzern",
         "de": "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-sta-ch",
         "fr": "electricien-d-assemblage-avec-une-experience-dans-les-installations-industrielles-sta-personal-ag-luzern-luzern"
@@ -119179,13 +119183,13 @@
       "previousSlugs": [
         "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-sta-ch",
         "elettricista-montatore-con-esperienza-in-impianti-industriali-sta-personal-ag-luzern-luzern",
-        "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-sta-personal-ag-luzern-luzern"
+        "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-sta-personal-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-sta-ch",
           "elettricista-montatore-con-esperienza-in-impianti-industriali-sta-personal-ag-luzern-luzern",
-          "elettricista-di-montaggio-con-esperienza-in-installazioni-industriali-sta-personal-ag-luzern-luzern"
+          "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-sta-personal-ag-luzern"
         ],
         "en": [
           "montage-elektriker-in-mit-erfahrung-in-industrieinstallationen-luzern-luzern-sta-ch"
@@ -123799,7 +123803,7 @@
         "it": "carpentieri-di-assemblaggio-della-cucina-sta-personal-ag-zug-zug",
         "en": "kitchen-assembly-carpenters-sta-personal-ag-zug-zug",
         "de": "schreiner-in-fur-kuchenmontage-zug-zug-sta-ch",
-        "fr": "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-zug"
+        "fr": "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-zug-zug"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -123844,7 +123848,7 @@
       "previousSlugs": [
         "schreiner-in-fur-kuchenmontage-zug-zug-sta-ch",
         "schreiner-in-fur-kuchenmontage-sta-personal-ag-zug",
-        "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-zug-zug"
+        "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -123855,7 +123859,7 @@
         ],
         "fr": [
           "schreiner-in-fur-kuchenmontage-sta-personal-ag-zug",
-          "charpentiers-d-assemblage-de-cuisine-sta-personal-ag-zug-zug"
+          "menuisier-ere-pour-le-montage-de-cuisines-sta-personal-ag-zug"
         ]
       },
       "salaryMin": 69500,
@@ -123957,9 +123961,9 @@
     },
     {
       "id": "sta-5615e9e8fa93",
-      "slug": "sanitarinstallateur-in-temporar-sta-personal-ag-egerkingen",
+      "slug": "installatore-trice-di-sanitari-temporaneo-a-sta-personal-ag-egerkingen-solothurn",
       "slugByLocale": {
-        "it": "sanitarinstallateur-in-temporar-sta-personal-ag-egerkingen",
+        "it": "installatore-trice-di-sanitari-temporaneo-a-sta-personal-ag-egerkingen-solothurn",
         "en": "temporary-plumber-sta-personal-ag-egerkingen-solothurn",
         "de": "sanitarinstallateur-in-temporar-egerkingen-solothurn-sta-ch",
         "fr": "installateur-sanitaire-temporaire-sta-personal-ag-egerkingen-solothurn"
@@ -124006,12 +124010,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sanitarinstallateur-in-temporar-egerkingen-solothurn-sta-ch",
-        "installatore-trice-di-sanitari-temporaneo-a-sta-personal-ag-egerkingen-solothurn"
+        "sanitarinstallateur-in-temporar-sta-personal-ag-egerkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarinstallateur-in-temporar-egerkingen-solothurn-sta-ch",
-          "installatore-trice-di-sanitari-temporaneo-a-sta-personal-ag-egerkingen-solothurn"
+          "sanitarinstallateur-in-temporar-sta-personal-ag-egerkingen"
         ]
       },
       "firstSeenAt": "2026-09-29T09:56:11.776Z",
@@ -130565,12 +130569,12 @@
     },
     {
       "id": "sta-0a0225e5300e",
-      "slug": "carrosserielackierer-in-per-fahrzeuglackierung-sta-personal-ag-langenthal",
+      "slug": "verniciatore-verniciatrice-di-carrozzerie-per-la-verniciatura-di-veicoli-sta-personal-ag-langenthal-bern",
       "slugByLocale": {
         "de": "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal",
-        "it": "carrosserielackierer-in-per-fahrzeuglackierung-sta-personal-ag-langenthal",
-        "en": "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal",
-        "fr": "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal"
+        "it": "verniciatore-verniciatrice-di-carrozzerie-per-la-verniciatura-di-veicoli-sta-personal-ag-langenthal-bern",
+        "en": "automotive-painter-for-vehicle-refinishing-sta-personal-ag-langenthal-bern",
+        "fr": "peintre-en-carrosserie-pour-la-peinture-de-vehicules-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130578,16 +130582,16 @@
       "title": "Carrosserielackierer/in für Fahrzeuglackierung",
       "titleByLocale": {
         "de": "Carrosserielackierer/in für Fahrzeuglackierung",
-        "it": "Carrosserielackierer/in per Fahrzeuglackierung",
-        "en": "Carrosserielackierer/in für Fahrzeuglackierung",
-        "fr": "Carrosserielackierer/in für Fahrzeuglackierung"
+        "it": "Verniciatore/verniciatrice di carrozzerie per la verniciatura di veicoli",
+        "en": "Automotive painter for vehicle refinishing",
+        "fr": "Peintre en carrosserie pour la peinture de véhicules"
       },
       "description": "Tätigkeiten\n- Fahrzeugteile für die Lackierung vorbereiten\n- Lackaufbauten an Personenwagen bis 3, 5 Tonnen ausführen\n- Oberflächen nachbearbeiten und Finish sicherstellen\nAnforderungen\n- Abgeschlossene Lehre als Carrosserielackiererin oder Carrosserielackierer EFZ\n- Aktuelle mehrjährige Praxis im Beruf\n- Gute bis sehr gute Deutschkenntnisse\n- Zuverlässige und teamorientierte Arbeitsweise\nAngebot\n- Stellenantritt nach Vereinbarung oder kurzfristig möglich\n- Einsatz auf unbestimmte Zeit\n- Option auf eine Festanstellung bei Eignung\nDie sorgfältige Vorbereitung von Fahrzeugteilen gehört zu deinen wesentlichen Aufgaben. Der Betrieb legt grossen Wert auf präzise Lackaufbauten und eine feine Endbearbeitung. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\n- Fahrzeugteile für die Lackierung vorbereiten\n- Lackaufbauten an Personenwagen bis 3, 5 Tonnen ausführen\n- Oberflächen nachbearbeiten und Finish sicherstellen\nAnforderungen\n- Abgeschlossene Lehre als Carrosserielackiererin oder Carrosserielackierer EFZ\n- Aktuelle mehrjährige Praxis im Beruf\n- Gute bis sehr gute Deutschkenntnisse\n- Zuverlässige und teamorientierte Arbeitsweise\nAngebot\n- Stellenantritt nach Vereinbarung oder kurzfristig möglich\n- Einsatz auf unbestimmte Zeit\n- Option auf eine Festanstellung bei Eignung\nDie sorgfältige Vorbereitung von Fahrzeugteilen gehört zu deinen wesentlichen Aufgaben. Der Betrieb legt grossen Wert auf präzise Lackaufbauten und eine feine Endbearbeitung. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Tätigkeiten\n- Fahrzeugteile für die Lackierung vorbereiten\n- Lackaufbauten an Personenwagen bis 3, 5 Tonnen ausführen\n- Oberflächen nachbearbeiten und Finish sicherstellen\nAnforderungen\n- Abgeschlossene Lehre als Carrosserielackiererin oder Carrosserielackierer EFZ\n- Aktuelle mehrjährige Praxis im Beruf\n- Gute bis sehr gute Deutschkenntnisse\n- Zuverlässige und teamorientierte Arbeitsweise\nAngebot\n- Stellenantritt nach Vereinbarung oder kurzfristig möglich\n- Einsatz auf unbestimmte Zeit\n- Option auf eine Festanstellung bei Eignung\nDie sorgfältige Vorbereitung von Fahrzeugteilen gehört zu deinen wesentlichen Aufgaben. Der Betrieb legt grossen Wert auf präzise Lackaufbauten und eine feine Endbearbeitung. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten\n- Fahrzeugteile für die Lackierung vorbereiten\n- Lackaufbauten an Personenwagen bis 3, 5 Tonnen ausführen\n- Oberflächen nachbearbeiten und Finish sicherstellen\nAnforderungen\n- Abgeschlossene Lehre als Carrosserielackiererin oder Carrosserielackierer EFZ\n- Aktuelle mehrjährige Praxis im Beruf\n- Gute bis sehr gute Deutschkenntnisse\n- Zuverlässige und teamorientierte Arbeitsweise\nAngebot\n- Stellenantritt nach Vereinbarung oder kurzfristig möglich\n- Einsatz auf unbestimmte Zeit\n- Option auf eine Festanstellung bei Eignung\nDie sorgfältige Vorbereitung von Fahrzeugteilen gehört zu deinen wesentlichen Aufgaben. Der Betrieb legt grossen Wert auf präzise Lackaufbauten und eine feine Endbearbeitung. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten\n- Fahrzeugteile für die Lackierung vorbereiten\n- Lackaufbauten an Personenwagen bis 3, 5 Tonnen ausführen\n- Oberflächen nachbearbeiten und Finish sicherstellen\nAnforderungen\n- Abgeschlossene Lehre als Carrosserielackiererin oder Carrosserielackierer EFZ\n- Aktuelle mehrjährige Praxis im Beruf\n- Gute bis sehr gute Deutschkenntnisse\n- Zuverlässige und teamorientierte Arbeitsweise\nAngebot\n- Stellenantritt nach Vereinbarung oder kurzfristig möglich\n- Einsatz auf unbestimmte Zeit\n- Option auf eine Festanstellung bei Eignung\nDie sorgfältige Vorbereitung von Fahrzeugteilen gehört zu deinen wesentlichen Aufgaben. Der Betrieb legt grossen Wert auf präzise Lackaufbauten und eine feine Endbearbeitung. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "Attività\n- Preparare parti del veicolo per la verniciatura\n- Eseguire sovrastrutture di verniciatura sulle autovetture fino a 3,5 tonnellate\n- Rielaborare superfici e garantire la finitura\nRequisiti\n- Apprendistato completo come pittore di carosserie EFZ\n- Attuale pratica pluriennale nella professione\n- Buono a molto buona conoscenza del tedesco\n- Metodi di lavoro affidabili e orientati al team\nOfferta\n- Apertura del lavoro di concerto o di breve preavviso\n- Utilizzare indefinitamente\n- Opzione per l'occupazione permanente se adatta\nLa preparazione attenta delle parti del veicolo è uno dei vostri compiti essenziali. L'azienda attribuisce grande importanza a precise strutture di verniciatura e finitura fine. Per il nostro cliente stiamo cercando un",
+        "en": "Activities\n- Prepare vehicle parts for painting\n- Carry out paint superstructures on passenger cars up to 3.5 tonnes\n- Rework surfaces and ensure finish\nRequirements\n- Completed apprenticeship as carrosserie painter EFZ\n- Current multi-year practice in the profession\n- Good to very good knowledge of German\n- Reliable and team-oriented working methods\nOffer\n- Job opening by agreement or at short notice\n- Use indefinitely\n- Option for permanent employment if suitable\nCareful preparation of vehicle parts is one of your essential tasks. The company attaches great importance to precise paint structures and fine finishing. For our client we are looking for a",
+        "fr": "Activités\n- Préparer les pièces du véhicule pour la peinture\n- Effectuer des superstructures de peinture sur les voitures particulières jusqu'à 3,5 tonnes\n- Retravailler les surfaces et assurer la finition\nExigences\n- Apprentissage terminé en tant que peintre de carrosserie EFZ\n- Pratique pluriannuelle actuelle dans la profession\n- Bonne à très bonne connaissance de l'allemand\n- Méthodes de travail fiables et axées sur l ' équipe\nOffre\n- Ouverture d'un emploi par accord ou à bref délai\n- Utiliser indéfiniment\n- Option pour un emploi permanent le cas échéant\nLa préparation attentive des pièces de véhicule est l'une de vos tâches essentielles. La société attache une grande importance aux structures de peinture précises et aux finitions fines. Pour notre client, nous cherchons"
       },
       "location": "Langenthal, Bern",
       "canton": "BE",
@@ -130614,17 +130618,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-in-fur-fahrzeuglackierung-langenthal-bern-sta-ch"
+          "carrosserielackierer-in-fur-fahrzeuglackierung-langenthal-bern-sta-ch",
+          "carrosserielackierer-in-per-fahrzeuglackierung-sta-personal-ag-langenthal"
         ],
         "de": [
           "carrosserielackierer-in-fur-fahrzeuglackierung-langenthal-bern-sta-ch"
+        ],
+        "en": [
+          "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal"
+        ],
+        "fr": [
+          "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal"
         ]
       },
       "previousSlugs": [
-        "carrosserielackierer-in-fur-fahrzeuglackierung-langenthal-bern-sta-ch"
+        "carrosserielackierer-in-fur-fahrzeuglackierung-langenthal-bern-sta-ch",
+        "carrosserielackierer-in-per-fahrzeuglackierung-sta-personal-ag-langenthal",
+        "carrosserielackierer-in-fur-fahrzeuglackierung-sta-personal-ag-langenthal"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -130641,7 +130653,7 @@
       },
       "postalCode": "4900",
       "firstSeenAt": "2026-10-09T10:04:08.432Z",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T13:38:44.233Z"
     },
     {
       "id": "sta-aaf65aead3a7",

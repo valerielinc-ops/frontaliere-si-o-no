@@ -217,7 +217,7 @@
           "zimmermann-zimmerin-fur-montage-und-renovationen-willisau-luzern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1828,7 +1828,7 @@
         "it": "cucina-praticanti-di-assemblaggio-stellentreff-ag-luzern-luzern",
         "en": "kitchen-assembly-practitioners-stellentreff-ag-luzern-luzern",
         "de": "schreinerpraktiker-in-fur-kuchenmontage-luzern-luzern-stellentreff-ch",
-        "fr": "praticien-ne-en-menuiserie-pour-le-montage-de-cuisines-stellentreff-ag-luzern"
+        "fr": "operateurs-d-assemblage-de-cuisine-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -1873,7 +1873,7 @@
       "previousSlugs": [
         "schreinerpraktiker-in-fur-kuchenmontage-luzern-luzern-stellentreff-ch",
         "schreinerpraktiker-in-fur-kuchenmontage-stellentreff-ag-luzern",
-        "operateurs-d-assemblage-de-cuisine-stellentreff-ag-luzern-luzern"
+        "praticien-ne-en-menuiserie-pour-le-montage-de-cuisines-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1884,7 +1884,7 @@
         ],
         "fr": [
           "schreinerpraktiker-in-fur-kuchenmontage-stellentreff-ag-luzern",
-          "operateurs-d-assemblage-de-cuisine-stellentreff-ag-luzern-luzern"
+          "praticien-ne-en-menuiserie-pour-le-montage-de-cuisines-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -9149,7 +9149,7 @@
         "it": "produktionsmechaniker-in-con-hydraulik-e-pneumatik-stellentreff-ag-hochdorf",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-stellentreff-ag-hochdorf-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
+        "fr": "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -9193,7 +9193,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-        "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
+        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9204,7 +9204,7 @@
         ],
         "fr": [
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-hochdorf-luzern-stellentreff-ch",
-          "mecanique-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-hochdorf-luzern"
+          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-hochdorf"
         ]
       },
       "firstSeenAt": "2026-09-28T21:42:32.518Z",
@@ -9302,7 +9302,7 @@
         "it": "meccanico-di-produzione-con-idraulica-e-pneumatica-stellentreff-ag-luzern-luzern",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-stellentreff-ag-luzern-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
+        "fr": "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -9346,8 +9346,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern",
-        "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
+        "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9357,7 +9356,7 @@
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
         ],
         "fr": [
-          "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
+          "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -18643,7 +18642,7 @@
         "it": "elettricisti-per-il-montaggio-lavorando-in-modo-indipendente-stellentreff-ag-luzern-luzern",
         "en": "electricians-for-assembly-working-independently-stellentreff-ag-luzern-luzern",
         "de": "montage-elektriker-in-mit-selbststandiger-arbeitsweise-luzern-luzern-stellentreff-ch",
-        "fr": "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
+        "fr": "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -18688,7 +18687,7 @@
       "previousSlugs": [
         "montage-elektriker-in-mit-selbststandiger-arbeitsweise-luzern-luzern-stellentreff-ch",
         "montage-elektriker-in-mit-selbststandiger-arbeitsweise-stellentreff-ag-luzern",
-        "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
+        "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18699,7 +18698,7 @@
         ],
         "fr": [
           "montage-elektriker-in-mit-selbststandiger-arbeitsweise-stellentreff-ag-luzern",
-          "electriciens-pour-assemblage-travaillant-independamment-stellentreff-ag-luzern-luzern"
+          "electricien-ne-de-montage-avec-une-methode-de-travail-autonome-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 78500,
@@ -29655,7 +29654,7 @@
         "it": "giardinieri-avanzi-con-responsabilita-di-leadership-stellentreff-ag-zug-zug",
         "en": "gardeners-foremen-with-leadership-responsibility-stellentreff-ag-zug-zug",
         "de": "gartner-in-8211-vorarbeiter-in-mit-fuhrungsverantwortung-zug-zug-stellentreff-ch",
-        "fr": "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
+        "fr": "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -29700,7 +29699,7 @@
       "previousSlugs": [
         "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-zug-zug-stellentreff-ch",
         "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-stellentreff-ag-zug",
-        "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
+        "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -29711,7 +29710,7 @@
         ],
         "fr": [
           "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-stellentreff-ag-zug",
-          "jardiniers-contremaitres-a-responsabilite-de-direction-stellentreff-ag-zug-zug"
+          "jardinier-ere-chef-fe-d-equipe-avec-responsabilites-d-encadrement-stellentreff-ag-zug"
         ]
       },
       "salaryMin": 69500,
@@ -36379,9 +36378,9 @@
       "slug": "driver-del-treno-automatico-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
         "it": "driver-del-treno-automatico-stellentreff-ag-luzern-luzern",
-        "en": "automated-driver-with-driver-training-stellentreff-ag-luzern",
+        "en": "automatic-train-drivers-stellentreff-ag-luzern-luzern",
         "de": "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-luzern-luzern-stellentreff-ch",
-        "fr": "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
+        "fr": "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -36426,8 +36425,8 @@
       "previousSlugs": [
         "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-luzern-luzern-stellentreff-ch",
         "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-        "automatic-train-drivers-stellentreff-ag-luzern-luzern",
-        "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
+        "automated-driver-with-driver-training-stellentreff-ag-luzern",
+        "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -36435,11 +36434,11 @@
         ],
         "en": [
           "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-          "automatic-train-drivers-stellentreff-ag-luzern-luzern"
+          "automated-driver-with-driver-training-stellentreff-ag-luzern"
         ],
         "fr": [
           "automatiker-in-mit-triebfahrzeugfuhrer-ausbildung-stellentreff-ag-luzern",
-          "conducteurs-automatiques-de-trains-stellentreff-ag-luzern-luzern"
+          "automaticien-ne-avec-formation-de-conducteur-trice-de-train-stellentreff-ag-luzern"
         ]
       },
       "salaryMin": 69500,
@@ -36464,7 +36463,7 @@
         "it": "automatiker-in-con-technischem-support-e-servicetechniker-einsatz-stellentreff-ag-zofingen",
         "en": "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-stellentreff-ag-zofingen",
         "de": "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-zofingen-aargau",
-        "fr": "technicien-en-automatisation-avec-support-technique-et-deploiement-de-technicien-de-service-stellentreff-ag-zofingen"
+        "fr": "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-stellentreff-ag-zofingen"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -36508,14 +36507,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-zofingen-aargau",
-        "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-stellentreff-ag-zofingen"
+        "technicien-en-automatisation-avec-support-technique-et-deploiement-de-technicien-de-service-stellentreff-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-zofingen-aargau"
         ],
         "fr": [
-          "automatiker-in-mit-technischem-support-und-servicetechniker-einsatz-stellentreff-ag-zofingen"
+          "technicien-en-automatisation-avec-support-technique-et-deploiement-de-technicien-de-service-stellentreff-ag-zofingen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:42:32.248Z",
@@ -39122,7 +39121,7 @@
       "title": "Anlagen- und Apparatebauer/in Montage Grossküchen",
       "titleByLocale": {
         "it": "Costruttore di impianti e apparecchiature Montaggio di cucine industriali",
-        "en": "Anlagen- und Apparatebauer/in Montage Grossküchen",
+        "en": "Plant and apparatus engineer assembly of commercial kitchens",
         "de": "Anlagen- und Apparatebauer/in Montage Grossküchen",
         "fr": "Constructeur/constructrice d'installations et d'appareils, montage de cuisines collectives"
       },
@@ -45204,7 +45203,7 @@
       "title": "Allrounder/in Ausbaugewerbe für Gartenarbeiten",
       "titleByLocale": {
         "it": "Allrounder/a per lavori di giardinaggio",
-        "en": "Allrounder/in Ausbaugewerbe für Gartenarbeiten",
+        "en": "All-rounder finishing trade for gardening work",
         "de": "Allrounder/in Ausbaugewerbe für Gartenarbeiten",
         "fr": "Agriculteur/trice polyvalent/e pour les travaux de jardinage"
       },
@@ -54305,7 +54304,7 @@
           "zimmermann-zimmerin-fur-abbinden-und-aufrichten-hochdorf-luzern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:42:32.164Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -70310,12 +70309,12 @@
     },
     {
       "id": "stellentreff-dfffa7a10ebd",
-      "slug": "maler-in-per-abwechslungsreiche-malerarbeiten-stellentreff-ag-herisau",
+      "slug": "imbianchino-a-per-lavori-di-tinteggiatura-diversificati-stellentreff-ag-herisau-appenzell-ausserrhoden",
       "slugByLocale": {
         "de": "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff",
-        "it": "maler-in-per-abwechslungsreiche-malerarbeiten-stellentreff-ag-herisau",
-        "en": "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff",
-        "fr": "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff"
+        "it": "imbianchino-a-per-lavori-di-tinteggiatura-diversificati-stellentreff-ag-herisau-appenzell-ausserrhoden",
+        "en": "painter-for-varied-painting-work-stellentreff-ag-herisau-appenzell-ausserrhoden",
+        "fr": "peintre-pour-des-travaux-de-peinture-varies-stellentreff-ag-herisau-appenzell-ausserrhoden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -70323,16 +70322,16 @@
       "title": "Maler/in für abwechslungsreiche Malerarbeiten",
       "titleByLocale": {
         "de": "Maler/in für abwechslungsreiche Malerarbeiten",
-        "it": "Maler/in per abwechslungsreiche Malerarbeiten",
-        "en": "Maler/in für abwechslungsreiche Malerarbeiten",
-        "fr": "Maler/in für abwechslungsreiche Malerarbeiten"
+        "it": "Imbianchino/a per lavori di tinteggiatura diversificati",
+        "en": "Painter for varied painting work",
+        "fr": "Peintre pour des travaux de peinture variés"
       },
       "description": "Tätigkeiten\nSie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\nAnforderungen\n- Abgeschlossene Lehre als Maler\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Führerausweis B von Vorteil\nAngebot\nAuf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.\nDie Tätigkeit umfasst gehobene Arbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten. Der Betrieb legt Wert auf eine genaue und effiziente Arbeitsweise in einem kompetenten Team. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
         "de": "Tätigkeiten\nSie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\nAnforderungen\n- Abgeschlossene Lehre als Maler\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Führerausweis B von Vorteil\nAngebot\nAuf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.\nDie Tätigkeit umfasst gehobene Arbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten. Der Betrieb legt Wert auf eine genaue und effiziente Arbeitsweise in einem kompetenten Team. Für unseren Auftraggeber suchen wir eine/n",
-        "it": "Tätigkeiten\nSie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\nAnforderungen\n- Abgeschlossene Lehre als Maler\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Führerausweis B von Vorteil\nAngebot\nAuf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.\nDie Tätigkeit umfasst gehobene Arbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten. Der Betrieb legt Wert auf eine genaue und effiziente Arbeitsweise in einem kompetenten Team. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten\nSie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\nAnforderungen\n- Abgeschlossene Lehre als Maler\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Führerausweis B von Vorteil\nAngebot\nAuf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.\nDie Tätigkeit umfasst gehobene Arbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten. Der Betrieb legt Wert auf eine genaue und effiziente Arbeitsweise in einem kompetenten Team. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten\nSie führen abwechslungsreiche und gehobene Malerarbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten bei Privat- und Gewerbekunden aus\nAnforderungen\n- Abgeschlossene Lehre als Maler\n- Fundierte Berufspraxis\n- Exakte und speditive Arbeitsweise\n- Kundenfreundliches Auftreten\n- Führerausweis B von Vorteil\nAngebot\nAuf Sie wartet eine vielseitige Aufgabe in einem aufgestellten und kompetenten Team. Zudem werden Ihnen ein professionelles Arbeitsumfeld und sehr gute Verdienstmöglichkeiten geboten.\nDie Tätigkeit umfasst gehobene Arbeiten im Innen- und Aussenbereich an Neubau- und Renovationsobjekten. Der Betrieb legt Wert auf eine genaue und effiziente Arbeitsweise in einem kompetenten Team. Für unseren Auftraggeber suchen wir eine/n"
+        "it": "Attività\nEssi svolgono varie e sofisticate opere di pittura all'interno e all'esterno di nuovi oggetti di costruzione e ristrutturazione per clienti privati e commerciali\nRequisiti\n- L'insegnamento completo come pittore\n- Pratica professionale del suono\n- Metodi di lavoro precisi e avanzati\n- Aspetto amichevole per i clienti\n- Patente di guida vantaggiosa B\nOfferta\nUn compito versatile vi aspetta in un team consolidato e competente. Inoltre, vi sarà offerto un ambiente di lavoro professionale e molto buone opportunità di guadagno.\nL'attività comprende lavori su scala all'interno e all'esterno di nuovi oggetti di costruzione e ristrutturazione. La società attribuisce importanza ad un metodo di lavoro accurato ed efficiente in un team competente. Per il nostro cliente stiamo cercando un",
+        "en": "Activities\nThey carry out varied and sophisticated painting works in the interior and exterior of new construction and renovation objects for private and commercial customers\nRequirements\n- Completed teaching as a painter\n- Sound professional practice\n- Precise and forward working methods\n- Customer-friendly appearance\n- Advantageous driving licence B\nOffer\nA versatile task awaits you in an established and competent team. In addition, you will be offered a professional working environment and very good earning opportunities.\nThe activity includes upscale work in the interior and exterior of new construction and renovation objects. The company attaches importance to an accurate and efficient working method in a competent team. For our client we are looking for a",
+        "fr": "Activités\nIls réalisent des travaux de peinture variés et sophistiqués dans l'intérieur et l'extérieur de nouveaux objets de construction et de rénovation pour les clients privés et commerciaux\nExigences\n- Achevé l'enseignement comme peintre\n- Bonne pratique professionnelle\n- Méthodes de travail précises et avancées\n- Aspect convivial pour le client\n- Permis de conduire avantageux B\nOffre\nUne tâche polyvalente vous attend dans une équipe établie et compétente. En outre, vous aurez un environnement de travail professionnel et de très bonnes opportunités de gains.\nL'activité comprend des travaux haut de gamme à l'intérieur et à l'extérieur de nouveaux objets de construction et de rénovation. L'entreprise attache de l'importance à une méthode de travail précise et efficace au sein d'une équipe compétente. Pour notre client, nous cherchons"
       },
       "location": "Herisau, Appenzell Ausserrhoden",
       "canton": "AR",
@@ -70359,14 +70358,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff",
+          "maler-in-per-abwechslungsreiche-malerarbeiten-stellentreff-ag-herisau"
+        ],
+        "en": [
+          "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff"
+        ],
+        "fr": [
           "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff"
+        "maler-in-fur-abwechslungsreiche-malerarbeiten-herisau-appenzell-ausserrhoden-stellentreff",
+        "maler-in-per-abwechslungsreiche-malerarbeiten-stellentreff-ag-herisau"
       ],
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -70383,7 +70389,7 @@
       },
       "postalCode": "9100",
       "firstSeenAt": "2026-10-09T09:39:59.014Z",
-      "translationHoldSince": "2026-10-09T09:40:07.878Z"
+      "translationHoldReleasedAt": "2026-10-09T13:38:44.233Z"
     },
     {
       "id": "stellentreff-b703706c817e",
@@ -70965,7 +70971,7 @@
         "it": "pittore-con-impegni-di-ristrutturazione-stellentreff-ag-luzern-luzern",
         "en": "painter-with-demanding-renovation-projects-stellentreff-ag-luzern-luzern",
         "de": "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-        "fr": "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
+        "fr": "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -71009,7 +71015,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-        "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
+        "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71020,7 +71026,7 @@
         ],
         "fr": [
           "maler-in-mit-anspruchsvollen-renovationsprojekten-luzern-luzern-stellentreff-ch",
-          "peintre-avec-des-projets-de-renovation-exigeants-stellentreff-ag-luzern-luzern"
+          "maler-in-mit-anspruchsvollen-renovationsprojekten-stellentreff-ag-luzern"
         ]
       },
       "firstSeenAt": "2026-10-07T09:44:41.997Z",

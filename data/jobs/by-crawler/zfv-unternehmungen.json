@@ -82,7 +82,7 @@
       "slugByLocale": {
         "it": "aiuto-alimentare-zfv-unternehmungen-lausanne-ecublens",
         "en": "cooking-aid-zfv-unternehmungen-lausanne-ecublens",
-        "de": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
+        "de": "kochhilfe-zfv-unternehmungen-lausanne-ecublens",
         "fr": "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
       },
       "company": "ZFV-Unternehmungen",
@@ -127,8 +127,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens",
-        "kochhilfe-zfv-unternehmungen-lausanne-ecublens"
+        "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138,7 +137,7 @@
           "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
         ],
         "de": [
-          "kochhilfe-zfv-unternehmungen-lausanne-ecublens"
+          "aide-de-cuisine-zfv-unternehmungen-lausanne-ecublens"
         ]
       },
       "firstSeenAt": "2026-10-05T21:29:25.438Z",
@@ -188,7 +187,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
       "crawledAt": "2026-10-09T10:37:53.897Z",
-      "needsRetranslation": true,
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue de la Gare de triage 7",
@@ -270,7 +268,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:53.140Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Fabrikstrasse 8",
@@ -569,7 +566,7 @@
         "it": "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
         "en": "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
         "de": "betriebstournant-e-50-zfv-unternehmungen-zurich",
-        "fr": "betriebstournant-e-50-zfv-unternehmungen-zurich"
+        "fr": "tour-operateur-e-50-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -614,8 +611,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebstournant-e-50-zfv-unternehmungen-zurich",
-        "tour-operateur-e-50-zfv-unternehmungen-zurich"
+        "betriebstournant-e-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -625,7 +621,7 @@
           "betriebstournant-e-50-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "tour-operateur-e-50-zfv-unternehmungen-zurich"
+          "betriebstournant-e-50-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:19:40.110Z",
@@ -675,7 +671,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:50.190Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -861,7 +856,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:49.073Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -998,7 +992,7 @@
         "it": "f-b-direttore-zfv-unternehmungen-zurich",
         "en": "f-b-director-zfv-unternehmungen-zurich",
         "de": "f-b-director-zfv-unternehmungen-zurich",
-        "fr": "f-b-director-zfv-unternehmungen-zurich"
+        "fr": "directeur-f-b-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1042,15 +1036,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-b-director-zfv-unternehmungen-zurich",
-        "directeur-f-b-zfv-unternehmungen-zurich"
+        "f-b-director-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "directeur-f-b-zfv-unternehmungen-zurich"
+          "f-b-director-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-05T11:37:46.415Z",
@@ -1100,7 +1093,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:47.429Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -1180,7 +1172,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:46.772Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -1273,7 +1264,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:46.128Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Davidstrasse 21",
@@ -1353,7 +1343,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:45.447Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -1603,7 +1592,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:42.192Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -1694,7 +1682,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:41.658Z",
-      "needsRetranslation": true,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -1741,7 +1728,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
-        "en": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
+        "en": "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich",
         "de": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-zurich"
       },
@@ -1788,15 +1775,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
-        "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
+        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
+          "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
@@ -1822,7 +1808,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -1868,15 +1854,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
-        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
@@ -1929,7 +1914,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:39.960Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -2009,7 +1993,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:39.333Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -2169,7 +2152,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:37.521Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Fernsehstrasse 1-4",
@@ -2228,7 +2210,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-baden",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "kochin-koch-zfv-unternehmungen-baden",
+        "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
         "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
@@ -2275,15 +2257,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-zfv-unternehmungen-baden",
-        "cook-cook-zfv-unternehmungen-baden"
+        "kochin-koch-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
-          "cook-cook-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden"
@@ -2525,7 +2506,7 @@
       "slug": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
-        "en": "kochin-koch-70-80-zfv-unternehmungen-basel",
+        "en": "cook-cook-70-80-zfv-unternehmungen-basel",
         "de": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "fr": "cuisiniere-70-80-zfv-unternehmungen-basel"
       },
@@ -2584,8 +2565,7 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel",
-        "cook-cook-70-80-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2607,7 +2587,7 @@
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "cook-cook-70-80-zfv-unternehmungen-basel"
+          "kochin-koch-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
@@ -2638,7 +2618,7 @@
       "slug": "cucinare-cucinare-80-zfv-unternehmungen-bern",
       "slugByLocale": {
         "it": "cucinare-cucinare-80-zfv-unternehmungen-bern",
-        "en": "kochin-koch-80-zfv-unternehmungen-bern",
+        "en": "cook-cook-80-zfv-unternehmungen-bern",
         "de": "kochin-koch-80-zfv-unternehmungen-bern",
         "fr": "cuisiniere-80-zfv-unternehmungen-bern"
       },
@@ -2684,15 +2664,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-bern",
-        "cook-cook-80-zfv-unternehmungen-bern"
+        "kochin-koch-80-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-bern"
+          "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "fr": [
           "kochin-koch-80-zfv-unternehmungen-bern"
@@ -2718,9 +2697,9 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
-        "en": "kochin-koch-80-zfv-unternehmungen-adliswil",
+        "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
-        "fr": "cuire-80-zfv-unternehmungen-adliswil"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2770,8 +2749,7 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
-        "cook-cook-zfv-unternehmungen-adliswil"
+        "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2783,7 +2761,7 @@
         ],
         "en": [
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
-          "cook-cook-zfv-unternehmungen-adliswil"
+          "kochin-koch-80-zfv-unternehmungen-adliswil"
         ],
         "de": [
           "kochin-koch-80-zfv-unternehmungen-adliswil",
@@ -2792,7 +2770,7 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+          "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
       "firstSeenAt": "2026-07-18T22:01:28.657Z",
@@ -2842,7 +2820,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:33.799Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -3097,7 +3074,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:32.197Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",
@@ -3174,7 +3150,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:31.620Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -3248,7 +3223,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:31.074Z",
-      "needsRetranslation": true,
       "addressLocality": "Murten",
       "postalCode": "3280",
       "streetAddress": "Löwenberg 45B",
@@ -3328,7 +3302,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:30.407Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Frohburgstrasse 3",
@@ -3408,7 +3381,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:29.706Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Binzmühlestrasse 14",
@@ -3488,7 +3460,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:28.993Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -3568,7 +3539,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:27.653Z",
-      "needsRetranslation": true,
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -3648,7 +3618,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:26.923Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Wölflistrasse 5",
@@ -3730,7 +3699,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:25.609Z",
-      "needsRetranslation": true,
       "addressLocality": "Olten",
       "postalCode": "4600",
       "streetAddress": "Bahnhofstrasse 12",
@@ -3816,7 +3784,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:24.276Z",
-      "needsRetranslation": true,
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -3896,7 +3863,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:23.618Z",
-      "needsRetranslation": true,
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -3976,7 +3942,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:22.315Z",
-      "needsRetranslation": true,
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -4056,7 +4021,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:21.690Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -4136,7 +4100,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:21.067Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -4216,7 +4179,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:20.384Z",
-      "needsRetranslation": true,
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",
@@ -4296,7 +4258,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:19.752Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -4950,7 +4911,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:13.409Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -5062,7 +5022,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:12.874Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -5142,7 +5101,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:12.366Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -5233,7 +5191,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:11.833Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -5387,7 +5344,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:10.662Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Flüelastrasse 51",
@@ -5469,7 +5425,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:10.108Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -5551,7 +5506,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:09.452Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -5631,7 +5585,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:08.816Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -5683,7 +5636,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5711,7 +5664,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:07.386Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Schlösslistrasse 5",
@@ -5736,14 +5688,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -5803,7 +5753,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:06.308Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -6202,7 +6151,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:01.909Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Trüsselstrasse 2",
@@ -6282,7 +6230,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:01.288Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Technoramastrasse 1",
@@ -6362,7 +6309,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:00.671Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 130",
@@ -6442,7 +6388,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:37:00.065Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -6522,7 +6467,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:58.866Z",
-      "needsRetranslation": true,
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -6602,7 +6546,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:58.243Z",
-      "needsRetranslation": true,
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -6682,7 +6625,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:57.561Z",
-      "needsRetranslation": true,
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -6762,7 +6704,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:56.906Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Walter-von-Moos-Promenade 2",
@@ -6842,7 +6783,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:56.281Z",
-      "needsRetranslation": true,
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -6922,7 +6862,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-10-09T10:36:55.034Z",
-      "needsRetranslation": true,
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",

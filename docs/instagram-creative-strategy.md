@@ -1,0 +1,219 @@
+# Strategia creativa Instagram — Frontaliere Ticino
+
+> Studio e piano operativo aggiornati al 9 ottobre 2026. Questo documento
+> separa ciò che è stato verificato da ciò che va ancora validato con i dati
+> Insights dell’account.
+
+## 1. Diagnosi
+
+### Stato del profilo
+
+Il profilo pubblico [@frontaliereticino](https://www.instagram.com/frontaliereticino/)
+è in fase di avvio: al momento dell’audit mostrava 1 follower, 7 post e 0
+following. La bio promette tre utilità concrete — simulatore netto stipendio,
+lavoro, traffico ai valichi — ma il profilo non ha ancora una community
+abbastanza grande da permettere conclusioni sui contenuti migliori.
+
+La priorità, quindi, non è inseguire un’estetica perfetta: è rendere ogni post
+riconoscibile, utile da salvare o condividere e capace di aprire una
+conversazione reale.
+
+### Stato della pipeline esistente
+
+La pipeline in `scripts/post-to-instagram.mjs` già fa bene quattro cose:
+
+- sceglie i lavori e gli articoli usando dati GA4 reali;
+- genera carousel quadrati 1080×1080 e li pubblica tramite Instagram Graph API;
+- usa UTM e un ledger per collegare il post al traffico e non ripetere sempre
+  gli stessi elementi;
+- pubblica anche una classifica settimanale delle dogane.
+
+Il limite era editoriale: la stessa formula “top 5 + link in bio” veniva usata
+per ogni slot. Una frequenza automatica senza variazione di promessa tende a
+sembrare un bollettino, non una voce utile per chi vive il confine.
+
+## 2. Cosa emerge dallo studio Instagram
+
+Le fonti di piattaforma indicano due opportunità coerenti con il progetto:
+
+1. Meta descrive i Trial Reels come uno spazio per provare nuovi temi e
+   formati su non-follower, con metriche iniziali dopo circa 24 ore e una
+   possibile distribuzione più ampia entro 72 ore: i Reel devono essere
+   prodotti come esperimenti, non come campagne “perfette” al primo tentativo.
+   [Fonte: Meta — Trial Reels](https://about.fb.com/news/2024/12/trial-reels-try-content-non-followers-first-see-what-perfoms-best/)
+2. Meta ha introdotto repost e una sezione Friends nei Reels: i contenuti
+   pubblici ricondivisi possono essere raccomandati ai follower di chi li
+   riposta. Questo rende “mandalo alla persona che…” una richiesta più naturale
+   per un contenuto utile, purché la promessa sia concreta.
+   [Fonte: Meta — New Instagram Features to Help You Connect](https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/)
+3. I benchmark di settore trattano i carousel come un formato forte per
+   salvataggi e condivisioni perché permettono di distribuire una risposta in
+   più passaggi. Il dato è direzionale, non un obiettivo universale: il
+   riferimento finale deve essere il rapporto tra reach, salvataggi,
+   condivisioni e commenti di questo profilo.
+   [Fonte direzionale: Sprout Social — Instagram Carousel](https://sproutsocial.com/insights/instagram-carousel/)
+
+### Conseguenza strategica
+
+Non eliminiamo i carousel data-driven: li trasformiamo in tre promesse diverse.
+
+| Trattamento | Promessa al lettore | Azione primaria | Metrica primaria |
+|---|---|---|---|
+| `proof` — Dato verificabile | “Qui trovi cosa è successo davvero” | passaparola | condivisioni |
+| `save` — Guida da salvare | “Ti servirà quando dovrai decidere” | archivio personale | salvataggi |
+| `question` — Domanda alla community | “La tua esperienza orienta il prossimo contenuto” | risposta | commenti |
+
+La classifica e i numeri restano gli stessi; cambiano hook, cover, ultima
+slide, caption e campo di misurazione.
+
+## 3. Pilastri editoriali
+
+### Utilità economica e fiscale
+
+Netto stipendio, nuovo/vecchio frontaliere, cambio CHF/EUR, LAMal/SSN,
+franchigie e scadenze. Sono contenuti da salvare: un singolo numero deve
+portare a un calcolo o a una guida, mai a una promessa fiscale assoluta.
+
+### Lavoro concreto
+
+Offerte, settori, aziende, competenze richieste e micro-guide per candidarsi.
+La domanda ricorrente deve essere: “Che ruolo stai cercando?”; le risposte
+possono diventare il brief del post successivo.
+
+### Vita oltre il confine
+
+Dogane, orari, tragitti e costo del pendolarismo. Il valore è locale e
+condivisibile: luogo + momento + dato, con tag geografico solo quando è
+verificato.
+
+### Community e voce umana
+
+Risposte a domande reali, mini-interviste a frontalieri, errori frequenti e
+storie anonime. È il pilastro che impedisce al profilo di diventare una bacheca
+automatizzata.
+
+## 4. Formati da produrre
+
+### Carousel “dato → decisione”
+
+- Slide 1: una domanda leggibile in un secondo.
+- Slide 2–6: un dato per slide, con fonte/data o contesto minimo.
+- Ultima slide: una sola azione coerente con l’obiettivo (`Condividi`, `Salva`
+  oppure `Rispondi`).
+- Caption: una sola idea, elenco breve, CTA esplicita, link in bio.
+
+È il formato automatizzato in questa implementazione. Il carousel ora chiude con
+una slide CTA e registra `creativeId`, obiettivo e metrica nel ledger.
+
+### Reel “un problema, un numero, una svolta”
+
+Formato manuale da 15–30 secondi, da provare anche come Trial Reel:
+
+1. 0–2 s: “Con CHF 5.000, quanto ti resta davvero?” oppure “Questa dogana ti
+   fa perdere 20 minuti?”
+2. 2–12 s: schermata del simulatore, mappa o dato reale; sottotitoli sempre
+   presenti.
+3. 12–22 s: un esempio numerico verificabile.
+4. finale: “Scrivi `NETTO` / `DOGANA` nei commenti” solo se si è pronti a
+   rispondere, oppure “salva il video”.
+
+Non va generato dal poster automatico: serve una persona, una voce o una
+ripresa locale, perché la differenza creativa richiesta è proprio l’esperienza
+umana del frontaliere.
+
+### Stories “sondaggio → risposta”
+
+Serie di 3–4 Stories dopo ogni contenuto forte:
+
+- sondaggio: “LAMal o SSN?” / “Brogeda o Chiasso?”;
+- box domande: “Qual è il dubbio che nessuno ti ha spiegato?”;
+- risposta il giorno dopo con un dato o un link al contenuto completo;
+- sticker link al percorso UTM tracciato.
+
+Il sondaggio deve raccogliere una decisione vera, non un “like bait”.
+
+### Comment-reply Reel
+
+Una domanda utile ricevuta nei commenti diventa l’hook del Reel seguente. Si
+mostra il commento (con permesso o anonimizzato), si risponde in 20 secondi e
+si chiude con una domanda più precisa. È il ciclo più diretto per trasformare
+engagement in nuova materia editoriale.
+
+## 5. Implementazione presente
+
+Il modulo `scripts/lib/instagram-creative.mjs` contiene la matrice dei tre
+trattamenti e una rotazione deterministica per data e tipo di contenuto.
+
+- gli slot articolo e lavoro dello stesso giorno ricevono trattamenti diversi;
+- lo slot dogane ruota per settimana, quindi un retry del lunedì non cambia
+  creatività;
+- il caption esplicita l’azione primaria;
+- `utm_content` include creatività + slug;
+- il ledger conserva `creativeId`, `creativeObjective` e `primaryMetric`;
+- `social-carousel-image.mjs` aggiunge una slide finale CTA senza superare il
+  limite di 10 elementi del carousel;
+- la rotazione è pura e non introduce esperimenti PostHog: l’eventuale test
+  futuro va letto da Instagram Insights + GA4. Se si introduce un flag remoto,
+  dovrà passare da Firebase Remote Config secondo le regole del workspace.
+
+## 6. Piano di test di 30 giorni
+
+Il primo ciclo è una baseline creativa, non una dichiarazione di vittoria.
+
+### Cadenza
+
+- mantenere i carousel automatici quotidiani di lavori e articoli;
+- mantenere il carousel dogane settimanale;
+- aggiungere manualmente 2 Reel a settimana: uno economico/fiscale e uno
+  lavoro/pendolarismo;
+- aggiungere Stories interattive nei giorni dei Reel;
+- rispondere ai commenti entro 24 ore, con una risposta informativa e una sola
+  domanda di approfondimento.
+
+### Scheda di rilevazione
+
+Per ogni post, dopo 24 h e 72 h, registrare in un foglio o nel Meta
+Professional Dashboard:
+
+- reach totale e reach non-follower;
+- like, commenti, salvataggi, condivisioni e visite al profilo;
+- per Reel: visualizzazioni, tempo medio e completamento;
+- clic al sito per `utm_campaign` + `utm_content` in GA4;
+- eventuali domande ricevute e numero di risposte utili generate.
+
+Confrontare i trattamenti per tasso, non per conteggio assoluto:
+
+- proof: `condivisioni / reach`;
+- save: `salvataggi / reach`;
+- question: `commenti / reach`.
+
+Non scegliere un vincitore dopo un solo post. Servono almeno tre osservazioni
+per trattamento nello stesso tipo di contenuto; poi si mantiene il migliore e
+si riscrive quello debole. Un miglioramento del 20% è un buon segnale operativo,
+non una prova statistica con un profilo appena avviato.
+
+## 7. Azioni di community
+
+1. Fissare tre post in alto: “cosa trovi qui”, simulatore netto, guida
+   “nuovo frontaliere”.
+2. Aggiornare la bio con una promessa e una CTA: “Dati e strumenti per chi
+   lavora tra Italia e Svizzera · calcola il netto ↓”.
+3. Creare highlight `Netto`, `Lavoro`, `Dogane`, `Domande`.
+4. Ogni settimana pubblicare una risposta a una domanda reale, non solo un
+   nuovo riepilogo dati.
+5. Invitare frontalieri, commercialisti e realtà locali a co-creare un Reel o
+   una risposta; chiedere sempre consenso scritto per volto, voce, targhe,
+   cedolini e dati personali.
+6. Lasciare commenti utili su pagine locali e professionali senza inserire il
+   link come risposta automatica. Il link va usato quando risolve davvero la
+   domanda.
+
+## 8. Limiti dichiarati
+
+La repository può automatizzare carousel, caption, UTM e misurazione dei clic.
+Non può dimostrare da sola che un Reel sia stato visto, salvato o condiviso:
+quei dati vivono in Instagram Insights e richiedono che il profilo abbia accesso
+alla pubblicazione. La pipeline resta fail-soft finché Meta non abilita le
+credenziali; il test di trasporto Graph API e il test creativo offline coprono
+quello che è verificabile nel codice, mentre la validazione live è il passaggio
+operativo successivo all’abilitazione dell’account.

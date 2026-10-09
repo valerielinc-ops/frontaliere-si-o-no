@@ -1107,9 +1107,9 @@
     },
     {
       "id": "bls-0f895fa37c69",
-      "slug": "automatiker-in-stv-berufsbildner-in-bls-ch",
+      "slug": "automatista-formatore-trice-professionale-supplente-bls-ag-spiez",
       "slugByLocale": {
-        "it": "automatiker-in-stv-berufsbildner-in-bls-ch",
+        "it": "automatista-formatore-trice-professionale-supplente-bls-ag-spiez",
         "en": "automated-vocational-trainer-bls-ag-spiez",
         "de": "automatiker-in-stv-berufsbildner-in-bls-ch",
         "fr": "automaticien-ne-assistant-e-formateur-trice-bls-ag-spiez"
@@ -1119,7 +1119,7 @@
       "companyDomain": "bls.ch",
       "title": "Automatiker:in stv. Berufsbildner:in",
       "titleByLocale": {
-        "it": "Automatiker:in stv. Berufsbildner:in",
+        "it": "Automatista, formatore/trice professionale supplente",
         "en": "Automated Vocational Trainer",
         "de": "Automatiker:in stv. Berufsbildner:in",
         "fr": "Automaticien (ne)assistant (e) formateur (trice)"
@@ -1187,7 +1187,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-stv-berufsbildner-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-stv-berufsbildner-in-bls-ch"
+      ]
     },
     {
       "id": "bls-8593c1a6b583",
@@ -1478,9 +1486,9 @@
     },
     {
       "id": "bls-aeb7fcea907f",
-      "slug": "dispatcher-in-betriebszentrale-spiez-bls-ch",
+      "slug": "dispatcher-della-centrale-operativa-di-spiez-bls-ag-spiez",
       "slugByLocale": {
-        "it": "dispatcher-in-betriebszentrale-spiez-bls-ch",
+        "it": "dispatcher-della-centrale-operativa-di-spiez-bls-ag-spiez",
         "en": "dispatcherat-spiez-operations-centre-bls-ag-spiez",
         "de": "dispatcher-in-betriebszentrale-spiez-bls-ch",
         "fr": "dispatcher-a-la-centrale-d-exploitation-de-spiez-bls-ag-spiez"
@@ -1490,7 +1498,7 @@
       "companyDomain": "bls.ch",
       "title": "Dispatcher:in Betriebszentrale Spiez",
       "titleByLocale": {
-        "it": "Dispatcher:in Betriebszentrale Spiez",
+        "it": "Dispatcher della centrale operativa di Spiez",
         "en": "Dispatcherat Spiez operations centre",
         "de": "Dispatcher:in Betriebszentrale Spiez",
         "fr": "Dispatcher :à la centrale d'exploitation de Spiez"
@@ -1558,13 +1566,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "dispatcher-in-betriebszentrale-spiez-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dispatcher-in-betriebszentrale-spiez-bls-ch"
+      ]
     },
     {
       "id": "bls-91db198a6dd5",
-      "slug": "spezialist-in-sicherheit-amp-analyse-bls-ch",
+      "slug": "specialista-in-sicurezza-e-analisi-bls-ag-spiez",
       "slugByLocale": {
-        "it": "spezialist-in-sicherheit-amp-analyse-bls-ch",
+        "it": "specialista-in-sicurezza-e-analisi-bls-ag-spiez",
         "en": "specialistin-security-analysis-bls-ag-spiez",
         "de": "spezialist-in-sicherheit-amp-analyse-bls-ch",
         "fr": "specialiste-en-securite-et-analyse-bls-ag-spiez"
@@ -1574,7 +1590,7 @@
       "companyDomain": "bls.ch",
       "title": "Spezialist:in Sicherheit & Analyse",
       "titleByLocale": {
-        "it": "Spezialist:in Sicherheit & Analyse",
+        "it": "Specialista in Sicurezza e Analisi",
         "en": "Specialistin Security & Analysis",
         "de": "Spezialist:in Sicherheit & Analyse",
         "fr": "Spécialiste en sécurité et analyse"
@@ -1644,7 +1660,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-sicherheit-amp-analyse-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-sicherheit-amp-analyse-bls-ch"
+      ]
     },
     {
       "id": "bls-6b9e8fa62e3d",
