@@ -317,8 +317,8 @@ describe('fuel-daily page generation — content quality', () => {
         const panelId = attr(attrs, 'aria-controls');
         expect(tabId, `${path} tab ${range} id`).toBeTruthy();
         expect(panelId, `${path} tab ${range} panel relation`).toBeTruthy();
-        expect(attr(attrs, 'aria-pressed'), `${path} tab ${range} visual state`).toBe(
-          attr(attrs, 'aria-selected'),
+        expect(attrs, `${path} tab ${range} must not use aria-pressed`).not.toMatch(
+          /\baria-pressed=/,
         );
         if (attr(attrs, 'aria-selected') === 'true') selectedRanges.push(range);
 
@@ -328,6 +328,7 @@ describe('fuel-daily page generation — content quality', () => {
         expect(attr(panelAttrs, 'id'), `${path} panel ${range} id`).toBe(panelId);
         expect(attr(panelAttrs, 'role'), `${path} panel ${range} role`).toBe('tabpanel');
         expect(attr(panelAttrs, 'aria-labelledby'), `${path} panel ${range} relation`).toBe(tabId);
+        expect(attr(panelAttrs, 'tabindex'), `${path} panel ${range} keyboard target`).toBe('0');
       }
       expect(selectedRanges, `selected tab on ${path}`).toEqual(['6M']);
     }

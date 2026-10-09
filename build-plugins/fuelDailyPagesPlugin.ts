@@ -1359,22 +1359,19 @@ function renderFuelHistoryCard(opts: {
   });
 
   // Button visuals (base + active/inactive) live in seo-static.css `.s-rbtn`,
-  // keyed off `aria-pressed` — so the inline script no longer writes
-  // `style.background`/`style.color`, just flips the attribute. Keep that
-  // legacy state alongside the tab state: aria-pressed drives the existing
-  // visual wiring while aria-selected supplies the required tab semantics.
+  // keyed off `aria-selected` — the same state required by the tab pattern.
   const buttonsHtml = FUEL_RANGE_KEYS.map((rk) => {
     const isActive = rk === FUEL_DEFAULT_RANGE;
     const tabId = `${idPrefix}-tab-${rk}`;
     const panelId = `${idPrefix}-panel-${rk}`;
-    return `<button type="button" role="tab" id="${tabId}" data-range-btn="${rk}" aria-controls="${panelId}" aria-selected="${isActive ? 'true' : 'false'}" aria-pressed="${isActive ? 'true' : 'false'}" class="s-rbtn">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
+    return `<button type="button" role="tab" id="${tabId}" data-range-btn="${rk}" aria-controls="${panelId}" aria-selected="${isActive ? 'true' : 'false'}" class="s-rbtn">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
   }).join('');
 
   // `.s-rcont` default-hides; the active range carries `.s-on` (display:block).
   const variantsHtml = variants
     .map(
       (v) =>
-        `<div data-range-content="${v.rangeKey}" id="${idPrefix}-panel-${v.rangeKey}" role="tabpanel" aria-labelledby="${idPrefix}-tab-${v.rangeKey}" class="s-rcont${v.rangeKey === FUEL_DEFAULT_RANGE ? ' s-on' : ''}">${v.svg}</div>`,
+        `<div data-range-content="${v.rangeKey}" id="${idPrefix}-panel-${v.rangeKey}" role="tabpanel" aria-labelledby="${idPrefix}-tab-${v.rangeKey}" tabindex="0" class="s-rcont${v.rangeKey === FUEL_DEFAULT_RANGE ? ' s-on' : ''}">${v.svg}</div>`,
     )
     .join('');
 
