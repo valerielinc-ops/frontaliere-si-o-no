@@ -144,8 +144,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore(instagram): track posted and queued carousel content [skip ci]"
+          # The stats assembly step can leave an untracked file in the checkout.
+          # Preserve it while rebasing, and fail the workflow if the ledger
+          # cannot be persisted: a green run with a lost queue hides content.
           bash scripts/lib/git-push-with-retry.sh \
-            --max-attempts 20 || echo "ledger push skipped (non-fatal)"
+            --max-attempts 20 \
+            --stash-dirty
 
       - name: Report failure to GitHub Issues
         if: failure()

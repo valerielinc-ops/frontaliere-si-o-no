@@ -802,4 +802,18 @@ describe('workflows', () => {
       expect(commit?.run, channel).toContain(`data/${channel}-posted.json`);
     }
   });
+
+  it('does not hide a failed social ledger push', () => {
+    for (const workflow of [
+      'instagram-daily-broadcast.yml',
+      'tiktok-daily-broadcast.yml',
+      'linkedin-member-daily.yml',
+    ]) {
+      const steps = wf(workflow).jobs.post.steps as Array<{ name?: string; run?: string }>;
+      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+      expect(commit?.run, workflow).toContain('git-push-with-retry.sh');
+      expect(commit?.run, workflow).toContain('--stash-dirty');
+      expect(commit?.run, workflow).not.toContain('ledger push skipped (non-fatal)');
+    }
+  });
 });
