@@ -259,14 +259,15 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
   });
 
   it('keeps the route-specific locale URLs that canton-hub verification consumes', () => {
-    const required = [
+    // Five unique URLs cover six failing hub links: the exchange-rate URL is
+    // linked from both the canton carburanti and servizi hubs.
+    const required = new Set([
       `${BASE}/en/service-comparison/chf-eur-exchange-rate/`,
       `${BASE}/en/service-comparison/compare-health-insurance/`,
       `${BASE}/fr/comparaison-services/comparer-caisses-maladie/`,
       `${BASE}/en/taxes-and-pension/tax-deadlines/`,
       `${BASE}/en/cross-border-guide/work-permits-guide/`,
-      `${BASE}/fr/comparaison-services/comparer-caisses-maladie/`,
-    ];
+    ]);
     const listed = new Set(sources.map((s) => s.loc));
     const sanitized = sanitizeSitemapHreflangReciprocity(seeded);
     const served = [...seeded].map(({ file, xml }) => sanitized.get(file) ?? xml).join('\n');
