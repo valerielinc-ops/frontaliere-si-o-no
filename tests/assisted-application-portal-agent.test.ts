@@ -112,6 +112,29 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(asked).toMatchObject({ status: 'stuck', questions: [] });
   });
 
+  it('uses deterministic residence facts instead of asking for a CAP or country again', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: {
+        location: 'Salsomaggiore T. (PR)',
+        address: { street: 'Via Test 1', postalCode: '', city: 'Salsomaggiore T. (PR)', country: '' },
+      },
+      language: 'it',
+    });
+    const guarded = guardAgentStep(turn('act', [
+      act({ ref: 'e1', action: 'fill', value: '00000', question: 'Qual è il tuo CAP di residenza?', answer: '00000', source: 'rule' }),
+      act({ ref: 'e2', action: 'select', value: 'Svizzera', question: 'Qual è la tua nazione di residenza?', answer: 'Svizzera', source: 'rule' }),
+    ]), candidate);
+    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded.actions.map((action: any) => [action.value, action.source])).toEqual([
+      ['43039', 'identity'],
+      ['Italia', 'identity'],
+    ]);
+
+    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è il tuo CAP di residenza?', why: '', type: 'text', options: [] }]), candidate);
+    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+  });
+
   it('turns an empty act into done and drops malformed refs', () => {
     expect(guardAgentStep(turn('act', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'done', actions: [] });
     expect(guardAgentStep({ ...turn('done'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');

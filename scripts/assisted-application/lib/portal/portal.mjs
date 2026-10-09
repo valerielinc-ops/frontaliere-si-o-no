@@ -33,6 +33,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
+import { resolveResidenceAddress } from './residence-address.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
@@ -171,6 +172,9 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
   const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers);
+  // Older drafts may predate the profile enrichment done during draft mode;
+  // resolve once more at the browser boundary without an external geocoder.
+  const address = resolveResidenceAddress(profile.address, profile.location);
   return {
     identity: {
       fullName: identity.name,
@@ -179,7 +183,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       email: identity.email,
       phone: identity.phone,
       location: profile.location || '',
-      address: profile.address || { street: '', postalCode: '', city: '', country: '' },
+      address,
       linkedin: profile.linkedin || '',
       website: profile.website || '',
     },

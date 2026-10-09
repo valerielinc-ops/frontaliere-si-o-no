@@ -26,6 +26,7 @@ import {
   permitOptionCode,
   permitStatusOf,
 } from '../../../../functions/src/lib/permitStatus.js';
+import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -79,6 +80,7 @@ export function candidateRules(candidateLocale) {
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail, phone and address fields come from identity.
 - Always fill the contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Street, postal code, city and country come from identity.address, city and country also from identity.location; date of birth and nationality from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
+- A CAP or residence country that the address normaliser has put in identity.address is an address fact: use it exactly. Do not invent a CAP from a city name in the model; if the local directory cannot resolve it unambiguously, leave it missing for the candidate.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
 - "Do you work / have you worked for us?": "No" when that employer is not among profile.employers or in the candidate's answers, otherwise it is missing.
 - "Does this application come from a recruitment / placement agency (Vermittlungsbüro, Personalvermittlung, agenzia per il lavoro, agence de placement)?": "No". The candidate applies personally: Frontaliere Ticino sends the candidate's own application, is no placement agency and never accepts an agency's terms.
@@ -124,7 +126,8 @@ export function planUserText({ snapshot, candidate }) {
 // experience" is an eligibility question, not an age question.
 const AGE_UNDER_RE = /\b(?:(?:under|below)(?:\s+the\s+age\s+of)?|younger\s+than|less\s+than|moins\s+de|moins\s+d['’]|unter|j(?:ü|ue)nger\s+als|weniger\s+als|meno\s+di|minore\s+di|inferiore\s+a|sotto\s+(?:i|ai?))\s*(\d{1,3})\b/i;
 const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|of\s+work|di\s+lavoro|d['’]exp[ée]rience)\b/i;
-export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}`, 'i');
+const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b/i;
+export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}|${ADDRESS_FIELD_RE.source}`, 'i');
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
@@ -232,11 +235,20 @@ const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\
 // «civique» or «de la rue». Keep the conjunction bounded so a phone number or
 // another unrelated number in a longer label cannot become an address alias.
 const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
+const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|code\s+postal|npa)\b/i;
+const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
+const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
+const NON_RESIDENCE_ADDRESS_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
 
-function addressQuestionTopic(text) {
+export function addressQuestionTopic(text) {
+  const value = String(text || '');
+  if (NON_RESIDENCE_ADDRESS_RE.test(value)) return '';
+  if (POSTAL_CODE_RE.test(value)) return 'residence_postal_code';
+  if (COUNTRY_RE.test(value) && !isNationalityField(value)) return 'residence_country';
+  if (CITY_RE.test(value)) return 'residence_city';
   const street = STREET_ADDRESS_RE.test(text);
   const houseNumber = HOUSE_NUMBER_RE.test(text);
   const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
@@ -348,6 +360,11 @@ function equivalentAnswer(question, left, right) {
     const rightCode = nationalityOf(right)?.code;
     return Boolean(leftCode && rightCode && leftCode === rightCode);
   }
+  if (topic === 'residence_country') {
+    const leftCode = residenceCountryCode(left);
+    const rightCode = residenceCountryCode(right);
+    return Boolean(leftCode && rightCode && leftCode === rightCode);
+  }
   if (topic === 'permit') {
     const leftCode = permitStatusOf(left) || permitOptionCode(left);
     const rightCode = permitStatusOf(right) || permitOptionCode(right);
@@ -367,7 +384,7 @@ function equivalentAnswer(question, left, right) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-export function candidateAnswerForQuestion(candidate, question) {
+function recordedAnswerForQuestion(candidate, question) {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -385,6 +402,10 @@ export function candidateAnswerForQuestion(candidate, question) {
   return semantic ? String(semantic.answer).trim() : '';
 }
 
+export function candidateAnswerForQuestion(candidate, question) {
+  return recordedAnswerForQuestion(candidate, question) || addressQuestionAnswer(candidate, questionTopic(question));
+}
+
 function optionForAnswer(field, answer) {
   const options = Array.isArray(field?.options) ? field.options : [];
   if (!options.length) return String(answer || '').trim();
@@ -394,6 +415,11 @@ function optionForAnswer(field, answer) {
   if (topic === 'nationality') {
     const answerCode = nationalityOf(answer)?.code;
     const match = options.find((option) => answerCode && nationalityOf(option.label)?.code === answerCode);
+    if (match) return match.label;
+  }
+  if (topic === 'residence_country') {
+    const answerCode = residenceCountryCode(answer);
+    const match = options.find((option) => answerCode && residenceCountryCode(option.label) === answerCode);
     if (match) return match.label;
   }
   if (topic === 'permit') {
@@ -412,8 +438,14 @@ function optionForAnswer(field, answer) {
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
-  const previous = candidateAnswerForQuestion(candidate, field?.label);
   const topic = questionTopic(field?.label);
+  const previous = recordedAnswerForQuestion(candidate, field?.label);
+  if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
+    const stated = previous || addressQuestionAnswer(candidate, topic);
+    if (!stated) return null;
+    const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
+    return value ? { value, source: previous ? 'answers' : 'identity' } : null;
+  }
   if (previous) {
     const value = optionForAnswer(field, previous);
     if (value) return { value, source: 'answers' };
@@ -569,6 +601,17 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
+    const addressTopic = questionTopic(field.label);
+    const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
+    if (['fill', 'select'].includes(action.action) && isAddressTopic) {
+      const answer = candidateAnswerForField(candidate, field);
+      if (answer) {
+        actions.push({ ...action, action: field.options?.length ? 'select' : 'fill', value: answer.value, source: answer.source, evidence: '' });
+        continue;
+      }
+      ask(field);
+      continue;
+    }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     // A permit or nationality field: the candidate's own status or nationality as the catalogue words it, their
@@ -579,7 +622,7 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-    } else if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
+    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
       ask(field);
       continue;
     }

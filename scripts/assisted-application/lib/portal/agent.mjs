@@ -19,7 +19,7 @@ import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicat
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -181,10 +181,30 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     questions.push({ why: '', options: [], ...item, question, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
-  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '') || KNOCK_OUT.test(action.question || ''));
+  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
+    || KNOCK_OUT.test(action.question || '')
+    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question)));
   for (const action of sensitive) {
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
+    const addressTopic = questionTopic(action.question);
+    if (candidate && ['fill', 'type', 'select'].includes(action.action)
+      && ['address', 'address_street', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
+      && action.source !== 'widget') {
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, options: [] });
+      if (knownAddress) {
+        // A custom widget still has to receive the form-language option the
+        // model saw. Accept equivalent country labels; correct a wrong model
+        // value to the deterministic candidate value before the action runs.
+        if (!answeredByCandidate(candidate, action.question, answer)) {
+          action.value = knownAddress.value;
+          action.answer = knownAddress.value;
+          action.source = knownAddress.source;
+        }
+        grounded.add(action.question);
+        continue;
+      }
+    }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
     const knockOut = !SENSITIVE.test(action.question);

@@ -1,4 +1,16 @@
 import { isNationalityField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
+import { addressQuestionTopic } from './plan.mjs';
+import { residenceCountryCode } from './residence-address.mjs';
+
+const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
+
+export function residenceCountryOptionLabel(value, options = []) {
+  const wanted = residenceCountryCode(value);
+  if (!wanted) return '';
+  return options
+    .map((option) => String(option?.label ?? option ?? '').trim())
+    .find((label) => residenceCountryCode(label) === wanted) || '';
+}
 
 /**
  * Deterministic filler of the portal runner. Techniques, no code taken, from
@@ -278,18 +290,22 @@ async function fillCombobox(page, field, locator, value) {
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
   } catch {
-    if (!isNationalityField(field.label)) {
+    const nationality = isNationalityField(field.label);
+    const residenceCountry = isResidenceCountryField(field.label);
+    if (!nationality && !residenceCountry) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
     const options = frame.getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
-    selectedLabel = nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label));
+    selectedLabel = nationality
+      ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
+      : residenceCountryOptionLabel(value, labels);
     // A generic combobox filters in the form language. The candidate answer
     // may be Italian ("italiana") while the French SuccessFactors list only
     // returns a result after the French prefix ("ital"). Retry with that
     // canonical query before declaring the nationality unavailable.
-    if (!selectedLabel) {
+    if (!selectedLabel && (nationality || residenceCountry)) {
       const query = nationalitySearchQuery(value, field.label);
       if (query) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
@@ -314,6 +330,8 @@ async function chooseInOwnedList(page, field, locator, value) {
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
   const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
   const nationality = isNationalityField(field.label);
+  const residenceCountry = isResidenceCountryField(field.label);
+  const countryLike = nationality || residenceCountry;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     if (attempt) {
       await locator.press('Escape').catch(() => {});
@@ -326,9 +344,9 @@ async function chooseInOwnedList(page, field, locator, value) {
       // has no option yet and only requests the page after a search prefix.
       // Keep the old long wait for ordinary picklists, but let nationality
       // continue to that safe, language-aware query when its list is empty.
-      await options.first().waitFor({ state: 'visible', timeout: nationality ? 2_000 : 10_000 });
+      await options.first().waitFor({ state: 'visible', timeout: countryLike ? 2_000 : 10_000 });
     } catch {
-      if (!nationality) {
+      if (!countryLike) {
         await locator.press('Escape').catch(() => {});
         throw new Error('option_not_found');
       }
@@ -337,14 +355,16 @@ async function chooseInOwnedList(page, field, locator, value) {
     const findSelectedLabel = () => {
       const labels = entries.map(({ label }) => label);
       const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-      return exact?.label || (nationality ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label)) : '');
+      return exact?.label || (nationality
+        ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
+        : residenceCountryOptionLabel(value, labels));
     };
     let selectedLabel = findSelectedLabel();
     // Some SuccessFactors picklists do not expose the complete catalogue when
     // opened; they only fetch the matching page after keystrokes. Nationality
     // is safe to filter by a short country prefix, then resolve the localized
     // option («italiana» → «italienne»/«Italie») by the shared catalogue.
-    if (!selectedLabel && nationality) {
+    if (!selectedLabel && countryLike) {
       const query = nationalitySearchQuery(value, field.label);
       if (query) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
@@ -602,7 +622,10 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         let selectedLabel = action.value;
         if (field.kind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
-          selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label), nationalityFieldLanguage(field.label)) : '');
+          const nationality = isNationalityField(field.label);
+          selectedLabel = exact?.label || (nationality
+            ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label), nationalityFieldLanguage(field.label))
+            : residenceCountryOptionLabel(action.value, field.options || []));
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {
