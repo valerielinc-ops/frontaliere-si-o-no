@@ -12838,6 +12838,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vbs-pink-cup-ragazze.title': 'VBS Pink Cup: oltre 150 ragazze del basket a Varese',
     'blog.article.vbs-pink-cup-ragazze.excerpt': '10 e 11 ottobre: terza edizione della VBS Pink Cup Oltre 150 ragazze a Varese Dodici squadre nelle categorie Under 13 e Under 14 Partite alla palestra Falaschi',
     'blog.article.vbs-pink-cup-ragazze.imageAlt': 'Giovani cestiste durante un torneo femminile in palestra',
+    'blog.article.teatro-intred-varese-stagione-2026.title': 'Varese: Teatro Intred apre stagione 2026/27',
+    'blog.article.teatro-intred-varese-stagione-2026.excerpt': 'L\'11 ottobre parte a Varese la stagione 2026/27 del Teatro INTRED Fabio De Luigi inaugura il cartellone con BIOL Gianluca Gotto arriva il 17 ottobre',
+    'blog.article.teatro-intred-varese-stagione-2026.imageAlt': 'Facciata del Teatro INTRED a Varese durante la sera, illuminata per l\'inizio della stagione 2026/27.',
 };
 
 export default blogMetaIt;

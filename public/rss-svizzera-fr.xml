@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 08 Oct 2026 21:08:07 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 01:39:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,83 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Noms, numéros AVS et salaires : voici les données volées à Publica</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/attaque-cyber-publica-donnees-volees/</link>
+      <description><![CDATA[Fin septembre : attaque contre le fournisseur de logiciels de Publica Noms, numéros AVS et salaires parmi les données à risque Publica compte 66’000 assurés actifs et 40’000]]></description>
+      <content:encoded><![CDATA[## En bref
+- Fin septembre : attaque contre le fournisseur de logiciels de Publica
+- Noms, numéros AVS et salaires parmi les données à risque
+- Publica compte 66’000 assurés actifs et 40’000 rentes
+- Les fonds de prévoyance n’ont pas été touchés
+
+## Faits clés
+- Institution → Publica, la Caisse de pensions de la Confédération
+- Fournisseur → PK Softech AG
+- Moment → fin septembre
+- Personnes potentiellement concernées → environ 66’000 assurés actifs et 40’000 bénéficiaires de rentes
+- Enquête → Ministère public de la Confédération
+- Fonds → non touchés et en sécurité, selon Publica
+
+Fin septembre, une cyberattaque a touché un fournisseur externe de logiciels de Publica, la Caisse de pensions de la Confédération. L’incident a provoqué une fuite de données et, selon les connaissances actuelles, pourrait avoir concerné des informations personnelles particulièrement sensibles.
+
+L’affaire a été rendue publique jeudi, après que Publica a envoyé une communication aux assurés. Le document, consulté par SRF, indique que des données personnelles ont probablement été dérobées. Beatrice Rychen, porte-parole de l’institution de prévoyance, a qualifié les faits en termes très clairs : « Pour nous, c’est la pire chose qui pouvait arriver ».
+
+Parmi les informations qui pourraient avoir été obtenues figurent le nom et le prénom, la date de naissance, le numéro AVS, l’adresse, les numéros de téléphone privés et professionnels, ainsi que les adresses e-mail personnelles et professionnelles. La liste comprend également des données relatives à la prévoyance, telles que le salaire et l’avoir de prévoyance, l’état civil et les informations concernant le conjoint ou le partenaire.
+
+### Le passage par le fournisseur externe
+
+On ne sait pas encore si la fuite concerne l’ensemble des quelque 66’000 assurés actifs et des 40’000 bénéficiaires de rentes, ou seulement une partie d’entre eux. Publica précise toutefois que les fonds de prévoyance n’ont pas été touchés et sont en sécurité.
+
+Les cybercriminels n’ont pas attaqué directement la Caisse de pensions de la Confédération. La cible était PK Softech AG, l’entreprise externe qui développe des applications pour les caisses de pensions. Par l’intermédiaire de ce fournisseur, les auteurs auraient eu accès aux données de Publica.
+
+Le Ministère public de la Confédération enquête sur cette affaire. Entre-temps, des spécialistes analysent les informations dérobées. On ignore si l’attaque a également concerné les données d’autres institutions de prévoyance. Pour les personnes qui consultent leur situation, la rubrique numéro AVS fait donc partie des catégories à distinguer des investissements et des fonds, que Publica indique comme n’étant pas touchés. Le guide sur previdenza AVS peut aider à s’y retrouver dans la terminologie de la prévoyance.
+### Deux risques distincts pour les assurés
+
+L’affaire comporte deux volets distincts. Le premier concerne la possible soustraction de données personnelles ; le second concerne les fonds de prévoyance. Publica affirme que les fonds sont en sécurité, tout en avertissant d’un risque pour les personnes concernées lié à l’utilisation abusive des informations.
+
+La soustraction du nom, de l’adresse, du numéro AVS, du salaire ou de l’avoir de prévoyance pourrait être utilisée, selon l’institution, pour tenter d’usurper l’identité d’autres personnes ou pour obtenir un avantage. Le risque indiqué ne signifie toutefois pas qu’un usage illicite des données a déjà été établi. Les spécialistes analysent encore ce qui a été soustrait.
+
+| Scénario | Ce qui ressort de la source | Lecture pratique |
+|---|---|---|
+| Seule une partie des assurés est concernée | Le périmètre n’a pas été précisé | Toutes les personnes concernées ne seraient pas nécessairement exposées |
+| Tous les assurés et bénéficiaires sont concernés | L’hypothèse n’est pas exclue | La portée serait plus large, mais elle n’est pas confirmée |
+| Les fonds de prévoyance | Publica les considère comme étant en sécurité | L’information concerne les données, et non une perte déclarée des fonds |
+
+La mention du salaire rend également importante l’interprétation correcte des informations salariales éventuellement contenues dans les données soustraites. C’est pourquoi il peut être utile de consulter la busta paga svizzera, sans confondre une catégorie de données personnelles avec un mouvement sur le compte de prévoyance.
+
+L’attaque présente des similitudes avec celle qui avait touché Xplain en 2023 : dans ce cas, les cybercriminels avaient eu accès à des informations de bureaux fédéraux par l’intermédiaire d’une entreprise de logiciels externe, entraînant le vol d’environ 1,3 million de fichiers sensibles. Il y a deux ans, à l’issue d’une enquête administrative, le Conseil fédéral avait pris des mesures pour prévenir de nouveaux vols chez les fournisseurs informatiques. Depuis lors, la collaboration avec les entreprises externes est également soumise à des exigences de sécurité supplémentaires.
+
+Le précédent ne permet pas d’établir automatiquement l’ampleur de l’affaire Publica. Il montre toutefois pourquoi le fournisseur de logiciels, bien qu’il ne soit pas la Caisse de pensions de la Confédération, constitue le point central de l’enquête.
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
+
+## Outils utiles pour la planification
+Pour estimer votre stratégie retraite, utilisez le planificateur retraite et le simulateur 3e pilier.
+### Que faire sur la base des informations disponibles
+
+1. **Lire la communication**. Publica a envoyé aux assurés une communication concernant la fuite de données. C’est la référence à partir de laquelle vérifier les catégories indiquées et distinguer les informations personnelles des avoirs de prévoyance.
+
+2. Identifier les données les plus sensibles. La possible soustraction concerne également le numéro AVS, les données salariales, l’avoir de prévoyance, l’adresse et les coordonnées. Cela ne signifie pas que chaque catégorie ait été dérobée pour chaque personne : Publica n’a pas encore précisé si tous les assurés et bénéficiaires sont concernés ou seulement une partie d’entre eux.
+
+3. Faire preuve de prudence avec les contacts inhabituels. L’institution invite les assurés à faire preuve de prudence en cas d’appels téléphoniques ou de messages inhabituels. Cette prudence est liée au risque que les informations volées puissent être utilisées abusivement pour usurper l’identité d’une personne ou obtenir un avantage.
+
+4. Séparer les données et les fonds. La communication décrit une possible fuite d’informations, mais Publica affirme que les fonds de prévoyance n’ont pas été touchés et sont en sécurité. Cette distinction évite d’interpréter la nouvelle comme une confirmation de pertes sur l’avoir de prévoyance.
+
+La situation reste à l’examen. Les spécialistes analysent les données dérobées et le Ministère public de la Confédération enquête sur les faits. On ignore en outre si l’attaque a permis d’obtenir des informations d’autres institutions de prévoyance : les éventuelles mises à jour devront donc préciser à la fois l’ampleur de la fuite et les catégories effectivement concernées.
+
+Pour mieux comprendre les rubriques salariales mentionnées dans la communication, tu peux utiliser le calcolatore stipendio.
+
+Pour un calcul précis du salaire net, utilisez notre comparateur fiscal : comparez permis G et permis B avec toutes les déductions 2026.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4145954)*]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 01:39:56 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/attacco-publica-dati-rubati</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-publica-dati-rubati.webp" medium="image"/>
+    </item>
     <item>
       <title>Genève-Fribourg, une ligne ferroviaire sous pression</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/ligne-geneve-fribourg-sous-pression/</link>
@@ -3962,85 +4039,6 @@ Découvrez les offres d'emploi au Tessin mises à jour quotidiennement : plus de
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/ostinelli-cassa-malati-udienza-pretore</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/ostinelli-cassa-malati-udienza-pretore.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Riessdo</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license></media:content>
-    </item>
-    <item>
-      <title>Prix des maisons et des appartements en Suisse : septembre stable</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/prix-immobilier-septembre-regions/</link>
-      <description><![CDATA[Maisons individuelles à -0,1% et appartements à +0,2% en septembre : Zurich enregistre la baisse la plus marquée, tandis que le Tessin progresse dans la propriété par étages.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Maisons individuelles : prix demandés en baisse de 0,1%
-- Appartements : prix demandés en hausse de 0,2%
-- Zurich : baisse des maisons de 2,7%, la plus marquée
-- Propriété par étages : hausses au Tessin et dans la région lémanique
-
-- Analyse → annonces immobilières d’Immoscout en collaboration avec IAZI
-- Période → septembre, comparaison avec août
-- Objet → prix demandés par les vendeurs
-- Maisons individuelles → baisse de 0,1%
-- Appartements → hausse de 0,2%
-- Baisse la plus marquée des maisons → Zurich, 2,7%
-- Propriété par étages → hausses au Tessin, dans la région lémanique, en Suisse du Nord-Ouest et en Suisse centrale
-
-À Zurich, le tableau de septembre concernant les biens résidentiels en propriété montre une stabilité substantielle en Suisse, du moins sur le plan mensuel. Le chiffre provient d’une analyse des annonces immobilières publiée par la plateforme Immoscout en collaboration avec la société de conseil immobilier IAZI. Le relevé porte sur les prix demandés par les vendeurs et distingue les maisons individuelles des appartements.
-
-Le premier segment a enregistré un recul de 0,1% par rapport à août. Pour les appartements, en revanche, les prix ont affiché une hausse de 0,2%. La comparaison porte donc sur deux mouvements de signe opposé, dans un contexte global pourtant qualifié de largement stable.
-
-### La carte régionale des maisons
-
-Le chiffre suisse ne se répète pas de la même manière dans toutes les régions. Pour les maisons individuelles, la baisse la plus marquée a été relevée à Zurich, où le recul atteint 2,7%. Des baisses ont également été observées dans le Mittelland, en Suisse centrale et au Tessin. Les hausses, en revanche, ont concerné la région lémanique, la Suisse orientale et la Suisse du Nord-Ouest.
-
-La propriété par étages suit une répartition différente. Les prix ont augmenté au Tessin, en Suisse du Nord-Ouest, dans la région lémanique et en Suisse centrale. Ils ont en revanche baissé à Zurich et en Suisse orientale.
-
-Cette double lecture constitue le point central de l’analyse : l’évolution mensuelle nationale ne suffit pas à décrire chaque région. Le résultat change lorsque l’on passe des maisons individuelles à la propriété par étages et lorsque l’observation se déplace entre Zurich, le Tessin, le Léman et les autres régions indiquées. C’est pourquoi les chiffres doivent être lus en distinguant le type de bien, le lieu et la comparaison entre septembre et août. La référence territoriale n’est pas un détail secondaire, car la source enregistre des hausses et des baisses dans les mêmes catégories selon la zone considérée. La distinction fait donc partie intégrante de la donnée mensuelle. Il ne s’agit pas d’un mouvement unique et uniforme.
-### Deux filtres pour ne pas confondre les données
-
-La stabilité nationale indiquée pour septembre est un point de départ, et non un chiffre à appliquer indistinctement à chaque annonce. La source croise deux variables : le type de propriété et la région. Une lecture correcte doit conserver les deux jusqu'à la fin de la comparaison.
-
-| Segment | Zones en baisse | Zones en hausse |
-| --- | --- | --- |
-| Maisons individuelles | Zurich, Mittelland, Suisse centrale, Tessin | Région du lac Léman, Suisse orientale, Suisse du Nord-Ouest |
-| Propriétés par étages | Zurich, Suisse orientale | Tessin, Suisse du Nord-Ouest, région lémanique, Suisse centrale |
-
-Le tableau met en évidence une différence utile pour qui observe un prix demandé. Dans le segment des maisons, le Tessin fait partie des zones en baisse ; dans celui des propriétés par étages, en revanche, il fait partie de celles en hausse. Zurich figure parmi les zones en baisse pour les deux catégories, tandis que la Suisse orientale passe d'une hausse pour les maisons à une baisse pour les propriétés par étages. La Suisse du Nord-Ouest est en hausse pour les deux catégories ; la Suisse centrale change de signe, avec une baisse pour les maisons et une hausse pour les propriétés par étages.
-
-La référence correcte reste le prix demandé par le vendeur dans l'annonce. Cela ne permet pas pour autant de lire la donnée comme une variation unique pour tous les logements : la comparaison mensuelle est celle entre septembre et août, et les régions suivent des évolutions différentes. Si l'on prend une annonce, il est donc préférable de noter d'abord la catégorie et la zone, puis de vérifier à quelle ligne du tableau elle correspond.
-
-Pour relier cette lecture au budget personnel, sans mélanger des indicateurs différents, on peut consulter le costo della vita in Svizzera. Le lien sert à élargir la lecture, tandis que les chiffres de l'analyse restent limités aux annonces immobilières et aux deux catégories décrites.
-
-Une comparaison entre deux annonces ne sera donc homogène que si les données sont présentées dans le même ordre : septembre, août, catégorie, région et prix demandé. S'il manque l'une de ces coordonnées, le chiffre perd sa signification comparative. L'objectif n'est pas de transformer une variation nationale en une moyenne indistincte, mais de lire la valeur dans la combinaison indiquée par la source.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le change CHF-EUR et les banques pour frontaliers.
-### Quatre contrôles opérationnels
-
-Le relevé peut être transformé en une fiche simple. L'objectif n'est pas d'ajouter des estimations, mais de préserver intact le périmètre de la donnée : annonces, prix demandés, septembre, comparaison avec août, catégorie et région.
-
-1. Définis la catégorie. Indique s'il s'agit d'une maison individuelle ou d'une propriété par étages. Ne réunis pas les deux éléments sur une seule ligne, car la source enregistre des évolutions différentes.
-
-2. Indique la région. Mentionne le territoire associé à l'annonce : Zurich, Mittelland, Suisse centrale, Tessin, région du lac Léman, Suisse orientale ou Suisse du Nord-Ouest. La position détermine quelle comparaison régionale utiliser.
-
-3. Fixe la période. Écris septembre comme période observée et août comme référence mensuelle. De cette manière, la comparaison reste liée à l'intervalle indiqué par l'analyse.
-
-4. Recopie la référence. Conserve le prix demandé par le vendeur dans l'annonce et ne le remplace pas par une valeur générique. Le fait que le prix soit demandé fait également partie de l'interprétation.
-
-Après cet enregistrement, utilise la variation correspondante sans l'attribuer à une autre catégorie. Le 0,1% concerne les maisons individuelles par rapport à août ; le 0,2% concerne les appartements. Le 2,7% identifie la baisse la plus marquée des maisons, à Zurich. Ce sont trois références différentes et elles doivent rester dans leur case.
-
-La fiche devrait également conserver l'indication de la source : l'analyse des annonces est publiée par Immoscout avec IAZI et concerne les prix demandés par les vendeurs. Ainsi, le lecteur ne perd pas la signification du chiffre lorsqu'il le compare avec une autre donnée.
-
-Un contrôle final consiste à relire la ligne régionale : pour les maisons, ne pas confondre la baisse du Tessin avec la hausse de la région du lac Léman ; pour la propriété par étages, ne pas confondre la hausse du Tessin avec la baisse de Zurich. C'est précisément cette distinction que propose la source, et la conserver évite une comparaison fondée uniquement sur le titre national.
-
-Si l'évaluation personnelle nécessite une étape supplémentaire concernant le revenu, le site propose également le busta paga svizzera. Il s'agit d'un approfondissement distinct : il ne remplace pas la donnée immobilière, mais aide à maintenir la distinction entre le prix demandé et ses propres informations économiques.
-
-Pour compléter la comparaison avec ton revenu, utilise le calcolatore stipendio.
-
-Découvrez les offres d'emploi au Tessin mises à jour quotidiennement : plus de 4.000 postes.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1954949/svizzera-prezzi-case-appartamenti-settembre)*]]></content:encoded>
-      <pubDate>Tue, 06 Oct 2026 06:36:57 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/prezzi-immobili-settembre-regioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/prezzi-immobili-settembre-regioni.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Gary Hoover</media:credit><media:license type="text/html" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</media:license></media:content>
     </item>
   </channel>
 </rss>

@@ -26523,6 +26523,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'attacco-publica-dati-rubati',
+    category: 'pensione',
+    date: '2026-10-09T01:39:56.530Z',
+    image: '/images/blog/article-attacco-publica-dati-rubati.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

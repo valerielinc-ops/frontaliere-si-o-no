@@ -7946,6 +7946,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.linea-ginevra-friburgo-pressione.title': 'Geneva–Fribourg, a railway route under pressure',
     'blog.article.linea-ginevra-friburgo-pressione.excerpt': 'Thirteen disruptions on the line since the beginning of the year More than 150’000 passengers and over 700 trains every day Burnt cables, damaged tracks and a bird',
     'blog.article.linea-ginevra-friburgo-pressione.imageAlt': 'Swiss train at a busy railway station',
+    'blog.article.attacco-publica-dati-rubati.title': 'Names, AVS numbers and salaries: here is the data stolen from Publica',
+    'blog.article.attacco-publica-dati-rubati.excerpt': 'Late September: attack on Publica’s software provider Names, AVS numbers and salaries among the data at risk Publica has 66’000 active insured persons and 40’000',
+    'blog.article.attacco-publica-dati-rubati.imageAlt': 'Institutional headquarters in Switzerland related to the Publica pension fund',
 };
 
 export default blogMetaChEn;

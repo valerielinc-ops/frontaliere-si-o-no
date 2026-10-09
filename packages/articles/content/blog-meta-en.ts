@@ -12837,6 +12837,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vbs-pink-cup-ragazze.title': 'VBS Pink Cup: over 150 basketball girls in Varese',
     'blog.article.vbs-pink-cup-ragazze.excerpt': '10 and 11 October: third edition of the VBS Pink Cup Over 150 girls at Varese Twelve teams in the Under 13 and Under 14 categories Matches at the Falaschi gym',
     'blog.article.vbs-pink-cup-ragazze.imageAlt': 'Young female basketball players during an indoor tournament',
+    'blog.article.teatro-intred-varese-stagione-2026.title': 'Varese: Teatro Intred opens 2026/27 season',
+    'blog.article.teatro-intred-varese-stagione-2026.excerpt': 'On October 11, the 2026/27 season of Teatro INTRED begins at Varese.',
+    'blog.article.teatro-intred-varese-stagione-2026.imageAlt': 'Facade of Teatro INTRED in Varese in the evening, lit for the start of the 2026/27 season.',
 };
 
 export default blogMetaEn;

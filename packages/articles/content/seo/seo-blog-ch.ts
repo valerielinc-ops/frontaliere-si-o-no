@@ -100174,6 +100174,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attacco-publica-dati-rubati': {
+    title: 'Nomi, numeri AVS e stipendi: ecco i dati rubati a Publica',
+    description: 'Fine settembre: attacco al fornitore software di Publica Nomi, numeri AVS e stipendi tra i dati a rischio Publica conta 66’000 assicurati attivi e 40’000',
+    keywords: 'frontalieri, ticino, svizzera, italia, nomi, numeri, stipendi, ecco',
+    ogTitle: 'Nomi, numeri AVS e stipendi: ecco i dati rubati a Publica',
+    ogDescription: 'Fine settembre: attacco al fornitore software di Publica Nomi, numeri AVS e stipendi tra i dati a rischio Publica conta 66’000 assicurati attivi e 40’000',
+    canonicalPath: '/articoli-svizzera/attacco-publica-dati-rubati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nomi, numeri AVS e stipendi: ecco i dati rubati a Publica",
+      "description": "Fine settembre: attacco al fornitore software di Publica Nomi, numeri AVS e stipendi tra i dati a rischio Publica conta 66’000 assicurati attivi e 40’000",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-attacco-publica-dati-rubati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede istituzionale in Svizzera legata alla cassa pensioni Publica"
+      },
+      "datePublished": "2026-10-09T01:39:56+00:00",
+      "dateModified": "2026-10-09T01:39:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-publica-dati-rubati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5096
+      "6": 5098
     },
-    "publishedCovers": 6808,
+    "publishedCovers": 6810,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180204,6 +180204,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-attacco-publica-dati-rubati": {
+      "cover": "/images/blog/article-attacco-publica-dati-rubati.webp",
+      "hash": "f6e217bc04f4d1bbe7361dba30cabed9e02f95129070899ca01464c641640a6a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "attacco-publica-dati-rubati",
+          "category": "pensione",
+          "date": "2026-10-09T01:39:56.530Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-bally-caslano-moratoria-tagli": {
       "cover": "/images/blog/article-bally-caslano-moratoria-tagli.webp",
       "hash": "67a2e1a734f6c9564f6124288372d2e484c95b467db64ea605719b2323023291",
@@ -180955,6 +180982,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-teatro-intred-varese-stagione-2026": {
+      "cover": "/images/blog/article-teatro-intred-varese-stagione-2026.webp",
+      "hash": "b7d561b51b9a9bb4c18511b1033c0efbfd4ded48ba2ccb607603aa7d8621c7fa",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "teatro-intred-varese-stagione-2026",
+          "category": "novita",
+          "date": "2026-10-09T01:29:12.556Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

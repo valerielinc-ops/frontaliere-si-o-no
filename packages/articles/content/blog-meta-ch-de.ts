@@ -7946,6 +7946,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.linea-ginevra-friburgo-pressione.title': 'Genf-Freiburg, eine unter Druck stehende Bahnstrecke',
     'blog.article.linea-ginevra-friburgo-pressione.excerpt': 'Dreizehn Unterbrechungen auf der Strecke seit Jahresbeginn Über 150’000 Fahrgäste und mehr als 700 Züge täglich Verbrannte Kabel, beschädigte Gleise und ein Vogel',
     'blog.article.linea-ginevra-friburgo-pressione.imageAlt': 'Schweizer Zug an einem belebten Bahnhof',
+    'blog.article.attacco-publica-dati-rubati.title': 'Namen, AHV-Nummern und Gehälter: Hier sind die bei Publica gestohlenen Daten',
+    'blog.article.attacco-publica-dati-rubati.excerpt': 'Ende September: Angriff auf den Softwareanbieter von Publica Namen, AHV-Nummern und Gehälter unter den gefährdeten Daten Publica zählt 66’000 aktive Versicherte und 40’000',
+    'blog.article.attacco-publica-dati-rubati.imageAlt': 'Institutioneller Hauptsitz in der Schweiz im Zusammenhang mit der Pensionskasse Publica',
 };
 
 export default blogMetaChDe;

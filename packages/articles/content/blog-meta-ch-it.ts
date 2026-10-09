@@ -7946,6 +7946,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.linea-ginevra-friburgo-pressione.title': 'Ginevra-Friburgo, una tratta ferroviaria sotto pressione',
     'blog.article.linea-ginevra-friburgo-pressione.excerpt': 'Tredici interruzioni sulla linea dall\'inizio dell\'anno Oltre 150’000 passeggeri e più di 700 treni ogni giorno Cavi incendiati, binari danneggiati e un volatile',
     'blog.article.linea-ginevra-friburgo-pressione.imageAlt': 'Convoglio svizzero in una stazione ferroviaria affollata',
+    'blog.article.attacco-publica-dati-rubati.title': 'Nomi, numeri AVS e stipendi: ecco i dati rubati a Publica',
+    'blog.article.attacco-publica-dati-rubati.excerpt': 'Fine settembre: attacco al fornitore software di Publica Nomi, numeri AVS e stipendi tra i dati a rischio Publica conta 66’000 assicurati attivi e 40’000',
+    'blog.article.attacco-publica-dati-rubati.imageAlt': 'Sede istituzionale in Svizzera legata alla cassa pensioni Publica',
 };
 
 export default blogMetaChIt;

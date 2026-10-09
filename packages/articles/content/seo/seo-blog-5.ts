@@ -103636,6 +103636,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-teatro-intred-varese-stagione-2026': {
+    title: 'Varese: Teatro Intred apre stagione 2026/27 | Frontaliere Ticino',
+    description: 'L\'11 ottobre parte a Varese la stagione 2026/27 del Teatro INTRED Fabio De Luigi inaugura il cartellone con BIOL Gianluca Gotto arriva il 17 ottobre',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, teatro, intred, apre',
+    ogTitle: 'Varese: Teatro Intred apre stagione 2026/27',
+    ogDescription: 'L\'11 ottobre parte a Varese la stagione 2026/27 del Teatro INTRED Fabio De Luigi inaugura il cartellone con BIOL Gianluca Gotto arriva il 17 ottobre',
+    canonicalPath: '/articoli-frontaliere/teatro-intred-varese-stagione-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: Teatro Intred apre stagione 2026/27",
+      "description": "L'11 ottobre parte a Varese la stagione 2026/27 del Teatro INTRED Fabio De Luigi inaugura il cartellone con BIOL Gianluca Gotto arriva il 17 ottobre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-teatro-intred-varese-stagione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata del Teatro INTRED a Varese durante la sera, illuminata per l'inizio della stagione 2026/27."
+      },
+      "datePublished": "2026-10-09T01:29:12+00:00",
+      "dateModified": "2026-10-09T01:29:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teatro-intred-varese-stagione-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

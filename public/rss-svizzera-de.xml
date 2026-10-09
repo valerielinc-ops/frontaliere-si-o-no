@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Thu, 08 Oct 2026 21:08:07 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 01:39:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,83 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Namen, AHV-Nummern und Gehälter: Hier sind die bei Publica gestohlenen Daten</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/publica-cyberangriff-daten-gestohlen/</link>
+      <description><![CDATA[Ende September: Angriff auf den Softwareanbieter von Publica Namen, AHV-Nummern und Gehälter unter den gefährdeten Daten Publica zählt 66’000 aktive Versicherte und 40’000]]></description>
+      <content:encoded><![CDATA[## Auf einen Blick
+- Ende September: Angriff auf den Softwareanbieter von Publica
+- Namen, AHV-Nummern und Gehälter unter den gefährdeten Daten
+- Publica zählt 66’000 aktive Versicherte und 40’000 Renten
+- Die Vorsorgegelder waren nicht betroffen
+
+## Wichtige Fakten
+- Institut → Publica, die Pensionskasse des Bundes
+- Anbieter → PK Softech AG
+- Zeitpunkt → Ende September
+- Möglicherweise Betroffene → rund 66’000 aktive Versicherte und 40’000 Rentenbeziehende
+- Untersuchung → Bundesanwaltschaft
+- Gelder → laut Publica nicht betroffen und sicher
+
+Ende September hat ein Cyberangriff einen externen Softwareanbieter von Publica, der Pensionskasse des Bundes, getroffen. Der Vorfall führte zu einem Datenleck und könnte nach derzeitigem Kenntnisstand besonders sensible personenbezogene Informationen betroffen haben.
+
+Der Fall wurde am Donnerstag öffentlich, nachdem Publica eine Mitteilung an die Versicherten verschickt hatte. Das von SRF eingesehene Dokument weist darauf hin, dass wahrscheinlich personenbezogene Daten gestohlen wurden. Beatrice Rychen, Sprecherin der Vorsorgeeinrichtung, bezeichnete den Vorfall mit deutlichen Worten: «Für uns ist das das Schlimmste, was hätte passieren können».
+
+Zu den Informationen, die möglicherweise erlangt wurden, gehören Vor- und Nachname, Geburtsdatum, AHV-Nummer, Adresse, private und berufliche Telefonnummern sowie private und berufliche E-Mail-Adressen. Die Liste umfasst auch Vorsorgedaten wie den Lohn und das Vorsorgeguthaben, den Zivilstand sowie Informationen zu Ehepartner oder Partner.
+
+### Der Weg über den externen Anbieter
+
+Es ist noch nicht klar, ob das Datenleck alle rund 66’000 aktiven Versicherten und 40’000 Rentenbeziehenden oder nur einen Teil von ihnen betrifft. Publica stellt jedoch klar, dass die Vorsorgegelder nicht betroffen und sicher sind.
+
+Die Cyberkriminellen haben nicht direkt die Pensionskasse des Bundes angegriffen. Ziel war die PK Softech AG, das externe Unternehmen, das Anwendungen für Pensionskassen entwickelt. Über diesen Anbieter sollen die Täter Zugriff auf die Daten von Publica erhalten haben.
+
+Die Bundesanwaltschaft untersucht den Fall. Inzwischen analysieren Spezialisten die gestohlenen Informationen. Es ist nicht bekannt, ob der Angriff auch Daten anderer Vorsorgeeinrichtungen betraf. Wer seine eigene Situation überprüft, sollte die AHV-Nummer daher von den Anlagen und den Fonds unterscheiden, die Publica als nicht betroffen bezeichnet. Der Leitfaden zu previdenza AVS kann helfen, sich in der Vorsorgeterminologie zurechtzufinden.
+### Zwei unterschiedliche Risiken für die Versicherten
+
+Der Fall hat zwei unterschiedliche Ebenen. Die erste betrifft die mögliche Entwendung personenbezogener Daten; die zweite betrifft die Vorsorgegelder. Publica erklärt, die Vorsorgegelder seien sicher, warnt jedoch vor einem Risiko für einzelne Personen im Zusammenhang mit der missbräuchlichen Nutzung der Informationen.
+
+Die Entwendung des Namens, der Adresse, der AHV-Nummer, des Gehalts oder des Vorsorgeguthabens könnte nach Angaben des Instituts dazu verwendet werden, zu versuchen, die Identität anderer Personen zu übernehmen oder einen Vorteil zu erlangen. Das genannte Risiko bedeutet jedoch nicht, dass bereits eine unrechtmässige Nutzung der Daten festgestellt wurde. Die Spezialisten analysieren noch, wie viel entwendet wurde.
+
+| Szenario | Was aus der Quelle hervorgeht | Praktische Einordnung |
+|---|---|---|
+| Nur ein Teil der Versicherten ist betroffen | Der Umfang ist nicht geklärt | Nicht alle Betroffenen wären notwendigerweise gefährdet |
+| Alle Versicherten und Leistungsempfänger sind betroffen | Diese Annahme ist nicht ausgeschlossen | Das Ausmass wäre grösser, ist aber nicht bestätigt |
+| Die Vorsorgegelder | Publica bezeichnet sie als sicher | Die Meldung betrifft die Daten, nicht einen gemeldeten Verlust der Gelder |
+
+Der Verweis auf das Gehalt macht auch die korrekte Interpretation der möglicherweise in den entwendeten Daten enthaltenen Gehaltsinformationen relevant. Deshalb kann es nützlich sein, busta paga svizzera zu konsultieren, ohne eine Kategorie personenbezogener Daten mit einer Kontobewegung auf dem Vorsorgekonto zu verwechseln.
+
+Der Angriff weist Ähnlichkeiten mit demjenigen auf, von dem Xplain im Jahr 2023 betroffen war: In jenem Fall hatten Cyberkriminelle über ein externes Softwareunternehmen Informationen von Bundesstellen erlangt, was zum Diebstahl von etwa 1,3 Millionen sensiblen Dateien führte. Vor zwei Jahren hatte der Bundesrat nach Abschluss einer Administrativuntersuchung Massnahmen ergriffen, um weitere Entwendungen bei IT-Anbietern zu verhindern. Seitdem unterliegt die Zusammenarbeit mit externen Unternehmen auch zusätzlichen Sicherheitsanforderungen.
+
+Der frühere Fall erlaubt es nicht, den Umfang des Falls Publica automatisch zu bestimmen. Er zeigt jedoch, warum der Softwareanbieter, obwohl er nicht die Pensionskasse des Bundes ist, im Zentrum der Untersuchung steht.
+
+## Nützliche Tools für die Planung
+Für Ihre Vorsorgestrategie nutzen Sie den Rentenplaner und den Säule-3-Simulator.
+
+## Nützliche Tools für die Planung
+Für Ihre Vorsorgestrategie nutzen Sie den Rentenplaner und den Säule-3-Simulator.
+### Was auf Grundlage der verfügbaren Informationen zu tun ist
+
+1. **Die Mitteilung lesen**. Publica hat den Versicherten eine Mitteilung über ein Datenleck geschickt. Sie ist der Ausgangspunkt, um die angegebenen Kategorien zu überprüfen und persönliche Informationen von Vorsorgegeldern zu unterscheiden.
+
+2. Die sensibelsten Daten erkennen. Der mögliche Diebstahl betrifft auch die AHV-Nummer, Gehaltsdaten, das Vorsorgeguthaben, die Adresse und Kontaktdaten. Das bedeutet nicht, dass jede Kategorie bei jeder Person gestohlen wurde: Publica hat noch nicht geklärt, ob alle Versicherten und Begünstigten oder nur ein Teil davon betroffen sind.
+
+3. Bei ungewöhnlichen Kontakten vorsichtig sein. Das Institut fordert die Versicherten auf, bei ungewöhnlichen Anrufen oder Nachrichten aufmerksam zu sein. Die Vorsicht hängt mit dem Risiko zusammen, dass die gestohlenen Informationen missbräuchlich genutzt werden könnten, um die Identität einer Person anzunehmen oder sich einen Vorteil zu verschaffen.
+
+4. Daten und Gelder voneinander trennen. Die Mitteilung beschreibt ein mögliches Datenleck, aber Publica erklärt, dass die Vorsorgegelder nicht betroffen und sicher sind. Diese Unterscheidung verhindert, die Nachricht als Bestätigung von Verlusten beim Vorsorgeguthaben zu verstehen.
+
+Die Situation wird weiter geprüft. Spezialisten analysieren die gestohlenen Daten, und die Bundesanwaltschaft untersucht den Vorfall. Zudem ist nicht bekannt, ob der Angriff Informationen anderer Vorsorgeeinrichtungen erlangt hat: Etwaige Aktualisierungen müssen daher sowohl das Ausmaß des Datenlecks als auch die tatsächlich betroffenen Kategorien klären.
+
+Um die in der Mitteilung erwähnten Lohnbestandteile besser zu verstehen, kannst du calcolatore stipendio verwenden.
+
+Für eine genaue Nettogehaltsberechnung nutzen Sie unseren Steuervergleichsrechner: vergleichen Sie G- und B-Bewilligung mit allen Abzügen 2026.
+
+*Quelle: [rsi.ch](https://www.rsi.ch/s/4145954)*]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 01:39:56 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/attacco-publica-dati-rubati</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-attacco-publica-dati-rubati.webp" medium="image"/>
+    </item>
     <item>
       <title>Genf-Freiburg, eine unter Druck stehende Bahnstrecke</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/bahnstrecke-genf-freiburg-unter-druck/</link>
@@ -3928,83 +4005,6 @@ Um die Belastung des Monatsbudgets durch die Ausgaben zu schätzen, verwende cal
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/ostinelli-cassa-malati-udienza-pretore</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/ostinelli-cassa-malati-udienza-pretore.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Riessdo</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license></media:content>
-    </item>
-    <item>
-      <title>Preise für Häuser und Wohnungen in der Schweiz: September stabil</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/immobilienpreise-september-regionen/</link>
-      <description><![CDATA[Einfamilienhäuser bei -0,1% und Wohnungen bei +0,2% im September: Zürich verzeichnet den stärksten Rückgang, während das Tessin beim Stockwerkeigentum zulegt.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Einfamilienhäuser: Angebotspreise um 0,1% gesunken
-- Wohnungen: Angebotspreise um 0,2% gestiegen
-- Zürich: Rückgang der Hauspreise um 2,7%, der stärkste
-- Stockwerkeigentum: Anstiege im Tessin und am Genfersee
-
-- Analyse → Immobilieninserate von Immoscout in Zusammenarbeit mit IAZI
-- Zeitraum → September, Vergleich mit August
-- Gegenstand → von den Verkäufern verlangte Preise
-- Einfamilienhäuser → Rückgang um 0,1%
-- Wohnungen → Anstieg um 0,2%
-- Stärkster Rückgang bei den Häusern → Zürich, 2,7%
-- Stockwerkeigentum → Anstiege im Tessin, am Genfersee, in der Nordwestschweiz und in der Zentralschweiz
-
-In Zürich zeigt die Septemberaufnahme der Wohnimmobilien im Eigentum eine weitgehende Stabilität in der Schweiz, zumindest auf Monatsebene. Die Zahl stammt aus einer Analyse der Immobilieninserate, die von der Plattform Immoscout in Zusammenarbeit mit der Immobilienberatungsgesellschaft IAZI veröffentlicht wurde. Die Erhebung betrachtet die von den Verkäufern verlangten Preise und unterscheidet zwischen Einfamilienhäusern und Wohnungen.
-
-Das erste Segment verzeichnete gegenüber August einen Rückgang um 0,1%. Bei den Wohnungen stiegen die Preise dagegen um 0,2%. Der Vergleich betrifft somit zwei Bewegungen mit unterschiedlichem Vorzeichen, obwohl das Gesamtbild als weitgehend stabil gilt.
-
-### Die regionale Verteilung der Häuser
-
-Das Schweizer Ergebnis zeigt sich nicht in allen Regionen gleich. Bei den Einfamilienhäusern wurde der stärkste Rückgang in Zürich verzeichnet, wo die Abnahme 2,7% beträgt. Rückgänge wurden auch im Mittelland, in der Zentralschweiz und im Tessin festgestellt. Anstiege betrafen dagegen die Genferseeregion, die Ostschweiz und die Nordwestschweiz.
-
-Beim Stockwerkeigentum zeigt sich eine andere Verteilung. Die Preise stiegen im Tessin, in der Nordwestschweiz, in der Genferseeregion und in der Zentralschweiz. Dagegen sanken sie in Zürich und in der Ostschweiz.
-
-Diese doppelte Betrachtung ist der zentrale Punkt der Analyse: Die nationale monatliche Entwicklung reicht nicht aus, um jedes Gebiet zu beschreiben. Das Ergebnis ändert sich, wenn man von den Einfamilienhäusern zum Stockwerkeigentum wechselt und wenn sich der Beobachtungsfokus zwischen Zürich, dem Tessin, dem Genfersee und den anderen genannten Regionen verschiebt. Deshalb müssen die Zahlen unter getrennter Betrachtung der Immobilienart, des Ortes und des Vergleichs zwischen September und August gelesen werden. Der geografische Bezug ist kein nebensächliches Detail, denn die Quelle verzeichnet je nach betrachtetem Gebiet Anstiege und Rückgänge in denselben Kategorien. Die Unterscheidung ist somit integraler Bestandteil der Monatszahl. Es handelt sich nicht um eine einheitliche Bewegung.
-### Zwei Filter, um die Daten nicht zu verwechseln
-
-Die für September angegebene nationale Stabilität ist ein Ausgangspunkt, keine Zahl, die unterschiedslos auf jede Anzeige angewendet werden kann. Die Quelle berücksichtigt zwei Variablen: die Art der Immobilie und die Region. Eine korrekte Lesart muss beide bis zum Ende des Vergleichs beibehalten.
-
-| Segment | Gebiete mit Rückgang | Gebiete mit Anstieg |
-| --- | --- | --- |
-| Einfamilienhäuser | Zürich, Mittelland, Zentralschweiz, Tessin | Genferseeregion, Ostschweiz, Nordwestschweiz |
-| Stockwerkeigentum | Zürich, Ostschweiz | Tessin, Nordwestschweiz, Genferseeregion, Zentralschweiz |
-
-Die Tabelle macht einen für Beobachter eines verlangten Preises nützlichen Unterschied sichtbar. Im Segment der Häuser gehört das Tessin zu den Gebieten mit Rückgang; beim Stockwerkeigentum hingegen zu den Gebieten mit Anstieg. Zürich erscheint bei beiden Kategorien unter den Gebieten mit Rückgang, während die Ostschweiz bei den Häusern von einem Anstieg zu einem Rückgang beim Stockwerkeigentum wechselt. Die Nordwestschweiz verzeichnet bei beiden Kategorien einen Anstieg; die Zentralschweiz wechselt das Vorzeichen, mit einem Rückgang bei den Häusern und einem Anstieg beim Stockwerkeigentum.
-
-Der richtige Bezugspunkt bleibt der vom Verkäufer in der Anzeige verlangte Preis. Das berechtigt jedoch nicht dazu, die Angabe als eine einheitliche Veränderung für alle Wohnobjekte zu lesen: Der Monatsvergleich erfolgt zwischen September und August, und die Regionen entwickeln sich in unterschiedliche Richtungen. Nimmt man eine Anzeige, sollte man daher zunächst die Kategorie und das Gebiet notieren und anschließend prüfen, welche Zeile der Tabelle dazu passt.
-
-Um diese Lesart mit dem persönlichen Budget zu verknüpfen, ohne verschiedene Indikatoren zu vermischen, kann man costo della vita in Svizzera konsultieren. Die Verknüpfung dient dazu, die Betrachtung zu erweitern, während die Zahlen der Analyse auf Immobilienanzeigen und die beiden beschriebenen Kategorien beschränkt bleiben.
-
-Ein Vergleich zwischen zwei Anzeigen ist daher nur dann homogen, wenn die Daten in derselben Reihenfolge angegeben werden: September, August, Kategorie, Region und verlangter Preis. Fehlt eine dieser Koordinaten, verliert die Zahl ihre vergleichende Bedeutung. Ziel ist nicht, eine nationale Veränderung in einen undifferenzierten Durchschnitt zu verwandeln, sondern den Wert in der von der Quelle angegebenen Kombination zu lesen.
-
-## Empfohlene Tools
-Für eine aktuelle Schätzung nutzen Sie den Nettolohnrechner und den CHF-EUR-Wechselvergleich.
-### Vier operative Kontrollen
-
-Die Erhebung kann in ein einfaches Datenblatt übertragen werden. Ziel ist es nicht, Schätzungen hinzuzufügen, sondern die Abgrenzung der Daten unverändert beizubehalten: Inserate, Angebotspreise, September, Vergleich mit August, Kategorie und Region.
-
-1. Lege die Kategorie fest. Gib an, ob es sich um ein Einfamilienhaus oder um Stockwerkeigentum handelt. Führe die beiden Kategorien nicht in einer einzigen Zeile zusammen, da die Quelle unterschiedliche Entwicklungen verzeichnet.
-
-2. Gib die Region an. Nenne das dem Inserat zugeordnete Gebiet: Zürich, Mittelland, Zentralschweiz, Tessin, Genferseeregion, Ostschweiz oder Nordwestschweiz. Die Lage bestimmt, welcher regionale Vergleich heranzuziehen ist.
-
-3. Lege den Zeitraum fest. Schreibe September als beobachteten Zeitraum und August als monatliche Referenz. So bleibt der Vergleich an das in der Analyse angegebene Intervall gebunden.
-
-4. Übertrage den Referenzwert. Bewahre den vom Verkäufer im Inserat verlangten Preis und ersetze ihn nicht durch einen allgemeinen Wert. Auch der Bezugspunkt des Preises gehört zur Interpretation.
-
-Nach dieser Erfassung verwende die entsprechende Veränderung, ohne sie auf eine andere Kategorie zu übertragen. Die 0,1% beziehen sich auf Einfamilienhäuser im Vergleich zu August; die 0,2% betreffen Wohnungen. Die 2,7% kennzeichnen den stärksten Rückgang bei den Häusern in Zürich. Das sind drei unterschiedliche Referenzwerte, die in ihrem jeweiligen Feld beibehalten werden müssen.
-
-Das Datenblatt sollte zudem den Quellenhinweis enthalten: Die Analyse der Inserate wird von Immoscout mit IAZI veröffentlicht und bezieht sich auf die von den Verkäufern verlangten Preise. So verliert der Leser die Bedeutung der Zahl nicht, wenn er sie mit einer anderen Position vergleicht.
-
-Eine abschließende Kontrolle besteht darin, die regionale Zeile erneut zu lesen: Bei den Häusern darf der Rückgang im Tessin nicht mit dem Anstieg in der Genferseeregion verwechselt werden; beim Stockwerkeigentum darf der Anstieg im Tessin nicht mit dem Rückgang in Zürich verwechselt werden. Die Quelle bietet genau diese Unterscheidung, und ihre Beibehaltung verhindert einen Vergleich, der sich nur auf die nationale Überschrift stützt.
-
-Wenn die persönliche Bewertung einen zusätzlichen Schritt in Bezug auf das Einkommen erfordert, bietet die Website auch die busta paga svizzera. Das ist eine separate Vertiefung: Sie ersetzt die Immobiliendaten nicht, hilft aber dabei, den verlangten Preis und die eigenen wirtschaftlichen Informationen getrennt zu halten.
-
-Um den Vergleich mit deinem Einkommen abzuschließen, verwende den calcolatore stipendio.
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/economia/1954949/svizzera-prezzi-case-appartamenti-settembre)*]]></content:encoded>
-      <pubDate>Tue, 06 Oct 2026 06:36:57 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/prezzi-immobili-settembre-regioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/prezzi-immobili-settembre-regioni.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Gary Hoover</media:credit><media:license type="text/html" href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</media:license></media:content>
     </item>
   </channel>
 </rss>
