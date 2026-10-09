@@ -1153,6 +1153,20 @@
       "applyUrl": "https://jobs.zgks.ch/Endoskopieassistentin-60-100-mw-de-j889.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-03T13:46:52.682Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugs": [
         "endoscopy-assistant-60-100-m-f-zuger-kantonsspital-baar",
         "assistant-endoscopie-60-100-h-f-zuger-kantonsspital-baar",
@@ -1180,20 +1194,6 @@
         "fr": [
           "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
         ]
-      },
-      "firstSeenAt": "2026-09-03T13:46:52.682Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
       }
     }
   ]

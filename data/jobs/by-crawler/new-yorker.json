@@ -2265,11 +2265,6 @@
       "applyUrl": "https://jobs.newyorker.de/karriere-schweiz/Filialleitung-mwd-de-j27746.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "filialleitung-m-w-d-new-yorker-bern-z0bhtt",
-        "filialleitung-m-w-d-new-yorker-bern-n5u750",
-        "filialleitung-m-w-d-new-yorker-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "filialleitung-m-w-d-new-yorker-bern-z0bhtt",
@@ -2280,7 +2275,11 @@
           "filialleitung-m-w-d-new-yorker-bern-z0bhtt"
         ]
       },
-      "firstSeenAt": "2026-08-23T09:49:01.788Z",
+      "previousSlugs": [
+        "filialleitung-m-w-d-new-yorker-bern-z0bhtt",
+        "filialleitung-m-w-d-new-yorker-bern-n5u750",
+        "filialleitung-m-w-d-new-yorker-bern"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2293,7 +2292,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-23T09:49:01.788Z"
     },
     {
       "id": "new-yorker-28062",

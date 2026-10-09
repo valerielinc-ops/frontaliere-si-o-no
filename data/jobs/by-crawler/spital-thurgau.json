@@ -3068,7 +3068,6 @@
           "praktikanten-in-fachmatura-gesundheit-fmg-2026-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -3082,7 +3081,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-thurgau-ff670b2ffe4f",

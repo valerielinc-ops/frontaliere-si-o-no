@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "concordia",
-  "assembledAt": "2026-10-09T09:20:20.174Z",
   "jobs": [
     {
       "id": "concordia-9954ebe55a67",
@@ -3663,5 +3661,7 @@
       },
       "firstSeenAt": "2026-09-10T23:10:38.803Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T09:20:20.174Z",
+  "crawlerKey": "concordia"
 }

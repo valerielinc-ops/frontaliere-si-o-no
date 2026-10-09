@@ -7331,14 +7331,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-30T21:31:40.737Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "systemingenieur-in-ram-lcc-stadler-rail-ch"
-        ]
-      },
-      "previousSlugs": [
-        "systemingenieur-in-ram-lcc-stadler-rail-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7351,7 +7343,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "systemingenieur-in-ram-lcc-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "systemingenieur-in-ram-lcc-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-ce6f696b16c4",

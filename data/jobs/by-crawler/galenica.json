@@ -14411,24 +14411,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-5289723b7fb0",
-      "previousSlugs": [
-        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
-        "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1"
-        ],
-        "en": [
-          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens"
-        ],
-        "de": [
-          "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -14443,7 +14425,27 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens"
+        ],
+        "it": [
+          "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0"
+        ],
+        "de": [
+          "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens",
+        "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",

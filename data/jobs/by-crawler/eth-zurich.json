@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "eth-zurich",
-  "assembledAt": "2026-10-09T09:47:18.550Z",
   "jobs": [
     {
       "id": "eth-zurich-8b3038243257",
@@ -285,7 +283,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -6622,7 +6621,7 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_RU68F1vlzLJgmsWpse",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:34:51.946Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -7071,8 +7070,8 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_ZITHoRnREvdetCi2CO",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:31:39.049Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "strategische-r-referent-in-des-prasidenten-m-w-d-eth-zurich-ch"
@@ -7095,7 +7094,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-e29de845f2a0",
@@ -7145,8 +7145,8 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_0r4YkY1enc7TSSEEt4",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:28:57.480Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mediation-support-program-officer-in-the-culture-and-religion-in-mediation-carim-program"
@@ -7169,7 +7169,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-e68782487ba1",
@@ -7219,8 +7220,9 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_eEYITXPXNJCRYjSxip",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:28:57.003Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "mediation-support-program-officer-in-the-mediation-support-project-eth-zurich-ch"
@@ -8325,7 +8327,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-615d4aab6d37",
@@ -8996,5 +8999,7 @@
       "addressRegion": "ZH",
       "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T09:47:18.550Z",
+  "crawlerKey": "eth-zurich"
 }

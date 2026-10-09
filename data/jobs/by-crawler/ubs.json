@@ -7307,7 +7307,6 @@
         "categoryRaw": "Information Technology (IT)",
         "jobType": ""
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-27T19:48:47.847Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
@@ -7322,7 +7321,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "ubs-9a8dd5061134",

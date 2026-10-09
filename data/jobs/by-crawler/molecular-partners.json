@@ -52,16 +52,15 @@
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-accounting-manager-molecular-partners-schlieren"
-      ],
+      "firstSeenAt": "2026-07-27T12:32:19.008Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-accounting-manager-molecular-partners-schlieren"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-27T12:32:19.008Z",
+      "previousSlugs": [
+        "senior-accounting-manager-molecular-partners-schlieren"
+      ],
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -74,7 +73,9 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "molecular-partners-749786a2a588",

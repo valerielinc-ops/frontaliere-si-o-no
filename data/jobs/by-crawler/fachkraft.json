@@ -2174,7 +2174,7 @@
           "zimmermann-zimmerin-fur-rohbau-und-montage-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:58:37.555Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -113179,9 +113179,9 @@
       "companyDomain": "fachkraft.ch",
       "title": "Maler/in für Kundenmalerei und Renovationen",
       "titleByLocale": {
+        "de": "Maler/in für Kundenmalerei und Renovationen",
         "it": "Imbianchino/a per tinteggiatura presso i clienti e ristrutturazioni",
         "en": "Painter for customer painting and renovations",
-        "de": "Maler/in für Kundenmalerei und Renovationen",
         "fr": "Peintre pour travaux de peinture chez les clients et rénovations"
       },
       "description": "Tätigkeiten - Kundenmalerei - Neubau und Renovationen - Innen- und Aussenarbeiten - Spritz- und Lackierarbeiten\n• Anforderungen - Lehre als Maler abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn. Bei abwechslungsreichen Einsätzen im Innen- und Aussenbereich kannst du deine Fachkenntnisse voll einsetzen. Der Betrieb setzt auf eine präzise und effiziente Arbeitsweise in einem kollegialen Umfeld. Für unseren Auftraggeber suchen wir eine/n",
@@ -113201,7 +113201,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -113238,7 +113237,6 @@
           "maler-in-fur-kundenmalerei-und-renovationen-fachkraft-ch-gmbh-winterthur"
         ]
       },
-      "firstSeenAt": "2026-09-26T15:25:37.410Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -113251,7 +113249,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-09-26T15:25:37.410Z"
     },
     {
       "id": "fachkraft-dc64ce8ed32f",
@@ -143411,9 +143411,9 @@
       "companyDomain": "fachkraft.ch",
       "title": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
       "titleByLocale": {
+        "de": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
         "it": "Giardiniere/a - giardinaggio e paesaggistica con consulenza alla clientela",
         "en": "Gardener - garden and landscape construction with customer consultation",
-        "de": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
         "fr": "Jardinier/ère - aménagement paysager avec conseil à la clientèle"
       },
       "description": "Tätigkeiten - Gartenanlagen direkt bei der Kundschaft unterhalten - Formschnitt an Gehölzen fachgerecht ausführen - Bepflanzungen setzen und bestehende Pflanzen versetzen - Rasenflächen und Grünanlagen laufend pflegen - Privatkunden vor Ort fachkundig beraten\n• Anforderungen - Lehrabschluss als Landschaftsgärtnerin oder Landschaftsgärtner EFZ - Führerausweis der Kategorie BE vorhanden - Eigenverantwortliche und verlässliche Arbeitsweise mit Initiative - Sicheres und gepflegtes Auftreten im Kundenkontakt - Gute mündliche und schriftliche Deutschkenntnisse Angebot - Flexibles Pensum - Zeitgemässe Sozialleistungen - Raum für berufliche Weiterbildung Grüne Oasen gestalten und pflegen zählt zu deinen Hauptaufgaben. Der Betrieb legt grossen Wert auf selbständiges Arbeiten und einen freundlichen Umgang mit Kunden. Für unseren Auftraggeber suchen wir eine/n",
@@ -143433,7 +143433,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -143447,6 +143446,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-garten-und-landschaftsbau-winterthur-dauerstelle-294705/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "gardener-gardening-and-landscaping-with-customer-advice-fachkraft-ch-gmbh-winterthur",
         "jardinier-ere-jardinage-et-amenagement-paysager-avec-conseil-a-la-clientele-fachkraft-ch-gmbh-winterthur",
@@ -143475,8 +143475,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-kundenberatung-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.257Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -143490,6 +143488,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-09-28T04:32:46.257Z",
       "translationHoldReleasedAt": "2026-10-09T10:30:57.262Z"
     },
     {
@@ -236007,7 +236007,7 @@
           "zimmermann-zimmerin-fur-abbinden-und-aufrichten-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T22:24:17.640Z",
       "salaryMin": 69500,
       "salaryMax": 106000,

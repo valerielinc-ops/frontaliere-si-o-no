@@ -292,17 +292,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
-        ],
-        "fr": [
-          "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
-        ]
-      },
       "slugDisambiguator": "1374333757",
       "firstSeenAt": "2026-10-08T21:24:00.285Z",
       "salaryMin": 189000,
@@ -317,7 +306,18 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manager-operational-excellence-efficiency-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1374332457",
@@ -1655,7 +1655,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugs": [
         "responsable-d-equipe-affaires-privees-brokers-romandie-h-f-d-zurich-insurance-sede-ticino"
       ],
@@ -1737,7 +1736,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugs": [
         "inspecteur-de-sinistres-choses-et-responsabilite-civile-valais-h-f-d-zurich-insurance-sede"
       ],
@@ -2783,7 +2781,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugs": [
         "expert-en-vehicules-st-maurice-valais-h-f-d-zurich-insurance-sede-ticino-sion"
       ],

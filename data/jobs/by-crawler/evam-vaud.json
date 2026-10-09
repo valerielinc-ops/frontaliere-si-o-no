@@ -808,25 +808,6 @@
       "contractType": "permanent",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "previousSlugs": [
-        "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
-        "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
-          "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc"
-        ],
-        "en": [
-          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
-        ],
-        "de": [
-          "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc",
-          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-08T09:25:40.349Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -840,7 +821,26 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://emploi.evam.ch/jobs/8509599-intendant-e-multi-sites-100-cdi"
+      "applyUrl": "https://emploi.evam.ch/jobs/8509599-intendant-e-multi-sites-100-cdi",
+      "firstSeenAt": "2026-10-08T09:25:40.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc"
+        ],
+        "en": [
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
+        ],
+        "de": [
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc",
+          "intendant-e-multi-sites-100-cdi-evam-vaud-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intendant-e-multi-sites-100-cdi-evam-vaud-ch",
+        "intendant-e-multi-sites-100-cdi-evam-vaud-ch-mfhxjc"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "evam-vaud-8511521",

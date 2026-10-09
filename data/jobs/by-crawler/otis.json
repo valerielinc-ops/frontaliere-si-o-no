@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "otis",
-  "assembledAt": "2026-10-09T09:43:42.718Z",
   "jobs": [
     {
       "id": "otis-286c56c06554",
@@ -120,13 +118,6 @@
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-09T09:43:37.390Z",
-      "previousSlugs": [
-        "servicetechniker-in-m-w-d-otis-reinach",
-        "service-technician-m-f-d-otis-sa-reinach",
-        "servicetechniker-in-m-w-d-otis-reinach-mp6xrm",
-        "technicien-de-service-h-f-d-otis-sa-reinach",
-        "servicetechniker-in-m-w-d-otis-sa-reinach"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-m-w-d-otis-reinach",
@@ -144,8 +135,13 @@
           "servicetechniker-in-m-w-d-otis-sa-reinach"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-otis-reinach",
+        "service-technician-m-f-d-otis-sa-reinach",
+        "servicetechniker-in-m-w-d-otis-reinach-mp6xrm",
+        "technicien-de-service-h-f-d-otis-sa-reinach",
+        "servicetechniker-in-m-w-d-otis-sa-reinach"
+      ],
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -160,7 +156,9 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "firstSeenAt": "2026-09-19T23:11:06.356Z",
+      "needsRetranslation": true
     },
     {
       "id": "otis-2fe25b9333f6",
@@ -1389,17 +1387,6 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-10-09T09:43:32.030Z",
       "firstSeenAt": "2026-09-30T21:35:25.753Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
-        ],
-        "fr": [
-          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
-        ]
-      },
-      "previousSlugs": [
-        "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
-      ],
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -1414,7 +1401,18 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Technische-r-Verkufer-in--m-w-d-_20169865",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        ],
+        "fr": [
+          "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-verkaufer-in-m-w-d-otis-wallisellen"
+      ]
     },
     {
       "id": "otis-df95b6c3ce48",
@@ -1814,5 +1812,7 @@
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Field-Operations-Assistant--FOD-_20165637",
       "addressRegion": "FR"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T09:43:42.718Z",
+  "crawlerKey": "otis"
 }

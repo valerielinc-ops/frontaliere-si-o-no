@@ -4117,17 +4117,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:17:21.726Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "bim-modellierer-in-m-w-d-coopers-aargau"
-        ],
-        "fr": [
-          "bim-modellierer-in-m-w-d-coopers-aargau"
-        ]
-      },
-      "previousSlugs": [
-        "bim-modellierer-in-m-w-d-coopers-aargau"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4141,7 +4130,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "bim-modellierer-in-m-w-d-coopers-aargau"
+        ],
+        "fr": [
+          "bim-modellierer-in-m-w-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "bim-modellierer-in-m-w-d-coopers-aargau"
+      ]
     },
     {
       "id": "coopers-eeafbae82670",

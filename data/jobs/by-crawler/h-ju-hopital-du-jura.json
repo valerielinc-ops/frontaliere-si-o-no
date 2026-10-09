@@ -260,6 +260,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4535",
+      "firstSeenAt": "2026-09-09T23:03:34.932Z",
+      "salaryMin": 86000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugs": [
         "operator-hopital-du-jura-h-ju-delemont",
         "betreiber-hopital-du-jura-h-ju-delemont",
@@ -285,20 +299,6 @@
         "de": [
           "instrumentiste-de-bloc-operatoire-h-ju-hopital-du-jura-delemont"
         ]
-      },
-      "firstSeenAt": "2026-09-09T23:03:34.932Z",
-      "salaryMin": 86000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
       }
     },
     {

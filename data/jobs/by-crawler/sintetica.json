@@ -115,17 +115,16 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
-      "id": "sintetica-2161482f648c",
-      "previousSlugs": [
-        "spontaneous-application-mendrisio-site-ticino-sintetica"
-      ],
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "spontaneous-application-mendrisio-site-ticino-sintetica"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-08T22:05:07.773Z",
+      "previousSlugs": [
+        "spontaneous-application-mendrisio-site-ticino-sintetica"
+      ],
+      "id": "sintetica-2161482f648c",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -139,7 +138,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-08T22:05:07.773Z",
+      "retranslationAttempts": 1
     },
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",

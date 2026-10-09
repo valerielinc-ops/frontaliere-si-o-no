@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "emmi",
-  "assembledAt": "2026-10-09T09:16:51.991Z",
   "jobs": [
     {
       "id": "emmi-5cbcedbc687a",
@@ -5314,14 +5312,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:21:42.498Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-informatik-plattformentwicklung-2027-2029-team-nss-emmi-ch"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-in-informatik-plattformentwicklung-2027-2029-team-nss-emmi-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5334,7 +5324,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-informatik-plattformentwicklung-2027-2029-team-nss-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-informatik-plattformentwicklung-2027-2029-team-nss-emmi-ch"
+      ]
     },
     {
       "id": "emmi-6afc4a9e8764",
@@ -8363,5 +8361,7 @@
       },
       "crawlerMissStreak": 1
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T09:16:51.991Z",
+  "crawlerKey": "emmi"
 }

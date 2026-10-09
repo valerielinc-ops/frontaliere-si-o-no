@@ -50616,24 +50616,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/kranfuehrer-in-herisau-temporaer-116505/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
-        "gruista-per-gru-a-torre-stellentreff-ag-herisau",
-        "top-slewing-crane-operator-stellentreff-ag-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
-          "gruista-per-gru-a-torre-stellentreff-ag-herisau"
-        ],
-        "en": [
-          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
-          "top-slewing-crane-operator-stellentreff-ag-herisau"
-        ],
-        "fr": [
-          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-28T21:42:32.094Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -50648,7 +50630,25 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9100"
+      "postalCode": "9100",
+      "previousSlugsByLocale": {
+        "it": [
+          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
+          "gruista-per-gru-a-torre-stellentreff-ag-herisau"
+        ],
+        "en": [
+          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
+          "top-slewing-crane-operator-stellentreff-ag-herisau"
+        ],
+        "fr": [
+          "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kranfuhrer-in-oberdreher-herisau-appenzell-ausserrhoden-stellentreff-ch",
+        "gruista-per-gru-a-torre-stellentreff-ag-herisau",
+        "top-slewing-crane-operator-stellentreff-ag-herisau"
+      ]
     },
     {
       "id": "stellentreff-385dc0be834f",
@@ -56716,14 +56716,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/zimmermann-zimmerin-willisau-temporaer-117486/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "zimmermann-zimmerin-mit-fuhrungsverantwortung-willisau-luzern-stellentreff-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "zimmermann-zimmerin-mit-fuhrungsverantwortung-willisau-luzern-stellentreff-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-29T09:52:07.181Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -56739,6 +56731,14 @@
         }
       },
       "postalCode": "6130",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-zimmerin-mit-fuhrungsverantwortung-willisau-luzern-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-zimmerin-mit-fuhrungsverantwortung-willisau-luzern-stellentreff-ch"
+      ],
       "translationHoldReleasedAt": "2026-10-09T09:40:07.878Z"
     },
     {

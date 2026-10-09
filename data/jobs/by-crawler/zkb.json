@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "zkb",
-  "assembledAt": "2026-10-09T09:12:38.756Z",
   "jobs": [
     {
       "id": "zkb-08bcc2d80caa",
@@ -1805,14 +1803,6 @@
       "pensumMax": 80,
       "pensum": "80%",
       "firstSeenAt": "2026-09-30T21:10:50.035Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-produktmanager-in-payments-zkb-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-produktmanager-in-payments-zkb-zurich"
-      ],
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -1825,7 +1815,15 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-produktmanager-in-payments-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-produktmanager-in-payments-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-1ea8b32e0711",
@@ -5222,5 +5220,7 @@
       },
       "crawlerMissStreak": 1
     }
-  ]
+  ],
+  "crawlerKey": "zkb",
+  "assembledAt": "2026-10-09T09:12:38.756Z"
 }

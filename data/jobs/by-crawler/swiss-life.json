@@ -1050,13 +1050,6 @@
       "requirementsByLocale": {},
       "jobReqId": "R09071",
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
-      "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp",
-        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
-        "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-solothurn-oberaargau-swiss-life-solothurn"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
@@ -1071,8 +1064,13 @@
           "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-solothurn-oberaargau-swiss-life-solothurn"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:01:33.553Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bh9lsp",
+        "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
+        "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-solothurn-oberaargau-swiss-life-solothurn"
+      ],
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -1085,7 +1083,9 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:33.553Z",
+      "needsRetranslation": true
     },
     {
       "id": "swiss-life-0516bede16b9",
@@ -1864,10 +1864,10 @@
       "companyDomain": "swisslife.ch",
       "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Lausanne",
       "titleByLocale": {
-        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Losanna",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Lausanne",
-        "de": "Vorsorge- und Finanzberater/in (m/w/d) mit Berufserfahrung – Generalagentur Lausanne",
-        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Lausanne"
+        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Lausanne",
+        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Losanna",
+        "de": "Vorsorge- und Finanzberater/in (m/w/d) mit Berufserfahrung – Generalagentur Lausanne"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Réussite de l’examen spécifique à la branche (intermédiaire d’assurance AFA, conseiller/conseillère en assurance et prévoyance diplômé(e) IAF) ou niveau de formation plus élevé\n • Expérience avérée de vente dans le secteur de l’assurance et de la finance\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -1903,11 +1903,7 @@
       "requirementsByLocale": {},
       "jobReqId": "R09222",
       "hiringOrganization": "Swiss Life AG Lausanne",
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
@@ -1915,8 +1911,11 @@
           "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:25.374Z",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1929,7 +1928,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:25.374Z"
     },
     {
       "id": "swiss-life-7145a0717956",
@@ -2022,10 +2022,10 @@
       "companyDomain": "swisslife.ch",
       "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Genève Rive Droite",
       "titleByLocale": {
-        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Ginevra Riva destra",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Genève Rive Droite",
-        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung – Generalagentur Genf Rive Droite",
-        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Genève Rive Droite"
+        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Genève Rive Droite",
+        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Ginevra Riva destra",
+        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung – Generalagentur Genf Rive Droite"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Réussite de l’examen spécifique à la branche (intermédiaire d’assurance AFA, conseiller/conseillère en assurance et prévoyance diplômé(e) IAF) ou niveau de formation plus élevé\n • Expérience avérée de vente dans le secteur de l’assurance et de la finance\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -2061,18 +2061,17 @@
       "requirementsByLocale": {},
       "jobReqId": "R08975",
       "hiringOrganization": "Swiss Life AG Genève Rive Droite",
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-lsuzu3"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-lsuzu3"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:23.996Z",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-lsuzu3"
+      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2085,7 +2084,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:23.996Z"
     },
     {
       "id": "swiss-life-dbc4f83d1761",
@@ -3451,10 +3451,10 @@
       "companyDomain": "swisslife.ch",
       "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle - Agence générale Canton de Fribourg",
       "titleByLocale": {
-        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale - Agenzia generale del Cantone di Friburgo",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle - Agence générale Canton de Fribourg",
-        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung - Generalagentur Kanton Freiburg",
-        "fr": "Agence générale Canton de Fribourg - Agence générale Canton de Fribourg (h/f/d)"
+        "fr": "Agence générale Canton de Fribourg - Agence générale Canton de Fribourg (h/f/d)",
+        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale - Agenzia generale del Cantone di Friburgo",
+        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung - Generalagentur Kanton Freiburg"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Réussite de l’examen spécifique à la branche (intermédiaire d’assurance AFA, conseiller/conseillère en assurance et prévoyance diplômé(e) IAF) ou niveau de formation plus élevé\n • Expérience avérée de vente dans le secteur de l’assurance et de la finance\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -3490,18 +3490,7 @@
       "requirementsByLocale": {},
       "jobReqId": "R08968",
       "hiringOrganization": "Swiss Life AG Canton de Fribourg",
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
-        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
-        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-geneve-rive",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
-        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-morges-la-cote"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
@@ -3519,8 +3508,18 @@
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:05.471Z",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh95gr",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-2",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-geneve-rive",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-morges-la-cote",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-4",
+        "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-morges-la-cote"
+      ],
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -3533,7 +3532,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:05.471Z"
     },
     {
       "id": "swiss-life-0a73961fe4a8",
@@ -3617,10 +3617,10 @@
       "companyDomain": "swisslife.ch",
       "title": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Morges-La Côte",
       "titleByLocale": {
-        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Morges-La Côte",
         "en": "Conseiller/conseillère en prévoyance et en finance (f/h/d) avec expérience professionnelle – Agence générale Morges-La Côte",
-        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung – Generalagentur Morges-La Côte",
-        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Morges-La Côte"
+        "fr": "Conseiller/conseil en prévoyance et en finance (h/f/d) avec expérience professionnelle – Agence générale Morges-La Côte",
+        "it": "Consulente in previdenza e finanza (m/f/d) con esperienza professionale – Agenzia generale Morges-La Côte",
+        "de": "Berater/Beraterin für Vorsorge und Finanzen (m/w/d) mit Berufserfahrung – Generalagentur Morges-La Côte"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nVotre domaine de responsabilité\n • Suivi et entretien des relations avec la clientèle en place\n • Acquisition d’une nouvelle clientèle via une prospection systématique du marché\n • Réalisation de conseils complets en prévoyance et en finance\n • Mise au point et vente de solutions sur mesure dans les domaines de la prévoyance et de la constitution de fortune\n • Représentation de notre entreprise dans le secteur de vente\n • Transmission d’affaires à nos partenaires de coopération\n\nVos forces\n • Réussite de l’examen spécifique à la branche (intermédiaire d’assurance AFA, conseiller/conseillère en assurance et prévoyance diplômé(e) IAF) ou niveau de formation plus élevé\n • Expérience avérée de vente dans le secteur de l’assurance et de la finance\n • Sens marqué de la vente et du conseil\n • Grande motivation, approche axée sur les objectifs et la performance\n • Esprit d’entreprise, résilience, caractère sociable\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
       "descriptionByLocale": {
@@ -3656,11 +3656,7 @@
       "requirementsByLocale": {},
       "jobReqId": "R09012",
       "hiringOrganization": "Swiss Life AG Morges-La Côte",
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9lnk"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
@@ -3671,8 +3667,11 @@
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:04.031Z",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-bh9lnk",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9lnk"
+      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -3685,7 +3684,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:04.031Z"
     },
     {
       "id": "swiss-life-e12b28060b4c",
@@ -6860,9 +6860,9 @@
       "companyDomain": "swisslife.ch",
       "title": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau (Gebiet Langenthal)",
       "titleByLocale": {
-        "it": "previdenza- e Finanzberatende (w/m/d) – Quereinsteigende willkommen – agenzia generale Solothurn-Oberaargau (Gebiet Langenthal)",
         "en": "Vorsorge- und Finanzberatende (w/m/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau (Gebiet Langenthal)",
         "de": "Vorsorge- und Finanzberatende (m/w/d) – Quereinsteigende willkommen – Generalagentur Solothurn-Oberaargau (Gebiet Langenthal)",
+        "it": "previdenza- e Finanzberatende (w/m/d) – Quereinsteigende willkommen – agenzia generale Solothurn-Oberaargau (Gebiet Langenthal)",
         "fr": "Conseillers et conseillères en prévoyance et en finance (h/f/d) – Les personnes en reconversion sont les bienvenues – Generalagentur Solothurn-Oberaargau (région de Langenthal)"
       },
       "description": "Shape the future. Yours and ours.\n\nWould you like to help people to lead a self-determined life? And do you want to be given the creative scope to reconcile your professional and personal ambitions? Then we can offer you an exciting prospect: as part of the Swiss Life sales force, you can organise your working day independently. You will reach your targets as you see fit and with the support of a practised team.\n\nIhr Verantwortungsbereich\n • · Betreuung und Pflege bestehender Beziehungen zu Kundinnen und Kunden\n • · Akquisition neuer Kundschaft durch systematische Marktbearbeitung\n • · Durchführung von umfassenden Vorsorge- und Finanzberatungen\n • · Erarbeitung und Verkauf von individuellen, massgeschneiderten Lösungen in den Bereichen Vorsorge und Vermögensaufbau\n • · Repräsentation unseres Unternehmens im Verkaufsgebiet\n • · Vermittlung von Geschäften an unsere Kooperationspartner\n\nIhre Stärken\n • · Abgeschlossene Berufsausbildung\n • · Ausgeprägtes Verkaufs- und Beratungsflair\n • · Hohe Einsatzbereitschaft, ziel- und leistungsorientierte Arbeitsweise\n • · Unternehmerisch denkend, belastbar und kontaktfreudig\n\nAgencies near you\n\nYour benefits\n We help our employees to shape their professional and personal development to their best advantage and throughout all phases of their life. Our attractive benefits , such as Cicero-certified introductory training and first-class continuing education, contribute to this. You will also receive above-average social benefits, including pension fund membership and non-contributory accident and short-term disability benefit (UVG/LTG) insurance, plus generous premium contributions to 3rd pillar products.\n\nYour contact\n\nIf you have any questions, please do not hesitate to contact Human Resources Sales Force or the General Agent at your chosen General Agency.\n Only applications received via our application tool will be considered.",
@@ -6899,11 +6899,6 @@
       "requirementsByLocale": {},
       "jobReqId": "R12529",
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
-      "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
@@ -6913,8 +6908,11 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:31.051Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r",
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
+      ],
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -6927,7 +6925,8 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:00:31.051Z"
     },
     {
       "id": "swiss-life-6480a18f7fe0",

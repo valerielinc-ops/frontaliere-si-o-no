@@ -55879,14 +55879,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T22:01:15.851Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-supporter-in-50-8211-100-zurich-zh-yellowshark-ch"
-        ]
-      },
-      "previousSlugs": [
-        "ict-supporter-in-50-8211-100-zurich-zh-yellowshark-ch"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -55899,7 +55891,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-50-8211-100-zurich-zh-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-50-8211-100-zurich-zh-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-390afe2efe7f",

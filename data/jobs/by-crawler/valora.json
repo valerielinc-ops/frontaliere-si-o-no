@@ -2563,29 +2563,6 @@
       "jobReqId": "21040",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-        "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
-        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
-        "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
-          "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
-          "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
-        ],
-        "en": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
-        ],
-        "de": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
-        ]
-      },
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -2599,6 +2576,29 @@
           "unitText": "YEAR"
         }
       },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+          "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
+          "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
+        ],
+        "en": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf"
+        ],
+        "de": [
+          "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf",
+        "venditore-seller-k-kiosk-10-ore-valora-group-uetendorf",
+        "verkauferin-verkaufer-k-kiosk-10-std-valora-uetendorf-jo0riv",
+        "venditore-venditore-k-kiosk-10-ore-valora-group-uetendorf"
+      ],
       "firstSeenAt": "2026-10-09T09:15:09.214Z"
     },
     {

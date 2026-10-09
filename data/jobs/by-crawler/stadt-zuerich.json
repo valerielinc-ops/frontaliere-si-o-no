@@ -22799,7 +22799,6 @@
           "gestionnaire-d-applications-stadt-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:37:57.794Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -22813,7 +22812,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-72a677aaa7ad",
