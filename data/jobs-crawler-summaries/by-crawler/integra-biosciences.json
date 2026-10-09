@@ -1,7 +1,7 @@
 {
   "key": "integra-biosciences",
   "label": "INTEGRA Biosciences",
-  "generatedAt": "2026-10-09T12:15:58.623Z",
+  "generatedAt": "2026-10-09T21:40:29.991Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 19785,
-  "avgDurationMs": 19785,
+  "durationMs": 20109,
+  "avgDurationMs": 20109,
   "durationHistory": [
-    19785
+    20109
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/345/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:47.755Z",
+      "crawledAt": "2026-10-09T21:40:16.006Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -81,7 +81,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/344/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:46.239Z",
+      "crawledAt": "2026-10-09T21:40:14.317Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -127,7 +127,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/343/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:44.608Z",
+      "crawledAt": "2026-10-09T21:40:12.671Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -173,7 +173,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/342/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:43.090Z",
+      "crawledAt": "2026-10-09T21:40:10.968Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -220,7 +220,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/331/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:39.871Z",
+      "crawledAt": "2026-10-09T21:40:07.702Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -267,7 +267,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/330/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:38.008Z",
+      "crawledAt": "2026-10-09T21:40:06.238Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -316,7 +316,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/341/Description/1?lang=ger",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T12:15:41.591Z",
+      "crawledAt": "2026-10-09T21:40:09.336Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -362,7 +362,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/329/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T12:15:36.467Z",
+      "crawledAt": "2026-10-09T21:40:03.424Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -408,7 +408,7 @@
       "url": "https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng",
       "source": "INTEGRA Biosciences Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T12:15:34.798Z",
+      "crawledAt": "2026-10-09T21:40:01.770Z",
       "addressLocality": "Zizers",
       "postalCode": "7205",
       "streetAddress": "Tardisstrasse 201",
@@ -443,5 +443,5 @@
       }
     }
   ],
-  "codeCommit": "13cf9b35f3a1bee7aa293c231956252d951b3dec"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

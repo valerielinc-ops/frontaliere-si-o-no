@@ -1,18 +1,21 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-10-09T12:13:18.512Z",
+  "generatedAt": "2026-10-09T21:38:34.388Z",
   "total": 7,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 16299,
-  "avgDurationMs": 16299,
+  "unchangedCount": 7,
+  "durationMs": 15313,
+  "avgDurationMs": 15313,
   "durationHistory": [
-    16299
+    15313
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
       "applyUrl": "https://www.mikron.com/en/team-leader-dei-reparti-di-supporto-alla-produzione",
@@ -30,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:12:54.388Z",
+      "crawledAt": "2026-10-09T21:38:07.884Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -39,26 +42,21 @@
         "canton": "TI",
         "location": "Agno"
       },
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-09T12:12:54.388Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-09T12:12:54.388Z",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/electrical-software-engineer-mfd",
       "applyUrl": "https://www.mikron.com/en/electrical-software-engineer-mfd",
@@ -76,7 +74,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:12:55.694Z",
+      "crawledAt": "2026-10-09T21:38:09.030Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -118,7 +116,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:12:59.207Z",
+      "crawledAt": "2026-10-09T21:38:12.281Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -127,7 +125,6 @@
         "canton": "NE",
         "location": "Boudry"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:45:42.652Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
@@ -160,7 +157,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:13:00.351Z",
+      "crawledAt": "2026-10-09T21:38:13.384Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -202,7 +199,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:13:03.963Z",
+      "crawledAt": "2026-10-09T21:38:16.625Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -243,7 +240,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T12:13:05.096Z",
+      "crawledAt": "2026-10-09T21:38:17.681Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -302,7 +299,7 @@
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -312,5 +309,5 @@
       }
     }
   ],
-  "codeCommit": "13cf9b35f3a1bee7aa293c231956252d951b3dec"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
