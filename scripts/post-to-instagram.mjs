@@ -58,8 +58,6 @@ import {
   loadJobSections,
   loadJobIndex,
   formatDayIt,
-  buildCarouselCaption,
-  buildCarouselSlideCopy,
 } from './lib/social-post-utils.mjs';
 import {
   instagramUrl,
@@ -67,6 +65,12 @@ import {
   INSTAGRAM_CAMPAIGN_JOB,
   INSTAGRAM_CAMPAIGN_BORDER,
 } from './lib/instagram-links.mjs';
+import {
+  chooseInstagramCreative,
+  buildInstagramCaption,
+  instagramCreativeContent,
+  instagramCreativeLedgerFields,
+} from './lib/instagram-creative.mjs';
 import {
   previousReportDay,
   rankCandidates,
@@ -109,11 +113,9 @@ function getBusinessAccountId() {
   return id || null;
 }
 
-// fetchGa4Day / formatDayIt / buildCarouselCaption moved to
-// scripts/lib/ga4-service-account.mjs and scripts/lib/social-post-utils.mjs
-// — the LinkedIn member poster (and, for the caption, the TikTok poster)
-// need the identical logic (project rule: a helper duplicated literally in
-// ≥2 files MUST live in ONE shared module).
+// fetchGa4Day / formatDayIt moved to scripts/lib/ga4-service-account.mjs;
+// Instagram-specific creative copy lives in scripts/lib/instagram-creative.mjs
+// so the treatment, CTA and measurement metadata stay in one pure module.
 
 // ─────────────────────────── Graph API ───────────────────────────
 //
@@ -205,9 +207,10 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   });
   const captionPicks = picks.map((p, i) => ({ title: slideItems[i].title, statValue: `${p.views} visualizzazioni` }));
   const dayLabel = formatDayIt(day);
-  const caption = buildCarouselCaption({ kind, dayLabel, picks: captionPicks });
+  const creative = chooseInstagramCreative({ kind, day });
+  const caption = buildInstagramCaption({ kind, dayLabel, picks: captionPicks, creative });
 
-  console.log(`\n─── ${kind} carousel (${picks.length} slides) ───`);
+  console.log(`\n─── ${kind} carousel (${picks.length} slides + CTA, creative: ${creative.id}) ───`);
   console.log(caption);
   console.log('───');
 
@@ -218,7 +221,13 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
     return;
   }
 
-  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind, dayLabel, items: slideItems }));
+  const slides = await renderCarouselSlides({
+    kicker: creative.cover.kicker,
+    title: creative.cover.title,
+    subtitle: dayLabel,
+    items: slideItems,
+    closing: creative.closing,
+  });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -232,9 +241,10 @@ async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robot
   const ledgerEntries = picks.map((p) => ({
     id: p.slug,
     kind,
-    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, p.slug),
+    url: instagramUrl(`${SITE_URL}${p.path}/`, campaign, instagramCreativeContent(creative, p.slug)),
     day,
     views: p.views,
+    ...instagramCreativeLedgerFields(creative),
   }));
   await deliver({ route, kind, day, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });
 }
@@ -273,13 +283,15 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     statValue: fmtMinutes(r.avgMinutes),
   }));
   const dayLabel = `${weekStart} – ${weekEnd}`;
-  const caption = buildCarouselCaption({
+  const creative = chooseInstagramCreative({ kind: 'border', day: weekStart });
+  const caption = buildInstagramCaption({
     kind: 'border',
     dayLabel,
     picks: fastest.map((r, i) => ({ title: slideItems[i].title, statValue: fmtMinutes(r.avgMinutes) })),
+    creative,
   });
 
-  console.log(`\n─── border carousel (${fastest.length} slides) ───`);
+  console.log(`\n─── border carousel (${fastest.length} slides + CTA, creative: ${creative.id}) ───`);
   console.log(caption);
   console.log('───');
 
@@ -290,7 +302,13 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     return;
   }
 
-  const slides = await renderCarouselSlides(buildCarouselSlideCopy({ kind: 'border', dayLabel, items: slideItems }));
+  const slides = await renderCarouselSlides({
+    kicker: creative.cover.kicker,
+    title: creative.cover.title,
+    subtitle: dayLabel,
+    items: slideItems,
+    closing: creative.closing,
+  });
   if (!slides) {
     console.log('⚠️  card fonts unavailable (public/fonts) — skipping (soft)');
     return;
@@ -305,8 +323,13 @@ async function postBorderCarousel({ dryRun, accessToken, igUserId, robotMode }) 
     {
       id: weekStart,
       kind: 'border',
-      url: instagramUrl(buildOggiPath('it', fastest[0].slug), INSTAGRAM_CAMPAIGN_BORDER, weekStart),
+      url: instagramUrl(
+        buildOggiPath('it', fastest[0].slug),
+        INSTAGRAM_CAMPAIGN_BORDER,
+        instagramCreativeContent(creative, weekStart),
+      ),
       day: weekStart,
+      ...instagramCreativeLedgerFields(creative),
     },
   ];
   await deliver({ route, kind: 'border', day: weekStart, caption, urls, ledgerEntries, publish: () => publishCarousel({ igUserId, accessToken, imageUrls: urls, caption }) });

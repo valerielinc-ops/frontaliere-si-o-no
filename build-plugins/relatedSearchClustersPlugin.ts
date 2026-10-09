@@ -1,6 +1,13 @@
 import { CALC_HREF } from './shared/calcHref';
 import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared/searchSalaryAnswer';
-import { prepareJobOccupationTerms, matchesPreparedJobOccupation, getJobSearchRoleTokens } from '../services/jobSearchRelevance';
+import {
+  getJobSearchRoleProfile,
+  getJobSearchRoleTokens,
+  matchesJobSearchRoleProfile,
+  prepareJobOccupationTerms,
+  matchesPreparedJobOccupation,
+  type JobSearchRoleProfile,
+} from '../services/jobSearchRelevance';
 /**
  * Related-search cluster landings — Vite build plugin.
  *
@@ -1298,6 +1305,38 @@ export class TokenIndex {
     }, options);
   }
 
+  /**
+   * Match a qualifier-bearing intent against title/core evidence before the
+   * result cap. The qualifier token itself is removed from the posting probe:
+   * its localized equivalent may be present only in a German/French/English
+   * title (e.g. `Führungsverantwortung` for Italian `responsabile`). The
+   * profile predicate remains the authority for title evidence. Semantic
+   * description evidence is deliberately not indexable: it is retained by
+   * the classifier for diagnostics and future UI use, but generic job-body
+   * prose must never clear the cluster floor.
+   */
+  matchingSearchIntentJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore: number,
+    profile: JobSearchRoleProfile,
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
+    const qualifierTokens = new Set(profile.qualifierTokens);
+    const probeTokens = tokens.filter((token) => !qualifierTokens.has(token));
+    if (probeTokens.length === 0) return [];
+    const adjustedFloor = Math.min(minOrScore, probeTokens.length);
+    return this.matchingJobs(
+      locale,
+      probeTokens,
+      maxJobs,
+      adjustedFloor,
+      (job) => matchesJobSearchRoleProfile(job, locale, profile, { allowSemantic: false }),
+      options,
+    );
+  }
+
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
     this.occupationTermsByLocale.clear();
@@ -1651,14 +1690,24 @@ export function buildClusterContext(
 
   const __tMatch = profileStart();
   const roles = getJobSearchRoleTokens(keyword);
-  const matching = index.matchingOccupationJobs(
-    candidate.locale,
-    tokens,
-    options.maxJobs ?? MAX_JOBS_PER_PAGE,
-    minOrScore,
-    roles,
-    { stopWhenAtLeast: options.stopWhenAtLeast },
-  );
+  const roleProfile = getJobSearchRoleProfile(keyword);
+  const matching = roleProfile.qualifierTokens.length > 0
+    ? index.matchingSearchIntentJobs(
+      candidate.locale,
+      tokens,
+      options.maxJobs ?? MAX_JOBS_PER_PAGE,
+      minOrScore,
+      roleProfile,
+      { stopWhenAtLeast: options.stopWhenAtLeast },
+    )
+    : index.matchingOccupationJobs(
+      candidate.locale,
+      tokens,
+      options.maxJobs ?? MAX_JOBS_PER_PAGE,
+      minOrScore,
+      roles,
+      { stopWhenAtLeast: options.stopWhenAtLeast },
+    );
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
