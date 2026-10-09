@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-09T12:18:40.657Z",
+  "updatedAt": "2026-10-09T12:19:31.134Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -657045,7 +657045,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-08T12:23:14.114Z",
+      "updatedAt": "2026-10-09T12:19:30.761Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -675977,12 +675977,12 @@
     },
     "pianorm.ch": {
       "key": "pianorm.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.301Z",
-      "updatedAt": "2026-10-08T12:23:38.835Z",
+      "updatedAt": "2026-10-09T12:19:31.103Z",
       "name": "pianorm",
       "domain": "pianorm.ch",
       "careersUrl": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
@@ -676127,7 +676127,8 @@
         }
       ],
       "promotionPr": "12413",
-      "promotionBranch": "prospector/promote-2026-10-08"
+      "promotionBranch": "prospector/promote-2026-10-08",
+      "promotedAt": "2026-10-09T12:19:31.103Z"
     },
     "piattodoro.ch": {
       "key": "piattodoro.ch",
