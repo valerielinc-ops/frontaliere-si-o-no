@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5122
+      "6": 5123
     },
-    "publishedCovers": 6834,
+    "publishedCovers": 6835,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -181600,6 +181600,33 @@
           "id": "tf-nega-sconto-cassa-malati-padre-affidamento-alternato",
           "category": "novita",
           "date": "2026-10-08T13:03:38.516Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tifosi-lucerna-lugano-traffico": {
+      "cover": "/images/blog/article-tifosi-lucerna-lugano-traffico.webp",
+      "hash": "424e6ee90170bbd7dcede0d5f4b7973d3439d8d0b54f17b4fc74211be484da9e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tifosi-lucerna-lugano-traffico",
+          "category": "pratico",
+          "date": "2026-10-08T11:31:48.408Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

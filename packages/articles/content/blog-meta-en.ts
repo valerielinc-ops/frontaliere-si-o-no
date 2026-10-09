@@ -12795,7 +12795,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lugano-lucerna-partita-traffico.imageAlt': 'Lugano station square with barriers and Lucerne fans heading to Cornaredo stadium',
     'blog.article.tifosi-lucerna-lugano-traffico.title': 'Lucerne fans in Lugano: roads closed and traffic',
     'blog.article.tifosi-lucerna-lugano-traffico.excerpt': '',
-    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Lugano streets with police and fans heading to Cornaredo stadium',
+    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Illustration generated for this article',
     'blog.article.elettrificazione-ferrovia-albate-molteno.title': 'Albate-Molteno railway electrification: Como-Lecco halt',
     'blog.article.elettrificazione-ferrovia-albate-molteno.excerpt': 'Construction work to begin in mid-December for the electrification of Albate-Molteno; traffic suspended on Como-Lecco until June 2029. Investment of 170 million euros.',
     'blog.article.elettrificazione-ferrovia-albate-molteno.imageAlt': 'Image of a modern train station in Ticino with an arriving train, on a bright day.',

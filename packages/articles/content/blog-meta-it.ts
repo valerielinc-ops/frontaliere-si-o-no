@@ -12796,7 +12796,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lugano-lucerna-partita-traffico.imageAlt': 'Piazza stazione di Lugano con transenne e tifosi del Lucerna diretti allo stadio di Cornaredo',
     'blog.article.tifosi-lucerna-lugano-traffico.title': 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
     'blog.article.tifosi-lucerna-lugano-traffico.excerpt': 'Partita alle 18 allo stadio di Cornaredo',
-    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Strade di Lugano con polizia e tifosi diretti allo stadio di Cornaredo',
+    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.elettrificazione-ferrovia-albate-molteno.title': 'Elettrificazione ferrovia albate-molteno: stop como-lecco',
     'blog.article.elettrificazione-ferrovia-albate-molteno.excerpt': 'Cantieri a metà dicembre per elettrificazione Albate-Molteno, sospensione traffico Como-Lecco fino a giugno 2029. Investimento di 170 milioni di euro.',
     'blog.article.elettrificazione-ferrovia-albate-molteno.imageAlt': 'Immagine di una stazione ferroviaria moderna in Ticino con un treno in arrivo, in una giornata luminosa.',

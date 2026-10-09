@@ -12794,7 +12794,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lugano-lucerna-partita-traffico.imageAlt': 'Lugano Bahnhofplatz mit Absperrungen und Luzern-Fans auf dem Weg zum Cornaredo-Stadion',
     'blog.article.tifosi-lucerna-lugano-traffico.title': 'Luzern-Fans in Lugano: gesperrte Straßen und Verkehr',
     'blog.article.tifosi-lucerna-lugano-traffico.excerpt': '',
-    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Luganer Straßen mit Polizei und Fans auf dem Weg zum Cornaredo-Stadion',
+    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.elettrificazione-ferrovia-albate-molteno.title': 'Elektrifizierung der Bahnstrecke Albate-Molteno: Sperrung Como-Lecco',
     'blog.article.elettrificazione-ferrovia-albate-molteno.excerpt': 'Bauarbeiten Mitte Dezember für die Elektrifizierung der Strecke Albate-Molteno, Einstellung des Verkehrs auf der Strecke Como-Lecco bis Juni 2029. Investition von 170 Millionen Euro.',
     'blog.article.elettrificazione-ferrovia-albate-molteno.imageAlt': 'Bild eines modernen Bahnhofs im Tessin mit einem ankommenden Zug an einem hellen Tag.',

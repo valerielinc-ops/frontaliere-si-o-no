@@ -12797,7 +12797,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lugano-lucerna-partita-traffico.imageAlt': 'Place de la gare de Lugano avec barrières et supporters de Lucerne en direction du stade de Cornaredo',
     'blog.article.tifosi-lucerna-lugano-traffico.title': 'Supporters de Lucerne à Lugano : routes fermées et trafic',
     'blog.article.tifosi-lucerna-lugano-traffico.excerpt': 'Match à 18 h au stade de Cornaredo',
-    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Rues de Lugano avec police et supporters se rendant au stade de Cornaredo',
+    'blog.article.tifosi-lucerna-lugano-traffico.imageAlt': 'Illustration générée pour cet article',
     'blog.article.elettrificazione-ferrovia-albate-molteno.title': 'Électrification de la ligne ferroviaire Albate-Molteno : arrêt Como-Lecco',
     'blog.article.elettrificazione-ferrovia-albate-molteno.excerpt': 'Chantiers à la mi-décembre pour l’électrification Albate-Molteno, suspension du trafic Como-Lecco jusqu’en juin 2029. Investissement de 170 millions d’euros.',
     'blog.article.elettrificazione-ferrovia-albate-molteno.imageAlt': 'Image d\'une gare moderne au Tessin avec un train arrivant, par une journée lumineuse.',
