@@ -152,6 +152,39 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     expect(html).toContain('seo-static-content');
     expect(html).toContain('<h1>Test</h1>');
   });
+  it('promotes a caller-owned main instead of nesting another landmark', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main class="seo-static-content max-w-[820px]"><h1>Test</h1></main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content\b/);
+    expect(html).toContain('max-w-[820px]');
+  });
+
+  it('wraps plain static content in one canonical landmark', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<article><h1>Test</h1></article>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content\b/);
+    expect(html).toContain('<article><h1>Test</h1></article>');
+  });
+
+  it('keeps a non-lite-shell class when promoting an existing main', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      seoMainClass: 'cluster-seo-prose',
+      bodyHtml: '<main class="cluster-seo-prose"><h1>Test</h1></main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?cluster-seo-prose\b/);
+    expect(html).not.toMatch(/<main\b[^>]*seo-static-content/);
+  });
 
   it('emits both favicon formats in the shared static-page head', () => {
     const html = buildSimplePage(baseOpts);

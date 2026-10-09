@@ -262,9 +262,10 @@ export interface SimplePageOpts {
   * `main.seo-static-content` in the DOM at boot time) that it should render
   * a "lite shell" with header + footer only, and skip the main router area.
   *
-  * Implies {@link skipMainWrap} (the caller's bodyHtml must already contain
-  * its own `<main>` element semantics — but we still wrap it in
-  * `<main class="seo-static-content">` for the lite-shell detection hook).
+  * If the caller already starts with a `<main>`, that element is promoted to
+  * the static shell and receives the configured class. This keeps the
+  * caller's layout classes while avoiding nested main landmarks. Plain inner
+  * HTML is still wrapped in a new `<main>`.
   *
   * Default: false (legacy behavior — content stays inside `#root`).
   */
@@ -330,6 +331,46 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  seoMainClass = 'seo-static-content',
  } = opts;
 
+ /**
+  * Reuse a caller-owned leading <main> as the static shell landmark.
+  *
+  * Several SEO emitters build their body as a complete `<main>` because they
+  * also use that markup in hand-rolled/static-only paths. Wrapping that body
+  * in another `<main>` when `seoContentOutsideRoot` is enabled produces two
+  * main landmarks and invalid landmark navigation. Only a leading main is
+  * promoted here: embedded mains remain ordinary page content and raw inner
+  * HTML continues through the canonical wrapper below.
+  */
+ const staticBody = seoContentOutsideRoot ? (() => {
+   const leadingMain = bodyHtml.match(/^(\s*(?:<!--[\s\S]*?-->\s*)*)<main\b[^>]*>/i);
+   if (!leadingMain) return `<main class="${seoMainClass}">\n${bodyHtml}\n</main>`;
+
+   const prefix = leadingMain[1];
+   const openingTag = leadingMain[0].slice(prefix.length);
+   const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(openingTag);
+   const requestedClasses = seoMainClass.split(/\s+/).filter(Boolean);
+   let promotedOpening = openingTag;
+
+   if (requestedClasses.length > 0) {
+     const existingClasses = classAttr
+       ? (classAttr[1] ?? classAttr[2] ?? classAttr[3] ?? '').split(/\s+/).filter(Boolean)
+       : [];
+     const mergedClasses = [...existingClasses];
+     for (const className of requestedClasses) {
+       if (!mergedClasses.includes(className)) mergedClasses.push(className);
+     }
+     const classValue = mergedClasses.join(' ');
+     if (classAttr) {
+       promotedOpening = `${openingTag.slice(0, classAttr.index)}class="${classValue}"${openingTag.slice(classAttr.index + classAttr[0].length)}`;
+     } else {
+       const mainName = openingTag.match(/^<main\b/i)?.[0] ?? '<main';
+       promotedOpening = `${mainName} class="${classValue}"${openingTag.slice(mainName.length)}`;
+     }
+   }
+
+   return `${prefix}${promotedOpening}${bodyHtml.slice(leadingMain[0].length)}`;
+ })() : '';
+
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
  // Clamp the <meta name="description"> / og:description to the SERP snippet
  // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
@@ -377,10 +418,12 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  //
  // 1. seoContentOutsideRoot=true (NEW, used by 6 SEO feature plugins):
  //    `<div id="root">` is empty. Static SEO content is emitted as a
- //    `<main class="seo-static-content">` SIBLING element so the React SPA
- //    hydrating into `#root` cannot visually replace it. App.tsx detects
- //    `main.seo-static-content` at boot and renders only header+footer
- //    chrome (lite shell), leaving the static content untouched.
+ //    a single `main.seo-static-content` SIBLING element so the React SPA
+ //    hydrating into `#root` cannot visually replace it. A caller-owned
+ //    leading `<main>` is promoted into that landmark; plain content receives
+ //    the wrapper here. App.tsx detects `main.seo-static-content` at boot and
+ //    renders only header+footer chrome (lite shell), leaving static content
+ //    untouched.
  //
  // 2. skipMainWrap=true (existing — used by SEO feature plugins until now):
  //    Caller's bodyHtml lives inside `<div id="root">` directly. Kept for
@@ -417,9 +460,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const bodySection = seoContentOutsideRoot
    ? ` ${rootShell(!!entryJs)}${preMainSection}
 ${railGridOpen}
- <main class="${seoMainClass}">
-${bodyHtml}
- </main>${railGridClose}
+${staticBody}${railGridClose}
  <div id="footer-root"></div>`
    : ` <div id="root">
 ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </main>`}
