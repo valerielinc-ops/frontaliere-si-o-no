@@ -43341,6 +43341,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'incidenti-notte-varese',
+ category: 'novita',
+ date: '2026-10-09T02:15:06.042Z',
+ image: '/images/blog/article-incidenti-notte-varese.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

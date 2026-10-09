@@ -12841,6 +12841,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teatro-intred-varese-stagione-2026.title': 'Varese: Teatro Intred apre stagione 2026/27',
     'blog.article.teatro-intred-varese-stagione-2026.excerpt': 'L\'11 ottobre parte a Varese la stagione 2026/27 del Teatro INTRED Fabio De Luigi inaugura il cartellone con BIOL Gianluca Gotto arriva il 17 ottobre',
     'blog.article.teatro-intred-varese-stagione-2026.imageAlt': 'Facciata del Teatro INTRED a Varese durante la sera, illuminata per l\'inizio della stagione 2026/27.',
+    'blog.article.incidenti-notte-varese.title': 'Due incidenti nella notte a Varese: tre al pronto soccorso',
+    'blog.article.incidenti-notte-varese.excerpt': 'Due incidenti nella notte a Varese: tre persone finiscono al pronto soccorso.',
+    'blog.article.incidenti-notte-varese.imageAlt': 'Due incidenti nella notte a Varese: tre persone al pronto soccorso',
 };
 
 export default blogMetaIt;

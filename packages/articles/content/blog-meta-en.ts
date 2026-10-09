@@ -12840,6 +12840,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teatro-intred-varese-stagione-2026.title': 'Varese: Teatro Intred opens 2026/27 season',
     'blog.article.teatro-intred-varese-stagione-2026.excerpt': 'On October 11, the 2026/27 season of Teatro INTRED begins at Varese.',
     'blog.article.teatro-intred-varese-stagione-2026.imageAlt': 'Facade of Teatro INTRED in Varese in the evening, lit for the start of the 2026/27 season.',
+    'blog.article.incidenti-notte-varese.title': 'Two accidents at night in Varese: three in the emergency room',
+    'blog.article.incidenti-notte-varese.excerpt': 'Two accidents in the night at Varese: three people end up in the emergency room.',
+    'blog.article.incidenti-notte-varese.imageAlt': 'Two overnight incidents in Varese leave three people in the emergency room',
 };
 
 export default blogMetaEn;

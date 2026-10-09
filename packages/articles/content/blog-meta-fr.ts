@@ -12842,6 +12842,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.teatro-intred-varese-stagione-2026.title': 'Varese : Teatro Intred ouvre la saison 2026/27',
     'blog.article.teatro-intred-varese-stagione-2026.excerpt': 'Le 11 octobre débute à Varese la saison 2026/27 du Teatro INTRED Fabio De Luigi inaugure la programmation avec BIOL Gianluca Gotto arrive le 17 octobre',
     'blog.article.teatro-intred-varese-stagione-2026.imageAlt': 'Façade du Teatro INTRED à Varèse le soir, éclairée pour le lancement de la saison 2026/27. (Varese)',
+    'blog.article.incidenti-notte-varese.title': 'Deux accidents dans la nuit à Varèse : trois aux urgences',
+    'blog.article.incidenti-notte-varese.excerpt': 'Deux accidents dans la nuit à Varese : trois personnes finissent aux urgences.',
+    'blog.article.incidenti-notte-varese.imageAlt': 'Deux accidents nocturnes à Varèse, trois personnes aux urgences (Varese)',
 };
 
 export default blogMetaFr;

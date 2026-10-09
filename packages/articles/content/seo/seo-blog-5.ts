@@ -103675,6 +103675,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidenti-notte-varese': {
+    title: 'Due incidenti nella notte a Varese: tre al pronto soccorso',
+    description: 'Due incidenti nella notte a Varese: tre persone finiscono al pronto soccorso. La notizia riassume i fatti disponibili della cronaca locale di Varese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidenti, nella, notte, varese',
+    ogTitle: 'Due incidenti nella notte a Varese',
+    ogDescription: 'La cronaca della notte a Varese segnala due incidenti e tre persone finite al pronto soccorso. Il resoconto disponibile si concentra su questi elementi, senza aggiungere dettagli sulla dinamica dei due episodi o sui percorsi interessati.',
+    canonicalPath: '/articoli-frontaliere/incidenti-notte-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due incidenti nella notte a Varese: tre al pronto soccorso",
+      "description": "Due incidenti nella notte a Varese: tre persone finiscono al pronto soccorso. La notizia riassume i fatti disponibili della cronaca locale di Varese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-incidenti-notte-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due incidenti nella notte a Varese: tre persone al pronto soccorso"
+      },
+      "datePublished": "2026-10-09T02:15:06+00:00",
+      "dateModified": "2026-10-09T02:15:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidenti-notte-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
