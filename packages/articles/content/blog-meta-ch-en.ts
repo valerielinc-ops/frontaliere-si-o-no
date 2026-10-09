@@ -8003,6 +8003,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spesa-famiglie-inflazione.title': 'Switzerland, consumption up 0,9% in September',
     'blog.article.spesa-famiglie-inflazione.excerpt': 'In September, Swiss consumption rose by 0,9%.',
     'blog.article.spesa-famiglie-inflazione.imageAlt': 'Swiss consumers paying by card while shopping',
+    'blog.article.mastercard-pagamenti-rete-assente.title': 'Mastercard: offline payments from 2027',
+    'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard will introduce the feature in Switzerland from 2027 New cards will support it from February 2027 New or replaced terminals: technology by May',
+    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Mastercard payment terminal in a Swiss store during an internet outage',
 };
 
 export default blogMetaChEn;
