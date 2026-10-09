@@ -12814,7 +12814,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa.imageAlt': 'Image éditoriale relative à: Porlezza: finto carabiniere chiede oro, figlio ferma truffa',
     'blog.article.mendrisiotto-aziende-conciliabilita.title': 'Mendrisiotto : entreprises et équilibre vie-travail',
     'blog.article.mendrisiotto-aziende-conciliabilita.excerpt': 'Rencontre à Chiasso le 1er octobre dernier',
-    'blog.article.mendrisiotto-aziende-conciliabilita.imageAlt': 'Réunion d\'entreprise à Chiasso sur l\'équilibre vie professionnelle-vie privée avec des participants autour d\'une table',
+    'blog.article.mendrisiotto-aziende-conciliabilita.imageAlt': 'Illustration générée pour cet article',
     'blog.article.scambio-portieri-lugano-ginevra.title': 'Échange de gardiens : Mayer à Lugano, Van Pottelberghe à Genève',
     'blog.article.scambio-portieri-lugano-ginevra.excerpt': 'Mayer arrive à Lugano, Van Pottelberghe va à Genève',
     'blog.article.scambio-portieri-lugano-ginevra.imageAlt': 'Gardien de but de hockey en action à la Cornèr Arena de Lugano avec les Alpes suisses en arrière-plan',

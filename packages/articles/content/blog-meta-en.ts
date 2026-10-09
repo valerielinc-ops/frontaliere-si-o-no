@@ -12812,7 +12812,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa.imageAlt': 'Editorial image related to: Porlezza: finto carabiniere chiede oro, figlio ferma truffa',
     'blog.article.mendrisiotto-aziende-conciliabilita.title': 'Mendrisiotto companies compared on work-life balance',
     'blog.article.mendrisiotto-aziende-conciliabilita.excerpt': '',
-    'blog.article.mendrisiotto-aziende-conciliabilita.imageAlt': 'Business meeting in Chiasso on work-life balance with participants around a table',
+    'blog.article.mendrisiotto-aziende-conciliabilita.imageAlt': 'Illustration generated for this article',
     'blog.article.scambio-portieri-lugano-ginevra.title': 'Goalkeeper swap: mayer to Lugano, van pottelberghe to Geneva',
     'blog.article.scambio-portieri-lugano-ginevra.excerpt': '',
     'blog.article.scambio-portieri-lugano-ginevra.imageAlt': 'Hockey goaltender in action at Lugano\'s Cornèr Arena with the Swiss Alps in the background',

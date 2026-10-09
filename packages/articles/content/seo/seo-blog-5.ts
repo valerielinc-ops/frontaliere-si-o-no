@@ -103314,10 +103314,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Incontro a Chiasso il primo ottobre scorso",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliere-documenti-primo-giorno-lavoro-ticino-2026-famiglia-con-figli.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mendrisiotto-aziende-conciliabilita.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Incontro aziendale a Chiasso sulla conciliabilità vita-lavoro con partecipanti attorno a un tavolo"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T12:50:35+00:00",
       "dateModified": "2026-10-08T12:50:35+00:00",
