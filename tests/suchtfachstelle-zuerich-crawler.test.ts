@@ -175,6 +175,14 @@ describe('Suchtfachstelle Zürich crawler parser', () => {
         ),
       ).toBe(false);
     });
+
+    it('does not call a page with a source-relative vacancy empty', () => {
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-relative-active">Active</a>`,
+        ),
+      ).toBe(false);
+    });
   });
 
   it('stamps the source-proven zero returned by the real fetch function', async () => {
