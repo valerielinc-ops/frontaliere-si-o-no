@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-09T09:14:10.530Z",
+  "generatedAt": "2026-10-09T21:13:19.353Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5794,
-  "avgDurationMs": 5794,
+  "durationMs": 5709,
+  "avgDurationMs": 5709,
   "durationHistory": [
-    5794
+    5709
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T09:13:58.194Z",
+      "crawledAt": "2026-10-09T21:13:06.681Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -56,11 +56,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "jobReqId": "2733274",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:08:11.765Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +81,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T09:13:58.190Z",
+      "crawledAt": "2026-10-09T21:13:06.676Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -114,5 +114,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

@@ -1,7 +1,7 @@
 {
   "key": "cordenpharma",
   "label": "CordenPharma",
-  "generatedAt": "2026-10-09T09:12:51.372Z",
+  "generatedAt": "2026-10-09T21:14:20.492Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7023,
-  "avgDurationMs": 7023,
+  "durationMs": 8128,
+  "avgDurationMs": 8128,
   "durationHistory": [
-    7023
+    8128
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20991/procurement-specialist-80-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:39.051Z",
+      "crawledAt": "2026-10-09T21:14:04.171Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -78,7 +78,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:38.536Z",
+      "crawledAt": "2026-10-09T21:14:03.640Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -121,7 +121,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20958/innovation-scientist-postdoc-chemiker-100-mwd-dauer-12-monate-mit-moglichkeit-auf-verlangerung",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:37.469Z",
+      "crawledAt": "2026-10-09T21:14:02.618Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -164,7 +164,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:36.961Z",
+      "crawledAt": "2026-10-09T21:14:02.106Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -207,7 +207,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:36.410Z",
+      "crawledAt": "2026-10-09T21:14:01.511Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -253,7 +253,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:12:39.652Z",
+      "crawledAt": "2026-10-09T21:14:04.688Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -295,7 +295,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20959/innovation-scientist-postdoc-chemist-solid-state-development-100-mwd-initial-12-month-contract-with-the-possibility-of-extension",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T09:12:37.990Z",
+      "crawledAt": "2026-10-09T21:14:03.130Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -326,5 +326,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
