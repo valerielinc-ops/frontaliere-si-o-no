@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "giardino",
+  "assembledAt": "2026-10-09T09:46:25.731Z",
   "jobs": [
     {
       "id": "giardino-decd4a786515",
@@ -31,7 +33,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:30:42.156Z",
+      "crawledAt": "2026-10-09T09:46:21.695Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -72,15 +74,15 @@
           "Resilience, flexibility, enthusiasm and a strong sense of responsibility"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:31:14.234Z",
+      "previousSlugs": [
+        "spa-therapist-giardino-group-champfer"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "spa-therapist-giardino-group-champfer"
         ]
       },
-      "previousSlugs": [
-        "spa-therapist-giardino-group-champfer"
-      ],
+      "firstSeenAt": "2026-10-03T09:31:14.234Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -126,7 +128,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:30:42.118Z",
+      "crawledAt": "2026-10-09T09:46:21.660Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -176,15 +178,15 @@
           "Respektvollen Umgang mit Kollegen und Vorgesetzten"
         ]
       },
-      "firstSeenAt": "2026-09-25T15:04:35.324Z",
+      "previousSlugs": [
+        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
         ]
       },
-      "previousSlugs": [
-        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
-      ],
+      "firstSeenAt": "2026-09-25T15:04:35.324Z",
       "salaryMin": 31000,
       "salaryMax": 39000,
       "salarySource": "estimated",
@@ -230,7 +232,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:30:41.965Z",
+      "crawledAt": "2026-10-09T09:46:21.627Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -280,15 +282,15 @@
           "Ein gepflegtes Erscheinungsbild und sicheres Auftreten"
         ]
       },
-      "firstSeenAt": "2026-09-25T15:04:35.177Z",
+      "previousSlugs": [
+        "night-auditor-giardino-group-champfer"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "night-auditor-giardino-group-champfer"
         ]
       },
-      "previousSlugs": [
-        "night-auditor-giardino-group-champfer"
-      ],
+      "firstSeenAt": "2026-09-25T15:04:35.177Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -303,7 +305,5 @@
         }
       }
     }
-  ],
-  "assembledAt": "2026-10-08T22:30:46.234Z",
-  "crawlerKey": "giardino"
+  ]
 }

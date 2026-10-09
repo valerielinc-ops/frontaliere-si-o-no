@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "huntsman",
+  "assembledAt": "2026-10-09T09:44:47.490Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +49,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:29:41.370Z",
+      "crawledAt": "2026-10-09T09:44:43.849Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -55,11 +57,11 @@
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "technologie-de-mesure-de-l-ingenieur-essais-electriques-et-physiques-des-plastiques-huntsman-corporation-basel"
-        ],
         "it": [
           "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
+        ],
+        "fr": [
+          "technologie-de-mesure-de-l-ingenieur-essais-electriques-et-physiques-des-plastiques-huntsman-corporation-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
@@ -126,17 +128,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:29:40.772Z",
+      "crawledAt": "2026-10-09T09:44:43.145Z",
       "jobReqId": "J-019937",
-      "firstSeenAt": "2026-06-26T22:07:54.096Z",
+      "previousSlugs": [
+        "electricien-ou-automaticien-metrologie-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "electricien-ou-automaticien-metrologie-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "electricien-ou-automaticien-metrologie-huntsman-ch"
-      ],
+      "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -200,17 +202,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:29:39.972Z",
+      "crawledAt": "2026-10-09T09:44:42.446Z",
       "jobReqId": "J-020112",
-      "firstSeenAt": "2026-07-24T22:16:40.828Z",
+      "previousSlugs": [
+        "material-scientist-pcb-materials-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "material-scientist-pcb-materials-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "material-scientist-pcb-materials-huntsman-ch"
-      ],
+      "firstSeenAt": "2026-07-24T22:16:40.828Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -274,17 +276,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:29:39.111Z",
+      "crawledAt": "2026-10-09T09:44:41.769Z",
       "jobReqId": "J-020110",
-      "firstSeenAt": "2026-07-24T22:16:40.031Z",
+      "previousSlugs": [
+        "laboratory-technician-pcb-materials-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "laboratory-technician-pcb-materials-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "laboratory-technician-pcb-materials-huntsman-ch"
-      ],
+      "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -348,17 +350,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:29:37.959Z",
+      "crawledAt": "2026-10-09T09:44:40.389Z",
       "jobReqId": "J-019784",
-      "firstSeenAt": "2026-09-08T23:39:26.585Z",
+      "previousSlugs": [
+        "operateur-pilote-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-pilote-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "operateur-pilote-huntsman-ch"
-      ],
+      "firstSeenAt": "2026-09-08T23:39:26.585Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -422,8 +424,11 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern---Data-Science_J-020004",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:29:37.138Z",
+      "crawledAt": "2026-10-09T09:44:39.797Z",
       "jobReqId": "J-020004",
+      "previousSlugs": [
+        "intern-data-science-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "intern-data-science-huntsman-ch"
@@ -435,9 +440,6 @@
           "intern-data-science-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "intern-data-science-huntsman-ch"
-      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -454,7 +456,5 @@
       "postalCode": "4001",
       "addressRegion": "BS"
     }
-  ],
-  "crawlerKey": "huntsman",
-  "assembledAt": "2026-10-08T22:29:45.112Z"
+  ]
 }
