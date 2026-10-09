@@ -1366,10 +1366,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-autotrasporto-rincari-confine-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Camion parcheggiato vicino al valico di Chiasso con vista sul paesaggio del Ticino al tramonto"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-08T11:57:24+01:00",
       "dateModified": "2026-03-08T11:57:24+01:00",
@@ -1405,10 +1405,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-carburanti-rincari-confine-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Stazione di servizio al confine Ticino-Lombardia con auto in attesa e cartelloni prezzi al mattino"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-08T12:45:19+01:00",
       "dateModified": "2026-03-08T12:45:19+01:00",
@@ -1444,10 +1444,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-votazioni-imposizione-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Elettori davanti a un seggio a Bellinzona con bandiere svizzere e scatole per le schede, luce invernale naturale."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-08T14:59:41+01:00",
       "dateModified": "2026-03-08T14:59:41+01:00",
@@ -1483,10 +1483,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-imposizione-individuale-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Veduta fotorealistica di Lugano con pendolare sul lungolago e skyline al mattino"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-08T16:03:13+01:00",
       "dateModified": "2026-03-08T16:03:13+01:00",
@@ -103046,10 +103046,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Chiusura tra venerdì 9 e sabato 10 ottobre",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/centro-ovale-chiasso-nuova-proprieta.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bellinzona-nord-svincolo.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Svincolo autostradale di Bellinzona Nord durante una chiusura notturna"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T10:36:56+00:00",
       "dateModified": "2026-10-08T10:36:56+00:00",
