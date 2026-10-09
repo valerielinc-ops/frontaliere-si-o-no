@@ -31,6 +31,18 @@ export const OKJOB_COMPANY_NAME = 'OK Job SA, succursale di Mendrisio';
 export const OKJOB_COMPANY_DOMAIN = 'okjob.ch';
 
 const CAREER_URL = 'https://www.okjob.ch/offres-demplois/';
+const OKJOB_REQUEST_HEADERS = {
+  // OK Job returns HTTP 404 for some valid detail URLs when it sees the
+  // crawler UA. A normal browser UA is enough to receive the same vacancy
+  // page; keep the source-specific transport contract in this parser.
+  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+  'Accept-Language': 'fr-CH,fr;q=0.9,de;q=0.8,en;q=0.7',
+};
+const OKJOB_LOCATION_ALIASES = new Map([
+  // The French detail page uses the exonym `Bâle`; the shared municipality
+  // inventory indexes the same Swiss city as `Basel`.
+  ['bale', 'Basel'],
+]);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -40,6 +52,49 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeLocationKey(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function canonicalizeOkjobLocation(value = '') {
+  const source = normalizeSpace(value);
+  if (!source) return null;
+  const match = /^(?:(\d{4})\s+)?(.+)$/.exec(source);
+  const postalCode = match?.[1] || '';
+  const locality = normalizeSpace(match?.[2] || source);
+  const canonicalLocality = OKJOB_LOCATION_ALIASES.get(normalizeLocationKey(locality));
+  if (!canonicalLocality) return null;
+  return {
+    location: postalCode ? `${postalCode} ${canonicalLocality}` : canonicalLocality,
+    addressLocality: canonicalLocality,
+  };
+}
+
+function normalizeOkjobLocationEvidence(detail = {}) {
+  const candidates = (detail.locationCandidates || []).map((candidate) => {
+    const canonical = canonicalizeOkjobLocation(candidate.location || candidate.addressLocality);
+    return canonical
+      ? { ...candidate, ...canonical }
+      : candidate;
+  });
+  const canonical = canonicalizeOkjobLocation(detail.location)
+    || canonicalizeOkjobLocation(candidates[0]?.location || candidates[0]?.addressLocality);
+  if (!canonical && candidates.every((candidate, index) => candidate === detail.locationCandidates?.[index])) {
+    return detail;
+  }
+  return {
+    ...detail,
+    ...(canonical || {}),
+    ...(candidates.length ? { locationCandidates: candidates } : {}),
+  };
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -134,7 +189,8 @@ function detectEmploymentType(text = '') {
 export function extractOkjobDetailFields(html = '', pageUrl = '') {
   const source = String(html || '');
   const detail = extractDetailFields(source, pageUrl);
-  if (!source || detail.location || detail.locationCandidates?.length) return detail;
+  if (!source) return detail;
+  if (detail.location || detail.locationCandidates?.length) return normalizeOkjobLocationEvidence(detail);
 
   const dom = new JSDOM(source);
   const { document } = dom.window;
@@ -153,12 +209,12 @@ export function extractOkjobDetailFields(html = '', pageUrl = '') {
     const location = separator === -1 ? '' : normalizeSpace(withoutBrand.slice(separator + 3));
     if (!location) return detail;
 
-    return {
+    return normalizeOkjobLocationEvidence({
       ...detail,
       location,
       addressLocality: location,
       locationCandidates: [{ location, addressLocality: location, addressCountry: '' }],
-    };
+    });
   } finally {
     dom.window.close();
   }
@@ -168,6 +224,7 @@ async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(OKJOB_KEY);
   return runSpecInProduction(spec, {
     ...runtime,
+    headers: { ...(runtime.headers || {}), ...OKJOB_REQUEST_HEADERS },
     detailExtractor: extractOkjobDetailFields,
   });
 }
