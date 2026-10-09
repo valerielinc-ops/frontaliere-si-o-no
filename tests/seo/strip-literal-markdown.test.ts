@@ -55,6 +55,10 @@ describe('stripLiteralMarkdown', () => {
     expect(stripLiteralMarkdown('Offerte di Lavoro in Ticino')).toBe('Offerte di Lavoro in Ticino');
     expect(stripLiteralMarkdown('')).toBe('');
   });
+
+  it('keeps multiplication operators in plain descriptions', () => {
+    expect(stripLiteralMarkdown('Calcolo: 8 * 5 * 4')).toBe('Calcolo: 8 * 5 * 4');
+  });
 });
 
 describe('stripWholeMarkdownBoldWrapper', () => {

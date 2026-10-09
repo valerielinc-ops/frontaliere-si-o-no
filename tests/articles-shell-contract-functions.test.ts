@@ -23,6 +23,7 @@ async function probe() {
   out.escEmpty = c.esc('');
 
   out.stripLiteralMarkdown = c.stripLiteralMarkdown('## **Onkologie___Ärzte** *[guida](https://example.com)*');
+  out.stripLiteralMarkdownArithmetic = c.stripLiteralMarkdown('Calcolo: 8 * 5 * 4');
 
   out.clampMetaDescription = c.clampMetaDescription('x'.repeat(400));
   out.clampMetaDescriptionShort = c.clampMetaDescription('breve');

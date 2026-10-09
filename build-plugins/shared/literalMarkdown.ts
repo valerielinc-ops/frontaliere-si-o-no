@@ -15,8 +15,8 @@ export function stripLiteralMarkdown(value: string): string {
   t = t.replace(/(^|[\s([{])#{1,6}(?=\s+)/gm, '$1');
   // 5. Unwrap single-marker emphasis as well. Restrict the closing boundary
   // so ordinary multiplication/starred wording is left alone.
-  t = t.replace(/(^|[\s([{])\*([^*\n]+?)\*(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
-  t = t.replace(/(^|[\s([{])_([^_\n]+?)_(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
+  t = t.replace(/(^|[\s([{])\*([^\s*](?:[^*\n]*?[^\s*])?)\*(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
+  t = t.replace(/(^|[\s([{])_([^\s_](?:[^_\n]*?[^\s_])?)_(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
   // 6. Separator runs (3+ of `_`, `=`, `~`) — drop.
   t = t.replace(/[_=~]{3,}/g, ' ');
   // 7. Orphan leading/trailing single `*` survivors.
