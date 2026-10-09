@@ -7964,6 +7964,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ai-chip-scarzita-prezzi-pc.title': 'PC et smartphones chers : l’IA absorbe les puces',
     'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Hausses de prix de 40 % à 120 % signalées par MediaMarkt.',
     'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Ordinateur portable et smartphone sur une table dans un appartement suisse',
+    'blog.article.furti-statistica-svizzera-passaporto.title': 'Plus de 80 % des vols en Suisse ont un passeport étranger',
+    'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 personnes condamnées pour vol l’année dernière Plus de 80 % avaient un passeport étranger Environ 1.500 condamnés étaient suisses Taskforce de la Confédération',
+    'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Rue résidentielle suisse au crépuscule avec porte fermée et silhouette d\'un passant, symbole des vols',
 };
 
 export default blogMetaChFr;

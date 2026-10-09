@@ -26585,6 +26585,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'furti-statistica-svizzera-passaporto',
+    category: 'novita',
+    date: '2026-10-09T06:26:39.528Z',
+    image: '/images/blog/article-furti-statistica-svizzera-passaporto.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

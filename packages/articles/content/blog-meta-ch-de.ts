@@ -7964,6 +7964,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ai-chip-scarzita-prezzi-pc.title': 'Teure PCs und Smartphones: KI beansprucht die Chips',
     'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Von MediaMarkt gemeldete Preissteigerungen von 40% bis 120%.',
     'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Laptop und Smartphone auf einem Tisch in einer Schweizer Wohnung',
+    'blog.article.furti-statistica-svizzera-passaporto.title': 'Mehr als 80% der Diebstähle in der Schweiz haben einen ausländischen Pass',
+    'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 im vergangenen Jahr wegen Diebstahls verurteilte Personen Mehr als 80% hatten einen ausländischen Pass Etwa 1.500 Verurteilte waren Schweizer Taskforce des Bundes',
+    'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Schweizer Wohnstraße in der Dämmerung mit geschlossener Tür und Silhouette eines Passanten, Symbol für Diebstahl',
 };
 
 export default blogMetaChDe;

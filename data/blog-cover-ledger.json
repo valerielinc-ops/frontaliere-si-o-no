@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5107
+      "6": 5108
     },
-    "publishedCovers": 6819,
+    "publishedCovers": 6820,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180568,6 +180568,33 @@
           "date": "2026-10-09T01:53:29.738Z",
           "updatedAt": null,
           "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-furti-statistica-svizzera-passaporto": {
+      "cover": "/images/blog/article-furti-statistica-svizzera-passaporto.webp",
+      "hash": "c699dc46c7a93184af79808e020a3304ea4d4320592c50d326052f21004a1f54",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "furti-statistica-svizzera-passaporto",
+          "category": "novita",
+          "date": "2026-10-09T06:26:39.528Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
         }
       ],
       "proofLevel": 6,

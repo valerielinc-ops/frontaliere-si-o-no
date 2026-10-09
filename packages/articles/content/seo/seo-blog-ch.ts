@@ -100408,6 +100408,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furti-statistica-svizzera-passaporto': {
+    title: 'Oltre l\'80% dei furti in Svizzera ha passaporto straniero',
+    description: '7.956 persone condannate per furto lo scorso anno Oltre l\'80% aveva un passaporto straniero Circa 1.500 condannati erano svizzeri Taskforce di Confederazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, oltre, furti, passaporto, straniero',
+    ogTitle: 'Oltre l\'80% dei furti in Svizzera ha passaporto straniero',
+    ogDescription: '7.956 persone condannate per furto lo scorso anno Oltre l\'80% aveva un passaporto straniero Circa 1.500 condannati erano svizzeri Taskforce di Confederazione',
+    canonicalPath: '/articoli-svizzera/furti-statistica-svizzera-passaporto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Oltre l'80% dei furti in Svizzera ha passaporto straniero",
+      "description": "7.956 persone condannate per furto lo scorso anno Oltre l'80% aveva un passaporto straniero Circa 1.500 condannati erano svizzeri Taskforce di Confederazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-furti-statistica-svizzera-passaporto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via residenziale svizzera al crepuscolo con porta chiusa e ombra di passante, simbolo dei furti"
+      },
+      "datePublished": "2026-10-09T06:26:39+00:00",
+      "dateModified": "2026-10-09T06:26:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/furti-statistica-svizzera-passaporto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

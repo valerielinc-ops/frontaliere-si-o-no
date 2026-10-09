@@ -7964,6 +7964,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ai-chip-scarzita-prezzi-pc.title': 'PC e smartphone cari: l\'AI assorbe i chip',
     'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Rincari dal 40% al 120% segnalati da MediaMarkt.',
     'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Laptop e smartphone su un tavolo in un appartamento svizzero',
+    'blog.article.furti-statistica-svizzera-passaporto.title': 'Oltre l\'80% dei furti in Svizzera ha passaporto straniero',
+    'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 persone condannate per furto lo scorso anno Oltre l\'80% aveva un passaporto straniero Circa 1.500 condannati erano svizzeri Taskforce di Confederazione',
+    'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Via residenziale svizzera al crepuscolo con porta chiusa e ombra di passante, simbolo dei furti',
 };
 
 export default blogMetaChIt;
