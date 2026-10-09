@@ -8003,6 +8003,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spesa-famiglie-inflazione.title': 'Suisse, consommation en hausse de 0,9% en septembre',
     'blog.article.spesa-famiglie-inflazione.excerpt': 'En septembre, la consommation suisse a augmenté de 0,9%.',
     'blog.article.spesa-famiglie-inflazione.imageAlt': 'Consommateurs en Suisse payant leurs achats par carte',
+    'blog.article.mastercard-pagamenti-rete-assente.title': 'Mastercard : paiements sans Internet à partir de 2027',
+    'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard introduira la fonctionnalité en Suisse à partir de 2027 Les nouvelles cartes la prendront en charge à partir de février 2027 Terminaux neufs ou remplacés : technologie d\'ici mai',
+    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Terminal Mastercard dans un magasin suisse pendant une panne d\'internet',
 };
 
 export default blogMetaChFr;

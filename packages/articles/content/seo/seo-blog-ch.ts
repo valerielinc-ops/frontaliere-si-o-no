@@ -100915,6 +100915,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mastercard-pagamenti-rete-assente': {
+    title: 'Mastercard: pagamenti senza internet dal 2027 | Frontaliere Ticino',
+    description: 'Mastercard introdurrà la funzione in Svizzera dal 2027 Le nuove carte la supporteranno da febbraio 2027 Terminali nuovi o sostituiti: tecnologia entro maggio',
+    keywords: 'frontalieri, ticino, svizzera, italia, mastercard, pagamenti, senza, internet',
+    ogTitle: 'Mastercard senza internet: pagamenti dal 2027',
+    ogDescription: 'Mastercard introdurrà la funzione in Svizzera dal 2027 Le nuove carte la supporteranno da febbraio 2027 Terminali nuovi o sostituiti: tecnologia entro maggio',
+    canonicalPath: '/articoli-svizzera/mastercard-pagamenti-rete-assente/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mastercard: pagamenti senza internet dal 2027",
+      "description": "Mastercard introdurrà la funzione in Svizzera dal 2027 Le nuove carte la supporteranno da febbraio 2027 Terminali nuovi o sostituiti: tecnologia entro maggio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rientro-in-svizzera-senza-lavoro-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Terminale Mastercard in un negozio svizzero durante un'interruzione internet"
+      },
+      "datePublished": "2026-10-09T20:04:15+00:00",
+      "dateModified": "2026-10-09T20:04:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mastercard-pagamenti-rete-assente/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

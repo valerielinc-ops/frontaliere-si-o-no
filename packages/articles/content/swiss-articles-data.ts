@@ -26717,6 +26717,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mastercard-pagamenti-rete-assente',
+    category: 'novita',
+    date: '2026-10-09T20:04:15.079Z',
+    image: '/images/blog/rientro-in-svizzera-senza-lavoro-guida.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -8003,6 +8003,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spesa-famiglie-inflazione.title': 'Schweiz, Konsum im September um 0,9% gestiegen',
     'blog.article.spesa-famiglie-inflazione.excerpt': 'Im September stieg der Schweizer Konsum um 0,9%.',
     'blog.article.spesa-famiglie-inflazione.imageAlt': 'Schweizer Konsumenten beim Bezahlen mit Karte',
+    'blog.article.mastercard-pagamenti-rete-assente.title': 'Mastercard: Zahlungen ohne Internet ab 2027',
+    'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard führt die Funktion in der Schweiz ab 2027 ein Neue Karten werden sie ab Februar 2027 unterstützen Neue oder ausgetauschte Terminals: Technologie bis Mai',
+    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Mastercard-Zahlterminal in einem Schweizer Geschäft während eines Internetausfalls',
 };
 
 export default blogMetaChDe;
