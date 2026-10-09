@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { getJobSearchRoleTokens, matchesJobOccupation } from '../services/jobSearchRelevance';
+import {
+  classifyJobSearchOccupation,
+  getJobSearchRoleProfile,
+  getJobSearchRoleTokens,
+  matchesJobOccupation,
+  matchesJobSearchRoleProfile,
+} from '../services/jobSearchRelevance';
 import { hasSalaryIntent, hasActiveSalarySearchIntent, isSalaryModifier } from '../services/jobSearchIntent';
 
 describe('occupational relevance for salary searches', () => {
@@ -40,5 +46,81 @@ describe('occupational relevance for salary searches', () => {
 
   it.each(['salaire infirmier', 'nurse salaries', 'gehalt koch', 'stipendio doganiere'])('recognizes salary query %s', query => {
     expect(hasSalaryIntent(query)).toBe(true);
+  });
+});
+
+describe('profession versus qualifier intent', () => {
+  const qualifiedProfile = getJobSearchRoleProfile('medico anestesista responsabile');
+
+  it('keeps the medical profession and anaesthesia specialty in the hard core', () => {
+    expect(qualifiedProfile).toMatchObject({
+      professionId: 'medico',
+      professionTokens: ['medic'],
+      specialtyTokens: ['anestes'],
+      qualifierTokens: ['responsabil'],
+      qualifierFamilies: ['leadership'],
+    });
+  });
+
+  it('does not turn a qualifier-only query into an empty occupation probe', () => {
+    expect(getJobSearchRoleProfile('responsabile')).toMatchObject({
+      professionalTokens: ['responsabil'],
+      qualifierTokens: [],
+      qualifierFamilies: [],
+    });
+  });
+
+  it('treats a known profession phrase as a profession, not as a qualifier', () => {
+    for (const query of ['responsabile negozio', 'responsabile del negozio', 'responsable de magasin']) {
+      const profile = getJobSearchRoleProfile(query);
+      expect(profile, query).toMatchObject({
+        professionId: 'responsabile-negozio',
+        qualifierTokens: [],
+        qualifierFamilies: [],
+      });
+      expect(matchesJobSearchRoleProfile({ title: 'Responsabile negozio' }, 'it', profile), query).toBe(true);
+    }
+  });
+
+  it.each([
+    'Fachärztin / Facharzt Anästhesiologie mit Führungsverantwortung',
+    'Leitende Oberärztin / Leitender Oberarzt Anästhesiologie',
+    'Chefärztin Anästhesiologie',
+  ])('accepts a physician title with a multilingual leadership marker: %s', (title) => {
+    expect(classifyJobSearchOccupation({ title }, 'it', qualifiedProfile)).toMatchObject({
+      tier: 'exact',
+      coreMatched: true,
+      titleQualifierMatched: true,
+    });
+  });
+
+  it.each([
+    'Medizinische Praxisassistentin Anästhesie',
+    'Chefarztsekretärin Anästhesie',
+    'Medizinstudent Anästhesie',
+  ])('rejects a medical support/student title: %s', (title) => {
+    expect(matchesJobSearchRoleProfile({ title }, 'it', qualifiedProfile)).toBe(false);
+  });
+
+  it('does not promote a generic care responsibility in the description', () => {
+    const evidence = classifyJobSearchOccupation({
+      title: 'Facharzt Anästhesiologie',
+      description: "Il candidato sarà responsabile dell'assistenza ai pazienti.",
+    }, 'it', qualifiedProfile);
+    expect(evidence.tier).toBe('core');
+    expect(matchesJobSearchRoleProfile({
+      title: 'Facharzt Anästhesiologie',
+      description: "Il candidato sarà responsabile dell'assistenza ai pazienti.",
+    }, 'it', qualifiedProfile)).toBe(false);
+  });
+
+  it('keeps contextual description evidence separate from the indexable title tier', () => {
+    const job = {
+      title: 'Facharzt Anästhesiologie',
+      description: 'Sarà responsabile della direzione del reparto e del team.',
+    };
+    expect(classifyJobSearchOccupation(job, 'it', qualifiedProfile).tier).toBe('semantic');
+    expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile)).toBe(false);
+    expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile, { allowSemantic: true })).toBe(true);
   });
 });
