@@ -1791,7 +1791,7 @@
       "slug": "mediothekarin-mediothekar-50-kanton-aargau-ch",
       "slugByLocale": {
         "it": "medico-a-50-kanton-aargau-stein",
-        "en": "mediothekarin-mediothekar-50-kanton-aargau-stein",
+        "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
         "fr": "mediothekarin-mediothekar-50-kanton-aargau-ch"
       },
@@ -1841,11 +1841,13 @@
       "requirementsByLocale": {},
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugs": [
-        "mediothecarin-mediothecar-50-kanton-aargau-stein"
+        "mediothecarin-mediothecar-50-kanton-aargau-stein",
+        "mediothekarin-mediothekar-50-kanton-aargau-ch",
+        "mediothekarin-mediothekar-50-kanton-aargau-stein"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "mediothecarin-mediothecar-50-kanton-aargau-stein"
+          "mediothekarin-mediothekar-50-kanton-aargau-stein"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:52.806Z"

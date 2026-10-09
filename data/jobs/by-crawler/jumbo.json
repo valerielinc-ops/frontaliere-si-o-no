@@ -14229,11 +14229,11 @@
     },
     {
       "id": "jumbo-dcfde28d-f82",
-      "slug": "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus",
+      "slug": "responsabile-del-reparto-do-it-inclusa-la-sostituzione-della-direzione-aziendale-jumbo-glarus",
       "slugByLocale": {
         "de": "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus",
-        "it": "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus",
-        "en": "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus",
+        "it": "responsabile-del-reparto-do-it-inclusa-la-sostituzione-della-direzione-aziendale-jumbo-glarus",
+        "en": "do-it-department-manager-including-deputy-managing-director-jumbo-glarus",
         "fr": "responsable-rayon-en-do-it-y-compris-le-remplacement-de-la-direction-jumbo-glarus"
       },
       "company": "JUMBO",
@@ -14307,7 +14307,18 @@
           "maxValue": 158500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus"
+        ],
+        "en": [
+          "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "rayoleiter-in-do-it-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-glarus"
+      ]
     },
     {
       "id": "jumbo-0ec59790-b39",
@@ -14890,10 +14901,10 @@
     },
     {
       "id": "jumbo-cd336169-823",
-      "slug": "verkaufsberater-in-deco-jumbo-chur",
+      "slug": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-chur",
-        "it": "verkaufsberater-in-deco-jumbo-chur",
+        "it": "consulente-di-vendita-deco-jumbo-chur-e8b25e",
         "en": "deco-sales-consultant-jumbo-chur",
         "fr": "conseiller-de-vente-in-deco-jumbo-chur"
       },
@@ -14967,7 +14978,15 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-deco-jumbo-chur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-deco-jumbo-chur"
+      ]
     },
     {
       "id": "jumbo-ab328092-4d5",

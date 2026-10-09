@@ -3487,7 +3487,7 @@
         "it": "controller-see-spital-horgen",
         "en": "controller-in-see-spital-ch",
         "de": "controller-in-see-spital-ch",
-        "fr": "controller-in-see-spital-horgen"
+        "fr": "controleur-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3534,14 +3534,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "controller-in-see-spital-ch",
-        "controleur-see-spital-horgen"
+        "controller-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "controller-in-see-spital-ch"
         ],
         "fr": [
-          "controleur-see-spital-horgen"
+          "controller-in-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:20:56.042Z",

@@ -13634,9 +13634,9 @@
       "slug": "metalmeccanico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "it": "metalmeccanico-a-per-montaggio-e-riparazione-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg",
+        "en": "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen",
         "de": "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
-        "fr": "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg"
+        "fr": "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -13679,10 +13679,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen",
-        "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
         "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
-        "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg"
+        "metallbauer-in-per-montage-e-reparatur-stellenpartner-ag-wil-sg",
+        "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg",
+        "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13691,11 +13691,13 @@
         ],
         "en": [
           "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg-st-gallen",
-          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
+          "metalworker-for-assembly-and-repair-stellenpartner-ag-wil-sg"
         ],
         "fr": [
           "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg-st-gallen",
-          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch"
+          "metallbauer-in-fur-montage-und-reparatur-wil-sg-st-gallen-stellenpartner-ch",
+          "constructeur-constructrice-de-metaux-pour-le-montage-et-la-reparation-stellenpartner-ag-wil-sg"
         ]
       },
       "firstSeenAt": "2026-09-29T09:39:24.752Z",
@@ -21467,9 +21469,9 @@
       "slug": "giardiniere-a-giardinaggio-e-paesaggistica-con-una-vasta-gamma-di-attivita-stellenpartner-ag-winterthur-zurich",
       "slugByLocale": {
         "it": "giardiniere-a-giardinaggio-e-paesaggistica-con-una-vasta-gamma-di-attivita-stellenpartner-ag-winterthur-zurich",
-        "en": "gardener-gardening-and-landscaping-with-varied-activities-stellenpartner-ag-winterthur",
+        "en": "gardener-gardening-and-landscaping-with-varied-activities-stellenpartner-ag-winterthur-zurich",
         "de": "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur",
-        "fr": "jardinier-jardiniere-jardinage-et-amenagement-paysager-avec-une-activite-variee-stellenpartner-ag-winterthur"
+        "fr": "jardinier-jardiniere-jardinage-et-amenagement-paysager-avec-une-activite-variee-stellenpartner-ag-winterthur-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -21520,16 +21522,20 @@
           "gartner-in-garten-e-landschaftsbau-con-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur"
         ],
         "en": [
-          "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur"
+          "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur",
+          "gardener-gardening-and-landscaping-with-varied-activities-stellenpartner-ag-winterthur"
         ],
         "fr": [
-          "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur"
+          "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur",
+          "jardinier-jardiniere-jardinage-et-amenagement-paysager-avec-une-activite-variee-stellenpartner-ag-winterthur"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-winterthur-zurich",
         "gartner-in-garten-e-landschaftsbau-con-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur",
-        "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur"
+        "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreicher-tatigkeit-stellenpartner-ag-winterthur",
+        "gardener-gardening-and-landscaping-with-varied-activities-stellenpartner-ag-winterthur",
+        "jardinier-jardiniere-jardinage-et-amenagement-paysager-avec-une-activite-variee-stellenpartner-ag-winterthur"
       ],
       "firstSeenAt": "2026-09-29T09:39:24.701Z",
       "salaryMin": 73500,
@@ -21546,7 +21552,7 @@
         }
       },
       "postalCode": "8400",
-      "translationHoldReleasedAt": "2026-10-08T22:37:49.982Z"
+      "translationHoldReleasedAt": "2026-10-09T00:46:47.582Z"
     },
     {
       "id": "stellenpartner-fd89471846fc",
@@ -30263,7 +30269,7 @@
       "slug": "allrounder-a-edilizia-con-pittura-per-facciate-stellenpartner-ag-frauenfeld-thurgau",
       "slugByLocale": {
         "it": "allrounder-a-edilizia-con-pittura-per-facciate-stellenpartner-ag-frauenfeld-thurgau",
-        "en": "allrounder-in-ausbaugewerbe-mit-fassadenbemalung-frauenfeld-thurgau-stellenpartner-ch",
+        "en": "all-rounder-in-finishing-trades-with-facade-painting-stellenpartner-ag-frauenfeld-thurgau",
         "de": "allrounder-in-ausbaugewerbe-mit-fassadenbemalung-frauenfeld-thurgau-stellenpartner-ch",
         "fr": "entreprise-de-finition-polyvalente-avec-peinture-de-facade-stellenpartner-ag-frauenfeld-thurgau"
       },
@@ -30315,6 +30321,9 @@
         "it": [
           "allrounder-in-ausbaugewerbe-mit-fassadenbemalung-frauenfeld-thurgau-stellenpartner-ch",
           "allrounder-a-edilizia-con-pittura-per-facciate-stellenpartner-ag-frauenfeld"
+        ],
+        "en": [
+          "allrounder-in-ausbaugewerbe-mit-fassadenbemalung-frauenfeld-thurgau-stellenpartner-ch"
         ]
       },
       "firstSeenAt": "2026-09-28T21:34:10.452Z",
@@ -41897,7 +41906,7 @@
       "slug": "costruttore-di-impianti-e-apparecchiature-con-formazione-di-saldatore-stellenpartner-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "it": "costruttore-di-impianti-e-apparecchiature-con-formazione-di-saldatore-stellenpartner-ag-affoltern-am-albis-zurich",
-        "en": "plant-and-equipment-builder-with-welding-specialist-training-stellenpartner-ag-affoltern-am-albis",
+        "en": "plant-and-equipment-builder-with-welding-specialist-training-stellenpartner-ag-affoltern-am-albis-zurich",
         "de": "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis",
         "fr": "constructeur-constructrice-d-installations-et-d-appareils-avec-formation-de-specialiste-en-soudage-stellenpartner-ag"
       },
@@ -41950,7 +41959,8 @@
           "anlagen-e-apparatebauer-in-con-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis"
         ],
         "en": [
-          "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis"
+          "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis",
+          "plant-and-equipment-builder-with-welding-specialist-training-stellenpartner-ag-affoltern-am-albis"
         ],
         "fr": [
           "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis"
@@ -41959,7 +41969,8 @@
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-affoltern-am-albis-zurich",
         "anlagen-e-apparatebauer-in-con-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis",
-        "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis"
+        "anlagen-und-apparatebauer-in-mit-schweissfachperson-ausbildung-stellenpartner-ag-affoltern-am-albis",
+        "plant-and-equipment-builder-with-welding-specialist-training-stellenpartner-ag-affoltern-am-albis"
       ],
       "firstSeenAt": "2026-09-29T09:39:24.393Z",
       "salaryMin": 73500,
@@ -41976,7 +41987,7 @@
         }
       },
       "postalCode": "8910",
-      "translationHoldReleasedAt": "2026-10-08T22:37:49.982Z"
+      "translationHoldReleasedAt": "2026-10-09T00:46:47.582Z"
     },
     {
       "id": "stellenpartner-affcb0553691",
@@ -42058,7 +42069,7 @@
         "it": "meccanico-di-produzione-produzione-cnc-con-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis",
         "en": "production-mechanic-cnc-production-with-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis",
         "de": "produktionsmechaniker-in-cnc-fertigung-mit-emmegi-satellite-xle-affoltern-am-albis-zurich",
-        "fr": "produktionsmechaniker-in-cnc-fertigung-mit-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis"
+        "fr": "mecanicien-ne-de-production-fabrication-cnc-avec-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis-zurich"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -42111,6 +42122,9 @@
         ],
         "en": [
           "produktionsmechaniker-in-cnc-fertigung-mit-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis"
+        ],
+        "fr": [
+          "produktionsmechaniker-in-cnc-fertigung-mit-emmegi-satellite-xle-stellenpartner-ag-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-09-29T09:39:24.619Z",
@@ -42128,7 +42142,7 @@
         }
       },
       "postalCode": "8910",
-      "translationHoldSince": "2026-10-06T09:32:14.176Z"
+      "translationHoldReleasedAt": "2026-10-09T00:46:47.582Z"
     },
     {
       "id": "stellenpartner-c683f9320848",
@@ -50082,9 +50096,9 @@
       "slug": "polimeccanico-a-produzione-cnc-con-lavori-di-elettroerosione-a-filo-stellenpartner-ag-frick-aargau",
       "slugByLocale": {
         "it": "polimeccanico-a-produzione-cnc-con-lavori-di-elettroerosione-a-filo-stellenpartner-ag-frick-aargau",
-        "en": "polymechanic-cnc-production-with-wire-erosion-work-stellenpartner-ag-frick",
+        "en": "polymechanic-cnc-production-with-wire-erosion-work-stellenpartner-ag-frick-aargau",
         "de": "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch",
-        "fr": "polymecanicien-ne-fabrication-cnc-avec-travaux-d-electroerosion-par-fil-stellenpartner-ag-frick"
+        "fr": "polymecanicien-ne-fabrication-cnc-avec-travaux-d-electroerosion-par-fil-stellenpartner-ag-frick-aargau"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -50127,17 +50141,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch"
+        "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch",
+        "polymechanic-cnc-production-with-wire-erosion-work-stellenpartner-ag-frick",
+        "polymecanicien-ne-fabrication-cnc-avec-travaux-d-electroerosion-par-fil-stellenpartner-ag-frick"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch"
         ],
         "en": [
-          "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch"
+          "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch",
+          "polymechanic-cnc-production-with-wire-erosion-work-stellenpartner-ag-frick"
         ],
         "fr": [
-          "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch"
+          "polymechaniker-in-cnc-fertigung-mit-drahterodierarbeiten-frick-aargau-stellenpartner-ch",
+          "polymecanicien-ne-fabrication-cnc-avec-travaux-d-electroerosion-par-fil-stellenpartner-ag-frick"
         ]
       },
       "firstSeenAt": "2026-09-29T09:39:24.446Z",
@@ -50155,7 +50173,7 @@
         }
       },
       "postalCode": "5070",
-      "translationHoldReleasedAt": "2026-10-08T22:37:49.982Z"
+      "translationHoldReleasedAt": "2026-10-09T00:46:47.582Z"
     },
     {
       "id": "stellenpartner-c4d36e462109",
