@@ -859,7 +859,10 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       'Will you require sponsorship?', 'Avez-vous un permis de travail valable en Suisse ?', 'Staatsangehörigkeit', 'Citizenship', 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?']) {
       expect([label, SENSITIVE.test(label)]).toEqual([label, true]);
     }
-    for (const label of ['Permis de conduire', 'Country']) expect([label, SENSITIVE.test(label)]).toEqual([label, false]);
+    for (const label of ['Permis de conduire', 'Country', 'E-Mail-Adresse', 'Email address']) expect([label, SENSITIVE.test(label)]).toEqual([label, false]);
+    expect(SENSITIVE.test('email e nazionalità')).toBe(true);
+    expect(SENSITIVE.test('E-Mail-Adresse (required)')).toBe(false);
+    expect(SENSITIVE.test('Email address (obligatoire)')).toBe(false);
   });
 
   it('never ticks a consent that also declares a work authorisation or a citizenship', () => {
