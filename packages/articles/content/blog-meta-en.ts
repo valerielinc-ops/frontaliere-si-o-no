@@ -12852,6 +12852,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lardi-dotlife-chiusura-alberghi-lugano.title': 'Villa Sassa closes: 140 employees out of work',
     'blog.article.lardi-dotlife-chiusura-alberghi-lugano.excerpt': 'Villa Sassa and Villa Principe Leopoldo closed for four months About 140 employees are out of work Winter alternatives in St.',
     'blog.article.lardi-dotlife-chiusura-alberghi-lugano.imageAlt': 'View of Lugano lake with hotels under renovation',
+    'blog.article.saronno-manifestazione-palestina-ottobre-2026.title': 'Palestine Demonstration in Saronno Saturday, October 10',
+    'blog.article.saronno-manifestazione-palestina-ottobre-2026.excerpt': 'Saturday, October 10 demonstration for Palestine at Saronno Meeting at 10 in Piazza San Francesco From there a procession will start through the streets of the city Join',
+    'blog.article.saronno-manifestazione-palestina-ottobre-2026.imageAlt': 'Pro-Palestine demonstration in Saronno with march starting from Piazza San Francesco',
 };
 
 export default blogMetaEn;

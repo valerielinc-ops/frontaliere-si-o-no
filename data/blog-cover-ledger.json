@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5105
+      "6": 5106
     },
-    "publishedCovers": 6817,
+    "publishedCovers": 6818,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -181090,6 +181090,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-saronno-manifestazione-palestina-ottobre-2026": {
+      "cover": "/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp",
+      "hash": "4d22697dc93adef8fe3367dd8f13a8aecde10a6738b2dff4143d9fa4f2e8f271",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "saronno-manifestazione-palestina-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-09T05:35:41.804Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

@@ -103831,6 +103831,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-saronno-manifestazione-palestina-ottobre-2026': {
+    title: 'Manifestazione Palestina a Saronno sabato 10 ottobre',
+    description: 'Sabato 10 ottobre manifestazione per la Palestina a Saronno Ritrovo alle 10 in piazza San Francesco Da lì partirà un corteo per le vie della città Aderiscono',
+    keywords: 'frontalieri, ticino, svizzera, italia, manifestazione, palestina, saronno, sabato',
+    ogTitle: 'Manifestazione Palestina a Saronno sabato 10 ottobre 2026',
+    ogDescription: 'Sabato 10 ottobre manifestazione per la Palestina a Saronno Ritrovo alle 10 in piazza San Francesco Da lì partirà un corteo per le vie della città Aderiscono',
+    canonicalPath: '/articoli-frontaliere/saronno-manifestazione-palestina-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Manifestazione Palestina a Saronno sabato 10 ottobre",
+      "description": "Sabato 10 ottobre manifestazione per la Palestina a Saronno Ritrovo alle 10 in piazza San Francesco Da lì partirà un corteo per le vie della città Aderiscono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione pro Palestina a Saronno con corteo in piazza San Francesco"
+      },
+      "datePublished": "2026-10-09T05:35:41+00:00",
+      "dateModified": "2026-10-09T05:35:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saronno-manifestazione-palestina-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
