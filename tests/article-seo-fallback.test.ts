@@ -92,7 +92,7 @@ describe('article SEO fallback builder', () => {
 
     expect(section.html).toContain('<h3>Coverage</h3>');
     expect(section.html).toContain('<p>Body.</p>');
-    expect(section.html).not.toMatch(/(?:&lt;|<\\/?)(?:details|summary)/i);
+    expect(section.html).not.toMatch(/(?:&lt;|<\/?)(?:details|summary)/i);
   });
 
   it('leaves disclosure-looking tags inside fenced code unchanged', () => {
