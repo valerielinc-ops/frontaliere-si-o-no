@@ -2686,6 +2686,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'iniziativa-solari-senza-permesso': { it: 'iniziativa-solari-senza-permesso', en: 'solar-permit-initiative-fails', de: 'solarinitiative-ohne-bewilligung-gescheitert', fr: 'initiative-solaire-sans-permis-echoue' },
  'midterm-usa-voto-svizzera': { it: 'midterm-usa-voto-svizzera', en: 'midterm-usa-vote-switzerland', de: 'midterm-usa-abstimmung-schweiz', fr: 'midterm-usa-vote-suisse' },
  'economia-svizzera-fiducia-calante': { it: 'economia-svizzera-fiducia-calante', en: 'swiss-economy-declining-confidence', de: 'schweizer-wirtschaft-sinkendes-vertrauen', fr: 'economie-suisse-confiance-declinaison' },
+ 'ricardo-account-esposti': { it: 'ricardo-account-esposti', en: 'ricardo-exposed-accounts', de: 'ricardo-offengelegte-konten', fr: 'ricardo-comptes-exposes' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

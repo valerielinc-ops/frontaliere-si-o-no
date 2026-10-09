@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Fri, 09 Oct 2026 15:01:33 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 15:39:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,84 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Ricardo: esposti i dati di 890&apos;000 account</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/ricardo-account-esposti/</link>
+      <description><![CDATA[Una falla ha esposto circa 890'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT]]></description>
+      <content:encoded><![CDATA[## In breve
+- Una falla ha esposto circa 890'000 account Ricardo
+- Pubblici nomi, indirizzi postali e numeri di telefono
+- E-mail e password non sono state compromesse
+- IFPDT notificato; polizia e UFCS saranno informati
+
+## Fatti chiave
+- Piattaforma → Ricardo
+- Società madre → SMG Swiss Marketplace Group
+- Rilevazione → mercoledì 7 ottobre
+- Account interessati → circa 890'000
+- Dati esposti → nomi, indirizzi postali, numeri di telefono
+- Dati non compromessi → indirizzi e-mail, password
+- Vulnerabilità → completamente risolta
+- Autorità notificata → IFPDT
+
+Mercoledì 7 ottobre la piattaforma svizzera di compravendita online Ricardo ha rilevato attività sospette sui propri server. Ha avviato immediatamente misure tecniche per mettere in sicurezza i sistemi, secondo la nota diffusa dalla società madre SMG Swiss Marketplace Group.
+
+Il successivo accertamento ha stabilito che dati personali di circa 890'000 account utente sono stati esposti. L'elenco comunicato comprende nomi, indirizzi postali e numeri di telefono. La stessa comunicazione precisa che gli indirizzi e-mail e le password non sono stati compromessi.
+
+### La sequenza dell'incidente
+
+Il primo passaggio è stato il rilevamento di attività sospette; il secondo, l'intervento tecnico sui sistemi; il terzo, l'indagine successiva sull'accesso e sui dati personali. Ricardo comunica che la vulnerabilità di sicurezza che ha consentito l'accesso è stata completamente risolta. La nota descrive quindi una vulnerabilità collegata all'accesso e dichiarata completamente risolta dopo l'attività sospetta.
+
+Per chi usa la piattaforma, la distinzione tra dati esposti e credenziali non compromesse è il punto centrale della comunicazione. I nomi, gli indirizzi postali e i numeri telefonici sono le informazioni indicate come rese pubbliche; e-mail e password restano invece escluse dall'elenco dei dati compromessi diffuso dalla società.
+
+Ricardo sta informando direttamente gli utenti interessati sull'incidente, sulle sue implicazioni e sulle precauzioni che possono adottare. Nel rispetto dei requisiti di legge, Ricardo ha informato l'Incaricato federale della protezione dei dati e della trasparenza, l'IFPDT. Ha inoltre annunciato una denuncia penale alla polizia e una segnalazione all'Ufficio federale della cibersicurezza, l'UFCS.
+
+Il rilevamento è avvenuto sui server della piattaforma, mentre la comunicazione agli utenti riguarda direttamente le conseguenze sui dati personali. La cronologia fornita dalla società tiene insieme questi due piani senza confondere l'accesso con le credenziali.
+
+La comunicazione della società madre riunisce quindi l'esito della verifica tecnica, l'esposizione dei dati personali e le iniziative avviate da Ricardo. Per il lettore, il quadro comunicato si ferma a queste categorie: account coinvolti, dati personali esposti, credenziali non compromesse e iniziative avviate dall'azienda.
+Per un utente Ricardo, la questione pratica non è soltanto che si sia verificata una falla, ma capire quale parte del profilo rientra nell'esposizione comunicata. La fonte separa chiaramente i dati resi pubblici dalle informazioni di accesso: nomi, indirizzi postali e numeri di telefono da una parte; indirizzi e-mail e password dall'altra. Questa distinzione consente di leggere l'incidente senza attribuirgli dati diversi da quelli indicati.
+
+### Che cosa verificare nella comunicazione
+
+Ricardo sta informando direttamente gli utenti interessati. Il messaggio della piattaforma dovrebbe quindi chiarire tre punti: l'incidente, le sue implicazioni e le precauzioni adottabili. Sono gli elementi che la società ha dichiarato di voler comunicare. Per un utente che riceve l'avviso, il passaggio pratico consiste nel confrontare il messaggio con questa struttura, senza sostituirlo con una lista standard non presente nella fonte.
+
+| Dati indicati | Stato comunicato | Lettura pratica |
+|---|---|---|
+| Nomi, indirizzi postali e numeri di telefono | Resi pubblici | Sono le informazioni elencate come esposte |
+| Indirizzi e-mail e password | Non compromessi | Non fanno parte dei dati indicati come compromessi |
+
+Sul piano tecnico, la sequenza descritta è precisa: Ricardo ha rilevato attività sospette, ha avviato misure per mettere in sicurezza i sistemi e, con l'indagine successiva, ha accertato l'esposizione dei dati. La società dichiara inoltre che la vulnerabilità che ha consentito l'accesso è stata completamente risolta. Il dato tecnico comunicato è dunque la correzione della vulnerabilità; la lettura pratica deve rimanere su questo punto.
+
+Anche il perimetro istituzionale va letto senza allargamenti. L'IFPDT è stato informato dalla piattaforma. La denuncia penale alla polizia e la segnalazione all'UFCS sono invece iniziative che Ricardo ha annunciato. La fonte attribuisce queste iniziative a Ricardo e le presenta come passaggi annunciati, non come un esito già raggiunto. Il caso riguarda una piattaforma di compravendita online; i percorsi del sito sui conti bancari in Svizzera e sul calcolatore stipendio restano strumenti separati dalla gestione di questo incidente.
+
+Per chi riceve la comunicazione, il dato più concreto è la corrispondenza tra account interessato, categorie di dati esposte e precauzioni indicate. Il resto deve rimanere ancorato agli accertamenti e agli annunci della società.
+
+## Tool consigliati
+Per una stima aggiornata, usa il calcolatore stipendio netto e il comparatore cambio CHF-EUR.
+Per restare aderenti alle informazioni disponibili, i passaggi pratici per un utente interessato sono quelli annunciati da Ricardo. Non è corretto estendere l'elenco dei dati coinvolti o aggiungere una procedura non descritta.
+
+### I passaggi indicati dalla fonte
+
+1. Leggere la comunicazione diretta di Ricardo. La piattaforma sta contattando gli utenti interessati e ha dichiarato che spiegherà l'incidente, le sue implicazioni e le precauzioni adottabili.
+2. Confrontare l'avviso con le categorie rese note. I dati indicati come esposti sono nomi, indirizzi postali e numeri di telefono; gli indirizzi e-mail e le password sono indicati come non compromessi.
+3. Attenersi alle precauzioni contenute nella comunicazione individuale. La fonte conferma che Ricardo sta comunicando le precauzioni che gli utenti possono adottare. Le indicazioni operative vanno quindi lette nel messaggio della piattaforma, senza sostituirle con misure non riportate.
+4. Separare la comunicazione agli utenti dal seguito istituzionale. Ricardo ha notificato l'incidente all'IFPDT e ha annunciato una denuncia penale alla polizia, oltre alla segnalazione all'UFCS. Questi passaggi sono attribuiti alla piattaforma.
+
+Sul piano tecnico, la società afferma di aver avviato immediatamente misure per mettere in sicurezza i sistemi e comunica che la vulnerabilità è stata completamente risolta. Per il lettore, questa informazione descrive lo stato della correzione tecnica; non amplia l'elenco dei dati personali indicati nella comunicazione.
+
+La sequenza documentata resta quindi limitata a ricezione dell'avviso diretto, lettura delle implicazioni, verifica delle categorie di dati e applicazione delle precauzioni indicate da Ricardo. Non serve aggiungere passaggi che la comunicazione citata non attribuisce agli utenti.
+
+Per la persona che riceve l'avviso, la sequenza non cambia in base al nome dell'ente coinvolto: prima viene la comunicazione di Ricardo, poi la lettura delle sue indicazioni. La notifica all'IFPDT, la denuncia alla polizia e la segnalazione all'UFCS descrivono invece il percorso seguito dalla piattaforma. Il testo mantiene così separati il rapporto diretto con l'utente e gli adempimenti annunciati dall'azienda.
+
+Per un approfondimento separato sugli strumenti finanziari del sito, usa il calcolatore stipendio.
+
+*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/ricardo%3a-perdita-di-dati%2c-interessati-890%27000-account/92192985)*]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 15:39:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/ricardo-account-esposti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-ricardo-account-esposti.webp" medium="image"/>
+    </item>
     <item>
       <title>Fiducia consumatori svizzeri peggiora: prezzi e lavoro</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/economia-svizzera-fiducia-calante/</link>
@@ -84,7 +162,7 @@ Poiché il sondaggio viene svolto ultimamente con cadenza mensile, il foglio di 
       <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/economia-svizzera-fiducia-calante</guid>
       <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp" medium="image"/>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-economia-svizzera-fiducia-calante.webp" medium="image"/>
     </item>
     <item>
       <title>Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera</title>
@@ -3806,86 +3884,6 @@ Il tempo indicato resta contenuto: pochi minuti e qualche clic. Il testo non com
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/quattro-oggetti-urne-novembre</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-quattro-oggetti-urne-novembre.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Diesel svizzero sfiora 2,50 franchi: allarme Cressier</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/raffineria-cressier-carburanti/</link>
-      <description><![CDATA[Il diesel in Svizzera sfiora 2,50 franchi al litro]]></description>
-      <content:encoded><![CDATA[## In breve
-- Il diesel in Svizzera sfiora 2,50 franchi al litro
-- Cressier copre circa il 35% dei carburanti nazionali
-- La raffinazione europea ha capacità limitata
-- Le riserve del G7 sono un cuscinetto, non una soluzione
-
-## Fatti chiave
-- Gestore dell'impianto → Varopreem
-- Raffineria → Cressier (NE), l'unica in Svizzera
-- Copertura → circa il 35% del consumo nazionale di carburanti
-- Regime di lavoro → quasi a pieno regime
-- Ultima nuova raffineria negli Stati Uniti → 1977
-- Ultima nuova raffineria in Europa → 1975
-- Impianti chiusi in Europa dall'inizio del secolo → più di 30
-- Domanda → potrebbe diminuire se i prezzi restano elevati nel 2027
-
-## L'allarme dalla raffineria di Cressier
-
-Il diesel in Svizzera si vende ormai quasi a 2,50 franchi al litro. A lanciare l'allarme è Dev Sanyal, CEO di Varopreem, società cui è affidata la gestione dell'unica raffineria svizzera, a Cressier (NE). In un'intervista pubblicata dalla Neue Zürcher Zeitung, il manager descrive per l'Europa una combinazione di prezzi record, capacità di raffinazione limitata e incertezze geopolitiche.
-
-Per chi segue il costo della vita in Svizzera, la cifra alla pompa è il segnale più visibile, ma non racconta da sola la situazione dei raffinatori. Sanyal collega la fase attuale alla rigidità del sistema mondiale di approvvigionamento dei carburanti: per anni, spiega, l'efficienza ha dominato le decisioni; ora la resilienza pesa molto di più.
-
-> «Sono tempi assolutamente straordinari: lavoro in questo settore da 38 anni e una situazione come quella attuale non l'ho mai vissuta»
-
-Il rialzo alla pompa non si traduce automaticamente in margini più alti per i raffinatori. Nel mercato sono aumentati anche i costi di input, mentre incidono le differenze fra le qualità del greggio e le spese di trasporto. Sanyal porta inoltre un'esperienza di 30 anni presso il colosso inglese BP, elemento che accompagna la sua lettura del ciclo attuale.
-
-### Cressier al centro della produzione nazionale
-
-Il gruppo non è direttamente attivo nella vendita al dettaglio né nella gestione di stazioni di servizio. Ha però sotto il proprio controllo la raffineria di Cressier: l'impianto copre circa il 35% del consumo nazionale di carburanti e opera quasi a pieno regime. La struttura rappresenta dunque un nodo nazionale della catena, ma non elimina le difficoltà provenienti dal mercato europeo.
-
-Il CEO invita a non considerare un buon semestre come garanzia per l'intero anno: i possibili ostacoli restano numerosi. Fra gli scenari citati c'è un eventuale divieto degli Stati Uniti di esportare diesel. L'effetto sarebbe immediato sui mercati europei, con un nuovo forte aumento dei prezzi e uno shock per l'approvvigionamento finora sostenuto anche dalle esportazioni statunitensi.
-
-Il rilascio di ulteriori riserve strategiche da parte dei paesi del G7 ha ridotto il rischio di un peggioramento immediato e può contribuire ad allentare in parte la pressione su offerta e prezzi. Sanyal le considera però un cuscinetto, non la soluzione alla scarsità di capacità di raffinazione.
-## Prezzi, riserve e capacità: la lettura per la Svizzera
-
-Il punto pratico per la Svizzera non è soltanto quanto costa un litro, ma quanto rapidamente un problema esterno può trasferirsi ai prezzi al consumo e all'industria. Sanyal vede nella capacità della Confederazione di sostenere prezzi elevati un vantaggio rispetto a molte nazioni asiatiche e africane; ciò non la mette però al riparo dagli effetti economici.
-
-La trasformazione del settore aiuta a capire il rischio. Le chiusure delle raffinerie potevano sembrare economicamente giustificate: il mercato globale avrebbe dovuto evitare le carenze. I governi consideravano inoltre questi impianti non infrastrutture critiche, bensì relitti del passato destinati a diventare superflui con la transizione energetica. Dall'inizio del secolo, in Europa ne sono stati chiusi più di 30.
-
-### Il confronto tra un mercato efficiente e un mercato resiliente
-
-Quella scelta ha ridotto la capacità disponibile proprio mentre le incertezze geopolitiche mettono sotto pressione le rotte e gli impianti. La guerra tra Iran e Israele e gli attacchi ucraini hanno reso inutilizzabili raffinerie nell'area del Golfo e in Russia. Se si aggiungono strozzature attorno allo stretto di Hormuz o in Russia, l'intervista parla di una tempesta perfetta.
-
-| Segnale | Effetto indicato dall'intervista |\n|---|---|\n| Riserve strategiche del G7 | Riducono il rischio di un peggioramento immediato e allentano un po' offerta e prezzi. |\n| Stop USA alle esportazioni di diesel | Shock per i mercati europei e ulteriore forte aumento dei prezzi. |\n| Strozzature nei pressi dello stretto di Hormuz o in Russia | Ne deriva uno scenario di forte criticità e non è esclusa una carenza fisica. |\n| Prezzi elevati anche nel 2027 | La domanda europea potrebbe diminuire. |
-
-Il comportamento della domanda conferma che il mercato non ha ancora mostrato una tendenza chiara: dopo circa otto mesi di guerra in Iran, Sanyal non riconosce un cambiamento sensibile nei consumi europei di diesel e benzina. Una permanenza dei prezzi elevati nel 2027 cambierebbe però lo scenario, con una possibile contrazione della domanda.
-
-Per leggere l'effetto sul bilancio personale senza confondere il prezzo al consumo con i costi della raffinazione, si può affiancare questa analisi alla busta paga svizzera. Il dato da seguire non è solo il prezzo odierno, ma la durata dello shock e il modo in cui si muovono insieme offerta, costi e domanda.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
-## Come seguire gli sviluppi senza confondere i segnali
-
-Per seguire il rischio senza trasformare ogni notizia in una previsione, chi vive o lavora in Svizzera può usare una sequenza semplice. Il metodo separa il dato osservato alla pompa, i costi industriali e gli eventi capaci di modificare l'offerta.
-
-### Quattro passaggi operativi
-
-1. **Fissare il punto di partenza.** Il riferimento è il prezzo del diesel alla pompa, quasi a 2,50 franchi al litro. Va letto come costo per il consumatore, non come prova automatica di profitti più alti per i raffinatori.
-
-2. Separare prezzo e struttura dei costi. Nel caso descritto da Sanyal, ai prezzi più elevati corrispondono anche costi di input più alti. Le differenze tra qualità del greggio e trasporto possono cambiare il risultato della raffineria, perciò la variazione alla pompa e il margine industriale non sono la stessa cosa.
-
-3. Controllare i segnali sull'offerta. La liberazione di riserve del G7 riduce il rischio di un peggioramento immediato ma funziona da cuscinetto. Un eventuale divieto degli Stati Uniti sulle esportazioni di diesel sarebbe invece uno shock per l'Europa. Le strozzature attorno allo stretto di Hormuz o in Russia sono descritte come una tempesta perfetta e una carenza fisica non è esclusa.
-
-4. Distinguere breve e medio periodo. Il CEO non prevede quanto dureranno i problemi. Se i prezzi restassero elevati anche nel 2027, la domanda europea potrebbe diminuire; anche dopo una possibile soluzione della crisi a Hormuz, nel greggio potrebbe restare un sovrapprezzo legato al rischio percepito dagli operatori.
-
-Questa griglia è utile anche per la lettura nazionale. La Svizzera ha una posizione migliore di molte nazioni asiatiche e africane nella capacità di pagare prezzi alti, ma Sanyal segnala effetti comunque grandi sui prezzi al consumo e sull'industria. Per una famiglia o un'attività, quindi, il monitoraggio non dovrebbe fermarsi al singolo rifornimento: conviene osservare se l'evento riguarda le riserve, la raffinazione o le rotte internazionali, perché la durata del problema cambia la pressione economica.
-
-Il passaggio finale è tradurre la spesa per il carburante dentro il reddito disponibile, senza introdurre previsioni sulla durata della crisi che Sanyal non azzarda. Per questo controllo usa il calcolatore stipendio.
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/economia/1954981/prezzi-varopreem-raffineria-carburanti-diesel-svizzera-produzione-ceo)*]]></content:encoded>
-      <pubDate>Wed, 07 Oct 2026 05:28:44 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/raffineria-cressier-carburanti</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-raffineria-cressier-carburanti.webp" medium="image"/>
     </item>
   </channel>
 </rss>

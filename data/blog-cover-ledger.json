@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5143
+      "6": 5146
     },
-    "publishedCovers": 6855,
+    "publishedCovers": 6858,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182183,6 +182183,60 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-economia-svizzera-fiducia-calante": {
+      "cover": "/images/blog/article-economia-svizzera-fiducia-calante.webp",
+      "hash": "944cc8a1d4866e1ebceeb339c18c872503c74e6e278dc19e1ad896784d244fd0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "economia-svizzera-fiducia-calante",
+          "category": "novita",
+          "date": "2026-10-09T15:01:33.936Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-gestione-emergenze-ticino-lombardia": {
+      "cover": "/images/blog/article-gestione-emergenze-ticino-lombardia.webp",
+      "hash": "9021757735ca526c2cbc0e2921a4c93e4eed40676f7e8143c3401e74511b5794",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "gestione-emergenze-ticino-lombardia",
+          "category": "novita",
+          "date": "2026-10-09T15:24:27.076Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-iniziativa-solari-senza-permesso": {
       "cover": "/images/blog/article-iniziativa-solari-senza-permesso.webp",
       "hash": "a6419dbc85547276accc2e6a5071987042fd16f576cee634f2c8c683e4950706",
@@ -182383,6 +182437,33 @@
           "id": "rancio-valcuvia-statale-394",
           "category": "novita",
           "date": "2026-10-09T07:21:46.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ricardo-account-esposti": {
+      "cover": "/images/blog/article-ricardo-account-esposti.webp",
+      "hash": "adc099d00963558f6fa6a5b49b2ef50c79436b65d84fda06e8e27a1856413bbe",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ricardo-account-esposti",
+          "category": "novita",
+          "date": "2026-10-09T15:39:39.886Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

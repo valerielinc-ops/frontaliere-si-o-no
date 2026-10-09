@@ -7991,6 +7991,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-fiducia-calante.title': 'Swiss consumer confidence worsens: prices and jobs',
     'blog.article.economia-svizzera-fiducia-calante.excerpt': 'In September, the SECO index fell to -35,8 points The figure fell by 3,0 points compared with August Job security fell to -60,6 This is the first',
     'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'A concerned Swiss consumer looks at prices in a supermarket, reflecting economic uncertainty and the rising cost of living.',
+    'blog.article.ricardo-account-esposti.title': 'Ricardo: data of 890\'000 accounts exposed',
+    'blog.article.ricardo-account-esposti.excerpt': 'A vulnerability exposed approximately 890\'000 Ricardo accounts Public names, postal addresses and telephone numbers E-mail addresses and passwords were not compromised IFPDT',
+    'blog.article.ricardo-account-esposti.imageAlt': 'Laptop showing a security alert for an online marketplace account in Switzerland',
 };
 
 export default blogMetaChEn;

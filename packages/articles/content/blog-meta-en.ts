@@ -12896,7 +12896,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Customs check in Stabio with a van and undeclared wine bottles',
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Emergency management: Extramuro closes between Ticino and Lombardy',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'The second edition of «Extramuro» ended in Erba About ten officers from Ticino attended the training across the border The program involves Ticino',
-    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Civil protection meeting between Ticino and Lombardy',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustration generated for this article',
 };
 
 export default blogMetaEn;

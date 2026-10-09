@@ -12897,7 +12897,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Controllo doganale a Stabio con furgone e bottiglie di vino non dichiarate',
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
-    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Incontro di protezione civile tra Ticino e Lombardia',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustrazione generata per questo articolo',
 };
 
 export default blogMetaIt;

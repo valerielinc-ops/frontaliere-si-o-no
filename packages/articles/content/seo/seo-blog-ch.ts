@@ -100739,10 +100739,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp`,
+        "url": `${BASE_URL}/images/blog/article-economia-svizzera-fiducia-calante.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Un consumatore svizzero preoccupato osserva i prezzi in un supermercato, riflettendo l'incertezza economica e l'aumento del costo della vita."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T15:01:33+00:00",
       "dateModified": "2026-10-09T15:01:33+00:00",
@@ -100755,6 +100755,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-fiducia-calante/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ricardo-account-esposti': {
+    title: 'Ricardo: esposti i dati di 890\'000 account | Frontaliere Ticino',
+    description: 'Una falla ha esposto circa 890\'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricardo, esposti, dati, account',
+    ogTitle: 'Ricardo: dati esposti per 890\'000 account',
+    ogDescription: 'Una falla ha esposto circa 890\'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT',
+    canonicalPath: '/articoli-svizzera/ricardo-account-esposti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricardo: esposti i dati di 890'000 account",
+      "description": "Una falla ha esposto circa 890'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ricardo-account-esposti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laptop con avviso di sicurezza per un account di marketplace online in Svizzera"
+      },
+      "datePublished": "2026-10-09T15:39:39+00:00",
+      "dateModified": "2026-10-09T15:39:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricardo-account-esposti/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

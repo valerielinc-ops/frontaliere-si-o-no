@@ -7991,6 +7991,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.economia-svizzera-fiducia-calante.title': 'Schweizer Verbrauchervertrauen verschlechtert sich: Preise und Arbeit',
     'blog.article.economia-svizzera-fiducia-calante.excerpt': 'Im September sank der SECO-Index auf -35,8 Punkte Der Wert sank gegenüber August um 3,0 Punkte Die Arbeitsplatzsicherheit sank auf -60,6 Es ist die erste',
     'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'Ein besorgter Schweizer Konsument betrachtet die Preise in einem Supermarkt, was die wirtschaftliche Unsicherheit und die steigenden Lebenshaltungskosten widerspiegelt.',
+    'blog.article.ricardo-account-esposti.title': 'Ricardo: Daten von 890\'000 Konten offengelegt',
+    'blog.article.ricardo-account-esposti.excerpt': 'Eine Sicherheitslücke hat etwa 890\'000 Konten offengelegt Namen, Postanschriften und Telefonnummern öffentlich E-Mail-Adressen und Passwörter wurden nicht kompromittiert IFPDT',
+    'blog.article.ricardo-account-esposti.imageAlt': 'Laptop mit Sicherheitswarnung für ein Online-Marktplatzkonto in der Schweiz',
 };
 
 export default blogMetaChDe;

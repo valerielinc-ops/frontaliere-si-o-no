@@ -12898,7 +12898,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Contrôle douanier à Stabio avec fourgon et bouteilles de vin non déclarées',
     'blog.article.gestione-emergenze-ticino-lombardia.title': 'Gestion des urgences : Extramuro se clôt entre le Tessin et la Lombardie',
     'blog.article.gestione-emergenze-ticino-lombardia.excerpt': 'La deuxième édition d’«Extramuro» s’est achevée à Erba Une dizaine d’officiers tessinois a suivi la formation au-delà de la frontière Le programme implique le Tessin',
-    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Réunion de protection civile entre le Tessin et la Lombardie',
+    'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustration générée pour cet article',
 };
 
 export default blogMetaFr;

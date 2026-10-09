@@ -7991,6 +7991,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.economia-svizzera-fiducia-calante.title': 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
     'blog.article.economia-svizzera-fiducia-calante.excerpt': 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
     'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'Un consumatore svizzero preoccupato osserva i prezzi in un supermercato, riflettendo l\'incertezza economica e l\'aumento del costo della vita.',
+    'blog.article.ricardo-account-esposti.title': 'Ricardo: esposti i dati di 890\'000 account',
+    'blog.article.ricardo-account-esposti.excerpt': 'Una falla ha esposto circa 890\'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT',
+    'blog.article.ricardo-account-esposti.imageAlt': 'Laptop con avviso di sicurezza per un account di marketplace online in Svizzera',
 };
 
 export default blogMetaChIt;
