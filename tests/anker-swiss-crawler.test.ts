@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   ANKER_SWISS_KEY,
   ANKER_SWISS_COMPANY_NAME,
+  ANKER_SWISS_HOST_DELAY_MS,
   isAnkerSwissJob,
   isTrustedDomain,
   buildSlugDisambiguator,
@@ -13,6 +14,10 @@ import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common
 import { lookupSwissPostalCode } from '../scripts/lib/swiss-postal-code.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
+  it('uses a source-specific cadence that avoids the live 429 threshold', () => {
+    expect(ANKER_SWISS_HOST_DELAY_MS).toBe(2_500);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ANKER_SWISS_KEY).toBe('anker-swiss');

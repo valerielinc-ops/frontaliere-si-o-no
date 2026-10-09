@@ -67,7 +67,7 @@ function raceSignal(promise, signal) {
  * @param {number} [deadline] Internal: recursion-only, the absolute time past
  *   which this call stops honouring further cooldown extensions.
  */
-async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
+async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline, hostDelayMs) {
   const now = nowImpl();
   // A burst of concurrent 429s can keep extending the host cooldown while we
   // wait (each recursive re-check below reads whatever `until` is latest),
@@ -78,7 +78,11 @@ async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
   const callDeadline = deadline ?? now + RETRY_AFTER_CAP_MS;
   const prev = lastHit.get(host) || 0;
   const cooldown = hostCooldown.get(host) || { until: 0, generation: 0 };
-  const slot = Math.max(now, prev + HOST_DELAY_MS, Math.min(cooldown.until, callDeadline));
+  const configuredDelay = Number(hostDelayMs);
+  const delay = hostDelayMs == null || !Number.isFinite(configuredDelay) || configuredDelay < 0
+    ? HOST_DELAY_MS
+    : configuredDelay;
+  const slot = Math.max(now, prev + delay, Math.min(cooldown.until, callDeadline));
   const wait = slot - now;
   // Stamp BEFORE awaiting so concurrent callers on the same host queue behind
   // each other instead of all reading the same stale timestamp and firing together.
@@ -90,7 +94,7 @@ async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
   const latest = hostCooldown.get(host);
   if (latest && latest.generation !== cooldown.generation && latest.until > slot
     && nowImpl() < callDeadline) {
-    await throttle(host, sleepImpl, nowImpl, callDeadline);
+    await throttle(host, sleepImpl, nowImpl, callDeadline, hostDelayMs);
   }
 }
 
@@ -245,7 +249,7 @@ export function isRobotsDeniedError(error) {
  * every run into an error-handling exercise instead of a discovery run.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number }} [opts]
+ * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number, hostDelayMs?: number }} [opts]
  * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
 export async function politeFetch(url, opts = {}) {
@@ -400,7 +404,10 @@ async function fetchOnce(url, opts) {
       // therefore cannot borrow the seed host's throttle budget. Robots is
       // loaded first so a policy/DNS rejection does not reserve a phantom
       // target request or create what looks like retry backoff.
-      await raceSignal(throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now), opts.signal);
+      await raceSignal(
+        throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now, undefined, opts.hostDelayMs),
+        opts.signal,
+      );
     },
     requestOptions: {
       method,
