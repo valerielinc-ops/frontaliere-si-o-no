@@ -1,18 +1,59 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-09T09:16:17.498Z",
+  "generatedAt": "2026-10-09T21:16:35.160Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 19862,
-  "avgDurationMs": 19862,
+  "removedCount": 1,
+  "unchangedCount": 6,
+  "durationMs": 18278,
+  "avgDurationMs": 18278,
   "durationHistory": [
-    19862
+    18278
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
+      "slug": "apprendistato-konstrukteur-in-w-m-div-2027-bosch-thermotechnik-ag-buttikon",
+      "url": "https://jobs.bosch.com/en/job/REF296426U-lehrstelle-konstrukteur-in-w-m-div-2027",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154607369-lehrstelle-konstrukteur-in-w-m-div-2027?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Buttikon",
+      "addressLocality": "Buttikon",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-09",
+      "postedDate": "2026-10-09",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-530668e6b526",
+      "needsRetranslation": true,
+      "salaryMin": 50000,
+      "salaryMax": 76000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "5619",
+      "firstSeenAt": "2026-10-09T21:16:25.372Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
@@ -55,7 +96,47 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Logisitker (w/m/div.) - REF297188H",
+      "slug": "logisitker-f-m-div-ref297188-hh-bosch-thermotechnik-ag-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152195569-logisitker-w-m-div-ref297188h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-28",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-0138c1bc88e7",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-28T21:13:35.447Z",
+      "datePosted": "2026-09-28",
+      "postingDateSource": "reported",
+      "postalCode": "3924",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
@@ -294,46 +375,7 @@
         "translation": 21,
         "completeness": 22
       }
-    },
-    {
-      "title": "Logisitker (w/m/div.) - REF297188H",
-      "slug": "logisitker-f-m-div-ref297188-hh-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152195569-logisitker-w-m-div-ref297188h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-28",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-0138c1bc88e7",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-28T21:13:35.447Z",
-      "datePosted": "2026-09-28",
-      "postingDateSource": "reported",
-      "postalCode": "3924",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

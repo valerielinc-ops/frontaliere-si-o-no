@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-10-09T09:16:28.246Z",
+  "generatedAt": "2026-10-09T21:14:07.527Z",
   "total": 3,
   "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 2519,
-  "avgDurationMs": 2519,
+  "durationMs": 1969,
+  "avgDurationMs": 1969,
   "durationHistory": [
-    2519
+    1969
   ],
   "newJobs": [
     {
@@ -41,23 +41,64 @@
         "canton": "TI",
         "location": "Lugano"
       },
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-09T09:16:20.980Z",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
+      "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
+      "title": "Senior Estimating Engineer",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "ingegnere-di-stima-senior-casale-sa-lugano-ticino",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-09T09:16:20.980Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "url": "https://recruit.casale.ch/o/expediter-1",
@@ -144,5 +185,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
