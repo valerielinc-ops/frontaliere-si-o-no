@@ -6,6 +6,7 @@ import {
   renderArticleDerivedSectionsHtml,
   renderArticleInlineMarkup,
 } from '@/build-plugins/articleSeoFallback';
+import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from './fixtures/flattenedArticleBodies';
 
 const wordCount = (value: string) => value.split(/\s+/).filter(Boolean).length;
@@ -73,6 +74,31 @@ describe('article SEO fallback builder', () => {
       '<strong><em>mobilità pubblica</em></strong>',
     );
     expect(renderArticleInlineMarkup('MOPS_DanceSyndrome')).toBe('MOPS_DanceSyndrome');
+  });
+
+  it('renders emphasis nested inside Markdown link labels', () => {
+    expect(renderArticleInlineMarkup('[**Riforma disoccupazione frontalieri**](https://example.com)')).toBe(
+      '<a href="https://example.com"><strong>Riforma disoccupazione frontalieri</strong></a>',
+    );
+    expect(renderArticleInlineMarkup('[*La mia impresa, il mio futuro*](https://example.com)')).toBe(
+      '<a href="https://example.com"><em>La mia impresa, il mio futuro</em></a>',
+    );
+  });
+
+  it('turns legacy disclosure tags into headings instead of visible markup', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      'Intro.\n\n<details>\n<summary>Coverage</summary>\nBody.\n</details>',
+    ]));
+
+    expect(section.html).toContain('<h3>Coverage</h3>');
+    expect(section.html).toContain('<p>Body.</p>');
+    expect(section.html).not.toMatch(/(?:&lt;|<\\/?)(?:details|summary)/i);
+  });
+
+  it('leaves disclosure-looking tags inside fenced code unchanged', () => {
+    const source = '```html\n<details><summary>literal</summary></details>\n```';
+
+    expect(normalizeArticleMarkdown(source)).toBe(source);
   });
 
   it('clamps a skipped heading level under the article section wrapper', () => {

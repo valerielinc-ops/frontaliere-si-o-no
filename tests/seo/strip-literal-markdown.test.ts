@@ -39,6 +39,18 @@ describe('stripLiteralMarkdown', () => {
     expect(once).not.toContain('**');
   });
 
+  it('removes body-markdown syntax from plain descriptions', () => {
+    expect(stripLiteralMarkdown('## In breve - aggiornamenti per i frontalieri')).toBe(
+      'In breve - aggiornamenti per i frontalieri',
+    );
+    expect(stripLiteralMarkdown('Scopri *La mia impresa, il mio futuro*.')).toBe(
+      'Scopri La mia impresa, il mio futuro.',
+    );
+    expect(stripLiteralMarkdown('[Riforma disoccupazione frontalieri](https://example.com)')).toBe(
+      'Riforma disoccupazione frontalieri',
+    );
+  });
+
   it('passes through clean strings and empty input untouched', () => {
     expect(stripLiteralMarkdown('Offerte di Lavoro in Ticino')).toBe('Offerte di Lavoro in Ticino');
     expect(stripLiteralMarkdown('')).toBe('');

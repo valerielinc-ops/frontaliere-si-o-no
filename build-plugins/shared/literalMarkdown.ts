@@ -6,11 +6,22 @@ export function stripLiteralMarkdown(value: string): string {
   t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
   // 2. Nuke remaining runs of 2+ asterisks, including orphaned crawler output.
   t = t.replace(/\*{2,}/g, '');
-  // 3. Separator runs (3+ of `_`, `=`, `~`) — drop.
+  // 3. Markdown links are useful in body copy, but their syntax has no place
+  // in a plain description/title. Keep the label and drop the destination.
+  t = t.replace(/\[([^\]\n]+)\]\([^()\n]+\)/g, '$1');
+  // 4. A description can be a one-line export of a Markdown heading (for
+  // example `## In breve - ...`). Strip the marker wherever it starts a
+  // heading, including when several flattened headings share one line.
+  t = t.replace(/(^|[\s([{])#{1,6}(?=\s+)/gm, '$1');
+  // 5. Unwrap single-marker emphasis as well. Restrict the closing boundary
+  // so ordinary multiplication/starred wording is left alone.
+  t = t.replace(/(^|[\s([{])\*([^*\n]+?)\*(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
+  t = t.replace(/(^|[\s([{])_([^_\n]+?)_(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
+  // 6. Separator runs (3+ of `_`, `=`, `~`) — drop.
   t = t.replace(/[_=~]{3,}/g, ' ');
-  // 4. Orphan leading/trailing single `*` survivors.
+  // 7. Orphan leading/trailing single `*` survivors.
   t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
-  // 5. Collapse any double-spaces created by the strips.
+  // 8. Collapse any double-spaces created by the strips.
   t = t.replace(/[ \t]{2,}/g, ' ');
   return t.trim();
 }
