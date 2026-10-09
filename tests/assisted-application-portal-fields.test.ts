@@ -268,6 +268,14 @@ describe('portal field extraction', () => {
     ]);
   });
 
+  it('does not let a same-label content link hide a real submit control', () => {
+    const page = extract(
+      '<div><button type="submit" tabindex="-1" aria-hidden="true">Submit</button>'
+      + '<a href="/article">Submit</a></div>'
+    );
+    expect(page.buttons).toMatchObject([{ text: 'Submit', href: '' }]);
+  });
+
   // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
   it('keeps a drawn button that is only aria-hidden, and leaves out what lies under an open modal dialog', () => {
     // A submit some portal marks aria-hidden with no overlay next to it is still the one to press: alone, out

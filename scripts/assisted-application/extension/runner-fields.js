@@ -349,19 +349,20 @@
   // so ordinary content links do not become buttons.
   const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
+  const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
     const name = buttonName(element);
     return Boolean(name) && [...(element.parentElement?.querySelectorAll(BUTTONS) || [])]
-      .some((other) => other !== element && !hiddenFromPeople(other) && visible(other) && buttonName(other) === name);
+      .some((other) => other !== element && actionControl(other) && !hiddenFromPeople(other) && visible(other) && buttonName(other) === name);
   };
   const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
   const buttons = [...document.querySelectorAll(BUTTONS)]
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
-      && (element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element)))
+      && actionControl(element))
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),
