@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuhn-rikon",
-  "assembledAt": "2026-10-09T10:36:38.291Z",
+  "assembledAt": "2026-10-09T21:21:43.197Z",
   "jobs": [
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
@@ -34,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:36:32.299Z",
+      "crawledAt": "2026-10-09T21:21:37.403Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -174,7 +174,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:36:31.900Z",
+      "crawledAt": "2026-10-09T21:21:37.003Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -252,7 +252,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:36:31.389Z",
+      "crawledAt": "2026-10-09T21:21:36.471Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -274,20 +274,6 @@
       "requirementsByLocale": {},
       "externalId": "32d44bf225d93aeca1f2eea1de8acc55",
       "hiringOrganizationName": "Kuhn Rikon",
-      "firstSeenAt": "2026-08-18T22:07:50.326Z",
-      "salaryMin": 76000,
-      "salaryMax": 102500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 102500,
-          "unitText": "YEAR"
-        }
-      },
       "previousSlugs": [
         "personale-di-produzione-100-kuhn-rikon-rikon",
         "production-staff-100-kuhn-rikon-rikon",
@@ -309,6 +295,20 @@
           "personnel-de-production-100-kuhn-rikon-rikon",
           "produktionsmitarbeiter-in-100-kuhn-rikon-rikon"
         ]
+      },
+      "firstSeenAt": "2026-08-18T22:07:50.326Z",
+      "salaryMin": 76000,
+      "salaryMax": 102500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 76000,
+          "maxValue": 102500,
+          "unitText": "YEAR"
+        }
       }
     }
   ]
