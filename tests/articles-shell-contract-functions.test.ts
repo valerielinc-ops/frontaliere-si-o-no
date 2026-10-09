@@ -24,6 +24,11 @@ async function probe() {
 
   out.stripLiteralMarkdown = c.stripLiteralMarkdown('## **Onkologie___Ärzte** *[guida](https://example.com)*');
   out.stripLiteralMarkdownArithmetic = c.stripLiteralMarkdown('Calcolo: 8 * 5 * 4');
+  out.stripLiteralMarkdownBalancedLink = c.stripLiteralMarkdown('[Età](https://en.wikipedia.org/wiki/Function_(mathematics))');
+  out.stripLiteralMarkdownNestedLink = c.stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))');
+  out.stripLiteralMarkdownReferenceLink = c.stripLiteralMarkdown('[Età][ref]');
+  out.stripLiteralMarkdownMarkupBoundaries = c.stripLiteralMarkdown('## Titolo ##');
+  out.stripLiteralMarkdownPunctuation = c.stripLiteralMarkdown('Titolo:*term*—nota __Strong__');
 
   out.clampMetaDescription = c.clampMetaDescription('x'.repeat(400));
   out.clampMetaDescriptionShort = c.clampMetaDescription('breve');

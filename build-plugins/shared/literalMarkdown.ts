@@ -1,27 +1,105 @@
+function findClosingBracket(value: string, openingIndex: number): number {
+  let depth = 0;
+  for (let index = openingIndex; index < value.length; index += 1) {
+    const char = value[index];
+    if (char === '\\') {
+      index += 1;
+      continue;
+    }
+    if (char === '[') depth += 1;
+    if (char === ']') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function findClosingParenthesis(value: string, openingIndex: number): number {
+  let depth = 0;
+  for (let index = openingIndex; index < value.length; index += 1) {
+    const char = value[index];
+    if (char === '\\') {
+      index += 1;
+      continue;
+    }
+    if (char === '(') depth += 1;
+    if (char === ')') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+function stripMarkdownLinks(value: string): string {
+  let result = '';
+  let cursor = 0;
+
+  for (let index = 0; index < value.length; index += 1) {
+    if (value[index] !== '[' || (index > 0 && value[index - 1] === '\\')) continue;
+    const labelEnd = findClosingBracket(value, index);
+    if (labelEnd < 0) continue;
+
+    let linkEnd = -1;
+    const next = value[labelEnd + 1];
+    if (next === '(') {
+      const destinationEnd = findClosingParenthesis(value, labelEnd + 1);
+      if (destinationEnd >= 0) linkEnd = destinationEnd;
+    } else if (next === '[') {
+      const referenceEnd = findClosingBracket(value, labelEnd + 1);
+      if (referenceEnd >= 0) linkEnd = referenceEnd;
+    }
+    if (linkEnd < 0) continue;
+
+    const tokenStart = index > 0 && value[index - 1] === '!' && value[index - 2] !== '\\' ? index - 1 : index;
+    result += value.slice(cursor, tokenStart);
+    result += stripMarkdownLinks(value.slice(index + 1, labelEnd));
+    cursor = linkEnd + 1;
+    index = linkEnd;
+  }
+
+  return result + value.slice(cursor);
+}
+
+function stripLiteralHeadingMarkers(value: string): string {
+  return value
+    .split('\n')
+    .map((line) => {
+      let foundHeading = false;
+      const withoutOpening = line.replace(/(^|[\s([{])#{1,6}(?=\s+)/g, (_match, prefix: string) => {
+        foundHeading = true;
+        return prefix;
+      });
+      return foundHeading ? withoutOpening.replace(/\s+#{1,6}\s*$/g, '') : withoutOpening;
+    })
+    .join('\n');
+}
+
 /** Browser-safe literal-markdown cleanup shared by build and SPA callers. */
 export function stripLiteralMarkdown(value: string): string {
   if (!value) return value;
   let t = String(value);
   // 1. Unwrap balanced bold, keeping the inner text (`**Requisitos:**` → `Requisitos:`).
-  t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
+  t = stripMarkdownLinks(t);
+  t = t.replace(/\*\*([^\s*](?:[^*\n]*?[^\s*])?)\*\*/g, '$1');
   // 2. Nuke remaining runs of 2+ asterisks, including orphaned crawler output.
   t = t.replace(/\*{2,}/g, '');
-  // 3. Markdown links are useful in body copy, but their syntax has no place
-  // in a plain description/title. Keep the label and drop the destination.
-  t = t.replace(/\[([^\]\n]+)\]\([^()\n]+\)/g, '$1');
-  // 4. A description can be a one-line export of a Markdown heading (for
+  // 3. A description can be a one-line export of a Markdown heading (for
   // example `## In breve - ...`). Strip the marker wherever it starts a
   // heading, including when several flattened headings share one line.
-  t = t.replace(/(^|[\s([{])#{1,6}(?=\s+)/gm, '$1');
-  // 5. Unwrap single-marker emphasis as well. Restrict the closing boundary
-  // so ordinary multiplication/starred wording is left alone.
-  t = t.replace(/(^|[\s([{])\*([^\s*](?:[^*\n]*?[^\s*])?)\*(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
-  t = t.replace(/(^|[\s([{])_([^\s_](?:[^_\n]*?[^\s_])?)_(?=$|[\s)\]},.!?;:'"”’])/gm, '$1$2');
-  // 6. Separator runs (3+ of `_`, `=`, `~`) — drop.
+  t = stripLiteralHeadingMarkers(t);
+  // 4. Unwrap strong emphasis before its single-marker form. Both inner edges
+  // must be non-whitespace, while the outer delimiters may touch punctuation;
+  // this keeps `a * b * c` as prose and still cleans `Titolo:*term*—nota`.
+  t = t.replace(/(^|[^\p{L}\p{N}_\\])__([^\s_](?:[^_\n]*?[^\s_])?)__(?=$|[^\p{L}\p{N}_])/gu, '$1$2');
+  t = t.replace(/(^|[^\p{L}\p{N}_*\\])\*([^\s*](?:[^*\n]*?[^\s*])?)\*(?=$|[^\p{L}\p{N}_*])/gu, '$1$2');
+  t = t.replace(/(^|[^\p{L}\p{N}_\\])_([^\s_](?:[^_\n]*?[^\s_])?)_(?=$|[^\p{L}\p{N}_])/gu, '$1$2');
+  // 5. Separator runs (3+ of `_`, `=`, `~`) — drop.
   t = t.replace(/[_=~]{3,}/g, ' ');
-  // 7. Orphan leading/trailing single `*` survivors.
+  // 6. Orphan leading/trailing single `*` survivors.
   t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
-  // 8. Collapse any double-spaces created by the strips.
+  // 7. Collapse any double-spaces created by the strips.
   t = t.replace(/[ \t]{2,}/g, ' ');
   return t.trim();
 }
