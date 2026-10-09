@@ -12,7 +12,7 @@
 # Neither launchd nor `run` executes the checkout's working tree, which may sit
 # on somebody else's branch: install copies this script into the state folder
 # (the plist runs that copy), and `run` fetches origin/main, extracts the robot's files of that
-# commit (`git archive`) into a frozen snapshot under the state folder, links
+# commit into a frozen snapshot under the state folder, links
 # the checkout's node_modules (Playwright) and runs it from there. The mode
 # comes from Remote Config (SOCIAL_ROBOT_MODE, read with the site's own
 # loader and the service account in ~/.config/frontaliere): the plist always
@@ -78,6 +78,31 @@ verify_snapshot() {
   node "$snapshot_root/scripts/social-robot/verify-snapshot.mjs" "$snapshot_root"
 }
 
+# `git archive` can wait indefinitely for an unrelated tree/blob in a
+# blob:none partial clone. Resolve the destination tree first, then fetch and
+# write only the files declared by that commit's launcher. This keeps the host
+# independent from the checkout's working tree and avoids materialising the
+# site's large public/data trees.
+materialize_snapshot() {
+  sha=$1
+  destination_root=$2
+  destination_paths=$3
+  tracked_files=$(g ls-tree -r --name-only "$sha" -- $destination_paths) || return 1
+  [ -n "$tracked_files" ] || return 1
+  # shellcheck disable=SC2162 # Bash 3.2 supports read -r; repository paths have no newlines.
+  while IFS= read -r snapshot_file; do
+    [ -n "$snapshot_file" ] || continue
+    target="$destination_root/$snapshot_file"
+    /bin/mkdir -p "$(/usr/bin/dirname "$target")" || return 1
+    if ! g show "${sha}:${snapshot_file}" >"$target"; then
+      /bin/rm -f "$target"
+      return 1
+    fi
+  done <<EOF
+$tracked_files
+EOF
+}
+
 alarm_issue() {
   errors=''
   if [ -f "$log_file" ]; then
@@ -116,8 +141,7 @@ snapshot() {
     /bin/mkdir -p "$runner_root" || return 1
     tmp="$runner_root/.tmp-$sha-$$"
     /bin/rm -rf "$tmp" "$dest" && /bin/mkdir -p "$tmp" || return 1
-    # shellcheck disable=SC2086 # snapshot_paths is a word list by design
-    if ! g archive --format=tar "$sha" -- $destination_snapshot_paths | /usr/bin/tar -x -C "$tmp"; then
+    if ! materialize_snapshot "$sha" "$tmp" "$destination_snapshot_paths"; then
       /bin/rm -rf "$tmp"
       return 1
     fi
