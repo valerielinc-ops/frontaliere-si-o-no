@@ -722,6 +722,13 @@ describe('Mac host launch agent', () => {
     expect(missing).toEqual([]);
   });
 
+  it('materializes only the declared files instead of archiving the partial clone', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    expect(source).toContain('g ls-tree -r --name-only');
+    expect(source).toContain('g show "${sha}:${snapshot_file}"');
+    expect(source).not.toContain('g archive --format=tar');
+  });
+
   it('uses the destination SHA snapshot list even when the installed copy is old', () => {
     const fixture = createLaunchFixture();
     expect(fs.readFileSync(fixture.installed, 'utf8')).not.toContain(fixture.extraPath);
