@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-10-09T09:24:32.366Z",
+  "assembledAt": "2026-10-09T21:26:44.746Z",
   "jobs": [
     {
       "id": "valiant-bank-e594269f30be",
@@ -33,7 +33,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:25.176Z",
+      "crawledAt": "2026-10-09T21:26:37.101Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -115,7 +115,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:24.651Z",
+      "crawledAt": "2026-10-09T21:26:36.606Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -137,15 +137,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:23:09.147Z",
+      "previousSlugs": [
+        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
-      ],
+      "firstSeenAt": "2026-07-04T12:23:09.147Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -191,7 +191,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:24.164Z",
+      "crawledAt": "2026-10-09T21:26:36.099Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -273,7 +273,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:24:23.766Z",
+      "crawledAt": "2026-10-09T21:26:35.721Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -295,15 +295,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:23:07.043Z",
+      "previousSlugs": [
+        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
         ]
       },
-      "previousSlugs": [
-        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
-      ],
+      "firstSeenAt": "2026-07-04T12:23:07.043Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -349,7 +349,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/e6ccb352-bdf5-46ab-8302-060383e05fc3",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:23.540Z",
+      "crawledAt": "2026-10-09T21:26:35.478Z",
       "addressLocality": "Bern Betlehem",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -371,15 +371,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:23:05.346Z",
+      "previousSlugs": [
+        "berater-in-privatkunden-80-100-valiant-bern-betlehem"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-privatkunden-80-100-valiant-bern-betlehem"
         ]
       },
-      "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-bern-betlehem"
-      ],
+      "firstSeenAt": "2026-07-04T12:23:05.346Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -425,7 +425,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:23.326Z",
+      "crawledAt": "2026-10-09T21:26:35.272Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -447,15 +447,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:23:04.973Z",
+      "previousSlugs": [
+        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
         ]
       },
-      "previousSlugs": [
-        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
-      ],
+      "firstSeenAt": "2026-07-04T12:23:04.973Z",
       "salaryMin": 73500,
       "salaryMax": 129000,
       "salarySource": "estimated",
@@ -501,7 +501,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:23.160Z",
+      "crawledAt": "2026-10-09T21:26:34.841Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -583,7 +583,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:22.908Z",
+      "crawledAt": "2026-10-09T21:26:34.639Z",
       "addressLocality": "Seengen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -661,7 +661,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:22.698Z",
+      "crawledAt": "2026-10-09T21:26:34.447Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -738,7 +738,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:24:22.487Z",
+      "crawledAt": "2026-10-09T21:26:34.241Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -759,15 +759,15 @@
       "hiringOrganizationName": "Valiant Bank AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-12T21:51:43.216Z",
+      "previousSlugs": [
+        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
         ]
       },
-      "previousSlugs": [
-        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
-      ],
+      "firstSeenAt": "2026-08-12T21:51:43.216Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -813,7 +813,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachexperte-in-risk-senior/f5c4e406-75a5-441a-a980-a83a2f8afab1",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:22.268Z",
+      "crawledAt": "2026-10-09T21:26:33.978Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -834,15 +834,15 @@
       "hiringOrganizationName": "Valiant Bank AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-13T10:44:00.212Z",
+      "previousSlugs": [
+        "fachexperte-in-risk-senior-80-100-valiant-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachexperte-in-risk-senior-80-100-valiant-bern"
         ]
       },
-      "previousSlugs": [
-        "fachexperte-in-risk-senior-80-100-valiant-bern"
-      ],
+      "firstSeenAt": "2026-08-13T10:44:00.212Z",
       "salaryMin": 122000,
       "salaryMax": 209000,
       "salarySource": "estimated",
@@ -888,7 +888,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/d938832f-15ae-438c-b16a-c7e74b63a6f4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:22.020Z",
+      "crawledAt": "2026-10-09T21:26:33.764Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -965,7 +965,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:21.774Z",
+      "crawledAt": "2026-10-09T21:26:33.559Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -986,15 +986,15 @@
       "hiringOrganizationName": "Valiant Bank AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-18T21:52:54.268Z",
+      "previousSlugs": [
+        "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
-      ],
+      "firstSeenAt": "2026-08-18T21:52:54.268Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1040,7 +1040,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/df7446ef-6bf8-4f75-b83d-c775304f9949",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:21.576Z",
+      "crawledAt": "2026-10-09T21:26:33.372Z",
       "addressLocality": "Langnau i",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1117,7 +1117,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/assistent-in-unternehmenskunden/c1236cf9-252a-4136-81e5-b432eaf4b849",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:21.374Z",
+      "crawledAt": "2026-10-09T21:26:33.170Z",
       "addressLocality": "Wohlen und Zug",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1194,7 +1194,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/leiter-in-fraud-services/ad2f0530-1509-43c3-8af4-b72c2d03b765",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:21.166Z",
+      "crawledAt": "2026-10-09T21:26:32.966Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1216,15 +1216,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-17T06:55:20.449Z",
+      "previousSlugs": [
+        "leiter-in-fraud-services-80-100-valiant-gumligen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-fraud-services-80-100-valiant-gumligen"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-fraud-services-80-100-valiant-gumligen"
-      ],
+      "firstSeenAt": "2026-09-17T06:55:20.449Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
       "salarySource": "estimated",
@@ -1270,7 +1270,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/assistent-in-unternehmenskunden/3680c796-535e-4a20-9c5e-5c53cc665506",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:20.905Z",
+      "crawledAt": "2026-10-09T21:26:32.762Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1291,15 +1291,15 @@
       "hiringOrganizationName": "Valiant Bank AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:00:04.838Z",
+      "previousSlugs": [
+        "assistent-in-unternehmenskunden-60-80-valiant-aarau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-unternehmenskunden-60-80-valiant-aarau"
         ]
       },
-      "previousSlugs": [
-        "assistent-in-unternehmenskunden-60-80-valiant-aarau"
-      ],
+      "firstSeenAt": "2026-09-19T23:00:04.838Z",
       "salaryMin": 85600,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -1345,7 +1345,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/vorsorgeberater-in-firmenkunden-mandatsleitung/612208a2-ee26-467c-9ea9-32bf5fb4d32e",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:20.712Z",
+      "crawledAt": "2026-10-09T21:26:32.566Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -1367,15 +1367,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:00:04.510Z",
+      "previousSlugs": [
+        "vorsorgeberater-in-firmenkunden-mandatsleitung-80-100-valiant-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "vorsorgeberater-in-firmenkunden-mandatsleitung-80-100-valiant-basel"
         ]
       },
-      "previousSlugs": [
-        "vorsorgeberater-in-firmenkunden-mandatsleitung-80-100-valiant-basel"
-      ],
+      "firstSeenAt": "2026-09-19T23:00:04.510Z",
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
@@ -1421,7 +1421,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/ba7136e1-6f55-498e-88ba-f141c8c750fc",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:20.487Z",
+      "crawledAt": "2026-10-09T21:26:32.363Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1499,7 +1499,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/8e46cacd-94fd-445b-b646-e2b8d9681a33",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:20.265Z",
+      "crawledAt": "2026-10-09T21:26:32.170Z",
       "addressLocality": "Bern Bethlehem",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1521,15 +1521,15 @@
       "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T09:21:06.538Z",
+      "previousSlugs": [
+        "geschaftsstellenleiter-in-80-100-valiant-bern-bethlehem"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsstellenleiter-in-80-100-valiant-bern-bethlehem"
         ]
       },
-      "previousSlugs": [
-        "geschaftsstellenleiter-in-80-100-valiant-bern-bethlehem"
-      ],
+      "firstSeenAt": "2026-09-29T09:21:06.538Z",
       "salaryMin": 175000,
       "salaryMax": 307500,
       "salarySource": "estimated",
@@ -1575,7 +1575,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/9f379e13-210e-445d-8481-a37315bd050e",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:20.030Z",
+      "crawledAt": "2026-10-09T21:26:31.964Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1653,7 +1653,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/junior-compliance-officer-w-m/ab1d8d67-c1d1-4649-95c0-3c0f1c5eb708",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:24:19.837Z",
+      "crawledAt": "2026-10-09T21:26:31.756Z",
       "addressLocality": "Bundesplatz 4",
       "addressRegion": "BE",
       "streetAddress": "",

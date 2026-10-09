@@ -1,6 +1,6 @@
 {
   "crawlerKey": "asana-spital",
-  "assembledAt": "2026-10-09T11:39:25.967Z",
+  "assembledAt": "2026-10-09T21:29:32.477Z",
   "jobs": [
     {
       "id": "asana-spital-351aa06cbc98",
@@ -33,7 +33,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/studierende-studierender-pflege-hf/80f68056-9fab-4a32-beee-ad8ae7e0842e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.978Z",
+      "crawledAt": "2026-10-09T21:29:18.092Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-interdisziplinaere-akutstation/c515e33d-bbc9-499b-947c-2a0136f226c4",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.977Z",
+      "crawledAt": "2026-10-09T21:29:18.090Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -241,15 +241,15 @@
           "Collaboration respectueuse"
         ]
       },
-      "firstSeenAt": "2026-05-19T16:48:05.776Z",
+      "previousSlugs": [
+        "fachperson-gesundheit-100-interdisziplinare-akutstation-asana-spital-leuggern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-100-interdisziplinare-akutstation-asana-spital-leuggern"
         ]
       },
-      "previousSlugs": [
-        "fachperson-gesundheit-100-interdisziplinare-akutstation-asana-spital-leuggern"
-      ],
+      "firstSeenAt": "2026-05-19T16:48:05.776Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -296,7 +296,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-fachfrau-fachmann-operationstechnik-hf-toa/de8a7f89-96b4-4037-8ec9-5842cb6a5d7e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.975Z",
+      "crawledAt": "2026-10-09T21:29:18.089Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -388,7 +388,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachaerztin-facharzt-allgemeine-innere-medizin-hausarztpraxis/b6b08327-5c89-45e3-bada-937341594cf4",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.974Z",
+      "crawledAt": "2026-10-09T21:29:18.087Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -479,7 +479,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/2b9fed32-5d08-44fc-b38e-6b9e06cbf6ed",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.972Z",
+      "crawledAt": "2026-10-09T21:29:18.085Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -571,7 +571,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-fuer-nachtdienst-auf-interdisziplinaerer-akutstation/6e6bdd48-2b55-4e5e-b623-6cb9ba9b1c19",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.971Z",
+      "crawledAt": "2026-10-09T21:29:18.084Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -648,7 +648,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-interdisziplinaere-akutstation-mit-wochenbett/fbf1cc31-b089-47d0-8215-fcba9353b772",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.969Z",
+      "crawledAt": "2026-10-09T21:29:18.082Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -742,7 +742,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-rettungssanitaeterin-dipl-rettungssanitaeter-mit-doppelfunktion-anaesthesiepflege/5e84e38f-894e-4075-9d4a-3926f30fc26a",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.968Z",
+      "crawledAt": "2026-10-09T21:29:18.081Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -832,7 +832,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/studierende-studierenden-fuer-die-ausbildung-zur-zum-dipl-rettungssanitaeterin-dipl-rettungssanitaeter-hf-2-jaehrige-verkuerzte-ausbildung/67ef28c8-c556-467e-bade-29be5d98cfbe",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.967Z",
+      "crawledAt": "2026-10-09T21:29:18.080Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -925,7 +925,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/93a3b64c-0605-4d7f-95a6-5a36893f99ce",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.965Z",
+      "crawledAt": "2026-10-09T21:29:18.077Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1016,7 +1016,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/unterassistentin-unterassistent-medizin/952d1554-ef2d-4e6d-bd31-29fef547dbb0",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.964Z",
+      "crawledAt": "2026-10-09T21:29:18.075Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1108,7 +1108,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fuer-pflegepool/c814edc8-b652-4bc9-9263-c2b9bff28a3d",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.962Z",
+      "crawledAt": "2026-10-09T21:29:18.073Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1185,7 +1185,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-oder-dipl-pflegefachperson-hf-ph-eiche/928cb831-c721-4ad6-b660-99ff8eb3a57a",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.961Z",
+      "crawledAt": "2026-10-09T21:29:18.068Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1262,7 +1262,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-expertin-expertin-anaesthesiepflege-nds-hf/6bff1921-df7f-4b4d-ad29-91b805af10fa",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.960Z",
+      "crawledAt": "2026-10-09T21:29:18.067Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1354,7 +1354,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-expertin-notfallpflege-dipl-experte-notfallpflege-nds-hf/f7e52cff-ea4e-4a93-bc86-a86de5237788",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.958Z",
+      "crawledAt": "2026-10-09T21:29:18.066Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1449,7 +1449,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-interdisziplinaere-akutstation/abaff13c-aae4-4e39-b650-a591ea13470d",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.957Z",
+      "crawledAt": "2026-10-09T21:29:18.064Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1469,15 +1469,15 @@
       "applyUrl": "https://jobs.spitalleuggern.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-interdisziplinaere-akutstation/abaff13c-aae4-4e39-b650-a591ea13470d",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-25T10:13:40.066Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-interdisziplinare-akutstation-asana"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-interdisziplinare-akutstation-asana"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-80-100-interdisziplinare-akutstation-asana"
-      ],
+      "firstSeenAt": "2026-08-25T10:13:40.066Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1524,7 +1524,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/fachperson-gesundheit-oder-dipl-pflegefachperson-hf-ph-linde/43610ec2-c821-4b31-977b-2a1d985edd1e",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.955Z",
+      "crawledAt": "2026-10-09T21:29:18.062Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1605,7 +1605,7 @@
       "url": "https://jobs.spitalleuggern.ch/offene-stellen/oberaerztin-oberarzt-innere-medizin/a3c85d17-c8c6-4cf0-b45b-3df3756b4db1",
       "source": "asana Spital AG (Menziken / Leuggern) Dedicated Parser (Prospective medium 1005771)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:27:35.949Z",
+      "crawledAt": "2026-10-09T21:29:18.055Z",
       "addressLocality": "Leuggern",
       "addressRegion": "AG",
       "addressCountry": "CH",
