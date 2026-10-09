@@ -12,6 +12,9 @@ un motivo concreto per tornare a seguire la conversazione.
   raccolta di dubbi reali.
 - **10% esperimenti:** hook nuovi, Trial Reel, co-creazioni e formati da
   tenere solo se producono un segnale misurabile.
+- Per i carousel automatici, il primo ciclo usa 9 ID creativi: tre varianti per
+  `proof`, `save` e `question`. Il layout resta controllato; cambiano promessa,
+  hook, caption, CTA e slide finale.
 - Il poster automatico resta la base: carousel articolo e lavoro ogni giorno,
   carousel dogane il lunedì. I contenuti manuali si pubblicano in un orario
   diverso, non si sommano senza motivo a due carousel già usciti.
@@ -91,10 +94,14 @@ data/ora e fonte. A 24 e 72 ore raccogliere:
 - domande ricevute, risposte pubblicate e nuovi contenuti generati.
 
 Usare i tassi corretti per l’obiettivo: `shares/reach` per `proof`,
-`saves/reach` per `save`, `comments/reach` per `question`. Non cambiare il
-format dopo un singolo risultato: servono almeno tre osservazioni comparabili.
-Un vantaggio del 20% decide il prossimo esperimento, non dimostra da solo una
-verità statistica.
+`saves/reach` per `save`, `comments/reach` per `question`. Per accelerare il
+ciclo, esportare i dati a 72 ore e passarli a
+`node scripts/instagram-insights-report.mjs --input <file> --json`.
+Il report separa le nove varianti, il tipo di contenuto e non mescola finestre
+24/72 ore; mantiene lo stato `needs-N-more` finché non ci sono almeno tre
+osservazioni comparabili per variante nello stesso tipo di contenuto.
+Non cambiare il format dopo un singolo risultato: un vantaggio del 20% decide
+il prossimo esperimento, non dimostra da solo una verità statistica.
 
 ## Gate prima della pubblicazione
 

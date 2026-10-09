@@ -141,15 +141,17 @@ engagement in nuova materia editoriale.
 
 ## 5. Implementazione presente
 
-Il modulo `scripts/lib/instagram-creative.mjs` contiene la matrice dei tre
-trattamenti e una rotazione deterministica per data e tipo di contenuto.
+Il modulo `scripts/lib/instagram-creative.mjs` contiene una matrice 3 × 3:
+tre obiettivi (`proof`, `save`, `question`) e tre varianti di hook per ciascun
+obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 
 - gli slot articolo e lavoro dello stesso giorno ricevono trattamenti diversi;
 - lo slot dogane ruota per settimana, quindi un retry del lunedì non cambia
   creatività;
 - il caption esplicita l’azione primaria;
 - `utm_content` include creatività + slug;
-- il ledger conserva `creativeId`, `creativeObjective` e `primaryMetric`;
+- il ledger conserva `creativeId`, `creativeBaseId`, `creativeVariant`,
+  `creativeObjective` e `primaryMetric`;
 - `social-carousel-image.mjs` aggiunge una slide finale CTA senza superare il
   limite di 10 elementi del carousel;
 - la rotazione è pura e non introduce esperimenti PostHog: l’eventuale test
@@ -192,7 +194,85 @@ per trattamento nello stesso tipo di contenuto; poi si mantiene il migliore e
 si riscrive quello debole. Un miglioramento del 20% è un buon segnale operativo,
 non una prova statistica con un profilo appena avviato.
 
-## 7. Azioni di community
+## 7. Aggiornamento dello studio pubblico e matrice sperimentale
+
+Lo studio iniziale va letto insieme a questi segnali pubblici, che non sono
+benchmark di performance dell’account ma indicano quali promesse vale la pena
+mettere alla prova:
+
+- Meta presenta i Trial Reel come un modo per testare nuovi temi e formati sui
+  non-follower, con un primo controllo dopo circa 24 ore e una possibile
+  condivisione più ampia entro 72 ore. Per questo i Reel sperimentali devono
+  avere un hook misurabile, non essere semplicemente “contenuti extra”.
+  [Meta — Trial Reels](https://about.fb.com/news/2024/12/trial-reels-try-content-non-followers-first-see-what-perfoms-best/)
+- Meta segnala che repost, tab Friends e contenuti con localizzazione possono
+  favorire conversazioni e scoperta locale. Le CTA di condivisione diventano
+  quindi più precise: “ripostalo a chi attraversa questo valico”, non un
+  generico “metti like”.
+  [Meta — New Instagram Features](https://about.fb.com/news/2025/08/new-instagram-features-help-you-connect/)
+- TIResidenti si presenta come community ticinese attiva su Facebook e
+  Instagram, vende pubblicazioni come Reel e sottolinea revisione editoriale e
+  moderazione. Il segnale competitivo è chiaro: per distinguersi da un feed di
+  annunci serve presidio umano, non solo frequenza.
+  [TIResidenti — media kit/community](https://www.tiresidenti.ch/)
+- UFIS dichiara di aver ricevuto richieste su fiscalità, regimi vecchi e nuovi,
+  previdenza, NASpI, sanità, smart working e pratiche amministrative. È una
+  fonte di temi ricorrenti, non una stima della dimensione di mercato: questi
+  problemi vanno trasformati in domande circoscritte e verificabili.
+  [UFIS — un anno dalla parte dei frontalieri](https://www.ufis.it/ufis-un-anno-dalla-parte-dei-frontalieri/)
+- Frontalieri-Jobs segmenta per regione, ruolo, lingua e permesso G. Questo
+  suggerisce hook più specifici di “nuove offerte”: ruolo + area + requisito.
+  [Frontalieri-Jobs](https://frontalieri-jobs.it/)
+
+La prima batteria controlla il template grafico e varia intenzionalmente
+promessa, hook, copertina, caption, domanda e slide finale. Tenere il layout
+costante nella prima batteria è voluto: permette di capire se cambia la risposta
+alla promessa, senza confondere il risultato con un cambio di design.
+
+| Obiettivo | Varianti implementate | Ipotesi da verificare | Metrica primaria |
+|---|---|---|---|
+| `proof` | baseline, `local`, `surprise` | territorio e sorpresa aumentano il passaparola | condivisioni/reach |
+| `save` | baseline, `checklist`, `moment` | checklist e utilità situazionale aumentano i salvataggi | salvataggi/reach |
+| `question` | baseline, `choice`, `story` | scelta facile e esperienza personale riducono la fatica del commento | commenti/reach |
+
+Ogni variante ha un ID stabile nel ledger. La rotazione quotidiana di articoli
+e lavori e quella settimanale delle dogane producono osservazioni ripetibili;
+non viene introdotto un flag PostHog né una variazione casuale non ricostruibile.
+Per considerare una variante eleggibile servono almeno tre post osservati nello
+stesso tipo di contenuto e nella stessa finestra. Sono quindi necessarie almeno
+tre osservazioni per ciascun ID e tipo prima di prendere una decisione
+editoriale.
+
+### Scorecard ripetibile
+
+Il report offline importa un export JSON del Professional Dashboard senza
+chiamare Meta e senza stampare identificativi personali:
+
+```bash
+node scripts/instagram-insights-report.mjs \
+  --input insights-72h.json \
+  --ledger data/instagram-posted.json \
+  --json
+```
+
+L’input accetta una lista (o `{ "posts": [...] }`) con una riga per post e
+almeno `creativeId`/ID riconciliabile col ledger, `reach`, `shares`, `saves` e
+`comments`. `windowHours` è opzionale e vale 72; finestre diverse non vengono
+mai aggregate insieme. Il report conserva separati creatività, tipo di contenuto
+e finestra di misurazione; non mette nello stesso confronto un articolo, un
+lavoro e una classifica di dogane. Conserva quindi:
+
+- metrica primaria della variante (`shares`, `saves` o `comments`) / reach;
+- tasso comune di interazioni (`shares + saves + comments`) / reach, usato solo
+  come confronto esplorativo;
+- stato `needs-N-more` finché non sono presenti tre osservazioni comparabili
+  nello stesso tipo di contenuto.
+
+Il tasso comune non sostituisce l’obiettivo: non si dichiara vincitore un
+contenuto “proof” solo perché ha più commenti di un contenuto “question”, né si
+confrontano direttamente tipi di contenuto diversi.
+
+## 8. Azioni di community
 
 1. Fissare tre post in alto: “cosa trovi qui”, simulatore netto, guida
    “nuovo frontaliere”.
@@ -208,7 +288,7 @@ non una prova statistica con un profilo appena avviato.
    link come risposta automatica. Il link va usato quando risolve davvero la
    domanda.
 
-## 8. Limiti dichiarati
+## 9. Limiti dichiarati
 
 La repository può automatizzare carousel, caption, UTM e misurazione dei clic.
 Non può dimostrare da sola che un Reel sia stato visto, salvato o condiviso:
