@@ -121,6 +121,19 @@ describe('fiscal above-floor page render (#4484)', () => {
       expect(html).toContain(labels[locale]);
     }
   });
+  it('uses a data-cell corner before the scenario row headers', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: como,
+      locale: 'it',
+      dateStamp: '2026-07-19',
+      distDir: DIST,
+    });
+    // The first column contains row headers (<th scope="row">). Its empty
+    // corner therefore belongs to the data grid and must not be another
+    // orphaned column header.
+    expect(html).toContain('<td class="py-2 pr-3 text-left"></td>');
+    expect(html).not.toContain('<th scope="col" class="py-2 pr-3 text-left"></th>');
+  });
 });
 
 describe('fiscal page "vivere a" cross-link is gated on the Ticino corridor (issue #4893)', () => {
