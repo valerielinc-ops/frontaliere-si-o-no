@@ -4385,7 +4385,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-netstal-wiggispark"
@@ -6804,7 +6803,6 @@
       },
       "postalCode": "6020",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-emmenbrucke"
@@ -7311,7 +7309,6 @@
       },
       "postalCode": "9000",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-haag"
@@ -9054,7 +9051,6 @@
       },
       "postalCode": "8001",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsassistent-in-eba-jumbo-volkiland-maximo"
@@ -10363,7 +10359,7 @@
       "id": "jumbo-eb925fca-c40",
       "slug": "consulente-commerciale-do-it-jumbo-kusnacht",
       "slugByLocale": {
-        "de": "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
+        "de": "verkaufsberater-in-do-it-jumbo-kusnacht",
         "it": "consulente-commerciale-do-it-jumbo-kusnacht",
         "en": "sales-consultant-do-it-jumbo-kusnacht",
         "fr": "consultant-en-ventes-do-it-jumbo-kusnacht"
@@ -10427,7 +10423,8 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-kusnacht",
-        "consulente-commerciale-in-do-it-jumbo-kusnacht"
+        "consulente-commerciale-in-do-it-jumbo-kusnacht",
+        "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10441,7 +10438,7 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
+          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.114Z",
@@ -11298,11 +11295,10 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2523,
-      "retranslationAttempts": 6,
+      "retranslationAttempts": 7,
       "firstSeenAt": "2026-09-11T13:41:14.078Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -15514,7 +15510,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T09:19:28.610Z",
       "salaryMin": 77500,
@@ -15596,7 +15591,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:17:18.789Z",
       "salaryMin": 83000,
@@ -15678,7 +15672,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:17:18.787Z",
       "salaryMin": 77500,
@@ -15760,7 +15753,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-29T21:17:18.782Z",
       "salaryMin": 77500,
@@ -15842,7 +15834,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-30T23:30:16.222Z",
       "salaryMin": 83000,
@@ -15924,7 +15915,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-09-30T21:13:42.097Z",
       "salaryMin": 77500,
@@ -16638,7 +16628,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "firstSeenAt": "2026-10-03T09:13:53.671Z",
       "salaryMin": 68500,

@@ -3171,7 +3171,9 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "spital-thurgau-ff670b2ffe4f",
@@ -14209,7 +14211,6 @@
           "dipl-pflegefachmann-frau-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T21:14:08.465Z",
       "salaryMin": 81500,
       "salaryMax": 114000,

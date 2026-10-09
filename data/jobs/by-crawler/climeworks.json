@@ -111,7 +111,9 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "climeworks-1c2b00477ffb",
@@ -339,7 +341,9 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "climeworks-ecfc8c7a030d",

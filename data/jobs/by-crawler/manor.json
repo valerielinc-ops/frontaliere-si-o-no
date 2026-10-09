@@ -2841,7 +2841,6 @@
           "manor-collaborateur-trice-caisse-parfumerie-50-morges"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T09:29:24.693Z",
       "crawledAt": "",
       "salaryMin": 36000,
@@ -2918,7 +2917,6 @@
           "manor-collaborateur-trice-caisse-parfumerie-80-morges"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-06T09:29:24.693Z",
       "crawledAt": "",
       "salaryMin": 57600,
@@ -3209,7 +3207,6 @@
           "mitarbeiter-caisse-non-food-100-manor-ag-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:31:48.413Z",
       "crawledAt": "",
       "salaryMin": 72000,
@@ -3658,7 +3655,6 @@
           "mitarbeiter-caisse-confection-ladies-40-manor-ag-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:31:48.413Z",
       "crawledAt": "",
       "salaryMin": 31000,
@@ -5199,7 +5195,6 @@
           "mitarbeiter-in-vente-damenkonfektion-20-manor-ag-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:28:01.383Z",
       "crawledAt": "",
       "salaryMin": 16600,
@@ -8636,13 +8631,11 @@
       "id": "manor-73db3df7d1b7",
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
-          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-0ox2rs"
         ]
       },
@@ -8776,7 +8769,6 @@
       "id": "manor-ae10fcc1dedc",
       "previousSlugs": [
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-fu0bzn",
         "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe-fu0bzn",
         "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
@@ -8789,7 +8781,6 @@
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf",
-          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-fu0bzn",
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe-fu0bzn",
           "mitarbeiter-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
@@ -14835,18 +14826,41 @@
       "id": "manor-fe9b16814351",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
-        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekezd",
+        "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekezd",
+        "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey",
+        "sales-collaborator-means-80-manor-ag-monthey",
+        "sales-collaborator-mittel-80-manor-ag-monthey",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+        "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey-58bcb9",
+        "collaboratore-di-vendita-means-80-manor-ag-monthey-58bcb9",
+        "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-2",
-          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey-hekezd",
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekezd",
+          "collaboratore-di-vendita-confezione-signori-80-manor-ag-monthey",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey",
+          "sales-collaborator-means-80-manor-ag-monthey",
+          "sales-collaborator-mittel-80-manor-ag-monthey",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey-de8816",
+          "collaboratore-trice-vendita-confezione-signori-80-manor-ag-monthey-58bcb9",
+          "collaboratore-di-vendita-means-80-manor-ag-monthey-58bcb9",
+          "collaborateur-trice-vente-confection-messieurs-80-manor-ag-monthey"
         ],
         "en": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
         ],
         "de": [
           "manor-collaborateur-trice-vente-confection-messieurs-80-monthey"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-vente-confection-messieurs-80-monthey-hekezd"
         ]
       },
       "firstSeenAt": "2026-09-30T21:28:02.065Z",
@@ -17538,7 +17552,6 @@
       "id": "manor-f0e50ee40b9a",
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-60-chur",
-        "manor-mitarbeiter-in-verkauf-60-chur-mitarbeiterin-verkauf-60",
         "collaboratore-trice-in-vendita-60-manor-ag-chur-rnwaqw",
         "manor-mitarbeiter-in-verkauf-lingerie-80-chur-mitarbeiterin-verkauf-lingerie",
         "assistant-e-de-ventes-60-manor-ag-chur-mitarbeiterin-verkauf-60",
@@ -17547,14 +17560,12 @@
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-60-chur",
-          "manor-mitarbeiter-in-verkauf-60-chur-mitarbeiterin-verkauf-60",
           "collaboratore-trice-in-vendita-60-manor-ag-chur-rnwaqw",
           "manor-mitarbeiter-in-verkauf-lingerie-80-chur-mitarbeiterin-verkauf-lingerie",
           "assistant-e-de-ventes-60-manor-ag-chur-mitarbeiterin-verkauf-60",
           "sales-assistant-60-manor-ag-chur-mitarbeiterin-verkauf-60"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:52:29.228Z",
       "crawledAt": "",
       "salaryMin": 41100,
@@ -19672,7 +19683,6 @@
           "manor-mitarbeiter-in-visual-merchandising-70-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:28:01.383Z",
       "crawledAt": "",
       "salaryMin": 40300,

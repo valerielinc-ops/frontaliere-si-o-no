@@ -1740,7 +1740,7 @@
       "id": "raiffeisen-f22fdd1e5df9",
       "slug": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
-        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5",
+        "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
         "it": "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
         "en": "avaloq-application-developer-m-f-d-raiffeisen-zurich",
         "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich"
@@ -1791,14 +1791,18 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5",
+          "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-taciw5"
         ],
         "de": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5"
         ]
       },
       "previousSlugs": [
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-taciw5",
+        "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich-taciw5"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1987,7 +1991,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "raiffeisen-fb749fc676d0",
@@ -8244,17 +8250,38 @@
       "firstSeenAt": "2026-07-21T11:48:13.547Z",
       "previousSlugsByLocale": {
         "it": [
-          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad",
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-2",
+          "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
+          "avaloq-application-developer-m-f-d-raiffeisen-zurich",
+          "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich",
+          "avaloq-application-developer-f-m-d-raiffeisen-zurich-8xyruc",
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-8xyruc",
+          "developpeur-d-applications-avaloq-f-m-d-raiffeisen-zurich",
+          "avaloq-application-developer-f-m-d-raiffeisen-zurich"
         ],
         "en": [
           "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
         ],
         "fr": [
           "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        ],
+        "de": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad"
         ]
       },
       "previousSlugs": [
-        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich"
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich",
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-qf2tad",
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-2",
+        "avaloq-applicazione-sviluppatore-m-f-d-raiffeisen-zurich",
+        "avaloq-application-developer-m-f-d-raiffeisen-zurich",
+        "developpeur-d-applications-avaloq-h-f-d-raiffeisen-zurich",
+        "avaloq-application-developer-f-m-d-raiffeisen-zurich-8xyruc",
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-zurich-8xyruc",
+        "developpeur-d-applications-avaloq-f-m-d-raiffeisen-zurich",
+        "avaloq-application-developer-f-m-d-raiffeisen-zurich"
       ]
     },
     {
@@ -9760,7 +9787,9 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "raiffeisen-32f9b8e7c61d",

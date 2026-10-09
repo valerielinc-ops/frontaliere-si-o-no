@@ -146,11 +146,23 @@
       "streetAddress": "Stauffacherstrasse 65",
       "previousSlugsByLocale": {
         "it": [
-          "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern"
+          "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern",
+          "ict-test-manager-in-senior-confederazione-bern"
+        ],
+        "en": [
+          "ict-test-manager-in-senior-confederazione-bern"
+        ],
+        "de": [
+          "ict-test-manager-in-senior-confederazione-bern"
+        ],
+        "fr": [
+          "responsable-senior-des-tests-ict-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern"
+        "ict-test-manager-in-senior-swiss-armed-forces-vtg-bern",
+        "ict-test-manager-in-senior-confederazione-bern",
+        "responsable-senior-des-tests-ict-confederazione-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -822,7 +834,6 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },

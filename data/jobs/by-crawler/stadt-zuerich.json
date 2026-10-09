@@ -5246,7 +5246,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadt-zuerich-72a677aaa7ad",
@@ -9457,7 +9458,6 @@
           "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zuerich-zurigo-51878"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:59:00.869Z",
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -9619,7 +9619,6 @@
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -11114,7 +11113,6 @@
         ]
       },
       "firstSeenAt": "2026-10-06T21:45:37.980Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
