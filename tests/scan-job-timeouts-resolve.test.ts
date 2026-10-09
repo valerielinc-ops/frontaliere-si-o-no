@@ -301,6 +301,17 @@ describe('decideScopedTimeoutResolution — i casi limite', () => {
     expect(d.ignored).toBe(1);
   });
 
+  it('startup_failure e failure senza job tengono aperto il thread', () => {
+    expect(classifyRunForResolve(run(1, 'startup_failure', t(1), 'a'), {
+      jobsData: { total_count: 0, jobs: [] },
+      readAnnotations: () => null,
+    })).toEqual({ verdict: 'startup-failure', detail: 'run startup_failure' });
+    expect(classifyRunForResolve(run(2, 'failure', t(2), 'a'), {
+      jobsData: { total_count: 0, jobs: [] },
+      readAnnotations: () => null,
+    })).toEqual({ verdict: 'startup-failure', detail: 'jobs endpoint: zero job' });
+  });
+
   it('annotazioni illeggibili (null, vuote o malformate) → keep, fail-closed', () => {
     const runs = [run(4, 'success', t(4), 'a'), run(3, 'cancelled', t(3), 'b'), run(2, 'success', t(2), 'c'), run(1, 'success', t(1), 'd')];
     for (const unreadable of [null, [], [{ level: 'failure' }], 'x']) {
