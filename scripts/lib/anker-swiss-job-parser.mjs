@@ -26,6 +26,11 @@ import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 export const ANKER_SWISS_KEY = 'anker-swiss';
 export const ANKER_SWISS_COMPANY_NAME = 'Anker Swiss Ticino AG';
 export const ANKER_SWISS_COMPANY_DOMAIN = 'anker-swiss.ch';
+// The source starts returning HTTP 429 responses during the 1.1 s shared
+// prospector cadence once the listing grows beyond roughly 30 detail pages per
+// minute. Keep the slower cadence local to this source so other crawlers retain
+// the shared default while Anker's full detail snapshot remains complete.
+export const ANKER_SWISS_HOST_DELAY_MS = 2500;
 
 const CAREER_URL = 'https://anker-swiss.ch/stellen/';
 
@@ -148,7 +153,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(ANKER_SWISS_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { hostDelayMs: ANKER_SWISS_HOST_DELAY_MS });
 }
 
 /**

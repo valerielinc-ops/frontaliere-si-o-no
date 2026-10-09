@@ -243,6 +243,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     retries: runtime.retries,
     retryBaseMs: runtime.retryBaseMs,
     timeoutMs: runtime.timeoutMs,
+    hostDelayMs: runtime.hostDelayMs,
     headers: runtime.headers,
   });
   let wafProxyExhausted = false;
@@ -1404,11 +1405,11 @@ export function templateToRegex(template) {
   const templates = (Array.isArray(template) ? template : [template]).filter(Boolean);
   const bodies = templates.map((one) => String(one)
     .split('/')
-    .map((seg) => {
-      if (seg === '*') return '[^/]+';
-      if (seg === '#') return '\\d+';
-      return seg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    })
+    .map((seg) => seg.split(/([*#])/).map((part) => {
+      if (part === '*') return '[^/]+';
+      if (part === '#') return '\\d+';
+      return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join(''))
     .join('/'));
   return new RegExp(`^(?:${bodies.join('|')})/?$`);
 }

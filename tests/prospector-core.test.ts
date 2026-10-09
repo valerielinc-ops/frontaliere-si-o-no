@@ -2579,6 +2579,13 @@ describe('production spec runtime', () => {
     expect(templateToRegex('/job/#').test('/job/about')).toBe(false);
   });
 
+  it('supports placeholders embedded in a path segment', () => {
+    const rx = templateToRegex('/stellen/*-#/');
+    expect(rx.test('/stellen/architekt-12345/')).toBe(true);
+    expect(rx.test('/stellen/jobs_cat-architekt/')).toBe(false);
+    expect(rx.test('/stellen/architekt-no-id/')).toBe(false);
+  });
+
   it('accepts every shape of a multilingual template list', () => {
     // Un sito multilingue pubblica lo stesso annuncio sotto una forma di URL
     // per lingua: con una forma sola le altre lingue sparivano in silenzio e
