@@ -104475,6 +104475,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caslano-colombera-incidente-moto': {
+    title: 'Caslano, traffico in tilt per incidente in via Colombera',
+    description: 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
+    keywords: 'frontalieri, ticino, svizzera, italia, caslano, traffico, tilt, incidente',
+    ogTitle: 'Caslano, traffico in tilt per incidente in via Colombera',
+    ogDescription: 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
+    canonicalPath: '/articoli-frontaliere/caslano-colombera-incidente-moto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caslano, traffico in tilt per incidente in via Colombera",
+      "description": "Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via Colombera a Caslano, strada che collega il paese a Ponte Tresa"
+      },
+      "datePublished": "2026-10-09T17:27:51+00:00",
+      "dateModified": "2026-10-09T17:27:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caslano-colombera-incidente-moto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

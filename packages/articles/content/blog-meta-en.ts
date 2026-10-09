@@ -12900,6 +12900,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.smottamento-sementina-code.title': 'Landslide in Sementina: traffic congested',
     'blog.article.smottamento-sementina-code.excerpt': 'Landslide on the cantonal road in Sementina at 16.00 The carriageway is covered with debris and rocks Road closed and traffic diverted in both directions',
     'blog.article.smottamento-sementina-code.imageAlt': 'Debris on the cantonal road in Sementina near the football field, with traffic diverted.',
+    'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, traffic gridlocked due to an accident on Via Colombera',
+    'blog.article.caslano-colombera-incidente-moto.excerpt': 'Traffic at a standstill in Caslano Accident along via Colombera A motorcyclist involved Local traffic heavily disrupted Location → via Colombera, between Caslano',
+    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Via Colombera in Caslano, the road connecting the village with Ponte Tresa',
 };
 
 export default blogMetaEn;

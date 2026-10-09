@@ -12902,6 +12902,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.smottamento-sementina-code.title': 'Glissement de terrain à Sementina : trafic congestionné',
     'blog.article.smottamento-sementina-code.excerpt': 'Glissement de terrain sur la route cantonale à Sementina à 16.00 La chaussée est envahie par des débris et des pierres Tronçon fermé et trafic dévié dans les deux sens',
     'blog.article.smottamento-sementina-code.imageAlt': 'Débris sur la route cantonale à Sementina près du terrain de football, circulation déviée.',
+    'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, circulation paralysée en raison d’un accident sur la via Colombera',
+    'blog.article.caslano-colombera-incidente-moto.excerpt': 'Circulation paralysée à Caslano Accident sur la via Colombera Un motocycliste impliqué Circulation locale fortement perturbée Lieu → via Colombera, entre Caslano',
+    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Via Colombera à Caslano, la route qui relie le village à Ponte Tresa',
 };
 
 export default blogMetaFr;
