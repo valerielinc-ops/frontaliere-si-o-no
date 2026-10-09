@@ -100895,10 +100895,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A settembre i consumi svizzeri sono saliti dello 0,9%. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzeri-spesa-crescita-rallenta.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-spesa-famiglie-inflazione.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Consumatori svizzeri durante acquisti pagati con carta"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T18:30:40+00:00",
       "dateModified": "2026-10-09T18:30:40+00:00",
@@ -100929,10 +100934,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Mastercard introdurrà la funzione in Svizzera dal 2027 Le nuove carte la supporteranno da febbraio 2027 Terminali nuovi o sostituiti: tecnologia entro maggio",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rientro-in-svizzera-senza-lavoro-guida.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mastercard-pagamenti-rete-assente.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Terminale Mastercard in un negozio svizzero durante un'interruzione internet"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T20:04:15+00:00",
       "dateModified": "2026-10-09T20:04:15+00:00",
@@ -100945,6 +100955,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mastercard-pagamenti-rete-assente/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-iva-2026-aumento-per-la-tredicesima-pensione': {
+    title: 'Referendum IVA 2026: aumento per la tredicesima pensione',
+    description: 'Il referendum sulla proposta si terrà il 29 novembre. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, aumento, tredicesima, pensione',
+    ogTitle: 'Referendum IVA 2026: aumento per la tredicesima pensione',
+    ogDescription: 'Il referendum sulla proposta si terrà il 29 novembre.',
+    canonicalPath: '/articoli-svizzera/referendum-iva-2026-aumento-per-la-tredicesima-pensione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum IVA 2026: aumento per la tredicesima pensione",
+      "description": "Il referendum sulla proposta si terrà il 29 novembre. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-iva-2026-aumento-per-la-tredicesima-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Referendum IVA 2026: aumento per la tredicesima pensione"
+      },
+      "datePublished": "2026-10-09T20:56:52+00:00",
+      "dateModified": "2026-10-09T20:56:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-iva-2026-aumento-per-la-tredicesima-pensione/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -8002,10 +8002,13 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Facade of the Federal Palace in Bern, symbol of Swiss national politics.',
     'blog.article.spesa-famiglie-inflazione.title': 'Switzerland, consumption up 0,9% in September',
     'blog.article.spesa-famiglie-inflazione.excerpt': 'In September, Swiss consumption rose by 0,9%.',
-    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Swiss consumers paying by card while shopping',
+    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Illustration generated for this article',
     'blog.article.mastercard-pagamenti-rete-assente.title': 'Mastercard: offline payments from 2027',
     'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard will introduce the feature in Switzerland from 2027 New cards will support it from February 2027 New or replaced terminals: technology by May',
-    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Mastercard payment terminal in a Swiss store during an internet outage',
+    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Illustration generated for this article',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': '2026 VAT referendum: increase for the thirteenth pension payment',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'The referendum on the proposal will be held on November 29.',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Editorial image related to: Referendum IVA 2026: aumento per la tredicesima pensione',
 };
 
 export default blogMetaChEn;

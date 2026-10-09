@@ -8002,10 +8002,13 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Façade du Palais fédéral à Berne, symbole de la politique fédérale suisse.',
     'blog.article.spesa-famiglie-inflazione.title': 'Suisse, consommation en hausse de 0,9% en septembre',
     'blog.article.spesa-famiglie-inflazione.excerpt': 'En septembre, la consommation suisse a augmenté de 0,9%.',
-    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Consommateurs en Suisse payant leurs achats par carte',
+    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Illustration générée pour cet article',
     'blog.article.mastercard-pagamenti-rete-assente.title': 'Mastercard : paiements sans Internet à partir de 2027',
     'blog.article.mastercard-pagamenti-rete-assente.excerpt': 'Mastercard introduira la fonctionnalité en Suisse à partir de 2027 Les nouvelles cartes la prendront en charge à partir de février 2027 Terminaux neufs ou remplacés : technologie d\'ici mai',
-    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Terminal Mastercard dans un magasin suisse pendant une panne d\'internet',
+    'blog.article.mastercard-pagamenti-rete-assente.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': 'Référendum sur la TVA 2026 : hausse pour la treizième rente',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'Le référendum sur la proposition aura lieu le 29 novembre.',
+    'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Image éditoriale relative à: Referendum IVA 2026: aumento per la tredicesima pensione',
 };
 
 export default blogMetaChFr;

@@ -2691,6 +2691,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-svizzera-esportazione-armi-2026': { it: 'voto-svizzera-esportazione-armi-2026', en: 'switzerland-vote-war-material-export-2026', de: 'schweiz-abstimmung-kriegsmaterialexport-2026', fr: 'suisse-vote-exportation-materiel-guerre-2026' },
  'spesa-famiglie-inflazione': { it: 'spesa-famiglie-inflazione', en: 'swiss-spending-september', de: 'schweizer-konsum-september', fr: 'consommation-suisse-septembre' },
  'mastercard-pagamenti-rete-assente': { it: 'mastercard-pagamenti-rete-assente', en: 'mastercard-payments-without-internet', de: 'mastercard-zahlungen-ohne-internet', fr: 'mastercard-paiements-sans-internet' },
+ 'referendum-iva-2026-aumento-per-la-tredicesima-pensione': { it: 'referendum-iva-2026-aumento-per-la-tredicesima-pensione', en: '2026-vat-referendum-increase-for-the-thirteenth-pension-payment', de: 'mehrwertsteuer-referendum-2026-erhohung-fur-die-13-rente', fr: 'referendum-sur-la-tva-2026-hausse-pour-la-treizieme-rente' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
