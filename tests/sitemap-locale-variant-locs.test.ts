@@ -258,6 +258,25 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
     expect(slashless).toEqual([]);
   });
 
+  it('keeps the route-specific locale URLs that canton-hub verification consumes', () => {
+    const required = [
+      `${BASE}/en/service-comparison/chf-eur-exchange-rate/`,
+      `${BASE}/en/service-comparison/compare-health-insurance/`,
+      `${BASE}/fr/comparaison-services/comparer-caisses-maladie/`,
+      `${BASE}/en/taxes-and-pension/tax-deadlines/`,
+      `${BASE}/en/cross-border-guide/work-permits-guide/`,
+      `${BASE}/fr/comparaison-services/comparer-caisses-maladie/`,
+    ];
+    const listed = new Set(sources.map((s) => s.loc));
+    const sanitized = sanitizeSitemapHreflangReciprocity(seeded);
+    const served = [...seeded].map(({ file, xml }) => sanitized.get(file) ?? xml).join('\n');
+
+    for (const url of required) {
+      expect(listed, `${url} must be a committed <loc>`).toContain(url);
+      expect(served, `${url} must retain its reciprocal hreflang group`).toContain(`<loc>${url}</loc>`);
+    }
+  });
+
   it('WITHOUT the backfill the sanitizer strips sitemap-pages.xml — the reported defect', () => {
     const stripped = sanitizeSitemapHreflangReciprocity(seeded);
     const pages = stripped.get('sitemap-pages.xml');
@@ -312,7 +331,12 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
   it('recovers the alternates the defect removed from sitemap-pages.xml', () => {
     const { entries } = collectLocaleVariantEntries(sources, () => true);
     const before = countAnnotations(readSeeded('sitemap-pages.xml'));
-    // 830: the previous 1565 annotations minus 15 retired utility-alias
+    // 890: the previous 830 annotations plus four explicit reciprocal
+    // groups (3 locale-owned blocks × 5 annotations each). These groups are
+    // intentionally listed in public/sitemap-pages.xml because their pages
+    // are emitted by separate SEO overlays and cannot rely on the generic
+    // static-page backfill to win the closeBundle race.
+    // The previous 830 was the previous 1565 annotations minus 15 retired utility-alias
     // annotations and 144 retired border-wait URL blocks (144 × 5 = 720).
     // Previous growth: nine Grigioni/Vallese-Italy crossings (9 ×
     // it/en/de/fr/x-default = 45), plus the four locale entries of the Stabio
@@ -320,7 +344,7 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
     // The tripwire is kept as an exact count on purpose — the committed sitemap
     // is a static file nothing rebuilds, so an UNEXPLAINED change to it is exactly
     // what this assertion exists to surface.
-    expect(before).toBe(830);
+    expect(before).toBe(890);
 
     const withoutBackfill = sanitizeSitemapHreflangReciprocity(seeded);
     const withBackfill = sanitizeSitemapHreflangReciprocity([
