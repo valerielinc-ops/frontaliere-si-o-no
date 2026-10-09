@@ -1,58 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-09T09:22:24.615Z",
+  "generatedAt": "2026-10-09T21:23:12.188Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 8,
-  "durationMs": 21897,
-  "avgDurationMs": 21897,
+  "removedCount": 0,
+  "unchangedCount": 9,
+  "durationMs": 21618,
+  "avgDurationMs": 21618,
   "durationHistory": [
-    21897
+    21618
   ],
-  "newJobs": [
-    {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-st-gallen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-aa68475ac16c",
-      "needsRetranslation": true,
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "9000",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
@@ -94,48 +54,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
-      "slug": "consulente-immobiliare-m-f-d-zurigo-nord-100-immobilien-zurich-nord-ag-bulach",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "company": "Immobilien Zürich Nord AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Bülach",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-7e00857d2998",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-18T12:17:08.099Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8180",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
@@ -456,7 +375,45 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-st-gallen",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-aa68475ac16c",
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
