@@ -324,6 +324,28 @@ describe('fuel-station map — Swiss index carries a client island without losin
   });
 });
 
+describe('fuel-station indexes — mobile typography keeps advice labels readable', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN,
+  });
+
+  for (const fuel of FUEL_TYPES) {
+    for (const locale of FUEL_DAILY_LOCALES) {
+      it(`uses at least 12px for the advice label (${locale}/${fuel})`, () => {
+        const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
+        expect(html).toContain(
+          'display:block;font-size:12px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px',
+        );
+        expect(html).not.toContain(
+          'display:block;font-size:11px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px',
+        );
+      });
+    }
+  }
+});
+
 describe('fuel-station orphans — emittedPaths gate excludes pages the build skipped', () => {
   // Only Varese's IT/benzina hub + station were "written"; Como's were skipped.
   const emittedPaths = new Set<string>([

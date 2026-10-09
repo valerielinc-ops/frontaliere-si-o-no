@@ -152,4 +152,19 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     expect(html).toContain('seo-static-content');
     expect(html).toContain('<h1>Test</h1>');
   });
+
+  it('emits both favicon formats in the shared static-page head', () => {
+    const html = buildSimplePage(baseOpts);
+    expect(html).toContain('<link rel="icon" href="/favicon.ico" sizes="48x48">');
+    expect(html).toContain('<link rel="icon" type="image/svg+xml" href="/favicon.svg">');
+  });
+});
+
+describe('seo hub heads · favicon contract', () => {
+  const source = readBuildPluginSource(join(BUILD_PLUGINS_DIR, 'seoHubsPlugin.ts'));
+
+  it('uses the shared favicon fragment in both hand-rolled hub head templates', () => {
+    expect(source).toMatch(/\bFAVICON_LINKS\b/);
+    expect((source.match(/\$\{FAVICON_LINKS\}/g) ?? [])).toHaveLength(2);
+  });
 });
