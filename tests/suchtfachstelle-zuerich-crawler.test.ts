@@ -7,6 +7,7 @@ import {
   SUCHTFACHSTELLE_ZUERICH_CAREERS_URL,
   isSuchtfachstelleZuerichJob,
   isTrustedDomain,
+  hasSuchtfachstelleZuerichVacancyAnchor,
   isSuchtfachstelleZuerichEmptyListing,
   fetchAllSuchtfachstelleZuerichJobs,
   parseListing,
@@ -182,6 +183,13 @@ describe('Suchtfachstelle Zürich crawler parser', () => {
           `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-relative-active">Active</a>`,
         ),
       ).toBe(false);
+    });
+
+    it('vetoes a vacancy href with query, fragment, and trailing slash', () => {
+      const html = `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-foo/?ref=home#open">Active</a>`;
+      expect(parseListing(html)).toEqual([]);
+      expect(hasSuchtfachstelleZuerichVacancyAnchor(html)).toBe(true);
+      expect(isSuchtfachstelleZuerichEmptyListing(html)).toBe(false);
     });
   });
 

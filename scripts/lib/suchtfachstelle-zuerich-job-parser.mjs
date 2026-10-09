@@ -106,13 +106,47 @@ export function parseListing(html = '') {
 }
 
 /**
+ * Scan vacancy anchors independently of parseListing's canonical-row regex.
+ * A source vacancy must veto an authoritative empty snapshot even when its
+ * href carries tracking parameters, a fragment, a trailing slash, or uses
+ * an otherwise valid relative/unquoted attribute form that row parsing does
+ * not normalize yet.
+ */
+export function hasSuchtfachstelleZuerichVacancyAnchor(html = '') {
+  const cleaned = stripScriptsAndStyles(html);
+  const re = /\bhref\s*=\s*(?:["']([^"']*)["']|([^\s>]+))/gi;
+  let m;
+  while ((m = re.exec(cleaned)) !== null) {
+    const rawHref = decodeEntities(m[1] ?? m[2] ?? '').trim();
+    if (!rawHref) continue;
+    let url;
+    try {
+      url = new URL(rawHref, SUCHTFACHSTELLE_ZUERICH_CAREERS_URL);
+    } catch {
+      continue;
+    }
+    const host = url.hostname.toLowerCase();
+    if (
+      (host !== 'suchtfachstelle.zuerich' && host !== 'www.suchtfachstelle.zuerich')
+      || !/^\/stellenausschreibung-/i.test(url.pathname)
+    ) {
+      continue;
+    }
+    return true;
+  }
+  return false;
+}
+
+/**
  * The jobs page keeps its employer copy and the jobs section rendered even
  * when there are no open positions. Those two source-owned landmarks prove
  * that the page was read completely; a bare zero from a partial or redirected
  * page must remain fail-closed.
  */
 export function isSuchtfachstelleZuerichEmptyListing(html = '') {
-  if (!html || parseListing(html).length > 0) return false;
+  if (!html || parseListing(html).length > 0 || hasSuchtfachstelleZuerichVacancyAnchor(html)) {
+    return false;
+  }
   const cleaned = stripScriptsAndStyles(html);
   const employerHeading = /<h1\b[^>]*class=["'][^"']*\bintro__title\b[^"']*["'][^>]*>\s*Die\s+Suchtfachstelle\s+Zürich\s+als\s+Arbeitgeberin\s*<\/h1>/i.test(cleaned);
   const jobsSection = cleaned.match(
