@@ -2341,7 +2341,7 @@
       "slugByLocale": {
         "it": "gestione-delle-relazioni-gestione-delle-risorse-esterne-eam-swissquote-gland",
         "en": "relationship-manager-external-asset-managers-eam-swissquote-gland",
-        "de": "relationship-manager-external-asset-managers-eam-swissquote-gland",
+        "de": "manager-fur-kundenbeziehungen-externe-vermogensverwalter-eam-swissquote-gland",
         "fr": "gestionnaire-de-relations-gestionnaires-d-actifs-externes-gae-swissquote-gland"
       },
       "company": "Swissquote",
@@ -2396,7 +2396,8 @@
           "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
         "de": [
-          "relationship-manager-externe-asset-manager-eam-swissquote-gland"
+          "relationship-manager-externe-asset-manager-eam-swissquote-gland",
+          "relationship-manager-external-asset-managers-eam-swissquote-gland"
         ],
         "fr": [
           "relationship-manager-external-asset-managers-eam-swissquote-gland"
