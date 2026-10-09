@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import { existsSync, readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
+
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 import {
   buildCreativeReport,
@@ -65,10 +66,7 @@ export function run(argv = process.argv.slice(2)) {
   return 0;
 }
 
-const invokedDirectly = process.argv[1]
-  && import.meta.url === pathToFileURL(process.argv[1]).href;
-
-if (invokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     process.exitCode = run();
   } catch (error) {
