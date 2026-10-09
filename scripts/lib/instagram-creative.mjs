@@ -147,10 +147,20 @@ export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
 });
 
 export const INSTAGRAM_CREATIVE_IDS = Object.freeze(Object.keys(INSTAGRAM_CREATIVE_FORMATS));
+export const INSTAGRAM_MAX_CAPTION_LENGTH = 2200;
 
 const KIND_OFFSETS = Object.freeze({ article: 0, job: 1, border: 2 });
 const VALID_KINDS = new Set(Object.keys(KIND_OFFSETS));
 const ISO_DAY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+function captionText(value, maxLength) {
+  const text = String(value || '').replace(/\s+/g, ' ').trim();
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, Math.max(1, maxLength - 1)).trimEnd();
+  const lastSpace = cut.lastIndexOf(' ');
+  const body = lastSpace > maxLength * 0.6 ? cut.slice(0, lastSpace) : cut;
+  return `${body.trim()}…`;
+}
 
 function dayIndex(day) {
   const match = ISO_DAY_RE.exec(String(day || ''));
@@ -194,7 +204,7 @@ function definitionFor(kind, id) {
 export function chooseInstagramCreative({ kind, day } = {}) {
   if (!VALID_KINDS.has(kind)) return definitionFor('article', 'proof');
   const index = dayIndex(day);
-  if (index === null) return definitionFor(kind, 'proof');
+  if (index === null || index < 0) return definitionFor(kind, 'proof');
   const cycle = kind === 'border' ? Math.floor(index / 7) : index;
   const formatId = INSTAGRAM_CREATIVE_IDS[(cycle + KIND_OFFSETS[kind]) % INSTAGRAM_CREATIVE_IDS.length];
   return definitionFor(kind, formatId);
@@ -209,21 +219,28 @@ export function buildInstagramCaption({ kind, dayLabel, picks, creative } = {}) 
   const selected = creative && VALID_KINDS.has(creative.kind)
     ? creative
     : definitionFor(safeKind, 'proof');
-  const safePicks = Array.isArray(picks) ? picks : [];
-  const lines = safePicks.map((pick, index) => `${index + 1}. ${pick?.title || 'Voce'} — ${pick?.statValue || 'dati disponibili'}`);
+  const safePicks = Array.isArray(picks) ? picks.slice(0, 5) : [];
+  const lines = safePicks.map((pick, index) => `${index + 1}. ${captionText(pick?.title || 'Voce', 140)} — ${captionText(pick?.statValue || 'dati disponibili', 80)}`);
   const questionLine = selected.question ? `🗣️ ${selected.question}` : '';
 
-  return [
+  const caption = [
     selected.lead,
     '',
     ...lines,
     '',
     selected.cta,
     questionLine,
-    `👉 Approfondisci dal link in bio (${dayLabel || 'aggiornamento del giorno'}).`,
+    `👉 Approfondisci dal link in bio (${captionText(dayLabel || 'aggiornamento del giorno', 80)}).`,
     '',
     '#frontalieri #ticino #svizzera #italia #lavoro',
   ].filter((line, index, list) => line !== '' || list[index - 1] !== '').join('\n');
+
+  // The production definitions and five ranked items fit comfortably under
+  // Instagram's 2,200-character caption limit. Keep the helper fail-safe if
+  // a future caller supplies a long custom creative definition.
+  return caption.length <= INSTAGRAM_MAX_CAPTION_LENGTH
+    ? caption
+    : `${caption.slice(0, INSTAGRAM_MAX_CAPTION_LENGTH - 1).trimEnd()}…`;
 }
 
 /** Stable UTM content value that identifies both treatment and ranked item. */

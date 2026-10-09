@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   INSTAGRAM_CREATIVE_FORMATS,
   INSTAGRAM_CREATIVE_IDS,
+  INSTAGRAM_MAX_CAPTION_LENGTH,
   buildInstagramCaption,
   chooseInstagramCreative,
   instagramCreativeContent,
@@ -52,6 +53,7 @@ describe('Instagram creative system', () => {
   it('fails safe to the proof treatment for malformed dates', () => {
     expect(chooseInstagramCreative({ kind: 'article', day: 'not-a-date' }).id).toBe('proof');
     expect(chooseInstagramCreative({ kind: 'article', day: '2026-02-30' }).id).toBe('proof');
+    expect(chooseInstagramCreative({ kind: 'article', day: '2019-12-30' }).id).toBe('proof');
   });
 
   it('writes the intended interaction into the caption', () => {
@@ -79,6 +81,18 @@ describe('Instagram creative system', () => {
     expect(caption).toContain(creative.question);
   });
 
+  it('keeps extreme five-pick captions within Instagram’s limit', () => {
+    const creative = chooseInstagramCreative({ kind: 'article', day: '2026-10-09' });
+    const caption = buildInstagramCaption({
+      kind: 'article',
+      dayLabel: '09/10/2026',
+      picks: Array.from({ length: 5 }, () => ({ title: 'Titolo '.repeat(300), statValue: 'Dato '.repeat(100) })),
+      creative,
+    });
+    expect(caption.length).toBeLessThanOrEqual(INSTAGRAM_MAX_CAPTION_LENGTH);
+    expect(caption).toContain('#frontalieri');
+  });
+
   it('identifies the treatment in UTM content and the ledger', () => {
     const creative = chooseInstagramCreative({ kind: 'job', day: '2026-10-09' });
     expect(instagramCreativeContent(creative, 'job-123')).toBe(`${creative.id}-job-123`);
@@ -97,7 +111,7 @@ describe('carousel closing CTA contract', () => {
       kicker: 'PARLIAMONE',
       title: 'Che lavoro stai cercando?',
       subtitle: '09/10/2026',
-      items: PICKS,
+      items: [...PICKS, { title: 'Tecnico di laboratorio', statValue: '120 visualizzazioni' }, { title: 'Infermiere/a', statValue: '90 visualizzazioni' }, { title: 'Autista', statValue: '80 visualizzazioni' }],
       closing: {
         kicker: 'TOCCA A TE',
         title: 'Raccontaci cosa stai cercando',
@@ -105,7 +119,7 @@ describe('carousel closing CTA contract', () => {
         cta: 'Rispondi nei commenti',
       },
     });
-    expect(plan).toHaveLength(4);
+    expect(plan).toHaveLength(7);
     expect(plan[0]).toMatchObject({ type: 'cover', title: 'Che lavoro stai cercando?' });
     expect(plan.at(-1)).toMatchObject({ type: 'closing', cta: 'Rispondi nei commenti' });
   });
