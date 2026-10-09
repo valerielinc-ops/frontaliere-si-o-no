@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-09T09:42:08.837Z",
+  "assembledAt": "2026-10-09T21:34:53.737Z",
   "jobs": [
     {
       "id": "sfs-group-0d3da9babeb0",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:02.579Z",
+      "crawledAt": "2026-10-09T21:34:48.428Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -109,7 +109,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:02.410Z",
+      "crawledAt": "2026-10-09T21:34:48.279Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -142,6 +142,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -187,7 +188,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:02.238Z",
+      "crawledAt": "2026-10-09T21:34:48.132Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -264,7 +265,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:02.068Z",
+      "crawledAt": "2026-10-09T21:34:47.984Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -287,6 +288,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -332,7 +334,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.892Z",
+      "crawledAt": "2026-10-09T21:34:47.838Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -394,6 +396,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -439,7 +442,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.720Z",
+      "crawledAt": "2026-10-09T21:34:47.693Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -515,7 +518,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-walzen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.550Z",
+      "crawledAt": "2026-10-09T21:34:47.543Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -597,7 +600,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-mit-perspektive-teamleitung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.372Z",
+      "crawledAt": "2026-10-09T21:34:47.393Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -655,7 +658,7 @@
         "it": "meccanico-a-di-presse-a-doppia-pressione-m-f-d-sfs-group-heerbrugg",
         "en": "mechanic-for-double-printing-presses-m-f-d-sfs-group-heerbrugg",
         "de": "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
-        "fr": "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
+        "fr": "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -679,7 +682,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.200Z",
+      "crawledAt": "2026-10-09T21:34:47.243Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -704,7 +707,7 @@
       "previousSlugs": [
         "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
         "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
-        "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
+        "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -716,7 +719,7 @@
         "fr": [
           "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
           "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
-          "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
+          "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
         ]
       },
       "firstSeenAt": "2026-10-05T21:36:44.506Z",
@@ -730,75 +733,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sfs-group-ef7c66ad83ea",
-      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-      "titleByLocale": {
-        "it": "Marketing Manager–Employer Branding & Risorse Umane (m/f/d) 80–",
-        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
-        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
-        "fr": "Marketing Manager–Employer Branding & Ressources Humaines (m/f/d) 80–"
-      },
-      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-      "descriptionByLocale": {
-        "it": "Con noi avete l'opportunità di plasmare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativamente e con un sacco di ambito creativo. Le intuizioni diventano idee forti, strategie campagne rilevanti e comunicazione che si blocca da prospettive diverse. Se non si vuole solo implementare le cose, ma pensare di nuovo e davvero fare la differenza, dovremmo sicuramente arrivare a conoscersi. I vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing del datore di lavoro per tutti i marchi e i gruppi target rilevanti\n• Consulenza e supporto comunicativo delle aree specialistiche HR e degli stakeholder rilevanti nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e attuazione di campagne di marcatura datore di lavoro globali e locali, nonché la creazione e il controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle misure nel business quotidiano, nonché gestione della cooperazione con team di creazione interna, centri di competenza e servizi e partner esterni\n• Garantire una presenza costante in tutti i paesi e canali e sviluppare soluzioni valide nell'allestimento multimarca internazionale\n• Definizione e valutazione dei KPI rilevanti nonché creazione, controllo e approvazione delle presentazioni Il tuo profilo:\n• Studi completi in marketing, comunicazione, produzione multimediale, digital marketing o qualificazione comparabile. Sfondo in alternativa HR con ulteriore sviluppo verso il marketing, il marchio datore di lavoro o il branding\n• Esperienza in una funzione strategica-concettuale, nella gestione del progetto e nell'esperienza approfondita nel branding del datore di lavoro, nel marketing HR o in un ambiente paragonabile\n• Tedesco a livello di lingua madre e fluente competenze in inglese\n• Capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale HR, brand o marketing\n• Gestione sicura dei diversi interessi e requisiti, nonché la capacità di sviluppare soluzioni realizzabili in una configurazione multi-brand internazionale\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché un metodo di lavoro strutturato e una buona gestione del tempo Offriamo:\n• Varie aree di responsabilità e spazio per la responsabilità personale e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Ore lavorative flessibili e ufficio domestico\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo, numerose offerte sportive & eventi dei dipendenti, ristorante del personale con prezzi interessanti\n• Concetto di mobilità flessibile per il vostro commuto",
-        "en": "With us you have the opportunity to actively shape an international employer brand, strategically, creatively and with a lot of creative scope. Insights become strong ideas, strategies relevant campaigns and communication that gets stuck from different perspectives. If you do not just want to implement things, but think newly and really make a difference, we should definitely get to know each other. Your Tasks:\n• Global development and implementation of the employer branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support of HR specialist areas and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementing global and local employer branding campaigns as well as creating and controlling content for digital and internal channels\n• Planning, prioritization and coordination of measures in day-to-day business as well as managing cooperation with internal creation teams, competence and service centers and external partners\n• Ensuring a consistent presence across all countries and channels and developing viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs as well as creation, control and approval of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualification. Alternatively HR background with further development towards marketing, employer branding or branding\n• Experience in a strategic-conceptual function, in project management as well as in-depth experience in employer branding, HR marketing or a comparable environment\n• German at native language level and fluent English skills\n• Ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Confident handling of different interests and requirements as well as the ability to develop viable solutions in an international multi-brand setup\n• Communication strength, creativity, teamwork and initiative as well as a structured working method and good time management We offer:\n• Varied area of responsibility as well as space for personal responsibility and initiative\n• Clearly structured training phase with cross-department onboarding program\n• Flexible working hours and home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports offers & employee events, staff restaurant with attractive prices\n• Flexible mobility concept for your commute",
-        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
-        "fr": "Avec nous, vous avez l'occasion de façonner activement une marque d'employeurs internationale, de façon stratégique, créative et avec beaucoup de créativité. Les points de vue deviennent des idées fortes, des stratégies pertinentes et des campagnes de communication qui sont bloquées de différents points de vue. Si vous ne voulez pas simplement mettre en œuvre les choses, mais pensez à nouveau et vraiment faire une différence, nous devrions certainement apprendre à nous connaître. Vos tâches :\n• Élaboration et mise en œuvre à l ' échelle mondiale de la stratégie de promotion de l ' image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseils et soutien communicatif des spécialistes des RH et des parties prenantes concernées ainsi que l'élaboration de concepts, de messages et d'idées créatives\n• Planifier et mettre en œuvre des campagnes de promotion de l'image de marque au niveau mondial et local, ainsi que créer et contrôler du contenu pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des mesures dans les activités quotidiennes et gestion de la coopération avec les équipes de création internes, les centres de compétences et de services et les partenaires externes\n• Assurer une présence cohérente dans tous les pays et dans tous les canaux et mettre au point des solutions viables dans le cadre de la mise en place internationale de plusieurs marques\n• Définition et évaluation des ICR pertinents ainsi que création, contrôle et approbation des présentations Votre profil:\n• Études terminées en marketing, communication, production multimédia, marketing numérique ou qualification comparable. Autre contexte RH avec développement ultérieur vers le marketing, la marque patronale ou la marque\n• Expérience dans une fonction stratégique-conceptuelle, dans la gestion de projet ainsi qu'une expérience approfondie dans l'image de marque de l'employeur, le marketing des RH ou un environnement comparable\n• Allemand au niveau de la langue maternelle et maîtrise de l'anglais couramment\n• Capacité à élaborer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des RH, de la marque ou du marketing\n• Gestion fiable de différents intérêts et exigences ainsi que la capacité de développer des solutions viables dans une configuration multimarques internationale\n• La force de communication, la créativité, le travail d'équipe et l'initiative, ainsi qu'une méthode de travail structurée et une bonne gestion du temps Nous offrons :\n• Zone de responsabilité variée et espace de responsabilité personnelle et d'initiative\n• Phase de formation clairement structurée avec programme interservices à bord\n• Heures de travail flexibles et bureau à domicile\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès, nombreuses offres sportives et événements pour les employés, restaurant du personnel à des prix attractifs\n• Concept de mobilité flexible pour votre trajet"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:01.028Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3025",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:44:36.484Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
           "unitText": "YEAR"
         }
       }
@@ -834,7 +768,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:00.856Z",
+      "crawledAt": "2026-10-09T21:34:47.097Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -917,7 +851,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:00.679Z",
+      "crawledAt": "2026-10-09T21:34:46.948Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -993,7 +927,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:00.504Z",
+      "crawledAt": "2026-10-09T21:34:46.797Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -1071,7 +1005,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:00.327Z",
+      "crawledAt": "2026-10-09T21:34:46.647Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1109,6 +1043,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1154,7 +1089,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:42:00.154Z",
+      "crawledAt": "2026-10-09T21:34:46.497Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1230,7 +1165,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.975Z",
+      "crawledAt": "2026-10-09T21:34:46.349Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1309,7 +1244,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.800Z",
+      "crawledAt": "2026-10-09T21:34:46.198Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1340,6 +1275,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1350,82 +1286,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sfs-group-8b08e282ac9a",
-      "slug": "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg",
-        "en": "specialist-laboratory-metallography-material-testing-m-f-d-sfs-group-heerbrugg",
-        "de": "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
-        "fr": "laboratoire-specialise-metallographie-essais-de-materiaux-h-f-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Fachperson Labor (Metallographie/Werkstoffprüfung) (m/f/d)",
-      "titleByLocale": {
-        "it": "Laboratorio specialistico (metallografia/test materiale) (m/f/d)",
-        "en": "Specialist Laboratory (metallography/material testing) (m/f/d)",
-        "de": "Fachperson Labor (Metallographie/Werkstoffprüfung) (m/f/d)",
-        "fr": "Laboratoire spécialisé (métallographie/essais de matériaux) (h/f/d)"
-      },
-      "description": "Der Fortschritt steckt häufig im Detail. In unserem akkreditierten Prüflabor schaffen wir durch die Untersuchung verschiedenster Rohmaterialien sowie kaltumgeformter und wärmebehandelter Metallteile wichtige Grundlagen für die kontinuierliche Weiterentwicklung und Optimierung. Möchtest du mit deinem geschärften Blick, deinem Fachwissen und deiner sorgfältigen Arbeitsweise einen Beitrag dazu leisten? Your Tasks:\n• Planung, Durchführung und Auswertung von Werkstoffprüfungen und metallographischen Untersuchungen gemäss Vorgaben\n• Untersuchung von Halb- und Fertigfabrikaten aus unseren Produktionswerken, Zukaufteilen, Wettbewerbsmustern und Versuchsreihen mit den im Labor verfügbaren Methoden und Geräten\n• Erstellung von Laborprüfberichten inklusive Bilddokumentation, Auswertung und Archivierung der Ergebnisse\n• Durchführung sowie Dokumentation von Wartungs- und Kalibrierarbeiten an den Laborgeräten\n• Mitarbeit bei der Organisation des akkreditierten Labors, bei Ringversuchen sowie bei der Evaluation und Beschaffung von Neu- und Ersatzgeräten\n• Erkennen und Anregen von Korrekturmassnahmen zur Qualitätsverbesserung sowie Sperren nicht-konformer Produkte und Abstimmung des weiteren Vorgehens mit dem Leiter Labor bzw. QM-Leiter Your profile:\n• Abgeschlossene Lehre als Physiklaborant/in oder Werkstoffprüfer/in oder eine vergleichbare technische Ausbildung\n• Berufserfahrung im Bereich Metallographie und Werkstoffprüfung, idealerweise in der metallverarbeitenden Industrie von Vorteil\n• Erfahrung in allgemeinen Labortätigkeiten sowie im sorgfältigen Dokumentieren und Auswerten von Prüfergebnissen\n• Deutschkenntnisse auf Muttersprachniveau und gute Englischkenntnisse\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise sowie ein ausgeprägtes Qualitätsbewusstsein\n• Technisches Verständnis und Freude an der Zusammenarbeit im Team We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "Il progresso è spesso nei dettagli. Nel nostro laboratorio di test accreditato, creiamo importanti basi per lo sviluppo e l'ottimizzazione continui esaminando una vasta gamma di materie prime, nonché parti metalliche a freddo e termotrattate. Vuoi contribuire con i tuoi occhi più affilati, la tua esperienza e il tuo lavoro attento? I vostri compiti:\n• Pianificazione, implementazione e valutazione delle prove materiali e delle indagini metalliche secondo le specifiche\n• Indagine sui prodotti semilavorati e finiti dei nostri stabilimenti produttivi, parti acquistate, modelli di competizione e serie di test con i metodi e le attrezzature disponibili in laboratorio\n• Preparazione di report di test di laboratorio tra cui documentazione dell'immagine, valutazione e archiviazione dei risultati\n• Attuazione e documentazione dei lavori di manutenzione e taratura su attrezzature di laboratorio\n• Cooperazione nell'organizzazione del laboratorio accreditato, nelle sperimentazioni inter-laboratorie, nonché nella valutazione e nell'approvvigionamento di apparecchiature nuove e sostitutive\n• Riconoscere e stimolare misure correttive per migliorare la qualità e bloccare i prodotti non conformi e coordinare l'ulteriore procedura con la testa di laboratorio QM-Manager Il tuo profilo:\n• Apprendistato completo come tester di laboratorio o di materiali fisici o formazione tecnica comparabile\n• Esperienza professionale nella metallurgia e nella sperimentazione dei materiali, idealmente benefica nel settore della lavorazione dei metalli\n• Esperienza nelle attività di laboratorio generali e nella documentazione e valutazione dei risultati dei test\n• Conoscenza del tedesco a livello di lingua madre e buona conoscenza dell'inglese\n• Metodo di lavoro indipendente, affidabile e strutturato nonché una forte consapevolezza della qualità\n• La comprensione tecnica e il godimento di lavorare insieme nel Team Offriamo:\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
-        "en": "Progress is often in the detail. In our accredited testing laboratory, we create important foundations for continuous development and optimization by examining a wide variety of raw materials as well as cold-formed and heat-treated metal parts. Would you like to contribute with your sharper eyes, your expertise and your careful work? Your Tasks:\n• Planning, implementation and evaluation of material tests and metallographic investigations according to specifications\n• Investigation of semi-finished and finished products from our production plants, purchased parts, competition patterns and test series with the methods and equipment available in the laboratory\n• Preparation of laboratory test reports including image documentation, evaluation and archiving of results\n• Implementation and documentation of maintenance and calibration work on laboratory equipment\n• Cooperation in the organisation of the accredited laboratory, in inter-laboratory trials, as well as in the evaluation and procurement of new and replacement equipment\n• Recognizing and stimulating corrective measures to improve quality as well as blocking non-compliant products and coordinating the further procedure with the head of laboratory QM-Manager Your profile:\n• Completed apprenticeship as a physics laboratory or materials tester or comparable technical training\n• Professional experience in metallography and materials testing, ideally beneficial in the metalworking industry\n• Experience in general laboratory activities and in carefully documenting and evaluating test results\n• Knowledge of German at native language level and good knowledge of English\n• Independent, reliable and structured working method as well as a strong quality awareness\n• Technical understanding and enjoyment of working together in Team We offer:\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
-        "de": "Der Fortschritt steckt häufig im Detail. In unserem akkreditierten Prüflabor schaffen wir durch die Untersuchung verschiedenster Rohmaterialien sowie kaltumgeformter und wärmebehandelter Metallteile wichtige Grundlagen für die kontinuierliche Weiterentwicklung und Optimierung. Möchtest du mit deinem geschärften Blick, deinem Fachwissen und deiner sorgfältigen Arbeitsweise einen Beitrag dazu leisten? Your Tasks:\n• Planung, Durchführung und Auswertung von Werkstoffprüfungen und metallographischen Untersuchungen gemäss Vorgaben\n• Untersuchung von Halb- und Fertigfabrikaten aus unseren Produktionswerken, Zukaufteilen, Wettbewerbsmustern und Versuchsreihen mit den im Labor verfügbaren Methoden und Geräten\n• Erstellung von Laborprüfberichten inklusive Bilddokumentation, Auswertung und Archivierung der Ergebnisse\n• Durchführung sowie Dokumentation von Wartungs- und Kalibrierarbeiten an den Laborgeräten\n• Mitarbeit bei der Organisation des akkreditierten Labors, bei Ringversuchen sowie bei der Evaluation und Beschaffung von Neu- und Ersatzgeräten\n• Erkennen und Anregen von Korrekturmassnahmen zur Qualitätsverbesserung sowie Sperren nicht-konformer Produkte und Abstimmung des weiteren Vorgehens mit dem Leiter Labor bzw. QM-Leiter Your profile:\n• Abgeschlossene Lehre als Physiklaborant/in oder Werkstoffprüfer/in oder eine vergleichbare technische Ausbildung\n• Berufserfahrung im Bereich Metallographie und Werkstoffprüfung, idealerweise in der metallverarbeitenden Industrie von Vorteil\n• Erfahrung in allgemeinen Labortätigkeiten sowie im sorgfältigen Dokumentieren und Auswerten von Prüfergebnissen\n• Deutschkenntnisse auf Muttersprachniveau und gute Englischkenntnisse\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise sowie ein ausgeprägtes Qualitätsbewusstsein\n• Technisches Verständnis und Freude an der Zusammenarbeit im Team We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "Les progrès sont souvent dans le détail. Dans notre laboratoire d'essais accrédité, nous créons des bases importantes pour le développement et l'optimisation continus en examinant une grande variété de matières premières ainsi que des pièces métalliques à froid et traitées thermiquement. Voulez-vous contribuer avec vos yeux plus précis, votre expertise et votre travail minutieux? Vos tâches :\n• Planification, mise en œuvre et évaluation des essais de matériaux et des enquêtes métallographiques selon les spécifications\n• Recherche de produits semi-finis et finis de nos usines de production, pièces achetées, modèles de compétition et séries d'essais avec les méthodes et équipements disponibles en laboratoire\n• Préparation de rapports d'essais en laboratoire, y compris la documentation sur l'image, l'évaluation et l'archivage des résultats\n• Mise en œuvre et documentation des travaux d'entretien et d'étalonnage du matériel de laboratoire\n• Coopération dans l'organisation du laboratoire accrédité, dans les essais interlaboratoires, ainsi que dans l'évaluation et l'acquisition de matériel neuf et de remplacement\n• Reconnaître et stimuler les mesures correctives pour améliorer la qualité et bloquer les produits non conformes et coordonner la procédure avec le chef de laboratoire QM-Manager Votre profil :\n• Apprentissage complété comme laboratoire de physique ou testeur de matériaux ou formation technique comparable\n• Expérience professionnelle en métallographie et essais de matériaux, idéalement bénéfique dans l'industrie métallurgique\n• Expérience dans les activités générales de laboratoire et dans la documentation et l'évaluation minutieuses des résultats des essais\n• Connaissance de l'allemand au niveau de la langue maternelle et bonne connaissance de l'anglais\n• Méthode de travail indépendante, fiable et structurée ainsi qu'une forte sensibilisation à la qualité\n• Compréhension technique et plaisir de travailler ensemble en équipe Nous offrons:\n• Tâches variées\n• Six semaines de vacances et achat de vacances supplémentaires possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.621Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3013/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3013",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T13:46:40.458Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -1461,7 +1321,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.445Z",
+      "crawledAt": "2026-10-09T21:34:46.046Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1523,6 +1383,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1568,7 +1429,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.268Z",
+      "crawledAt": "2026-10-09T21:34:45.896Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1644,7 +1505,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:59.092Z",
+      "crawledAt": "2026-10-09T21:34:45.747Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1722,7 +1583,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:41:58.875Z",
+      "crawledAt": "2026-10-09T21:34:45.570Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1766,6 +1627,153 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-ef7c66ad83ea",
+      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "gestionnaire-du-marketing-branding-de-l-employeur-et-rh-h-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+      "titleByLocale": {
+        "it": "Marketing Manager–Employer Branding & Risorse Umane (m/f/d) 80–",
+        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
+        "fr": "Marketing Manager–Employer Branding & Ressources Humaines (m/f/d) 80–"
+      },
+      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+      "descriptionByLocale": {
+        "it": "Con noi avete l'opportunità di plasmare attivamente un marchio di datore di lavoro internazionale, strategicamente, creativamente e con un sacco di ambito creativo. Le intuizioni diventano idee forti, strategie campagne rilevanti e comunicazione che si blocca da prospettive diverse. Se non si vuole solo implementare le cose, ma pensare di nuovo e davvero fare la differenza, dovremmo sicuramente arrivare a conoscersi. I vostri compiti:\n• Sviluppo globale e implementazione della strategia di marketing del datore di lavoro per tutti i marchi e i gruppi target rilevanti\n• Consulenza e supporto comunicativo delle aree specialistiche HR e degli stakeholder rilevanti nonché sviluppo di concetti, messaggi e idee guida creative\n• Pianificazione e attuazione di campagne di marcatura datore di lavoro globali e locali, nonché la creazione e il controllo dei contenuti per i canali digitali e interni\n• Pianificazione, priorità e coordinamento delle misure nel business quotidiano, nonché gestione della cooperazione con team di creazione interna, centri di competenza e servizi e partner esterni\n• Garantire una presenza costante in tutti i paesi e canali e sviluppare soluzioni valide nell'allestimento multimarca internazionale\n• Definizione e valutazione dei KPI rilevanti nonché creazione, controllo e approvazione delle presentazioni Il tuo profilo:\n• Studi completi in marketing, comunicazione, produzione multimediale, digital marketing o qualificazione comparabile. Sfondo in alternativa HR con ulteriore sviluppo verso il marketing, il marchio datore di lavoro o il branding\n• Esperienza in una funzione strategica-concettuale, nella gestione del progetto e nell'esperienza approfondita nel branding del datore di lavoro, nel marketing HR o in un ambiente paragonabile\n• Tedesco a livello di lingua madre e fluente competenze in inglese\n• Capacità di sviluppare strategie, concetti e campagne e di presentarle e ancorarle in modo convincente in una comunità internazionale HR, brand o marketing\n• Gestione sicura dei diversi interessi e requisiti, nonché la capacità di sviluppare soluzioni realizzabili in una configurazione multi-brand internazionale\n• Forza di comunicazione, creatività, lavoro di squadra e iniziativa, nonché un metodo di lavoro strutturato e una buona gestione del tempo Offriamo:\n• Varie aree di responsabilità e spazio per la responsabilità personale e l'iniziativa\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Ore lavorative flessibili e ufficio domestico\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo, numerose offerte sportive & eventi dei dipendenti, ristorante del personale con prezzi interessanti\n• Concetto di mobilità flessibile per il vostro commuto",
+        "en": "With us you have the opportunity to actively shape an international employer brand, strategically, creatively and with a lot of creative scope. Insights become strong ideas, strategies relevant campaigns and communication that gets stuck from different perspectives. If you do not just want to implement things, but think newly and really make a difference, we should definitely get to know each other. Your Tasks:\n• Global development and implementation of the employer branding and HR marketing strategy for all brands and relevant target groups\n• Consulting and communicative support of HR specialist areas and relevant stakeholders as well as development of concepts, messages and creative guiding ideas\n• Planning and implementing global and local employer branding campaigns as well as creating and controlling content for digital and internal channels\n• Planning, prioritization and coordination of measures in day-to-day business as well as managing cooperation with internal creation teams, competence and service centers and external partners\n• Ensuring a consistent presence across all countries and channels and developing viable solutions in the international multi-brand setup\n• Definition and evaluation of relevant KPIs as well as creation, control and approval of presentations Your profile:\n• Completed studies in marketing, communication, multimedia production, digital marketing or comparable qualification. Alternatively HR background with further development towards marketing, employer branding or branding\n• Experience in a strategic-conceptual function, in project management as well as in-depth experience in employer branding, HR marketing or a comparable environment\n• German at native language level and fluent English skills\n• Ability to develop strategies, concepts and campaigns and to present and anchor them convincingly in an international HR, brand or marketing community\n• Confident handling of different interests and requirements as well as the ability to develop viable solutions in an international multi-brand setup\n• Communication strength, creativity, teamwork and initiative as well as a structured working method and good time management We offer:\n• Varied area of responsibility as well as space for personal responsibility and initiative\n• Clearly structured training phase with cross-department onboarding program\n• Flexible working hours and home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success, numerous sports offers & employee events, staff restaurant with attractive prices\n• Flexible mobility concept for your commute",
+        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+        "fr": "Avec nous, vous avez l'occasion de façonner activement une marque d'employeurs internationale, de façon stratégique, créative et avec beaucoup de créativité. Les points de vue deviennent des idées fortes, des stratégies pertinentes et des campagnes de communication qui sont bloquées de différents points de vue. Si vous ne voulez pas simplement mettre en œuvre les choses, mais pensez à nouveau et vraiment faire une différence, nous devrions certainement apprendre à nous connaître. Vos tâches :\n• Élaboration et mise en œuvre à l ' échelle mondiale de la stratégie de promotion de l ' image de marque et des ressources humaines pour toutes les marques et groupes cibles concernés\n• Conseils et soutien communicatif des spécialistes des RH et des parties prenantes concernées ainsi que l'élaboration de concepts, de messages et d'idées créatives\n• Planifier et mettre en œuvre des campagnes de promotion de l'image de marque au niveau mondial et local, ainsi que créer et contrôler du contenu pour les canaux numériques et internes\n• Planification, hiérarchisation et coordination des mesures dans les activités quotidiennes et gestion de la coopération avec les équipes de création internes, les centres de compétences et de services et les partenaires externes\n• Assurer une présence cohérente dans tous les pays et dans tous les canaux et mettre au point des solutions viables dans le cadre de la mise en place internationale de plusieurs marques\n• Définition et évaluation des ICR pertinents ainsi que création, contrôle et approbation des présentations Votre profil:\n• Études terminées en marketing, communication, production multimédia, marketing numérique ou qualification comparable. Autre contexte RH avec développement ultérieur vers le marketing, la marque patronale ou la marque\n• Expérience dans une fonction stratégique-conceptuelle, dans la gestion de projet ainsi qu'une expérience approfondie dans l'image de marque de l'employeur, le marketing des RH ou un environnement comparable\n• Allemand au niveau de la langue maternelle et maîtrise de l'anglais couramment\n• Capacité à élaborer des stratégies, des concepts et des campagnes et à les présenter et à les ancrer de manière convaincante dans une communauté internationale des RH, de la marque ou du marketing\n• Gestion fiable de différents intérêts et exigences ainsi que la capacité de développer des solutions viables dans une configuration multimarques internationale\n• La force de communication, la créativité, le travail d'équipe et l'initiative, ainsi qu'une méthode de travail structurée et une bonne gestion du temps Nous offrons :\n• Zone de responsabilité variée et espace de responsabilité personnelle et d'initiative\n• Phase de formation clairement structurée avec programme interservices à bord\n• Heures de travail flexibles et bureau à domicile\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès, nombreuses offres sportives et événements pour les employés, restaurant du personnel à des prix attractifs\n• Concept de mobilité flexible pour votre trajet"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-09T09:42:01.028Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3025",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-24T14:44:36.484Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "sfs-group-8b08e282ac9a",
+      "slug": "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "laboratorio-specialistico-metallografia-test-materiale-m-f-d-sfs-group-heerbrugg",
+        "en": "specialist-laboratory-metallography-material-testing-m-f-d-sfs-group-heerbrugg",
+        "de": "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg",
+        "fr": "laboratoire-specialise-metallographie-essais-de-materiaux-h-f-d-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Fachperson Labor (Metallographie/Werkstoffprüfung) (m/f/d)",
+      "titleByLocale": {
+        "it": "Laboratorio specialistico (metallografia/test materiale) (m/f/d)",
+        "en": "Specialist Laboratory (metallography/material testing) (m/f/d)",
+        "de": "Fachperson Labor (Metallographie/Werkstoffprüfung) (m/f/d)",
+        "fr": "Laboratoire spécialisé (métallographie/essais de matériaux) (h/f/d)"
+      },
+      "description": "Der Fortschritt steckt häufig im Detail. In unserem akkreditierten Prüflabor schaffen wir durch die Untersuchung verschiedenster Rohmaterialien sowie kaltumgeformter und wärmebehandelter Metallteile wichtige Grundlagen für die kontinuierliche Weiterentwicklung und Optimierung. Möchtest du mit deinem geschärften Blick, deinem Fachwissen und deiner sorgfältigen Arbeitsweise einen Beitrag dazu leisten? Your Tasks:\n• Planung, Durchführung und Auswertung von Werkstoffprüfungen und metallographischen Untersuchungen gemäss Vorgaben\n• Untersuchung von Halb- und Fertigfabrikaten aus unseren Produktionswerken, Zukaufteilen, Wettbewerbsmustern und Versuchsreihen mit den im Labor verfügbaren Methoden und Geräten\n• Erstellung von Laborprüfberichten inklusive Bilddokumentation, Auswertung und Archivierung der Ergebnisse\n• Durchführung sowie Dokumentation von Wartungs- und Kalibrierarbeiten an den Laborgeräten\n• Mitarbeit bei der Organisation des akkreditierten Labors, bei Ringversuchen sowie bei der Evaluation und Beschaffung von Neu- und Ersatzgeräten\n• Erkennen und Anregen von Korrekturmassnahmen zur Qualitätsverbesserung sowie Sperren nicht-konformer Produkte und Abstimmung des weiteren Vorgehens mit dem Leiter Labor bzw. QM-Leiter Your profile:\n• Abgeschlossene Lehre als Physiklaborant/in oder Werkstoffprüfer/in oder eine vergleichbare technische Ausbildung\n• Berufserfahrung im Bereich Metallographie und Werkstoffprüfung, idealerweise in der metallverarbeitenden Industrie von Vorteil\n• Erfahrung in allgemeinen Labortätigkeiten sowie im sorgfältigen Dokumentieren und Auswerten von Prüfergebnissen\n• Deutschkenntnisse auf Muttersprachniveau und gute Englischkenntnisse\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise sowie ein ausgeprägtes Qualitätsbewusstsein\n• Technisches Verständnis und Freude an der Zusammenarbeit im Team We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "it": "Il progresso è spesso nei dettagli. Nel nostro laboratorio di test accreditato, creiamo importanti basi per lo sviluppo e l'ottimizzazione continui esaminando una vasta gamma di materie prime, nonché parti metalliche a freddo e termotrattate. Vuoi contribuire con i tuoi occhi più affilati, la tua esperienza e il tuo lavoro attento? I vostri compiti:\n• Pianificazione, implementazione e valutazione delle prove materiali e delle indagini metalliche secondo le specifiche\n• Indagine sui prodotti semilavorati e finiti dei nostri stabilimenti produttivi, parti acquistate, modelli di competizione e serie di test con i metodi e le attrezzature disponibili in laboratorio\n• Preparazione di report di test di laboratorio tra cui documentazione dell'immagine, valutazione e archiviazione dei risultati\n• Attuazione e documentazione dei lavori di manutenzione e taratura su attrezzature di laboratorio\n• Cooperazione nell'organizzazione del laboratorio accreditato, nelle sperimentazioni inter-laboratorie, nonché nella valutazione e nell'approvvigionamento di apparecchiature nuove e sostitutive\n• Riconoscere e stimolare misure correttive per migliorare la qualità e bloccare i prodotti non conformi e coordinare l'ulteriore procedura con la testa di laboratorio QM-Manager Il tuo profilo:\n• Apprendistato completo come tester di laboratorio o di materiali fisici o formazione tecnica comparabile\n• Esperienza professionale nella metallurgia e nella sperimentazione dei materiali, idealmente benefica nel settore della lavorazione dei metalli\n• Esperienza nelle attività di laboratorio generali e nella documentazione e valutazione dei risultati dei test\n• Conoscenza del tedesco a livello di lingua madre e buona conoscenza dell'inglese\n• Metodo di lavoro indipendente, affidabile e strutturato nonché una forte consapevolezza della qualità\n• La comprensione tecnica e il godimento di lavorare insieme nel Team Offriamo:\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
+        "en": "Progress is often in the detail. In our accredited testing laboratory, we create important foundations for continuous development and optimization by examining a wide variety of raw materials as well as cold-formed and heat-treated metal parts. Would you like to contribute with your sharper eyes, your expertise and your careful work? Your Tasks:\n• Planning, implementation and evaluation of material tests and metallographic investigations according to specifications\n• Investigation of semi-finished and finished products from our production plants, purchased parts, competition patterns and test series with the methods and equipment available in the laboratory\n• Preparation of laboratory test reports including image documentation, evaluation and archiving of results\n• Implementation and documentation of maintenance and calibration work on laboratory equipment\n• Cooperation in the organisation of the accredited laboratory, in inter-laboratory trials, as well as in the evaluation and procurement of new and replacement equipment\n• Recognizing and stimulating corrective measures to improve quality as well as blocking non-compliant products and coordinating the further procedure with the head of laboratory QM-Manager Your profile:\n• Completed apprenticeship as a physics laboratory or materials tester or comparable technical training\n• Professional experience in metallography and materials testing, ideally beneficial in the metalworking industry\n• Experience in general laboratory activities and in carefully documenting and evaluating test results\n• Knowledge of German at native language level and good knowledge of English\n• Independent, reliable and structured working method as well as a strong quality awareness\n• Technical understanding and enjoyment of working together in Team We offer:\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
+        "de": "Der Fortschritt steckt häufig im Detail. In unserem akkreditierten Prüflabor schaffen wir durch die Untersuchung verschiedenster Rohmaterialien sowie kaltumgeformter und wärmebehandelter Metallteile wichtige Grundlagen für die kontinuierliche Weiterentwicklung und Optimierung. Möchtest du mit deinem geschärften Blick, deinem Fachwissen und deiner sorgfältigen Arbeitsweise einen Beitrag dazu leisten? Your Tasks:\n• Planung, Durchführung und Auswertung von Werkstoffprüfungen und metallographischen Untersuchungen gemäss Vorgaben\n• Untersuchung von Halb- und Fertigfabrikaten aus unseren Produktionswerken, Zukaufteilen, Wettbewerbsmustern und Versuchsreihen mit den im Labor verfügbaren Methoden und Geräten\n• Erstellung von Laborprüfberichten inklusive Bilddokumentation, Auswertung und Archivierung der Ergebnisse\n• Durchführung sowie Dokumentation von Wartungs- und Kalibrierarbeiten an den Laborgeräten\n• Mitarbeit bei der Organisation des akkreditierten Labors, bei Ringversuchen sowie bei der Evaluation und Beschaffung von Neu- und Ersatzgeräten\n• Erkennen und Anregen von Korrekturmassnahmen zur Qualitätsverbesserung sowie Sperren nicht-konformer Produkte und Abstimmung des weiteren Vorgehens mit dem Leiter Labor bzw. QM-Leiter Your profile:\n• Abgeschlossene Lehre als Physiklaborant/in oder Werkstoffprüfer/in oder eine vergleichbare technische Ausbildung\n• Berufserfahrung im Bereich Metallographie und Werkstoffprüfung, idealerweise in der metallverarbeitenden Industrie von Vorteil\n• Erfahrung in allgemeinen Labortätigkeiten sowie im sorgfältigen Dokumentieren und Auswerten von Prüfergebnissen\n• Deutschkenntnisse auf Muttersprachniveau und gute Englischkenntnisse\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise sowie ein ausgeprägtes Qualitätsbewusstsein\n• Technisches Verständnis und Freude an der Zusammenarbeit im Team We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "Les progrès sont souvent dans le détail. Dans notre laboratoire d'essais accrédité, nous créons des bases importantes pour le développement et l'optimisation continus en examinant une grande variété de matières premières ainsi que des pièces métalliques à froid et traitées thermiquement. Voulez-vous contribuer avec vos yeux plus précis, votre expertise et votre travail minutieux? Vos tâches :\n• Planification, mise en œuvre et évaluation des essais de matériaux et des enquêtes métallographiques selon les spécifications\n• Recherche de produits semi-finis et finis de nos usines de production, pièces achetées, modèles de compétition et séries d'essais avec les méthodes et équipements disponibles en laboratoire\n• Préparation de rapports d'essais en laboratoire, y compris la documentation sur l'image, l'évaluation et l'archivage des résultats\n• Mise en œuvre et documentation des travaux d'entretien et d'étalonnage du matériel de laboratoire\n• Coopération dans l'organisation du laboratoire accrédité, dans les essais interlaboratoires, ainsi que dans l'évaluation et l'acquisition de matériel neuf et de remplacement\n• Reconnaître et stimuler les mesures correctives pour améliorer la qualité et bloquer les produits non conformes et coordonner la procédure avec le chef de laboratoire QM-Manager Votre profil :\n• Apprentissage complété comme laboratoire de physique ou testeur de matériaux ou formation technique comparable\n• Expérience professionnelle en métallographie et essais de matériaux, idéalement bénéfique dans l'industrie métallurgique\n• Expérience dans les activités générales de laboratoire et dans la documentation et l'évaluation minutieuses des résultats des essais\n• Connaissance de l'allemand au niveau de la langue maternelle et bonne connaissance de l'anglais\n• Méthode de travail indépendante, fiable et structurée ainsi qu'une forte sensibilisation à la qualité\n• Compréhension technique et plaisir de travailler ensemble en équipe Nous offrons:\n• Tâches variées\n• Six semaines de vacances et achat de vacances supplémentaires possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-09T09:41:59.621Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3013/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3013",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T13:46:40.458Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
