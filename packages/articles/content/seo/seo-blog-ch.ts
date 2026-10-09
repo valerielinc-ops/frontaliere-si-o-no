@@ -99725,10 +99725,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quasi 5'000 annunci IA tra luglio 2025 e giugno 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-giugno-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mercato-lavoro-ia-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Professionisti che collaborano in un ambiente ufficio moderno in Svizzera, con schermi che mostrano dati e codice IA."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T09:36:45+00:00",
       "dateModified": "2026-10-08T09:36:45+00:00",
@@ -100310,10 +100315,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-agrivarese-angera-ottobre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-nobel-economia-fehr-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Ernst Fehr tra i possibili vincitori del Nobel per l'economia"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T03:22:15+00:00",
       "dateModified": "2026-10-09T03:22:15+00:00",
@@ -100466,10 +100471,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-clan-nazarbayev-ceresio.webp`,
+        "url": `${BASE_URL}/images/blog/article-luganistan-clan-ceresio.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Il Ceresio e le ville sul lago al centro del caso Luganistan"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T06:48:32+00:00",
       "dateModified": "2026-10-09T06:48:32+00:00",
@@ -100638,6 +100643,274 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-convocazioni-indennita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-solari-senza-permesso': {
+    title: 'Impianti solari senza autorizzazione: iniziativa fallita',
+    description: 'Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117\'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto',
+    keywords: 'frontalieri, ticino, svizzera, italia, impianti, solari, senza, autorizzazione',
+    ogTitle: 'Impianti solari senza autorizzazione: iniziativa fallita',
+    ogDescription: 'Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117\'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto',
+    canonicalPath: '/articoli-svizzera/iniziativa-solari-senza-permesso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impianti solari senza autorizzazione: iniziativa fallita",
+      "description": "Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-solari-senza-permesso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pannelli solari sul tetto di un edificio in Svizzera"
+      },
+      "datePublished": "2026-10-09T13:20:01+00:00",
+      "dateModified": "2026-10-09T13:20:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-solari-senza-permesso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-midterm-usa-voto-svizzera': {
+    title: 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
+    description: 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, midterm, effetti, dazi, dollaro',
+    ogTitle: 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
+    ogDescription: 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera.',
+    canonicalPath: '/articoli-svizzera/midterm-usa-voto-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera",
+      "description": "Il voto Usa del 3 novembre può pesare sull'economia svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-midterm-usa-voto-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T14:00:45+00:00",
+      "dateModified": "2026-10-09T14:00:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/midterm-usa-voto-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economia-svizzera-fiducia-calante': {
+    title: 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
+    description: 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiducia, consumatori, svizzeri, peggiora',
+    ogTitle: 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
+    ogDescription: 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-fiducia-calante/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiducia consumatori svizzeri peggiora: prezzi e lavoro",
+      "description": "A settembre l'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-economia-svizzera-fiducia-calante.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T15:01:33+00:00",
+      "dateModified": "2026-10-09T15:01:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-fiducia-calante/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ricardo-account-esposti': {
+    title: 'Ricardo: esposti i dati di 890\'000 account | Frontaliere Ticino',
+    description: 'Una falla ha esposto circa 890\'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricardo, esposti, dati, account',
+    ogTitle: 'Ricardo: dati esposti per 890\'000 account',
+    ogDescription: 'Una falla ha esposto circa 890\'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT',
+    canonicalPath: '/articoli-svizzera/ricardo-account-esposti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricardo: esposti i dati di 890'000 account",
+      "description": "Una falla ha esposto circa 890'000 account Ricardo Pubblici nomi, indirizzi postali e numeri di telefono E-mail e password non sono state compromesse IFPDT",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ricardo-account-esposti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laptop con avviso di sicurezza per un account di marketplace online in Svizzera"
+      },
+      "datePublished": "2026-10-09T15:39:39+00:00",
+      "dateModified": "2026-10-09T15:39:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricardo-account-esposti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cibersicurezza-svizzera-record-segnalazioni': {
+    title: 'Cibersicurezza: 1.587 segnalazioni in una settimana',
+    description: '1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall\'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, cibersicurezza, segnalazioni, settimana, volontarie',
+    ogTitle: 'Allarme cibersicurezza: 1.587 segnalazioni in una settimana',
+    ogDescription: '1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall\'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche',
+    canonicalPath: '/articoli-svizzera/cibersicurezza-svizzera-record-segnalazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cibersicurezza: 1.587 segnalazioni in una settimana",
+      "description": "1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un ufficio moderno in Svizzera che rappresenta la sicurezza informatica aziendale."
+      },
+      "datePublished": "2026-10-09T16:39:09+00:00",
+      "dateModified": "2026-10-09T16:39:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cibersicurezza-svizzera-record-segnalazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-voto-svizzera-esportazione-armi-2026': {
+    title: 'Esportazione armi: il voto federale del 29 novembre 2026',
+    description: 'Voto federale sulla legge: 29 novembre 2026 Apertura possibile per alcuni partner stretti Il conflitto armato non escluderebbe l\'autorizzazione L\'Ucraina resta',
+    keywords: 'frontalieri, ticino, svizzera, italia, esportazione, armi, voto, federale',
+    ogTitle: 'Svizzera: Voto Federale sull\'Esportazione di Armi nel 2026',
+    ogDescription: 'Voto federale sulla legge: 29 novembre 2026 Apertura possibile per alcuni partner stretti Il conflitto armato non escluderebbe l\'autorizzazione L\'Ucraina resta',
+    canonicalPath: '/articoli-svizzera/voto-svizzera-esportazione-armi-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esportazione armi: il voto federale del 29 novembre 2026",
+      "description": "Voto federale sulla legge: 29 novembre 2026 Apertura possibile per alcuni partner stretti Il conflitto armato non escluderebbe l'autorizzazione L'Ucraina resta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-voto-svizzera-esportazione-armi-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T17:48:06+00:00",
+      "dateModified": "2026-10-09T17:48:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-svizzera-esportazione-armi-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-spesa-famiglie-inflazione': {
+    title: 'Svizzera, consumi in crescita dello 0,9% a settembre',
+    description: 'A settembre i consumi svizzeri sono saliti dello 0,9%. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consumi, crescita, dello, settembre',
+    ogTitle: 'Consumi svizzeri: +0,9% a settembre',
+    ogDescription: 'A settembre i consumi svizzeri sono saliti dello 0,9%.',
+    canonicalPath: '/articoli-svizzera/spesa-famiglie-inflazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera, consumi in crescita dello 0,9% a settembre",
+      "description": "A settembre i consumi svizzeri sono saliti dello 0,9%. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-spesa-crescita-rallenta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consumatori svizzeri durante acquisti pagati con carta"
+      },
+      "datePublished": "2026-10-09T18:30:40+00:00",
+      "dateModified": "2026-10-09T18:30:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spesa-famiglie-inflazione/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -2683,6 +2683,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucerna-elezioni-calendario-voto': { it: 'lucerna-elezioni-calendario-voto', en: 'lucerne-cantonal-elections-calendar-vote', de: 'luzern-kantonswahlen-wahlkalender', fr: 'elections-cantonales-lucerne-calendrier' },
  'trasporti-45-critiche-piano': { it: 'trasporti-45-critiche-piano', en: 'transport-45-criticism-plan', de: 'transport-45-kritik-plan', fr: 'transports-45-critiques-plan' },
  'lucerna-convocazioni-indennita': { it: 'lucerna-convocazioni-indennita', en: 'lucerne-civil-protection-allowance', de: 'luzern-zivilschutz-entschaedigung', fr: 'lucerne-protection-civile-indemnite' },
+ 'iniziativa-solari-senza-permesso': { it: 'iniziativa-solari-senza-permesso', en: 'solar-permit-initiative-fails', de: 'solarinitiative-ohne-bewilligung-gescheitert', fr: 'initiative-solaire-sans-permis-echoue' },
+ 'midterm-usa-voto-svizzera': { it: 'midterm-usa-voto-svizzera', en: 'midterm-usa-vote-switzerland', de: 'midterm-usa-abstimmung-schweiz', fr: 'midterm-usa-vote-suisse' },
+ 'economia-svizzera-fiducia-calante': { it: 'economia-svizzera-fiducia-calante', en: 'swiss-economy-declining-confidence', de: 'schweizer-wirtschaft-sinkendes-vertrauen', fr: 'economie-suisse-confiance-declinaison' },
+ 'ricardo-account-esposti': { it: 'ricardo-account-esposti', en: 'ricardo-exposed-accounts', de: 'ricardo-offengelegte-konten', fr: 'ricardo-comptes-exposes' },
+ 'cibersicurezza-svizzera-record-segnalazioni': { it: 'cibersicurezza-svizzera-record-segnalazioni', en: 'cybersecurity-switzerland-record-reports', de: 'cybersicherheit-schweiz-rekord-meldungen', fr: 'cybersecurite-suisse-record-signalements' },
+ 'voto-svizzera-esportazione-armi-2026': { it: 'voto-svizzera-esportazione-armi-2026', en: 'switzerland-vote-war-material-export-2026', de: 'schweiz-abstimmung-kriegsmaterialexport-2026', fr: 'suisse-vote-exportation-materiel-guerre-2026' },
+ 'spesa-famiglie-inflazione': { it: 'spesa-famiglie-inflazione', en: 'swiss-spending-september', de: 'schweizer-konsum-september', fr: 'consommation-suisse-septembre' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -1118,10 +1118,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-costi-cure-domicilio-ticino-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Infermiere che assiste una persona anziana a domicilio a Lugano, Ticino"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-07T11:53:30+01:00",
       "dateModified": "2026-03-07T11:53:30+01:00",
@@ -103943,10 +103943,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/raduno-auto-moto-cocquio.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rancio-valcuvia-statale-394.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T07:21:46+00:00",
       "dateModified": "2026-10-09T07:21:46+00:00",
@@ -103982,10 +103987,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-operazione-trotta-ebike-monopattini.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Controllo della Polizia cantonale su e-bike e monopattini elettrici in Ticino durante l'operazione TROTTA"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T07:39:46+00:00",
       "dateModified": "2026-10-09T07:39:46+00:00",
@@ -104099,10 +104104,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-a9-chiusure-notturne-sion-sierre.webp`,
+        "url": `${BASE_URL}/images/blog/article-a8-manutenzione-cavalcavia-ottobre-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Cantieri notturni sul cavalcavia dell'A8 tra Castronno e Solbiate Arno"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T09:14:11+00:00",
       "dateModified": "2026-10-09T09:14:11+00:00",
@@ -104271,6 +104276,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-musica-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-montegrino-valtravaglia-aggressione-condanna': {
+    title: 'Montegrino Valtravaglia: condanna per aggressione con filo elettrico',
+    description: 'Condanna a 5 anni e 2 mesi per i fatti del 25 novembre 2025 Il caso riguarda Montegrino Valtravaglia Disposta una provvisionale di 5 mila euro per la donna',
+    keywords: 'frontalieri, ticino, svizzera, italia, montegrino, valtravaglia, condanna, aggressione',
+    ogTitle: 'Montegrino Valtravaglia: condanna a 5 anni per aggressione',
+    ogDescription: 'Condanna a 5 anni e 2 mesi per i fatti del 25 novembre 2025 Il caso riguarda Montegrino Valtravaglia Disposta una provvisionale di 5 mila euro per la donna',
+    canonicalPath: '/articoli-frontaliere/montegrino-valtravaglia-aggressione-condanna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Montegrino Valtravaglia: condanna per aggressione con filo elettrico",
+      "description": "Condanna a 5 anni e 2 mesi per i fatti del 25 novembre 2025 Il caso riguarda Montegrino Valtravaglia Disposta una provvisionale di 5 mila euro per la donna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-montegrino-valtravaglia-aggressione-condanna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano o Lago Maggiore con montagne e un borgo sulla riva, evocando la regione di Varese."
+      },
+      "datePublished": "2026-10-09T12:24:18+00:00",
+      "dateModified": "2026-10-09T12:24:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/montegrino-valtravaglia-aggressione-condanna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-operazione-upriver-arresti-varese-2026': {
+    title: 'Operazione Upriver: 7 arresti, uno nel Varesotto',
+    description: 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
+    keywords: 'frontalieri, ticino, svizzera, italia, operazione, upriver, arresti, varesotto',
+    ogTitle: 'Operazione Upriver: 7 arresti per pedopornografia, uno nel Varesotto',
+    ogDescription: 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
+    canonicalPath: '/articoli-frontaliere/operazione-upriver-arresti-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione Upriver: 7 arresti, uno nel Varesotto",
+      "description": "Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-operazione-upriver-arresti-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lungolago di Lugano all'alba"
+      },
+      "datePublished": "2026-10-09T12:58:48+00:00",
+      "dateModified": "2026-10-09T12:58:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operazione-upriver-arresti-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carne-vino-dogana-mendrisiotto': {
+    title: '82 chili di carne e 492 bottiglie: multe doganali',
+    description: 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, chili, carne, bottiglie, multe',
+    ogTitle: 'Vacallo e Stabio: multe per carne e vino',
+    ogDescription: 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
+    canonicalPath: '/articoli-frontaliere/carne-vino-dogana-mendrisiotto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "82 chili di carne e 492 bottiglie: multe doganali",
+      "description": "A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carne-vino-dogana-mendrisiotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo doganale a Stabio con furgone e bottiglie di vino non dichiarate"
+      },
+      "datePublished": "2026-10-09T14:17:30+00:00",
+      "dateModified": "2026-10-09T14:17:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carne-vino-dogana-mendrisiotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-gestione-emergenze-ticino-lombardia': {
+    title: 'Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia',
+    description: 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
+    keywords: 'frontalieri, ticino, svizzera, italia, gestione, emergenze, chiude, extramuro',
+    ogTitle: 'Gestione emergenze transfrontaliere: il bilancio di Extramuro',
+    ogDescription: 'La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino',
+    canonicalPath: '/articoli-frontaliere/gestione-emergenze-ticino-lombardia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gestione emergenze: si chiude Extramuro tra Ticino e Lombardia",
+      "description": "La seconda edizione di «Extramuro» si è chiusa a Erba Una decina di ufficiali ticinesi ha seguito la formazione oltre confine Il programma coinvolge Ticino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-gestione-emergenze-ticino-lombardia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T15:24:27+00:00",
+      "dateModified": "2026-10-09T15:24:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gestione-emergenze-ticino-lombardia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-smottamento-sementina-code': {
+    title: 'Smottamento a Sementina: traffico congestionato',
+    description: 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, smottamento, sementina, traffico, congestionato',
+    ogTitle: 'Smottamento a Sementina: traffico congestionato',
+    ogDescription: 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
+    canonicalPath: '/articoli-frontaliere/smottamento-sementina-code/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Smottamento a Sementina: traffico congestionato",
+      "description": "Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-smottamento-sementina-code.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T16:55:33+00:00",
+      "dateModified": "2026-10-09T16:55:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/smottamento-sementina-code/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caslano-colombera-incidente-moto': {
+    title: 'Caslano, traffico in tilt per incidente in via Colombera',
+    description: 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
+    keywords: 'frontalieri, ticino, svizzera, italia, caslano, traffico, tilt, incidente',
+    ogTitle: 'Caslano, traffico in tilt per incidente in via Colombera',
+    ogDescription: 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
+    canonicalPath: '/articoli-frontaliere/caslano-colombera-incidente-moto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caslano, traffico in tilt per incidente in via Colombera",
+      "description": "Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-caslano-colombera-incidente-moto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T17:27:51+00:00",
+      "dateModified": "2026-10-09T17:27:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caslano-colombera-incidente-moto/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
