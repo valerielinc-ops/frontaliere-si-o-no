@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5108
+      "6": 5109
     },
-    "publishedCovers": 6820,
+    "publishedCovers": 6821,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180415,6 +180415,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-confusione-tassa-salute-frontalieri": {
+      "cover": "/images/blog/article-confusione-tassa-salute-frontalieri.webp",
+      "hash": "ab6bd52827c0966fd3a57cfbd72632b9c7745e0907c387ef039d058b12607e6b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "confusione-tassa-salute-frontalieri",
+          "category": "fiscale",
+          "date": "2026-03-06T00:03:53.612Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

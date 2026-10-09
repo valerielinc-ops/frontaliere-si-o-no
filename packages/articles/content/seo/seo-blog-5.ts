@@ -569,10 +569,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-confusione-tassa-salute-frontalieri.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista del valico di Brogeda tra Ticino e Italia con traffico e paesaggi naturali"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-06T01:03:53+01:00",
       "dateModified": "2026-03-06T01:03:53+01:00",
@@ -102500,10 +102500,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Due date: 10 ottobre alle 21 e 18 ottobre alle 15",
       "image": {
         "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
         "url": `${BASE_URL}/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Illustrazione editoriale del teatro dialettale al Teatro Pax di Cantello"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-07T16:05:11+00:00",
       "dateModified": "2026-10-07T16:05:11+00:00",
