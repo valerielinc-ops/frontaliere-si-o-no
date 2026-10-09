@@ -26152,12 +26152,12 @@
     },
     {
       "id": "hirslanden-7b4e6732dee9",
-      "slug": "logistikerin-logistiker-a-100-hirslanden-klinik-hirslanden",
+      "slug": "logisticista-logisticista-a-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden",
-        "it": "logistikerin-logistiker-a-100-hirslanden-klinik-hirslanden",
-        "en": "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden"
+        "it": "logisticista-logisticista-a-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "logistician-logistician-a-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "logisticien-logisticien-a-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26204,11 +26204,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden",
+          "logistikerin-logistiker-a-100-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "fr": [
           "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden"
         ]
       },
       "previousSlugs": [
-        "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden"
+        "logistikerin-logistiker-a-100-hirslanden-hirslanden-klinik-hirslanden",
+        "logistikerin-logistiker-a-100-hirslanden-klinik-hirslanden"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

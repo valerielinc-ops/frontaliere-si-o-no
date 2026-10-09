@@ -2314,7 +2314,7 @@
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich",
         "it": "data-governance-expert-meta-data-srg-ssr-zurich",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich",
-        "de": "data-governance-expert-meta-data-srg-ssr-zurich"
+        "de": "data-governance-experte-metadaten-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2399,10 +2399,10 @@
     },
     {
       "id": "srg-ssr-564d10f07646",
-      "slug": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+      "slug": "esperto-a-di-governance-dei-dati-metadati-srg-ssr-zurich",
       "slugByLocale": {
         "de": "data-governance-expert-meta-data-srg-ssr-zurich-8ke971",
-        "it": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+        "it": "esperto-a-di-governance-dei-dati-metadati-srg-ssr-zurich",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich-2",
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich-2"
       },
@@ -2487,11 +2487,15 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-10-09T09:15:22.435Z",
       "previousSlugs": [
-        "data-governance-expert-meta-data-srg-ssr-zurich"
+        "data-governance-expert-meta-data-srg-ssr-zurich",
+        "data-governance-expert-meta-data-srg-ssr-zurich-2"
       ],
       "previousSlugsByLocale": {
         "de": [
           "data-governance-expert-meta-data-srg-ssr-zurich"
+        ],
+        "it": [
+          "data-governance-expert-meta-data-srg-ssr-zurich-2"
         ]
       }
     },
@@ -2500,9 +2504,9 @@
       "slug": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
       "slugByLocale": {
         "it": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
-        "en": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
-        "de": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano",
-        "fr": "una-un-addetta-o-alla-sicurezza-srg-ssr-lugano"
+        "en": "a-security-officer-srg-ssr-lugano",
+        "de": "ein-sicherheitsbeauftragter-srg-ssr-lugano",
+        "fr": "un-agent-de-securite-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

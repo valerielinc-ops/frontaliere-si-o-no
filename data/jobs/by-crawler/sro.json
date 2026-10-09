@@ -3210,7 +3210,7 @@
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
         "it": "dipl-terapia-professionale-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-ergotherapeut-in-fh-50-100-sro-langenthal",
+        "en": "dipl-occupational-therapist-fh-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "fr": "dipl-therapeute-professionnel-fh-50-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
@@ -3261,6 +3261,9 @@
       "department": "Gesundheitswesen",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
+        ],
+        "en": [
           "dipl-ergotherapeut-in-fh-50-100-sro-langenthal"
         ]
       },

@@ -239,7 +239,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -283,11 +283,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ],
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
@@ -8633,12 +8634,12 @@
     },
     {
       "id": "eth-zurich-170e0075b8ba",
-      "slug": "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch",
+      "slug": "posizione-dottorale-in-uncertainty-aware-valutazione-delle-condizioni-dei-tunnel-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch",
-        "it": "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch",
-        "de": "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch",
-        "fr": "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch"
+        "it": "posizione-dottorale-in-uncertainty-aware-valutazione-delle-condizioni-dei-tunnel-eth-zurich-zurich",
+        "de": "promotionsposition-in-der-unsicheren-zustandsbewertung-von-tunneln-eth-zurich-zurich",
+        "fr": "position-au-doctorat-dans-l-evaluation-de-l-etat-des-tunnels-en-cas-d-incertitude-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8696,16 +8697,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:46:15.233Z"
+      "firstSeenAt": "2026-10-09T09:46:15.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-uncertainty-aware-condition-assessment-of-tunnels-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-8891c8fb9caf",
-      "slug": "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich",
+      "slug": "posizione-di-dottorato-in-ispezione-basata-sul-rischio-e-pianificazione-della-manutenzione-dei-tunnel-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich",
-        "it": "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich",
-        "de": "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich",
-        "fr": "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich"
+        "it": "posizione-di-dottorato-in-ispezione-basata-sul-rischio-e-pianificazione-della-manutenzione-dei-tunnel-eth-zurich-zurich",
+        "de": "promotionsposition-in-der-risikobasierten-inspektions-und-wartungsplanung-von-tunneln-eth-zurich-zurich",
+        "fr": "position-au-doctorat-dans-la-planification-de-l-inspection-et-de-l-entretien-axee-sur-les-risques-des-tunnels-eth-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8763,16 +8778,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:46:14.742Z"
+      "firstSeenAt": "2026-10-09T09:46:14.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich"
+        ],
+        "de": [
+          "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich"
+        ],
+        "fr": [
+          "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-risk-based-inspection-and-maintenance-planning-of-tunnels-eth-zurich"
+      ]
     },
     {
       "id": "eth-zurich-9829457e1b97",
-      "slug": "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich",
+      "slug": "comunicatore-trice-scientifico-a-presso-il-museo-di-scienze-naturali-focusterra-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich",
-        "it": "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich",
-        "en": "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich",
-        "fr": "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich"
+        "it": "comunicatore-trice-scientifico-a-presso-il-museo-di-scienze-naturali-focusterra-m-f-d-eth-zurich-zurich",
+        "en": "science-communicator-at-the-focusterra-natural-sciences-museum-m-f-d-eth-zurich-zurich",
+        "fr": "communicateur-rice-scientifique-au-musee-des-sciences-naturelles-focusterra-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8830,7 +8859,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:46:14.247Z"
+      "firstSeenAt": "2026-10-09T09:46:14.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich"
+        ],
+        "fr": [
+          "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftskommunikator-in-im-naturwissenschaftlichen-museum-focusterra-m-w-d-eth-zurich"
+      ]
     },
     {
       "id": "eth-zurich-db5ea911342b",

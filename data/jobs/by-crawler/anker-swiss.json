@@ -1728,12 +1728,12 @@
     },
     {
       "id": "anker-swiss-08e1aefc38ba",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc",
+      "slug": "pittura-100-anker-swiss-ticino-ag-luzern-08e1aefc",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc",
-        "it": "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc",
-        "en": "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc",
-        "fr": "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc"
+        "it": "pittura-100-anker-swiss-ticino-ag-luzern-08e1aefc",
+        "en": "painter-100-anker-swiss-ticino-ag-luzern-08e1aefc",
+        "fr": "peintre-100-anker-swiss-ticino-ag-luzern-08e1aefc"
       },
       "slugDisambiguator": "08e1aefc",
       "company": "Anker Swiss Ticino AG",
@@ -1783,16 +1783,24 @@
       "previousSlugsByLocale": {
         "it": [
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+          "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc"
         ]
       },
       "previousSlugs": [
         "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+        "maler-100-anker-swiss-ticino-ag-luzern-08e1aefc"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4883,7 +4891,7 @@
         "de": "metallbaukonstrukteur-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e",
         "it": "design-in-metallo-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e",
         "en": "metal-construction-designer-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e",
-        "fr": "metallbaukonstrukteur-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e"
+        "fr": "designer-de-construction-metallique-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e"
       },
       "slugDisambiguator": "0e93e96e",
       "company": "Anker Swiss Ticino AG",
@@ -4930,6 +4938,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "metallbaukonstrukteur-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e"
+        ],
+        "fr": [
           "metallbaukonstrukteur-100-anker-swiss-ticino-ag-ostermundigen-0e93e96e"
         ]
       },
@@ -8447,12 +8458,12 @@
     },
     {
       "id": "anker-swiss-232ef3b917ee",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
       },
       "slugDisambiguator": "232ef3b9",
       "company": "Anker Swiss Ticino AG",
@@ -8500,40 +8511,38 @@
         "de": []
       },
       "previousSlugs": [
-        "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
-        "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-        "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
         "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135",
         "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-        "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+        "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "installatore-sanitario-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ],
         "en": [
-          "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "sanitary-installer-100-anker-swiss-ticino-ag-dubendorf-d081b135",
           "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-          "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "plumbing-fitter-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ],
         "de": [
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135"
         ],
         "fr": [
-          "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "installation-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
           "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-232ef3b9",
           "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-d081b135",
-          "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135"
+          "installateur-sanitaire-100-anker-swiss-ticino-ag-dubendorf-d081b135",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-dubendorf-232ef3b9"
         ]
       },
       "salaryMin": 73500,
@@ -8958,12 +8967,12 @@
     },
     {
       "id": "anker-swiss-7274b7a321d3",
-      "slug": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+      "slug": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
       "slugByLocale": {
         "de": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "it": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "en": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "fr": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
+        "it": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "en": "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
+        "fr": "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3"
       },
       "slugDisambiguator": "7274b7a3",
       "company": "Anker Swiss Ticino AG",
@@ -9011,9 +9020,6 @@
         "de": []
       },
       "previousSlugs": [
-        "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
         "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
         "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
         "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
@@ -9022,29 +9028,30 @@
         "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2",
         "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2",
         "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2",
-        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2"
+        "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2",
+        "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "produttore-del-sistema-di-ventilazione-al-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "costruttore-di-impianti-di-ventilazione-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2",
-          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2"
+          "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-zurich-abad10d2",
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
         ],
         "en": [
-          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "ventilation-system-manufacturer-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2"
+          "ventilation-system-builder-100-anker-swiss-ticino-ag-zurich-abad10d2",
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
         ],
         "de": [
           "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-abad10d2"
         ],
         "fr": [
-          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "fabricant-du-systeme-de-ventilation-a-100-anker-swiss-ticino-ag-zurich-7274b7a3",
           "constructeur-de-systemes-de-ventilation-100-anker-swiss-ticino-ag-zurich-7274b7a3",
-          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2"
+          "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-zurich-abad10d2",
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-zurich-7274b7a3"
         ]
       },
       "salaryMin": 73500,
@@ -9145,12 +9152,12 @@
     },
     {
       "id": "anker-swiss-77ffc95ff0ae",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
+      "slug": "copertura-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
+        "it": "copertura-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
+        "en": "roofing-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
+        "fr": "toiture-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
       },
       "slugDisambiguator": "77ffc95f",
       "company": "Anker Swiss Ticino AG",
@@ -9204,24 +9211,28 @@
         "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
         "copertura-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
         "roofing-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
-        "toiture-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+        "toiture-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
+        "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "copritetto-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
           "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
-          "copertura-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+          "copertura-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
+          "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
         ],
         "en": [
           "roofers-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-          "roofing-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+          "roofing-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
+          "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
         ],
         "de": [
           "dachdecker-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
         ],
         "fr": [
           "couvreur-100-anker-swiss-ticino-ag-tagerig-77ffc95f",
-          "toiture-100-anker-swiss-ticino-ag-tagerig-34a1c8f2"
+          "toiture-100-anker-swiss-ticino-ag-tagerig-34a1c8f2",
+          "dachdecker-100-anker-swiss-ticino-ag-tagerig-77ffc95f"
         ]
       },
       "salaryMin": 62000,
@@ -12274,12 +12285,12 @@
     },
     {
       "id": "anker-swiss-be894de8a3da",
-      "slug": "maler-100-anker-swiss-ticino-ag-zug-be894de8",
+      "slug": "pittura-100-anker-swiss-ticino-ag-zug-be894de8",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-zug-be894de8",
-        "it": "maler-100-anker-swiss-ticino-ag-zug-be894de8",
-        "en": "maler-100-anker-swiss-ticino-ag-zug-be894de8",
-        "fr": "maler-100-anker-swiss-ticino-ag-zug-be894de8"
+        "it": "pittura-100-anker-swiss-ticino-ag-zug-be894de8",
+        "en": "painter-100-anker-swiss-ticino-ag-zug-be894de8",
+        "fr": "peintre-100-anker-swiss-ticino-ag-zug-be894de8"
       },
       "slugDisambiguator": "be894de8",
       "company": "Anker Swiss Ticino AG",
@@ -12339,16 +12350,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.101Z"
+      "firstSeenAt": "2026-10-09T10:46:58.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-100-anker-swiss-ticino-ag-zug-be894de8"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-zug-be894de8"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-zug-be894de8"
+        ]
+      },
+      "previousSlugs": [
+        "maler-100-anker-swiss-ticino-ag-zug-be894de8"
+      ]
     },
     {
       "id": "anker-swiss-9118d66ef92c",
-      "slug": "maler-100-anker-swiss-ticino-ag-emmen-9118d66e",
+      "slug": "pittura-100-anker-swiss-ticino-ag-emmen-9118d66e",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-emmen-9118d66e",
-        "it": "maler-100-anker-swiss-ticino-ag-emmen-9118d66e",
-        "en": "maler-100-anker-swiss-ticino-ag-emmen-9118d66e",
-        "fr": "maler-100-anker-swiss-ticino-ag-emmen-9118d66e"
+        "it": "pittura-100-anker-swiss-ticino-ag-emmen-9118d66e",
+        "en": "painter-100-anker-swiss-ticino-ag-emmen-9118d66e",
+        "fr": "peintre-100-anker-swiss-ticino-ag-emmen-9118d66e"
       },
       "slugDisambiguator": "9118d66e",
       "company": "Anker Swiss Ticino AG",
@@ -12408,7 +12433,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.101Z"
+      "firstSeenAt": "2026-10-09T10:46:58.101Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-100-anker-swiss-ticino-ag-emmen-9118d66e"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-emmen-9118d66e"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-emmen-9118d66e"
+        ]
+      },
+      "previousSlugs": [
+        "maler-100-anker-swiss-ticino-ag-emmen-9118d66e"
+      ]
     },
     {
       "id": "anker-swiss-f0800fffad14",
@@ -12493,10 +12532,10 @@
     },
     {
       "id": "anker-swiss-f8a9376e74d4",
-      "slug": "storenmonteur-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
+      "slug": "negozio-di-fiocco-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
       "slugByLocale": {
         "de": "storenmonteur-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
-        "it": "storenmonteur-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
+        "it": "negozio-di-fiocco-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
         "en": "fault-mechanic-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e",
         "fr": "monteur-de-stores-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e"
       },
@@ -12556,16 +12595,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.100Z"
+      "firstSeenAt": "2026-10-09T10:46:58.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "storenmonteur-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e"
+        ]
+      },
+      "previousSlugs": [
+        "storenmonteur-100-anker-swiss-ticino-ag-bassersdorf-f8a9376e"
+      ]
     },
     {
       "id": "anker-swiss-ca33ad6c3ce7",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-meilen-ca33ad6c",
+        "fr": "metaux-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
       },
       "slugDisambiguator": "ca33ad6c",
       "company": "Anker Swiss Ticino AG",
@@ -12625,15 +12672,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.100Z"
+      "firstSeenAt": "2026-10-09T10:46:58.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-meilen-ca33ad6c"
+      ]
     },
     {
       "id": "anker-swiss-44fad6e39479",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
+        "it": "lavoratori-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
+        "en": "metalworker-100-anker-swiss-ag-anker-swiss-ticino-ag-schwarzenburg-44fad6e3",
         "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-schwarzenburg-44fad6e3"
       },
       "slugDisambiguator": "44fad6e3",
@@ -12692,16 +12753,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.100Z"
+      "firstSeenAt": "2026-10-09T10:46:58.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-schwarzenburg-44fad6e3"
+      ]
     },
     {
       "id": "anker-swiss-e8582fde3170",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde",
+      "slug": "copertura-100-anker-swiss-ticino-ag-lyss-e8582fde",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde"
+        "it": "copertura-100-anker-swiss-ticino-ag-lyss-e8582fde",
+        "en": "roofing-100-anker-swiss-ticino-ag-lyss-e8582fde",
+        "fr": "toiture-100-anker-swiss-ticino-ag-lyss-e8582fde"
       },
       "slugDisambiguator": "e8582fde",
       "company": "Anker Swiss Ticino AG",
@@ -12761,16 +12833,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.099Z"
+      "firstSeenAt": "2026-10-09T10:46:58.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-lyss-e8582fde"
+      ]
     },
     {
       "id": "anker-swiss-3485b7dcb1ce",
-      "slug": "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc",
+      "slug": "sigillante-100-anker-swiss-ticino-ag-lyss-3485b7dc",
       "slugByLocale": {
         "de": "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc",
-        "it": "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc",
-        "en": "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc",
-        "fr": "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc"
+        "it": "sigillante-100-anker-swiss-ticino-ag-lyss-3485b7dc",
+        "en": "sealer-100-anker-swiss-ticino-ag-lyss-3485b7dc",
+        "fr": "scelleur-100-anker-swiss-ticino-ag-lyss-3485b7dc"
       },
       "slugDisambiguator": "3485b7dc",
       "company": "Anker Swiss Ticino AG",
@@ -12830,16 +12916,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.099Z"
+      "firstSeenAt": "2026-10-09T10:46:58.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc"
+        ],
+        "en": [
+          "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc"
+        ],
+        "fr": [
+          "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc"
+        ]
+      },
+      "previousSlugs": [
+        "abdichter-100-anker-swiss-ticino-ag-lyss-3485b7dc"
+      ]
     },
     {
       "id": "anker-swiss-b34c5899dd90",
-      "slug": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
       "slugByLocale": {
         "de": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "it": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "en": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899",
-        "fr": "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
+        "it": "lattoniere-100-anker-swiss-ticino-ag-lyss-b34c5899",
+        "en": "tinsmith-100-anker-swiss-ticino-ag-lyss-b34c5899",
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-lyss-b34c5899"
       },
       "slugDisambiguator": "b34c5899",
       "company": "Anker Swiss Ticino AG",
@@ -12888,14 +12988,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+          "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ],
         "de": [
           "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
         ]
       },
       "previousSlugs": [
-        "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5"
+        "spengler-100-anker-swiss-ticino-ag-lyss-aa466ab5",
+        "spengler-100-anker-swiss-ticino-ag-lyss-b34c5899"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -12914,10 +13022,10 @@
     },
     {
       "id": "anker-swiss-4a50ecdda97f",
-      "slug": "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
+      "slug": "mason-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
       "slugByLocale": {
         "de": "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
-        "it": "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
+        "it": "mason-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
         "en": "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd",
         "fr": "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd"
       },
@@ -12979,16 +13087,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.098Z"
+      "firstSeenAt": "2026-10-09T10:46:58.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-100-anker-swiss-ticino-ag-andermatt-4a50ecdd"
+      ]
     },
     {
       "id": "anker-swiss-c64233368e59",
-      "slug": "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-harkingen-c6423336",
       "slugByLocale": {
         "de": "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336",
-        "it": "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336",
-        "en": "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336",
-        "fr": "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336"
+        "it": "carpentiere-100-anker-swiss-ticino-ag-harkingen-c6423336",
+        "en": "carpenters-100-anker-swiss-ticino-ag-harkingen-c6423336",
+        "fr": "charpentiers-100-anker-swiss-ticino-ag-harkingen-c6423336"
       },
       "slugDisambiguator": "c6423336",
       "company": "Anker Swiss Ticino AG",
@@ -13048,15 +13164,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.097Z"
+      "firstSeenAt": "2026-10-09T10:46:58.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336"
+        ],
+        "en": [
+          "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336"
+        ],
+        "fr": [
+          "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-100-anker-swiss-ticino-ag-harkingen-c6423336"
+      ]
     },
     {
       "id": "anker-swiss-bdcf900e16fe",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-arch-bdcf900e",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e",
+        "it": "lavoratori-100-anker-swiss-ticino-ag-arch-bdcf900e",
+        "en": "metalworker-100-anker-swiss-ag-anker-swiss-ticino-ag-arch-bdcf900e",
         "fr": "constructeur-metallique-100-anker-swiss-ag-anker-swiss-ticino-ag-arch-bdcf900e"
       },
       "slugDisambiguator": "bdcf900e",
@@ -13115,16 +13245,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.096Z"
+      "firstSeenAt": "2026-10-09T10:46:58.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-arch-bdcf900e"
+      ]
     },
     {
       "id": "anker-swiss-8bab5b17fdaa",
-      "slug": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
+      "slug": "carpentiere-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
       "slugByLocale": {
         "de": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
-        "it": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
-        "en": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
-        "fr": "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
+        "it": "carpentiere-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
+        "en": "carpenters-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17",
+        "fr": "charpentiers-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
       },
       "slugDisambiguator": "8bab5b17",
       "company": "Anker Swiss Ticino AG",
@@ -13184,16 +13325,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.096Z"
+      "firstSeenAt": "2026-10-09T10:46:58.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
+        ],
+        "en": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
+        ],
+        "fr": [
+          "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-100-anker-swiss-ticino-ag-buren-an-der-aare-8bab5b17"
+      ]
     },
     {
       "id": "anker-swiss-20e448d22fdf",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-zug-20e448d2",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-zug-20e448d2",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-zug-20e448d2",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-zug-20e448d2"
       },
       "slugDisambiguator": "20e448d2",
       "company": "Anker Swiss Ticino AG",
@@ -13253,16 +13408,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.095Z"
+      "firstSeenAt": "2026-10-09T10:46:58.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2"
+        ],
+        "en": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2"
+        ],
+        "fr": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-zug-20e448d2"
+      ]
     },
     {
       "id": "anker-swiss-9932c9ae5182",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-dudingen-9932c9ae",
+        "fr": "metaux-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
       },
       "slugDisambiguator": "9932c9ae",
       "company": "Anker Swiss Ticino AG",
@@ -13322,16 +13491,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.095Z"
+      "firstSeenAt": "2026-10-09T10:46:58.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-dudingen-9932c9ae"
+      ]
     },
     {
       "id": "anker-swiss-5c757b4dc2e9",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-bern-5c757b4d",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-bern-5c757b4d",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-bern-5c757b4d",
+        "fr": "metaux-100-anker-swiss-ticino-ag-bern-5c757b4d"
       },
       "slugDisambiguator": "5c757b4d",
       "company": "Anker Swiss Ticino AG",
@@ -13391,7 +13574,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.095Z"
+      "firstSeenAt": "2026-10-09T10:46:58.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-bern-5c757b4d"
+      ]
     },
     {
       "id": "anker-swiss-0f1869c1ec12",
@@ -13470,12 +13667,12 @@
     },
     {
       "id": "anker-swiss-ead5284a3dca",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
+      "slug": "copertura-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
+        "it": "copertura-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
+        "en": "roofing-100-anker-swiss-ticino-ag-utzenstorf-ead5284a",
+        "fr": "toiture-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
       },
       "slugDisambiguator": "ead5284a",
       "company": "Anker Swiss Ticino AG",
@@ -13535,16 +13732,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.094Z"
+      "firstSeenAt": "2026-10-09T10:46:58.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-utzenstorf-ead5284a"
+      ]
     },
     {
       "id": "anker-swiss-f5936febb211",
-      "slug": "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
       "slugByLocale": {
         "de": "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
-        "it": "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
-        "en": "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
-        "fr": "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
+        "it": "lattoniere-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
+        "en": "tinsmith-100-anker-swiss-ticino-ag-utzenstorf-f5936feb",
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
       },
       "slugDisambiguator": "f5936feb",
       "company": "Anker Swiss Ticino AG",
@@ -13604,16 +13815,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.094Z"
+      "firstSeenAt": "2026-10-09T10:46:58.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ticino-ag-utzenstorf-f5936feb"
+      ]
     },
     {
       "id": "anker-swiss-b1c374f4d2ae",
-      "slug": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
+      "slug": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
       "slugByLocale": {
         "de": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
-        "it": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
-        "en": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
-        "fr": "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
+        "it": "generatore-di-sistema-di-ventilazione-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
+        "en": "ventilation-system-builder-100-anker-swiss-ticino-ag-steinhausen-b1c374f4",
+        "fr": "constructeur-de-systeme-de-ventilation-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
       },
       "slugDisambiguator": "b1c374f4",
       "company": "Anker Swiss Ticino AG",
@@ -13673,16 +13898,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.094Z"
+      "firstSeenAt": "2026-10-09T10:46:58.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
+        ],
+        "en": [
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
+        ],
+        "fr": [
+          "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
+        ]
+      },
+      "previousSlugs": [
+        "luftungsanlagenbauer-100-anker-swiss-ticino-ag-steinhausen-b1c374f4"
+      ]
     },
     {
       "id": "anker-swiss-70402b3e0064",
-      "slug": "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e",
+      "slug": "giardini-100-anker-swiss-ticino-ag-koniz-70402b3e",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e",
-        "it": "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e",
-        "en": "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e",
-        "fr": "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e"
+        "it": "giardini-100-anker-swiss-ticino-ag-koniz-70402b3e",
+        "en": "gardeners-100-anker-swiss-ticino-ag-koniz-70402b3e",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-koniz-70402b3e"
       },
       "slugDisambiguator": "70402b3e",
       "company": "Anker Swiss Ticino AG",
@@ -13742,16 +13981,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.093Z"
+      "firstSeenAt": "2026-10-09T10:46:58.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-koniz-70402b3e"
+      ]
     },
     {
       "id": "anker-swiss-4cbe5fb08591",
-      "slug": "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
+      "slug": "costruzioni-di-tetto-piatto-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
       "slugByLocale": {
         "de": "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
-        "it": "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
-        "en": "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
-        "fr": "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
+        "it": "costruzioni-di-tetto-piatto-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
+        "en": "flat-roof-builders-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0",
+        "fr": "constructeurs-de-toits-plats-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
       },
       "slugDisambiguator": "4cbe5fb0",
       "company": "Anker Swiss Ticino AG",
@@ -13811,16 +14064,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.093Z"
+      "firstSeenAt": "2026-10-09T10:46:58.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
+        ],
+        "en": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
+        ],
+        "fr": [
+          "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
+        ]
+      },
+      "previousSlugs": [
+        "flachdachbauer-100-anker-swiss-ticino-ag-utzenstorf-4cbe5fb0"
+      ]
     },
     {
       "id": "anker-swiss-afaa01243377",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-buchs-ag-afaa0124",
+        "fr": "metaux-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
       },
       "slugDisambiguator": "afaa0124",
       "company": "Anker Swiss Ticino AG",
@@ -13880,16 +14147,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.092Z"
+      "firstSeenAt": "2026-10-09T10:46:58.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-buchs-ag-afaa0124"
+      ]
     },
     {
       "id": "anker-swiss-311c9849ad43",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-luzern-311c9849",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-luzern-311c9849",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-luzern-311c9849",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-luzern-311c9849"
       },
       "slugDisambiguator": "311c9849",
       "company": "Anker Swiss Ticino AG",
@@ -13949,16 +14230,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.092Z"
+      "firstSeenAt": "2026-10-09T10:46:58.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849"
+        ],
+        "en": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849"
+        ],
+        "fr": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-luzern-311c9849"
+      ]
     },
     {
       "id": "anker-swiss-2ae09f700e75",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-oftringen-2ae09f70",
+        "fr": "metaux-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
       },
       "slugDisambiguator": "2ae09f70",
       "company": "Anker Swiss Ticino AG",
@@ -14018,16 +14313,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.091Z"
+      "firstSeenAt": "2026-10-09T10:46:58.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-oftringen-2ae09f70"
+      ]
     },
     {
       "id": "anker-swiss-8c4b28d7814f",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7",
+        "fr": "metaux-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
       },
       "slugDisambiguator": "8c4b28d7",
       "company": "Anker Swiss Ticino AG",
@@ -14087,7 +14396,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.091Z"
+      "firstSeenAt": "2026-10-09T10:46:58.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-laufenburg-8c4b28d7"
+      ]
     },
     {
       "id": "anker-swiss-3adb076c187a",
@@ -14158,12 +14481,12 @@
     },
     {
       "id": "anker-swiss-3c8f6cfeb575",
-      "slug": "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
+      "slug": "polimeccanica-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
       "slugByLocale": {
         "de": "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
-        "it": "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
-        "en": "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
-        "fr": "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
+        "it": "polimeccanica-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
+        "en": "polymechanics-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe",
+        "fr": "polymecanique-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
       },
       "slugDisambiguator": "3c8f6cfe",
       "company": "Anker Swiss Ticino AG",
@@ -14223,16 +14546,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.090Z"
+      "firstSeenAt": "2026-10-09T10:46:58.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
+        ],
+        "en": [
+          "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
+        ],
+        "fr": [
+          "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-100-anker-swiss-ticino-ag-munsingen-3c8f6cfe"
+      ]
     },
     {
       "id": "anker-swiss-bb05e00e7057",
-      "slug": "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
+      "slug": "tecnico-tecnologia-legno-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
       "slugByLocale": {
         "de": "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
-        "it": "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
-        "en": "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
-        "fr": "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
+        "it": "tecnico-tecnologia-legno-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
+        "en": "technician-wood-technology-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e",
+        "fr": "technicien-technologie-du-bois-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
       },
       "slugDisambiguator": "bb05e00e",
       "company": "Anker Swiss Ticino AG",
@@ -14292,16 +14629,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.088Z"
+      "firstSeenAt": "2026-10-09T10:46:58.088Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
+        ],
+        "en": [
+          "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
+        ],
+        "fr": [
+          "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-holztechnik-100-anker-swiss-ticino-ag-schwarzenburg-bb05e00e"
+      ]
     },
     {
       "id": "anker-swiss-7089c27e1da8",
-      "slug": "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich",
+      "slug": "project-manager-building-technology-100-anker-swiss-ticino-ag-zurich-7089c27e",
       "slugByLocale": {
         "de": "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e",
-        "it": "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich",
+        "it": "project-manager-building-technology-100-anker-swiss-ticino-ag-zurich-7089c27e",
         "en": "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e",
-        "fr": "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e"
+        "fr": "gestionnaire-de-projet-technologie-du-batiment-100-anker-swiss-ticino-ag-zurich-7089c27e"
       },
       "slugDisambiguator": "7089c27e",
       "company": "Anker Swiss Ticino AG",
@@ -14350,11 +14701,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e",
+          "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich"
+        ],
+        "fr": [
           "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e"
         ]
       },
       "previousSlugs": [
-        "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e"
+        "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich-7089c27e",
+        "projektleiter-gebaudetechnik-100-anker-swiss-ticino-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14373,12 +14729,12 @@
     },
     {
       "id": "anker-swiss-21fef2d85ed4",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
+      "slug": "copertura-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
+        "it": "copertura-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
+        "en": "roofing-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8",
+        "fr": "toiture-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
       },
       "slugDisambiguator": "21fef2d8",
       "company": "Anker Swiss Ticino AG",
@@ -14438,16 +14794,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.086Z"
+      "firstSeenAt": "2026-10-09T10:46:58.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-birmensdorf-zh-21fef2d8"
+      ]
     },
     {
       "id": "anker-swiss-1b284cb65a5e",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-gurmels-1b284cb6",
+        "fr": "metaux-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
       },
       "slugDisambiguator": "1b284cb6",
       "company": "Anker Swiss Ticino AG",
@@ -14507,14 +14877,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.085Z"
+      "firstSeenAt": "2026-10-09T10:46:58.085Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-gurmels-1b284cb6"
+      ]
     },
     {
       "id": "anker-swiss-d79dbd216d50",
-      "slug": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
+      "slug": "autista-100-anker-swiss-ticino-ag-wikon-d79dbd21",
       "slugByLocale": {
         "de": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
-        "it": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
+        "it": "autista-100-anker-swiss-ticino-ag-wikon-d79dbd21",
         "en": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
         "fr": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
       },
@@ -14577,16 +14961,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.084Z"
+      "firstSeenAt": "2026-10-09T10:46:58.084Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+      ]
     },
     {
       "id": "anker-swiss-3e2633f4b6eb",
-      "slug": "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
+      "slug": "veicoli-fabbri-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
       "slugByLocale": {
         "de": "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
-        "it": "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
-        "en": "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
-        "fr": "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
+        "it": "veicoli-fabbri-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
+        "en": "vehicle-locksmiths-100-anker-swiss-ticino-ag-rubigen-3e2633f4",
+        "fr": "serruriers-de-vehicules-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
       },
       "slugDisambiguator": "3e2633f4",
       "company": "Anker Swiss Ticino AG",
@@ -14646,7 +15038,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.083Z"
+      "firstSeenAt": "2026-10-09T10:46:58.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
+        ],
+        "en": [
+          "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
+        ],
+        "fr": [
+          "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugschlosser-100-anker-swiss-ticino-ag-rubigen-3e2633f4"
+      ]
     },
     {
       "id": "anker-swiss-ecf3bcf528a5",
@@ -14727,12 +15133,12 @@
     },
     {
       "id": "anker-swiss-26cf21571d64",
-      "slug": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+      "slug": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "it": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "en": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "fr": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+        "it": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+        "en": "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
       },
       "slugDisambiguator": "26cf2157",
       "company": "Anker Swiss Ticino AG",
@@ -14781,14 +15187,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ],
         "de": [
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ]
       },
       "previousSlugs": [
-        "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+        "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+        "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14807,12 +15221,12 @@
     },
     {
       "id": "anker-swiss-f2ea314a89d9",
-      "slug": "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a",
+      "slug": "copertura-100-anker-swiss-ticino-ag-baar-f2ea314a",
       "slugByLocale": {
         "de": "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a",
-        "it": "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a",
-        "en": "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a",
-        "fr": "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a"
+        "it": "copertura-100-anker-swiss-ticino-ag-baar-f2ea314a",
+        "en": "roofing-100-anker-swiss-ticino-ag-baar-f2ea314a",
+        "fr": "toiture-100-anker-swiss-ticino-ag-baar-f2ea314a"
       },
       "slugDisambiguator": "f2ea314a",
       "company": "Anker Swiss Ticino AG",
@@ -14872,16 +15286,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.081Z"
+      "firstSeenAt": "2026-10-09T10:46:58.081Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a"
+        ],
+        "en": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a"
+        ],
+        "fr": [
+          "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a"
+        ]
+      },
+      "previousSlugs": [
+        "dachdecker-100-anker-swiss-ticino-ag-baar-f2ea314a"
+      ]
     },
     {
       "id": "anker-swiss-211a462b94cb",
-      "slug": "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b",
+      "slug": "giardini-100-anker-swiss-ticino-ag-munsingen-211a462b",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b",
-        "it": "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b",
-        "en": "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b",
-        "fr": "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b"
+        "it": "giardini-100-anker-swiss-ticino-ag-munsingen-211a462b",
+        "en": "gardeners-100-anker-swiss-ticino-ag-munsingen-211a462b",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-munsingen-211a462b"
       },
       "slugDisambiguator": "211a462b",
       "company": "Anker Swiss Ticino AG",
@@ -14941,7 +15369,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T10:46:58.079Z"
+      "firstSeenAt": "2026-10-09T10:46:58.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b"
+        ],
+        "en": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b"
+        ],
+        "fr": [
+          "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-100-anker-swiss-ticino-ag-munsingen-211a462b"
+      ]
     },
     {
       "id": "anker-swiss-82af2343ea6a",
@@ -16632,7 +17074,7 @@
         "it": "idraulica-100-anker-swiss-ticino-ag-thun-19dbe88e",
         "en": "plunger-100-anker-swiss-ticino-ag-thun-19dbe88e",
         "de": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e",
-        "fr": "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-thun-19dbe88e"
       },
       "slugDisambiguator": "19dbe88e",
       "company": "Anker Swiss Ticino AG",
@@ -16696,6 +17138,9 @@
           "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
         ],
         "en": [
+          "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
+        ],
+        "fr": [
           "spengler-100-anker-swiss-ticino-ag-thun-19dbe88e"
         ]
       },

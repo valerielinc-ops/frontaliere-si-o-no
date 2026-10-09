@@ -779,7 +779,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-cazis",
+        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -835,7 +835,7 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "senior-physician-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -848,7 +848,7 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-t5tvx5",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        "senior-physician-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1308,9 +1308,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
+        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1369,12 +1369,12 @@
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+          "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
-          "psychiatre-psychiatrische-dienste-graubunden-chur"
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -1382,8 +1382,8 @@
         "oberarztin-oberarzt-pdgr-ch-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1405,7 +1405,7 @@
       "id": "pdgr-931f5642c1d2",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
+        "it": "primario-psychiatrische-dienste-graubunden-ilanz",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
@@ -1459,8 +1459,7 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch-t5tufv",
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -1469,8 +1468,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch-t5tufv",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
-        "primario-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 110500,
@@ -1576,7 +1574,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1631,8 +1629,7 @@
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
         "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-pdgr-ch",
-        "ergotherapist-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1640,8 +1637,7 @@
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-pdgr-ch",
-          "ergotherapist-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-pdgr-ch"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -3263,12 +3259,12 @@
     },
     {
       "id": "pdgr-1d54ab2f7437",
-      "slug": "hilfskochin-hilfskoch-pdgr-ch",
+      "slug": "assistente-cuoco-cuoco-ausiliario-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-pdgr-ch",
-        "it": "hilfskochin-hilfskoch-pdgr-ch",
+        "it": "assistente-cuoco-cuoco-ausiliario-psychiatrische-dienste-graubunden-cazis",
         "en": "hilfskochin-hilfskoch-psychiatrische-dienste-graubunden-cazis",
-        "fr": "hilfskochin-hilfskoch-pdgr-ch"
+        "fr": "cuisinier-adjoint-cuisinier-auxiliaire-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3330,7 +3326,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-08-31T17:24:54.636Z"
+      "firstSeenAt": "2026-08-31T17:24:54.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-50243c271eb8",

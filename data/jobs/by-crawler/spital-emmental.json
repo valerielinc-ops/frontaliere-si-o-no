@@ -3783,12 +3783,12 @@
     },
     {
       "id": "spital-emmental-a469d688628a",
-      "slug": "fachperson-gesundheit-a-spital-emmental-burgdorf",
+      "slug": "professionista-della-salute-a-spital-emmental-burgdorf-3e64ed",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "en": "fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "it": "professionista-della-salute-a-spital-emmental-burgdorf-3e64ed",
+        "en": "health-professional-a-spital-emmental-burgdorf-3e64ed",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fr": "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "fr": "professionnels-de-la-sante-a-spital-emmental-burgdorf-3e64ed"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3850,7 +3850,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-4372d59cdef0",
@@ -4017,12 +4031,12 @@
     },
     {
       "id": "spital-emmental-5fff1d93f397",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-langnau",
+      "slug": "infermiera-a-spital-emmental-langnau-75132a",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-a-spital-emmental-langnau",
+        "it": "infermiera-a-spital-emmental-langnau-75132a",
+        "en": "dipl-nurse-a-spital-emmental-langnau-75132a",
         "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-langnau"
+        "fr": "infirmiere-a-spital-emmental-langnau-75132a"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4084,7 +4098,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-2a36bf5cf832",

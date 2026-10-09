@@ -1213,7 +1213,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -1260,15 +1260,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "computer-science-experts-endress-hauser-reinach"
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
@@ -3051,8 +3050,8 @@
       "slugByLocale": {
         "de": "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach",
         "it": "praktikum-digitalisierung-e-prozessoptimierung-m-w-d-endress-hauser-reinach",
-        "en": "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach",
-        "fr": "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach"
+        "en": "internship-digitalization-and-process-optimization-m-f-d-endress-hauser-reinach",
+        "fr": "stage-numerisation-et-optimisation-des-processus-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -3099,6 +3098,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "praktikum-digitalisierung-und-prozessoptimierung-w-m-d-endress-hauser-reinach"
         ]
       },

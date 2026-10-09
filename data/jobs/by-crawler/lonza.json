@@ -585,7 +585,7 @@
       "slug": "bio-operatore-p1p2-4-schicht-m-w-d-lonza-visp",
       "slugByLocale": {
         "it": "bio-operatore-p1p2-4-schicht-m-w-d-lonza-visp",
-        "en": "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch",
+        "en": "bio-operator-p1p2-4-shift-operation-all-genders-lonza-visp",
         "de": "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch",
         "fr": "bio-operateur-p1p2-4-schicht-m-w-d-lonza-visp"
       },
@@ -637,6 +637,9 @@
           "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
         ],
         "fr": [
+          "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
+        ],
+        "en": [
           "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
         ]
       },
@@ -1637,7 +1640,7 @@
         "it": "microbiologia-qc-m-f-d-60-lonza-ch",
         "en": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
         "de": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch",
-        "fr": "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
+        "fr": "technicien-ne-de-laboratoire-en-microbiologie-qc-m-f-d-60-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1696,7 +1699,8 @@
           "laboratory-technician-qc-microbiology-40-f-m-d-lonza-ch"
         ],
         "fr": [
-          "laboratory-technicien-qc-microbiology-40-f-m-d-lonza-ch"
+          "laboratory-technicien-qc-microbiology-40-f-m-d-lonza-ch",
+          "laboratory-technician-qc-microbiology-m-f-d-60-lonza-ch"
         ]
       },
       "firstSeenAt": "2026-07-13T12:53:27.830Z",
@@ -14025,7 +14029,7 @@
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-w-d-lonza-visp",
+        "en": "biotechn-dlz-m-f-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
       },
@@ -14079,8 +14083,7 @@
         "biotechnologist-m-f-d-lonza-ch-j4go5d",
         "biotechn-dlz-m-w-d-lonza-visp",
         "biotechnologist-m-f-d-lonza-ch-3yq0nb",
-        "biotechnologist-m-f-d-lonza-ch-3ypftx",
-        "biotechn-dlz-m-f-d-lonza-visp"
+        "biotechnologist-m-f-d-lonza-ch-3ypftx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14096,7 +14099,7 @@
         ],
         "en": [
           "biotechnologist-m-f-d-lonza-ch-2",
-          "biotechn-dlz-m-f-d-lonza-visp"
+          "biotechnologist-m-w-d-lonza-visp"
         ],
         "fr": [
           "biotechnologist-m-w-d-lonza-visp",

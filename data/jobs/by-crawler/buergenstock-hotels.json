@@ -2538,12 +2538,12 @@
     },
     {
       "id": "buergenstock-hotels-2857e8fcf120",
-      "slug": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
       "slugByLocale": {
         "de": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "it": "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "en": "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe",
+        "fr": "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen-daf4fe"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -2601,7 +2601,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-06T13:12:58.471Z"
+      "firstSeenAt": "2026-07-06T13:12:58.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-38d5b6d824ad",

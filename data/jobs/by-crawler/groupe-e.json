@@ -1354,7 +1354,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-telecom-it-80-100-groupe-e-matran-mad-4",
         "en": "telecom-project-manager-it-80-100-groupe-e-matran-mad-4",
-        "de": "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4",
+        "de": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       },
       "company": "Groupe E",
@@ -1400,11 +1400,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
+        "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+          "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
         ],
         "it": [
           "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
@@ -1724,9 +1725,9 @@
     },
     {
       "id": "groupe-e-6a994f57d91f",
-      "slug": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry",
+      "slug": "capo-dei-progetti-industriali-groupe-e-boudry",
       "slugByLocale": {
-        "it": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry",
+        "it": "capo-dei-progetti-industriali-groupe-e-boudry",
         "en": "head-of-industrial-projects-groupe-e-boudry",
         "de": "leiter-industrieprojekte-groupe-e-boudry",
         "fr": "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
@@ -1775,12 +1776,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "capo-o-responsabile-di-progetti-industriali-groupe-e-boudry",
-        "capo-dei-progetti-industriali-groupe-e-boudry"
+        "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
       ],
       "previousSlugsByLocale": {
         "it": [
           "capo-o-responsabile-di-progetti-industriali-groupe-e-boudry",
-          "capo-dei-progetti-industriali-groupe-e-boudry"
+          "cheffe-ou-chef-de-projets-industrielles-groupe-e-boudry"
         ]
       },
       "firstSeenAt": "2026-09-30T21:22:28.644Z",
@@ -1802,7 +1803,7 @@
       "id": "groupe-e-f7d1eeb16d89",
       "slug": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
       "slugByLocale": {
-        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
+        "fr": "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
         "it": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
         "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen-4e9411",
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
@@ -1857,12 +1858,11 @@
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
         ],
         "fr": [
-          "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
         ]
       },
       "previousSlugs": [
         "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
         "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen"
       ],
       "salaryMin": 73000,

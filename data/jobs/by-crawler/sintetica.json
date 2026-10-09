@@ -97,8 +97,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
-        "de": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5",
-        "fr": "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
+        "de": "initiativbewerbung-standort-mendrisio-tessin-sintetica-sa-mendrisio",
+        "fr": "candidature-spontanee-site-de-mendrisio-tessin-sintetica-sa-mendrisio"
       },
       "slug": "candidatura-spontanea-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
       "category": "general",
@@ -119,10 +119,17 @@
       "previousSlugsByLocale": {
         "it": [
           "spontaneous-application-mendrisio-site-ticino-sintetica"
+        ],
+        "de": [
+          "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
+        ],
+        "fr": [
+          "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
         ]
       },
       "previousSlugs": [
-        "spontaneous-application-mendrisio-site-ticino-sintetica"
+        "spontaneous-application-mendrisio-site-ticino-sintetica",
+        "spontaneous-application-mendrisio-site-ticino-sintetica-sa-mendrisio-ys8ib5"
       ],
       "id": "sintetica-2161482f648c",
       "salaryMin": 49500,
@@ -172,7 +179,7 @@
       "slugByLocale": {
         "it": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
         "en": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica-sa-mendrisio-0pikhs",
-        "de": "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio",
+        "de": "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio",
         "fr": "qualite-control-microbiological-laboratory-technicien-mendrisio-site-ticino-sintetica-sa-mendrisio"
       },
       "slug": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
@@ -193,7 +200,7 @@
       "id": "sintetica-8218af8800e4",
       "previousSlugs": [
         "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
-        "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio"
+        "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -203,7 +210,7 @@
           "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica"
         ],
         "de": [
-          "mikrobiologischer-qc-laborant-standort-mendrisio-sintetica-sa-mendrisio"
+          "qualitat-control-microbiological-laboratory-techniker-mendrisio-site-ticino-sintetica-sa-mendrisio"
         ]
       },
       "firstSeenAt": "2026-10-04T21:10:44.868Z",

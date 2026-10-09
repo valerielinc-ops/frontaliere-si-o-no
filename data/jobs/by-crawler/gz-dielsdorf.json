@@ -1356,10 +1356,10 @@
       "id": "gz-dielsdorf-aeab9167a250",
       "slug": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
-        "en": "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf",
         "de": "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf",
-        "fr": "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        "it": "apprendistato-come-fachfrau-mann-gesundheit-cfc-spitex-gesundheitszentrum-dielsdorf",
+        "en": "apprenticeship-as-healthcare-assistant-efz-spitex-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "place-d-apprentissage-d-assistant-e-en-soins-et-sante-communautaire-cfc-spitex-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1405,6 +1405,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-mann-gesundheit-efz-spitex-gz-dielsdorf-dielsdorf"
         ]
       },

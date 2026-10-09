@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pianorm-6c0cc8f2f116",
-      "slug": "maschinist-o-fertigungsspezialist-m-w-d-100-pianorm-illnau",
+      "slug": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
       "slugByLocale": {
         "de": "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch",
-        "it": "maschinist-o-fertigungsspezialist-m-w-d-100-pianorm-illnau",
-        "en": "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch",
-        "fr": "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch"
+        "it": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
+        "en": "machinist-or-manufacturing-specialist-m-f-100-pianorm-illnau",
+        "fr": "machiniste-ou-specialiste-de-la-fabrication-h-f-100-pianorm-illnau"
       },
       "company": "pianorm",
       "companyKey": "pianorm",
@@ -57,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch",
+          "maschinist-o-fertigungsspezialist-m-w-d-100-pianorm-illnau"
+        ],
+        "en": [
+          "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch"
+        ],
+        "fr": [
           "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch"
         ]
       },
       "previousSlugs": [
-        "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch"
+        "maschinist-oder-fertigungsspezialist-m-w-100-illnau-pianorm-ch",
+        "maschinist-o-fertigungsspezialist-m-w-d-100-pianorm-illnau"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

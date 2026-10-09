@@ -5947,12 +5947,12 @@
     },
     {
       "id": "hopital-du-valais-71de31933ca3",
-      "slug": "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion",
+      "slug": "capo-medico-del-dipartimento-di-neftologia-al-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion",
-        "it": "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion",
-        "en": "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion",
-        "de": "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion"
+        "it": "capo-medico-del-dipartimento-di-neftologia-al-100-hopital-du-valais-sion",
+        "en": "chief-medical-officer-for-the-100-nephrology-department-hopital-du-valais-sion",
+        "de": "chief-medical-officer-fur-die-100-nephrologie-abteilung-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -6012,7 +6012,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-09T09:19:01.224Z"
+      "firstSeenAt": "2026-10-09T09:19:01.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-pour-le-service-de-nephrologie-a-100-hopital-du-valais-sion"
+      ]
     }
   ]
 }

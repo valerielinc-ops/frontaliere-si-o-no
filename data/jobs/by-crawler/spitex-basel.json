@@ -831,12 +831,12 @@
     },
     {
       "id": "spitex-basel-8759c6795410",
-      "slug": "dipl-pflegefachpersonen-hf-fh-con-schwerpunkt-padiatrie-br-per-nachtwachen-spitex-basel",
+      "slug": "infermieri-e-diplomati-e-sss-sup-con-specializzazione-in-pediatria-br-per-turni-di-notte-spitex-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel",
-        "it": "dipl-pflegefachpersonen-hf-fh-con-schwerpunkt-padiatrie-br-per-nachtwachen-spitex-basel",
-        "en": "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel",
-        "fr": "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel"
+        "it": "infermieri-e-diplomati-e-sss-sup-con-specializzazione-in-pediatria-br-per-turni-di-notte-spitex-basel-basel",
+        "en": "dipl-nurses-hf-fh-with-focus-on-pediatrics-br-for-night-watches-spitex-basel-basel",
+        "fr": "dipl-infirmieres-hf-fh-avec-l-accent-sur-la-pediatrie-br-pour-la-garde-de-nuit-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -884,11 +884,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel",
+          "dipl-pflegefachpersonen-hf-fh-con-schwerpunkt-padiatrie-br-per-nachtwachen-spitex-basel"
+        ],
+        "en": [
+          "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel"
+        ],
+        "fr": [
           "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel"
+        "dipl-pflegefachpersonen-hf-fh-mit-schwerpunkt-padiatrie-br-fur-nachtwachen-spitex-basel",
+        "dipl-pflegefachpersonen-hf-fh-con-schwerpunkt-padiatrie-br-per-nachtwachen-spitex-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

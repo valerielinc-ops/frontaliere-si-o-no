@@ -2908,12 +2908,12 @@
     },
     {
       "id": "ikea-afa273a9b1cf",
-      "slug": "collaborateur-trice-de-vente-30-ikea-ch",
+      "slug": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
       "slugByLocale": {
         "fr": "collaborateur-trice-de-vente-30-ikea-ch",
-        "it": "collaborateur-trice-de-vente-30-ikea-ch",
-        "en": "collaborateur-trice-de-vente-30-ikea-ch",
-        "de": "collaborateur-trice-de-vente-30-ikea-ch"
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
+        "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
+        "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2971,7 +2971,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:15:46.851Z"
+      "firstSeenAt": "2026-10-09T09:15:46.851Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-de-vente-30-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-de-vente-30-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-de-vente-30-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-de-vente-30-ikea-ch"
+      ]
     },
     {
       "id": "ikea-4633679413db",

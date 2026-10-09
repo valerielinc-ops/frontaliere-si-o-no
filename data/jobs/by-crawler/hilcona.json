@@ -1308,8 +1308,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-logistiker-logistikerin-efz-2027-hilcona-oensingen",
         "it": "apprendistato-come-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen"
+        "en": "apprenticeship-as-a-logistics-specialist-efz-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-comme-specialiste-de-la-logistique-efz-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1352,10 +1352,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-logistiker-logistikerin-efz-2027-hilcona-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-logistiker-logistikerin-efz-2027-hilcona-oensingen"
+        "lehrstelle-als-logistiker-logistikerin-efz-2027-hilcona-oensingen",
+        "lehrstelle-als-logistiker-logistikerin-efz-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -1376,12 +1383,12 @@
     },
     {
       "id": "hilcona-01cd2fcd164e",
-      "slug": "apprendistato-come-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen",
+      "slug": "posto-di-apprendistato-come-meccanico-meccanica-di-produzione-afc-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen",
-        "it": "apprendistato-come-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
+        "it": "posto-di-apprendistato-come-meccanico-meccanica-di-produzione-afc-2027-bell-schweiz-ag-oensingen",
+        "en": "apprenticeship-as-a-production-mechanic-production-mechanic-efz-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-en-tant-que-mecanicien-de-production-mecanicien-de-production-efz-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1423,11 +1430,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen"
+          "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen",
+          "apprendistato-come-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen"
+        "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen",
+        "apprendistato-come-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen",
+        "lehrstelle-als-produktionsmechaniker-produktionsmechanikerin-efz-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -1448,12 +1464,12 @@
     },
     {
       "id": "hilcona-3d4c33057c58",
-      "slug": "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
+      "slug": "posto-di-apprendistato-come-operatore-operatrice-di-impianti-afc-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
-        "it": "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        "it": "posto-di-apprendistato-come-operatore-operatrice-di-impianti-afc-2027-bell-schweiz-ag-oensingen",
+        "en": "apprenticeship-as-plant-manager-efz-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-en-tant-que-directeur-d-usine-efz-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1495,11 +1511,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen"
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
+          "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen"
+        "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
+        "apprendistato-come-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen",
+        "lehrstelle-als-anlagenfuehrer-anlagenfuehrerin-efz-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -1520,12 +1545,12 @@
     },
     {
       "id": "hilcona-4b70afb5bb08",
-      "slug": "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen",
+      "slug": "posto-di-apprendistato-come-macellaio-macellaia-afc-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen",
-        "it": "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen"
+        "it": "posto-di-apprendistato-come-macellaio-macellaia-afc-2027-bell-schweiz-ag-oensingen",
+        "en": "apprenticeship-as-a-meat-specialist-meat-specialist-efz-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-viande-specialiste-de-la-viande-efz-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1567,11 +1592,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen"
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen",
+          "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen"
+        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen",
+        "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen",
+        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -1592,12 +1626,12 @@
     },
     {
       "id": "hilcona-c3aa056e9318",
-      "slug": "apprendistato-come-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen",
+      "slug": "posto-di-apprendistato-come-assistente-macellaio-assistente-macellaia-cfp-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen",
-        "it": "apprendistato-come-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen"
+        "it": "posto-di-apprendistato-come-assistente-macellaio-assistente-macellaia-cfp-2027-bell-schweiz-ag-oensingen",
+        "en": "apprenticeship-as-meat-specialist-assistant-meat-specialist-assistant-eba-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-comme-assistant-specialiste-de-la-viande-assistant-specialiste-de-la-viande-eba-2027-bell-schweiz-ag"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1639,11 +1673,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen"
+          "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen",
+          "apprendistato-come-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen"
+        "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen",
+        "apprendistato-come-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen",
+        "lehrstelle-als-fleischfachassistent-fleischfachassistentin-eba-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -1664,12 +1707,12 @@
     },
     {
       "id": "hilcona-cf16979d7006",
-      "slug": "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
+      "slug": "posto-di-tirocinio-come-addetto-a-alimentarista-eba-2027-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
-        "it": "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
-        "en": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
-        "fr": "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        "it": "posto-di-tirocinio-come-addetto-a-alimentarista-eba-2027-bell-schweiz-ag-oensingen",
+        "en": "apprenticeship-as-a-food-practitioner-food-practitioner-eba-2027-bell-schweiz-ag-oensingen",
+        "fr": "apprentissage-comme-praticien-de-l-alimentation-praticien-de-l-alimentation-eba-2027-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1711,11 +1754,20 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen"
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
+          "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen"
+        "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
+        "apprendistato-come-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen",
+        "lehrstelle-als-lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 51000,
       "salaryMax": 69000,
@@ -3250,7 +3302,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3290,7 +3342,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3300,7 +3352,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",

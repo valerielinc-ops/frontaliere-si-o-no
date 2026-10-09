@@ -1188,7 +1188,7 @@
         "en": "analytical-consultant-english-german-google-switzerland-zurich",
         "it": "analytical-consultant-english-german-google-switzerland-zurich",
         "de": "analytical-consultant-english-german-google-switzerland-zurich",
-        "fr": "analytical-consultant-english-german-google-switzerland-zurich"
+        "fr": "consultant-analytique-anglais-allemand-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -2416,9 +2416,9 @@
     },
     {
       "id": "google-switzerland-21386e97b56f",
-      "slug": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
+      "slug": "staff-software-ingegnere-connessioni-di-ingegneria-di-affidabilita-del-sito-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
+        "it": "staff-software-ingegnere-connessioni-di-ingegneria-di-affidabilita-del-sito-google-switzerland-zurich",
         "en": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
         "de": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich",
         "fr": "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
@@ -2492,7 +2492,15 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "staff-software-engineer-site-reliability-engineering-connections-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-2b78ba82a067",

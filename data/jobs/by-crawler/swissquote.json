@@ -2704,10 +2704,10 @@
     },
     {
       "id": "swissquote-874212044533",
-      "slug": "quality-control-remediations-manager-swissquote-gland",
+      "slug": "gestione-del-controllo-e-delle-correzioni-di-qualita-swissquote-gland",
       "slugByLocale": {
-        "it": "quality-control-remediations-manager-swissquote-gland",
         "en": "quality-control-remediations-manager-swissquote-gland",
+        "it": "gestione-del-controllo-e-delle-correzioni-di-qualita-swissquote-gland",
         "de": "quality-control-remediations-manager-swissquote-gland",
         "fr": "quality-control-remediations-manager-swissquote-gland"
       },
@@ -2767,16 +2767,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:34:43.814Z"
+      "firstSeenAt": "2026-10-09T09:34:43.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-remediations-manager-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-remediations-manager-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-af29409f1490",
-      "slug": "existing-clients-manager-swissquote-gland",
+      "slug": "gestione-clienti-esistente-swissquote-gland",
       "slugByLocale": {
-        "it": "existing-clients-manager-swissquote-gland",
         "en": "existing-clients-manager-swissquote-gland",
-        "de": "existing-clients-manager-swissquote-gland",
-        "fr": "existing-clients-manager-swissquote-gland"
+        "it": "gestione-clienti-esistente-swissquote-gland",
+        "de": "manager-bestehender-kunden-swissquote-gland",
+        "fr": "gestionnaire-de-clients-existants-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2834,16 +2842,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:34:43.789Z"
+      "firstSeenAt": "2026-10-09T09:34:43.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "existing-clients-manager-swissquote-gland"
+        ],
+        "de": [
+          "existing-clients-manager-swissquote-gland"
+        ],
+        "fr": [
+          "existing-clients-manager-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "existing-clients-manager-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-1ff2e3428944",
-      "slug": "new-client-onboarding-manager-swissquote-gland",
+      "slug": "nuovo-gestore-di-bordo-client-swissquote-gland",
       "slugByLocale": {
-        "it": "new-client-onboarding-manager-swissquote-gland",
         "en": "new-client-onboarding-manager-swissquote-gland",
+        "it": "nuovo-gestore-di-bordo-client-swissquote-gland",
         "de": "new-client-onboarding-manager-swissquote-gland",
-        "fr": "new-client-onboarding-manager-swissquote-gland"
+        "fr": "nouveau-gestionnaire-d-embarquement-du-client-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2901,7 +2923,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:34:43.807Z"
+      "firstSeenAt": "2026-10-09T09:34:43.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "new-client-onboarding-manager-swissquote-gland"
+        ],
+        "fr": [
+          "new-client-onboarding-manager-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "new-client-onboarding-manager-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-0fda3cc715d5",

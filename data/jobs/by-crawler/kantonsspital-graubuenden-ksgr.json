@@ -25,12 +25,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-09T09:24:17.988Z",
-      "slug": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur",
+      "slug": "emergenza-della-salute-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur",
-        "it": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur",
-        "en": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur",
-        "fr": "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+        "it": "emergenza-della-salute-professionale-kantonsspital-graubunden-chur",
+        "en": "professional-health-emergency-kantonsspital-graubunden-chur",
+        "fr": "sante-professionnelle-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Notfall",
@@ -60,7 +60,21 @@
       "salaryMin": 41080,
       "salaryMax": 114000,
       "currency": "CHF",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfall-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10220082",

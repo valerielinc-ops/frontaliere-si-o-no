@@ -7765,7 +7765,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7819,8 +7819,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-        "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7831,7 +7830,7 @@
         ],
         "fr": [
           "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-          "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10752,9 +10751,9 @@
       "id": "ubs-e3d52b40c79a",
       "slug": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
       "slugByLocale": {
-        "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
+        "it": "event-attendant-hourly-paid-ubs-geneve-2",
         "en": "event-attendant-hourly-paid-ubs-geneve",
-        "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
+        "de": "event-attendant-hourly-paid-ubs-geneve-2",
         "fr": "event-attendant-hourly-paid-ubs-geneve-2"
       },
       "company": "UBS",
@@ -10809,15 +10808,14 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2"
+        "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-attendant-hourly-paid-ubs-geneve",
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "event-attendant-hourly-paid-ubs-geneve"
         ],
         "de": [
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -11011,12 +11009,12 @@
     },
     {
       "id": "ubs-82736cf096a1",
-      "slug": "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich",
+      "slug": "avvocato-di-trasformazione-digitale-avvocato-legale-80-100-ubs-zurich",
       "slugByLocale": {
         "en": "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich",
-        "it": "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich",
-        "de": "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich",
-        "fr": "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich"
+        "it": "avvocato-di-trasformazione-digitale-avvocato-legale-80-100-ubs-zurich",
+        "de": "digitale-transformation-rechtsanwalt-rechtsberater-80-100-ubs-zurich",
+        "fr": "avocat-en-transformation-numerique-conseiller-juridique-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11083,16 +11081,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:14:14.510Z"
+      "firstSeenAt": "2026-10-09T09:14:14.510Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich"
+        ],
+        "de": [
+          "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich"
+        ],
+        "fr": [
+          "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "digital-transformation-lawyer-legal-counsel-80-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-ffbf94f2f52e",
-      "slug": "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich",
+      "slug": "consigliere-legale-corporate-banking-legale-svizzera-80-10-ubs-zurich",
       "slugByLocale": {
         "en": "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich",
-        "it": "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich",
+        "it": "consigliere-legale-corporate-banking-legale-svizzera-80-10-ubs-zurich",
         "de": "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich",
-        "fr": "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich"
+        "fr": "conseiller-juridique-corporate-banking-legal-suisse-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11159,7 +11171,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:14:13.890Z"
+      "firstSeenAt": "2026-10-09T09:14:13.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich"
+        ],
+        "fr": [
+          "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "legal-legal-counsel-corporate-banking-legal-switzerland-80-100-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-067cda5e9184",
@@ -11168,7 +11191,7 @@
         "en": "legal-counsel-in-corporate-finance-80-100-ubs-zurich",
         "it": "legal-counsel-in-corporate-finance-80-100-ubs-zurich",
         "de": "legal-counsel-in-corporate-finance-80-100-ubs-zurich",
-        "fr": "legal-counsel-in-corporate-finance-80-100-ubs-zurich"
+        "fr": "conseiller-juridique-en-finances-d-entreprise-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11238,12 +11261,12 @@
     },
     {
       "id": "ubs-d2c0504a084e",
-      "slug": "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich",
+      "slug": "avvocato-legale-banking-legal-western-svizzera-80-100-ubs-zurich",
       "slugByLocale": {
         "en": "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich",
-        "it": "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich",
+        "it": "avvocato-legale-banking-legal-western-svizzera-80-100-ubs-zurich",
         "de": "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich",
-        "fr": "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich"
+        "fr": "conseiller-juridique-banking-legal-suisse-occidentale-80-100-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -11310,7 +11333,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:14:12.612Z"
+      "firstSeenAt": "2026-10-09T09:14:12.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich"
+        ],
+        "fr": [
+          "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-banking-legal-western-switzerland-80-100-ubs-zurich"
+      ]
     }
   ]
 }

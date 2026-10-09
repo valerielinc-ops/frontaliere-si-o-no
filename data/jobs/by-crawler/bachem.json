@@ -389,12 +389,12 @@
     },
     {
       "id": "bachem-e491bd9c1891",
-      "slug": "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf",
+      "slug": "bio-chimico-a-come-product-steward-a-nel-settore-della-produzione-di-oligonucleotidi-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
-        "it": "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf",
-        "en": "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
-        "fr": "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
+        "it": "bio-chimico-a-come-product-steward-a-nel-settore-della-produzione-di-oligonucleotidi-100-bachem-ag-bubendorf",
+        "en": "bio-chemist-as-product-steward-a-in-the-field-of-oligonucleotide-production-100-bachem-ag-bubendorf",
+        "fr": "bio-chimiste-en-tant-que-responsable-du-produit-a-dans-le-domaine-de-la-production-d-oligonucleotides-100-bachem-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -441,11 +441,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
+          "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf"
+        ],
+        "en": [
+          "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
+        ],
+        "fr": [
           "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
         ]
       },
       "previousSlugs": [
-        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem"
+        "bio-chemiker-als-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem",
+        "bio-chemiker-come-product-steward-a-im-bereich-oligonukleotid-produktion-100-bachem-ag-bubendorf"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -4970,7 +4978,7 @@
       "slug": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "en": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
+        "en": "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
         "de": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
         "fr": "peptide-scientifique-composes-actifs-chimie-du-flux-de-r-d-a-100-bachem-ag-bubendorf"
       },
@@ -5020,7 +5028,7 @@
         "en": [
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
           "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-          "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+          "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
         ],
         "it": [
           "chemiker-optimierungs-e-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-ag-bubendorf",
@@ -5042,8 +5050,7 @@
         "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
         "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
         "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
-        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+        "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
       ],
       "firstSeenAt": "2026-09-17T06:55:55.840Z",
       "salaryMin": 72500,

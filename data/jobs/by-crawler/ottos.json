@@ -494,12 +494,12 @@
     },
     {
       "id": "ottos-39aef825286a",
-      "slug": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
+      "slug": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
       "slugByLocale": {
         "de": "sportartikelverkaufer-in-ottos-gamsen-brig",
-        "it": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "en": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "fr": "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        "it": "addetto-a-alla-vendita-di-articoli-sportivi-otto-s-ag-gamsen-brig",
+        "en": "sporting-goods-salesperson-otto-s-ag-gamsen-brig",
+        "fr": "vendeur-euse-d-articles-de-sport-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -551,11 +551,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sportartikelverkaufer-in-ottos-gamsen-brig"
+          "sportartikelverkaufer-in-ottos-gamsen-brig",
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "en": [
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "fr": [
+          "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
         ]
       },
       "previousSlugs": [
-        "sportartikelverkaufer-in-ottos-gamsen-brig"
+        "sportartikelverkaufer-in-ottos-gamsen-brig",
+        "sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,

@@ -1405,12 +1405,12 @@
     },
     {
       "id": "spitex-ch-7454687c236a",
-      "slug": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+      "slug": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
       "slugByLocale": {
         "de": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "it": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
+        "it": "team-management-care-60-100-spitex-mutschellen-reusstal-bremgarten-ag",
         "en": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag",
-        "fr": "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        "fr": "soins-de-gestion-d-equipe-60-100-spitex-mutschellen-reusstal-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",
@@ -1470,7 +1470,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:15:22.269Z"
+      "firstSeenAt": "2026-10-09T09:15:22.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ],
+        "fr": [
+          "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-60-100-spitex-ch-bremgarten-ag"
+      ]
     },
     {
       "id": "spitex-ch-f7b64db24c9b",

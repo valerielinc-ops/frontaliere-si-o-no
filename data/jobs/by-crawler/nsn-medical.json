@@ -1192,12 +1192,12 @@
     },
     {
       "id": "nsn-medical-2d3baec128da",
-      "slug": "collaboratore-trice-einsatzplanung-40-60-temporar-nsn-medical-group-zurich",
+      "slug": "collaboratore-trice-per-la-pianificazione-degli-interventi-40-60-temporaneo-a-nsn-medical-group-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich",
-        "it": "collaboratore-trice-einsatzplanung-40-60-temporar-nsn-medical-group-zurich",
-        "en": "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich",
-        "fr": "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich"
+        "it": "collaboratore-trice-per-la-pianificazione-degli-interventi-40-60-temporaneo-a-nsn-medical-group-zurich",
+        "en": "staff-member-workforce-planning-40-60-temporary-nsn-medical-group-zurich",
+        "fr": "collaborateur-trice-en-planification-des-interventions-40-60-temporaire-nsn-medical-group-zurich"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -1245,11 +1245,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich",
+          "collaboratore-trice-einsatzplanung-40-60-temporar-nsn-medical-group-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich"
+        "mitarbeiter-in-einsatzplanung-40-60-temporar-nsn-medical-zurich",
+        "collaboratore-trice-einsatzplanung-40-60-temporar-nsn-medical-group-zurich"
       ],
       "salaryMin": 44100,
       "salaryMax": 66900,

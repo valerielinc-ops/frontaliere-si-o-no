@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cedes-6dbf3e63bd94",
-      "slug": "hr-intern-60-100-cedes-landquart",
+      "slug": "risorse-umane-tirocinante-60-100-cedes-ag-landquart",
       "slugByLocale": {
         "en": "hr-intern-60-100-cedes-landquart",
-        "it": "hr-intern-60-100-cedes-landquart",
-        "de": "hr-intern-60-100-cedes-landquart",
-        "fr": "hr-intern-60-100-cedes-landquart"
+        "it": "risorse-umane-tirocinante-60-100-cedes-ag-landquart",
+        "de": "personalwesen-praktikant-60-100-cedes-ag-landquart",
+        "fr": "ressources-humaines-stagiaire-60-100-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes-ag",
@@ -64,7 +64,21 @@
         }
       },
       "applyUrl": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
-      "firstSeenAt": "2026-10-09T09:13:37.313Z"
+      "firstSeenAt": "2026-10-09T09:13:37.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-60-100-cedes-landquart"
+        ],
+        "de": [
+          "hr-intern-60-100-cedes-landquart"
+        ],
+        "fr": [
+          "hr-intern-60-100-cedes-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-60-100-cedes-landquart"
+      ]
     },
     {
       "id": "cedes-38194b91f772",
@@ -138,9 +152,9 @@
     },
     {
       "id": "cedes-33d85e05de4e",
-      "slug": "operator-in-smd-assembly-cedes-ag-landquart",
+      "slug": "operatore-nell-assemblaggio-smd-cedes-ag-landquart",
       "slugByLocale": {
-        "it": "operator-in-smd-assembly-cedes-ag-landquart",
+        "it": "operatore-nell-assemblaggio-smd-cedes-ag-landquart",
         "en": "operator-in-smd-assembly-cedes-landquart",
         "de": "betreiber-in-der-smd-baugruppe-cedes-ag-landquart",
         "fr": "operateur-in-smd-assembly-cedes-ag-landquart"
@@ -186,14 +200,14 @@
         "operatore-in-assemblaggio-smd-cedes-ag-landquart",
         "operatore-nel-montaggio-smd-cedes-ag-landquart",
         "operator-in-smd-assembly-cedes-landquart",
-        "operatore-nell-assemblaggio-smd-cedes-ag-landquart"
+        "operator-in-smd-assembly-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operatore-in-assemblaggio-smd-cedes-ag-landquart",
           "operatore-nel-montaggio-smd-cedes-ag-landquart",
           "operator-in-smd-assembly-cedes-landquart",
-          "operatore-nell-assemblaggio-smd-cedes-ag-landquart"
+          "operator-in-smd-assembly-cedes-ag-landquart"
         ]
       },
       "firstSeenAt": "2026-10-03T09:12:24.879Z",

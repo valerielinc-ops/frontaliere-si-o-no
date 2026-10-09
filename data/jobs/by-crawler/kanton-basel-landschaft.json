@@ -1115,7 +1115,7 @@
       "slug": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049",
       "slugByLocale": {
         "it": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049",
-        "en": "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "vice-president-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "konrektorin-konrektor-kanton-basel-landschaft-liestal",
         "fr": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049"
       },
@@ -1163,14 +1163,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konrektorin-konrektor-kanton-basel-landschaft-liestal",
-        "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
+        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konrektorin-konrektor-kanton-basel-landschaft-liestal"
         ],
         "en": [
-          "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
+          "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:25.105Z",
@@ -5650,8 +5650,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal",
         "it": "mitarbeiterin-collaboratore-trice-scanning-e-aktenverarbeitung-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal",
-        "fr": "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
+        "en": "employee-scanning-and-file-processing-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "analyse-des-employes-et-traitement-des-dossiers-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5701,6 +5701,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-scanning-und-aktenverarbeitung-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
@@ -5723,10 +5729,10 @@
     },
     {
       "id": "kanton-basel-landschaft-fcd6a9a669f1",
-      "slug": "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal",
+      "slug": "product-service-manager-manager-servizi-di-base-it-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal",
-        "it": "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal",
+        "it": "product-service-manager-manager-servizi-di-base-it-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal",
         "fr": "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal"
       },
@@ -5787,7 +5793,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T09:16:17.703Z"
+      "firstSeenAt": "2026-10-09T09:16:17.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "product-service-managerin-manager-it-basis-services-kanton-basel-landschaft-liestal"
+      ]
     }
   ]
 }

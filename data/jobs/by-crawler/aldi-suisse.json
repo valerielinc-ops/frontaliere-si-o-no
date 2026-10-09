@@ -346,8 +346,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-monthey",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "en": "sales-associate-m-w-d-aldi-suisse-monthey",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-monthey"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -427,6 +427,12 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },

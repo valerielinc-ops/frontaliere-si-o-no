@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote",
         "it": "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote-die-mobiliar-nyon",
-        "en": "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote",
-        "de": "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
+        "en": "swc-business-employee-learning-august-2027-at-the-general-agency-of-the-coast-die-mobiliar-nyon",
+        "de": "swc-business-employee-learning-august-2027-bei-der-general-agency-of-the-coast-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -57,6 +57,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
+        ],
+        "en": [
+          "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
+        ],
+        "de": [
           "apprentissage-d-employe-e-de-commerce-cfc-aout-2027-a-l-agence-generale-de-la-cote"
         ]
       },
@@ -5045,9 +5051,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5111,17 +5117,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
@@ -6023,9 +6030,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6089,17 +6096,18 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg"
+        "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",

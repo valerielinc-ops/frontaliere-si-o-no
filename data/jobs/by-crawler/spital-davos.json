@@ -1463,12 +1463,12 @@
     },
     {
       "id": "spital-davos-cf2e08312e7b",
-      "slug": "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos",
+      "slug": "operatore-trice-socioassistenziale-indirizzo-bambini-80-100-spital-davos-davos",
       "slugByLocale": {
         "de": "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
-        "it": "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos",
-        "en": "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
-        "fr": "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+        "it": "operatore-trice-socioassistenziale-indirizzo-bambini-80-100-spital-davos-davos",
+        "en": "specialist-care-specialty-children-80-100-spital-davos-davos",
+        "fr": "soins-specialises-enfants-80-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1519,11 +1519,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+          "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
+        ],
+        "en": [
+          "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+        ],
+        "fr": [
           "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch"
+        "fachperson-betreuung-fachrichtung-kinder-80-100-spital-davos-ch",
+        "fachperson-betreuung-specializzazione-kinder-80-100-spital-davos"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

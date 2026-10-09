@@ -1451,7 +1451,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1497,15 +1497,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -4022,12 +4021,12 @@
     },
     {
       "id": "hug-ad2506a1b55a",
-      "slug": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
+      "slug": "testa-di-gruppo-servizio-di-rielaborazione-dei-dispositivi-medici-100-hug-vernier",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
-        "it": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
-        "en": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier",
-        "de": "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        "it": "testa-di-gruppo-servizio-di-rielaborazione-dei-dispositivi-medici-100-hug-vernier",
+        "en": "head-of-group-medical-devices-reprocessing-service-100-hug-vernier",
+        "de": "gruppenleiter-medical-devices-reprocessing-service-100-hug-vernier"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4086,7 +4085,21 @@
         }
       },
       "postalCode": "1214",
-      "firstSeenAt": "2026-10-09T09:15:19.502Z"
+      "firstSeenAt": "2026-10-09T09:15:19.502Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-groupe-service-de-retraitement-des-dispositifs-medicaux-100-hug-vernier"
+      ]
     },
     {
       "id": "hug-c6ce97821a53",

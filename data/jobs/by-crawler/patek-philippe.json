@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "horloger-de-specialite-organe-reglant-patek-philippe-plan-les-ouates",
         "it": "specialita-orologiera-corpo-di-governo-patek-philippe-plan-les-ouates",
-        "en": "horloger-de-specialite-organe-reglant-m-w-d-patek-philippe-plan-les-ouates",
-        "de": "horloger-de-specialite-organe-reglant-m-w-d-patek-philippe-plan-les-ouates"
+        "en": "speciality-watchmaker-governing-body-patek-philippe-plan-les-ouates",
+        "de": "speciality-watchmaker-verwaltungsrat-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -64,16 +64,15 @@
           "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates"
         ],
         "en": [
-          "speciality-watchmaker-governing-body-patek-philippe-plan-les-ouates"
+          "horloger-de-specialite-organe-reglant-m-w-d-patek-philippe-plan-les-ouates"
         ],
         "de": [
-          "speciality-watchmaker-verwaltungsrat-patek-philippe-plan-les-ouates"
+          "horloger-de-specialite-organe-reglant-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "horloger-de-specialite-organe-reglant-h-f-patek-philippe-plan-les-ouates",
-        "speciality-watchmaker-governing-body-patek-philippe-plan-les-ouates",
-        "speciality-watchmaker-verwaltungsrat-patek-philippe-plan-les-ouates"
+        "horloger-de-specialite-organe-reglant-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -1075,9 +1074,9 @@
     },
     {
       "id": "patek-philippe-22a25cf0e0b4",
-      "slug": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates",
+      "slug": "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates",
+        "it": "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates",
         "en": "life-cycle-analysis-course-patek-philippe-plan-les-ouates",
         "de": "life-cycle-analysis-kurs-patek-philippe-plan-les-ouates",
         "fr": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
@@ -1126,11 +1125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates"
+        "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates"
+          "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-10-07T09:23:08.983Z",
@@ -1228,7 +1227,7 @@
       "slugByLocale": {
         "it": "responsabile-per-sicurezza-e-sicurezza-m-f-patek-philippe-plan-les-ouates",
         "en": "responsible-for-safety-and-security-m-f-patek-philippe-plan-les-ouates",
-        "de": "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates",
         "fr": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -1277,7 +1276,7 @@
       "previousSlugs": [
         "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
         "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
-        "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
+        "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1285,7 +1284,7 @@
         ],
         "de": [
           "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
-          "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
+          "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-09-29T21:20:33.207Z",
@@ -1450,7 +1449,7 @@
       "slugByLocale": {
         "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -1499,7 +1498,7 @@
       "previousSlugs": [
         "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
         "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
-        "spezialradmanager-h-f-patek-philippe-plan-les-ouates"
+        "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1510,7 +1509,7 @@
         ],
         "de": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-          "spezialradmanager-h-f-patek-philippe-plan-les-ouates"
+          "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:23.152Z",

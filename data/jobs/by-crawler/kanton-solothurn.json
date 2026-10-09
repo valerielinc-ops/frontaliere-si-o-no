@@ -910,9 +910,9 @@
     },
     {
       "id": "kanton-solothurn-eca5d6131213",
-      "slug": "jurist-in-digitalrecht-70-80-kanton-solothurn",
+      "slug": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-digitalrecht-70-80-kanton-solothurn",
+        "it": "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
         "en": "lawyer-digitalrecht-70-80-kanton-solothurn-solothurn",
         "de": "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
         "fr": "avocat-digitalrecht-70-80-kanton-solothurn-solothurn"
@@ -961,12 +961,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
-        "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn"
+        "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
+        "jurist-in-digitalrecht-70-80-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-digitalrecht-70-80-kanton-solothurn-solothurn",
-          "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn"
+          "avvocato-in-diritto-digitale-70-80-kanton-solothurn-solothurn",
+          "jurist-in-digitalrecht-70-80-kanton-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-23T23:46:47.630Z",
@@ -1289,9 +1291,9 @@
     },
     {
       "id": "kanton-solothurn-38b136945c9f",
-      "slug": "jurist-in-60-kanton-solothurn",
+      "slug": "giurista-60-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "jurist-in-60-kanton-solothurn",
+        "it": "giurista-60-kanton-solothurn-solothurn",
         "en": "lawyer-60-kanton-solothurn-solothurn",
         "de": "jurist-in-60-kanton-solothurn-solothurn",
         "fr": "juriste-60-kanton-solothurn-solothurn"
@@ -1340,12 +1342,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jurist-in-60-kanton-solothurn-solothurn",
-        "giurista-60-kanton-solothurn-solothurn"
+        "giurista-60-kanton-solothurn-solothurn",
+        "jurist-in-60-kanton-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-60-kanton-solothurn-solothurn",
-          "giurista-60-kanton-solothurn-solothurn"
+          "giurista-60-kanton-solothurn-solothurn",
+          "jurist-in-60-kanton-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-25T14:53:20.900Z",
@@ -2430,12 +2434,12 @@
     },
     {
       "id": "kanton-solothurn-6c7e34c91250",
-      "slug": "wissenschaftliche-r-collaboratore-trice-in-gesundheitsversorgung-80-100-kanton-solothurn",
+      "slug": "collaboratore-trice-scientifico-a-nel-settore-dell-assistenza-sanitaria-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn",
-        "it": "wissenschaftliche-r-collaboratore-trice-in-gesundheitsversorgung-80-100-kanton-solothurn",
-        "en": "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn"
+        "it": "collaboratore-trice-scientifico-a-nel-settore-dell-assistenza-sanitaria-80-100-kanton-solothurn-solothurn",
+        "en": "research-associate-healthcare-80-100-kanton-solothurn-solothurn",
+        "fr": "collaborateur-rice-scientifique-en-soins-de-sante-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -2483,11 +2487,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn",
+          "wissenschaftliche-r-collaboratore-trice-in-gesundheitsversorgung-80-100-kanton-solothurn"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn"
+        "wissenschaftliche-r-mitarbeiter-in-gesundheitsversorgung-80-100-kanton-solothurn-solothurn",
+        "wissenschaftliche-r-collaboratore-trice-in-gesundheitsversorgung-80-100-kanton-solothurn"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

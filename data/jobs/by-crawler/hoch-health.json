@@ -11413,14 +11413,14 @@
         "employe-60-80-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
+        ],
         "en": [
           "employee-60-80-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
           "employe-60-80-hoch-health-ostschweiz-grabs"
-        ],
-        "it": [
-          "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:30.059Z",
@@ -15363,15 +15363,15 @@
         "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
+        ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
           "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen"
-        ],
-        "it": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-11T12:46:13.598Z",
@@ -19047,12 +19047,12 @@
     },
     {
       "id": "hoch-health-663a18ef9a3e",
-      "slug": "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68",
+      "slug": "operatrice-operatore-sociosanitario-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-uznach-653d68",
         "de": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-        "fr": "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68"
+        "it": "operatrice-operatore-sociosanitario-40-100-hoch-health-ostschweiz-uznach",
+        "en": "healthcare-specialist-40-100-hoch-health-ostschweiz-uznach-653d68",
+        "fr": "assistante-assistant-en-soins-et-sante-communautaire-40-100-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -19100,20 +19100,28 @@
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
+          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68"
         ],
         "en": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
+          "specialist-man-health-40-100-hoch-health-ostschweiz-uznach-653d68"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
+          "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68"
         ]
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
+        "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
+        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach-653d68",
+        "specialist-man-health-40-100-hoch-health-ostschweiz-uznach-653d68",
+        "specialiste-en-sante-40-100-hoch-health-ostschweiz-uznach-653d68"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
