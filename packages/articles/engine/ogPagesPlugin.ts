@@ -335,6 +335,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  titleMaxChars: TITLE_MAX_CHARS,
  clampMetaDescription,
  repairSerpSnippet,
+ stripLiteralMarkdown,
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
@@ -1259,8 +1260,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // so no downstream truncation ever inspects them: without this call they ship
  // to the SERP broken. No-ops on text that already reads as complete.
  // Applied at the single definition point so <meta name="description">,
- // og:description, the visible <p> lede and JSON-LD all stay identical.
- const localizedDesc = repairSerpSnippet(localizedMeta?.excerpt || en.ogD);
+ // og:description, the visible <p> lede and JSON-LD all stay identical. The
+ // corpus still contains a small but live family of excerpts exported from
+ // Markdown (`## In breve`, `*emphasis*`, and links). Descriptions are plain
+ // text fields, so carrying that syntax into the lede makes it visible rather
+ // than rendered; strip it before every surface receives the value.
+ const localizedDesc = repairSerpSnippet(stripLiteralMarkdown(localizedMeta?.excerpt || en.ogD));
  // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
  // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
  // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
@@ -1492,7 +1497,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // definizione unico, ma questo fallback rilegge structuredData.description
  // GREZZA dal registro e la scavalcava — la riparazione applicata una volta e
  // poi aggirata da un ramo che torna alla sorgente (issue #5453).
- description: repairSerpSnippet(sdStr('description') || '') || localizedDesc,
+ description: repairSerpSnippet(stripLiteralMarkdown(sdStr('description') || '')) || localizedDesc,
  image: imageObjectLd({
  url: imgU,
  ...(imageCredit ? imageObjectCreditFields(imageCredit) : {}),
