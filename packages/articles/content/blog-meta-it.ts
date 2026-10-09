@@ -12835,6 +12835,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cardano-al-campo-minorenne-arresto.title': 'Cardano al Campo: minorenne arrestato con hashish',
     'blog.article.cardano-al-campo-minorenne-arresto.excerpt': 'Fermato a Cardano al Campo un minorenne in scooter Aveva sette dosi di hashish, per poco più di 11 grammi In casa trovati altri 88,3 grammi di hashish',
     'blog.article.cardano-al-campo-minorenne-arresto.imageAlt': 'Minorenne fermato in scooter a Cardano al Campo con hashish sequestrato dai carabinieri',
+    'blog.article.vbs-pink-cup-ragazze.title': 'VBS Pink Cup: oltre 150 ragazze del basket a Varese',
+    'blog.article.vbs-pink-cup-ragazze.excerpt': '10 e 11 ottobre: terza edizione della VBS Pink Cup Oltre 150 ragazze a Varese Dodici squadre nelle categorie Under 13 e Under 14 Partite alla palestra Falaschi',
+    'blog.article.vbs-pink-cup-ragazze.imageAlt': 'Giovani cestiste durante un torneo femminile in palestra',
 };
 
 export default blogMetaIt;

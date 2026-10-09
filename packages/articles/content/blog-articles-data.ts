@@ -43321,6 +43321,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vbs-pink-cup-ragazze',
+ category: 'novita',
+ date: '2026-10-09T01:02:39.485Z',
+ image: '/images/blog/article-vbs-pink-cup-ragazze.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

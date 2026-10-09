@@ -103597,6 +103597,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vbs-pink-cup-ragazze': {
+    title: 'VBS Pink Cup: oltre 150 ragazze del basket a Varese',
+    description: '10 e 11 ottobre: terza edizione della VBS Pink Cup Oltre 150 ragazze a Varese Dodici squadre nelle categorie Under 13 e Under 14 Partite alla palestra Falaschi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pink, oltre, ragazze, basket',
+    ogTitle: 'VBS Pink Cup: oltre 150 ragazze a Varese',
+    ogDescription: '10 e 11 ottobre: terza edizione della VBS Pink Cup Oltre 150 ragazze a Varese Dodici squadre nelle categorie Under 13 e Under 14 Partite alla palestra Falaschi',
+    canonicalPath: '/articoli-frontaliere/vbs-pink-cup-ragazze/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "VBS Pink Cup: oltre 150 ragazze del basket a Varese",
+      "description": "10 e 11 ottobre: terza edizione della VBS Pink Cup Oltre 150 ragazze a Varese Dodici squadre nelle categorie Under 13 e Under 14 Partite alla palestra Falaschi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vbs-pink-cup-ragazze.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani cestiste durante un torneo femminile in palestra"
+      },
+      "datePublished": "2026-10-09T01:02:39+00:00",
+      "dateModified": "2026-10-09T01:02:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vbs-pink-cup-ragazze/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

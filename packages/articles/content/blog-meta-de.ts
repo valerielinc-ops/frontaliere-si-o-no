@@ -12833,6 +12833,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cardano-al-campo-minorenne-arresto.title': 'Cardano al Campo: Minderjähriger mit Haschisch verhaftet',
     'blog.article.cardano-al-campo-minorenne-arresto.excerpt': 'Angehalten in Cardano al Campo ein Minderjähriger auf einem Roller Er hatte sieben Dosen Haschisch, für etwas mehr als 11 Gramm Zu Hause fanden wir weitere 88,3 Gramm Haschisch',
     'blog.article.cardano-al-campo-minorenne-arresto.imageAlt': 'Jugendlicher mit Roller in Cardano al Campo angehalten, Haschisch von Carabinieri sichergestellt',
+    'blog.article.vbs-pink-cup-ragazze.title': 'VBS Pink Cup: über 150 Basketball-Mädchen in Varese',
+    'blog.article.vbs-pink-cup-ragazze.excerpt': 'und 11. Oktober: Dritte Auflage der VBS Pink Cup. Über 150 Mädchen in Varese. Zwölf Mannschaften in den Kategorien U13 und U14. Spiele in der Sporthalle Falaschi.',
+    'blog.article.vbs-pink-cup-ragazze.imageAlt': 'Junge Basketballspielerinnen bei einem Hallenturnier',
 };
 
 export default blogMetaDe;
