@@ -222,16 +222,101 @@ function itemTree({ rank, total, title, statLabel, statValue, footerNote }) {
   ]);
 }
 
+/** Final slide: turn the chosen editorial objective into one visible action. */
+function closingTree({ kicker, title, body, cta }) {
+  return cardShell([
+    {
+      type: 'div',
+      props: {
+        style: { display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' },
+        children: [
+          {
+            type: 'div',
+            props: {
+              style: {
+                fontSize: 32,
+                fontWeight: 700,
+                letterSpacing: 2,
+                color: BRAND_ACCENT,
+                marginBottom: 24,
+              },
+              children: truncate(kicker, 60),
+            },
+          },
+          {
+            type: 'div',
+            props: {
+              style: { fontSize: 64, fontWeight: 700, lineHeight: 1.15 },
+              children: truncate(title, 100),
+            },
+          },
+          body
+            ? {
+                type: 'div',
+                props: {
+                  style: { fontSize: 32, lineHeight: 1.35, color: TEXT_MUTED, marginTop: 28 },
+                  children: truncate(body, 160),
+                },
+              }
+            : null,
+          cta
+            ? {
+                type: 'div',
+                props: {
+                  style: {
+                    alignSelf: 'flex-start',
+                    marginTop: 36,
+                    backgroundColor: BRAND_ACCENT,
+                    color: BRAND_BG_FROM,
+                    borderRadius: 18,
+                    padding: '18px 28px',
+                    fontSize: 30,
+                    fontWeight: 700,
+                  },
+                  children: truncate(cta, 80),
+                },
+              }
+            : null,
+        ].filter(Boolean),
+      },
+    },
+    brandFooter(),
+  ]);
+}
+
+/**
+ * Return the render plan without loading fonts or native image libraries.
+ * Keeping this pure makes the creative contract testable in CI and prevents a
+ * change to the closing CTA from hiding inside an opaque rendered buffer.
+ */
+export function buildCarouselSlidePlan({ kicker, title, subtitle, items, closing } = {}) {
+  const safeItems = Array.isArray(items) ? items : [];
+  const plan = [
+    { type: 'cover', kicker, title, subtitle },
+    ...safeItems.map((item, i) => ({
+      type: 'item',
+      rank: i + 1,
+      total: safeItems.length,
+      title: item?.title,
+      statLabel: item?.statLabel,
+      statValue: item?.statValue,
+      footerNote: item?.footerNote,
+    })),
+  ];
+  if (closing) plan.push({ type: 'closing', ...closing });
+  return plan;
+}
+
 /**
  * Render a cover slide + up to `items.length` ranked-item slides as JPEG
  * buffers, cover first. Returns null (never throws) when fonts are missing —
  * callers must treat that as "skip the image, log and move on" the same way
  * every other soft-fail in this codebase's social posters works.
  *
- * @param {{ kicker: string, title: string, subtitle?: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}> }} params
+ * @param {{ kicker: string, title: string, subtitle?: string, items: Array<{title:string, statLabel?:string, statValue?:string, footerNote?:string}>, closing?: {kicker:string, title:string, body?:string, cta?:string} }} params
  * @returns {Promise<Buffer[]|null>}
  */
-export async function renderCarouselSlides({ kicker, title, subtitle, items }) {
+export async function renderCarouselSlides({ kicker, title, subtitle, items, closing }) {
   const fonts = readFontPair();
   if (!fonts) return null;
   if (!Array.isArray(items) || items.length === 0) return null;
@@ -247,19 +332,11 @@ export async function renderCarouselSlides({ kicker, title, subtitle, items }) {
     { name: 'Roboto', data: fonts.bold, weight: 700, style: 'normal' },
   ];
 
-  const trees = [
-    coverTree({ kicker, title, subtitle }),
-    ...items.map((item, i) =>
-      itemTree({
-        rank: i + 1,
-        total: items.length,
-        title: item.title,
-        statLabel: item.statLabel,
-        statValue: item.statValue,
-        footerNote: item.footerNote,
-      }),
-    ),
-  ];
+  const trees = buildCarouselSlidePlan({ kicker, title, subtitle, items, closing }).map((slide) => {
+    if (slide.type === 'cover') return coverTree(slide);
+    if (slide.type === 'closing') return closingTree(slide);
+    return itemTree(slide);
+  });
 
   const buffers = [];
   for (const tree of trees) {
