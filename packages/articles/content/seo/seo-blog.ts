@@ -3616,7 +3616,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-salario-minimo-sociale-ticino-dibattito': {
- title: 'Salario Minimo Sociale in Ticino: Cosa | Frontaliere Ticino',
+ title: 'Salario minimo sociale: il Ticino cerca un\'intesa',
  description: 'Il Ticino discute un controprogetto per il salario minimo sociale. Scopri i 5 principi in discussione e le possibili conseguenze sul tuo stipendio da frontaliere.',
  keywords: 'salario minimo ticino, frontalieri, stipendio svizzera, lavoro ticino, controprogetto PS, dumping salariale, CCL, retribuzione ticino',
  ogTitle: 'Salario Minimo in Ticino: la Politica Cerca un Accordo. E il Tuo Stipendio?',
@@ -5403,7 +5403,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-elezioni-comunali-ticino': {
- title: 'Elezioni Comunali in Ticino: cosa | Frontaliere Ticino',
+ title: 'Elezioni Comunali in Ticino: cosa cambia | Frontaliere Ticino',
  description: 'Scopri come le elezioni comunali in Ticino influenzeranno frontalieri e residenti: trasporti, fiscalità e nuove opportunità lavorative. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, elezioni, comunali, cosa, cambia',
  ogTitle: 'Elezioni Comunali in Ticino: Impatti per i Frontalieri',
@@ -5464,7 +5464,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: 'Cassis: "Il prodotto è buono". | Frontaliere Ticino',
  description: 'L\'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l\'Unione Europea. L\'accordo permetterebbe di mantenere relazioni',
  keywords: 'frontalieri, ticino, svizzera, italia, cassis, prodotto, buono, accordo',
- ogTitle: 'Bilaterali III, Cassis: "Il prodotto è buono". L\'accordo per',
+ ogTitle: 'Cassis: "Il prodotto è buono". L\'accordo Bilaterali III per il Ticino',
  ogDescription: 'L\'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l\'Unione Europea. L\'accordo permetterebbe di mantenere relazioni',
  canonicalPath: '/articoli-frontaliere/bilaterali-iii-cassis-ticino/',
  structuredData: {
@@ -5665,7 +5665,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: 'Brogeda: 15 chili di cocaina | Frontaliere Ticino',
  description: 'Importante operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un\'auto. Le Fiamme Gialle colpiscono il traffico illecito tra Italia e',
  keywords: 'frontalieri, ticino, svizzera, italia, brogeda, chili, cocaina, sequestrati',
- ogTitle: 'Sequestrati 15 kg di cocaina a Brogeda: operazione al',
+ ogTitle: 'Brogeda: 15 chili di cocaina sequestrati al confine',
  ogDescription: 'Operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un\'auto. Le Fiamme Gialle hanno intercettato il carico destinato al mercato svizzero',
  canonicalPath: '/articoli-frontaliere/droga-brogeda-sequestro-cocaina/',
  structuredData: {
@@ -5787,7 +5787,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Sicurezza privata sotto accusa dopo Nebiopoli, Rossi: «Una coppia di",
+ "headline": "Sicurezza privata sotto accusa dopo Nebiopoli",
  "description": "Deputato UDC Tuto Rossi chiede controlli su agenti sicurezza privata dopo episodi violenza Carnevale Chiasso. Normativa, diritti, segnalazioni. Dati aggiornati",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sicurezza-privata-chiasso-nebiopoli.webp`,
@@ -6427,7 +6427,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-banche-svizzere-pronti-clienti-golfo-2026': {
- title: 'Banche svizzere in allerta per i clienti del Golfo: cosa',
+ title: 'Banche svizzere in allerta per i clienti del Golfo: cosa cambia per i frontalieri',
  description: 'Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco co',
  keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, allerta, clienti',
  ogTitle: 'Banche svizzere in allerta per i clienti del Golfo',
@@ -6539,7 +6539,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-autostrada-a9-chiude-de-notti-2026': {
- title: 'Autostrada A9 verso Chiasso chiusa di notte: ecco quando',
+ title: 'Autostrada A9 verso Chiasso chiusa di notte: ecco quando e perché',
  description: 'Tratto Como Centro-Chiasso dell\'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 20',
  keywords: 'frontalieri, ticino, svizzera, italia, autostrada, verso, chiasso, chiusa',
  ogTitle: 'Autostrada A9 verso Chiasso chiusa di notte: ecco',
@@ -6570,13 +6570,13 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  title: '190 multati in una notte a Chiasso | Frontaliere Ticino',
  description: 'Durante Pasqua 2024, 190 veicoli su 1\'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. Scopri come evitare la multa da',
  keywords: 'frontalieri, ticino, svizzera, italia, multati, notte, chiasso, ecco',
- ogTitle: '190 multe a Chiasso per mancanza vignetta: la guida per',
+ ogTitle: '190 multati in una notte a Chiasso: ecco come evitare la sanzione da 200 CHF',
  ogDescription: 'Scopri perché 190 automobilisti sono stati multati alla dogana di Chiasso durante Pasqua 2024 e come evitare la multa da 200 CHF con semplici passaggi.',
  canonicalPath: '/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Frontaliere Ticino - 190 multe a Chiasso per vignetta mancante durante Pasqua 2024: procedura e",
+ "headline": "190 multati in una notte a Chiasso: ecco come evitare la sanzione da 200 CHF",
  "description": "Durante Pasqua 2024, 190 veicoli su 1'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. Scopri come evitare la multa da",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/multa-vignetta-pasqua-chiasso-2024.webp`,
@@ -7127,7 +7127,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
  'blog-fermo-treni-gallarate-sesto-aprile-2026': {
- title: 'Fermo treni Gallarate-Sesto: cosa | Frontaliere Ticino',
+ title: 'Fermo treni Gallarate-Sesto: cosa cambia per i frontalieri verso Ticino',
  description: 'Sabato 19 e domenica 20 aprile 2026 stop totale tra Gallarate e Sesto Calende. Bus sostitutivi con prenotazione obbligatoria e without bici/animali. Eurocity ca',
  keywords: 'frontalieri, ticino, svizzera, italia, fermo, treni, gallarate-sesto, cosa',
  ogTitle: 'Fermo treni Gallarate-Sesto: cosa cambia per i frontalieri',
@@ -7239,7 +7239,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  },
 
   'blog-nuova-strategia-zanzara-tigre-chiasso-2026': {
-    title: 'Chiasso affida ai privati la lotta alla zanzara tigre: cosa',
+    title: 'Chiasso affida ai privati la lotta alla zanzara tigre: cosa cambia per i frontalieri',
     description: 'Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune inter',
     keywords: 'frontalieri, ticino, svizzera, italia, chiasso, affida, privati, lotta',
     ogTitle: 'Chiasso affida ai privati la lotta alla zanzara tigre',
@@ -7382,13 +7382,13 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Bellinzona: via alla raccolta firme per asili nido pubblici',
     description: 'Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con',
     keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, alla, raccolta, firme',
-    ogTitle: 'Bellinzona: raccolta firme per asili nido pubblici fino a',
+    ogTitle: 'Bellinzona: via alla raccolta firme per asili nido pubblici',
     ogDescription: 'Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con',
     canonicalPath: '/articoli-frontaliere/asili-nido-bellinzona-iniziativa-firme-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Bellinzona lancia raccolta firme per asili nido pubblici: cosa cambia per le famiglie e i",
+      "headline": "Bellinzona: via alla raccolta firme per asili nido pubblici",
       "description": "Il Comune di Bellinzona respinge la richiesta di un asilo nido pubblico. Partito Socialista e Verdi lanciano l’iniziativa ‘Più nidi d’infanzia pubblici’ con",
       "image": {
         "@type": "ImageObject", "url": `${BASE_URL}/images/blog/asili-nido-bellinzona-iniziativa-firme-2026.webp`,
@@ -7444,7 +7444,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Asili nido pubblici in Ticino: da Bellinzona parte la raccolta firme per un servizio pubblico a",
+      "headline": "Asili nido pubblici in Ticino: parte la raccolta firme per l’iniziativa popolare",
       "description": "Scopri come sostenere l’iniziativa per asili nido pubblici in Ticino, raccolta firme fino al 15 ottobre 2026. Procedura, costi e impatto per frontalieri.",
       "image": {
         "@type": "ImageObject", "url": `${BASE_URL}/images/blog/asili-nido-pubblici-ticino-iniziativa-popolare-2026.webp`,
@@ -7466,7 +7466,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Berna limita l’acquisto di immobili | Frontaliere Ticino',
     description: 'Berna limita l’acquisto di immobili ai cittadini extra UE/AELS. Obbligo di autorizzazione, stop agli investimenti e nuove regole per frontalieri. Scopri come',
     keywords: 'frontalieri, ticino, svizzera, italia, berna, limita, acquisto, immobili',
-    ogTitle: 'Limite acquisto immobili stranieri 2026: le nuove regole per',
+    ogTitle: 'Berna limita l’acquisto di immobili: cosa cambia per i frontalieri ticinesi',
     ogDescription: 'Il Consiglio federale limita l’acquisto di immobili da parte di stranieri. Obbligo di autorizzazione, stop agli investimenti e nuove restrizioni per frontalieri',
     canonicalPath: '/articoli-frontaliere/berna-limita-acquisto-immobili-stranieri-2026/',
     structuredData: {
@@ -7696,7 +7696,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "L'Iran chiude la porta al ripescaggio dell'Italia ai Mondiali 2026. Analisi sugli scenari per",
+      "headline": "Iran taglia le speranze di ripescaggio dell'Italia ai Mondiali 2026",
       "description": "Le dichiarazioni del ct iraniano Ghalenoei riducono le chance dell'Italia di partecipare ai Mondiali 2026. Analisi sugli scenari per frontalieri e lavoratori",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/irania-nazionale-italia-riqualifica-2026.webp`,
@@ -7942,7 +7942,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'FFS: treni diretti a Rimini e Francia | Frontaliere Ticino',
     description: 'Dal 30 maggio collegamento diretto Zurigo-Rimini con fermate a Bellinzona, Lugano e Chiasso. Da Losanna e Ginevra TGV per Avignone, Aix e Marsiglia fino al 2',
     keywords: 'frontalieri, ticino, svizzera, italia, treni, diretti, rimini, francia',
-    ogTitle: 'Nuovi collegamenti FFS 2026: treni diretti a Rimini e',
+    ogTitle: 'FFS: treni diretti a Rimini e Francia dal 30 maggio 2026',
     ogDescription: 'Scopri i nuovi collegamenti estivi delle FFS dal 30 maggio 2026: treni diretti Zurigo-Rimini e TGV verso la Francia. Attenzione ai cantieri sul Sempione che',
     canonicalPath: '/articoli-frontaliere/ffs-collegamenti-estivi-rimini-francia-2026/',
     structuredData: {
@@ -8306,7 +8306,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Nigeriani arrestati a Chiasso-Brogeda | Frontaliere Ticino',
     description: 'Due cittadini nigeriani fermati al valico di Chiasso-Brogeda con 2 kg di eroina e 3 kg di cocaina. Blocco traffico per 3 ore, indagini in corso. Cosa cambia per',
     keywords: 'frontalieri, ticino, svizzera, italia, nigeriani, arrestati, chiasso-brogeda, eroina',
-    ogTitle: 'Arresti al confine Ticino: 2 nigeriani fermati con 5 kg di',
+    ogTitle: 'Nigeriani arrestati a Chiasso-Brogeda con eroina e cocaina',
     ogDescription: 'Due cittadini nigeriani fermati a Chiasso-Brogeda con 5 kg di droga. Blocco traffico per 3 ore, indagini in corso. Impatto sui frontalieri e procedure di',
     canonicalPath: '/articoli-frontaliere/due-arresti-brogeda-smuggling-droga-2024/',
     structuredData: {
@@ -8502,7 +8502,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Svizzera-Canada: verso l’aggiornamento | Frontaliere Ticino',
     description: 'Modernizzazione dell’accordo di libero scambio tra Svizzera e Canada nel 2026. Doppia imposizione e agricoltura al centro delle trattative. Impatto per',
     keywords: 'frontalieri, ticino, svizzera, italia, svizzera-canada, verso, aggiornamento, dell',
-    ogTitle: 'Svizzera-Canada: accordo commerciale in modernizzazione nel',
+    ogTitle: 'Svizzera-Canada: verso l’aggiornamento dell’accordo commerciale nel segno dell’agricoltura',
     ogDescription: 'Modernizzazione dell’accordo di libero scambio tra Svizzera e Canada nel 2026. Doppia imposizione e agricoltura al centro delle trattative. Impatto per',
     canonicalPath: '/articoli-frontaliere/svizzera-canada-mercati-alternativi-trump/',
     structuredData: {
@@ -8723,7 +8723,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-varese-economia-frontalieri-ticino-2026': {
-    title: 'Varese economia in crescita: cosa | Frontaliere Ticino',
+    title: 'Varese economia in crescita: cosa cambia per i frontalieri ticinesi nel 2026',
     description: 'La provincia di Varese registra +3,2% di export nel 2024, ma giovani e transizione verde restano gli ostacoli principali. Analisi per i 68mila frontalieri ticin',
     keywords: 'frontalieri, ticino, svizzera, italia, varese, economia, crescita, cosa',
     ogTitle: 'Varese economia in crescita: cosa cambia per i frontalieri',
@@ -8835,7 +8835,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-radar-controlli-velocita-ticino-aprile-2026': {
-    title: 'Radar mobili in Ticino: dove e quando | Frontaliere Ticino',
+    title: 'Radar mobili in Ticino: dove e quando faranno più rumore ad aprile 2026',
     description: 'Controlli sulla velocità con radar mobili in 40 comuni del Cantone Ticino dal 16 aprile 2026. Elenco completo delle aree interessate e corpi di polizia coinvolt',
     keywords: 'frontalieri, ticino, svizzera, italia, radar, mobili, dove, quando',
     ogTitle: 'Radar mobili in Ticino: dove e quando faranno più rumore',
@@ -8891,7 +8891,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-malpensa-carburante-rischio-frontalieri-2026': {
-    title: 'Malpensa senza carburante: cosa | Frontaliere Ticino',
+    title: 'Malpensa senza carburante: cosa rischiano i frontalieri ticinesi',
     description: 'Malpensa dipende da due oleodotti per il Jet A-1. Una crisi energetica potrebbe cancellare voli e colpire 40mila lavoratori transfrontalieri. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, malpensa, senza, carburante, cosa',
     ogTitle: 'Malpensa senza carburante: cosa rischiano i frontalieri',
@@ -8978,7 +8978,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'PalaRaiffeisen a Lugano: porte aperte | Frontaliere Ticino',
     description: 'Scopri come visitare il cantiere del PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026. Programma, accesso e opportunità per',
     keywords: 'frontalieri, ticino, svizzera, italia, palaraiffeisen, lugano, porte, aperte',
-    ogTitle: 'PalaRaiffeisen a Lugano: porte aperte per la maxi-opera del',
+    ogTitle: 'PalaRaiffeisen a Lugano: porte aperte per scoprire la maxi-opera',
     ogDescription: 'Visita il cantiere del futuro PalaRaiffeisen a Lugano durante la giornata di porte aperte del 18 aprile 2026. Scopri programma, accesso e opportunità per',
     canonicalPath: '/articoli-frontaliere/palaraiffeisen-porta-aperte-lugano-2026/',
     structuredData: {
@@ -9124,7 +9124,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Coppa del Mondo di corsa d'orientamento 2026: Locarno e Ascona si preparano ad accogliere atleti e",
+      "headline": "Coppa del Mondo di corsa d'orientamento 2026: Locarno e Ascona in prima linea",
       "description": "Dal 24 al 26 aprile 2026 Locarno e Ascona ospiteranno la prima tappa della Coppa del Mondo di corsa d’orientamento 2026. 250 atleti da 30 Paesi, oltre 1’800",
       "image": {
         "@type": "ImageObject", "url": `${BASE_URL}/images/blog/coppa-del-mondo-orientamento-locarnese-2026-2.webp`,

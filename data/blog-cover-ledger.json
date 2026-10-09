@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-08",
+  "generatedAt": "2026-10-09",
   "source": {
     "gitCommit": "7c8bdf2de2cfb1e12b15db19ba8171a57162d8dd",
     "heroFiles": 6818,
@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5060
+      "6": 5132
     },
-    "publishedCovers": 6772,
+    "publishedCovers": 6844,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180146,6 +180146,1958 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
       "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-a9-chiusure-notturne-sion-sierre": {
+      "cover": "/images/blog/article-a9-chiusure-notturne-sion-sierre.webp",
+      "hash": "2582d856411f5ba2ac5bc9f829e9e0e62915c8907d0b38c0cd4d5724d2ea2ce2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "a8-manutenzione-cavalcavia-ottobre-2026",
+          "category": "pratico",
+          "date": "2026-10-09T09:14:11.744Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-acof-70-anni-premio-confindustria-varese": {
+      "cover": "/images/blog/article-acof-70-anni-premio-confindustria-varese.webp",
+      "hash": "a92d8762175b241e6422db1b55461c9321db8fbe7db8fc636aa4508d16703971",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "acof-70-anni-premio-confindustria-varese",
+          "category": "novita",
+          "date": "2026-10-09T08:04:40.702Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-aggressione-van-villa-olmo": {
+      "cover": "/images/blog/article-aggressione-van-villa-olmo.webp",
+      "hash": "9f7bb5b1422eb569aa812fdabca1e80bbf831f7996c1350a91f24cf2b9fe8f13",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "aggressione-van-villa-olmo",
+          "category": "novita",
+          "date": "2026-10-07T11:07:36.032Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ai-chip-scarzita-prezzi-pc": {
+      "cover": "/images/blog/article-ai-chip-scarzita-prezzi-pc.webp",
+      "hash": "a101db234e2ab4cc582f89c1be77cf6b752baa5c085a24b87ac2a9fa379ce118",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ai-chip-scarzita-prezzi-pc",
+          "category": "pratico",
+          "date": "2026-10-09T05:00:36.179Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-aperitivo-solidale-giubiasco": {
+      "cover": "/images/blog/article-aperitivo-solidale-giubiasco.webp",
+      "hash": "45a778fc0bde5946071a7ba676c93c22481925eae38ae21f014544a14bf854a6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "aperitivo-solidale-giubiasco",
+          "category": "novita",
+          "date": "2026-10-08T14:47:03.662Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-arresto-cocaina-massagno": {
+      "cover": "/images/blog/article-arresto-cocaina-massagno.webp",
+      "hash": "70b8f5da2122972ff9ca77c828c6db07f4deea53b2c6ce0e1b0d2a1fca6a54db",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "arresto-cocaina-massagno",
+          "category": "novita",
+          "date": "2026-10-09T09:51:04.114Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-attacco-publica-dati-rubati": {
+      "cover": "/images/blog/article-attacco-publica-dati-rubati.webp",
+      "hash": "f6e217bc04f4d1bbe7361dba30cabed9e02f95129070899ca01464c641640a6a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "attacco-publica-dati-rubati",
+          "category": "pensione",
+          "date": "2026-10-09T01:39:56.530Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-autotrasporto-rincari-confine-2026": {
+      "cover": "/images/blog/article-autotrasporto-rincari-confine-2026.webp",
+      "hash": "0e64bb0eb7011c1978c7fdf47cb2045a9bf835ce772329a5aefb05c9b4343f0b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "autotrasporto-rincari-confine-2026",
+          "category": "novita",
+          "date": "2026-03-08T10:57:24.335Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-bally-caslano-moratoria-tagli": {
+      "cover": "/images/blog/article-bally-caslano-moratoria-tagli.webp",
+      "hash": "67a2e1a734f6c9564f6124288372d2e484c95b467db64ea605719b2323023291",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bally-caslano-moratoria-tagli",
+          "category": "novita",
+          "date": "2026-10-08T08:40:15.825Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-bellinzona-nord-svincolo": {
+      "cover": "/images/blog/article-bellinzona-nord-svincolo.webp",
+      "hash": "a762fe49851b08c40c075c86cf09fd1705e5ed6f2319a4cf64d7fd3d10dd06e0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bellinzona-nord-svincolo",
+          "category": "pratico",
+          "date": "2026-10-08T10:36:56.122Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-biasca-17enne-arrestato-accoltellamento": {
+      "cover": "/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp",
+      "hash": "cbb4330ac1dff4099becf948d35004a5122410ad3dbf9c8549a9caa43bc2f6b3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "biasca-17enne-arrestato-accoltellamento",
+          "category": "novita",
+          "date": "2026-10-07T10:19:58.619Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-borse-musica-ticino-2026": {
+      "cover": "/images/blog/article-borse-musica-ticino-2026.webp",
+      "hash": "156ee987b31820cfcf1090fed13370b4d0750e196ead9d9882ebd1e509bf4727",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "borse-musica-ticino-2026",
+          "category": "novita",
+          "date": "2026-10-09T11:50:54.986Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-cancro-prostata-assistenza-svizzera": {
+      "cover": "/images/blog/article-cancro-prostata-assistenza-svizzera.webp",
+      "hash": "d55591845ab6255b4ca9e987686a09305cf152f5e518a9d93fe7f52cc14176a1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "cancro-prostata-assistenza-svizzera",
+          "category": "pratico",
+          "date": "2026-10-07T10:02:14.636Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-carburanti-rincari-confine-ticino": {
+      "cover": "/images/blog/article-carburanti-rincari-confine-ticino.webp",
+      "hash": "7288b36d5c29174ea8c123f82761f288251ffa52107d903f2ca266c45ca1fee4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "carburanti-rincari-confine-ticino",
+          "category": "novita",
+          "date": "2026-03-08T11:45:19.593Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-clan-nazarbayev-ceresio": {
+      "cover": "/images/blog/article-clan-nazarbayev-ceresio.webp",
+      "hash": "2695ab7f52160acca90367acab34cc9510048f60710a41faca983cf420d5d6e2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "luganistan-clan-ceresio",
+          "category": "novita",
+          "date": "2026-10-09T06:48:32.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        },
+        {
+          "section": "frontaliere",
+          "id": "clan-nazarbayev-ceresio",
+          "category": "novita",
+          "date": "2026-10-07T04:58:11.502Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-como-bocciato-piano-scuole": {
+      "cover": "/images/blog/article-como-bocciato-piano-scuole.webp",
+      "hash": "7aa687ac83ee9f4d4cf815758c53eb60367f021c100b13eb45f4ddc41866363a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "como-bocciato-piano-scuole",
+          "category": "novita",
+          "date": "2026-10-08T18:56:34.257Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-concerti-borgo-musicale": {
+      "cover": "/images/blog/article-concerti-borgo-musicale.webp",
+      "hash": "28b741b76f7720c50ed92d8c9c489ee29c957da11cc8da29703aab3e4560f76d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "concerti-borgo-musicale",
+          "category": "novita",
+          "date": "2026-10-09T02:51:10.022Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-confusione-tassa-salute-frontalieri": {
+      "cover": "/images/blog/article-confusione-tassa-salute-frontalieri.webp",
+      "hash": "ab6bd52827c0966fd3a57cfbd72632b9c7745e0907c387ef039d058b12607e6b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "confusione-tassa-salute-frontalieri",
+          "category": "fiscale",
+          "date": "2026-03-06T00:03:53.612Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-controlli-dogana-mendrisiotto": {
+      "cover": "/images/blog/article-controlli-dogana-mendrisiotto.webp",
+      "hash": "65b9f0395845eabccdff391523c36e27c030f70fab60166104c07a0fdd942692",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "controlli-dogana-mendrisiotto",
+          "category": "pratico",
+          "date": "2026-10-09T08:55:22.214Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-crescita-lavoro-intelligenza-artificiale": {
+      "cover": "/images/blog/article-crescita-lavoro-intelligenza-artificiale.webp",
+      "hash": "48b8f303524b17e3d4d968f7109e875515e4ba78dbe50ff7679ad47e5b073f6f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "crescita-lavoro-intelligenza-artificiale",
+          "category": "novita",
+          "date": "2026-10-08T09:17:54.239Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-elettrificazione-ferrovia-albate-molteno": {
+      "cover": "/images/blog/article-elettrificazione-ferrovia-albate-molteno.webp",
+      "hash": "af05bc9e9777bdb4134497a0b3c3de62dfbf3bd5430f1f6374a81b3a6e8e888c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "elettrificazione-ferrovia-albate-molteno",
+          "category": "novita",
+          "date": "2026-10-08T11:47:10.828Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ferrovia-albate-molteno-elettrificazione": {
+      "cover": "/images/blog/article-ferrovia-albate-molteno-elettrificazione.webp",
+      "hash": "32eb7ba9e8a5ea12b390d25aea4796afbbc721adc3ae8647c0956dcc5325752d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "ferrovia-albate-molteno-elettrificazione",
+          "category": "novita",
+          "date": "2026-10-08T11:59:50.384Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fibra-ottica-limiti-2028": {
+      "cover": "/images/blog/article-fibra-ottica-limiti-2028.webp",
+      "hash": "01c48ec627b21e0a7012a2e139b814d7cc0da3ea25213f327d0fa68ca4030e79",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fibra-ottica-limiti-2028",
+          "category": "novita",
+          "date": "2026-10-08T16:49:00.834Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fiducia-consumatori-svizzeri-settembre": {
+      "cover": "/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp",
+      "hash": "faba941bf5c30e07d515d32db5048511d98598ea9e468fe521fe0e3e315fab50",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fiducia-consumatori-svizzeri-settembre",
+          "category": "pratico",
+          "date": "2026-10-09T08:17:32.970Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-forniture-cemento-aumento-terzo-trimestre": {
+      "cover": "/images/blog/article-forniture-cemento-aumento-terzo-trimestre.webp",
+      "hash": "f87c76b0a95760b5ac49ebb5629c3cc7900e3a3c64ce1edf63d6f32f04525d0c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "forniture-cemento-aumento-terzo-trimestre",
+          "category": "novita",
+          "date": "2026-10-08T17:40:48.336Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-frankencoin-kraken-zchf": {
+      "cover": "/images/blog/article-frankencoin-kraken-zchf.webp",
+      "hash": "c004fe3fdfae2addf98ed60a1dcf6b996e7d1a4b79f41a97c01a44c02900b952",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "frankencoin-kraken-zchf",
+          "category": "novita",
+          "date": "2026-10-08T17:03:40.757Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fuga-dati-publica-cassa": {
+      "cover": "/images/blog/article-fuga-dati-publica-cassa.webp",
+      "hash": "efdb3aebba054e9f3f17b09be3ee03727f052756a23ee121d8f196cfe81a7b16",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fuga-dati-publica-cassa",
+          "category": "pensione",
+          "date": "2026-10-09T01:53:29.738Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-furti-statistica-svizzera-passaporto": {
+      "cover": "/images/blog/article-furti-statistica-svizzera-passaporto.webp",
+      "hash": "c699dc46c7a93184af79808e020a3304ea4d4320592c50d326052f21004a1f54",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "furti-statistica-svizzera-passaporto",
+          "category": "novita",
+          "date": "2026-10-09T06:26:39.528Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-guida-voto-cantonale-lucerna": {
+      "cover": "/images/blog/article-guida-voto-cantonale-lucerna.webp",
+      "hash": "998013d8180b197bfec9c6711502a788856c898a5c08eb4c7265e8e359962b54",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "guida-voto-cantonale-lucerna",
+          "category": "pratico",
+          "date": "2026-10-09T04:49:15.276Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ia-e-semiconduttori-trainano-commercio-omc-rivede-crescita": {
+      "cover": "/images/blog/article-ia-e-semiconduttori-trainano-commercio-omc-rivede-crescita.webp",
+      "hash": "57c953ca879125adc75027d09c2945eda07c8804f8a73d5901fbdbe62ecc3049",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ia-e-semiconduttori-trainano-commercio-omc-rivede-crescita",
+          "category": "novita",
+          "date": "2026-10-08T14:16:28.889Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-imposizione-individuale-ticino-2026": {
+      "cover": "/images/blog/article-imposizione-individuale-ticino-2026.webp",
+      "hash": "77565fc4b372cae738ac7edda2901a86fe6f4a4ab470e7d83b1b04861c59a413",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "imposizione-individuale-ticino-2026",
+          "category": "fiscale",
+          "date": "2026-03-08T15:03:13.485Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-incanto-brusimpiano-regina-acqua": {
+      "cover": "/images/blog/article-incanto-brusimpiano-regina-acqua.webp",
+      "hash": "ea9f8485ad4f77000bcacf2931b2f9a1ca44d1b085694107ceb78d62e64875f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incanto-brusimpiano-regina-acqua",
+          "category": "novita",
+          "date": "2026-10-08T16:20:12.652Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-incentivi-energetici-lucerna-requisiti": {
+      "cover": "/images/blog/article-incentivi-energetici-lucerna-requisiti.webp",
+      "hash": "2fba0c10d3caf4b3edfd46151f770231c07ca1015c9a92e8d3ee6f4bb09d8b74",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "incentivi-energetici-lucerna-requisiti",
+          "category": "pratico",
+          "date": "2026-10-08T04:06:47.790Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-incidente-a9-saronno-turate-code": {
+      "cover": "/images/blog/article-incidente-a9-saronno-turate-code.webp",
+      "hash": "3522dcd4ca09bbe07b74d755144e42fffde8206189d67a21df2f54b56208c033",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incidente-a9-saronno-turate-code",
+          "category": "pratico",
+          "date": "2026-10-09T10:34:07.641Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-incidenti-notte-varese": {
+      "cover": "/images/blog/article-incidenti-notte-varese.webp",
+      "hash": "f254d6c9b08574f1a66c28a9cfa9ba4845481837878865dc08930065fc4a01b6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "incidenti-notte-varese",
+          "category": "novita",
+          "date": "2026-10-09T02:15:06.042Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-karate-uisp-formazione-arcisate-2026": {
+      "cover": "/images/blog/article-karate-uisp-formazione-arcisate-2026.webp",
+      "hash": "6027a3a91fc0c5006e1dda4f11759fa93383312ab972cdc7f3ee4d46f3942a06",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "karate-uisp-formazione-arcisate-2026",
+          "category": "novita",
+          "date": "2026-10-09T04:02:21.429Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-kastritis-varese-momento-difficile": {
+      "cover": "/images/blog/article-kastritis-varese-momento-difficile.webp",
+      "hash": "b1139186242332341bfec8f2e635bb69e89caa0b40820789d110c4cc657b05bd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "kastritis-varese-momento-difficile",
+          "category": "novita",
+          "date": "2026-10-08T03:50:32.226Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lardi-dotlife-chiusura-alberghi-lugano": {
+      "cover": "/images/blog/article-lardi-dotlife-chiusura-alberghi-lugano.webp",
+      "hash": "fab4cf291f069c5e5e912de9a6386769dd6d6e3eff43ac94b98869f2bebdd68b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lardi-dotlife-chiusura-alberghi-lugano",
+          "category": "pratico",
+          "date": "2026-10-09T04:27:22.850Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-linea-ginevra-friburgo-pressione": {
+      "cover": "/images/blog/article-linea-ginevra-friburgo-pressione.webp",
+      "hash": "c71e573ad8b50dce339d29aed1c06b9ae7d63d7712561abc193b6a17f89ec89e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "linea-ginevra-friburgo-pressione",
+          "category": "novita",
+          "date": "2026-10-08T21:08:07.621Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lucerna-convocazioni-indennita": {
+      "cover": "/images/blog/article-lucerna-convocazioni-indennita.webp",
+      "hash": "e0299257d4c8bac43eddf18bcfc1e29c6142a99455d84d4652b0e33058823dc3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-convocazioni-indennita",
+          "category": "pratico",
+          "date": "2026-10-09T11:15:58.644Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lucerna-elezioni-calendario-voto": {
+      "cover": "/images/blog/article-lucerna-elezioni-calendario-voto.webp",
+      "hash": "cf643577c5c6301e20adaf343bdea1000155e5e52fa5b55428e1460a71c07c5a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-elezioni-calendario-voto",
+          "category": "pratico",
+          "date": "2026-10-09T08:38:24.657Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lugano-lucerna-partita-traffico": {
+      "cover": "/images/blog/article-lugano-lucerna-partita-traffico.webp",
+      "hash": "928c68171477c45c29b08c8808885533deec693200ddabd16aa335caad14d7f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lugano-lucerna-partita-traffico",
+          "category": "pratico",
+          "date": "2026-10-08T11:18:04.293Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-marchesi-mendrisiotto-priorita": {
+      "cover": "/images/blog/article-marchesi-mendrisiotto-priorita.webp",
+      "hash": "5aa5b688ed62e161c382639e14928b1768f7ac62ee744873bc013e43c313baba",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "marchesi-mendrisiotto-priorita",
+          "category": "novita",
+          "date": "2026-10-09T10:20:02.882Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-mendrisiotto-aziende-conciliabilita": {
+      "cover": "/images/blog/article-mendrisiotto-aziende-conciliabilita.webp",
+      "hash": "0971b80b860b688d4fa56486489f33a5e49629c16043fbcd712b31a6cf7f734a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mendrisiotto-aziende-conciliabilita",
+          "category": "novita",
+          "date": "2026-10-08T12:50:35.045Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-no-iniziativa-antidumping-ticino": {
+      "cover": "/images/blog/article-no-iniziativa-antidumping-ticino.webp",
+      "hash": "8a2fc5f389e84552ce47e9da1c3ce00c027415484b154e46fa8f47f70db01dff",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "no-iniziativa-antidumping-ticino",
+          "category": "novita",
+          "date": "2026-03-08T15:50:38.951Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-notte-bper-gallarate-bancomat": {
+      "cover": "/images/blog/article-notte-bper-gallarate-bancomat.webp",
+      "hash": "3a2d08a657b3aa12713840286a724b58826469425f4a15f4a367df1726d78285",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "notte-bper-gallarate-bancomat",
+          "category": "novita",
+          "date": "2026-10-07T12:19:46.838Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln": {
+      "cover": "/images/blog/article-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.webp",
+      "hash": "0fb67270c083c997d84c68609f161dee5ed268d6eb6179a9e60b75937432a67c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "operazione-hermes-frodi-iva-450-mln-sequestri-11-mln",
+          "category": "novita",
+          "date": "2026-10-08T07:59:56.704Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-pedemontana-falso-pedaggio-sms": {
+      "cover": "/images/blog/article-pedemontana-falso-pedaggio-sms.webp",
+      "hash": "82c7d678b4c6c987f486aa0d896485daa239285c6e8def273fb2f3e1ea727ec2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "pedemontana-falso-pedaggio-sms",
+          "category": "pratico",
+          "date": "2026-10-07T10:51:03.091Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-pedemontana-truffa-sms-frontalieri": {
+      "cover": "/images/blog/article-pedemontana-truffa-sms-frontalieri.webp",
+      "hash": "add8ad39673490576238065fde0b2c2ed50db4dd0964d970823dd0a2e61067e7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "pedemontana-truffa-sms-frontalieri",
+          "category": "pratico",
+          "date": "2026-10-07T10:36:08.818Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-permesso-edilizio-lucerna": {
+      "cover": "/images/blog/article-permesso-edilizio-lucerna.webp",
+      "hash": "c0441339d85ec92ece366e2e9f3f40c4580c93ae61605997aa4906556f981057",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "permesso-edilizio-lucerna",
+          "category": "pratico",
+          "date": "2026-10-09T03:07:26.294Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa": {
+      "cover": "/images/blog/article-porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa.webp",
+      "hash": "bbb7bd024955e6c06a6ba4c984e8f9fd5560b32be330dd17a80aa36cfbcebcd4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa",
+          "category": "novita",
+          "date": "2026-10-08T12:32:22.037Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-raiffeisen-pil-inflazione-2026": {
+      "cover": "/images/blog/article-raiffeisen-pil-inflazione-2026.webp",
+      "hash": "6258022ec4cecc7c1286c7a0828301169bd9fcf8fc0253b7849cefc1f955b52a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "raiffeisen-pil-inflazione-2026",
+          "category": "pratico",
+          "date": "2026-10-08T10:49:08.868Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-richemont-montblanc-tagli": {
+      "cover": "/images/blog/article-richemont-montblanc-tagli.webp",
+      "hash": "b2710abd6fcbf07e5328bc92567c1850c7aa2961a1d2d590f220a58aebde24ca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "richemont-montblanc-tagli",
+          "category": "novita",
+          "date": "2026-10-08T18:19:39.642Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-salari-svizzera-talenti-stranieri": {
+      "cover": "/images/blog/article-salari-svizzera-talenti-stranieri.webp",
+      "hash": "6a3da64fc7eeae332fc286b7f579bc033e731bbe1a10443e51e27b448dc3f1ac",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "salari-svizzera-talenti-stranieri",
+          "category": "pratico",
+          "date": "2026-10-08T12:19:10.033Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-salute-lavoro-progetti-ticino": {
+      "cover": "/images/blog/article-salute-lavoro-progetti-ticino.webp",
+      "hash": "c66401dd4c4e63c95c6e053bde8fa7bdcd2e5d18f2471ec997369baea5840584",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "salute-lavoro-progetti-ticino",
+          "category": "pratico",
+          "date": "2026-10-08T10:23:18.670Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-saronno-manifestazione-palestina-ottobre-2026": {
+      "cover": "/images/blog/article-saronno-manifestazione-palestina-ottobre-2026.webp",
+      "hash": "4d22697dc93adef8fe3367dd8f13a8aecde10a6738b2dff4143d9fa4f2e8f271",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "saronno-manifestazione-palestina-ottobre-2026",
+          "category": "novita",
+          "date": "2026-10-09T05:35:41.804Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-scambio-portieri-lugano-ginevra": {
+      "cover": "/images/blog/article-scambio-portieri-lugano-ginevra.webp",
+      "hash": "144b62c41a8f80d9151c76bf805218d00b5fdbaf676672cf469466accedd7430",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "scambio-portieri-lugano-ginevra",
+          "category": "novita",
+          "date": "2026-10-08T13:38:03.354Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-svizzera-leader-nella-robotica-217-aziende-e-7-000-posti": {
+      "cover": "/images/blog/article-svizzera-leader-nella-robotica-217-aziende-e-7-000-posti.webp",
+      "hash": "af65ee89322805797fb85e2b93e7d65d7c3607163d29c995a5aad92166063f5e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-leader-nella-robotica-217-aziende-e-7-000-posti",
+          "category": "novita",
+          "date": "2026-10-08T11:04:25.747Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-svizzera-soldi-delusione-lavoro": {
+      "cover": "/images/blog/article-svizzera-soldi-delusione-lavoro.webp",
+      "hash": "138e442466e2c64f3b49574c7ceb695ee1656ea52ec4d224c1e1d4c686a7f18b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-soldi-delusione-lavoro",
+          "category": "pratico",
+          "date": "2026-10-08T20:19:18.281Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-teatro-intred-varese-stagione-2026": {
+      "cover": "/images/blog/article-teatro-intred-varese-stagione-2026.webp",
+      "hash": "b7d561b51b9a9bb4c18511b1033c0efbfd4ded48ba2ccb607603aa7d8621c7fa",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "teatro-intred-varese-stagione-2026",
+          "category": "novita",
+          "date": "2026-10-09T01:29:12.556Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tf-nega-sconto-cassa-malati-padre-affidamento-alternato": {
+      "cover": "/images/blog/article-tf-nega-sconto-cassa-malati-padre-affidamento-alternato.webp",
+      "hash": "d35113e52841679c31e808c57e315542434b509ea5421884be47283a6db4b39d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tf-nega-sconto-cassa-malati-padre-affidamento-alternato",
+          "category": "novita",
+          "date": "2026-10-08T13:03:38.516Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tifosi-lucerna-lugano-traffico": {
+      "cover": "/images/blog/article-tifosi-lucerna-lugano-traffico.webp",
+      "hash": "424e6ee90170bbd7dcede0d5f4b7973d3439d8d0b54f17b4fc74211be484da9e",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "tifosi-lucerna-lugano-traffico",
+          "category": "pratico",
+          "date": "2026-10-08T11:31:48.408Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-trasporti-45-critiche-piano": {
+      "cover": "/images/blog/article-trasporti-45-critiche-piano.webp",
+      "hash": "46d6355cb86aa6de119c5156e1bb0f3efbf03d5250ba376009c1e9f175ecd160",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "trasporti-45-critiche-piano",
+          "category": "novita",
+          "date": "2026-10-09T10:55:13.917Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-treno-foliage-locarno-2026": {
+      "cover": "/images/blog/article-treno-foliage-locarno-2026.webp",
+      "hash": "70f0dc95d2c24ab7a1f81369f8e643397bd4852064235b83ad8fb16bc7d54c39",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "treno-foliage-locarno-2026",
+          "category": "novita",
+          "date": "2026-10-08T16:34:16.718Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-treno-foliage-locarno-domodossola": {
+      "cover": "/images/blog/article-treno-foliage-locarno-domodossola.webp",
+      "hash": "36f90e9c41662798f2bd665f9eb1ae652486164f2e840cc2720bac909ef7ec66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "treno-foliage-locarno-domodossola",
+          "category": "novita",
+          "date": "2026-10-07T09:13:12.596Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-trofeo-rodero-corsa-piede-oro": {
+      "cover": "/images/blog/article-trofeo-rodero-corsa-piede-oro.webp",
+      "hash": "0e7be7b33fb4c0d8a6f0bf48672f1dfea42b386134c08c2c0a3c4ec4b4cb5fbd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "trofeo-rodero-corsa-piede-oro",
+          "category": "novita",
+          "date": "2026-10-08T20:50:29.394Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-varese-india-export-2026": {
+      "cover": "/images/blog/article-varese-india-export-2026.webp",
+      "hash": "c9e36a4e3359fe95767adf229c0bbe5429711a06bc16b3e96d5d4d6622dbf663",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-india-export-2026",
+          "category": "novita",
+          "date": "2026-03-07T17:48:07.853Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-varese-oltre-400mila-euro-sottratti-da-due-badanti": {
+      "cover": "/images/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.webp",
+      "hash": "b5eadb10f4881936606310914594a440c8bb0d19bbfa2781db27cda78e8135f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-oltre-400mila-euro-sottratti-da-due-badanti",
+          "category": "novita",
+          "date": "2026-10-09T05:57:28.186Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-vbs-pink-cup-ragazze": {
+      "cover": "/images/blog/article-vbs-pink-cup-ragazze.webp",
+      "hash": "a3106137d564063016f29713170abe55f7d3e288ba5dfaecf6787faa8e5f523b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "vbs-pink-cup-ragazze",
+          "category": "novita",
+          "date": "2026-10-09T01:02:39.485Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-violazione-dati-publica-indagine": {
+      "cover": "/images/blog/article-violazione-dati-publica-indagine.webp",
+      "hash": "651dfb2e566dbf0f055d483504997c15ce2f0095d8df6a7df65f06c98a0a291c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "violazione-dati-publica-indagine",
+          "category": "pensione",
+          "date": "2026-10-08T08:15:35.145Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-votazioni-imposizione-ticino-2026": {
+      "cover": "/images/blog/article-votazioni-imposizione-ticino-2026.webp",
+      "hash": "e4ee261c97f12f717ca82bb6336cb0e99c8fe19f0343b21aa6c883fcde6e2bfd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "votazioni-imposizione-ticino-2026",
+          "category": "fiscale",
+          "date": "2026-03-08T13:59:41.134Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1773,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "bollettino-frontaliere-2026-10-08": {
+      "cover": "/images/blog/bollettino-frontaliere-2026-10-08.webp",
+      "hash": "55f1f10f7266d1599b36f2be5ce0e23596e3d264bede5d1c8c2b8f5f050b99cc",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-10-08",
+          "category": "novita",
+          "date": "2026-10-08T11:52:55.900Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
