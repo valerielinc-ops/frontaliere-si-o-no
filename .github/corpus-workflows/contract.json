@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "36fa9b20178e963584ec2354bd0da36b507346d7",
+  "sourceCommit": "004962f3c9b3313ee9058716a9aef2e1359927b6",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "36fa9b20178e963584ec2354bd0da36b507346d7"
+    "sourceCommit": "004962f3c9b3313ee9058716a9aef2e1359927b6"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 623,
+  "crawlerCount": 624,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:74ac58984cda44b0c30573df3a13e0bfca2d49619177e36f9ceabf1ad81d0b8a",
+    "rosterDigest": "sha256:12aa398fe2d5321db3b349699aec70d8efc39f7d2ea78103e7a9486dad4c78e8",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -407,6 +407,7 @@
     "scripts/update-pdag-jobs.mjs",
     "scripts/update-pdgr-jobs.mjs",
     "scripts/update-pfister-jobs.mjs",
+    "scripts/update-pianorm-jobs.mjs",
     "scripts/update-pictet-jobs.mjs",
     "scripts/update-pigna-jobs.mjs",
     "scripts/update-planzer-jobs.mjs",
@@ -1443,8 +1444,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "4daa7f02515e7cf1e05e82f9ed0045f5e2b33c5e78e442b7ea2a051535721c9c",
-      "artifactSha256": "8b8c71e0045154212dfede9e4b0a7f56ff7091ceb70ef85d50bd1b4d9642620e",
+      "sourceSha256": "5d4e50203df8dd56b1d83b5351661f0850372efa30f5e572e9017faaae843ad0",
+      "artifactSha256": "95ee69a5edbcce8f8df8d20cc42ccce573d2db6649ad491884204a32dc49412e",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "albergo-gardenia",
@@ -1470,7 +1471,8 @@
         "postauto",
         "pantr-ch",
         "confederazione",
-        "mediamarkt"
+        "mediamarkt",
+        "pianorm"
       ]
     },
     {
