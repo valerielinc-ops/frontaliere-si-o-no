@@ -370,7 +370,7 @@ export function extractFieldsInPage() {
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
   const buttons = [...document.querySelectorAll(BUTTONS)]
     .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
-      && (element.tagName !== 'A' || actionLink(element)))
+      && (element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element)))
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),
