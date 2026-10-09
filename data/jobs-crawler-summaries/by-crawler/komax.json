@@ -1,7 +1,7 @@
 {
   "key": "komax",
   "label": "Komax",
-  "generatedAt": "2026-10-09T10:41:26.904Z",
+  "generatedAt": "2026-10-09T11:27:46.239Z",
   "total": 10,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3421,
-  "avgDurationMs": 3421,
+  "durationMs": 4474,
+  "avgDurationMs": 4474,
   "durationHistory": [
-    3421
+    4474
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Development-Engineer-Electronics-with-EMV-lead-6036/1165138355/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.804Z",
+      "crawledAt": "2026-10-09T11:27:28.187Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -78,7 +78,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Sales-Switzerland-Technical-Sales-Engineer-%28wmd%29-6036/1165252555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.803Z",
+      "crawledAt": "2026-10-09T11:27:28.186Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -124,7 +124,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Facility-Manager-%28wmd%29-6036/1165472855/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.804Z",
+      "crawledAt": "2026-10-09T11:27:28.188Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -171,7 +171,7 @@
       "url": "https://jobs.komaxgroup.com/job/Thun-Technical-Service-Support-80-100-%28mw%29-3608/1165469655/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.802Z",
+      "crawledAt": "2026-10-09T11:27:28.184Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -311,7 +311,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-2027-6036/1164647755/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.805Z",
+      "crawledAt": "2026-10-09T11:27:28.189Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -354,7 +354,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lehrstelle-Logistikerin-EFZ-2027-6036/1164647555/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T10:41:17.804Z",
+      "crawledAt": "2026-10-09T11:27:28.188Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -397,7 +397,7 @@
       "url": "https://jobs.komaxgroup.com/job/Dierikon-Lead-Group-IT-Service-Desk-%28wmd%29-6036/1165481155/",
       "source": "Komax Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T10:41:17.803Z",
+      "crawledAt": "2026-10-09T11:27:28.187Z",
       "addressLocality": "Dierikon",
       "addressRegion": "LU",
       "streetAddress": "Industriestrasse 6",
@@ -477,5 +477,5 @@
       }
     }
   ],
-  "codeCommit": "df8cc67869138da0128251c013a7aef902b28d97"
+  "codeCommit": "56508c1f85b8c3bf231960f34f6eeaad428412e7"
 }

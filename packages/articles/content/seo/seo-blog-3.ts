@@ -1437,7 +1437,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  },
 
  'blog-ora-legale-permanente-ticino': {
- title: 'Ora legale permanente in Ticino: cosa | Frontaliere Ticino',
+ title: 'Ora legale permanente in Ticino: cosa cambia | Frontaliere Ticino',
  description: 'In Italia si avvia un\'indagine per mantenere l\'ora legale tutto l\'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.',
  keywords: 'frontalieri, ticino, svizzera, italia, legale, permanente, cosa, cambia',
  ogTitle: 'Ora legale permanente in Ticino: cosa cambia',
@@ -1534,7 +1534,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "{ \"@context\": \"https://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Furti in calo del 5,9% nel",
+ "headline": "Furti in calo del 5,9% nel 2025: il Canton Ticino più sicuro per i frontalieri",
  "description": "Il Canton Ticino registra -5,9% di furti nel 2025, -29% in abitazione. Scopri le implicazioni fiscali e le misure anti‑furto per i frontalieri. Dati aggiornati",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/crescita-sicurezza-ticino-2025.webp`,
