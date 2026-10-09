@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-09T09:18:14.599Z",
+  "assembledAt": "2026-10-09T21:16:13.267Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.288Z",
+      "crawledAt": "2026-10-09T21:16:06.927Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -64,81 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.239Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.287Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -184,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.286Z",
+      "crawledAt": "2026-10-09T21:16:06.926Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -214,6 +139,81 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.237Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-09T21:16:06.924Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -259,7 +259,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.285Z",
+      "crawledAt": "2026-10-09T21:16:06.923Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -304,6 +304,82 @@
       }
     },
     {
+      "id": "talan-2e087420bea1",
+      "slug": "net-api-sviluppatore-talan-geneve",
+      "slugByLocale": {
+        "it": "net-api-sviluppatore-talan-geneve",
+        "en": "net-api-developer-talan-geneve",
+        "de": "net-api-entwickler-talan-geneve",
+        "fr": "developpeur-net-api-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Développeur .Net API",
+      "titleByLocale": {
+        "it": ".Net API Sviluppatore",
+        "en": ".Net API Developer",
+        "de": ".Net API Entwickler",
+        "fr": "Développeur .Net API"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\n Vous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\n Principales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes.",
+      "descriptionByLocale": {
+        "it": "Come parte del team di sviluppo digitale, sarete coinvolti nello sviluppo di una API Web per la gestione della ricchezza per utenti sia interni che esterni.\nSarete anche responsabili del ciclo di vita delle applicazioni, della definizione delle esigenze fino alla produzione, e del livello da 1 a 3 supporto.\nPrincipali responsabilità\n\n• Fornire progetti nel tempo, con il livello atteso di qualità e costi, in conformità con gli standard.\n\n• Fornire supporto di applicazione livello 2 e 3.\n\n• Partecipa attivamente alla progettazione dell'architettura tecnica.\n\n• Condurre valutazioni di impatto approfondite nella vostra area di competenza.\n\n• Partecipa alla definizione e all'attuazione della strategia di test.\n\nProfilo ricercato\n\n• Forte esperienza nell'architettura .NET / C#, Web API e Microservices.\n\n• Ottimo controllo degli standard e dei modelli REST.\n\n• Esperienza con ambienti Docker, Kubernetes e DevSecOps: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery di strumenti IC/CD e Azure DevOps, Git e SonarQube.\n\n• Esperienza in Windows Server / Gestione IIS.\n\n• Buona conoscenza della sicurezza API e della riservatezza dei dati.\n\n• Conoscenza di MS SQL Server apprezzato.\n\n• Esperienza con Vue.js, Angular o React apprezzato.\n\n• Conoscenza dell'area Private Banking / Wealth Management apprezzato.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube e SQL Management Studio strumenti.\n\n• Francese comune e inglese.\n\n• Profilo autocontenuto, strutturato, affidabile e orientato al cliente con un buon spirito di squadra.\n\n• Iniziativa, responsabilità, diplomazia e capacità di proporre soluzioni concrete.",
+        "en": "As part of the Digital Development team, you will be involved in the development of a Web API for Wealth Management for both internal and external users.\nYou will also be responsible for the life cycle of the applications, the definition of needs up to production, and the level 1 to 3 support.\nMain responsibilities\n\n• Deliver projects on time, with the expected level of quality and cost, in accordance with standards.\n\n• Provide level 2 and 3 application support.\n\n• Actively participate in the design of technical architecture.\n\n• Conduct in-depth impact assessments in your area of expertise.\n\n• Participate in the definition and implementation of the test strategy.\n\nProfile sought\n\n• Strong experience in .NET / C#, Web API and Microservices architecture.\n\n• Very good control of REST standards and patterns.\n\n• Experience with Docker, Kubernetes and DevSecOps environments: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery of IC/CD and Azure DevOps, Git and SonarQube tools.\n\n• Experience in Windows Server / IIS administration.\n\n• Good knowledge of API security and data confidentiality.\n\n• Knowledge of MS SQL Server appreciated.\n\n• Experience with Vue.js, Angular or React appreciated.\n\n• Knowledge of the area Private Banking / Wealth Management appreciated.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube and SQL Management Studio tools.\n\n• Common French and English.\n\n• Self-contained, structured, reliable and customer-oriented profile with a good team spirit.\n\n• Initiative, responsibility, diplomacy and the ability to propose concrete solutions.",
+        "de": "Als Teil des Digital Development Teams sind Sie an der Entwicklung einer Web API für Wealth Management für interne und externe Benutzer beteiligt.\nSie sind auch für den Lebenszyklus der Anwendungen, die Definition des Bedarfs bis zur Produktion und den Support der Stufen 1 bis 3 verantwortlich.\nHauptzuständigkeiten\n\n• Liefern Sie Projekte rechtzeitig, mit dem erwarteten Qualitäts- und Kostenniveau, in Übereinstimmung mit Standards.\n\n• Bereitstellung von Level 2 und 3 Anwendungsunterstützung.\n\n• Beteiligen Sie sich aktiv an der Gestaltung technischer Architektur.\n\n• Führen Sie eingehende Folgenabschätzungen in Ihrem Fachgebiet durch.\n\n• Beteiligen Sie sich an der Definition und Umsetzung der Teststrategie.\n\nProfil gesucht\n\n• Starke Erfahrung in .NET / C#, Web API und Microservices-Architektur.\n\n• Sehr gute Kontrolle der REST-Standards und -Muster.\n\n• Erfahrung mit Docker, Kubernetes und DevSecOps-Umgebungen: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Beherrschung von IC/CD und Azure DevOps, Git und SonarQube Tools.\n\n• Erfahrung in Windows Server / IIS Administration.\n\n• Gute Kenntnisse der API-Sicherheit und Datengeheimnisse.\n\n• Kenntnisse von MS SQL Server geschätzt.\n\n• Erfahrung mit Vue.js, Angular oder React geschätzt.\n\n• Kenntnisse im Bereich Private Banking / Wealth Management geschätzt.\n\n• Beherrschung von Visual Studio, VS Code, Azure DevOps, SonarQube und SQL Management Studio Tools.\n\n• Gemeinsames Französisch und Englisch.\n\n• In sich geschlossenes, strukturiertes, zuverlässiges und kundenorientiertes Profil mit gutem Teamgeist.\n\n• Initiative, Verantwortung, Diplomatie und die Fähigkeit, konkrete Lösungen vorzuschlagen.",
+        "fr": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\nVous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\nPrincipales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-09T21:16:06.922Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-21T14:16:13.715Z",
+      "postedDate": "2026-08-21T14:16:13.715Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
+      "jobReqId": "744000144777899",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "developpeur-net-api-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developpeur-net-api-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.484Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-338bfd5acd78",
       "slug": "business-analyst-core-banking-talan-geneve",
       "slugByLocale": {
@@ -335,7 +411,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.284Z",
+      "crawledAt": "2026-10-09T21:16:06.920Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -410,7 +486,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.283Z",
+      "crawledAt": "2026-10-09T21:16:06.919Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -440,82 +516,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-2e087420bea1",
-      "slug": "net-api-sviluppatore-talan-geneve",
-      "slugByLocale": {
-        "it": "net-api-sviluppatore-talan-geneve",
-        "en": "net-api-developer-talan-geneve",
-        "de": "net-api-entwickler-talan-geneve",
-        "fr": "developpeur-net-api-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Développeur .Net API",
-      "titleByLocale": {
-        "it": ".Net API Sviluppatore",
-        "en": ".Net API Developer",
-        "de": ".Net API Entwickler",
-        "fr": "Développeur .Net API"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\n Vous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\n Principales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes.",
-      "descriptionByLocale": {
-        "it": "Come parte del team di sviluppo digitale, sarete coinvolti nello sviluppo di una API Web per la gestione della ricchezza per utenti sia interni che esterni.\nSarete anche responsabili del ciclo di vita delle applicazioni, della definizione delle esigenze fino alla produzione, e del livello da 1 a 3 supporto.\nPrincipali responsabilità\n\n• Fornire progetti nel tempo, con il livello atteso di qualità e costi, in conformità con gli standard.\n\n• Fornire supporto di applicazione livello 2 e 3.\n\n• Partecipa attivamente alla progettazione dell'architettura tecnica.\n\n• Condurre valutazioni di impatto approfondite nella vostra area di competenza.\n\n• Partecipa alla definizione e all'attuazione della strategia di test.\n\nProfilo ricercato\n\n• Forte esperienza nell'architettura .NET / C#, Web API e Microservices.\n\n• Ottimo controllo degli standard e dei modelli REST.\n\n• Esperienza con ambienti Docker, Kubernetes e DevSecOps: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery di strumenti IC/CD e Azure DevOps, Git e SonarQube.\n\n• Esperienza in Windows Server / Gestione IIS.\n\n• Buona conoscenza della sicurezza API e della riservatezza dei dati.\n\n• Conoscenza di MS SQL Server apprezzato.\n\n• Esperienza con Vue.js, Angular o React apprezzato.\n\n• Conoscenza dell'area Private Banking / Wealth Management apprezzato.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube e SQL Management Studio strumenti.\n\n• Francese comune e inglese.\n\n• Profilo autocontenuto, strutturato, affidabile e orientato al cliente con un buon spirito di squadra.\n\n• Iniziativa, responsabilità, diplomazia e capacità di proporre soluzioni concrete.",
-        "en": "As part of the Digital Development team, you will be involved in the development of a Web API for Wealth Management for both internal and external users.\nYou will also be responsible for the life cycle of the applications, the definition of needs up to production, and the level 1 to 3 support.\nMain responsibilities\n\n• Deliver projects on time, with the expected level of quality and cost, in accordance with standards.\n\n• Provide level 2 and 3 application support.\n\n• Actively participate in the design of technical architecture.\n\n• Conduct in-depth impact assessments in your area of expertise.\n\n• Participate in the definition and implementation of the test strategy.\n\nProfile sought\n\n• Strong experience in .NET / C#, Web API and Microservices architecture.\n\n• Very good control of REST standards and patterns.\n\n• Experience with Docker, Kubernetes and DevSecOps environments: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Mastery of IC/CD and Azure DevOps, Git and SonarQube tools.\n\n• Experience in Windows Server / IIS administration.\n\n• Good knowledge of API security and data confidentiality.\n\n• Knowledge of MS SQL Server appreciated.\n\n• Experience with Vue.js, Angular or React appreciated.\n\n• Knowledge of the area Private Banking / Wealth Management appreciated.\n\n• Mastery of Visual Studio, VS Code, Azure DevOps, SonarQube and SQL Management Studio tools.\n\n• Common French and English.\n\n• Self-contained, structured, reliable and customer-oriented profile with a good team spirit.\n\n• Initiative, responsibility, diplomacy and the ability to propose concrete solutions.",
-        "de": "Als Teil des Digital Development Teams sind Sie an der Entwicklung einer Web API für Wealth Management für interne und externe Benutzer beteiligt.\nSie sind auch für den Lebenszyklus der Anwendungen, die Definition des Bedarfs bis zur Produktion und den Support der Stufen 1 bis 3 verantwortlich.\nHauptzuständigkeiten\n\n• Liefern Sie Projekte rechtzeitig, mit dem erwarteten Qualitäts- und Kostenniveau, in Übereinstimmung mit Standards.\n\n• Bereitstellung von Level 2 und 3 Anwendungsunterstützung.\n\n• Beteiligen Sie sich aktiv an der Gestaltung technischer Architektur.\n\n• Führen Sie eingehende Folgenabschätzungen in Ihrem Fachgebiet durch.\n\n• Beteiligen Sie sich an der Definition und Umsetzung der Teststrategie.\n\nProfil gesucht\n\n• Starke Erfahrung in .NET / C#, Web API und Microservices-Architektur.\n\n• Sehr gute Kontrolle der REST-Standards und -Muster.\n\n• Erfahrung mit Docker, Kubernetes und DevSecOps-Umgebungen: Helm, Kustomize, ArgoCD, OpenShift.\n\n• Beherrschung von IC/CD und Azure DevOps, Git und SonarQube Tools.\n\n• Erfahrung in Windows Server / IIS Administration.\n\n• Gute Kenntnisse der API-Sicherheit und Datengeheimnisse.\n\n• Kenntnisse von MS SQL Server geschätzt.\n\n• Erfahrung mit Vue.js, Angular oder React geschätzt.\n\n• Kenntnisse im Bereich Private Banking / Wealth Management geschätzt.\n\n• Beherrschung von Visual Studio, VS Code, Azure DevOps, SonarQube und SQL Management Studio Tools.\n\n• Gemeinsames Französisch und Englisch.\n\n• In sich geschlossenes, strukturiertes, zuverlässiges und kundenorientiertes Profil mit gutem Teamgeist.\n\n• Initiative, Verantwortung, Diplomatie und die Fähigkeit, konkrete Lösungen vorzuschlagen.",
-        "fr": "Au sein de l’équipe Digital Development, vous participerez au développement d’API Web pour le Wealth Management, destinées aux utilisateurs internes et aux clients externes.\nVous serez également responsable du cycle de vie des applications, de la définition des besoins jusqu’à la mise en production, ainsi que du support de niveau 1 à 3.\nPrincipales responsabilités\n\n• Livrer les projets dans les délais, avec le niveau de qualité et de coûts attendu, conformément aux standards.\n\n• Assurer le support applicatif de niveau 2 et 3.\n\n• Participer activement à la conception de l’architecture technique.\n\n• Réaliser des analyses d’impact approfondies dans votre domaine d’expertise.\n\n• Participer à la définition et à l’exécution de la stratégie de tests.\n\nProfil recherché\n\n• Solide expérience en .NET / C#, Web API et architecture Microservices.\n\n• Très bonne maîtrise des standards et patterns REST.\n\n• Expérience avec Docker, Kubernetes et les environnements DevSecOps : Helm, Kustomize, ArgoCD, OpenShift.\n\n• Maîtrise du CI/CD et des outils Azure DevOps, Git et SonarQube.\n\n• Expérience en administration Windows Server / IIS.\n\n• Bonnes connaissances en sécurité des API et confidentialité des données.\n\n• Connaissance de MS SQL Server appréciée.\n\n• Expérience avec Vue.js, Angular ou React appréciée.\n\n• Connaissance du domaine Private Banking / Wealth Management appréciée.\n\n• Maîtrise des outils Visual Studio, VS Code, Azure DevOps, SonarQube et SQL Management Studio.\n\n• Français et anglais courants.\n\n• Profil autonome, structuré, fiable et orienté client, avec un bon esprit d’équipe.\n\n• Esprit d’initiative, sens des responsabilités, diplomatie et capacité à proposer des solutions concrètes."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.282Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-21T14:16:13.715Z",
-      "postedDate": "2026-08-21T14:16:13.715Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
-      "jobReqId": "744000144777899",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "developpeur-net-api-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "developpeur-net-api-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.484Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -562,7 +562,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.281Z",
+      "crawledAt": "2026-10-09T21:16:06.918Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -610,6 +610,81 @@
       }
     },
     {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant SAP CRM Expert M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-09T21:16:06.917Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-827097ba6739",
       "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
       "slugByLocale": {
@@ -640,7 +715,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.280Z",
+      "crawledAt": "2026-10-09T21:16:06.916Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -729,7 +804,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.278Z",
+      "crawledAt": "2026-10-09T21:16:06.913Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -790,81 +865,6 @@
       }
     },
     {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant SAP CRM Expert M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.277Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -896,7 +896,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:18:09.273Z",
+      "crawledAt": "2026-10-09T21:16:06.912Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -953,6 +953,146 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "talan-031a85eb2771",
+      "slug": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+      "slugByLocale": {
+        "fr": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "it": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "en": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "de": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Agentic SDLC Transformation Lead",
+      "titleByLocale": {
+        "fr": "Agentic SDLC Transformation Lead",
+        "en": "Agentic SDLC Transformation Lead",
+        "it": "Agentic SDLC Transformation Lead",
+        "de": "Agentic SDLC Transformation Lead"
+      },
+      "description": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+      "descriptionByLocale": {
+        "fr": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+        "it": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+        "en": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables.",
+        "de": "Contexte & Enjeux\n Vous pilotez la mutation du cycle de vie de développement logiciel (SDLC) vers un modèle industriel augmenté par l'Intelligence Artificielle (AI-Driven / Agentic SDLC).\n Votre rôle est d'orchestrer et d'inscrire dans la durée une transformation des pratiques d'ingénierie. L'objectif : structurer un cadre méthodologique moderne où les développeurs et les agents IA collaborent de manière fluide, sécurisée et gouvernée, afin d'accélérer la vitesse de delivery tout en élevant les standards de qualité logicielle.\n Positionné(e) en véritable Leader de la Transformation Tech & Change , vous faites le pont entre la vision stratégique, l'acculturation des équipes et l'implémentation technique concrète sur le terrain ( hands-on ).\n Missions Principales\n Structuration du Cadre Méthodologique (AI-SDLC)\n\n• Définir et déployer la trame d'ingénierie augmentée couvrant l'intégralité du cycle de vie :\n• Exploration et cartographie automatisée du patrimoine applicatif existant.\n\n• Formalisation des spécifications pilotées par l'IA ( Specification-Driven Development ).\n\n• Design d'architecture et développement guidés par des agents spécialisés.\n\n• Automatisation avancée des recettes, tests d'acceptation et contrôle qualité.\n\n• Documentation dynamique et gestion de la connaissance ( Knowledge Management ).\n\n• Établir les normes et règles de gouvernance pour garantir la traçabilité, la répétabilité, la sécurité et la scalabilité des livrables.\n Architecture & Orchestration des Agents\n\n• Modéliser un écosystème d'agents virtuels autonomes et collaboratifs adaptés aux enjeux des équipes de dev.\n\n• Structurer les rôles, les contextes et les bases de connaissances manipulés par les agents à chaque étape du cycle.\n\n• Mettre en place les mécanismes d'orchestration, les boucles de contrôle humain ( Human-in-the-loop ) et les passages de relais ( handoffs ) inter-étapes.\n\n• Cadrer le pilotage financier de la consommation des modèles et la gestion des tokens (TokenOps).\n Conduite du Changement & Adoption à l'Échelle\n\n• Incarner la posture CTO pour acculturer, convaincre et fédérer les équipes d'ingénierie autour des nouvelles pratiques.\n\n• Concevoir des démonstrateurs, POCs et cas d'usage à fort impact pour prouver la valeur sur le terrain.\n\n• Déployer le framework auprès d'équipes pilotes, puis structurer sa généralisation à l'échelle (création d'un socle de composants réutilisables, templates, répertoires de référence).\n\n• Identifier et lever les freins organisationnels, techniques ou culturels liés à l'adoption de l'IA.\n\nParcours & Expérience\n\n• 10+ ans d'expérience globale en ingénierie logicielle, architecture de systèmes ou direction technique (SVP/VP Engineering, CTO organisation, Head of Tech).\n\n• Expérience confirmée dans le pilotage de transformations d'ingénierie à grande échelle (déploiement de pratiques DevOps, Platform Engineering ou Agilité à l'échelle).\n\n• Pratique concrète ( Hands-on ) et maîtrise des technologies de l'IA Générative appliquées au développement informatique.\n Compétences Techniques Clés\n\n• Architecture & Ingénierie : Architecture logicielle, SDLC, DevOps, CI/CD, automatisation des tests.\n\n• IA Générative & Agents : LLMs (intégration, limites), systèmes multi-agents / agents autonomes, RAG ( Retrieval-Augmented Generation ), Prompt Engineering , Context Engineering .\n\n• Gouvernance Tech : TokenOps, FinOps IA, qualité et sécurité du code généré.\n Soft Skills & Leadership\n\n• Posture CTO & Vision stratégique : Capacité à challenger le statu quo, structurer une vision technique et la décliner de manière opérationnelle.\n\n• Leadership & Conduite du Changement : Excellent communicant, capable d'embarquer des développeurs seniors comme des décideurs, d'animer des communautés et de faire sauter les verrous d'adoption.\n\n• Esprit d'innovation & Pragmatisme : Orienté résultats, avec une volonté forte de convertir des prototypes en capacités industrielles répétables."
+      },
+      "needsRetranslation": true,
+      "location": "Meyrin, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-09T21:16:06.909Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "postalCode": "1217",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09T15:28:40.374Z",
+      "postedDate": "2026-10-09T15:28:40.374Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
+      "jobReqId": "744000154716380",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-09T21:16:06.909Z"
+    },
+    {
+      "id": "talan-bd30b6af0bc5",
+      "slug": "lead-business-analyst-talan-lausanne-switzerland",
+      "slugByLocale": {
+        "fr": "lead-business-analyst-talan-lausanne-switzerland",
+        "it": "lead-business-analyst-talan-lausanne-switzerland",
+        "en": "lead-business-analyst-talan-lausanne-switzerland",
+        "de": "lead-business-analyst-talan-lausanne-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Lead Business Analyst",
+      "titleByLocale": {
+        "fr": "Lead Business Analyste",
+        "en": "Lead Business Analyst",
+        "it": "Lead Business Analista",
+        "de": "Lead Business Analyst"
+      },
+      "description": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
+      "descriptionByLocale": {
+        "fr": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
+        "it": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
+        "en": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse.",
+        "de": "Dans le cadre de l’évolution de ses solutions digitales et du développement de nouvelles offres dans le domaine de l’assurance et de la prévoyance, notre client recherche un Lead Business Analyst senior pour renforcer ses équipes.\n Vous rejoindrez une équipe pluridisciplinaire composée de Business Analysts et de développeurs.\n Leadership et accompagnement en Business Analyse\n\n• Définir, structurer et faire évoluer les méthodes, standards et livrables de Business Analyse.\n\n• Accompagner les Business Analysts dans leurs activités à travers du coaching, des revues d’analyses et le partage de bonnes pratiques.\n\n• Garantir la qualité, la cohérence et l’exhaustivité des analyses produites.\n\n• Coordonner les travaux nécessitant l’intervention de plusieurs Business Analysts.\n Analyse métier et fonctionnelle\n\n• Recueillir, analyser et formaliser les besoins des parties prenantes.\n\n• Traduire les besoins métier en exigences fonctionnelles, epics, user stories et critères d’acceptation.\n\n• Collaborer étroitement avec les équipes de développement afin de garantir la bonne compréhension des besoins.\n\n• Participer aux cérémonies Agile et contribuer à l’amélioration continue des pratiques.\n\n• Préparer et réaliser les tests fonctionnels, assurer le suivi des anomalies et accompagner les utilisateurs lors des phases de recette et de déploiement.\n\n• Plus de 8 ans d’expérience en Business Analyse, avec une expérience confirmée en tant que Lead BA ou référent méthodologique.\n\n• Expertise en coaching de Business Analysts et en définition de standards et bonnes pratiques.\n\n• Maîtrise de l’analyse fonctionnelle, des API et des problématiques d’intégration.\n\n• Excellente connaissance des méthodologies Agile/Scrum, de Jira et Confluence.\n\n• Leadership, esprit critique, autonomie et excellentes capacités d’analyse et de synthèse.\n\n• Langues: Français courant + Anglais B2 minimum.\n Atouts\n\n• Expérience dans l’assurance, idéalement en prévoyance et sur des parcours de souscription digitaux.\n\n• Connaissance des environnements Java/Angular.\n\n• Certification en Business Analyse."
+      },
+      "needsRetranslation": true,
+      "location": "Lausanne, , Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000154704665-lead-business-analyst?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-09T21:16:06.901Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09T14:56:06.901Z",
+      "postedDate": "2026-10-09T14:56:06.901Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000154704665-lead-business-analyst?oga=true",
+      "jobReqId": "744000154704665",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-09T21:16:06.901Z"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "vitrea-gesundheit",
   "label": "Vitrea Gesundheit",
-  "generatedAt": "2026-10-09T09:16:05.512Z",
+  "generatedAt": "2026-10-09T21:15:13.227Z",
   "total": 9,
   "discovered": null,
   "parsed": 10,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 23916,
-  "avgDurationMs": 23916,
+  "durationMs": 19249,
+  "avgDurationMs": 19249,
   "durationHistory": [
-    23916
+    19249
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xl3x9z6odsjdrk5c4zhrkgog2bpl4ht",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:51.310Z",
+      "crawledAt": "2026-10-09T21:14:59.398Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/g8v0il8oipya608e4bte80w18xfprka",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:37.303Z",
+      "crawledAt": "2026-10-09T21:14:48.725Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/brkgvysb4a53v5zkwjdcjsaw12jdysl",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:49.610Z",
+      "crawledAt": "2026-10-09T21:14:58.071Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/c48uti0b64j3gad98iei2te8065oe57",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:47.980Z",
+      "crawledAt": "2026-10-09T21:14:56.839Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/u3g8va7swsilkkd10kjbyscifdv0wnz",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:46.030Z",
+      "crawledAt": "2026-10-09T21:14:55.259Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/e5liern2i2zwwdfnr9m371liakiryij",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:44.439Z",
+      "crawledAt": "2026-10-09T21:14:54.039Z",
       "addressLocality": "Tschugg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ks8i9b3a0udcyofe7etwpuo5iq3fjcu",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:42.468Z",
+      "crawledAt": "2026-10-09T21:14:53.044Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/2gfadtqulq33v25vz23ta6othjuh304",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:41.312Z",
+      "crawledAt": "2026-10-09T21:14:51.785Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -372,7 +372,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ff4p38yxswahnwtbj0qnskopi7lfgaq",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:15:35.710Z",
+      "crawledAt": "2026-10-09T21:14:47.437Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -402,5 +402,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-09T09:14:02.180Z",
+  "generatedAt": "2026-10-09T21:14:20.376Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 9861,
-  "avgDurationMs": 9861,
+  "durationMs": 7208,
+  "avgDurationMs": 7208,
   "durationHistory": [
-    9861
+    7208
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -215,46 +215,6 @@
       }
     },
     {
-      "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
-      "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
-      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20388",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Nyon",
-      "addressLocality": "Nyon",
-      "postalCode": "1260",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-07T22:00:00Z",
-      "postedDate": "2026-10-07T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-08",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-a0865619335f",
-      "salaryMin": 81000,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-08T09:15:20.136Z",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Sanitär- und Heizungstechniker/in",
       "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
@@ -290,6 +250,46 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Postdoktorand/in im Bereich Data Science und prädiktive Modellierung für Kartoffelanbausysteme",
+      "slug": "postdottorando-a-nell-ambito-della-data-science-e-della-modellazione-predittiva-per-i-sistemi-di-coltivazione-delle",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-im-bereich-data-science-und-praediktive-modellierung-fuer-kartoffelanbausysteme/12457d25-9dc9-42fd-ba2a-c979632ec868",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20388",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Nyon",
+      "addressLocality": "Nyon",
+      "postalCode": "1260",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-07T22:00:00Z",
+      "postedDate": "2026-10-07T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-a0865619335f",
+      "salaryMin": 81000,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:15:20.136Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -575,5 +575,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

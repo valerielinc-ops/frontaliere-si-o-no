@@ -1,27 +1,70 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-09T09:13:56.394Z",
-  "total": 3,
+  "generatedAt": "2026-10-09T21:13:29.594Z",
+  "total": 4,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 4,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5781,
-  "avgDurationMs": 5781,
+  "durationMs": 6251,
+  "avgDurationMs": 6251,
   "durationHistory": [
-    5781
+    6251
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "straumann-40537290ba3f",
+      "slug": "global-medical-education-life-cycle-and-demo-materials-manager-straumann-ch",
+      "company": "Straumann",
+      "companyKey": "straumann",
+      "companyDomain": "straumann.com",
+      "title": "Global Medical Education Life Cycle and Demo Materials Manager",
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
+      "source": "Straumann Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-09T21:13:12.241Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "postalCode": "4001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Corporate & Support Functions",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Dental / Medical Devices (MedTech)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-09T21:13:12.241Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "straumann-222ca79a9586",
@@ -35,7 +78,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:34.105Z",
+      "crawledAt": "2026-10-09T21:13:09.845Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -79,7 +122,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:13:33.684Z",
+      "crawledAt": "2026-10-09T21:13:09.600Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -127,7 +170,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T09:13:34.446Z",
+      "crawledAt": "2026-10-09T21:13:10.357Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -161,5 +204,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }

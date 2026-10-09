@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-10-09T09:15:54.923Z",
+  "assembledAt": "2026-10-09T21:14:51.743Z",
   "jobs": [
     {
       "id": "gavi-ee86033d5ad4",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T09:15:49.711Z",
+      "crawledAt": "2026-10-09T21:14:46.515Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -61,14 +61,15 @@
         "it": [
           "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
         ],
-        "fr": [
+        "de": [
           "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
         ],
-        "de": [
+        "fr": [
           "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex"
         ]
       },
       "firstSeenAt": "2026-10-08T21:15:57.742Z",
+      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -114,7 +115,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T09:15:48.829Z",
+      "crawledAt": "2026-10-09T21:14:45.932Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -144,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-10-05T21:26:05.940Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
