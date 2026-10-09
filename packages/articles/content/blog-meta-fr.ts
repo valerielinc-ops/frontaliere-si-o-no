@@ -12884,6 +12884,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-a9-saronno-turate-code.title': 'Accident sur l’A9 Saronno-Turate : voiture renversée, bouchons vers Como',
     'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Véhicule renversé sur l’A9 entre Saronno et Turate Accident vers 11:30 le vendredi 9 octobre Jusqu’à 2 km de bouchons vers Como et la Suisse Turate',
     'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Accident sur l\'A9 entre Saronno et Turate avec voiture renversée et embouteillage vers Como',
+    'blog.article.borse-musica-ticino-2026.title': 'Bourses d\'études : trois contributions de 20\'000 CHF pour la musique au Tessin',
+    'blog.article.borse-musica-ticino-2026.excerpt': 'Trois bourses de 20\'000 francs pour la musique Candidatures au plus tard le 9 novembre 2026, à 12 Publication sur la Feuille officielle le 8 octobre 2026 Promoteur → DECS',
+    'blog.article.borse-musica-ticino-2026.imageAlt': 'Concert de musique au Tessin, avec musiciens sur scène et public, représentant le soutien à la création artistique',
 };
 
 export default blogMetaFr;

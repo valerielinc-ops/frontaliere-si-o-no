@@ -43488,6 +43488,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'borse-musica-ticino-2026',
+ category: 'novita',
+ date: '2026-10-09T11:50:54.986Z',
+ image: '/images/blog/article-borse-musica-ticino-2026.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

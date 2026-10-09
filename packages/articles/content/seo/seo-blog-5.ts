@@ -104236,6 +104236,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-musica-ticino-2026': {
+    title: 'Borse di studio: tre contributi da 20\'000 CHF per la musica in Ticino',
+    description: 'Tre borse da 20\'000 franchi per la musica Candidature entro il 9 novembre 2026, alle 12 Pubblicazione sul Foglio ufficiale l\'8 ottobre 2026 Promotore → DECS',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, contributi, musica',
+    ogTitle: 'Borse musica: 3 contributi da 20\'000 CHF per la creazione artistica',
+    ogDescription: 'Tre borse da 20\'000 franchi per la musica Candidature entro il 9 novembre 2026, alle 12 Pubblicazione sul Foglio ufficiale l\'8 ottobre 2026 Promotore → DECS',
+    canonicalPath: '/articoli-frontaliere/borse-musica-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio: tre contributi da 20'000 CHF per la musica in Ticino",
+      "description": "Tre borse da 20'000 franchi per la musica Candidature entro il 9 novembre 2026, alle 12 Pubblicazione sul Foglio ufficiale l'8 ottobre 2026 Promotore → DECS",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-borse-musica-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Concerto musicale in Ticino, con musicisti sul palco e pubblico, a rappresentare il sostegno alla creazione artistica"
+      },
+      "datePublished": "2026-10-09T11:50:55+00:00",
+      "dateModified": "2026-10-09T11:50:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-musica-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

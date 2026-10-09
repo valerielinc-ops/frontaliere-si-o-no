@@ -12881,6 +12881,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-a9-saronno-turate-code.title': 'Unfall A9 Saronno-Turate: Auto umgekippt, Stau gen Como',
     'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Fahrzeug auf der A9 zwischen Saronno und Turate umgekippt Unfall gegen 11:30 Uhr am Freitag, 9. (Como)',
     'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Unfall auf der A9 zwischen Saronno und Turate mit umgekipptem Auto und Stau Richtung Como',
+    'blog.article.borse-musica-ticino-2026.title': 'Stipendien: drei Beiträge von 20\'000 CHF für Musik im Tessin',
+    'blog.article.borse-musica-ticino-2026.excerpt': 'Drei Musikstipendien à 20\'000 Franken Bewerbungen bis 9.',
+    'blog.article.borse-musica-ticino-2026.imageAlt': 'Musikkonzert im Tessin, mit Musikern auf der Bühne und Publikum, als Unterstützung für künstlerisches Schaffen',
 };
 
 export default blogMetaDe;

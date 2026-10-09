@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5131
+      "6": 5132
     },
-    "publishedCovers": 6843,
+    "publishedCovers": 6844,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180442,6 +180442,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-borse-musica-ticino-2026": {
+      "cover": "/images/blog/article-borse-musica-ticino-2026.webp",
+      "hash": "156ee987b31820cfcf1090fed13370b4d0750e196ead9d9882ebd1e509bf4727",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "borse-musica-ticino-2026",
+          "category": "novita",
+          "date": "2026-10-09T11:50:54.986Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

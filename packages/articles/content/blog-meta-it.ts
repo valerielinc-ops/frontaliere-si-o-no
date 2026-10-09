@@ -12883,6 +12883,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-a9-saronno-turate-code.title': 'Incidente A9 Saronno-Turate: auto ribaltata, code verso Como',
     'blog.article.incidente-a9-saronno-turate-code.excerpt': 'Veicolo ribaltato sulla A9 tra Saronno e Turate Incidente attorno alle 11:30 di venerdì 9 ottobre Fino a 2 km di coda verso Como e la Svizzera Turate',
     'blog.article.incidente-a9-saronno-turate-code.imageAlt': 'Incidente sulla A9 tra Saronno e Turate con auto ribaltata e coda verso Como',
+    'blog.article.borse-musica-ticino-2026.title': 'Borse di studio: tre contributi da 20\'000 CHF per la musica in Ticino',
+    'blog.article.borse-musica-ticino-2026.excerpt': 'Tre borse da 20\'000 franchi per la musica Candidature entro il 9 novembre 2026, alle 12 Pubblicazione sul Foglio ufficiale l\'8 ottobre 2026 Promotore → DECS',
+    'blog.article.borse-musica-ticino-2026.imageAlt': 'Concerto musicale in Ticino, con musicisti sul palco e pubblico, a rappresentare il sostegno alla creazione artistica',
 };
 
 export default blogMetaIt;
