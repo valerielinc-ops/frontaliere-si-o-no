@@ -68,6 +68,7 @@ import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../..
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { questionTopic } from './portal/plan.mjs';
+import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
@@ -171,6 +172,10 @@ export async function buildDraft(ctx) {
     profile = sanitizeProfile(profileRaw);
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
+  // The CV may state a locality and province without spelling out the CAP or
+  // country. Resolve those address properties locally before the portal plan
+  // is built; ambiguous localities remain empty and stay candidate questions.
+  profile = enrichProfileResidenceAddress(profile, cvText);
   maskValues(personalValuesOf(order, profile));
   // What the candidate corrected on the review page (name, phone, place,
   // languages, permit, salary...) wins over the CV and over older answers:
