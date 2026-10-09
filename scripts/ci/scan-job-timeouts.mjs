@@ -14,10 +14,12 @@ import { realpathSync } from 'node:fs';
  * (issue auto-close): a single reconciler covers every workflow — present and future —
  * by construction, without touching any of them.
  *
- * TWO SIGNATURES, one reason to exist: a job that dies in a way `if: failure()`
+ * THREE SIGNATURES, one reason to exist: a run that dies in a way `if: failure()`
  * cannot observe. (A) `timeout-minutes` — GitHub marks it `cancelled`, so
  * `failure()` is false. (B) HOST-KILL — the runner host itself dies mid-step, so
  * the job IS `failure` but the workflow's own reporter step never gets to run.
+ * (C) STARTUP-FAILURE — Actions cannot load the workflow, so the run has no jobs
+ * and there is no job-level reporter to execute at all.
  *
  * (B) is issue #5773/#5772/#5771. Run 31672320271 (2026-08-13T06:01:15Z, `Deploy to
  * GitHub Pages`): `build-locale (it)` died INSIDE step 15 «Build (BUILD_LOCALE=it)»
@@ -31,10 +33,12 @@ import { realpathSync } from 'node:fs';
  * was invisible. This scanner is the observer that was missing.
  *
  * ALGORITHM (best-effort, no persisted cursor):
- *   1. List runs completed/updated within the lookback window, twice: conclusion
- *      `cancelled` (signature A) and conclusion `failure` (signature B). `created_at`
- *      is deliberately NOT the clock: a 350-minute job is already older than an
- *      hourly lookback when its timeout first becomes observable.
+ *   1. List runs completed/updated within the lookback window: conclusions
+ *      `cancelled` (signature A), `failure` (signature B), and `startup_failure`
+ *      (signature C). GitHub accepts all three conclusion filters on the runs
+ *      endpoint. `created_at` is deliberately NOT the clock: a 350-minute job is
+ *      already older than an hourly lookback when its timeout first becomes
+ *      observable.
  *   2A. For each cancelled run, list its jobs; a `cancelled` job is a *candidate*
  *      (concurrency groups with `cancel-in-progress: true` also cancel superseded
  *      runs — that is normal, not a timeout, so conclusion alone is not proof).
@@ -47,11 +51,15 @@ import { realpathSync } from 'node:fs';
  *      and the rest are absent. Measured over the 8 most recent failure runs of this
  *      repo: 7 had zero `in_progress` steps, and the only one that did was 31672320271.
  *      Costs no extra API call — `steps[]` ships inside the jobs listing already.
+ *   2C. For completed runs with conclusion `startup_failure`, or failed runs whose
+ *      jobs endpoint explicitly returns zero jobs, report the workflow-level failure.
+ *      A missing/malformed jobs response is never treated as zero: the observer
+ *      fails closed rather than turning an API read failure into a false positive.
  *   4. On a match, report via the shared `createGithubIssue` — same stable
  *      `CI Failure: <workflow>` title every other reporter in this repo uses, so it
  *      dedupes onto (and is later auto-closed by) the same issue thread.
  *
- * WHY the same `CI Failure: <workflow>` title for both, and not a prettier one:
+ * WHY the same `CI Failure: <workflow>` title for all signatures, and not a prettier one:
  * `close-recovered-failure-issues.mjs` closes on `TITLE_RE = /^(?:Workflow|Crawler|CI)
  * Failure: (.+)$/` and resolves the capture as a workflow name. A host-kill is a
  * transient host fault, so "the workflow went green again" IS the repair — this title
@@ -438,10 +446,34 @@ function previousSuccessfulScanStartedMs() {
   return startedMs;
 }
 
+/**
+ * `check_run_url` is returned as an absolute API URL by Actions. `gh api` is
+ * deliberately given the repository-relative form instead: it works with the
+ * GitHub CLI in Actions and with the workspace coordinator, while passing the
+ * absolute URL through the coordinator is interpreted as a different route and
+ * returns 404 for an otherwise readable check run.
+ */
+export function checkRunAnnotationsPath(job) {
+  const raw = String(job?.check_run_url || '').trim();
+  if (!raw) return null;
+  try {
+    const parsed = new URL(raw);
+    if (parsed.pathname.startsWith('/repos/')) {
+      const pathname = parsed.pathname.replace(/^\/+/, '').replace(/\/$/, '');
+      return `${pathname}/annotations`;
+    }
+  } catch {
+    // Keep the original value below. A malformed URL will fail closed in ghJson.
+  }
+  return `${raw.replace(/\/$/, '')}/annotations`;
+}
+
 function readPaginatedAnnotations(job) {
+  const endpoint = checkRunAnnotationsPath(job);
+  if (!endpoint) return null;
   const out = gh([
     'api',
-    `${job.check_run_url}/annotations`,
+    endpoint,
     '--paginate',
     '--slurp',
   ], { allowFailure: true, warnOnFailure: true });
@@ -536,9 +568,10 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
   return [...runsById.values()];
 }
 
-function listJobs(runId) {
+function listJobsSnapshot(runId) {
   const data = ghJson(repoPath(`actions/runs/${runId}/jobs?per_page=100`));
-  return data?.jobs || [];
+  if (!data || !Array.isArray(data.jobs)) return null;
+  return data;
 }
 
 // The one branch `close-recovered-failure-issues.mjs` measures (`-b main` there). Kept as
@@ -661,7 +694,9 @@ export const RESOLVE_CLEAN_RUNS = 3;
 export const RESOLVE_SKIP_LABELS = Object.freeze(['keep-open', 'agent:no-age-out', 'agent:in-progress']);
 
 // Conclusioni di run che non hanno esercitato i job: niente da misurare, ne' pro ne' contro.
-const NOT_EXERCISED_CONCLUSIONS = new Set(['skipped', 'startup_failure', 'action_required', 'stale']);
+// `startup_failure` is intentionally absent: it is one of the failures this
+// observer owns, and a repeated startup failure must keep its issue open.
+const NOT_EXERCISED_CONCLUSIONS = new Set(['skipped', 'action_required', 'stale']);
 
 /**
  * Annotazioni lette davvero? `null` (lettura fallita), una forma non-array, o un
@@ -711,6 +746,8 @@ function isTimeoutAnnotation(a) {
  *   timeout        un job con l'annotazione «exceeded … maximum execution time»,
  *                  o `timed_out` dichiarato dall'API.
  *   host-kill      un job `failure` con uno step rimasto `in_progress`.
+ *   startup-failure  la run è `startup_failure`, oppure una run `failure` ha
+ *                  una risposta jobs completa con zero job.
  *   ignored        `skipped` & co. (non ha girato) o `cancelled` senza timeout
  *                  (concorrenza, annullo a mano): non prova niente. Un job
  *                  cancellato che non ha eseguito nessuno step non e' un timeout
@@ -723,6 +760,9 @@ function isTimeoutAnnotation(a) {
 export function classifyRunForResolve(run, { jobsData, readAnnotations, nowMs = Date.now() } = {}) {
   const conclusion = run?.conclusion;
   if (NOT_EXERCISED_CONCLUSIONS.has(conclusion)) return { verdict: 'ignored', detail: conclusion };
+  if (conclusion === 'startup_failure') {
+    return { verdict: 'startup-failure', detail: 'run startup_failure' };
+  }
   if (conclusion === 'success' || conclusion === 'neutral') return { verdict: 'clean' };
   if (conclusion === 'timed_out') return { verdict: 'timeout', detail: 'run timed_out' };
   if (conclusion !== 'cancelled' && conclusion !== 'failure') {
@@ -733,6 +773,9 @@ export function classifyRunForResolve(run, { jobsData, readAnnotations, nowMs = 
   const total = Number(jobsData?.total_count);
   if (!Array.isArray(jobs) || !Number.isInteger(total) || total !== jobs.length) {
     return { verdict: 'unknown', detail: 'jobs illeggibili o incompleti' };
+  }
+  if (conclusion === 'failure' && total === 0) {
+    return { verdict: 'startup-failure', detail: 'jobs endpoint: zero job' };
   }
   let unreadable = null;
   for (const job of jobs) {
@@ -944,13 +987,31 @@ export async function main() {
   const cutoffMs = nowMs - lookback.minutes * 60 * 1000;
   const cancelledRuns = listRunsByStatus('cancelled', cutoffMs, nowMs);
   const failedRuns = listRunsByStatus('failure', cutoffMs, nowMs);
+  // `startup_failure` is a run conclusion accepted by the Actions runs endpoint.
+  // Keep it separate from `failure`: ordinary failed runs are already covered by
+  // the host-kill/zero-job pass below, while a startup failure has no job to list.
+  const startupFailureRuns = listRunsByStatus('startup_failure', cutoffMs, nowMs);
   console.log(
-    `[scan-job-timeouts] ${cancelledRuns.length} cancelled + ${failedRuns.length} failed run(s) `
+    `[scan-job-timeouts] ${cancelledRuns.length} cancelled + ${failedRuns.length} failed + `
+      + `${startupFailureRuns.length} startup_failure run(s) `
       + `in the last ${lookback.minutes}m`
       + (lookback.neededMinutes === null ? ' (no previous successful scan found: base window)' : ''),
   );
 
   let reported = 0;
+  let timeoutRuns = 0;
+  let timeoutJobs = 0;
+  let cancelledWithoutTimeout = 0;
+  let cancelledUnreadable = 0;
+  let startupFailureReports = 0;
+  let zeroJobFailureReports = 0;
+  let failedUnreadable = 0;
+  const jobsCache = new Map();
+  const jobsForRun = (run) => {
+    if (!jobsCache.has(run.id)) jobsCache.set(run.id, listJobsSnapshot(run.id));
+    return jobsCache.get(run.id);
+  };
+
   // title → issue ref already opened/matched during THIS scan. See the DEDUP note
   // in the header: this is layer (a), the one that removes the intra-scan race.
   // SHARED by both detectors on purpose: a host-kill takes out every job on that
@@ -1051,11 +1112,21 @@ export async function main() {
 
   // (A) timeout — `cancelled`, proven by the check-run annotation.
   for (const run of cancelledRuns) {
-    const hits = listJobs(run.id)
+    const jobsData = jobsForRun(run);
+    if (!jobsData) {
+      cancelledUnreadable += 1;
+      continue;
+    }
+    const hits = jobsData.jobs
       .map((job) => ({ job, hit: findTimeoutAnnotation(job) }))
       .filter(({ hit }) => hit)
       .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
-    if (hits.length === 0) continue;
+    if (hits.length === 0) {
+      cancelledWithoutTimeout += 1;
+      continue;
+    }
+    timeoutRuns += 1;
+    timeoutJobs += hits.length;
     for (const { job } of hits) {
       console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
     }
@@ -1089,9 +1160,90 @@ export async function main() {
     });
   }
 
-  // (B) host-kill — `failure` with a step frozen `in_progress`.
+  // (B) startup failure — Actions could not materialize the workflow, so there
+  // are no jobs and no in-workflow reporter can ever run. A readable zero-job
+  // response is required: an API error is not evidence of a startup failure.
+  for (const run of startupFailureRuns) {
+    const jobsData = jobsForRun(run);
+    if (!jobsData || jobsData.jobs.length !== 0 || Number(jobsData.total_count) !== 0) {
+      console.warn(
+        `::warning::[scan-job-timeouts] startup_failure ${run.id} con jobs illeggibili o non vuoti; `
+          + 'issue non aperta.',
+      );
+      continue;
+    }
+    startupFailureReports += 1;
+    const rawDescription = [
+      '## Workflow failure prima della creazione dei job',
+      '',
+      `**Run:** ${run.html_url}`,
+      `**Conclusione:** \`${run.conclusion}\``,
+      `**Trigger:** ${run.event}`,
+      `**Ref:** ${run.head_branch}`,
+      `**Job restituiti da Actions:** ${jobsData.jobs.length}`,
+      '',
+      'La run è terminata in `startup_failure`: Actions non ha potuto caricare o '
+        + 'avviare il workflow, quindi nessun job (compreso il reporter di errore) '
+        + 'ha avuto la possibilità di eseguire.',
+      '',
+      '**Prima diagnosi:** controllare il file del workflow e gli eventuali `uses:` '
+        + 'riusabili/ref, YAML e input obbligatori. Una run senza job non contiene '
+        + 'log di un passo da cui ricavare la causa.',
+      '',
+      'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
+    ].join('\n');
+    await emit({
+      title: scopedTitle(run),
+      description: redactWorkflowPaths(rawDescription),
+      labels: ['Bug', 'ci-startup-failure'],
+      workflow: run.name,
+      runUrl: run.html_url,
+      jobCount: 1,
+      occurredAt: run.created_at,
+    });
+  }
+
+  // (C) host-kill and zero-job failure — `failure` with a step frozen
+  // `in_progress`, or a completed jobs response containing no jobs at all.
   for (const run of failedRuns) {
-    const kills = listJobs(run.id)
+    const jobsData = jobsForRun(run);
+    if (!jobsData) {
+      failedUnreadable += 1;
+      continue;
+    }
+    if (jobsData.jobs.length === 0 && Number(jobsData.total_count) === 0) {
+      zeroJobFailureReports += 1;
+      const rawDescription = [
+        '## Workflow failure senza job',
+        '',
+        `**Run:** ${run.html_url}`,
+        `**Conclusione:** \`${run.conclusion}\``,
+        `**Trigger:** ${run.event}`,
+        `**Ref:** ${run.head_branch}`,
+        '**Job restituiti da Actions:** 0',
+        '',
+        'La run è fallita prima che Actions rendesse disponibile un job. Questo è '
+          + 'un guasto di avvio/configurazione del workflow, non un errore applicativo '
+          + 'raccolto da uno step; il reporter interno non ha quindi potuto girare.',
+        '',
+        '**Prima diagnosi:** controllare il file del workflow e gli eventuali `uses:` '
+          + 'riusabili/ref, YAML e input obbligatori. Una run senza job non contiene '
+          + 'log di un passo da cui ricavare la causa.',
+        '',
+        'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
+      ].join('\n');
+      await emit({
+        title: scopedTitle(run),
+        description: redactWorkflowPaths(rawDescription),
+        labels: ['Bug', 'ci-startup-failure'],
+        workflow: run.name,
+        runUrl: run.html_url,
+        jobCount: 1,
+        occurredAt: run.created_at,
+      });
+      continue;
+    }
+    const kills = jobsData.jobs
       .map((job) => ({ job, kill: detectHostKill(job, nowMs) }))
       .filter(({ kill }) => kill)
       .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
@@ -1145,6 +1297,16 @@ export async function main() {
     });
   }
 
+  console.log(
+    `[scan-job-timeouts] timeout summary — ${timeoutRuns} timeout su ${cancelledRuns.length} `
+      + `run cancellate (${timeoutJobs} job, ${cancelledWithoutTimeout} senza annotazione di timeout, `
+      + `${cancelledUnreadable} illeggibili).`,
+  );
+  console.log(
+    `[scan-job-timeouts] startup summary — ${startupFailureReports} startup_failure + `
+      + `${zeroJobFailureReports} failure senza job segnalate `
+      + `(${failedUnreadable} failure illeggibili).`,
+  );
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);
 }
 

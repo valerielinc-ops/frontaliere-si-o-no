@@ -73,7 +73,7 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         // Il primo check-run risponde con l'oggetto d'errore, non con la lista.
-        if (path === 'https://api.github.com/repos/o/r/check-runs/1/annotations') {
+        if (path === 'repos/o/r/check-runs/1/annotations') {
           return JSON.stringify([{ message: 'Not Found', documentation_url: 'https://docs.github.com/rest' }]);
         }
         if (path.endsWith('/annotations')) {
