@@ -2675,6 +2675,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fuga-dati-publica-cassa': { it: 'fuga-dati-publica-cassa', en: 'publica-data-leak-pension-fund', de: 'publica-datenleck-pensionskasse', fr: 'fuite-donnees-publica-caisse' },
  'permesso-edilizio-lucerna': { it: 'permesso-edilizio-lucerna', en: 'lucerne-building-permit-guide', de: 'baubewilligung-luzern-verfahren', fr: 'permis-construire-lucerne' },
  'nobel-economia-fehr-2026': { it: 'nobel-economia-fehr-2026', en: 'economics-nobel-fehr-2026', de: 'wirtschaftsnobelpreis-fehr-2026', fr: 'nobel-economie-fehr-2026' },
+ 'guida-voto-cantonale-lucerna': { it: 'guida-voto-cantonale-lucerna', en: 'lucerne-cantonal-vote-guide', de: 'luzern-kantonale-abstimmung-guide', fr: 'guide-vote-cantonale-lucerne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

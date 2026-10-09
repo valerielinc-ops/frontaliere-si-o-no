@@ -7958,6 +7958,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nobel-economia-fehr-2026.title': 'Nobel economia 2026: Ernst Fehr tra i possibili vincitori',
     'blog.article.nobel-economia-fehr-2026.excerpt': 'Il Nobel per l\'economia 2026 sarà annunciato il 12 ottobre Ernst Fehr è tra i possibili vincitori Clarivate ha indicato quattro economisti Polymarket stima Fehr',
     'blog.article.nobel-economia-fehr-2026.imageAlt': 'Ernst Fehr tra i possibili vincitori del Nobel per l\'economia',
+    'blog.article.guida-voto-cantonale-lucerna.title': 'Voto cantonale Lucerna: guida a iniziative e referendum',
+    'blog.article.guida-voto-cantonale-lucerna.excerpt': 'Il calendario prevede quattro giornate di voto federale ogni anno Per un\'iniziativa federale occorrono 100\'000 firme raccolte nell\'arco di 18 mesi Il referendum',
+    'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Paesaggio del Cantone di Lucerna con il lago e le montagne circostanti in un giorno soleggiato',
 };
 
 export default blogMetaChIt;
