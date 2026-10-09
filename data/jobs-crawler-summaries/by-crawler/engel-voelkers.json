@@ -1,21 +1,59 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-08T22:16:20.085Z",
+  "generatedAt": "2026-10-09T09:22:24.615Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 21222,
-  "avgDurationMs": 21222,
+  "newCount": 1,
+  "updatedCount": 1,
+  "removedCount": 1,
+  "unchangedCount": 8,
+  "durationMs": 21897,
+  "avgDurationMs": 21897,
   "durationHistory": [
-    21222
+    21897
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "title": "Junior Immobilienmakler/in 50-100%",
+      "slug": "junior-immobilienmakler-in-50-100-buutiq-immobilien-ag-st-gallen",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
+      "company": "buutiq Immobilien AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-aa68475ac16c",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 82500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "9000",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
       "slug": "gestione-e-marketing-assistant-m-f-d-100-engel-volkers-wohnen-schweiz-ag-zug",
@@ -54,7 +92,51 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
+      "slug": "consulente-immobiliare-m-f-d-zurigo-nord-100-immobilien-zurich-nord-ag-bulach",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "company": "Immobilien Zürich Nord AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Bülach",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "engel-voelkers-7e00857d2998",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-18T12:17:08.099Z",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "8180",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "consulente-immobiliare-in-m-w-d-100-rheinfelden-ev-rheinfelden-immobilien-ag-rheinfelden",
@@ -171,46 +253,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
-      "slug": "consulente-immobiliare-m-f-d-zurigo-nord-100-immobilien-zurich-nord-ag-bulach",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "company": "Immobilien Zürich Nord AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Bülach",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-7e00857d2998",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-18T12:17:08.099Z",
-      "salarySource": "estimated",
-      "sourceIdentity": "url:https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c06b152b-c28e-46df-976e-5912534d9ffb",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8180",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 20
       }
@@ -416,5 +458,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

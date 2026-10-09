@@ -1,18 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-10-09T04:58:21.429Z",
+  "generatedAt": "2026-10-09T09:16:38.891Z",
   "total": 36,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 4,
-  "updatedCount": 5,
+  "newCount": 3,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 27,
-  "durationMs": 10492,
-  "avgDurationMs": 10492,
+  "durationMs": 13785,
+  "avgDurationMs": 13785,
   "durationHistory": [
-    10492
+    13785
   ],
   "newJobs": [
     {
@@ -142,53 +142,6 @@
         "listingDepartment": ""
       },
       "id": "fincons-group-28a96ac10896",
-      "needsRetranslation": true,
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-18T23:16:19.604Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Senior Applikations-Entwickler:in 80 - 100%",
-      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-      "url": "https://fincons.applytojob.com/apply/Pu7ljs8AVf/Senior-ApplikationsEntwicklerin-80-100",
-      "applyUrl": "https://fincons.applytojob.com/apply/Pu7ljs8AVf/Senior-ApplikationsEntwicklerin-80-100",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bundesplatz 3",
-      "canton": "BE",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-02",
-      "postedDate": "2026-10-02",
-      "postingDateSource": "reported",
-      "validThrough": "2026-12-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20261002100915_UMBINPBBUKCXYIAO",
-        "listingLocation": "Bern, Bern, Switzerland",
-        "listingDepartment": ""
-      },
-      "id": "fincons-group-64e5f117ffa3",
       "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -384,6 +337,52 @@
       "datePosted": "2026-07-17",
       "postingDateSource": "reported",
       "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Senior Applikations-Entwickler:in 80 - 100%",
+      "slug": "sviluppatore-trice-senior-di-applicazioni-80-100-fincons-group-bern",
+      "url": "https://fincons.applytojob.com/apply/Pu7ljs8AVf/Senior-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/Pu7ljs8AVf/Senior-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-02",
+      "postedDate": "2026-10-02",
+      "postingDateSource": "reported",
+      "validThrough": "2026-12-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20261002100915_UMBINPBBUKCXYIAO",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-64e5f117ffa3",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-18T23:16:19.604Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1685,5 +1684,5 @@
       }
     }
   ],
-  "codeCommit": "c89e2846f9f34fde7799142b823ce941c8162c4e"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-10-08T22:16:20.899Z",
+  "assembledAt": "2026-10-09T09:18:25.382Z",
   "jobs": [
     {
       "id": "spital-sts-ff15d5c733a8",
@@ -33,7 +33,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/58463804-b58f-4b0e-861b-f49ff9710f89/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:14.808Z",
+      "crawledAt": "2026-10-09T09:18:19.266Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,6 +52,14 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/58463804-b58f-4b0e-861b-f49ff9710f89",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "med-sekretar-in-urologie-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-sekretar-in-urologie-spital-sts-thun"
+        ]
+      },
       "firstSeenAt": "2026-09-25T14:44:56.756Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -65,15 +73,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "med-sekretar-in-urologie-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "med-sekretar-in-urologie-spital-sts-thun"
-      ]
+      }
     },
     {
       "id": "spital-sts-d6731ef92279",
@@ -107,7 +107,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7fefd7e3-8955-495c-805e-aea9db9b1ea8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:14.257Z",
+      "crawledAt": "2026-10-09T09:18:18.836Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -126,14 +126,14 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7fefd7e3-8955-495c-805e-aea9db9b1ea8",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -180,7 +180,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1949b04a-7c46-475f-a2f8-90ee4fc5f989/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:13.728Z",
+      "crawledAt": "2026-10-09T09:18:18.402Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/486bc6b8-d20d-4e0d-b7df-d4092e3fe49d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:13.186Z",
+      "crawledAt": "2026-10-09T09:18:17.962Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2425bdbe-06b6-4676-9124-a101e1c624ea/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:12.660Z",
+      "crawledAt": "2026-10-09T09:18:17.526Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -350,15 +350,15 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/2425bdbe-06b6-4676-9124-a101e1c624ea",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T13:28:13.113Z",
+      "previousSlugs": [
+        "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-hebamme-im-gebarsaal-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "dipl-hebamme-im-gebarsaal-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-09-04T13:28:13.113Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -405,7 +405,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7d1c6902-2bd5-493b-acf6-44d3ec72c4c3/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:12.137Z",
+      "crawledAt": "2026-10-09T09:18:17.079Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4d61a5c9-146f-429b-9f9a-3123a4279ecc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:11.596Z",
+      "crawledAt": "2026-10-09T09:18:16.609Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -557,7 +557,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7c5e571c-823b-467d-8386-a2a8e2947e3e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:11.062Z",
+      "crawledAt": "2026-10-09T09:18:16.170Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -576,15 +576,15 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7c5e571c-823b-467d-8386-a2a8e2947e3e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-06T09:17:59.002Z",
+      "previousSlugs": [
+        "leiter-in-kardiologie-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-kardiologie-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-kardiologie-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-10-06T09:17:59.002Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -631,7 +631,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b4dc00f-29d4-4e26-baa0-4346080c57d2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:10.624Z",
+      "crawledAt": "2026-10-09T09:18:15.759Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -697,7 +697,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ebd8ce3-5397-446f-879b-00878d7b3e8a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:16:10.163Z",
+      "crawledAt": "2026-10-09T09:18:15.339Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -716,15 +716,15 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/6ebd8ce3-5397-446f-879b-00878d7b3e8a",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-08T09:17:18.105Z",
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-10-08T09:17:18.105Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-muri",
-  "assembledAt": "2026-10-08T22:14:03.127Z",
+  "assembledAt": "2026-10-09T09:17:56.451Z",
   "jobs": [
     {
       "id": "spital-muri-e65e64e3a9dd",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4050448",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:51.377Z",
+      "crawledAt": "2026-10-09T09:17:48.908Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -56,15 +56,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-29T21:16:48.105Z",
+      "previousSlugs": [
+        "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "studierende-studierender-dipl-fachperson-operationstechnik-hf-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:48.105Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -111,7 +111,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4050586",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:50.766Z",
+      "crawledAt": "2026-10-09T09:17:48.108Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -134,7 +134,10 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:47.442Z",
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
+        "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag"
@@ -143,10 +146,7 @@
           "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-spital-muri-muri-ag",
-        "dipl-expert-in-emergency-care-nds-hf-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:47.442Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -193,7 +193,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4054372",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:50.159Z",
+      "crawledAt": "2026-10-09T09:17:47.297Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4055898",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:49.543Z",
+      "crawledAt": "2026-10-09T09:17:46.024Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -326,7 +326,7 @@
       "slug": "fisioterapista-fh-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "fisioterapista-fh-spital-muri-muri-ag",
-        "en": "physiotherapist-fh-spital-muri-muri-ag",
+        "en": "physiotherapeutin-physiotherapeut-fh-spital-muri-ag",
         "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
         "fr": "physiotherapeute-fh-spital-muri-muri-ag"
       },
@@ -353,7 +353,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4056595",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:48.933Z",
+      "crawledAt": "2026-10-09T09:17:45.188Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -377,16 +377,16 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-fh-spital-muri-ag",
-        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+        "physiotherapist-fh-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "physiotherapeutin-physiotherapeut-fh-spital-muri-ag",
-          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
-        ],
         "it": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+          "physiotherapist-fh-spital-muri-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:45.311Z",
@@ -436,7 +436,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4056011",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:48.318Z",
+      "crawledAt": "2026-10-09T09:17:43.922Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -459,15 +459,15 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40 - 50%",
-      "firstSeenAt": "2026-09-29T21:16:44.654Z",
+      "previousSlugs": [
+        "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:44.654Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -514,7 +514,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4055130",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:47.661Z",
+      "crawledAt": "2026-10-09T09:17:42.419Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -537,15 +537,15 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:43.996Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-akutgeriatrie-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:43.996Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -591,7 +591,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4057986",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:46.981Z",
+      "crawledAt": "2026-10-09T09:17:41.085Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -614,15 +614,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-29T21:16:43.340Z",
+      "previousSlugs": [
+        "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "studierende-studierender-dipl-pflegefachfrau-pflegefachmann-hf-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:43.340Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -669,7 +669,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4058038",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:46.366Z",
+      "crawledAt": "2026-10-09T09:17:40.233Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -692,15 +692,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:42.685Z",
+      "previousSlugs": [
+        "praktikantin-praktikant-pflege-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-pflege-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-praktikant-pflege-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:42.685Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -746,7 +746,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4053331",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:45.759Z",
+      "crawledAt": "2026-10-09T09:17:39.514Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -769,15 +769,15 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:42.024Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:42.024Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -824,7 +824,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4060033",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:45.150Z",
+      "crawledAt": "2026-10-09T09:17:38.640Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -847,15 +847,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:41.366Z",
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "sozialarbeiterin-sozialarbeiter-bsc-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:41.366Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -902,7 +902,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4063318",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:44.540Z",
+      "crawledAt": "2026-10-09T09:17:37.860Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -925,15 +925,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:40.710Z",
+      "previousSlugs": [
+        "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "teamleiterin-teamleiter-patientenaufnahme-empfang-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:40.710Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -980,7 +980,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4065180",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:43.928Z",
+      "crawledAt": "2026-10-09T09:17:37.045Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1003,15 +1003,15 @@
       "pensumMin": 20,
       "pensumMax": 20,
       "pensum": "20%",
-      "firstSeenAt": "2026-09-29T21:16:40.052Z",
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-notfallaufnahme-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:40.052Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1058,7 +1058,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4066655",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:43.315Z",
+      "crawledAt": "2026-10-09T09:17:36.172Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1081,15 +1081,15 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "firstSeenAt": "2026-09-29T21:16:39.391Z",
+      "previousSlugs": [
+        "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "facharztin-facharzt-notfallpraxis-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:39.391Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1136,7 +1136,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4064861",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:42.707Z",
+      "crawledAt": "2026-10-09T09:17:35.032Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1165,12 +1165,12 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
+        ],
         "en": [
           "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
-        ],
-        "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag"
         ]
       },
@@ -1221,7 +1221,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4068602",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:42.100Z",
+      "crawledAt": "2026-10-09T09:17:34.316Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1301,7 +1301,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4072341",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:41.492Z",
+      "crawledAt": "2026-10-09T09:17:33.519Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1324,15 +1324,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:36.642Z",
+      "previousSlugs": [
+        "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "studierende-studierender-notfallpflege-nds-hf-80-100-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:36.642Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1378,7 +1378,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4072410",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:40.753Z",
+      "crawledAt": "2026-10-09T09:17:32.086Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1401,15 +1401,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-29T21:16:35.933Z",
+      "previousSlugs": [
+        "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "praktikum-modul-c-studierende-studierender-pflege-fh-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:35.933Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1456,7 +1456,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4072456",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:40.142Z",
+      "crawledAt": "2026-10-09T09:17:31.088Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1479,15 +1479,15 @@
       "pensumMin": 30,
       "pensumMax": 30,
       "pensum": "30%",
-      "firstSeenAt": "2026-09-29T21:16:35.274Z",
+      "previousSlugs": [
+        "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "mpa-kinderarztpraxis-muri-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:35.274Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1533,7 +1533,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4072838",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:39.532Z",
+      "crawledAt": "2026-10-09T09:17:29.907Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1613,7 +1613,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4073706",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:38.920Z",
+      "crawledAt": "2026-10-09T09:17:28.716Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1636,15 +1636,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:33.924Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-notfall-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:33.924Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -1691,7 +1691,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4075187",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:38.311Z",
+      "crawledAt": "2026-10-09T09:17:27.403Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1714,15 +1714,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-29T21:16:33.251Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-gastroenterologie-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:33.251Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -1768,7 +1768,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4072813",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:37.640Z",
+      "crawledAt": "2026-10-09T09:17:26.481Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1848,7 +1848,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4075871",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:37.029Z",
+      "crawledAt": "2026-10-09T09:17:25.805Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1871,15 +1871,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:31.927Z",
+      "previousSlugs": [
+        "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:31.927Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1926,7 +1926,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4076998",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:36.421Z",
+      "crawledAt": "2026-10-09T09:17:25.012Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2006,7 +2006,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4077582",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:35.807Z",
+      "crawledAt": "2026-10-09T09:17:24.293Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2029,15 +2029,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "firstSeenAt": "2026-09-30T21:12:40.080Z",
+      "previousSlugs": [
+        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
         ]
       },
-      "previousSlugs": [
-        "fachverantwortliche-fachverantwortlicher-dipl-pflegefachfrau-pflegefachmann-hf-fh-spital"
-      ],
+      "firstSeenAt": "2026-09-30T21:12:40.080Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -2084,7 +2084,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4077100",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:35.185Z",
+      "crawledAt": "2026-10-09T09:17:23.430Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2112,11 +2112,11 @@
         "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag",
+        "it": [
           "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag"
         ],
-        "it": [
+        "en": [
+          "dipl-expert-in-intensive-care-nds-hf-spital-muri-muri-ag",
           "dipl-expertin-experte-intensivpflege-nds-hf-spital-muri-muri-ag"
         ]
       },
@@ -2167,7 +2167,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4078909",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:34.541Z",
+      "crawledAt": "2026-10-09T09:17:22.727Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2190,7 +2190,9 @@
       "pensumMin": 10,
       "pensumMax": 100,
       "pensum": "10 - 100%",
-      "firstSeenAt": "2026-10-03T09:16:37.938Z",
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
@@ -2199,9 +2201,7 @@
           "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-stundenlohn-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-10-03T09:16:37.938Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2248,7 +2248,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4071387",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:33.924Z",
+      "crawledAt": "2026-10-09T09:17:21.889Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2271,15 +2271,15 @@
       "pensumMin": 10,
       "pensumMax": 20,
       "pensum": "10 - 20%",
-      "firstSeenAt": "2026-09-29T21:16:49.433Z",
+      "previousSlugs": [
+        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "arbeiten-im-pflegepool-dipl-pflegefachperson-fachperson-gesundheit-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:49.433Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2296,9 +2296,9 @@
     },
     {
       "id": "spital-muri-e7ba81d11b2c",
-      "slug": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
       "slugByLocale": {
-        "it": "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
         "en": "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
         "fr": "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag"
@@ -2326,7 +2326,7 @@
       "url": "https://live.solique.ch/spital-muri/job/details/4078548",
       "source": "Spital Muri Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:33.178Z",
+      "crawledAt": "2026-10-09T09:17:20.453Z",
       "addressLocality": "Muri AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2349,15 +2349,17 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "firstSeenAt": "2026-09-29T21:16:48.765Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+        "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
+          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
+          "infermiera-infermiere-diplomata-o-hf-per-il-pronto-soccorso-spital-muri-muri-ag"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag"
-      ],
+      "firstSeenAt": "2026-09-29T21:16:48.765Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
