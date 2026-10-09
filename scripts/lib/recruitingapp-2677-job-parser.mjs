@@ -21,7 +21,7 @@ import {
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
 import {
-  normalizeAuthoritativeNonSwissLocationPart,
+  isAllowlistedAuthoritativeNonSwissLocation,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -42,6 +42,29 @@ const CAREER_URL = 'https://recruitingapp-2677.umantis.com/Jobs/1?lang=ger&Conte
 // Only these source-backed workplace localities can authorize retiring the
 // previous Swiss slice. A new locality must fail closed until it is reviewed.
 const AUTHORITATIVE_NON_SWISS_LOCATIONS = new Set(['eschen', 'salzburg', 'vaduz', 'wien']);
+
+/**
+ * Rows listed by the source but located outside Switzerland are an expected
+ * downstream filter only when the detail carries a rich, explicitly reviewed
+ * foreign locality. Unknown locations and incomplete details must remain part
+ * of the shared completeness denominator and fail closed.
+ */
+export function isRecruitingapp2677ExpectedDetailFilter({
+  reason,
+  detail,
+  decision,
+  descriptionSufficient,
+} = {}) {
+  if (reason !== 'geography' || decision?.geography || descriptionSufficient !== true) return false;
+  const locations = (Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : [])
+    .map((candidate) => normalizeSpace(candidate?.addressLocality || candidate?.location || ''))
+    .filter(Boolean);
+  return locations.length > 0
+    && locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    ));
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -284,6 +307,7 @@ async function fetchJobListings(runtime = {}) {
     ...runtime,
     fetchImpl: observingFetch,
     detailExtractor: observingDetailExtractor,
+    isExpectedDetailFilter: isRecruitingapp2677ExpectedDetailFilter,
   });
   const details = [...observedDetails.values()];
   const proof = {
@@ -316,10 +340,10 @@ export function assertCompleteRecruitingapp2677Snapshot(jobs) {
   if (!proof?.complete || proof.discoveredCount <= 0 || proof.publishedCount !== 0) return false;
   return proof.details.every((detail) => !detail.swiss
     && detail.locations.length > 0
-    && detail.locations.every((location) => location.split(/[,;&/|]/)
-      .map(normalizeAuthoritativeNonSwissLocationPart)
-      .filter(Boolean)
-      .every((locality) => AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality))));
+    && detail.locations.every((location) => isAllowlistedAuthoritativeNonSwissLocation(
+      location,
+      AUTHORITATIVE_NON_SWISS_LOCATIONS,
+    )));
 }
 
 /**

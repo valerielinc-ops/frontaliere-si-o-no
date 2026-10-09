@@ -61,6 +61,25 @@ export function normalizeAuthoritativeNonSwissLocationPart(value = '') {
     .trim();
 }
 
+/**
+ * Check a source location against a parser's reviewed non-Swiss allowlist.
+ * Postal prefixes are evidence attached to the locality; every non-empty
+ * locality segment must still be explicitly reviewed by that parser.
+ *
+ * @param {unknown} value
+ * @param {ReadonlySet<string>} allowlist
+ * @returns {boolean}
+ */
+export function isAllowlistedAuthoritativeNonSwissLocation(value, allowlist) {
+  const parts = String(value || '')
+    .split(/[,;&/|]/)
+    .map(normalizeAuthoritativeNonSwissLocationPart)
+    .filter(Boolean);
+  return parts.length > 0
+    && Boolean(allowlist && typeof allowlist.has === 'function')
+    && parts.every((part) => allowlist.has(part));
+}
+
 function hasToken(value, token) {
   const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`).test(value);

@@ -6,6 +6,7 @@ import {
   MAX_INTRO_BLOCKS,
   assertCompleteRecruitingapp2677Snapshot,
   fetchAllRecruitingapp2677Jobs,
+  isRecruitingapp2677ExpectedDetailFilter,
   isRecruitingapp2677Job,
   isTrustedDomain,
   stableLocationCandidatesKey,
@@ -213,6 +214,48 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
   });
 
   describe('authoritative non-Swiss snapshot', () => {
+    it('does not trip the shared detail-drop guard for a complete large foreign snapshot', async () => {
+      const details = Object.fromEntries(Array.from({ length: 16 }, (_, index) => {
+        const title = `Foreign Position ${index + 1}`;
+        const location = index % 2 === 0 ? '9490 Vaduz' : 'Eschen';
+        return [String(5000 + index), { title, body: foreignDetail(title, location) }];
+      }));
+      const { runtime } = sourceRuntime(details);
+
+      const jobs = await fetchAllRecruitingapp2677Jobs(runtime);
+
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeSnapshotProof).toMatchObject({
+        discoveredCount: 16,
+        attemptedDetailCount: 16,
+        detailCount: 16,
+        publishedCount: 0,
+        complete: true,
+      });
+      expect(assertCompleteRecruitingapp2677Snapshot(jobs)).toBe(true);
+    });
+
+    it('only exempts rich, allowlisted foreign geography from the shared guard', () => {
+      const base = {
+        reason: 'geography',
+        decision: { geography: null, explicitlyForeign: true },
+        descriptionSufficient: true,
+      };
+      expect(isRecruitingapp2677ExpectedDetailFilter({
+        ...base,
+        detail: { locationCandidates: [{ addressLocality: '9490 Vaduz' }] },
+      })).toBe(true);
+      expect(isRecruitingapp2677ExpectedDetailFilter({
+        ...base,
+        detail: { locationCandidates: [{ addressLocality: 'New City' }] },
+      })).toBe(false);
+      expect(isRecruitingapp2677ExpectedDetailFilter({
+        ...base,
+        descriptionSufficient: false,
+        detail: { locationCandidates: [{ addressLocality: 'Vaduz' }] },
+      })).toBe(false);
+    });
+
     it('proves a complete foreign snapshot and authorizes an atomic empty publication', async () => {
       const { runtime, requested } = sourceRuntime({
         '1994': { title: 'Kundenberater:in', body: foreignDetail('Kundenberater:in', 'Vaduz') },
