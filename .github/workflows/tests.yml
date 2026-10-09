@@ -2346,6 +2346,8 @@ jobs:
         #
         # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
         # 32939112340, verde) per lo span «indipendenti start → dataset end».
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
         run: |
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
