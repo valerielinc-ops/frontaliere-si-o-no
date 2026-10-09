@@ -11024,9 +11024,9 @@
     },
     {
       "id": "medbase-3e1b14dd11fb",
-      "slug": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+      "slug": "farmacista-responsabile-a-100-medbase-zurich",
       "slugByLocale": {
-        "it": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
+        "it": "farmacista-responsabile-a-100-medbase-zurich",
         "en": "executive-pharmacist-a-100-medbase-zurich",
         "de": "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
         "fr": "directeur-pharmacien-en-a-100-medbase-zurich"
@@ -11086,7 +11086,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-7e74222b6880",

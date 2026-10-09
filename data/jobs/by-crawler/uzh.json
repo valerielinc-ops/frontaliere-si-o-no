@@ -7633,9 +7633,9 @@
     },
     {
       "id": "uzh-f71184e22989",
-      "slug": "fachspezialist-in-zulassung-uzh-zurich",
+      "slug": "specialista-autorizzazioni-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "fachspezialist-in-zulassung-uzh-zurich",
+        "it": "specialista-autorizzazioni-universitat-zurich-zurich",
         "en": "subject-matter-specialist-approval-universitat-zurich-zurich",
         "de": "fachspezialist-in-zulassung-uzh-zurich",
         "fr": "specialiste-en-admission-universitat-zurich-zurich"
@@ -7695,7 +7695,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-zulassung-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-zulassung-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-3e23ae24c0eb",

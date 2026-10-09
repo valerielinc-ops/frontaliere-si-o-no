@@ -2469,9 +2469,9 @@
     },
     {
       "id": "spital-emmental-4b4a6fbed4a6",
-      "slug": "betriebselektriker-in-a-spital-emmental-burgdorf",
+      "slug": "elettricista-aziendale-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "betriebselektriker-in-a-spital-emmental-burgdorf",
+        "it": "elettricista-aziendale-a-spital-emmental-burgdorf",
         "en": "industrialelectrician-a-spital-emmental-burgdorf",
         "de": "betriebselektriker-in-a-spital-emmental-burgdorf",
         "fr": "electricien-d-exploitation-en-a-spital-emmental-burgdorf"
@@ -2524,11 +2524,15 @@
       "pensum": "100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "betriebselektriker-in-spital-emmental-burgdorf"
+        "betriebselektriker-in-spital-emmental-burgdorf",
+        "betriebselektriker-in-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "de": [
           "betriebselektriker-in-spital-emmental-burgdorf"
+        ],
+        "it": [
+          "betriebselektriker-in-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-10-03T09:10:15.563Z",

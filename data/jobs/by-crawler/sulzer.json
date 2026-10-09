@@ -319,12 +319,12 @@
     },
     {
       "id": "sulzer-439259fe9786",
-      "slug": "legal-assistant-paralegal-sulzer-ch",
+      "slug": "assistente-legale-paralegale-sulzer-winterthur",
       "slugByLocale": {
         "en": "legal-assistant-paralegal-sulzer-ch",
-        "it": "legal-assistant-paralegal-sulzer-ch",
+        "it": "assistente-legale-paralegale-sulzer-winterthur",
         "de": "legal-assistant-paralegal-sulzer-ch",
-        "fr": "legal-assistant-paralegal-sulzer-ch"
+        "fr": "assistant-juridique-parajuriste-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -383,7 +383,18 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-10-09T12:12:53.764Z"
+      "firstSeenAt": "2026-10-09T12:12:53.764Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-assistant-paralegal-sulzer-ch"
+        ],
+        "fr": [
+          "legal-assistant-paralegal-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-assistant-paralegal-sulzer-ch"
+      ]
     }
   ]
 }

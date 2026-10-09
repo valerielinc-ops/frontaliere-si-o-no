@@ -5727,9 +5727,9 @@
     },
     {
       "id": "emmi-250c5a7b7c6e",
-      "slug": "anlagenfuhrer-in-team-butter-emmi-ch",
+      "slug": "addetta-o-alla-conduzione-degli-impianti-team-burro-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-team-butter-emmi-ch",
+        "it": "addetta-o-alla-conduzione-degli-impianti-team-burro-emmi-suhr-aargau",
         "en": "plant-manager-team-butter-emmi-suhr-aargau",
         "de": "anlagenfuhrer-in-team-butter-emmi-ch",
         "fr": "conducteur-d-installation-en-equipe-beurre-emmi-suhr-aargau"
@@ -5798,7 +5798,15 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-team-butter-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-team-butter-emmi-ch"
+      ]
     },
     {
       "id": "emmi-96d0bd4823ea",
@@ -5892,9 +5900,9 @@
     },
     {
       "id": "emmi-849900ec6806",
-      "slug": "schichtfuhrer-in-uht-past-emmi-ch",
+      "slug": "capo-turno-uht-past-emmi-ostermundigen-bern",
       "slugByLocale": {
-        "it": "schichtfuhrer-in-uht-past-emmi-ch",
+        "it": "capo-turno-uht-past-emmi-ostermundigen-bern",
         "en": "shift-leader-uht-past-emmi-ostermundigen-bern",
         "de": "schichtfuhrer-in-uht-past-emmi-ch",
         "fr": "chef-d-equipe-en-uht-past-emmi-ostermundigen-bern"
@@ -5964,7 +5972,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtfuhrer-in-uht-past-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schichtfuhrer-in-uht-past-emmi-ch"
+      ]
     },
     {
       "id": "emmi-f86709a44ab4-r3c30ce2d",

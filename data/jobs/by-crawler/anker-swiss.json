@@ -14899,7 +14899,7 @@
       "slugByLocale": {
         "de": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
         "it": "autista-100-anker-swiss-ticino-ag-wikon-d79dbd21",
-        "en": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21",
+        "en": "driver-100-anker-swiss-ticino-ag-wikon-d79dbd21",
         "fr": "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
       },
       "slugDisambiguator": "d79dbd21",
@@ -14964,6 +14964,9 @@
       "firstSeenAt": "2026-10-09T10:46:58.084Z",
       "previousSlugsByLocale": {
         "it": [
+          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+        ],
+        "en": [
           "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
         ]
       },

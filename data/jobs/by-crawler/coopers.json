@@ -4486,12 +4486,12 @@
     },
     {
       "id": "coopers-e4c99ded4d08",
-      "slug": "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt",
+      "slug": "assistente-del-reparto-vendite-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "it": "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt",
+        "it": "assistente-del-reparto-vendite-m-f-d-coopers-group-ag-basel-stadt",
         "en": "sales-assistant-m-f-d-coopers-group-ag-basel-stadt",
         "de": "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt",
-        "fr": "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt"
+        "fr": "assistant-e-du-service-commercial-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4563,7 +4563,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-der-vertriebsabteilung-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-5d7bfee37508",

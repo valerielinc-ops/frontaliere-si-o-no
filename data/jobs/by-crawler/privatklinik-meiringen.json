@@ -999,9 +999,9 @@
     },
     {
       "id": "privatklinik-meiringen-b5f95036bb95",
-      "slug": "co-schwerpunkteleiter-in-80-100-privatklinik-meiringen-meiringen",
+      "slug": "co-responsabile-del-settore-prioritario-80-100-privatklinik-meiringen-meiringen",
       "slugByLocale": {
-        "it": "co-schwerpunkteleiter-in-80-100-privatklinik-meiringen-meiringen",
+        "it": "co-responsabile-del-settore-prioritario-80-100-privatklinik-meiringen-meiringen",
         "en": "co-focus-leader-80-100-privatklinik-meiringen-meiringen",
         "de": "co-schwerpunkteleiter-in-80-100-privatklinik-meiringen-meiringen",
         "fr": "co-acteur-dans-80-100-privatklinik-meiringen-meiringen"
@@ -1064,7 +1064,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schwerpunkteleiter-in-80-100-privatklinik-meiringen-meiringen"
+        ]
+      },
+      "previousSlugs": [
+        "co-schwerpunkteleiter-in-80-100-privatklinik-meiringen-meiringen"
+      ]
     },
     {
       "id": "privatklinik-meiringen-7ae63225eb4d",

@@ -97022,12 +97022,12 @@
     },
     {
       "id": "sta-37d2922c2b03",
-      "slug": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
+      "slug": "operatore-trice-automatico-a-con-interventi-di-assistenza-sta-personal-ag-wil-sg-st-gallen",
       "slugByLocale": {
         "de": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "it": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "en": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg",
-        "fr": "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
+        "it": "operatore-trice-automatico-a-con-interventi-di-assistenza-sta-personal-ag-wil-sg-st-gallen",
+        "en": "automation-technician-with-service-assignments-sta-personal-ag-wil-sg-st-gallen",
+        "fr": "automaticien-ne-avec-interventions-de-service-sta-personal-ag-wil-sg-st-gallen"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -97073,14 +97073,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+          "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch",
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
         ],
         "de": [
           "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+        ],
+        "en": [
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
+        ],
+        "fr": [
+          "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch"
+        "automatiker-in-mit-serviceeinsatzen-wil-sg-st-gallen-sta-ch",
+        "automatiker-in-mit-serviceeinsatzen-sta-personal-ag-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -97097,7 +97105,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-10-06T22:13:13.884Z",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-31ee1e2b1d79",
@@ -97244,7 +97252,7 @@
         }
       },
       "postalCode": "8340",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-20016e83e83e",
@@ -97392,7 +97400,7 @@
         }
       },
       "postalCode": "8330",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-ccb142c2fcc3",
@@ -97474,7 +97482,7 @@
         }
       },
       "postalCode": "8001",
-      "translationHoldSince": "2026-10-09T10:04:30.996Z"
+      "translationHoldReleasedAt": "2026-10-09T16:35:24.383Z"
     },
     {
       "id": "sta-b350e042afac",

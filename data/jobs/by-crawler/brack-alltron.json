@@ -2147,9 +2147,9 @@
     },
     {
       "id": "brack-alltron-bfd714cfb76a",
-      "slug": "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich",
+      "slug": "parrucchiere-a-afc-60-100-wallisellen-brack-alltron-ag-zurich",
       "slugByLocale": {
-        "it": "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich",
+        "it": "parrucchiere-a-afc-60-100-wallisellen-brack-alltron-ag-zurich",
         "en": "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich",
         "de": "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich",
         "fr": "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich"
@@ -2209,7 +2209,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "coiffeur-in-efz-60-100-wallisellen-brack-alltron-zurich"
+      ]
     },
     {
       "id": "brack-alltron-5a837bc4c8df",

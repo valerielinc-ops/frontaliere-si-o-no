@@ -197,9 +197,9 @@
     },
     {
       "id": "bossard-f5b558e6ec55",
-      "slug": "sachbearbeiter-in-rechnungskontrolle-70-all-genders-bossard-group-bossard-zug",
+      "slug": "addetto-a-al-controllo-delle-fatture-70-tutti-i-generi-bossard-group-bossard-group-zug",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-rechnungskontrolle-70-all-genders-bossard-group-bossard-zug",
+        "it": "addetto-a-al-controllo-delle-fatture-70-tutti-i-generi-bossard-group-bossard-group-zug",
         "en": "invoice-control-clerk-70-all-genders-bossard-group-bossard-group-zug",
         "de": "sachbearbeiter-in-rechnungskontrolle-70-all-genders-bossard-group-bossard-zug",
         "fr": "responsable-dans-le-controle-des-factures-70-tous-genres-bossard-group-bossard-group-zug"
@@ -260,7 +260,15 @@
           "maxValue": 74200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-rechnungskontrolle-70-all-genders-bossard-group-bossard-zug"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-rechnungskontrolle-70-all-genders-bossard-group-bossard-zug"
+      ]
     },
     {
       "id": "bossard-4b0cc2681a01",
@@ -347,9 +355,9 @@
     },
     {
       "id": "bossard-1bda5e5cafd9",
-      "slug": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+      "slug": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
       "slugByLocale": {
-        "it": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
+        "it": "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
         "en": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
         "de": "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
         "fr": "acheteur-100-tous-genres-bossard-group-bossard-group-zug"
@@ -411,7 +419,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaufer-in-100-all-genders-bossard-group-bossard-zug"
+        ]
+      },
+      "previousSlugs": [
+        "einkaufer-in-100-all-genders-bossard-group-bossard-zug"
+      ]
     }
   ]
 }

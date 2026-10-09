@@ -2958,7 +2958,7 @@
         "it": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
         "en": "hr-business-partner-sales-french-speaking-switzerland-ticino-60-mediamarkt-crissier",
         "de": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch",
-        "fr": "hr-business-partner-ventes-suisse-romande-tessin-60-mediamarkt-crissier-ch"
+        "fr": "partenaire-rh-ventes-suisse-romande-ticino-60-mediamarkt-crissier"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -3502,9 +3502,9 @@
     },
     {
       "id": "mediamarkt-100267",
-      "slug": "collaboratore-trice-in-vendita-40-m-w-d-mediamarkt-amriswil",
+      "slug": "dipendente-di-vendita-40-m-f-d-mediamarkt-amriswil",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-40-m-w-d-mediamarkt-amriswil",
+        "it": "dipendente-di-vendita-40-m-f-d-mediamarkt-amriswil",
         "en": "employee-sales-40-m-f-d-mediamarkt-amriswil",
         "de": "mitarbeiter-in-verkauf-40-m-w-d-mediamarkt-amriswil-ch",
         "fr": "employe-en-vente-40-h-f-d-mediamarkt-amriswil"
@@ -3556,7 +3556,8 @@
       "previousSlugs": [
         "mitarbeiter-in-sales-40-m-w-d-mediamarkt-amriswil",
         "mitarbeiter-in-vente-40-m-w-d-mediamarkt-amriswil",
-        "mitarbeiter-in-verkauf-40-m-w-d-mediamarkt-amriswil-ch"
+        "mitarbeiter-in-verkauf-40-m-w-d-mediamarkt-amriswil-ch",
+        "collaboratore-trice-in-vendita-40-m-w-d-mediamarkt-amriswil"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -3566,7 +3567,8 @@
           "mitarbeiter-in-vente-40-m-w-d-mediamarkt-amriswil"
         ],
         "it": [
-          "mitarbeiter-in-verkauf-40-m-w-d-mediamarkt-amriswil-ch"
+          "mitarbeiter-in-verkauf-40-m-w-d-mediamarkt-amriswil-ch",
+          "collaboratore-trice-in-vendita-40-m-w-d-mediamarkt-amriswil"
         ]
       },
       "needsRetranslation": true,

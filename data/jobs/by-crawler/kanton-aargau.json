@@ -1069,9 +1069,9 @@
     },
     {
       "id": "kanton-aargau-bd633a88d415",
-      "slug": "mitarbeiterin-collaboratore-trice-betreuung-uma-70-kanton-aargau-aarau",
+      "slug": "addetta-addetto-all-assistenza-uma-70-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-betreuung-uma-70-kanton-aargau-aarau",
+        "it": "addetta-addetto-all-assistenza-uma-70-kanton-aargau-aarau",
         "en": "employee-employee-support-uma-70-kanton-aargau-aarau",
         "de": "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch",
         "fr": "soutien-des-employes-uma-70-kanton-aargau-aarau"
@@ -1121,14 +1121,16 @@
       "department": "Kantonaler Sozialdienst",
       "previousSlugs": [
         "soutien-aux-employes-uma-70-kanton-aargau-aarau",
-        "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
+        "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch",
+        "mitarbeiterin-collaboratore-trice-betreuung-uma-70-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "soutien-aux-employes-uma-70-kanton-aargau-aarau"
         ],
         "it": [
-          "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
+          "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch",
+          "mitarbeiterin-collaboratore-trice-betreuung-uma-70-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:04.733Z",
@@ -2290,9 +2292,9 @@
     },
     {
       "id": "kanton-aargau-548a04f7023e",
-      "slug": "mitarbeiterin-collaboratore-trice-betreuung-80-100-kanton-aargau-rekingen",
+      "slug": "addetta-addetto-all-assistenza-80-100-kanton-aargau-rekingen",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-betreuung-80-100-kanton-aargau-rekingen",
+        "it": "addetta-addetto-all-assistenza-80-100-kanton-aargau-rekingen",
         "en": "employee-care-80-100-kanton-aargau-rekingen",
         "de": "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch",
         "fr": "soins-aux-employes-80-100-kanton-aargau-rekingen"
@@ -2343,11 +2345,13 @@
       "firstSeenAt": "2026-10-03T09:23:53.410Z",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
+          "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch",
+          "mitarbeiterin-collaboratore-trice-betreuung-80-100-kanton-aargau-rekingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
+        "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch",
+        "mitarbeiterin-collaboratore-trice-betreuung-80-100-kanton-aargau-rekingen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2370,7 +2374,7 @@
         "it": "medico-a-50-kanton-aargau-stein",
         "en": "mediothecarin-mediothecar-50-kanton-aargau-stein",
         "de": "mediothekarin-mediothekar-50-kanton-aargau-ch",
-        "fr": "mediothekarin-mediothekar-50-kanton-aargau-ch"
+        "fr": "mediothecaire-mediothecaire-50-kanton-aargau-stein"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2425,6 +2429,9 @@
           "mediothekarin-mediothekar-50-kanton-aargau-stein"
         ],
         "it": [
+          "mediothekarin-mediothekar-50-kanton-aargau-ch"
+        ],
+        "fr": [
           "mediothekarin-mediothekar-50-kanton-aargau-ch"
         ]
       },
@@ -2961,9 +2968,9 @@
     },
     {
       "id": "kanton-aargau-378f7079f038",
-      "slug": "sachbearbeiterin-sachbearbeiter-weiterbildung-e-kommunikation-80-100-kanton-aargau-granichen",
+      "slug": "impiegata-impiegato-amministrativo-per-la-formazione-continua-e-la-comunicazione-80-100-kanton-aargau-granichen",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-weiterbildung-e-kommunikation-80-100-kanton-aargau-granichen",
+        "it": "impiegata-impiegato-amministrativo-per-la-formazione-continua-e-la-comunicazione-80-100-kanton-aargau-granichen",
         "en": "personnel-personnel-training-and-communication-80-100-kanton-aargau-granichen",
         "de": "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch",
         "fr": "personnel-formation-et-communication-du-personnel-80-100-kanton-aargau-granichen"
@@ -3013,11 +3020,13 @@
       "requirementsByLocale": {},
       "department": "Landwirtschaftliches Zentrum Liebegg",
       "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
+        "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch",
+        "sachbearbeiterin-sachbearbeiter-weiterbildung-e-kommunikation-80-100-kanton-aargau-granichen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
+          "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch",
+          "sachbearbeiterin-sachbearbeiter-weiterbildung-e-kommunikation-80-100-kanton-aargau-granichen"
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
@@ -6076,9 +6085,9 @@
     },
     {
       "id": "kanton-aargau-e3b53885fa4e",
-      "slug": "mitarbeiterin-collaboratore-trice-reparaturdienst-logistik-60-kanton-aargau-staufen",
+      "slug": "dipendente-nel-servizio-logistica-riparazione-60-kanton-aargau-staufen",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-reparaturdienst-logistik-60-kanton-aargau-staufen",
+        "it": "dipendente-nel-servizio-logistica-riparazione-60-kanton-aargau-staufen",
         "en": "employee-repair-service-logistics-60-kanton-aargau-staufen",
         "de": "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch",
         "fr": "service-de-reparation-des-employes-logistique-60-kanton-aargau-staufen"
@@ -6128,11 +6137,13 @@
       "requirementsByLocale": {},
       "department": "Kantonaler Sozialdienst",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch"
+        "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch",
+        "mitarbeiterin-collaboratore-trice-reparaturdienst-logistik-60-kanton-aargau-staufen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch"
+          "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch",
+          "mitarbeiterin-collaboratore-trice-reparaturdienst-logistik-60-kanton-aargau-staufen"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-reparaturdienst-logistik-60-kanton-aargau-ch"

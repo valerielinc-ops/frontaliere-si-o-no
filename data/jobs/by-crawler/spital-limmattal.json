@@ -1125,9 +1125,9 @@
     },
     {
       "id": "spital-limmattal-04d3869143eb",
-      "slug": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch",
+      "slug": "formazione-per-diventare-soccorritore-trice-diplomato-a-sss-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch",
+        "it": "formazione-per-diventare-soccorritore-trice-diplomato-a-sss-spital-limmattal-schlieren",
         "en": "apprenticeship-as-a-diploma-emt-hf-spital-limmattal-schlieren",
         "de": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch",
         "fr": "formation-au-a-la-diplome-ambulancier-en-hf-spital-limmattal-schlieren"
@@ -1186,7 +1186,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-eb49f307baed",
