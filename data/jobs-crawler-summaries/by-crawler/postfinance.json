@@ -1,68 +1,18 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-09T09:50:26.760Z",
+  "generatedAt": "2026-10-09T21:44:40.786Z",
   "total": 28,
-  "newCount": 1,
-  "updatedCount": 14,
-  "removedCount": 1,
-  "unchangedCount": 13,
-  "durationMs": 43331,
-  "avgDurationMs": 43331,
+  "newCount": 0,
+  "updatedCount": 12,
+  "removedCount": 0,
+  "unchangedCount": 16,
+  "durationMs": 36279,
+  "avgDurationMs": 36279,
   "durationHistory": [
-    43331
+    36279
   ],
-  "newJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
-      "title": "IT-Einstiegsprogramm Tech-Unternehmer:in",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "it-einstiegsprogramm-tech-unternehmer-in-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:38.091Z",
-      "validThrough": "26.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "100-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "needsRetranslation": true,
-      "id": "postfinance-509e04b8f4f2",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-10-09T09:49:38.091Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",
@@ -84,7 +34,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:12.301Z",
+      "crawledAt": "2026-10-09T21:44:30.402Z",
       "validThrough": "09.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -133,7 +83,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:05.279Z",
+      "crawledAt": "2026-10-09T21:44:24.558Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -181,7 +131,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:03.746Z",
+      "crawledAt": "2026-10-09T21:44:23.377Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -230,7 +180,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:00.862Z",
+      "crawledAt": "2026-10-09T21:44:20.826Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -260,102 +210,6 @@
       }
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
-      "title": "Kundenbetreuer:in Customer Center Niederurnen",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
-      "country": "CH",
-      "slug": "addetto-a-al-servizio-clienti-customer-center-niederurnen-postfinance-niederurnen",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:56.520Z",
-      "validThrough": "30.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
-      },
-      "id": "postfinance-8433af2b03c4",
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 73500,
-      "salaryMax": 113000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8867",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
-      "title": "Standortleiter:in Customer Center Privatkunden Biel",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "responsabile-di-sede-customer-center-clienti-privati-bienne-postfinance-biel-bienne",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:52.281Z",
-      "validThrough": "02.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "90-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel/Bienne"
-      },
-      "id": "postfinance-4263a1af0523",
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "2502",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
       "title": "Athletenprogramm Asset Management (w/m/d)",
@@ -375,7 +229,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:49.430Z",
+      "crawledAt": "2026-10-09T21:44:11.312Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -424,7 +278,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:48.004Z",
+      "crawledAt": "2026-10-09T21:44:10.107Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -473,7 +327,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:45.232Z",
+      "crawledAt": "2026-10-09T21:44:07.566Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -522,7 +376,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:43.727Z",
+      "crawledAt": "2026-10-09T21:44:06.384Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -571,7 +425,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:42.336Z",
+      "crawledAt": "2026-10-09T21:44:05.199Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -620,7 +474,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:39.527Z",
+      "crawledAt": "2026-10-09T21:44:02.831Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -634,6 +488,828 @@
       "id": "postfinance-477301125e8d",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T09:36:40.421Z",
+      "salaryMin": 73500,
+      "salaryMax": 129000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/IT-Einstiegsprogramm-Tech-Unternehmerin/74973-de_DE",
+      "title": "IT-Einstiegsprogramm Tech-Unternehmer:in",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "programma-d-ingresso-nell-it-per-imprenditore-imprenditrice-tech-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:01.625Z",
+      "validThrough": "26.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "100-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-509e04b8f4f2",
+      "firstSeenAt": "2026-10-09T09:49:38.091Z",
+      "salaryMin": 66000,
+      "salaryMax": 112000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
+      "title": "UX/UI Designer mit Fokus Visual Design (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Geschäftsentwicklung"
+      ],
+      "category": [
+        "Büro-Geschäftsentwicklung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-08T22:37:17.895Z",
+      "validThrough": "22.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-88eacf7ad27d",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:32:58.564Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
+      "title": "Chargeback Spezialist:in Acquiring",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-di-chargeback-in-acquisizione-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Projektmanagement"
+      ],
+      "category": [
+        "Büro-Projektmanagement"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:31.469Z",
+      "validThrough": "16.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-87b72fa5d2ad",
+      "firstSeenAt": "2026-09-04T23:00:38.850Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
+      "title": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Administration"
+      ],
+      "category": [
+        "Büro-Administration"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:29.238Z",
+      "validThrough": "12.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-fe195634dcc0",
+      "firstSeenAt": "2026-09-26T14:14:15.597Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8867",
+      "addressLocality": "Niederurnen",
+      "addressRegion": "GL",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Chargeback/74081-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Chargeback/74081-de_DE",
+      "title": "Mitarbeiter:in Chargeback",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "collaboratore-trice-chargeback-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Administration"
+      ],
+      "category": [
+        "Büro-Administration"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:28.006Z",
+      "validThrough": "14.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-51f060b33bd7",
+      "firstSeenAt": "2026-09-23T11:57:45.123Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Werkstudentin-Compliance/74753-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Werkstudentin-Compliance/74753-de_DE",
+      "title": "Werkstudent:in Compliance",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "conformita-degli-studenti-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:26.826Z",
+      "validThrough": "16.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "70-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-8efde3e16ba8",
+      "firstSeenAt": "2026-09-23T11:57:45.123Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Delivery-Team-Lead-Digital-Commerce-Payments-%28wmd%29/74764-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Delivery-Team-Lead-Digital-Commerce-Payments-%28wmd%29/74764-de_DE",
+      "title": "Delivery Team Lead Digital Commerce Payments (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "delivery-capo-team-digital-commerce-payments-w-m-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:25.619Z",
+      "validThrough": "18.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-73d5b935a76b",
+      "firstSeenAt": "2026-09-23T11:57:45.123Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
+      "title": "Fachspezialist:in Testing Asset Management (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "specialista-di-testing-nella-gestione-patrimoniale-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Projektmanagement"
+      ],
+      "category": [
+        "Büro-Projektmanagement"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:22.171Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-0cd1ab353779",
+      "firstSeenAt": "2026-09-26T14:14:15.597Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kampagnen-und-Kommunikationsmanagerin-Firmenkunden-%28befristet%29/74740-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kampagnen-und-Kommunikationsmanagerin-Firmenkunden-%28befristet%29/74740-de_DE",
+      "title": "Kampagnen- und Kommunikationsmanager:in Firmenkunden (befristet)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "manager-delle-campagne-e-della-comunicazione-per-clienti-aziendali-a-tempo-determinato-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "category": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:19.635Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Marketing",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-706782f0824d",
+      "firstSeenAt": "2026-09-29T09:42:03.998Z",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
+      "title": "Mitarbeiter:in Compliance Office Firmenkunden",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "collaboratore-trice-compliance-office-firmenkunden-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:18.447Z",
+      "validThrough": "27.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-d0faf69cadb4",
+      "firstSeenAt": "2026-09-29T09:42:03.998Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Niederurnen/74899-de_DE",
+      "title": "Kundenbetreuer:in Customer Center Niederurnen",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Niederurnen",
+      "canton": "GL",
+      "country": "CH",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-niederurnen-postfinance-niederurnen",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:17.242Z",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GL",
+        "location": "Niederurnen"
+      },
+      "id": "postfinance-8433af2b03c4",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 73500,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8867",
+      "addressLocality": "Niederurnen",
+      "addressRegion": "GL",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
+      "title": "Kundenbetreuer:in Customer Center Biel",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "addetto-a-al-servizio-clienti-customer-center-biel-postfinance-biel-bienne",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:16.059Z",
+      "validThrough": "31.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "60-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "id": "postfinance-a2e105d9ca29",
+      "firstSeenAt": "2026-10-01T09:32:58.564Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
+      "title": "DevOps Engineer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:14.869Z",
+      "validThrough": "20.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "id": "postfinance-2809f6c4dbc0",
+      "firstSeenAt": "2026-10-03T09:36:14.852Z",
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4800",
+      "addressLocality": "Zofingen",
+      "addressRegion": "AG",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
+      "title": "Standortleiter:in Customer Center Privatkunden Biel",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "responsabile-di-sede-customer-center-clienti-privati-bienne-postfinance-biel-bienne",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:13.682Z",
+      "validThrough": "02.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "90-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Biel/Bienne"
+      },
+      "id": "postfinance-4263a1af0523",
+      "firstSeenAt": "2026-09-30T21:35:43.116Z",
+      "salaryMin": 109000,
+      "salaryMax": 167000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
+      "title": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "slug": "consulente-senior-per-la-clientela-privata-con-specializzazione-negli-investimenti-postfinance-zurich",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:12.491Z",
+      "validThrough": "30.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "id": "postfinance-e95aed9c3540",
+      "firstSeenAt": "2026-10-03T09:36:14.852Z",
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
+      "title": "Kundenbetreuer:in Customer Center",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:08.759Z",
+      "validThrough": "05.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "id": "postfinance-8ebbe8fb16f1",
+      "firstSeenAt": "2026-10-05T09:36:37.648Z",
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4800",
+      "addressLocality": "Zofingen",
+      "addressRegion": "AG",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-AI-Business-Engineering-%28wmd%29/74913-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-AI-Business-Engineering-%28wmd%29/74913-de_DE",
+      "title": "Traineeprogramm AI Business Engineering (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "programma-di-formazione-ai-business-engineering-m-f-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-09T21:44:04.019Z",
+      "validThrough": "11.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-6e306596b340",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-06T09:44:30.000Z",
       "salaryMin": 73500,
       "salaryMax": 129000,
       "currency": "CHF",
@@ -689,107 +1365,6 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
-      "title": "UX/UI Designer mit Fokus Visual Design (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Geschäftsentwicklung"
-      ],
-      "category": [
-        "Büro-Geschäftsentwicklung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:17.895Z",
-      "validThrough": "22.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-88eacf7ad27d",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:32:58.564Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/People-Attraction-Manager-%28wmd%29-befristet/74829-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/People-Attraction-Manager-%28wmd%29-befristet/74829-de_DE",
-      "title": "People Attraction Manager (w/m/d) - befristet",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "people-attraction-manager-m-w-d-befristet-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Personal"
-      ],
-      "category": [
-        "Büro-Personal"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T21:59:59.387Z",
-      "validThrough": "29.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-af97e304cea0",
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
       "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -800,633 +1375,5 @@
       }
     }
   ],
-  "unchangedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
-      "title": "Chargeback Spezialist:in Acquiring",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-di-chargeback-in-acquisizione-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:13.727Z",
-      "validThrough": "16.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-87b72fa5d2ad",
-      "firstSeenAt": "2026-09-04T23:00:38.850Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenz-Center-Kreditkarten/74490-de_DE",
-      "title": "Mitarbeiter:in Kompetenz-Center Kreditkarten",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
-      "country": "CH",
-      "slug": "collaboratore-trice-kompetenz-center-kreditkarten-postfinance-niederurnen",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Administration"
-      ],
-      "category": [
-        "Büro-Administration"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:10.906Z",
-      "validThrough": "12.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
-      },
-      "id": "postfinance-fe195634dcc0",
-      "firstSeenAt": "2026-09-26T14:14:15.597Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8867",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Chargeback/74081-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Chargeback/74081-de_DE",
-      "title": "Mitarbeiter:in Chargeback",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-chargeback-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Administration"
-      ],
-      "category": [
-        "Büro-Administration"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:09.511Z",
-      "validThrough": "14.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-51f060b33bd7",
-      "firstSeenAt": "2026-09-23T11:57:45.123Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Werkstudentin-Compliance/74753-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Werkstudentin-Compliance/74753-de_DE",
-      "title": "Werkstudent:in Compliance",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "conformita-degli-studenti-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Recht und Compliance"
-      ],
-      "category": [
-        "Büro-Recht und Compliance"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:08.120Z",
-      "validThrough": "16.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-8efde3e16ba8",
-      "firstSeenAt": "2026-09-23T11:57:45.123Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Delivery-Team-Lead-Digital-Commerce-Payments-%28wmd%29/74764-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Delivery-Team-Lead-Digital-Commerce-Payments-%28wmd%29/74764-de_DE",
-      "title": "Delivery Team Lead Digital Commerce Payments (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "delivery-capo-team-digital-commerce-payments-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:06.713Z",
-      "validThrough": "18.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-73d5b935a76b",
-      "firstSeenAt": "2026-09-23T11:57:45.123Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachspezialistin-Testing-Asset-Management-%28wmd%29/74767-de_DE",
-      "title": "Fachspezialist:in Testing Asset Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-di-testing-nella-gestione-patrimoniale-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:50:02.291Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-0cd1ab353779",
-      "firstSeenAt": "2026-09-26T14:14:15.597Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kampagnen-und-Kommunikationsmanagerin-Firmenkunden-%28befristet%29/74740-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kampagnen-und-Kommunikationsmanagerin-Firmenkunden-%28befristet%29/74740-de_DE",
-      "title": "Kampagnen- und Kommunikationsmanager:in Firmenkunden (befristet)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "kampagnen-e-kommunikationsmanager-in-firmenkunden-befristet-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "category": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:59.388Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Marketing",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-706782f0824d",
-      "firstSeenAt": "2026-09-29T09:42:03.998Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Compliance-Office-Firmenkunden/74803-de_DE",
-      "title": "Mitarbeiter:in Compliance Office Firmenkunden",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-compliance-office-firmenkunden-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Recht und Compliance"
-      ],
-      "category": [
-        "Büro-Recht und Compliance"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:57.985Z",
-      "validThrough": "27.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-d0faf69cadb4",
-      "firstSeenAt": "2026-09-29T09:42:03.998Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center-Biel/74895-de_DE",
-      "title": "Kundenbetreuer:in Customer Center Biel",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Biel/Bienne",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-biel-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:55.119Z",
-      "validThrough": "31.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Biel/Bienne"
-      },
-      "id": "postfinance-a2e105d9ca29",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:32:58.564Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "2502",
-      "addressLocality": "Biel/Bienne",
-      "addressRegion": "BE",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
-      "title": "DevOps Engineer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zofingen",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:53.673Z",
-      "validThrough": "20.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Zofingen"
-      },
-      "id": "postfinance-2809f6c4dbc0",
-      "firstSeenAt": "2026-10-03T09:36:14.852Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "4800",
-      "addressLocality": "Zofingen",
-      "addressRegion": "AG",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Kundenberaterin-Privatkunden-mit-Schwerpunkt-Anlage/74877-de_DE",
-      "title": "Senior Kundenberater:in Privatkunden mit Schwerpunkt Anlage",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "consulente-senior-per-la-clientela-privata-con-specializzazione-negli-investimenti-postfinance-zurich",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:50.836Z",
-      "validThrough": "30.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "id": "postfinance-e95aed9c3540",
-      "firstSeenAt": "2026-10-03T09:36:14.852Z",
-      "salaryMin": 117000,
-      "salaryMax": 180000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "8001",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/72476-de_DE",
-      "title": "Kundenbetreuer:in Customer Center",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zofingen",
-      "canton": "AG",
-      "country": "CH",
-      "slug": "responsabile-clienti-nel-centro-clienti-postfinance-zofingen",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:46.626Z",
-      "validThrough": "05.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Zofingen"
-      },
-      "id": "postfinance-8ebbe8fb16f1",
-      "firstSeenAt": "2026-10-05T09:36:37.648Z",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "4800",
-      "addressLocality": "Zofingen",
-      "addressRegion": "AG",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Traineeprogramm-AI-Business-Engineering-%28wmd%29/74913-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Traineeprogramm-AI-Business-Engineering-%28wmd%29/74913-de_DE",
-      "title": "Traineeprogramm AI Business Engineering (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "programma-di-formazione-ai-business-engineering-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T09:49:40.920Z",
-      "validThrough": "11.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-6e306596b340",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-06T09:44:30.000Z",
-      "salaryMin": 73500,
-      "salaryMax": 129000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
