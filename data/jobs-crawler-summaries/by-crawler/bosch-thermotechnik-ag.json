@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-08T22:09:00.017Z",
+  "generatedAt": "2026-10-09T09:16:17.498Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 20216,
-  "avgDurationMs": 20216,
+  "durationMs": 19862,
+  "avgDurationMs": 19862,
   "durationHistory": [
-    20216
+    19862
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -59,7 +59,7 @@
   "unchangedJobs": [
     {
       "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
-      "slug": "collaborateur-service-apres-vente-f-m-div-ref298012h-bosch-crissier",
+      "slug": "servizio-post-vendita-e-m-div-ref298012h-bosch-thermotechnik-ag-crissier",
       "url": "https://jobs.bosch.com/en/job/REF298012H-collaborateur-service-apres-vente-f-m-div-ref298012h",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154361194-collaborateur-service-apres-vente-f-m-div-ref298012h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -89,11 +89,11 @@
       "salarySource": "estimated",
       "postalCode": "1023",
       "firstSeenAt": "2026-10-08T21:15:10.144Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -335,5 +335,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

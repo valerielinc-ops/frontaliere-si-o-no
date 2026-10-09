@@ -445,10 +445,11 @@ function runPushWithRetry(scenario: Scenario) {
 describe('main writer network bounds', () => {
   it('requires every network command in git-commit-data.sh to use run_bounded', () => {
     const source = readFileSync(COMMIT_DATA_SCRIPT, 'utf8');
-    // What the reader has to find, in file order: the full-history download,
-    // the retry-loop fetch, the isolated push, three pulls and the plain push.
+    // What the reader has to find, in file order: the bounded history API
+    // lookup, the retry-loop fetch, the isolated push, three pulls and the
+    // plain push.
     // A rule that passes because it found nothing is the failure this pins.
-    expect(networkVerbs(source)).toEqual(['fetch', 'fetch', 'push', 'pull', 'pull', 'pull', 'push']);
+    expect(networkVerbs(source)).toEqual(['api', 'fetch', 'push', 'pull', 'pull', 'pull', 'push']);
     const violations = unboundedNetworkCommands(source);
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
   });
@@ -528,17 +529,19 @@ describe('main writer network bounds', () => {
     expect(NETWORK_TEST_STALL_SECONDS * 1000).toBeGreaterThan(NETWORK_TEST_PROCESS_TIMEOUT_MS);
   });
 
-  it('gives the full-history download a ceiling of its own, above the ordinary fetch', () => {
+  it('gives the history API lookup a bounded ceiling and never downloads full history', () => {
     const source = readFileSync(COMMIT_DATA_SCRIPT, 'utf8');
     const ceiling = (name: string) =>
       Number(new RegExp(`^${name}="\\$\\{${name}:-(\\d+)\\}"$`, 'mu').exec(source)?.[1]);
     const fetchCeiling = ceiling('GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS');
-    const unshallowCeiling = ceiling('GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS');
+    const historyLookupCeiling = ceiling('GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS');
     expect(fetchCeiling).toBeGreaterThan(0);
-    expect(unshallowCeiling).toBeGreaterThan(fetchCeiling);
-    const unshallow = logicalShellCommands(source).filter(({ text }) => text.includes('fetch --unshallow'));
-    expect(unshallow).toHaveLength(1);
-    expect(unshallow[0].text).toContain('run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS"');
+    expect(historyLookupCeiling).toBeGreaterThan(0);
+    expect(historyLookupCeiling).toBeLessThan(fetchCeiling);
+    const historyLookup = logicalShellCommands(source).filter(({ text }) => text.includes('gh api'));
+    expect(historyLookup).toHaveLength(1);
+    expect(historyLookup[0].text).toContain('run_bounded "$GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS"');
+    expect(source).not.toContain('git fetch --unshallow');
   });
 
   it('retries a timed-out git-commit-data push and fails after the final timeout', () => {

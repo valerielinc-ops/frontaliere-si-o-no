@@ -1,18 +1,61 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-10-08T22:11:12.843Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-10-09T09:16:28.246Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2525,
-  "avgDurationMs": 2525,
+  "durationMs": 2519,
+  "avgDurationMs": 2519,
   "durationHistory": [
-    2525
+    2519
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
+      "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
+      "title": "Senior Estimating Engineer",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "senior-estimating-engineer-casale-lugano",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-09T09:16:20.980Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -101,5 +144,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }
