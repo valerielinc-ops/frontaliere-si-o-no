@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-emmental",
-  "assembledAt": "2026-10-09T09:11:54.378Z",
+  "assembledAt": "2026-10-09T10:35:18.525Z",
   "jobs": [
     {
       "id": "spital-emmental-504802a736cd",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069209",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:44.911Z",
+      "crawledAt": "2026-10-09T10:35:10.262Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069211",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:44.277Z",
+      "crawledAt": "2026-10-09T10:35:09.638Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069202",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:43.628Z",
+      "crawledAt": "2026-10-09T10:35:08.960Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -282,7 +282,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069137",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:43.020Z",
+      "crawledAt": "2026-10-09T10:35:08.299Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4069123",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:42.413Z",
+      "crawledAt": "2026-10-09T10:35:07.675Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -461,7 +461,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4070298",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:41.812Z",
+      "crawledAt": "2026-10-09T10:35:07.062Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -486,6 +486,12 @@
       "pensumMax": 60,
       "pensum": "60%",
       "contractDuration": "temporary",
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-burgdorf",
+        "segretario-medico-a-spital-emmental-burgdorf-d90915",
+        "medical-secretary-a-spital-emmental-burgdorf-d90915",
+        "secretaire-medical-a-spital-emmental-burgdorf-d90915"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-a-spital-emmental-burgdorf",
@@ -497,12 +503,7 @@
           "arztsekretar-in-a-spital-emmental-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "arztsekretar-in-a-spital-emmental-burgdorf",
-        "segretario-medico-a-spital-emmental-burgdorf-d90915",
-        "medical-secretary-a-spital-emmental-burgdorf-d90915",
-        "secretaire-medical-a-spital-emmental-burgdorf-d90915"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:35.353Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -515,8 +516,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:35.353Z"
+      }
     },
     {
       "id": "spital-emmental-8d992cb79c68",
@@ -549,7 +549,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4070861",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:41.205Z",
+      "crawledAt": "2026-10-09T10:35:06.434Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -574,6 +574,10 @@
       "pensumMax": 70,
       "pensum": "60 - 70%",
       "contractDuration": "permanent",
+      "previousSlugs": [
+        "arztsekretar-in-a-spital-emmental-burgdorf",
+        "arztsekretar-in-a-spital-emmental-burgdorf-b5tccu"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-a-spital-emmental-burgdorf",
@@ -583,10 +587,7 @@
           "arztsekretar-in-a-spital-emmental-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "arztsekretar-in-a-spital-emmental-burgdorf",
-        "arztsekretar-in-a-spital-emmental-burgdorf-b5tccu"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:35.353Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -599,8 +600,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:35.353Z"
+      }
     },
     {
       "id": "spital-emmental-c6175c3e3589",
@@ -634,7 +634,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4072865",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:40.598Z",
+      "crawledAt": "2026-10-09T10:35:05.798Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -714,7 +714,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4072858",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:39.991Z",
+      "crawledAt": "2026-10-09T10:35:05.194Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -794,7 +794,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073756",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:39.385Z",
+      "crawledAt": "2026-10-09T10:35:04.590Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -874,7 +874,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073848",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:38.777Z",
+      "crawledAt": "2026-10-09T10:35:03.849Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -954,7 +954,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073852",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:38.165Z",
+      "crawledAt": "2026-10-09T10:35:03.237Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1038,7 +1038,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073477",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:37.562Z",
+      "crawledAt": "2026-10-09T10:35:02.640Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1120,7 +1120,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073742",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:36.900Z",
+      "crawledAt": "2026-10-09T10:35:01.900Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1202,7 +1202,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073753",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:36.284Z",
+      "crawledAt": "2026-10-09T10:35:01.173Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1282,7 +1282,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074025",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:35.678Z",
+      "crawledAt": "2026-10-09T10:35:00.412Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1362,7 +1362,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073846",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:35.070Z",
+      "crawledAt": "2026-10-09T10:34:59.785Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1428,9 +1428,9 @@
       "companyDomain": "spital-emmental.ch",
       "title": "Pharma-Assistent:in (a)",
       "titleByLocale": {
-        "de": "Pharma-Assistent:in (a)",
         "it": "Assistente di farmacia (a)",
         "en": "Pharmacy Assistant (a)",
+        "de": "Pharma-Assistent:in (a)",
         "fr": "Assistant·e en pharmacie (a)"
       },
       "description": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nFür unsere innovative Spitalapotheke in Burgdorf suchen wir von Januar bis April 2027 eine engagierte Mutterschaftsvertretung.\n\nAufgabengebiet\n\n• Du bewirtschaftest das Arzneimittel- und Materiallager und stellst eine lückenlose Versorgung der Stationen sicher\n• Du kommissionierst Medikamente, richtest Bestellungen und kontrollierst eingehende Lieferungen sorgfältig\n• In enger Zusammenarbeit mit Apotheker:innen und Pflegefachpersonen unterstützt du die sichere Medikamentenversorgung auf den Stationen\n• Du übernimmst administrative Aufgaben rund um Bestellwesen, Lagerbewirtschaftung und Dokumentation\n• Du wirkst bei der Herstellung und Bereitstellung von Arzneimitteln nach internen Vorgaben mit\n\nProfil\n\n• Du verfügst über eine abgeschlossene Ausbildung als Pharma-Assistent:in EFZ\n• Erste Erfahrung im Spital- oder Apothekenumfeld ist von Vorteil, aber kein Muss\n• Als echte:r Teamplayer:in bringst du dich aktiv ein und unterstützt deine Kolleginnen und Kollegen gerne\n• Du bist eine zuverlässige, sorgfältige und dienstleistungsorientierte Persönlichkeit mit einer exakten Arbeitsweise\n• Du arbeitest dich rasch in neue Abläufe ein und bist bereit, für die Dauer der Vertretung Verantwortung zu übernehmen\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nDr. rer. nat. Annegret Reichwagen, Chefapothekerin, Tel. 034 421 26 84\n\nKontakt\nJoel Blank HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Für unsere innovative Spitalapotheke in Burgdorf suchen wir von Januar bis April 2027 eine engagierte Mutterschaftsvertretung. Pharma-Assistent:in (a) 80–100% Aufgabengebiet\n• Du bewirtschaftest das Arzneimittel- und Materiallager und stellst eine lückenlose Versorgung der Stationen sicher\n• Du kommissionierst Medikamente, richtest Bestellungen und kontrollierst eingehende Lieferungen sorgfältig\n• In enger Zusammenarbeit mit Apotheker:innen und Pflegefachpersonen unterstützt du die sichere Medikamentenversorgung auf den Stationen\n• Du übernimmst administrative Aufgaben rund um Bestellwesen, Lagerbewirtschaftung und Dokumentation\n• Du wirkst bei der Herstellung und Bereitstellung von Arzneimitteln nach internen Vorgaben mit Profil\n• Du verfügst über eine abgeschlossene Ausbildung als Pharma-Assistent:in EFZ\n• Erste Erfahrung im Spital- oder Apothekenumfeld ist von Vorteil, aber kein Muss\n• Als echte:r Teamplayer:in bringst du dich aktiv ein und unterstützt deine Kolleginnen und Kollegen gerne\n• Du bist eine zuverlässige, sorgfältige und dienstleistungsorientierte Persönlichkeit mit einer exakten Arbeitsweise\n• Du arbeitest dich rasch in neue Abläufe ein und bist bereit, für die Dauer der Vertretung Verantwortung zu übernehmen Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Dr. rer. nat. Annegret Reichwagen, Chefapothekerin, Tel. 034 421 26 84 Adresse Spital Emmental Joel Blank HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Apotheke\n\nAnstellung: befristet\n\nPensum: 80-100%",
@@ -1440,12 +1440,13 @@
         "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nFür unsere innovative Spitalapotheke in Burgdorf suchen wir von Januar bis April 2027 eine engagierte Mutterschaftsvertretung.\n\nAufgabengebiet\n\n• Du bewirtschaftest das Arzneimittel- und Materiallager und stellst eine lückenlose Versorgung der Stationen sicher\n• Du kommissionierst Medikamente, richtest Bestellungen und kontrollierst eingehende Lieferungen sorgfältig\n• In enger Zusammenarbeit mit Apotheker:innen und Pflegefachpersonen unterstützt du die sichere Medikamentenversorgung auf den Stationen\n• Du übernimmst administrative Aufgaben rund um Bestellwesen, Lagerbewirtschaftung und Dokumentation\n• Du wirkst bei der Herstellung und Bereitstellung von Arzneimitteln nach internen Vorgaben mit\n\nProfil\n\n• Du verfügst über eine abgeschlossene Ausbildung als Pharma-Assistent:in EFZ\n• Erste Erfahrung im Spital- oder Apothekenumfeld ist von Vorteil, aber kein Muss\n• Als echte:r Teamplayer:in bringst du dich aktiv ein und unterstützt deine Kolleginnen und Kollegen gerne\n• Du bist eine zuverlässige, sorgfältige und dienstleistungsorientierte Persönlichkeit mit einer exakten Arbeitsweise\n• Du arbeitest dich rasch in neue Abläufe ein und bist bereit, für die Dauer der Vertretung Verantwortung zu übernehmen\n\nUnser Angebot\nFerien GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe Rabatte\n• Ferien\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n• Rabatte\n\nAuskunft\nDr. rer. nat. Annegret Reichwagen, Chefapothekerin, Tel. 034 421 26 84\n\nKontakt\nJoel Blank HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Für unsere innovative Spitalapotheke in Burgdorf suchen wir von Januar bis April 2027 eine engagierte Mutterschaftsvertretung. Pharma-Assistent:in (a) 80–100% Aufgabengebiet\n• Du bewirtschaftest das Arzneimittel- und Materiallager und stellst eine lückenlose Versorgung der Stationen sicher\n• Du kommissionierst Medikamente, richtest Bestellungen und kontrollierst eingehende Lieferungen sorgfältig\n• In enger Zusammenarbeit mit Apotheker:innen und Pflegefachpersonen unterstützt du die sichere Medikamentenversorgung auf den Stationen\n• Du übernimmst administrative Aufgaben rund um Bestellwesen, Lagerbewirtschaftung und Dokumentation\n• Du wirkst bei der Herstellung und Bereitstellung von Arzneimitteln nach internen Vorgaben mit Profil\n• Du verfügst über eine abgeschlossene Ausbildung als Pharma-Assistent:in EFZ\n• Erste Erfahrung im Spital- oder Apothekenumfeld ist von Vorteil, aber kein Muss\n• Als echte:r Teamplayer:in bringst du dich aktiv ein und unterstützt deine Kolleginnen und Kollegen gerne\n• Du bist eine zuverlässige, sorgfältige und dienstleistungsorientierte Persönlichkeit mit einer exakten Arbeitsweise\n• Du arbeitest dich rasch in neue Abläufe ein und bist bereit, für die Dauer der Vertretung Verantwortung zu übernehmen Unser Angebot Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Dr. rer. nat. Annegret Reichwagen, Chefapothekerin, Tel. 034 421 26 84 Adresse Spital Emmental Joel Blank HRM 3400 Burgdorf Bewerben WhatsApp Bewerbung\n\nBereich: Apotheke\n\nAnstellung: befristet\n\nPensum: 80-100%",
         "fr": "Avec des spécialistes des deux centres hospitaliers de Burgdorf et de Langnau, l'hôpital Emmental offre des soins médicaux de haute qualité à 150 000 habitants, 24 heures sur 24.\n\nPour notre pharmacie hospitalière innovante à Burgdorf, nous recherchons une représentation de maternité engagée de janvier à avril 2027.\n\nDomaine d ' activité\n\n• Vous gérez l'entreposage des médicaments et du matériel et vous assurez un approvisionnement continu des stations\n• Vous choisissez des médicaments, commandez et contrôlez soigneusement les livraisons entrantes\n• En étroite collaboration avec les pharmaciens : vous soutenez l'approvisionnement en médicaments dans les salles\n• Vous assumez des tâches administratives concernant la commande, la gestion des entrepôts et la documentation\n• Vous êtes impliqué dans la production et la fourniture de médicaments selon les spécifications internes\n\nProfil\n\n• Vous avez suivi une formation d'assistant pharmaceutique: en EFZ\n• La première expérience à l'hôpital ou en pharmacie est avantageuse, mais pas un must\n• En tant que véritable:r joueur de l'équipe:dans vous êtes activement impliqué et soutenir vos collègues volontiers\n• Vous êtes une personnalité fiable, attentive et orientée vers le service avec une façon exacte de travailler\n• Vous travaillez rapidement dans de nouveaux processus et êtes prêt à prendre la responsabilité de la durée de la représentation\n\nNotre offre\nVacances GAV Culinary Modern Human Center Parking Occasions Réductions\n• Vacances\n• Mécanisme mondial\n• Services culinaires\n• Centre humain moderne\n• Stationnement\n• Occasions\n• Remboursements\n\nInformations\nLe Dr Rer. nat. Annegret Reichwagen, pharmacien en chef, tél. 034 421 26 84\n\nCoordonnées\nJoel Blank HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Nous sommes modernes – humains – au milieu et nous attendons avec impatience tous ! Avec des spécialistes des deux centres hospitaliers de Burgdorf et de Langnau, l'hôpital Emmental offre des soins médicaux de haute qualité à 150 000 résidents – 24 heures sur 24. Pour notre pharmacie hospitalière innovante à Burgdorf, nous recherchons une représentation de maternité engagée de janvier à avril 2027. Assistant pharmaceutique:dans la zone de responsabilité a) 80-100%\n• Vous gérez l'entreposage des médicaments et du matériel et vous assurez un approvisionnement continu des stations\n• Vous choisissez des médicaments, commandez et contrôlez soigneusement les livraisons entrantes\n• En étroite collaboration avec les pharmaciens : vous soutenez l'approvisionnement en médicaments dans les salles\n• Vous assumez des tâches administratives concernant la commande, la gestion des entrepôts et la documentation\n• Vous travaillez dans la production et la fourniture de médicaments selon les spécifications internes avec le profil\n• Vous avez suivi une formation d'assistant pharmaceutique: en EFZ\n• La première expérience à l'hôpital ou en pharmacie est avantageuse, mais pas un must\n• En tant que véritable:r joueur de l'équipe:dans vous êtes activement impliqué et soutenir vos collègues volontiers\n• Vous êtes une personnalité fiable, attentive et orientée vers le service avec une façon exacte de travailler\n• Vous connaissez rapidement les nouveaux processus et êtes prêt à assumer la responsabilité de la durée de la représentation Notre offre Vacances: Plans de vacances spéciaux? Si les 25 à 32 jours de congé annuels ne sont pas suffisants, la possibilité d'un congé non payé peut être vérifiée avec nous. Nos employés ont également un jour de congé supplémentaire pour leur anniversaire! GAV: Nos conditions d'emploi sont basées sur le contrat général d'emploi (GAV) pour le personnel des hôpitaux et cliniques de Berne. Culinaire : Nos cuisines de Burgdorf et de Langnau s'appuient en grande partie sur des produits de saison, sains et locaux. Les employés bénéficient d'un rabais et peuvent être choyés par une sélection variée de buffets. Des micro-ondes sont également disponibles pour les produits autoconsommés. Modern Human Center: Pour nos employés, nous voulons être un employeur moderne, créer une bonne atmosphère interpersonnelle, afin que nos employés se sentent toujours au milieu et à l'aise. Parking: Les employés peuvent utiliser différentes places de stationnement selon l'emplacement. L'accès et la facturation se font via la carte Parkingpay. Occasions : Pour promouvoir notre culture d'entreprise, nous donnons à nos employés un jour de congé. Des collègues de différents départements peuvent participer à un ski, vélo, pop, randonnée, amusement, marché de Noël ou journée de culture. Réductions: Sur l'intranet, nos collaborateurs peuvent trouver des informations/liens sur de nombreuses offres attrayantes et bénéficier de prix réduits, par exemple dans les piscines intérieures, les cinémas, les voitures ou dans les pharmacies régionales. Renseignements Dr. rer. nat. Annegret Reichwagen, Chief Pharmacist, Tél. 034 421 26 84 Adresse Spital Emmental Joel Blank HRM 3400 Burgdorf Application WhatsApp\n\nRégion: Pharmacie\n\nEmploi temporaire\n\nRécipient: 80-100 %"
       },
+      "needsRetranslation": true,
       "location": "Burgdorf",
       "canton": "BE",
       "url": "https://live.solique.ch/spital-emmental/job/details/4074021",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:34.463Z",
+      "crawledAt": "2026-10-09T10:34:59.181Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1470,6 +1471,9 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "contractDuration": "temporary",
+      "previousSlugs": [
+        "pharma-assistent-in-a-spital-emmental-burgdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "pharma-assistent-in-a-spital-emmental-burgdorf"
@@ -1478,9 +1482,7 @@
           "pharma-assistent-in-a-spital-emmental-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "pharma-assistent-in-a-spital-emmental-burgdorf"
-      ],
+      "firstSeenAt": "2026-09-23T23:39:10.137Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1493,9 +1495,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:39:10.137Z",
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spital-emmental-13ec4b1926be",
@@ -1529,7 +1529,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073901",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:33.789Z",
+      "crawledAt": "2026-10-09T10:34:58.545Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1609,7 +1609,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4074208",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:33.116Z",
+      "crawledAt": "2026-10-09T10:34:57.879Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1699,7 +1699,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4073856",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:32.510Z",
+      "crawledAt": "2026-10-09T10:34:57.281Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1779,7 +1779,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4075566",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:31.904Z",
+      "crawledAt": "2026-10-09T10:34:56.610Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1858,7 +1858,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4076290",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:31.287Z",
+      "crawledAt": "2026-10-09T10:34:56.007Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1947,7 +1947,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4076280",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:30.679Z",
+      "crawledAt": "2026-10-09T10:34:55.340Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2029,7 +2029,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4076287",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:30.063Z",
+      "crawledAt": "2026-10-09T10:34:54.671Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2109,7 +2109,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4076282",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:29.418Z",
+      "crawledAt": "2026-10-09T10:34:53.933Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2189,7 +2189,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4077013",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:28.752Z",
+      "crawledAt": "2026-10-09T10:34:53.174Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2269,7 +2269,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4077234",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:28.118Z",
+      "crawledAt": "2026-10-09T10:34:52.451Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2348,7 +2348,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078387",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:27.203Z",
+      "crawledAt": "2026-10-09T10:34:51.731Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2428,7 +2428,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4079185",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:26.408Z",
+      "crawledAt": "2026-10-09T10:34:51.056Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2512,7 +2512,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078763",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:25.766Z",
+      "crawledAt": "2026-10-09T10:34:50.412Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2592,7 +2592,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078421",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:24.711Z",
+      "crawledAt": "2026-10-09T10:34:49.319Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2672,7 +2672,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078478",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:24.029Z",
+      "crawledAt": "2026-10-09T10:34:48.635Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2751,7 +2751,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078435",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:23.227Z",
+      "crawledAt": "2026-10-09T10:34:47.946Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2835,7 +2835,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078480",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:22.609Z",
+      "crawledAt": "2026-10-09T10:34:46.838Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2915,7 +2915,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078393",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:21.959Z",
+      "crawledAt": "2026-10-09T10:34:46.156Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2995,7 +2995,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078425",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:21.137Z",
+      "crawledAt": "2026-10-09T10:34:44.998Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3085,7 +3085,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4078428",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:20.279Z",
+      "crawledAt": "2026-10-09T10:34:44.304Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3179,7 +3179,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4079443",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:19.626Z",
+      "crawledAt": "2026-10-09T10:34:43.141Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3204,15 +3204,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
-      "firstSeenAt": "2026-09-07T15:03:11.251Z",
+      "previousSlugs": [
+        "fachperson-gesundheit-a-spital-emmental-burgdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ]
       },
-      "previousSlugs": [
-        "fachperson-gesundheit-a-spital-emmental-burgdorf"
-      ],
+      "firstSeenAt": "2026-09-07T15:03:11.251Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -3259,7 +3259,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4080643",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:18.716Z",
+      "crawledAt": "2026-10-09T10:34:41.971Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3339,7 +3339,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081241",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:18.109Z",
+      "crawledAt": "2026-10-09T10:34:41.184Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3419,7 +3419,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081245",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:17.501Z",
+      "crawledAt": "2026-10-09T10:34:40.506Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3499,7 +3499,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081052",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:16.890Z",
+      "crawledAt": "2026-10-09T10:34:39.574Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3585,7 +3585,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081243",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:16.284Z",
+      "crawledAt": "2026-10-09T10:34:38.678Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3665,7 +3665,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081403",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:15.612Z",
+      "crawledAt": "2026-10-09T10:34:37.975Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3745,7 +3745,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081045",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:15.006Z",
+      "crawledAt": "2026-10-09T10:34:37.243Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3797,9 +3797,9 @@
       "id": "spital-emmental-a469d688628a",
       "slug": "fachperson-gesundheit-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "it": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "en": "fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "fr": "fachperson-gesundheit-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
@@ -3807,16 +3807,16 @@
       "companyDomain": "spital-emmental.ch",
       "title": "Fachperson Gesundheit (a)",
       "titleByLocale": {
-        "de": "Fachperson Gesundheit (a)",
         "it": "Fachperson Gesundheit (a)",
         "en": "Fachperson Gesundheit (a)",
+        "de": "Fachperson Gesundheit (a)",
         "fr": "Fachperson Gesundheit (a)"
       },
       "description": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%",
       "descriptionByLocale": {
-        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%",
         "it": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%",
         "en": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%",
+        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%",
         "fr": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr.\n\nMitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als\n\nDeinen Aufgaben – vielseitig und verantwortungsvoll\n\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen\n\nDein Profil – fachlich versiert und menschlich überzeugend\n\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie Aus- und Weiterbildung Ferien GAV Modern Menschlich Mittendrin Parkieren Rabatte\n• Planung Pflege\n• Beruf und Familie\n• Aus- und Weiterbildung\n• Ferien\n• GAV\n• Modern Menschlich Mittendrin\n• Parkieren\n• Rabatte\n\nAuskunft\nFrau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53.\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3400 Burgdorf www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohnern – rund um die Uhr. Mitten im Leben – nah am Menschen. Was uns besonders macht? Als vielseitiges Peripheriespital mit Herz und Verstand leben wir ein vertrauensvolles Miteinander und ein Arbeitsklima, das von Offenheit, Respekt und Wertschätzung geprägt ist. Modern arbeiten heisst für uns: menschlich handeln, mit Gestaltungsfreiraum und einem offenen Ohr füreinander. Unsere Mitarbeitenden sind bei uns mittendrin statt nur dabei – fachlich wie persönlich. Familienfreundliche Bedingungen und eine gemeinsam gestaltete Dienstplanung gehören bei uns zum gelebten Alltag. Für unsere chirurgische Abteilung mit 28 Betten – davon 8 in der Wochenklinik – suchen wir in Burgdorf per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Fachperson Gesundheit (a) 70–80% Deinen Aufgaben – vielseitig und verantwortungsvoll\n• Unsere Patientinnen und Patienten pflegen und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei trägst du Mitverantwortung für die Pflegequalität und führst medizinaltechnische und pflegerische Verrichtungen anhand des festgelegten Kompetenzbereiches aus\n• Zudem bist du verantwortlich für Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich\n• Du führst die tägliche Leistungserfassung von Material und Pflegetätigkeiten – unterstützt durch das Klinik-Informationssystem Clinical\n• Für die Umsetzung der Bereichs- und Abteilungsziele übernimmst du die Mitverantwortung und engagieren sich für die fortlaufende Optimierung von Pflegeabläufen Dein Profil – fachlich versiert und menschlich überzeugend\n• Du bist Fachfrau/-mann Gesundheit EFZ und bringst Berufserfahrung in der Akutpflege mit\n• Die abwechslungsreiche medizinische Vielfalt der Pflegeabteilungen in unserem familiären Peripheriespital empfindest du als besonders spannende und bereichernde Herausforderung\n• Das Wohlergehen der Patientinnen und Patienten stehen im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Dein Beruf übst du mit Freude aus, bist motiviert, teamfähig und belastbar\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Stetig zusätzliche Kompetenzen erlernen und ausführen zu können erachtest du als spannend und herausfordernd\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. Aus- und Weiterbildung: Weiterkommen? Wir brauchen und fördern offene und lernbereite Mitarbeitende. Wir sind offen für die Besprechung von Zukunftspläne und -wünsche. Ferien: Spezielle Ferienpläne? Falls die jährlich 25 bis 32 Ferientage mal nicht genügen, kann mit uns die Möglichkeit eines unbezahlten Urlaubs geprüft werden. Unsere Mitarbeitenden erhalten zudem für ihren Geburtstag einen zusätzlichen freien Tag! GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Rabatte: Auf dem Intranet finden unsere Mitarbeitenden Angaben/Links zu zahlreichen attraktiven Angeboten und profitieren von reduzierten Preisen z.B. bei Hallenbad, Kino, Auto oder bei Bezügen in regionalen Apotheken. Auskunft Frau Tamara Zwahlen, Abteilungsleiterin, erteilt dir gerne weitere Auskünfte unter der Telefonnummer 034 421 28 53. Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Chirurgische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 70-80%"
       },
       "needsRetranslation": true,
@@ -3825,7 +3825,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081247",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:14.394Z",
+      "crawledAt": "2026-10-09T10:34:36.526Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3843,15 +3843,14 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/spital-emmental/job/details/4081247",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4081247",
       "department": "Chirurgische Abteilung",
       "pensumMin": 70,
       "pensumMax": 80,
       "pensum": "70 - 80%",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-09-07T15:03:11.251Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3864,8 +3863,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-07T15:03:11.251Z"
+      }
     },
     {
       "id": "spital-emmental-4372d59cdef0",
@@ -3899,7 +3897,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081054",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:13.782Z",
+      "crawledAt": "2026-10-09T10:34:35.329Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3981,7 +3979,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4081249",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:13.091Z",
+      "crawledAt": "2026-10-09T10:34:34.633Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4035,9 +4033,9 @@
       "id": "spital-emmental-5fff1d93f397",
       "slug": "dipl-pflegefachperson-a-spital-emmental-langnau",
       "slugByLocale": {
-        "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
         "it": "dipl-pflegefachperson-a-spital-emmental-langnau",
         "en": "dipl-pflegefachperson-a-spital-emmental-langnau",
+        "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
         "fr": "dipl-pflegefachperson-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
@@ -4045,16 +4043,16 @@
       "companyDomain": "spital-emmental.ch",
       "title": "dipl. Pflegefachperson (a)",
       "titleByLocale": {
-        "de": "dipl. Pflegefachperson (a)",
         "it": "dipl. Pflegefachperson (a)",
         "en": "dipl. Pflegefachperson (a)",
+        "de": "dipl. Pflegefachperson (a)",
         "fr": "dipl. Pflegefachperson (a)"
       },
       "description": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%",
       "descriptionByLocale": {
-        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%",
         "it": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%",
         "en": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%",
+        "de": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%",
         "fr": "Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr.\n\nAls vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung\n\nDein Profil\n\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt)\n\nUnser Angebot\nPlanung Pflege Beruf und Familie GAV Kulinarisches Modern Menschlich Mittendrin Parkieren Anlässe\n• Planung Pflege\n• Beruf und Familie\n• GAV\n• Kulinarisches\n• Modern Menschlich Mittendrin\n• Parkieren\n• Anlässe\n\nAuskunft\nWeitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51\n\nKontakt\nNathalie Ansorge-Rebora HRM\n\nAdresse\nSpital Emmental AG HRM 3550 Langnau im Emmental www.spital-emmental.ch Wir sind Modern – Menschlich – Mittendrin und freuen uns auf alle! Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung Das Spital Emmental sorgt mit Spezialistinnen und Spezialisten an den beiden Spitalstandorten Burgdorf und Langnau für die hochstehende medizinische Versorgung von 150 000 Einwohnerinnen und Einwohner – rund um die Uhr. Als vielseitiges Peripheriespital zeichnet uns ein niederschwelliges und familiäres Arbeitsklima aus. Unsere Mitarbeitenden berichten ebenfalls von sehr guten Entwicklungsmöglichkeiten und einen guten Skill & Grade Mix auf den Abteilungen. Lean Management ist für uns kein Fremdwort. Familienfreundliche Bedingungen runden unser Profil ab. Wir legen besonders grossen Wert auf eine autonome Dienstplanung, bei der das Team gemeinsam den Dienstplan erstellt. Für unsere medizinische Abteilung am Standort Langnau, mit rund 25 Betten (inkl. integrierter Überwachungsstation mit 3 Betten) und einem engagierten Team von rund 48 Mitarbeitenden, Studierenden und Lernenden am Standort Langnau suchen wir per sofort oder nach Vereinbarung eine dipl. Pflegefachperson (a) 100% Deine Aufgaben\n• Unsere Patientinnen und Patienten pflegst und betreust du mit hoher Eigenverantwortung, professionell, patientenorientiert und nach neuesten Erkenntnissen\n• Dabei übernimmst du die Leitung von Pflegegruppen mit Fachpersonen Gesundheit, Pflegeassistentinnen sowie Studierenden und Lernenden\n• Du führst den Pflegeprozess (inkl. Leistungserfassung Material und Pflege) durch – unterstützt durch das Klinik-Informationssystem Clinical – und engagierst dich für die fortlaufende Optimierung der Pflegeabläufe\n• Lernende und Studierende begleitest du in ihrer Ausbildung Dein Profil\n• Du verfügst über eine abgeschlossene Ausbildung als dipl. Pflegefachperson (AKP / DN II / HF / FH) und hast vorzugsweise bereits Berufserfahrung im Akutbereich\n• Die grosse medizinische Bandbreite der Pflegeabteilungen, welche ein familiäres Peripheriespital bietet, erachtest du als spannend und herausfordernd\n• Das Wohlergehen der Patientinnen und Patienten steht im Zentrum deiner Arbeit und du begegnest Menschen mit Respekt und Wertschätzung\n• Du arbeitest zuverlässig und gewissenhaft und übernimmst gerne Verantwortung\n• Sich stetig weiterzuentwickeln ist eine Selbstverständlichkeit für dich\n• Ein stilsicheres Deutsch rundet dein Profil ab (für fremdsprachige Diplomnachweis B2 vorausgesetzt) Unser Angebot Planung Pflege: Mit einer sorgfältigen Einsatzplanung versuchen wir individuellen Wünschen möglichst gerecht zu werden. Beruf und Familie: Mutterschaftsurlaub: Mit 16 Wochen Mutterschaftsurlaub zu vollem Lohn geniessen unsere Mitarbeiterinnen unbeschwert die ersten Fortschritte ihrer Lieblinge. Vaterschaftsurlaub: Mit 15 bezahlten Arbeitstagen gehören wir zu den fortschrittlichen Arbeitgebenden in der Schweiz. Teilzeitarbeit: Wir unterstützen die Teilzeitarbeit unserer Mitarbeitenden. Beispielsweise profitieren unsere Mitarbeitenden mit niedrigen Pensen von einer tieferen Eintrittsschwelle bei der Pensionskasse. Frisch gebackene Eltern profitieren zudem von sehr attraktiven Preisen für Pampers. GAV: Unsere Anstellungsbedingungen richten sich grundsätzlich nach dem Gesamtarbeitsvertrag (GAV) für das Personal Berner Spitäler und Kliniken. Kulinarisches: Unsere Küchen in Burgdorf und Langnau arbeiten weitgehend mit saisonalen, gesunden und lokalen Produkten. Mitarbeitende profitieren von einem Rabatt und können sich von einer vielseitigen Buffet-Auswahl verwöhnen lassen. Auch Mikrowellen für Selbstmitgebrachtes stehen zur Verfügung. Modern Menschlich Mittendrin: Unseren Mitarbeitenden gegenüber wollen wir ein moderner Arbeitgeber sein, eine zwischenmenschlich gute Atmosphäre schaffen, so dass sich unsere Mitarbeitenden stets mittendrin und wohl fühlen. Parkieren: Mitarbeitende können verschiedene Parkplätze je nach Standort benutzen. Der Zugang und die Abrechnung erfolgen via Parkingpay-Karte. Anlässe: Zur Förderung unserer Unternehmenskultur schenken wir unseren Mitarbeitenden einen freien Tag. Kolleginnen/Kollegen aus verschiedenen Abteilungen können an einem Ski-, Velo-, Töff-, Wander-, Fun-, Weihnachtsmarkt- oder Kulturtag teilnehmen. Auskunft Weitere Auskünfte erteilt dir gerne Stephanie Brändli, Abteilungsleiterin ad interim, +41 34 421 38 51 Adresse Spital Emmental Nathalie Ansorge-Rebora HRM 3400 Burgdorf Firmenfilm: Dein Browser unterstützt das Video-Tag nicht. Bewerben WhatsApp Bewerbung\n\nBereich: Medizinische Abteilung\n\nAnstellung: unbefristet\n\nPensum: 100%"
       },
       "needsRetranslation": true,
@@ -4063,7 +4061,7 @@
       "url": "https://live.solique.ch/spital-emmental/job/details/4082709",
       "source": "Spital Emmental Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:11:12.352Z",
+      "crawledAt": "2026-10-09T10:34:33.527Z",
       "addressLocality": "Langnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4081,15 +4079,14 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/spital-emmental/job/details/4082709",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "4082709",
       "department": "Medizinische Abteilung",
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
       "contractDuration": "permanent",
+      "firstSeenAt": "2026-10-03T09:10:14.957Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4102,8 +4099,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-03T09:10:14.957Z"
+      }
     },
     {
       "id": "spital-emmental-2a36bf5cf832",
@@ -4183,7 +4179,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
