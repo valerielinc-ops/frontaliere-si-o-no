@@ -26701,7 +26701,7 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     id: 'voto-svizzera-esportazione-armi-2026',
     category: 'novita',
     date: '2026-10-09T17:48:06.308Z',
-    image: '/images/blog/voto-iva-avs-novembre-2026.webp',
+    image: '/images/blog/article-voto-svizzera-esportazione-armi-2026.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

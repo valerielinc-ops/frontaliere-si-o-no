@@ -7999,7 +7999,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Modern office building facade in Switzerland representing corporate cybersecurity.',
     'blog.article.voto-svizzera-esportazione-armi-2026.title': 'Arms exports: the federal vote on November 29, 2026',
     'blog.article.voto-svizzera-esportazione-armi-2026.excerpt': 'Federal vote on the law: November 29, 2026 Possible opening for some close partners The armed conflict would not preclude authorization Ukraine remains',
-    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Facade of the Federal Palace in Bern, symbol of Swiss national politics.',
+    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Illustration generated for this article',
 };
 
 export default blogMetaChEn;

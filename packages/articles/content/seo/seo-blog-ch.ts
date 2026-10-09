@@ -100856,10 +100856,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Voto federale sulla legge: 29 novembre 2026 Apertura possibile per alcuni partner stretti Il conflitto armato non escluderebbe l'autorizzazione L'Ucraina resta",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-voto-svizzera-esportazione-armi-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Facciata del Palazzo Federale a Berna, simbolo della politica nazionale svizzera."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T17:48:06+00:00",
       "dateModified": "2026-10-09T17:48:06+00:00",

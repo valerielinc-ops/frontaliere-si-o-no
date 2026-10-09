@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5150
+      "6": 5151
     },
-    "publishedCovers": 6862,
+    "publishedCovers": 6863,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182572,6 +182572,33 @@
           "id": "smottamento-sementina-code",
           "category": "pratico",
           "date": "2026-10-09T16:55:33.377Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-voto-svizzera-esportazione-armi-2026": {
+      "cover": "/images/blog/article-voto-svizzera-esportazione-armi-2026.webp",
+      "hash": "e668088266fa72cab66a97bcb952ad0562b199b651db88facf0ad3eeab77ad76",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "voto-svizzera-esportazione-armi-2026",
+          "category": "novita",
+          "date": "2026-10-09T17:48:06.308Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
