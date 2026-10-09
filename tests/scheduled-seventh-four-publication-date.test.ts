@@ -15,7 +15,9 @@ afterEach(() => { vi.restoreAllMocks(); vi.useRealTimers(); });
 for (const key of ['med', 'michaelpage', 'okjob', 'migrolino'] as const) describe(`${key} actual producer source dates`, () => {
   it.each(cases)('validates source %s', async (raw, expected) => {
     const href = '/de/unsere-unternehmen/job/migrolino/fachperson/12345678-1234-1234-1234-123456789012';
-    const url = ({ med: 'https://www.ipersonal.ch/jobs/fachperson-lugano/', michaelpage: 'https://www.pageexecutive.com/job-detail/fachperson/ref/123', okjob: 'https://www.okjob.ch/offres-demplois/fachperson/', migrolino: `https://jobs.migros.ch${href}` })[key];
+    // OK Job vacancy links carry the reference used to distinguish detail
+    // pages from the site's broader city landing pages.
+    const url = ({ med: 'https://www.ipersonal.ch/jobs/fachperson-lugano/', michaelpage: 'https://www.pageexecutive.com/job-detail/fachperson/ref/123', okjob: 'https://www.okjob.ch/offres-demplois/fachperson/?ref=123456', migrolino: `https://jobs.migros.ch${href}` })[key];
     const detail = `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', url, title: 'Fachperson Engineering', description: prose, datePosted: raw, dateModified: '2026-09-28', hiringOrganization: { '@type': 'Organization', name: key === 'migrolino' ? 'migrolino AG' : 'Source employer' }, jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH' } } })}</script>${key === 'michaelpage' ? `<span class="job-location">Lugano, Switzerland</span><section class="job_advert__job-desc-role"><p>${prose}</p></section>` : ''}<main><h1>Fachperson Engineering</h1><p>${prose}</p></main>`;
     io.page.mockImplementation(async (requested: string) => ({ ok: true, status: 200, url: requested, body: requested === url ? detail : `<a href="${url}">Fachperson Engineering</a>` }));
     io.html.mockResolvedValue(detail);
