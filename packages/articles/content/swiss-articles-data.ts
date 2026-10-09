@@ -26406,7 +26406,7 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     id: 'mercato-lavoro-ia-svizzera',
     category: 'novita',
     date: '2026-10-08T09:36:45.122Z',
-    image: '/images/blog/mercato-lavoro-svizzera-giugno-2026.webp',
+    image: '/images/blog/article-mercato-lavoro-ia-svizzera.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

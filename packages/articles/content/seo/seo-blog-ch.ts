@@ -99725,10 +99725,15 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quasi 5'000 annunci IA tra luglio 2025 e giugno 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-giugno-2026.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mercato-lavoro-ia-svizzera.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Professionisti che collaborano in un ambiente ufficio moderno in Svizzera, con schermi che mostrano dati e codice IA."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T09:36:45+00:00",
       "dateModified": "2026-10-08T09:36:45+00:00",

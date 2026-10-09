@@ -7912,7 +7912,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.crescita-lavoro-intelligenza-artificiale.imageAlt': 'Poste de travail moderne avec analyse de données sur écran à Lugano',
     'blog.article.mercato-lavoro-ia-svizzera.title': 'Marché de l’emploi dans l’IA en Suisse : +32 % en un an',
     'blog.article.mercato-lavoro-ia-svizzera.excerpt': 'Près de 5\'000 offres d’emploi en IA entre juillet 2025 et juin 2026',
-    'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Professionnels collaborant dans un bureau moderne en Suisse, avec des écrans affichant des données et du code liés à l\'IA.',
+    'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Illustration générée pour cet article',
     'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen : PIB 2026 à 1,7%, inflation à 0,7%',
     'blog.article.raiffeisen-pil-inflazione-2026.excerpt': 'Raiffeisen porte à 1,7% la prévision de PIB pour 2026',
     'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Professionnel suisse analysant des prévisions économiques avec les Alpes en arrière-plan',

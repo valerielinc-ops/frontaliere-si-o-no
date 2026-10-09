@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5146
+      "6": 5147
     },
-    "publishedCovers": 6858,
+    "publishedCovers": 6859,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182286,6 +182286,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-mercato-lavoro-ia-svizzera": {
+      "cover": "/images/blog/article-mercato-lavoro-ia-svizzera.webp",
+      "hash": "8361f0c6c31e7b82d4494548ab4cf8565b5c1f3a8eb310622bebba4ea6456419",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "mercato-lavoro-ia-svizzera",
+          "category": "novita",
+          "date": "2026-10-08T09:36:45.122Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
