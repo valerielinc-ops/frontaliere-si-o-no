@@ -100564,6 +100564,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporti-45-critiche-piano': {
+    title: 'Trasporti45, pioggia di critiche sul piano federale',
+    description: 'Trasporti’45 prevede 50 miliardi entro il 2045 Il primo pacchetto vale 11 miliardi nel 2027 La ferrovia ha un ammanco di 10 miliardi Il Governo propone',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti45, pioggia, critiche, piano',
+    ogTitle: 'Trasporti45, pioggia di critiche sul piano federale svizzero',
+    ogDescription: 'Trasporti’45 prevede 50 miliardi entro il 2045 Il primo pacchetto vale 11 miliardi nel 2027 La ferrovia ha un ammanco di 10 miliardi Il Governo propone',
+    canonicalPath: '/articoli-svizzera/trasporti-45-critiche-piano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti45, pioggia di critiche sul piano federale",
+      "description": "Trasporti’45 prevede 50 miliardi entro il 2045 Il primo pacchetto vale 11 miliardi nel 2027 La ferrovia ha un ammanco di 10 miliardi Il Governo propone",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-trasporti-45-critiche-piano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infrastrutture di trasporto in Svizzera per il progetto Trasporti45"
+      },
+      "datePublished": "2026-10-09T10:55:13+00:00",
+      "dateModified": "2026-10-09T10:55:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporti-45-critiche-piano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

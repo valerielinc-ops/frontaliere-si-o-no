@@ -7976,6 +7976,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucerna-elezioni-calendario-voto.title': 'Elezioni cantonali nel Canton Lucerna: calendario e voto',
     'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Lucerna: la guida copre sistema, calendario e voto Liste e ufficio elettorale completano la verifica Quattro date annue riguardano il voto federale Ambito →',
     'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Seggio elettorale cantonale svizzero con schede e urna',
+    'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, pioggia di critiche sul piano federale',
+    'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 prevede 50 miliardi entro il 2045 Il primo pacchetto vale 11 miliardi nel 2027 La ferrovia ha un ammanco di 10 miliardi Il Governo propone',
+    'blog.article.trasporti-45-critiche-piano.imageAlt': 'Infrastrutture di trasporto in Svizzera per il progetto Trasporti45',
 };
 
 export default blogMetaChIt;

@@ -7976,6 +7976,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-elezioni-calendario-voto.title': 'Kantonale Wahlen im Kanton Luzern: Kalender und Abstimmung',
     'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Luzern: Der Leitfaden deckt System, Kalender und Abstimmung ab Listen und Wahlbüro vervollständigen die Überprüfung Vier jährliche Termine betreffen die eidgenössische Abstimmung Bereich →',
     'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Schweizer kantonales Wahllokal mit Stimmzetteln und Urne',
+    'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, eine Flut von Kritik am Bundesplan',
+    'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 sieht bis 2045 50 Milliarden vor Das erste Paket ist 2027 11 Milliarden wert Der Bahn fehlen 10 Milliarden Die Regierung schlägt vor',
+    'blog.article.trasporti-45-critiche-piano.imageAlt': 'Verkehrsinfrastruktur in der Schweiz für das Projekt Transport45',
 };
 
 export default blogMetaChDe;

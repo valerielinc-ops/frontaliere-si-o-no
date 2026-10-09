@@ -7976,6 +7976,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-elezioni-calendario-voto.title': 'Cantonal elections in the Canton of Lucerne: schedule and voting',
     'blog.article.lucerna-elezioni-calendario-voto.excerpt': 'Lucerne: the guide covers the system, calendar and voting Lists and the electoral office complete the verification Four annual dates concern federal voting Scope →',
     'blog.article.lucerna-elezioni-calendario-voto.imageAlt': 'Swiss cantonal polling station with ballot papers and a ballot box',
+    'blog.article.trasporti-45-critiche-piano.title': 'Trasporti45, a barrage of criticism over the federal plan',
+    'blog.article.trasporti-45-critiche-piano.excerpt': 'Trasporti’45 envisages 50 billion by 2045 The first package is worth 11 billion in 2027 The railway has a shortfall of 10 billion The Government proposes',
+    'blog.article.trasporti-45-critiche-piano.imageAlt': 'Transport infrastructure in Switzerland for the Transport45 project',
 };
 
 export default blogMetaChEn;

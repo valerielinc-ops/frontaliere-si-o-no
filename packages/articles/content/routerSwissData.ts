@@ -2681,6 +2681,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'luganistan-clan-ceresio': { it: 'luganistan-clan-ceresio', en: 'luganistan-nazarbayev-ceresio', de: 'luganistan-nazarbayev-ceresio', fr: 'luganistan-nazarbayev-ceresio' },
  'fiducia-consumatori-svizzeri-settembre': { it: 'fiducia-consumatori-svizzeri-settembre', en: 'swiss-consumer-confidence-september', de: 'schweizer-konsumentenvertrauen-september', fr: 'confiance-consommateurs-suisses-septembre' },
  'lucerna-elezioni-calendario-voto': { it: 'lucerna-elezioni-calendario-voto', en: 'lucerne-cantonal-elections-calendar-vote', de: 'luzern-kantonswahlen-wahlkalender', fr: 'elections-cantonales-lucerne-calendrier' },
+ 'trasporti-45-critiche-piano': { it: 'trasporti-45-critiche-piano', en: 'transport-45-criticism-plan', de: 'transport-45-kritik-plan', fr: 'transports-45-critiques-plan' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
