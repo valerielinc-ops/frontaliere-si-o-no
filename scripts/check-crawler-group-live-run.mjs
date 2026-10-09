@@ -219,14 +219,7 @@ export async function runGuard({
     }
     if (result?.busy) {
       error(logger, `${groupFile} is already protected by a live cross-entry crawler lease (${leaseDoc}; ${describeLeaseBusy(result)}); refusing to launch a concurrent run. Retry once it finishes.`);
-      return {
-        proceed: false,
-        reason: 'lease-busy',
-        leaseReason: result.reason,
-        holder: result.holder,
-        leaseDoc,
-        leaseOwned: false,
-      };
+      return { proceed: false, reason: 'lease-busy', leaseDoc, leaseOwned: false };
     }
     leaseOwned = result?.acquired === true;
     if (!leaseOwned) {

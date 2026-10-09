@@ -269,7 +269,7 @@ describe('cross-entry crawler live-run guard', () => {
       release: vi.fn(),
       sleep: vi.fn(),
       logger,
-    })).resolves.toMatchObject({ proceed: false, reason: 'lease-busy', leaseReason: 'active_owner', holder });
+    })).resolves.toMatchObject({ proceed: false, reason: 'lease-busy' });
     const message = logger.error.mock.calls[0][0];
     expect(message).toContain('reason=active_owner');
     expect(message).toContain(`owner=${holder.owner}`);

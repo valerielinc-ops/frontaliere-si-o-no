@@ -516,7 +516,7 @@ export function describeLeaseBusy(result, now = Date.now()) {
   }
   if (holder.acquiredAt) parts.push(`acquiredAt=${holder.acquiredAt}`);
   const expiresAt = Date.parse(holder.expiresAt || '');
-  if (result?.reason === 'malformed_expiry' || !Number.isFinite(expiresAt)) {
+  if (!Number.isFinite(expiresAt)) {
     parts.push(`expiresAt=${JSON.stringify(holder.expiresAt ?? null)} (malformed: the lease never expires on its own; only the owner release or an operator delete clears it)`);
   } else {
     parts.push(`expiresAt=${holder.expiresAt} (${Math.max(0, Math.ceil((expiresAt - now) / 60_000))} min left)`);
