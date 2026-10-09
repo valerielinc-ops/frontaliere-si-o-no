@@ -1,7 +1,7 @@
 {
   "key": "protectas",
   "label": "Protectas SA",
-  "generatedAt": "2026-10-09T09:43:30.615Z",
+  "generatedAt": "2026-10-09T21:40:23.760Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3976,
-  "avgDurationMs": 3976,
+  "durationMs": 3566,
+  "avgDurationMs": 3566,
   "durationHistory": [
-    3976
+    3566
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
       "source": "Protectas SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-09T09:43:16.547Z",
+      "crawledAt": "2026-10-09T21:40:10.806Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
