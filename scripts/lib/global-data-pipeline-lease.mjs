@@ -396,7 +396,14 @@ async function transact({
     const decision = leaseDecision(current.lease, owner, now);
 
     if (action === 'acquire' && decision.action === 'busy') {
-      return { acquired: false, released: false, busy: true, expiresAt: decision.expiresAt };
+      return {
+        acquired: false,
+        released: false,
+        busy: true,
+        reason: decision.reason,
+        expiresAt: decision.expiresAt,
+        holder: current.lease,
+      };
     }
     if (action === 'release' && (!current.exists || current.lease.owner !== owner)) {
       return { acquired: false, released: false, busy: false, notOwner: current.exists };
@@ -467,6 +474,8 @@ export async function acquireLease(options = {}) {
           released: false,
           busy: true,
           transientError: true,
+          reason: 'transient_error',
+          error: error?.message || String(error),
           expiresAt: null,
         };
       }
@@ -485,6 +494,34 @@ export async function acquireLease(options = {}) {
     // still arbitrates the winner; no local sleep can create a double owner.
     await sleep(Math.min(pollMs, remaining));
   }
+}
+
+/**
+ * One-line operator diagnosis of a busy acquire result: who holds the lease,
+ * until when, or that Firestore failed and no holder was read at all.
+ */
+export function describeLeaseBusy(result, now = Date.now()) {
+  if (result?.transientError) {
+    return `reason=transient_error: Firestore failed before the lease could be read (${result.error || 'unknown error'}); this is not a lease conflict`;
+  }
+  const holder = result?.holder || {};
+  const parts = [
+    `reason=${result?.reason || 'unknown'}`,
+    `owner=${holder.owner || 'unknown'}`,
+    `workflow=${holder.workflow || 'unknown'}`,
+    `runId=${holder.runId || 'unknown'}`,
+  ];
+  if (/^[\w.-]+\/[\w.-]+$/u.test(holder.repo || '') && /^\d+$/u.test(holder.runId || '')) {
+    parts.push(`run=https://github.com/${holder.repo}/actions/runs/${holder.runId}`);
+  }
+  if (holder.acquiredAt) parts.push(`acquiredAt=${holder.acquiredAt}`);
+  const expiresAt = Date.parse(holder.expiresAt || '');
+  if (result?.reason === 'malformed_expiry' || !Number.isFinite(expiresAt)) {
+    parts.push(`expiresAt=${JSON.stringify(holder.expiresAt ?? null)} (malformed: the lease never expires on its own; only the owner release or an operator delete clears it)`);
+  } else {
+    parts.push(`expiresAt=${holder.expiresAt} (${Math.max(0, Math.ceil((expiresAt - now) / 60_000))} min left)`);
+  }
+  return parts.join(', ');
 }
 
 export async function releaseLease(options = {}) {
@@ -517,7 +554,7 @@ async function main() {
     ? await acquireLease(resumeWait ? { waitMs: GLOBAL_DATA_PIPELINE_LEASE_RESUME_WAIT_MS } : {})
     : await releaseLease();
   if (result.busy) {
-    console.error('global data pipeline lease is still busy after the bounded wait; retry on the next scheduled run');
+    console.error(`global data pipeline lease is still busy after the bounded wait; retry on the next scheduled run (${describeLeaseBusy(result)})`);
     process.exitCode = GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT;
     return;
   }
