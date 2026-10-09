@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5148
+      "6": 5150
     },
-    "publishedCovers": 6860,
+    "publishedCovers": 6862,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182156,6 +182156,33 @@
       "currentlyPublished": true,
       "status": "no-credit"
     },
+    "article-caslano-colombera-incidente-moto": {
+      "cover": "/images/blog/article-caslano-colombera-incidente-moto.webp",
+      "hash": "77bcae26dd50c4422bef3ca35b96937abc54b9eadd3a05bb4fbc1349873f6d5a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "caslano-colombera-incidente-moto",
+          "category": "novita",
+          "date": "2026-10-09T17:27:51.215Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
     "article-cibersicurezza-svizzera-record-segnalazioni": {
       "cover": "/images/blog/article-cibersicurezza-svizzera-record-segnalazioni.webp",
       "hash": "786613f9ba2b578f49a252c59752255a0356be527f8da3f4d2161b598a974300",
@@ -182518,6 +182545,33 @@
           "id": "ricardo-account-esposti",
           "category": "novita",
           "date": "2026-10-09T15:39:39.886Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-smottamento-sementina-code": {
+      "cover": "/images/blog/article-smottamento-sementina-code.webp",
+      "hash": "01ae58d870ff83ae3a061cc9c3b6d5d2f13990b3591a29969796d23b05e9287b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "smottamento-sementina-code",
+          "category": "pratico",
+          "date": "2026-10-09T16:55:33.377Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

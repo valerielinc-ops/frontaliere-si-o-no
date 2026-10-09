@@ -104455,10 +104455,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-smottamento-sementina-code.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Detriti sulla strada cantonale a Sementina vicino al campo di calcio, con traffico deviato."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T16:55:33+00:00",
       "dateModified": "2026-10-09T16:55:33+00:00",
@@ -104494,10 +104494,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-caslano-colombera-incidente-moto.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Via Colombera a Caslano, strada che collega il paese a Ponte Tresa"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T17:27:51+00:00",
       "dateModified": "2026-10-09T17:27:51+00:00",

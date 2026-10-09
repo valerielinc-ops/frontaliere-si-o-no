@@ -12898,10 +12898,10 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.smottamento-sementina-code.title': 'Erdrutsch in Sementina: Verkehr stockt',
     'blog.article.smottamento-sementina-code.excerpt': 'Erdrutsch auf der Kantonsstrasse in Sementina um 16.00 Uhr Die Fahrbahn ist von Geröll und Steinen bedeckt Abschnitt gesperrt und Verkehr in beide Richtungen umgeleitet',
-    'blog.article.smottamento-sementina-code.imageAlt': 'Geröll auf der Kantonsstrasse in Sementina beim Fussballplatz, der Verkehr wird umgeleitet.',
+    'blog.article.smottamento-sementina-code.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, Verkehr wegen eines Unfalls in der Via Colombera lahmgelegt',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Verkehr in Caslano lahmgelegt Unfall entlang der Via Colombera Motorradfahrer beteiligt Lokaler Verkehr stark beeinträchtigt Ort → Via Colombera, zwischen Caslano',
-    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Via Colombera in Caslano, die Straße zwischen dem Ort und Ponte Tresa',
+    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Für diesen Artikel erstellte Illustration',
 };
 
 export default blogMetaDe;

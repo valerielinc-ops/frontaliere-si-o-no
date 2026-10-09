@@ -12900,10 +12900,10 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gestione-emergenze-ticino-lombardia.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.smottamento-sementina-code.title': 'Smottamento a Sementina: traffico congestionato',
     'blog.article.smottamento-sementina-code.excerpt': 'Smottamento sulla strada cantonale a Sementina alle 16.00 La carreggiata è invasa da detriti e sassi Tratto chiuso e traffico deviato in entrambe le direzioni',
-    'blog.article.smottamento-sementina-code.imageAlt': 'Detriti sulla strada cantonale a Sementina vicino al campo di calcio, con traffico deviato.',
+    'blog.article.smottamento-sementina-code.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, traffico in tilt per incidente in via Colombera',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
-    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Via Colombera a Caslano, strada che collega il paese a Ponte Tresa',
+    'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustrazione generata per questo articolo',
 };
 
 export default blogMetaIt;
