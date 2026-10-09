@@ -104358,6 +104358,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carne-vino-dogana-mendrisiotto': {
+    title: '82 chili di carne e 492 bottiglie: multe doganali',
+    description: 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, chili, carne, bottiglie, multe',
+    ogTitle: 'Vacallo e Stabio: multe per carne e vino',
+    ogDescription: 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
+    canonicalPath: '/articoli-frontaliere/carne-vino-dogana-mendrisiotto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "82 chili di carne e 492 bottiglie: multe doganali",
+      "description": "A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carne-vino-dogana-mendrisiotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo doganale a Stabio con furgone e bottiglie di vino non dichiarate"
+      },
+      "datePublished": "2026-10-09T14:17:30+00:00",
+      "dateModified": "2026-10-09T14:17:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carne-vino-dogana-mendrisiotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

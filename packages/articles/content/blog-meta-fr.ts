@@ -12893,6 +12893,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.operazione-upriver-arresti-varese-2026.title': 'Opération Upriver : 7 arrêts, un dans le Varesotto',
     'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Opération Upriver : sept arrestations L\'une des arrestations à Varesotto Plus de 100 000 fichiers saisis Enquête coordonnée par le parquet de Milan Opération →',
     'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Vue sur le lac de Lugano à l\'aube',
+    'blog.article.carne-vino-dogana-mendrisiotto.title': '82 kilos de viande et 492 bouteilles : amendes douanières',
+    'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'À Vacallo, 82 kilos de viande non déclarée trouvés À Stabio, 492 bouteilles de vin découvertes Les contrôles ont eu lieu les 3 et 7 octobre Amendes et dédouanement',
+    'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Contrôle douanier à Stabio avec fourgon et bouteilles de vin non déclarées',
 };
 
 export default blogMetaFr;

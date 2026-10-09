@@ -12892,6 +12892,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operazione Upriver: 7 arresti, uno nel Varesotto',
     'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
     'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Vista sul lungolago di Lugano all\'alba',
+    'blog.article.carne-vino-dogana-mendrisiotto.title': '82 chili di carne e 492 bottiglie: multe doganali',
+    'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'A Vacallo trovati 82 chili di carne non dichiarata A Stabio rinvenute 492 bottiglie di vino I controlli si sono svolti il 3 e il 7 ottobre Multe e sdoganamento',
+    'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Controllo doganale a Stabio con furgone e bottiglie di vino non dichiarate',
 };
 
 export default blogMetaIt;

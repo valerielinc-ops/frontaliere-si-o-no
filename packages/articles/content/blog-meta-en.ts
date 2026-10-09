@@ -12891,6 +12891,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operation Upriver: 7 arrests, one in the Varese area',
     'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Upriver Operation: seven arrests One of the arrests in the Varese area More than 100mila files seized Investigation coordinated by the Milan Prosecutor\'s Office Operation →',
     'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Lugano lakefront view at dawn',
+    'blog.article.carne-vino-dogana-mendrisiotto.title': '82 kilograms of meat and 492 bottles: customs fines',
+    'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'In Vacallo, 82 kilos of undeclared meat found In Stabio, 492 bottles of wine found The inspections took place on October 3 and 7 Fines and customs clearance',
+    'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Customs check in Stabio with a van and undeclared wine bottles',
 };
 
 export default blogMetaEn;

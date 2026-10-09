@@ -43519,6 +43519,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'carne-vino-dogana-mendrisiotto',
+ category: 'pratico',
+ date: '2026-10-09T14:17:30.025Z',
+ image: '/images/blog/article-carne-vino-dogana-mendrisiotto.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5141
+      "6": 5142
     },
-    "publishedCovers": 6853,
+    "publishedCovers": 6854,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182113,6 +182113,33 @@
           "id": "a8-manutenzione-cavalcavia-ottobre-2026",
           "category": "pratico",
           "date": "2026-10-09T09:14:11.744Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-carne-vino-dogana-mendrisiotto": {
+      "cover": "/images/blog/article-carne-vino-dogana-mendrisiotto.webp",
+      "hash": "b63de76eb293e63e442e42484ebe9559d3fa5387f476f4402bbb6c6e5bb1ae3f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "carne-vino-dogana-mendrisiotto",
+          "category": "pratico",
+          "date": "2026-10-09T14:17:30.025Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

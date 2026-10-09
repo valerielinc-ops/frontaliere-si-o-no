@@ -12890,6 +12890,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operation Upriver: 7 Festnahmen, eine im Varesotto',
     'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Operation Upriver: sieben Festnahmen Eine der Festnahmen im Varesotto Über 100mila Dateien beschlagnahmt Von der Staatsanwaltschaft Mailand koordinierte Ermittlungen Operation →',
     'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Seeblick von Lugano bei Sonnenaufgang',
+    'blog.article.carne-vino-dogana-mendrisiotto.title': '82 Kilo Fleisch und 492 Flaschen: Zollbussen',
+    'blog.article.carne-vino-dogana-mendrisiotto.excerpt': 'In Vacallo wurden 82 Kilo nicht deklariertes Fleisch gefunden In Stabio wurden 492 Flaschen Wein entdeckt Die Kontrollen fanden am 3.',
+    'blog.article.carne-vino-dogana-mendrisiotto.imageAlt': 'Zollkontrolle bei Stabio mit Lieferwagen und nicht deklarierten Weinflaschen',
 };
 
 export default blogMetaDe;
