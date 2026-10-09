@@ -150,13 +150,6 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // returns 0 and re-arms when a vacancy reappears. Same legitimately-empty
   // small-employer case as linnea and banca-raiffeisen-vedeggio-cassarate.
   'wuerth-international',
-  // Suchtfachstelle Zürich: the careers page
-  // (https://www.suchtfachstelle.zuerich/ueber-uns/offene-stellen) returns
-  // HTTP 200 with the employer section intact but currently lists zero
-  // "/stellenausschreibung-*" openings. A single addiction-counselling NGO
-  // legitimately has no vacancies for weeks; the parser/regex is healthy and
-  // re-arms when an opening is published.
-  'suchtfachstelle-zuerich',
   // Clinica Moncucco (Lugano, TI): the careers page
   // (https://www.moncucco.ch/lavora-con-noi.php) returns HTTP 200 and its
   // ".listing-job" container explicitly states "Nessun annuncio presente al

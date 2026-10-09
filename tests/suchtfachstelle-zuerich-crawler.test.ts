@@ -1,16 +1,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   SUCHTFACHSTELLE_ZUERICH_KEY,
   SUCHTFACHSTELLE_ZUERICH_COMPANY_NAME,
   SUCHTFACHSTELLE_ZUERICH_CAREERS_URL,
   isSuchtfachstelleZuerichJob,
   isTrustedDomain,
+  hasSuchtfachstelleZuerichVacancyAnchor,
+  isSuchtfachstelleZuerichEmptyListing,
+  fetchAllSuchtfachstelleZuerichJobs,
   parseListing,
   parseDetail,
   cleanSfsTitle,
 } from '../scripts/lib/suchtfachstelle-zuerich-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const FIXTURE_LISTING_HTML = `
@@ -50,6 +54,21 @@ const FIXTURE_DETAIL_HTML = `
 <footer>Footer block</footer>
 </body></html>
 `;
+
+const FIXTURE_EMPTY_LISTING_HTML = `
+<html><body>
+  <section class="intro">
+    <h1 class="intro__title">Die Suchtfachstelle Zürich als Arbeitgeberin</h1>
+  </section>
+  <section class="links">
+    <h2>Wir bieten Ihnen Jobs mit vielfältigen und sinnvollen Aufgaben</h2>
+  </section>
+</body></html>
+`;
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Suchtfachstelle Zürich crawler parser', () => {
   it('exports valid constants', () => {
@@ -124,9 +143,61 @@ describe('Suchtfachstelle Zürich crawler parser', () => {
         '<a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-x">x2</a>';
       expect(parseListing(html).length).toBe(1);
     });
+    it('normalizes source-relative vacancy links', () => {
+      const rows = parseListing("<a href='/stellenausschreibung-relative-job'>x</a>");
+      expect(rows).toEqual([{
+        url: 'https://www.suchtfachstelle.zuerich/stellenausschreibung-relative-job',
+        slug: 'relative-job',
+      }]);
+    });
     it('returns empty on empty HTML', () => {
       expect(parseListing('')).toEqual([]);
     });
+  });
+
+  describe('isSuchtfachstelleZuerichEmptyListing', () => {
+    it('recognizes the rendered empty jobs section', () => {
+      expect(isSuchtfachstelleZuerichEmptyListing(FIXTURE_EMPTY_LISTING_HTML)).toBe(true);
+    });
+
+    it('keeps an unrecognised or partial page fail-closed', () => {
+      expect(isSuchtfachstelleZuerichEmptyListing('<html><body></body></html>')).toBe(false);
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          FIXTURE_EMPTY_LISTING_HTML.replace('Wir bieten Ihnen Jobs', 'Jobs'),
+        ),
+      ).toBe(false);
+    });
+
+    it('does not call an active vacancy page empty', () => {
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          `${FIXTURE_EMPTY_LISTING_HTML}<a href="https://www.suchtfachstelle.zuerich/stellenausschreibung-active">Active</a>`,
+        ),
+      ).toBe(false);
+    });
+
+    it('does not call a page with a source-relative vacancy empty', () => {
+      expect(
+        isSuchtfachstelleZuerichEmptyListing(
+          `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-relative-active">Active</a>`,
+        ),
+      ).toBe(false);
+    });
+
+    it('vetoes a vacancy href with query, fragment, and trailing slash', () => {
+      const html = `${FIXTURE_EMPTY_LISTING_HTML}<a href="/stellenausschreibung-foo/?ref=home#open">Active</a>`;
+      expect(parseListing(html)).toEqual([]);
+      expect(hasSuchtfachstelleZuerichVacancyAnchor(html)).toBe(true);
+      expect(isSuchtfachstelleZuerichEmptyListing(html)).toBe(false);
+    });
+  });
+
+  it('stamps the source-proven zero returned by the real fetch function', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(FIXTURE_EMPTY_LISTING_HTML)));
+    const jobs = await fetchAllSuchtfachstelleZuerichJobs();
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
   });
 
   describe('parseDetail', () => {
