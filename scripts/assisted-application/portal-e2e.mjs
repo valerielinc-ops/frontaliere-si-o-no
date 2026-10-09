@@ -729,7 +729,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
   const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
   const run = (order = job) => submitViaPortal({
-    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
+    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } }, files, codex: fakeCodex, accounts,
     launch: () => launchChromium({ headless: true, executablePath }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
@@ -845,7 +845,7 @@ async function main() {
     applyUrl: `${base}/job`,
     language: 'de',
     candidateLocale: 'it',
-    candidate: { identity: { email: ALIAS } },
+    candidate: { identity: { email: ALIAS }, profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } } },
     files,
     codex: fakeCodex,
     accounts,
@@ -1062,7 +1062,7 @@ async function main() {
       async waitForVerification() { return null; },
     };
     const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
-    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12' }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
+    const coopCandidate = { identity: { email: ALIAS }, profile: { dateOfBirth: '1990-05-12', location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } }, answers: { portal_anrede: 'Herr' }, portalQuestionsAnswered: [] };
     const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
     check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
       && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
