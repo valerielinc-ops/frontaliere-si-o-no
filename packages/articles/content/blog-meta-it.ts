@@ -12856,6 +12856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.saronno-manifestazione-palestina-ottobre-2026.title': 'Manifestazione Palestina a Saronno sabato 10 ottobre',
     'blog.article.saronno-manifestazione-palestina-ottobre-2026.excerpt': 'Sabato 10 ottobre manifestazione per la Palestina a Saronno Ritrovo alle 10 in piazza San Francesco Da lì partirà un corteo per le vie della città Aderiscono',
     'blog.article.saronno-manifestazione-palestina-ottobre-2026.imageAlt': 'Manifestazione pro Palestina a Saronno con corteo in piazza San Francesco',
+    'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.title': 'Varese: oltre 400mila euro sottratti da due badanti',
+    'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.excerpt': 'Oltre 400 mila euro contestati a due badanti La denuncia è partita dalla figlia dell\'anziano Il Gip di Varese ha disposto un sequestro preventivo',
+    'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Immagine editoriale relativa a: Varese: oltre 400mila euro sottratti da due badanti',
 };
 
 export default blogMetaIt;

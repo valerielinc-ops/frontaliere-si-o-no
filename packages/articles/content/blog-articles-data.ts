@@ -43391,6 +43391,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-oltre-400mila-euro-sottratti-da-due-badanti',
+ category: 'novita',
+ date: '2026-10-09T05:57:28.186Z',
+ image: '/images/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

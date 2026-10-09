@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5106
+      "6": 5107
     },
-    "publishedCovers": 6818,
+    "publishedCovers": 6819,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -181314,6 +181314,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-varese-oltre-400mila-euro-sottratti-da-due-badanti": {
+      "cover": "/images/blog/article-varese-oltre-400mila-euro-sottratti-da-due-badanti.webp",
+      "hash": "b5eadb10f4881936606310914594a440c8bb0d19bbfa2781db27cda78e8135f0",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "varese-oltre-400mila-euro-sottratti-da-due-badanti",
+          "category": "novita",
+          "date": "2026-10-09T05:57:28.186Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
