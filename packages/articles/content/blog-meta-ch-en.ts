@@ -7957,7 +7957,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documents and plans for a building permit in the Canton of Lucerne',
     'blog.article.nobel-economia-fehr-2026.title': '2026 Nobel Prize in Economics: Ernst Fehr among the possible winners',
     'blog.article.nobel-economia-fehr-2026.excerpt': 'The 2026 Nobel Prize in Economics will be announced on October 12 Ernst Fehr is among the possible winners Clarivate has identified four economists Polymarket estimates Fehr',
-    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Ernst Fehr among potential Nobel Prize winners in economics',
+    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Illustration generated for this article',
     'blog.article.guida-voto-cantonale-lucerna.title': 'Lucerne cantonal vote: guide to initiatives and referendums',
     'blog.article.guida-voto-cantonale-lucerna.excerpt': 'The calendar provides for four federal voting days each year A federal initiative requires 100\'000 signatures collected over a period of 18 months The referendum',
     'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Landscape of the Canton of Lucerne with the lake and surrounding mountains on a sunny day',

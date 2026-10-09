@@ -100310,10 +100310,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-agrivarese-angera-ottobre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-nobel-economia-fehr-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Ernst Fehr tra i possibili vincitori del Nobel per l'economia"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T03:22:15+00:00",
       "dateModified": "2026-10-09T03:22:15+00:00",

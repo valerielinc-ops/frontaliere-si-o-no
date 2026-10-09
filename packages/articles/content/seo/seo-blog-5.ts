@@ -103943,10 +103943,15 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/raduno-auto-moto-cocquio.webp`,
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rancio-valcuvia-statale-394.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-09T07:21:46+00:00",
       "dateModified": "2026-10-09T07:21:46+00:00",

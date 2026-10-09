@@ -12860,7 +12860,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Editorial image related to: Varese: oltre 400mila euro sottratti da due badanti',
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: clash between car and motorcycle on state road 394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incident shortly after 7 am on state road 394 Crash between a car and a motorcycle at Rancio Valcuvia 26-year-old woman rescued in green code Heavy traffic',
-    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Morning traffic on State Road 394 in Rancio Valcuvia after a car and motorcycle crash',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Illustration generated for this article',
     'blog.article.operazione-trotta-ebike-monopattini.title': 'Operation TROTTA: 35 fines for modified e-bikes and illegal scooters',
     'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'In eight days of TROTTA checks in Ticino, 35 citations, 9 non-compliant vehicles (power 1\'200-1\'600 W, speed up to 48 km/h) and 15 judicial proceedings.',
     'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Illustration generated for this article',

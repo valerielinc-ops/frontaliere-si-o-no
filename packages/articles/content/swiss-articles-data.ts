@@ -26558,7 +26558,7 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     id: 'nobel-economia-fehr-2026',
     category: 'novita',
     date: '2026-10-09T03:22:15.837Z',
-    image: '/images/blog/article-agrivarese-angera-ottobre-2026.webp',
+    image: '/images/blog/article-nobel-economia-fehr-2026.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

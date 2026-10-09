@@ -7957,7 +7957,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documents et plans pour un permis de construire dans le canton de Lucerne',
     'blog.article.nobel-economia-fehr-2026.title': 'Nobel d\'économie 2026 : Ernst Fehr parmi les lauréats potentiels',
     'blog.article.nobel-economia-fehr-2026.excerpt': 'Le Nobel d\'économie 2026 sera annoncé le 12 octobre Ernst Fehr figure parmi les lauréats potentiels Clarivate a cité quatre économistes Polymarket estime Fehr',
-    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Ernst Fehr parmi les potentiels laureats du prix Nobel d\'economie',
+    'blog.article.nobel-economia-fehr-2026.imageAlt': 'Illustration générée pour cet article',
     'blog.article.guida-voto-cantonale-lucerna.title': 'Votation cantonale à Lucerne : guide des initiatives et référendums',
     'blog.article.guida-voto-cantonale-lucerna.excerpt': 'Le calendrier prévoit quatre journées de votation fédérale chaque année Pour une initiative fédérale, 100\'000 signatures recueillies sur une période de 18 mois sont nécessaires Le référendum',
     'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Paysage du canton de Lucerne avec le lac et les montagnes environnantes par une journée ensoleillée',

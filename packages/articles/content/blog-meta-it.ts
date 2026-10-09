@@ -12861,7 +12861,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-oltre-400mila-euro-sottratti-da-due-badanti.imageAlt': 'Immagine editoriale relativa a: Varese: oltre 400mila euro sottratti da due badanti',
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: scontro tra auto e moto sulla statale 394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante',
-    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto',
+    'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.operazione-trotta-ebike-monopattini.title': 'Operazione TROTTA: 35 sanzioni e-bike truccate e monopattini fuorilegge',
     'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'In otto giorni di controlli TROTTA in Ticino, 35 contravvenzioni, 9 veicoli irregolari (potenza 1\'200-1\'600 W, velocità fino a 48 km/h) e 15 procedimenti giudiziari.',
     'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Illustrazione generata per questo articolo',
