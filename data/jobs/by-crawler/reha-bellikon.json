@@ -1,5 +1,6 @@
 {
-  "assembledAt": "2026-10-09T09:46:42.977Z",
+  "crawlerKey": "reha-bellikon",
+  "assembledAt": "2026-10-09T21:42:18.736Z",
   "jobs": [
     {
       "id": "reha-bellikon-2c8e28aaabc9",
@@ -32,7 +33,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Interne-Patientenbegleitung-ehrenamtlich/ccae8bed-5e5a-4a28-84ad-c52eaf13a6e6",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:39.067Z",
+      "crawledAt": "2026-10-09T21:42:14.294Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -83,11 +84,11 @@
         "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon"
-        ],
         "it": [
           "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-reha"
+        ],
+        "de": [
+          "freiwillige-mitarbeitende-im-bereich-interne-patientenbegleitung-ehrenamtlich-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:48.640Z",
@@ -136,7 +137,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Begleitung-extern-ehrenamtlich/31674ecb-d45a-4c69-b03e-8c28c7cce989",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:38.545Z",
+      "crawledAt": "2026-10-09T21:42:13.740Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -182,15 +183,15 @@
       "pensumMax": 20,
       "pensum": "10 - 20%",
       "contractDuration": "permanent",
-      "firstSeenAt": "2026-05-19T14:36:48.169Z",
+      "previousSlugs": [
+        "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon"
         ]
       },
-      "previousSlugs": [
-        "freiwillige-mitarbeitende-im-bereich-begleitung-extern-ehrenamtlich-reha-bellikon-bellikon"
-      ],
+      "firstSeenAt": "2026-05-19T14:36:48.169Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -236,7 +237,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Restaurantfachfrau-Restaurantfachmann-EFZ/97ad3665-0743-4419-be7b-3fece8eaaaa8",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:38.003Z",
+      "crawledAt": "2026-10-09T21:42:13.118Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -316,7 +317,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Fachfrau-Fachmann-Reinigungstechnik-EFZ/38e8a7e3-5946-43ff-b0f6-a5d9684068e1",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:37.464Z",
+      "crawledAt": "2026-10-09T21:42:12.566Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -340,14 +341,10 @@
       "pensumMax": 100,
       "pensum": "100%",
       "contractDuration": "temporary",
-      "previousSlugs": [
-        "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
-        "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
-        "apprentissage-technologie-de-nettoyage-professionnelle-efz-rehaklinik-bellikon-bellikon",
-        "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
-        "lernende-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "lernende-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+        ],
         "it": [
           "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
           "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
@@ -357,14 +354,18 @@
         "en": [
           "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
         ],
-        "de": [
-          "lernende-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
-        ],
         "fr": [
           "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
           "apprentissage-technologie-de-nettoyage-professionnelle-efz-rehaklinik-bellikon-bellikon"
         ]
       },
+      "previousSlugs": [
+        "lernender-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon",
+        "imparare-professional-cleaning-technology-efz-rehaklinik-bellikon-bellikon",
+        "apprentissage-technologie-de-nettoyage-professionnelle-efz-rehaklinik-bellikon-bellikon",
+        "apprendista-r-ict-fachfrau-fachmann-cfc-rehaklinik-bellikon-bellikon",
+        "lernende-r-fachfrau-fachmann-reinigungstechnik-efz-reha-bellikon-bellikon"
+      ],
       "firstSeenAt": "2026-05-26T23:59:03.147Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -411,7 +412,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Koechin-Koch-EFZ/54b47a80-0321-45f1-a574-a31dcf587236",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:36.960Z",
+      "crawledAt": "2026-10-09T21:42:12.015Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -491,7 +492,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Praktikantin-Praktikant-Pflege/78273bdd-a6be-4651-a038-1f4f91b96d3a",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:36.339Z",
+      "crawledAt": "2026-10-09T21:42:11.491Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -520,11 +521,11 @@
         "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
-        ],
         "it": [
           "praktikantin-praktikant-pflege-reha-bellikon-bellikon"
+        ],
+        "de": [
+          "praktikantin-praktikant-pflege-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:15.392Z",
@@ -549,7 +550,7 @@
         "it": "studi-medici-prepratici-prepratici-rehaklinik-bellikon-bellikon",
         "en": "pre-practical-pre-practical-medical-studies-rehaklinik-bellikon-bellikon",
         "de": "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon",
-        "fr": "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon"
+        "fr": "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -568,12 +569,13 @@
         "de": "Zugehörigkeit, Sinnhaftigkeit und Kompetenz Mit einem eingespielten Team begleiten wir Patientinnen und Patienten durch Höhen und Tiefen und helfen ihnen dabei, nach Unfall oder Krankheit zurück ins Leben oder in den Beruf zu finden.\n\nEin vierwöchiges Vorpraktikum in der Pflege ist Voraussetzung für Studenten/Studentinnen der Medizin. Als \"Häfelipraktikant/in\" erhältst du im Vorfeld Ihres Medizinstudiums Einblick in den Bereich neurologische oder orthopädische Rehabilitation.\n\nAufgaben\n\n• Als \"Häfelipraktikant/in\" erhältst du im Vorfeld des Medizinstudiums während vier Wochen einen Einblick in den Bereich neurologische oder orthopädische Rehabilitation\n• Du führst hauswirtschaftliche Arbeiten nach hygienischen Kriterien aus\n• Unterstützen das Pflegeteam in der Betreuung unserer Patientinnen und Patienten\n• Unterstützung der Hotellerie und des Patienten-Service\n• Administrative und logistische Tätigkeiten\n• Der Arbeitsbeginn ist jeweils morgens um 06.30 Uhr\n\nProfil\n\n• Studierende/r der Medizin\n• Körperliche und psychische Belastbarkeit\n• Initiative und Bereitschaft zur Ausführung der übertragenen Aufgaben\n\nPensum: 100%\n\nAnstellung: befristet\n\nEintritt: 2026-09-01",
         "fr": "Adhésion, sens et compétence Avec une équipe expérimentée, nous accompagnons les patients à travers des hauts et des bas et les aidons à retrouver leur chemin vers la vie ou le travail après un accident ou une maladie.\n\nUn stage préliminaire de quatre semaines en soins infirmiers est une condition préalable pour les étudiants en médecine. En tant que \"Hafelipraktikant\", vous aurez un aperçu du domaine de la réadaptation neurologique ou orthopédique avant vos études médicales.\n\nTâche\n\n• En tant que \"Hafelipraktikant\", vous recevrez un aperçu du domaine de la réadaptation neurologique ou orthopédique pendant quatre semaines avant les études médicales.\n• Vous effectuez des travaux domestiques selon des critères hygiéniques\n• Soutenir l'équipe de soins dans les soins de nos patients\n• Soutien à l'industrie hôtelière et au service aux patients\n• Activités administratives et logistiques\n• Le travail commence tous les matins à 6h30\n\nProfil\n\n• Étudiants de médecine\n• Résistance physique et psychologique\n• Initiative et volonté d'exécuter les tâches déléguées\n\nPensum: 100%\n\nEmploi temporaire\n\nEntrée : 2026-09-01"
       },
+      "needsRetranslation": false,
       "location": "Bellikon",
       "canton": "AG",
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Vorpraktikantin-Vorpraktikant-Medizinstudium/3a3eef5d-a7fd-431c-84d6-919da2968109",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:35.845Z",
+      "crawledAt": "2026-10-09T21:42:10.990Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -601,7 +603,7 @@
         "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon",
         "etudes-medicales-prepratiques-prepratiques-rehaklinik-bellikon-bellikon",
         "vorpraktikantin-vorpraktikant-medizinstudium-reha-bellikon-bellikon",
-        "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
+        "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -614,11 +616,10 @@
         "fr": [
           "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon-bellikon",
           "etudes-medicales-prepratiques-prepratiques-rehaklinik-bellikon-bellikon",
-          "vorpraktikantin-vorpraktikant-medizinstudium-rehaklinik-bellikon"
+          "etudes-medicales-pre-pratiques-pre-pratiques-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:14.869Z",
-      "needsRetranslation": false,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -665,7 +666,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Studierender-HF-fuer-die-2-3-jaehrige-Ausbildung-zur-diplomierten-Pflegefachfrau-mann-HF-wmd/3f7ef44d-4123-4d5b-b91a-14838e6f2e6f",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:35.351Z",
+      "crawledAt": "2026-10-09T21:42:10.465Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -746,7 +747,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Gruppenleiterin-berufliche-Eingliederung-Chur/79c9f6f0-e25d-4998-b551-716f25476e0d",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:34.853Z",
+      "crawledAt": "2026-10-09T21:42:09.964Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -832,7 +833,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/ICT-Senior-Security-Engineer/d51ccbc3-549a-491d-86d9-a91917fc926a",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:34.294Z",
+      "crawledAt": "2026-10-09T21:42:09.462Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -856,15 +857,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
-      "firstSeenAt": "2026-10-01T09:29:02.069Z",
+      "previousSlugs": [
+        "ict-senior-security-engineer-reha-bellikon-bellikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-senior-security-engineer-reha-bellikon-bellikon"
         ]
       },
-      "previousSlugs": [
-        "ict-senior-security-engineer-reha-bellikon-bellikon"
-      ],
+      "firstSeenAt": "2026-10-01T09:29:02.069Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -910,7 +911,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Mitarbeiterin-Mitarbeiter-Gastronomie/711e47e6-1d27-4e08-86bd-e6427eaa995b",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:33.545Z",
+      "crawledAt": "2026-10-09T21:42:08.964Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -940,15 +941,15 @@
         "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon",
+          "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon"
+        ],
         "en": [
           "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
         ],
         "fr": [
           "mitarbeiterin-mitarbeiter-gastronomie-rehaklinik-bellikon-bellikon"
-        ],
-        "it": [
-          "mitarbeiterin-mitarbeiter-gastronomie-reha-bellikon-bellikon",
-          "mitarbeiterin-collaboratore-trice-gastronomie-rehaklinik-bellikon"
         ]
       },
       "salaryMin": 88000,
@@ -997,7 +998,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Assistentin-Assistent-Qualitaets-und-Prozessmanagement/373db8f6-c31b-49fd-be68-814effdbe306",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:46:32.997Z",
+      "crawledAt": "2026-10-09T21:42:08.458Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1021,15 +1022,15 @@
       "pensumMax": 60,
       "pensum": "60%",
       "contractDuration": "permanent",
-      "firstSeenAt": "2026-09-09T14:03:40.919Z",
+      "previousSlugs": [
+        "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
         ]
       },
-      "previousSlugs": [
-        "assistentin-assistent-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
-      ],
+      "firstSeenAt": "2026-09-09T14:03:40.919Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1044,6 +1045,5 @@
         }
       }
     }
-  ],
-  "crawlerKey": "reha-bellikon"
+  ]
 }
