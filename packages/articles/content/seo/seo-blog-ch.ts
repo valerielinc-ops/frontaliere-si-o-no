@@ -100252,6 +100252,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-edilizio-lucerna': {
+    title: 'Autorizzazione edilizia Canton Lucerna: requisiti, procedura',
+    description: 'Autorizzazione edilizia nel Cantone di Lucerna: requisiti, documenti, ruolo di comune e cantone, opposizioni, ricorsi e divieto di iniziare i lavori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, canton, lucerna',
+    ogTitle: 'Autorizzazione edilizia Canton Lucerna: requisiti',
+    ogDescription: 'Per una pratica edilizia a Lucerna conta seguire l\'iter corretto: capire quando serve il permesso, predisporre i documenti, considerare comune e cantone e non aprire il cantiere prima dell\'autorizzazione.',
+    canonicalPath: '/articoli-svizzera/permesso-edilizio-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorizzazione edilizia Canton Lucerna: requisiti, procedura",
+      "description": "Autorizzazione edilizia nel Cantone di Lucerna: requisiti, documenti, ruolo di comune e cantone, opposizioni, ricorsi e divieto di iniziare i lavori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-permesso-edilizio-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e planimetrie per un'autorizzazione edilizia nel Cantone di Lucerna"
+      },
+      "datePublished": "2026-10-09T03:07:26+00:00",
+      "dateModified": "2026-10-09T03:07:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-edilizio-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2673,6 +2673,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'linea-ginevra-friburgo-pressione': { it: 'linea-ginevra-friburgo-pressione', en: 'geneva-fribourg-rail-line-pressure', de: 'bahnstrecke-genf-freiburg-unter-druck', fr: 'ligne-geneve-fribourg-sous-pression' },
  'attacco-publica-dati-rubati': { it: 'attacco-publica-dati-rubati', en: 'publica-cyber-attack-stolen-data', de: 'publica-cyberangriff-daten-gestohlen', fr: 'attaque-cyber-publica-donnees-volees' },
  'fuga-dati-publica-cassa': { it: 'fuga-dati-publica-cassa', en: 'publica-data-leak-pension-fund', de: 'publica-datenleck-pensionskasse', fr: 'fuite-donnees-publica-caisse' },
+ 'permesso-edilizio-lucerna': { it: 'permesso-edilizio-lucerna', en: 'lucerne-building-permit-guide', de: 'baubewilligung-luzern-verfahren', fr: 'permis-construire-lucerne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

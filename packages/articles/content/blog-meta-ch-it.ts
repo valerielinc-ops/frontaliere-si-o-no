@@ -7952,6 +7952,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fuga-dati-publica-cassa.title': 'Fuga di dati Publica: attacco e indagine federale',
     'blog.article.fuga-dati-publica-cassa.excerpt': 'Attacco a fine settembre contro un fornitore esterno di Publica Fuga di dati e denuncia penale immediata Indagine del Ministero pubblico della Confederazione',
     'blog.article.fuga-dati-publica-cassa.imageAlt': 'Sede della Cassa pensioni Publica in Svizzera',
+    'blog.article.permesso-edilizio-lucerna.title': 'Autorizzazione edilizia Canton Lucerna: requisiti, procedura',
+    'blog.article.permesso-edilizio-lucerna.excerpt': 'Nel Cantone di Lucerna contano autorizzazione, documenti, ruolo di comune e cantone, opposizioni o ricorsi e stop ai lavori senza permesso.',
+    'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documenti e planimetrie per un\'autorizzazione edilizia nel Cantone di Lucerna',
 };
 
 export default blogMetaChIt;

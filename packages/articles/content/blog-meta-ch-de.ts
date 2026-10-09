@@ -7952,6 +7952,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fuga-dati-publica-cassa.title': 'Publica-Datenleck: Angriff und Untersuchung auf Bundesebene',
     'blog.article.fuga-dati-publica-cassa.excerpt': 'Angriff Ende September auf einen externen Dienstleister von Publica Datenleck und umgehende Strafanzeige Ermittlungen der Bundesanwaltschaft',
     'blog.article.fuga-dati-publica-cassa.imageAlt': 'Publica Pensionskasse Hauptsitz in der Schweiz',
+    'blog.article.permesso-edilizio-lucerna.title': 'Baubewilligung im Kanton Luzern: Voraussetzungen, Verfahren',
+    'blog.article.permesso-edilizio-lucerna.excerpt': 'Im Kanton Luzern sind die Baubewilligung, die Unterlagen, die Rolle von Gemeinde und Kanton, Einsprachen oder Beschwerden sowie ein Baustopp bei Arbeiten ohne Bewilligung entscheidend.',
+    'blog.article.permesso-edilizio-lucerna.imageAlt': 'Unterlagen und Pläne für eine Baubewilligung im Kanton Luzern',
 };
 
 export default blogMetaChDe;

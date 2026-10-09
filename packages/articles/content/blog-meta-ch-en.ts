@@ -7952,6 +7952,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fuga-dati-publica-cassa.title': 'Publica data breach: attack and federal investigation',
     'blog.article.fuga-dati-publica-cassa.excerpt': 'Attack at the end of September against an external supplier of Publica Data leak and immediate criminal complaint Investigation by the Office of the Attorney General of Switzerland',
     'blog.article.fuga-dati-publica-cassa.imageAlt': 'Publica pension fund headquarters in Switzerland',
+    'blog.article.permesso-edilizio-lucerna.title': 'Building permit in the Canton of Lucerne: requirements, procedure',
+    'blog.article.permesso-edilizio-lucerna.excerpt': 'In the Canton of Lucerne, authorization, documents, the roles of the municipality and canton, objections or appeals, and stopping work without a permit matter.',
+    'blog.article.permesso-edilizio-lucerna.imageAlt': 'Documents and plans for a building permit in the Canton of Lucerne',
 };
 
 export default blogMetaChEn;
