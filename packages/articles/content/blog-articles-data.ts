@@ -43432,6 +43432,17 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'controlli-dogana-mendrisiotto',
+ category: 'pratico',
+ date: '2026-10-09T08:55:22.214Z',
+ image: '/images/blog/article-controlli-dogana-mendrisiotto.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -12868,6 +12868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese premia ACOF per i 70 anni',
     'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'Nel 2026 ACOF Olga Fiorini festeggia 70 anni Confindustria Varese consegna una pergamena Il riconoscimento arriva in via Varzi, a Busto Arsizio ACOF opera su 20',
     'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Vista aerea del Lago di Lugano con montagne',
+    'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, carne e vino non dichiarati alla dogana',
+    'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: trovati 82 chili di carne il 3 ottobre Stabio: trovate 492 bottiglie di vino il 7 ottobre In entrambi i casi mancava la dichiarazione in dogana L\'UDSC',
+    'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Controllo doganale nel Mendrisiotto con merce acquistata in Italia',
 };
 
 export default blogMetaIt;

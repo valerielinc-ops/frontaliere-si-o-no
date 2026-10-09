@@ -12867,6 +12867,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese honors ACOF for its 70th anniversary',
     'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'In 2026 ACOF Olga Fiorini celebrates 70 years Confindustria Varese presents a parchment The recognition arrives on Via Varzi, in Busto Arsizio ACOF operates on 20',
     'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Aerial view of Lake Lugano with mountains',
+    'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, meat and wine not declared to customs',
+    'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: 82 kilos of meat found on October 3 Stabio: 492 bottles of wine found on October 7 In both cases, the customs declaration was missing The FOCBS',
+    'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Customs control in Mendrisiotto involving goods bought in Italy',
 };
 
 export default blogMetaEn;

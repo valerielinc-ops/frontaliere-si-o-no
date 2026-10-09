@@ -12866,6 +12866,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese prämiert ACOF für 70 Jahre',
     'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'Im Jahr 2026 feiert ACOF Olga Fiorini 70 Jahre Confindustria Varese übergibt ein Pergament Die Anerkennung erfolgt über Varzi in Busto Arsizio ACOF in der 20.',
     'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Luftaufnahme des Luganersees mit Bergen',
+    'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, beim Zoll nicht deklariertes Fleisch und nicht deklarierter Wein',
+    'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: 82 Kilo Fleisch am 3.',
+    'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Zollkontrolle im Mendrisiotto mit in Italien gekauften Waren',
 };
 
 export default blogMetaDe;
