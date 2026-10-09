@@ -12873,6 +12873,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: nighttime closures for Castronno-Solbiate overpass',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'The A8 closes between Castronno and Solbiate Arno Albizzate First night: October 12, direction Milan Second night: October 13, direction Varese Solbiate Arno',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Night works on A8 overpass between Castronno and Solbiate Arno',
+    'blog.article.arresto-cocaina-massagno.title': 'Cocaine, 21-year-old Albanian arrested in Lugano',
+    'blog.article.arresto-cocaina-massagno.excerpt': 'Arrested a 21-year-old Albanian in Lugano The arrest took place on October 6 Found 140 grams of cocaine in the apartment The GPC confirmed the measure',
+    'blog.article.arresto-cocaina-massagno.imageAlt': 'Arrest of a 21-year-old and apartment search in the Luganese region',
 };
 
 export default blogMetaEn;

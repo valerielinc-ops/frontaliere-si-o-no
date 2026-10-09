@@ -12874,6 +12874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: chiusure notturne per cavalcavia Castronno-Solbiate',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'La A8 chiude tra Castronno e Solbiate Arno Albizzate Prima notte: 12 ottobre, direzione Milano Seconda notte: 13 ottobre, direzione Varese Solbiate Arno',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Cantieri notturni sul cavalcavia dell\'A8 tra Castronno e Solbiate Arno',
+    'blog.article.arresto-cocaina-massagno.title': 'Cocaina, arrestato 21enne albanese nel Luganese',
+    'blog.article.arresto-cocaina-massagno.excerpt': 'Arrestato un 21enne albanese nel Luganese Il fermo è avvenuto il 6 ottobre Trovati 140 grammi di cocaina nell\'appartamento Il GPC ha confermato la misura',
+    'blog.article.arresto-cocaina-massagno.imageAlt': 'Arresto di un 21enne e perquisizione di un appartamento nel Luganese',
 };
 
 export default blogMetaIt;

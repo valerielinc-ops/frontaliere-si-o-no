@@ -12875,6 +12875,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8 : fermetures nocturnes du viaduc Castronno-Solbiate',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'L’A8 ferme entre Castronno et Solbiate Arno Albizzate Première nuit : 12 octobre, direction Milan Deuxième nuit : 13 octobre, direction Varese Solbiate Arno',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Travaux nocturnes sur le viaduc de l\'A8 entre Castronno et Solbiate Arno',
+    'blog.article.arresto-cocaina-massagno.title': 'Cocaïne, arrêté 21 ans albanais en Luganais',
+    'blog.article.arresto-cocaina-massagno.excerpt': 'Arrestation d\'un Albanais de 21 ans à Luganese L\'arrestation a eu lieu le 6 octobre Trouvé 140 grammes de cocaïne dans l\'appartement Le GPC a confirmé la mesure',
+    'blog.article.arresto-cocaina-massagno.imageAlt': 'Arrestation d\'un homme de 21 ans et perquisition dans le Luganese',
 };
 
 export default blogMetaFr;

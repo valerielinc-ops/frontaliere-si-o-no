@@ -12872,6 +12872,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: nächtliche Sperrungen an der Überführung Castronno-Solbiate',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'Die A8 wird zwischen Castronno und Solbiate Arno Albizzate gesperrt Erste Nacht: 12. (Varese)',
     'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Nächtliche Bauarbeiten an der A8-Überführung zwischen Castronno und Solbiate Arno',
+    'blog.article.arresto-cocaina-massagno.title': 'Kokain, 21-jähriger Albaner in Lugano verhaftet',
+    'blog.article.arresto-cocaina-massagno.excerpt': '21-jähriger Albaner in Lugano verhaftet Die Festnahme erfolgte am 6.',
+    'blog.article.arresto-cocaina-massagno.imageAlt': 'Festnahme eines 21-Jährigen und Wohnungsdurchsuchung im Luganese',
 };
 
 export default blogMetaDe;

@@ -43455,6 +43455,20 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  },
 ];
 
+const RAW_ARTICLES_CHUNK_18: Article[] = [
+ {
+ id: 'arresto-cocaina-massagno',
+ category: 'novita',
+ date: '2026-10-09T09:51:04.114Z',
+ image: '/images/blog/article-arresto-cocaina-massagno.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+];
+
 const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_01,
  ...RAW_ARTICLES_CHUNK_02,
@@ -43473,6 +43487,7 @@ const RAW_ARTICLES: Article[] = [
  ...RAW_ARTICLES_CHUNK_15,
  ...RAW_ARTICLES_CHUNK_16,
  ...RAW_ARTICLES_CHUNK_17,
+ ...RAW_ARTICLES_CHUNK_18,
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

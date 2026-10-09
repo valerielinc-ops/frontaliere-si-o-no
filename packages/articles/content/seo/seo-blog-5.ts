@@ -104119,6 +104119,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arresto-cocaina-massagno': {
+    title: 'Cocaina, arrestato 21enne albanese nel Luganese',
+    description: 'Arrestato un 21enne albanese nel Luganese Il fermo è avvenuto il 6 ottobre Trovati 140 grammi di cocaina nell\'appartamento Il GPC ha confermato la misura',
+    keywords: 'frontalieri, ticino, svizzera, italia, cocaina, arrestato, 21enne, albanese',
+    ogTitle: 'Cocaina, arrestato 21enne albanese nel Luganese',
+    ogDescription: 'Arrestato un 21enne albanese nel Luganese Il fermo è avvenuto il 6 ottobre Trovati 140 grammi di cocaina nell\'appartamento Il GPC ha confermato la misura',
+    canonicalPath: '/articoli-frontaliere/arresto-cocaina-massagno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cocaina, arrestato 21enne albanese nel Luganese",
+      "description": "Arrestato un 21enne albanese nel Luganese Il fermo è avvenuto il 6 ottobre Trovati 140 grammi di cocaina nell'appartamento Il GPC ha confermato la misura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-arresto-cocaina-massagno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Arresto di un 21enne e perquisizione di un appartamento nel Luganese"
+      },
+      "datePublished": "2026-10-09T09:51:04+00:00",
+      "dateModified": "2026-10-09T09:51:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arresto-cocaina-massagno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
