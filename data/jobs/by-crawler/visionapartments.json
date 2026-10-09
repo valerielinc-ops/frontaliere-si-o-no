@@ -1,6 +1,6 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-10-08T22:31:29.851Z",
+  "assembledAt": "2026-10-09T05:14:02.371Z",
   "jobs": [
     {
       "id": "visionapartments-e3a15eb09025",
@@ -33,7 +33,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:31:23.580Z",
+      "crawledAt": "2026-10-09T05:13:55.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,12 +53,11 @@
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "building-services-technician-all-rounder-m-f-100-visionapartments-zurich",
-        "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich",
-        "haustechniker-allrounder-m-w-100-visionapartments-zurich"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "building-services-technician-all-rounder-m-f-100-visionapartments-zurich",
+          "haustechniker-allrounder-m-w-100-visionapartments-zurich"
+        ],
         "it": [
           "building-services-technician-all-rounder-m-f-100-visionapartments-zurich",
           "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich",
@@ -66,12 +65,13 @@
         ],
         "en": [
           "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich"
-        ],
-        "de": [
-          "building-services-technician-all-rounder-m-f-100-visionapartments-zurich",
-          "haustechniker-allrounder-m-w-100-visionapartments-zurich"
         ]
       },
+      "previousSlugs": [
+        "building-services-technician-all-rounder-m-f-100-visionapartments-zurich",
+        "building-services-technician-all-rounder-m-f-100-vision-management-services-gmbh-zurich",
+        "haustechniker-allrounder-m-w-100-visionapartments-zurich"
+      ],
       "firstSeenAt": "2026-09-09T13:58:59.184Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

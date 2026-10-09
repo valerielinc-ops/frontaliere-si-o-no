@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-10-08T22:31:36.882Z",
+  "generatedAt": "2026-10-09T05:14:11.102Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5146,
-  "avgDurationMs": 5146,
+  "durationMs": 6210,
+  "avgDurationMs": 6210,
   "durationHistory": [
-    5146
+    6210
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8bbb2905-8b67-4ba8-b8e0-b0925f727b12/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:31:23.580Z",
+      "crawledAt": "2026-10-09T05:13:55.439Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,5 +69,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "ae04e031d860713b3afeeade1e03dd2e5f698192"
 }

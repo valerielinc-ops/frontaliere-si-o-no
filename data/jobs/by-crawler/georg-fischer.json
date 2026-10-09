@@ -1,6 +1,6 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-10-08T22:32:15.083Z",
+  "assembledAt": "2026-10-09T05:13:51.722Z",
   "jobs": [
     {
       "id": "georg-fischer-e846334db11f",
@@ -33,7 +33,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Einrichter--m-w-d-_JR10356",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:08.553Z",
+      "crawledAt": "2026-10-09T05:13:44.491Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -57,11 +57,11 @@
         "einrichter-m-w-d-georg-fischer-ch"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "einrichter-m-w-d-georg-fischer-subingen"
-        ],
         "it": [
           "einrichter-m-w-d-georg-fischer-ch"
+        ],
+        "de": [
+          "einrichter-m-w-d-georg-fischer-subingen"
         ]
       },
       "firstSeenAt": "2026-08-20T21:39:19.019Z",
@@ -111,7 +111,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Team-Assistant--m-f-d--60-_JR10653-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:32:07.910Z",
+      "crawledAt": "2026-10-09T05:13:43.797Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/KunststofftechnologIn--m-w-d-_JR10783",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:07.292Z",
+      "crawledAt": "2026-10-09T05:13:43.117Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/SachbearbeiterIn-Kundeninnendienst--m-w-d-_JR11120",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:06.641Z",
+      "crawledAt": "2026-10-09T05:13:42.429Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -300,15 +300,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11120",
-      "firstSeenAt": "2026-09-04T23:11:28.916Z",
+      "previousSlugs": [
+        "sachbearbeiterin-kundeninnendienst-m-w-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-kundeninnendienst-m-w-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiterin-kundeninnendienst-m-w-d-georg-fischer-ch"
-      ],
+      "firstSeenAt": "2026-09-04T23:11:28.916Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -356,7 +356,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Formenmonteur-100----m-w-d-_JR11198",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:06.011Z",
+      "crawledAt": "2026-10-09T05:13:41.745Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -375,15 +375,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11198",
-      "firstSeenAt": "2026-09-07T23:41:17.395Z",
+      "previousSlugs": [
+        "formenmonteur-100-m-w-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "formenmonteur-100-m-w-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "formenmonteur-100-m-w-d-georg-fischer-ch"
-      ],
+      "firstSeenAt": "2026-09-07T23:41:17.395Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -430,7 +430,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/SchichtfhrerIn-Giesserei--m-w-d-_JR10584",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:05.376Z",
+      "crawledAt": "2026-10-09T05:13:41.074Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -449,15 +449,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10584",
-      "firstSeenAt": "2026-09-19T23:08:12.482Z",
+      "previousSlugs": [
+        "schichtfuhrerin-giesserei-m-w-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "schichtfuhrerin-giesserei-m-w-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "schichtfuhrerin-giesserei-m-w-d-georg-fischer-ch"
-      ],
+      "firstSeenAt": "2026-09-19T23:08:12.482Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -505,7 +505,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:04.746Z",
+      "crawledAt": "2026-10-09T05:13:40.387Z",
       "addressLocality": "Seewis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -601,7 +601,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:04.096Z",
+      "crawledAt": "2026-10-09T05:13:39.704Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -625,11 +625,11 @@
         "praktikant-in-qm-georg-fischer-ch"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "praktikant-in-qm-georg-fischer-sissach"
-        ],
         "it": [
           "praktikant-in-qm-georg-fischer-ch"
+        ],
+        "de": [
+          "praktikant-in-qm-georg-fischer-sissach"
         ]
       },
       "salaryMin": 52000,
@@ -678,7 +678,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen-Schaffhausen/Software-Engineer-Embedded-Systems---Technical-Lead--m-f-d-_JR11206",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:32:03.456Z",
+      "crawledAt": "2026-10-09T05:13:39.022Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -697,15 +697,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11206",
-      "firstSeenAt": "2026-10-05T21:48:50.799Z",
+      "previousSlugs": [
+        "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-embedded-systems-technical-lead-m-f-d-georg-fischer-ch"
-      ],
+      "firstSeenAt": "2026-10-05T21:48:50.799Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -752,7 +752,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Head-Manufacturing-Systems---Industrial-Engineering-Werk-Sissach--m-w-d-_JR11279",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:02.777Z",
+      "crawledAt": "2026-10-09T05:13:38.343Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -771,15 +771,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11279",
-      "firstSeenAt": "2026-10-05T21:48:51.461Z",
+      "previousSlugs": [
+        "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "head-manufacturing-systems-industrial-engineering-werk-sissach-m-w-d-georg-fischer-ch"
-      ],
+      "firstSeenAt": "2026-10-05T21:48:51.461Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -827,7 +827,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:32:02.149Z",
+      "crawledAt": "2026-10-09T05:13:37.657Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -846,14 +846,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR11347",
+      "previousSlugs": [
+        "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
         ]
       },
-      "previousSlugs": [
-        "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
