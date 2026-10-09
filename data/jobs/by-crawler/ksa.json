@@ -55,7 +55,8 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -452,14 +453,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-ksa-ch",
-        "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
-        "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
-        "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
-        "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "pflegeexpertin-pflegeexperte-ksa-ch",
@@ -475,7 +468,14 @@
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:20:17.707Z",
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-ksa-ch",
+        "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo",
+        "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
+        "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
+        "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
+        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -488,7 +488,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-07T01:20:17.707Z"
     },
     {
       "id": "ksa-6e3edf8c5afe",
@@ -3320,7 +3321,7 @@
       "slugByLocale": {
         "it": "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau",
         "en": "team-leadership-care-kantonsspital-aarau-ksa-aarau",
-        "de": "teamleitung-pflege-ksa-ch",
+        "de": "teamleitung-pflege-ksa-ch-9zti73",
         "fr": "soins-de-direction-de-l-equipe-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -3375,6 +3376,9 @@
         ],
         "fr": [
           "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "teamleitung-pflege-ksa-ch"
         ]
       },
       "firstSeenAt": "2026-09-17T14:23:50.727Z",
@@ -8305,7 +8309,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",

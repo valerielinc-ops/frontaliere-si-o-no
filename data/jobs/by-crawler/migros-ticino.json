@@ -28551,7 +28551,7 @@
       "slugByLocale": {
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
         "it": "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
+        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
         "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       },
       "titleByLocale": {
@@ -28613,8 +28613,8 @@
           "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "en": [
-          "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen-ndg9s3",
-          "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen"
+          "baker-in-confectioner-in-genossenschaft-migros-ostschweiz-schaffhausen",
+          "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "fr": [
           "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
@@ -106153,7 +106153,6 @@
         "de": "allrounder-in-supermarkt-genossenschaft-migros-aare-bremgarten-ag-0rjncn",
         "fr": "allrounder-in-supermarkt-genossenschaft-migros-aare-bremgarten-ag-0rjncn"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -106266,7 +106265,6 @@
         "fr": "bereichsleiter-in-services-genossenschaft-migros-aare-bern-l4tz6v"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiter-in-services-genossenschaft-migros-aare-bern"
@@ -106376,7 +106374,6 @@
         "fr": "fachleiter-in-food-genossenschaft-migros-aare-bern-kn451s"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachleiter-in-food-genossenschaft-migros-aare-bern"
@@ -106484,7 +106481,6 @@
         "fr": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-bern-ht3q3f"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-bern"
@@ -106590,7 +106586,9 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen"
+          "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
+          "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen-dekc9a",
+          "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen"
         ],
         "en": [
           "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen"
@@ -106602,7 +106600,9 @@
       "previousSlugs": [
         "pasticceria-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
-        "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen"
+        "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
+        "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen-dekc9a",
+        "panettiere-pasticcere-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -106696,7 +106696,6 @@
         "fr": []
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "personnel-dans-le-bain-romain-irlandais-genossenschaft-migros-ostschweiz-abtwil"
@@ -106996,7 +106995,6 @@
         "fr": "ai-business-analyste-migros-bank-wallisellen-tlii79"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ai-business-analyst-migros-bank-wallisellen"

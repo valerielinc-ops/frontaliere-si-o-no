@@ -2401,7 +2401,7 @@
       "id": "srg-ssr-564d10f07646",
       "slug": "data-governance-expert-meta-data-srg-ssr-zurich-2",
       "slugByLocale": {
-        "de": "data-governance-expert-meta-data-srg-ssr-zurich",
+        "de": "data-governance-expert-meta-data-srg-ssr-zurich-8ke971",
         "it": "data-governance-expert-meta-data-srg-ssr-zurich-2",
         "en": "data-governance-expert-meta-data-srg-ssr-zurich-2",
         "fr": "data-governance-expert-meta-data-srg-ssr-zurich-2"
@@ -2485,7 +2485,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T09:15:22.435Z"
+      "firstSeenAt": "2026-10-09T09:15:22.435Z",
+      "previousSlugs": [
+        "data-governance-expert-meta-data-srg-ssr-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "data-governance-expert-meta-data-srg-ssr-zurich"
+        ]
+      }
     },
     {
       "id": "srg-ssr-3b6a438a6edd",

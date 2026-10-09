@@ -7,9 +7,9 @@
       "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-rheineck-st-gallen",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-rheineck-st-gallen",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-rheineck-st-gallen",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-rheineck-st-gallen",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-rheineck-st-gallen"
+        "it": "dipl-ingegneria-operativa-professionale-specialistica-hf-medipersonal-rheineck-st-gallen",
+        "en": "dipl-professional-specialist-operational-engineering-hf-medipersonal-rheineck-st-gallen",
+        "fr": "dipl-professionnel-specialiste-genie-operationnel-hf-medipersonal-rheineck-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -70,9 +70,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-reinach-aargau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-reinach-aargau",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-reinach-aargau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-reinach-aargau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-reinach-aargau"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-reinach-aargau",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-reinach-aargau",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-reinach-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -133,9 +133,9 @@
       "slug": "facharzt-arztin-per-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen",
       "slugByLocale": {
         "de": "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen",
-        "it": "facharzt-arztin-per-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen",
-        "en": "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen",
-        "fr": "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen"
+        "it": "medico-a-specialista-in-medicina-interna-generale-medicina-di-famiglia-medipersonal-st-gallen-st-gallen",
+        "en": "specialist-for-general-internal-medicine-primary-medicine-medipersonal-st-gallen-st-gallen",
+        "fr": "specialiste-en-medecine-interne-generale-medecine-primaire-medipersonal-st-gallen-st-gallen"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -176,11 +176,16 @@
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/facharzt-aerztin-fuer-allgemeine-innere-medizin-hausarztmedizin-80-100-in-st-gallen-gesucht-patientenorientierte-medizin-mit-verantwortung/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen",
           "facharzt-arztin-per-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen"
+        ],
+        "en": [
+          "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen"
+        ],
+        "fr": [
+          "facharzt-arztin-fur-allgemeine-innere-medizin-hausarztmedizin-medipersonal-st-gallen-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -207,9 +212,9 @@
       "slug": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-egg-zurich",
       "slugByLocale": {
         "de": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich",
-        "it": "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-egg-zurich",
-        "en": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich",
-        "fr": "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich"
+        "it": "ags-assistente-di-cura-cfp-medipersonal-egg-zurich",
+        "en": "assistant-in-health-and-social-care-eba-medipersonal-egg-zurich",
+        "fr": "ags-aide-en-soins-et-accompagnement-afp-medipersonal-egg-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -250,11 +255,16 @@
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/ags-assistent-in-gesundheit-und-soziales-eba-80-100-fuer-die-region-egg-gesucht/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich",
           "ags-assistent-in-gesundheit-e-soziales-afp-medipersonal-egg"
+        ],
+        "en": [
+          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich"
+        ],
+        "fr": [
+          "ags-assistent-in-gesundheit-und-soziales-eba-medipersonal-egg-zurich"
         ]
       },
       "previousSlugs": [
@@ -281,9 +291,9 @@
       "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saanen-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saanen-bern",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saanen-bern",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saanen-bern",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-saanen-bern"
+        "it": "dipl-expert-expert-anesthesia-care-nds-medipersonal-saanen-bern",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-saanen-bern",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-medipersonal-saanen-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -344,9 +354,9 @@
       "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-zurich-zurich",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-zurich-zurich",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-zurich-zurich",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-zurich-zurich"
+        "it": "dipl-nds-per-la-cura-dell-anestesia-esperto-medipersonal-zurich-zurich",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-zurich-zurich",
+        "fr": "dipl-soins-d-anesthesie-experts-experts-medipersonal-zurich-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -407,9 +417,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-grosshochstetten-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-grosshochstetten-bern",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-grosshochstetten-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-medipersonal-grosshochstetten-bern",
-        "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-grosshochstetten-bern"
+        "it": "infermiere-a-diplomato-a-sup-medipersonal-grosshochstetten-bern",
+        "en": "registered-nurse-university-of-applied-sciences-medipersonal-grosshochstetten-bern",
+        "fr": "infirmier-ere-diplome-e-hes-medipersonal-grosshochstetten-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -450,7 +460,6 @@
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-80-100-grosshoechstetten-gesucht-werde-teil-eines-professionellen-teams/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -479,9 +488,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-con-uns-la-zukunft-der-pflege",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der-pflege",
-        "it": "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-con-uns-la-zukunft-der-pflege",
-        "en": "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der-pflege",
-        "fr": "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der-pflege"
+        "it": "infermiere-a-diplomato-a-sss-sup-responsabile-del-team-del-reparto-di-cure-infermieristiche-80-100-a-rumlang",
+        "en": "diploma-qualified-nurse-hf-fh-team-leader-nursing-department-80-100-in-rumlang-shape-the-future-of-nursing-with-us",
+        "fr": "infirmier-ere-diplome-e-es-hes-responsable-d-equipe-du-service-de-soins-80-100-a-rumlang-construisez-avec-nous-l-avenir"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -522,7 +531,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-ruemlang-gestalten-sie-mit-uns-die-zukunft-der-pflege/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-amp-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der",
@@ -530,6 +538,12 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-amp-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der-pflege"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-teamleiter-in-pflegeabteilung-80-100-in-rumlang-gestalten-sie-mit-uns-die-zukunft-der-pflege"
         ]
       },
       "previousSlugs": [
@@ -556,9 +570,9 @@
       "slug": "fachmann-fachfrau-gesundheit-cfc-m-w-d-temporarburo-per-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304",
       "slugByLocale": {
         "de": "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304",
-        "it": "fachmann-fachfrau-gesundheit-cfc-m-w-d-temporarburo-per-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304",
-        "en": "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304",
-        "fr": "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304"
+        "it": "operatore-operatrice-sociosanitario-a-afc-m-f-d-l-agenzia-interinale-per-il-settore-infermieristico-ad-altstatten-cerca",
+        "en": "health-specialist-efz-m-f-d-temporary-office-for-care-in-old-fashioned-areas-is-looking-for-reinforcement-medipersonal",
+        "fr": "specialiste-de-la-sante-efz-h-f-d-un-bureau-temporaire-pour-les-soins-dans-les-zones-anciennes-est-a-la-recherche-de"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -599,11 +613,16 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerbuero-fuer-pflege-in-altstaetten-sucht-verstaerkung/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304",
           "fachmann-fachfrau-gesundheit-cfc-m-w-d-temporarburo-per-pflege-in-altstatten-sucht-verstarkung-medipersonal-wallisellen"
+        ],
+        "en": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304"
+        ],
+        "fr": [
+          "fachmann-fachfrau-gesundheit-efz-m-w-d-temporarburo-fur-pflege-in-altstatten-sucht-verstarkung-medipersonal-8304"
         ]
       },
       "previousSlugs": [
@@ -630,9 +649,9 @@
       "slug": "pflegedienstleiter-medipersonal-langnau-im-emmental-bern",
       "slugByLocale": {
         "de": "pflegedienstleiter-medipersonal-langnau-im-emmental-bern",
-        "it": "pflegedienstleiter-medipersonal-langnau-im-emmental-bern",
-        "en": "pflegedienstleiter-medipersonal-langnau-im-emmental-bern",
-        "fr": "pflegedienstleiter-medipersonal-langnau-im-emmental-bern"
+        "it": "infermieristica-fornitore-di-servizi-medipersonal-langnau-im-emmental-bern",
+        "en": "nursing-service-provider-medipersonal-langnau-im-emmental-bern",
+        "fr": "fournisseur-de-soins-infirmiers-medipersonal-langnau-im-emmental-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -693,9 +712,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-medipersonal-niederbipp-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-medipersonal-niederbipp-bern",
-        "it": "dipl-pflegefachfrau-mann-hf-medipersonal-niederbipp-bern",
-        "en": "dipl-pflegefachfrau-mann-hf-medipersonal-niederbipp-bern",
-        "fr": "dipl-pflegefachfrau-mann-hf-medipersonal-niederbipp-bern"
+        "it": "infermiere-a-diplomato-a-sss-medipersonal-niederbipp-bern",
+        "en": "diploma-qualified-nurse-hf-medipersonal-niederbipp-bern",
+        "fr": "infirmier-ere-diplome-e-es-medipersonal-niederbipp-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -736,7 +755,6 @@
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-hf-80-100-niederbipp-gesucht-gestalte-die-zukunft-der-pflege/",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -765,9 +783,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-wabern-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-wabern-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-wabern-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-wabern-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-wabern-bern"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-wabern-bern",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-wabern-bern",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-wabern-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -828,9 +846,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-o-bachelor-of-science-in-pflege-medipersonal-eriswil-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern",
-        "it": "dipl-pflegefachfrau-mann-fh-o-bachelor-of-science-in-pflege-medipersonal-eriswil-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern",
-        "fr": "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern"
+        "it": "infermiere-a-diplomato-a-sup-o-bachelor-of-science-in-cure-infermieristiche-medipersonal-eriswil-bern",
+        "en": "diploma-qualified-nurse-fh-or-bachelor-of-science-in-nursing-medipersonal-eriswil-bern",
+        "fr": "infirmier-ere-diplome-e-hes-ou-bachelor-of-science-en-soins-infirmiers-medipersonal-eriswil-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -871,11 +889,16 @@
       "postedDate": "2026-10-09",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-80-100-eriswil-gesucht-karriere-mit-verantwortung/",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern",
           "dipl-pflegefachfrau-mann-fh-o-bachelor-of-science-in-pflege-medipersonal-eriswil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-fh-oder-bachelor-of-science-in-pflege-medipersonal-eriswil-bern"
         ]
       },
       "previousSlugs": [
@@ -902,9 +925,9 @@
       "slug": "allgemeinarzt-allgemeinarztin-medipersonal-samedan-graubunden",
       "slugByLocale": {
         "de": "allgemeinarzt-allgemeinarztin-medipersonal-samedan-graubunden",
-        "it": "allgemeinarzt-allgemeinarztin-medipersonal-samedan-graubunden",
-        "en": "allgemeinarzt-allgemeinarztin-medipersonal-samedan-graubunden",
-        "fr": "allgemeinarzt-allgemeinarztin-medipersonal-samedan-graubunden"
+        "it": "professionista-generale-praticante-generale-medipersonal-samedan-graubunden",
+        "en": "general-practitioner-general-practitioner-medipersonal-samedan-graubunden",
+        "fr": "omnipraticien-omnipraticien-medipersonal-samedan-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -965,9 +988,9 @@
       "slug": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-oberwil-b-zug-deine-erfahrung-zahlt-medipersonal-oberwil-b",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-oberwil-b-zug-deine-erfahrung-zahlt-medipersonal-oberwil-b",
-        "it": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-oberwil-b-zug-deine-erfahrung-zahlt-medipersonal-oberwil-b",
-        "en": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-oberwil-b-zug-deine-erfahrung-zahlt-medipersonal-oberwil-b",
-        "fr": "pflegefachfrau-pflegefachmann-hf-dn1-jobs-oberwil-b-zug-deine-erfahrung-zahlt-medipersonal-oberwil-b"
+        "it": "specialista-infermieristico-hf-dn1-jobs-oberwil-b-zug-la-tua-esperienza-conta-medipersonal-oberwil-b",
+        "en": "nursing-specialist-hf-dn1-jobs-oberwil-b-zug-your-experience-counts-medipersonal-oberwil-b",
+        "fr": "specialiste-des-soins-infirmiers-hf-dn1-jobs-oberwil-b-zug-votre-experience-compte-medipersonal-oberwil-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",

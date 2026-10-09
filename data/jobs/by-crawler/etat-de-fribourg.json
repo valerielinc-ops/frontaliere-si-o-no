@@ -171,7 +171,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:52:46.924Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -764,7 +763,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:10.813Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2745,7 +2743,6 @@
         ]
       },
       "firstSeenAt": "2026-10-01T09:28:03.583Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -5974,7 +5971,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:15.153Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6056,7 +6052,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:19.324Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -6313,7 +6308,6 @@
           "juriste-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:26:27.873Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
@@ -7838,14 +7832,19 @@
       "pensum": "90-100%",
       "previousSlugs": [
         "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
-        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+        "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+        "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
+        "professor-offener-rang-lehrstuhl-fur-frauengesundheit-und-exposome-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2",
+          "professore-di-grado-aperto-sedia-della-salute-e-dell-esposizione-femminile-etat-de-fribourg-fribourg",
+          "professor-offener-rang-lehrstuhl-fur-frauengesundheit-und-exposome-etat-de-fribourg-fribourg"
         ],
         "de": [
-          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch"
+          "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch",
+          "professor-offener-rang-lehrstuhl-fur-frauengesundheit-und-exposome-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "professor-open-rank-chair-of-women-s-health-and-exposome-etat-de-fribourg-ch-2"
@@ -8107,7 +8106,6 @@
         ]
       },
       "firstSeenAt": "2026-10-08T22:30:27.679Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -8851,7 +8849,6 @@
       "pensumMin": 80,
       "pensumMax": 90,
       "pensum": "80-90%",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -9140,7 +9137,6 @@
       "pensumMin": 90,
       "pensumMax": 100,
       "pensum": "90-100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-fur-justizvollzug-zellengebaude-im-zentralgefangnis-etat-de-fribourg-ch"
