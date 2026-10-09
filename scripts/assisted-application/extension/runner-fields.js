@@ -344,8 +344,12 @@
   // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
   // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides
   // while a modal dialog is open lies under that dialog.
-  const BUTTONS = 'button, input[type="submit"], a[role="button"], [role="button"]';
-  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || '');
+  // Older portals (including Ticino's Rexx portal) render action controls as
+  // plain links inside a styled `.css_button` wrapper. Keep the wrapper guard
+  // so ordinary content links do not become buttons.
+  const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
+  const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
+  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
@@ -356,13 +360,14 @@
   const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
   const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
   const buttons = [...document.querySelectorAll(BUTTONS)]
-    .filter((element) => visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
+    .filter((element) => (visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
+      && (element.tagName !== 'A' || actionLink(element)))
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),
       text: buttonName(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
-      href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      href: element.tagName === 'A' ? (element.href || '') : '',
       ...(inSiteChrome(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
