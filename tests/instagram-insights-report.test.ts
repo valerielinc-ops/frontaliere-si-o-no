@@ -42,6 +42,36 @@ describe('Instagram Insights creative scorecard', () => {
     });
   });
 
+  it('normalizes Meta API metrics nested under insights.data', () => {
+    const result = normalizeInsightRows([
+      {
+        id: 'media-api-1',
+        creativeId: 'save-checklist',
+        kind: 'article',
+        insights: {
+          data: [
+            { name: 'reach', values: [{ value: 240 }] },
+            { name: 'shares', values: [{ value: 3 }] },
+            { name: 'saves', values: [{ value: 18 }] },
+            { name: 'comments', values: [{ value: 2 }] },
+          ],
+        },
+      },
+    ]);
+
+    expect(result.rejected).toEqual([]);
+    expect(result.rows[0]).toMatchObject({
+      postId: 'media-api-1',
+      creativeId: 'save-checklist',
+      objective: 'save',
+      primaryMetric: 'saves',
+      reach: 240,
+      shares: 3,
+      saves: 18,
+      comments: 2,
+    });
+  });
+
   it('joins a media id to creative metadata in the posted ledger', () => {
     const result = normalizeInsightRows([
       { id: 'ig-123', reach: 100, shares: 5, saves: 1, comments: 0 },

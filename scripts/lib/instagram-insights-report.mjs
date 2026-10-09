@@ -63,9 +63,14 @@ function directMetric(row, aliases) {
     }
   }
 
-  const insights = Array.isArray(row.insights)
-    ? row.insights
-    : Array.isArray(row.metrics?.data) ? row.metrics.data : [];
+  // Meta's media-insights response nests the metric list under
+  // `insights.data`; dashboard exports and older adapters may expose the
+  // same list directly as `insights` or under `metrics.data`.
+  const insights = [
+    ...(Array.isArray(row.insights) ? row.insights : []),
+    ...(isRecord(row.insights) && Array.isArray(row.insights.data) ? row.insights.data : []),
+    ...(isRecord(row.metrics) && Array.isArray(row.metrics.data) ? row.metrics.data : []),
+  ];
   for (const insight of insights) {
     if (!isRecord(insight)) continue;
     const name = String(insight.name ?? '').trim();
