@@ -1322,6 +1322,8 @@ function renderFuelHistoryCard(opts: {
   readonly locale: FuelDailyLocale;
   /** Aria-label for the section's role=tablist wrapper. */
   readonly trendLabel: string;
+  /** Stable per-card prefix used to link each tab to its panel. */
+  readonly idPrefix?: string;
   /** Per-chart aria-label callback receiving the formatted period average. */
   readonly buildAriaLabel: (avgFmt: string) => string;
   /** Per-range series (caller pre-computes for the appropriate data source). */
@@ -1329,7 +1331,15 @@ function renderFuelHistoryCard(opts: {
   /** Currency suffix for the Min/Avg/Max footer. Default 'CHF'. */
   readonly currency?: string;
 }): string {
-  const { locale, trendLabel, buildAriaLabel, seriesByRange, currency = 'CHF' } = opts;
+  const {
+    locale,
+    trendLabel,
+    idPrefix: rawIdPrefix = 'default',
+    buildAriaLabel,
+    seriesByRange,
+    currency = 'CHF',
+  } = opts;
+  const idPrefix = `fuel-history-${zone_safe(rawIdPrefix) || 'default'}`;
   const formatValue = (v: number): string => formatPrice(v, locale);
   const stats = FUEL_STAT_LABELS[locale];
 
@@ -1349,18 +1359,19 @@ function renderFuelHistoryCard(opts: {
   });
 
   // Button visuals (base + active/inactive) live in seo-static.css `.s-rbtn`,
-  // keyed off `aria-pressed` — so the inline script no longer writes
-  // `style.background`/`style.color`, just flips the attribute.
+  // keyed off `aria-selected` — the same state required by the tab pattern.
   const buttonsHtml = FUEL_RANGE_KEYS.map((rk) => {
     const isActive = rk === FUEL_DEFAULT_RANGE;
-    return `<button type="button" data-range-btn="${rk}" aria-pressed="${isActive ? 'true' : 'false'}" class="s-rbtn">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
+    const tabId = `${idPrefix}-tab-${rk}`;
+    const panelId = `${idPrefix}-panel-${rk}`;
+    return `<button type="button" role="tab" id="${tabId}" data-range-btn="${rk}" aria-controls="${panelId}" aria-selected="${isActive ? 'true' : 'false'}" class="s-rbtn">${esc(FUEL_RANGE_BUTTON_LABEL[locale][rk])}</button>`;
   }).join('');
 
   // `.s-rcont` default-hides; the active range carries `.s-on` (display:block).
   const variantsHtml = variants
     .map(
       (v) =>
-        `<div data-range-content="${v.rangeKey}" class="s-rcont${v.rangeKey === FUEL_DEFAULT_RANGE ? ' s-on' : ''}">${v.svg}</div>`,
+        `<div data-range-content="${v.rangeKey}" id="${idPrefix}-panel-${v.rangeKey}" role="tabpanel" aria-labelledby="${idPrefix}-tab-${v.rangeKey}" tabindex="0" class="s-rcont${v.rangeKey === FUEL_DEFAULT_RANGE ? ' s-on' : ''}">${v.svg}</div>`,
     )
     .join('');
 
@@ -1661,6 +1672,7 @@ function renderPage(inp: PageInputs): string {
   const historyCard = renderFuelHistoryCard({
     locale,
     trendLabel: copy.trendLabel,
+    idPrefix: `${fuel}-${zone ?? 'regional'}`,
     buildAriaLabel: (avgFmt) => copy.chartAriaLabel(fuelLabel, whereLabel, avgFmt),
     seriesByRange: swissSeriesByRange,
     currency: 'CHF',
@@ -2810,6 +2822,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     const chartCard = renderFuelHistoryCard({
       locale: inp.locale,
       trendLabel: labels.historyTrendLabel,
+      idPrefix: `${inp.fuel}-${inp.zone}-${inp.stationSlug}`,
       buildAriaLabel: (avgFmt) => labels.historyAriaLabelStation(inp.brand, inp.fuelLabel, avgFmt),
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
@@ -2843,6 +2856,7 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
   const chartCard = renderFuelHistoryCard({
     locale: inp.locale,
     trendLabel: labels.historyTrendLabel,
+    idPrefix: `${inp.fuel}-${inp.zone}-${inp.stationSlug}-zone`,
     buildAriaLabel: (avgFmt) => labels.historyAriaLabel(inp.zoneLabel, inp.fuelLabel, avgFmt),
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
@@ -3657,6 +3671,7 @@ function renderItalianCityPage(opts: {
         return renderFuelHistoryCard({
           locale,
           trendLabel: IT_TREND_LABEL[locale],
+          idPrefix: `${fuel}-italy-${entry.slug}`,
           buildAriaLabel: (avgFmt) => IT_CHART_ARIA[locale](entry.display, avgFmt),
           seriesByRange,
           currency: 'EUR',
@@ -4838,6 +4853,7 @@ function renderItalianStationPage(opts: {
         return renderFuelHistoryCard({
           locale,
           trendLabel: IT_TREND_LABEL[locale],
+          idPrefix: `${fuel}-italy-${ctx.cityEntry.slug}-${ctx.slug}`,
           buildAriaLabel: (avgFmt) => IT_CHART_ARIA[locale](cityName, avgFmt),
           seriesByRange,
           currency: 'EUR',

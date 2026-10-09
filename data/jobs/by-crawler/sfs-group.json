@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-08T09:31:25.871Z",
+  "assembledAt": "2026-10-08T22:28:43.217Z",
   "jobs": [
     {
       "id": "sfs-group-0d3da9babeb0",
@@ -17,7 +17,7 @@
       "title": "Steuerungstechniker/in/Anlagentechniker/in Support (m/f/d)",
       "titleByLocale": {
         "it": "Tecnico di controllo/Tecnico d'impianto Supporto (m/f/d)",
-        "en": "Steuerungstechniker/in/Anlagentechniker/in Support (m/f/d)",
+        "en": "Control Technician/System Technician Support (m/f/d)",
         "de": "Steuerungstechniker/in/Anlagentechniker/in Support (m/f/d)",
         "fr": "Technicien/ne de commande/technicien/ne d'installation Support (h/f/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:20.403Z",
+      "crawledAt": "2026-10-08T22:28:38.633Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -55,16 +55,15 @@
       "legalEntity": "Tegra Medical",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:11:50.513Z",
+      "previousSlugs": [
+        "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
         ]
       },
-      "previousSlugs": [
-        "steuerungstechniker-in-anlagentechniker-in-support-m-f-d-sfs-group-hallau"
-      ],
+      "firstSeenAt": "2026-09-26T14:11:50.513Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -110,7 +109,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:20.227Z",
+      "crawledAt": "2026-10-08T22:28:38.507Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -188,7 +187,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:20.056Z",
+      "crawledAt": "2026-10-08T22:28:38.380Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -210,16 +209,16 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:53:57.705Z",
+      "previousSlugs": [
+        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:53:57.705Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -265,7 +264,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.885Z",
+      "crawledAt": "2026-10-08T22:28:38.251Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -333,7 +332,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.713Z",
+      "crawledAt": "2026-10-08T22:28:38.121Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -386,15 +385,15 @@
           "Disponibilité pour assumer la responsabilité des normes de qualité, d'environnement et de sécurité"
         ]
       },
-      "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "previousSlugs": [
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-07-16T22:55:34.456Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -440,7 +439,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.542Z",
+      "crawledAt": "2026-10-08T22:28:37.990Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -462,15 +461,15 @@
       "legalEntity": "Tegra Medical",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-18T22:21:48.305Z",
+      "previousSlugs": [
+        "messtechniker-in-m-f-d-sfs-group-hallau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
         ]
       },
-      "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
-      ],
+      "firstSeenAt": "2026-08-18T22:21:48.305Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -516,7 +515,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-walzen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.372Z",
+      "crawledAt": "2026-10-08T22:28:37.865Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -598,7 +597,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-mit-perspektive-teamleitung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.200Z",
+      "crawledAt": "2026-10-08T22:28:37.726Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -656,7 +655,7 @@
         "it": "meccanico-a-di-presse-a-doppia-pressione-m-f-d-sfs-group-heerbrugg",
         "en": "mechanic-for-double-printing-presses-m-f-d-sfs-group-heerbrugg",
         "de": "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
-        "fr": "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
+        "fr": "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -666,7 +665,7 @@
         "it": "Meccanico/a di presse a doppia pressione (m/f/d)",
         "en": "Mechanic for double printing presses (m/f/d)",
         "de": "Mechaniker/in Doppeldruckpressen (m/f/d)",
-        "fr": "Mechaniker/in Doppeldruckpressen (m/f/d)"
+        "fr": "Mécanicien/ne presses à double pression (h/f/d)"
       },
       "description": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Produktion von Präzisionsformteilen und Sonderschrauben für verschiedene Industriebereiche suchen wir eine/n Mechaniker/in Doppeldruckpressen. Your Tasks:\n• Einstellung, Bedienung und Überwachung der Maschinen und Anlagen\n• Aufträge termingerecht und effizient bearbeiten\n• Qualität sicherstellen und Prüfvorgaben einhalten\n• Maschinen, Prozesse und Werkzeuge überwachen und optimieren\n• Vorsorglichen Maschinenunterhalt durchführen und Störungen frühzeitig erkennen\n• Aktive Mitarbeit an CIP, Ordnung, Sicherheit und kontinuierlicher Verbesserung Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Erfahrung im industriellen Produktionsumfeld\n• Gutes technisches Verständnis\n• Interesse an der Bearbeitung von Miniaturteilen\n• Bereitschaft zum 2-Schichtbetrieb (Früh- und Spätschicht)\n• Gute Deutschkenntnisse in Wort und Schrift We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/ Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
       "descriptionByLocale": {
@@ -680,7 +679,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:19.029Z",
+      "crawledAt": "2026-10-08T22:28:37.585Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -704,7 +703,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
-        "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
+        "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
+        "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -715,11 +715,11 @@
         ],
         "fr": [
           "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
-          "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
+          "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
+          "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
         ]
       },
       "firstSeenAt": "2026-10-05T21:36:44.506Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -765,7 +765,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:18.851Z",
+      "crawledAt": "2026-10-08T22:28:37.457Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -834,7 +834,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:18.676Z",
+      "crawledAt": "2026-10-08T22:28:37.325Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -917,7 +917,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:18.504Z",
+      "crawledAt": "2026-10-08T22:28:37.191Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -939,15 +939,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:53:56.944Z",
+      "previousSlugs": [
+        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-09-23T23:53:56.944Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -993,7 +993,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:18.333Z",
+      "crawledAt": "2026-10-08T22:28:37.064Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -1071,7 +1071,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:18.161Z",
+      "crawledAt": "2026-10-08T22:28:36.932Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1098,14 +1098,14 @@
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+        ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
         ],
         "fr": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
-        ],
-        "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
@@ -1154,7 +1154,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.989Z",
+      "crawledAt": "2026-10-08T22:28:36.802Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1176,15 +1176,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:53:56.333Z",
+      "previousSlugs": [
+        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-09-23T23:53:56.333Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1204,7 +1204,7 @@
       "slug": "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "risorse-umane-specialista-recruiting-administration-befristet-bis-31-12-2027-m-w-d-sfs-group-heerbrugg",
-        "en": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
+        "en": "hr-specialist-recruiting-administration-fixed-term-until-december-31-2027-m-f-d-sfs-group-heerbrugg",
         "de": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg",
         "fr": "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
       },
@@ -1214,7 +1214,7 @@
       "title": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
       "titleByLocale": {
         "it": "Risorse Umane Specialista Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
-        "en": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+        "en": "HR Specialist Recruiting & Administration–fixed-term until December 31, 2027 (m/f/d)",
         "de": "Personalwesen Spezialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
         "fr": "Ressources Humaines Spécialiste Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)"
       },
@@ -1230,7 +1230,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.816Z",
+      "crawledAt": "2026-10-08T22:28:36.670Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1252,15 +1252,18 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:05:36.939Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
-        ]
-      },
       "previousSlugs": [
         "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "hr-specialist-recruiting-administration-befristet-bis-31-12-2027-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:05:36.939Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1306,7 +1309,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.636Z",
+      "crawledAt": "2026-10-08T22:28:36.540Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1328,15 +1331,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "previousSlugs": [
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
         ]
       },
-      "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
-      ],
+      "firstSeenAt": "2026-08-21T10:08:10.879Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1382,7 +1385,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.459Z",
+      "crawledAt": "2026-10-08T22:28:36.412Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1404,15 +1407,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T13:46:40.458Z",
+      "previousSlugs": [
+        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "fachperson-labor-metallographie-werkstoffprufung-m-f-d-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-09-04T13:46:40.458Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1458,7 +1461,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.285Z",
+      "crawledAt": "2026-10-08T22:28:36.281Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1511,15 +1514,15 @@
           "Responsabilité personnelle et sens de l'initiative"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "previousSlugs": [
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-08-31T17:32:13.503Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1565,7 +1568,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:17.113Z",
+      "crawledAt": "2026-10-08T22:28:36.146Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1587,15 +1590,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "previousSlugs": [
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-07-04T12:18:31.291Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1641,7 +1644,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:16.934Z",
+      "crawledAt": "2026-10-08T22:28:36.018Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1719,7 +1722,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:16.730Z",
+      "crawledAt": "2026-10-08T22:28:35.862Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1741,15 +1744,15 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T09:26:21.420Z",
+      "previousSlugs": [
+        "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
         ]
       },
-      "previousSlugs": [
-        "automatiker-in-instandhaltung-im-schichtmodell-m-f-d-sfs-group-heerbrugg"
-      ],
+      "firstSeenAt": "2026-09-29T09:26:21.420Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1763,172 +1766,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sfs-group-fe2f64ca13aa",
-      "slug": "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-m-f-d-sfs-group-heerbrugg",
-        "en": "project-manager-m-f-d-sfs-group-heerbrugg",
-        "de": "project-manager-m-f-d-sfs-group-heerbrugg",
-        "fr": "gestionnaire-de-projet-h-f-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Project Manager (m/f/d)",
-      "titleByLocale": {
-        "it": "Responsabile del progetto (m/f/d)",
-        "en": "Project Manager (m/f/d)",
-        "de": "Project Manager (m/f/d)",
-        "fr": "Gestionnaire de projet (h/f/d)"
-      },
-      "description": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "L'Unità Industriale Business produce prodotti di alta qualità per varie industrie. Per l'implementazione di nuovi componenti di precisione esigenti da parte dei nostri clienti, siamo alla ricerca di una personalità co-fornitore e di comunicazione forte con una comprensione tecnica come un legame tra il cliente e la produzione per la realizzazione di successo di repartition.\n\nI vostri compiti:\n• Responsabilità per la gestione di nuovi progetti di parti, dalla richiesta alla fase di produzione della serie\n• Coordinamento e gestione del coordinamento tecnico di nuovi progetti di parti con gli specialisti del cliente e SFS\n• Implementazione del processo APQP per nuovi prodotti e garanzia del tempo necessario per il mercato\n• Avvio e attuazione di analisi di fattibilità e supporto di audit tecnici del cliente\n• Garantire e sviluppare ulteriormente la competenza tecnica sul mercato e sul cliente\n• Sviluppo e analisi di processo focalizzati per ottimizzare e\n\nprocesso produttivo economico dei componenti Il tuo profilo:\n• Completato l'addestramento tecnico di base con HF o FH ad alto livello\n• Esperienza nella gestione di progetti tecnici in ambiente industriale o ciclista\n• Conoscenza di processi di formatura a freddo o lavorazione di vantaggio\n• Negoziabile tedesco e inglese in parole e scrittura\n• Alto livello di proprietà e indipendenza con una sana porzione di curiosità\n• volontà di viaggiare ca.\n\n20% Offriamo:\n• 6 settimane di vacanze e acquisto di vacanze supplementari possibili\n• Partecipazione annuale al successo\n• Fondo pensione sano con piani di risparmio individuali\n• Corsi di formazione interna e sostegno per l'istruzione superiore esterna\n• Spazio per la proprietà e l'iniziativa\n• Ulteriori benefici: https://join.sfs.com/ch/en/Boss/",
-        "en": "The Industrial Business Unit produces high-quality products for various industries. For the implementation of new demanding precision components from our customers, we are looking for a co-supplier and communication-strong personality with a technical understanding as a link between the customer and production for successful repartition realization.\n\nYour Tasks:\n• Responsibility for managing new parts projects, from the request to the series production stage\n• Coordination and management of technical coordination of new parts projects with the specialist specialists of the customer and SFS\n• Implementation of the APQP process for new products and ensuring the required time to market\n• Initiation and implementation of feasibility analyses and support of technical customer audits\n• Ensuring and further development of technical competence in the market and the customer\n• Focused process development and analysis for optimal and\n\neconomical production process of the components Your profile:\n• Completed basic technical training with advanced training HF or FH\n• Experience in the management of technical projects in the industrial or cyclist environment\n• Knowledge of cold forming or machining processes of advantage\n• Negotiable German and English in word and writing\n• High level of ownership and independence with a healthy portion of curiosity\n• willingness to travel approx.\n\n20% We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external further education\n• Space for ownership and initiative\n• Further benefits: https://join.sfs.com/ch/en/Boss/",
-        "de": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "Pour la mise en œuvre de nouveaux composants de précision exigeants de nos clients, nous recherchons une personnalité co-fournisseur et communicative forte avec une compréhension technique comme un lien entre le client et la production pour une réalisation réussie de la repartition.\n\nVos tâches:\n• Responsabilité de la gestion des nouveaux projets de pièces, de la demande à la phase de production de série\n• Coordination et gestion de la coordination technique des nouveaux projets de pièces avec les spécialistes du client et SFS\n• Mise en œuvre du processus APQP pour les nouveaux produits et garantie du temps nécessaire pour la commercialisation\n• Lancement et mise en œuvre d'analyses de faisabilité et de soutien des audits techniques des clients\n• Garantie et développement ultérieur des compétences techniques sur le marché et le client\n• Développement et analyse de processus ciblés pour optimiser et\n\nprocessus de production économique des composants Votre profil:\n• Formation technique de base complétée avec une formation avancée HF ou FH\n• Expérience dans la gestion de projets techniques dans l'environnement industriel ou cycliste\n• Connaissance des processus de formage ou d'usinage à froid d'avantage\n• Négociable allemand et anglais en paroles et en écriture\n• Haute propriété et indépendance avec une part saine de curiosité\n• volonté de voyager environ.\n\n20% Nous offrons:\n• Six semaines de vacances et achat de vacances supplémentaires possible\n• Participation annuelle au succès\n• Propres fonds de pension sains avec des plans d'épargne individuels\n• Stages internes et soutien pour la formation continue externe\n• Espace de propriété et d'initiative\n• Autres avantages: https://join.sfs.com/ch/fr/Boss/"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:31:50.882Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3017/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3017",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "project-manager-m-f-d-sfs-group-heerbrugg",
-        "project-manager-m-w-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "project-manager-m-f-d-sfs-group-heerbrugg"
-        ],
-        "fr": [
-          "project-manager-m-f-d-sfs-group-heerbrugg",
-          "project-manager-m-w-d-sfs-group-heerbrugg"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:44:37.152Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sfs-group-11eaf92f960a",
-      "slug": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
-      "slugByLocale": {
-        "it": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
-        "en": "machine-operator-forming-technology-m-f-d-sfs-group-heerbrugg",
-        "de": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "fr": "technologie-de-formage-de-la-machine-operateur-h-f-d-sfs-group-heerbrugg"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Maschinenbediener/in Umformtechnik (m/f/d)",
-      "titleByLocale": {
-        "it": "Tecnologia di formatura dell'operatore macchina (m/f/d)",
-        "en": "Machine operator forming technology (m/f/d)",
-        "de": "Maschinenbediener/in Umformtechnik (m/f/d)",
-        "fr": "Technologie de formage de la machine opérateur (h/f/d)"
-      },
-      "description": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-      "descriptionByLocale": {
-        "it": "Il nostro focus è sulle applicazioni finali selezionate e ad alta crescita. Nel sito di Heerbrugg vengono prodotte importanti parti stampate di precisione, nonché elementi di fissaggio e assemblaggi tecnici per l'industria automobilistica. Con la tecnologia di formatura a massa fredda, produciamo parti stampate di precisione sulle più moderne presse multistadio. Vuoi contribuire attivamente alla tua esperienza in questo settore? Attendiamo con ansia la vostra applicazione! I vostri compiti:\n• Regolazione, funzionamento e monitoraggio delle presse multistadio su cui vengono prodotte complesse parti a freddo\n• Responsabile per la correzione delle interruzioni di processo\n• Introduzione delle ottimizzazioni di processo\n• Responsabile della qualità dei prodotti fabbricati\n• Input dei valori misurati nel sistema di qualità Il tuo profilo:\n• Formazione meccanica di base completa\n• Buona comprensione tecnica\n• Elevate prestazioni, lavoro di squadra e affidabilità\n• Atteggiamento positivo verso un funzionamento flessibile a due turni\n• Occupazione e iniziativa\n• Competenze tedesche in parola e scrittura Offriamo:\n• Occupazione in azienda innovativa e orientata al futuro\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Ristorante personale con prezzi interessanti\n• Numerose offerte sportive & eventi dei dipendenti",
-        "en": "Our focus is on selected and high-growth end applications. At the Heerbrugg site, important precision molded parts as well as technical fasteners and assemblies for the automotive industry are produced. With the cold mass forming technology, we produce precision molded parts on the most modern multi-stage press machines. Do you want to actively contribute your expertise in this area? We look forward to your application! Your Tasks:\n• Adjustment, operation and monitoring of multistage press machines on which complex cold-formed parts are produced\n• Responsible for correcting process disruptions\n• Introduction of process optimizations\n• Responsible for the quality of the manufactured products\n• Input of measured values into the quality system Your profile:\n• Completed basic mechanical formation\n• Good technical understanding\n• High performance, teamwork and reliability\n• Positive attitude towards flexible two-shift operation\n• Self-employment and initiative\n• German skills in word and writing We offer:\n• Employment in future-oriented & innovative company\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
-        "de": "Auf ausgewählten und wachstumsstarken Endanwendungen liegt unser Fokus. Am Standort Heerbrugg werden wichtige Präzisionsformteile sowie technische Verbindungselemente und Baugruppen für die Automobilindustrie gefertigt. Wir stellen mit der Kaltmassivumformtechnologie Präzisionsformteile auf modernsten Mehrstufenpressmaschinen her. Möchtest du in diesem Bereich dein Fachwissen aktiv einbringen? Wir freuen uns auf deine Bewerbung! Your Tasks:\n• Einstellen, Bedienen und Überwachen von Mehrstufenpressmaschinen, auf welchen komplexe Kaltumformteile hergestellt werden\n• Verantwortlich für das Beheben von Prozessstörungen\n• Einbringen von Prozessoptimierungen\n• Verantwortlich für die Qualität der gefertigten Produkte\n• Messwerteingaben in das Qualitätssystem Your profile:\n• Abgeschlossene mechanische Grundbildung\n• Gutes technisches Verständnis\n• Hohe Leistungsbereitschaft, Teamfähigkeit und Verlässlichkeit\n• Positive Einstellung zum flexiblen Zweischichtbetrieb\n• Selbständigkeit und Eigeninitiative\n• Deutschkenntnisse in Wort und Schrift We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
-        "fr": "Nous nous concentrons sur des applications sélectionnées et à forte croissance. Sur le site de Heerbrugg, d'importantes pièces moulées de précision ainsi que des attaches techniques et des assemblages pour l'industrie automobile sont produits. Avec la technologie de formage à froid, nous produisons des pièces moulées de précision sur les machines à presse multi-étapes les plus modernes. Voulez-vous contribuer activement à votre expertise dans ce domaine? Nous nous réjouissons de votre candidature! Vos tâches :\n• Réglage, fonctionnement et surveillance des machines à presse à plusieurs étages sur lesquelles sont produites des pièces complexes à froid\n• Responsable de la correction des perturbations du processus\n• Introduction des optimisations de processus\n• Responsable de la qualité des produits manufacturés\n• Entrée des valeurs mesurées dans le système qualité Votre profil :\n• Formation mécanique de base achevée\n• Bonne compréhension technique\n• Haute performance, travail d'équipe et fiabilité\n• Attitude positive à l'égard d'un fonctionnement flexible en deux équipes\n• Travail indépendant et initiative\n• Compétences en allemand en paroles et en écriture Nous offrons :\n• L'emploi dans une entreprise tournée vers l'avenir et innovante\n• Tâches variées\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Restaurant du personnel à prix attractifs\n• Nombreuses offres sportives et événements pour les employés"
-      },
-      "location": "Heerbrugg",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:31:49.928Z",
-      "addressLocality": "Heerbrugg",
-      "addressRegion": "SG",
-      "streetAddress": "Rosenbergsaustrasse 8",
-      "postalCode": "9435",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2816/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2816",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
-        ],
-        "en": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
-        ],
-        "fr": [
-          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:05:37.535Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

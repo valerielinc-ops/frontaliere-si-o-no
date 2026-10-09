@@ -11,8 +11,8 @@
  * contatori del tier (`getCodexTierStats`) in TRANSLATE_CODEX_RESERVE_DIR. Due
  * lettori:
  *   - `log-translation-stats.mjs after` somma le fasi nella riga della storia
- *     (`codexReserve`): quante traduzioni ha fatto la riserva e quante ne ha
- *     rifiutate, run per run;
+ *     (`codexReserve`): quante traduzioni ha fatto la riserva, quante ne ha
+ *     rifiutate e quanto testo ha mandato per chiamata, run per run;
  *   - l'allarme delle credenziali di `translation-provider-readiness.mjs`: un
  *     provider a chiave rifiutato con la riserva che regge e' «degradato,
  *     coperto da Codex», non un'azione del proprietario; il rosso resta quando
@@ -35,6 +35,11 @@ function asCount(value) {
   return Number.isFinite(n) && n > 0 ? Math.round(n) : 0;
 }
 
+function asMetric(value) {
+  const n = Number(value);
+  return Number.isFinite(n) && n >= 0 ? n : 0;
+}
+
 /** Il report di una fase dai contatori del tier e della cascata. */
 export function buildCodexReserveReport(phase, codexStats, cascadeStats = {}, { now = new Date() } = {}) {
   const s = codexStats || {};
@@ -48,6 +53,12 @@ export function buildCodexReserveReport(phase, codexStats, cascadeStats = {}, { 
     calls: asCount(s.calls),
     maxCalls: asCount(s.maxCalls),
     textsSent: asCount(s.textsSent),
+    charsSent: asCount(s.charsSent),
+    avgTextsPerCall: asMetric(s.avgTextsPerCall),
+    avgCharsPerCall: asMetric(s.avgCharsPerCall),
+    maxTextsPerCall: asCount(s.maxTextsPerCall),
+    maxCharsPerCall: asCount(s.maxCharsPerCall),
+    failedRequests: asCount(s.failedRequests),
     spentMs: asCount(s.spentMs),
     maxMs: asCount(s.maxMs),
     accepted: asCount(s.accepted),
@@ -97,9 +108,18 @@ export function summarizeCodexReserve(reports) {
   const list = Array.isArray(reports) ? reports.filter(Boolean) : [];
   if (list.length === 0) return null;
   const sum = (key) => list.reduce((total, report) => total + asCount(report[key]), 0);
+  const calls = sum('calls');
+  const textsSent = sum('textsSent');
+  const charsSent = sum('charsSent');
   return {
-    calls: sum('calls'),
-    textsSent: sum('textsSent'),
+    calls,
+    textsSent,
+    charsSent,
+    avgTextsPerCall: calls > 0 ? textsSent / calls : 0,
+    avgCharsPerCall: calls > 0 ? charsSent / calls : 0,
+    maxTextsPerCall: Math.max(0, ...list.map((report) => asCount(report.maxTextsPerCall))),
+    maxCharsPerCall: Math.max(0, ...list.map((report) => asCount(report.maxCharsPerCall))),
+    failedRequests: sum('failedRequests'),
     translated: sum('accepted'),
     rejected: sum('rejected'),
     spentMs: sum('spentMs'),
@@ -108,6 +128,13 @@ export function summarizeCodexReserve(reports) {
       position: report.position,
       calls: report.calls,
       maxCalls: report.maxCalls,
+      textsSent: report.textsSent,
+      charsSent: report.charsSent,
+      avgTextsPerCall: report.avgTextsPerCall,
+      avgCharsPerCall: report.avgCharsPerCall,
+      maxTextsPerCall: report.maxTextsPerCall,
+      maxCharsPerCall: report.maxCharsPerCall,
+      failedRequests: report.failedRequests,
       translated: report.accepted,
       rejected: report.rejected,
       stopReason: report.stopReason,

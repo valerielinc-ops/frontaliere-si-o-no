@@ -3605,12 +3605,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // 4 locales, this saves ~1.5 KB per page ≈ ~900 MB dist. Class
  // bodies live in the shared per-job `<style>` block (see lines ~2350+).
  // Style applied via `.rja > img` in seo-static.css (no inline style attr).
- const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40);
+ const rCompany = String(r.company || '').trim();
+ const rLogoImg = renderLogoImg(rLogo, `Logo ${rCompany}`, 40, 40);
  // Hoisted: this runs once per related card, per job page, per locale — the
  // hottest string path in the SSG walk. Calling the formatter twice to test
  // and then to print it would double that for no reason.
  const rLocation = formatJobLocation(r.location, r.canton);
- const li = `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)}${rLocation ? ` · ${esc(rLocation)}` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ // Let the browser derive the link name from the visible title, company,
+ // location, salary and logo alt text. An explicit aria-label would override
+ // those descendants and can omit a fragment of the visible label (WCAG 2.5.3).
+ const li = `<li class="rj"><a href="${href}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(rCompany)}${rLocation ? ` · ${esc(rLocation)}` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  // One in-feed ad `<li>` after every Nth related card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last — same logic as `jobCardListBody`. `.rul` is a
  // plain block list (not a grid), so no `spanFull` is needed.
@@ -3925,6 +3929,7 @@ ${staticAnalyticsHtml}
  // SEO: keyword-rich anchor "Tutte le offerte {company} {location}" — consolidates cannibalized URLs onto the company hub.
  // See docs/seo-semrush-growth-plan.md Task A.1/A.2.
  const companyLoc = String(job.location || dc || '').trim();
+ const companyName = String(job.company || '').trim();
  const allOffersAnchor: Record<string, string> = {
  it: `Tutte le offerte ${job.company}${companyLoc ? ` ${companyLoc}` : ''}`,
  en: `All ${job.company} jobs${companyLoc ? ` in ${companyLoc}` : ''}`,
@@ -3934,7 +3939,11 @@ ${staticAnalyticsHtml}
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
  // Style applied via `.cb > img` in seo-static.css (no inline style attr).
  const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40);
- const card = `<a href="${cHref}" aria-label="${esc(anchorText)}" class="cb">${cLogoImg}<div><div class="cbt">${companyHeading[locale] || companyHeading.it}</div><div class="cbs">${esc(job.company)} · ${esc(job.location || dc)}</div><div class="cbm">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const cardHeading = companyHeading[locale] || companyHeading.it;
+ const cardMonitoring = companyMonitoring[locale] || companyMonitoring.it;
+ // Keep the accessible name content-derived so it contains every visible
+ // fragment of the company card, including the monitoring explanation.
+ const card = `<a href="${cHref}" class="cb">${cLogoImg}<div><div class="cbt">${esc(cardHeading)}</div><div class="cbs">${esc(companyName)}${companyLoc ? ` · ${esc(companyLoc)}` : ''}</div><div class="cbm">${esc(cardMonitoring)}</div></div></a>`;
  const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
  // Second, DIFFERENT destination — the evergreen `/aziende/<slug>/` profile,
  // not the canton-scoped board hub `cHref` points at. Emitted only when the

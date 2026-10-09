@@ -2133,9 +2133,9 @@
     },
     {
       "id": "anker-swiss-d345dc3e1b38",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e",
+      "slug": "falegname-100-anker-swiss-ticino-ag-meilen-d345dc3e",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e",
+        "it": "falegname-100-anker-swiss-ticino-ag-meilen-d345dc3e",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e"
@@ -2146,7 +2146,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -2183,7 +2183,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1342775/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:52.447Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2197,7 +2196,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-meilen-d345dc3e"
+      ]
     },
     {
       "id": "anker-swiss-0ae25d65f6a6",
@@ -2434,9 +2441,9 @@
     },
     {
       "id": "anker-swiss-023cf099d3fd",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099",
+      "slug": "falegname-100-anker-swiss-ticino-ag-geuensee-023cf099",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099",
+        "it": "falegname-100-anker-swiss-ticino-ag-geuensee-023cf099",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099"
@@ -2447,7 +2454,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -2484,7 +2491,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1348466/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:52.433Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2498,13 +2504,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-geuensee-023cf099"
+      ]
     },
     {
       "id": "anker-swiss-99e156fbdf6f",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb",
+      "slug": "falegname-100-anker-swiss-ticino-ag-oberburg-99e156fb",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb",
+        "it": "falegname-100-anker-swiss-ticino-ag-oberburg-99e156fb",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb"
@@ -2515,7 +2529,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -2552,7 +2566,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1348261/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:52.434Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2566,7 +2579,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberburg-99e156fb"
+      ]
     },
     {
       "id": "anker-swiss-f387bd946b14",
@@ -2972,7 +2993,7 @@
         "it": "bauarbeiter-bauhauptgewerbe-100-anker-swiss-ag-anker-swiss-ticino-ag-mesocco-59950bbd",
         "en": "bauarbeiter-bauhauptgeerb-anker-swiss-ticino-ag-mesocco-59950bbd",
         "de": "bauarbeiter-bauhauptge-ventre-100-anker-s-ventre-ag-anker-swiss-ticino-ag-mesocco-59950bbd",
-        "fr": "bauarbeiter-bauhauptgewerbe-100-anker-swiss-ag-anker-swiss-ticino-ag-mesocco-59950bbd"
+        "fr": "ouvrier-de-la-construction-gros-uvre-100-anker-swiss-ticino-ag-mesocco-59950bbd"
       },
       "slugDisambiguator": "59950bbd",
       "company": "Anker Swiss Ticino AG",
@@ -2981,9 +3002,9 @@
       "title": "Bauarbeiter, Bauhauptgewerbe 100%",
       "titleByLocale": {
         "it": "Bauarbeiter, Bauhauptgewerbe 100%",
-        "en": "Bauarbeiter, Bauhauptgeerb",
+        "en": "Construction worker, main construction industry 100%",
         "de": "Bauarbeiter, Bauhutgewerbe 100%",
-        "fr": "Bauarbeiter, Bauhutgewerbe 100% - Anker Swiss AG"
+        "fr": "Ouvrier de la construction, gros œuvre 100%"
       },
       "description": "Bauarbeiter, Bauhauptgewerbe 100%\nRiuniamo ciò che appartiene all’insieme!\nIl Gruppo Anker Swiss, nato in aprile 2021, è in grande crescita ed ora è presente anche in TICINO .\nVuoi far parte di questa società orientata al futuro?\nPer conto di nostro stimato cliente stiamo selezionando, con effetto immediato , la seguente figura professionale:\nLavoratore edile cat C\nRequisiti richiesti:\n- Da 1 a 3 anni di esperienza come Lavoratore edile, edilizia principale\n- Muri in mattoni\n- casseratura\n- legare ferro\n- sottofondi\n- Alta motivazione\n- Puntualità e affidabilità\n- Un modo di lavorare indipendente, affidabile e preciso\nCosa offriamo:\n- Ottima ambiente di lavoro\n- Incarico temporaneo di lunga durata\n- Retribuzione secondo CCL\nSe hai i requisiti richiesti e sei interessato/a ad un impiego stabile e dinamico, invia la tua candidatura OGGI STESSO !\nNon verranno prese in considerazioni candidature che non corrispondono al profilo ricercato.\nKontakt\nAndrea Galimberti\nTelefon: +41912522921\nE-Mail: a.galimberti@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nBauarbeiter, Bauhauptgewerbe\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nWeniger als 1 Jahr\nBewerbung auf Stelle Bauarbeiter, Bauhauptgewerbe 100%\nBitte geben Sie hier Ihre Personalien an.\nVorname:\nNachname:\nE-Mail:\nTelefon Nr.:\nGeburtsdatum:\nBeruf:\nVerfügbar ab:\nLebenslauf:\nWeitere Dokumente z.B. Zeugnisse, Diplome:\nBewerbung einreichen",
       "descriptionByLocale": {
@@ -3017,7 +3038,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1349636/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:45:29.041Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3113,9 +3133,9 @@
     },
     {
       "id": "anker-swiss-43d361825c34",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182",
+      "slug": "falegname-100-anker-swiss-ticino-ag-koppigen-43d36182",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182",
+        "it": "falegname-100-anker-swiss-ticino-ag-koppigen-43d36182",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182"
@@ -3126,7 +3146,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -3163,7 +3183,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1351049/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:45:29.037Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3177,7 +3196,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-koppigen-43d36182"
+      ]
     },
     {
       "id": "anker-swiss-ddd60d6c7111",
@@ -3287,9 +3314,9 @@
     },
     {
       "id": "anker-swiss-9bb984aecdbf",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae",
+      "slug": "falegname-100-anker-swiss-ticino-ag-kerzers-9bb984ae",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae",
+        "it": "falegname-100-anker-swiss-ticino-ag-kerzers-9bb984ae",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae"
@@ -3300,7 +3327,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -3337,7 +3364,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1351332/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:45:29.033Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3351,7 +3377,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-kerzers-9bb984ae"
+      ]
     },
     {
       "id": "anker-swiss-050739a50b8a",
@@ -3980,9 +4014,9 @@
     },
     {
       "id": "anker-swiss-a0a303c85c65",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8",
+      "slug": "falegname-100-anker-swiss-ticino-ag-baar-a0a303c8",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8",
+        "it": "falegname-100-anker-swiss-ticino-ag-baar-a0a303c8",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8"
@@ -3993,7 +4027,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -4032,12 +4066,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zimmermann-100-anker-swiss-ag-baar-anker-swiss-ch-d365304f",
-        "zimmermann-100-anker-swiss-ticino-ag-baar-6410e610"
+        "zimmermann-100-anker-swiss-ticino-ag-baar-6410e610",
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-100-anker-swiss-ag-baar-anker-swiss-ch-d365304f",
-          "zimmermann-100-anker-swiss-ticino-ag-baar-6410e610"
+          "zimmermann-100-anker-swiss-ticino-ag-baar-6410e610",
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-baar-a0a303c8"
         ],
         "en": [
           "zimmermann-100-anker-swiss-ag-baar-anker-swiss-ch-d365304f"
@@ -4050,7 +4086,6 @@
           "zimmermann-100-anker-swiss-ag-baar-anker-swiss-ch-d365304f"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.445Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5995,12 +6030,12 @@
     },
     {
       "id": "anker-swiss-fb8912d8c913",
-      "slug": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-burgdorf-fb8912d8",
       "slugByLocale": {
-        "it": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8",
-        "en": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8",
+        "it": "lattoniere-100-anker-swiss-ticino-ag-burgdorf-fb8912d8",
+        "en": "sheet-metal-worker-100-anker-swiss-ticino-ag-burgdorf-fb8912d8",
         "de": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8",
-        "fr": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8"
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-burgdorf-fb8912d8"
       },
       "slugDisambiguator": "fb8912d8",
       "company": "Anker Swiss Ticino AG",
@@ -6008,10 +6043,10 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Spengler 100%",
       "titleByLocale": {
-        "it": "Spengler 100% - Anker Svizzera AG",
-        "en": "Spengler 100% - Anker Swiss AG",
+        "it": "Lattoniere 100%",
+        "en": "Sheet Metal Worker 100%",
         "de": "Spengler 100%",
-        "fr": "Spengler 100% - Anker Swiss AG"
+        "fr": "Ferblantier 100%"
       },
       "description": "Spengler 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Spengler gelernt\nDeine Herausforderung:\n- Steildach\n- Flachdacharbeiten\n- Metall Fassaden\n- Eternit Fassaden\n- Dachentwässerungen erstellen\n- Abdeckungen\n- Ablaufrohr montieren\n- Dampfsperren montieren\n- Falzdach\n- Reparaturen\n- Umgang mit Schweissgeräten\n- Flachdach Bitumen\n- Dunstrohr montieren\n- Begrünte Dächer\n- Arbeiten nach Plan\nDas bringst Du mit:\n- Spengler gelernt\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nNäder El Khabiri\nTelefon: +41315523603\nE-Mail: n.elkhabiri@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nSpengler\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch\nBewerbung auf Stelle Spengler 100%\nBitte geben Sie hier Ihre Personalien an.\nVorname:\nNachname:\nE-Mail:\nTelefon Nr.:\nGeburtsdatum:\nBeruf:\nVerfügbar ab:\nLebenslauf:\nWeitere Dokumente z.B. Zeugnisse, Diplome:\nBewerbung einreichen",
       "descriptionByLocale": {
@@ -6045,7 +6080,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/spengler-1367134/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.432Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6059,16 +6093,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-burgdorf-fb8912d8"
+      ]
     },
     {
       "id": "anker-swiss-d7328b8d9c77",
-      "slug": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-muntelier-d7328b8d",
       "slugByLocale": {
-        "it": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d",
-        "en": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d",
+        "it": "lattoniere-100-anker-swiss-ticino-ag-muntelier-d7328b8d",
+        "en": "sheet-metal-worker-100-anker-swiss-ticino-ag-muntelier-d7328b8d",
         "de": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d",
-        "fr": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d"
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-muntelier-d7328b8d"
       },
       "slugDisambiguator": "d7328b8d",
       "company": "Anker Swiss Ticino AG",
@@ -6076,10 +6124,10 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Spengler 100%",
       "titleByLocale": {
-        "it": "Spengler 100% - Anker Svizzera AG",
-        "en": "Spengler 100% - Anker Swiss AG",
+        "it": "Lattoniere 100%",
+        "en": "Sheet Metal Worker 100%",
         "de": "Spengler 100%",
-        "fr": "Spengler 100% - Anker Swiss AG"
+        "fr": "Ferblantier 100%"
       },
       "description": "Spengler 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Spengler EFZ\nDeine Herausforderung:\n- Steildach\n- Flachdach Bitumen\n- Flachdacharbeiten\n- Eternit Fassaden\n- Falzdach\n- Falzen allgemein\n- Fassadenisolation Eternit\n- Ablaufrohr montieren\n- Abdeckungen\n- Arbeiten nach Plan\n- Löten\n- Umgang mit Schweissgeräten\n- Wärmedämmungen verlegen\n- Fassadenisolation hinterlüftet\n- Fassadenisolation vorgehängt\n- Dunstrohr montieren\nDas bringst Du mit:\n- Spengler EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nNäder El Khabiri\nTelefon: +41315523603\nE-Mail: n.elkhabiri@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nSpengler\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\nBewerbung auf Stelle Spengler 100%\nBitte geben Sie hier Ihre Personalien an.\nVorname:\nNachname:\nE-Mail:\nTelefon Nr.:\nGeburtsdatum:\nBeruf:\nVerfügbar ab:\nLebenslauf:\nWeitere Dokumente z.B. Zeugnisse, Diplome:\nBewerbung einreichen",
       "descriptionByLocale": {
@@ -6113,7 +6161,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/spengler-1367086/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.433Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6127,7 +6174,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-muntelier-d7328b8d"
+      ]
     },
     {
       "id": "anker-swiss-c32708e03d4c",
@@ -6463,9 +6524,9 @@
     },
     {
       "id": "anker-swiss-23877fef52a2",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
+      "slug": "falegname-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
+        "it": "falegname-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
         "en": "carpenter-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
         "de": "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef"
@@ -6476,7 +6537,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Carpenter 100%",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann à 100 %"
@@ -6514,17 +6575,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-0743ea7f"
+        "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-0743ea7f",
+        "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-0743ea7f"
+          "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-0743ea7f",
+          "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-23877fef"
         ],
         "de": [
           "zimmermann-100-anker-swiss-ticino-ag-beinwil-am-see-0743ea7f"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-06T23:03:09.624Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6940,12 +7002,12 @@
     },
     {
       "id": "anker-swiss-039e5c2aff43",
-      "slug": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-elgg-039e5c2a",
       "slugByLocale": {
-        "it": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a",
-        "en": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a",
+        "it": "lattoniere-100-anker-swiss-ticino-ag-elgg-039e5c2a",
+        "en": "sheet-metal-worker-100-anker-swiss-ticino-ag-elgg-039e5c2a",
         "de": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a",
-        "fr": "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a"
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-elgg-039e5c2a"
       },
       "slugDisambiguator": "039e5c2a",
       "company": "Anker Swiss Ticino AG",
@@ -6953,10 +7015,10 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Spengler 100%",
       "titleByLocale": {
-        "it": "Spengler 100% - Anker Svizzera AG",
-        "en": "Spengler 100% - Anker Swiss AG",
+        "it": "Lattoniere 100%",
+        "en": "Sheet Metal Worker 100%",
         "de": "Spengler 100%",
-        "fr": "Spengler 100% - Anker Swiss AG"
+        "fr": "Ferblantier 100%"
       },
       "description": "Spengler 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Spengler EFZ\nDeine Herausforderung:\n- Steildach\n- Kaminfassung montieren\n- Kompaktfassaden\n- Dunstrohr montieren\n- Arbeiten nach Plan\n- Ablaufrohr montieren\n- Abdeckungen\n- Falzen allgemein\nDas bringst Du mit:\n- Spengler EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n- Facebook\n- Linkedin\n- Xing\n- Branche\nSpengler\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch\nBewerbung auf Stelle Spengler 100%\nBitte geben Sie hier Ihre Personalien an.\nVorname:\nNachname:\nE-Mail:\nTelefon Nr.:\nGeburtsdatum:\nBeruf:\nVerfügbar ab:\nLebenslauf:\nWeitere Dokumente z.B. Zeugnisse, Diplome:\nBewerbung einreichen",
       "descriptionByLocale": {
@@ -6990,7 +7052,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/spengler-1371099/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.423Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7004,13 +7065,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a"
+        ],
+        "en": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ag-anker-swiss-ticino-ag-elgg-039e5c2a"
+      ]
     },
     {
       "id": "anker-swiss-acfc931a3775",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
+      "slug": "falegname-100-anker-swiss-ticino-ag-marstetten-acfc931a",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
+        "it": "falegname-100-anker-swiss-ticino-ag-marstetten-acfc931a",
         "en": "carpenter-100-anker-swiss-ticino-ag-marstetten-acfc931a",
         "de": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a"
@@ -7021,7 +7096,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Carpenter 100%",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann à 100 %"
@@ -7059,17 +7134,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-100-anker-swiss-ticino-ag-marstetten-12d43b95"
+        "zimmermann-100-anker-swiss-ticino-ag-marstetten-12d43b95",
+        "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-100-anker-swiss-ticino-ag-marstetten-12d43b95"
+          "zimmermann-100-anker-swiss-ticino-ag-marstetten-12d43b95",
+          "zimmermann-100-anker-swiss-ticino-ag-marstetten-acfc931a"
         ],
         "de": [
           "zimmermann-100-anker-swiss-ticino-ag-marstetten-12d43b95"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-06T23:02:40.635Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8004,9 +8080,9 @@
     },
     {
       "id": "anker-swiss-7535c2af7a3f",
-      "slug": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af",
+      "slug": "falegname-100-anker-swiss-ticino-ag-oberbalm-7535c2af",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af",
+        "it": "falegname-100-anker-swiss-ticino-ag-oberbalm-7535c2af",
         "en": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af",
         "de": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af",
         "fr": "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af"
@@ -8017,7 +8093,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Zimmermann 100% - Anker Swiss AG",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann 100% - Anker Swiss AG"
@@ -8054,7 +8130,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1376099/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:17.411Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8068,7 +8143,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ag-anker-swiss-ticino-ag-oberbalm-7535c2af"
+      ]
     },
     {
       "id": "anker-swiss-597fc59430b3",
@@ -8866,9 +8949,9 @@
     },
     {
       "id": "anker-swiss-1fe36fb9ea21",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9",
+      "slug": "falegname-100-anker-swiss-ticino-ag-basel-1fe36fb9",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9",
+        "it": "falegname-100-anker-swiss-ticino-ag-basel-1fe36fb9",
         "en": "carpenter-100-anker-swiss-ticino-ag-basel-1fe36fb9",
         "de": "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9"
@@ -8879,7 +8962,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Carpenter 100%",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann à 100 %"
@@ -8916,7 +8999,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1383326/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:10.881Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8930,13 +9012,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-basel-1fe36fb9"
+      ]
     },
     {
       "id": "anker-swiss-48826118872c",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118",
+      "slug": "falegname-100-anker-swiss-ticino-ag-dietikon-48826118",
       "slugByLocale": {
-        "it": "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118",
+        "it": "falegname-100-anker-swiss-ticino-ag-dietikon-48826118",
         "en": "carpenter-100-anker-swiss-ticino-ag-dietikon-48826118",
         "de": "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118",
         "fr": "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118"
@@ -8947,7 +9037,7 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Zimmermann 100%",
       "titleByLocale": {
-        "it": "Zimmermann 100%",
+        "it": "Falegname 100%",
         "en": "Carpenter 100%",
         "de": "Zimmermann 100%",
         "fr": "Zimmermann à 100 %"
@@ -8984,7 +9074,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/zimmermann-1382932/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:10.881Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8998,7 +9087,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118"
+        ]
+      },
+      "previousSlugs": [
+        "zimmermann-100-anker-swiss-ticino-ag-dietikon-48826118"
+      ]
     },
     {
       "id": "anker-swiss-aa346c79569e",
@@ -10106,12 +10203,12 @@
     },
     {
       "id": "anker-swiss-960c287eeb17",
-      "slug": "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
+      "slug": "lattoniere-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
       "slugByLocale": {
-        "it": "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
+        "it": "lattoniere-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
         "en": "plumber-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
         "de": "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e",
-        "fr": "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e"
+        "fr": "ferblantier-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e"
       },
       "slugDisambiguator": "960c287e",
       "company": "Anker Swiss Ticino AG",
@@ -10119,10 +10216,10 @@
       "companyDomain": "anker-swiss.ch",
       "title": "Spengler 100%",
       "titleByLocale": {
-        "it": "Spengler al 100%",
+        "it": "Lattoniere 100%",
         "en": "Plumber 100%",
         "de": "Spengler 100%",
-        "fr": "Spengler à 100 %"
+        "fr": "Ferblantier 100%"
       },
       "description": "Spengler 100%\nWir bringen zusammen, was zusammen gehört!\nDie Anker Gruppe startete im April 2021 mit zwei Personen – nun sind wir bereits auf 5 Standorte gewachsen. Willst du auch Teil eines zukunftsorientierten Unternehmens sein?\nAb sofort oder nach Vereinbarung suchen wir für eine Temporär- oder Festanstellung eine/n Spengler EFZ\nDeine Herausforderung:\n- Umgang mit Schweissgeräten\n- Steildach\n- Schweissen Kupfer\n- Abdeckungen\n- Ablaufrohr montieren\n- Arbeiten nach Plan\n- Dachentwässerungen erstellen\n- Eternit Fassaden\n- Dunstrohr montieren\n- Flachdacharbeiten\n- Falzen allgemein\n- Falzdach\n- Kaminfassung montieren\nDas bringst Du mit:\n- Spengler EFZ\n- Hohe Leistungsbereitschaft und Flexibilität\n- Pünktlichkeit und Zuverlässigkeit\n- Selbständige, zuverlässige und exakte Arbeitsweise\nWas wir Dir bieten:\n- Tolles Arbeitsklima\n- Variable Zahlungen bei temporären Einsätzen (Monatlich oder Wöchentlich wählbar)\n- Bekannte Kunden\n- Schnell wachsendes Unternehmen\n- Langfristige Einsätze\n- Attraktive Anstellungsbedingungen mit gutem Lohn\n- Ein Team welches für Dich und deine Bedürfnisse da ist\nKontakt\nVincenzo Morreone\nTelefon: +41417286664\nE-Mail: v.morreone@anker-swiss.ch\n#AS-Indeed-Premium-26\n- Facebook\n- Linkedin\n- Xing\n- Branche\nSpengler\n- Arbeitsbeginn\nNach Vereinbarung\n- Berufserfahrung\nMehr als 3 Jahre\n- Sprache\nDeutsch\nBewerbung auf Stelle Spengler 100%\nBitte geben Sie hier Ihre Personalien an.\nVorname:\nNachname:\nE-Mail:\nTelefon Nr.:\nGeburtsdatum:\nBeruf:\nVerfügbar ab:\nLebenslauf:\nWeitere Dokumente z.B. Zeugnisse, Diplome:\nBewerbung einreichen",
       "descriptionByLocale": {
@@ -10156,7 +10253,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/spengler-1392927/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:53:10.874Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10170,7 +10266,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e"
+        ],
+        "fr": [
+          "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e"
+        ]
+      },
+      "previousSlugs": [
+        "spengler-100-anker-swiss-ticino-ag-bremgarten-ag-960c287e"
+      ]
     },
     {
       "id": "anker-swiss-34a1c8f2981e",

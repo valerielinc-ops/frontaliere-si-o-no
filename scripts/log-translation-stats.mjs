@@ -881,8 +881,16 @@ export function formatReport(entry) {
       '(rows with different versions are not comparable without a recount)');
   if (entry.codexReserve !== undefined) {
     const cr = entry.codexReserve;
+    const codexUsage = cr ? [
+      `${cr.calls} calls`,
+      `${cr.textsSent} texts sent`,
+      Number.isFinite(Number(cr.charsSent)) ? `${cr.charsSent} chars` : '',
+      Number.isFinite(Number(cr.avgTextsPerCall)) ? `${Number(cr.avgTextsPerCall).toFixed(1)} texts/call` : '',
+      Number.isFinite(Number(cr.avgCharsPerCall)) ? `${Math.round(Number(cr.avgCharsPerCall))} chars/call` : '',
+      `verdict ${cr.verdict}`,
+    ].filter(Boolean).join(', ') : '(no phase wrote a report)';
     row('Codex reserve:', cr ? `${cr.translated} translated, ${cr.rejected} rejected` : 'not measured',
-        cr ? `(${cr.calls} calls, ${cr.textsSent} texts sent, verdict ${cr.verdict})` : '(no phase wrote a report)');
+        cr ? `(${codexUsage})` : codexUsage);
   }
 
   // Queue AGE. Printed unconditionally, including the `n/a` case, so a run that

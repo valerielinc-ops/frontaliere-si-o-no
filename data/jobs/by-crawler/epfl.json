@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epfl",
-  "assembledAt": "2026-10-08T09:26:35.589Z",
+  "assembledAt": "2026-10-08T22:17:50.578Z",
   "jobs": [
     {
       "id": "epfl-23d9b7e51a76",
@@ -33,7 +33,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-2-PostDoc-Positions-at-EPFL-on-Biological-Foundation-Models/1164911155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:14.650Z",
+      "crawledAt": "2026-10-08T22:17:45.407Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -149,7 +149,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PostDoc-Position-at-EPFL-on-Frontier-Artificial-Intelligence-Research/1164911255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:14.016Z",
+      "crawledAt": "2026-10-08T22:17:44.791Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -249,7 +249,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PostDoctoral-Position-Image-Based-Drug-Screening-Against-Bacterial-Pathogens/1165425355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:13.377Z",
+      "crawledAt": "2026-10-08T22:17:44.171Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -328,7 +328,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Ing%C3%A9nieur%28e%29-couches-minces/1164924855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:26:12.765Z",
+      "crawledAt": "2026-10-08T22:17:43.553Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -410,7 +410,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician/1165124055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:26:12.159Z",
+      "crawledAt": "2026-10-08T22:17:42.935Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,9 +502,9 @@
     },
     {
       "id": "epfl-e2e7220070f5",
-      "slug": "postdoc-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-epfl-lausanne-d75756",
       "slugByLocale": {
-        "it": "postdoc-epfl-lausanne",
+        "it": "ricercatore-post-dottorato-epfl-lausanne-d75756",
         "en": "postdoc-epfl-lausanne",
         "de": "postdoktoranden-epfl-lausanne",
         "fr": "postdoctorat-epfl-lausanne"
@@ -514,7 +514,7 @@
       "companyDomain": "epfl.ch",
       "title": "Postdoc",
       "titleByLocale": {
-        "it": "Postdoc",
+        "it": "Ricercatore post-dottorato",
         "en": "Postdoc",
         "de": "Postdoktoranden",
         "fr": "Postdoctorat"
@@ -531,7 +531,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc/1165276655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:11.544Z",
+      "crawledAt": "2026-10-08T22:17:42.324Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -551,7 +551,14 @@
       "department": "Post-doc / Collab. scientifique",
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165276655",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "postdoc-epfl-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-epfl-lausanne"
+        ]
+      },
       "firstSeenAt": "2026-08-14T10:18:01.685Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -600,7 +607,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-position-in-microfluidic-RNAseq-based-screening-for-optimal-T-cell-expansion-protocols/1165432755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:10.930Z",
+      "crawledAt": "2026-10-08T22:17:41.711Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -682,7 +689,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-position-in-multiplexed-single-cell-RNAseq-based-antibody-discovery/1165432855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:10.284Z",
+      "crawledAt": "2026-10-08T22:17:41.094Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -764,7 +771,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Test-Engineer/1165432355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:09.657Z",
+      "crawledAt": "2026-10-08T22:17:40.474Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -843,7 +850,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis/1165456955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:09.010Z",
+      "crawledAt": "2026-10-08T22:17:39.864Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -925,7 +932,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-Postdoc-position-in-polymer-design-for-vat-photopolymerization/1165454155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:08.383Z",
+      "crawledAt": "2026-10-08T22:17:39.254Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1007,7 +1014,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-Cancer-Neuroscience/1165146555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:07.756Z",
+      "crawledAt": "2026-10-08T22:17:38.621Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1086,7 +1093,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Ing%C3%A9nieur-%C3%89lectronicien-Team-Lead/1165463855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:26:07.131Z",
+      "crawledAt": "2026-10-08T22:17:38.012Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1154,7 +1161,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Assistant%C2%B7e-administratif%C2%B7ve-Gestion-financi%C3%A8re-%2840-%29/1165467955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:26:06.524Z",
+      "crawledAt": "2026-10-08T22:17:37.388Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1233,7 +1240,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Measurement-and-modeling-of-urban-verticality-in-Africa/1165315655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:05.895Z",
+      "crawledAt": "2026-10-08T22:17:36.688Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1315,7 +1322,7 @@
       "url": "https://careers.epfl.ch/job/Fribourg-Postdoctoral-researcher-in-building-technology/1164294755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:05.272Z",
+      "crawledAt": "2026-10-08T22:17:36.035Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1411,7 +1418,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Post-Training-Engineer-Apertus/1164610655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:04.663Z",
+      "crawledAt": "2026-10-08T22:17:35.422Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1489,7 +1496,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Postdoctoral-Positions-in-Computational-Neuroscience-&-AI/1164982155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:04.043Z",
+      "crawledAt": "2026-10-08T22:17:34.801Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -1574,7 +1581,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-in-ML-Based-Co-Design-at-EPFL/1164989055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:03.411Z",
+      "crawledAt": "2026-10-08T22:17:34.157Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1653,7 +1660,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-in-Gen-AI/1164622355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:02.798Z",
+      "crawledAt": "2026-10-08T22:17:33.535Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1750,7 +1757,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-in-3D-Computer-Vision%2C-remote-sensing-_/1164622455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:02.177Z",
+      "crawledAt": "2026-10-08T22:17:32.924Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1854,7 +1861,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-Networked-Systems-Abstractions-Lab-%28LASeR%29/1165481555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:01.532Z",
+      "crawledAt": "2026-10-08T22:17:32.311Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1936,7 +1943,7 @@
       "url": "https://careers.epfl.ch/job/Villigen-Postdoctoral-Researcher-in-Time-resolved-X-ray-Nanoimaging-for-Semiconductor-Reliability/1165324855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:00.897Z",
+      "crawledAt": "2026-10-08T22:17:31.702Z",
       "addressLocality": "Villigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2012,7 +2019,7 @@
       "url": "https://careers.epfl.ch/job/Villigen-Postdoctoral-Researcher-in-Data-driven-X-ray-Nanoimaging-for-Semiconductor-Metrology/1165324955/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:26:00.266Z",
+      "crawledAt": "2026-10-08T22:17:31.060Z",
       "addressLocality": "Villigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2094,7 +2101,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PostDoctoral-researcher-in-Geometry/1165325555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:59.634Z",
+      "crawledAt": "2026-10-08T22:17:30.425Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2162,7 +2169,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Post-docScientific-collaborator-Bio-and-Nano-Instrumentation-1/1165489355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:59.014Z",
+      "crawledAt": "2026-10-08T22:17:29.796Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2244,7 +2251,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Software-Engineer-Keystone-Project-%28Machine-Verified-LLM-Inference%29/1165508255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:58.390Z",
+      "crawledAt": "2026-10-08T22:17:29.185Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2313,7 +2320,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Institutional-Coordinator-Human-Research-Infrastructure/1165506555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:57.770Z",
+      "crawledAt": "2026-10-08T22:17:28.561Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2389,7 +2396,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-Keystone-Project-%28Machine-Verified-LLM-Inference%29/1165508355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:57.150Z",
+      "crawledAt": "2026-10-08T22:17:27.946Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2457,7 +2464,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Laboratory-Technician-80-100/1165512355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:56.537Z",
+      "crawledAt": "2026-10-08T22:17:27.321Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2533,7 +2540,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Apprenti%C2%B7e-Laborantin%C2%B7e-Orientation-Chimie/1165510355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:25:55.908Z",
+      "crawledAt": "2026-10-08T22:17:26.715Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2615,7 +2622,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-researcher-in-fly-neuroscience-and-robotics/1165009655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:55.272Z",
+      "crawledAt": "2026-10-08T22:17:26.103Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2675,7 +2682,7 @@
       "slug": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
       "slugByLocale": {
         "it": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
-        "en": "postdoc-epfl-lausanne-9layc2",
+        "en": "postdoc-epfl-lausanne",
         "de": "postdoktorandenstelle-in-quantitativer-finanz-bei-epfl-epfl-lausanne",
         "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
       },
@@ -2701,7 +2708,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-Position-in-Quantitative-Finance-at-EPFL/1164712155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:54.654Z",
+      "crawledAt": "2026-10-08T22:17:25.485Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2734,7 +2741,7 @@
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne-9layc2"
         ],
         "de": [
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",
@@ -2768,7 +2775,8 @@
         "postdoc-in-photoelektrochemie-epfl-lausanne",
         "posizione-del-postdoc-in-finanza-quantitativa-presso-epfl-epfl-lausanne",
         "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne",
-        "postdoc-position-in-quantitative-finanzen-at-epfl-lausanne"
+        "postdoc-position-in-quantitative-finanzen-at-epfl-lausanne",
+        "postdoc-epfl-lausanne-9layc2"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T13:42:50.059Z",
@@ -2795,7 +2803,7 @@
         "it": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
         "en": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
         "de": "postdoktorand-und-dozent-fur-unternehmertum-100-epfl-lausanne",
-        "fr": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        "fr": "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2819,7 +2827,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher-and-Lecturer-in-Entrepreneurship-%28100%29/1165354555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:54.023Z",
+      "crawledAt": "2026-10-08T22:17:24.877Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2840,8 +2848,7 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165354555",
       "previousSlugs": [
-        "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
-        "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
+        "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2851,7 +2858,7 @@
           "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
         ],
         "fr": [
-          "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
+          "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:11.267Z",
@@ -2902,7 +2909,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher/1163582855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:53.406Z",
+      "crawledAt": "2026-10-08T22:17:24.266Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2991,7 +2998,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Position-in-Interpretable-AI-for-Coupled-Multiphysics-of-Geomaterials/1164829555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:52.784Z",
+      "crawledAt": "2026-10-08T22:17:23.651Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3075,7 +3082,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-Position-in-Operations%2C-Economics-and-Strategy/1164674255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:52.175Z",
+      "crawledAt": "2026-10-08T22:17:23.028Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3151,7 +3158,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Full-Stack-Software-Engineer-Circular-Construction-AI-%28REON%29/1165514455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:51.551Z",
+      "crawledAt": "2026-10-08T22:17:22.417Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3220,7 +3227,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PostDoc-Position-at-EPFL-on-Multimodal-Foundation-Models-in-Collaboration-with-Novartis/1165521055/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:50.931Z",
+      "crawledAt": "2026-10-08T22:17:21.808Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3302,7 +3309,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-position-at-PASU-lab-1/1165525455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:50.302Z",
+      "crawledAt": "2026-10-08T22:17:21.189Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3384,7 +3391,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-Postdoctoral-position-at-EPFL-PVlab-Recycling-of-PV-modules/1165527255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:49.663Z",
+      "crawledAt": "2026-10-08T22:17:20.581Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3466,7 +3473,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Position-in-Forest-Ecophysiology-and-Remote-Sensing/1165533355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:49.051Z",
+      "crawledAt": "2026-10-08T22:17:19.958Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3545,7 +3552,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Coordinateur_trice-de-voyages-durables/1165543155/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:25:48.430Z",
+      "crawledAt": "2026-10-08T22:17:19.350Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3627,7 +3634,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-PhD-position-in-Aerodynamic-Design-of-Small-Scale-Turbomachinery-2/1165538555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:47.817Z",
+      "crawledAt": "2026-10-08T22:17:18.723Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3709,7 +3716,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-in-Trustworthy-AI-for-Autonomous-Plant-Operations/1165540855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:47.166Z",
+      "crawledAt": "2026-10-08T22:17:18.111Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3793,7 +3800,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-PhD-position-in-Integrated-Design-and-Optimization/1165538755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:46.542Z",
+      "crawledAt": "2026-10-08T22:17:17.483Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3872,7 +3879,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-PhD-position-in-Aerodynamic-Design-of-Small-Scale-Turbomachinery/1165538855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:45.917Z",
+      "crawledAt": "2026-10-08T22:17:16.839Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3954,7 +3961,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Business-Analyst-Senior-PLEXUS1/1165220455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:25:45.256Z",
+      "crawledAt": "2026-10-08T22:17:16.218Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3998,7 +4005,7 @@
         "it": "2-phd-posizioni-in-meccanica-di-cemento-armato-enac-construct-epfl-lausanne",
         "en": "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne",
         "de": "2-phd-positionen-in-der-mechanik-des-verstarkten-betons-enac-construct-epfl-lausanne",
-        "fr": "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
+        "fr": "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4022,7 +4029,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-2-PhD-Positions-in-Mechanics-of-Reinforced-Concrete-%28ENACCONSTRUCT%29/1165376555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:44.639Z",
+      "crawledAt": "2026-10-08T22:17:15.597Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4043,8 +4050,7 @@
       "contractType": "PhD Student",
       "externalId": "1165376555",
       "previousSlugs": [
-        "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne",
-        "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
+        "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4054,7 +4060,7 @@
           "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
         ],
         "fr": [
-          "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
+          "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-02T23:12:04.368Z",
@@ -4105,7 +4111,7 @@
       "url": "https://careers.epfl.ch/job/Fribourg-Postdoctoral-Scholar-Opening-in-Indoor-Air-Quality/1165373455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:44.019Z",
+      "crawledAt": "2026-10-08T22:17:14.982Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -4184,7 +4190,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Technicien_ne-en-histologie/1165381255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:25:43.393Z",
+      "crawledAt": "2026-10-08T22:17:14.358Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4266,7 +4272,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory/1165377555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:42.771Z",
+      "crawledAt": "2026-10-08T22:17:13.742Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4346,7 +4352,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-at-the-Digital-and-Cognitive-Musicology-Lab%2C-EPFL-Lausanne/1164200555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:42.142Z",
+      "crawledAt": "2026-10-08T22:17:13.114Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4399,7 +4405,9 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "epfl-d3fbf1d979eb",
@@ -4432,7 +4440,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-at-the-Digital-and-Cognitive-Musicology-Lab%2C-EPFL-Lausanne/1164200455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:41.502Z",
+      "crawledAt": "2026-10-08T22:17:12.488Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4501,7 +4509,7 @@
       "url": "https://careers.epfl.ch/job/Gen%C3%A8ve-Postdoctoral-Position-in-Computational-Genomics%2C-Machine-Learning-&-Single-Cell-Biology/1164206755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:40.875Z",
+      "crawledAt": "2026-10-08T22:17:11.862Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -4582,7 +4590,7 @@
       "url": "https://careers.epfl.ch/job/Fribourg-PhD-Student-Position-in-Interoperable-Digital-Workflows-for-Regenerative-Building-Design-and-Perform/1165384655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:40.250Z",
+      "crawledAt": "2026-10-08T22:17:11.248Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -4664,7 +4672,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Trade-off-and-tipping-dynamics-in-urban-transitions-at-EPFL/1165554455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:39.609Z",
+      "crawledAt": "2026-10-08T22:17:10.618Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4746,7 +4754,7 @@
       "url": "https://careers.epfl.ch/job/Neuch%C3%A2tel-Postdoctoral-Researcher-in-Advanced-Flexure-Mechanism-Design-%28WM%29/1165552555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:38.948Z",
+      "crawledAt": "2026-10-08T22:17:09.977Z",
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "country": "CH",
@@ -4825,7 +4833,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Robotics-Engineer/1165561555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:38.311Z",
+      "crawledAt": "2026-10-08T22:17:09.349Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4904,7 +4912,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoc-position-in-Integrated-Lithium-Niobate-Photonics/1165562255/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:37.690Z",
+      "crawledAt": "2026-10-08T22:17:08.714Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -4980,7 +4988,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Urban-provisioning-systems%2C-sufficiency-behaviour%2C-and-well-being/1165557355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:37.070Z",
+      "crawledAt": "2026-10-08T22:17:08.073Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5062,7 +5070,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Researcher-in-accelerator-design-for-the-FCC-ee_/1165557655/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:36.443Z",
+      "crawledAt": "2026-10-08T22:17:07.427Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5144,7 +5152,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Student-Mobility-Coordinator-70/1165557855/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:35.797Z",
+      "crawledAt": "2026-10-08T22:17:06.801Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5212,7 +5220,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Coordinateur%C2%B7trice-mobilit%C3%A9-70/1165557755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:25:35.152Z",
+      "crawledAt": "2026-10-08T22:17:06.185Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5294,7 +5302,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-instructorship-in-Algebra/1165570755/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:34.518Z",
+      "crawledAt": "2026-10-08T22:17:05.555Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5362,7 +5370,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructor-in-Probability-and-Stochastic-Analysis/1165570555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:33.865Z",
+      "crawledAt": "2026-10-08T22:17:04.923Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5444,7 +5452,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructorships-in-Discrete-Mathematics/1165570355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:33.211Z",
+      "crawledAt": "2026-10-08T22:17:04.278Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5526,7 +5534,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-Postdoctoral-Position-in-Plasmonic-Crystals-for-Solar-Energy/1165576455/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:32.567Z",
+      "crawledAt": "2026-10-08T22:17:03.645Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5608,7 +5616,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-Position-in-Numerical-Modeling-and-Design-of-Plasmonic-Crystals-for-Solar-Energy/1165576555/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:31.922Z",
+      "crawledAt": "2026-10-08T22:17:02.989Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5690,7 +5698,7 @@
       "url": "https://careers.epfl.ch/job/Lausanne-PhD-Student-Position-in-Fabrication-and-Characterization-of-Plasmonic-Crystals-for-Solar-Energy/1165576355/",
       "source": "EPFL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:25:31.248Z",
+      "crawledAt": "2026-10-08T22:17:02.325Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -5740,6 +5748,156 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
+    },
+    {
+      "id": "epfl-dcd7c2eaaa52",
+      "slug": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
+      "slugByLocale": {
+        "en": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
+        "it": "cryogenic-electron-microscopist-support-for-the-dubochet-center-for-imaging-epfl-lausanne",
+        "de": "kryogene-elektronenmikroskopische-unterstutzung-fur-das-dubochet-center-for-imaging-epfl-lausanne",
+        "fr": "soutien-au-microscopie-electronique-cryogenique-pour-le-dubochet-center-for-imaging-epfl-lausanne"
+      },
+      "company": "EPFL",
+      "companyKey": "epfl",
+      "companyDomain": "epfl.ch",
+      "title": "Cryogenic Electron Microscopist support for the Dubochet Center for Imaging",
+      "titleByLocale": {
+        "it": "Cryogenic Electron Microscopist supporto per il Centro Dubochet per l'Imaging",
+        "en": "Cryogenic Electron Microscopist support for the Dubochet Center for Imaging",
+        "de": "Kryogene Elektronenmikroskopische Unterstützung für das Dubochet Center for Imaging",
+        "fr": "Soutien au microscopie électronique cryogénique pour le Dubochet Center for Imaging"
+      },
+      "description": "Mission\n\nThe Cryogenic Electron Microscopist will be responsible for the operation, maintenance and troubleshooting of specialized scientific equipment, including one Glacios and three Titan Krios microscopes, within the cryo-EM core facility of the Dubochet Center for Imaging (DCI).\n\nMain duties and responsibilities\n\nAs part of the DCI team, your responsibilities will include:\n\n• Cryo-EM sample preparation\n\n• Data acquisition for single-particle analysis (SPA) and cryo-electron tomography (cryo-ET)\n\n•\nOn-the-fly and offline data processing, advanced image processing\n\n•\nStructure determination and interpretation\n\nAs a cryo-EM support, you will provide technical and scientific support to researchers from EPFL, UNIL as well as external customers, advising users throughout the different stages of their projects, from experimental planning and data acquisition to image processing and structure determination. You will also contribute to the continuous development and improvement of the DCI cryo-EM platform, helping to ensure a high level of service, reliability and performance for its users.\n\nProfile\n\n• Ph.D. in tructural biology or related field with experience in Cryo-EM\n\n• At least one year of hands-on experience in cryo-EM, including instrument operation, facility support, training, data acquisition, data processing and/or cryo-ET\n\n• Experience with cryo-EM image-processing software such as cryoSPARC, IMOD/eTomo, and Scipion\n\n• Experience with SPA and/or cryo-ET workflows is desirable\n\n• Good understanding of cryo-EM data acquisition and processing workflows\n\n• Excellent communication skills in an English-speaking environment\n\n• Strong motivation to explore new research domains\n\nWe are looking for a person who is:\n\n• Service-oriented, proactive, and enthusiastic\n\n• Practical and hands-on, with the flexibility to thrive in a dynamic, service-oriented platform\n\n• Comfortable with change and able to adapt quickly to evolving priorities and workflows\n\n• Reliable and committed to delivering high-quality results for all types of users and customers\n\n• Collaborative, with clear communication skills and a constructive team spirit\n\n• Able to work independently while contributing effectively to a team environment\n\n•\n\nWe offer\n\nThe position is based in the campus of EPFL and UNIL in Lausanne, Switzerland, and is available from 01 January 2027. It will initially be offered as a one-year contract, with the possibility of renewal. The position offers a competitive salary, and EPFL as well as UNIL are committed to being an equal opportunity employer.\n\nThe Dubochet Center is currently equipped with three 300 kV Titan Krios with Cold-FEG and Falcon 4i direct electron detectors, and a Glacios 200 kV microscope. You will join a collaborative, international, and diverse research team from UNIL and EPLF with interdisciplinary expertise in biology, physics, computer science, and engineering.\n\nFor more information about the Dubochet Center please visit our website: https://dci-lausanne.ch/ .\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages)\n\nAnd in one PDF:\n\n• A CV with a publication list\n\n• Contact details for 3 referees\n\n• At least one reference letter\n\nFor any further information, please contact:\n\nDr. Bertrand Beckert: bertrand.beckert@epfl.ch\n\nProf. Henning Stahlberg: henning.stahlberg@epfl.ch\n\nDr. Christel Genoud: christel.genoud@unil.ch\n\nContract Start Date : 01/01/2027\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: 1 an\n\nReference: 2495",
+      "descriptionByLocale": {
+        "it": "Missione\n\nIl microscopista criogenico Electron sarà responsabile per l'operazione, la manutenzione e la risoluzione dei problemi di attrezzature scientifiche specializzate, tra cui un Glacios e tre microscopi Titan Krios, all'interno della centrale crio-EM del Centro Dubochet per l'Imaging (DCI).\n\nPrincipali doveri e responsabilità\n\nNell'ambito del team DCI, le tue responsabilità includono:\n\n• Preparazione del campione Cryo-EM\n\n• Acquisizione dati per l'analisi monoparticella (SPA) e la tomografia crio-elettronica (cryo-ET)\n\n•\nTrattamento dei dati online e offline, elaborazione avanzata delle immagini\n\n•\nDeterminazione e interpretazione della struttura\n\nCome supporto crio-EM, fornirete supporto tecnico e scientifico ai ricercatori di EPFL, UNIL e clienti esterni, consigliando agli utenti durante le diverse fasi dei loro progetti, dalla pianificazione sperimentale e dall'acquisizione dei dati al trattamento delle immagini e alla determinazione della struttura. Contribuirai anche allo sviluppo continuo e al miglioramento della piattaforma crio-EM DCI, contribuendo a garantire un elevato livello di servizio, affidabilità e prestazioni per i suoi utenti.\n\nProfilo\n\n• Ph.D. in biologia trottale o in campo correlato con esperienza in Cryo-EM\n\n• Almeno un anno di esperienza pratica in crio-EM, tra cui il funzionamento degli strumenti, il supporto delle strutture, la formazione, l'acquisizione dei dati, l'elaborazione dei dati e/o crio-ET\n\n• Esperienza con software di elaborazione delle immagini crio-EM come cryoSPARC, IMOD/eTomo e Scipion\n\n• L'esperienza con i flussi di lavoro SPA e/o cryo-ET è auspicabile\n\n• Buona comprensione dei flussi di lavoro di acquisizione e elaborazione dei dati crio-EM\n\n• Eccellente capacità di comunicazione in un ambiente di lingua inglese\n\n• Forte motivazione per esplorare nuovi domini di ricerca\n\nStiamo cercando una persona che è:\n\n• Service-oriented, proattivo e entusiasta\n\n• Pratico e pratico, con la flessibilità di prosperare in una piattaforma dinamica e orientata al servizio\n\n• Confortevole con il cambiamento e capace di adattarsi rapidamente alle priorità e ai flussi di lavoro in evoluzione\n\n• Affidabile e impegnata a fornire risultati di alta qualità per tutti i tipi di utenti e clienti\n\n• Collaborativo, con chiare capacità di comunicazione e uno spirito di squadra costruttivo\n\n• In grado di lavorare in modo indipendente, contribuendo efficacemente a un ambiente di squadra\n\n•\n\nOffriamo\n\nLa posizione si trova nel campus di EPFL e UNIL a Losanna, in Svizzera, ed è disponibile dal 01 gennaio 2027. Inizialmente sarà offerto come contratto di un anno, con la possibilità di rinnovo. La posizione offre uno stipendio competitivo, e EPFL così come UNIL sono impegnati a essere un datore di lavoro pari opportunità.\n\nIl Dubochet Center è attualmente dotato di tre 300 kV Titan Krios con rilevatori di elettroni diretti Cold-FEG e Falcon 4i, e un microscopio Glacios 200 kV. Ti unirai a un team di ricerca collaborativo, internazionale e diversificato di UNIL e EPLF con competenze interdisciplinari in biologia, fisica, informatica e ingegneria.\n\nPer maggiori informazioni sul Centro Dubochet visita il nostro sito: https://dci-lausanne.ch/ .\n\nInformazioni\n\nVengono considerate solo le domande presentate tramite la piattaforma online. Ti viene chiesto di fornire:\n\n• Una breve lettera di presentazione (pdf, fino a 2 pagine)\n\nE in un PDF:\n\n• Un CV con una lista di pubblicazione\n\n• Dettagli di contatto per 3 arbitri\n\n• Almeno una lettera di riferimento\n\nPer ulteriori informazioni, rivolgersi a:\n\nDr. Bertrand Beckert: bertrand.beckert@epfl.ch\n\nProf. Henning Stahlberg: henning.stahlberg@epfl.ch\n\nDr. Christel Genoud: christel.genoud@unil.ch\n\nData di inizio del contratto: 01/01/2027\n\nTasso di attività: 100.00\n\nTipo di contratto: CDD\n\nDurata: 1 an\n\nRiferimento: 2495",
+        "en": "Mission\n\nThe Cryogenic Electron Microscopist will be responsible for the operation, maintenance and troubleshooting of specialized scientific equipment, including one Glacios and three Titan Krios microscopes, within the cryo-EM core facility of the Dubochet Center for Imaging (DCI).\n\nMain duties and responsibilities\n\nAs part of the DCI team, your responsibilities will include:\n\n• Cryo-EM sample preparation\n\n• Data acquisition for single-particle analysis (SPA) and cryo-electron tomography (cryo-ET)\n\n•\nOn-the-fly and offline data processing, advanced image processing\n\n•\nStructure determination and interpretation\n\nAs a cryo-EM support, you will provide technical and scientific support to researchers from EPFL, UNIL as well as external customers, advising users throughout the different stages of their projects, from experimental planning and data acquisition to image processing and structure determination. You will also contribute to the continuous development and improvement of the DCI cryo-EM platform, helping to ensure a high level of service, reliability and performance for its users.\n\nProfile\n\n• Ph.D. in tructural biology or related field with experience in Cryo-EM\n\n• At least one year of hands-on experience in cryo-EM, including instrument operation, facility support, training, data acquisition, data processing and/or cryo-ET\n\n• Experience with cryo-EM image-processing software such as cryoSPARC, IMOD/eTomo, and Scipion\n\n• Experience with SPA and/or cryo-ET workflows is desirable\n\n• Good understanding of cryo-EM data acquisition and processing workflows\n\n• Excellent communication skills in an English-speaking environment\n\n• Strong motivation to explore new research domains\n\nWe are looking for a person who is:\n\n• Service-oriented, proactive, and enthusiastic\n\n• Practical and hands-on, with the flexibility to thrive in a dynamic, service-oriented platform\n\n• Comfortable with change and able to adapt quickly to evolving priorities and workflows\n\n• Reliable and committed to delivering high-quality results for all types of users and customers\n\n• Collaborative, with clear communication skills and a constructive team spirit\n\n• Able to work independently while contributing effectively to a team environment\n\n•\n\nWe offer\n\nThe position is based in the campus of EPFL and UNIL in Lausanne, Switzerland, and is available from 01 January 2027. It will initially be offered as a one-year contract, with the possibility of renewal. The position offers a competitive salary, and EPFL as well as UNIL are committed to being an equal opportunity employer.\n\nThe Dubochet Center is currently equipped with three 300 kV Titan Krios with Cold-FEG and Falcon 4i direct electron detectors, and a Glacios 200 kV microscope. You will join a collaborative, international, and diverse research team from UNIL and EPLF with interdisciplinary expertise in biology, physics, computer science, and engineering.\n\nFor more information about the Dubochet Center please visit our website: https://dci-lausanne.ch/ .\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages)\n\nAnd in one PDF:\n\n• A CV with a publication list\n\n• Contact details for 3 referees\n\n• At least one reference letter\n\nFor any further information, please contact:\n\nDr. Bertrand Beckert: bertrand.beckert@epfl.ch\n\nProf. Henning Stahlberg: henning.stahlberg@epfl.ch\n\nDr. Christel Genoud: christel.genoud@unil.ch\n\nContract Start Date : 01/01/2027\n\nActivity Rate : 100.00\n\nContract Type: CDD\n\nDuration: 1 an\n\nReference: 2495",
+        "de": "Mission\n\nDer kryogene Elektronenmikroskopist wird für den Betrieb, die Wartung und die Fehlerbehebung von spezialisierten wissenschaftlichen Geräten verantwortlich sein, darunter ein Glacios- und drei Titan Krios-Mikroskop, innerhalb der Kryo-EM-Kernanlage des Dubochet Center for Imaging (DCI).\n\nHauptaufgaben und Zuständigkeiten\n\nAls Teil des DCI-Teams umfassen Ihre Aufgaben:\n\n• Vorbereitung von Cryo-EM-Proben\n\n• Datenerfassung für Einzelpartikelanalyse (SPA) und Kryoelektronentomographie (Cryo-ET)\n\n•\nOn-the-fly und offline Datenverarbeitung, fortschrittliche Bildverarbeitung\n\n•\nStrukturbestimmung und Interpretation\n\nAls Kryo-EM-Unterstützung unterstützen Sie Forscher der EPFL, UNIL sowie externe Kunden technisch und wissenschaftlich und beraten die Benutzer in den verschiedenen Phasen ihrer Projekte, von der experimentellen Planung und Datenerfassung bis hin zur Bildverarbeitung und Strukturbestimmung. Sie werden auch zur kontinuierlichen Entwicklung und Verbesserung der DCI-Cryo-EM-Plattform beitragen und dazu beitragen, ein hohes Maß an Service, Zuverlässigkeit und Leistung für seine Benutzer zu gewährleisten.\n\nProfil\n\n• Ph.D. in tructural Biologie oder verwandten Bereich mit Erfahrung in Cryo-EM\n\n• Mindestens ein Jahr praktische Erfahrung in Kryo-EM, einschließlich Instrumentenbetrieb, Facility Support, Training, Datenerfassung, Datenverarbeitung und / oder Kryo-ET\n\n• Erfahrung mit Kryo-EM-Bildverarbeitungssoftware wie cryoSPARC, IMOD/eTomo und Scipion\n\n• Erfahrung mit SPA und/oder Kryo-ET Workflows ist wünschenswert\n\n• Gutes Verständnis der Kryo-EM Datenerfassung und Verarbeitung Workflows\n\n• Hervorragende Kommunikationsfähigkeiten in einer englischsprachigen Umgebung\n\n• Starke Motivation, neue Forschungsgebiete zu erkunden\n\nWir suchen eine Person, die ist:\n\n• Serviceorientiert, proaktiv und enthusiastisch\n\n• Praktisch und praktisch, mit der Flexibilität, in einer dynamischen, serviceorientierten Plattform zu gedeihen\n\n• Bequem mit Veränderungen und in der Lage, sich schnell an sich ändernde Prioritäten und Workflows anzupassen\n\n• Zuverlässig und verpflichtet, qualitativ hochwertige Ergebnisse für alle Arten von Benutzern und Kunden zu liefern\n\n• Kollaborativ, mit klaren Kommunikationsfähigkeiten und konstruktivem Teamgeist\n\n• Kann unabhängig arbeiten und gleichzeitig effektiv zu einer Teamumgebung beitragen\n\n•\n\nWir bieten\n\nDie Stelle befindet sich auf dem Campus der EPFL und UNIL in Lausanne, Schweiz, und ist ab dem 1. Januar 2027 verfügbar. Es wird zunächst als einjähriger Vertrag mit der Möglichkeit einer Verlängerung angeboten. Die Position bietet ein wettbewerbsfähiges Gehalt, und EPFL sowie UNIL sind verpflichtet, ein Arbeitgeber für Chancengleichheit zu sein.\n\nDas Dubochet Center ist derzeit mit drei 300 kV Titan Krios mit Cold-FEG und Falcon 4i Direktelektronendetektoren sowie einem Glacios 200 kV Mikroskop ausgestattet. Sie werden einem kollaborativen, internationalen und vielfältigen Forschungsteam von UNIL und EPLF mit interdisziplinärer Expertise in Biologie, Physik, Informatik und Ingenieurwissenschaften beitreten.\n\nFür weitere Informationen über das Dubochet Center besuchen Sie bitte unsere Website: https://dci-lausanne.ch/ .\n\nInformationen\n\nNur über die Online-Plattform eingereichte Bewerbungen werden berücksichtigt. Sie werden gebeten, Folgendes zu liefern:\n\n• Ein kurzes Anschreiben (pdf, bis zu 2 Seiten)\n\nUnd in einem PDF:\n\n• Ein Lebenslauf mit einer Publikationsliste\n\n• Kontaktdaten für 3 Schiedsrichter\n\n• Mindestens ein Referenzschreiben\n\nFür weitere Informationen kontaktieren Sie bitte:\n\nDr. Bertrand Beckert: bertrand.beckert@epfl.ch\n\nProf. Henning Stahlberg: henning.stahlberg@epfl.ch\n\nDr. Christel Genoud: christel.genoud@unil.ch\n\nDatum des Vertragsbeginns: 01/01/2027\n\nAktivitätsrate: 100,00\n\nVertragsart: CDD\n\nDauer: 1 a\n\nBezug: 2495",
+        "fr": "Mission\n\nLe Microscopiste Electronique Cryogène sera responsable de l'exploitation, de l'entretien et du dépannage d'équipements scientifiques spécialisés, dont un Glacios et trois microscopes Titan Krios, au sein de l'installation centrale cryo-EM du Dubachet Center for Imaging (DCI).\n\nPrincipales fonctions et responsabilités\n\nDans le cadre de l'équipe de DCI, vos responsabilités comprendront :\n\n• Préparation de l'échantillon Cryo-EM\n\n• Acquisition de données pour l'analyse monoparticulaire (SPA) et la tomographie cryoélectronique (cryo-ET)\n\n•\nTraitement de données à la volée et hors ligne, traitement d'images avancé\n\n•\nDétermination de la structure et interprétation\n\nEn tant que support cryo-EM, vous fournirez un soutien technique et scientifique aux chercheurs de l'EPFL, de l'UNIL ainsi qu'aux clients externes, en conseillant les utilisateurs tout au long des différentes étapes de leurs projets, de la planification expérimentale et de l'acquisition de données au traitement d'images et à la détermination de la structure. Vous contribuerez également au développement et à l'amélioration continus de la plateforme DCI cryo-EM, contribuant ainsi à assurer un haut niveau de service, de fiabilité et de performance pour ses utilisateurs.\n\nProfil\n\n• Doctorat en biologie tructurale ou domaine connexe avec expérience en Cryo-EM\n\n• Au moins un an d'expérience pratique en cryo-EM, y compris le fonctionnement des instruments, le soutien des installations, la formation, l'acquisition de données, le traitement des données et/ou le cryo-ET\n\n• Expérience avec les logiciels de traitement d'images cryo-EM tels que cryoSPARC, IMOD/eTomo et Scipion\n\n• Une expérience des flux de travail SPA et/ou cryo-ET est souhaitable\n\n• Bonne compréhension des processus d'acquisition et de traitement des données cryo-EM\n\n• Excellentes compétences en communication dans un environnement anglophone\n\n• Une forte motivation pour explorer de nouveaux domaines de recherche\n\nNous cherchons une personne qui est:\n\n• Service orienté, proactif et enthousiaste\n\n• Pratique et pratique, avec la flexibilité de prospérer dans une plateforme dynamique et orientée vers le service\n\n• Confortable avec le changement et capable de s'adapter rapidement à l'évolution des priorités et des flux de travail\n\n• Fiabilité et engagement à fournir des résultats de haute qualité pour tous les types d'utilisateurs et de clients\n\n• Collaboration, avec des compétences claires en communication et un esprit d'équipe constructif\n\n• Capacité de travailler de façon indépendante tout en contribuant efficacement à un environnement d'équipe\n\n•\n\nNous offrons\n\nLe poste est situé sur le campus de l'EPFL et de l'UNIL à Lausanne, en Suisse, et est disponible à partir du 1er janvier 2027. Il sera initialement offert sous forme de contrat d'un an, avec possibilité de renouvellement. Le poste offre un salaire compétitif, et l'EPFL ainsi que l'UNIL s'engagent à être un employeur à égalité de chances.\n\nLe Dubochet Center est actuellement équipé de trois kV Titan Krios avec détecteurs d'électrons directs Cold-FEG et Falcon 4i et d'un microscope Glacios 200 kV. Vous rejoindrez une équipe de recherche collaborative, internationale et diversifiée de l'UNIL et de l'EPLF avec une expertise interdisciplinaire en biologie, physique, informatique et ingénierie.\n\nPour plus d'informations sur le Centre Dubochet, veuillez consulter notre site web: https://dci-lausanne.ch/ .\n\nInformations\n\nSeules les demandes soumises par le biais de la plateforme en ligne sont prises en considération. On vous demande de fournir:\n\n• Une brève lettre de présentation (pdf, jusqu'à 2 pages)\n\nEt dans un PDF :\n\n• Un CV avec une liste de publications\n\n• Coordonnées de 3 arbitres\n\n• Au moins une lettre de référence\n\nPour toute information complémentaire, veuillez contacter:\n\nDr Bertrand Beckert : bertrand.beckert@epfl.ch\n\nProfesseur Henning Stahlberg: henning.stahlberg@epfl.ch\n\nDr Christel Genoud : Christel.genoud@unil.ch\n\nDate de début du contrat : 01/01/2027\n\nTaux d'activité : 100,00\n\nType de contrat: CDD\n\nDurée: 1 an\n\nRéférence: 2495"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://careers.epfl.ch/job/Lausanne-Cryogenic-Electron-Microscopist-support-for-the-Dubochet-Center-for-Imaging/1165587055/",
+      "source": "EPFL Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-08T22:17:01.683Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "education",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T00:00:00Z",
+      "postedDate": "2026-10-08T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Cryogenic-Electron-Microscopist-support-for-the-Dubochet-Center-for-Imaging/1165587055/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Post-doc / Collab. scientifique",
+      "contractType": "Post-doc / Collab. scientifique",
+      "externalId": "1165587055",
+      "firstSeenAt": "2026-10-08T21:24:15.534Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD"
+    },
+    {
+      "id": "epfl-2233e4cd81a0",
+      "slug": "responsabile-del-progetto-architetto-epfl-lausanne",
+      "slugByLocale": {
+        "fr": "chef-fe-de-projet-architecte-epfl-lausanne",
+        "it": "responsabile-del-progetto-architetto-epfl-lausanne",
+        "en": "head-of-project-architect-epfl-lausanne",
+        "de": "leiter-projektarchitekt-epfl-lausanne"
+      },
+      "company": "EPFL",
+      "companyKey": "epfl",
+      "companyDomain": "epfl.ch",
+      "title": "Chef.fe de projet architecte",
+      "titleByLocale": {
+        "it": "Responsabile del progetto architetto",
+        "en": "Head of project architect",
+        "de": "Leiter Projektarchitekt",
+        "fr": "Chef.fe de projet architecte"
+      },
+      "description": "Mission\n\nLe patrimoine immobilier et les infrastructures sont sous la responsabilité du service des constructions au sein du Domaine du Développement et des Constructions (VPO-DC). Celui-ci vieille à maintenir la valeur d’usage à travers les projets de construction et de transformation pour répondre aux besoins spécifiques des membres de la communauté de l’EPFL.\n\nPrincipales tâches et responsabilités\n\n• Assistance au chef de service dans la conduite de grands travaux immobiliers et d'infrastructures\n\n• Etude des projets et préparations des documents justificatifs et administratifs\n\n• Présentations des dossiers, et application des décisions prises par les instances décisionnelles\n\n• Coordination des intervenants externes, suivi et gestion des phases de planification\n\n• Etablissement et suivi des mises en concurrence selon procédures en vigueur\n\n• Mise en œuvre des contrats de sous-traitance, et coordination de leur application\n\n• Suivi de la planification (délais, financement, réalisation), et proposition des mesures correctives\n\n• Optimisation et simplification permanente des procédures mises en œuvre\n\nProfil\n\n• Formation architecte EPF, ou formation jugée équivalente\n\n• Expérience avérée dans la conduite de projets\n\n• Bonnes connaissances du droit de la construction\n\n• Attrait pour la gestion technique et économique rigoureuse des dossiers\n\n• Faculté à anticiper, analyser et résoudre rapidement les procédures de conduite\n\n• Goût du travail en équipe, dynamisme, polyvalence, sens de l’initiative et aptitudes à la communication et à la coordination pluridisciplinaire\n\n• Flexibilité et personnalité ouverte aux changements\n\n• Bonne connaissance des outils informatiques de gestion de projets\n\n• Aisance rédactionnelle\n\n• Maîtrise de l’anglais (niveau B2), la connaissance de l’allemand est un atout\n\nNous offrons\n\n• Une ambiance de travail conviviale et stimulante\n\n• Un environnement de travail de qualité\n\n• L’opportunité pour nos collaborateurs d’être impliqués dans des projets exigeants et variés\n\n• Toutes les prestations sociales d’une grande entreprise\n\nInformations\n\nDate d'entrée en fonction : à convenir\n\nTaux d'occupation : 100%\n\nType de contrat : CDI",
+      "descriptionByLocale": {
+        "it": "Missione\n\nImmobili e infrastrutture sono la responsabilità del dipartimento di costruzione all'interno del settore dello sviluppo e delle costruzioni (VPO-DC). Quest'ultimo vecchio per mantenere il valore di utilizzo attraverso progetti di costruzione e trasformazione per soddisfare le esigenze specifiche dei membri della comunità EPFL.\n\nPrincipali compiti e responsabilità\n\n• Assistenza al Capo del Servizio nella conduzione di importanti progetti immobiliari e infrastrutturali\n\n• Studio di progetti e preparazione di documenti di supporto e di amministrazione\n\n• Presentazione dei casi e attuazione delle decisioni prese dagli organi decisionali\n\n• Coordinamento degli stakeholder esterni, monitoraggio e gestione delle fasi di pianificazione\n\n• Istituzione e monitoraggio delle azioni concorrenziali secondo le procedure attuali\n\n• Attuazione e coordinamento dei subappalti\n\n• Seguire la pianificazione (delay, finanziamento, attuazione), e proposte misure correttive\n\n• Ottimizzazione e semplificazione continua delle procedure attuate\n\nProfilo\n\n• Formazione architettonica EPF o formazione equivalente\n\n• Esperienza nella gestione dei progetti\n\n• Buona conoscenza del diritto di costruzione\n\n• Attratto per una rigorosa gestione tecnica ed economica dei file\n\n• Facoltà di anticipare, analizzare e risolvere rapidamente le procedure di guida\n\n• Assaggio di lavoro di squadra, dinamismo, versatilità, senso di iniziativa e comunicazione e competenze di coordinamento multidisciplinare\n\n• Flessibilità e personalità aperte al cambiamento\n\n• Buona conoscenza degli strumenti IT per la gestione dei progetti\n\n• Esperienza di scrittura\n\n• La competenza in inglese (livello B2), il tedesco è un bene\n\nOffriamo\n\n• Un ambiente di lavoro amichevole e stimolante\n\n• Un ambiente di lavoro di qualità\n\n• L'opportunità per i nostri dipendenti di partecipare a progetti impegnativi e diversificati\n\n• Tutti i benefici sociali di una grande impresa\n\nInformazioni\n\nData di inizio: da concordare\n\nTasso di occupazione: 100%\n\nTipo di contratto: CDI",
+        "en": "Mission\n\nReal estate and infrastructure are the responsibility of the construction department within the Development and Construction Sector (VPO-DC). The latter old to maintain the use value through construction and transformation projects to meet the specific needs of members of the EPFL community.\n\nMain tasks and responsibilities\n\n• Assistance to the Head of Service in the conduct of major real estate and infrastructure projects\n\n• Study of projects and preparation of supporting and administrative documents\n\n• Presentations of cases and implementation of decisions taken by decision-making bodies\n\n• Coordination of external stakeholders, monitoring and management of planning phases\n\n• Establishment and monitoring of competitive actions in accordance with current procedures\n\n• Implementation and coordination of subcontracts\n\n• Follow-up of planning (delay, funding, implementation), and proposed corrective measures\n\n• Optimisation and continuous simplification of the procedures implemented\n\nProfile\n\n• EPF architectural training, or equivalent training\n\n• Experience in project management\n\n• Good knowledge of construction law\n\n• Attracted for rigorous technical and economic management of files\n\n• Faculty to anticipate, analyze and quickly resolve driving procedures\n\n• A taste of teamwork, dynamism, versatility, sense of initiative and communication and multidisciplinary coordination skills\n\n• Flexibility and personality open to change\n\n• Good knowledge of IT tools for project management\n\n• Writing experience\n\n• Proficiency in English (level B2), German is an asset\n\nWe offer\n\n• A friendly and stimulating working atmosphere\n\n• A quality working environment\n\n• The opportunity for our employees to be involved in demanding and varied projects\n\n• All social benefits of a large enterprise\n\nInformation\n\nStart date: to be agreed\n\nOccupancy rate: 100%\n\nType of contract: CDI",
+        "de": "Mission\n\nImmobilien und Infrastruktur liegen in der Verantwortung der Bauabteilung im Bereich Entwicklung und Bau (VPO-DC). Letzteres alte, um den Gebrauchswert durch Bau- und Transformationsprojekte zu erhalten, um die spezifischen Bedürfnisse der Mitglieder der EPFL-Gemeinschaft zu erfüllen.\n\nHauptaufgaben und Zuständigkeiten\n\n• Unterstützung des Dienstleiters bei der Durchführung großer Immobilien- und Infrastrukturprojekte\n\n• Prüfung der Projekte und Erstellung von Begleit- und Verwaltungsdokumenten\n\n• Darstellung der Fälle und Durchführung der von den Beschlussorganen getroffenen Entscheidungen\n\n• Koordination externer Stakeholder, Monitoring und Management der Planungsphasen\n\n• Festlegung und Überwachung von Wettbewerbsmaßnahmen gemäß den geltenden Verfahren\n\n• Durchführung und Koordinierung von Unteraufträgen\n\n• Begleitung der Planung (Verzögerung, Finanzierung, Umsetzung) und vorgeschlagene Korrekturmaßnahmen\n\n• Optimierung und kontinuierliche Vereinfachung der durchgeführten Verfahren\n\nProfil\n\n• EPF Architekturausbildung oder gleichwertige Ausbildung\n\n• Erfahrung im Projektmanagement\n\n• Gute Kenntnisse des Baurechts\n\n• Angezogen für strenge technische und wirtschaftliche Verwaltung von Dateien\n\n• Fakultät zu antizipieren, zu analysieren und schnell Fahrverfahren zu lösen\n\n• Ein Geschmack von Teamwork, Dynamik, Vielseitigkeit, Sinn für Initiative und Kommunikation sowie multidisziplinäre Koordinationsfähigkeiten\n\n• Flexibilität und Persönlichkeit offen für Veränderungen\n\n• Gute Kenntnisse der IT-Tools für das Projektmanagement\n\n• Schreiberfahrung\n\n• Englischkenntnisse (Level B2), Deutsch ist ein Asset\n\nWir bieten\n\n• Eine freundliche und anregende Arbeitsatmosphäre\n\n• Ein hochwertiges Arbeitsumfeld\n\n• Die Möglichkeit für unsere Mitarbeiter, sich an anspruchsvollen und abwechslungsreichen Projekten zu beteiligen\n\n• Alle sozialen Vorteile eines großen Unternehmens\n\nInformation\n\nStartdatum: noch zu vereinbaren\n\nBelegungsquote: 100%\n\nArt des Vertrags: CDI",
+        "fr": "Mission\n\nLe patrimoine immobilier et les infrastructures sont sous la responsabilité du service des constructions au sein du Domaine du Développement et des Constructions (VPO-DC). Celui-ci vieille à maintenir la valeur d’usage à travers les projets de construction et de transformation pour répondre aux besoins spécifiques des membres de la communauté de l’EPFL.\n\nPrincipales tâches et responsabilités\n\n• Assistance au chef de service dans la conduite de grands travaux immobiliers et d'infrastructures\n\n• Etude des projets et préparations des documents justificatifs et administratifs\n\n• Présentations des dossiers, et application des décisions prises par les instances décisionnelles\n\n• Coordination des intervenants externes, suivi et gestion des phases de planification\n\n• Etablissement et suivi des mises en concurrence selon procédures en vigueur\n\n• Mise en œuvre des contrats de sous-traitance, et coordination de leur application\n\n• Suivi de la planification (délais, financement, réalisation), et proposition des mesures correctives\n\n• Optimisation et simplification permanente des procédures mises en œuvre\n\nProfil\n\n• Formation architecte EPF, ou formation jugée équivalente\n\n• Expérience avérée dans la conduite de projets\n\n• Bonnes connaissances du droit de la construction\n\n• Attrait pour la gestion technique et économique rigoureuse des dossiers\n\n• Faculté à anticiper, analyser et résoudre rapidement les procédures de conduite\n\n• Goût du travail en équipe, dynamisme, polyvalence, sens de l’initiative et aptitudes à la communication et à la coordination pluridisciplinaire\n\n• Flexibilité et personnalité ouverte aux changements\n\n• Bonne connaissance des outils informatiques de gestion de projets\n\n• Aisance rédactionnelle\n\n• Maîtrise de l’anglais (niveau B2), la connaissance de l’allemand est un atout\n\nNous offrons\n\n• Une ambiance de travail conviviale et stimulante\n\n• Un environnement de travail de qualité\n\n• L’opportunité pour nos collaborateurs d’être impliqués dans des projets exigeants et variés\n\n• Toutes les prestations sociales d’une grande entreprise\n\nInformations\n\nDate d'entrée en fonction : à convenir\n\nTaux d'occupation : 100%\n\nType de contrat : CDI"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://careers.epfl.ch/job/Lausanne-Chef_fe-de-projet-architecte/1165583855/",
+      "source": "EPFL Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-08T22:17:01.002Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "education",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08T00:00:00Z",
+      "postedDate": "2026-10-08T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Chef_fe-de-projet-architecte/1165583855/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Technique",
+      "contractType": "Technique",
+      "externalId": "1165583855",
+      "firstSeenAt": "2026-10-08T21:24:14.844Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ],
+        "en": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ],
+        "de": [
+          "chef-fe-de-projet-architecte-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projet-architecte-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-1b64f5760f18",
@@ -5823,346 +5981,7 @@
       },
       "previousSlugs": [
         "assistant-e-administratif-ve-epfl-sion"
-      ]
-    },
-    {
-      "id": "epfl-5362b0432e1e",
-      "slug": "bernoulli-instructorship-in-algebra-epfl-lausanne-2",
-      "slugByLocale": {
-        "en": "bernoulli-instructorship-in-algebra-epfl-lausanne-nevl2a",
-        "it": "bernoulli-instructorship-in-algebra-epfl-lausanne-2",
-        "de": "bernoulli-instructorship-in-algebra-epfl-lausanne-2",
-        "fr": "bernoulli-instructorship-in-algebra-epfl-lausanne-2"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Bernoulli instructorship in Algebra",
-      "titleByLocale": {
-        "en": "Bernoulli instructorship in Algebra",
-        "de": "Bernoulli Lehrer in der Algebra",
-        "it": "Istruttore Bernoulli ad Algebra",
-        "fr": "Professeur Bernoulli en Algebra"
-      },
-      "description": "Mission\n\nThe research focus of [XXX] is centered on advancing the knowledge I the following domains:\n\n• [XX]\n\nWe seek outstanding candidates working in [XX] with interests in one of the following areas: [XX and/or YY]\n\nProfil\n\n• PhD (or nearing completion of) in ….\n\n• Background in….\n\n• Research experience in ...\n\n• Strong computational and analytical skills…\n\n• Experimental skills and experience in analyzing …\n\n• Publication record (relative to your career stage) in internationally leading journals\n\n• Independent, creative, and solution-oriented\n\n• Excellent written and oral communication skills in English\n\n• Strong motivation to explore new research domains\n\n• Good team spirit\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: [XXX]\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2511",
-      "descriptionByLocale": {
-        "en": "Mission\n\nThe research focus of [XXX] is centered on advancing the knowledge I the following domains:\n\n• [XX]\n\nWe seek outstanding candidates working in [XX] with interests in one of the following areas: [XX and/or YY]\n\nProfil\n\n• PhD (or nearing completion of) in ….\n\n• Background in….\n\n• Research experience in ...\n\n• Strong computational and analytical skills…\n\n• Experimental skills and experience in analyzing …\n\n• Publication record (relative to your career stage) in internationally leading journals\n\n• Independent, creative, and solution-oriented\n\n• Excellent written and oral communication skills in English\n\n• Strong motivation to explore new research domains\n\n• Good team spirit\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: [XXX]\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2511",
-        "it": "Missione\n\nIl focus di ricerca di è incentrato sul progresso della conoscenza I i seguenti domini:\n\n• [XX]\n\nCerchiamo candidati eccezionali che lavorano in [XX] con interessi in una delle seguenti aree: [XX e/o YY]\n\nProfil\n\n• PhD (o vicino al completamento di) in....\n\n• Sfondo in...\n\n• Esperienza di ricerca in...\n\n• Forte capacità computazionali e analitiche...\n\n• Competenze sperimentali ed esperienza nell'analisi...\n\n• Record di pubblicazione (relativo alla tua fase di carriera) in riviste leader a livello internazionale\n\n• Indipendente, creativo e orientato alla soluzione\n\n• Eccellente capacità di comunicazione scritta e orale in inglese\n\n• Forte motivazione per esplorare nuovi domini di ricerca\n\n• Buon spirito di squadra\n\nNous offrons\n\n• Un ambiente di lavoro stimolante e internazionale\n\n• Stipendio competitivo e condizioni di lavoro eccellenti – maggiori informazioni sul nostro sito web (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunità di svolgere ricerche all'avanguardia in una delle istituzioni scientifiche più dinamiche d'Europa.\n\n• Opportunità di interagire con esperti di fama internazionale, e con un team forte di ricercatori post-dottorali e studenti di dottorato\n\nInformazioni\n\nVengono considerate solo le domande presentate tramite la piattaforma online. Ti viene chiesto di fornire:\n\n• Una breve lettera di presentazione (pdf, fino a 2 pagine).\n\nE in un PDF:\n\n• Un CV con una lista di pubblicazione.\n\n• Una dichiarazione di ricerca (pdf, fino a 3 pagine).\n\n• Contatti per 3 arbitri.\n\nPer ulteriori informazioni, rivolgersi a:\n\nData di inizio del contratto: 15/08/2027\n\nTasso di attività: 100,00\n\nTipo di contratto: CDD\n\nDurata: 2 anni\n\nRiferimento: 2511",
-        "de": "Mission\n\nDer Forschungsschwerpunkt von konzentriert sich auf die Förderung des Wissens in den folgenden Bereichen:\n\n• [XX]\n\nWir suchen hervorragende Kandidaten, die in [XX] mit Interessen in einem der folgenden Bereiche arbeiten: [XX und / oder YY]\n\nProfil\n\n• PhD (oder kurz vor dem Abschluss) in....\n\n• Hintergrund in...\n\n• Forschungserfahrung in...\n\n• Starke computergestützte und analytische Fähigkeiten...\n\n• Experimentelle Fähigkeiten und Erfahrung in der Analyse...\n\n• Publikationsaufzeichnung (relativ zu Ihrer Karrierephase) in international führenden Zeitschriften\n\n• Unabhängig, kreativ und lösungsorientiert\n\n• Hervorragende schriftliche und mündliche Kommunikationsfähigkeiten in Englisch\n\n• Starke Motivation, neue Forschungsgebiete zu erkunden\n\n• Guter Teamgeist\n\nNous offrons\n\n• Ein anregendes und internationales Arbeitsumfeld\n\n• Wettbewerbsfähiges Gehalt und hervorragende Arbeitsbedingungen – weitere Informationen finden Sie auf unserer Website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Möglichkeit, modernste Forschung in einer der dynamischsten wissenschaftlichen Einrichtungen Europas durchzuführen.\n\n• Gelegenheit zur Interaktion mit international renommierten Experten und einem starken Team von Postdoktoranden und Doktoranden\n\nInformationen\n\nNur über die Online-Plattform eingereichte Bewerbungen werden berücksichtigt. Sie werden gebeten, Folgendes zu liefern:\n\n• Ein kurzes Anschreiben (pdf, bis zu 2 Seiten).\n\nUnd in einem PDF:\n\n• Ein Lebenslauf mit einer Publikationsliste.\n\n• Eine Forschungserklärung (pdf, bis zu 3 Seiten).\n\n• Kontaktdaten für 3 Schiedsrichter.\n\nFür weitere Informationen kontaktieren Sie bitte:\n\nVertragsbeginn: 15/08/2027\n\nAktivitätsrate: 100,00\n\nVertragsart: CDD\n\nDauer: 2 Jahre\n\nBezug: 2511",
-        "fr": "Mission\n\nL'accent de la recherche de est axé sur l'avancement des connaissances I les domaines suivants:\n\n• [XX]\n\nNous cherchons des candidats exceptionnels travaillant dans [XX] avec des intérêts dans l'un des domaines suivants: [XX et/ou YY]\n\nProfil\n\n• Doctorat (ou presque terminé) en....\n\n• Contexte dans...\n\n• Expérience de recherche en...\n\n• Fortes compétences en calcul et en analyse...\n\n• Compétences expérimentales et expérience dans l'analyse...\n\n• Dossier de publication (relatif à votre carrière) dans des revues de renommée internationale\n\n• Indépendant, créatif et orienté vers la solution\n\n• Excellentes compétences en communication écrite et orale en anglais\n\n• Une forte motivation pour explorer de nouveaux domaines de recherche\n\n• Bon esprit d'équipe\n\nNous offrons\n\n• Un environnement de travail stimulant et international\n\n• Salaire compétitif et excellentes conditions de travail – plus d'information sur notre site Web (https://www.epfl.ch/campus/services/human-resources/fr/basic- starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Possibilité de réaliser des recherches de pointe dans l'une des institutions scientifiques les plus dynamiques d'Europe.\n\n• Possibilité d'interagir avec des experts de renommée internationale et avec une solide équipe de chercheurs postdoctoraux et d'étudiants au doctorat\n\nInformations\n\nSeules les demandes soumises par le biais de la plateforme en ligne sont prises en considération. On vous demande de fournir:\n\n• Une brève lettre de présentation (pdf, jusqu'à 2 pages).\n\nEt dans un PDF:\n\n• Un CV avec une liste de publications.\n\n• Un énoncé de recherche (pdf, jusqu'à 3 pages).\n\n• Coordonnées de 3 arbitres.\n\nPour toute information complémentaire, veuillez contacter:\n\nDate de début du contrat: 15/08/2027\n\nTaux d'activité: 100,00\n\nType de contrat: CDD\n\nDurée: 2 ans\n\nRéférence: 2511"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-instructorship-in-Algebra/1165570655/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:33:35.067Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07T00:00:00Z",
-      "postedDate": "2026-10-07T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Bernoulli-instructorship-in-Algebra/1165570655/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "department": "Assistant scientifique",
-      "contractType": "Assistant scientifique",
-      "externalId": "1165570655",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T21:33:35.067Z",
-      "previousSlugs": [
-        "bernoulli-instructorship-in-algebra-epfl-lausanne"
       ],
-      "previousSlugsByLocale": {
-        "en": [
-          "bernoulli-instructorship-in-algebra-epfl-lausanne"
-        ]
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "epfl-da3aa624f4d8",
-      "slug": "istruttore-bernoulli-in-probabilita-e-analisi-stocastica-epfl-lausanne-8202b9",
-      "slugByLocale": {
-        "en": "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne-nevjkw",
-        "it": "istruttore-bernoulli-in-probabilita-e-analisi-stocastica-epfl-lausanne-8202b9",
-        "de": "bernoulli-instructor-fur-wahrscheinlichkeits-und-stochastische-analyse-epfl-lausanne-8202b9",
-        "fr": "bernoulli-instructeur-en-probabilite-et-analyse-stochastique-epfl-lausanne-8202b9"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Bernoulli Instructor in Probability and Stochastic Analysis",
-      "titleByLocale": {
-        "en": "Bernoulli Instructor in Probability and Stochastic Analysis",
-        "it": "Istruttore Bernoulli in Probabilità e Analisi Stocastica",
-        "de": "Bernoulli Instructor für Wahrscheinlichkeits- und Stochastische Analyse",
-        "fr": "Bernoulli Instructeur en Probabilité et analyse stochastique"
-      },
-      "description": "Mission\n\nThe research focus of [XXX] is centered on advancing the knowledge I the following domains:\n\n• [XX]\n\nWe seek outstanding candidates working in [XX] with interests in one of the following areas: [XX and/or YY]\n\nPrincipales tâches et responsabilités\n\n• Working and collaborating on research projects. The precise research topic(s) will be discussed with the successful candidate depending on their background, expertise and affinities.\n\n• Analysis and publication of results\n\n• Build a strong network in the field of research\n\n• Participate in education, and PhD and master student supervision\n\nProfil\n\n• PhD (or nearing completion of) in ….\n\n• Background in….\n\n• Research experience in ...\n\n• Strong computational and analytical skills…\n\n• Experimental skills and experience in analyzing …\n\n• Publication record (relative to your career stage) in internationally leading journals\n\n• Independent, creative, and solution-oriented\n\n• Excellent written and oral communication skills in English\n\n• Strong motivation to explore new research domains\n\n• Good team spirit\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: [XXX]\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2510",
-      "descriptionByLocale": {
-        "en": "Mission\n\nThe research focus of [XXX] is centered on advancing the knowledge I the following domains:\n\n• [XX]\n\nWe seek outstanding candidates working in [XX] with interests in one of the following areas: [XX and/or YY]\n\nPrincipales tâches et responsabilités\n\n• Working and collaborating on research projects. The precise research topic(s) will be discussed with the successful candidate depending on their background, expertise and affinities.\n\n• Analysis and publication of results\n\n• Build a strong network in the field of research\n\n• Participate in education, and PhD and master student supervision\n\nProfil\n\n• PhD (or nearing completion of) in ….\n\n• Background in….\n\n• Research experience in ...\n\n• Strong computational and analytical skills…\n\n• Experimental skills and experience in analyzing …\n\n• Publication record (relative to your career stage) in internationally leading journals\n\n• Independent, creative, and solution-oriented\n\n• Excellent written and oral communication skills in English\n\n• Strong motivation to explore new research domains\n\n• Good team spirit\n\nNous offrons\n\n• A stimulating and international working environment\n\n• Competitive salary and excellent working conditions – more information can be found on our website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunity to perform state-of-the-art research in one of the most dynamic scientific institutions in Europe.\n\n• Opportunity to interact with internationally renowned experts, and with a strong team of postdoctoral researchers and PhD students\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n• A brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n• A CV with a publication list.\n\n• A research statement (pdf, up to 3 pages).\n\n• Contact details for 3 referees.\n\nFor any further information, please contact: [XXX]\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2510",
-        "it": "Missione\n\nIl focus di ricerca di è incentrato sul progresso della conoscenza I i seguenti domini:\n\n• [XX]\n\nCerchiamo candidati eccezionali che lavorano in [XX] con interessi in una delle seguenti aree: [XX e/o YY]\n\nPreside e responsabilittés\n\n• Lavorare e collaborare a progetti di ricerca. I temi di ricerca precisi saranno discussi con il candidato di successo a seconda del loro background, competenza e affinità.\n\n• Analisi e pubblicazione dei risultati\n\n• Costruire una forte rete nel campo della ricerca\n\n• Partecipazione all'istruzione, al dottorato e alla supervisione degli studenti\n\nProfil\n\n• PhD (o vicino al completamento di) in....\n\n• Sfondo in...\n\n• Esperienza di ricerca in...\n\n• Forte capacità computazionali e analitiche...\n\n• Competenze sperimentali ed esperienza nell'analisi...\n\n• Record di pubblicazione (relativo alla tua fase di carriera) in riviste leader a livello internazionale\n\n• Indipendente, creativo e orientato alla soluzione\n\n• Eccellente capacità di comunicazione scritta e orale in inglese\n\n• Forte motivazione per esplorare nuovi domini di ricerca\n\n• Buon spirito di squadra\n\nNous offrons\n\n• Un ambiente di lavoro stimolante e internazionale\n\n• Stipendio competitivo e condizioni di lavoro eccellenti – maggiori informazioni sul nostro sito web (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Opportunità di svolgere ricerche all'avanguardia in una delle istituzioni scientifiche più dinamiche d'Europa.\n\n• Opportunità di interagire con esperti di fama internazionale, e con un team forte di ricercatori post-dottorali e studenti di dottorato\n\nInformazioni\n\nVengono considerate solo le domande presentate tramite la piattaforma online. Ti viene chiesto di fornire:\n\n• Una breve lettera di presentazione (pdf, fino a 2 pagine).\n\nE in un PDF:\n\n• Un CV con una lista di pubblicazione.\n\n• Una dichiarazione di ricerca (pdf, fino a 3 pagine).\n\n• Contatti per 3 arbitri.\n\nPer ulteriori informazioni, rivolgersi a:\n\nData di inizio del contratto: 15/08/2027\n\nTasso di attività: 100,00\n\nTipo di contratto: CDD\n\nDurata: 2 anni\n\nRiferimento: 2510",
-        "de": "Mission\n\nDer Forschungsschwerpunkt von konzentriert sich auf die Förderung des Wissens in den folgenden Bereichen:\n\n• [XX]\n\nWir suchen hervorragende Kandidaten, die in [XX] mit Interessen in einem der folgenden Bereiche arbeiten: [XX und / oder YY]\n\nPrincipales tâches et responsabilités\n\n• Arbeiten und Mitarbeiten an Forschungsprojekten. Das (die) genaue(n) Forschungsthema(s) wird (werden) mit dem erfolgreichen Kandidaten je nach Hintergrund, Fachwissen und Affinitäten diskutiert.\n\n• Analyse und Veröffentlichung der Ergebnisse\n\n• Aufbau eines starken Netzwerks im Forschungsbereich\n\n• Beteiligen Sie sich an Bildung und PhD und Master Student Supervision\n\nProfil\n\n• PhD (oder kurz vor dem Abschluss) in....\n\n• Hintergrund in...\n\n• Forschungserfahrung in...\n\n• Starke computergestützte und analytische Fähigkeiten...\n\n• Experimentelle Fähigkeiten und Erfahrung in der Analyse...\n\n• Publikationsaufzeichnung (relativ zu Ihrer Karrierephase) in international führenden Zeitschriften\n\n• Unabhängig, kreativ und lösungsorientiert\n\n• Hervorragende schriftliche und mündliche Kommunikationsfähigkeiten in Englisch\n\n• Starke Motivation, neue Forschungsgebiete zu erkunden\n\n• Guter Teamgeist\n\nNous offrons\n\n• Ein anregendes und internationales Arbeitsumfeld\n\n• Wettbewerbsfähiges Gehalt und hervorragende Arbeitsbedingungen – weitere Informationen finden Sie auf unserer Website (https://www.epfl.ch/campus/services/human-resources/en/basic-starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Möglichkeit, modernste Forschung in einer der dynamischsten wissenschaftlichen Einrichtungen Europas durchzuführen.\n\n• Gelegenheit zur Interaktion mit international renommierten Experten und einem starken Team von Postdoktoranden und Doktoranden\n\nInformationen\n\nNur über die Online-Plattform eingereichte Bewerbungen werden berücksichtigt. Sie werden gebeten, Folgendes zu liefern:\n\n• Ein kurzes Anschreiben (pdf, bis zu 2 Seiten).\n\nUnd in einem PDF:\n\n• Ein Lebenslauf mit einer Publikationsliste.\n\n• Eine Forschungserklärung (pdf, bis zu 3 Seiten).\n\n• Kontaktdaten für 3 Schiedsrichter.\n\nFür weitere Informationen kontaktieren Sie bitte:\n\nVertragsbeginn: 15/08/2027\n\nAktivitätsrate: 100,00\n\nVertragsart: CDD\n\nDauer: 2 Jahre\n\nBezug: 2510",
-        "fr": "Mission\n\nL'accent de la recherche de est axé sur l'avancement des connaissances I les domaines suivants:\n\n• [XX]\n\nNous cherchons des candidats exceptionnels travaillant dans [XX] avec des intérêts dans l'un des domaines suivants: [XX et/ou YY]\n\nPrincipales tâches et responsabilités\n\n• Travailler et collaborer à des projets de recherche. Les sujets de recherche précis seront discutés avec le candidat reçu en fonction de son expérience, de son expertise et de ses affinités.\n\n• Analyse et publication des résultats\n\n• Créer un réseau solide dans le domaine de la recherche\n\n• Participer à l'éducation, au doctorat et à la supervision des étudiants\n\nProfil\n\n• Doctorat (ou presque terminé) en....\n\n• Contexte dans...\n\n• Expérience de recherche en...\n\n• Fortes compétences en calcul et en analyse...\n\n• Compétences expérimentales et expérience dans l'analyse...\n\n• Dossier de publication (relatif à votre carrière) dans des revues de renommée internationale\n\n• Indépendant, créatif et orienté vers la solution\n\n• Excellentes compétences en communication écrite et orale en anglais\n\n• Une forte motivation pour explorer de nouveaux domaines de recherche\n\n• Bon esprit d'équipe\n\nNous offrons\n\n• Un environnement de travail stimulant et international\n\n• Salaire compétitif et excellentes conditions de travail – plus d'information sur notre site Web (https://www.epfl.ch/campus/services/human-resources/fr/basic- starting-salary-of-doctoral-assistants-and-postdocs/)\n\n• Possibilité de réaliser des recherches de pointe dans l'une des institutions scientifiques les plus dynamiques d'Europe.\n\n• Possibilité d'interagir avec des experts de renommée internationale et avec une solide équipe de chercheurs postdoctoraux et d'étudiants au doctorat\n\nInformations\n\nSeules les demandes soumises par le biais de la plateforme en ligne sont prises en considération. On vous demande de fournir:\n\n• Une brève lettre de présentation (pdf, jusqu'à 2 pages).\n\nEt dans un PDF:\n\n• Un CV avec une liste de publications.\n\n• Un énoncé de recherche (pdf, jusqu'à 3 pages).\n\n• Coordonnées de 3 arbitres.\n\nPour toute information complémentaire, veuillez contacter:\n\nDate de début du contrat: 15/08/2027\n\nTaux d'activité: 100,00\n\nType de contrat: CDD\n\nDurée: 2 ans\n\nRéférence: 2510"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructor-in-Probability-and-Stochastic-Analysis/1165570455/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:33:34.425Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07T00:00:00Z",
-      "postedDate": "2026-10-07T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructor-in-Probability-and-Stochastic-Analysis/1165570455/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "department": "Assistant scientifique",
-      "contractType": "Assistant scientifique",
-      "externalId": "1165570455",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T21:33:34.425Z",
-      "previousSlugs": [
-        "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne",
-        "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne-2"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne"
-        ],
-        "it": [
-          "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne-2"
-        ],
-        "de": [
-          "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne-2"
-        ],
-        "fr": [
-          "bernoulli-instructor-in-probability-and-stochastic-analysis-epfl-lausanne-2"
-        ]
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "epfl-30d17d70d77f",
-      "slug": "istruttori-di-bernoulli-nella-matematica-discreta-epfl-lausanne-fdfc9b",
-      "slugByLocale": {
-        "en": "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne-nevi3i",
-        "it": "istruttori-di-bernoulli-nella-matematica-discreta-epfl-lausanne-fdfc9b",
-        "de": "bernoulli-instruktoren-in-diskreter-mathematik-epfl-lausanne-fdfc9b",
-        "fr": "bernoulli-instructorships-en-mathematiques-discretes-epfl-lausanne-fdfc9b"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Bernoulli Instructorships in Discrete Mathematics",
-      "titleByLocale": {
-        "en": "Bernoulli Instructorships in Discrete Mathematics",
-        "it": "Istruttori di Bernoulli nella matematica discreta",
-        "de": "Bernoulli Instruktoren in diskreter Mathematik",
-        "fr": "Bernoulli Instructorships en mathématiques discrètes"
-      },
-      "description": "Mission\n\nThe Institute of Mathematics at the Ecole Polytechnique Fédérale de Lausanne (EPFL) invites applications for two full-time instructorships in Discrete Mathematics.\n\nProfil\n\n•\nBernoulli Instructors are expected to develop and sustain an excellent independent research program. They are welcome to collaborate and encouraged to interact with members of the Institute, but they maintain full research independence. We are looking in particular for applicants with a strong profile in fields such as combinatorics, graph theory, convex geometry and algorithms.\n\nInstructors are expected to teach courses in discrete/algorithmic mathematics. In addition, willingness to teach foundational courses is expected. The initial teaching load is light, corresponding to half the teaching load of regular faculty, and gradually progresses to the latter.\n\nInstructors are expected to be able to teach courses in English or French.\n\nApplicants should have a PhD in Mathematics or in Computer Science.\n\nThe EPFL actively aims to increase the presence of women amongst its employees, and female candidates are strongly encouraged to apply.\n\nNous offrons\n\nThe term of the position is two years, with the possibility of extension for another two years.\n\nEPFL salaries for instructors are highly competitive. In addition, instructors receive a substantial yearly budget for travel expenses and other expenditures.\n\nInformations\n\nContact:\n\nFor further information, please contact Ms Carole Weissenberger, Secretary of the Institute of Mathematics (carole.weissenberger@epfl.ch)\n\nApplications include a cover letter, curriculum vitae, publication list, research statement highlighting main achievements (1 page), teaching record, and the names and addresses of at least three references to be added in the cover letter.\n\nApplication files should be submitted in PDF format and uploaded via the link below by 10 November.\n\nStarting date: The expected starting date is 15 August 2027, to be discussed.\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2506",
-      "descriptionByLocale": {
-        "en": "Mission\n\nThe Institute of Mathematics at the Ecole Polytechnique Fédérale de Lausanne (EPFL) invites applications for two full-time instructorships in Discrete Mathematics.\n\nProfil\n\n•\nBernoulli Instructors are expected to develop and sustain an excellent independent research program. They are welcome to collaborate and encouraged to interact with members of the Institute, but they maintain full research independence. We are looking in particular for applicants with a strong profile in fields such as combinatorics, graph theory, convex geometry and algorithms.\n\nInstructors are expected to teach courses in discrete/algorithmic mathematics. In addition, willingness to teach foundational courses is expected. The initial teaching load is light, corresponding to half the teaching load of regular faculty, and gradually progresses to the latter.\n\nInstructors are expected to be able to teach courses in English or French.\n\nApplicants should have a PhD in Mathematics or in Computer Science.\n\nThe EPFL actively aims to increase the presence of women amongst its employees, and female candidates are strongly encouraged to apply.\n\nNous offrons\n\nThe term of the position is two years, with the possibility of extension for another two years.\n\nEPFL salaries for instructors are highly competitive. In addition, instructors receive a substantial yearly budget for travel expenses and other expenditures.\n\nInformations\n\nContact:\n\nFor further information, please contact Ms Carole Weissenberger, Secretary of the Institute of Mathematics (carole.weissenberger@epfl.ch)\n\nApplications include a cover letter, curriculum vitae, publication list, research statement highlighting main achievements (1 page), teaching record, and the names and addresses of at least three references to be added in the cover letter.\n\nApplication files should be submitted in PDF format and uploaded via the link below by 10 November.\n\nStarting date: The expected starting date is 15 August 2027, to be discussed.\n\nContract Start Date : 15/08/2027\n\nActivity Rate : 100,00\n\nContract Type: CDD\n\nDuration: 2 years\n\nReference: 2506",
-        "it": "Missione\n\nL'Istituto di Matematica presso l'Ecole Polytechnique Fédérale de Lausanne (EPFL) invita le domande per due istruttori a tempo pieno in matematica discreta.\n\nProfil\n\n•\nGli istruttori di Bernoulli dovrebbero sviluppare e sostenere un eccellente programma di ricerca indipendente. Essi sono invitati a collaborare e incoraggiati ad interagire con i membri dell'Istituto, ma mantengono piena indipendenza della ricerca. Stiamo cercando in particolare per i candidati con un profilo forte in campi come combinatoria, teoria dei grafici, geometria convessa e algoritmi.\n\nGli istruttori dovrebbero insegnare corsi di matematica discreta/algoritmica. Inoltre, la volontà di insegnare corsi di fondazione è prevista. Il carico di insegnamento iniziale è leggero, corrispondente alla metà del carico di insegnamento della facoltà regolare, e gradualmente progredisce a quest'ultimo.\n\nGli istruttori dovrebbero essere in grado di insegnare corsi in inglese o francese.\n\nI candidati dovrebbero avere un dottorato in matematica o in informatica.\n\nL'EPFL mira attivamente ad aumentare la presenza delle donne tra i suoi dipendenti, e i candidati femminili sono fortemente incoraggiati ad applicare.\n\nNous offrons\n\nIl termine della posizione è di due anni, con la possibilità di proroga per altri due anni.\n\nGli stipendi EPFL per istruttori sono altamente competitivi. Inoltre, gli istruttori ricevono un bilancio annuale sostanziale per le spese di viaggio e altre spese.\n\nInformazioni\n\nContatto:\n\nPer ulteriori informazioni, rivolgersi a Carole Weissenberger, Segretario dell'Istituto di Matematica (carole.weissenberger@epfl.ch)\n\nLe domande includono una lettera di presentazione, un curriculum vitae, una lista di pubblicazione, una dichiarazione di ricerca che evidenzia i principali risultati (1 pagina), un record di insegnamento, e i nomi e gli indirizzi di almeno tre riferimenti da aggiungere nella lettera di presentazione.\n\nI file di applicazione devono essere inviati in formato PDF e caricati tramite il link sottostante entro il 10 novembre.\n\nData di inizio: la data di inizio prevista è il 15 agosto 2027, da discutere.\n\nData di inizio del contratto: 15/08/2027\n\nTasso di attività: 100,00\n\nTipo di contratto: CDD\n\nDurata: 2 anni\n\nRiferimento: 2506",
-        "de": "Mission\n\nDas Institut für Mathematik an der Ecole Polytechnique Fédérale de Lausanne (EPFL) lädt zur Bewerbung für zwei Vollzeit-Lehrkräfte in Diskrete Mathematik ein.\n\nProfil\n\n•\nVon Bernoulli Instructors wird erwartet, dass sie ein hervorragendes unabhängiges Forschungsprogramm entwickeln und aufrechterhalten. Sie sind willkommen, zusammenzuarbeiten und ermutigt, mit Mitgliedern des Instituts zu interagieren, aber sie behalten die volle Forschungsunabhängigkeit. Wir suchen insbesondere Bewerber mit starkem Profil in Bereichen wie Kombinatorik, Graphentheorie, konvexer Geometrie und Algorithmen.\n\nVon den Ausbildern wird erwartet, dass sie Kurse in diskreter/algorithmischer Mathematik unterrichten. Darüber hinaus wird die Bereitschaft erwartet, grundlegende Kurse zu unterrichten. Die anfängliche Lehrlast ist leicht, was der Hälfte der Lehrlast der regulären Fakultät entspricht, und schreitet allmählich zu letzterem fort.\n\nVon den Ausbildern wird erwartet, dass sie Kurse in Englisch oder Französisch unterrichten können.\n\nBewerber sollten einen PhD in Mathematik oder Informatik haben.\n\nDie EPFL zielt aktiv darauf ab, die Präsenz von Frauen unter ihren Mitarbeitern zu erhöhen, und weibliche Kandidaten werden dringend aufgefordert, sich zu bewerben.\n\nNous offrons\n\nDie Laufzeit der Position beträgt zwei Jahre, mit der Möglichkeit einer Verlängerung um weitere zwei Jahre.\n\nDie EPFL-Gehälter für Ausbilder sind sehr wettbewerbsfähig. Darüber hinaus erhalten Ausbilder ein erhebliches jährliches Budget für Reisekosten und andere Ausgaben.\n\nInformationen\n\nKontakt:\n\nFür weitere Informationen kontaktieren Sie bitte Frau Carole Weissenberger, Sekretärin des Instituts für Mathematik (carole.weissenberger@epfl.ch)\n\nZu den Bewerbungen gehören ein Anschreiben, ein Lebenslauf, eine Publikationsliste, eine Forschungserklärung, in der die wichtigsten Errungenschaften (1 Seite) hervorgehoben werden, eine Lehraufzeichnung sowie die Namen und Adressen von mindestens drei Referenzen, die im Anschreiben hinzugefügt werden.\n\nBewerbungsunterlagen sollten im PDF-Format eingereicht und über den unten stehenden Link bis zum 10. November hochgeladen werden.\n\nStartdatum: Der erwartete Starttermin ist der 15. August 2027, der diskutiert werden soll.\n\nVertragsbeginn: 15/08/2027\n\nAktivitätsrate: 100,00\n\nVertragsart: CDD\n\nDauer: 2 Jahre\n\nBezug: 2506",
-        "fr": "Mission\n\nL'Institut de Mathématiques de l'Ecole Polytechnique Fédérale de Lausanne (EPFL) invite les candidats à deux stages à temps plein en Mathématiques Discrètes.\n\nProfil\n\n•\nBernoulli Les instructeurs devraient élaborer et soutenir un excellent programme de recherche indépendant. Ils sont invités à collaborer et à dialoguer avec les membres de l'Institut, mais ils maintiennent leur pleine indépendance en matière de recherche. Nous recherchons en particulier des candidats ayant un profil fort dans des domaines tels que la combinatoire, la théorie des graphiques, la géométrie convexe et les algorithmes.\n\nLes instructeurs sont censés enseigner des cours de mathématiques discrètes/algorithmiques. En outre, la volonté d'enseigner les cours de base est attendue. La charge d'enseignement initiale est légère, correspondant à la moitié de la charge d'enseignement de la faculté régulière, et progresse progressivement vers cette dernière.\n\nOn s'attend à ce que les instructeurs puissent enseigner en anglais ou en français.\n\nLes candidats doivent avoir un doctorat en mathématiques ou en informatique.\n\nL'EPFL vise activement à accroître la présence des femmes parmi ses employés, et les candidates sont fortement encouragées à postuler.\n\nNous offrons\n\nLa durée du poste est de deux ans, avec possibilité de prolongation de deux ans.\n\nLes salaires des instructeurs de l'EPFL sont très compétitifs. De plus, les instructeurs reçoivent un budget annuel important pour les frais de déplacement et autres dépenses.\n\nInformations\n\nPersonne à contacter:\n\nPour de plus amples informations, prière de prendre contact avec Mme Carole Weissenberger, Secrétaire de l'Institut de mathématiques (carole.weissenberger@epfl.ch)\n\nLes demandes comprennent une lettre de présentation, un curriculum vitae, une liste de publications, un énoncé de recherche soulignant les principales réalisations (1 page), un dossier d'enseignement et les noms et adresses d'au moins trois références à ajouter dans la lettre de présentation.\n\nLes dossiers de demande doivent être soumis en format PDF et téléchargés par le lien ci-dessous avant le 10 novembre.\n\nDate de début : La date de début prévue est le 15 août 2027, à discuter.\n\nDate de début du contrat : 15/08/2027\n\nTaux d'activité : 100,00\n\nType de contrat: CDD\n\nDurée: 2 ans\n\nRéférence: 2506"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructorships-in-Discrete-Mathematics/1165570255/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:33:33.120Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07T00:00:00Z",
-      "postedDate": "2026-10-07T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.epfl.ch/job/Lausanne-Bernoulli-Instructorships-in-Discrete-Mathematics/1165570255/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "department": "Assistant scientifique",
-      "contractType": "Assistant scientifique",
-      "externalId": "1165570255",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T21:33:33.120Z",
-      "previousSlugs": [
-        "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne",
-        "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne-2"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne"
-        ],
-        "it": [
-          "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne-2"
-        ],
-        "de": [
-          "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne-2"
-        ],
-        "fr": [
-          "bernoulli-instructorships-in-discrete-mathematics-epfl-lausanne-2"
-        ]
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "epfl-895ed4884afb",
-      "slug": "coordinatore-del-progetto-impegno-pubblico-50-epfl-sion",
-      "slugByLocale": {
-        "it": "coordinatore-del-progetto-impegno-pubblico-50-epfl-sion",
-        "en": "project-outreach-coordinator-public-engagement-50-epfl-sion",
-        "de": "projekt-outreach-koordinator-public-engagement-50-epfl-sion",
-        "fr": "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
-      },
-      "company": "EPFL",
-      "companyKey": "epfl",
-      "companyDomain": "epfl.ch",
-      "title": "Coordinateur·trice de Projet Outreach / Engagement Public (50%)",
-      "titleByLocale": {
-        "it": "Coordinatore del progetto / Impegno pubblico (50%)",
-        "en": "Project Outreach Coordinator / Public Engagement (50%)",
-        "de": "Projekt-Outreach-Koordinator / Public Engagement (50%)",
-        "fr": "Coordinateur·trice de Projet Outreach / Engagement Public (50%)"
-      },
-      "description": "Mission\n\nDans le cadre de sa stratégie Impact, l'EPFL renforce ses activités d'engagement public afin de favoriser le dialogue entre la recherche et la société. Pour soutenir cette ambition en Valais, nous recherchons un·e Coordinateur·trice de Projet Outreach / Engagement Public (50%) chargé·e de concevoir, coordonner et mettre en œuvre des projets qui rendent la science accessible, encouragent la participation des publics et créent des opportunités d'échange autour des grands enjeux scientifiques et technologiques contemporains.\n\nRattaché·e à la Vice-présidence pour l'Innovation et l'Impact (VPI) et travaillant en étroite collaboration avec la direction de l'EPFL Valais Wallis, le Service de promotion des sciences (SPS), le Département de la communication, les laboratoires de l’EPFL Valais Wallis et autres parties prenantes concernées, vous contribuez à nourrir le dialogue science-société en Valais et à faire émerger des formats innovants d'engagement public.\n\nPrincipales tâches et responsabilités\n\n• Concevoir, planifier et piloter des projets d’engagement public favorisant le dialogue entre science et société, tels que des cycles de conférences, des initiatives art-science ou d’autres événements grand public.\n\n• Assurer le suivi opérationnel des projets, incluant la gestion des calendriers, budgets, aspects logistiques, intervenant·es et partenaires, ainsi que l’organisation et l’animation des réunions de projet.\n\n• Coordonner les initiatives d’engagement public menées en Valais afin d’en renforcer la cohérence, la visibilité et l’impact.\n\n• Accompagner les laboratoires de l’EPFL Valais Wallis dans la conception et la mise en œuvre de leurs activités d’engagement public, et soutenir le Service de promotion des sciences dans l’organisation de l’édition valaisanne du festival Scientastic.\n\n• Contribuer au développement et au déploiement de la stratégie d’engagement public de l’EPFL en Valais, en collaboration avec les parties prenantes internes concernées.\n\n• Identifier, développer et entretenir des collaborations avec les acteurs externes du territoire valaisan afin de favoriser les synergies entre science et société.\n\n• Assurer le suivi, l’évaluation et l’amélioration continue des activités menées afin d’en renforcer la qualité, la portée et l’impact.\n\nProfil\n\n• Formation scientifique ou technique, ou expérience professionnelle démontrant une bonne compréhension du monde académique et de la recherche. Une connaissance des domaines d'excellence de l'EPFL Valais Wallis constitue un atout.\n\n• Expérience et fort intérêt pour les interactions entre science et société ainsi que pour les démarches d'engagement public.\n\n• Expérience en coordination de projets et évènements impliquant une diversité de parties prenantes, idéalement dans un environnement académique, scientifique, ou similaire.\n\n• Bonne connaissance de l'écosystème valaisan et capacité à identifier des opportunités de collaboration et à développer des partenariats locaux.\n\n• Excellentes compétences relationnelles, avec la capacité de collaborer efficacement avec des interlocuteurs variés et d'évoluer de manière autonome dans un environnement décentralisé.\n\n• Force de proposition et capacité à développer et mettre en œuvre de nouvelles initiatives.\n\n• Très bonnes connaissances du français et de l’anglais, à l'oral comme à l'écrit. Une bonne connaissance de l’allemand est un réel atout.\n\nNous offrons\n\nÀ l'EPFL, nous avons la conviction que chacun et chacune peut accomplir de grandes choses lorsqu'il ou elle évolue dans un environnement bienveillant, respectueux et propice à la réussite. En rejoignant notre institution, vous contribuerez à façonner l'avenir de la société grâce à l'éducation, la recherche et l'innovation.\n\nNous offrons un environnement de travail inspirant, international et collaboratif, où votre contribution a un impact concret et où vos idées sont valorisées. Grâce à un cadre de travail flexible et à des conditions d’emploi attractives, nous nous engageons à créer un environnement dans lequel chacun et chacune peut s’épanouir, développer son potentiel et faire la différence.\n\nAu-delà de votre activité professionnelle, nos campus accueillent une communauté dynamique dans un cadre unique, porté par de nombreuses initiatives en faveur de l’égalité, de l’inclusion, de la diversité, du bien-être et de la durabilité. Tout au long de l’année, un programme varié d’activités culturelles, sportives et communautaires vient également renforcer la vie du campus.\n\nDécouvrez nos conditions d’emploi et les avantages offerts à nos collaboratrices et collaborateurs.\n\nInformations\n\nDate d'entrée en fonction : Dès que possible\n\nTaux d'occupation min : 50,00\n\nTaux d'occupation max : 50,00\n\nType de contrat : CDD\n\nDurée : 1 an, renouvelable\n\nLieu : Poste de travail basé à Sion à l'EPFL Valais Wallis, avec des déplacements réguliers à EPFL Lausanne.\n\nRéférence : 2483",
-      "descriptionByLocale": {
-        "it": "Missione\n\nNell'ambito della sua strategia d'impatto, EPFL rafforza le sue attività di impegno pubblico per promuovere il dialogo tra ricerca e società. Per sostenere questa ambizione in Vallese, stiamo cercando un Project Outreach/Public Engagement Coordinator (50%) responsabile della progettazione, del coordinamento e dell'attuazione di progetti che rendono la scienza accessibile, incoraggiano la partecipazione pubblica e creano opportunità di scambio intorno a grandi questioni scientifiche e tecnologiche contemporanee.\n\nAttaccato alla vice-presidente per l'innovazione e l'impatto (VPI) e lavorando a stretto contatto con la gestione di EPFL Valais Wallis, il Servizio di Promozione della Scienza (SPS), il Dipartimento di Comunicazione, i laboratori di EPFL Valais Wallis e altri stakeholder rilevanti, si aiuta a alimentare il dialogo di scienza-società in Vallese e portare a termine innovativi formati di impegno pubblico.\n\nPrincipali compiti e responsabilità\n\n• Progetti di progettazione, progettazione e coinvolgimento pubblico pilota che promuovono il dialogo con la scienza-società, come cicli di conferenze, iniziative di arte-scienza o altri eventi pubblici.\n\n• Assicurare il monitoraggio operativo dei progetti, compresa la gestione di orari, budget, logistica, stakeholder e partner, nonché l'organizzazione e la facilitazione delle riunioni di progetto.\n\n• Coordinate le iniziative di impegno pubblico in Vallese per migliorare la coerenza, la visibilità e l'impatto.\n\n• Sostenere i laboratori EPFL Valais Wallis nella progettazione e realizzazione delle loro attività di coinvolgimento pubblico, e sostenere il Servizio di Promozione della Scienza nell'organizzazione dell'edizione Vallese del festival Scientastic.\n\n• Contribuisci allo sviluppo e all'implementazione della strategia di coinvolgimento pubblico di EPFL in Vallese, in collaborazione con i principali stakeholder interni.\n\n• Identificare, sviluppare e mantenere collaborazioni con attori esterni del territorio del Vallese per favorire sinergie tra scienza e società.\n\n• Monitoraggio, valutazione e miglioramento continuo delle attività per migliorare qualità, portata e impatto.\n\nProfilo\n\n• Formazione scientifica o tecnica, o esperienza professionale che dimostra una buona comprensione del mondo accademico e della ricerca. Una conoscenza delle aree di eccellenza dell'EPFL Valais Wallis è un bene.\n\n• Esperienza e interesse nelle interazioni della scienza-società e approcci di impegno pubblico.\n\n• Esperienza nel coordinamento di progetti ed eventi che coinvolgono una diversità di stakeholder, idealmente in un ambiente accademico, scientifico o simile.\n\n• Buona conoscenza dell'ecosistema Vallese e capacità di identificare opportunità di collaborazione e sviluppare partnership locali.\n\n• Eccellente capacità relazionali, con la capacità di collaborare efficacemente con diversi interlocutori e di evolversi in modo indipendente in un ambiente decentralizzato.\n\n• Proposta di forza e capacità per sviluppare e attuare nuove iniziative.\n\n• Ottima conoscenza del francese e dell'inglese, sia orale che scritta. Una buona conoscenza del tedesco è una vera risorsa.\n\nOffriamo\n\nIn EPFL, siamo convinti che tutti possano realizzare grandi cose quando si evolve in un ambiente attento, rispettoso e di successo. Unendo la nostra istituzione, vi aiuterà a plasmare il futuro della società attraverso l'istruzione, la ricerca e l'innovazione.\n\nOffriamo un ambiente di lavoro stimolante, internazionale e collaborativo dove il vostro contributo ha un impatto concreto e dove le vostre idee sono valutate. Grazie a un ambiente di lavoro flessibile e a condizioni di lavoro interessanti, siamo",
-        "en": "Mission\n\nAs part of its Impact Strategy, EPFL is strengthening its public engagement activities to foster dialogue between research and society. To support this ambition in Valais, we are looking for a Project Outreach/Public Engagement Coordinator (50%) responsible for designing, coordinating and implementing projects that make science accessible, encourage public participation and create opportunities for exchange around major contemporary scientific and technological issues.\n\nAttached to the Vice-Presidentship for Innovation and Impact (VPI) and working closely with the management of EPFL Valais Wallis, the Science Promotion Service (SPS), the Department of Communication, the laboratories of EPFL Valais Wallis and other relevant stakeholders, you help fuel the science-society dialogue in Valais and bring out innovative formats of public engagement.\n\nMain tasks and responsibilities\n\n• Design, plan and pilot public engagement projects that promote science-society dialogue, such as lecture cycles, art-science initiatives or other public events.\n\n• Ensure operational monitoring of projects, including the management of schedules, budgets, logistics, stakeholders and partners, as well as the organisation and facilitation of project meetings.\n\n• Coordinate public engagement initiatives in Valais to enhance coherence, visibility and impact.\n\n• Support EPFL Valais Wallis laboratories in the design and implementation of their public engagement activities, and support the Science Promotion Service in the organization of the Valais edition of the Scientastic festival.\n\n• Contribute to the development and deployment of EPFL's public engagement strategy in Valais, in collaboration with relevant internal stakeholders.\n\n• Identify, develop and maintain collaborations with external actors of the Valais territory in order to foster synergies between science and society.\n\n• Monitoring, evaluation and continuous improvement of activities to enhance quality, scope and impact.\n\nProfile\n\n• Scientific or technical training, or professional experience demonstrating a good understanding of the academic and research world. A knowledge of EPFL Valais Wallis' areas of excellence is an asset.\n\n• Experience and interest in science-society interactions and public engagement approaches.\n\n• Experience in coordinating projects and events involving a diversity of stakeholders, ideally in an academic, scientific, or similar environment.\n\n• Good knowledge of the Valais ecosystem and ability to identify opportunities for collaboration and develop local partnerships.\n\n• Excellent relational skills, with the ability to collaborate effectively with diverse interlocutors and to evolve independently in a decentralized environment.\n\n• Proposal strength and capacity to develop and implement new initiatives.\n\n• Very good knowledge of French and English, both oral and written. A good knowledge of German is a real asset.\n\nWe offer\n\nAt EPFL, we are convinced that everyone can accomplish great things when he or she evolves in a caring, respectful and successful environment. By joining our institution, you will help shape the future of society through education, research and innovation.\n\nWe offer an inspiring, international and collaborative work environment where your contribution has a concrete impact and where your ideas are valued. Thanks to a flexible working environment and attractive working conditions, we are",
-        "de": "Mission\n\nIm Rahmen ihrer Wirkungsstrategie stärkt die EPFL ihre Aktivitäten zur Förderung des Dialogs zwischen Forschung und Gesellschaft. Um diese Ambitionen im Wallis zu unterstützen, suchen wir einen Projekt-Outreach-/Public Engagement Coordinator (50%), der für die Gestaltung, Koordination und Umsetzung von Projekten verantwortlich ist, die die Wissenschaft zugänglich machen, die Beteiligung der Öffentlichkeit fördern und Möglichkeiten für den Austausch zu wichtigen aktuellen wissenschaftlichen und technologischen Fragen schaffen.\n\nVerbunden mit der Vizepräsidentschaft für Innovation und Impact (VPI) und in enger Zusammenarbeit mit dem Management der EPFL Wallis, dem Science Promotion Service (SPS), der Abteilung für Kommunikation, den Laboratorien der EPFL Wallis Wallis und anderen relevanten Stakeholdern tragen Sie dazu bei, den Dialog zwischen Wissenschaft und Gesellschaft im Wallis zu fördern und innovative Formate des öffentlichen Engagements hervorzubringen.\n\nHauptaufgaben und Zuständigkeiten\n\n• Konzipieren, planen und pilotieren Sie öffentliche Engagement-Projekte, die den Dialog zwischen Wissenschaft und Gesellschaft fördern, wie z. B. Vortragszyklen, kunstwissenschaftliche Initiativen oder andere öffentliche Veranstaltungen.\n\n• Gewährleistung der operativen Überwachung von Projekten, einschließlich der Verwaltung von Zeitplänen, Budgets, Logistik, Interessenträgern und Partnern sowie der Organisation und Erleichterung von Projektsitzungen.\n\n• Koordinierung der Initiativen für öffentliches Engagement im Wallis, um Kohärenz, Sichtbarkeit und Wirkung zu verbessern.\n\n• Unterstützung der EPFL Wallis Laboratorien bei der Gestaltung und Durchführung ihrer Aktivitäten zur Förderung der Öffentlichkeit und Unterstützung des Wissenschaftsförderungsdienstes bei der Organisation der Walliser Ausgabe des Scientastic Festivals.\n\n• Beitrag zur Entwicklung und Umsetzung der Strategie des öffentlichen Engagements der EPFL im Wallis in Zusammenarbeit mit relevanten internen Interessengruppen.\n\n• Identifizierung, Entwicklung und Pflege von Kooperationen mit externen Akteuren des Walliser Territoriums, um Synergien zwischen Wissenschaft und Gesellschaft zu fördern.\n\n• Überwachung, Bewertung und kontinuierliche Verbesserung von Aktivitäten zur Verbesserung von Qualität, Umfang und Wirkung.\n\nProfil\n\n• Wissenschaftliche oder technische Ausbildung oder Berufserfahrung, die ein gutes Verständnis der akademischen und Forschungswelt zeigt. Die Kenntnis der Exzellenzbereiche der EPFL Wallis ist ein Gewinn.\n\n• Erfahrung und Interesse an Interaktionen zwischen Wissenschaft und Gesellschaft und Ansätzen des öffentlichen Engagements.\n\n• Erfahrung in der Koordination von Projekten und Veranstaltungen mit einer Vielzahl von Interessengruppen, idealerweise in einem akademischen, wissenschaftlichen oder ähnlichen Umfeld.\n\n• Gute Kenntnisse des Walliser Ökosystems und die Fähigkeit, Möglichkeiten zur Zusammenarbeit zu erkennen und lokale Partnerschaften zu entwickeln.\n\n• Hervorragende relationale Fähigkeiten, mit der Fähigkeit, effektiv mit verschiedenen Gesprächspartnern zusammenzuarbeiten und sich unabhängig in einer dezentralen Umgebung zu entwickeln.\n\n• Vorschlagsstärke und Fähigkeit zur Entwicklung und Umsetzung neuer Initiativen.\n\n• Sehr gute Französisch- und Englischkenntnisse, sowohl mündlich als auch schriftlich. Gute Deutschkenntnisse sind eine echte Bereicherung.\n\nWir bieten\n\nBei EPFL sind wir davon überzeugt, dass jeder Großes erreichen kann, wenn er sich in einem fürsorglichen, respektvollen und erfolgreichen Umfeld entwickelt. Indem Sie unserer Institution beitreten, werden Sie die Zukunft der Gesellschaft durch Bildung, Forschung und Innovation mitgestalten.\n\nWir bieten ein inspirierendes, internationales und kollaboratives Arbeitsumfeld, in dem Ihr Beitrag konkrete Auswirkungen hat und in dem Ihre Ideen geschätzt werden. Dank eines flexiblen Arbeitsumfelds und attraktiver Arbeitsbedingungen sind wir",
-        "fr": "Mission\n\nDans le cadre de sa stratégie Impact, l'EPFL renforce ses activités d'engagement public afin de favoriser le dialogue entre la recherche et la société. Pour soutenir cette ambition en Valais, nous recherchons un·e Coordinateur·trice de Projet Outreach / Engagement Public (50%) chargé·e de concevoir, coordonner et mettre en œuvre des projets qui rendent la science accessible, encouragent la participation des publics et créent des opportunités d'échange autour des grands enjeux scientifiques et technologiques contemporains.\n\nRattaché·e à la Vice-présidence pour l'Innovation et l'Impact (VPI) et travaillant en étroite collaboration avec la direction de l'EPFL Valais Wallis, le Service de promotion des sciences (SPS), le Département de la communication, les laboratoires de l’EPFL Valais Wallis et autres parties prenantes concernées, vous contribuez à nourrir le dialogue science-société en Valais et à faire émerger des formats innovants d'engagement public.\n\nPrincipales tâches et responsabilités\n\n• Concevoir, planifier et piloter des projets d’engagement public favorisant le dialogue entre science et société, tels que des cycles de conférences, des initiatives art-science ou d’autres événements grand public.\n\n• Assurer le suivi opérationnel des projets, incluant la gestion des calendriers, budgets, aspects logistiques, intervenant·es et partenaires, ainsi que l’organisation et l’animation des réunions de projet.\n\n• Coordonner les initiatives d’engagement public menées en Valais afin d’en renforcer la cohérence, la visibilité et l’impact.\n\n• Accompagner les laboratoires de l’EPFL Valais Wallis dans la conception et la mise en œuvre de leurs activités d’engagement public, et soutenir le Service de promotion des sciences dans l’organisation de l’édition valaisanne du festival Scientastic.\n\n• Contribuer au développement et au déploiement de la stratégie d’engagement public de l’EPFL en Valais, en collaboration avec les parties prenantes internes concernées.\n\n• Identifier, développer et entretenir des collaborations avec les acteurs externes du territoire valaisan afin de favoriser les synergies entre science et société.\n\n• Assurer le suivi, l’évaluation et l’amélioration continue des activités menées afin d’en renforcer la qualité, la portée et l’impact.\n\nProfil\n\n• Formation scientifique ou technique, ou expérience professionnelle démontrant une bonne compréhension du monde académique et de la recherche. Une connaissance des domaines d'excellence de l'EPFL Valais Wallis constitue un atout.\n\n• Expérience et fort intérêt pour les interactions entre science et société ainsi que pour les démarches d'engagement public.\n\n• Expérience en coordination de projets et évènements impliquant une diversité de parties prenantes, idéalement dans un environnement académique, scientifique, ou similaire.\n\n• Bonne connaissance de l'écosystème valaisan et capacité à identifier des opportunités de collaboration et à développer des partenariats locaux.\n\n• Excellentes compétences relationnelles, avec la capacité de collaborer efficacement avec des interlocuteurs variés et d'évoluer de manière autonome dans un environnement décentralisé.\n\n• Force de proposition et capacité à développer et mettre en œuvre de nouvelles initiatives.\n\n• Très bonnes connaissances du français et de l’anglais, à l'oral comme à l'écrit. Une bonne connaissance de l’allemand est un réel atout.\n\nNous offrons\n\nÀ l'EPFL, nous avons la conviction que chacun et chacune peut accomplir de grandes choses lorsqu'il ou elle évolue dans un environnement bienveillant, respectueux et propice à la réussite. En rejoignant notre institution, vous contribuerez à façonner l'avenir de la société grâce à l'éducation, la recherche et l'innovation.\n\nNous offrons un environnement de travail inspirant, international et collaboratif, où votre contribution a un impact concret et où vos idées sont valorisées. Grâce à un cadre de travail flexible et à des conditions d’emploi attractives, nous nous engageons à créer un environnement dans lequel chacun et chacune peut s’épanouir, développer son potentiel et faire la différence.\n\nAu-delà de votre activité professionnelle, nos campus accueillent une communauté dynamique dans un cadre unique, porté par de nombreuses initiatives en faveur de l’égalité, de l’inclusion, de la diversité, du bien-être et de la durabilité. Tout au long de l’année, un programme varié d’activités culturelles, sportives et communautaires vient également renforcer la vie du campus.\n\nDécouvrez nos conditions d’emploi et les avantages offerts à nos collaboratrices et collaborateurs.\n\nInformations\n\nDate d'entrée en fonction : Dès que possible\n\nTaux d'occupation min : 50,00\n\nTaux d'occupation max : 50,00\n\nType de contrat : CDD\n\nDurée : 1 an, renouvelable\n\nLieu : Poste de travail basé à Sion à l'EPFL Valais Wallis, avec des déplacements réguliers à EPFL Lausanne.\n\nRéférence : 2483"
-      },
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://careers.epfl.ch/job/Sion-Coordinateur%C2%B7trice-de-Projet-Outreach-Engagement-Public-%2850%29/1165512155/",
-      "source": "EPFL Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:22:39.217Z",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "education",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T00:00:00Z",
-      "postedDate": "2026-09-25T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.epfl.ch/job/Sion-Coordinateur%C2%B7trice-de-Projet-Outreach-Engagement-Public-%2850%29/1165512155/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Administratif",
-      "contractType": "Administratif",
-      "externalId": "1165512155",
-      "previousSlugs": [
-        "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
-        ],
-        "en": [
-          "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
-        ],
-        "de": [
-          "coordinateur-trice-de-projet-outreach-engagement-public-50-epfl-sion"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T14:45:13.674Z",
-      "salaryMin": 30300,
-      "salaryMax": 45800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 30300,
-          "maxValue": 45800,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "addressRegion": "VS",
       "crawlerMissStreak": 2
     }
   ]

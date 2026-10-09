@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-10-08T09:12:19.818Z",
+  "assembledAt": "2026-10-08T22:13:55.205Z",
   "jobs": [
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:12:14.470Z",
+      "crawledAt": "2026-10-08T22:13:46.427Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -54,15 +54,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0045",
-      "firstSeenAt": "2026-08-12T10:20:12.754Z",
+      "previousSlugs": [
+        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
-      ],
+      "firstSeenAt": "2026-08-12T10:20:12.754Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -109,7 +109,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:12:13.752Z",
+      "crawledAt": "2026-10-08T22:13:45.636Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -129,15 +129,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "0021",
-      "firstSeenAt": "2026-07-12T22:16:26.830Z",
+      "previousSlugs": [
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
-      ],
+      "firstSeenAt": "2026-07-12T22:16:26.830Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",

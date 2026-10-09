@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "salina-reha",
+  "assembledAt": "2026-10-08T22:13:45.394Z",
   "jobs": [
     {
       "id": "salina-reha-282e4ea67fd3",
@@ -31,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:15:34.681Z",
+      "crawledAt": "2026-10-08T22:13:31.393Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -114,7 +116,5 @@
         }
       }
     }
-  ],
-  "crawlerKey": "salina-reha",
-  "assembledAt": "2026-10-08T09:15:42.001Z"
+  ]
 }

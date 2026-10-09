@@ -339,15 +339,25 @@ export function getCascadeStats() {
  *     eco della sorgente o del prompt, risposta vuota, errore della chiamata.
  *     Le meta-risposte scartate dentro la sezione non arrivano a `tryTier`,
  *     quindi si contano per differenza e non dai bucket della cascata.
+ *   - `failedRequests`: richieste con errore di trasporto o almeno una riga
+ *     vuota/respinta; un gruppo parziale conta una sola volta.
  */
 export function getCodexTierStats() {
   const s = _cascadeStats;
+  const avgTextsPerCall = _codexCalls > 0 ? _codexTexts / _codexCalls : 0;
+  const avgCharsPerCall = _codexCalls > 0 ? _codexChars / _codexCalls : 0;
   return {
     position: _codexTierPosition(),
     lanePresent: _codexSocketPresent(),
     premiumDown: _premiumTiersDownForRun(),
     calls: _codexCalls,
     textsSent: _codexTexts,
+    charsSent: _codexChars,
+    avgTextsPerCall,
+    avgCharsPerCall,
+    maxTextsPerCall: _codexMaxBatchTexts,
+    maxCharsPerCall: _codexMaxBatchChars,
+    failedRequests: _codexFailedRequests,
     spentMs: Math.round(_codexSpentNow()),
     maxCalls: _codexBudget('FREE_TRANSLATE_CODEX_MAX_CALLS', CODEX_TRANSLATE_MAX_CALLS_DEFAULT),
     maxMs: _codexBudget('FREE_TRANSLATE_CODEX_MAX_MS', CODEX_TRANSLATE_MAX_MS_DEFAULT),
@@ -415,7 +425,9 @@ export function logCascadeSummary() {
   }
   if (_codexCalls > 0 || _codexStopReason) {
     const maxCalls = _codexBudget('FREE_TRANSLATE_CODEX_MAX_CALLS', CODEX_TRANSLATE_MAX_CALLS_DEFAULT);
-    console.log(`   🤖 Codex Luna Max: ${_codexCalls}/${maxCalls} calls (${_codexTexts} texts), ${Math.round(_codexSpentNow() / 1000)}s${_codexStopReason ? ` (stopped: ${_codexStopReason})` : ''}`);
+    const textsPerCall = _codexCalls > 0 ? (_codexTexts / _codexCalls).toFixed(1) : '0.0';
+    const charsPerCall = _codexCalls > 0 ? Math.round(_codexChars / _codexCalls) : 0;
+    console.log(`   🤖 Codex Luna Max: ${_codexCalls}/${maxCalls} calls (${_codexTexts} texts, ${_codexChars} chars, ${textsPerCall} texts/call, ${charsPerCall} chars/call), ${Math.round(_codexSpentNow() / 1000)}s${_codexStopReason ? ` (stopped: ${_codexStopReason})` : ''}`);
   }
   const gcAuth = [
     _gcServiceAccountAvailable ? 'service-account' : '',
@@ -1254,8 +1266,10 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 //     primo posto libero quelli con la stessa coppia di lingue partono insieme
 //     in UNA richiesta con uno schema a id: ogni gruppo prende la sua parte
 //     della coda (coda / corsie, fino a FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS
-//     testi, default 5, e 3000 caratteri). Stesso tempo per testo, circa un
-//     quarto dei token. Testi identici in coda diventano una voce sola.
+//     testi e FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS caratteri, default 3000).
+//     Il budget di caratteri evita che molti testi brevi occupino la stessa
+//     richiesta quanto poche descrizioni lunghe. Testi identici in coda
+//     diventano una voce sola.
 // Ogni chiamante riceve comunque la sua `Promise<string>`: `tryTier` conta
 // successi, echi ed errori testo per testo, come prima. Con
 // FREE_TRANSLATE_CODEX_LANES=1 e FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1 il tier
@@ -1268,8 +1282,13 @@ const CODEX_TRANSLATE_MAX_MS_DEFAULT = 5 * 60 * 1000;
 const CODEX_TRANSLATE_LANES_DEFAULT = 2;
 const CODEX_TRANSLATE_LANES_MAX = 3;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
-const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
-const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
+// 50 rows / 50k characters are safety/calibration ceilings for the requested
+// 10/25/50 probe sizes, not production targets. The production workflow keeps
+// the current defaults (10 / 3000) until a real Luna Max run establishes a
+// larger safe size.
+const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 50;
+const CODEX_TRANSLATE_BATCH_MAX_CHARS_DEFAULT = 3000;
+const CODEX_TRANSLATE_BATCH_MAX_CHARS_LIMIT = 50_000;
 const CODEX_TRANSLATE_BATCH_COLLECTION_MS = 25;
 // Sotto questo residuo una chiamata non ha il tempo di finire: stesso minimo
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
@@ -1374,6 +1393,10 @@ const CODEX_TRANSLATE_BATCH_SCHEMA = Object.freeze({
 
 let _codexCalls = 0;
 let _codexTexts = 0;
+let _codexChars = 0;
+let _codexMaxBatchTexts = 0;
+let _codexMaxBatchChars = 0;
+let _codexFailedRequests = 0;
 let _codexSpentMs = 0;
 // Inizio del tratto in corso con almeno una richiesta in volo (0 = nessuna).
 let _codexBusySince = 0;
@@ -1620,14 +1643,21 @@ function _codexBatchMaxTexts() {
   return Math.min(Math.max(texts, 1), CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT);
 }
 
+function _codexBatchMaxChars() {
+  const chars = _codexBudget('FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS', CODEX_TRANSLATE_BATCH_MAX_CHARS_DEFAULT);
+  return Math.min(Math.max(chars, 1), CODEX_TRANSLATE_BATCH_MAX_CHARS_LIMIT);
+}
+
 /**
  * Il batching ritardato e' una opt-in dei workflow che hanno misurato la
- * necessita' di accorpare testi. Senza una variabile esplicita il percorso
- * generale conserva l'avvio immediato delle richieste singleton.
+ * necessita' di accorpare testi: basta esplicitare il tetto di righe oppure il
+ * budget di caratteri. Senza una variabile esplicita il percorso generale
+ * conserva l'avvio immediato delle richieste singleton.
  */
 function _codexBatchingExplicitlyEnabled() {
-  const raw = String(process.env.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS || '').trim();
-  return /^\d+$/.test(raw) && Number(raw) > 1;
+  const rawTexts = String(process.env.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS || '').trim();
+  const rawChars = String(process.env.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS || '').trim();
+  return (/^\d+$/.test(rawTexts) && Number(rawTexts) > 1) || /^\d+$/.test(rawChars);
 }
 
 /** Tempo di orologio speso finora con almeno una richiesta in volo. */
@@ -1689,10 +1719,11 @@ function _takeCodexGroup() {
   const maxTexts = pendingCount <= _codexLanes() && _codexBatchingExplicitlyEnabled()
     ? Math.min(_codexBatchMaxTexts(), pendingCount)
     : Math.min(_codexBatchMaxTexts(), Math.max(share, 1));
+  const maxChars = _codexBatchMaxChars();
   for (let i = 0; i < _codexPending.length && group.length < maxTexts;) {
     const item = _codexPending[i];
     if (item.sourceLang === first.sourceLang && item.targetLang === first.targetLang
-      && chars + item.clean.length <= CODEX_TRANSLATE_BATCH_MAX_CHARS) {
+      && chars + item.clean.length <= maxChars) {
       group.push(item);
       chars += item.clean.length;
       _codexPending.splice(i, 1);
@@ -1763,8 +1794,12 @@ async function _translateGroupWithCodex(group) {
   }
   // Testi identici in coda diventano una voce sola.
   const unique = [...new Set(group.map((item) => item.clean))];
+  const requestChars = unique.reduce((total, text) => total + text.length, 0);
   _codexCalls += 1;
   _codexTexts += unique.length;
+  _codexChars += requestChars;
+  _codexMaxBatchTexts = Math.max(_codexMaxBatchTexts, unique.length);
+  _codexMaxBatchChars = Math.max(_codexMaxBatchChars, requestChars);
   const { sourceLang, targetLang } = group[0];
   const call = _codexCallForTests || ai.callLLM;
   const opts = {
@@ -1784,6 +1819,7 @@ async function _translateGroupWithCodex(group) {
     // Il messaggio non si stampa (puo' portare la coda di stderr del broker):
     // `tryTier` conta l'errore in `tierErrors.codex`, testo per testo.
     for (const item of group) _logCodexNonTranslation(item, 'error');
+    _codexFailedRequests += 1;
     _noteCodexFailure(unique, targetLang);
     throw err;
   }
@@ -1798,10 +1834,6 @@ async function _translateGroupWithCodex(group) {
   // lo streak e non spegne il tier che puo' ancora tradurre altri testi.
   const realFailures = new Set();
   const invariantEchoes = new Set();
-  // Echi senza prova che il testo fosse nella lingua sorgente: non sono
-  // traduzioni (il chiamante passa al tier successivo) ma non dicono nulla
-  // sulla salute della lane, quindi non muovono lo streak in nessun verso.
-  const unprovenEchoes = new Set();
   const translated = new Set();
   for (const source of unique) {
     const out = byText.get(source) || '';
@@ -1825,10 +1857,13 @@ async function _translateGroupWithCodex(group) {
     }
     if (isSourcePassthrough(source, out)) {
       const invariantReason = _codexInvariantEchoReason(source, out, item.sourceLang, item.targetLang, item.outcome);
-      _logCodexNonTranslation(item, invariantReason ? `invariant-${invariantReason}` : 'echo-source');
+      const provenSourceEcho = _codexEchoProvesSourceLanguage(source, item.sourceLang, item.targetLang);
+      const echoReason = invariantReason
+        ? `invariant-${invariantReason}`
+        : provenSourceEcho ? 'echo-source' : 'echo-unproven';
+      _logCodexNonTranslation(item, echoReason);
       if (invariantReason) invariantEchoes.add(source);
-      else if (_codexEchoProvesSourceLanguage(source, item.sourceLang, item.targetLang)) realFailures.add(source);
-      else unprovenEchoes.add(source);
+      else if (provenSourceEcho) realFailures.add(source);
       continue;
     }
     translated.add(source);
@@ -1839,11 +1874,14 @@ async function _translateGroupWithCodex(group) {
   });
   // Un eco sostanziale della sorgente non e' una traduzione: `tryTier` lo
   // rifiuta e lo conta fra i passthrough, e qui conta come fallimento.
-  // L'eccezione e' una riga che il rilevatore classifica come invariabile:
-  // azzerare lo streak su quella riga evita di consumare tutto il budget su
-  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri. Una
-  // richiesta di soli echi non provati (`unprovenEchoes`) lascia lo streak
-  // com'e'.
+  // Una richiesta che ha tradotto anche una sola riga prova che il tier
+  // funziona: azzera lo streak e conserva i risultati buoni, mentre le righe
+  // vuote/respinte ricadono nei tier successivi. Con gruppi da decine di righe
+  // quasi ogni richiesta contiene qualche riga respinta (run 37791884167: 144
+  // su 2860 nella 2b): contarla come fallimento spegnerebbe il tier dopo tre
+  // richieste riuscite. `failedRequests` resta una metrica, non lo streak.
+  // Solo una richiesta SENZA alcuna traduzione entra nello streak, una volta.
+  if (realFailures.size > 0) _codexFailedRequests += 1;
   if (translated.size > 0) _resetCodexFailureStreak();
   else if (realFailures.size > 0) _noteCodexFailure(realFailures, targetLang);
   else if (invariantEchoes.size > 0) _resetCodexFailureStreak();
@@ -1920,6 +1958,10 @@ export function setCodexTranslateCallForTests(fn) {
   _codexCallForTests = typeof fn === 'function' ? fn : null;
   _codexCalls = 0;
   _codexTexts = 0;
+  _codexChars = 0;
+  _codexMaxBatchTexts = 0;
+  _codexMaxBatchChars = 0;
+  _codexFailedRequests = 0;
   _codexSpentMs = 0;
   _codexBusySince = 0;
   _resetCodexFailureStreak();

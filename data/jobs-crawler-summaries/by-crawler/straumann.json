@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-08T09:15:50.716Z",
+  "generatedAt": "2026-10-08T22:08:34.799Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5357,
-  "avgDurationMs": 5357,
+  "durationMs": 4557,
+  "avgDurationMs": 4557,
   "durationHistory": [
-    5357
+    4557
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:15:35.255Z",
+      "crawledAt": "2026-10-08T22:08:22.337Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -52,7 +52,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
-      "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5451,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-10-03T09:10:03.139Z",
       "salaryMin": 63000,
       "salaryMax": 112000,
@@ -77,7 +79,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:15:34.640Z",
+      "crawledAt": "2026-10-08T22:08:22.044Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -95,6 +97,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 17546,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "salaryMin": 52500,
       "salaryMax": 92500,
@@ -122,7 +127,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:15:34.183Z",
+      "crawledAt": "2026-10-08T22:08:21.725Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -139,6 +144,9 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 5225,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -153,5 +161,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-10-08T09:53:23.040Z",
+  "generatedAt": "2026-10-08T22:30:18.751Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8000,
-  "avgDurationMs": 8000,
+  "durationMs": 6489,
+  "avgDurationMs": 6489,
   "durationHistory": [
-    8000
+    6489
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -168,8 +168,8 @@
       "sourceIdentity": "url:https://careers.aristongroup.com/job/bern-servicetechniker-%c3%96l-%28mw%29-bern-3004/1434712933",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "postalCode": "3004",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -206,11 +206,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T23:22:54.730Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://careers.aristongroup.com/job/saint-moritz-servicetechniker-%c3%96l-%28mw%29-50-70-engadin-st_-7500/1435684633",
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "7500",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -263,46 +263,6 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "title": "TECHNICIEN/NE DE SERVICE GAZ/MAZOUT PULSÉ - RÉGION GÉNEVE",
-      "slug": "gas-mazout-pulse-service-technician-geneva-region-ariston-group-geneve-ch-1202",
-      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZMAZOUT-PULS%C3%89-R%C3%89GION-G%C3%89NEVE-Gen%C3%A8-1202/1441047333/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1441047333/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Genève, CH, 1202",
-      "addressLocality": "Genève, CH, 1202",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "ariston-group-53c74dd45e26",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-24T14:43:28.119Z",
-      "sourceIdentity": "url:https://careers.aristongroup.com/job/geneve-technicienne-de-service-gazmazout-puls%c3%89-r%c3%89gion-g%c3%89neve-gen%c3%a8-1202/1441047333",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "1201",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 20
-      }
-    },
     {
       "title": "TECHNICIEN/NE DE SERVICE MAZOUT - RÉGION NEUCHÂTEL",
       "slug": "tecnico-del-servizio-olio-combustibile-regione-di-neuchatel-ariston-group-fontaines-ch-2046",
@@ -461,7 +421,47 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "title": "TECHNICIEN/NE DE SERVICE GAZ/MAZOUT PULSÉ - RÉGION GÉNEVE",
+      "slug": "gas-mazout-pulse-service-technician-geneva-region-ariston-group-geneve-ch-1202",
+      "url": "https://careers.aristongroup.com/job/Geneve-TECHNICIENNE-DE-SERVICE-GAZMAZOUT-PULS%C3%89-R%C3%89GION-G%C3%89NEVE-Gen%C3%A8-1202/1441047333/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1441047333/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Genève, CH, 1202",
+      "addressLocality": "Genève, CH, 1202",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "ariston-group-53c74dd45e26",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-24T14:43:28.119Z",
+      "sourceIdentity": "url:https://careers.aristongroup.com/job/geneve-technicienne-de-service-gazmazout-puls%c3%89-r%c3%89gion-g%c3%89neve-gen%c3%a8-1202/1441047333",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "1201",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

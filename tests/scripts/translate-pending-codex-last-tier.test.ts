@@ -46,14 +46,15 @@ function expectBudget(step: Step) {
   const calls = effectiveMaxCalls();
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
   expect(calls, step.name).toBe(DEFAULT_CODEX_MAX_CALLS);
-  // Il proprietario ha chiesto il 2026-10-06 di alzare le chiamate (30 -> 180).
-  // Il valore 350 e' derivato, non deciso da lui: e' quanto entra nei 900 s di
-  // una corsia di riparazione con 3 corsie Codex a ~7,6 s per chiamata (run
-  // 37654795148, fase 2b: 177 chiamate in 1342 s). I budget di tempo non
-  // cambiano. Il tetto resta scritto: un valore piu' alto passa da una nuova
-  // decisione, non da un refuso. La variabile di repository
-  // FREE_TRANSLATE_CODEX_MAX_CALLS resta il rollback immediato.
-  expect(calls, step.name).toBeLessThanOrEqual(350);
+  // Il proprietario ha confermato il 2026-10-08: «va bene 350 come valore per
+  // codex se ci sono traduzioni da fare». E' il tetto per fase/run, distinto
+  // dal budget di tempo e dal nuovo budget di caratteri; la variabile di
+  // repository FREE_TRANSLATE_CODEX_MAX_CALLS resta il rollback immediato.
+  expect(calls, step.name).toBe(350);
+  // Descrizioni (2b, 2e): 25 righe per richiesta, misurate con Codex Luna Max
+  // reale l'8 ottobre 2026; titoli (2a.2, 2d): 10.
+  expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, step.name).toBe(/Phase 2[be]:/.test(String(step.name)) ? '25' : '10');
+  expect(step.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, step.name).toBe('3000');
   expect(ms, step.name).toBeGreaterThan(0);
   // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
   // riparazione restano a 15: la 2d/2e partono con almeno 15 minuti residui

@@ -43,6 +43,20 @@ describe('jobsSeoPagesPlugin search landing fallback', () => {
   });
 });
 
+describe('job-card accessible names', () => {
+  it('derives both static card names from their complete visible contents', () => {
+    const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');
+
+    expect(source).toContain('<a href="${href}" class="rja">');
+    expect(source).toContain('<a href="${cHref}" class="cb">');
+    expect(source).toContain('<div class="rjt">${esc(relatedTitle)}</div>');
+    expect(source).toContain('<div class="rjs">${esc(rCompany)}${rLocation ? ` · ${esc(rLocation)}` : \'\'}</div>');
+    expect(source).toContain('<div class="rjp">${esc(rSalary)}</div>');
+    expect(source).not.toContain('aria-label="${esc(relatedTitle)} — ${esc(r.company)}"');
+    expect(source).not.toContain('aria-label="${esc(anchorText)}"');
+  });
+});
+
 describe('jobsSeoPagesPlugin static payload budget', () => {
   it('uses job-offer intent for Italian canton landing titles', () => {
     const source = readFileSync(resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'), 'utf8');

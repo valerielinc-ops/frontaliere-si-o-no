@@ -152,4 +152,105 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     expect(html).toContain('seo-static-content');
     expect(html).toContain('<h1>Test</h1>');
   });
+  it('promotes a caller-owned main instead of nesting another landmark', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main class="seo-static-content max-w-[820px]"><h1>Test</h1></main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content\b/);
+    expect(html).toContain('max-w-[820px]');
+  });
+
+  it('wraps plain static content in one canonical landmark', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<article><h1>Test</h1></article>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?seo-static-content\b/);
+    expect(html).toContain('<article><h1>Test</h1></article>');
+  });
+
+  it('keeps trailing static ads inside the center rail grid column', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main class="seo-static-content"><h1>Test</h1></main><section class="ad">Ad</section>',
+    });
+    const gridStart = html.indexOf('ft-rail-grid');
+    const footerRoot = html.indexOf('<div id="footer-root">');
+    const grid = html.slice(gridStart, footerRoot);
+    const mainStart = grid.indexOf('<main');
+    const mainEnd = grid.indexOf('</main>');
+    const adPosition = grid.indexOf('<section class="ad">');
+    const rightRail = grid.indexOf('id="rail-right-root"');
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(grid).toContain('<section class="ad">Ad</section>');
+    expect(mainStart).toBeGreaterThan(-1);
+    expect(adPosition).toBeGreaterThan(mainStart);
+    expect(adPosition).toBeLessThan(mainEnd);
+    expect(mainStart).toBeLessThan(rightRail);
+    expect((grid.match(/<aside\b/g) ?? []).length).toBe(2);
+  });
+
+  it('adds the marker class without rewriting a data-class attribute', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main data-class="x">Test</main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main data-class="x" class="seo-static-content">Test</main>');
+    expect(html).not.toContain('data-class="seo-static-content"');
+  });
+
+  it('ignores a literal closing main inside a trailing script', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main>Test</main><script>const s = "</main>";</script>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main class="seo-static-content">Test<script>const s = "</main>";</script></main>');
+  });
+
+  it('keeps quoted greater-than characters in the promoted opening tag', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main data-label="a>b">Test</main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toContain('<main data-label="a>b" class="seo-static-content">Test</main>');
+  });
+
+  it('keeps a non-lite-shell class when promoting an existing main', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      seoMainClass: 'cluster-seo-prose',
+      bodyHtml: '<main class="cluster-seo-prose"><h1>Test</h1></main>',
+    });
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(html).toMatch(/<main\b[^>]*class=["']?cluster-seo-prose\b/);
+    expect(html).not.toMatch(/<main\b[^>]*seo-static-content/);
+  });
+
+  it('emits both favicon formats in the shared static-page head', () => {
+    const html = buildSimplePage(baseOpts);
+    expect(html).toContain('<link rel="icon" href="/favicon.ico" sizes="48x48">');
+    expect(html).toContain('<link rel="icon" type="image/svg+xml" href="/favicon.svg">');
+  });
+});
+
+describe('seo hub heads · favicon contract', () => {
+  const source = readBuildPluginSource(join(BUILD_PLUGINS_DIR, 'seoHubsPlugin.ts'));
+
+  it('uses the shared favicon fragment in both hand-rolled hub head templates', () => {
+    expect(source).toMatch(/\bFAVICON_LINKS\b/);
+    expect((source.match(/\$\{FAVICON_LINKS\}/g) ?? [])).toHaveLength(2);
+  });
 });

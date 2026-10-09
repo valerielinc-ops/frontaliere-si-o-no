@@ -34,6 +34,17 @@ describe('fincons-job-parser', () => {
     )).toMatchObject({ location: 'Bern', canton: 'BE' });
   });
 
+  it('classifies work-mode-only rows as non-target and never falls back to a stale Swiss city', () => {
+    for (const label of ['Remote', 'Home Office', 'Hybrid (CH)']) {
+      expect(classifyFinconsLocation(label), label).toBe('foreign');
+    }
+    expect(resolveFinconsLocation(
+      { location: 'Remote' },
+      { location: 'Lugano, Ticino, Switzerland' },
+    )).toBeNull();
+    expect(classifyFinconsLocation('Remote - Zurich')).toBe('swiss');
+  });
+
   it('parses Lugano listing rows', () => {
     const html = `
       <table id="jobs_table">

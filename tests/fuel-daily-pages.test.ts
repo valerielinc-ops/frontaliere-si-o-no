@@ -293,6 +293,47 @@ describe('fuel-daily page generation — content quality', () => {
     expect(english).not.toContain('about 200 litres');
   });
 
+  it('uses linked ARIA tabs for the benzina and diesel history charts', () => {
+    const ranges = ['1M', '3M', '6M', '1Y', '5Y'];
+    for (const path of ['/prezzi-benzina/oggi/', '/prezzi-diesel/oggi/']) {
+      const html = pages[path];
+      const tablist = html.match(/<div\b[^>]*class=(?:"s-fhc-r"|s-fhc-r)[^>]*role=(?:"tablist"|tablist)[^>]*>([\s\S]*?)<\/div>/);
+      expect(tablist, `missing fuel history tablist on ${path}`).toBeTruthy();
+      const tabMarkup = tablist?.[1] ?? '';
+      const tabs = [...tabMarkup.matchAll(/<button\b([^>]*)>/g)].map((match) => match[1]);
+      expect(tabs, `tab count on ${path}`).toHaveLength(ranges.length);
+
+      const attr = (markup: string, name: string): string => {
+        const match = markup.match(new RegExp(`${name}=(?:"([^"]*)"|([^\\s>]+))`));
+        return match?.[1] ?? match?.[2] ?? '';
+      };
+
+      const selectedRanges: string[] = [];
+      for (const [index, attrs] of tabs.entries()) {
+        const range = attr(attrs, 'data-range-btn');
+        expect(range, `${path} tab ${index} range`).toBe(ranges[index]);
+        expect(attr(attrs, 'role'), `${path} tab ${range} role`).toBe('tab');
+        const tabId = attr(attrs, 'id');
+        const panelId = attr(attrs, 'aria-controls');
+        expect(tabId, `${path} tab ${range} id`).toBeTruthy();
+        expect(panelId, `${path} tab ${range} panel relation`).toBeTruthy();
+        expect(attrs, `${path} tab ${range} must not use aria-pressed`).not.toMatch(
+          /\baria-pressed=/,
+        );
+        if (attr(attrs, 'aria-selected') === 'true') selectedRanges.push(range);
+
+        const panel = html.match(new RegExp(`<div data-range-content=(?:"${range}"|${range})([^>]*)>`));
+        expect(panel, `${path} panel for ${range}`).toBeTruthy();
+        const panelAttrs = panel?.[1] ?? '';
+        expect(attr(panelAttrs, 'id'), `${path} panel ${range} id`).toBe(panelId);
+        expect(attr(panelAttrs, 'role'), `${path} panel ${range} role`).toBe('tabpanel');
+        expect(attr(panelAttrs, 'aria-labelledby'), `${path} panel ${range} relation`).toBe(tabId);
+        expect(attr(panelAttrs, 'tabindex'), `${path} panel ${range} keyboard target`).toBe('0');
+      }
+      expect(selectedRanges, `selected tab on ${path}`).toEqual(['6M']);
+    }
+  });
+
   it('locale coverage — exactly 4 locales × 2 fuels × 6 combos', () => {
     const byLocale: Record<string, number> = { it: 0, en: 0, de: 0, fr: 0 };
     for (const path of Object.keys(pages)) {

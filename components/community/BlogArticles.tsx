@@ -1,5 +1,5 @@
 import AffiliateLink from '@/components/shared/AffiliateLink';
-import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
@@ -26,6 +26,7 @@ import type { ArticleSection } from '@/services/articleSections';
 import { cantonSectionConfig, isCantonArticleSection } from '@/services/runtimeArticleSections';
 import CantonTopicHub from '@/components/community/CantonTopicHub';
 import { cantonDisplayName, cantonSectionLabel } from '@/packages/articles/engine/shared/cantonSectionCopy.mjs';
+import { isStaticArticleReadyForTakeover } from '@/services/staticFallbackHandoff';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -319,7 +320,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  rel="noopener noreferrer"
  className="inline text-accent font-medium underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors"
  >
- {match[5]}
+ {renderInlineFormatting(match[5], navigators)}
  </a>
  );
  } else if (match[8] && match[9]) {
@@ -330,7 +331,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  href={match[9]}
  className="inline text-accent font-medium underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors"
  >
- {match[8]}
+ {renderInlineFormatting(match[8], navigators)}
  </a>
  );
  } else if (match[11]) {
@@ -1232,6 +1233,12 @@ interface BlogArticlesProps {
  onCantonTopicReady?: (key: string) => void;
  /** Keep the React loading shell behind the corpus snapshot on a cold page load. */
  deferUntilCantonTopicReady?: boolean;
+ /** Stable article key whose static fallback remains visible until takeover. */
+ articleReadyKey?: string;
+ /** Complete the static article → React handoff after the article body paints. */
+ onArticleReady?: (key: string) => void;
+ /** Keep both the hub and the article skeleton out of the static fallback flow. */
+ deferUntilArticleReady?: boolean;
 }
 
 /* CTA widget config */
@@ -1332,6 +1339,9 @@ function BlogArticlesContent({
  section = 'frontaliere',
  page,
  onPageChange,
+ articleReadyKey,
+ onArticleReady,
+ deferUntilArticleReady = false,
 }: BlogArticlesProps) {
  // Build the route for an article in the active section. Canton article ids
  // are resolved from the published section index and deliberately never fall
@@ -2130,6 +2140,28 @@ function BlogArticlesContent({
  const selectedArticleObj = selectedArticle ? articleById.get(selectedArticle) ?? null : null;
  const articleCTAs = useMemo(() => selectedArticle ? getArticleCTAs(selectedArticle) : [], [selectedArticle, navigators, articles, t]);
  const sidePartners = useMemo(() => selectedArticleObj ? getPartnersForCategory(selectedArticleObj.category, 4) : [], [selectedArticleObj?.category]);
+ const articleTitleKey = selectedArticle ? `blog.article.${selectedArticle}.title` : '';
+ const articleTitleForHandoff = articleTitleKey ? t(articleTitleKey) : '';
+ const articleBodyForHandoff = selectedArticle && bodyReady
+  ? collectArticleBodySegments(selectedArticle, t)
+  : [];
+ const articleReadyForStaticTakeover = isStaticArticleReadyForTakeover({
+  deferUntilReady: deferUntilArticleReady,
+  blogReady,
+  bodyReady,
+  articlePresent: !!selectedArticleObj,
+  title: articleTitleForHandoff,
+  titleKey: articleTitleKey,
+  bodySegmentCount: articleBodyForHandoff.length,
+ });
+
+ // Signal only after the real article DOM has committed. App.tsx then clears
+ // the static-owner key and hides the sibling in the same pre-paint cycle, so
+ // the static article and the SPA article never exchange through a blank frame.
+ useLayoutEffect(() => {
+  if (!articleReadyForStaticTakeover || !articleReadyKey) return;
+  onArticleReady?.(articleReadyKey);
+ }, [articleReadyForStaticTakeover, articleReadyKey, onArticleReady]);
 
  /** Returns imageAlt translation if available, falls back to article title */
  const getImageAlt = (id: string) => {
@@ -2270,6 +2302,11 @@ function BlogArticlesContent({
  const localeMap: Record<string, string> = { it: 'it-IT', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
  return d.toLocaleDateString(localeMap[locale] ?? 'it-IT', { day: 'numeric', month: 'long', year: 'numeric', ...(sourceDate.length === 10 ? { timeZone: 'UTC' } : {}) });
  };
+
+ // During the static article handoff neither the hub list nor a loading
+ // skeleton is a valid substitute. If the body never becomes renderable, this
+ // remains null indefinitely and the static fallback remains the owner.
+ if (deferUntilArticleReady && !articleReadyForStaticTakeover) return null;
 
  // ── Loading blog translations ──────────────────────
  if (!blogReady) {

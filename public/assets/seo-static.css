@@ -1693,18 +1693,18 @@ main.seo-static-content > * { min-width: 0; width: 100%; }
  * style alone repeats ~13× per page; moving it here strips ~1.4 MB across the
  * fuel corpus. Computed style is byte-identical to the former inline strings.
  *
- * `.s-rbtn` active/inactive visuals are driven by the `aria-pressed` attribute
- * (already toggled by the inline range-selector script) so the script no
- * longer writes `style.background`/`style.color`. `.s-rcont` / `.s-rstat`
- * visibility is toggled via the `.s-on` class instead of `style.display`.
+ * `.s-rbtn` active/inactive visuals are driven by the `aria-selected` attribute
+ * (toggled by the external range-selector script) so the script no longer
+ * writes `style.background`/`style.color`. `.s-rcont` / `.s-rstat` visibility
+ * is toggled via the `.s-on` class instead of `style.display`.
  */
 .s-ctk { font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums }
 .s-fhc { background:var(--color-surface);border:1px solid var(--color-edge);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 14px }
 .s-fhc-h { display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:14px }
 .s-fhc-r { display:flex;gap:6px;flex-wrap:wrap }
 .s-rbtn { border:0;cursor:pointer;padding:6px 12px;border-radius:8px;font:600 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;transition:background-color 0.15s,color 0.15s }
-.s-rbtn[aria-pressed="true"] { background:var(--color-success-strong);color:var(--color-on-accent) }
-.s-rbtn[aria-pressed="false"] { background:var(--color-surface-raised);color:var(--color-subtle) }
+.s-rbtn[aria-selected="true"] { background:var(--color-success-strong);color:var(--color-on-accent) }
+.s-rbtn[aria-selected="false"] { background:var(--color-surface-raised);color:var(--color-subtle) }
 .s-rcont { display:none }
 .s-rcont.s-on { display:block }
 .s-rstat { display:none;justify-content:space-between;gap:8px;margin-top:14px;font:500 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-subtle);min-height:20px }

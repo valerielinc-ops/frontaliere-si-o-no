@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kone",
-  "assembledAt": "2026-10-08T09:42:55.167Z",
+  "assembledAt": "2026-10-08T22:28:20.200Z",
   "jobs": [
     {
       "id": "kone-5845ef254b6b",
@@ -34,7 +34,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-in-Aufzge--Gebiet-Luzern_R0662101",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:42:50.020Z",
+      "crawledAt": "2026-10-08T22:28:13.030Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Sachbearbeiter-in-HR-People---Communications-Generalist-50-_R0663358",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:42:49.211Z",
+      "crawledAt": "2026-10-08T22:28:12.182Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,16 +138,16 @@
       "jobReqId": "R0663358",
       "previousSlugs": [
         "commis-en-rh-personnes-communication-generaliste-50-kone-bruttisellen",
-        "sachbearbeiter-in-hr-people-communications-generalist-50-kone-bruttisellen",
-        "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch"
+        "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch",
+        "sachbearbeiter-in-hr-people-communications-generalist-50-kone-bruttisellen"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch"
+        ],
         "fr": [
           "commis-en-rh-personnes-communication-generaliste-50-kone-bruttisellen",
           "sachbearbeiter-in-hr-people-communications-generalist-50-kone-bruttisellen"
-        ],
-        "it": [
-          "sachbearbeiter-in-hr-people-communications-generalist-50-kone-ch"
         ]
       },
       "firstSeenAt": "2026-10-03T21:33:16.797Z",
@@ -198,7 +198,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:42:48.339Z",
+      "crawledAt": "2026-10-08T22:28:11.314Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Aufzugsmonteur-in---Region-Luzern_R0664487",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:42:47.304Z",
+      "crawledAt": "2026-10-08T22:28:10.454Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -360,7 +360,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Lausanne/Conseiller-re-de-vente-Modernisation---Suisse-romande_R0665148",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:42:46.329Z",
+      "crawledAt": "2026-10-08T22:28:09.708Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",

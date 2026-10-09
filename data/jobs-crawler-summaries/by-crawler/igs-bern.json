@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-10-08T09:17:39.803Z",
+  "generatedAt": "2026-10-08T22:18:35.262Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3746,
-  "avgDurationMs": 3746,
+  "unchangedCount": 2,
+  "durationMs": 3541,
+  "avgDurationMs": 3541,
   "durationHistory": [
-    3746
+    3541
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "igs-bern-53da410315b2",
       "slug": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
@@ -36,7 +38,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:30.797Z",
+      "crawledAt": "2026-10-08T22:18:24.865Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -72,12 +74,13 @@
       "companyKey": "igs-bern",
       "companyDomain": "igsbern.ch",
       "title": "Fachfrau/Fachmann Betreuung (FaBe) / Gesundheit (FaGe) EFZ (50 % - 70 %)",
+      "needsRetranslation": true,
       "location": "Moosseedorf",
       "canton": "BE",
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:17:30.244Z",
+      "crawledAt": "2026-10-08T22:18:24.308Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -110,7 +113,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

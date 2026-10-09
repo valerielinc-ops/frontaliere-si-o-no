@@ -7,6 +7,7 @@ import {
   isTitleRepairQueueVerdict,
   TITLE_REPAIR_QUEUE_REASONS,
 } from '../scripts/lib/untranslated-title-repair.mjs';
+import { shouldQueueArgosSlot } from '../scripts/local-mt-mopup.mjs';
 
 describe('title repair queue admission', () => {
   it('admits marker-backed real partial German residues from the language-arm queue', () => {
@@ -90,6 +91,112 @@ describe('title repair queue admission', () => {
       'binnen-i',
       'compound-residue',
     ]);
+  });
+
+  it('discovers for Codex the slot Argos hands off when job.title is empty and the source sits in titleByLocale', async () => {
+    // Review of PR 12463: the handoff read the source title with a fallback to
+    // the source-locale slot, the Codex discovery only read `job.title`, so a
+    // slot Argos gave up had no writer at all.
+    const { titleRepairQueueLocales, titleRepairSourceTitle } = await import('../scripts/lib/untranslated-title-repair.mjs');
+    const job = {
+      sourceLang: 'de',
+      title: '',
+      titleByLocale: {
+        de: 'Systemingenieur mit Projekterfahrung 80–100 %',
+        it: 'System Ingegnere con Projekterfahrung 80–100 %',
+      },
+      description: '',
+      descriptionByLocale: {},
+    };
+
+    expect(titleRepairSourceTitle(job)).toBe('Systemingenieur mit Projekterfahrung 80–100 %');
+    expect(shouldQueueArgosSlot(job, { locale: 'it', field: 'title' })).toBe(false);
+    expect(titleRepairQueueLocales(job, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    // A whitespace-only title is empty too: the fallback still applies.
+    expect(titleRepairQueueLocales({ ...job, title: '   ' }, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    expect(shouldQueueArgosSlot({ ...job, title: '   ' }, { locale: 'it', field: 'title' })).toBe(false);
+    // A regional source tag still resolves the base-language slot and never
+    // offers the source locale itself as a target.
+    const regional = { ...job, sourceLang: 'de-CH' };
+    expect(titleRepairSourceTitle(regional)).toBe('Systemingenieur mit Projekterfahrung 80–100 %');
+    expect(titleRepairQueueLocales(regional, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    // No source title anywhere: neither lane takes the slot.
+    expect(titleRepairQueueLocales({ ...job, titleByLocale: { it: job.titleByLocale.it } }, ['it', 'en', 'de', 'fr'])).toEqual([]);
+  });
+
+  it('keeps a failed Codex title in the Codex queue on the next run', async () => {
+    const fixer = await loadTitleFixer();
+    const data = fixture(1);
+    const state = { version: 1, attempts: {} };
+
+    const failed = await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: state,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 0, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async () => '',
+    });
+
+    expect(failed.totalFailed).toBe(1);
+    expect(state.attempts[data.candidates[0].key]).toMatchObject({ attempts: 1 });
+    expect(shouldQueueArgosSlot(data.jobs[0], { locale: 'it', field: 'title' })).toBe(false);
+
+    const recovered = await fixer.runTitleFixCandidatePool({
+      candidates: data.candidates,
+      sliceCache: data.sliceCache,
+      attemptState: state,
+      getCodexTierStats: () => ({ lanePresent: true, calls: 1, maxCalls: 20, spentMs: 0, maxMs: 100_000 }),
+      translate: async ({ text }) => translatedTitle(text),
+    });
+
+    expect(recovered.totalFixed).toBe(1);
+    expect(data.jobs[0].titleByLocale.it).toMatch(/^Ingegnere di sistema/);
+  });
+
+  it('keeps refusal, echo, and unavailable-Codex failures out of the Argos queue', async () => {
+    const failures = [
+      {
+        label: 'rifiuto',
+        lanePresent: true,
+        translate: async () => '',
+      },
+      {
+        label: 'eco',
+        lanePresent: true,
+        translate: async ({ text }: { text: string }) => text,
+      },
+      {
+        label: 'Codex non disponibile',
+        lanePresent: false,
+        translate: async () => '',
+      },
+    ];
+
+    for (const failure of failures) {
+      const fixer = await loadTitleFixer();
+      const data = fixture(1);
+      const state = { version: 1, attempts: {} };
+      const result = await fixer.runTitleFixCandidatePool({
+        candidates: data.candidates,
+        sliceCache: data.sliceCache,
+        attemptState: state,
+        getCodexTierStats: () => ({
+          lanePresent: failure.lanePresent,
+          calls: 0,
+          maxCalls: 20,
+          spentMs: 0,
+          maxMs: 100_000,
+        }),
+        translate: failure.translate,
+      });
+
+      expect(result.totalFailed, failure.label).toBe(1);
+      expect(state.attempts[data.candidates[0].key], failure.label).toMatchObject({ attempts: 1 });
+      expect(
+        shouldQueueArgosSlot(data.jobs[0], { locale: 'it', field: 'title' }),
+        failure.label,
+      ).toBe(false);
+    }
   });
 });
 
