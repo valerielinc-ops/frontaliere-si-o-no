@@ -7961,6 +7961,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-voto-cantonale-lucerna.title': 'Voto cantonale Lucerna: guida a iniziative e referendum',
     'blog.article.guida-voto-cantonale-lucerna.excerpt': 'Il calendario prevede quattro giornate di voto federale ogni anno Per un\'iniziativa federale occorrono 100\'000 firme raccolte nell\'arco di 18 mesi Il referendum',
     'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Paesaggio del Cantone di Lucerna con il lago e le montagne circostanti in un giorno soleggiato',
+    'blog.article.ai-chip-scarzita-prezzi-pc.title': 'PC e smartphone cari: l\'AI assorbe i chip',
+    'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Rincari dal 40% al 120% segnalati da MediaMarkt.',
+    'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Laptop e smartphone su un tavolo in un appartamento svizzero',
 };
 
 export default blogMetaChIt;

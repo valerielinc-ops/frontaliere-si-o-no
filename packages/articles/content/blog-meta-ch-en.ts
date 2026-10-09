@@ -7961,6 +7961,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-voto-cantonale-lucerna.title': 'Lucerne cantonal vote: guide to initiatives and referendums',
     'blog.article.guida-voto-cantonale-lucerna.excerpt': 'The calendar provides for four federal voting days each year A federal initiative requires 100\'000 signatures collected over a period of 18 months The referendum',
     'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Landscape of the Canton of Lucerne with the lake and surrounding mountains on a sunny day',
+    'blog.article.ai-chip-scarzita-prezzi-pc.title': 'Expensive PCs and smartphones: AI is absorbing chips',
+    'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Price increases ranging from 40% to 120% reported by MediaMarkt.',
+    'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Laptop and smartphone on a table in a Swiss apartment',
 };
 
 export default blogMetaChEn;

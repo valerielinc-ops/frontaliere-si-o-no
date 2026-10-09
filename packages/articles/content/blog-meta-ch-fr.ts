@@ -7961,6 +7961,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-voto-cantonale-lucerna.title': 'Votation cantonale à Lucerne : guide des initiatives et référendums',
     'blog.article.guida-voto-cantonale-lucerna.excerpt': 'Le calendrier prévoit quatre journées de votation fédérale chaque année Pour une initiative fédérale, 100\'000 signatures recueillies sur une période de 18 mois sont nécessaires Le référendum',
     'blog.article.guida-voto-cantonale-lucerna.imageAlt': 'Paysage du canton de Lucerne avec le lac et les montagnes environnantes par une journée ensoleillée',
+    'blog.article.ai-chip-scarzita-prezzi-pc.title': 'PC et smartphones chers : l’IA absorbe les puces',
+    'blog.article.ai-chip-scarzita-prezzi-pc.excerpt': 'Hausses de prix de 40 % à 120 % signalées par MediaMarkt.',
+    'blog.article.ai-chip-scarzita-prezzi-pc.imageAlt': 'Ordinateur portable et smartphone sur une table dans un appartement suisse',
 };
 
 export default blogMetaChFr;

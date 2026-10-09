@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5104
+      "6": 5105
     },
-    "publishedCovers": 6816,
+    "publishedCovers": 6817,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180172,6 +180172,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ai-chip-scarzita-prezzi-pc": {
+      "cover": "/images/blog/article-ai-chip-scarzita-prezzi-pc.webp",
+      "hash": "a101db234e2ab4cc582f89c1be77cf6b752baa5c085a24b87ac2a9fa379ce118",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ai-chip-scarzita-prezzi-pc",
+          "category": "pratico",
+          "date": "2026-10-09T05:00:36.179Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

@@ -100369,6 +100369,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ai-chip-scarzita-prezzi-pc': {
+    title: 'PC e smartphone cari: l\'AI assorbe i chip | Frontaliere Ticino',
+    description: 'Rincari dal 40% al 120% su RAM e SSD. MediaMarkt, Fust e Interdiscount descrivono la carenza di componenti per PC e telefoni in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, smartphone, cari, assorbe, chip',
+    ogTitle: 'PC e smartphone cari: l\'AI assorbe i chip',
+    ogDescription: 'L\'espansione dei data center per l\'AI sta assorbito RAM e archiviazione, causando rincari fino al 120% su PC e smartphone in Svizzera. Ecco cosa dicono i rivenditori.',
+    canonicalPath: '/articoli-svizzera/ai-chip-scarzita-prezzi-pc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PC e smartphone cari: l'AI assorbe i chip",
+      "description": "Rincari dal 40% al 120% su RAM e SSD. MediaMarkt, Fust e Interdiscount descrivono la carenza di componenti per PC e telefoni in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ai-chip-scarzita-prezzi-pc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laptop e smartphone su un tavolo in un appartamento svizzero"
+      },
+      "datePublished": "2026-10-09T05:00:36+00:00",
+      "dateModified": "2026-10-09T05:00:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ai-chip-scarzita-prezzi-pc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

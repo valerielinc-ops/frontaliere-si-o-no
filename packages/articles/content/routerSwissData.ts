@@ -2676,6 +2676,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-edilizio-lucerna': { it: 'permesso-edilizio-lucerna', en: 'lucerne-building-permit-guide', de: 'baubewilligung-luzern-verfahren', fr: 'permis-construire-lucerne' },
  'nobel-economia-fehr-2026': { it: 'nobel-economia-fehr-2026', en: 'economics-nobel-fehr-2026', de: 'wirtschaftsnobelpreis-fehr-2026', fr: 'nobel-economie-fehr-2026' },
  'guida-voto-cantonale-lucerna': { it: 'guida-voto-cantonale-lucerna', en: 'lucerne-cantonal-vote-guide', de: 'luzern-kantonale-abstimmung-guide', fr: 'guide-vote-cantonale-lucerne' },
+ 'ai-chip-scarzita-prezzi-pc': { it: 'ai-chip-scarzita-prezzi-pc', en: 'ai-chip-shortage-pc-prices', de: 'ki-chip-knappheit-pc-preise', fr: 'penurie-puces-ia-prix-pc' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
