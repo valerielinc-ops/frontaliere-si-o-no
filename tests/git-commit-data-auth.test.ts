@@ -54,10 +54,13 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
     const code = GIT_COMMIT_DATA.split('\n')
       .map((text, index) => ({ text, number: index + 1 }))
       .filter(({ text }) => text.trim() !== '' && !text.trim().startsWith('#'));
-    const networkOps = code.filter(({ text }) => /\brun_bounded "\$GIT_COMMIT_DATA_[A-Z]+_TIMEOUT_SECONDS"/.test(text));
-    // unshallow, the fetch of the retry loop, three pulls, two pushes.
-    expect(networkOps.map(({ text }) => /TIMEOUT_SECONDS" (?:\\$|"git (\w+))/.exec(text)?.[1] ?? 'push')).toEqual([
-      'fetch', 'fetch', 'push', 'pull', 'pull', 'pull', 'push',
+    const networkOps = code.filter(({ text }) => /\brun_bounded "\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS"/.test(text));
+    // the history API lookup, the fetch of the retry loop, three pulls, two pushes.
+    expect(networkOps.map(({ text }) =>
+      /TIMEOUT_SECONDS" "gh (\w+)/.exec(text)?.[1]
+      ?? /TIMEOUT_SECONDS" (?:\\$|"git (\w+))/.exec(text)?.[1]
+      ?? 'push')).toEqual([
+      'api', 'fetch', 'push', 'pull', 'pull', 'pull', 'push',
     ]);
 
     const refreshedJustBefore = (line: { number: number }) => {
@@ -75,8 +78,8 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
 
     // Two commands live in a function, and it is the caller that refreshes.
     const fetchLoop = bodyOf('git_fetch_retry');
-    const fullHistory = bodyOf('ensure_full_history');
-    const direct = networkOps.filter((op) => !inBody(fetchLoop, op) && !inBody(fullHistory, op));
+    const historyLookup = bodyOf('lookup_remote_path_history');
+    const direct = networkOps.filter((op) => !inBody(fetchLoop, op) && !inBody(historyLookup, op));
     expect(direct).toHaveLength(5);
     for (const op of direct) {
       expect(refreshedJustBefore(op), `missing ensure_git_auth before line ${op.number}: ${op.text.trim()}`).toBe(true);
@@ -88,14 +91,14 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
       expect(refreshedJustBefore(call), `missing ensure_git_auth before the fetch loop at line ${call.number}`).toBe(true);
     }
 
-    // The unshallow runs inside an isolated attempt, which begins with a
+    // The history lookup runs inside an isolated attempt, which begins with a
     // refresh and a fetch before it looks at any file.
     const isolated = bodyOf('commit_isolated_from_worktree');
     const firstRefresh = isolated.find(({ text }) => text.trim() === 'ensure_git_auth');
-    const fullHistoryCalls = isolated.filter(({ text }) => /\bensure_full_history\b/.test(text));
-    expect(fullHistoryCalls).toHaveLength(1);
-    expect(firstRefresh?.number ?? Infinity).toBeLessThan(fullHistoryCalls[0].number);
-    expect(code.filter(({ text }) => /\bensure_full_history\b/.test(text) && !/\(\) \{$/.test(text))).toHaveLength(1);
+    const historyLookupCalls = isolated.filter(({ text }) => /\blookup_remote_path_history\b/.test(text));
+    expect(historyLookupCalls).toHaveLength(1);
+    expect(firstRefresh?.number ?? Infinity).toBeLessThan(historyLookupCalls[0].number);
+    expect(code.filter(({ text }) => /\blookup_remote_path_history\b/.test(text) && !/\(\) \{$/.test(text))).toHaveLength(1);
   });
 });
 
