@@ -1006,6 +1006,35 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state._lastObservedDiscoveredCount).toBe(12);
     expect(state._lastObservedWrittenCount).toBe(5);
   });
+
+  it('does not raise the long-run advisory while a filtered-empty run proves the source is alive (#12429)', () => {
+    const previous = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 40 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 7,
+      consecutiveEmptyRuns: 0,
+      consecutiveEmptyOkRuns: 40,
+      advisory: true,
+      advisoryReason: '40 consecutive empty-ok runs (>= 30) — verify the source is still alive, not just "legitimately quiet"',
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedEmptyOk: true,
+    };
+    const { status, state } = nextCrawlerState(
+      previous,
+      { ...obsWithCounts(0, 7, 0), parsed: 0 },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(status).toBe('healthy');
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state.consecutiveEmptyOkRuns).toBe(41);
+    expect(state.advisory).toBe(false);
+    expect(state.advisoryReason).toBeNull();
+  });
 });
 
 describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () => {

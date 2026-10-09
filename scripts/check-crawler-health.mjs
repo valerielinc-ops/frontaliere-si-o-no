@@ -52,10 +52,10 @@
  * allowlist/auto-filter behavior is preserved — and `main()` still opens a
  * (lower-priority, `advisory` status) `crawler-health` issue for it so a
  * multi-month zero is no longer silent. A current
- * `authoritativeEmptySnapshot` is different: the crawler has just proved
- * that the source is alive and explicitly empty, so it does not need the
- * long-run liveness advisory. If that proof disappears, the ordinary broken
- * streak applies again.
+ * `authoritativeEmptySnapshot` or filtered-empty receipt is different: the
+ * crawler has just proved that the source is alive, so it does not need the
+ * long-run liveness advisory. If that proof disappears, the accumulated
+ * counter remains available to surface the advisory immediately.
  *
  * Auto-detected filtered-empty (issue #5945): a summary slice MAY report
  * `discovered` (count found before the crawler's Swiss/location filter) and
@@ -1078,18 +1078,27 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // — emptyOk included — resetting only when jobs actually come back. It is
   // the only thing that keeps growing while an unproven emptyOk signal masks
   // a source that has gone from "legitimate lull" to "dead" (#6496). A
-  // current authoritative empty snapshot is already a liveness proof, so it
-  // does not need to raise that advisory. Same repeat-observation guard
-  // applies: a re-observed stale summary is not a new empty-ok run.
+  // current authoritative empty snapshot or filtered-empty receipt is already
+  // a liveness proof, so it does not need to raise that advisory. Keep the
+  // accumulated counter when such proof is present: if the proof disappears,
+  // the next observation can surface the already-earned signal immediately.
+  // Same repeat-observation guard applies: a re-observed stale summary is not
+  // a new empty-ok run.
   const consecutiveEmptyOkRuns = isRepeatObservation
     ? (previous.consecutiveEmptyOkRuns ?? 0)
     : lastObservedJobs > 0
       ? 0
       : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
+  // `autoFilteredEmpty`/`filteredEmptyOutcome` prove that this run reached the
+  // source and observed candidates before the crawler's geographic filter
+  // removed them. A regional crawler can therefore remain legitimately empty
+  // for months without being mistaken for a dead source (#12429).
+  const sourceWasObservedWithCandidates = autoFilteredEmpty || filteredEmptyOutcome;
   let advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
     !authoritativeEmpty &&
+    !sourceWasObservedWithCandidates &&
     consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
   let advisoryReason = advisory
     ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`
