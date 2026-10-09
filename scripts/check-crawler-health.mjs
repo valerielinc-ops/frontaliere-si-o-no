@@ -1092,13 +1092,24 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // `autoFilteredEmpty`/`filteredEmptyOutcome` prove that this run reached the
   // source and observed candidates before the crawler's geographic filter
   // removed them. A regional crawler can therefore remain legitimately empty
-  // for months without being mistaken for a dead source (#12429).
-  const sourceWasObservedWithCandidates = autoFilteredEmpty || filteredEmptyOutcome;
+  // for months without being mistaken for a dead source (#12429). Keep the
+  // proof in the state transition: if the next run loses that evidence, the
+  // accumulated counter must be able to raise the advisory immediately.
+  const sourceWasObservedWithProof =
+    autoFilteredEmpty || filteredEmptyOutcome || authoritativeEmpty;
+  const previouslyHadFilteredEmptyProof =
+    previous._autoFilteredEmpty === true ||
+    previous._lastObservedFetchOutcome === 'filtered_empty';
+  const filteredEmptyProofDisappeared =
+    previouslyHadFilteredEmptyProof &&
+    !sourceWasObservedWithProof &&
+    !fetchFailed &&
+    !abortedRun &&
+    !pipelineDroppedAll;
   let advisory =
     lastObservedJobs === 0 &&
-    emptyOk &&
-    !authoritativeEmpty &&
-    !sourceWasObservedWithCandidates &&
+    (emptyOk || filteredEmptyProofDisappeared) &&
+    !sourceWasObservedWithProof &&
     consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
   let advisoryReason = advisory
     ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`
@@ -1255,6 +1266,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     },
     reason,
     status,
+    // Keep the derived advisory available to focused callers that do not need
+    // the persisted state envelope (and to the health-transition acceptance
+    // check for this regression).
+    advisory,
   };
 }
 

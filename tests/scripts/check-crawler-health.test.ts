@@ -1035,6 +1035,33 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state.advisory).toBe(false);
     expect(state.advisoryReason).toBeNull();
   });
+
+  it('raises the liveness advisory immediately when filtered-empty proof disappears (#12429)', () => {
+    const previous = {
+      consecutiveEmptyRuns: 0,
+      consecutiveEmptyOkRuns: 30,
+      _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedEmptyOk: true,
+      _autoFilteredEmpty: true,
+    };
+    const { state } = nextCrawlerState(
+      previous,
+      {
+        slug: 'not-on-any-allowlist',
+        jobCount: 0,
+        freshnessAt: NOW_ISO,
+        freshnessSource: 'summary',
+        generatedAt: NOW_ISO,
+        assembledAt: NOW_ISO,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(state.advisory).toBe(true);
+    expect(state.advisoryReason).toMatch(/31 consecutive empty-ok runs/);
+  });
 });
 
 describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () => {
