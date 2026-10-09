@@ -12233,6 +12233,8 @@
       "postalCode": "4001",
       "addressRegion": "BS",
       "sourceLang": "de",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12263,9 +12265,7 @@
         "aspirant-stv-amministratore-delegato-coop-genossenschaft-basel",
         "aspirant-stv-managing-director-coop-genossenschaft-basel",
         "aspirant-stv-directeur-general-coop-genossenschaft-basel"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      ]
     },
     {
       "id": "company-enjavy",

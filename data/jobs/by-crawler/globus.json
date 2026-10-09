@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "globus",
-  "assembledAt": "2026-10-09T21:13:27.621Z",
   "jobs": [
     {
       "id": "globus-1853e982035b",
@@ -1662,5 +1660,7 @@
       },
       "firstSeenAt": "2026-10-09T21:13:21.094Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T21:13:27.621Z",
+  "crawlerKey": "globus"
 }

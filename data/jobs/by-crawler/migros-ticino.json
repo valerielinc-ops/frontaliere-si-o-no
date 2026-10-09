@@ -105954,6 +105954,8 @@
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-schaffhausen",
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -105968,9 +105970,7 @@
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8200",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "postalCode": "8200"
     },
     {
       "id": "company-wrwa8c",

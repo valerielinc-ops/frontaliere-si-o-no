@@ -1902,11 +1902,7 @@
       "requirementsByLocale": {},
       "jobReqId": "R09222",
       "hiringOrganization": "Swiss Life AG Lausanne",
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
@@ -1914,8 +1910,11 @@
           "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:01:25.374Z",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
+        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1928,7 +1927,9 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T23:01:25.374Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "swiss-life-7145a0717956",

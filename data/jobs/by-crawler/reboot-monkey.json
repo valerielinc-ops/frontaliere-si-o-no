@@ -3716,8 +3716,8 @@
       "id": "reboot-monkey-78c12788ee1e",
       "slug": "data-center-technician-svizzera-olten-in-loco-reboot-monkey-olten",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-olten-in-loco-reboot-monkey-olten",
         "en": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
+        "it": "data-center-technician-svizzera-olten-in-loco-reboot-monkey-olten",
         "de": "data-center-techniker-switzerland-olten-on-site-reboot-monkey-olten",
         "fr": "technicien-en-informatique-suisse-olten-sur-place-reboot-monkey-olten"
       },
@@ -3785,10 +3785,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
-        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten"
@@ -3797,7 +3793,10 @@
           "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.802Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
+        "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-1a308m"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3812,7 +3811,8 @@
         }
       },
       "postalCode": "4600",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "firstSeenAt": "2026-04-13T11:09:46.802Z"
     },
     {
       "id": "reboot-monkey-45e2d3b3629a",
@@ -6726,8 +6726,8 @@
       "id": "reboot-monkey-32b67c1bd5ca",
       "slug": "data-center-technician-ch-winterthur-in-loco-reboot-monkey-winterthur",
       "slugByLocale": {
-        "it": "data-center-technician-ch-winterthur-in-loco-reboot-monkey-winterthur",
         "en": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
+        "it": "data-center-technician-ch-winterthur-in-loco-reboot-monkey-winterthur",
         "de": "data-center-technician-ch-winterthur-vor-ort-reboot-monkey-winterthur",
         "fr": "technicien-en-centre-de-donnees-ch-winterthur-sur-place-reboot-monkey-winterthur-eed39a"
       },
@@ -6794,10 +6794,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
-        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur"
@@ -6806,7 +6802,10 @@
           "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.780Z",
+      "previousSlugs": [
+        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
+        "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-1kj5fi"
+      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -6821,7 +6820,8 @@
         }
       },
       "postalCode": "8400",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-04-13T11:09:46.780Z"
     },
     {
       "id": "reboot-monkey-14638681ab98",
@@ -6928,8 +6928,8 @@
       "id": "reboot-monkey-f17a12be8f60",
       "slug": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
       "slugByLocale": {
-        "it": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
         "en": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
+        "it": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
         "de": "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
         "fr": "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
       },
@@ -6996,12 +6996,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
-        "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau",
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
@@ -7012,7 +7006,12 @@
           "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.779Z",
+      "previousSlugs": [
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
+        "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau",
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-74bgk4"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -7027,7 +7026,8 @@
         }
       },
       "postalCode": "1400",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-04-13T11:09:46.779Z"
     },
     {
       "id": "reboot-monkey-64046a96ce53",
@@ -7827,8 +7827,8 @@
       "id": "reboot-monkey-30f397b29e4d",
       "slug": "data-center-technician-svizzera-emmen-in-loco-reboot-monkey-emmen",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-emmen-in-loco-reboot-monkey-emmen",
         "en": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "it": "data-center-technician-svizzera-emmen-in-loco-reboot-monkey-emmen",
         "de": "data-center-technician-schweiz-emmen-vor-ort-reboot-monkey-emmen",
         "fr": "technicien-de-centre-de-donnees-suisse-emmen-sur-place-reboot-monkey-emmen"
       },
@@ -7896,10 +7896,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
-        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen"
@@ -7908,7 +7904,10 @@
           "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.816Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-9ccv3w"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -7923,7 +7922,8 @@
         }
       },
       "postalCode": "6032",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "firstSeenAt": "2026-04-13T11:09:46.816Z"
     },
     {
       "id": "reboot-monkey-02194709c2c6",
@@ -8039,8 +8039,8 @@
       "id": "reboot-monkey-d0e98f3dbeff",
       "slug": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
         "en": "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
+        "it": "data-center-technician-svizzera-ginevra-in-loco-reboot-monkey-geneva",
         "de": "data-center-techniker-switzerland-geneva-on-site-reboot-monkey-geneva",
         "fr": "technicien-en-informatique-suisse-geneve-sur-place-reboot-monkey-geneva"
       },
@@ -8108,10 +8108,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
-        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva"
@@ -8120,7 +8116,10 @@
           "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.792Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva",
+        "data-center-technician-switzerland-geneva-on-site-reboot-monkey-geneva-cyd1tp"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -8135,7 +8134,8 @@
         }
       },
       "postalCode": "1204",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "firstSeenAt": "2026-04-13T11:09:46.792Z"
     },
     {
       "id": "reboot-monkey-33cc855c2978",
@@ -10372,8 +10372,8 @@
       "id": "reboot-monkey-a66a49d4160b",
       "slug": "data-center-technician-svizzera-berna-in-loco-reboot-monkey-bern",
       "slugByLocale": {
-        "it": "data-center-technician-svizzera-berna-in-loco-reboot-monkey-bern",
         "en": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
+        "it": "data-center-technician-svizzera-berna-in-loco-reboot-monkey-bern",
         "de": "data-center-technician-schweiz-bern-vor-ort-reboot-monkey-bern",
         "fr": "technicien-de-centre-de-donnees-suisse-berne-sur-place-reboot-monkey-bern"
       },
@@ -10431,10 +10431,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
-        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern"
@@ -10443,7 +10439,10 @@
           "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.766Z",
+      "previousSlugs": [
+        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
+        "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-xo0fwd"
+      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -10458,7 +10457,8 @@
         }
       },
       "postalCode": "3004",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-04-13T11:09:46.766Z"
     },
     {
       "id": "reboot-monkey-ead87ef6dba9",
@@ -11207,8 +11207,8 @@
       "id": "reboot-monkey-addda36996cb",
       "slug": "tecnico-del-data-center-sion-in-loco-reboot-monkey-sion",
       "slugByLocale": {
-        "it": "tecnico-del-data-center-sion-in-loco-reboot-monkey-sion",
         "en": "data-center-technician-sion-on-site-reboot-monkey-sion",
+        "it": "tecnico-del-data-center-sion-in-loco-reboot-monkey-sion",
         "de": "data-center-technician-sion-vor-ort-reboot-monkey-sion",
         "fr": "technicien-en-centre-de-donnees-sion-sur-place-reboot-monkey-sion-4d5099"
       },
@@ -11266,10 +11266,6 @@
         ]
       },
       "remote": false,
-      "previousSlugs": [
-        "data-center-technician-sion-on-site-reboot-monkey-sion",
-        "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-sion-on-site-reboot-monkey-sion"
@@ -11278,7 +11274,10 @@
           "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0"
         ]
       },
-      "firstSeenAt": "2026-04-13T11:09:46.751Z",
+      "previousSlugs": [
+        "data-center-technician-sion-on-site-reboot-monkey-sion",
+        "data-center-technician-sion-on-site-reboot-monkey-sion-eo3ss0"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -11293,7 +11292,8 @@
         }
       },
       "postalCode": "1950",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-04-13T11:09:46.751Z"
     },
     {
       "id": "reboot-monkey-694e09ce24e7",

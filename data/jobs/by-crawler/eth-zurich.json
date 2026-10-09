@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "eth-zurich",
-  "assembledAt": "2026-10-09T21:41:39.030Z",
   "jobs": [
     {
       "id": "eth-zurich-8b3038243257",
@@ -7988,14 +7986,6 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_0EbRFSiJwdomYIp7L8",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "horsaalsupporter-in-mit-anteil-abenddienst-m-w-d-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "horsaalsupporter-in-mit-anteil-abenddienst-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-10-05T09:32:57.014Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8011,7 +8001,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "horsaalsupporter-in-mit-anteil-abenddienst-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "horsaalsupporter-in-mit-anteil-abenddienst-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-f1478e528750",
@@ -8134,16 +8132,7 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_qkfpK67TcZNS7KUtrE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch"
-        ]
-      },
       "firstSeenAt": "2026-10-06T09:44:58.209Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -8158,7 +8147,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-61198a18b130",
@@ -9140,5 +9137,7 @@
       "postalCode": "8001",
       "addressRegion": "ZH"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-09T21:41:39.030Z",
+  "crawlerKey": "eth-zurich"
 }

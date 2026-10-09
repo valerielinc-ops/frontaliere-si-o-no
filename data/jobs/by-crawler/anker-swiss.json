@@ -14451,18 +14451,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/chauffeur-1468114/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
-        ],
-        "en": [
-          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
-        ]
-      },
-      "firstSeenAt": "2026-10-09T10:46:58.084Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -14475,7 +14463,19 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-09T10:46:58.084Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+        ],
+        "en": [
+          "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-100-anker-swiss-ticino-ag-wikon-d79dbd21"
+      ]
     },
     {
       "id": "anker-swiss-f2ea314a89d9",
