@@ -17,10 +17,28 @@ function findClosingBracket(value: string, openingIndex: number): number {
 
 function findClosingParenthesis(value: string, openingIndex: number): number {
   let depth = 0;
+  let angleDestination = false;
+  let quotedTitle = '';
   for (let index = openingIndex; index < value.length; index += 1) {
     const char = value[index];
     if (char === '\\') {
       index += 1;
+      continue;
+    }
+    if (quotedTitle) {
+      if (char === quotedTitle) quotedTitle = '';
+      continue;
+    }
+    if (angleDestination) {
+      if (char === '>') angleDestination = false;
+      continue;
+    }
+    if (depth === 1 && (char === '"' || char === "'")) {
+      quotedTitle = char;
+      continue;
+    }
+    if (depth === 1 && char === '<') {
+      angleDestination = true;
       continue;
     }
     if (char === '(') depth += 1;
@@ -55,6 +73,13 @@ function stripMarkdownLinks(value: string): string {
     } else if (next === '[') {
       const referenceEnd = findClosingBracket(value, labelEnd + 1);
       if (referenceEnd >= 0) linkEnd = referenceEnd;
+    } else {
+      let referenceStart = labelEnd + 1;
+      while (referenceStart < value.length && /[ \t]/.test(value[referenceStart])) referenceStart += 1;
+      if (value[referenceStart] === '[') {
+        const referenceEnd = findClosingBracket(value, referenceStart);
+        if (referenceEnd >= 0) linkEnd = referenceEnd;
+      }
     }
     if (linkEnd < 0) continue;
 

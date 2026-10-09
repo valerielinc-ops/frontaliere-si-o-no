@@ -28,6 +28,9 @@ async function probe() {
   out.stripLiteralMarkdownNestedLink = c.stripLiteralMarkdown('[A [B](https://example.com/(inner))](https://example.com/(outer))');
   out.stripLiteralMarkdownEvenEscapedLink = c.stripLiteralMarkdown(String.raw`\\[Età](https://example.com)`);
   out.stripLiteralMarkdownReferenceLink = c.stripLiteralMarkdown('[Età][ref]');
+  out.stripLiteralMarkdownWhitespaceReferenceLink = c.stripLiteralMarkdown('[x] [ref]');
+  out.stripLiteralMarkdownQuotedLink = c.stripLiteralMarkdown('[x](url "a)")');
+  out.stripLiteralMarkdownAngleLink = c.stripLiteralMarkdown('[x](<url(a)> "title)")');
   out.stripLiteralMarkdownMarkupBoundaries = c.stripLiteralMarkdown('## Titolo ##');
   out.stripLiteralMarkdownPunctuation = c.stripLiteralMarkdown('Titolo:*term*—nota __Strong__');
 
