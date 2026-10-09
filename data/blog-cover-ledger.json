@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5101
+      "6": 5102
     },
-    "publishedCovers": 6813,
+    "publishedCovers": 6814,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180647,6 +180647,33 @@
           "id": "incidenti-notte-varese",
           "category": "novita",
           "date": "2026-10-09T02:15:06.042Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-karate-uisp-formazione-arcisate-2026": {
+      "cover": "/images/blog/article-karate-uisp-formazione-arcisate-2026.webp",
+      "hash": "6027a3a91fc0c5006e1dda4f11759fa93383312ab972cdc7f3ee4d46f3942a06",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "karate-uisp-formazione-arcisate-2026",
+          "category": "novita",
+          "date": "2026-10-09T04:02:21.429Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -12847,6 +12847,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.concerti-borgo-musicale.title': 'Tre concerti per i 30 anni del Borgo musicale',
     'blog.article.concerti-borgo-musicale.excerpt': 'Tre concerti in programma l’11, 17 e 18 ottobre Gli appuntamenti sono a Galliate Lombardo, Porto Ceresio e Clivio La Fondazione raddoppierà ogni euro donato',
     'blog.article.concerti-borgo-musicale.imageAlt': 'Concerto da camera con violino e chitarra per i 30 anni del Borgo musicale',
+    'blog.article.karate-uisp-formazione-arcisate-2026.title': 'Karate UISP: la nuova stagione inizia da Arcisate',
+    'blog.article.karate-uisp-formazione-arcisate-2026.excerpt': 'La nuova stagione UISP riparte da un incontro ad Arcisate.',
+    'blog.article.karate-uisp-formazione-arcisate-2026.imageAlt': 'Pratica di karate Shotokan durante un incontro UISP a Varese.',
 };
 
 export default blogMetaIt;

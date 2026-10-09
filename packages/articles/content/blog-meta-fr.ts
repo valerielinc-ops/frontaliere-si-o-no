@@ -12848,6 +12848,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.concerti-borgo-musicale.title': 'Trois concerts pour le 30e anniversaire du village musical',
     'blog.article.concerti-borgo-musicale.excerpt': 'Trois concerts prévus les 11, 17 et 18 octobre. (Galliate Lombardo, Porto Ceresio, Clivio)',
     'blog.article.concerti-borgo-musicale.imageAlt': 'Concert de chambre avec violon et guitare pour les 30 ans du Borgo musicale',
+    'blog.article.karate-uisp-formazione-arcisate-2026.title': 'Karaté UISP : la nouvelle saison commence à Arcisate',
+    'blog.article.karate-uisp-formazione-arcisate-2026.excerpt': 'La nouvelle saison UISP reprend lors d\'une réunion à Arcisate.',
+    'blog.article.karate-uisp-formazione-arcisate-2026.imageAlt': 'Pratique du karaté Shotokan lors d\'une réunion UISP à Varese.',
 };
 
 export default blogMetaFr;
