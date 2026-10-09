@@ -21,6 +21,7 @@ import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posti
 import { extractJobPostingLd } from './jsonld-jobposting.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { slugify, stripScriptsAndStyles } from './crawler-template.mjs';
 import {
   fetchHtml,
@@ -89,16 +90,39 @@ export function parseListing(html = '') {
   const out = [];
   const seen = new Set();
   const re =
-    /href="(https?:\/\/(?:www\.)?suchtfachstelle\.zuerich\/stellenausschreibung-([a-z0-9-]+))"/gi;
+    /href\s*=\s*["']((?:https?:\/\/(?:www\.)?suchtfachstelle\.zuerich)?\/stellenausschreibung-([a-z0-9-]+))["']/gi;
   let m;
   while ((m = re.exec(html)) !== null) {
-    const url = m[1];
+    const rawUrl = m[1];
+    const url = rawUrl.startsWith('/')
+      ? new URL(rawUrl, SUCHTFACHSTELLE_ZUERICH_CAREERS_URL).href
+      : rawUrl;
     const slug = m[2];
     if (seen.has(slug)) continue;
     seen.add(slug);
     out.push({ url, slug });
   }
   return out;
+}
+
+/**
+ * The jobs page keeps its employer copy and the jobs section rendered even
+ * when there are no open positions. Those two source-owned landmarks prove
+ * that the page was read completely; a bare zero from a partial or redirected
+ * page must remain fail-closed.
+ */
+export function isSuchtfachstelleZuerichEmptyListing(html = '') {
+  if (!html || parseListing(html).length > 0) return false;
+  const cleaned = stripScriptsAndStyles(html);
+  const employerHeading = /<h1\b[^>]*class=["'][^"']*\bintro__title\b[^"']*["'][^>]*>\s*Die\s+Suchtfachstelle\s+Zürich\s+als\s+Arbeitgeberin\s*<\/h1>/i.test(cleaned);
+  const jobsSection = cleaned.match(
+    /<section\b[^>]*class=["'][^"']*\blinks\b[^"']*["'][^>]*>([\s\S]*?)<\/section>/i,
+  );
+  const jobsSectionText = jobsSection
+    ? normalizeSpace(decodeEntities(jobsSection[1].replace(/<[^>]+>/g, ' '))).toLowerCase()
+    : '';
+  return employerHeading
+    && jobsSectionText.includes('wir bieten ihnen jobs mit vielfältigen und sinnvollen aufgaben');
 }
 
 /* ── Detail parsing ───────────────────────────────────────── */
@@ -151,7 +175,15 @@ export async function fetchAllSuchtfachstelleZuerichJobs() {
   }
   const rows = parseListing(listingHtml);
   console.log(`  ✓ ${rows.length} listing rows parsed`);
-  if (rows.length === 0) return [];
+  if (rows.length === 0) {
+    if (isSuchtfachstelleZuerichEmptyListing(listingHtml)) {
+      return markAuthoritativeEmptySnapshot(
+        [],
+        'Suchtfachstelle Zürich rendered its employer heading and empty jobs section with no vacancy links',
+      );
+    }
+    return [];
+  }
 
   const jobs = [];
   for (let i = 0; i < rows.length; i += 1) {
