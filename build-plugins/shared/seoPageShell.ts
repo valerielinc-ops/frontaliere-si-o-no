@@ -351,7 +351,8 @@ export interface SeoPageShellOpts {
    * element (all 6 SEO feature plugins do).
    *
    * Ignored when {@link seoContentOutsideRoot} is true (the outside-root mode
-   * always emits its own `<main class="seo-static-content">` wrapper).
+   * promotes a leading caller-owned `<main>` or wraps plain inner HTML in the
+   * canonical static wrapper).
    */
   skipMainWrap?: boolean;
   /**
@@ -416,8 +417,9 @@ export interface SeoPageShellOpts {
  *   - Analytics, AdSense, GTAG, canonical, OG and favicon tags are emitted
  *
  * The caller passes the page-specific content (including its own `<main>`
- * or plain inner HTML). buildSimplePage wraps everything in
- * `<div id="root"><main class="static-job-page">${bodyHtml}</main></div>`.
+ * or plain inner HTML). In outside-root mode, buildSimplePage promotes a
+ * leading caller-owned `<main>` or wraps plain inner HTML in the canonical
+ * static landmark; legacy mode keeps the content inside `#root`.
  */
 export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
   const {

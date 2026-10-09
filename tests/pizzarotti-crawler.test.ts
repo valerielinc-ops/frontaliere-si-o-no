@@ -83,6 +83,22 @@ describe('Pizzarotti listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('classifies a French Guiana detail location as explicit foreign evidence', () => {
+    const result = classifyPizzarottiListings([
+      {
+        href: '/jobs/contract-manager',
+        title: 'CONTRACT MANAGER',
+        location: 'Saint-Laurent-du-Maroni (Guyane française)',
+      },
+    ]);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+    expect(isPizzarottiClassifiableLocation('Saint-Laurent-du-Maroni (Guyane française)')).toBe(true);
+  });
+
   it('recovers a missing Sede from the Pizzarotti teaser without treating an Italian province code as Swiss', () => {
     const listings = parsePizzarottiListings(`
       <div class="vacancy__render">

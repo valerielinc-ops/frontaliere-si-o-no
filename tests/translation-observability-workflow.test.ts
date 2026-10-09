@@ -191,18 +191,18 @@ describe('translation observability workflow', () => {
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(PHASE_2C_DEADLINE_MS) },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
         env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
       });
       expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
         env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(descriptionCommit, `${label}: description commit missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
       });
     }
 
@@ -309,6 +309,7 @@ describe('translation observability workflow', () => {
         FREE_TRANSLATE_CODEX_MAX_MS: '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
         FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000',
       });
       expect(steps[titleIndex]?.env).not.toHaveProperty('FREE_TRANSLATE_CODEX_TIER');
     }

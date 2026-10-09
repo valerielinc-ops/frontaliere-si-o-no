@@ -7,6 +7,8 @@ import { clearAssetCaches } from './services/resilientImport';
 import {
  adoptStaticFallbackIntoRoot,
  hideRootForCrossfade,
+ shouldAdoptStaticFallbackIntoRoot,
+ type StaticFallbackKind,
  waitForStaticFirstPaint,
 } from './services/staticFallbackHandoff';
 
@@ -168,17 +170,38 @@ const mountApp = async () => {
  // below) instead of an external collapse. parsePath is dynamic-imported (NOT a
  // static entry import) so router+s heavy route registries stay out of the entry
  // chunk — it is already loaded with App above, so this resolves from cache.
- // Gated on staticOverlay so true static landings keep their overlay; crawlers
- // (no JS) still get the fallback verbatim.
+ // Gated by the shared route/fallback ownership decision so true static
+ // landings and article/topic snapshots keep their body; crawlers (no JS)
+ // still get the fallback verbatim.
  await staticFirstPaint;
 
  try {
    const { parsePath } = await import('./services/router');
    const parsedRoute = parsePath(window.location.pathname).route;
-   if (!parsedRoute.staticOverlay
-     && !hasPlateAuctionStaticFallback()) {
-     const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
-     if (fallback && !rootElement.contains(fallback)) {
+   const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
+   const fallbackKind: StaticFallbackKind = fallback?.querySelector('article.ft-blog-article')
+     ? 'article'
+     : parsedRoute.activeTab === 'blog' && parsedRoute.cantonTopic
+       ? 'canton-topic'
+       : 'generic';
+
+   // Keep the detached copy even when the static article is deliberately left
+   // outside #root. Its URL marker makes the guard fail closed after a
+   // client-side navigation, instead of treating the old landing page as the
+   // fallback for the next route.
+   if (fallback && !rootElement.contains(fallback) && fallbackKind === 'article') {
+     const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
+     stashStaticArticleFallback(fallback, window.location.pathname);
+   }
+
+   if (fallback
+     && !rootElement.contains(fallback)
+     && shouldAdoptStaticFallbackIntoRoot(
+       parsedRoute,
+       hasPlateAuctionStaticFallback(),
+       fallbackKind,
+       true,
+     )) {
        // Modulepreload fetches JobBoard, but does not wait for its evaluation.
        // Keep the already-painted fallback visible until the interactive job
        // board can render immediately after the handoff; otherwise the lazy
@@ -192,25 +215,11 @@ const mountApp = async () => {
          }
        }
        fallback.style.removeProperty('display');
-       // This move is what destroys — rather than merely hides — the article
-       // page of anything published since the last deploy: the SPA cannot
-       // resolve its slug, renders the hub list into #root, and the article
-       // that was here goes with it. Stash a clone first so the runtime
-       // resolver can put it back if it turns out we cannot render this one.
-       // Article pages only; nothing else changes about the handoff.
-       if (fallback.querySelector('article.ft-blog-article')) {
-         const { stashStaticArticleFallback } = await import('./services/staticArticleFallback');
-         // The URL is stashed WITH the clone: it is the only thing that later
-         // identifies which article this HTML is, once a client-side
-         // navigation has moved the visitor somewhere else.
-         stashStaticArticleFallback(fallback, window.location.pathname);
-       }
        // Adopt the body-level static hub sub-nav together with the fallback,
        // in painted order, so neither moves on screen (#8868).
        adoptStaticFallbackIntoRoot(rootElement, fallback);
        staticPage = hasStaticContent();
      }
-   }
  } catch {
   /* router/DOM edge case — fall through to existing handling */
  }

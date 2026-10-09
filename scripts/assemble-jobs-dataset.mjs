@@ -65,6 +65,7 @@ import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublic
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
+import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
@@ -89,7 +90,7 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
-import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
+import { decontaminateEntries, decontaminateJobs, readFleetForSingleOwner } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
 import {
@@ -2739,6 +2740,18 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
 
+  // Repair recoverable malformed UTF-8 before the crawler slice is persisted.
+  // Ambiguous fragments stay in the source slice and receive
+  // needsRetranslation so the queue can inspect them; the assembly copy drops
+  // those unresolved values before publication.
+  const writeTimeMojibakeRepairs = hardened.jobs.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job),
+    0,
+  );
+  if (writeTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Encoding normalize: repaired ${writeTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+
   // ── Truncated "St" locality heal (issue #1158) ────────────────────────
   // A bare "St"/"St." addressLocality is a textContent artifact (e.g.
   // "St. Moritz" split on the period). It must never reach the committed
@@ -3056,17 +3069,32 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // in place forever. The pass only writes entries with a redirect or pruned
   // bucket, so the fleet-wide scan is order-independent without rewriting
   // unrelated slices.
-  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
-    .filter((filePath) => filePath !== slicePath)
-    .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
-    .filter((entry) => Array.isArray(entry.slice?.jobs));
+  //
+  // This writer owns one file. Its group siblings run in the same checkout and
+  // own theirs: a sibling's slice is written here only to carry out a redirect
+  // that involves this slice, and only if it is still the file that was read
+  // (issue 12467 — a sibling read in its seed state and written back after it
+  // had published reverted its master slugs to the raw parser form).
+  const fleet = readFleetForSingleOwner(listSliceFilePaths(JOBS_SLICES_DIR), {
+    ownPath: slicePath,
+    readSlice: (filePath) => readJson(filePath, null),
+    write: (filePath, slice) => writeJson(filePath, slice),
+  });
   const currentEntry = { filePath: slicePath, slice: payload };
   const ownership = decontaminateEntries(
-    [...fleetEntries, currentEntry],
-    { sourceEntries: [...fleetEntries, currentEntry], apply: true },
+    [...fleet.entries, currentEntry],
+    {
+      sourceEntries: [...fleet.entries, currentEntry],
+      ownedEntries: [currentEntry],
+      apply: true,
+      writeSlice: fleet.writeSlice,
+    },
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
+  }
+  if (fleet.refused.length > 0) {
+    console.log(`  🧭 prev-slug ownership: left ${fleet.refused.length} sibling slice(s) untouched because their owner rewrote them meanwhile (${fleet.refused.map((filePath) => path.basename(filePath)).join(', ')})`);
   }
   if (Array.isArray(options.housekeepingProof) && options.housekeepingProof.length > 0) {
     // The isolated commit helper validates the bytes after its own merge, not
@@ -3694,7 +3722,18 @@ async function assembleJobs() {
   // tracking) propagate them to production. See scripts/lib/fixture-data-filter.mjs.
   const cleaned = filterFixtureJobs(swissValidated, 'assemble-jobs-dataset');
 
-  return hardenJobsWithStructuredSalary(cleaned).jobs;
+  // Existing slices can predate the write-time funnel above. Normalize the
+  // assembled copy as well, so a deploy repairs already-published jobs before
+  // data/jobs.json and the SEO pages are generated.
+  const assembled = hardenJobsWithStructuredSalary(cleaned).jobs;
+  const assembleTimeMojibakeRepairs = assembled.reduce(
+    (count, job) => count + repairJobMojibakeInPlace(job, { dropUnrecoverable: true }),
+    0,
+  );
+  if (assembleTimeMojibakeRepairs > 0) {
+    console.log(`  🔤 Assembly encoding normalize: repaired ${assembleTimeMojibakeRepairs} malformed job text field(s)`);
+  }
+  return assembled;
 }
 
 /**

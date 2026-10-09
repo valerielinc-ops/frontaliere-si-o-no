@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-generale-ste-anne",
-  "assembledAt": "2026-10-08T09:24:32.779Z",
+  "assembledAt": "2026-10-08T22:15:19.754Z",
   "jobs": [
     {
       "id": "clinique-generale-ste-anne-c9d7b28df218",
@@ -34,7 +34,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:24:25.383Z",
+      "crawledAt": "2026-10-08T22:15:12.928Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -52,15 +52,15 @@
       "postingDateSource": "reported",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:26:06.535Z",
+      "previousSlugs": [
+        "secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-clinique-generale-ste-anne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-clinique-generale-ste-anne"
         ]
       },
-      "previousSlugs": [
-        "secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-clinique-generale-ste-anne"
-      ],
+      "firstSeenAt": "2026-10-03T09:26:06.535Z",
       "salaryMin": 54800,
       "salaryMax": 83200,
       "salarySource": "estimated",

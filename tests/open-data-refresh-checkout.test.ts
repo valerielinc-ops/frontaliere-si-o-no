@@ -43,6 +43,7 @@ const PUBLISHER_RUNTIME_FILES = [
   'scripts/ci/merge-open-data-refresh.mjs',
   'scripts/ci/open-data-refresh-merge.mjs',
   'scripts/ci/reconcile-data-refresh-main.mjs',
+  'scripts/ci/merge-compat-shard.mjs',
 ];
 
 function fixture() {
@@ -131,6 +132,227 @@ function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = [
     },
   });
 }
+
+type ShellLine = { number: number; text: string };
+type ShellCommand = { lines: ShellLine[]; text: string };
+type NetworkViolation = { line: number; command: string };
+
+function stripShellComment(line: string) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const character = line[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) {
+        escaped = false;
+      } else if (character === '\\') {
+        escaped = true;
+      } else if (character === '"') {
+        quote = '';
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '#' && (index === 0 || /[\s;|&(){}]/u.test(line[index - 1]))) {
+      return line.slice(0, index);
+    }
+  }
+  return line;
+}
+
+function findHereDoc(line: string) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < line.length - 1; index += 1) {
+    const character = line[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') quote = '';
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      continue;
+    }
+    if (character !== '<' || line[index + 1] !== '<' || line[index + 2] === '<') continue;
+    let delimiterIndex = index + 2;
+    const stripTabs = line[delimiterIndex] === '-';
+    if (stripTabs) delimiterIndex += 1;
+    while (/\s/u.test(line[delimiterIndex] || '')) delimiterIndex += 1;
+    const delimiterStart = line[delimiterIndex];
+    if (delimiterStart === "'" || delimiterStart === '"') {
+      const end = line.indexOf(delimiterStart, delimiterIndex + 1);
+      if (end > delimiterIndex + 1) {
+        return { index, delimiter: line.slice(delimiterIndex + 1, end), stripTabs };
+      }
+      continue;
+    }
+    const match = /^[^\s;|&<>]+/u.exec(line.slice(delimiterIndex));
+    if (match) return { index, delimiter: match[0], stripTabs };
+  }
+  return undefined;
+}
+
+function hasLineContinuation(line: string) {
+  const match = /(\\+)\s*$/u.exec(line);
+  return Boolean(match && match[1].length % 2 === 1);
+}
+
+function updateSubstitutionDepth(text: string, depth: number) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') quote = '';
+      else if (character === '$' && text[index + 1] === '(') {
+        depth += 1;
+        index += 1;
+      } else if (character === ')' && depth > 0) {
+        depth -= 1;
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '$' && text[index + 1] === '(') {
+      depth += 1;
+      index += 1;
+    } else if (character === ')' && depth > 0) {
+      depth -= 1;
+    }
+  }
+  return depth;
+}
+
+function logicalShellCommands(source: string): ShellCommand[] {
+  const commands: ShellCommand[] = [];
+  let current: ShellLine[] = [];
+  let substitutionDepth = 0;
+  let heredoc: { delimiter: string; stripTabs: boolean } | undefined;
+  for (const [index, rawLine] of source.split('\n').entries()) {
+    const number = index + 1;
+    if (heredoc) {
+      const bodyLine = heredoc.stripTabs ? rawLine.replace(/^\t+/u, '') : rawLine;
+      if (bodyLine === heredoc.delimiter) heredoc = undefined;
+      continue;
+    }
+    const line = stripShellComment(rawLine.replace(/\r$/u, ''));
+    const hereDoc = findHereDoc(line);
+    const commandLine = hereDoc ? line.slice(0, hereDoc.index) : line;
+    if (current.length || commandLine.trim()) current.push({ number, text: commandLine });
+    substitutionDepth = updateSubstitutionDepth(commandLine, substitutionDepth);
+    if (hereDoc) heredoc = { delimiter: hereDoc.delimiter, stripTabs: hereDoc.stripTabs };
+    if (!hasLineContinuation(commandLine) && substitutionDepth === 0) {
+      if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
+      current = [];
+    }
+  }
+  if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
+  return commands;
+}
+
+const NETWORK_COMMAND = /\bgit(?:(?:\s+-[A-Za-z]\s+\S+)|(?:\s+--?\S+))*\s+(?:fetch|push|ls-remote|clone|pull)\b|\bgh\s+\S+/gu;
+
+function executableAt(text: string, target: number) {
+  let quote = '';
+  let escaped = false;
+  let substitutions = 0;
+  for (let index = 0; index < target; index += 1) {
+    const character = text[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"' && substitutions === 0) quote = '';
+      else if (character === '$' && text[index + 1] === '(') {
+        substitutions += 1;
+        index += 1;
+      } else if (character === ')' && substitutions > 0) {
+        substitutions -= 1;
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '$' && text[index + 1] === '(') {
+      substitutions += 1;
+      index += 1;
+    } else if (character === ')' && substitutions > 0) {
+      substitutions -= 1;
+    }
+  }
+  return !quote || substitutions > 0;
+}
+
+function unboundedNetworkCommands(helper: string): NetworkViolation[] {
+  const violations: NetworkViolation[] = [];
+  for (const command of logicalShellCommands(helper)) {
+    NETWORK_COMMAND.lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = NETWORK_COMMAND.exec(command.text))) {
+      if (!executableAt(command.text, match.index)) continue;
+      const offset = command.text.slice(0, match.index).split('\n').length - 1;
+      const line = command.lines[offset]?.number ?? command.lines.at(-1)!.number;
+      const before = command.text.slice(0, match.index);
+      NETWORK_COMMAND.lastIndex = match.index + match[0].length;
+      if (/\brun_bounded\b/u.test(before)) continue;
+      violations.push({ line, command: match[0] });
+    }
+  }
+  return violations;
+}
+
+describe('bounded network commands in the data refresh helper', () => {
+  it('requires every direct network command to run through run_bounded', () => {
+    const helper = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8');
+    const violations = unboundedNetworkCommands(helper);
+    const report = violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ');
+    expect(
+      report,
+      `Unbounded network commands: ${report}`,
+    ).toBe('');
+  });
+});
 
 describe('optional refresh paths (sync run 37515283217)', () => {
   // The article sync lists `public/images/generated`, a directory that does not
@@ -491,6 +713,23 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
     '',
   ].join('\n'));
   fs.chmodSync(gh, 0o755);
+  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  const gitProxy = path.join(bin, 'git');
+  fs.writeFileSync(gitProxy, [
+    '#!/usr/bin/env node',
+    "const { spawnSync } = require('node:child_process');",
+    `const realGit = ${JSON.stringify(realGit)};`,
+    "if (process.argv[2] === 'ls-remote' && process.env.REFRESH_FIXTURE_STALL_LS_REMOTE === '1') {",
+    '  setTimeout(() => process.exit(0), 5000);',
+    '  setInterval(() => {}, 1000);',
+    '} else {',
+    "  const result = spawnSync(realGit, process.argv.slice(2), { stdio: 'inherit' });",
+    "  if (result.error) { process.stderr.write(result.error.message + '\\n'); process.exit(127); }",
+    '  process.exit(result.status ?? 1);',
+    '}',
+    '',
+  ].join('\n'));
+  fs.chmodSync(gitProxy, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture sitemap.\n\n## Non implementato (ancora)\n- Nessuno.\n');
 
@@ -503,6 +742,123 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
       git(seed, ['push', '-q', remote, 'main:refs/heads/main']);
     },
   };
+}
+
+const COMPAT_BRANCH = 'chore/compat-fixture';
+const COMPAT_SHARD = 'data/seo-404-compat/part-00.json';
+
+function compatHistoryFixture(
+  historyLength: number,
+  helperSource = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8'),
+) {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-compat-history-'));
+  directories.push(directory);
+  const seed = path.join(directory, 'seed');
+  const remote = path.join(directory, 'remote.git');
+  const runner = path.join(directory, 'runner');
+  fs.mkdirSync(seed);
+  git(seed, ['init', '-q', '-b', 'main']);
+  git(seed, ['config', 'maintenance.auto', 'false']);
+  git(seed, ['config', 'gc.auto', '0']);
+  for (const file of PUBLISHER_RUNTIME_FILES) {
+    write(seed, file, file === 'scripts/lib/open-data-refresh-pr.sh'
+      ? helperSource
+      : fs.readFileSync(path.join(ROOT, file), 'utf8'));
+  }
+  write(seed, '.gitattributes', 'data/seo-404-compat/part-*.json merge=compat-shard\n');
+  write(seed, 'scripts/ci/pr-body-check-gate.mjs', 'process.exit(0);\n');
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base'] }, null, 2) + '\n');
+  write(seed, 'data/long-history.txt', 'history 0\n');
+  git(seed, ['add', '-A']);
+  git(seed, ['commit', '-q', '-m', 'compat base']);
+
+  for (let index = 1; index <= historyLength; index += 1) {
+    write(seed, 'data/long-history.txt', `history ${index}\n`);
+    git(seed, ['add', 'data/long-history.txt']);
+    git(seed, ['commit', '-q', '-m', `history ${index}`]);
+  }
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'main compat data']);
+  const stableBase = git(seed, ['rev-parse', `HEAD~${Math.max(3, Math.floor(historyLength / 2))}`]);
+  git(seed, ['checkout', '-q', '-b', COMPAT_BRANCH, stableBase]);
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/stable'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'stable compat data']);
+
+  git(directory, ['init', '--bare', '-q', remote]);
+  git(remote, ['config', 'uploadpack.allowFilter', 'true']);
+  git(remote, ['config', 'uploadpack.allowAnySHA1InWant', 'true']);
+  git(remote, ['config', 'maintenance.auto', 'false']);
+  git(remote, ['config', 'gc.auto', '0']);
+  git(remote, ['config', 'receive.autogc', 'false']);
+  git(seed, ['remote', 'add', 'origin', remote]);
+  git(seed, ['push', '-q', 'origin', 'main:refs/heads/main', `${COMPAT_BRANCH}:refs/heads/${COMPAT_BRANCH}`]);
+  git(directory, ['clone', '-q', '-c', 'maintenance.auto=false', '-c', 'gc.auto=0', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
+  git(runner, ['config', `url.${remote}.insteadOf`, PUSH_URL]);
+  git(runner, ['config', 'maintenance.auto', 'false']);
+  git(runner, ['config', 'gc.auto', '0']);
+
+  const bin = path.join(directory, 'bin');
+  fs.mkdirSync(bin);
+  const gh = path.join(bin, 'gh');
+  fs.writeFileSync(gh, [
+    '#!/usr/bin/env node',
+    "const { spawnSync } = require('node:child_process');",
+    `const remote = ${JSON.stringify(remote)};`,
+    'const args = process.argv.slice(2);',
+    "if (args[0] === 'api') {",
+    "  const endpoint = args.find((arg) => arg.startsWith('repos/fixture/publisher/compare/'));",
+    "  if (endpoint) {",
+    "    const compare = endpoint.slice(endpoint.indexOf('/compare/') + '/compare/'.length);",
+    "    const [left, right] = compare.split('...');",
+    "    const result = spawnSync('git', ['--git-dir=' + remote, 'merge-base', left, right], { encoding: 'utf8' });",
+    "    if (result.status !== 0) { process.stderr.write(result.stderr); process.exit(result.status || 1); }",
+    "    process.stdout.write(result.stdout); process.exit(0);",
+    '  }',
+    '}',
+    "if (args[0] === 'pr' && args[1] === 'create') process.stdout.write('https://github.com/fixture/publisher/pull/1\\n');",
+    'process.exit(0);',
+    '',
+  ].join('\n'));
+  fs.chmodSync(gh, 0o755);
+  const body = path.join(directory, 'body.md');
+  fs.writeFileSync(body, '## Implementato\n- Fixture compat.\n\n## Non implementato (ancora)\n- Nessuno.\n');
+
+  return { directory, remote, runner, bin, body };
+}
+
+function publishCompat(setup: ReturnType<typeof compatHistoryFixture>) {
+  write(setup.runner, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/main', '/run'] }, null, 2) + '\n');
+  const result = spawnSync('bash', [
+    'scripts/lib/open-data-refresh-pr.sh',
+    '--path', 'data/seo-404-compat', '--branch', COMPAT_BRANCH,
+    '--commit-message', 'fixture compat refresh', '--title', 'Fixture compat refresh', '--body-file', setup.body,
+  ], {
+    cwd: setup.runner, encoding: 'utf8', timeout: 120_000,
+    env: {
+      ...process.env, ...identity,
+      PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
+      GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+    },
+  });
+  return {
+    result,
+    output: `${result.stdout}${result.stderr}`,
+    commitCount: Number(git(setup.runner, ['rev-list', '--all', '--count'])),
+    shard: JSON.parse(git(setup.remote, ['show', `${COMPAT_BRANCH}:${COMPAT_SHARD}`])),
+  };
+}
+
+/** A sweep merged into main after the runner checked it out: the usual state of a run that takes minutes. */
+function advanceCompatMain(setup: ReturnType<typeof compatHistoryFixture>) {
+  const seed = path.join(setup.directory, 'seed');
+  git(seed, ['checkout', '-q', 'main']);
+  write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/later', '/main'] }, null, 2) + '\n');
+  git(seed, ['add', COMPAT_SHARD]);
+  git(seed, ['commit', '-q', '-m', 'main compat data after the checkout']);
+  git(seed, ['push', '-q', 'origin', 'main:refs/heads/main']);
+  git(seed, ['checkout', '-q', COMPAT_BRANCH]);
 }
 
 /** Objects held in the remote's packs; with `receive.unpackLimit=1` a push adds exactly what it sent. */
@@ -562,7 +918,7 @@ function publishSitemap(setup: ReturnType<typeof movingMainFixture>, env: Record
  * shell run at those moments (`$refusals` counts the refusals): what someone
  * else does to the branch while this run is failing or cleaning up.
  */
-function refuseRefreshPushes(setup: ReturnType<typeof movingMainFixture>, { onRefusal = '', onDeletion = '' } = {}) {
+function refuseRefreshPushes(setup: { remote: string }, { onRefusal = '', onDeletion = '' } = {}) {
   const hook = path.join(setup.remote, 'hooks', 'pre-receive');
   fs.mkdirSync(path.dirname(hook), { recursive: true });
   fs.writeFileSync(hook, [
@@ -622,6 +978,123 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(setup.ghCalls()).toContain('pr create');
   }, 60_000);
 
+  it('reconciles a stale compat branch with bounded history reads', () => {
+    const boundedRuns = [50, 500].map((historyLength) => publishCompat(compatHistoryFixture(historyLength)));
+    for (const run of boundedRuns) {
+      expect(run.result.status, run.output).toBe(0);
+      expect(run.output).toContain('old-history-guard:');
+      expect(run.shard).toEqual({ paths: ['/base', '/main', '/run', '/stable'] });
+      expect(run.commitCount).toBeLessThan(20);
+    }
+    // Ten times the history, the same commits on the runner: what it reads
+    // does not depend on how old the stable branch is.
+    expect(boundedRuns[0].commitCount).toBe(boundedRuns[1].commitCount);
+  }, 120_000);
+
+  it('carries a sweep that reached main after the checkout into the pending compat branch', () => {
+    const setup = compatHistoryFixture(50);
+    advanceCompatMain(setup);
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run', '/stable'] });
+    expect(run.commitCount).toBeLessThan(20);
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
+  }, 120_000);
+
+  it('carries a sweep that reached main after the checkout into a new compat branch', () => {
+    const setup = compatHistoryFixture(50);
+    git(setup.remote, ['update-ref', '-d', `refs/heads/${COMPAT_BRANCH}`]);
+    advanceCompatMain(setup);
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/run'] });
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
+  }, 120_000);
+
+  it('needs a forced refspec to move a tracking ref to a depth-1 tip', () => {
+    // The Git rule behind the forced refspecs of the compat path: a commit
+    // fetched at depth 1 has no parents on the runner, so the update of a ref
+    // that already exists is never a provable fast-forward.
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'refresh-depth-one-'));
+    directories.push(directory);
+    const seed = path.join(directory, 'seed');
+    const remote = path.join(directory, 'remote.git');
+    const runner = path.join(directory, 'runner');
+    fs.mkdirSync(seed);
+    git(seed, ['init', '-q', '-b', 'main']);
+    write(seed, 'data/value.txt', 'one\n');
+    git(seed, ['add', '-A']);
+    git(seed, ['commit', '-q', '-m', 'one']);
+    git(directory, ['init', '--bare', '-q', remote]);
+    git(seed, ['push', '-q', remote, 'main:refs/heads/main']);
+    git(directory, ['clone', '-q', '--depth=1', '--no-tags', '--branch', 'main', `file://${remote}`, runner]);
+    write(seed, 'data/value.txt', 'two\n');
+    git(seed, ['commit', '-q', '-am', 'two']);
+    git(seed, ['push', '-q', remote, 'main:refs/heads/main']);
+    const tip = git(seed, ['rev-parse', 'HEAD']);
+    const fetch = (refspec: string) => spawnSync('git', ['fetch', '--no-tags', '--depth=1', `file://${remote}`, refspec], {
+      cwd: runner, encoding: 'utf8', env: { ...process.env, ...identity },
+    });
+
+    const unforced = fetch('refs/heads/main:refs/remotes/origin/main');
+    expect(unforced.status, unforced.stderr).not.toBe(0);
+    expect(unforced.stderr).toContain('(non-fast-forward)');
+    expect(git(runner, ['rev-parse', 'refs/remotes/origin/main'])).not.toBe(tip);
+
+    const forced = fetch('+refs/heads/main:refs/remotes/origin/main');
+    expect(forced.status, forced.stderr).toBe(0);
+    expect(git(runner, ['rev-parse', 'refs/remotes/origin/main'])).toBe(tip);
+  }, 60_000);
+
+  it('rebuilds the compat branch from the tip another run pushed during this publish', () => {
+    const setup = compatHistoryFixture(50);
+    advanceCompatMain(setup);
+    // Another sweep lands on the stable branch while this run is pushing: the
+    // first push loses its lease and the retry must start from that tip.
+    const seed = path.join(setup.directory, 'seed');
+    write(seed, COMPAT_SHARD, JSON.stringify({ paths: ['/base', '/other', '/stable'] }, null, 2) + '\n');
+    git(seed, ['add', COMPAT_SHARD]);
+    git(seed, ['commit', '-q', '-m', 'concurrent compat sweep']);
+    const concurrent = git(seed, ['rev-parse', 'HEAD']);
+    git(seed, ['push', '-q', 'origin', `${concurrent}:refs/heads/fixture-concurrent`]);
+    refuseRefreshPushes(setup, {
+      onRefusal: `if [ "$refusals" -ge 2 ]; then exit 0; fi; git update-ref refs/heads/${COMPAT_BRANCH} ${concurrent}`,
+    });
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(run.output).toContain('stable refresh branch moved during push attempt 1/3');
+    expect(run.shard).toEqual({ paths: ['/base', '/later', '/main', '/other', '/run', '/stable'] });
+    // The workflow checkout is handed back on this run's refresh commit with
+    // no tracked file modified (untracked files are the runner's business).
+    expect(git(setup.runner, ['status', '--porcelain', '--untracked-files=no'])).toBe('');
+    expect(JSON.parse(fs.readFileSync(path.join(setup.runner, COMPAT_SHARD), 'utf8')))
+      .toEqual({ paths: ['/base', '/main', '/run'] });
+  }, 120_000);
+
+  it('stops on a stable compat branch that shares no history with main, without reading its history', () => {
+    const setup = compatHistoryFixture(50);
+    // The shape that left the Cloudflare 404 refresh stuck for three days: a
+    // stable branch nothing connects to main. There is no base to reconcile on.
+    const seed = path.join(setup.directory, 'seed');
+    git(seed, ['checkout', '-q', '--orphan', 'fixture-unrelated']);
+    git(seed, ['commit', '-q', '-m', 'unrelated root']);
+    for (let index = 1; index <= 40; index += 1) {
+      write(seed, 'data/long-history.txt', `unrelated ${index}\n`);
+      git(seed, ['add', 'data/long-history.txt']);
+      git(seed, ['commit', '-q', '-m', `unrelated ${index}`]);
+    }
+    const unrelated = git(seed, ['rev-parse', 'HEAD']);
+    git(seed, ['push', '-q', '--force', 'origin', `${unrelated}:refs/heads/${COMPAT_BRANCH}`]);
+    const startedAt = Date.now();
+    const run = publishCompat(setup);
+    expect(run.result.status, run.output).not.toBe(0);
+    expect(run.output).toContain('::error::Missing compatibility merge base');
+    expect(run.commitCount).toBeLessThan(20);
+    expect(Date.now() - startedAt).toBeLessThan(60_000);
+    // Nothing was pushed over the branch.
+    expect(git(setup.remote, ['rev-parse', `refs/heads/${COMPAT_BRANCH}`])).toBe(unrelated);
+  }, 120_000);
+
   it('stops in seconds, without downloading history, when the base cannot be created and main moved', () => {
     const setup = movingMainFixture({ afterHistoryGuard: true });
     setup.advanceMain();
@@ -644,6 +1117,18 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(git(setup.remote, ['rev-parse', `${NEW_BRANCH}^`])).toBe(setup.checkout);
     expect(run.objectsSent).toBe(OBJECTS_OF_THE_REFRESH);
     expect(run.lazyFetchesByPush).toBe(0);
+  }, 60_000);
+
+  it('stops a nonresponsive stable-branch read at its cap and names it', () => {
+    const setup = movingMainFixture({ afterHistoryGuard: true });
+    const run = publishSitemap(setup, {
+      REFRESH_FIXTURE_STALL_LS_REMOTE: '1',
+      OPEN_DATA_REFRESH_LS_REMOTE_TIMEOUT_SECONDS: '1',
+    });
+    expect(run.result.status, run.output).toBe(124);
+    expect(run.seconds).toBeLessThan(10);
+    expect(run.output).toContain('::error::git ls-remote stable refresh branch timed out after 1 second');
+    expect(run.output).not.toContain('x-access-token:fixture-token');
   }, 60_000);
 
   it('removes the base it created when the push keeps failing', () => {
@@ -772,5 +1257,58 @@ describe('bounded command runner', () => {
     const [status] = await exited;
     expect(Date.now() - signalledAt).toBeLessThan(5_000);
     expect(status).toBe(137);
+  });
+
+  // The command stops at the first signal; the helper it started ignores it.
+  const withStubbornHelper = (ready: string) => {
+    const helper = `process.on('SIGTERM', () => {}); require('node:fs').writeFileSync(${JSON.stringify(ready)}, String(process.pid)); setInterval(() => {}, 1000);`;
+    return `require('node:child_process').spawn(process.execPath, ['-e', ${JSON.stringify(helper)}], { stdio: 'ignore' }); setInterval(() => {}, 1000);`;
+  };
+  // A stopped helper is reaped a moment after the signal: give it that moment.
+  const stoppedWithin = async (pid: number, milliseconds: number) => {
+    const deadline = Date.now() + milliseconds;
+    for (;;) {
+      try {
+        process.kill(pid, 0);
+      } catch {
+        return true;
+      }
+      if (Date.now() >= deadline) break;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    // Not ours to leave behind when the assertion fails.
+    try { process.kill(pid, 'SIGKILL'); } catch { /* gone in the meantime */ }
+    return false;
+  };
+
+  it('stops a helper that ignores the signal after the command itself ended at the cap', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bounded-helper-cap-'));
+    directories.push(directory);
+    const ready = path.join(directory, 'ready');
+    const result = bounded(['--timeout-seconds', '3', '--label', 'helper', '--', process.execPath, '-e', withStubbornHelper(ready)]);
+    expect(result.status).toBe(124);
+    // Without the helper up before the cap the case would prove nothing.
+    expect(fs.existsSync(ready), 'the helper did not start within the cap').toBe(true);
+    expect(await stoppedWithin(Number(fs.readFileSync(ready, 'utf8')), 2_000)).toBe(true);
+  });
+
+  it('stops a helper that ignores the signal after the command ended on a cancelled job', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bounded-helper-signal-'));
+    directories.push(directory);
+    const ready = path.join(directory, 'ready');
+    const wrapper = spawn(process.execPath, [
+      'scripts/lib/run-bounded-command.mjs', '--timeout-seconds', '60', '--label', 'helper', '--', process.execPath, '-e', withStubbornHelper(ready),
+    ], { cwd: ROOT, stdio: 'ignore' });
+    const exited = once(wrapper, 'exit');
+    const deadline = Date.now() + 10_000;
+    while (!fs.existsSync(ready) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
+    expect(fs.existsSync(ready)).toBe(true);
+    const signalledAt = Date.now();
+    wrapper.kill('SIGTERM');
+    const [status] = await exited;
+    expect(Date.now() - signalledAt).toBeLessThan(5_000);
+    // The command ended on the signal that was passed on: 128 plus SIGTERM.
+    expect(status).toBe(143);
+    expect(await stoppedWithin(Number(fs.readFileSync(ready, 'utf8')), 2_000)).toBe(true);
   });
 });

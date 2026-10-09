@@ -1,7 +1,7 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-10-08T09:19:18.234Z",
+  "generatedAt": "2026-10-08T22:14:09.186Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4071,
-  "avgDurationMs": 4071,
+  "durationMs": 4915,
+  "avgDurationMs": 4915,
   "durationHistory": [
-    4071
+    4915
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:19:08.857Z",
+      "crawledAt": "2026-10-08T22:13:49.309Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
       "salaryMin": 60500,
@@ -94,7 +94,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/rettungssanitaeterin-mit-anteil-flugbetrieb-100-571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:19:08.634Z",
+      "crawledAt": "2026-10-08T22:13:49.023Z",
       "firstSeenAt": "2026-09-10T23:10:59.522Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

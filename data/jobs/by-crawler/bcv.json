@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcv",
-  "assembledAt": "2026-10-08T09:19:33.287Z",
+  "assembledAt": "2026-10-08T22:18:14.743Z",
   "jobs": [
     {
       "id": "bcv-12a7e729eb8d",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bcv.ch/job/Stagiaires-maturantes-ou-maturants-mars-2027/1431013433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:28.805Z",
+      "crawledAt": "2026-10-08T22:18:09.187Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.bcv.ch/job/Morges-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Key-Clients-&-Entrepreneurs-Morges/1429188533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:27.965Z",
+      "crawledAt": "2026-10-08T22:18:08.373Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -146,7 +146,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T22:15:02.330Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -192,7 +191,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-successorale-ou-conseiller-successoral-R%C3%A9gion-Lausanne/1411874433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:27.124Z",
+      "crawledAt": "2026-10-08T22:18:07.527Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -227,7 +226,6 @@
         "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-09-02T13:36:26.503Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -256,7 +254,7 @@
       "companyDomain": "bcv.ch",
       "title": "Chief Credit Officer - Cheffe ou Chef de division",
       "titleByLocale": {
-        "it": "Chief Credit Officer - Cheffe ou Chef de division",
+        "it": "Chief Credit Officer - Capo divisione",
         "en": "Chief Credit Officer - Head of Division",
         "de": "Chief Credit Officer - Abteilungsleiter",
         "fr": "Chief Credit Officer - Cheffe ou Chef de division"
@@ -273,7 +271,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Chief-Credit-Officer-Cheffe-ou-Chef-de-division/1445095733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:26.284Z",
+      "crawledAt": "2026-10-08T22:18:06.655Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -308,7 +306,6 @@
         ]
       },
       "firstSeenAt": "2026-10-07T09:21:25.865Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -354,7 +351,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Apprenties-ou-apprentis-de-commerce-Banque-ao%C3%BBt-2027/1426475433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:25.326Z",
+      "crawledAt": "2026-10-08T22:18:05.803Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -435,7 +432,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-d'applications-bancaires-domaine-Op%C3%A9rations-de-March%C3%A9/1408671433/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:24.329Z",
+      "crawledAt": "2026-10-08T22:18:05.021Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -475,7 +472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:04.866Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -496,7 +492,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -521,7 +517,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Corporate-Sales-Rates-&-FX/1277101301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:23.403Z",
+      "crawledAt": "2026-10-08T22:18:04.252Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -553,14 +549,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
@@ -609,7 +605,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Stagiaire-universitaire-12-mois-Cybers%C3%A9curit%C3%A9/1445248333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:22.524Z",
+      "crawledAt": "2026-10-08T22:18:03.451Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -690,7 +686,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-d'agence-Villars/1070859301/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:21.609Z",
+      "crawledAt": "2026-10-08T22:18:02.627Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -773,7 +769,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-projets-IT-SAP/1383719133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:20.662Z",
+      "crawledAt": "2026-10-08T22:18:01.782Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -872,7 +868,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-Secr%C3%A9tariat-g%C3%A9n%C3%A9ral-de-la-BCV/1441409733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:19.778Z",
+      "crawledAt": "2026-10-08T22:18:00.978Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -953,7 +949,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gionale-ou-Responsable-r%C3%A9gional-PME-R%C3%A9gion-Chablais/1434865933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:18.953Z",
+      "crawledAt": "2026-10-08T22:18:00.186Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1034,7 +1030,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Senior-Private-Banking-Key-Clients/1242200201/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:17.994Z",
+      "crawledAt": "2026-10-08T22:17:59.351Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1085,7 +1081,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:11.588Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1131,7 +1126,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Chablais/1407738733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:16.731Z",
+      "crawledAt": "2026-10-08T22:17:58.573Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1197,7 +1192,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:58.690Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1227,7 +1221,7 @@
       "title": "Senior credit officer - PME - Pros Immobilier - Particuliers",
       "titleByLocale": {
         "it": "Senior credit officer - PMI - Pros Immobilier - Individuals",
-        "en": "Senior credit officer - PME - Pros Immobilier - Particuliers",
+        "en": "Senior credit officer - SMEs - Pros Immobilier - Individuals",
         "de": "Senior Credit Officer - KMU - Pros Immobilier - Privatpersonen",
         "fr": "Senior credit officer - PME - Pros Immobilier - Particuliers"
       },
@@ -1243,7 +1237,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Senior-credit-officer-PME-Pros-Immobilier-Particuliers/1440007133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:15.882Z",
+      "crawledAt": "2026-10-08T22:17:57.709Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1276,7 +1270,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:41:48.400Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -1322,7 +1315,7 @@
       "url": "https://jobs.bcv.ch/job/Vevey-Conseiller-ou-Conseill%C3%A8re-PME-sp%C3%A9cialis%C3%A9%28e%29-R%C3%A9gion-Riviera/1420578833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:14.937Z",
+      "crawledAt": "2026-10-08T22:17:56.902Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1352,7 +1345,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:45.206Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1398,7 +1390,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-en-financement-immobilier-Acquisition-et-d%C3%A9veloppement/1282231601/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:13.834Z",
+      "crawledAt": "2026-10-08T22:17:56.130Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1481,7 +1473,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance-Client%C3%A8le-Internationale-%28orientation-compliance%29/1426085933/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:12.617Z",
+      "crawledAt": "2026-10-08T22:17:55.361Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1517,7 +1509,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:10:44.623Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1563,7 +1554,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyste-D%C3%A9veloppeur-IT-Trading/1390833833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:11.633Z",
+      "crawledAt": "2026-10-08T22:17:54.582Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1601,7 +1592,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:19.315Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1647,7 +1637,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Stagiaire-universitaire-12-mois-Responsabilit%C3%A9-sociale-d'entreprise/1444645333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:10.737Z",
+      "crawledAt": "2026-10-08T22:17:53.796Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1712,7 +1702,7 @@
       "title": "IT Business Analyst - domaine Opérations de Marché",
       "titleByLocale": {
         "it": "IT Business Analista - domaine Opérations de Marché",
-        "en": "IT Business Analyst - domaine Opérations de Marché",
+        "en": "IT Business Analyst - Market Operations domain",
         "de": "IT Business Analyst - Bereich Market Operations",
         "fr": "IT Business Analyste - domaine Opérations de Marché"
       },
@@ -1728,7 +1718,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-IT-Business-Analyst-domaine-Op%C3%A9rations-de-March%C3%A9/1374027533/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:09.898Z",
+      "crawledAt": "2026-10-08T22:17:52.935Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1768,7 +1758,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:26.214Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1798,7 +1787,7 @@
       "title": "Cash Manager pour la clientèle des entreprises",
       "titleByLocale": {
         "it": "Cash Manager per clienti aziendali",
-        "en": "Cash Manager pour la clientèle des entreprises",
+        "en": "Cash Manager for Business Clients",
         "de": "Cash Manager für Geschäftskunden",
         "fr": "Cash Manager pour la clientèle des entreprises"
       },
@@ -1814,7 +1803,7 @@
       "url": "https://jobs.bcv.ch/job/Cash-Manager-pour-la-client%C3%A8le-des-entreprises/1438347133/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:09.007Z",
+      "crawledAt": "2026-10-08T22:17:52.083Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1847,7 +1836,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:52:39.969Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1864,36 +1852,36 @@
     },
     {
       "id": "bcv-677e3d1d0e08",
-      "slug": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
+      "slug": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "fr": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "it": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "en": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "de": "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        "it": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
+        "en": "specialist-controlling-and-reporting-credits-banque-cantonale-vaudoise-lausanne",
+        "de": "spezialisierte-controlling-und-reporting-credits-banque-cantonale-vaudoise-lausanne",
+        "fr": "specialiste-controlling-et-reportings-credits-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
       "companyDomain": "bcv.ch",
       "title": "Spécialiste controlling et reportings crédits",
       "titleByLocale": {
-        "fr": "Spécialiste controlling et reportings crédits",
-        "it": "Spécialiste controlling et reportings crédits",
-        "en": "Spécialiste controlling et reportings crédits",
-        "de": "Spécialiste controlling et reportings crédits"
+        "it": "Crediti di controllo e di reporting specializzati",
+        "en": "Specialist controlling and reporting credits",
+        "de": "Spezialisierte Controlling und Reporting Credits",
+        "fr": "Spécialiste controlling et reportings crédits"
       },
       "description": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
       "descriptionByLocale": {
-        "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "it": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "en": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "de": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
+        "it": "E se la tua storia professionale continua al BCV? Metti le tue ambizioni manageriali al servizio di una performance sana e sostenibile unendo il cantone della prima banca universale di Vaud, una delle banche più forti del mondo, e i suoi 2.000 collaboratori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud, così come per l'attrattiva e la vitalità della nostra regione. Per il nostro dipartimento di strategia e organizzazione, stiamo cercando uno o più:\n\nCrediti di monitoraggio e reporting specializzati da 60 a 100%\n• Produzione di report all'interno (Dipartimento, Branch, Consiglio di Amministrazione) e all'esterno (Finma, BNS), utilizzando strumenti come RStudio/ R\n• Assicurare il buon funzionamento del dipartimento End User Computings (EUCs) e fornire supporto interno alla Divisione per questi sviluppi.\n• Ottimizzare fonti interne ed esterne di informazioni per fornire al Dipartimento, Divisione e Banca dati affidabili e pertinenti.\n• Assicurare il monitoraggio del Dipartimento del Credit Support: analisi relative al monitoraggio dei rischi di credito (monitoraggio, sorpasso/scoperta, ecc.) e alla compilazione delle statistiche.\n• Identificare le opportunità di semplificazione e proporre miglioramenti procedurali basati su analisi quantitative, obiettive e finanziarie.\n• Partecipare a gruppi di lavoro (IT e/o processi) o anche guidarli, e contribuire all'analisi della situazione attuale e futura.\n• Segnala il progresso dei progetti alla gerarchia, evidenziando i rischi (budget, scadenze). Il tuo profilo\n• Formazione avanzata in ingegneria, informatica, finanza o scienza (EPF, HES o equivalente).\n• Almeno 1 anno di esperienza professionale; un'esperienza nel reporting bancario è un bene.\n• (RStudio/R, Python) Conoscenza Accesso/VBA, SQL desiderato.\n• Aisance con querying e gestione dei dati.\n• Spirito di analisi, senso di dettaglio e orientamento della soluzione.\n• Volontà per ottimizzare i processi esistenti.\n• Personalità piacevole, confortevole nel lavoro di squadra.\n• perfetta padronanza del francese e del buon inglese\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
+        "en": "What if your professional history continues at the BCV? Put your managerial ambitions at the service of a healthy and sustainable performance by joining the canton of Vaud's first universal bank, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Strategy and Organization department, we are looking for one or more:\n\nSpecialist monitoring and reporting credits 60 to 100% Your missions\n• Produce reporting to internal (Department, Branch, Board of Directors) and external (Finma, BNS), using tools such as RStudio/R\n• Ensure the smooth functioning of the department's End User Computings (EUCs) and provide internal support to the Division for these developments.\n• Optimize internal and external sources of information to provide the Department, Division and Bank with reliable and relevant data.\n• Ensure the monitoring of the Credit Support Department: analyses related to the monitoring of credit risks (monitoring, overtaking/discovery, etc.) and the compilation of statistics.\n• Identify opportunities for simplification and propose procedural improvements based on quantitative, objective and financial analysis.\n• Participate in working groups (IT and/or processes) or even lead them, and contribute to the analysis of the current and future situation.\n• Report the progress of projects to the hierarchy, highlighting risks (budget, deadlines). Your profile\n• Advanced training in engineering, computer science, finance or science (EPF, HES or equivalent).\n• At least 1 year of professional experience; an experience in banking reporting is an asset.\n• (RStudio/R, Python) Access/VBA knowledge, SQL desired.\n• Aisance with querying and handling data.\n• Spirit of analysis, sense of detail and solution orientation.\n• Willingness to optimize existing processes.\n• Pleasant personality, comfortable in teamwork.\n• Perfect mastery of French and good English\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
+        "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Stellen Sie Ihre Führungsambitionen in den Dienst einer gesunden und nachhaltigen Leistung, indem Sie der ersten Universalbank des Kantons Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern beitreten. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Abteilung Strategie und Organisation suchen wir eine oder mehrere:\n\nSpezialisierte Überwachung und Berichterstattung Kredite 60 bis 100% Ihre Missionen\n• Berichterstattung an interne (Abteilung, Zweigstelle, Verwaltungsrat) und externe (Finma, BNS) mit Tools wie RStudio/ R\n• Gewährleistung des reibungslosen Funktionierens der End User Computings (EUCs) der Abteilung und interne Unterstützung der Abteilung für diese Entwicklungen.\n• Optimieren Sie interne und externe Informationsquellen, um der Abteilung, Abteilung und Bank zuverlässige und relevante Daten zur Verfügung zu stellen.\n• Gewährleistung der Überwachung der Abteilung für Kreditunterstützung: Analysen zur Überwachung von Kreditrisiken (Überwachung, Überholung/Entdeckung usw.) und Erstellung von Statistiken.\n• Ermittlung von Vereinfachungsmöglichkeiten und Vorschlag von Verfahrensverbesserungen auf der Grundlage quantitativer, objektiver und finanzieller Analysen.\n• Beteiligen Sie sich an Arbeitsgruppen (IT und / oder Prozesse) oder führen Sie sie sogar und tragen Sie zur Analyse der aktuellen und zukünftigen Situation bei.\n• Melden Sie den Fortschritt der Projekte an die Hierarchie, wobei Sie die Risiken (Budget, Fristen) hervorheben. Dein Profil\n• Fortgeschrittene Ausbildung in Ingenieurwissenschaften, Informatik, Finanzen oder Wissenschaft (EPF, HES oder gleichwertig).\n• Mindestens 1 Jahr Berufserfahrung; eine Erfahrung in der Bankenberichterstattung ist ein Vermögenswert.\n• (RStudio/R, Python) Access/VBA-Wissen, SQL gewünscht.\n• Aisance mit Abfrage und Umgang mit Daten.\n• Analysegeist, Detailsinn und Lösungsorientierung.\n• Bereitschaft, bestehende Prozesse zu optimieren.\n• Angenehme Persönlichkeit, komfortabel in der Teamarbeit.\n• Perfekte Beherrschung von Französisch und gutem Englisch\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
+        "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-controlling-et-reportings-cr%C3%A9dits/1445501233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:08.034Z",
+      "crawledAt": "2026-10-08T22:17:51.290Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1912,11 +1900,23 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.bcv.ch/job/Lausanne-Sp%C3%A9cialiste-controlling-et-reportings-cr%C3%A9dits/1445501233/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "sfJobId": "1445501233",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "en": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "de": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ]
+      },
+      "firstSeenAt": "2026-10-08T09:19:08.034Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1929,8 +1929,7 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:19:08.034Z"
+      }
     },
     {
       "id": "bcv-31f441e7888a",
@@ -1963,7 +1962,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-projet-Etat-major-Finance-&-Risques/1434450333/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:07.188Z",
+      "crawledAt": "2026-10-08T22:17:50.421Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2004,7 +2003,6 @@
         "responsable-projet-etat-major-finance-risques-bcv-lausanne"
       ],
       "firstSeenAt": "2026-09-07T15:09:40.644Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2050,7 +2048,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Analyse-d%C3%A9veloppeur-CA-Gen-Cobol/1414462733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:06.336Z",
+      "crawledAt": "2026-10-08T22:17:49.587Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2109,7 +2107,7 @@
       "title": "Product Manager - Trafic des paiements",
       "titleByLocale": {
         "it": "Product Manager - Trafic dei Pagamenti",
-        "en": "Product Manager - Trafic des paiements",
+        "en": "Product Manager - Payment traffic",
         "de": "Product Manager - Zahlungsverkehr",
         "fr": "Product Manager - Trafic des paiements"
       },
@@ -2125,7 +2123,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Product-Manager-Trafic-des-paiements/1254978701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:05.465Z",
+      "crawledAt": "2026-10-08T22:17:48.809Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2162,7 +2160,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:24.288Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2208,7 +2205,7 @@
       "url": "https://jobs.bcv.ch/job/Verwaltungssachbearbeiterin-BVG/1281964401/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:19:04.602Z",
+      "crawledAt": "2026-10-08T22:17:47.995Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2291,7 +2288,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Stagiaire-universitaire-12-mois-Service-IT/1444644833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:03.600Z",
+      "crawledAt": "2026-10-08T22:17:47.196Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2372,7 +2369,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-Private-Banking-Lausanne/1436963233/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:02.674Z",
+      "crawledAt": "2026-10-08T22:17:46.380Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2436,7 +2433,7 @@
       "title": "Responsable de plateformes IT Distribution Marketing - Chef de service",
       "titleByLocale": {
         "it": "Responsabile della Piattaforma IT Marketing Distribuzione - Capo Dipartimento",
-        "en": "Responsable de plateformes IT Distribution Marketing - Chef de service",
+        "en": "IT Platform Manager Distribution Marketing - Head of Department",
         "de": "IT Platform Manager Distribution Marketing - Abteilungsleiter",
         "fr": "Responsable de plateformes IT Distribution Marketing - Chef de service"
       },
@@ -2452,7 +2449,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-de-plateformes-IT-Distribution-Marketing-Chef-de-service/1406030833/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:01.809Z",
+      "crawledAt": "2026-10-08T22:17:45.584Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2493,7 +2490,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:00.579Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2539,7 +2535,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-conseil-pr%C3%A9voyance-priv%C3%A9e/1408024733/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:19:00.987Z",
+      "crawledAt": "2026-10-08T22:17:44.773Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2604,7 +2600,7 @@
       "title": "Responsable du secteur Conseil Private Banking & Advisory",
       "titleByLocale": {
         "it": "Capo della Consulenza, Private Banking & Advisory",
-        "en": "Responsable du secteur Conseil Private Banking & Advisory",
+        "en": "Head of Private Banking & Advisory",
         "de": "Leiter Private Banking & Advisory",
         "fr": "Responsable du secteur Conseil Private Banking & Advisory"
       },
@@ -2620,7 +2616,7 @@
       "url": "https://jobs.bcv.ch/job/Lausanne-Responsable-du-secteur-Conseil-Private-Banking-&-Advisory/1265629801/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:18:59.708Z",
+      "crawledAt": "2026-10-08T22:17:44.009Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2661,7 +2657,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:15.798Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2707,7 +2702,7 @@
       "url": "https://jobs.bcv.ch/job/Payerne-Responsable-r%C3%A9gional-Private-Banking-Broye/1188391001/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:18:58.849Z",
+      "crawledAt": "2026-10-08T22:17:43.112Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2748,7 +2743,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:17.681Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2794,7 +2788,7 @@
       "url": "https://jobs.bcv.ch/job/Aigle-Responsable-r%C3%A9gional-Private-Banking-Chablais/1265000701/",
       "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:18:57.989Z",
+      "crawledAt": "2026-10-08T22:17:42.227Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2830,7 +2824,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:14.928Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2844,85 +2837,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "bcv-28b1bd8c597b",
-      "slug": "consulente-remoto-banque-cantonale-vaudoise-lausanne",
-      "slugByLocale": {
-        "it": "consulente-remoto-banque-cantonale-vaudoise-lausanne",
-        "en": "remote-advisor-banque-cantonale-vaudoise-lausanne",
-        "de": "conseillere-ou-conseiller-a-distance-bcv-lausanne",
-        "fr": "conseillere-ou-conseiller-a-distance-bcv-lausanne"
-      },
-      "company": "Banque Cantonale Vaudoise",
-      "companyKey": "bcv",
-      "companyDomain": "bcv.ch",
-      "title": "Conseillère ou Conseiller à distance",
-      "titleByLocale": {
-        "it": "Consulente remoto",
-        "en": "Remote Advisor",
-        "de": "Remote Advisor",
-        "fr": "Conseillère ou Conseiller à distance"
-      },
-      "description": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Retail , nous recherchons une ou un :\n\nConseillère ou Conseiller à distance - Prilly Vos missions principales :\n• conseiller et servir notre clientèle interne et externe (par téléphone, email et chat), en répondant à leurs demandes commerciales, administratives et de support,\n• détecter et saisir les opportunités commerciales (gestion courante, prévoyance, hypothèque, placements) et, le cas échéant fixer des rendez-vous auprès des conseillers en agence,\n• promouvoir et accompagner nos clients dans l'utilisation de nos services de banque à distance (E-banking et applications mobiles),\n• participer activement à des campagnes d'appels sortants basées sur des opportunités commerciales ciblées,\n• contribuer à la qualité de service en assurant le bon traitement des demandes et réclamations, ainsi que la mise à jour fiable de nos outils CRM. Votre profil :\n• titulaire d'un CFC de commerce ou équivalent,\n• expérience confirmée d'au moins 2 ans au sein d'un service clientèle,\n• très bonne maîtrise des outils informatiques,\n• dynamique, excellent sens du service et esprit d'équipe,\n• parfaite maîtrise du français, très bonnes compétences en anglais ou en allemand (oral et écrit), une autre langue constitue un atout.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-      "descriptionByLocale": {
-        "it": "E se la tua storia professionale continua al BCV? Unisciti alla prima banca universale nel cantone di Vaud, una delle banche più forti del mondo, e ai suoi 2.000 collaboratori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud, così come per l'attrattiva e la vitalità della nostra regione. Per la nostra Divisione Retail, stiamo cercando uno o più:\n\nConsulente remoto - Prilly Le vostre missioni principali:\n• consigliare e servire i nostri clienti interni ed esterni (per telefono, e-mail e chat), rispondendo alle loro richieste commerciali, amministrative e di supporto,\n• rilevare e cogliere opportunità di business (gestione corrente, previsione, mutuo, investimenti) e, se del caso, organizzare appuntamenti con i consulenti di agenzia,\n• promuovere e supportare i nostri clienti nell'utilizzo dei nostri servizi bancari a distanza (applicazioni bancarie e mobili),\n• partecipare attivamente a campagne di chiamata in uscita basate su opportunità di business mirate,\n• contribuire alla qualità del servizio garantendo il corretto trattamento delle richieste e dei reclami, nonché l'aggiornamento affidabile dei nostri strumenti CRM. Il tuo profilo:\n• titolare di un CFC commerciale o equivalente,\n• esperienza confermata di almeno 2 anni nel servizio clienti,\n• ottima padronanza degli strumenti informatici,\n• servizio dinamico, eccellente e spirito di squadra,\n• Una perfetta padronanza del francese, ottime competenze in inglese o tedesco (orale e scritto), un'altra lingua è un bene.\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
-        "en": "What if your professional history continues at the BCV? Join the first universal bank in the canton of Vaud, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Retail Division, we are looking for one or more:\n\nRemote Advisor - Prilly Your main missions:\n• advise and serve our internal and external clients (by phone, email and chat), responding to their commercial, administrative and support requests,\n• detect and seize business opportunities (current management, foresight, mortgage, investments) and, where appropriate, arrange appointments with agency advisors,\n• promote and support our customers in the use of our remote banking services (e-banking and mobile applications),\n• actively participate in outgoing call campaigns based on targeted business opportunities,\n• contribute to the quality of service by ensuring the proper processing of requests and complaints, as well as the reliable updating of our CRM tools. Your profile:\n• holder of a trade CFC or equivalent,\n• confirmed experience of at least 2 years in customer service,\n• very good mastery of computer tools,\n• dynamic, excellent service and team spirit,\n• A perfect mastery of French, very good skills in English or German (oral and written), another language is an asset.\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
-        "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Schließen Sie sich der ersten Universalbank im Kanton Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern an. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Retail Division suchen wir eine oder mehrere:\n\nRemote Advisor - Prilly Ihre wichtigsten Missionen:\n• unsere internen und externen Kunden (per Telefon, E-Mail und Chat) zu beraten und zu betreuen und auf ihre kommerziellen, administrativen und Supportanfragen zu antworten,\n• Geschäftsmöglichkeiten (aktuelles Management, Vorausschau, Hypotheken, Investitionen) erkennen und nutzen und gegebenenfalls Termine mit Beratern von Agenturen vereinbaren;\n• Förderung und Unterstützung unserer Kunden bei der Nutzung unserer Remote-Banking-Dienste (E-Banking und mobile Anwendungen),\n• aktive Teilnahme an ausgehenden Call-Kampagnen auf der Grundlage gezielter Geschäftsmöglichkeiten;\n• zur Servicequalität beitragen, indem die ordnungsgemäße Bearbeitung von Anfragen und Beschwerden sowie die zuverlässige Aktualisierung unserer CRM-Tools sichergestellt werden. Ihr Profil:\n• Inhaber eines Handels-FCKW oder eines gleichwertigen Unternehmens,\n• bestätigte Erfahrung von mindestens 2 Jahren im Kundenservice,\n• sehr gute Beherrschung von Computer-Tools,\n• dynamischer, exzellenter Service und Teamgeist,\n• Eine perfekte Beherrschung des Französischen, sehr gute Englisch- oder Deutschkenntnisse (mündlich und schriftlich), eine andere Sprache ist ein Gewinn.\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region.",
-        "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Rejoignez la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre division Retail , nous recherchons une ou un :\n\nConseillère ou Conseiller à distance - Prilly Vos missions principales :\n• conseiller et servir notre clientèle interne et externe (par téléphone, email et chat), en répondant à leurs demandes commerciales, administratives et de support,\n• détecter et saisir les opportunités commerciales (gestion courante, prévoyance, hypothèque, placements) et, le cas échéant fixer des rendez-vous auprès des conseillers en agence,\n• promouvoir et accompagner nos clients dans l'utilisation de nos services de banque à distance (E-banking et applications mobiles),\n• participer activement à des campagnes d'appels sortants basées sur des opportunités commerciales ciblées,\n• contribuer à la qualité de service en assurant le bon traitement des demandes et réclamations, ainsi que la mise à jour fiable de nos outils CRM. Votre profil :\n• titulaire d'un CFC de commerce ou équivalent,\n• expérience confirmée d'au moins 2 ans au sein d'un service clientèle,\n• très bonne maîtrise des outils informatiques,\n• dynamique, excellent sens du service et esprit d'équipe,\n• parfaite maîtrise du français, très bonnes compétences en anglais ou en allemand (oral et écrit), une autre langue constitue un atout.\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance/1435367333/",
-      "source": "Banque Cantonale Vaudoise Dedicated Parser (SuccessFactors)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:21:19.747Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1003",
-      "streetAddress": "Place Saint-François 14",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.bcv.ch/job/Lausanne-Conseill%C3%A8re-ou-Conseiller-%C3%A0-distance/1435367333/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "sfJobId": "1435367333",
-      "previousSlugs": [
-        "conseillere-ou-conseiller-a-distance-bcv-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseillere-ou-conseiller-a-distance-bcv-lausanne"
-        ],
-        "en": [
-          "conseillere-ou-conseiller-a-distance-bcv-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T13:49:10.864Z",
-      "salaryMin": 72000,
-      "salaryMax": 111000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

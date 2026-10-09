@@ -55,7 +55,7 @@ export function isPianormJob(job) {
     key === PIANORM_KEY ||
     key.startsWith('pianorm-') ||
     company.includes('pianorm') ||
-    url.includes('pianorm.ch')
+    isTrustedDomain(url)
   );
 }
 

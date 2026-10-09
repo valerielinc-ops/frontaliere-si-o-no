@@ -106,7 +106,7 @@ const ADVICE_BADGE_STYLE =
   'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent)';
 
 const ADVICE_LABEL_STYLE =
-  'display:block;font-size:11px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px';
+  'display:block;font-size:12px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px';
 
 const ADVICE_BODY_STYLE =
   'margin:0;font-size:14.5px;line-height:1.5;color:var(--color-heading)';

@@ -50,6 +50,36 @@ function runScript(
   });
 }
 
+function runEmbeddedMerge(base: unknown, remote: unknown, local: unknown) {
+  const source = readFileSync(SCRIPT_PATH, 'utf8');
+  const marker = String.raw`node - "$base_file" "$remote_file" "$local_file" "$out_file" "$key_field" "$label" <<'NODE'`;
+  const markerStart = source.indexOf(marker);
+  if (markerStart < 0) throw new Error('merge_json_3way heredoc not found');
+  const bodyStart = markerStart + marker.length;
+  const bodyEnd = source.indexOf('\nNODE', bodyStart);
+  if (bodyEnd < 0) throw new Error('merge_json_3way heredoc terminator not found');
+
+  const mergeDir = mkdtempSync(join(tmpdir(), 'gcd-embedded-merge-'));
+  const basePath = join(mergeDir, 'base.json');
+  const remotePath = join(mergeDir, 'remote.json');
+  const localPath = join(mergeDir, 'local.json');
+  const outputPath = join(mergeDir, 'merged.json');
+  try {
+    writeFileSync(basePath, `${JSON.stringify(base)}\n`);
+    writeFileSync(remotePath, `${JSON.stringify(remote)}\n`);
+    writeFileSync(localPath, `${JSON.stringify(local)}\n`);
+    const result = spawnSync(
+      process.execPath,
+      ['-', basePath, remotePath, localPath, outputPath, 'url', 'embedded merge fixture'],
+      { input: source.slice(bodyStart, bodyEnd).replace(/^\n/, ''), encoding: 'utf8' },
+    );
+    if (result.status !== 0) throw new Error(`${result.stdout}\n${result.stderr}`);
+    return JSON.parse(readFileSync(outputPath, 'utf8'));
+  } finally {
+    rmSync(mergeDir, { recursive: true, force: true });
+  }
+}
+
 function groupEnv(
   repoDir: string,
   runnerTemp: string,
@@ -1482,6 +1512,43 @@ exec ${JSON.stringify(process.execPath)} "$@"
 });
 
 describe('git-commit-data.sh locale translation protection', () => {
+  it('protects missing locale slots when the remote slice is otherwise unchanged', () => {
+    const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');
+    const fixture = JSON.parse(readFileSync(join(fixtureDir, 'base.json'), 'utf8'));
+    const realWaveJob = fixture.jobs.find((job: { id: string }) => job.id === 'coop-wave-a4485183');
+    const base = { crawlerKey: 'reflag-churn-fixture', jobs: [realWaveJob] };
+    const remote = structuredClone(base);
+    const local = structuredClone(base);
+    local.jobs[0].titleByLocale.de = '';
+    local.jobs[0].descriptionByLocale.de = '';
+    local.jobs[0].needsRetranslation = true;
+
+    const merged = runEmbeddedMerge(base, remote, local);
+    expect(merged.jobs[0]).toMatchObject({
+      titleByLocale: { de: 'Sicherheitsbeauftragter (m/w/d)' },
+      descriptionByLocale: { de: 'German translation for the security officer posting. This reduced fixture keeps a complete translated description so the merge guard can distinguish a valid remote slot from a short detector finding.' },
+    });
+    expect(merged.jobs[0]).not.toHaveProperty('needsRetranslation');
+  });
+
+  it('restores a valid short remote title when the local slot is empty or missing', () => {
+    const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');
+    const fixture = JSON.parse(readFileSync(join(fixtureDir, 'base.json'), 'utf8'));
+    const realWaveJob = fixture.jobs.find((job: { id: string }) => job.id === 'coop-wave-a4485183');
+    const base = { crawlerKey: 'reflag-churn-fixture', jobs: [structuredClone(realWaveJob)] };
+    base.jobs[0].titleByLocale.de = 'HR';
+    base.jobs[0].titleByLocale.en = 'HR';
+    const remote = structuredClone(base);
+
+    const emptied = structuredClone(base);
+    emptied.jobs[0].titleByLocale.de = '';
+    delete emptied.jobs[0].titleByLocale.en;
+    emptied.jobs[0].needsRetranslation = true;
+
+    const merged = runEmbeddedMerge(base, remote, emptied);
+    expect(merged.jobs[0].titleByLocale).toMatchObject({ de: 'HR', en: 'HR' });
+  });
+
   it('does not let a crawler source-copy replace concurrent translated locale slots', () => {
     const { originDir, repoDir } = initClonePair();
     const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');
@@ -1558,6 +1625,14 @@ describe('git-commit-data.sh locale translation protection', () => {
         titleByLocale: { de: 'Addetto alla logistica' },
         needsRetranslation: true,
       });
+      // Real wave regression reduced from coop-ticino.json: the crawler wrote
+      // empty German title/description slots while the remote translation was
+      // unchanged. Empty slots are regressions too, not intentional edits.
+      expect(byId.get('coop-wave-a4485183')).toMatchObject({
+        titleByLocale: { de: 'Sicherheitsbeauftragter (m/w/d)' },
+        descriptionByLocale: { de: 'German translation for the security officer posting. This reduced fixture keeps a complete translated description so the merge guard can distinguish a valid remote slot from a short detector finding.' },
+      });
+      expect(byId.get('coop-wave-a4485183')).not.toHaveProperty('needsRetranslation');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });

@@ -19,7 +19,7 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
-import { readGitBlob } from '../lib/read-git-blob.mjs';
+import { readGitBlobIfPresent } from '../lib/read-git-blob.mjs';
 import { imageContainerDefect, mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
@@ -57,16 +57,11 @@ function git(args) {
 }
 
 function gitShow(ref, file) {
-  try {
-    // Refresh paths include binary article images as well as text datasets.
-    return readGitBlob(ref, file, { encoding: null });
-  } catch (error) {
-    // A missing path is a normal three-way state (add/delete). Invalid refs
-    // have already been ruled out by the caller's fetch/checkout, so surface
-    // any other failure rather than treating it as an empty file.
-    if (error?.status === 128) return null;
-    throw error;
-  }
+  // Refresh paths include binary article images as well as text datasets.
+  // A missing path is a normal three-way state (add/delete) and reads as
+  // null; an object the tree lists but Git cannot read is surfaced instead of
+  // being merged as an empty side.
+  return readGitBlobIfPresent(ref, file, { encoding: null });
 }
 
 // Article surfaces are published through their historical symlinked paths

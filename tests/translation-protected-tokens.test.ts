@@ -632,6 +632,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'semanticCandidateBlocks',
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
+      'shouldQueueArgosSlot',
       'writeReserveMs',
     ]);
   });

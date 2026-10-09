@@ -38,14 +38,34 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ALERT_SAMPLE = 200;
 const WINDOW_DAYS = 60;
 
-/** `db` che conta le chiamate (query.get, getAll) e i documenti restituiti. */
+/** `db` che conta le chiamate (query.get, doc.get, getAll) e i documenti letti. */
 export function countingDb(db) {
   const counts = { calls: 0, docs: 0 };
+  const wrapDocument = (reference) => new Proxy(reference, {
+    get(target, prop) {
+      if (prop === 'get') {
+        return async (...args) => {
+          counts.calls += 1;
+          const snapshot = await target.get(...args);
+          // A document read is billed/read even when the document is missing.
+          counts.docs += 1;
+          return snapshot;
+        };
+      }
+      if (prop === 'collection') {
+        return (...args) => wrapQuery(target.collection(...args));
+      }
+      const value = target[prop];
+      return typeof value === 'function' ? value.bind(target) : value;
+    },
+  });
   const wrapQuery = (query) => new Proxy(query, {
     get(target, prop) {
       if (prop === 'where' || prop === 'orderBy' || prop === 'limit' || prop === 'select') {
         return (...args) => wrapQuery(target[prop](...args));
       }
+      if (prop === 'doc') return (...args) => wrapDocument(target.doc(...args));
+      if (prop === 'collection') return (...args) => wrapQuery(target.collection(...args));
       if (prop === 'get') {
         return async (...args) => {
           counts.calls += 1;

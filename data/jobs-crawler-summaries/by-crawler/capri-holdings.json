@@ -1,21 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-10-08T09:48:38.505Z",
+  "generatedAt": "2026-10-08T22:40:59.429Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 25844,
-  "avgDurationMs": 25844,
+  "unchangedCount": 0,
+  "durationMs": 26827,
+  "avgDurationMs": 26827,
   "durationHistory": [
-    25844
+    26827
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -61,5 +59,7 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

@@ -1266,6 +1266,18 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
       expect(isExplicitlyOutsideTarget(locality)).toBe(true);
       expect(isLocationExplicitlyForeign(locality)).toBe(true);
     }
+    // Overseas territory labels are explicit foreign evidence even when the
+    // source omits the parent country. This is the live Pizzarotti detail
+    // shape that previously remained unclassified.
+    for (const locality of [
+      'Saint-Laurent-du-Maroni (Guyane française)',
+      'Saint-Laurent-du-Maroni (French Guiana)',
+      'Cayenne, French Guiana',
+    ]) {
+      expect(isExplicitlyOutsideTarget(locality)).toBe(true);
+      expect(isLocationExplicitlyForeign(locality)).toBe(true);
+    }
+    expect(isLocationExplicitlyForeign('Saint-Laurent-du-Maroni')).toBe(true);
     // AR is both a US state and a Swiss canton; the location resolver must
     // keep the ambiguous suffix conservative when the locality is Swiss.
     expect(isLocationExplicitlyForeign('Appenzell, AR')).toBe(false);

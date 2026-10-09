@@ -966,7 +966,7 @@ export function renderAboveFloorPage(params: {
         <table class="w-full min-w-[420px] border-collapse text-sm">
           <thead>
             <tr class="border-b border-edge text-xs uppercase tracking-wide text-muted">
-              <th scope="col" class="py-2 pr-3 text-left"></th>
+              <td class="py-2 pr-3 text-left"></td>
               <th scope="col" class="py-2 px-3 text-right">${esc(c.colOld)}</th>
               <th scope="col" class="py-2 pl-3 text-right">${esc(c.colNew)}</th>
             </tr>

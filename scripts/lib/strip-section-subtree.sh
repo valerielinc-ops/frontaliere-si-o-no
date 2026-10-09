@@ -18,6 +18,10 @@
 #      failed/skipped push leaves no marker → no strip → the section stays in
 #      the apex (apex stays >10 GB and the Pages deploy keeps failing, but the
 #      section is never left UNSERVED: safe degradation, never a 404).
+#      This holds for IT ONLY. For en/de/fr the retained copy is unreachable
+#      (the Worker reads a section path from the section origin, never from
+#      the locale shard), so a failed push strips as well — see the marker
+#      block below.
 #
 # CONCURRENCY-SAFE: deploy.yml fans this out over the sections with the shared
 # bounded-parallel driver, so several invocations run at once. Every path this
@@ -65,9 +69,28 @@ if [ "${!live_var:-}" != "true" ]; then
 fi
 
 marker="${RUNNER_TEMP:-/tmp}/shard-ok-$section-$loc"
+push_failed=0
 if [ ! -f "$marker" ]; then
-  echo "::warning::no push ok-marker for $loc $section ($marker) — shard push failed/skipped this run; KEEPING the subtree in dist (no strip, no 404)"
-  exit 0
+  if [ "$loc" = it ]; then
+    # IT keeps the subtree: the apex Pages origin is what answers when the
+    # Worker is bypassed (request_limit_fail_open), so the copy is reachable.
+    echo "::warning::no push ok-marker for $loc $section ($marker) — shard push failed/skipped this run; KEEPING the subtree in dist (no strip, no 404)"
+    exit 0
+  fi
+  # en/de/fr with the section LIVE: the retained copy is NOT a fallback. Every
+  # /<loc>/* request reaches the Worker (wrangler routes), which resolves a
+  # section path against the SECTION origin only — its shard handler never
+  # consults the locale shard for it. Measured 2026-10-08: /de/jobs-im-tessin/ and
+  # /de/jobs-im-tessin/elektriker/ answer 200 on the apex and on
+  # origin-ticino-de while origin-de answers 404, same for fr. Keeping the
+  # subtree therefore protects nobody and only inflates the locale shard: in
+  # runs 37728960699 and 37754770528 the rejected ticino-de push left 573k files
+  # in dist/de, the `de` shard went from 124836 to 657750 files and GitHub
+  # refused it too ("non-blob object size limit exceeded"), so the whole
+  # locale froze instead of one section. Strip it: the section keeps serving
+  # its previous push, the rest of the locale publishes.
+  push_failed=1
+  echo "::warning::no push ok-marker for $loc $section ($marker) — shard push failed/skipped this run; stripping the subtree from dist anyway: the Worker serves this section from the $section-$loc shard only, the locale-shard copy is never read (section stays on its previous push)"
 fi
 
 if [ ! -d "$dist_dir/$sub" ]; then
@@ -104,4 +127,8 @@ acc_dir="${RUNNER_TEMP:-/tmp}/shard-stripped-$loc.d"
 mkdir -p "$acc_dir"
 printf '%s' "$n_stripped" > "$acc_dir/$section"
 bash "$(dirname "${BASH_SOURCE[0]}")/tally-stripped-sections.sh" "$loc" >/dev/null 2>&1 || true
-echo "stripped $dist_dir/$sub from dist ($n_stripped files; now served by the $section-$loc shard via the Worker)"
+if [ "$push_failed" = 1 ]; then
+  echo "stripped $dist_dir/$sub from dist ($n_stripped files; push failed this run — the $section-$loc shard keeps serving its previous push via the Worker)"
+else
+  echo "stripped $dist_dir/$sub from dist ($n_stripped files; now served by the $section-$loc shard via the Worker)"
+fi

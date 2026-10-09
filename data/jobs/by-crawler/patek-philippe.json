@@ -1,6 +1,6 @@
 {
   "crawlerKey": "patek-philippe",
-  "assembledAt": "2026-10-08T09:22:36.243Z",
+  "assembledAt": "2026-10-08T22:20:55.558Z",
   "jobs": [
     {
       "id": "patek-philippe-799539f36190",
@@ -33,7 +33,7 @@
       "url": "https://careers.patek.com/job/La-Chaux-de-Fonds-Apprenti-Termineur-en-Habillage-Horloger-%28HF%29/1368154355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:32.106Z",
+      "crawledAt": "2026-10-08T22:20:49.324Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
@@ -61,13 +61,14 @@
           "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds",
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ],
-        "de": [
+        "en": [
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ],
-        "en": [
+        "de": [
           "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       },
+      "firstSeenAt": "2026-10-08T09:22:32.106Z",
       "salaryMin": 49000,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -81,8 +82,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2300",
-      "firstSeenAt": "2026-10-08T09:22:32.106Z"
+      "postalCode": "2300"
     },
     {
       "id": "patek-philippe-a6df9c4e8753",
@@ -99,7 +99,7 @@
       "title": "Chargé de Process Performance Industrielle (H/F)",
       "titleByLocale": {
         "it": "Gestione delle prestazioni di processo industriale (M/F)",
-        "en": "Chargé de Process Performance Industrielle (H/F)",
+        "en": "Industrial Process Performance Manager (M/F)",
         "de": "Industrial Process Performance Manager (M/W)",
         "fr": "Chargé de Process Performance Industrielle (H/F)"
       },
@@ -115,7 +115,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-Process-Performance-Industrielle-%28HF%29/1368593655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:31.614Z",
+      "crawledAt": "2026-10-08T22:20:48.817Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -136,16 +136,15 @@
       "jobReqId": "1368593655",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:51:20.874Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "charge-de-process-performance-industrielle-h-f-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:20.874Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -191,7 +190,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-d'Atelier-UAP-%28Unit%C3%A9-Autonome-de-Production%29-en-Haute-Horlogerie-%28HF%29/1368823355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:31.020Z",
+      "crawledAt": "2026-10-08T22:20:48.320Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -212,15 +211,15 @@
       "jobReqId": "1368823355",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:51:20.418Z",
+      "previousSlugs": [
+        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
         ]
       },
-      "previousSlugs": [
-        "responsable-d-atelier-uap-unite-autonome-de-production-en-haute-horlogerie-h-f-patek"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:20.418Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -266,7 +265,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Assistant-en-Traitement-de-Surface-%28HF%29/1368883255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:30.542Z",
+      "crawledAt": "2026-10-08T22:20:47.798Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -342,7 +341,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Caract%C3%A9risation-Analyse-Sensorielle/1369041755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:30.057Z",
+      "crawledAt": "2026-10-08T22:20:47.153Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -363,15 +362,15 @@
       "jobReqId": "1369041755",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:10.831Z",
+      "previousSlugs": [
+        "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-caracterisation-analyse-sensorielle-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:10.831Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -417,7 +416,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-D%C3%A9veloppement-d'alliages-pr%C3%A9cieux-appliqu%C3%A9-%C3%A0-l'horlogerie/1369122455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:29.456Z",
+      "crawledAt": "2026-10-08T22:20:46.497Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -438,15 +437,15 @@
       "jobReqId": "1369122455",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:12.720Z",
+      "previousSlugs": [
+        "stage-developpement-d-alliages-precieux-applique-a-l-horlogerie-patek-philippe-plan-les"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-developpement-d-alliages-precieux-applique-a-l-horlogerie-patek-philippe-plan-les"
         ]
       },
-      "previousSlugs": [
-        "stage-developpement-d-alliages-precieux-applique-a-l-horlogerie-patek-philippe-plan-les"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:12.720Z",
       "salaryMin": 51100,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -492,7 +491,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-%C3%89tude-des-param%C3%A8tres-cl%C3%A9s-de-la-performance-%C3%A9nerg%C3%A9tique-du-balancier-spiral/1369122655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:28.859Z",
+      "crawledAt": "2026-10-08T22:20:46.005Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -513,15 +512,15 @@
       "jobReqId": "1369122655",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:11.815Z",
+      "previousSlugs": [
+        "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
         ]
       },
-      "previousSlugs": [
-        "stage-etude-des-parametres-cles-de-la-performance-energetique-du-balancier-spiral-patek"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:11.815Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -551,7 +550,7 @@
       "title": "Stage Optimisation du processus de fabrication de platines",
       "titleByLocale": {
         "it": "Ottimizzazione fase del processo di produzione del platino",
-        "en": "Stage Optimisation du processus de fabrication de platines",
+        "en": "Stage Optimization of the platinum manufacturing process",
         "de": "Stufenoptimierung des Platinherstellungsprozesses",
         "fr": "Stage Optimisation du processus de fabrication de platines"
       },
@@ -567,7 +566,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Optimisation-du-processus-de-fabrication-de-platines/1369119755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:28.385Z",
+      "crawledAt": "2026-10-08T22:20:45.361Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -588,16 +587,15 @@
       "jobReqId": "1369119755",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:11.276Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "stage-optimisation-du-processus-de-fabrication-de-platines-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-optimisation-du-processus-de-fabrication-de-platines-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-optimisation-du-processus-de-fabrication-de-platines-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:11.276Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -643,7 +641,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Influence-de-la-pression-sur-la-performance-chronom%C3%A9trique/1369123255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:27.765Z",
+      "crawledAt": "2026-10-08T22:20:44.865Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -664,15 +662,15 @@
       "jobReqId": "1369123255",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:09.455Z",
+      "previousSlugs": [
+        "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
         ]
       },
-      "previousSlugs": [
-        "stage-influence-de-la-pression-sur-la-performance-chronometrique-patek-philippe-plan-les"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:09.455Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -702,7 +700,7 @@
       "title": "Stage Tribologie de Nouveaux Alliages Horlogers",
       "titleByLocale": {
         "it": "Tribologia Fase di Nuova Alloys Orologi",
-        "en": "Stage Tribologie de Nouveaux Alliages Horlogers",
+        "en": "Stage Tribology of New Alloys Clocks",
         "de": "Stadium Tribologie der neuen Legierungen Uhren",
         "fr": "Stage Tribologie de Nouveaux Alliages Horlogers"
       },
@@ -718,7 +716,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Tribologie-de-Nouveaux-Alliages-Horlogers/1369122555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:27.154Z",
+      "crawledAt": "2026-10-08T22:20:44.364Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -739,16 +737,15 @@
       "jobReqId": "1369122555",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:10.369Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "stage-tribologie-de-nouveaux-alliages-horlogers-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-tribologie-de-nouveaux-alliages-horlogers-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-tribologie-de-nouveaux-alliages-horlogers-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:10.369Z",
       "salaryMin": 51100,
       "salaryMax": 74500,
       "salarySource": "estimated",
@@ -794,7 +791,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Calibration-des-simulations-num%C3%A9riques-de-chocs/1369123455/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:26.665Z",
+      "crawledAt": "2026-10-08T22:20:43.708Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -815,15 +812,15 @@
       "jobReqId": "1369123455",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:12.269Z",
+      "previousSlugs": [
+        "stage-calibration-des-simulations-numeriques-de-chocs-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-calibration-des-simulations-numeriques-de-chocs-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-calibration-des-simulations-numeriques-de-chocs-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:12.269Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -869,7 +866,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Am%C3%A9lioration-d'un-Alliage-Pr%C3%A9cieux/1369122755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:26.171Z",
+      "crawledAt": "2026-10-08T22:20:43.202Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -890,15 +887,15 @@
       "jobReqId": "1369122755",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:09.912Z",
+      "previousSlugs": [
+        "stage-amelioration-d-un-alliage-precieux-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-amelioration-d-un-alliage-precieux-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-amelioration-d-un-alliage-precieux-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:09.912Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -944,7 +941,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Processus-logistiques-et-pilotages-associ%C3%A9s/1369179855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:25.680Z",
+      "crawledAt": "2026-10-08T22:20:42.526Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -965,15 +962,15 @@
       "jobReqId": "1369179855",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:08.434Z",
+      "previousSlugs": [
+        "stage-processus-logistiques-et-pilotages-associes-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-processus-logistiques-et-pilotages-associes-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "stage-processus-logistiques-et-pilotages-associes-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:08.434Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -990,9 +987,9 @@
     },
     {
       "id": "patek-philippe-22a25cf0e0b4",
-      "slug": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates",
+      "slug": "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates",
       "slugByLocale": {
-        "it": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates",
+        "it": "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates",
         "en": "life-cycle-analysis-course-patek-philippe-plan-les-ouates",
         "de": "life-cycle-analysis-kurs-patek-philippe-plan-les-ouates",
         "fr": "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
@@ -1002,7 +999,7 @@
       "companyDomain": "patek.com",
       "title": "Stage Analyse de Cycle de Vie",
       "titleByLocale": {
-        "it": "Stage Analyse de Cycle de Vie",
+        "it": "Corso di analisi del ciclo di vita",
         "en": "Life Cycle Analysis Course",
         "de": "Life Cycle Analysis Kurs",
         "fr": "Stage Analyse de Cycle de Vie"
@@ -1019,7 +1016,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Stage-Analyse-de-Cycle-de-Vie/1369162755/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:25.214Z",
+      "crawledAt": "2026-10-08T22:20:41.866Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1040,16 +1037,15 @@
       "jobReqId": "1369162755",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:23:08.983Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates"
+          "stage-analyse-de-cycle-de-vie-patek-philippe-plan-les-ouates"
         ]
       },
-      "previousSlugs": [
-        "corso-di-analisi-del-ciclo-di-vita-patek-philippe-plan-les-ouates"
-      ],
+      "firstSeenAt": "2026-10-07T09:23:08.983Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1095,7 +1091,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Op%C3%A9rateur-Pose-Appliques-%28HF%29/1369580655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:24.746Z",
+      "crawledAt": "2026-10-08T22:20:41.220Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1114,15 +1110,15 @@
       "jobReqId": "1369580655",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:41:01.587Z",
+      "previousSlugs": [
+        "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
         ]
       },
-      "previousSlugs": [
-        "operateur-pose-appliques-h-f-patek-philippe-saint-imier"
-      ],
+      "firstSeenAt": "2026-09-25T14:41:01.587Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1144,7 +1140,7 @@
       "slugByLocale": {
         "it": "responsabile-per-sicurezza-e-sicurezza-m-f-patek-philippe-plan-les-ouates",
         "en": "responsible-for-safety-and-security-m-f-patek-philippe-plan-les-ouates",
-        "de": "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates",
         "fr": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -1154,7 +1150,7 @@
       "titleByLocale": {
         "it": "Responsabile per sicurezza e sicurezza (M/F)",
         "en": "Responsible for Safety and Security (M/F)",
-        "de": "Chargé de Sûreté et Sécurité (H/F)",
+        "de": "Sicherheitsbeauftragter (M/W)",
         "fr": "Chargé de Sûreté et Sécurité (H/F)"
       },
       "description": "Mission\n\nDans le cadre de cette fonction, rattachée à notre Division Administration et Finances, vous réaliserez les activités conceptuelles et opérationnelles en matière de sûreté et de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine. Vous participerez à l’intégration de la sûreté au sein de l’entreprise et de ses filiales.\n\nResponsabilités\n\n• Participer à l’intégration de la culture sûreté au sein de Patek Philippe et la transmettre.\n\n• Collaborer à la cartographie des risques en collaboration avec l’équipe et nos partenaires externes en effectuant des analyses de risques régulières.\n\n• Conceptualiser, mettre en place et améliorer les processus et procédures opérationnels avec les partenaires sûreté.\n\n• Anticiper et fixer les priorités en matière de sûreté.\n\n• Fixer des directives y relatives, tenir à jour la documentation et veiller à l’application des mesures de sûreté.\n\n• Être en mesure de réaliser des audits sûreté au sein d’une entité ou pour un événement et définir les concepts de sûreté associés.\n\n• S'assurer de former les collaborateurs en matière sûreté.\n\n• Participer aux activités opérationnelles en matière de protection incendie dans le cadre de la protection des personnes, des biens et du patrimoine de l’entreprise.\n\n• Collaborer à l’établissement des projets sécurité et protection incendie.\n\n• Faire respecter les procédures feu et contrôler les rapports d’évènements.\n\nProfil recherché\n\n• Expérience préalable de mininum 10 ans dans le domaine opérationnel de la sûreté, idéalement en milieu industriel ou tertiaire.\n\n• Expérience dans un domaine internationnal est un atout majeur.\n\n• Expérience en tant que responsable de la sûreté d’un site est un atout.\n\n• CAS en sûreté et sécurité ou Brevet Fédéral d’agent de sécurité privée, un plus.\n\n• Diplôme AEAI de chargé de sécurité en protection incendie obtenu, ou ouvert à se former afin d’obtenir le diplôme.\n\n• Expérience confirmée de gestion d’équipe et/ou d’un prestataire.\n\n• Bonnes capacités à élaborer et animer une formation en matière de sûreté et sécurité.\n\n• Engagement personnel, disponibilité horaire, rigueur.\n\n• Personnalité orientée terrain, aisance relationnelle, diplomatie, force de proposition.\n\n• Maitrîse de l’anglais, niveau B2 (oral et écrit).\n\n• Maîtrise des outils bureautiques (MS Office).\n\nRéférence du poste\n\n3765",
@@ -1169,7 +1165,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-de-S%C3%BBret%C3%A9-et-S%C3%A9curit%C3%A9-%28HF%29/1369899255/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:24.140Z",
+      "crawledAt": "2026-10-08T22:20:40.717Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1193,19 +1189,18 @@
       "previousSlugs": [
         "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
         "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates",
-        "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
+        "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
-          "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
-        ],
         "it": [
           "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
+          "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-09-29T21:20:33.207Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1251,7 +1246,7 @@
       "url": "https://careers.patek.com/job/Saint-Imier-Technicien-Contr%C3%B4le-3D-%28HF%29/1367011355/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:23.544Z",
+      "crawledAt": "2026-10-08T22:20:40.219Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Saint-Imier",
       "addressRegion": "BE",
@@ -1270,15 +1265,15 @@
       "jobReqId": "1367011355",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-02T23:11:25.604Z",
+      "previousSlugs": [
+        "technicien-controle-3d-h-f-patek-philippe-saint-imier"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-controle-3d-h-f-patek-philippe-saint-imier"
         ]
       },
-      "previousSlugs": [
-        "technicien-controle-3d-h-f-patek-philippe-saint-imier"
-      ],
+      "firstSeenAt": "2026-09-02T23:11:25.604Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1325,7 +1320,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Contr%C3%B4le-Qualit%C3%A9-%28HF%29/1367187155/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:23.053Z",
+      "crawledAt": "2026-10-08T22:20:39.564Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1367,7 +1362,7 @@
       "slugByLocale": {
         "it": "gestione-ruote-speciali-h-f-patek-philippe-plan-les-ouates",
         "en": "special-wheels-manager-h-f-patek-philippe-plan-les-ouates",
-        "de": "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "spezialradmanager-h-f-patek-philippe-plan-les-ouates",
         "fr": "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -1392,7 +1387,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Rouages-Sp%C3%A9ciaux-%28HF%29/1359898855/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:22.576Z",
+      "crawledAt": "2026-10-08T22:20:39.069Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1416,18 +1411,18 @@
       "previousSlugs": [
         "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
         "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates",
-        "spezialradmanager-h-f-patek-philippe-plan-les-ouates"
+        "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+        ],
         "en": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates"
         ],
         "de": [
           "responsable-rouages-speciaux-m-w-d-patek-philippe-plan-les-ouates",
-          "spezialradmanager-h-f-patek-philippe-plan-les-ouates"
-        ],
-        "it": [
-          "responsable-rouages-speciaux-h-f-patek-philippe-plan-les-ouates"
+          "verantwortliche-spezialrader-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:23.152Z",
@@ -1476,7 +1471,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Responsable-Atelier-Bracelet-%28HF%29/1367485555/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:21.971Z",
+      "crawledAt": "2026-10-08T22:20:38.563Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",
@@ -1563,7 +1558,7 @@
       "url": "https://careers.patek.com/job/Plan-Les-Ouates-Charg%C3%A9-d'Am%C3%A9lioration-Qualit%C3%A9-Produit-%28HF%29/1367761655/",
       "source": "Patek Philippe Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T09:22:21.371Z",
+      "crawledAt": "2026-10-08T22:20:37.903Z",
       "hiringOrganization": "Patek Philippe SA",
       "addressLocality": "Plan-Les-Ouates",
       "postalCode": "1228",

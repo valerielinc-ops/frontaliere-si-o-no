@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-03T11:02:26.559Z",
+  "assembledAt": "2026-10-08T19:31:34.010Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -55653,10 +55653,10 @@
       "endDate": "2026-12-06",
       "startTime": "01:00",
       "category": "Event",
-      "venue": "Chlouser-Märit Aarberg",
+      "venue": "Aarberg",
       "comune": "Aarberg",
       "canton": "BE",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/christmas-market-in-aarberg/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/christmas-market-in-aarberg/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -55664,6 +55664,15 @@
         "lng": 7.2763172
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Aarberg"
+      },
       "sourceDescriptionHash": "3dbea4714ff450ac6d3e89c450ab5ab8b3a7a2ecc68c437f5ecf7599d9605eb2"
     },
     {
@@ -55735,23 +55744,27 @@
       "startDate": "2027-09-03",
       "endDate": "2027-09-03",
       "startTime": "20:00",
-      "category": "Theater",
-      "venue": "Kurtheater Baden",
+      "category": "Event",
+      "venue": "Baden",
       "comune": "Baden",
       "canton": "AG",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/mummenschanz-sagt-adieu/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mummenschanz-sagt-adieu/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Parkstrasse 20",
-        "postalCode": "5400",
-        "locality": "Baden"
-      },
       "geo": {
         "lat": 47.4802454,
         "lng": 8.3102615
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
       "sourceDescriptionHash": "c1c4b2461f744d2c8f3671aceb4127fe120acd8bf2840f247ca4f3dadfed421a"
     },
     {
@@ -98590,10 +98603,10 @@
       "startDate": "2026-11-13",
       "endDate": "2026-11-15",
       "startTime": "20:00",
-      "category": "Music",
-      "venue": "Gemeindesaal Balzers",
+      "category": "Event",
+      "venue": "Balzers",
       "canton": "",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/herbstkonzert-der-harmoniemusik-balzers/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/herbstkonzert-der-harmoniemusik-balzers/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -98601,7 +98614,15 @@
         "lng": 9.5023344
       },
       "recurring": true,
-      "sourceDescriptionHash": "83f056549b4d866c1de9f223e093e0401166e393001570a6f337b0ded6d0bd22"
+      "performer": {
+        "name": "Pause"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "6821162040d226b25eeffcf8441e97767c111a9d0f64b493ec64e0a34640c790"
     },
     {
       "id": "myswitzerland:d157a9c380b04b759084506bb1cf2b51",
@@ -119050,7 +119071,16 @@
         "lng": 8.3102615
       },
       "recurring": false,
-      "sourceDescriptionHash": "753afb3412458a2fe46649005f2dc1216d3e64e225c24f54131eae6e7d40c9cd"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "639d753682290550e9fd116ef70a5e5265fe8c146773438755ba6c3c7c94899e"
     },
     {
       "id": "myswitzerland:d754af6dcfda4e4f9f956b3702b8ca61",
@@ -119076,7 +119106,16 @@
         "lng": 8.3102615
       },
       "recurring": false,
-      "sourceDescriptionHash": "9fa13e38166b4a6e574b5c363bcad07296f1c89cb9ce36b46f7592cd7eadab39"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "ae3a12e196db69d621ef5dbddcd0b1542ae6ca48f40646a7dcf0ab17fe6f82e7"
     },
     {
       "id": "myswitzerland:d67f6d4b8f0048f2af060150bb274f38",
@@ -130795,12 +130834,13 @@
         "de": "360° Camera Arts",
         "fr": "360° Camera Arts"
       },
-      "startDate": "2026-09-02",
+      "startDate": "2026-10-08",
       "endDate": "2026-12-31",
       "startTime": "02:00",
       "category": "Event",
       "venue": "Lucerne",
-      "canton": "",
+      "comune": "Luzern",
+      "canton": "LU",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/360-camera-arts/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
@@ -130809,7 +130849,23 @@
         "lng": 8.3112638
       },
       "recurring": true,
-      "sourceDescriptionHash": "ac95489fa9a04b98efb230607561ad510faec5f3d049acd79608999f3517772b"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "e3de0e0afd5e569ab86a8dfd477302411c547bf5a61373bc435e7e4108ba302a",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "360-camera-arts-2026-09-02"
+        }
+      ]
     },
     {
       "id": "myswitzerland:d54ad38acf084b2bb95aea6cae45d2d6",
@@ -172334,7 +172390,23 @@
         "lng": 8.3102615
       },
       "recurring": false,
-      "sourceDescriptionHash": "ba8aa4c890daa7a4ca040da6b82d38b620c91ed10dcbb5170d89be94022ed9af"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "157a6885b4ae888ceaa0eb5db338c25db1ec86c907ad9fa0ecb6a481113e47dd",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Baden",
+          "slug": "lab-rats-2027-01-13-2"
+        }
+      ]
     },
     {
       "id": "myswitzerland:a761b0dd7b9e4ee3b6560fececd27713",
@@ -191108,23 +191180,27 @@
       "startDate": "2026-12-19",
       "endDate": "2026-12-19",
       "startTime": "19:30",
-      "category": "Music",
-      "venue": "Kurtheater Baden",
+      "category": "Event",
+      "venue": "Baden",
       "comune": "Baden",
       "canton": "AG",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/weihnachtskonzert-im-maerchenland-1/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtskonzert-im-maerchenland-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Parkstrasse 20",
-        "postalCode": "5400",
-        "locality": "Baden"
-      },
       "geo": {
         "lat": 47.4802454,
         "lng": 8.3102615
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
       "sourceDescriptionHash": "c6e7e9327952e3ddfaf8d08b3ccf1947ccd3176a3079ca3b04eb0a0344efea52"
     },
     {
@@ -191285,34 +191361,45 @@
     },
     {
       "id": "myswitzerland:d1d798c6bce249a6ad5fb5446606c67f",
-      "title": "Eröffnung - ENDLICH MITTWOCH! 21.10.2026",
+      "title": "EIN.ANDER - SAISONAUFTAKT ENDLICH MITTWOCH!",
       "titleByLocale": {
-        "it": "Eröffnung - ENDLICH MITTWOCH! 21.10.2026",
-        "en": "Eröffnung - ENDLICH MITTWOCH! 21.10.2026",
-        "de": "Eröffnung - ENDLICH MITTWOCH! 21.10.2026",
-        "fr": "Eröffnung - ENDLICH MITTWOCH! 21.10.2026"
+        "it": "EIN.ANDER - SAISONAUFTAKT ENDLICH MITTWOCH!",
+        "en": "EIN.ANDER - SAISONAUFTAKT ENDLICH MITTWOCH!",
+        "de": "EIN.ANDER - SAISONAUFTAKT ENDLICH MITTWOCH!",
+        "fr": "EIN.ANDER - SAISONAUFTAKT ENDLICH MITTWOCH!"
       },
       "startDate": "2026-10-21",
       "endDate": "2026-10-21",
       "startTime": "20:15",
-      "category": "Music",
-      "venue": "Stanzerei",
+      "category": "Event",
+      "venue": "Baden",
       "comune": "Baden",
       "canton": "AG",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/eroeffnung-endlich-mittwoch-21102026/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/eroeffnung-endlich-mittwoch-21102026/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Bruggerstrasse 37",
-        "postalCode": "5400",
-        "locality": "Baden"
-      },
       "geo": {
         "lat": 47.4761328,
         "lng": 8.3046021
       },
       "recurring": false,
-      "sourceDescriptionHash": "011180b46d30ad598876cc6138595d71a82ab4f6db45017b51ed8480f9df3479"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "389f5a00c2671a1abe746163b8c62d0c6f903ceb1c7e737b2f620eb873ff258c",
+      "previousRoutes": [
+        {
+          "canton": "AG",
+          "comune": "Baden",
+          "slug": "eroffnung-endlich-mittwoch-21-10-2026-2026-10-21"
+        }
+      ]
     },
     {
       "id": "myswitzerland:d1356ea4ae08473d9b13a1c565710c6e",
@@ -260990,6 +261077,985 @@
         "name": "Uster"
       },
       "sourceDescriptionHash": "b6be8b8e8239e2d2734f3d66ef01ce227076f8b9f776e69fa2743bf323fca97f"
+    },
+    {
+      "id": "myswitzerland:bbcefa7a604c47f68262e555675c6907",
+      "title": "Geo-Höck zum Jahresthema «Mineralien» mit Apéro",
+      "titleByLocale": {
+        "it": "Geo-Höck zum Jahresthema «Mineralien» mit Apéro",
+        "en": "Geo-Höck zum Jahresthema «Mineralien» mit Apéro",
+        "de": "Geo-Höck zum Jahresthema «Mineralien» mit Apéro",
+        "fr": "Geo-Höck zum Jahresthema «Mineralien» mit Apéro"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Sargans",
+      "comune": "Sargans",
+      "canton": "SG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/geo-hoeck-zum-jahresthema-mineralien-mit-apero/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.045455,
+        "lng": 9.4420566
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Fachreferaten, einer Filmvorführung und einer Podiumsdiskussion zum Thema \"Mineralien"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "c53a27e5009c1b4c1096d536630fa65e71b40955e0dde852050e9282411249de"
+    },
+    {
+      "id": "myswitzerland:bb9debec035c4d759af5df6ba820897a",
+      "title": "Prattler Weihnachtsmarkt 2026",
+      "titleByLocale": {
+        "it": "Prattler Weihnachtsmarkt 2026",
+        "en": "Prattler Weihnachtsmarkt 2026",
+        "de": "Prattler Weihnachtsmarkt 2026",
+        "fr": "Prattler Weihnachtsmarkt 2026"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Pratteln",
+      "comune": "Pratteln",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/prattler-weihnachtsmarkt-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5168046,
+        "lng": 7.695103
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Pratteln"
+      },
+      "sourceDescriptionHash": "309329039932ef540e5c0953d08e946b43f60cc0ea046b70acedf1c51a258f5f"
+    },
+    {
+      "id": "myswitzerland:bb0aceb952d144b9b726aeb6dfcd976d",
+      "title": "Mircos Suche nach dem Schatten",
+      "titleByLocale": {
+        "it": "Mircos Suche nach dem Schatten",
+        "en": "Mircos Suche nach dem Schatten",
+        "de": "Mircos Suche nach dem Schatten",
+        "fr": "Mircos Suche nach dem Schatten"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/mircos-suche-nach-dem-schatten-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "c9211ca31636ea3734867870a77a2e5fee71ce3f5102d91ceabb4037e140c175"
+    },
+    {
+      "id": "myswitzerland:baf4934d457c4bd7bb8078f78472e7be",
+      "title": "Pasta & Jazz",
+      "titleByLocale": {
+        "it": "Pasta & Jazz",
+        "en": "Pasta & Jazz",
+        "de": "Pasta & Jazz",
+        "fr": "Pasta & Jazz"
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-09",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Sörenberg",
+      "comune": "Flühli",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pasta-jazz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8221584,
+        "lng": 8.0310938
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Sörenberg"
+      },
+      "sourceDescriptionHash": "293c602ff49f8b9a20c58f3ba3b56dcda15cfd3cae220373a7a3eca76c4bd59c"
+    },
+    {
+      "id": "myswitzerland:bae6991d4a874e78b7a559f198961880",
+      "title": "Neon Nights",
+      "titleByLocale": {
+        "it": "Neon Nights",
+        "en": "Neon Nights",
+        "de": "Neon Nights",
+        "fr": "Neon Nights"
+      },
+      "startDate": "2026-10-07",
+      "endDate": "2026-12-02",
+      "startTime": "18:15",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/neon-nights/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.389248,
+        "lng": 8.5254814
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "d2fc9f687e02b05f49a623f75bdc8f4119c74e7f25aba150fb9ba258a6dc2539"
+    },
+    {
+      "id": "myswitzerland:ba9c5c0e762640058417a3ffdce64f91",
+      "title": "Stadtkeller Concert: The Hoodoo Sinners",
+      "titleByLocale": {
+        "it": "Stadtkeller Concert: The Hoodoo Sinners",
+        "en": "Stadtkeller Concert: The Hoodoo Sinners",
+        "de": "Stadtkellerkonzert: The Hoodoo Sinners",
+        "fr": "Concert au Stadtkeller : The Hoodoo Sinners"
+      },
+      "startDate": "2027-01-21",
+      "endDate": "2027-01-21",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stadtkeller-concert-the-hoodoo-sinners/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "9131b1e4316aa58da49eeae2c84ced4df4a492bf3947083ede1dea80756f97fb"
+    },
+    {
+      "id": "myswitzerland:b9ddf07dd0ed41cfb4f1326499f941d9",
+      "title": "Valerio Moser",
+      "titleByLocale": {
+        "it": "Valerio Moser",
+        "en": "Valerio Moser",
+        "de": "Valerio Moser",
+        "fr": "Valerio Moser"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-12",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Nidau",
+      "comune": "Nidau",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/valerio-moser-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1170486,
+        "lng": 7.2482845
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Nidau"
+      },
+      "sourceDescriptionHash": "99b3c848a81d6eedb3c92a08cac757e8f85d62ce450c08944476de17eab78de2"
+    },
+    {
+      "id": "myswitzerland:b821033642244a67bdd7cd9958cdbd72",
+      "title": "Stadtkeller Concert: Ländler Evening",
+      "titleByLocale": {
+        "it": "Stadtkeller Concert: Ländler Evening",
+        "en": "Stadtkeller Concert: Ländler Evening",
+        "de": "Stadtkellerkonzert: Ländlerabig",
+        "fr": "Concert à la Stadtkeller : Soirée « Ländler »"
+      },
+      "startDate": "2027-01-12",
+      "endDate": "2027-01-12",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Lucerne",
+      "comune": "Luzern",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/stadtkeller-concert-laendler-evening/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0529729,
+        "lng": 8.307136
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lucerne"
+      },
+      "sourceDescriptionHash": "bfb766e620518e5cd575b36e8b91e9fdb40ce6939830f0870a46b1d4e96ed79a"
+    },
+    {
+      "id": "myswitzerland:b76bb35176514bd4a62a5fad88d55aa2",
+      "title": "espace OUVERT + Open Take Club",
+      "titleByLocale": {
+        "it": "espace OUVERT + Open Take Club",
+        "en": "espace OUVERT + Open Take Club",
+        "de": "espace OUVERT + Open Take Club",
+        "fr": "espace OUVERT + Open Take Club"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "13:00",
+      "category": "Event",
+      "venue": "Biel",
+      "comune": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/espace-ouvert-open-take-club/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1359849,
+        "lng": 7.2499741
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Biel"
+      },
+      "sourceDescriptionHash": "cc88a8cff6ffbf37b01a61b519b518c2391fcbe46c287ba617076b21d545e76d"
+    },
+    {
+      "id": "myswitzerland:b65bae8563814f75bfa60b2e8d07c9b7",
+      "title": "Noël au Moulin",
+      "titleByLocale": {
+        "it": "Noël au Moulin",
+        "en": "Noël au Moulin",
+        "de": "Noël au Moulin",
+        "fr": "Noël au Moulin"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-29",
+      "startTime": "08:00",
+      "category": "Event",
+      "venue": "Fribourg",
+      "comune": "Fribourg",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/noel-au-moulin/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8097823,
+        "lng": 7.1668431
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Fribourg"
+      },
+      "sourceDescriptionHash": "261680198f5cb2e38371af22c2fff01a31f004a963b9737cd97eac4db7e08682"
+    },
+    {
+      "id": "myswitzerland:b5d24b4fc053434c8c3a9ec56a7fed2e",
+      "title": "Carmen",
+      "titleByLocale": {
+        "it": "Carmen",
+        "en": "Carmen",
+        "de": "Carmen",
+        "fr": "Carmen"
+      },
+      "startDate": "2027-04-03",
+      "endDate": "2027-04-03",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/carmen-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "performer": {
+        "name": "CARMEN schuf Georges Bizet eine der mitreissendsten Opern der Musikgeschichte"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "312984aafca8fc8a8d4bee2444371145ca7f11126b42945c1062492bab3f538b"
+    },
+    {
+      "id": "myswitzerland:b5759f34c1ac404d8e9eaf27f5db46e0",
+      "title": "Pool Party Tropicale",
+      "titleByLocale": {
+        "it": "Pool Party Tropicale",
+        "en": "Pool Party Tropicale",
+        "de": "Pool Party Tropicale",
+        "fr": "Pool Party Tropicale"
+      },
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "startTime": "16:30",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pool-party-tropicale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.52879,
+        "lng": 6.6003676
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "8336794c2785268bd10756be51b4e2d52591ad676dcf0639acccddfdd9c78bd7"
+    },
+    {
+      "id": "myswitzerland:b5379ca4be574bfa91ee48f4d8716223",
+      "title": "The universe of Armand Schulthess – visit for the Popular University",
+      "titleByLocale": {
+        "it": "The universe of Armand Schulthess – visit for the Popular University",
+        "en": "The universe of Armand Schulthess – visit for the Popular University",
+        "de": "The universe of Armand Schulthess – visit for the Popular University",
+        "fr": "L’univers d’Armand Schulthess - visite pour l'Université Populaire"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/the-universe-of-armand-schulthess-visit-for-the-popular-university/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5274822,
+        "lng": 6.6247755
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "c1d34048c86f2cd19e03c4fbd76de9f8c6be91854171c293aab849d627495722"
+    },
+    {
+      "id": "myswitzerland:b4ff132dc6de44588c0afd7d303575b6",
+      "title": "RESTORE | Yin Yoga",
+      "titleByLocale": {
+        "it": "RESTORE | Yin Yoga",
+        "en": "RESTORE | Yin Yoga",
+        "de": "RESTORE | Yin Yoga",
+        "fr": "RESTORE | Yin Yoga"
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-28",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Zermatt",
+      "comune": "Zermatt",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/restore-yin-yoga/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.0240196,
+        "lng": 7.7497179
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zermatt"
+      },
+      "sourceDescriptionHash": "9c9e678daf57129d9ba5075ff8a6c9607bc5ffd2cdd41b2dc955fb1706babc1f"
+    },
+    {
+      "id": "myswitzerland:b4742d2116aa46ebb1f99dab05616e96",
+      "title": "Energie-Apéros Aargau 2026/2027",
+      "titleByLocale": {
+        "it": "Energie-Apéros Aargau 2026/2027",
+        "en": "Energie-Apéros Aargau 2026/2027",
+        "de": "Energie-Apéros Aargau 2026/2027",
+        "fr": "Energie-Apéros Aargau 2026/2027"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2027-01-29",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/energie-aperos-aargau-20262027-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4705243,
+        "lng": 8.3131276
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "90eb95d5ea3ee5fc50f3028d9ef84f26b35c01a373c501caeb399888c8b1c612"
+    },
+    {
+      "id": "myswitzerland:b45d418d549645a89735d665fa875ab7",
+      "title": "Landschaft lesen und erleben - Geschichte, Wandel, Bedeutung",
+      "titleByLocale": {
+        "it": "Landschaft lesen und erleben - Geschichte, Wandel, Bedeutung",
+        "en": "Landschaft lesen und erleben - Geschichte, Wandel, Bedeutung",
+        "de": "Landschaft lesen und erleben - Geschichte, Wandel, Bedeutung",
+        "fr": "Landschaft lesen und erleben - Geschichte, Wandel, Bedeutung"
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Oberhof",
+      "comune": "Oberhof",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/landschaft-lesen-und-erleben-geschichte-wandel-bedeutung-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.436771,
+        "lng": 8.029771
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Oberhof"
+      },
+      "sourceDescriptionHash": "fda0c194fa76b6326e21517dfce28ab0b873ce159060ff61d28a96db7c2a13ea"
+    },
+    {
+      "id": "myswitzerland:b3b74d3a35e14bb58fd804c227dbdb9d",
+      "title": "Zdravko Colic – Raclette-Dinner im Jumi Chalet",
+      "titleByLocale": {
+        "it": "Zdravko Colic – Raclette-Dinner im Jumi Chalet",
+        "en": "Zdravko Colic – Raclette-Dinner im Jumi Chalet",
+        "de": "Zdravko Colic – Raclette-Dinner im Jumi Chalet",
+        "fr": "Zdravko Colic – Raclette-Dinner im Jumi Chalet"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/zdravko-colic-raclette-dinner-im-jumi-chalet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Raclette-Dinner im Jumi Chalet"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "4712018f80e2550b17d7d7a981d8ba0bfa7368fc1ed256cada20bdcd8532972a"
+    },
+    {
+      "id": "myswitzerland:d7acf61e350b4fdf9e516e3f6ba5a1c5",
+      "title": "Die Perle – Das Perlenspiel",
+      "titleByLocale": {
+        "it": "Die Perle – Das Perlenspiel",
+        "en": "Die Perle – Das Perlenspiel",
+        "de": "Die Perle – Das Perlenspiel",
+        "fr": "Die Perle – Das Perlenspiel"
+      },
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Sulgen",
+      "comune": "Sulgen",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/die-perle-das-perlenspiel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5414699,
+        "lng": 9.1863265
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Terminen, Themen"
+        },
+        {
+          "name": "Menschen, die zu reden geben"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "1c1189fc8b83e816b1c8cec5bed0b8a848fcbe28dcd3e5af66d854de53491d4d"
+    },
+    {
+      "id": "myswitzerland:d79ac78102084667a3e14c276f39e4b0",
+      "title": "Der Josa mit der Zauberfiedel",
+      "titleByLocale": {
+        "it": "Der Josa mit der Zauberfiedel",
+        "en": "Der Josa mit der Zauberfiedel",
+        "de": "Der Josa mit der Zauberfiedel",
+        "fr": "Der Josa mit der Zauberfiedel"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-18",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Lachen SZ",
+      "comune": "Lachen",
+      "canton": "SZ",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/der-josa-mit-der-zauberfiedel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1968246,
+        "lng": 8.855149
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lachen SZ"
+      },
+      "sourceDescriptionHash": "8d45bc58a1560d502f1fb5cf1239bb15f683a3cf04605f0c2a478b3078026b32"
+    },
+    {
+      "id": "myswitzerland:d78e28d68f434ea587bd89da6b15a21f",
+      "title": "Addressing War? On artistic engagement with conflict and violence",
+      "titleByLocale": {
+        "it": "Addressing War? On artistic engagement with conflict and violence",
+        "en": "Addressing War? On artistic engagement with conflict and violence",
+        "de": "Addressing War? On artistic engagement with conflict and violence",
+        "fr": "Addressing War? On artistic engagement with conflict and violence"
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adressing-war-on-artistic-engagement-with-conflict-and-violence/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3796064,
+        "lng": 8.5393516
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "ebf90b96bdcd6c66a8480988dfaab641d8a6b3ca5383de29cdc627772e467a0c"
+    },
+    {
+      "id": "myswitzerland:d7472f105fe145a3b109f2c45f8f4139",
+      "title": "Les Chalets du Vins/20",
+      "titleByLocale": {
+        "it": "Les Chalets du Vins/20",
+        "en": "Les Chalets du Vins/20",
+        "de": "Les Chalets du Vins/20",
+        "fr": "Les Chalets du Vins/20"
+      },
+      "startDate": "2026-12-22",
+      "endDate": "2026-12-30",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Bex",
+      "comune": "Bex",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/les-chalets-du-vins20/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2511702,
+        "lng": 7.0133538
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bex"
+      },
+      "sourceDescriptionHash": "d359086a23e80a39529bfd9821a7e2d73c416f68bfa1d20c53e1424e4a6c2f77"
+    },
+    {
+      "id": "myswitzerland:d62022eddb3a4d58b8bad362aa651301",
+      "title": "Öffentliche Führung - \"Zu Tisch - Vom Festen und Fasten\"",
+      "titleByLocale": {
+        "it": "Öffentliche Führung - \"Zu Tisch - Vom Festen und Fasten\"",
+        "en": "Öffentliche Führung - \"Zu Tisch - Vom Festen und Fasten\"",
+        "de": "Öffentliche Führung - \"Zu Tisch - Vom Festen und Fasten\"",
+        "fr": "Öffentliche Führung - \"Zu Tisch - Vom Festen und Fasten\""
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2026-11-29",
+      "startTime": "13:30",
+      "category": "Event",
+      "venue": "Muri AG",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/oeffentliche-fuehrung-zu-tisch-vom-festen-und-fasten-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.275146,
+        "lng": 8.3375717
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Muri AG"
+      },
+      "sourceDescriptionHash": "6938ff61287c44efc05edab6a58e45459e0b5f1cc1abbebcff9aad01c59e1ad3"
+    },
+    {
+      "id": "myswitzerland:d59f2394f4304624985d1552758f391c",
+      "title": "Feierabendmusik",
+      "titleByLocale": {
+        "it": "Feierabendmusik",
+        "en": "Feierabendmusik",
+        "de": "Feierabendmusik",
+        "fr": "Feierabendmusik"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/feierabendmusik-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4495417,
+        "lng": 8.5867167
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kloten"
+      },
+      "sourceDescriptionHash": "bb24f3bc921d2f8fe627fa4122447d0dbe2fbe98a872f78fd54a921b5fa86b64"
+    },
+    {
+      "id": "myswitzerland:d594e443488a42d48042283742299135",
+      "title": "Sofalesung mit Julia Trachsel",
+      "titleByLocale": {
+        "it": "Sofalesung mit Julia Trachsel",
+        "en": "Sofalesung mit Julia Trachsel",
+        "de": "Sofalesung mit Julia Trachsel",
+        "fr": "Sofalesung mit Julia Trachsel"
+      },
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-18",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Riehen",
+      "comune": "Riehen",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sofalesung-mit-julia-trachsel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.582659,
+        "lng": 7.652434
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Julia Trachsel"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "0f9e19a9862c18c90d9fc9d22619d92b0ba78a1b09e856b401deb38048323f40"
+    },
+    {
+      "id": "myswitzerland:d4d2a3cc7998442093b56960d2457545",
+      "title": "Tiny House konkret – Von der Idee zum realistischen Plan",
+      "titleByLocale": {
+        "it": "Tiny House konkret – Von der Idee zum realistischen Plan",
+        "en": "Tiny House konkret – Von der Idee zum realistischen Plan",
+        "de": "Tiny House konkret – Von der Idee zum realistischen Plan",
+        "fr": "Tiny House konkret – Von der Idee zum realistischen Plan"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tiny-house-konkret-von-der-idee-zum-realistischen-plan/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.204668,
+        "lng": 7.54128
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
+      "sourceDescriptionHash": "cbde402ca3647e84a2928c756539a2d59683f4cd525d0122704069eee1eb43c4"
+    },
+    {
+      "id": "myswitzerland:d36d906ecce54a02b7bbc12f74487c2b",
+      "title": "EM GLOON SIIN LOHN",
+      "titleByLocale": {
+        "it": "EM GLOON SIIN LOHN",
+        "en": "EM GLOON SIIN LOHN",
+        "de": "EM GLOON SIIN LOHN",
+        "fr": "EM GLOON SIIN LOHN"
+      },
+      "startDate": "2027-04-04",
+      "endDate": "2027-04-04",
+      "startTime": "11:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/em-gloon-siin-lohn/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3702702,
+        "lng": 8.5492347
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "176084d67b013e0a1e420d70f85d456f65dda6091fcceb3e1e002c35081efe61"
+    },
+    {
+      "id": "myswitzerland:d3413ffaf2cd40638f9f2426090b1937",
+      "title": "Âme de sorcière : Atelier Balais d'Autel",
+      "titleByLocale": {
+        "it": "Âme de sorcière : Atelier Balais d'Autel",
+        "en": "Âme de sorcière : Atelier Balais d'Autel",
+        "de": "Âme de sorcière : Atelier Balais d'Autel",
+        "fr": "Âme de sorcière : Atelier Balais d'Autel"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Martigny",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ame-de-sorciere-atelier-balais-dautel/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.105864,
+        "lng": 7.083535
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Martigny"
+      },
+      "sourceDescriptionHash": "29a8f916d48442a74eb6fb0bbf44f43ce030b61c9ca15c1ee725d98ff2b4c4b2"
+    },
+    {
+      "id": "myswitzerland:d30a0691dd7a400d81b08da1b5992548",
+      "title": "KI, die stille Revolution: Chancen und Risiken",
+      "titleByLocale": {
+        "it": "KI, die stille Revolution: Chancen und Risiken",
+        "en": "KI, die stille Revolution: Chancen und Risiken",
+        "de": "KI, die stille Revolution: Chancen und Risiken",
+        "fr": "KI, die stille Revolution: Chancen und Risiken"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ki-die-stille-revolution-chancen-und-risiken-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2046977,
+        "lng": 7.5412039
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
+      "sourceDescriptionHash": "24850b99970a7c202aba3b2c40d9dd1f2e092fd623f76b53ec3fe1885604ceff"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unibe",
-  "assembledAt": "2026-10-08T09:37:54.162Z",
+  "assembledAt": "2026-10-08T22:41:48.950Z",
   "jobs": [
     {
       "id": "unibe-8a556a727251",
@@ -33,7 +33,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstellen-polymechaniker-in-efz/c7672ba0-f824-464c-8363-5a5ae1e76c5e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.115Z",
+      "crawledAt": "2026-10-08T22:41:15.730Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/schnupperlehre-polymechaniker-in-efz/81dbe0f1-3709-43d0-a231-247eae2dbfeb",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.115Z",
+      "crawledAt": "2026-10-08T22:41:15.731Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-mathematical-foundations-of-machine-learning/1ce589e6-9dac-41ed-9cf3-128b3df135d2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.114Z",
+      "crawledAt": "2026-10-08T22:41:15.730Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstelle-dentalassistentin-efz-2027/2dfca9c9-b7a8-4e94-a1af-4b5132a042f1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.113Z",
+      "crawledAt": "2026-10-08T22:41:15.728Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dentalassistentin-efz-koordination-und-patientenmanagement/3d7f423a-010e-44ed-a16a-2005868c0bcf",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.113Z",
+      "crawledAt": "2026-10-08T22:41:15.729Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/7bd99f30-747b-4bc8-9d01-8b8b59dbef35",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.112Z",
+      "crawledAt": "2026-10-08T22:41:15.727Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/automation-technician-automatiker-hf-fh/abbc6836-31fa-4828-94e9-d169582b982a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.111Z",
+      "crawledAt": "2026-10-08T22:41:15.727Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -565,86 +565,6 @@
       }
     },
     {
-      "id": "unibe-3f2c26d40d1a",
-      "slug": "posizione-di-formazione-della-patologia-anatomica-veterinaria-stage-residenza-residenza-combinata-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "posizione-di-formazione-della-patologia-anatomica-veterinaria-stage-residenza-residenza-combinata-universitat-bern-bern",
-        "en": "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency",
-        "de": "veterinary-anatomic-pathology-training-position-praktikum-residenz-kombinierte-residenz-phd-universitat-bern-bern",
-        "fr": "poste-de-formation-en-pathologie-anatomique-veterinaire-stage-residence-residence-combinee-et-doctorat-universitat-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Veterinary Anatomic Pathology Training Position – Internship / Residency / combined Residency & PhD",
-      "titleByLocale": {
-        "it": "Posizione di formazione sulla patologia anatomica veterinaria. Stage/Residenza/Residenza combinata & Dottorato di ricerca",
-        "en": "Veterinary Anatomic Pathology Training Position – Internship / Residency / combined Residency & PhD",
-        "de": "Veterinäre Anatomische Pathologie Ausbildung – Praktikum / Residency / kombinierte Residency & PhD",
-        "fr": "Poste de formation en pathologie anatomique vétérinaire – Stage / Résidence / Résidence combinée & PhD"
-      },
-      "description": "UniBE is interconnected.\nWith us, you're part of an international community and benefit from interdisciplinary collaboration.\n\n## Scope of this position\nThe successful candidate will focus on the training in morphological pathology of farm, companion & zoo animals during the first year, which can also account for an internship. At the end of the first year, we will jointly evaluate the candidate's interests and career goals. The training can then continue along one of two pathways:\n• Residency in Veterinary Anatomic Pathology – up to three additional years of structured diagnostic training and preparation for the board examination of the European College of Veterinary Pathologists (ECVP); or\n• Combined Residency/PhD Program – integrating pathology residency training with an intensive research program leading to a PhD through the Graduate School for Cellular and Biomedical Sciences at the University of Bern (six-year appointment).\nBoth pathways provide structured preparation for the ECVP board examination. Candidates pursuing the combined Residency/PhD program will have the opportunity to conduct research in areas including cancer therapy resistance, DNA repair, and host–pathogen interactions within the collaborative research environment of the University of Bern.\nMore information about the Institute of Animal Pathology and its training and research programs is available on our website Institute of Animal Pathology.\n\n## Your profile\nWe are looking for a highly motivated veterinarian with a strong interest in pathology and research. The following qualifications are required:\n• a degree in veterinary medicine (Master of Veterinary Medicine, DVM, or equivalent);\n• a collaborative mindset and enthusiasm for contributing to our team-based approach to diagnostics, teaching, and research;\n• fluency in English and German language skills at a minimum B2 level at the time of the interview.\n• Fluency in French is not required but is considered an advantage.\nWe offer an enthusiastic diagnostic team, an inspiring research environment, excellent research training in cancer therapy resistance, DNA repair, and host–pathogen interactions, long-standing experience in preparing candidates for the ECVP board examination, and an attractive working environment in Bern. Remuneration is in accordance with the regulations of the University of Bern.\nInternational reputation\nApplication and Contact\nPlease submit your application as a PDF document, including a motivation letter indicating which training program you are interested in pursuing, your CV, and contact information for two references.\nWith us, you create value.\nFor yourself and for society.\n\n## Training Position – Internship / Residency / Residency & PhD\nA training position is available at the Institute of Animal Pathology, University of Bern, Switzerland, offering the opportunity to join our comprehensive animal pathology center.\nPathology is a central bridge between clinical veterinary disciplines and basic research. Thorough training in this field opens up diverse career opportunities in science and academia, governmental authorities, private diagnostic laboratories, and the pharmaceutical industry.\nScope of this position\n\n## Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nCollaborative environment and ambitious team\nInspiring work environment\nHands-on practical insights\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-      "descriptionByLocale": {
-        "it": "UniBE è interconnessa. Con noi, fai parte di una comunità internazionale e beneficia di una collaborazione interdisciplinare.\n\nAufgaben: il candidato di successo si concentrerà sulla formazione in patologia morfologica degli animali agricoli, compagni e zoo durante il primo anno, che può anche rendere conto di uno stage. Alla fine del primo anno, valuteremo congiuntamente gli interessi del candidato e gli obiettivi di carriera. La formazione può quindi continuare lungo uno dei due percorsi:\n• Residenza in Patologia Anatomica Veterinaria. fino a tre anni supplementari di formazione diagnostica strutturata e preparazione per l'esame del consiglio di amministrazione del Collegio europeo dei patologi veterinari (ECVP); o\n\n• Programma di ricerca combinata. Integrare la formazione di residenza in patologia con un programma di ricerca intensivo che porta ad un dottorato attraverso la Scuola di laurea per le Scienze Cellulari e Biomediche presso l'Università di Berna (appuntamento di sei anni).\n\nEntrambi i percorsi forniscono una preparazione strutturata per l'esame di bordo ECVP. I candidati che seguono il programma combinato Residenza / Dottorato di ricerca avranno l'opportunità di condurre la ricerca in aree tra cui resistenza alla terapia del cancro, riparazione del DNA, e interazioni host.pathogen all'interno dell'ambiente di ricerca collaborativa dell'Università di Berna. Ulteriori informazioni sull'Istituto di Patologia Animale e i suoi programmi di formazione e di ricerca sono disponibili sul nostro sito web Institute of Animal Pathology.\n\nAnforderungen: Stiamo cercando un veterinario altamente motivato con un forte interesse per la patologia e la ricerca. Le seguenti qualifiche sono richieste:\n• una laurea in medicina veterinaria (Master of Veterinary Medicine, DVM, o equivalente);\n\n• una mentalità collaborativa ed entusiasmo per contribuire al nostro approccio basato sul team alla diagnostica, all'insegnamento e alla ricerca;\n\n• fluenza delle competenze linguistiche in inglese e tedesco ad un livello B2 minimo al momento dell'intervista.\n\n• La fluidità in francese non è richiesta ma è considerata un vantaggio.\n\nOffriamo un team diagnostico entusiasta, un ambiente di ricerca stimolante, un ottimo addestramento di ricerca nella resistenza alla terapia del cancro, riparazione del DNA e interazioni host.pathogen, esperienza di lunga data nella preparazione dei candidati per l'esame di bordo ECVP, e un ambiente di lavoro attraente a Berna. La retribuzione è conforme alle norme dell'Università di Berna.\n\nWirbiet: reputazione internazionale",
-        "en": "UniBE is interconnected.\nWith us, you're part of an international community and benefit from interdisciplinary collaboration.\n\n## Scope of this position\nThe successful candidate will focus on the training in morphological pathology of farm, companion & zoo animals during the first year, which can also account for an internship. At the end of the first year, we will jointly evaluate the candidate's interests and career goals. The training can then continue along one of two pathways:\n• Residency in Veterinary Anatomic Pathology – up to three additional years of structured diagnostic training and preparation for the board examination of the European College of Veterinary Pathologists (ECVP); or\n• Combined Residency/PhD Program – integrating pathology residency training with an intensive research program leading to a PhD through the Graduate School for Cellular and Biomedical Sciences at the University of Bern (six-year appointment).\nBoth pathways provide structured preparation for the ECVP board examination. Candidates pursuing the combined Residency/PhD program will have the opportunity to conduct research in areas including cancer therapy resistance, DNA repair, and host–pathogen interactions within the collaborative research environment of the University of Bern.\nMore information about the Institute of Animal Pathology and its training and research programs is available on our website Institute of Animal Pathology.\n\n## Your profile\nWe are looking for a highly motivated veterinarian with a strong interest in pathology and research. The following qualifications are required:\n• a degree in veterinary medicine (Master of Veterinary Medicine, DVM, or equivalent);\n• a collaborative mindset and enthusiasm for contributing to our team-based approach to diagnostics, teaching, and research;\n• fluency in English and German language skills at a minimum B2 level at the time of the interview.\n• Fluency in French is not required but is considered an advantage.\nWe offer an enthusiastic diagnostic team, an inspiring research environment, excellent research training in cancer therapy resistance, DNA repair, and host–pathogen interactions, long-standing experience in preparing candidates for the ECVP board examination, and an attractive working environment in Bern. Remuneration is in accordance with the regulations of the University of Bern.\nInternational reputation\nApplication and Contact\nPlease submit your application as a PDF document, including a motivation letter indicating which training program you are interested in pursuing, your CV, and contact information for two references.\nWith us, you create value.\nFor yourself and for society.\n\n## Training Position – Internship / Residency / Residency & PhD\nA training position is available at the Institute of Animal Pathology, University of Bern, Switzerland, offering the opportunity to join our comprehensive animal pathology center.\nPathology is a central bridge between clinical veterinary disciplines and basic research. Thorough training in this field opens up diverse career opportunities in science and academia, governmental authorities, private diagnostic laboratories, and the pharmaceutical industry.\nScope of this position\n\n## Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nCollaborative environment and ambitious team\nInspiring work environment\nHands-on practical insights\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-        "de": "UniBE ist vernetzt. Mit uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von interdisziplinärer Zusammenarbeit.\n\nDer erfolgreiche Kandidat wird sich im ersten Jahr auf die Ausbildung in morphologischer Pathologie von Farm-, Begleit- und Zootieren konzentrieren, die auch ein Praktikum einschließen kann. Ende des ersten Jahres werden wir gemeinsam die Interessen und Karriereziele des Kandidaten bewerten. Die Ausbildung kann dann auf einem der zwei Wege fortgesetzt werden:\n• Residency in Veterinary Anatomic Pathology – bis zu drei weitere Jahre strukturierter diagnostischer Ausbildung und Vorbereitung auf die Board-Prüfung des European College of Veterinary Pathologists (ECVP); oder\n\n• Kombinierte Residency/PhD-Programm – Integration der pathologischen Residency-Ausbildung mit einem intensiven Forschungsprogramm, das über die Graduate School for Cellular and Biomedical Sciences an der Universität Bern (sechs Jahre Berufung) zu einem PhD führt.\n\nBeide Wege ermöglichen eine strukturierte Vorbereitung auf die ECVP-Vorstandsprüfung. Kandidaten, die das kombinierte Residency/PhD-Programm verfolgen, haben die Möglichkeit, in Bereichen wie Krebstherapieresistenz, DNA-Reparatur und Wirt-pathogen-Interaktionen innerhalb des kollaborativen Forschungsumfelds der Universität Bern zu forschen. Weitere Informationen zum Institut für Tierpathologie und deren Ausbildung und Forschungsprogramme finden Sie auf unserer Website Institute of Animal Pathology.\n\nWir suchen einen hochmotivierten Tierarzt mit einem starken Interesse an Pathologie und Forschung. Folgende Qualifikationen sind erforderlich:\n• ein Studium der Veterinärmedizin (Master of Veterinary Medicine, DVM, oder gleichwertig);\n\n• eine kollaborative Denkweise und Begeisterung für unseren teambasierten Ansatz in den Bereichen Diagnostik, Lehre und Forschung;\n\n• Sprachkenntnisse in Englisch und Deutsch auf einem Niveau von mindestens B2 zum Zeitpunkt des Interviews.\n\n• Die Fluenzen in Französisch sind nicht erforderlich, sondern gelten als Vorteil.\n\nWir bieten ein begeistertes Diagnostikteam, ein inspirierendes Forschungsumfeld, eine hervorragende Forschungsausbildung in den Bereichen Krebstherapieresistenz, DNA-Reparatur und Wirt-pathogen-Interaktionen, langjährige Erfahrung bei der Vorbereitung von Kandidaten für die ECVP-Vorstandsprüfung und ein attraktives Arbeitsumfeld in Bern. Vergütungen sind nach den Bestimmungen der Universität Bern.\n\nWirsid: Internationaler Ruf",
-        "fr": "UniBE est interconnecté. Avec nous, vous faites partie d'une communauté internationale et profitez d'une collaboration interdisciplinaire.\n\nAufgaben: Le candidat retenu se concentrera sur la formation en pathologie morphologique des animaux de ferme, de compagnie et de zoo pendant la première année, qui peut également expliquer un stage. A la fin de la première année, nous évaluerons conjointement les intérêts du candidat et les objectifs de carrière. La formation peut ensuite se poursuivre sur l'un des deux parcours:\n• Résidence en Anatomic Pathology vétérinaire – jusqu'à trois années supplémentaires de formation structurée en diagnostic et de préparation à l'examen du conseil d'administration du Collège européen des pathologistes vétérinaires (ECVP); ou\n\n• Programme combiné de résidence/de doctorat – intégrant la formation en résidence en pathologie avec un programme de recherche intensif menant à un doctorat par l'intermédiaire de l'École de hautes études en sciences cellulaires et biomédicales de l'Université de Berne (six ans de nomination).\n\nLes candidats qui poursuivent le programme combiné Résidence/PhD auront la possibilité de mener des recherches dans des domaines tels que la résistance à la thérapie contre le cancer, la réparation de l'ADN et les interactions hôte-pathogène dans le cadre de la recherche collaborative de l'Université de Berne. De plus amples renseignements sur l'Institut de pathologie animale et ses programmes de formation et de recherche sont disponibles sur notre site Internet Institut de pathologie animale.\n\nAnforderungen: Nous recherchons un vétérinaire très motivé qui s'intéresse fortement à la pathologie et à la recherche. Les qualifications suivantes sont requises:\n• un diplôme en médecine vétérinaire (Master of Veterinary Medicine, DVM, ou équivalent);\n\n• une attitude collaborative et un enthousiasme pour contribuer à notre approche en équipe du diagnostic, de l'enseignement et de la recherche;\n\n• maîtrise de l'anglais et de l'allemand au niveau minimum B2 au moment de l'entretien.\n\n• La maîtrise du français n'est pas requise mais est considérée comme un avantage.\n\nNous offrons une équipe de diagnostic enthousiaste, un environnement de recherche inspirant, une excellente formation en recherche sur la résistance à la thérapie contre le cancer, la réparation de l'ADN et les interactions hôte-pathogène, une expérience de longue date dans la préparation des candidats à l'examen du comité ECVP, et un environnement de travail attrayant à Berne.\n\nWir bieten: Une réputation internationale"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/veterinary-anatomic-pathology-training-position-internship-residency-combined-residency-phd/77e67efa-8f3a-474f-8764-e41e902ee6fa",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.111Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/veterinary-anatomic-pathology-training-position-internship-residency-combined-residency-phd/77e67efa-8f3a-474f-8764-e41e902ee6fa",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ],
-        "de": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ],
-        "fr": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T22:06:56.105Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "unibe-e7dda69437e4",
       "slug": "posizione-di-phd-legge-e-o-scienze-politiche-governance-degli-estremi-climatici-universitat-bern-bern",
       "slugByLocale": {
@@ -676,7 +596,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-position-law-and-or-political-science-governance-of-climate-extremes/10d2c788-8f5c-4cc4-9191-8648dd91c378",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.110Z",
+      "crawledAt": "2026-10-08T22:41:15.725Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -750,7 +670,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/leiter-in-studiendekanat-der-medizinischen-fakultaet/36d2bc6c-f634-4ca5-8c28-dcf00bc522cb",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.110Z",
+      "crawledAt": "2026-10-08T22:41:15.726Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -833,7 +753,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/58eb1323-eeb1-4d2f-a8e4-765e087a907a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.109Z",
+      "crawledAt": "2026-10-08T22:41:15.724Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -918,7 +838,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/35d91b0a-298f-4f5b-9230-91c4bb5fae9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.108Z",
+      "crawledAt": "2026-10-08T22:41:15.723Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -992,7 +912,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiter-in-kaufmaennisches-gebaeudemanagement/a73ad620-91da-40de-82ce-1b06adf016e4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.107Z",
+      "crawledAt": "2026-10-08T22:41:15.721Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1060,7 +980,7 @@
         "it": "Primi postdoc",
         "en": "Old Postdoc",
         "de": "Early Postdoc",
-        "fr": "Early Postdoc"
+        "fr": "Premier postdoc"
       },
       "description": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Vorbereitung eines Forschungsantrags beim Schweizerischen Nationalfonds oder einer anderen Forschungseinrichtung\n• Durchführung einer Lehrveranstaltung für Bachelorstudierende in der Regel in deutscher Sprache im Frühjahrs- oder Herbstsemester 2027\n\n## Anforderungen\n• Abgeschlossenes Doktorat in Geschichtswissenschaften, welches bei Stellenantritt nicht mehr als drei Jahre zurückliegt. Das Promotionsverfahren muss bis am 20. Oktober 2026 abgeschlossen sein\n• Selbständige und strukturierte Arbeitsweise\n• Eigeninitiative in Forschung und Lehre\n• Regelmässige Anwesenheit in Bern und Teilhabe am Institutsleben\n• Deutschkenntnisse Niveau B1\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nWir freuen uns auf Ihre Bewerbung mit folgenden Unterlagen:\n• Motivationsschreiben\n• Lebenslauf (ggf. mit Veröffentlichungsliste)\n• Skizze des Forschungsvorhabens (4-5 Seiten), inkl. Nennung der Abteilung bzw. Professur, an welcher ein Projekt angesiedelt sein soll, und möglichen Fördergefässen für die Weiterfinanzierung\n• Kopie des Promotionszeugnisses\n• Arbeitsprobe in Aufsatzlänge (ca. 20–25 Seiten)\nBitte laden Sie Ihre Bewerbungsunterlagen bis 12. Oktober 2026 über das Portal hoch.\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nAm Historischen Institut der Universität Bern erforschen und lehren wir Geschichtswissenschaft in ihrer ganzen thematischen Breite und methodischen Vielfalt. Die Forschungen beschäftigen sich mit der Geschichte Europas von der Antike bis zur Gegenwart wie auch mit der historischen Vergangenheit außereuropäischer Regionen.\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nZentrale Lage im Herzen von Bern\nGesunde Unternehmenskultur und gutes Arbeitsklima\nUniversitätssport\nIhre Benefits\n\n## Lohnrechner\nIhr jährlicher Bruttolohn für das Jahr 2025 beläuft sich bei einer Vollzeitbeschäftigung auf 91'215 Franken, inklusive des 13. Monatslohns.\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
@@ -1069,13 +989,12 @@
         "de": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Vorbereitung eines Forschungsantrags beim Schweizerischen Nationalfonds oder einer anderen Forschungseinrichtung\n• Durchführung einer Lehrveranstaltung für Bachelorstudierende in der Regel in deutscher Sprache im Frühjahrs- oder Herbstsemester 2027\n\n## Anforderungen\n• Abgeschlossenes Doktorat in Geschichtswissenschaften, welches bei Stellenantritt nicht mehr als drei Jahre zurückliegt. Das Promotionsverfahren muss bis am 20. Oktober 2026 abgeschlossen sein\n• Selbständige und strukturierte Arbeitsweise\n• Eigeninitiative in Forschung und Lehre\n• Regelmässige Anwesenheit in Bern und Teilhabe am Institutsleben\n• Deutschkenntnisse Niveau B1\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nWir freuen uns auf Ihre Bewerbung mit folgenden Unterlagen:\n• Motivationsschreiben\n• Lebenslauf (ggf. mit Veröffentlichungsliste)\n• Skizze des Forschungsvorhabens (4-5 Seiten), inkl. Nennung der Abteilung bzw. Professur, an welcher ein Projekt angesiedelt sein soll, und möglichen Fördergefässen für die Weiterfinanzierung\n• Kopie des Promotionszeugnisses\n• Arbeitsprobe in Aufsatzlänge (ca. 20–25 Seiten)\nBitte laden Sie Ihre Bewerbungsunterlagen bis 12. Oktober 2026 über das Portal hoch.\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nAm Historischen Institut der Universität Bern erforschen und lehren wir Geschichtswissenschaft in ihrer ganzen thematischen Breite und methodischen Vielfalt. Die Forschungen beschäftigen sich mit der Geschichte Europas von der Antike bis zur Gegenwart wie auch mit der historischen Vergangenheit außereuropäischer Regionen.\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nZentrale Lage im Herzen von Bern\nGesunde Unternehmenskultur und gutes Arbeitsklima\nUniversitätssport\nIhre Benefits\n\n## Lohnrechner\nIhr jährlicher Bruttolohn für das Jahr 2025 beläuft sich bei einer Vollzeitbeschäftigung auf 91'215 Franken, inklusive des 13. Monatslohns.\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
         "fr": "L'UniBE est en réseau.\nAvec nous, vous faites partie d'une communauté internationale et bénéficiez d'une coopération interdisciplinaire.\n\n## Tâche\n• Préparation d'une demande de recherche avec la Fondation nationale suisse des sciences ou un autre établissement de recherche\n• Conduite d'un cours pour les étudiants de baccalauréat généralement en allemand au printemps ou au semestre d'automne 2027\n\n## Exigences\n• Doctorat en sciences historiques, qui a été complété il y a trois ans au moment de l'emploi. La procédure doctorale doit être achevée au plus tard le 20 octobre 2026.\n• Méthodes de travail indépendantes et structurées\n• Initiative en matière de recherche et d'enseignement\n• Présence régulière à Berne et participation à la vie de l'institut\n• Niveau de compétence en langue allemande B1\nBonnes infrastructures de recherche et réseau international\nDemande et contact\nNous attendons avec intérêt votre candidature avec les documents suivants :\n• Lettre de motivation\n• CV (avec liste de publication, le cas échéant)\n• Croquis du projet de recherche (4 à 5 pages), y compris le nom du département ou du professeur dans lequel un projet devrait être situé et le financement éventuel de navires pour un financement supplémentaire\n• Copie du certificat promotionnel\n• Échantillon de travail en longueur d'attachement (environ 20-25 pages)\nVeuillez charger vos documents de candidature jusqu'à 12. Octobre 2026 via le portail.\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Sur nous\nÀ l'Institut Historique de l'Université de Berne, nous recherchons et enseignons la science historique dans toute sa portée thématique et sa diversité méthodologique. La recherche porte sur l'histoire de l'Europe, de l'antiquité au présent, ainsi que sur le passé historique des régions non européennes.\nTâche\n\n## Exigences\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nSituation centrale au coeur de Berne\nCulture d'entreprise saine et bon environnement de travail\nSports universitaires\nVos avantages\n\n## Calculateur de la rémunération\nLeur salaire annuel brut pour 2025 s'élève à 91 215 francs pour l'emploi à temps plein, y compris le 13e salaire mensuel.\n\n## Travail sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/early-postdoc/78ee3a85-00e9-4788-9d6c-afdc382a26e6",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.107Z",
+      "crawledAt": "2026-10-08T22:41:15.722Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1159,10 +1078,10 @@
         "de": "Doktorandin",
         "fr": "Doctorant"
       },
-      "description": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## \n• Job description\nThe aim of the thesis is to further develop multi-variable, high-resolution daily weather reconstructions for Switzerland and Europe and to analyse the historical frequency, intensity, characteristics and timing of past weather and climate extremes in these data. The focus will be on heatwaves, droughts, wildfires and floods. Alongside statistical analysis, the meteorological and climatological conditions that lead to climate extremes will be studied, as well as the impact of these events in the past. The goal is to quantify the variability of weather and climate extremes in the pre-industrial era using multi-century observation-based meteorological fields alongside climate model simulations. The thesis will inform the generation of storylines of climate extreme and contribute to attribution studies within the project.\n\n## \n• Your profile\nWe are looking for a candidate with an MSc degree in geography, climate science, environmental science or similar, with proven skills in statistics, quantitative methods and programming as well as openness for interdisciplinary work. The University of Bern promotes equal opportunity and diversity, supporting female and minority researchers.\nInternational reputation\nApplication and Contact\nApplication deadline: October 08, 2026\nPlease send a letter of motivation, your CV and publication list as well as names of three references IN ONE PDF-FILE\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nThe Climatology Group at the Institute of Geography and the Oeschger Centre for Climate Change Research at the University of Bern, led by Prof. Stefan Brönnimann, is announcing a PhD position focusing on past weather and climate extremes in Switzerland. This position is funded by the Swiss National Science Foundation as part of the NCCR CLIM+ programme (https://www.nccr-climplus.ch/): \"Climate Extremes and Society: Strengthening Resilience\". NCCR CLIM+ will address emerging research questions on societal transformation in the context of climate change mitigation and societal resilience, including the topic of heat and health. It will pioneer novel approaches in physics-based and data-driven climate modeling. As a member of the NCCR CLIM+, you will form part of an exciting, interdisciplinary community linking many Swiss institutions.\nJob description\n\n## \n• Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual career support\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nOther benefits\n\n## Your Salary\nYour annual gross salary for the year 2026 amounts to 50'042 Swiss francs for full-time employment, including the 13th month salary.\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+      "description": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n##\n• Job description\nThe aim of the thesis is to further develop multi-variable, high-resolution daily weather reconstructions for Switzerland and Europe and to analyse the historical frequency, intensity, characteristics and timing of past weather and climate extremes in these data. The focus will be on heatwaves, droughts, wildfires and floods. Alongside statistical analysis, the meteorological and climatological conditions that lead to climate extremes will be studied, as well as the impact of these events in the past. The goal is to quantify the variability of weather and climate extremes in the pre-industrial era using multi-century observation-based meteorological fields alongside climate model simulations. The thesis will inform the generation of storylines of climate extreme and contribute to attribution studies within the project.\n\n##\n• Your profile\nWe are looking for a candidate with an MSc degree in geography, climate science, environmental science or similar, with proven skills in statistics, quantitative methods and programming as well as openness for interdisciplinary work. The University of Bern promotes equal opportunity and diversity, supporting female and minority researchers.\nInternational reputation\nApplication and Contact\nApplication deadline: October 08, 2026\nPlease send a letter of motivation, your CV and publication list as well as names of three references IN ONE PDF-FILE\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nThe Climatology Group at the Institute of Geography and the Oeschger Centre for Climate Change Research at the University of Bern, led by Prof. Stefan Brönnimann, is announcing a PhD position focusing on past weather and climate extremes in Switzerland. This position is funded by the Swiss National Science Foundation as part of the NCCR CLIM+ programme (https://www.nccr-climplus.ch/): \"Climate Extremes and Society: Strengthening Resilience\". NCCR CLIM+ will address emerging research questions on societal transformation in the context of climate change mitigation and societal resilience, including the topic of heat and health. It will pioneer novel approaches in physics-based and data-driven climate modeling. As a member of the NCCR CLIM+, you will form part of an exciting, interdisciplinary community linking many Swiss institutions.\nJob description\n\n##\n• Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual career support\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nOther benefits\n\n## Your Salary\nYour annual gross salary for the year 2026 amounts to 50'042 Swiss francs for full-time employment, including the 13th month salary.\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
       "descriptionByLocale": {
         "it": "UniBE è ambizioso.\nCon noi, si offre le migliori prestazioni e testare le vostre abilità contro il meglio.\n\n##\n• Descrizione del lavoro\nL'obiettivo della tesi è quello di sviluppare ulteriormente ricostruzioni meteorologiche giornaliere multivariabili e ad alta risoluzione per la Svizzera e l'Europa e di analizzare la frequenza storica, l'intensità, le caratteristiche e i tempi degli estremi meteorologici passati e climatici in questi dati. Il focus sarà sulle onde di calore, siccità, incendi e inondazioni. Oltre all'analisi statistica, saranno studiate le condizioni meteorologiche e climatiche che portano agli estremi climatici, così come l'impatto di questi eventi in passato. L'obiettivo è quello di quantificare la variabilità degli estremi meteorologici e climatici nell'era preindustriale utilizzando campi meteorologici basati sull'osservazione multi-secolo a fianco delle simulazioni dei modelli climatici. La tesi informerà la generazione di storie di clima estremo e contribuirà a studi di attribuzione all'interno del progetto.\n\n##\n• Il tuo profilo\nSiamo alla ricerca di un candidato con un diploma di laurea in geografia, scienze del clima, scienze ambientali o simili, con comprovate competenze nelle statistiche, metodi quantitativi e programmazione, nonché apertura per il lavoro interdisciplinare. L'Università di Berna promuove pari opportunità e diversità, sostenendo ricercatori femminili e minoritari.\nreputazione internazionale\nApplicazione e contatto\nTermine per la richiesta: 08 ottobre 2026\nSi prega di inviare una lettera di motivazione, il CV e la lista di pubblicazione, nonché i nomi di tre riferimenti IN UNA PDF-FILE\nCon noi, crei valore.\nPer te e per la società.\n\n## Informazioni su di noi\nIl Gruppo Climatology presso l'Istituto di Geografia e il Centro Oeschger per la Ricerca sul Cambiamento Climatico presso l'Università di Berna, guidato dal Prof. Stefan Brönnimann, sta annunciando una posizione di dottorato focalizzandosi sugli estremi meteo e climatici passati in Svizzera. Questa posizione è finanziata dalla Fondazione nazionale svizzera per la scienza nell'ambito del programma NCCR CLIM+ (https://www.nccr-climplus.ch/): \"Climate Extremes and Society: Strengthening Resilience\". NCCR CLIM+ affronterà questioni di ricerca emergenti sulla trasformazione sociale nel contesto della mitigazione dei cambiamenti climatici e della resilienza sociale, tra cui il tema del calore e della salute. Sarà pionieristico approcci nuovi nella modellazione climatica basata sulla fisica e basata sui dati. In qualità di membro del NCCR CLIM+, parteciperai a una comunità interdisciplinare e coinvolgente che collega molte istituzioni svizzere.\nDescrizione del lavoro\n\n##\n• Il tuo profilo\nMaggiori informazioni\nLavoro-Abo\nProcesso di applicazione\n\n## I tuoi vantaggi\nSupporto professionale individuale\nForte infrastruttura di ricerca e rete internazionale\nAmbiente collaborativo e team ambizioso\nAltri vantaggi\n\n## La tua Salary\nIl suo stipendio lordo annuale per l'anno 2026 ammonta a 50'042 franchi svizzeri per l'occupazione a tempo pieno, compreso lo stipendio del 13 ° mese.\n\n## Lavorare all'Università di Berna\nL'Università di Berna non solo offre compiti entusiasmanti ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci fa stare fuori come un datore di lavoro e come si può crescere con noi.\nPagina della carriera\nPosizioni aperte",
-        "en": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n## \n• Job description\nThe aim of the thesis is to further develop multi-variable, high-resolution daily weather reconstructions for Switzerland and Europe and to analyse the historical frequency, intensity, characteristics and timing of past weather and climate extremes in these data. The focus will be on heatwaves, droughts, wildfires and floods. Alongside statistical analysis, the meteorological and climatological conditions that lead to climate extremes will be studied, as well as the impact of these events in the past. The goal is to quantify the variability of weather and climate extremes in the pre-industrial era using multi-century observation-based meteorological fields alongside climate model simulations. The thesis will inform the generation of storylines of climate extreme and contribute to attribution studies within the project.\n\n## \n• Your profile\nWe are looking for a candidate with an MSc degree in geography, climate science, environmental science or similar, with proven skills in statistics, quantitative methods and programming as well as openness for interdisciplinary work. The University of Bern promotes equal opportunity and diversity, supporting female and minority researchers.\nInternational reputation\nApplication and Contact\nApplication deadline: October 08, 2026\nPlease send a letter of motivation, your CV and publication list as well as names of three references IN ONE PDF-FILE\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nThe Climatology Group at the Institute of Geography and the Oeschger Centre for Climate Change Research at the University of Bern, led by Prof. Stefan Brönnimann, is announcing a PhD position focusing on past weather and climate extremes in Switzerland. This position is funded by the Swiss National Science Foundation as part of the NCCR CLIM+ programme (https://www.nccr-climplus.ch/): \"Climate Extremes and Society: Strengthening Resilience\". NCCR CLIM+ will address emerging research questions on societal transformation in the context of climate change mitigation and societal resilience, including the topic of heat and health. It will pioneer novel approaches in physics-based and data-driven climate modeling. As a member of the NCCR CLIM+, you will form part of an exciting, interdisciplinary community linking many Swiss institutions.\nJob description\n\n## \n• Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual career support\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nOther benefits\n\n## Your Salary\nYour annual gross salary for the year 2026 amounts to 50'042 Swiss francs for full-time employment, including the 13th month salary.\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
+        "en": "UniBE is ambitious.\nWith us, you deliver top performance and test your skills against the best.\n\n##\n• Job description\nThe aim of the thesis is to further develop multi-variable, high-resolution daily weather reconstructions for Switzerland and Europe and to analyse the historical frequency, intensity, characteristics and timing of past weather and climate extremes in these data. The focus will be on heatwaves, droughts, wildfires and floods. Alongside statistical analysis, the meteorological and climatological conditions that lead to climate extremes will be studied, as well as the impact of these events in the past. The goal is to quantify the variability of weather and climate extremes in the pre-industrial era using multi-century observation-based meteorological fields alongside climate model simulations. The thesis will inform the generation of storylines of climate extreme and contribute to attribution studies within the project.\n\n##\n• Your profile\nWe are looking for a candidate with an MSc degree in geography, climate science, environmental science or similar, with proven skills in statistics, quantitative methods and programming as well as openness for interdisciplinary work. The University of Bern promotes equal opportunity and diversity, supporting female and minority researchers.\nInternational reputation\nApplication and Contact\nApplication deadline: October 08, 2026\nPlease send a letter of motivation, your CV and publication list as well as names of three references IN ONE PDF-FILE\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nThe Climatology Group at the Institute of Geography and the Oeschger Centre for Climate Change Research at the University of Bern, led by Prof. Stefan Brönnimann, is announcing a PhD position focusing on past weather and climate extremes in Switzerland. This position is funded by the Swiss National Science Foundation as part of the NCCR CLIM+ programme (https://www.nccr-climplus.ch/): \"Climate Extremes and Society: Strengthening Resilience\". NCCR CLIM+ will address emerging research questions on societal transformation in the context of climate change mitigation and societal resilience, including the topic of heat and health. It will pioneer novel approaches in physics-based and data-driven climate modeling. As a member of the NCCR CLIM+, you will form part of an exciting, interdisciplinary community linking many Swiss institutions.\nJob description\n\n##\n• Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nIndividual career support\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nOther benefits\n\n## Your Salary\nYour annual gross salary for the year 2026 amounts to 50'042 Swiss francs for full-time employment, including the 13th month salary.\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
         "de": "UniBE ist ehrgeizig.\nBei uns liefern Sie Spitzenleistungen und testen Ihre Fähigkeiten gegen die Besten.\n\n##\n• Stellenbeschreibung\nZiel der Arbeit ist es, multivariable, hochauflösende tägliche Wetterrekonstruktionen für die Schweiz und Europa weiterzuentwickeln und in diesen Daten die historische Häufigkeit, Intensität, Charakteristik und den Zeitpunkt vergangener Wetter- und Klimaextreme zu analysieren. Im Fokus stehen Hitzewellen, Dürren, Waldbrände und Überschwemmungen. Neben der statistischen Analyse werden die meteorologischen und klimatischen Bedingungen, die zu Klimaextremen führen, sowie die Auswirkungen dieser Ereignisse in der Vergangenheit untersucht. Ziel ist es, die Variabilität von Wetter- und Klimaextremen in der vorindustriellen Ära unter Verwendung von meteorologischen Beobachtungsfeldern aus mehreren Jahrhunderten neben Klimamodellsimulationen zu quantifizieren. Die Arbeit wird die Generierung von Handlungssträngen des Klimaextrems informieren und zu Attributionsstudien innerhalb des Projekts beitragen.\n\n##\n• Dein Profil\nWir suchen einen Kandidaten mit einem MSc-Abschluss in Geographie, Klimawissenschaft, Umweltwissenschaft oder ähnlichem, mit nachgewiesenen Fähigkeiten in Statistik, quantitativen Methoden und Programmierung sowie Offenheit für interdisziplinäres Arbeiten. Die Universität Bern fördert Chancengleichheit und Diversität und unterstützt Forscherinnen und Forscher aus Minderheiten.\nInternationale Reputation\nBewerbung und Kontakt\nBewerbungsfrist: Oktober 08, 2026\nBitte senden Sie ein Motivationsschreiben, Ihren Lebenslauf und Ihre Publikationsliste sowie Namen von drei Referenzen IN EINEM PDF-FIL\nMit uns schaffen Sie Werte.\nFür dich und für die Gesellschaft.\n\n## Über uns\nDie Klimatologie-Gruppe am Institut für Geographie und das Oeschger-Zentrum für Klimaforschung an der Universität Bern unter der Leitung von Prof. Stefan Brönnimann kündigt eine Doktorandenstelle an, die sich auf vergangene Wetter- und Klimaextreme in der Schweiz konzentriert. Diese Position wird vom Schweizerischen Nationalfonds im Rahmen des NFS CLIM+-Programms (https://www.nccr-climplus.ch/) gefördert: \"Klimaextreme und Gesellschaft: Resilienz stärken\". Der NFS CLIM+ befasst sich mit neuen Forschungsfragen zum gesellschaftlichen Wandel im Kontext des Klimaschutzes und der gesellschaftlichen Widerstandsfähigkeit, einschließlich des Themas Wärme und Gesundheit. Es wird neue Ansätze für die physikbasierte und datengestützte Klimamodellierung voranbringen. Als Mitglied des NFS CLIM+ werden Sie Teil einer spannenden, interdisziplinären Community, die viele Schweizer Institutionen verbindet.\nStellenbeschreibung\n\n##\n• Dein Profil\nMehr Informationen\nJob-Abo\nAnwendungsprozess\n\n## Ihre Vorteile\nIndividuelle Karriereunterstützung\nStarke Forschungsinfrastruktur und internationales Netzwerk\nKollaboratives Umfeld und ambitioniertes Team\nSonstige Leistungen\n\n## Dein Gehalt\nIhr Jahresbruttogehalt für das Jahr 2026 beträgt 50'042 Schweizer Franken für eine Vollzeitbeschäftigung, einschließlich des 13. Monatsgehalts.\n\n## Arbeiten an der Universität Bern\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeber auszeichnet und wie Sie mit uns wachsen können.\nKarriereseite\nOffene Positionen",
         "fr": "UniBE est ambitieux.\nAvec nous, vous offrez des performances supérieures et testez vos compétences contre les meilleurs.\n\n##\n• Description du poste\nL'objectif de la thèse est de développer davantage des reconstructions météorologiques quotidiennes multivariables et à haute résolution pour la Suisse et l'Europe et d'analyser la fréquence historique, l'intensité, les caractéristiques et le calendrier des extrêmes météorologiques et climatiques passés dans ces données. L'accent sera mis sur les vagues de chaleur, les sécheresses, les feux de forêt et les inondations. Parallèlement à l'analyse statistique, on étudiera les conditions météorologiques et climatologiques qui conduisent aux extrêmes climatiques, ainsi que l'impact de ces événements dans le passé. L'objectif est de quantifier la variabilité des extrêmes météorologiques et climatiques dans l'ère préindustrielle en utilisant des champs météorologiques basés sur des observations de plusieurs siècles ainsi que des simulations de modèles climatiques. La thèse éclairera la génération de narrations de climat extrême et contribuera aux études d'attribution dans le cadre du projet.\n\n##\n• Votre profil\nNous sommes à la recherche d'un candidat titulaire d'une maîtrise en géographie, sciences du climat, sciences de l'environnement ou d'un diplôme semblable, possédant des compétences éprouvées en statistique, méthodes quantitatives et programmation ainsi qu'une ouverture pour le travail interdisciplinaire. L'Université de Berne favorise l'égalité des chances et la diversité en appuyant les chercheurs des deux sexes.\nRéputation internationale\nDemande et contact\nDate limite de présentation des demandes : 8 octobre 2026\nVeuillez envoyer une lettre de motivation, votre CV et votre liste de publications ainsi que les noms de trois références EN UN FILE PDF\nAvec nous, vous créez de la valeur.\nPour vous-même et pour la société.\n\n## À propos de nous\nLe Groupe Climatologie de l'Institut de Géographie et le Centre Oeschger de Recherche sur le Changement Climatique de l'Université de Berne, dirigé par le Prof. Stefan Brönnimann, annonce un doctorat axé sur les phénomènes météorologiques et climatiques extrêmes passés en Suisse. Ce poste est financé par la Fondation nationale suisse des sciences dans le cadre du programme NCCR CLIM+ (https://www.nccr-climplus.ch/): \"Les extrêmes climatiques et la société: renforcer la résilience\". Le CCNR CLIM+ abordera les nouvelles questions de recherche sur la transformation sociétale dans le contexte de l'atténuation des changements climatiques et de la résilience sociétale, y compris le thème de la chaleur et de la santé. Elle sera à l'avant-garde de nouvelles approches dans la modélisation du climat fondée sur la physique et les données. En tant que membre du CCNR CLIM+, vous ferez partie d'une communauté interdisciplinaire passionnante qui relie de nombreuses institutions suisses.\nDescription du poste\n\n##\n• Votre profil\nInformations supplémentaires\nEmploi-Abo\nProcessus de demande\n\n## Vos avantages\nSoutien individuel aux carrières\nForte infrastructure de recherche et réseau international\nEnvironnement collaboratif et équipe ambitieuse\nAutres prestations\n\n## Votre salaire\nVotre salaire annuel brut pour l'année 2026 s'élève à 50'042 francs suisses pour un emploi à temps plein, y compris le salaire du 13e mois.\n\n## Travaillant à l'Université de Berne\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous pouvez grandir avec nous.\nPage de carrière\nOuvrir les positions"
       },
@@ -1171,7 +1090,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-student/e3bfc166-6a4b-4a0d-b7e3-9506d8dd0247",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.106Z",
+      "crawledAt": "2026-10-08T21:46:56.327Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1218,14 +1137,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "unibe-8ad04e78850a",
       "slug": "studente-medico-studente-di-dottorato-universitat-bern-bern",
       "slugByLocale": {
         "it": "studente-medico-studente-di-dottorato-universitat-bern-bern",
-        "en": "doktorand-doktorandin-universitat-bern",
+        "en": "doctoral-student-doctoral-student-universitat-bern-bern",
         "de": "doktorand-doktorandin-unibe-bern",
         "fr": "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern"
       },
@@ -1235,7 +1155,7 @@
       "title": "Doktorand / Doktorandin",
       "titleByLocale": {
         "it": "Studente medico / studente di dottorato",
-        "en": "Doktorand / Doktorandin",
+        "en": "Doctoral student / doctoral student",
         "de": "Doktorand / Doktorandin",
         "fr": "Étudiant au doctorat / étudiant au doctorat"
       },
@@ -1246,13 +1166,12 @@
         "de": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Ausarbeitung eines Doktoratsprojekts mit Blick auf eine mögliche Einreichung eines Forschungsantrags\n• Partizipation am wissenschaftlichen Austausch von Abteilung und Institut\n\n## Anforderungen\n• Masterabschluss bis am 20. Oktober 2026 oder gleichwertiger Abschluss in Geschichtswissenschaften\n• Eigenverantwortliche und zuverlässige Arbeitsweise\n• Regelmässige Anwesenheit in Bern und Beteiligung am Institutsleben\n• Immatrikulierung an der Universität Bern auf das FS 2027 hin\nKollaboratives Umfeld und ambitioniertes Team\nBewerbung und Kontakt\nWir freuen uns auf Ihre Bewerbung mit folgenden Unterlagen:\n• Motivationsschreiben\n• Lebenslauf (ggf. mit Veröffentlichungsliste)\n• Skizze des Promotionsvorhabens (2–3 Seiten) inkl. Angabe einer am Institut in Bern möglichen Betreuungsperson und möglichen Fördergefässen für die Weiterfinanzierung\n• Kopie des Abschlusszeugnisses\n• Arbeitsprobe in Aufsatzlänge (ca. 20–25 Seiten)\nBitte laden Sie Ihre Bewerbungsunterlagen bis 12. Oktober 2026 über das Portal hoch.\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nAm Historischen Institut der Universität Bern erforschen und lehren wir Geschichtswissenschaft in ihrer ganzen thematischen Breite und methodischen Vielfalt. Die Forschungen beschäftigen sich mit der Geschichte Europas von der Antike bis zur Gegenwart wie auch mit der historischen Vergangenheit außereuropäischer Regionen.\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nGesunde Unternehmenskultur und gutes Arbeitsklima\nZentrale Lage im Herzen von Bern\nUniversitätssport\nIhre Benefits\n\n## Lohnrechner\nIhr jährlicher Bruttolohn für das Jahr 2026 beläuft sich bei einer Vollzeitbeschäftigung auf 50'042 Franken, inklusive des 13. Monatslohns.\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
         "fr": "L'UniBE est en réseau.\nAvec nous, vous faites partie d'une communauté internationale et bénéficiez d'une coopération interdisciplinaire.\n\n## Tâche\n• Développement d'un projet de doctorat en vue d'une éventuelle soumission d'une demande de recherche\n• Participation à l'échange scientifique des départements et instituts\n\n## Exigences\n• Maîtrise jusqu'au 20 octobre 2026 ou diplôme équivalent en sciences historiques\n• Méthodes de travail autonomes et fiables\n• Présence régulière à Berne et participation à la vie de l'institut\n• Inscription à l'Université de Berne pour la FS 2027\nEnvironnement collaboratif et équipe ambitieuse\nDemande et contact\nNous attendons avec intérêt votre candidature avec les documents suivants :\n• Lettre de motivation\n• CV (avec liste de publication, le cas échéant)\n• Croquis du projet de promotion (2 à 3 pages) incl. Indication d'une éventuelle personne soignante à l'Institut de Berne et d'éventuels financements pour d'autres financements\n• Copie du diplôme\n• Échantillon de travail en longueur d'attachement (environ 20-25 pages)\nVeuillez charger vos documents de candidature jusqu'à 12. Octobre 2026 via le portail.\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Sur nous\nÀ l'Institut Historique de l'Université de Berne, nous recherchons et enseignons la science historique dans toute sa portée thématique et sa diversité méthodologique. La recherche porte sur l'histoire de l'Europe, de l'antiquité au présent, ainsi que sur le passé historique des régions non européennes.\nTâche\n\n## Exigences\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nCulture d'entreprise saine et bon environnement de travail\nSituation centrale au coeur de Berne\nSports universitaires\nVos avantages\n\n## Calculateur de la rémunération\nLeur salaire annuel brut pour l'année 2026 pour l'emploi à temps plein s'élève à 50 042 francs, y compris le treizième salaire mensuel.\n\n## Travail sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-doktorandin/68e9e7e8-b10f-43b7-9226-9264b4a5dbc9",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.106Z",
+      "crawledAt": "2026-10-08T22:41:15.721Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1283,7 +1202,7 @@
         "etudiant-au-doctorat-en-histoire-universitat-bern-bern",
         "doktorand-doktorandin-unibe-bern",
         "doktorand-doktorandin-universitat-bern-bern",
-        "doctoral-student-doctoral-student-universitat-bern-bern"
+        "doktorand-doktorandin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1300,7 +1219,7 @@
         "en": [
           "doktorandin-doktorand-psychologie-universitat-bern-bern",
           "doktorand-doktorandin-universitat-bern-bern",
-          "doctoral-student-doctoral-student-universitat-bern-bern"
+          "doktorand-doktorandin-universitat-bern"
         ],
         "de": [
           "doktorandin-doktorand-psychologie-unibe-bern"
@@ -1357,7 +1276,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/postdoc-protect-sh-und-nasa/892293d2-4efb-4b33-82df-df8550761b5a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.105Z",
+      "crawledAt": "2026-10-08T22:41:15.720Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1414,7 +1333,7 @@
       "companyDomain": "unibe.ch",
       "title": "ICT-Systemadministrator/in",
       "titleByLocale": {
-        "it": "ICT-Systemadministrator/in",
+        "it": "Amministratore/trice di sistemi ICT",
         "en": "ICT system administrator",
         "de": "ICT-Systemadministrator/in",
         "fr": "Administrateur du système des TIC"
@@ -1426,13 +1345,12 @@
         "de": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Aufgaben\n• First-Level-Support und Help Desk inklusive Entgegennahme, Priorisierung, Analyse und Bearbeitung von IT-Anfragen sowie Eskalation komplexerer Störungen\n• Beratung und Unterstützung der Mitarbeitenden bei Fragen zu ICT-Services und Arbeitsplatzsystemen\n• Installation, Konfiguration, Betrieb und Unterhalt von Windows-Clients, Notebooks, Druckern, Peripherie- und Netzwerkgeräten\n• Administration ausgewählter Windows-Server, Services, Active Directory sowie grundlegender Netzwerkdienste wie DNS, DHCP und TCP/IP\n• Mitarbeit beim Patch- und Update-Management, insbesondere mit WSUS, sowie Überwachung von Datensicherungen und Unterstützung bei Wiederherstellungen\n• Technische Betreuung von Laborarbeitsplätzen, Steuerungssystemen und weiteren institutsspezifischen IT-Systemen\n• Unterstützung bei Umzügen, Inbetriebnahmen sowie der Übernahme neuer oder geänderter Hard- und Software in den Betrieb\n• Mitarbeit bei IT-Projekten und bei der Einführung und Weiterentwicklung von ICT-Systemen\n• Erstellung und Pflege von technischen Dokumentationen, Inventaren und Anwenderanleitungen sowie Durchführung von Anwenderschulungen\n• Unterstützung bei Beschaffung und Verwaltung von IT-Hardware, Software und Verbrauchsmaterial\n• Betreuung ausgewählter Spezial- und Websysteme sowie Teilnahme am IT-Pikettdienst\n• Einhaltung der geltenden Reglemente, Weisungen und Sicherheitsrichtlinien\n\n## Anforderungen\n• Abgeschlossene Berufsausbildung als Informatiker, vorzugsweise mit Schwerpunkt Systemtechnik beziehungsweise Plattformentwicklung, oder eine vergleichbare Ausbildung\n• Berufserfahrung im IT-Support sowie in der Administration von Windows-Systemen\n• Gute Kenntnisse in den Bereichen Active Directory, DNS, DHCP, Gruppenrichtlinien und TCP/IP\n• Erfahrung mit Windows-Clients und Microsoft-Office-Umgebungen\n• Kenntnisse in der Administration von Windows-Servern und im Patch-Management\n• Grundkenntnisse im Bereich Netzwerk, Datensicherung und IT-Sicherheit\n• Erfahrung im Umgang mit Ticketsystemen und strukturierten Supportprozessen von Vorteil\n• Selbstständige, zuverlässige und serviceorientierte Arbeitsweise\n• Selbstständige, strukturierte und dienstleistungsorientierte Arbeitsweise\n• Hohes Qualitäts- und Sicherheitsbewusstsein\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\nInterdisziplinäre Zusammenarbeit\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Institut für Infektionskrankheiten nimmt Aufgaben in der Mikrobiologie in den Fachrichtungen Virologie, Bakteriologie, Mykologie, Parasitologie und serologischer Infektionsabklärung wahr. Mit 200 Mitarbeitenden vereint es als einziges universitäres Institut der Schweiz alle mikrobiologischen Spezialdisziplinen in der Forschung, Lehre und Diagnostik unter einem Dach.\nDas IFIK ist auch Sitz des Nationalen Referenzzentrums für Pneumokokken (NZPn) und des Nationalen Zentrums für Antibiotikaresistenz (anresis.ch) im Auftrag des Bundesamtes für Gesundheit. Unser Biosicherheitszentrum ist ein Kollaborationscenter der World Health Organisation (WHO).\nWollen Sie in einem dynamischen Umfeld tätig sein, in dem Teamarbeit geschätzt wird und Zusammenhalt zählt? Wenn Sie offen, motiviert und bereit sind, Verantwortung zu übernehmen, freuen wir uns darauf, Sie kennenzulernen. Bewerben Sie sich jetzt und werden Sie Teil unseres engagierten Teams.\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nGesunde Unternehmenskultur und gutes Arbeitsklima\nTeamorientiertes Arbeiten\nZentrale Lage im Herzen von Bern\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
         "fr": "L'UniBE est en plein milieu. Avec nous vous bénéficiez de l'emplacement central et des endroits pratiques pour le transport.\n\nTâches:\n• Soutien et service d'assistance de premier niveau, y compris réception, hiérarchisation, analyse et traitement des demandes de TI et escalade des défauts plus complexes\n\n• Conseils et soutien aux employés en matière de services TIC et de systèmes de travail\n\n• Installation, configuration, fonctionnement et maintenance des clients Windows, des ordinateurs portables, des imprimantes, des périphériques et des périphériques réseau\n\n• Administration de serveurs, services Windows sélectionnés, Active Directory et services réseau de base tels que DNS, DHCP et TP/IP\n\n• Travailler avec la gestion des patchs et des mises à jour, en particulier avec WSUS, ainsi que la surveillance de la sauvegarde des données et le soutien dans la récupération\n\n• Soutien technique aux postes de travail de laboratoire, aux systèmes de contrôle et à d'autres systèmes informatiques spécifiques à l'institut\n\n• Support pour les retraits, la mise en service et le transfert de matériel et de logiciels nouveaux ou modifiés en fonctionnement\n\n• Participation aux projets informatiques et à l'introduction et au développement des systèmes TIC\n\n• Création et tenue à jour de documents techniques, d'inventaires et d'instructions des utilisateurs et organisation de formations des utilisateurs\n\n• Appui à l'achat et à la gestion de matériel informatique, de logiciels et de logiciels consumables\n\n• Soutien de systèmes spéciaux et web sélectionnés et participation au service de picet informatique\n\n• Conformité aux règlements, instructions et directives de sécurité applicables\n\n• Formation professionnelle complète en informatique, de préférence axée sur la technologie du système ou le développement de plateformes, ou formation comparable\n\n• Expérience professionnelle dans le support informatique et dans l'administration des systèmes Windows\n\n• Bonne connaissance dans les domaines de l'annuaire actif, DNS, DHCP, des lignes directrices de groupe et TP/IP\n\n• Expérience avec les clients de Windows et les environnements Microsoft Office\n\n• Connaissances dans l'administration des serveurs Windows et la gestion des patchs\n\n• Connaissances de base dans le domaine des réseaux, de la sauvegarde des données et de la sécurité informatique\n\n• Expérience dans le traitement des systèmes de tickets et des processus de soutien structurés\n\n• Méthodes de travail indépendantes, fiables et orientées vers les services\n\n• Méthodes de travail indépendantes, structurées et axées sur les services\n\n• Sensibilisation à la haute qualité et à la sécurité\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nNous offrons: Coopération interdisciplinaire"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/ict-systemadministrator-in/fc65114c-373d-45e0-a09a-a65f17e61556",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.104Z",
+      "crawledAt": "2026-10-08T22:41:15.718Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1522,7 +1440,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/fachspezialist-in-schliess-und-zutrittskontrollanlagen/011d47b8-59e7-4bbe-b3b4-8eb855436fa3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.104Z",
+      "crawledAt": "2026-10-08T22:41:15.719Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1572,7 +1490,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1582,7 +1500,7 @@
         "it": "Amministratore delegato (direttore amministrativo/direttore amministrativo)",
         "en": "Managing Director (administrative director / administrative director)",
         "de": "Managing Direktor (Administrativer Direktor / Administrative Direktorin)",
-        "fr": "Managing Director (Administrativer Direktor / Administrative Direktorin)"
+        "fr": "Directeur général (Directeur administratif/Directeur administratif)"
       },
       "description": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Ihre Aufgaben\nStrategische Steuerung und Organisationsentwicklung\n• Umsetzung der strukturellen und strategischen Weiterentwicklung des DBMR\n• Weiterentwicklung von Governance-, Entscheidungs- und Organisationsstrukturen\n• Beratung der wissenschaftlichen Leitung bei strategischen Fragestellungen\nOperative Gesamtkoordination\n• Verantwortung für die Bereiche Finanzen, Personal, Infrastruktur, Sicherheit und Forschungsplattformen\n• Steuerung von Budgetplanung, Controlling und Ressourcenallokation\n• Sicherstellung effizienter administrativer und operativer Prozesse im Forschungsbetrieb\n• Leitung und Weiterentwicklung der administrativen Teams\nIntegrations- und Schnittstellenfunktion\n• Koordination zwischen Forschungsprogrammen, Core Facilities, Fakultät, Universität und klinischen Partnern\n• Moderation komplexer Entscheidungsprozesse in einer Matrixorganisation\n• Vertretung des Departments in universitären und externen Gremien\n• Förderung einer transparenten Kommunikations- und Führungskultur\nIhr Profil\n• Abgeschlossenes Doktorat (PhD), vorzugsweise im biomedizinischen, naturwissenschaftlichen oder verwandten Bereich\n• Mehrjährige Führungserfahrung in einer komplexen Organisation, idealerweise im akademischen oder forschungsnahen Umfeld\n• Nachgewiesene Erfahrung in Organisationsentwicklung, Change-Management und strategischer Umsetzung\n• Fundierte Kompetenz in Budgetplanung, Finanzsteuerung und Personalführung\n• Erfahrung mit Drittmittelsystemen, Forschungsinfrastrukturen oder wissenschaftlichen Plattformen von Vorteil\n• Ausgeprägte analytische und strategische Fähigkeiten sowie integrativer Führungsstil\n• Sehr gute Deutsch- und Englischkenntnisse\n\n## Wir bieten\n• Eine Schlüsselposition mit grossem Gestaltungsspielraum in einem international vernetzten Forschungsumfeld\n• Direkte Mitwirkung an der operativen und strategischen Entwicklung eines grossen universitären Forschungsdepartments\n• Zusammenarbeit mit führenden Forschenden aus Medizin, Naturwissenschaften und klinischer Forschung\n• Ein innovatives, interdisziplinäres und dynamisches Arbeitsumfeld\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nDie Universität Bern strebt eine Erhöhung des Frauenanteils in akademischen Leitungsfunktionen an und bittet daher insbesondere interessierte Kandidatinnen, sich zu bewerben. Eine Bewerbung im Jobsharing ist möglich; Interessierte werden gebeten, ein entsprechendes Konzept einzureichen.\nwww.vereinbarkeit.unibe.ch/arbeitszeitmodelle/jobsharing\nWeitere Angaben bezüglich verlangter Unterlagen finden Sie unter www.medizin.unibe.ch/forschung/akademische_laufbahn/professur\nBewerbungen sind bis 15.10.2026 dem Dekanat der Medizinischen Fakultät der Universität Bern ausschliesslich elektronisch einzureichen über diesen Link.\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über das Department\nDas Department for BioMedical Research (DBMR) ist die zentrale Plattform für translationale biomedizinische Forschung an der Medizinischen Fakultät der Universität Bern. Über 100 Forschungsgruppen nutzen die Infrastruktur, Core Facilities und wissenschaftlichen Dienstleistungen des Departments, das Grundlagenforschung, klinische Forschung und technologische Innovation eng miteinander verbindet.\nDas DBMR befindet sich in einer Phase strategischer Weiterentwicklung und organisatorischer Transformation mit dem Ziel, seine internationale Sichtbarkeit, strukturelle Effizienz und wissenschaftliche Profilbildung nachhaltig zu stärken.\nDie strategische Leitung des DBMR erfolgt durch ein Direktorium aus wissenschaftlichen Programmverantwortlichen, wobei die wissenschaftliche Direktion im Rotationsprinzip bestimmt wird. Zur Umsetzung der organisatorischen Weiterentwicklung und zur Stärkung der institutionellen Steuerungsfähigkeit wird eine Administrative Direktorin / ein Administrativer Direktor als integrales Mitglied des Direktoriums eingesetzt und übernimmt eine Schlüsselrolle in der operativen Führung der zentralen Dienste des Departments.\nDie Position verbindet operative Gesamtverantwortung mit strategischer Mitgestaltung und richtet sich an eine erfahrene Führungspersönlichkeit mit ausgeprägter Management- und Transformationskompetenz.\nIhre Aufgaben\n\n## Wir bieten\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInterdisziplinäre Zusammenarbeit\nTeamorientiertes Arbeiten\nSinnstiftende Arbeit und faire Entlöhnung\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
@@ -1597,7 +1515,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/managing-director-administrativer-direktor-administrative-direktorin/39836d63-ec97-4a60-a006-9f443ce58b42",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.103Z",
+      "crawledAt": "2026-10-08T22:41:15.717Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1619,14 +1537,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+        "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+          "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
@@ -1676,7 +1594,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-klinische-paediatrische-adipositasforschung-kardiovaskulaere-phaenotypisierung/aff1a4f4-eb9b-4677-85bd-ce24bd7d01d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.102Z",
+      "crawledAt": "2026-10-08T22:41:15.716Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1751,7 +1669,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/4dfe01c5-ece3-4a0c-b789-903eb27ca4f2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.102Z",
+      "crawledAt": "2026-10-08T22:41:15.716Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1806,10 +1724,10 @@
       "id": "unibe-d8e0f02fa4d1",
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
-        "it": "artigiano-specializzato-ii-universitat-bern-bern",
+        "it": "spezialhandwerker-in-ii-universitat-bern-bern",
         "en": "spezialhandwerker-in-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
-        "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
+        "fr": "spezialhandwerker-in-ii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1817,7 +1735,7 @@
       "title": "Spezialhandwerker/in II",
       "titleByLocale": {
         "it": "Artigiano specializzato II",
-        "en": "Spezialhandwerker/in II",
+        "en": "Specialist Skilled Worker II",
         "de": "Spezialhandwerker/in II",
         "fr": "Artisan (ne) spécialisé (e) II"
       },
@@ -1834,7 +1752,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/spezialhandwerker-in-ii/fa8cc917-7f34-47bf-8ba2-9299981876e1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.101Z",
+      "crawledAt": "2026-10-08T22:41:15.715Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1858,17 +1776,16 @@
         "spezialhandwerker-in-ii-unibe-bern",
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
-        "spezialhandwerker-in-ii-universitat-bern-bern"
+        "artisan-ne-specialise-e-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern"
+          "artigiani-specializzati-ii-universitat-bern-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern"
+          "artisan-ne-specialise-e-ii-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.247Z",
@@ -1917,7 +1834,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoctoral-researcher-multimodal-ai-for-whole-body-pet-ct/1a455bb2-9285-437b-aad8-57db26fcd011",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.100Z",
+      "crawledAt": "2026-10-08T22:41:15.713Z",
       "addressLocality": "Bern University Hospital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1981,7 +1898,7 @@
       "title": "Doktorand/in und Assistent/in in BWL (Fachgebiet Operations Research)",
       "titleByLocale": {
         "it": "Dottorando e assistente in economia aziendale (area specialistica ricerca operativa)",
-        "en": "Doktorand/in und Assistent/in in BWL (Fachgebiet Operations Research)",
+        "en": "Doctoral student and assistant in business administration (Department of Operations Research)",
         "de": "Doktorand/in und Assistent/in in BWL (Fachgebiet Operations Forschung)",
         "fr": "Doctorant et assistant en administration des affaires (domaine de recherche)"
       },
@@ -1998,7 +1915,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research/61fd4f87-47a4-44f9-a811-755f4909b76c",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.100Z",
+      "crawledAt": "2026-10-08T22:41:15.714Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2081,7 +1998,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiterin-administration/0d62deed-f215-4b54-9cb3-f2727b6bdbe1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.098Z",
+      "crawledAt": "2026-10-08T22:41:15.710Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2164,7 +2081,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/project-manager-for-enlight-joint-master-s-degree-development/df355ec3-2194-49e8-a709-8be8490e810e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.098Z",
+      "crawledAt": "2026-10-08T22:41:15.711Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2230,7 +2147,7 @@
         "it": "Assistente di cattedra (non-tenure track) in Clinical Cancer Informatics",
         "en": "Assistant Professorship (non-tenure track) in Clinical Cancer Informatics<br/>Werner and Hedy Berger-Janser Foundation Endowed Professorship",
         "de": "Assistenzprofessur (nicht Tenure Track) in Klinischer Krebsinformatik<br/>Werner und Hedy Berger-Janser Foundation Stiftung Stiftungsprofessur",
-        "fr": "Assistant Professorship (non-tenure track) in Clinical Cancer Informatics<br/>Werner and Hedy Berger-Janser Foundation Endowed Professorship"
+        "fr": "Professeure adjointe (piste de non-tenue) en informatique clinique du cancer<br/>Werner et la Fondation Hedy Berger-Janser"
       },
       "description": "UniBE is quintessentially Bernese.\nWith us, you can expect a culture of respect and a healthy working environment.\n\n## Your profile\nYour Responsibilities\n• Develop and lead an innovative research program in clinical cancer informatics\n• Advancement of standardized terminologies, interoperabilities and mapping strategies to harmonize heterogeneous data sources\n• Integrate heterogeneous clinical data sources and develop advanced analytical approaches\n• Contribute to the development of AI-based decision-support tools in radiation oncology and medical oncology\n• Strengthen interdisciplinary collaboration between clinical and computational disciplines\n• Acquire competitive third-party funding\n• Contribute to undergraduate and graduate teaching and supervise early-career researchers\n• Actively participate in the strategic development of digital medicine at the Faculty of Medicine\nYour Profile\nWe are seeking a highly motivated and collaborative individual with:\n• A medical degree (MD or equivalent) or PhD with strong clinical insight\n• Excellent research achievements in clinical informatics, data interoperability and standardization, data science, or a related field\n• Experience with real-world medical data, AI, or computational methods in healthcare\n• A strong interest in translational and interdisciplinary research\n• Demonstrated ability (or strong potential) to lead research teams\n• Excellent communication skills and ability to work across disciplines\n• Fluency in English; German skills or willingness to acquire them\nWhat We Offer\n• A unique opportunity to shape a highly innovative and rapidly developing field\n• Access to excellent clinical and research infrastructure\n• Integration into a dynamic and collaborative academic environment\n• Dedicated funding through the endowed professorship\n• Support for career development and long-term perspectives (following an evaluation before the end of the four-year term, an extension by a further two years may be considered; long-term funding and the potential establishment of a structural professorship will also be reviewed.)\n\n## Self-conception\nThe University of Bern is committed to increasing the proportion of women in academic leadership positions and strongly encourages applications from female candidates and individuals from underrepresented groups. Applications under job-sharing models are welcome; interested parties are requested to submit a corresponding concept. Flexible working arrangements are supported. (https://www.vereinbarkeit.unibe.ch/index_eng.html)\nInternational reputation\nApplication and Contact\nApplications must be submitted solely electronically no later than 22 October 2026 to the Dean's Office of the Medical Faculty of the University of Bern by this link\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nFor further information, please contact the Chair of the appointment committee: Prof. Dr. Inti Zlobec, Professor of Digital Pathology at the Institute of Tissue Medicine and Pathology, and Director of the Department of Digital Medicine (DDM) (inti.zlobec@unibe.ch)\nFurther information regarding required documentation can be found under https://www.medizin.unibe.ch/research/academic_career_paths/professorship/index_eng.html#pane1397223\nor under https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nWith us, you create value.\nFor yourself and for society.\n\n## About us\nAbout the Position\nThe Faculty of Medicine of the University of Bern and Inselspital, Bern University Hospital invite applications for an Assistant Professorship in Clinical Cancer Informatics, funded by the Werner and Hedy Berger-Janser Foundation.\nThis endowed professorship is embedded within the University Comprehensive Cancer Center Inselspital (UCI) and jointly affiliated with the Department of Medical Oncology and the Department of Radiation Oncology.\nThe position aims to strengthen data-driven, patient-centered cancer research and to advance the integration of clinical data, artificial intelligence, and precision oncology. It is designed to serve as a key interface between clinical practice and data science, enabling the transformation of real-world data into clinically meaningful insights.\nScientific Environment\nBern offers a highly collaborative and rapidly evolving ecosystem in digital medicine, including:\n• Access to large-scale clinical datasets and real-world patient data\n• Established infrastructures in data science and clinical research\n• Strong interdisciplinary collaboration across clinical departments, biomedical research, and digital medicine\n• Integration within national and international research networks\nThe successful candidate will benefit from close collaboration with the Department of Clinical Research (DCR), the Department of Digital Medicine (DDM), and the Department for BioMedical Research (DBMR), the ARTORG Center for Biomedical Engineering Research and the Center for AI in Radiation Oncology (CAIRO).\nYour profile\n\n## Self-conception\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nStrong research infrastructure and international network\nCollaborative environment and ambitious team\nIndividual career support\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
       "descriptionByLocale": {
@@ -2239,13 +2156,12 @@
         "de": "UniBE ist typisch Bernerisch.\nBei uns erwarten Sie eine Kultur des Respekts und ein gesundes Arbeitsumfeld.\n\n## Dein Profil\nIhre Aufgaben\n• Entwicklung und Leitung eines innovativen Forschungsprogramms für klinische Krebsinformatik\n• Weiterentwicklung standardisierter Terminologien, Interoperabilitäten und Mapping-Strategien zur Harmonisierung heterogener Datenquellen\n• Integration heterogener klinischer Datenquellen und Entwicklung fortschrittlicher analytischer Ansätze\n• Beitrag zur Entwicklung von KI-basierten Entscheidungshilfeinstrumenten in der Strahlenonkologie und medizinischen Onkologie\n• Stärkung der interdisziplinären Zusammenarbeit zwischen klinischen und computergestützten Disziplinen\n• Erwerb wettbewerbsfähiger Drittmittel\n• Beitrag zu Undergraduate und Graduate Lehre und betreuen Nachwuchsforscher\n• Aktiv an der strategischen Entwicklung der digitalen Medizin an der Medizinischen Fakultät teilnehmen\nIhr Profil\nWir suchen eine hoch motivierte und kooperative Person mit:\n• Ein medizinischer Grad (MD oder gleichwertig) oder PhD mit starken klinischen Einblick\n• Hervorragende Forschungsleistungen in den Bereichen klinische Informatik, Dateninteroperabilität und -standardisierung, Data Science oder einem verwandten Bereich\n• Erfahrung mit realen medizinischen Daten, KI oder Computermethoden im Gesundheitswesen\n• Starkes Interesse an translationaler und interdisziplinärer Forschung\n• Nachweisliche Fähigkeit (oder starkes Potenzial), Forschungsteams zu führen\n• Hervorragende Kommunikationsfähigkeiten und Fähigkeit, disziplinübergreifend zu arbeiten\n• fließend Englisch; Deutschkenntnisse oder Bereitschaft, sie zu erwerben\nWas wir anbieten\n• Eine einzigartige Gelegenheit, ein hoch innovatives und sich schnell entwickelndes Feld zu gestalten\n• Zugang zu exzellenter klinischer und Forschungsinfrastruktur\n• Integration in ein dynamisches und kooperatives akademisches Umfeld\n• Dedizierte Förderung durch die Stiftungsprofessur\n• Unterstützung der Laufbahnentwicklung und der langfristigen Perspektiven (nach einer Evaluierung vor Ablauf der vierjährigen Amtszeit kann eine Verlängerung um weitere zwei Jahre in Betracht gezogen werden; auch die langfristige Förderung und die mögliche Etablierung einer Strukturprofessur werden überprüft.)\n\n## Selbstverständnis\nDie Universität Bern setzt sich für die Erhöhung des Frauenanteils in akademischen Führungspositionen ein und fördert nachdrücklich Bewerbungen von weiblichen Kandidaten und Personen aus unterrepräsentierten Gruppen. Bewerbungen im Rahmen von Jobsharing-Modellen sind willkommen; Interessenten werden gebeten, ein entsprechendes Konzept einzureichen. Flexible Arbeitsvereinbarungen werden unterstützt. (https://www.vereinbarkeit.unibe.ch/index eng.html)\nInternationale Reputation\nBewerbung und Kontakt\nBewerbungen müssen bis spätestens 22. Oktober 2026 ausschließlich elektronisch beim Dekanat der Medizinischen Fakultät der Universität Bern unter diesem Link eingereicht werden\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nFür weitere Informationen wenden Sie sich bitte an den Vorsitzenden des Berufungsausschusses: Prof. Dr. Inti Zlobec, Professor für Digitale Pathologie am Institut für Gewebemedizin und Pathologie und Direktor der Abteilung für Digitale Medizin (DDM) (inti.zlobec@unibe.ch)\nWeitere Informationen zu den erforderlichen Unterlagen finden Sie unter https://www.medizin.unibe.ch/research/academic career paths/professorship/index eng.html#pane1397223\noder unter https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nMit uns schaffen Sie Werte.\nFür dich und für die Gesellschaft.\n\n## Über uns\nÜber die Position\nDie Medizinische Fakultät der Universität Bern und das Inselspital des Universitätsklinikums Bern laden zur Bewerbung um eine Assistenzprofessur für Klinische Krebsinformatik ein, die von der Werner und Hedy Berger-Janser Stiftung gefördert wird.\nDiese Stiftungsprofessur ist in das University Comprehensive Cancer Center Inselspital (UCI) eingebettet und gemeinsam mit der Abteilung für Medizinische Onkologie und der Abteilung für Radioonkologie verbunden.\nDie Position zielt darauf ab, die datengesteuerte, patientenzentrierte Krebsforschung zu stärken und die Integration von klinischen Daten, künstlicher Intelligenz und Präzisionsonkologie voranzutreiben. Es dient als zentrale Schnittstelle zwischen klinischer Praxis und Data Science und ermöglicht die Transformation von realen Daten in klinisch bedeutsame Erkenntnisse.\nWissenschaftliche Umwelt\nBern bietet ein hochgradig kooperatives und sich schnell entwickelndes Ökosystem in der digitalen Medizin, einschließlich:\n• Zugang zu groß angelegten klinischen Datensätzen und realen Patientendaten\n• Etablierte Infrastrukturen in Data Science und klinischer Forschung\n• Starke interdisziplinäre Zusammenarbeit zwischen klinischen Abteilungen, biomedizinischer Forschung und digitaler Medizin\n• Integration in nationale und internationale Forschungsnetzwerke\nDer erfolgreiche Kandidat profitiert von der engen Zusammenarbeit mit dem Department of Clinical Research (DCR), dem Department of Digital Medicine (DDM) und dem Department for BioMedical Research (DBMR), dem ARTORG Center for Biomedical Engineering Research und dem Center for AI in Radiation Oncology (CAIRO).\nDein Profil\n\n## Selbstverständnis\nMehr Informationen\nJob-Abo\nAnwendungsprozess\n\n## Ihre Vorteile\nStarke Forschungsinfrastruktur und internationales Netzwerk\nKollaboratives Umfeld und ambitioniertes Team\nIndividuelle Karriereunterstützung\nSonstige Leistungen\n\n## Arbeiten an der Universität Bern\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeber auszeichnet und wie Sie mit uns wachsen können.\nKarriereseite\nOffene Positionen",
         "fr": "UniBE est essentiellement bernois.\nAvec nous, vous pouvez vous attendre à une culture du respect et un environnement de travail sain.\n\n## Votre profil\nVos responsabilités\n• Élaborer et diriger un programme de recherche innovateur en informatique clinique sur le cancer\n• Amélioration des terminologies normalisées, des interopérabilités et des stratégies de cartographie pour harmoniser les sources de données hétérogènes\n• Intégrer des sources de données cliniques hétérogènes et développer des approches analytiques avancées\n• Contribuer au développement d'outils d'aide à la décision basés sur l'IA en oncologie radiologique et en oncologie médicale\n• Renforcer la collaboration interdisciplinaire entre les disciplines cliniques et computationnelles\n• Acquérir un financement concurrentiel de tiers\n• Contribuer à l'enseignement de premier cycle et de deuxième cycle et superviser les chercheurs en début de carrière\n• Participer activement au développement stratégique de la médecine numérique à la Faculté de médecine\nVotre profil\nNous recherchons une personne hautement motivée et collaborative avec :\n• Un diplôme médical (MD ou équivalent) ou un doctorat avec un fort aperçu clinique\n• Excellents résultats de recherche en informatique clinique, interopérabilité et normalisation des données, science des données ou domaine connexe\n• Expérience de données médicales, d'IA ou de méthodes de calcul dans le monde réel en soins de santé\n• Un vif intérêt pour la recherche translationnelle et interdisciplinaire\n• Capacité démontrée (ou fort potentiel) de diriger des équipes de recherche\n• Excellentes compétences en communication et capacité de travailler dans toutes les disciplines\n• Connaissance de l'anglais; compétences allemandes ou volonté de les acquérir\nCe que nous offrons\n• Une occasion unique de façonner un domaine hautement innovant et en développement rapide\n• Accès à une excellente infrastructure clinique et de recherche\n• Intégration dans un environnement académique dynamique et collaboratif\n• Financement dédié par le biais de la chaire\n• Soutien au perfectionnement professionnel et perspectives à long terme (à la suite d'une évaluation avant la fin de la période de quatre ans, une prolongation de deux ans peut être envisagée; le financement à long terme et l'établissement éventuel d'une chaire structurelle seront également examinés).\n\n## Auto-conception\nL ' Université de Berne s ' est engagée à accroître la proportion de femmes occupant des postes de direction et encourage vivement les candidatures de candidates et de personnes appartenant à des groupes sous-représentés. Les candidatures dans le cadre de modèles de partage des emplois sont les bienvenues; les parties intéressées sont invitées à soumettre un concept correspondant. Des modalités de travail flexibles sont prises en charge. (https://www.vereinbarkeit.unibe.ch/index eng.html)\nLa réputation internationale\nDemande et contact\nLes demandes doivent être soumises uniquement par voie électronique au plus tard le 22 octobre 2026 au bureau du doyen de la Faculté de médecine de l'Université de Berne par ce lien.\nhttps://www.recruiting.medizin.unibe.ch/position/14352393\nPour de plus amples renseignements, veuillez contacter le président du comité de nomination: Prof. Dr Inti Zlobec, professeur de pathologie numérique à l'Institut de médecine des tissus et de pathologie, et directeur du Département de médecine numérique (DDM) (inti.zlobec@unibe.ch)\nDe plus amples renseignements sur la documentation requise sont disponibles à l'adresse suivante : https://www.medizin.unibe.ch/research/academic career paths/professorship/index eng.html#pane1397223\nou sous https://kdrive.medicinebern.ch/app/share/991093/bc77beab-f75a-4634-bbeb-487240307ec0\nAvec nous, vous créez de la valeur.\nPour vous et pour la société.\n\n## Sur nous\nÀ propos de la position\nLa Faculté de médecine de l'Université de Berne et l'Hôpital universitaire de Berne invitent les candidats à un poste de professeur adjoint en informatique clinique du cancer, financé par la Fondation Werner et Hedy Berger-Janser.\nCe poste de professeur est intégré au Centre de cancérologie intégrale de l'Université (UCI) et affilié conjointement au Département d'oncologie médicale et au Département d'oncologie radiologique.\nLa position vise à renforcer la recherche sur le cancer axée sur les données, et à faire progresser l'intégration des données cliniques, de l'intelligence artificielle et de l'oncologie de précision. Il est conçu pour servir d'interface clé entre la pratique clinique et la science des données, permettant la transformation des données du monde réel en informations cliniquement significatives.\nEnvironnement scientifique\nBern offre un écosystème hautement collaboratif et en évolution rapide en médecine numérique, notamment :\n• Accès à des ensembles de données cliniques à grande échelle et à des données sur les patients du monde réel\n• Infrastructures établies en sciences des données et en recherche clinique\n• Forte collaboration interdisciplinaire entre les départements cliniques, la recherche biomédicale et la médecine numérique\n• Intégration au sein des réseaux de recherche nationaux et internationaux\nLe candidat retenu bénéficiera d'une collaboration étroite avec le Département de recherche clinique (DCR), le Département de médecine numérique (DDM) et le Département de recherche biomédicale (DBMR), le Centre ARTORG de recherche en génie biomédical et le Centre d'IA en oncologie radiologique (CAIRO).\nVotre profil\n\n## Auto-conception\nInformations supplémentaires\nEmploi-Abo\nProcessus de demande\n\n## Vos avantages\nForte infrastructure de recherche et réseau international\nEnvironnement collaboratif et équipe ambitieuse\nSoutien individuel aux carrières\nAutres prestations\n\n## Travaillant à l'Université de Berne\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous pouvez grandir avec nous.\nPage de carrière\nOuvrir les positions"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.097Z",
+      "crawledAt": "2026-10-08T22:41:15.709Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2301,7 +2217,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2311,7 +2227,7 @@
         "it": "Responsabile della scienza dei dati",
         "en": "Data Science Officer",
         "de": "Data Science-Beauftragter",
-        "fr": "Data Science Officer"
+        "fr": "Spécialiste des sciences des données"
       },
       "description": "UniBE is agile.\nWith us, you can expect flexible working models and abundant opportunities for independent work.\n\n## Your tasks\n• Data science support to PAGES working groups (curation, harmonisation, ML/AI)\n• Management of the Data Stewardship Scholarship\n• Data curation, FAIR/LiPD standards, repository liaison\n• Co-editor of Past Global Changes Magazine and Horizons\n• Contribution to publications (working groups and own research)\n• Coordination/reporting on international activities; PAGES representation\n\n## Your profile\n• PhD in paleoscience, data science, statistics or a computational field\n• Strong R/Python skills; version control and reproducible workflows\n• Experience with large, heterogeneous proxy/geological databases\n• Skilled at handling incomplete, noisy or unevenly sampled time series\n• Excellent communication skills; explains methods to non-specialists\n• Excellent written/spoken English (German useful, not required)\n• Beneficial: PANGAEA/NOAA/Neotoma, LiPD, age-depth modeling, Adobe Creative Suite\nInterdisciplinary collaboration\nApplication and Contact\nPlease send your application documents by 02.11.2026 in ONE pdf, including a cover letter, a CV with a full output list (3-pages max.), a one-page description of a data science project you have led (with a link to the associated code or dataset if public), and contact details for three referees, by e-mail to pages@pages.unibe.ch, with the subject line “Application – Data Science Officer PAGES\"\nWith us, you create value.\nFor yourself and for society.\n\n## About\nPAGES (Past Global Changes) is an international paleoscience network whose International Project Office is hosted by the University of Bern. As the PAGES community's in-house data scientist, you support working groups in curating, harmonising and analysing paleoscience datasets, and help build the network's products, publications and outreach.\nYour tasks\n\n## Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nHealthy corporate culture and good working atmosphere\nTeam-oriented work\nCentral location in the heart of Bern\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
       "descriptionByLocale": {
@@ -2326,7 +2242,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/data-science-officer/7771b117-8d60-4cee-b56d-21ad863eab1f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.097Z",
+      "crawledAt": "2026-10-08T22:41:15.709Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2349,7 +2265,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2360,7 +2276,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -2395,7 +2311,7 @@
         "it": "Direzione Assistenza (80 – 100%)",
         "en": "Directorate Assistance (80 – 100%)",
         "de": "Direktionsassistenz (80 – 100%)",
-        "fr": "Direktionsassistenz (80 – 100%)"
+        "fr": "Assistance de la Direction (80 – 100%)"
       },
       "description": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Das wartet auf Dich:\n• Du führst die Administration selbstständig und professionell und übernimmst die Korrespondenz in Deutsch und Englisch.\n• Du arbeitest eng mit dem Klinikdirektor in den definierten Aufgabenbereichen zusammen.\n• Du bist eine wichtige Ansprechperson für Mitarbeitende bei administrativen und HR-bezogenen Fragen. Kenntnisse der universitären Verwaltung sind dabei von Vorteil.\n• Du organisierst Sitzungen, übernimmst deren Vor- und Nachbereitung und führst die Protokolle.\n• Du kümmerst Dich um die Kontierung und Verbuchung von Rechnungen und bewirtschaftest die Drittmittelkonten.\n• Du koordinierst Termine vorausschauend, behältst Fristen im Blick und sorgst für einen reibungslosen Ablauf.\n• Du bist erste Anlaufstelle für allgemeine administrative Anliegen rund um die Klinik.\n\n## So wirst du Teil unseres Teams:\n• Eine abgeschlossene kaufmännische Ausbildung sowie mehrere Jahre Berufserfahrung in einer ver-gleichbaren Funktion\n• Sehr gute mündliche und schriftliche Deutsch- und Englischkenntnisse; Französischkenntnisse sind ein Plus\n• Eine rasche Auffassungsgabe, vernetztes Denken und die Fähigkeit, auch in einem dynamischen Umfeld den Überblick zu behalten\n• Flexibilität, Offenheit und Freude daran, auch bei Unvorhergesehenem pragmatische Lösungen zu finden\n• Sehr gute MS-Office-Kenntnisse und ein gutes Zahlenverständnis; SAP-Kenntnisse von Vorteil\n• Ausgeprägte Kommunikationsfähigkeiten und eine hohe Dienstleistungsorientierung\n• Eine selbstständige, strukturierte und zuverlässige Arbeitsweise\nGestalten statt nur verwalten: Bei uns erwarten Dich ein abwechslungsreiches Aufgabengebiet und viel Eigenverantwortung.\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Klinik für Rekonstruktive Zahnmedizin und Gerodontologie ist Teil der Zahnmedizinischen Kliniken der Universität Bern. Unsere Aufgabe ist die Ausbildung von Studierenden und Dentalassistentinnen sowie die Weiterbildung junger Zahnärztinnen und Zahnärzte auf dem Gebiet der Rekonstruktiven Zahnmedizin und Gerodontologie.\nDas wartet auf Dich:\n\n## So wirst du Teil unseres Teams:\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInterdisziplinäre Zusammenarbeit\nZentrale Lage im Herzen von Bern\nGrosser Gestaltungsfreiraum im akademischen Umfeld\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
@@ -2404,13 +2320,12 @@
         "de": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Das wartet auf Dich:\n• Du führst die Administration selbstständig und professionell und übernimmst die Korrespondenz in Deutsch und Englisch.\n• Du arbeitest eng mit dem Klinikdirektor in den definierten Aufgabenbereichen zusammen.\n• Du bist eine wichtige Ansprechperson für Mitarbeitende bei administrativen und HR-bezogenen Fragen. Kenntnisse der universitären Verwaltung sind dabei von Vorteil.\n• Du organisierst Sitzungen, übernimmst deren Vor- und Nachbereitung und führst die Protokolle.\n• Du kümmerst Dich um die Kontierung und Verbuchung von Rechnungen und bewirtschaftest die Drittmittelkonten.\n• Du koordinierst Termine vorausschauend, behältst Fristen im Blick und sorgst für einen reibungslosen Ablauf.\n• Du bist erste Anlaufstelle für allgemeine administrative Anliegen rund um die Klinik.\n\n## So wirst du Teil unseres Teams:\n• Eine abgeschlossene kaufmännische Ausbildung sowie mehrere Jahre Berufserfahrung in einer ver-gleichbaren Funktion\n• Sehr gute mündliche und schriftliche Deutsch- und Englischkenntnisse; Französischkenntnisse sind ein Plus\n• Eine rasche Auffassungsgabe, vernetztes Denken und die Fähigkeit, auch in einem dynamischen Umfeld den Überblick zu behalten\n• Flexibilität, Offenheit und Freude daran, auch bei Unvorhergesehenem pragmatische Lösungen zu finden\n• Sehr gute MS-Office-Kenntnisse und ein gutes Zahlenverständnis; SAP-Kenntnisse von Vorteil\n• Ausgeprägte Kommunikationsfähigkeiten und eine hohe Dienstleistungsorientierung\n• Eine selbstständige, strukturierte und zuverlässige Arbeitsweise\nGestalten statt nur verwalten: Bei uns erwarten Dich ein abwechslungsreiches Aufgabengebiet und viel Eigenverantwortung.\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Klinik für Rekonstruktive Zahnmedizin und Gerodontologie ist Teil der Zahnmedizinischen Kliniken der Universität Bern. Unsere Aufgabe ist die Ausbildung von Studierenden und Dentalassistentinnen sowie die Weiterbildung junger Zahnärztinnen und Zahnärzte auf dem Gebiet der Rekonstruktiven Zahnmedizin und Gerodontologie.\nDas wartet auf Dich:\n\n## So wirst du Teil unseres Teams:\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInterdisziplinäre Zusammenarbeit\nZentrale Lage im Herzen von Bern\nGrosser Gestaltungsfreiraum im akademischen Umfeld\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
         "fr": "L'UniBE est polyvalent. Avec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\nTâches :\n• Vous gérez l'administration de façon indépendante et professionnelle et prenez en charge la correspondance en allemand et en anglais.\n\n• Vous travaillez en étroite collaboration avec le directeur de clinique dans les domaines de responsabilité définis.\n\n• Vous êtes une personne-ressource importante pour les employés qui ont des questions administratives ou liées aux RH. La connaissance de l'administration universitaire est un avantage.\n\n• Vous organisez des sessions, prenez en charge leur préparation et leur suivi et conservez les minutes.\n\n• Vous prenez soin de la liste et la réservation des factures et de gérer les comptes de fonds tiers.\n\n• Vous coordonnez les rendez-vous à l'avance, surveillez les délais et assurez-vous qu'ils se déroulent bien.\n\n• Vous êtes le premier point de contact pour les préoccupations administratives générales autour de la clinique.\n\nExigences\n• Une formation commerciale terminée et plusieurs années d'expérience professionnelle dans une fonction comparable\n\n• Très bonne connaissance orale et écrite de l'allemand et de l'anglais; La connaissance du français est un plus\n\n• Compréhension rapide, pensée en réseau et capacité à maintenir un aperçu même dans un environnement dynamique\n\n• La flexibilité, l'ouverture et la joie de trouver des solutions pragmatiques même dans l'imprévu\n\n• Très bonne connaissance de MS-Office et une bonne compréhension des chiffres; connaissance SAP est un avantage\n\n• Fortes compétences en communication et orientation vers un service élevé\n\n• Un mode de travail indépendant, structuré et fiable\n\nNous offrons:\nConcevoir au lieu de simplement gérer: Avec nous, vous pouvez vous attendre à un secteur de responsabilité varié et beaucoup de responsabilité personnelle."
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-80/fac13cf6-4b70-4ae2-8a98-145090f06c88",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.096Z",
+      "crawledAt": "2026-10-08T22:41:15.708Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2493,7 +2408,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.095Z",
+      "crawledAt": "2026-10-08T22:41:15.707Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2574,7 +2489,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/early-postdoc-position-on-the-governance-of-climate-extremes/6bc2f305-92d1-449a-b9e0-ecb994dffc82",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.094Z",
+      "crawledAt": "2026-10-08T22:41:15.705Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2655,7 +2570,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-neuropsychologie-neuropaediatrie-entwicklung-und-rehabilitation/6f878792-9e73-4111-945b-f17efbe24b56",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.094Z",
+      "crawledAt": "2026-10-08T22:41:15.706Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2736,7 +2651,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.093Z",
+      "crawledAt": "2026-10-08T22:41:15.704Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2817,7 +2732,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sekretaer-in/a65030ab-a871-45b7-92f6-06bcb721623e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.088Z",
+      "crawledAt": "2026-10-08T22:41:15.703Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2871,16 +2786,16 @@
       "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-system-administrator-universitat-bern-bern",
+        "en": "it-systemadministrator-in-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
+        "fr": "it-systemadministrator-in-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
       "title": "IT-Systemadministrator/in",
       "titleByLocale": {
-        "it": "IT-Systemadministrator/in",
+        "it": "Amministratore/trice di sistema IT",
         "en": "IT System Administrator",
         "de": "IT-Systemadministrator/in",
         "fr": "Administrateur système informatique"
@@ -2892,13 +2807,12 @@
         "de": "Die UniBE ist ambitioniert.\nBei uns erbringen Sie Spitzenleistungen und messen sich mit den Besten.\n\n## Anforderungen\n• Erfahrung im Umgang mit Linux, Mac und Windows\n• Sehr gute Kenntnisse über den Terminal und Remotezugriff über SSH, Bash- Programmierung und üblichen Skriptsprachen wie Python\n• Administrationserfahrung mit Linux und Netzwerkkenntnisse sind von Vorteil, aber nicht Voraussetzung\n• Erfahrungen mit Ansible, Proxmox VE, Ceph und Fortran sind von Vorteil\n• Eine zielorientierte, exakte sowie dienstleistungsorientierte Arbeitsweise\n• sehr gute Englischkenntnisse\n\n## Wir bieten\n• Eine abwechslungsreiche Tätigkeit in einem internationalen Team\n• Besoldung gemäss den Sätzen des Kantons Bern\n• Weiterbildungsmöglichkeiten\n• Sozialleistungen nach kantonalen Bestimmungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Aufgaben\nDie Abteilung Klima und Umweltphysik der Universität Bern sucht per 1. Januar 2027 oder nach Vereinbarung eine/n IT-Systemadministrator/in. Wir sind international führend auf dem Gebiet der Klimamodellierung, Klimarekonstruktion und Umweltphysik. Die wissenschaftliche Arbeit erfordert eine gut funktionierende und leistungsfähige Computerinfrastruktur.\n• Sie gestalten und betreiben die IT-Services der Abteilung für den operativen Betrieb. Dazu zählen mehrere Datenserversysteme, die virtuelle Serverumgebung, die Messlabore, externe Messstationen und rund 60 Arbeitsplätze (Windows/Linux/Mac).\n• Sie leisten 1st und 2nd-Level Benutzersupport.\n• Sie sind für die Überwachung sowie Instandhaltung der IT-Infrastruktur verantwortlich.\n• Sie planen die notwendigen Massnahmen und setzen diese für Software sowie Hardware um.\n• Sie stellen den Fernzugriff und Datentransfer von den externen Messstationen sicher.\n• Sie sind der Ansprechpartner für die zentralen Informatikdienste der Universität Bern und den IT-Verantwortlichen anderer Abteilungen.\n• Sie unterstützen bei Bedarf die Erdsystemmodellierungsgruppen beim wissenschaftlichen Programmieren.\nDie Stelle eignet sich bei ausreichenden Vorkenntnissen gut als Einstieg in die IT Systemadministration, wo Sie in einem universitären Umfeld die gesamte Breite der Systemadministration erlernen und anwenden können.\nAnforderungen\n\n## Wir bieten\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nTeamorientiertes Arbeiten\nInspirierendes Arbeitsumfeld\nZentrale Lage im Herzen von Bern\nIhre Benefits\n\n## Lohnrechner\nIhr Bruttolohn bei einem Beschäftigungsgrad von liegt zwischenbei und Franken pro Jahr (inkl. 13. Monatslohn). Der genaue Lohn ist abhängig von Ihren Erfahrungen und Kompetenzen. Im persönlichen Gespräch klären wir gemeinsam alle Fragen zum Lohn und den Anstellungsbedingungen.\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
         "fr": "L'UniBE est ambitieux.\nAvec nous, ils réalisent l'excellence et concurrencent les meilleurs.\n\n## Exigences\n• Expérience dans le traitement de Linux, Mac et Windows\n• Très bonne connaissance du terminal et de l'accès à distance via SSH, la programmation bash et les langages de script communs tels que Python\n• L'expérience d'administration avec Linux et les connaissances réseau sont bénéfiques, mais pas une exigence\n• L'expérience avec Ansible, Proxmox VE, Ceph et Fortran est bénéfique\n• Un mode de travail axé sur les objectifs, l'exactitude et le service\n• Très bonnes compétences en anglais\n\n## Nous offrons\n• Un emploi varié dans une équipe internationale\n• Rémunération selon les taux du Canton de Berne\n• Possibilités de formation\n• Prestations sociales au titre des dispositions cantonales\nBonnes infrastructures de recherche et réseau international\nDemande et contact\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Tâche\nLe Département de physique du climat et de l'environnement de l'Université de Berne recherche un administrateur du système informatique à compter du 1er janvier 2027 ou par accord. Nous sommes des leaders internationaux dans la modélisation climatique, la reconstruction climatique et la physique de l'environnement. Le travail scientifique exige une infrastructure informatique efficace et fonctionnelle.\n• Ils conçoivent et exploitent les services de TI du département des opérations opérationnelles. Il s'agit notamment de plusieurs systèmes de serveur de données, de l'environnement de serveur virtuel, des laboratoires de mesure, des stations de mesure externes et d'une soixantaine de postes de travail (Windows/Linux/Mac).\n• Ils fournissent une assistance utilisateur de premier et deuxième niveaux.\n• Ils sont responsables du suivi et de l'entretien de l'infrastructure informatique.\n• Vous planifiez les mesures nécessaires et les mettez en œuvre pour le logiciel et le matériel.\n• Ils assurent l'accès à distance et le transfert de données à partir des stations de mesure externes.\n• Vous êtes la personne-ressource pour les services informatiques centraux de l'Université de Berne et les gestionnaires informatiques d'autres départements.\n• Au besoin, ils soutiennent les groupes de modélisation du système terrestre dans la programmation scientifique.\nAvec des connaissances suffisantes, le poste est bien adapté comme une introduction à l'administration du système de TI, où vous pouvez apprendre et appliquer toute l'étendue de l'administration du système dans un environnement universitaire.\nExigences\n\n## Nous offrons\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nTravaux axés sur l ' équipe\nEnvironnement de travail inspirant\nSituation centrale au coeur de Berne\nVos avantages\n\n## Calculatrice de la rémunération\nLeur salaire brut à un niveau d'emploi compris entre CHF et CHF par an (y compris le 13ème salaire mensuel). La rémunération exacte dépend de votre expérience et de vos compétences. Dans une conversation personnelle, nous éclaircissons toutes les questions sur les salaires et les conditions d'emploi ensemble.\n\n## Travail sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/it-systemadministrator-in/47fc7ff0-6645-4659-9cc2-7d7c64320128",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.087Z",
+      "crawledAt": "2026-10-08T22:41:15.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2919,11 +2833,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systemadministrator-in-unibe-bern"
+        "it-systemadministrator-in-unibe-bern",
+        "it-system-administrator-universitat-bern-bern",
+        "administrateur-systeme-informatique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern"
+        ],
+        "en": [
+          "it-system-administrator-universitat-bern-bern"
+        ],
+        "fr": [
+          "administrateur-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -2973,7 +2895,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-befristet-bis-31-12-2028-mit-option-zur-verlaengerung/fc9d2e32-0a00-4af8-8734-e2251c787580",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.086Z",
+      "crawledAt": "2026-10-08T22:41:15.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3056,7 +2978,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/communication-officer/c890dc16-def4-4eb5-a917-3798bd6c17d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.085Z",
+      "crawledAt": "2026-10-08T22:41:15.701Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3122,7 +3044,7 @@
         "it": "Agenti di comunicazione",
         "en": "Communication officers",
         "de": "Kommunikationsbeauftragten",
-        "fr": "Kommunikationsbeauftragten"
+        "fr": "Spécialistes de la communication"
       },
       "description": "Die UniBE ist mittendrin.\nBei uns profitieren Sie von der zentralen Lage und verkehrstechnisch günstig gelegenen Standorten.\n\n## Stellenbeschreibung\nDie/der Kommunikationsbeauftragte/r ist an der Universität Bern tätig und arbeitet eng mit seinem/ihrer Kollegen/in an der ETH Zürich sowie mit allen Mitgliedern des CLIM+-Managementzentrums an der UNIBE und der ETH Zürich, den Direktoren und allen Forschenden des Konsortiums (Professoren, Postdocs, Doktoranden) zusammen.\nIhre Hauptaufgaben\nZu Ihren Hauptaufgaben gehören:\n• Mitwirkung an der Entwicklung und Umsetzung der allgemeinen Kommunikationsstrategie des NCCR CLIM+.\n• Strategische Planung und Erstellung hochwertiger Inhalte (Texte, Multimedia) für die externe Kommunikation.\n• Unterstützung interdisziplinärer Forschungsprojekte bei deren Kommunikation.\n• Verwaltung der Website-Inhalte sowie der Social-Media-Kanäle (LinkedIn, Bluesky usw.) und eines Newsletters.\n• Verantwortung für die visuelle (Unternehmens-)Identität und das entsprechende Material sowie deren Weiterentwicklung.\n• Aufbau und Verwaltung interner Kommunikationskanäle (MS Teams und andere Plattformen).\n• Initiierung, Leitung oder Koordination komplexer Kommunikationsprojekte, einschließlich der Organisation von Veranstaltungen und Konferenzen.\n• Zusammenarbeit mit der Abteilung für Kommunikation und Marketing (AKM) der Universität Bern oder mit Dritten wie der Schweizer Medienlandschaft und anderen Einrichtungen zur Öffentlichkeitsarbeit.\n\n## Anforderungen\nAnforderungen\nWir suchen eine kreative, begeisterungsfähige Person mit Erfahrung in der Wissenschafts- und Unternehmenskommunikation. Erfahrung im Bereich Multimedia (Bilder/Grafiken, Video, Audio) wäre von Vorteil. Kenntnisse in internen Kommunikationslösungen (z. B. MS Teams), Content-Management-Systemen (CMS) für Websites, Design-Software (z. B. InDesign) und anderen Kommunikationswerkzeugen sind sehr erwünscht. Sie arbeiten gerne selbstständig, übernehmen Verantwortung und entwickeln kreative Ideen. Sie sind deutscher Muttersprachler oder verfügen über ausgezeichnete Deutschkenntnisse sowie über fließende Englisch- und Französischkenntnisse in Wort und Schrift. Italienischkenntnisse sind ebenfalls von Vorteil. Sie kennen sich in der Schweizer Medien- und Journalismuslandschaft aus.\nWir bieten eine kreative und dynamische Tätigkeit mit einem hohen Maß an Eigenverantwortung im universitären Umfeld, die den Kontakt zu Forschenden und externen Partnern beinhaltet. Gehalt und Sozialleistungen richten sich nach den kantonalen Vorschriften.\nKollaboratives Umfeld und ambitioniertes Team\nBewerbung und Kontakt\nWir freuen uns auf Ihre Online-Bewerbung mit folgenden Unterlagen:\n• Lebenslauf\n• Motivationsschreiben\n• Namen und Kontaktdaten von zwei Referenzpersonen\n• Kopie des Abschlusszeugnisses bzw. der Abschlusszeugnisse und/oder Zertifikate\nDie Sichtung der Bewerbungen beginnt am 26. Oktober, Vorstellungsgespräche sind für den 3. November vorgesehen. Der Arbeitsbeginn soll so bald wie möglich erfolgen, wobei der erste Vertrag bis Ende April 2030 läuft.\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas NCCR CLIM+ wird die erste vollständig interdisziplinäre, schweizweite Klimaforschungsgemeinschaft aufbauen, die sich mit drängenden Fragen im Zusammenhang mit Klimaextremen wie Hitzewellen, Überschwemmungen, Starkregen, Dürren, Waldbränden und weiteren kombinierten Ereignissen befasst. Dabei wird es zudem mit Akteuren aus verschiedenen Bereichen zusammenarbeiten, die vom Gesundheitswesen über den Finanzsektor bis hin zur Landwirtschaft und zur Wasserwirtschaft reichen.\nDurch die Bündelung der Kompetenzen von 20 führenden Schweizer Forschungseinrichtungen aus verschiedenen natur- und sozialwissenschaftlichen Disziplinen wird das NCCR CLIM+ Grundlagenwissen mit transformativem Wissen verbinden. Unter der Leitung der Universität Bern und der ETH Zürich wird das neu gegründete Zentrum für Klimaextreme und Resilienz in der Schweizer Gesellschaft (CERESS) mit zahlreichen weiteren Universitäten und Klimazentren in der ganzen Schweiz zusammenarbeiten. CERESS wird landesweite Forschung unterstützen, Living Labs mitgestalten und umsetzbare Lösungen erarbeiten und so eine neue transdisziplinäre Schnittstelle zwischen Wissenschaft, Gesellschaft, Praxis und Politik schaffen.\nWeitere Informationen zu NCCR CLIM+ finden Sie auf unserer Website.\nStellenbeschreibung\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nInterdisziplinäre Zusammenarbeit\nInspirierendes Arbeitsumfeld\nUniversitätssport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
@@ -3137,7 +3059,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/kommunikationsbeauftragten/f70eada7-2d61-4296-ae0c-0200d2a3ac9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.084Z",
+      "crawledAt": "2026-10-08T22:41:15.695Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3222,7 +3144,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dozentur-fuer-innovative-anatomische-lehre/69f08921-1ab4-45c0-9531-1452e1b62d87",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.084Z",
+      "crawledAt": "2026-10-08T22:41:15.695Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3303,7 +3225,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/specialty-internships-innere-medizin-und-chirurgie-an-der-kleintierklinik/eeeccaf7-bd9a-40e9-ad2a-5c7d54f432c8",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.083Z",
+      "crawledAt": "2026-10-08T22:41:15.693Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3384,7 +3306,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/5056d134-52bf-4b5a-91d2-1b392cba47ce",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.082Z",
+      "crawledAt": "2026-10-08T22:41:15.691Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3469,7 +3391,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrauftrag-sozialversicherungsrecht-nachfolge-prof-kurt-paerli/3adcb202-ef29-4f30-801c-2f81caeb1419",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.081Z",
+      "crawledAt": "2026-10-08T22:41:15.688Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3550,7 +3472,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/9c26cc94-c223-4667-8d36-3dee86d25cd3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.081Z",
+      "crawledAt": "2026-10-08T22:41:15.690Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3631,7 +3553,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitende-r-in-der-nutztiermedizin-zum-thema-infektionsschutz-beim-kalb/5b2f65ed-4e06-411e-a391-28b6f5306a74",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.079Z",
+      "crawledAt": "2026-10-08T22:41:15.686Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3711,7 +3633,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/laborant-in-im-forschungslabor/1cd5675a-7d46-493b-95f8-165ec7ad7d50",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.078Z",
+      "crawledAt": "2026-10-08T22:41:15.684Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3786,7 +3708,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/stv-leitung-kreditorenbuchhaltung/53d04428-ff4f-4307-aafb-f4afdf98b89a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.077Z",
+      "crawledAt": "2026-10-08T22:41:15.683Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3868,7 +3790,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/assistenzstelle-mit-moeglichkeit-zur-promotion/68bdd60b-60ec-479f-aa31-52a02ff3142e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.076Z",
+      "crawledAt": "2026-10-08T22:41:15.681Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3943,7 +3865,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/forschungspraktikum/3c9ceb04-3e02-4b4f-b772-dd2d4fb3568a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.075Z",
+      "crawledAt": "2026-10-08T22:41:15.680Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4026,7 +3948,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in/6a750fc5-edce-4199-947e-d84a17968b51",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.074Z",
+      "crawledAt": "2026-10-08T22:41:15.678Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4102,7 +4024,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/laborant-laborantin-forschungslabor/fef0917a-93a4-406a-9960-c049b795a564",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.073Z",
+      "crawledAt": "2026-10-08T22:41:15.676Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4184,7 +4106,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/04141d6e-6b5f-4740-ac8a-f57b19e5250b",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.073Z",
+      "crawledAt": "2026-10-08T22:41:15.677Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4267,7 +4189,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/werkstattleiter-in/6c6441c6-9e7a-41f7-b313-22604a10090a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.072Z",
+      "crawledAt": "2026-10-08T22:41:15.675Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4350,7 +4272,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/zwei-anstellungen-als-hilfsassistent-in-je-in-der-abteilung-systemlinguistik-institut-fur-germanistik-prof-luise-kempf/ce12d004-e80d-458d-af49-1158e08e46e2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.071Z",
+      "crawledAt": "2026-10-08T22:41:15.674Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4432,7 +4354,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-student-in-translational-cancer-research-snsf-project/49b665a5-4e94-4fb8-b005-3654ed74bd33",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.069Z",
+      "crawledAt": "2026-10-08T22:41:15.672Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4513,7 +4435,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/leiter-in-zentrale-dienste/bc02b75d-e6cc-4b51-b8a9-4d0b68f12f58",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.068Z",
+      "crawledAt": "2026-10-08T22:41:15.671Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4596,7 +4518,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistent-in/00e21fe2-c167-4fa2-86f8-f359032c405c",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.067Z",
+      "crawledAt": "2026-10-08T22:41:15.670Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4677,7 +4599,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studentische-assistenz/c0cc1918-2d38-42c4-9ebc-0be657708351",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.066Z",
+      "crawledAt": "2026-10-08T22:41:15.669Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4758,7 +4680,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studien-und-pruefungssekretariat/1bbf4290-9b20-4ed5-93f4-632d09b8c409",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.058Z",
+      "crawledAt": "2026-10-08T22:41:15.667Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4811,83 +4733,88 @@
       }
     },
     {
-      "id": "unibe-b9a128526e15",
-      "slug": "projektmanager-in-kommunikation-e-marketing-80-universitat-bern",
+      "id": "unibe-dc1a481247c5",
+      "slug": "assistenza-scientifica-universitat-bern-bern-ddb273",
       "slugByLocale": {
-        "it": "projektmanager-in-kommunikation-e-marketing-80-universitat-bern",
-        "en": "projektmanager-in-kommunikation-und-marketing-80-universitat-bern-bern",
-        "de": "projektmanager-in-kommunikation-und-marketing-80-unibe-bern",
-        "fr": "chef-fe-de-projet-communication-et-marketing-80-universitat-bern-bern"
+        "de": "wissenschaftliche-assistenz-unibe-bern",
+        "it": "assistenza-scientifica-universitat-bern-bern-ddb273",
+        "en": "scientific-assistance-universitat-bern-bern-ddb273",
+        "fr": "assistance-scientifique-universitat-bern-bern-ddb273"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
-      "title": "Projektmanager*in Kommunikation und Marketing 80%",
+      "title": "Wissenschaftliche Assistenz",
       "titleByLocale": {
-        "it": "Project Manager Comunicazione e Marketing 80%",
-        "en": "Projektmanager*in Kommunikation und Marketing 80%",
-        "de": "Projektmanager*in Kommunikation und Marketing 80%",
-        "fr": "Chef·fe de projet Communication et Marketing 80 %"
+        "de": "Wissenschaftliche Assistenz",
+        "it": "Assistenza scientifica",
+        "en": "Scientific Assistance",
+        "fr": "Assistance scientifique"
       },
-      "description": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Ihre Aufgaben\n• Entwicklung von Kommunikations- und Marketingkonzepten, -plänen inkl. Storytelling, Ressourcenschätzung, Umsetzungs- und Zeitplanung\n• Mitarbeit sowie Umsetzungsbeauftragung und -überwachung einzelner Massnahmen gemäss den entwickelten Kommunikations- und Marketingkonzepten\n• Eigenständige Konzeption und Betreuung von Projekten nach Auftrag\n• Durchführung von allgemeinen Kommunikations- und Marketingberatungen\n• Mitarbeit bei der strategischen Planung für Kommunikation & Marketing der Gesamtuniversität\n• Beschaffung und Anwendung bestehender Daten als Basis zur Konzeptentwicklung\n• Budgetmanagement\n\n## Was Sie mitbringen\n• Bachelor und funktionsspezifische Weiterbildung oder vergleichbare Ausbildung in Kommunikation und/oder Marketing\n• Ausgewiesene Projektmanagementskills\n• Ausgewiesene Kompetenzen und Erfahrung in der Entwicklung von Kommunikations- und/oder Marketingkonzepten\n• Erfahrung im Leiten von mittleren und grösseren Projekten\n• Ausgewiesene Storytellingerfahrung und -Skills\n• Hohe digitale Kompetenz insbesondere auch in Bezug auf KI\n• Allgemeine Beratungskompetenzen\n• Gute Allgemeinbildung und strategisches Denkvermögen\n• Sprachkenntnisse: Deutsch und Englisch sehr gut, Französisch von Vorteil\n• Sicheres Auftreten und ausgezeichnete Umgangsformen\n• Hohe Sozialkompetenz\n• Hohe Flexibilität und Leistungsbereitschaft sowie Durchsetzungsvermögen\n• Erfahrung im Umfeld von Hochschulen von Vorteil\nVielseitige und anspruchsvolle Tätikeiten\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Universität Bern ist eine der grössten Universitäten der Schweiz mit über 19'000 Studierenden und 7'000 Mitarbeitenden. Sie ist national und international hervorragend vernetzt und gleichzeitig in der Region verankert. Mit ihrer Forschung setzt sie weltweit Akzente – in der Medizin sowie in der Weltraum- und Klimaforschung gehört sie zur Spitze.\nDie Abteilung Kommunikation & Marketing (AKM) ist Teil des Rektorats und verantwortet die interne und externe Kommunikation der Universität Bern. Der Bereich Projektmanagement ist innerhalb der AKM die zentrale Einheit für die Konzeption und Steuerung von Kommunikations- und Marketingprojekten. Sie entwickelt Kommunikations- und Marketingkonzepte, berät Organisationseinheiten und verantwortet interdisziplinäre Projekte von der Planung bis zur Realisierung. Dabei stellt sie sicher, dass die Massnahmen zielgerichtet, koordiniert und wirkungsvoll umgesetzt werden.\nIhre Aufgaben\n\n## Was Sie mitbringen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nSinnstiftende Arbeit und faire Entlöhnung\nKollaboratives Umfeld und ambitioniertes Team\nTeamorientiertes Arbeiten\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+      "description": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
-        "it": "L'UniBE è versatile.\nCon noi, ci si può aspettare una vasta gamma di argomenti e un sacco di libertà di progettazione.\n\n## I loro compiti\n• Sviluppo di concetti di comunicazione e marketing, piani incl. Storytelling, stima delle risorse, implementazione e pianificazione del tempo\n• Cooperazione e attuazione messa in servizio e monitoraggio delle singole misure in base ai concetti di comunicazione e marketing sviluppati\n• Progettazione indipendente e supervisione dei progetti per ordine\n• Gestione dei servizi di comunicazione generale e consulenza di marketing\n• Partecipazione alla pianificazione strategica per la comunicazione e il marketing dell'intera università\n• Approvvigionamento e applicazione dei dati esistenti come base per lo sviluppo del concetto\n• Gestione del bilancio\n\n## Cosa porti\n• Corso di laurea e funzione-specifica formazione ulteriore o formazione comparabile in comunicazione e/o marketing\n• Capacità di gestione progettuale\n• Prove competenze ed esperienza nello sviluppo di concetti di comunicazione e/o marketing\n• Gestione dell'esperienza di progetti di medie e grandi dimensioni\n• Esperienza e competenze di storytelling provate\n• Alta competenza digitale, soprattutto per quanto riguarda l'AI\n• Competenze consultive generali\n• Buona educazione generale e pensiero strategico\n• Competenze linguistiche: tedesco e inglese molto buono, francese è vantaggioso\n• Aspetto sicuro e buone maniere\n• Alto livello di competenze sociali\n• Alta flessibilità, disponibilità e assertività\n• L'esperienza nel campo delle università è vantaggiosa\nAttività versatili e impegnative\nApplicazione e contatto\nCon noi, crei valore.\nPer se stessi e per la società.\n\n## Informazioni su di noi\nL'Università di Berna è una delle più grandi università in Svizzera con oltre 19.000 studenti e 7.000 dipendenti. È ottimamente collegato a livello nazionale e internazionale e allo stesso tempo ancorato nella regione. Con la sua ricerca pone in primo piano un accento mondiale, sia in medicina che in ricerca spaziale e climatica.\nIl Dipartimento di Comunicazione e Marketing (AKM) fa parte del Rettore ed è responsabile della comunicazione interna ed esterna dell'Università di Berna. All'interno dell'AKM, la gestione del progetto è l'unità centrale per la concezione e il controllo dei progetti di comunicazione e marketing. Sviluppa concetti di comunicazione e marketing, consiglia unità organizzative ed è responsabile di progetti interdisciplinari dalla pianificazione alla realizzazione. Assicura che le misure siano attuate in modo mirato, coordinato ed efficace.\nI loro compiti\n\n## Cosa porti\nAbbonamento al lavoro\nProcedura di applicazione\n\n## I tuoi vantaggi\nLavoro significativo e onesta remunerazione\nAmbiente collaborativo e team ambizioso\nLavoro orientato al team\nI tuoi vantaggi\n\n## Lavorare sulla UniBE\nL'Università di Berna non solo offre compiti entusiasmanti, ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci distingue come un datore di lavoro e come si ottiene avanti con noi.\nPagina della carriera\nPosti di lavoro",
-        "en": "The UniBE is versatile.\nWith us, you can expect a wide variety of topics and a lot of design freedom.\n\n## Their tasks\n• Development of communication and marketing concepts, plans incl. Storytelling, resource estimation, implementation and time planning\n• Cooperation and implementation commissioning and monitoring of individual measures according to the developed communication and marketing concepts\n• Independent design and supervision of projects by order\n• Conduct of general communication and marketing consultancy services\n• Participation in the strategic planning for communication & marketing of the entire university\n• Procurement and application of existing data as a basis for concept development\n• Budget management\n\n## What you bring\n• Bachelor and function-specific further education or comparable training in communication and/or marketing\n• Designated project management skills\n• Proven skills and experience in the development of communication and/or marketing concepts\n• Experience managing medium and larger projects\n• Proven storytelling experience and skills\n• High digital competence, especially with regard to AI\n• General advisory competencies\n• Good general education and strategic thinking\n• Language skills: German and English very good, French is advantageous\n• Safe appearance and excellent manners\n• High level of social skills\n• High flexibility, willingness and assertiveness\n• Experience in the field of universities is advantageous\nVersatile and challenging activities\nApplication and contact\nWith us, you create value.\nFor themselves and society.\n\n## About us\nThe University of Bern is one of the largest universities in Switzerland with over 19,000 students and 7,000 employees. It is excellently networked nationally and internationally and at the same time anchored in the region. With her research she sets a worldwide accents – in medicine as well as in space and climate research she is at the forefront.\nThe Department of Communication & Marketing (AKM) is part of the Rectorate and is responsible for the internal and external communication of the University of Bern. Within the AKM, project management is the central unit for the conception and control of communication and marketing projects. She develops communication and marketing concepts, advises organizational units and is responsible for interdisciplinary projects from planning to realization. It ensures that the measures are implemented in a targeted, coordinated and effective manner.\nTheir tasks\n\n## What you bring\nJob subscription\nApplication procedure\n\n## Your Benefits\nMeaningful work and fair remuneration\nCollaborative environment and ambitious team\nTeam-oriented work\nYour Benefits\n\n## Working on the UniBE\nThe University of Bern not only offers exciting tasks, but also an environment that actively promotes development, diversity and equal opportunities. Discover what distinguishes us as an employer and how you get ahead with us.\nCareer page\nJob vacancies",
-        "de": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Ihre Aufgaben\n• Entwicklung von Kommunikations- und Marketingkonzepten, -plänen inkl. Storytelling, Ressourcenschätzung, Umsetzungs- und Zeitplanung\n• Mitarbeit sowie Umsetzungsbeauftragung und -überwachung einzelner Massnahmen gemäss den entwickelten Kommunikations- und Marketingkonzepten\n• Eigenständige Konzeption und Betreuung von Projekten nach Auftrag\n• Durchführung von allgemeinen Kommunikations- und Marketingberatungen\n• Mitarbeit bei der strategischen Planung für Kommunikation & Marketing der Gesamtuniversität\n• Beschaffung und Anwendung bestehender Daten als Basis zur Konzeptentwicklung\n• Budgetmanagement\n\n## Was Sie mitbringen\n• Bachelor und funktionsspezifische Weiterbildung oder vergleichbare Ausbildung in Kommunikation und/oder Marketing\n• Ausgewiesene Projektmanagementskills\n• Ausgewiesene Kompetenzen und Erfahrung in der Entwicklung von Kommunikations- und/oder Marketingkonzepten\n• Erfahrung im Leiten von mittleren und grösseren Projekten\n• Ausgewiesene Storytellingerfahrung und -Skills\n• Hohe digitale Kompetenz insbesondere auch in Bezug auf KI\n• Allgemeine Beratungskompetenzen\n• Gute Allgemeinbildung und strategisches Denkvermögen\n• Sprachkenntnisse: Deutsch und Englisch sehr gut, Französisch von Vorteil\n• Sicheres Auftreten und ausgezeichnete Umgangsformen\n• Hohe Sozialkompetenz\n• Hohe Flexibilität und Leistungsbereitschaft sowie Durchsetzungsvermögen\n• Erfahrung im Umfeld von Hochschulen von Vorteil\nVielseitige und anspruchsvolle Tätikeiten\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Universität Bern ist eine der grössten Universitäten der Schweiz mit über 19'000 Studierenden und 7'000 Mitarbeitenden. Sie ist national und international hervorragend vernetzt und gleichzeitig in der Region verankert. Mit ihrer Forschung setzt sie weltweit Akzente – in der Medizin sowie in der Weltraum- und Klimaforschung gehört sie zur Spitze.\nDie Abteilung Kommunikation & Marketing (AKM) ist Teil des Rektorats und verantwortet die interne und externe Kommunikation der Universität Bern. Der Bereich Projektmanagement ist innerhalb der AKM die zentrale Einheit für die Konzeption und Steuerung von Kommunikations- und Marketingprojekten. Sie entwickelt Kommunikations- und Marketingkonzepte, berät Organisationseinheiten und verantwortet interdisziplinäre Projekte von der Planung bis zur Realisierung. Dabei stellt sie sicher, dass die Massnahmen zielgerichtet, koordiniert und wirkungsvoll umgesetzt werden.\nIhre Aufgaben\n\n## Was Sie mitbringen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nSinnstiftende Arbeit und faire Entlöhnung\nKollaboratives Umfeld und ambitioniertes Team\nTeamorientiertes Arbeiten\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
-        "fr": "L'UniBE est polyvalent.\nAvec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\n## Leurs tâches\n• Développement de concepts de communication et de marketing, plans, y compris Histoire, estimation des ressources, mise en oeuvre et planification du temps\n• Coopération et mise en œuvre de la mise en œuvre et du suivi des mesures individuelles selon les concepts développés de communication et de commercialisation\n• Conception et supervision indépendantes des projets par ordre\n• Conduite de services généraux de conseil en communication et en marketing\n• Participation à la planification stratégique de la communication et du marketing de l'ensemble de l'université\n• Achat et utilisation des données existantes comme base pour l ' élaboration de concepts\n• Gestion budgétaire\n\n## Ce que vous apportez\n• Baccalauréat et formation complémentaire spécifique à la fonction ou formation comparable en communication et/ou marketing\n• Compétences en gestion de projet désignées\n• Compétences et expérience éprouvées dans le développement de concepts de communication et/ou de marketing\n• Expérience de gestion de projets de taille moyenne et plus grande\n• Expérience et compétences de narration éprouvées\n• Haute compétence numérique, en particulier en ce qui concerne l'IA\n• Compétences générales en matière de conseil\n• Bonne éducation générale et réflexion stratégique\n• Compétences linguistiques: Allemand et anglais très bien, le français est avantageux\n• Aspect sûr et excellentes manières\n• Niveau élevé de compétences sociales\n• Haute flexibilité, volonté et assurance\n• L'expérience dans le domaine des universités est avantageuse\nActivités polyvalentes et stimulantes\nDemande et contact\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Sur nous\nL'Université de Berne est l'une des plus grandes universités de Suisse avec plus de 19 000 étudiants et 7 000 employés. Elle est parfaitement mise en réseau aux niveaux national et international, tout en étant ancrée dans la région. Grâce à ses recherches, elle met un accent mondial sur la médecine et la recherche spatiale et climatique.\nLe Département Communication & Marketing (AKM) fait partie du Rectorat et est responsable de la communication interne et externe de l'Université de Berne. Au sein de l'AKM, la gestion de projet est l'unité centrale pour la conception et le contrôle des projets de communication et de marketing. Elle développe des concepts de communication et de marketing, conseille les unités organisationnelles et est responsable des projets interdisciplinaires de la planification à la réalisation. Elle veille à ce que les mesures soient mises en œuvre de manière ciblée, coordonnée et efficace.\nLeurs tâches\n\n## Ce que vous apportez\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nTravail utile et rémunération équitable\nEnvironnement collaboratif et équipe ambitieuse\nTravaux axés sur l ' équipe\nVos avantages\n\n## Travailler sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
+        "de": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "it": "L'UniBE è in rete.\nCon noi, fai parte di una comunità internazionale e beneficia della cooperazione interdisciplinare.\n\n## Compiti\n• Cooperazione nella redazione di pubblicazioni e pareri scientifici\n• Assistenza nell'organizzazione di conferenze scientifiche\n• Partecipazione a progetti di ricerca\n• Ricerca scientifica indipendente\n• Partecipazione alla Clinica per i Diritti Umani dell'Università di Berna\n• Assistenza nella preparazione e realizzazione di corsi (lezioni, seminari) e la supervisione degli studenti\n• Assistenza nello sviluppo e correzione di esami e lavori scritti\n\n## Requisiti\n• Competenze editoriali eccezionali, elegante tedesco e abilità in espressione scritta (le esperienze di scrittura o redazione di testi scientifici sono vantaggiose)\n• Divertimento del diritto migratorio e dei diritti umani\n• Interessi nel pensiero creativo e scientifico e motivazione a scrivere una dissertazione\n• Godimento di lavorare insieme in una squadra\n• Metodi di lavoro indipendenti, strutturati e attenti\n• Buona prestazione di studio\nBuone infrastrutture di ricerca e rete internazionale\nApplicazione e contatto\nInvia la tua candidatura includendo un CV dettagliato, certificati e un campione di scrittura di max. 1 pagina (ad esempio estratto da un seminario o da una tesi di laurea) si prega di inviare un PDF a Marlen Weibel (marlen.weibel@unibe.ch) via e-mail fino al 31 ottobre 2026.\nCon noi, crei valore.\nPer se stessi e per la società.\n\n## Informazioni su di noi\nIl Centro per la Legge sulla migrazione dell'Università di Berna è affiliato all'Istituto di Diritto Pubblico. È dedicata alla ricerca in tutto il campo della legge sulle migrazioni, tenendo conto dei diritti umani, del diritto internazionale ed europeo e dei riferimenti costituzionali. Il Center for Migration Law organizza le Giornate della Legge sulla migrazione svizzera e pubblica l'Annuario per la legge sulla migrazione.\nBENEFRI Centre for Migration Law: www.ius-migration.ch\nCompiti\n\n## Requisiti\nAbbonamento al lavoro\nProcedura di applicazione\n\n## I tuoi vantaggi\nAmbiente collaborativo e team ambizioso\nreputazione internazionale\nAssistenza individuale\nI tuoi vantaggi\n\n## Lavorare sulla UniBE\nL'Università di Berna non solo offre compiti entusiasmanti, ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci distingue come un datore di lavoro e come si ottiene avanti con noi.\nPagina della carriera\nPosti di lavoro",
+        "en": "The UniBE is networked.\nWith us, you are part of an international community and benefit from interdisciplinary cooperation.\n\n## Tasks\n• Cooperation in the writing of scientific publications and opinions\n• Assistance in the organisation of scientific conferences\n• Participation in research projects\n• Independent scientific research\n• Participation in the Human Rights Law Clinic of the University of Bern\n• Assistance in the preparation and implementation of courses (lectures, seminars) and the supervision of students\n• Assistance in the development and correction of examinations and written work\n\n## Requirements\n• Outstanding editorial skills, stylish German and skillfulness in written expression (experiences in writing or editing scientific texts are advantageous)\n• Enjoyment of migration law and human rights issues\n• Interest in creative and scientific thinking and motivation to write a dissertation\n• Enjoyment of working together in a team\n• Independent, structured and careful working methods\n• Good study performance\nGood research infrastructures and international network\nApplication and contact\nSend your application including a detailed CV, certificates and a writing sample of max. 1 page (e.g. excerpt from a seminar or master thesis) please send a PDF to Marlen Weibel (marlen.weibel@unibe.ch) by e-mail until 31 October 2026.\nWith us, you create value.\nFor themselves and society.\n\n## About us\nThe Center for Migration Law of the University of Bern is affiliated to the Institute of Public Law. It is dedicated to research in the entire field of migration law, taking into account human rights, international and European law and constitutional references. The Center for Migration Law organizes the Swiss Migration Law Days and publishes the Yearbook for Migration Law.\nBENEFRI Centre for Migration Law: www.ius-migration.ch\nTasks\n\n## Requirements\nJob subscription\nApplication procedure\n\n## Your Benefits\nCollaborative environment and ambitious team\nInternational reputation\nIndividual Career Support\nYour Benefits\n\n## Working on the UniBE\nThe University of Bern not only offers exciting tasks, but also an environment that actively promotes development, diversity and equal opportunities. Discover what distinguishes us as an employer and how you get ahead with us.\nCareer page\nJob vacancies",
+        "fr": "L'UniBE est en réseau.\nAvec nous, vous faites partie d'une communauté internationale et bénéficiez d'une coopération interdisciplinaire.\n\n## Tâche\n• Coopération dans la rédaction des publications et avis scientifiques\n• Assistance à l'organisation de conférences scientifiques\n• Participation à des projets de recherche\n• Recherche scientifique indépendante\n• Participation à la clinique de droit des droits de l ' homme de l ' Université de Berne\n• Assistance à la préparation et à la mise en œuvre des cours (conférences, séminaires) et à la supervision des étudiants\n• Aide à l ' élaboration et à la correction des examens et des travaux écrits\n\n## Exigences\n• Compétences éditoriales exceptionnelles, allemand élégant et habileté à l'expression écrite (les expériences d'écriture ou d'édition de textes scientifiques sont avantageuses)\n• Appréciation du droit des migrations et questions relatives aux droits de l ' homme\n• Intérêt pour la pensée et la motivation créatives et scientifiques pour écrire une thèse\n• Profitez de travailler ensemble dans une équipe\n• Méthodes de travail indépendantes, structurées et prudentes\n• Bonnes études\nBonnes infrastructures de recherche et réseau international\nDemande et contact\nEnvoyez votre candidature comprenant un CV détaillé, des certificats et un échantillon d'écriture de max. 1 page (p. ex. extrait d'un séminaire ou thèse de maîtrise) veuillez envoyer un PDF à Marlen Weibel (marlen.weibel@unibe.ch) par e-mail jusqu'au 31 octobre 2026.\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## À propos de nous\nLe Centre de droit des migrations de l'Université de Berne est affilié à l'Institut de droit public. Il est dédié à la recherche dans l'ensemble du domaine du droit des migrations, en tenant compte des droits de l'homme, du droit international et européen et des références constitutionnelles. Le Centre pour le droit des migrations organise les Journées suisses du droit des migrations et publie l ' Annuaire pour le droit des migrations.\nBENEFRI Centre pour le droit des migrations: www.ius-migration.ch\nTâche\n\n## Exigences\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nEnvironnement collaboratif et équipe ambitieuse\nLa réputation internationale\nSoutien professionnel individuel\nVos avantages\n\n## Travailler sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
       },
-      "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/projektmanager-in-kommunikation-und-marketing/22a8b82e-2a28-4ddf-b676-b82ecff71054",
+      "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/9a00041a-e3ee-4eb8-a059-27b7e68ad7c4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:41:51.719Z",
+      "crawledAt": "2026-10-08T22:41:15.658Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3004",
       "streetAddress": "",
-      "category": "Marketing",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
+      "datePosted": "2026-10-08",
+      "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/projektmanager-in-kommunikation-und-marketing/22a8b82e-2a28-4ddf-b676-b82ecff71054",
+      "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/9a00041a-e3ee-4eb8-a059-27b7e68ad7c4",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
+          "wissenschaftliche-assistenz-unibe-bern",
+          "wissenschaftliche-assistenz-universitat-bern-bern"
+        ],
+        "en": [
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ],
         "fr": [
-          "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
+          "wissenschaftliche-assistenz-universitat-bern-bern"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:32:25.096Z",
-      "salaryMin": 85200,
-      "salaryMax": 150800,
+      "previousSlugs": [
+        "wissenschaftliche-assistenz-unibe-bern",
+        "wissenschaftliche-assistenz-universitat-bern-bern"
+      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85200,
-          "maxValue": 150800,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-09-19T23:13:09.252Z"
     }
   ]
 }

@@ -5688,6 +5688,18 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
+// URL-bearing API fields need one pass over the original string. In
+// particular, `&amp;amp;` must become `&amp;`, not `&`, and percent-encoded
+// octets must remain untouched for the URL parser to interpret them later.
+const HTML_ENTITY_ONCE_RE = /&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi;
+
+export function decodeHtmlEntitiesOnce(value = '') {
+  return String(value || '').replace(
+    HTML_ENTITY_ONCE_RE,
+    (entity) => decodeHTML(entity, { scope: 'strict' }),
+  );
+}
+
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
     .replace(/&[a-z][a-z0-9]+;/gi, (entity) => decodeHTML(entity, { scope: 'strict' }))
@@ -6755,6 +6767,23 @@ const KNOWN_ITALIAN_LOCATION_MARKERS = [
   'campomorone',
 ];
 
+// Overseas territories can arrive as a regional label instead of the parent
+// country. Keep their country-like names separate from city markers: the
+// former is explicit foreign evidence, while the latter is only a known
+// foreign locality. Both lists feed the shared classifiers below so a
+// complete filtered board does not mistake a known overseas vacancy for an
+// unknown location.
+const KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS = [
+  'french guiana',
+  'guyane française',
+  'guyane francaise',
+  'guyana francese',
+];
+const KNOWN_FRENCH_GUIANA_CITY_MARKERS = [
+  'cayenne',
+  'saint-laurent-du-maroni',
+];
+
 export function isExplicitlyOutsideTarget(text) {
   const lower = String(text || '').toLowerCase();
   const outsideMarkers = [
@@ -6783,6 +6812,8 @@ export function isExplicitlyOutsideTarget(text) {
     'forte dei marmi', 'toscana', 'lazio', 'lombardia', 'piemonte', 'campania',
     'puglia', 'sicilia', 'sardegna', 'calabria', 'emilia-romagna', 'umbria',
     ...KNOWN_ITALIAN_LOCATION_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_CITY_MARKERS,
     'usa', 'united states', 'new york', 'los angeles', 'san francisco', 'chicago',
     'canada', 'toronto', 'montreal', 'vancouver',
     'brazil', 'brasile', 'são paulo', 'rio de janeiro',
@@ -6839,6 +6870,7 @@ const EXPLICIT_FOREIGN_COUNTRY_MARKERS = [
   'puerto rico', 'dominican republic', 'israel', 'egypt', 'morocco', 'tunisia',
   'nigeria', 'kenya', 'pakistan', 'new zealand', 'bulgaria', 'croatia',
   'serbia', 'slovakia', 'slovenia', 'estonia', 'latvia', 'lithuania',
+  ...KNOWN_FRENCH_GUIANA_TERRITORY_MARKERS,
   // The German state whose name starts with the Aargau town Baden: explicit
   // foreign geography whatever canton the record carries (#9846 review).
   'württemberg', 'wuerttemberg', 'wurttemberg', 'wurtemberg',
@@ -7017,6 +7049,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     ...KNOWN_ITALIAN_LOCATION_MARKERS,
+    ...KNOWN_FRENCH_GUIANA_CITY_MARKERS,
     // Western Europe
     'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
     // French/Italian forms of cities in this list, as translated descriptions

@@ -28,6 +28,14 @@ describe('pianorm crawler parser', () => {
       expect(isPianormJob({ url: 'https://pianorm.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects a URL that only mentions pianorm.ch outside its hostname', () => {
+      expect(isPianormJob({
+        companyKey: 'other-company',
+        company: 'Other',
+        url: 'https://jobs.example.test/apply?next=https://pianorm.ch/job/',
+      })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isPianormJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });

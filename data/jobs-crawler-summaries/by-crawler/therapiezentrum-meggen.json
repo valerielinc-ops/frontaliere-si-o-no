@@ -1,7 +1,7 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-10-08T09:16:43.777Z",
+  "generatedAt": "2026-10-08T22:11:30.959Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3991,
-  "avgDurationMs": 3991,
+  "unchangedCount": 0,
+  "durationMs": 3572,
+  "avgDurationMs": 3572,
   "durationHistory": [
-    3991
+    3572
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "therapiezentrum-meggen-psychotherapie-stellenausschreibung-erfahren-mit-z-7c520020f93c",
       "slug": "psicoterapista-80-100-con-compiti-aggiuntivi-therapiezentrum-meggen-meggen",
@@ -39,7 +37,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:16:33.821Z",
+      "crawledAt": "2026-10-08T22:11:18.339Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -68,5 +66,7 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

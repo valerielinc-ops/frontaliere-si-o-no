@@ -25,7 +25,7 @@ import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, buildCanonicalBridgePage, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { WEBSITE_ID } from '../services/seo/organizationLd';
 import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -1108,6 +1108,7 @@ function buildHtml(args: BuildHtmlArgs): string {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
@@ -1960,6 +1961,7 @@ export function buildThinCantonHubHtml(args: {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">

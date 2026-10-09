@@ -1,20 +1,61 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-10-08T09:18:29.309Z",
-  "total": 5,
+  "generatedAt": "2026-10-08T22:19:19.909Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 143491,
-  "avgDurationMs": 143491,
+  "removedCount": 1,
+  "unchangedCount": 4,
+  "durationMs": 135774,
+  "avgDurationMs": 135774,
   "durationHistory": [
-    143491
+    135774
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
+      "slug": "apprendista-carrozziere-a-verniciatore-trice-afc-m-f-estate-2027-amag-lugano",
+      "url": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-j20676.html",
+      "applyUrl": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-f20676.html",
+      "company": "AMAG Group",
+      "companyKey": "amag-group",
+      "companyDomain": "amag-group.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Automotive & Mobilità",
+      "source": "amag-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-18",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-10-08",
+      "id": "amag-group-6157920fea33",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-19T22:54:42.473Z",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
+      "datePosted": "2026-09-18",
+      "postingDateSource": "reported",
+      "postalCode": "6900",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Consulente tecnico (m/f) - 100%",
@@ -174,47 +215,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
-      "slug": "apprendista-carrozziere-a-verniciatore-trice-afc-m-f-estate-2027-amag-lugano",
-      "url": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-j20676.html",
-      "applyUrl": "https://jobs.amag-group.ch/Apprendista-carrozzierea-verniciatore-trice-AFC-mf-estate--it-f20676.html",
-      "company": "AMAG Group",
-      "companyKey": "amag-group",
-      "companyDomain": "amag-group.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Automotive & Mobilità",
-      "source": "amag-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-10-08",
-      "id": "amag-group-6157920fea33",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T22:54:42.473Z",
-      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html",
-      "datePosted": "2026-09-18",
-      "postingDateSource": "reported",
-      "postalCode": "6900",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { decodeHtmlEntitiesOnce } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 import { successFactorsPostingDateFields } from '../scripts/lib/ats-clients/successfactors-client.mjs';
 import { meetsSourceBodyFloor } from '../scripts/lib/source-body-floor.mjs';
@@ -53,13 +54,16 @@ async function patek(raw: string) {
   })();
 }
 async function oerlikon(raw: string) {
+  const buildOerlikonJobUrl = realFunction('oerlikon', 'buildOerlikonJobUrl', {
+    CAREER_HOST: 'careers.oerlikon.com', LOCALE: 'en_US', decodeHtmlEntitiesOnce,
+  });
   const fetchJobDetail = realFunction('oerlikon', 'fetchJobDetail', {
     fetchHtml: async () => `<meta itemprop="datePosted" content="${raw}">`,
   });
   return realFunction('oerlikon', 'fetchAllOerlikonJobs', {
     OERLIKON_COMPANY_NAME: 'Oerlikon', OERLIKON_KEY: 'oerlikon', OERLIKON_COMPANY_DOMAIN: 'oerlikon.com',
     SEARCH_API_URL: detailUrl, CAREER_HOST: 'careers.oerlikon.com', LOCALE: 'en_US', HQ: { city: 'Zurich', canton: 'ZH' }, inferAnyCanton: () => 'ZH',
-    listSwissJobs: async () => [{ unifiedStandardTitle: 'Engineer', urlTitle: 'engineer', id: 123, jobLocationShort: ['Zurich'], unifiedStandardStart: '10/2/26' }], fetchJobDetail,
+    listSwissJobs: async () => [{ unifiedStandardTitle: 'Engineer', urlTitle: 'engineer', id: 123, jobLocationShort: ['Zurich'], unifiedStandardStart: '10/2/26' }], fetchJobDetail, buildOerlikonJobUrl,
   })();
 }
 describe.each([['Selecta', selecta], ['Patek', patek], ['Oerlikon', oerlikon]] as const)('%s explicit source publication', (_name, crawl) => {

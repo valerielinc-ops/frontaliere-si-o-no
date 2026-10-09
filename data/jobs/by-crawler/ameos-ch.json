@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-10-08T09:13:54.140Z",
+  "assembledAt": "2026-10-08T22:13:27.085Z",
   "jobs": [
     {
       "id": "ameos-ch-8006baa87e24",
@@ -34,7 +34,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:49.050Z",
+      "crawledAt": "2026-10-08T22:13:21.855Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -54,29 +54,27 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-case-management-ameos-einsiedeln",
         "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
         "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
         "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
-        "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
+        "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
+        "mitarbeiter-m-w-d-case-management-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-case-management-ameos-einsiedeln",
           "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
           "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
           "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
-          "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
+          "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
+          "mitarbeiter-m-w-d-case-management-ameos-einsiedeln"
         ],
         "en": [
-          "mitarbeiter-m-w-d-case-management-ameos-einsiedeln",
           "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln"
         ],
         "de": [
           "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-case-management-ameos-einsiedeln",
           "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
         ]
       },
@@ -127,7 +125,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11824-leitung-technischer-dienst-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:48.004Z",
+      "crawledAt": "2026-10-08T22:13:20.673Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -146,21 +144,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/11824-leitung-technischer-dienst-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-09-08T23:17:41.542Z",
       "previousSlugsByLocale": {
         "it": [
           "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
-        ],
-        "en": [
-          "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
-        ],
-        "fr": [
-          "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-09-08T23:17:41.542Z",
+      "previousSlugs": [
+        "leitung-m-w-d-technischer-dienst-ameos-einsiedeln"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -206,7 +198,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12421-mitarbeiter-roomservice-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:46.844Z",
+      "crawledAt": "2026-10-08T22:13:19.526Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -226,27 +218,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
         "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
         "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
         "ricevimento-del-dipendente-m-f-d-ameos-schweiz-einsiedeln",
         "employee-m-f-d-reception-ameos-schweiz-einsiedeln",
         "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
         "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln",
-        "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln"
+        "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln",
+        "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
           "ricevimento-del-dipendente-m-f-d-ameos-schweiz-einsiedeln",
           "employee-m-f-d-reception-ameos-schweiz-einsiedeln",
           "mitarbeiter-m-w-d-empfang-ameos-einsiedeln",
           "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln",
-          "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln"
+          "collaboratore-trice-m-w-d-empfang-ameos-schweiz-einsiedeln",
+          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
         ],
         "en": [
           "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
-          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
           "employee-m-f-d-reception-ameos-schweiz-einsiedeln"
         ],
         "de": [
@@ -254,7 +245,6 @@
         ],
         "fr": [
           "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln",
-          "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
           "reception-de-l-employe-h-f-d-ameos-schweiz-einsiedeln"
         ]
       },
@@ -305,7 +295,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12457-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:45.786Z",
+      "crawledAt": "2026-10-08T22:13:18.391Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -324,21 +314,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/12457-operativen-eink%C3%A4ufer-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "operativen-einkaufer-m-w-d-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:21.347Z",
       "previousSlugsByLocale": {
         "it": [
           "operativen-einkaufer-m-w-d-ameos-einsiedeln"
-        ],
-        "en": [
-          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
-        ],
-        "fr": [
-          "operativen-einkaufer-m-w-d-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-09-19T22:51:21.347Z",
+      "previousSlugs": [
+        "operativen-einkaufer-m-w-d-ameos-einsiedeln"
+      ],
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -385,7 +369,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12964-stv-stationsleitung-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:44.689Z",
+      "crawledAt": "2026-10-08T22:13:17.281Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -404,21 +388,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/12964-stv-stationsleitung-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-05-20T10:54:37.604Z",
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
-        ],
-        "en": [
-          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
-        ],
-        "fr": [
-          "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-05-20T10:54:37.604Z",
+      "previousSlugs": [
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ],
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -465,7 +443,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13229-dipl-fachperson-operationstechnik-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:43.640Z",
+      "crawledAt": "2026-10-08T22:13:16.163Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -484,21 +462,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13229-dipl-fachperson-operationstechnik-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-06-01T22:44:49.524Z",
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
-        ],
-        "en": [
-          "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
-        ],
-        "fr": [
-          "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-06-01T22:44:49.524Z",
+      "previousSlugs": [
+        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -545,7 +517,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13235-dipl-pflegefachperson-geriatrie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:41.726Z",
+      "crawledAt": "2026-10-08T22:13:15.035Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -564,21 +536,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13235-dipl-pflegefachperson-geriatrie-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-06-15T22:31:45.253Z",
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
-        ],
-        "en": [
-          "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-06-15T22:31:45.253Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -625,7 +591,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13714-dipl-radiologiefachperson-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:40.676Z",
+      "crawledAt": "2026-10-08T22:13:13.901Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -644,21 +610,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13714-dipl-radiologiefachperson-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
-      ],
+      "firstSeenAt": "2026-10-07T21:15:30.470Z",
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
-        ],
-        "en": [
-          "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
-        ],
-        "fr": [
-          "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
         ]
       },
-      "firstSeenAt": "2026-10-07T21:15:30.470Z",
+      "previousSlugs": [
+        "dipl-radiologiefachperson-m-w-d-ameos-einsiedeln"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -688,7 +648,7 @@
       "title": "Physiotherapeut (m/w/d)",
       "titleByLocale": {
         "it": "Fisioterapista (m/f/d)",
-        "en": "Physiotherapeut (m/w/d)",
+        "en": "Physiotherapist (m/f/d)",
         "de": "Physiotherapeut (m/w/d)",
         "fr": "Physiothérapeute (m/f/d)"
       },
@@ -699,13 +659,13 @@
         "de": "Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir engagierte Fachpersonen als\n\nPhysiotherapeut (m/w/d) — 60 – 100 %\n\nIhre Vorteile\n• Abwechslungsreiche Tätigkeit mit Einsätzen in verschiedenen Bereichen (MSK-Rehabilitation, Chirurgie, Orthopädie, Medizin, Akutgeriatrie)\n• Eigenständiges Arbeiten in modernen Therapieräumen\n• Attraktive Anstellungsbedingungen mit flexiblen Arbeitszeiten\n• Unterstützung bei Fort- und Weiterbildungen\n• Mitgestaltungsmöglichkeiten in einer im Aufbau befindlichen Rehabilitationsstruktur\n• Kollegiales Team und ein Arbeitsort mit hoher Lebensqualität – dort, wo andere Ferien machen\n\nIhre Aufgaben\n• Physiotherapeutische Betreuung stationärer und ambulanter Patienten (m/w/d) mit Schwerpunkt auf muskuloskelettalen Beschwerden\n• Erstellung individueller Behandlungs- und Rehabilitationspläne\n• Beratung und Schulung von Patienten (m/w/d) sowie Unterstützung bei der Nachbetreuung (z. B. MTT- und Fitnesskundschaft)\n• Zusammenarbeit mit interdisziplinären Teams und Beteiligung an der Ausbildung von Studierenden\n• Mitwirkung bei den alternierend anfallenden Samstagsdiensten\n\nIhr Profil\n• Abgeschlossene Ausbildung als Physiotherapeut (m/w/d) (bei ausländischem Diplom mit SRK-Anerkennung)\n• Berufserfahrung im Bereich der muskuloskelettalen Rehabilitation von Vorteil\n• Freude an interdisziplinärer Zusammenarbeit und ganzheitlicher Therapie\n• Kommunikationsstärke, Einfühlungsvermögen und eine strukturierte Arbeitsweise\n• Bereitschaft zur Behandlung eines breiten Spektrums an Patienten (m/w/d)\n• Gute PC-Anwendungskenntnisse",
         "fr": "Pour renforcer notre équipe chez AMEOS Spital Einsiedeln, nous recherchons des professionnels dévoués comme\n\nphysiothérapeute (h/f/d) — 60 – 100 %\n\nLeurs avantages\n• Activité variée avec des affectations dans divers domaines (réadaptation, chirurgie, orthopédie, médecine, gériatrie aiguë)\n• Travailler de façon indépendante dans des salles de thérapie modernes\n• Des conditions d'emploi attrayantes avec des horaires flexibles\n• Appui à la formation continue\n• Possibilités de participation à une structure de réhabilitation en construction\n• Équipe collégiale et un lieu de travail avec une qualité de vie élevée – où les autres vont en vacances\n\nLeurs tâches\n• Soins physiologiques des patients hospitalisés et externes (h/f/d) en mettant l'accent sur les plaintes musculosquelettiques\n• Élaboration de plans de traitement et de réadaptation individuels\n• Conseils et formation des patients (h/f/d) ainsi que soutien pour les soins de suivi (p. ex. MTT et clients de fitness)\n• Coopération avec les équipes interdisciplinaires et participation à la formation des étudiants\n• Participation à d'autres services du samedi\n\nVotre profil\n• Formation complétée en tant que physiothérapeute (h/f/d) (pour un diplôme étranger reconnu SRK)\n• L'expérience professionnelle en réadaptation musculo-squelettique est bénéfique\n• Profitez de la coopération interdisciplinaire et de la thérapie holistique\n• Force de communication, empathie et mode de travail structuré\n• Volonté de traiter un large éventail de patients (h/f/d)\n• Bonne connaissance des applications PC"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Einsiedeln",
       "canton": "SZ",
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9441-physiotherapeut-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:39.641Z",
+      "crawledAt": "2026-10-08T22:13:12.791Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -725,16 +685,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeut-m-w-d-ameos-einsiedeln",
         "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
-        "physiotherapist-m-f-d-ameos-schweiz-einsiedeln"
+        "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln",
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-          "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln"
+          "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
+          "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "en": [
           "physiotherapist-m-f-d-ameos-schweiz-einsiedeln"
@@ -790,7 +750,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:38.579Z",
+      "crawledAt": "2026-10-08T22:13:11.636Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -810,18 +770,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-psychologie-m-w-d-ameos-brunnen",
-        "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen"
+        "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
+        "leitung-psychologie-m-w-d-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-psychologie-m-w-d-ameos-brunnen",
-          "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen"
-        ],
-        "en": [
-          "leitung-psychologie-m-w-d-ameos-brunnen"
-        ],
-        "fr": [
+          "responsabile-psicologia-m-f-d-ameos-schweiz-brunnen",
           "leitung-psychologie-m-w-d-ameos-brunnen"
         ]
       },
@@ -872,7 +826,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10362-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:37.519Z",
+      "crawledAt": "2026-10-08T22:13:10.481Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -892,18 +846,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-        "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln"
+        "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln",
+        "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen",
-          "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln"
-        ],
-        "en": [
-          "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
-        ],
-        "fr": [
+          "lo-psicoterapeuta-riconosciuto-federale-m-f-d-ameos-schweiz-einsiedeln",
           "eidgenossisch-anerkannter-psychotherapeut-m-w-d-ameos-brunnen"
         ]
       },
@@ -953,7 +901,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10365-assistenzpsychologe-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:36.395Z",
+      "crawledAt": "2026-10-08T22:13:09.330Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -973,13 +921,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzpsychologe-m-w-d-ameos-brunnen",
-        "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
+        "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
+        "assistenzpsychologe-m-w-d-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologe-m-w-d-ameos-brunnen",
-          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
+          "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen",
+          "assistenzpsychologe-m-w-d-ameos-brunnen"
         ],
         "en": [
           "assistenzpsychologe-m-w-d-ameos-schweiz-brunnen"
@@ -1037,7 +985,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:35.318Z",
+      "crawledAt": "2026-10-08T22:13:08.150Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1056,21 +1004,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
-      ],
+      "firstSeenAt": "2026-09-23T23:38:41.739Z",
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
-        ],
-        "en": [
-          "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
-        ],
-        "fr": [
-          "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:38:41.739Z",
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-m-w-d-ameos-brunnen"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1087,37 +1029,37 @@
     },
     {
       "id": "ameos-ch-019487d9560f",
-      "slug": "controller-m-w-d-ameos-brunnen",
+      "slug": "controller-m-f-d-ameos-schweiz-brunnen",
       "slugByLocale": {
+        "it": "controller-m-f-d-ameos-schweiz-brunnen",
+        "en": "controller-m-f-d-ameos-schweiz-brunnen",
         "de": "controller-m-w-d-ameos-brunnen",
-        "it": "controller-m-w-d-ameos-brunnen",
-        "en": "controller-m-w-d-ameos-brunnen",
-        "fr": "controller-m-w-d-ameos-schweiz-brunnen"
+        "fr": "controleur-h-f-d-ameos-schweiz-brunnen"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
       "companyDomain": "karriere.ameos.eu",
       "title": "Controller (m/w/d)",
       "titleByLocale": {
+        "it": "Controller (m/f/d)",
+        "en": "Controller (m/f/d)",
         "de": "Controller (m/w/d)",
-        "fr": "Controller (m/w/d)",
-        "it": "Controller (m/w/d)",
-        "en": "Controller (m/w/d)"
+        "fr": "Contrôleur (h/f/d)"
       },
       "description": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per sofort oder nach Vereinbarung einen\n\nController (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit für die Standorte Brunnen und Einsiedeln\n• Aufgestelltes und motiviertes Team\n• Moderne Anstellungsbedingungen und gutes Arbeitsklima\n• Interessante Benefits\n• Attraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützen\n\nIhre Aufgaben\n• Unterstützung bei den Monats- und Jahresabschlüssen nach REKOLE und Swiss GAAP FER\n• Mitarbeit bei der Erstellung von Budgets und Forecasts zusammen mit den verantwortlichen Fachbereichen\n• Aufbereitung von Daten für die Leistungsplanung\n• Mitarbeit bei der Erstellung des monatlichen Managementreportings inkl. Forecast\n• Unterstützung bei der Implementierung von Massnahmen zur Effizienzsteigerung und Kostenkontrolle\n• Optimierung und Weiterentwicklung der Controlling Prozesse und Controlling Tools, auch im Bereich der Investitionsplanung und des Investitionscontrollings\n• Erstellung des jährlichen SpiGes Datensatzes, Krankenhausstatistiken und ITAR_K sowie der REKOLE Rezertifizierung\n• Enge Zusammenarbeit mit Verantwortlichen aus den Fachbereichen\n\nIhr Profil\n• Betriebswirtschaftliche Ausbildung im Bereich Controlling, FH, HF oder vergleichbare Weiterbildung\n• Erfahrung im Umgang mit ERP-Systemen und BI Tools, von Vorteil SAP und TM1 sowie sehr gute Excel-Kenntnisse\n• Berufserfahrung im Controlling, von Vorteil im Gesundheitswesen\n• Ausgeprägte analytische Fähigkeiten, strukturiertes Denken und die Fähigkeit komplexe Sachverhalte verständlich darzustellen\n• Selbstständige, proaktive Arbeitsweise und hohes Engagement\n• Ausgeprägte Kommunikationsstärke und Teamfähigkeit",
       "descriptionByLocale": {
+        "it": "Per rafforzare il nostro team all'AMEOS Seeklinikum Brunnen, stiamo cercando un\n\nRegolatore (m/f/d) — 80-100 %\n\nI loro vantaggi\n• Un'attività interessante, versatile e impegnativa per i siti Brunnen e Einsiedeln\n• Team forte e motivato\n• Condizioni di lavoro moderne e un buon ambiente di lavoro\n• Prestazioni interessanti\n• L'offerta attraente per l'ulteriore istruzione e formazione, che sosteniamo generosamente\n\nI loro compiti\n• Supporto dei conti mensili e annuali secondo REKOLE e Swiss GAAP FER\n• Collaborazione nella preparazione di bilanci e previsioni insieme ai dipartimenti responsabili\n• Preparazione dei dati per la pianificazione delle prestazioni\n• Cooperazione nella preparazione della relazione mensile di gestione incl. Previsioni\n• Sostegno all'attuazione di misure volte ad aumentare l'efficienza e i costi di controllo\n• Ottimizzazione e ulteriore sviluppo dei processi di controllo e degli strumenti di controllo, anche nel settore della pianificazione degli investimenti e del controllo degli investimenti\n• Creazione del dataset annuale SpiGes, statistiche ospedaliere e ITAR K nonché la rettifica REKOLE\n• Una stretta collaborazione con le persone responsabili delle aree specializzate\n\nIl tuo profilo\n• Formazione di amministrazione aziendale nel campo del controllo, FH, HF o formazione comparabile\n• Esperienza nell'affrontare i sistemi ERP e gli strumenti BI, SAP e TM1 così come una buona conoscenza di Excel\n• Esperienza professionale nel controllo, benefica nell'assistenza sanitaria\n• Forte capacità analitiche, pensiero strutturato e la capacità di comprendere problemi complessi\n• Metodo di lavoro autonomo e proattivo e alto impegno\n• Forte comunicazione e lavoro di squadra",
+        "en": "In order to strengthen our team at the AMEOS Seeklinikum Brunnen, we are looking for an\n\nController (m/f/d) — 80-100 %\n\nTheir advantages\n• An interesting, versatile and demanding activity for the sites Brunnen and Einsiedeln\n• Strong and motivated team\n• Modern employment conditions and a good working environment\n• Interesting benefits\n• Attractive offer for further education and training, which we support generously\n\nTheir tasks\n• Support for the monthly and annual accounts according to REKOLE and Swiss GAAP FER\n• Collaboration in the preparation of budgets and forecasts together with the responsible departments\n• Preparation of data for performance planning\n• Cooperation in the preparation of the monthly management report incl. Forecast\n• Support for the implementation of measures to increase efficiency and control costs\n• Optimization and further development of controlling processes and controlling tools, also in the area of investment planning and investment controlling\n• Creation of the annual SpiGes dataset, hospital statistics and ITAR K as well as REKOLE recertification\n• Close cooperation with responsible persons from the specialist areas\n\nYour profile\n• Business administration training in the field of controlling, FH, HF or comparable training\n• Experience in dealing with ERP systems and BI tools, SAP and TM1 as well as very good knowledge of Excel\n• Professional experience in controlling, beneficial in health care\n• Strong analytical skills, structured thinking and the ability to understand complex issues\n• Independent, proactive working method and high commitment\n• Strong communication and teamwork",
         "de": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per sofort oder nach Vereinbarung einen\n\nController (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit für die Standorte Brunnen und Einsiedeln\n• Aufgestelltes und motiviertes Team\n• Moderne Anstellungsbedingungen und gutes Arbeitsklima\n• Interessante Benefits\n• Attraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützen\n\nIhre Aufgaben\n• Unterstützung bei den Monats- und Jahresabschlüssen nach REKOLE und Swiss GAAP FER\n• Mitarbeit bei der Erstellung von Budgets und Forecasts zusammen mit den verantwortlichen Fachbereichen\n• Aufbereitung von Daten für die Leistungsplanung\n• Mitarbeit bei der Erstellung des monatlichen Managementreportings inkl. Forecast\n• Unterstützung bei der Implementierung von Massnahmen zur Effizienzsteigerung und Kostenkontrolle\n• Optimierung und Weiterentwicklung der Controlling Prozesse und Controlling Tools, auch im Bereich der Investitionsplanung und des Investitionscontrollings\n• Erstellung des jährlichen SpiGes Datensatzes, Krankenhausstatistiken und ITAR_K sowie der REKOLE Rezertifizierung\n• Enge Zusammenarbeit mit Verantwortlichen aus den Fachbereichen\n\nIhr Profil\n• Betriebswirtschaftliche Ausbildung im Bereich Controlling, FH, HF oder vergleichbare Weiterbildung\n• Erfahrung im Umgang mit ERP-Systemen und BI Tools, von Vorteil SAP und TM1 sowie sehr gute Excel-Kenntnisse\n• Berufserfahrung im Controlling, von Vorteil im Gesundheitswesen\n• Ausgeprägte analytische Fähigkeiten, strukturiertes Denken und die Fähigkeit komplexe Sachverhalte verständlich darzustellen\n• Selbstständige, proaktive Arbeitsweise und hohes Engagement\n• Ausgeprägte Kommunikationsstärke und Teamfähigkeit",
-        "it": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per sofort oder nach Vereinbarung einen\n\nController (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit für die Standorte Brunnen und Einsiedeln\n• Aufgestelltes und motiviertes Team\n• Moderne Anstellungsbedingungen und gutes Arbeitsklima\n• Interessante Benefits\n• Attraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützen\n\nIhre Aufgaben\n• Unterstützung bei den Monats- und Jahresabschlüssen nach REKOLE und Swiss GAAP FER\n• Mitarbeit bei der Erstellung von Budgets und Forecasts zusammen mit den verantwortlichen Fachbereichen\n• Aufbereitung von Daten für die Leistungsplanung\n• Mitarbeit bei der Erstellung des monatlichen Managementreportings inkl. Forecast\n• Unterstützung bei der Implementierung von Massnahmen zur Effizienzsteigerung und Kostenkontrolle\n• Optimierung und Weiterentwicklung der Controlling Prozesse und Controlling Tools, auch im Bereich der Investitionsplanung und des Investitionscontrollings\n• Erstellung des jährlichen SpiGes Datensatzes, Krankenhausstatistiken und ITAR_K sowie der REKOLE Rezertifizierung\n• Enge Zusammenarbeit mit Verantwortlichen aus den Fachbereichen\n\nIhr Profil\n• Betriebswirtschaftliche Ausbildung im Bereich Controlling, FH, HF oder vergleichbare Weiterbildung\n• Erfahrung im Umgang mit ERP-Systemen und BI Tools, von Vorteil SAP und TM1 sowie sehr gute Excel-Kenntnisse\n• Berufserfahrung im Controlling, von Vorteil im Gesundheitswesen\n• Ausgeprägte analytische Fähigkeiten, strukturiertes Denken und die Fähigkeit komplexe Sachverhalte verständlich darzustellen\n• Selbstständige, proaktive Arbeitsweise und hohes Engagement\n• Ausgeprägte Kommunikationsstärke und Teamfähigkeit",
-        "en": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per sofort oder nach Vereinbarung einen\n\nController (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit für die Standorte Brunnen und Einsiedeln\n• Aufgestelltes und motiviertes Team\n• Moderne Anstellungsbedingungen und gutes Arbeitsklima\n• Interessante Benefits\n• Attraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützen\n\nIhre Aufgaben\n• Unterstützung bei den Monats- und Jahresabschlüssen nach REKOLE und Swiss GAAP FER\n• Mitarbeit bei der Erstellung von Budgets und Forecasts zusammen mit den verantwortlichen Fachbereichen\n• Aufbereitung von Daten für die Leistungsplanung\n• Mitarbeit bei der Erstellung des monatlichen Managementreportings inkl. Forecast\n• Unterstützung bei der Implementierung von Massnahmen zur Effizienzsteigerung und Kostenkontrolle\n• Optimierung und Weiterentwicklung der Controlling Prozesse und Controlling Tools, auch im Bereich der Investitionsplanung und des Investitionscontrollings\n• Erstellung des jährlichen SpiGes Datensatzes, Krankenhausstatistiken und ITAR_K sowie der REKOLE Rezertifizierung\n• Enge Zusammenarbeit mit Verantwortlichen aus den Fachbereichen\n\nIhr Profil\n• Betriebswirtschaftliche Ausbildung im Bereich Controlling, FH, HF oder vergleichbare Weiterbildung\n• Erfahrung im Umgang mit ERP-Systemen und BI Tools, von Vorteil SAP und TM1 sowie sehr gute Excel-Kenntnisse\n• Berufserfahrung im Controlling, von Vorteil im Gesundheitswesen\n• Ausgeprägte analytische Fähigkeiten, strukturiertes Denken und die Fähigkeit komplexe Sachverhalte verständlich darzustellen\n• Selbstständige, proaktive Arbeitsweise und hohes Engagement\n• Ausgeprägte Kommunikationsstärke und Teamfähigkeit",
-        "fr": "Zur Verstärkung unseres Teams im AMEOS Seeklinikum Brunnen suchen wir per sofort oder nach Vereinbarung einen\n\nController (m/w/d) — 80-100%\n\nIhre Vorteile\n• Eine interessante, vielseitige und anspruchsvolle Tätigkeit für die Standorte Brunnen und Einsiedeln\n• Aufgestelltes und motiviertes Team\n• Moderne Anstellungsbedingungen und gutes Arbeitsklima\n• Interessante Benefits\n• Attraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützen\n\nIhre Aufgaben\n• Unterstützung bei den Monats- und Jahresabschlüssen nach REKOLE und Swiss GAAP FER\n• Mitarbeit bei der Erstellung von Budgets und Forecasts zusammen mit den verantwortlichen Fachbereichen\n• Aufbereitung von Daten für die Leistungsplanung\n• Mitarbeit bei der Erstellung des monatlichen Managementreportings inkl. Forecast\n• Unterstützung bei der Implementierung von Massnahmen zur Effizienzsteigerung und Kostenkontrolle\n• Optimierung und Weiterentwicklung der Controlling Prozesse und Controlling Tools, auch im Bereich der Investitionsplanung und des Investitionscontrollings\n• Erstellung des jährlichen SpiGes Datensatzes, Krankenhausstatistiken und ITAR_K sowie der REKOLE Rezertifizierung\n• Enge Zusammenarbeit mit Verantwortlichen aus den Fachbereichen\n\nIhr Profil\n• Betriebswirtschaftliche Ausbildung im Bereich Controlling, FH, HF oder vergleichbare Weiterbildung\n• Erfahrung im Umgang mit ERP-Systemen und BI Tools, von Vorteil SAP und TM1 sowie sehr gute Excel-Kenntnisse\n• Berufserfahrung im Controlling, von Vorteil im Gesundheitswesen\n• Ausgeprägte analytische Fähigkeiten, strukturiertes Denken und die Fähigkeit komplexe Sachverhalte verständlich darzustellen\n• Selbstständige, proaktive Arbeitsweise und hohes Engagement\n• Ausgeprägte Kommunikationsstärke und Teamfähigkeit"
+        "fr": "Afin de renforcer notre équipe à l'AMEOS Seekelinikum Brunnen, nous sommes à la recherche\n\nContrôleur (h/f/d) — 80-100 %\n\nLeurs avantages\n• Une activité intéressante, polyvalente et exigeante pour les sites Brunnen et Einsiedeln\n• Équipe forte et motivée\n• Des conditions d'emploi modernes et un bon environnement de travail\n• Avantages intéressants\n• Offre attrayante pour l'enseignement et la formation complémentaires, que nous soutenons généreusement\n\nLeurs tâches\n• Soutien aux comptes mensuels et annuels selon REKOLE et Swiss GAAP FER\n• Collaboration à la préparation des budgets et des prévisions avec les départements responsables\n• Préparation des données pour la planification des résultats\n• Coopération à l'élaboration du rapport de gestion mensuel, y compris Prévisions\n• Appui à la mise en œuvre de mesures visant à accroître l'efficacité et à contrôler les coûts\n• Optimisation et développement des processus de contrôle et des outils de contrôle, y compris dans le domaine de la planification des investissements et du contrôle des investissements\n• Création de l'ensemble annuel de données SpiGes, des statistiques hospitalières et de l'ITAR K ainsi que de la recertification REKOLE\n• Coopération étroite avec les responsables des domaines spécialisés\n\nVotre profil\n• Formation en administration des entreprises dans le domaine du contrôle, FH, HF ou formation comparable\n• Expérience dans le traitement des systèmes ERP et des outils BI, SAP et TM1 ainsi que très bonne connaissance d'Excel\n• Expérience professionnelle dans le contrôle, bénéfique dans les soins de santé\n• Des compétences analytiques solides, une pensée structurée et la capacité de comprendre des questions complexes\n• Méthode de travail indépendante et proactive et engagement élevé\n• Communication et travail d'équipe forts"
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Brunnen",
       "canton": "SZ",
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13730-controller-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:34.247Z",
+      "crawledAt": "2026-10-08T22:13:06.807Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1135,9 +1077,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13730-controller-in-brunnen",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "controller-m-w-d-ameos-brunnen",
+        "controller-m-w-d-ameos-schweiz-brunnen"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "controller-m-w-d-ameos-schweiz-brunnen"
+        ],
+        "it": [
+          "controller-m-w-d-ameos-brunnen"
+        ],
+        "en": [
+          "controller-m-w-d-ameos-brunnen"
+        ]
       },
+      "firstSeenAt": "2026-10-08T09:13:34.247Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -1150,8 +1106,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:13:34.247Z"
+      }
     },
     {
       "id": "ameos-ch-fcc20b46d678",
@@ -1185,7 +1140,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8680-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:33.155Z",
+      "crawledAt": "2026-10-08T22:13:05.692Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1205,20 +1160,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen",
         "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-einsiedeln",
-        "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen"
+        "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen",
+        "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen",
           "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-einsiedeln",
-          "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen"
-        ],
-        "en": [
-          "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen"
-        ],
-        "fr": [
+          "stationsleitung-m-w-d-e-stellvertretende-leitung-pflege-m-w-d-ameos-schweiz-brunnen",
           "stationsleitung-m-w-d-und-stellvertretende-leitung-pflege-m-w-d-ameos-brunnen"
         ]
       },
@@ -1269,7 +1218,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/7902-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:32.089Z",
+      "crawledAt": "2026-10-08T22:13:04.554Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1289,18 +1238,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-        "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
+        "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
+        "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos",
-          "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
-        ],
-        "en": [
-          "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
-        ],
-        "fr": [
+          "oberarzt-m-w-d-e-o-leitender-facharzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
           "oberarzt-m-w-d-und-oder-leitender-facharzt-m-w-d-psychiatrie-und-psychotherapie-ameos"
         ]
       },
@@ -1351,7 +1294,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8764-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:30.927Z",
+      "crawledAt": "2026-10-08T22:13:03.402Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1371,18 +1314,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen",
-        "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
+        "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
+        "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen",
-          "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen"
-        ],
-        "en": [
-          "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen"
-        ],
-        "fr": [
+          "assistenzarzt-m-w-d-psychiatrie-e-psychotherapie-ameos-schweiz-brunnen",
           "assistenzarzt-m-w-d-psychiatrie-und-psychotherapie-ameos-brunnen"
         ]
       },
@@ -1433,7 +1370,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:13:29.823Z",
+      "crawledAt": "2026-10-08T22:13:02.251Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1452,21 +1389,15 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
-      ],
+      "firstSeenAt": "2026-09-08T13:32:28.793Z",
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
-        ],
-        "en": [
-          "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
-        ],
-        "fr": [
-          "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:32:28.793Z",
+      "previousSlugs": [
+        "sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-ameos-brunnen"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1480,167 +1411,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "ameos-ch-760941ebfb90",
-      "slug": "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln",
-      "slugByLocale": {
-        "it": "sub-assistant-pj-m-f-d-chirurgia-ameos-schweiz-einsiedeln",
-        "en": "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
-        "de": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-        "fr": "sous-assistant-pj-h-f-d-chirurgie-ameos-schweiz-einsiedeln"
-      },
-      "company": "AMEOS Schweiz",
-      "companyKey": "ameos-ch",
-      "companyDomain": "karriere.ameos.eu",
-      "title": "Unterassistent / PJ (m/w/d) Chirurgie",
-      "titleByLocale": {
-        "it": "Sub Assistant / PJ (m/f/d) Chirurgia",
-        "en": "Sub Assistant / PJ (m/f/d) Surgery",
-        "de": "Unterassistent / PJ (m/w/d) Chirurgie",
-        "fr": "Sous-assistant / PJ (h/f/d) chirurgie"
-      },
-      "description": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent / PJ (m/w/d) Chirurgie\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen des Umgangs mit Patientinnen und Patienten\n• Erhebung der Anamnese\n• Erlernen der chirurgischen Behandlungsprinzipien\n• Gelegenheit, im Operationssaal chirurgische Techniken zu erlernen\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an chirurgischen Fragestellungen und operativen Tätigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
-      "descriptionByLocale": {
-        "it": "L'AMEOS Spital Einsiedeln è un importante fornitore di assistenza sanitaria per Einsiedeln, la regione circostante e molto oltre e sta per la medicina di alta qualità e basata sulle esigenze.\n\nValutiamo continuamente le applicazioni per le posizioni come\n\nSub Assistant / PJ (m/f/d) Chirurgia\n\nI loro vantaggi\n• Introduzione strutturata e pratica\n• Cura ravvicinata da medici cadre\n• Il coinvolgimento attivo nella vita quotidiana clinica con una curva di apprendimento elevata\n• Formazione interna regolare\n• Ambiente di lavoro familiare con una cultura del team apprezzata\n• Luogo attraente di lavoro nel cuore della Svizzera centrale con un alto valore di svago\n• Alloggio in loco\n\nI loro compiti\n• Imparare a trattare con i pazienti\n• Sondaggio Anamnesi\n• Principi di trattamento chirurgico di apprendimento\n• Opportunità di imparare tecniche chirurgiche nella sala operatoria\n\nIl tuo profilo\n• Matricolazione nella medicina umana\n• Interessi in materia chirurgica e attività operative\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Alta disponibilità ad imparare, iniziativa e lavoro di squadra\n• Metodi di lavoro responsabili e orientati al paziente",
-        "en": "The AMEOS Spital Einsiedeln is an important healthcare provider for Einsiedeln, the surrounding region and far beyond and stands for high-quality and needs-based medicine.\n\nWe continuously evaluate applications for the positions as\n\nSub Assistant / PJ (m/f/d) Surgery\n\nTheir advantages\n• A structured and practical introduction\n• Close care by cadre doctors\n• Active involvement in clinical everyday life with a high learning curve\n• Regular internal training\n• Family working environment with an appreciative team culture\n• Attractive place of work in the heart of Central Switzerland with a high leisure value\n• Accommodation on site\n\nTheir tasks\n• Learning how to deal with patients\n• Anamnesis survey\n• Learning Surgical Treatment Principles\n• Opportunity to learn surgical techniques in the operating room\n\nYour profile\n• Matriculation in human medicine\n• Interest in surgical issues and operational activities\n• Very good knowledge of German in word and writing\n• High willingness to learn, initiative and teamwork\n• Responsible and patient-oriented working methods",
-        "de": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent / PJ (m/w/d) Chirurgie\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen des Umgangs mit Patientinnen und Patienten\n• Erhebung der Anamnese\n• Erlernen der chirurgischen Behandlungsprinzipien\n• Gelegenheit, im Operationssaal chirurgische Techniken zu erlernen\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an chirurgischen Fragestellungen und operativen Tätigkeiten\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
-        "fr": "L'AMEOS Spital Einsiedeln est un important fournisseur de soins de santé pour Einsiedeln, la région environnante et bien au-delà et représente une médecine de haute qualité et axée sur les besoins.\n\nNous évaluons continuellement les candidatures pour les postes comme\n\nSous-assistant / PJ (h/f/d) chirurgie\n\nLeurs avantages\n• Une introduction structurée et pratique\n• Soins rapprochés par les médecins cadres\n• Participation active à la vie quotidienne clinique avec une courbe d'apprentissage élevée\n• Formation interne régulière\n• Milieu de travail familial avec une culture d'équipe reconnaissante\n• Lieu de travail attrayant au cœur de la Suisse centrale avec une grande valeur de loisirs\n• Hébergement sur place\n\nLeurs tâches\n• Apprendre à traiter les patients\n• Enquête sur l'anamnèse\n• Apprentissage des principes de traitement chirurgical\n• Possibilité d'apprendre les techniques chirurgicales dans la salle d'opération\n\nVotre profil\n• Matriculation en médecine humaine\n• Intérêt pour les questions chirurgicales et les activités opérationnelles\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Haute volonté d'apprendre, d'initiative et de travail d'équipe\n• Méthodes de travail responsables et axées sur le patient"
-      },
-      "location": "Einsiedeln",
-      "canton": "SZ",
-      "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
-      "source": "AMEOS Schweiz Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:15:44.120Z",
-      "addressLocality": "Einsiedeln",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8840",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-31",
-      "postedDate": "2026-07-31",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
-        ],
-        "en": [
-          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
-        ],
-        "fr": [
-          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T11:39:39.351Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "ameos-ch-285de0b54168",
-      "slug": "assistente-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
-      "slugByLocale": {
-        "it": "assistente-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
-        "en": "assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln",
-        "de": "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
-        "fr": "assistant-pj-h-f-d-medecine-interne-ameos-schweiz-einsiedeln"
-      },
-      "company": "AMEOS Schweiz",
-      "companyKey": "ameos-ch",
-      "companyDomain": "karriere.ameos.eu",
-      "title": "Unterassistent /PJ (m/w/d) Innere Medizin",
-      "titleByLocale": {
-        "it": "Sub-assistente /PJ (m/f/d) Medicina interna",
-        "en": "Assistant /PJ (m/f/d) Internal Medicine",
-        "de": "Unterassistent /PJ (m/w/d) Innere Medizin",
-        "fr": "Sous-assistant /PJ (h/f/d) Médecine interne"
-      },
-      "description": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent /PJ (m/w/d) Innere Medizin\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen der Behandlungsprinzipien der Inneren Medizin\n• Aufnahme unter Assistenz von internistischen Patienten (Anamnese, Untersuchung)\n• Assistenz bei der Durchführung von medizinischen Abklärungen (Ultraschall, Röntgen, Punktionen, etc.)\n• Ultraschalluntersuchungen unter Supervision\n• Interpretation medizinischer Untersuchungsresultate\n• Vorschlag zur Erstellung eines Behandlungsplanes\n• Üben einer interprofessionelle Zusammenarbeit\n• ....und vieles mehr\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an der Allgemeinen Inneren Medizin\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude an patientenorientierter Medizin und interprofessioneller Zusammenarbeit\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
-      "descriptionByLocale": {
-        "it": "L'AMEOS Hospital Einsiedeln è un importante fornitore di assistenza sanitaria per Einsiedeln, la regione circostante e oltre, e rappresenta una medicina di alta qualità e basata sulle necessità.\n\nStiamo costantemente valutando le candidature per le posizioni come\n\nSottoassistente / PJ (m/f/d) Medicina Interna\n\nI tuoi benefici\n• Un'introduzione strutturata e pratica\n• Stretta supervisione da parte di medici senior\n• Coinvolgimento attivo nella pratica clinica quotidiana con una curva di apprendimento elevata\n• Addestramento interno regolare\n• Ambiente di lavoro familiare con una cultura di squadra apprezzante\n• Luogo attraente per lavorare nel cuore della Svizzera centrale con un alto valore ricreativo\n• Alloggi sul posto\n\nI tuoi compiti\n• Apprendere i principi terapeutici della medicina interna\n• Ricovero con l'assistenza di pazienti interni (anamnesi, esame)\n• Assistenza nell'esecuzione di esami medici (ecografia, radiografie, punture, ecc.)\n• Esami a ultrasuoni sotto supervisione\n• Interpretazione dei risultati degli esami medici\n• Proposta per la preparazione di un piano di trattamento\n• Pratica della cooperazione interprofessionale\n• .... e molto altro\n\nIl tuo profilo\n• Iscrizione alla medicina umana\n• Interesse per la Medicina Interna Generale\n• Ottime competenze di tedesco scritto e parlato\n• Apprezzamento della medicina orientata al paziente e della cooperazione interprofessionale\n• Alta volontà di apprendimento, iniziativa e capacità di lavorare in squadra\n• Modo di lavorare responsabile e orientato al paziente",
-        "en": "The AMEOS Hospital Einsiedeln is an important health care provider for Einsiedeln, the surrounding region and far beyond and stands for high-quality and needs-based medicine.\n\nWe are constantly evaluating applications for the positions as\n\nSub-Assistant /PJ (m/f/d) Internal Medicine\n\nYour benefits\n• A structured and practical introduction\n• Close supervision by senior physicians\n• Active involvement in everyday clinical practice with a high learning curve\n• Regular internal training\n• Family-like working environment with an appreciative team culture\n• Attractive place to work in the heart of Central Switzerland with a high recreational value\n• Accommodation on site\n\nYour tasks\n• Learning the treatment principles of internal medicine\n• Admission with the assistance of internal patients (anamnesis, examination)\n• Assistance in carrying out medical examinations (ultrasound, X-rays, punctures, etc.)\n• Ultrasound examinations under supervision\n• Interpretation of medical examination results\n• Proposal for the preparation of a treatment plan\n• Practicing interprofessional cooperation\n• .... and much more\n\nYour profile\n• Enrollment in human medicine\n• Interest in General Internal Medicine\n• Very good written and spoken German skills\n• Enjoyment of patient-oriented medicine and interprofessional cooperation\n• High willingness to learn, initiative and ability to work in a team\n• Responsible and patient-oriented way of working",
-        "de": "Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.\n\nWir evaluieren laufend Bewerbungen für die Stellen als\n\nUnterassistent /PJ (m/w/d) Innere Medizin\n\nIhre Vorteile\n• Eine strukturierte und praxisnahe Einführung\n• Enge Betreuung durch Kaderärzte\n• Aktive Einbindung in den klinischen Alltag mit hoher Lernkurve\n• Regelmässige interne Fortbildungen\n• Familiäres Arbeitsumfeld mit wertschätzender Teamkultur\n• Attraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem Freizeitwert\n• Wohnmöglichkeit vor Ort\n\nIhre Aufgaben\n• Erlernen der Behandlungsprinzipien der Inneren Medizin\n• Aufnahme unter Assistenz von internistischen Patienten (Anamnese, Untersuchung)\n• Assistenz bei der Durchführung von medizinischen Abklärungen (Ultraschall, Röntgen, Punktionen, etc.)\n• Ultraschalluntersuchungen unter Supervision\n• Interpretation medizinischer Untersuchungsresultate\n• Vorschlag zur Erstellung eines Behandlungsplanes\n• Üben einer interprofessionelle Zusammenarbeit\n• ....und vieles mehr\n\nIhr Profil\n• Immatrikulation in der Humanmedizin\n• Interesse an der Allgemeinen Inneren Medizin\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude an patientenorientierter Medizin und interprofessioneller Zusammenarbeit\n• Hohe Lernbereitschaft, Eigeninitiative und Teamfähigkeit\n• Verantwortungsbewusste und patientenorientierte Arbeitsweise",
-        "fr": "L'hôpital AMEOS Einsiedeln est un prestataire de soins de santé important pour Einsiedeln, la région environnante et bien au-delà, et il représente une médecine de haute qualité et adaptée aux besoins.\n\nNous évaluons constamment les candidatures pour les postes tels que\n\nSous-assistant / PJ (h/f/d) Médecine Interne\n\nVos avantages\n• Une introduction structurée et pratique\n• Supervision étroite par des médecins seniors\n• Engagement actif dans la pratique clinique quotidienne avec une courbe d'apprentissage élevée\n• Entraînement interne régulier\n• Environnement de travail familial avec une culture d'équipe favorable\n• Endroit attrayant pour travailler au cœur de la Suisse centrale avec une grande valeur récréative\n• Hébergement sur place\n\nVos tâches\n• Apprendre les principes thérapeutiques de la médecine interne\n• Admission avec l'aide de patients internes (anamnèse, examen)\n• Assistance à la réalisation d'examens médicaux (échographies, radiographies, ponctions, etc.)\n• Échographies sous supervision\n• Interprétation des résultats de l'examen médical\n• Proposition pour la préparation d'un plan de traitement\n• Pratique de la coopération interprofessionnelle\n• .... et bien plus encore\n\nVotre profil\n• Inscription en médecine humaine\n• Intérêt pour la médecine interne générale\n• Très bonnes compétences en allemand écrit et oral\n• Appréciation de la médecine orientée patient et de la coopération interprofessionnelle\n• Une grande volonté d'apprendre, de l'initiative et une capacité à travailler en équipe\n• Mode de travail responsable et orienté patient"
-      },
-      "location": "Einsiedeln",
-      "canton": "SZ",
-      "url": "https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
-      "source": "AMEOS Schweiz Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:13.470Z",
-      "addressLocality": "Einsiedeln",
-      "addressRegion": "SZ",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8840",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-31",
-      "postedDate": "2026-07-31",
-      "postingDateSource": "reported",
-      "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
-        "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
-        ],
-        "en": [
-          "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
-        ],
-        "fr": [
-          "unterassistent-pj-m-w-d-innere-medizin-ameos-schweiz-einsiedeln"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T11:39:40.176Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -249,11 +249,24 @@ const safeInlineHref = (value: string): string | null => {
 export const renderArticleInlineMarkup = (line: string): string => {
  const { esc } = getSiteShell();
  const links: string[] = [];
+ const renderEscapedInlineText = (value: string): string => esc(value)
+  .replace(/`([^`]+)`/g, '<code>$1</code>')
+  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+  .replace(/\*(.*?)\*/g, '<em>$1</em>')
+  // A few archived bodies use underscore emphasis (`_Fonte: ..._`), which is
+  // valid Markdown but used to survive as literal punctuation in the static
+  // article HTML. Restrict delimiters to whitespace/punctuation boundaries so
+  // identifiers such as `MOPS_DanceSyndrome` remain intact.
+  .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>');
  const stashLink = (label: string, href: string): string => {
   const safeHref = safeInlineHref(href);
   if (!safeHref) return label;
   const token = `\u0000inline-link-${links.length}\u0000`;
-  links.push(`<a href="${esc(safeHref)}">${esc(decodeInlineHtmlEntities(label))}</a>`);
+  // Markdown link labels can themselves contain emphasis, for example
+  // `[**Riforma disoccupazione frontalieri**](https://...)`. Escape the
+  // label first and then render only its inline formatting; restoring the
+  // complete anchor after that keeps both the label and href safe.
+  links.push(`<a href="${esc(safeHref)}">${renderEscapedInlineText(decodeInlineHtmlEntities(label))}</a>`);
   return token;
  };
 
@@ -274,15 +287,7 @@ export const renderArticleInlineMarkup = (line: string): string => {
   return stashLink(label, href);
  });
 
- return esc(normalized)
-  .replace(/`([^`]+)`/g, '<code>$1</code>')
-  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-  .replace(/\*(.*?)\*/g, '<em>$1</em>')
-  // A few archived bodies use underscore emphasis (`_Fonte: ..._`), which is
-  // valid Markdown but used to survive as literal punctuation in the static
-  // article HTML. Restrict delimiters to whitespace/punctuation boundaries so
-  // identifiers such as `MOPS_DanceSyndrome` remain intact.
-  .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>')
+ return renderEscapedInlineText(normalized)
   .replace(INLINE_LINK_TOKEN_RX, (_, index: string) => links[Number(index)] ?? '');
 };
 
