@@ -103597,10 +103597,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-domodossola-arresto-hashish-stazione.webp`,
+        "url": `${BASE_URL}/images/blog/article-cardano-al-campo-minorenne-arresto.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Minorenne fermato in scooter a Cardano al Campo con hashish sequestrato dai carabinieri"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T23:26:41+00:00",
       "dateModified": "2026-10-08T23:26:41+00:00",

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5151
+      "6": 5155
     },
-    "publishedCovers": 6863,
+    "publishedCovers": 6867,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182599,6 +182599,114 @@
           "id": "voto-svizzera-esportazione-armi-2026",
           "category": "novita",
           "date": "2026-10-09T17:48:06.308Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-cardano-al-campo-minorenne-arresto": {
+      "cover": "/images/blog/article-cardano-al-campo-minorenne-arresto.webp",
+      "hash": "0eba8097533d498f0d04156a5367bb2bd472a6640bcde514fbcfb6dc71b1fb95",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "cardano-al-campo-minorenne-arresto",
+          "category": "novita",
+          "date": "2026-10-08T23:26:41.689Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-mastercard-pagamenti-rete-assente": {
+      "cover": "/images/blog/article-mastercard-pagamenti-rete-assente.webp",
+      "hash": "60f5a0872b68f1547d6cea088528d661d53616638666c61a4860d9ee039fe946",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "mastercard-pagamenti-rete-assente",
+          "category": "novita",
+          "date": "2026-10-09T20:04:15.079Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-referendum-iva-2026-aumento-per-la-tredicesima-pensione": {
+      "cover": "/images/blog/article-referendum-iva-2026-aumento-per-la-tredicesima-pensione.webp",
+      "hash": "5c682b322df8b0ffe1b07dcf066020dcac3a8c1093af151d011071c0accb2cf3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-iva-2026-aumento-per-la-tredicesima-pensione",
+          "category": "novita",
+          "date": "2026-10-09T20:56:51.979Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-spesa-famiglie-inflazione": {
+      "cover": "/images/blog/article-spesa-famiglie-inflazione.webp",
+      "hash": "6c6933689d267f5e9abfb8d9193ab4d94b535e78de8e92b4a3c3c22a757b09e1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "spesa-famiglie-inflazione",
+          "category": "novita",
+          "date": "2026-10-09T18:30:40.205Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
