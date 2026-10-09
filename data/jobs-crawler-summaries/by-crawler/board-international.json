@@ -1,20 +1,21 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-09T09:33:08.037Z",
+  "generatedAt": "2026-10-09T21:35:33.270Z",
   "total": 5,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3316,
-  "avgDurationMs": 3316,
+  "durationMs": 3585,
+  "avgDurationMs": 3585,
   "durationHistory": [
-    3316
+    3585
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Senior GenAI Engineer",
       "slug": "senior-genai-engineer-board-international-chiasso-ticino-switzerland",
@@ -40,23 +41,21 @@
       "contractType": "full-time",
       "validThrough": "2027-01-07",
       "id": "board-international-6f45ce6a23fd",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6830",
       "firstSeenAt": "2026-10-09T09:32:54.890Z",
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -219,5 +218,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
 }
