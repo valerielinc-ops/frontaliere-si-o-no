@@ -100037,10 +100037,10 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/blog/article-casse-pensioni-migliorano-terzo-trimestre.webp`,
+        "url": `${BASE_URL}/images/blog/article-forniture-cemento-aumento-terzo-trimestre.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Camion di cemento che scarica materiale presso un cantiere svizzero con montagne sullo sfondo"
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-10-08T17:40:48+00:00",
       "dateModified": "2026-10-08T17:40:48+00:00",

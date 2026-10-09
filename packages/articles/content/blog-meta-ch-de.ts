@@ -7936,7 +7936,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frankencoin-kraken-zchf.imageAlt': 'Schweizer Panorama mit einem visuellen Hinweis auf digitale Finanzen in Franken',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.title': 'Zementlieferungen im dritten Quartal leicht gestiegen',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.excerpt': '988\'700 Tonnen Zement im dritten Quartal Lieferungen gegenüber dem gleichen Zeitraum um 1% gestiegen Mehr als 98% des Volumens mit niedrigem Klinkeranteil 32% per Bahn',
-    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Zementlkw entlädt Material auf einer schweizerischen Baustelle mit Bergen im Hintergrund',
+    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont: bei Montblanc 17 Versetzungen und 6 Entlassungen',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont versetzt 17 Mitarbeitende von Montblanc Sechs Mitarbeitende wurden entlassen Unia weist auf die Krise der Uhrenindustrie hin Begriff Wert Unternehmen',
     'blog.article.richemont-montblanc-tagli.imageAlt': 'Uhrenatelier in Le Locle vor dem Hintergrund der Branchenkrise',

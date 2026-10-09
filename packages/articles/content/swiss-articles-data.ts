@@ -26486,7 +26486,7 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     id: 'forniture-cemento-aumento-terzo-trimestre',
     category: 'novita',
     date: '2026-10-08T17:40:48.336Z',
-    image: '/images/blog/article-casse-pensioni-migliorano-terzo-trimestre.webp',
+    image: '/images/blog/article-forniture-cemento-aumento-terzo-trimestre.webp',
     hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',

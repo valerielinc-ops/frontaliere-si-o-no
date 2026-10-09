@@ -7936,7 +7936,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frankencoin-kraken-zchf.imageAlt': 'Panorama svizzero con un richiamo visivo alla finanza digitale in franchi',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.title': 'Forniture di cemento in lieve aumento nel terzo trimestre',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.excerpt': '988\'700 tonnellate di cemento nel terzo trimestre Forniture in aumento dell\'1% sullo stesso periodo Oltre il 98% del volume è a basso clinker 32% via ferrovia',
-    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Camion di cemento che scarica materiale presso un cantiere svizzero con montagne sullo sfondo',
+    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Illustrazione generata per questo articolo',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont: a Montblanc 17 trasferimenti e 6 licenziamenti',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont trasferisce 17 dipendenti di Montblanc Sei collaboratori sono stati licenziati Unia segnala la crisi dell\'industria orologiera Termine Valore Azienda',
     'blog.article.richemont-montblanc-tagli.imageAlt': 'Atelier di orologeria a Le Locle nel quadro della crisi del settore',

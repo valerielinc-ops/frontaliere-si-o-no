@@ -7936,7 +7936,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frankencoin-kraken-zchf.imageAlt': 'Swiss panorama with a visual reference to digital finance in Swiss francs',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.title': 'Cement supplies slightly up in the third quarter',
     'blog.article.forniture-cemento-aumento-terzo-trimestre.excerpt': '988\'700 tonnes of cement in the third quarter Supplies up 1% on the same period More than 98% of the volume is low-clinker 32% by rail',
-    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Cement truck unloading material at a Swiss construction site with mountains in the background',
+    'blog.article.forniture-cemento-aumento-terzo-trimestre.imageAlt': 'Illustration generated for this article',
     'blog.article.richemont-montblanc-tagli.title': 'Richemont: 17 transfers and 6 layoffs at Montblanc',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont transfers 17 Montblanc employees Six employees have been dismissed Unia reports the crisis in the watchmaking industry Deadline Value Company',
     'blog.article.richemont-montblanc-tagli.imageAlt': 'Watchmaking workshop in Le Locle amid the industry\'s crisis',
