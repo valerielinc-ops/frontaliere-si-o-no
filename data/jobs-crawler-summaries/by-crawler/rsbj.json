@@ -1,7 +1,7 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-10-09T10:40:22.787Z",
+  "generatedAt": "2026-10-09T11:26:36.942Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8676,
-  "avgDurationMs": 8676,
+  "durationMs": 10814,
+  "avgDurationMs": 10814,
   "durationHistory": [
-    8676
+    10814
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T10:40:11.897Z",
+      "crawledAt": "2026-10-09T11:26:19.970Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T10:40:08.732Z",
+      "crawledAt": "2026-10-09T11:26:16.654Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T10:40:10.946Z",
+      "crawledAt": "2026-10-09T11:26:18.729Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T10:40:10.006Z",
+      "crawledAt": "2026-10-09T11:26:17.776Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58819/fr/assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T10:40:07.779Z",
+      "crawledAt": "2026-10-09T11:26:15.311Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -234,5 +234,5 @@
       }
     }
   ],
-  "codeCommit": "df8cc67869138da0128251c013a7aef902b28d97"
+  "codeCommit": "56508c1f85b8c3bf231960f34f6eeaad428412e7"
 }
