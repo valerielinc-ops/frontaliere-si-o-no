@@ -26667,6 +26667,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'economia-svizzera-fiducia-calante',
+    category: 'novita',
+    date: '2026-10-09T15:01:33.936Z',
+    image: '/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

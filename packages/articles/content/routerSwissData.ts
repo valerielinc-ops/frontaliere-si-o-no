@@ -2685,6 +2685,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucerna-convocazioni-indennita': { it: 'lucerna-convocazioni-indennita', en: 'lucerne-civil-protection-allowance', de: 'luzern-zivilschutz-entschaedigung', fr: 'lucerne-protection-civile-indemnite' },
  'iniziativa-solari-senza-permesso': { it: 'iniziativa-solari-senza-permesso', en: 'solar-permit-initiative-fails', de: 'solarinitiative-ohne-bewilligung-gescheitert', fr: 'initiative-solaire-sans-permis-echoue' },
  'midterm-usa-voto-svizzera': { it: 'midterm-usa-voto-svizzera', en: 'midterm-usa-vote-switzerland', de: 'midterm-usa-abstimmung-schweiz', fr: 'midterm-usa-vote-suisse' },
+ 'economia-svizzera-fiducia-calante': { it: 'economia-svizzera-fiducia-calante', en: 'swiss-economy-declining-confidence', de: 'schweizer-wirtschaft-sinkendes-vertrauen', fr: 'economie-suisse-confiance-declinaison' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

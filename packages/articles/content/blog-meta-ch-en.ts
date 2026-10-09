@@ -7988,6 +7988,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.midterm-usa-voto-svizzera.title': 'US Midterms: effects on tariffs, the dollar and markets in Switzerland',
     'blog.article.midterm-usa-voto-svizzera.excerpt': 'The U.S. vote on November 3 could weigh on the Swiss economy.',
     'blog.article.midterm-usa-voto-svizzera.imageAlt': 'Illustration generated for this article',
+    'blog.article.economia-svizzera-fiducia-calante.title': 'Swiss consumer confidence worsens: prices and jobs',
+    'blog.article.economia-svizzera-fiducia-calante.excerpt': 'In September, the SECO index fell to -35,8 points The figure fell by 3,0 points compared with August Job security fell to -60,6 This is the first',
+    'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'A concerned Swiss consumer looks at prices in a supermarket, reflecting economic uncertainty and the rising cost of living.',
 };
 
 export default blogMetaChEn;

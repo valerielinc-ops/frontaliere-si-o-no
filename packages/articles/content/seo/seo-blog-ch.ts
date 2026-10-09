@@ -100720,6 +100720,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-svizzera-fiducia-calante': {
+    title: 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
+    description: 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiducia, consumatori, svizzeri, peggiora',
+    ogTitle: 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
+    ogDescription: 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-fiducia-calante/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiducia consumatori svizzeri peggiora: prezzi e lavoro",
+      "description": "A settembre l'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un consumatore svizzero preoccupato osserva i prezzi in un supermercato, riflettendo l'incertezza economica e l'aumento del costo della vita."
+      },
+      "datePublished": "2026-10-09T15:01:33+00:00",
+      "dateModified": "2026-10-09T15:01:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-fiducia-calante/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7988,6 +7988,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.midterm-usa-voto-svizzera.title': 'US-Zwischenwahlen: Auswirkungen auf Zölle, Dollar und Märkte in der Schweiz',
     'blog.article.midterm-usa-voto-svizzera.excerpt': 'Die US-Wahl vom 3.',
     'blog.article.midterm-usa-voto-svizzera.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.economia-svizzera-fiducia-calante.title': 'Schweizer Verbrauchervertrauen verschlechtert sich: Preise und Arbeit',
+    'blog.article.economia-svizzera-fiducia-calante.excerpt': 'Im September sank der SECO-Index auf -35,8 Punkte Der Wert sank gegenüber August um 3,0 Punkte Die Arbeitsplatzsicherheit sank auf -60,6 Es ist die erste',
+    'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'Ein besorgter Schweizer Konsument betrachtet die Preise in einem Supermarkt, was die wirtschaftliche Unsicherheit und die steigenden Lebenshaltungskosten widerspiegelt.',
 };
 
 export default blogMetaChDe;

@@ -7988,6 +7988,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.midterm-usa-voto-svizzera.title': 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
     'blog.article.midterm-usa-voto-svizzera.excerpt': 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera.',
     'blog.article.midterm-usa-voto-svizzera.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.economia-svizzera-fiducia-calante.title': 'Fiducia consumatori svizzeri peggiora: prezzi e lavoro',
+    'blog.article.economia-svizzera-fiducia-calante.excerpt': 'A settembre l\'indice SECO è sceso a -35,8 punti Il dato è calato di 3,0 punti rispetto ad agosto La sicurezza del posto di lavoro è scesa a -60,6 È la prima',
+    'blog.article.economia-svizzera-fiducia-calante.imageAlt': 'Un consumatore svizzero preoccupato osserva i prezzi in un supermercato, riflettendo l\'incertezza economica e l\'aumento del costo della vita.',
 };
 
 export default blogMetaChIt;
