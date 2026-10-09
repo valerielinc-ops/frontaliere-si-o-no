@@ -65,6 +65,15 @@ export const PREDICATE_FUNCTION_BINDINGS = Object.freeze({
 /** Costanti di modulo di PREDICATE_ENTRY lette dal predicato. */
 export const PREDICATE_ENTRY_CONSTANTS = Object.freeze(['LOCALES', 'MIN_DESC_CHARS']);
 
+/**
+ * Helper locali già coperti dalla chiusura del modulo di ingresso.
+ *
+ * A differenza delle costanti sopra, il testo di queste funzioni entra
+ * nell'impronta tramite `PREDICATE_MODULES`; l'elenco serve all'audit per non
+ * classificarle come binding non coperti.
+ */
+export const PREDICATE_ENTRY_LOCAL_BINDINGS = Object.freeze(['containsMojibake']);
+
 const IDENT = '[A-Za-z_$][\\w$]*';
 
 function sha256Hex(text) {
@@ -206,7 +215,7 @@ export function auditPredicateCoverage({ predicateSource: rawPredicateSource, en
   for (const m of String(entrySource || '').matchAll(localRe)) {
     const name = m[1];
     if (name === 'isIncomplete') continue;
-    if (PREDICATE_ENTRY_CONSTANTS.includes(name)) continue;
+    if (PREDICATE_ENTRY_CONSTANTS.includes(name) || PREDICATE_ENTRY_LOCAL_BINDINGS.includes(name)) continue;
     if (identifierUsed(predicateSource, name)) uncovered.push(`${name} (locale a ${PREDICATE_ENTRY})`);
   }
   return { uncovered: [...new Set(uncovered)].sort(), coveredModules };
