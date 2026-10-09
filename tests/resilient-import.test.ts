@@ -6,6 +6,7 @@ import {
   isModuleLinkSkewMessage,
   isModuleParseError,
   recoverFromStaleChunk,
+  recoverFromBootFailure,
   bustAssetHttpCache,
   extractAssetChunkUrl,
   MAX_RELOADS,
@@ -416,6 +417,63 @@ describe('recoverFromStaleChunk', () => {
     const reload = setHostname('localhost');
     const scheduled = await recoverFromStaleChunk('dev');
     expect(scheduled).toBe(false);
+    expect(reload).not.toHaveBeenCalled();
+  });
+});
+
+describe('recoverFromBootFailure (index.tsx mountApp rejection handler)', () => {
+  const chunkError = () =>
+    new TypeError('error loading dynamically imported module: https://cdn.frontaliereticino.ch/assets/runtimeArticleSections.js');
+  const setHostname = (hostname: string) => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, hostname, reload: vi.fn() },
+    });
+    return window.location.reload as unknown as ReturnType<typeof vi.fn>;
+  };
+
+  beforeEach(() => {
+    sessionStorage.clear();
+    (globalThis as any).caches = {
+      keys: vi.fn().mockResolvedValue([]),
+      delete: vi.fn().mockResolvedValue(true),
+    };
+  });
+
+  it('handles a chunk-load failure with one budgeted reload keyed on the error message', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = chunkError();
+    await expect(recoverFromBootFailure(err)).resolves.toBeUndefined();
+    expect(reload).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(sessionStorage.getItem('_swReloadCount') || '{}')).toEqual({ [err.message]: 1 });
+  });
+
+  it('rethrows the chunk error when the reload budget is spent', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = chunkError();
+    sessionStorage.setItem('_swReloadCount', JSON.stringify({ [err.message]: MAX_RELOADS }));
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('rethrows non-chunk errors without a reload', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = new Error('boom');
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
+    expect(reload).not.toHaveBeenCalled();
+  });
+
+  it('is the rejection handler index.tsx attaches to mountApp()', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { resolve } = await import('node:path');
+    const entry = readFileSync(resolve(__dirname, '..', 'index.tsx'), 'utf-8');
+    expect(entry).toContain('void mountApp().catch(recoverFromBootFailure);');
+  });
+
+  it('rethrows ad-blocker chunk failures without a reload, like the early-boot self-heal', async () => {
+    const reload = setHostname('frontaliereticino.ch');
+    const err = new TypeError('Failed to fetch dynamically imported module: https://cdn.frontaliereticino.ch/assets/analytics.js');
+    await expect(recoverFromBootFailure(err)).rejects.toBe(err);
     expect(reload).not.toHaveBeenCalled();
   });
 });

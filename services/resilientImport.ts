@@ -549,6 +549,26 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
 }
 
 /**
+ * Rejection handler for the app boot in index.tsx (`mountApp()`). A failed
+ * chunk in the static App graph (for example a short network drop) rejects
+ * `mountApp()`; without a handler it escapes as an unhandled rejection. Chunk
+ * and link-skew errors go to the same clear-caches + budgeted reload as the
+ * early-boot self-heal script, keyed on the same message signature. Ad-blocker
+ * URLs, other errors and an exhausted budget rethrow unchanged.
+ */
+export async function recoverFromBootFailure(err: unknown): Promise<void> {
+  const reason = (err as Error)?.message || String(err || '');
+  if (
+    (isChunkLoadError(err) || isVersionSkewError(err))
+    && !isAdBlockerTriggerUrl(reason)
+    && (await recoverFromStaleChunk(reason))
+  ) {
+    return;
+  }
+  throw err;
+}
+
+/**
  * Load a dynamically-imported module, recovering from stale-deploy failures.
  *
  * @param factory  the `() => import(...)` thunk.

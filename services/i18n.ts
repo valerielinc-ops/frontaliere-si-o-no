@@ -634,6 +634,9 @@ export const itReady: Promise<void> = Promise.all([
  setTimeout(loadRemaining, 100);
  }
 });
+// Module-level promise: a chunk failure here must not escape as an unhandled
+// rejection when no caller awaits it. Callers still see the rejection.
+itReady.catch(swallowBackgroundLoadError);
 
 /** Load translations for a specific tab — no-op if already loaded. */
 export async function loadTabTranslations(tab: string): Promise<void> {

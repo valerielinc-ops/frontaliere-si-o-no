@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
-import { clearAssetCaches } from './services/resilientImport';
+import { clearAssetCaches, recoverFromBootFailure } from './services/resilientImport';
 import {
  adoptStaticFallbackIntoRoot,
  hideRootForCrossfade,
@@ -300,5 +300,5 @@ if (maybeHandleCvDownload()) {
 } else {
  // Mount React immediately on all paths for better LCP.
  // The loading shell provides instant visual feedback while JS loads.
- void mountApp();
+ void mountApp().catch(recoverFromBootFailure);
 }
