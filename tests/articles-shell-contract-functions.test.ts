@@ -22,7 +22,7 @@ async function probe() {
   out.esc = c.esc('a & b < c > d " e \' f');
   out.escEmpty = c.esc('');
 
-  out.stripLiteralMarkdown = c.stripLiteralMarkdown('**Onkologie___Ärzte** ~~x~~ ==y==');
+  out.stripLiteralMarkdown = c.stripLiteralMarkdown('## **Onkologie___Ärzte** *[guida](https://example.com)*');
 
   out.clampMetaDescription = c.clampMetaDescription('x'.repeat(400));
   out.clampMetaDescriptionShort = c.clampMetaDescription('breve');

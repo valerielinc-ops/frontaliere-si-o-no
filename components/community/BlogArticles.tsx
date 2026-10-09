@@ -320,7 +320,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  rel="noopener noreferrer"
  className="inline text-accent font-medium underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors"
  >
- {match[5]}
+ {renderInlineFormatting(match[5], navigators)}
  </a>
  );
  } else if (match[8] && match[9]) {
@@ -331,7 +331,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  href={match[9]}
  className="inline text-accent font-medium underline underline-offset-2 decoration-accent-border hover:decoration-accent transition-colors"
  >
- {match[8]}
+ {renderInlineFormatting(match[8], navigators)}
  </a>
  );
  } else if (match[11]) {
