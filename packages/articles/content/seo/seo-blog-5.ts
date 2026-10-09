@@ -1327,10 +1327,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-varese-india-export-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Impresa varesina che esporta macchinari e prodotti chimici in India. Vista panoramica dal Lago di Lugano."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-07T18:48:07+01:00",
       "dateModified": "2026-03-07T18:48:07+01:00",
@@ -1522,10 +1522,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "license": "https://openai.com/policies/terms-of-use/",
         "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
         "creditText": "frontaliereticino.ch",
-        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "url": `${BASE_URL}/images/blog/article-no-iniziativa-antidumping-ticino.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Vista panoramica di Lugano con lago e montagne."
+        "caption": "Illustrazione generata per questo articolo"
       },
       "datePublished": "2026-03-08T16:50:38+01:00",
       "dateModified": "2026-03-08T16:50:38+01:00",
@@ -103944,6 +103944,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rancio-valcuvia-statale-394/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-operazione-trotta-ebike-monopattini': {
+    title: 'Operazione TROTTA: 35 sanzioni e-bike truccate e monopattini fuorilegge',
+    description: 'L\'operazione TROTTA della Polizia cantonale in Ticino ha portato a 35 contravvenzioni in otto giorni, 9 veicoli irregolari (potenza 1\'200-1\'600 W, velocità 48',
+    keywords: 'frontalieri, ticino, svizzera, italia, operazione, trotta, sanzioni, e-bike',
+    ogTitle: 'Operazione TROTTA: 35 sanzioni e-bike truccate e monopattini fuorilegge',
+    ogDescription: 'Durante l\'operazione estiva TROTTA, conclusa il 30 settembre, le pattuglie della Polizia cantonale hanno controllato e-bike e monopattini elettrici in 11 postazioni tra Mendrisiotto, Luganese, Locarnese e Bellinzonese. Sono state elevate 35',
+    canonicalPath: '/articoli-frontaliere/operazione-trotta-ebike-monopattini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione TROTTA: 35 sanzioni e-bike truccate e monopattini fuorilegge",
+      "description": "L'operazione TROTTA della Polizia cantonale in Ticino ha portato a 35 contravvenzioni in otto giorni, 9 veicoli irregolari (potenza 1'200-1'600 W, velocità 48",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo della Polizia cantonale su e-bike e monopattini elettrici in Ticino durante l'operazione TROTTA"
+      },
+      "datePublished": "2026-10-09T07:39:46+00:00",
+      "dateModified": "2026-10-09T07:39:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operazione-trotta-ebike-monopattini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acof-70-anni-premio-confindustria-varese': {
+    title: 'Confindustria Varese premia ACOF per i 70 anni',
+    description: 'Nel 2026 ACOF Olga Fiorini festeggia 70 anni Confindustria Varese consegna una pergamena Il riconoscimento arriva in via Varzi, a Busto Arsizio ACOF opera su 20',
+    keywords: 'frontalieri, ticino, svizzera, italia, confindustria, varese, premia, acof',
+    ogTitle: 'Confindustria Varese premia ACOF per i 70 anni',
+    ogDescription: 'Nel 2026 ACOF Olga Fiorini festeggia 70 anni Confindustria Varese consegna una pergamena Il riconoscimento arriva in via Varzi, a Busto Arsizio ACOF opera su 20',
+    canonicalPath: '/articoli-frontaliere/acof-70-anni-premio-confindustria-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confindustria Varese premia ACOF per i 70 anni",
+      "description": "Nel 2026 ACOF Olga Fiorini festeggia 70 anni Confindustria Varese consegna una pergamena Il riconoscimento arriva in via Varzi, a Busto Arsizio ACOF opera su 20",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-acof-70-anni-premio-confindustria-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con montagne"
+      },
+      "datePublished": "2026-10-09T08:04:40+00:00",
+      "dateModified": "2026-10-09T08:04:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acof-70-anni-premio-confindustria-varese/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

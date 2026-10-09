@@ -884,7 +884,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.ticino-prevenzione-incendi-scuole-2026.imageAlt': 'Schulen im Tessin mit Brandschutzzeichen. Aerial view with mountains in the background.',
  'blog.article.varese-india-export-2026.title': 'Varese zielt nach Osten: Der Export nach Indien steigt um 46 %',
  'blog.article.varese-india-export-2026.excerpt': 'Die Exporte der Provinz Varese nach Indien sind im Jahr 2025 um 46,2 % gestiegen und überstiegen 129 Millionen Euro.',
- 'blog.article.varese-india-export-2026.imageAlt': 'Varese-Unternehmen exportiert Maschinen und chemische Produkte nach Indien. Panoramablick vom Lago di Lugano.',
+ 'blog.article.varese-india-export-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
  'blog.article.autotrasporto-rincari-confine-2026.title': 'Preiserhöhungen bei Kraftstoffen: Risiko eines Stillstands der Transportunternehmen an der Grenze',
  'blog.article.autotrasporto-rincari-confine-2026.excerpt': 'Im März 2026 warnt CNA Fita vor spekulativen Preiserhöhungen: +0,30 €/l in 3 Tagen; für einen Lkw, der 100.000 km/Jahr fährt, übersteigt die Mehrbelastung 13.000 Euro. Auswirkungen auf den Tessin und die Grenzübergänge Brogeda und Gaggiolo.',
  'blog.article.autotrasporto-rincari-confine-2026.imageAlt': 'Lastwagen am Grenzübergang Chiasso mit Blick auf die Tessiner Landschaft bei Sonnenuntergang',
@@ -899,7 +899,7 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.imposizione-individuale-ticino-2026.imageAlt': 'Fotorealistische Ansicht von Lugano mit Pendler am Seeufer am Morgen',
  'blog.article.no-iniziativa-antidumping-ticino.title': 'Tessin: Nein zur Antidumping-Initiative, Zufriedenheit mit dem Regierungsrat',
  'blog.article.no-iniziativa-antidumping-ticino.excerpt': 'Der Regierungsrat drückt seine Zufriedenheit über die Ablehnung der Antidumping-Initiative und der SSR-Gebühr von 200 Franken aus.',
- 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen.',
+ 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Für diesen Artikel erstellte Illustration',
  'blog.article.dumping-salariale-ticino-no-iniziativa.title': 'Der Tessin lehnt die Initiative gegen Lohndumping ab',
  'blog.article.dumping-salariale-ticino-no-iniziativa.excerpt': 'Die jüngste Abstimmung hat die Initiative gegen Lohndumping abgelehnt und die strukturellen Probleme des Arbeitsmarktes im Tessin aufgezeigt.',
  'blog.article.dumping-salariale-ticino-no-iniziativa.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen.',
@@ -12860,6 +12860,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: Zusammenstoß von Auto und Motorrad auf der Staatsstraße 394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Unfall kurz nach 7 Uhr auf der Staatsstraße 394 Zusammenstoß eines Autos mit einem Motorrad bei Rancio Valcuvia 26-jährige Frau in grünem Code gerettet Schwerer Verkehr',
     'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Morgenverkehr auf der Staatsstrasse 394 in Rancio Valcuvia nach einem Auto-Motorrad-Unfall',
+    'blog.article.operazione-trotta-ebike-monopattini.title': 'Operation TROTTA: 35 Bussen – E-Bike-Tuning & E-Scooter',
+    'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'In acht Tagen TROTTA-Kontrollen im Tessin: 35 Übertretungen, 9 vorschriftswidrige Fahrzeuge (Leistung 1\'200-1\'600 W, Geschwindigkeit bis zu 48 km/h) und 15 Gerichtsverfahren.',
+    'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Kantonspolizei kontrolliert E-Bikes und E-Scooter im Tessin während der Operation TROTTA',
+    'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese prämiert ACOF für 70 Jahre',
+    'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'Im Jahr 2026 feiert ACOF Olga Fiorini 70 Jahre Confindustria Varese übergibt ein Pergament Die Anerkennung erfolgt über Varzi in Busto Arsizio ACOF in der 20.',
+    'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Luftaufnahme des Luganersees mit Bergen',
 };
 
 export default blogMetaDe;

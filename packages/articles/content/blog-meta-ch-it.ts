@@ -7970,6 +7970,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.luganistan-clan-ceresio.title': 'Luganistan, il giardino di casa di una cleptocrazia',
     'blog.article.luganistan-clan-ceresio.excerpt': 'La quarta puntata sul commercio di materie prime racconta l\'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno.',
     'blog.article.luganistan-clan-ceresio.imageAlt': 'Il Ceresio e le ville sul lago al centro del caso Luganistan',
+    'blog.article.fiducia-consumatori-svizzeri-settembre.title': 'Fiducia dei consumatori svizzeri: calo a settembre',
+    'blog.article.fiducia-consumatori-svizzeri-settembre.excerpt': 'A settembre la fiducia scende a -35,8 punti.',
+    'blog.article.fiducia-consumatori-svizzeri-settembre.imageAlt': 'Clima di fiducia dei consumatori svizzeri e indicatori economici',
 };
 
 export default blogMetaChIt;

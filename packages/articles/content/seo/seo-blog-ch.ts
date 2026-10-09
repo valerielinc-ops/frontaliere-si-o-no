@@ -100486,6 +100486,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiducia-consumatori-svizzeri-settembre': {
+    title: 'Fiducia dei consumatori svizzeri: calo a settembre',
+    description: 'A settembre la fiducia scende a -35,8 punti. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fiducia, consumatori, svizzeri, calo',
+    ogTitle: 'Fiducia dei consumatori svizzeri in calo a settembre',
+    ogDescription: 'A settembre la fiducia scende a -35,8 punti.',
+    canonicalPath: '/articoli-svizzera/fiducia-consumatori-svizzeri-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fiducia dei consumatori svizzeri: calo a settembre",
+      "description": "A settembre la fiducia scende a -35,8 punti. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fiducia-consumatori-svizzeri-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Clima di fiducia dei consumatori svizzeri e indicatori economici"
+      },
+      "datePublished": "2026-10-09T08:17:33+00:00",
+      "dateModified": "2026-10-09T08:17:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fiducia-consumatori-svizzeri-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

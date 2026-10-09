@@ -885,7 +885,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.ticino-prevenzione-incendi-scuole-2026.imageAlt': 'Écoles du Tessin avec des signes de sécurité incendie. Vue aérienne avec des montagnes en arrière-plan.',
  'blog.article.varese-india-export-2026.title': 'Varèse pointe vers l\'Orient : l\'export vers l\'Inde augmente de 46%',
  'blog.article.varese-india-export-2026.excerpt': 'Les exportations de la province de Varèse vers l\'Inde ont augmenté de 46,2% en 2025, dépassant les 129 millions d\'euros.',
- 'blog.article.varese-india-export-2026.imageAlt': 'Entreprise varésine exportant des machines et des produits chimiques en Inde. Vue panoramique du Lac de Lugano.',
+ 'blog.article.varese-india-export-2026.imageAlt': 'Illustration générée pour cet article',
  'blog.article.autotrasporto-rincari-confine-2026.title': 'Augmentation des carburants : risque d\'arrêt des transporteurs à la frontière',
  'blog.article.autotrasporto-rincari-confine-2026.excerpt': 'En mars 2026, la CNA Fita dénonce des augmentations spéculatives : +0,30 €/l en 3 jours ; pour un camion parcourant 100.000 km/an, le surcoût dépasse 13.000 euros. Impacts sur le Tessin et les passages de Brogeda et Gaggiolo.',
  'blog.article.autotrasporto-rincari-confine-2026.imageAlt': 'Camion garé près du poste-frontière de Chiasso avec le paysage tessinois au coucher du soleil',
@@ -900,7 +900,7 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.imposizione-individuale-ticino-2026.imageAlt': 'Vue photoréaliste de Lugano avec un navetteur au bord du lac le matin',
  'blog.article.no-iniziativa-antidumping-ticino.title': 'Tessin : Non à l\'initiative antidumping, satisfaction pour le Conseil d\'Etat',
  'blog.article.no-iniziativa-antidumping-ticino.excerpt': 'Le Conseil d\'Etat exprime sa satisfaction pour le rejet de l\'initiative antidumping et de la redevance SSR à 200 francs.',
- 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes.',
+ 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Illustration générée pour cet article',
  'blog.article.dumping-salariale-ticino-no-iniziativa.title': 'Le Tessin rejette l\'initiative contre le dumping salarial',
  'blog.article.dumping-salariale-ticino-no-iniziativa.excerpt': 'La récente votation a rejeté l\'initiative contre le dumping salarial, mettant en lumière les problématiques structurelles du marché du travail au Tessin.',
  'blog.article.dumping-salariale-ticino-no-iniziativa.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes.',
@@ -12863,6 +12863,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia : collision auto-moto sur N394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Accident peu après 7 heures sur la route 394 Collision entre une voiture et une moto à Rancio Valcuvia Femme de 26 ans secourue en code vert Trafic lourd',
     'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Trafic matinal sur la route nationale 394 à Rancio Valcuvia après un accident auto-moto',
+    'blog.article.operazione-trotta-ebike-monopattini.title': 'Opération TROTTA : 35 sanctions contre deux-roues illégaux',
+    'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'En huit jours de contrôles TROTTA au Tessin, 35 contraventions, 9 véhicules non conformes (puissance 1\'200-1\'600 W, vitesse jusqu’à 48 km/h) et 15 procédures judiciaires.',
+    'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Contrôle de la police cantonale sur les vélos électriques et trottinettes au Tessin lors de l\'operazione TROTTA',
+    'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese récompense ACOF pour ses 70 ans',
+    'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'En 2026, ACOF Olga Fiorini fête ses 70 ans Confindustria Varese livre un parchemin La reconnaissance arrive via Varzi, à Busto Arsizio ACOF opère sur 20',
+    'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Vue aérienne du lac de Lugano avec montagnes',
 };
 
 export default blogMetaFr;

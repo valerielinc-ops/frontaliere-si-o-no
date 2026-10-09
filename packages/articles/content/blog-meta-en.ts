@@ -884,7 +884,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.ticino-prevenzione-incendi-scuole-2026.imageAlt': 'Ticino schools with fire safety signs. Aerial view with mountains in the background.',
  'blog.article.varese-india-export-2026.title': 'Varese Points East: Export to India Grows by 46%',
  'blog.article.varese-india-export-2026.excerpt': 'Varese province\'s exports to India increased by 46.2% in 2025, surpassing €129 million.',
- 'blog.article.varese-india-export-2026.imageAlt': 'Varese company exporting machinery and chemical products to India. Panoramic view from Lake Lugano.',
+ 'blog.article.varese-india-export-2026.imageAlt': 'Illustration generated for this article',
  'blog.article.autotrasporto-rincari-confine-2026.title': 'Fuel Price Increases: Risk of Transporters Stopping at the Border',
  'blog.article.autotrasporto-rincari-confine-2026.excerpt': 'In March 2026, CNA Fita reports speculative increases: +€0.30/l in 3 days; for a truck traveling 100,000 km/year, the additional cost exceeds €13,000. Impacts on Ticino and the Brogeda and Gaggiolo border crossings.',
  'blog.article.autotrasporto-rincari-confine-2026.imageAlt': 'Truck parked near Chiasso border crossing with Ticino landscape at sunset',
@@ -899,7 +899,7 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.imposizione-individuale-ticino-2026.imageAlt': 'Photorealistic view of Lugano skyline with a commuter on the lakeside in the morning',
  'blog.article.no-iniziativa-antidumping-ticino.title': 'Ticino: No to the anti-dumping initiative, satisfaction for the Cantonal Council',
  'blog.article.no-iniziativa-antidumping-ticino.excerpt': 'The Cantonal Council expresses its satisfaction with the rejection of the anti-dumping initiative and the SSR fee at 200 francs.',
- 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Panoramic view of Lugano with lake and mountains.',
+ 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Illustration generated for this article',
  'blog.article.dumping-salariale-ticino-no-iniziativa.title': 'Ticino Rejects Initiative Against Wage Dumping',
  'blog.article.dumping-salariale-ticino-no-iniziativa.excerpt': 'The recent vote rejected the initiative against wage dumping, highlighting the structural issues of the labor market in Ticino.',
  'blog.article.dumping-salariale-ticino-no-iniziativa.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains.',
@@ -12861,6 +12861,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: clash between car and motorcycle on state road 394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incident shortly after 7 am on state road 394 Crash between a car and a motorcycle at Rancio Valcuvia 26-year-old woman rescued in green code Heavy traffic',
     'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Morning traffic on State Road 394 in Rancio Valcuvia after a car and motorcycle crash',
+    'blog.article.operazione-trotta-ebike-monopattini.title': 'Operation TROTTA: 35 fines for modified e-bikes and illegal scooters',
+    'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'In eight days of TROTTA checks in Ticino, 35 citations, 9 non-compliant vehicles (power 1\'200-1\'600 W, speed up to 48 km/h) and 15 judicial proceedings.',
+    'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Police cantonale checking e-bikes and electric scooters in Ticino during operation TROTTA',
+    'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese honors ACOF for its 70th anniversary',
+    'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'In 2026 ACOF Olga Fiorini celebrates 70 years Confindustria Varese presents a parchment The recognition arrives on Via Varzi, in Busto Arsizio ACOF operates on 20',
+    'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Aerial view of Lake Lugano with mountains',
 };
 
 export default blogMetaEn;

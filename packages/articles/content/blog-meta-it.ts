@@ -885,7 +885,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.ticino-prevenzione-incendi-scuole-2026.imageAlt': 'Scuole di Ticino con segni di sicurezza antincendio. Vista aerea con montagne in sfondo.',
  'blog.article.varese-india-export-2026.title': 'Varese punta a Oriente: l’export verso l’India cresce del 46%',
  'blog.article.varese-india-export-2026.excerpt': 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro.',
- 'blog.article.varese-india-export-2026.imageAlt': 'Impresa varesina che esporta macchinari e prodotti chimici in India. Vista panoramica dal Lago di Lugano.',
+ 'blog.article.varese-india-export-2026.imageAlt': 'Illustrazione generata per questo articolo',
  'blog.article.autotrasporto-rincari-confine-2026.title': 'Rincari carburante: rischio fermo autotrasportatori al confine',
  'blog.article.autotrasporto-rincari-confine-2026.excerpt': 'A marzo 2026 CNA Fita denuncia aumenti speculativi: +0,30 €/l in 3 giorni; per un camion che fa 100.000 km/anno l\'aggravio supera 13.000 euro. Impatti sul Ticino e valichi di Brogeda e Gaggiolo.',
  'blog.article.autotrasporto-rincari-confine-2026.imageAlt': 'Camion parcheggiato vicino al valico di Chiasso con vista sul paesaggio del Ticino al tramonto',
@@ -900,7 +900,7 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.imposizione-individuale-ticino-2026.imageAlt': 'Veduta fotorealistica di Lugano con pendolare sul lungolago e skyline al mattino',
  'blog.article.no-iniziativa-antidumping-ticino.title': 'Ticino: No all\'iniziativa antidumping, soddisfazione per il Consiglio di Stato',
  'blog.article.no-iniziativa-antidumping-ticino.excerpt': 'Il Consiglio di Stato esprime la sua soddisfazione per il rifiuto dell\'iniziativa antidumping e del canone SSR a 200 franchi.',
- 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Vista panoramica di Lugano con lago e montagne.',
+ 'blog.article.no-iniziativa-antidumping-ticino.imageAlt': 'Illustrazione generata per questo articolo',
  'blog.article.dumping-salariale-ticino-no-iniziativa.title': 'Il Ticino boccia l’iniziativa contro il dumping salariale',
  'blog.article.dumping-salariale-ticino-no-iniziativa.excerpt': 'La recente votazione ha respinto l’iniziativa contro il dumping salariale, evidenziando le problematiche strutturali del mercato del lavoro in Ticino.',
  'blog.article.dumping-salariale-ticino-no-iniziativa.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne circostanti.',
@@ -12862,6 +12862,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rancio-valcuvia-statale-394.title': 'Rancio Valcuvia: scontro tra auto e moto sulla statale 394',
     'blog.article.rancio-valcuvia-statale-394.excerpt': 'Incidente poco dopo le 7 sulla statale 394 Scontro tra un’auto e una moto a Rancio Valcuvia Donna di 26 anni soccorsa in codice verde Traffico pesante',
     'blog.article.rancio-valcuvia-statale-394.imageAlt': 'Traffico mattutino sulla statale 394 a Rancio Valcuvia dopo uno scontro tra auto e moto',
+    'blog.article.operazione-trotta-ebike-monopattini.title': 'Operazione TROTTA: 35 sanzioni e-bike truccate e monopattini fuorilegge',
+    'blog.article.operazione-trotta-ebike-monopattini.excerpt': 'In otto giorni di controlli TROTTA in Ticino, 35 contravvenzioni, 9 veicoli irregolari (potenza 1\'200-1\'600 W, velocità fino a 48 km/h) e 15 procedimenti giudiziari.',
+    'blog.article.operazione-trotta-ebike-monopattini.imageAlt': 'Controllo della Polizia cantonale su e-bike e monopattini elettrici in Ticino durante l\'operazione TROTTA',
+    'blog.article.acof-70-anni-premio-confindustria-varese.title': 'Confindustria Varese premia ACOF per i 70 anni',
+    'blog.article.acof-70-anni-premio-confindustria-varese.excerpt': 'Nel 2026 ACOF Olga Fiorini festeggia 70 anni Confindustria Varese consegna una pergamena Il riconoscimento arriva in via Varzi, a Busto Arsizio ACOF opera su 20',
+    'blog.article.acof-70-anni-premio-confindustria-varese.imageAlt': 'Vista aerea del Lago di Lugano con montagne',
 };
 
 export default blogMetaIt;
