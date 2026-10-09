@@ -1,6 +1,6 @@
 {
   "crawlerKey": "molecular-partners",
-  "assembledAt": "2026-10-08T22:21:30.863Z",
+  "assembledAt": "2026-10-09T09:14:11.188Z",
   "jobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
@@ -33,7 +33,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:21:25.767Z",
+      "crawledAt": "2026-10-09T09:14:05.091Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,15 +52,16 @@
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-27T12:32:19.008Z",
+      "previousSlugs": [
+        "senior-accounting-manager-molecular-partners-schlieren"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-accounting-manager-molecular-partners-schlieren"
         ]
       },
-      "previousSlugs": [
-        "senior-accounting-manager-molecular-partners-schlieren"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T12:32:19.008Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -73,9 +74,7 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "molecular-partners-749786a2a588",
@@ -108,7 +107,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:21:25.220Z",
+      "crawledAt": "2026-10-09T09:14:04.529Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,15 +126,15 @@
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T19:50:29.070Z",
+      "previousSlugs": [
+        "executive-assistant-80-7-month-fixed-term-assignment-molecular-partners-schlieren"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "executive-assistant-80-7-month-fixed-term-assignment-molecular-partners-schlieren"
         ]
       },
-      "previousSlugs": [
-        "executive-assistant-80-7-month-fixed-term-assignment-molecular-partners-schlieren"
-      ],
+      "firstSeenAt": "2026-09-23T19:50:29.070Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",

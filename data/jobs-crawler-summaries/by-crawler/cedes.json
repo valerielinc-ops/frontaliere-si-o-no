@@ -1,18 +1,58 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-08T22:08:35.626Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-10-09T09:13:59.913Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5417,
-  "avgDurationMs": 5417,
+  "durationMs": 8382,
+  "avgDurationMs": 8382,
   "durationHistory": [
-    5417
+    8382
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "cedes-6dbf3e63bd94",
+      "slug": "hr-intern-60-100-cedes-landquart",
+      "company": "CEDES AG",
+      "companyKey": "cedes-ag",
+      "companyDomain": "cedes.com",
+      "title": "HR Intern (60-100%)",
+      "location": "Landquart",
+      "canton": "GR",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
+      "addressCountry": "CH",
+      "category": "technology",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
+      "source": "CEDES Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-09T09:13:37.313Z",
+      "needsRetranslation": true,
+      "salaryMin": 54000,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "applyUrl": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
+      "firstSeenAt": "2026-10-09T09:13:37.313Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "cedes-33d85e05de4e",
@@ -38,13 +78,13 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:08:22.519Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-09T09:13:35.809Z",
       "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
       "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +120,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:08:23.080Z",
+      "crawledAt": "2026-10-09T09:13:36.711Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -118,7 +158,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:08:22.040Z",
+      "crawledAt": "2026-10-09T09:13:35.163Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -133,5 +173,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

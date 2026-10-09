@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-10-08T22:13:37.565Z",
+  "assembledAt": "2026-10-09T09:13:45.027Z",
   "jobs": [
     {
       "id": "rieter-b1e3b5b7acde",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4076949",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:26.844Z",
+      "crawledAt": "2026-10-09T09:13:33.248Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -54,14 +54,14 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "trainer-customer-training-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "trainer-customer-training-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "trainer-customer-training-rieter-winterthur"
-      ],
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -107,7 +107,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:26.179Z",
+      "crawledAt": "2026-10-09T09:13:32.500Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -197,7 +197,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Technical-Service-Delivery-Lead-100-fmd---4082051",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:25.494Z",
+      "crawledAt": "2026-10-09T09:13:31.794Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -218,14 +218,14 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "sap-technical-service-delivery-lead-100-f-m-d-rieter-winterthur"
-      ],
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -271,7 +271,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4081929",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:24.828Z",
+      "crawledAt": "2026-10-09T09:13:30.996Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -292,15 +292,15 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T00:41:07.404Z",
+      "previousSlugs": [
+        "it-project-manager-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "it-project-manager-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "it-project-manager-rieter-winterthur"
-      ],
+      "firstSeenAt": "2026-08-27T00:41:07.404Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -346,7 +346,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Export-Sachbearbeiter-in-80-100-12-Monate-befristet--4073960",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:24.167Z",
+      "crawledAt": "2026-10-09T09:13:30.183Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -367,15 +367,15 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T19:49:35.856Z",
+      "previousSlugs": [
+        "export-sachbearbeiter-in-80-100-12-monate-befristet-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "export-sachbearbeiter-in-80-100-12-monate-befristet-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "export-sachbearbeiter-in-80-100-12-monate-befristet-rieter-winterthur"
-      ],
+      "firstSeenAt": "2026-09-23T19:49:35.856Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -421,7 +421,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-60-100--4079319",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:23.493Z",
+      "crawledAt": "2026-10-09T09:13:28.879Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -503,7 +503,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Business-Controller-EMEA-and-Americas--4071513",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:22.749Z",
+      "crawledAt": "2026-10-09T09:13:28.077Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -524,15 +524,15 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:51:03.636Z",
+      "previousSlugs": [
+        "business-controller-emea-and-americas-rieter-winterthur"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-controller-emea-and-americas-rieter-winterthur"
         ]
       },
-      "previousSlugs": [
-        "business-controller-emea-and-americas-rieter-winterthur"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:03.636Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -578,7 +578,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Betriebselektriker-Elektromonteur-mwd-80-100--4080292",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:13:21.991Z",
+      "crawledAt": "2026-10-09T09:13:27.334Z",
       "addressLocality": "Rapperswil Switzerland",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -599,15 +599,15 @@
       "employerBrand": "Head HR Graf Group GRAF + CIE AG",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-06T09:12:35.500Z",
+      "previousSlugs": [
+        "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
         ]
       },
-      "previousSlugs": [
-        "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
-      ],
+      "firstSeenAt": "2026-10-06T09:12:35.500Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -653,7 +653,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4079315",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:13:21.308Z",
+      "crawledAt": "2026-10-09T09:13:26.595Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "yapeal",
-  "assembledAt": "2026-10-08T22:10:02.282Z",
+  "assembledAt": "2026-10-09T09:14:03.942Z",
   "jobs": [
     {
       "id": "yapeal-8d58ba85703f",
@@ -33,7 +33,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:09:58.129Z",
+      "crawledAt": "2026-10-09T09:13:58.194Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -84,7 +84,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "yapeal-762e79908815",
@@ -117,7 +118,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T22:09:58.126Z",
+      "crawledAt": "2026-10-09T09:13:58.190Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",

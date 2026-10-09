@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-de-lavaux",
-  "assembledAt": "2026-10-09T05:02:58.403Z",
+  "assembledAt": "2026-10-09T09:15:56.895Z",
   "jobs": [
     {
       "id": "hopital-de-lavaux-a7255dd10142",
@@ -34,7 +34,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T05:02:51.982Z",
+      "crawledAt": "2026-10-09T09:15:49.681Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T05:02:51.981Z",
+      "crawledAt": "2026-10-09T09:15:49.680Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://app.beehire.com/invite/_ce7R-DpY",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T05:02:51.979Z",
+      "crawledAt": "2026-10-09T09:15:49.679Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -236,7 +236,7 @@
       "slug": "contabile-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
       "slugByLocale": {
         "it": "contabile-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
-        "en": "accountant-permanent-60-80-hopital-de-lavaux-bourg-en-lavaux",
+        "en": "comptable-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
         "de": "buchhalter-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
         "fr": "comptable-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux"
       },
@@ -263,7 +263,7 @@
       "url": "https://app.beehire.com/invite/CTb1_gVt5",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T05:02:51.973Z",
+      "crawledAt": "2026-10-09T09:15:49.676Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -285,7 +285,8 @@
       "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
       "previousSlugs": [
         "accountant-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
-        "comptable-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux"
+        "comptable-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
+        "accountant-permanent-60-80-hopital-de-lavaux-bourg-en-lavaux"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -293,7 +294,7 @@
         ],
         "en": [
           "accountant-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux",
-          "comptable-cdi-60-80-hopital-de-lavaux-bourg-en-lavaux"
+          "accountant-permanent-60-80-hopital-de-lavaux-bourg-en-lavaux"
         ]
       },
       "firstSeenAt": "2026-10-01T09:17:25.162Z",

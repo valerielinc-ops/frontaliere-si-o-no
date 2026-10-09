@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pigna",
-  "assembledAt": "2026-10-08T22:33:17.223Z",
+  "assembledAt": "2026-10-09T09:33:30.056Z",
   "jobs": [
     {
       "id": "pigna-f48cb6ee5572",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/1531/0303/pub/521/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:10.886Z",
+      "crawledAt": "2026-10-09T09:33:24.152Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,22 +53,22 @@
       "applyUrl": "https://app.reflinejobs.io/1531/0303/pub/521/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektleitung-hr-systeme-abacus-50-pigna-kloten",
-        "projektleitung-hr-digitalisierung-50-pigna-kloten"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "projektleitung-hr-systeme-abacus-50-pigna-kloten"
+        ],
         "it": [
           "projektleitung-hr-systeme-abacus-50-pigna-kloten",
           "projektleitung-hr-digitalisierung-50-pigna-kloten"
-        ],
-        "de": [
-          "projektleitung-hr-systeme-abacus-50-pigna-kloten"
         ],
         "fr": [
           "projektleitung-hr-digitalisierung-50-pigna-kloten"
         ]
       },
+      "previousSlugs": [
+        "projektleitung-hr-systeme-abacus-50-pigna-kloten",
+        "projektleitung-hr-digitalisierung-50-pigna-kloten"
+      ],
       "firstSeenAt": "2026-09-25T14:56:07.537Z",
       "salaryMin": 41500,
       "salaryMax": 63000,
@@ -116,7 +116,7 @@
       "url": "https://app.reflinejobs.io/1531/0300/pub/516/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:10.349Z",
+      "crawledAt": "2026-10-09T09:33:23.534Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,15 +135,15 @@
       "applyUrl": "https://app.reflinejobs.io/1531/0300/pub/516/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:52:26.690Z",
+      "previousSlugs": [
+        "praktikant-in-dienstleistungsbetrieb-100-w-m-d-pigna-kloten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-dienstleistungsbetrieb-100-w-m-d-pigna-kloten"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-dienstleistungsbetrieb-100-w-m-d-pigna-kloten"
-      ],
+      "firstSeenAt": "2026-09-23T23:52:26.690Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
@@ -190,7 +190,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:09.833Z",
+      "crawledAt": "2026-10-09T09:33:22.821Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -209,15 +209,15 @@
       "applyUrl": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:22:35.517Z",
+      "previousSlugs": [
+        "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
         ]
       },
-      "previousSlugs": [
-        "sanitarfachperson-in-der-hauswartung-100-pigna-kloten"
-      ],
+      "firstSeenAt": "2026-08-31T17:22:35.517Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -237,7 +237,7 @@
       "slug": "staffa-esterna-60-80-stiftung-pigna-kloten",
       "slugByLocale": {
         "it": "staffa-esterna-60-80-stiftung-pigna-kloten",
-        "en": "external-group-staff-60-80-stiftung-pigna-kloten",
+        "en": "betreuungspersonal-aussenwohngruppe-60-80-stiftung-pigna-kloten",
         "de": "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
         "fr": "personnel-du-groupe-exterieur-60-80-stiftung-pigna-kloten"
       },
@@ -264,7 +264,7 @@
       "url": "https://app.reflinejobs.io/1531/0288/pub/513/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:09.280Z",
+      "crawledAt": "2026-10-09T09:33:22.250Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,14 +285,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten",
-        "betreuungspersonal-aussenwohngruppe-60-80-stiftung-pigna-kloten"
+        "external-group-staff-60-80-stiftung-pigna-kloten"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "betreuungspersonal-aussenwohngruppe-60-80-stiftung-pigna-kloten"
-        ],
         "it": [
           "betreuungspersonal-aussenwohngruppe-60-80-pigna-kloten"
+        ],
+        "en": [
+          "external-group-staff-60-80-stiftung-pigna-kloten"
         ]
       },
       "firstSeenAt": "2026-09-18T23:21:26.535Z",
@@ -342,7 +342,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:08.718Z",
+      "crawledAt": "2026-10-09T09:33:21.450Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:08.173Z",
+      "crawledAt": "2026-10-09T09:33:20.812Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,15 +437,15 @@
       "applyUrl": "https://app.reflinejobs.io/1531/0216/pub/501/index.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-26T10:07:58.137Z",
+      "previousSlugs": [
+        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
         ]
       },
-      "previousSlugs": [
-        "betreuungsperson-mit-option-teamleitung-stellvertretung-60-90-pigna-kloten"
-      ],
+      "firstSeenAt": "2026-08-26T10:07:58.137Z",
       "salaryMin": 82400,
       "salaryMax": 115200,
       "salarySource": "estimated",
@@ -492,7 +492,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/498/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:07.603Z",
+      "crawledAt": "2026-10-09T09:33:20.218Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/507/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:06.951Z",
+      "crawledAt": "2026-10-09T09:33:19.535Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -662,7 +662,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/510/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:33:06.340Z",
+      "crawledAt": "2026-10-09T09:33:18.914Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",

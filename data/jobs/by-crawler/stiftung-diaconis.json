@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-diaconis",
-  "assembledAt": "2026-10-08T22:10:32.668Z",
+  "assembledAt": "2026-10-09T09:11:26.575Z",
   "jobs": [
     {
       "id": "stiftung-diaconis-169",
@@ -34,7 +34,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_169/Fachfrau-Fachmann-Gesundheit-80-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:24.638Z",
+      "crawledAt": "2026-10-09T09:11:18.451Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,15 +53,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_169/Fachfrau-Fachmann-Gesundheit-80-%25-100-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-21T00:23:57.078Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-80-100-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-80-100-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-80-100-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-05-21T00:23:57.078Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -108,7 +108,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_214/Dipl.-Pflegefachfrau-Pflegefachmann-HF-60-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:24.125Z",
+      "crawledAt": "2026-10-09T09:11:17.969Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_107/Praktikantin-Praktikant-Pflege-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:23.616Z",
+      "crawledAt": "2026-10-09T09:11:17.488Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -205,15 +205,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_107/Praktikantin-Praktikant-Pflege-100-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-21T00:23:56.102Z",
+      "previousSlugs": [
+        "praktikantin-praktikant-pflege-100-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-pflege-100-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-praktikant-pflege-100-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-05-21T00:23:56.102Z",
       "salaryMin": 76000,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -259,7 +259,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_203/Mitarbeiterin-Mitarbeiter-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:23.042Z",
+      "crawledAt": "2026-10-09T09:11:17.007Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_66/Stv.-Teamleitung-Pflege-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:22.533Z",
+      "crawledAt": "2026-10-09T09:11:16.510Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -354,11 +354,10 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_66/Stv.-Teamleitung-Pflege-80-100-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
-        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
+        ],
         "it": [
           "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
           "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
@@ -366,13 +365,14 @@
         "en": [
           "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern"
         ],
-        "de": [
-          "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
-        ],
         "fr": [
           "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern"
         ]
       },
+      "previousSlugs": [
+        "stv-leiterin-leiter-pflege-80-100-stiftung-diaconis-bern",
+        "stv-teamleitung-pflege-80-100-stiftung-diaconis-bern"
+      ],
       "firstSeenAt": "2026-07-16T11:07:24.717Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -419,7 +419,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_135/Mitarbeiter-in-Pflege-DPC-40-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:22.021Z",
+      "crawledAt": "2026-10-09T09:11:15.979Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -491,7 +491,7 @@
       "slug": "cucina-60-100-stiftung-diaconis-bern",
       "slugByLocale": {
         "it": "cucina-60-100-stiftung-diaconis-bern",
-        "en": "cook-cook-60-stiftung-diaconis-bern",
+        "en": "kochin-koch-60-stiftung-diaconis-bern",
         "de": "kochin-koch-60-100-stiftung-diaconis-bern",
         "fr": "cuisiniere-60-100-stiftung-diaconis-bern"
       },
@@ -518,7 +518,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_86/K%C3%B6chin-Koch-60-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:21.509Z",
+      "crawledAt": "2026-10-09T09:11:15.494Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -548,7 +548,8 @@
         "cook-cook-60-100-stiftung-diaconis-bern",
         "cuocere-cucinare-100-stiftung-diaconis-bern",
         "cook-60-stiftung-diaconis-bern",
-        "kochin-koch-60-stiftung-diaconis-bern"
+        "kochin-koch-60-stiftung-diaconis-bern",
+        "cook-cook-60-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -570,7 +571,7 @@
           "kochin-koch-60-100-stiftung-diaconis-bern",
           "cook-cook-60-100-stiftung-diaconis-bern",
           "cook-60-stiftung-diaconis-bern",
-          "kochin-koch-60-stiftung-diaconis-bern"
+          "cook-cook-60-stiftung-diaconis-bern"
         ],
         "de": [
           "kochin-koch-100-stiftung-diaconis-bern"
@@ -629,7 +630,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_103/Poolmitarbeiter-in-Pflege-%28alle-Ausbildungsstufen%29-10-60-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:20.998Z",
+      "crawledAt": "2026-10-09T09:11:14.973Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -648,15 +649,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_103/Poolmitarbeiter-in-Pflege-%28alle-Ausbildungsstufen%29-10-60-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-02T14:54:14.850Z",
+      "previousSlugs": [
+        "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-06-02T14:54:14.850Z",
       "salaryMin": 51000,
       "salaryMax": 71400,
       "salarySource": "estimated",
@@ -703,7 +704,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_130/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-Nachtdienst-70-%25-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:20.488Z",
+      "crawledAt": "2026-10-09T09:11:14.461Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -727,11 +728,11 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-nachtdienst-70-90-stiftung"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "dipl-nursing-specialist-hf-fh-palliative-care-night-service-70-90-stiftung-diaconis-bern"
-        ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-nachtdienst-70-90-stiftung"
+        ],
+        "en": [
+          "dipl-nursing-specialist-hf-fh-palliative-care-night-service-70-90-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:41.719Z",
@@ -781,7 +782,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_129/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-70-90-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:19.977Z",
+      "crawledAt": "2026-10-09T09:11:13.952Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -800,15 +801,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_129/Dipl.-Pflegefachfrau-Pflegefachmann-HF-FH-Palliative-Care-70-90-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-17T10:54:02.086Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-palliative-care-70-90-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-07-17T10:54:02.086Z",
       "salaryMin": 76500,
       "salaryMax": 107100,
       "salarySource": "estimated",
@@ -854,7 +855,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_11/Mitarbeiter-in-Pflege-Nachtdienst-80-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:19.467Z",
+      "crawledAt": "2026-10-09T09:11:13.467Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -873,15 +874,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_11/Mitarbeiter-in-Pflege-Nachtdienst-80-100-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T19:53:47.941Z",
+      "previousSlugs": [
+        "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-pflege-nachtdienst-80-100-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-08-27T19:53:47.941Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -928,7 +929,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_282/Psychologin-oder-Psychologen-MSc-MA-als-Leitung-Arbeitsmarktliche-Massnahme-EAR-80%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:18.958Z",
+      "crawledAt": "2026-10-09T09:11:12.906Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1004,7 +1005,7 @@
       "url": "https://diaconis.abacuscity.ch/de/job_1_71/Leiterin-Leiter-Pflege-Spezialisierte-Palliative-Care-80-%25-100-%25",
       "source": "Stiftung Diaconis Dedicated Parser (Abacus City)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:10:18.430Z",
+      "crawledAt": "2026-10-09T09:11:12.421Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1023,15 +1024,15 @@
       "applyUrl": "https://diaconis.abacuscity.ch/de/job_1_71/Leiterin-Leiter-Pflege-Spezialisierte-Palliative-Care-80-%25-100-%25",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-09T23:04:31.532Z",
+      "previousSlugs": [
+        "leiterin-leiter-pflege-spezialisierte-palliative-care-80-100-stiftung-diaconis-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-pflege-spezialisierte-palliative-care-80-100-stiftung-diaconis-bern"
         ]
       },
-      "previousSlugs": [
-        "leiterin-leiter-pflege-spezialisierte-palliative-care-80-100-stiftung-diaconis-bern"
-      ],
+      "firstSeenAt": "2026-09-09T23:04:31.532Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",

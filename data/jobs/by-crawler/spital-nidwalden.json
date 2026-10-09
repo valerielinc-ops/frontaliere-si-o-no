@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-10-08T22:21:11.619Z",
+  "assembledAt": "2026-10-09T09:25:42.579Z",
   "jobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.181Z",
+      "crawledAt": "2026-10-09T09:25:35.790Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -54,15 +54,15 @@
       "applyUrl": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-12T10:22:41.642Z",
+      "previousSlugs": [
+        "leitung-spital-nidwalden-100-spital-nidwalden-stans"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans"
         ]
       },
-      "previousSlugs": [
-        "leitung-spital-nidwalden-100-spital-nidwalden-stans"
-      ],
+      "firstSeenAt": "2026-08-12T10:22:41.642Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -109,7 +109,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-arztsekretaer-in-sekretariat-klinik-anaesthesie-intensiv-und-schmerzmedizin/3274f595-7e18-4d13-8faf-71ed1170fbd7",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.179Z",
+      "crawledAt": "2026-10-09T09:25:35.788Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -203,7 +203,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.177Z",
+      "crawledAt": "2026-10-09T09:25:35.787Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -223,14 +223,10 @@
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029c2784ef019cfbca298f10c4&j=jobexchange",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans",
-        "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans",
-        "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
-        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
-        "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
+        ],
         "it": [
           "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
           "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
@@ -240,14 +236,18 @@
           "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans",
           "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
         ],
-        "de": [
-          "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
-        ],
         "fr": [
           "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans",
           "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
         ]
       },
+      "previousSlugs": [
+        "senior-physician-senior-intensive-care-physician-50-100-spital-nidwalden-stans",
+        "medecin-principal-medecin-principal-en-soins-intensifs-50-100-spital-nidwalden-stans",
+        "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
+        "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
+        "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans"
+      ],
       "firstSeenAt": "2026-08-17T21:51:41.186Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
@@ -295,7 +295,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-fachperson-gesundheit/b312e5a5-b470-44c8-8327-f13e17981840",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.174Z",
+      "crawledAt": "2026-10-09T09:25:35.786Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -372,7 +372,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh-fuer-den-einstieg-in-die-intensivmedizin/35fc51ce-162d-4cad-be0c-f3caa8311268",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.173Z",
+      "crawledAt": "2026-10-09T09:25:35.785Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -449,7 +449,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin-standort-stans/76b803fc-c4ed-43da-a84e-7ab609b136cb",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.170Z",
+      "crawledAt": "2026-10-09T09:25:35.784Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -469,15 +469,15 @@
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0b4609b8b7986&j=jobexchange",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:07:26.578Z",
+      "previousSlugs": [
+        "chefarztin-chefarzt-allgemeine-innere-medizin-80-100-standort-stans-spital-nidwalden-stans"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chefarztin-chefarzt-allgemeine-innere-medizin-80-100-standort-stans-spital-nidwalden-stans"
         ]
       },
-      "previousSlugs": [
-        "chefarztin-chefarzt-allgemeine-innere-medizin-80-100-standort-stans-spital-nidwalden-stans"
-      ],
+      "firstSeenAt": "2026-09-19T23:07:26.578Z",
       "salaryMin": 117000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -524,7 +524,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-september-2027/4bcbdc68-e76f-4b5f-9d15-2caaf74689e6",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.167Z",
+      "crawledAt": "2026-10-09T09:25:35.782Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -544,15 +544,15 @@
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0f1389d83694d&j=jobexchange",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:21:33.218Z",
+      "previousSlugs": [
+        "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege"
         ]
       },
-      "previousSlugs": [
-        "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege"
-      ],
+      "firstSeenAt": "2026-09-30T21:21:33.218Z",
       "salaryMin": 51000,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -572,7 +572,7 @@
       "slug": "segretaria-di-reparto-nella-sala-parto-e-nel-reparto-madre-figlio-50-spital-nidwalden-stans",
       "slugByLocale": {
         "it": "segretaria-di-reparto-nella-sala-parto-e-nel-reparto-madre-figlio-50-spital-nidwalden-stans",
-        "en": "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
+        "en": "ward-secretary-delivery-room-and-mother-and-child-unit-50-spital-nidwalden-stans",
         "de": "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
         "fr": "secretaire-de-service-en-salle-d-accouchement-et-service-mere-enfant-50-spital-nidwalden-stans"
       },
@@ -593,12 +593,13 @@
         "de": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.\nWir suchen per 1. Januar 2027 oder nach Vereinbarung eine/n\n\n## Ihr Wirkungsfeld\n• Sie koordinieren den Gebärsaal, Stationsalltag und tragen die Verantwortung für die Einhaltung der Tagesstrukturen in Zusammenarbeit mit den Hebammen und Pflegefachfrauen\n• Sie koordinieren die Hebammensprechstunden und übernehmen diverse administrative Tätigkeiten\n• Sie sind verantwortlich für sämtliche Stationsbestellungen und unterstützen die Pflege und Hebammen bei anfallenden Arbeiten im Alltag wie z.B Blutentnahmen\n• Sie organisieren die Ein- und Austritte der Patientinnen\n\n## Ihre Erfahrung\n• Sie bringen eine abgeschlossene Berufslehre als medizinische/r Praxisassistent/in, Fachfrau/mann Gesundheit oder vergleichbarer Ausbildung mit\n• Sie sind eine selbstständige Persönlichkeit mit hoher Dienstleistungsorientierung\n• Sie sind teamfähig, belastbar, flexibel und kommunikationsstark\n• Sie zeichnet Ihr Organisationstalent und Verantwortungsbewusstsein aus\n\n## Ihre Perspektiven\n• Eine sinnvolle und geschätzte Mitarbeit in zwei motivierten und engagierten Teams\n• Eine vielseitige, anspruchsvolle und abwechslungsreiche Aufgabe mit grosser Selbstständigkeit und Eigeninitiative\n• Sie arbeiten in einem zukunftsorientierten und innovativen Spitalverbund und profitieren von diversen interessanten Benefits",
         "fr": "L'hôpital de Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous.\nNous sommes à la recherche d'un ou plusieurs avant le 1er janvier 2027 ou par accord\n\n## Votre domaine d'activité\n• Ils coordonnent la salle des naissances, le travail quotidien et assument la responsabilité d'observer les structures quotidiennes en collaboration avec les sages-femmes et les infirmières.\n• Ils coordonnent les heures de consultation des sages-femmes et mènent diverses activités administratives\n• Vous êtes responsable de toutes les commandes de station et de soutenir les soins et les sages-femmes pendant le travail dans la vie quotidienne comme l'extraction du sang\n• Ils organisent l'entrée et la sortie des patients\n\n## Votre expérience\n• Vous avez suivi un apprentissage professionnel en tant qu'assistant médical, spécialiste des soins de santé ou formation comparable\n• Vous êtes une personne indépendante avec une orientation de service élevé\n• Ils sont capables de travailler en équipe, résilient, flexible et fort dans la communication\n• Il distingue votre talent et votre responsabilité organisationnelle\n\n## Leurs perspectives\n• Une participation significative et appréciée à deux équipes motivées et engagées\n• Une tâche polyvalente, exigeante et variée avec une grande indépendance et une grande initiative\n• Vous travaillez dans un réseau hospitalier tourné vers l'avenir et innovant et bénéficiez de divers avantages intéressants"
       },
+      "needsRetranslation": false,
       "location": "Stans",
       "canton": "NW",
       "url": "https://jobs.luks.ch/offene-stellen/stationssekretaer-in-gebaersaal-und-mutter-kind-station/73ce42f0-ba3b-4e0c-98c5-c307fae4ceb9",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.164Z",
+      "crawledAt": "2026-10-09T09:25:35.780Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -625,6 +626,9 @@
       "previousSlugsByLocale": {
         "it": [
           "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans",
+          "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans"
+        ],
+        "en": [
           "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans"
         ]
       },
@@ -674,7 +678,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-fh/da6abaa5-6eac-4992-aa48-3b1cde894a19",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.162Z",
+      "crawledAt": "2026-10-09T09:25:35.779Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -701,14 +705,14 @@
         "pflegefachperson-hf-fh-80-100-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-80-100-spital-nidwalden-stans"
+        ],
         "en": [
           "care-professional-hf-fh-80-100-spital-nidwalden-stans"
         ],
         "fr": [
           "soins-professionnels-hf-fh-80-100-spital-nidwalden-stans"
-        ],
-        "it": [
-          "pflegefachperson-hf-fh-80-100-spital-nidwalden-stans"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:24.763Z",
@@ -758,7 +762,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mitarbeiter-mitarbeiterin-hauswirtschaft/0ec436c8-8117-4430-8ae1-d496601ac533",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.159Z",
+      "crawledAt": "2026-10-09T09:25:35.777Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -778,15 +782,15 @@
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0fc7c7ed76ac3&j=jobexchange",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-01T09:22:45.689Z",
+      "previousSlugs": [
+        "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-hauswirtschaft-80-spital-nidwalden-stans"
-      ],
+      "firstSeenAt": "2026-10-01T09:22:45.689Z",
       "salaryMin": 55200,
       "salaryMax": 69200,
       "salarySource": "estimated",
@@ -833,7 +837,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/radiologiefachperson-hf/79dad9bc-89ca-4b07-b71e-d3b51ea59932",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T22:21:03.141Z",
+      "crawledAt": "2026-10-09T09:25:35.768Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -853,15 +857,15 @@
       "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a888302a00ec08e01a0fc83f4176ba1&j=jobexchange",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:24:24.762Z",
+      "previousSlugs": [
+        "radiologiefachperson-hf-80-100-spital-nidwalden-stans"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-hf-80-100-spital-nidwalden-stans"
         ]
       },
-      "previousSlugs": [
-        "radiologiefachperson-hf-80-100-spital-nidwalden-stans"
-      ],
+      "firstSeenAt": "2026-10-03T09:24:24.762Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",

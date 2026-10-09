@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-08T22:17:50.606Z",
-  "total": 4,
+  "generatedAt": "2026-10-09T09:19:17.369Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5953,
-  "avgDurationMs": 5953,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 5616,
+  "avgDurationMs": 5616,
   "durationHistory": [
-    5953
+    5616
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -90,8 +90,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -129,7 +128,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -168,5 +169,5 @@
       }
     }
   ],
-  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
+  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
 }

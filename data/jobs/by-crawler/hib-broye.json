@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-10-08T22:12:05.444Z",
+  "assembledAt": "2026-10-09T09:15:01.927Z",
   "jobs": [
     {
       "id": "hib-broye-4be68a574f23",
@@ -33,7 +33,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-95",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.919Z",
+      "crawledAt": "2026-10-09T09:14:55.780Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100-94",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.917Z",
+      "crawledAt": "2026-10-09T09:14:55.778Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-a-100-93",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.916Z",
+      "crawledAt": "2026-10-09T09:14:55.776Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "slug": "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "it": "terapista-occupazionale-dal-30-al-50-hopital-intercantonal-de-la-broye-hib-payerne",
-        "en": "ergotherapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "de": "ergotherapeut-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "ergotherapeute-de-30-a-50-hib-broye-payerne"
       },
@@ -306,7 +306,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/ergotherapeute-30-a-50-92",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.914Z",
+      "crawledAt": "2026-10-09T09:14:55.774Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
         "ergotherapist-from-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "occupational-therapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
         "ergotherapeute-de-30-a-50-hib-broye-payerne",
-        "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne"
+        "ergotherapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -370,7 +370,7 @@
           "ergotherapist-30-50-hopital-intercantonal-de-la-broye-hib-payerne",
           "ergotherapist-from-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
           "occupational-therapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne",
-          "ergotherapeute-de-30-a-50-hopital-intercantonal-de-la-broye-hib-payerne"
+          "ergotherapist-30-to-50-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.571Z",
@@ -420,7 +420,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-91",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.911Z",
+      "crawledAt": "2026-10-09T09:14:55.772Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -503,7 +503,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.908Z",
+      "crawledAt": "2026-10-09T09:14:55.770Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -522,15 +522,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-de-90-a-100-90",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:13:11.497Z",
+      "previousSlugs": [
+        "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "infirmier-ere-specialise-e-sante-et-securite-au-travail-a-50-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-09-29T21:13:11.497Z",
       "salaryMin": 43300,
       "salaryMax": 60300,
       "salarySource": "estimated",
@@ -576,7 +576,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-de-80-a-100-84",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.905Z",
+      "crawledAt": "2026-10-09T09:14:55.769Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -675,7 +675,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation-75",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.903Z",
+      "crawledAt": "2026-10-09T09:14:55.767Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -783,7 +783,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie-110",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.901Z",
+      "crawledAt": "2026-10-09T09:14:55.765Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -888,7 +888,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs-109",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.899Z",
+      "crawledAt": "2026-10-09T09:14:55.761Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -938,12 +938,12 @@
         "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
+        ],
         "de": [
           "innere-medizin-pflegekraft-80-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "krankenpfleger-in-innere-medizin-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
-        "it": [
-          "infirmier-ere-en-medecine-interne-de-80-a-100-hib-broye-payerne"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.551Z",
@@ -992,7 +992,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie-108",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.896Z",
+      "crawledAt": "2026-10-09T09:14:55.758Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1047,11 +1047,11 @@
         "infirmier-ere-au-centre-de-traitement-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "pflegefachfrau-pflegefachmann-am-80-bis-100-rehabilitation-und-behandlungszentrum-hopital-intercantonal-de-la-broye-hib"
-        ],
         "it": [
           "infirmier-ere-au-centre-de-traitement-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+        ],
+        "de": [
+          "pflegefachfrau-pflegefachmann-am-80-bis-100-rehabilitation-und-behandlungszentrum-hopital-intercantonal-de-la-broye-hib"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.549Z",
@@ -1100,7 +1100,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e-106",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.894Z",
+      "crawledAt": "2026-10-09T09:14:55.755Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1214,7 +1214,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100-105",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.891Z",
+      "crawledAt": "2026-10-09T09:14:55.752Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1321,7 +1321,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-en-pharmacie-cdm-104",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.890Z",
+      "crawledAt": "2026-10-09T09:14:55.750Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1361,15 +1361,15 @@
           "Fähigkeit, Prioritäten zu setzen und sich verfügbar zu machen, wenn dies erforderlich ist"
         ]
       },
-      "firstSeenAt": "2026-05-19T09:58:42.546Z",
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye"
         ]
       },
-      "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-en-medecine-interne-de-50-a-100-hib-broye"
-      ],
+      "firstSeenAt": "2026-05-19T09:58:42.546Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1416,7 +1416,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-de-80-a-100-103",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.887Z",
+      "crawledAt": "2026-10-09T09:14:55.747Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1440,11 +1440,11 @@
         "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "physiotherapist-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
-        ],
         "it": [
           "physiotherapeute-de-80-a-100-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "physiotherapist-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
         ]
       },
       "firstSeenAt": "2026-09-29T21:13:11.481Z",
@@ -1494,7 +1494,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-a-100-102",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.885Z",
+      "crawledAt": "2026-10-09T09:14:55.745Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1636,7 +1636,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique-101",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.882Z",
+      "crawledAt": "2026-10-09T09:14:55.741Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1727,7 +1727,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-rh-114",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.879Z",
+      "crawledAt": "2026-10-09T09:14:55.738Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1810,7 +1810,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-comptable-de-60-a-80-136",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.876Z",
+      "crawledAt": "2026-10-09T09:14:55.735Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1885,7 +1885,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-pour-le-ctr-de-50-a-100-168",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.875Z",
+      "crawledAt": "2026-10-09T09:14:55.733Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1972,7 +1972,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans-145",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.872Z",
+      "crawledAt": "2026-10-09T09:14:55.730Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2077,7 +2077,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/codificateur-trice-medical-e-80-100-150",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.869Z",
+      "crawledAt": "2026-10-09T09:14:55.727Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2152,7 +2152,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/aide-de-cuisine-a-80-155",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.868Z",
+      "crawledAt": "2026-10-09T09:14:55.726Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2232,7 +2232,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/cuisinier.ere-a-80-153",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.866Z",
+      "crawledAt": "2026-10-09T09:14:55.724Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2322,7 +2322,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/employe.e-de-nettoyage-a-80-185",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.864Z",
+      "crawledAt": "2026-10-09T09:14:55.723Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2415,7 +2415,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.862Z",
+      "crawledAt": "2026-10-09T09:14:55.722Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2434,15 +2434,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-184",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-25T21:31:55.267Z",
+      "previousSlugs": [
+        "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
         ]
       },
-      "previousSlugs": [
-        "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
-      ],
+      "firstSeenAt": "2026-08-25T21:31:55.267Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -2489,7 +2489,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medical.e-a-40-181",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.861Z",
+      "crawledAt": "2026-10-09T09:14:55.721Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2576,7 +2576,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-technologue-en-dispositifs-medicaux-cfc-a-100-180",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.860Z",
+      "crawledAt": "2026-10-09T09:14:55.720Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2662,7 +2662,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/trm-a-100-179",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.858Z",
+      "crawledAt": "2026-10-09T09:14:55.719Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2740,7 +2740,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-employe.e-de-commerce-cfc-a-100-177",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.857Z",
+      "crawledAt": "2026-10-09T09:14:55.718Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2835,7 +2835,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.855Z",
+      "crawledAt": "2026-10-09T09:14:55.716Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2854,15 +2854,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-de-chirurgie-de-50-a-100-167",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-17T11:00:17.442Z",
+      "previousSlugs": [
+        "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-clinique-en-medecine-interne-de-80-a-100-hib-broye-estavayer-le-lac"
-      ],
+      "firstSeenAt": "2026-07-17T11:00:17.442Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -2908,7 +2908,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-adjoint-e-en-medecine-interne-de-50-a-100-166",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.853Z",
+      "crawledAt": "2026-10-09T09:14:55.714Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2983,7 +2983,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.851Z",
+      "crawledAt": "2026-10-09T09:14:55.712Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3002,15 +3002,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-geriatrie-de-50-a-100-164",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-17T11:00:17.435Z",
+      "previousSlugs": [
+        "responsable-administration-rh-a-100-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-administration-rh-a-100-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "responsable-administration-rh-a-100-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-07-17T11:00:17.435Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3057,7 +3057,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assistant.e-medical.e-a-100-170",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.848Z",
+      "crawledAt": "2026-10-09T09:14:55.709Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3081,11 +3081,11 @@
         "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "intensivpfleger-in-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
         "it": [
           "infirmier-ere-en-soins-intensifs-de-80-a-100-hib-broye-payerne"
+        ],
+        "de": [
+          "intensivpfleger-in-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-07-23T22:11:07.455Z",
@@ -3134,7 +3134,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-logisticien.ne-cfc-a-100-176",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.845Z",
+      "crawledAt": "2026-10-09T09:14:55.707Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3222,7 +3222,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/assc-pour-le-service-des-urgences-et-la-policlinique-a-100-178",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.842Z",
+      "crawledAt": "2026-10-09T09:14:55.705Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3354,7 +3354,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-assc-a-100-174",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.840Z",
+      "crawledAt": "2026-10-09T09:14:55.702Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3430,7 +3430,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.837Z",
+      "crawledAt": "2026-10-09T09:14:55.699Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3449,15 +3449,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti-e-test-173",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-05T22:31:02.414Z",
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-en-cdd-de-6-mois-a-80-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-08-05T22:31:02.414Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -3503,7 +3503,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.834Z",
+      "crawledAt": "2026-10-09T09:14:55.697Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3522,15 +3522,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/apprenti.e-cuisinier.ere-cfc-a-100-175",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-06T11:32:38.208Z",
+      "previousSlugs": [
+        "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "assistant-e-medical-e-ou-assc-avec-cfc-de-50-a-100-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-08-06T11:32:38.208Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -3576,7 +3576,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-radiologie-de-80-a-100-187",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.831Z",
+      "crawledAt": "2026-10-09T09:14:55.694Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3666,7 +3666,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/logisticien.ne-a-70-189",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.829Z",
+      "crawledAt": "2026-10-09T09:14:55.692Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3761,7 +3761,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.826Z",
+      "crawledAt": "2026-10-09T09:14:55.690Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3780,15 +3780,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-du-service-en-gynecologie-obstetrique-de-80-a-100-190",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:04:37.532Z",
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-es-a-90-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-08-31T17:04:37.532Z",
       "salaryMin": 77900,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3834,7 +3834,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/medecin-chef.fe-en-anesthesie-de-50-a-100-191",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.824Z",
+      "crawledAt": "2026-10-09T09:14:55.689Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3858,11 +3858,11 @@
         "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
         "it": [
           "assistant-e-medical-e-ou-assc-avec-cfc-a-40-hib-broye-payerne"
+        ],
+        "de": [
+          "assistent-e-medical-e-ou-assc-avec-cfc-a-40-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-09-01T14:09:58.022Z",
@@ -3911,7 +3911,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.822Z",
+      "crawledAt": "2026-10-09T09:14:55.687Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3930,15 +3930,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/secretaire-medicale-a-60-193",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-10T23:04:01.884Z",
+      "previousSlugs": [
+        "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "assistant-e-medical-medical-e-a-40-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-09-10T23:04:01.884Z",
       "salaryMin": 24200,
       "salaryMax": 36600,
       "salarySource": "estimated",
@@ -3985,7 +3985,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/responsable-laboratoire-a-100-195",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.819Z",
+      "crawledAt": "2026-10-09T09:14:55.685Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4004,15 +4004,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/responsable-laboratoire-a-100-195",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-16T23:41:43.668Z",
+      "previousSlugs": [
+        "second-e-de-cuisine-a-100-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "second-e-de-cuisine-a-100-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "second-e-de-cuisine-a-100-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-09-16T23:41:43.668Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4059,7 +4059,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/physiotherapeute-194",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.817Z",
+      "crawledAt": "2026-10-09T09:14:55.684Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4083,11 +4083,11 @@
         "aide-de-cuisine-a-100-hib-broye-payerne"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "kuchenhelfer-100-hopital-intercantonal-de-la-broye-hib-payerne"
-        ],
         "it": [
           "aide-de-cuisine-a-100-hib-broye-payerne"
+        ],
+        "de": [
+          "kuchenhelfer-100-hopital-intercantonal-de-la-broye-hib-payerne"
         ]
       },
       "firstSeenAt": "2026-09-16T23:41:43.649Z",
@@ -4136,7 +4136,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.804Z",
+      "crawledAt": "2026-10-09T09:14:55.676Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4155,15 +4155,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/dieteticien.ne-a-70-197",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:39:19.567Z",
+      "previousSlugs": [
+        "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
         ]
       },
-      "previousSlugs": [
-        "assistant-e-medical-e-de-40-a-50-hib-broye-payerne"
-      ],
+      "firstSeenAt": "2026-09-23T23:39:19.567Z",
       "salaryMin": 30300,
       "salaryMax": 45800,
       "salarySource": "estimated",
@@ -4209,7 +4209,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/psychologue-a-60-196",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.791Z",
+      "crawledAt": "2026-10-09T09:14:55.666Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4296,7 +4296,7 @@
       "url": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T22:11:57.780Z",
+      "crawledAt": "2026-10-09T09:14:55.659Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4315,15 +4315,15 @@
       "applyUrl": "https://emploi.hopital-broye.ch/fr/nos-offres/infirmier.ere-specialise.e-en-soins-durgence-et-smur-a-80-100-198",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:43:46.168Z",
+      "previousSlugs": [
+        "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"
         ]
       },
-      "previousSlugs": [
-        "collaborateur-trice-de-l-unite-de-facturation-a-60-ou-80-hib-broye-estavayer-le-lac"
-      ],
+      "firstSeenAt": "2026-09-25T14:43:46.168Z",
       "salaryMin": 54800,
       "salaryMax": 83200,
       "salarySource": "estimated",
