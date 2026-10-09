@@ -12889,6 +12889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-aggressione-condanna.title': 'Montegrino Valtravaglia: condanna per aggressione con filo elettrico',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.excerpt': 'Condanna a 5 anni e 2 mesi per i fatti del 25 novembre 2025 Il caso riguarda Montegrino Valtravaglia Disposta una provvisionale di 5 mila euro per la donna',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.imageAlt': 'Vista panoramica del Lago di Lugano o Lago Maggiore con montagne e un borgo sulla riva, evocando la regione di Varese.',
+    'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operazione Upriver: 7 arresti, uno nel Varesotto',
+    'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
+    'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Vista sul lungolago di Lugano all\'alba',
 };
 
 export default blogMetaIt;

@@ -12890,6 +12890,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-aggressione-condanna.title': 'Montegrino Valtravaglia : condamnation pour agression avec fil électrique',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.excerpt': 'Condamnation à 5 ans et 2 mois pour les faits du 25 novembre 2025 L\'affaire concerne Montegrino Valtravaglia Disposé d\'une provision de 5 000 euros pour la femme',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.imageAlt': 'Vue panoramique du Lac de Lugano ou du Lac Majeur avec des montagnes et un village sur la rive, évoquant la région de Varèse. (Varese)',
+    'blog.article.operazione-upriver-arresti-varese-2026.title': 'Opération Upriver : 7 arrêts, un dans le Varesotto',
+    'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Opération Upriver : sept arrestations L\'une des arrestations à Varesotto Plus de 100 000 fichiers saisis Enquête coordonnée par le parquet de Milan Opération →',
+    'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Vue sur le lac de Lugano à l\'aube',
 };
 
 export default blogMetaFr;

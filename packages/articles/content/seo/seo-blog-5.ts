@@ -104314,6 +104314,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-operazione-upriver-arresti-varese-2026': {
+    title: 'Operazione Upriver: 7 arresti, uno nel Varesotto',
+    description: 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
+    keywords: 'frontalieri, ticino, svizzera, italia, operazione, upriver, arresti, varesotto',
+    ogTitle: 'Operazione Upriver: 7 arresti per pedopornografia, uno nel Varesotto',
+    ogDescription: 'Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →',
+    canonicalPath: '/articoli-frontaliere/operazione-upriver-arresti-varese-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Operazione Upriver: 7 arresti, uno nel Varesotto",
+      "description": "Operazione Upriver: sette arresti Uno degli arresti nel Varesotto Oltre 100mila file sequestrati Inchiesta coordinata dalla Procura di Milano Operazione →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-operazione-upriver-arresti-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lungolago di Lugano all'alba"
+      },
+      "datePublished": "2026-10-09T12:58:48+00:00",
+      "dateModified": "2026-10-09T12:58:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/operazione-upriver-arresti-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

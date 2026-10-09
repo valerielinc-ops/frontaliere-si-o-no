@@ -12888,6 +12888,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-aggressione-condanna.title': 'Montegrino Valtravaglia: sentence for assault with electric wire',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.excerpt': 'Sentence to 5 years and 2 months for the events of 25 November 2025 The case concerns Montegrino Valtravaglia Provisional order of 5 thousand euros for the woman',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.imageAlt': 'Panoramic view of Lake Lugano or Lake Maggiore with mountains and a village on the shore, evoking the Varese region.',
+    'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operation Upriver: 7 arrests, one in the Varese area',
+    'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Upriver Operation: seven arrests One of the arrests in the Varese area More than 100mila files seized Investigation coordinated by the Milan Prosecutor\'s Office Operation →',
+    'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Lugano lakefront view at dawn',
 };
 
 export default blogMetaEn;

@@ -12887,6 +12887,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.montegrino-valtravaglia-aggressione-condanna.title': 'Montegrino Valtravaglia: Verurteilung wegen Angriff mit elektrischem Draht',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.excerpt': 'Verurteilung zu 5 Jahren und 2 Monaten für die Ereignisse vom 25. (Montegrino Valtravaglia)',
     'blog.article.montegrino-valtravaglia-aggressione-condanna.imageAlt': 'Panoramablick auf den Luganersee oder Lago Maggiore mit Bergen und einem Dorf am Ufer, der die Region Varese heraufbeschwört.',
+    'blog.article.operazione-upriver-arresti-varese-2026.title': 'Operation Upriver: 7 Festnahmen, eine im Varesotto',
+    'blog.article.operazione-upriver-arresti-varese-2026.excerpt': 'Operation Upriver: sieben Festnahmen Eine der Festnahmen im Varesotto Über 100mila Dateien beschlagnahmt Von der Staatsanwaltschaft Mailand koordinierte Ermittlungen Operation →',
+    'blog.article.operazione-upriver-arresti-varese-2026.imageAlt': 'Seeblick von Lugano bei Sonnenaufgang',
 };
 
 export default blogMetaDe;
