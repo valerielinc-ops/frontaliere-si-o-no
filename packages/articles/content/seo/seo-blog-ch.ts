@@ -100681,6 +100681,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-midterm-usa-voto-svizzera': {
+    title: 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
+    description: 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, midterm, effetti, dazi, dollaro',
+    ogTitle: 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
+    ogDescription: 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera.',
+    canonicalPath: '/articoli-svizzera/midterm-usa-voto-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera",
+      "description": "Il voto Usa del 3 novembre può pesare sull'economia svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-midterm-usa-voto-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T14:00:45+00:00",
+      "dateModified": "2026-10-09T14:00:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/midterm-usa-voto-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

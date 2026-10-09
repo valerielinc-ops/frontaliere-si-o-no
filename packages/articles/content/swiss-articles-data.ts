@@ -26657,6 +26657,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'midterm-usa-voto-svizzera',
+    category: 'pratico',
+    date: '2026-10-09T14:00:45.907Z',
+    image: '/images/blog/article-midterm-usa-voto-svizzera.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5140
+      "6": 5141
     },
-    "publishedCovers": 6852,
+    "publishedCovers": 6853,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182167,6 +182167,33 @@
           "id": "luganistan-clan-ceresio",
           "category": "novita",
           "date": "2026-10-09T06:48:32.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-midterm-usa-voto-svizzera": {
+      "cover": "/images/blog/article-midterm-usa-voto-svizzera.webp",
+      "hash": "451068e63ba4b936c939fe9e406a81ffd50411bc625f3d479c712328cfba44d1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "midterm-usa-voto-svizzera",
+          "category": "pratico",
+          "date": "2026-10-09T14:00:45.907Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

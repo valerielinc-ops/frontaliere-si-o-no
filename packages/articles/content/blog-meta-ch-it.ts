@@ -7985,6 +7985,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziativa-solari-senza-permesso.title': 'Impianti solari senza autorizzazione: iniziativa fallita',
     'blog.article.iniziativa-solari-senza-permesso.excerpt': 'Iniziativa solare senza autorizzazione: raccolta fallita Il comitato indicava 117\'500 firme Quasi 20mila firme non erano valide Il termine di 18 mesi è scaduto',
     'blog.article.iniziativa-solari-senza-permesso.imageAlt': 'Pannelli solari sul tetto di un edificio in Svizzera',
+    'blog.article.midterm-usa-voto-svizzera.title': 'Midterm Usa: effetti su dazi, dollaro e mercati in Svizzera',
+    'blog.article.midterm-usa-voto-svizzera.excerpt': 'Il voto Usa del 3 novembre può pesare sull\'economia svizzera.',
+    'blog.article.midterm-usa-voto-svizzera.imageAlt': 'Illustrazione generata per questo articolo',
 };
 
 export default blogMetaChIt;

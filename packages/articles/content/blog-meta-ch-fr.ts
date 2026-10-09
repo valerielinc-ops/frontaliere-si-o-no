@@ -7985,6 +7985,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-solari-senza-permesso.title': 'Installations solaires sans autorisation : initiative échouée',
     'blog.article.iniziativa-solari-senza-permesso.excerpt': 'Initiative solaire sans autorisation : collecte infructueuse Le comité indiquait 117\'500 signatures Près de 20 mille signatures n\'étaient pas valables Le délai de 18 mois a expiré',
     'blog.article.iniziativa-solari-senza-permesso.imageAlt': 'Panneaux solaires sur le toit d\'un bâtiment en Suisse',
+    'blog.article.midterm-usa-voto-svizzera.title': 'Midterm USA : tarifs douaniers, dollar, marchés suisses',
+    'blog.article.midterm-usa-voto-svizzera.excerpt': 'Le vote américain du 3 novembre peut peser sur l’économie suisse.',
+    'blog.article.midterm-usa-voto-svizzera.imageAlt': 'Illustration générée pour cet article',
 };
 
 export default blogMetaChFr;
