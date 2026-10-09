@@ -7997,6 +7997,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.title': 'Cibersicurezza: 1.587 segnalazioni in una settimana',
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.excerpt': '1.587 segnalazioni volontarie in una settimana Nuovo massimo almeno dall\'inizio del 2025 Il 41% delle aziende Deloitte ha subito un attacco 280 notifiche',
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Facciata di un ufficio moderno in Svizzera che rappresenta la sicurezza informatica aziendale.',
+    'blog.article.voto-svizzera-esportazione-armi-2026.title': 'Esportazione armi: il voto federale del 29 novembre 2026',
+    'blog.article.voto-svizzera-esportazione-armi-2026.excerpt': 'Voto federale sulla legge: 29 novembre 2026 Apertura possibile per alcuni partner stretti Il conflitto armato non escluderebbe l\'autorizzazione L\'Ucraina resta',
+    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Facciata del Palazzo Federale a Berna, simbolo della politica nazionale svizzera.',
 };
 
 export default blogMetaChIt;

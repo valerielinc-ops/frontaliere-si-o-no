@@ -2688,6 +2688,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economia-svizzera-fiducia-calante': { it: 'economia-svizzera-fiducia-calante', en: 'swiss-economy-declining-confidence', de: 'schweizer-wirtschaft-sinkendes-vertrauen', fr: 'economie-suisse-confiance-declinaison' },
  'ricardo-account-esposti': { it: 'ricardo-account-esposti', en: 'ricardo-exposed-accounts', de: 'ricardo-offengelegte-konten', fr: 'ricardo-comptes-exposes' },
  'cibersicurezza-svizzera-record-segnalazioni': { it: 'cibersicurezza-svizzera-record-segnalazioni', en: 'cybersecurity-switzerland-record-reports', de: 'cybersicherheit-schweiz-rekord-meldungen', fr: 'cybersecurite-suisse-record-signalements' },
+ 'voto-svizzera-esportazione-armi-2026': { it: 'voto-svizzera-esportazione-armi-2026', en: 'switzerland-vote-war-material-export-2026', de: 'schweiz-abstimmung-kriegsmaterialexport-2026', fr: 'suisse-vote-exportation-materiel-guerre-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

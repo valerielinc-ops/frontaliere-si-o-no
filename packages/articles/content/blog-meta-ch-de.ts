@@ -7997,6 +7997,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.title': 'Cybersicherheit: 1.587 Meldungen in einer Woche',
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.excerpt': '1.587 freiwillige Meldungen in einer Woche Neuer Höchststand mindestens seit Anfang 2025 41% der Deloitte-Unternehmen waren von einem Angriff betroffen 280 Benachrichtigungen',
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Moderne Bürofassade in der Schweiz, die die Cybersicherheit von Unternehmen symbolisiert.',
+    'blog.article.voto-svizzera-esportazione-armi-2026.title': 'Waffenexport: die eidgenössische Abstimmung vom 29. November 2026',
+    'blog.article.voto-svizzera-esportazione-armi-2026.excerpt': 'Eidgenössische Abstimmung über das Gesetz: 29.',
+    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Fassade des Bundeshauses in Bern, Symbol der schweizerischen Bundespolitik.',
 };
 
 export default blogMetaChDe;
