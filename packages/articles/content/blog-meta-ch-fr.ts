@@ -7967,6 +7967,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.furti-statistica-svizzera-passaporto.title': 'Plus de 80 % des vols en Suisse ont un passeport étranger',
     'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 personnes condamnées pour vol l’année dernière Plus de 80 % avaient un passeport étranger Environ 1.500 condamnés étaient suisses Taskforce de la Confédération',
     'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Rue résidentielle suisse au crépuscule avec porte fermée et silhouette d\'un passant, symbole des vols',
+    'blog.article.luganistan-clan-ceresio.title': 'Luganistan, l’arrière-cour d’une kleptocratie',
+    'blog.article.luganistan-clan-ceresio.excerpt': 'Le quatrième épisode sur le commerce des matières premières raconte l’arrivée du clan Nazarbayev sur les rives du Ceresio, entre pétrole, villas et étranges permis de séjour.',
+    'blog.article.luganistan-clan-ceresio.imageAlt': 'Le Ceresio et les villas au bord du lac au cœur de l\'affaire Luganistan',
 };
 
 export default blogMetaChFr;

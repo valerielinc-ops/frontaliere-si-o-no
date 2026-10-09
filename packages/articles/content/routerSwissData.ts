@@ -2678,6 +2678,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-voto-cantonale-lucerna': { it: 'guida-voto-cantonale-lucerna', en: 'lucerne-cantonal-vote-guide', de: 'luzern-kantonale-abstimmung-guide', fr: 'guide-vote-cantonale-lucerne' },
  'ai-chip-scarzita-prezzi-pc': { it: 'ai-chip-scarzita-prezzi-pc', en: 'ai-chip-shortage-pc-prices', de: 'ki-chip-knappheit-pc-preise', fr: 'penurie-puces-ia-prix-pc' },
  'furti-statistica-svizzera-passaporto': { it: 'furti-statistica-svizzera-passaporto', en: 'more-than-80-of-thefts-in-switzerland-involve-people-with-foreign-passports', de: 'mehr-als-80-der-diebstahle-in-der-schweiz-haben-einen-auslandischen-pass', fr: 'plus-de-80-des-vols-en-suisse-ont-un-passeport-etranger' },
+ 'luganistan-clan-ceresio': { it: 'luganistan-clan-ceresio', en: 'luganistan-nazarbayev-ceresio', de: 'luganistan-nazarbayev-ceresio', fr: 'luganistan-nazarbayev-ceresio' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

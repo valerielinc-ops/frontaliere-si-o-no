@@ -100447,6 +100447,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luganistan-clan-ceresio': {
+    title: 'Luganistan, il giardino di casa di una cleptocrazia',
+    description: 'La quarta puntata sul commercio di materie prime racconta l\'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, luganistan, giardino, casa, cleptocrazia',
+    ogTitle: 'Clan Nazarbayev sul Ceresio: il caso Luganistan',
+    ogDescription: 'Il dossier porta sul Ceresio la quarta puntata dedicata al commercio di materie prime. Il racconto mette in fila il clan Nazarbayev, il petrolio, le ville e gli strani permessi di soggiorno indicati dalla fonte.',
+    canonicalPath: '/articoli-svizzera/luganistan-clan-ceresio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luganistan, il giardino di casa di una cleptocrazia",
+      "description": "La quarta puntata sul commercio di materie prime racconta l'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-clan-nazarbayev-ceresio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Ceresio e le ville sul lago al centro del caso Luganistan"
+      },
+      "datePublished": "2026-10-09T06:48:32+00:00",
+      "dateModified": "2026-10-09T06:48:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luganistan-clan-ceresio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

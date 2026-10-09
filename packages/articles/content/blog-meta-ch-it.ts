@@ -7967,6 +7967,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.furti-statistica-svizzera-passaporto.title': 'Oltre l\'80% dei furti in Svizzera ha passaporto straniero',
     'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 persone condannate per furto lo scorso anno Oltre l\'80% aveva un passaporto straniero Circa 1.500 condannati erano svizzeri Taskforce di Confederazione',
     'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Via residenziale svizzera al crepuscolo con porta chiusa e ombra di passante, simbolo dei furti',
+    'blog.article.luganistan-clan-ceresio.title': 'Luganistan, il giardino di casa di una cleptocrazia',
+    'blog.article.luganistan-clan-ceresio.excerpt': 'La quarta puntata sul commercio di materie prime racconta l\'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno.',
+    'blog.article.luganistan-clan-ceresio.imageAlt': 'Il Ceresio e le ville sul lago al centro del caso Luganistan',
 };
 
 export default blogMetaChIt;

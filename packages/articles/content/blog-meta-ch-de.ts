@@ -7967,6 +7967,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.furti-statistica-svizzera-passaporto.title': 'Mehr als 80% der Diebstähle in der Schweiz haben einen ausländischen Pass',
     'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 im vergangenen Jahr wegen Diebstahls verurteilte Personen Mehr als 80% hatten einen ausländischen Pass Etwa 1.500 Verurteilte waren Schweizer Taskforce des Bundes',
     'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Schweizer Wohnstraße in der Dämmerung mit geschlossener Tür und Silhouette eines Passanten, Symbol für Diebstahl',
+    'blog.article.luganistan-clan-ceresio.title': 'Luganistan, der Hinterhof einer Kleptokratie',
+    'blog.article.luganistan-clan-ceresio.excerpt': 'Die vierte Folge über den Handel mit Rohstoffen berichtet von der Ankunft des Nazarbayev-Clans am Luganersee, zwischen Öl, Villen und seltsamen Aufenthaltsbewilligungen.',
+    'blog.article.luganistan-clan-ceresio.imageAlt': 'Der Ceresio und Villen am See im Zentrum des Falls Luganistan',
 };
 
 export default blogMetaChDe;

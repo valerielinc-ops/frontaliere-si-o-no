@@ -7967,6 +7967,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.furti-statistica-svizzera-passaporto.title': 'More than 80% of thefts in Switzerland involve people with foreign passports.',
     'blog.article.furti-statistica-svizzera-passaporto.excerpt': '7.956 people convicted of theft last year More than 80% had a foreign passport Approximately 1.500 of those convicted were Swiss Confederation Taskforce',
     'blog.article.furti-statistica-svizzera-passaporto.imageAlt': 'Swiss residential street at dusk with closed door and passerby silhouette, symbol of theft',
+    'blog.article.luganistan-clan-ceresio.title': 'Luganistan, the backyard of a kleptocracy',
+    'blog.article.luganistan-clan-ceresio.excerpt': 'The fourth installment on the commodities trade recounts the arrival of the Nazarbayev clan on Lake Ceresio, amid oil, villas and strange residence permits.',
+    'blog.article.luganistan-clan-ceresio.imageAlt': 'Lake Ceresio and lakeside villas at the heart of the Luganistan case',
 };
 
 export default blogMetaChEn;
