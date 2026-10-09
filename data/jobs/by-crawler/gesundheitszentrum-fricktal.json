@@ -350,17 +350,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T21:18:32.522Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "previousSlugs": [
-        "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -373,7 +362,18 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-bb05d3c58954",
@@ -1232,15 +1232,15 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2329/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-ags-eba-m-w-d-in-ausbildung-2027-gesundheitszentrum"
-      ],
+      "firstSeenAt": "2026-09-29T21:18:05.388Z",
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-ags-eba-m-w-d-in-ausbildung-2027-gesundheitszentrum"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:18:05.388Z",
+      "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-ags-eba-m-w-d-in-ausbildung-2027-gesundheitszentrum"
+      ],
       "salaryMin": 52500,
       "salaryMax": 96500,
       "salarySource": "estimated",
@@ -1825,12 +1825,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-7066cac2481f",
-      "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+      "slug": "assistente-di-studio-medico-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
-        "en": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
         "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        "it": "assistente-di-studio-medico-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
+        "en": "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
+        "fr": "assistant-e-medical-e-mpa-efz-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -1873,7 +1873,6 @@
       "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2418/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-23T23:40:56.813Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1886,7 +1885,22 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:40:56.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-ab5b0957ab60",

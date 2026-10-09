@@ -2204,7 +2204,6 @@
           "consultant-principal-risque-verification-et-controles-deloitte-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:47:03.270Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -2218,7 +2217,8 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-ab8bf3423b77",
