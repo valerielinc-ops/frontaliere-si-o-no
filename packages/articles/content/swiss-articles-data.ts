@@ -26533,6 +26533,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'fuga-dati-publica-cassa',
+    category: 'pensione',
+    date: '2026-10-09T01:53:29.738Z',
+    image: '/images/blog/article-fuga-dati-publica-cassa.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

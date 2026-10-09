@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5098
+      "6": 5099
     },
-    "publishedCovers": 6810,
+    "publishedCovers": 6811,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180523,6 +180523,33 @@
       "action": "record-inferred",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
+      "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fuga-dati-publica-cassa": {
+      "cover": "/images/blog/article-fuga-dati-publica-cassa.webp",
+      "hash": "efdb3aebba054e9f3f17b09be3ee03727f052756a23ee121d8f196cfe81a7b16",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "fuga-dati-publica-cassa",
+          "category": "pensione",
+          "date": "2026-10-09T01:53:29.738Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
       "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,

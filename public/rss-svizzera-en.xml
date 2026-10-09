@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Oct 2026 01:39:56 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 01:53:29 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,85 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Publica data breach: attack and federal investigation</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/publica-data-leak-pension-fund/</link>
+      <description><![CDATA[Attack at the end of September against an external supplier of Publica Data leak and immediate criminal complaint Investigation by the Office of the Attorney General of Switzerland]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- Attack in late September against an external supplier to Publica
+- Data breach and immediate criminal complaint
+- Investigation by the Office of the Attorney General of Switzerland
+- Publica: 70'000 active insured persons and 41'600 pension recipients
+
+## Key facts
+- What → cyberattack on an external software provider for Publica
+- When → late September; radio report of October 8, 2026
+- Consequence → data leak
+- Criminal proceedings → immediate criminal complaint and investigation by the Office of the Attorney General of Switzerland
+- Scale → approximately 70'000 active insured persons, 41'600 pension beneficiaries and a balance sheet just under 45 billion francs
+
+On October 8, 2026, the 12.30 radio news broadcast reported on the cyberattack involving Publica, in a report by Anna Valenti. At the end of September, an external software provider for the Confederation's pension fund was hit by a cyberattack that resulted in a data leak.
+
+In the statement released on Thursday, the company reports that it immediately filed a criminal complaint. The Office of the Attorney General of Switzerland has launched an investigation. Together with the various federal services, the provider is now assessing the extent to which Publica's data were affected.
+
+In the meantime, the pension fund informed insured persons about the data leak, its effects and the measures taken. The statement thus places the incident on two levels: the criminal action already initiated and the technical assessment of the extent of the leak. The latter is not presented as completed.
+
+### Publica's scope
+
+These figures describe the size of the institution involved, while the extent of any impact on the data remains tied to the provider's assessment together with the federal services. The statement also specifies that the company hit by hackers has no business relations with any other federal service. The assessment therefore concerns Publica's data in its relationship with that provider, while the criminal investigation is proceeding at the Office of the Attorney General of Switzerland.
+
+For those monitoring their own position in previdenza e nelle rendite, the concrete reference remains the communication received from Publica, which provides information about the data leak, its consequences and the measures taken.
+For those who live or work in Switzerland, the Publica case should be read by distinguishing between the affected supplier, the potentially affected data, and the consequences communicated to the insured. The source identifies an external software company as the target of the attack and links the extent to which the fund's data are affected to the review with the Confederation's services. This distinction avoids automatically attributing elements from other incidents to Publica.
+
+### Comparison with recent incidents
+
+| Case | Reported elements |
+|---|---|
+| CHUV | At the beginning of September, a personal-data breach involving eleven patients after a cyberattack against an external laboratory specializing in cancer diagnosis. |
+| UFIT | In August, an attack against SharePoint servers, a file-sharing platform; approximately 200 accounts compromised, with no indications of a data breach at that time. |
+| RUAG | The US subsidiary was hacked in October 2025 and data were stolen; last June, RUAG acknowledged paying a ransom. |
+| Stadler Rail | In July, technical data were stolen from a supplier; a demand for 10 million francs was rejected and Stadler systems were not affected. |
+
+The incidents have different scopes: patients and laboratory in the CHUV case, accounts and sharing platform for UFIT, a US subsidiary for RUAG, and a supplier for Stadler Rail. In the Publica case, by contrast, the report brings together an external supplier, a federal pension fund, and a review of the Confederation's data.
+
+The responses are not comparable either. For RUAG, in August, the Federal Department of Defence concluded that the ransom payment did not constitute a violation of the law, while criticizing shortcomings in incident management. Stadler Rail had refused the requested payment and its systems had not been affected. For Publica, the statement reports a criminal complaint, an investigation and information provided to the insured, without linking the case to any of the remedies described for the other companies.
+
+The size of the fund, with active insured persons and pension recipients, explains the national interest in the case; it does not, however, allow figures or consequences from the other incidents to be attributed to Publica. To keep the data-breach issue separate from pension management, the tools at previdenza e rendite can be consulted.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
+
+## Useful planning tools
+To estimate your pension strategy, use the pension planner and the pillar 3 simulator.
+For an insured person, handling the matter involves Publica's communication and the announced investigations. The procedure can be organized into a few steps, without attributing to the case measures that the source does not mention.
+
+### Operational steps
+
+1. Recognize the relationship with Publica. The communication concerns insured persons; within the fund, the text distinguishes between active insured persons and pension beneficiaries. This distinction serves to correctly interpret the information received.
+2. Read the section dedicated to the data breach. Publica informed insured persons about this event, its consequences and the measures taken. Therefore, start with the fund's communication, not the details of other attacks.
+3. Separate consequences and measures. These are two distinct elements of Publica's information. The consequence describes what results from the breach; the measure indicates the action taken by the fund, according to the communication received.
+4. Follow the measures communicated by Publica. The text does not apply to this case the procedures relating to CHUV, UFIT, RUAG or Stadler Rail: the incidents remain separate and have different scopes.
+5. Follow the verification that is still ongoing. The provider is working with the various services of the Confederation to determine the extent to which Publica's data are affected. Any update on the scope of the incident depends on this investigation.
+
+### What to monitor next
+
+For those working in the Federal Administration or in the federal institutes of technology sector, Publica identifies the insurance relationship as the reference. The statement also specifies that the company targeted by the hackers has no business relationships with any other federal service. If the professional relationship is with another service, the source alone does not authorize extending any possible involvement of the data to that service.
+
+The available timeline places the attack in late September and the radio report on October 8, 2026. The operational step indicated by the source remains reading Publica's communication and the measures taken, together with the results of the technical verification.
+
+To learn more about pension matters related to the fund, consult sezione previdenza e rendite.
+
+Compare LAMal health insurance premiums: up to CHF 200 monthly difference between providers for the same canton and deductible.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4145129)*
+
+Plan your cross-border pension: calculate AVS, second pillar and INPS coordination to avoid retirement surprises.]]></content:encoded>
+      <pubDate>Fri, 09 Oct 2026 01:53:29 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/fuga-dati-publica-cassa</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-fuga-dati-publica-cassa.webp" medium="image"/>
+    </item>
     <item>
       <title>Names, AVS numbers and salaries: here is the data stolen from Publica</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/publica-cyber-attack-stolen-data/</link>
@@ -3906,87 +3985,6 @@ The process does not produce a certain forecast: it organizes the available data
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/costi-assicurazione-base-proiezione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/costi-assicurazione-base-proiezione.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Julien Seguinot</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license></media:content>
-    </item>
-    <item>
-      <title>Ostinelli does not pay his health insurance and goes before the magistrate</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/ostinelli-health-insurance-court-hearing/</link>
-      <description><![CDATA[Roberto Ostinelli, a doctor from Mendrisio, has not paid his health insurance since June 2024 and must appear before the magistrate on October 6; he pays 140 euro per month for international insurance.]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- Roberto Ostinelli has not paid his health insurance since June 2024
-- The doctor from Mendrisio must appear before the magistrate on October 6
-- International insurance costs 140 euros a month
-- The political proposal concerns a three-year period for people from Ticino
-
-## Key facts
-- Person → Roberto Ostinelli, doctor and member of parliament from Mendrisio
-- Last payment → June 2024
-- Hearing → Tuesday, October 6, before the magistrate
-- Alternative coverage → international insurance
-- Stated premium → 140 euros a month
-- Proposal → foreign insurance for people from Ticino for three years
-
-June 2024 was the last month in which Roberto Ostinelli, a doctor from Mendrisio, paid his health insurance. Since then, the bills have piled up, and on Tuesday, October 6, he will have to appear before the magistrate. The case concerns a cassa malati Swiss insurance policy and a choice that the person directly involved presents as voluntary and deliberate.
-
-During the Covid-19 pandemic, Ostinelli attracted attention with his unconventional views. He says that, like many people from Ticino and due to family problems, he experienced a difficult financial period: he knows what it means to make it to the end of the month and ask for an extension to pay a bill.
-
-To reduce expenses, he looked for another solution and found international insurance. He says he also has a foothold abroad, which would have allowed him to take it out. He was told that the coverage is valid throughout Europe, including Switzerland, and on other continents as well. The stated cost is 140 euros per month, one third of the cost of Swiss coverage. So far, he has paid for it without using it, because he has always been healthy and has a high deductible.
-
-The Swiss health insurance bills, however, continued to arrive. Initially, the doctor tried to reach an agreement with the health insurer, without success; his cancellation was not accepted. He therefore decided not to pay. He does not know what the outcome in court will be and speculates that he may be notified of a bankruptcy petition.
-
-> «Mine is a voluntary choice. A deliberate one. I want to send a message to the system».
-
-Ostinelli says that he does not consider himself a rebel and that his choice is not born of a whim: he invokes his own ethics and morality. His stated position is clear: whatever amount he is presented with, he will not pay it.
-
-### The political proposal
-
-The doctor, who is also a member of parliament, would like the canton to consider allowing people from Ticino, for a three-year period, to take out foreign insurance. He acknowledges that most people cannot have a foothold outside Switzerland and that his concept conflicts with federal law. For this reason, he speaks of mediation with the insurance companies and announces that a sustainable health insurance model will come later. His proposal, he explained, should give those in difficulty some breathing room, without turning the choice into a mere provocation.
-## The premium is not enough
-
-For those living in Switzerland, the case opens up a discussion that goes beyond converting euros into francs. LAMal/KVG is mandatory health insurance for residents: international coverage must therefore be assessed together with the insurance obligation, not only the stated monthly premium. In Ostinelli's case, a policy described as also being valid in Switzerland did not result in the Swiss insurer accepting the cancellation.
-
-The practical picture can be viewed on three levels:
-
-| Level | Element that emerged | What it indicates |
-| Cost | 140 euro per month, one third of Swiss coverage | It is the savings declared by Ostinelli, not a general measure of the protection |
-| Coverage | Europe, including Switzerland, and other continents | The geographic scope refers to his insurance |
-| Rules | Cancellation not accepted and conflict with federal law | The process does not end with the signing of a new contract |
-
-Differences between cantons matter because premiums are organized by canton or region and premium reductions are cantonal. For this reason, pressure on costo della vita in Svizzera is not addressed in the same way everywhere. A proposal aimed at people from Ticino, moreover, cannot be presented as a model already valid for everyone: the source itself points out that most people do not have a foothold outside Switzerland.
-
-### The risk for the classic model
-
-The most delicate point concerns those who would remain in the classic model. The article raises the objection that, if some people could temporarily opt out, the others might find themselves with even higher premiums. This is not a result already observed in the source: it is the risk raised in the comparison with Ostinelli. His response is to limit the exception to three years and then start over.
-
-The proposal also faces an access limitation. Ostinelli admits that most people cannot have a foothold abroad; mediation with insurers would therefore be necessary. The hypothetical benefit for those struggling to make ends meet is accompanied by a question of balance: who can really use the alternative and who remains in the ordinary model? For the Swiss reader, the point is this: the individual savings claimed must be compared with the viability of the classic model, without turning a personal case into a reform that is already available.
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
-## How to conduct a review
-
-Anyone considering the case as a prompt to review their own coverage should separate verifying the obligation from evaluating the price. The practical process can remain simple and documented.
-
-1. Define the insurance status. For residents, LAMal/KVG is mandatory and must be taken out within three months of arrival. International coverage should not automatically be treated as a substitute: first, it is necessary to understand whether one's situation falls under the obligation.
-
-2. Compare the contract and coverage. Note the premium, deductible, geographical validity and actual use of the policy. In the case described, there is a monthly amount of 140 euros, stated validity in Europe, including Switzerland, and a high deductible: these are facts of the case, not an offer for other insured persons.
-
-3. Ask the insurer for a written response regarding the cancellation. Ostinelli's invoices continued to arrive and his cancellation was not accepted. For this reason, it is not advisable to consider the relationship closed merely because a new policy was sought or signed. Keeping invoices, correspondence and confirmations makes it possible to reconstruct the transition.
-
-4. Prepare the documentation if a summons arrives. The man said that he would appear before the magistrate and that he did not rule out filing for bankruptcy. Anyone receiving similar communications should immediately check the dates, amounts and documents indicated, without treating the case as having a predetermined outcome: the source does not yet report the result of the proceedings.
-
-### The budget comparison
-
-Before choosing, the premium should be included in the monthly budget together with the deductible and the actual use of the coverage; Ostinelli says that he was healthy and had a high deductible, but these conditions cannot be generalized. The aim is not to replicate his decision, but to understand whether the coverage is recognized and what costs remain in the event of a disagreement.
-
-To estimate the impact of the expense on the monthly budget, use calcolatore stipendio.
-
-*Source: [tio.ch](https://www.tio.ch/ticino/cronaca/1954785/non-paga-la-cassa-malati-da-due-anni-ora-finisce-davanti-al-pretore)*
-
-<footer class="ft-image-credit mt-8 text-sm text-subtle" data-image-credit="wikimedia-commons"><small>Cover image: <a href="https://commons.wikimedia.org/wiki/File:Locarno_1.jpg" target="_blank" rel="noopener" class="underline underline-offset-2">“<bdi>Locarno 1</bdi>”</a> by <a href="https://de.wikipedia.org/wiki/User:Riessdo" target="_blank" rel="noopener" class="underline underline-offset-2"><bdi>Riessdo</bdi></a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" class="underline underline-offset-2">CC BY-SA 3.0</a>, via Wikimedia Commons (cropped and resized).</small></footer>]]></content:encoded>
-      <pubDate>Tue, 06 Oct 2026 07:13:37 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/ostinelli-cassa-malati-udienza-pretore</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ostinelli-cassa-malati-udienza-pretore.webp" medium="image"><media:credit role="author" scheme="urn:ebu">Riessdo</media:credit><media:license type="text/html" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</media:license></media:content>
     </item>
   </channel>
 </rss>

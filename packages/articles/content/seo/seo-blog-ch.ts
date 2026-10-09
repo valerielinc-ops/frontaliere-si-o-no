@@ -100213,6 +100213,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuga-dati-publica-cassa': {
+    title: 'Fuga di dati Publica: attacco e indagine federale',
+    description: 'Attacco a fine settembre contro un fornitore esterno di Publica Fuga di dati e denuncia penale immediata Indagine del Ministero pubblico della Confederazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, dati, publica, attacco',
+    ogTitle: 'Fuga di dati Publica: attacco informatico e indagine federale',
+    ogDescription: 'Attacco a fine settembre contro un fornitore esterno di Publica Fuga di dati e denuncia penale immediata Indagine del Ministero pubblico della Confederazione',
+    canonicalPath: '/articoli-svizzera/fuga-dati-publica-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga di dati Publica: attacco e indagine federale",
+      "description": "Attacco a fine settembre contro un fornitore esterno di Publica Fuga di dati e denuncia penale immediata Indagine del Ministero pubblico della Confederazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fuga-dati-publica-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Cassa pensioni Publica in Svizzera"
+      },
+      "datePublished": "2026-10-09T01:53:29+00:00",
+      "dateModified": "2026-10-09T01:53:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fuga-dati-publica-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

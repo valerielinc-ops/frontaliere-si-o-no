@@ -7949,6 +7949,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.attacco-publica-dati-rubati.title': 'Namen, AHV-Nummern und Gehälter: Hier sind die bei Publica gestohlenen Daten',
     'blog.article.attacco-publica-dati-rubati.excerpt': 'Ende September: Angriff auf den Softwareanbieter von Publica Namen, AHV-Nummern und Gehälter unter den gefährdeten Daten Publica zählt 66’000 aktive Versicherte und 40’000',
     'blog.article.attacco-publica-dati-rubati.imageAlt': 'Institutioneller Hauptsitz in der Schweiz im Zusammenhang mit der Pensionskasse Publica',
+    'blog.article.fuga-dati-publica-cassa.title': 'Publica-Datenleck: Angriff und Untersuchung auf Bundesebene',
+    'blog.article.fuga-dati-publica-cassa.excerpt': 'Angriff Ende September auf einen externen Dienstleister von Publica Datenleck und umgehende Strafanzeige Ermittlungen der Bundesanwaltschaft',
+    'blog.article.fuga-dati-publica-cassa.imageAlt': 'Publica Pensionskasse Hauptsitz in der Schweiz',
 };
 
 export default blogMetaChDe;

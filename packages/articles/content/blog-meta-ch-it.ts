@@ -7949,6 +7949,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.attacco-publica-dati-rubati.title': 'Nomi, numeri AVS e stipendi: ecco i dati rubati a Publica',
     'blog.article.attacco-publica-dati-rubati.excerpt': 'Fine settembre: attacco al fornitore software di Publica Nomi, numeri AVS e stipendi tra i dati a rischio Publica conta 66’000 assicurati attivi e 40’000',
     'blog.article.attacco-publica-dati-rubati.imageAlt': 'Sede istituzionale in Svizzera legata alla cassa pensioni Publica',
+    'blog.article.fuga-dati-publica-cassa.title': 'Fuga di dati Publica: attacco e indagine federale',
+    'blog.article.fuga-dati-publica-cassa.excerpt': 'Attacco a fine settembre contro un fornitore esterno di Publica Fuga di dati e denuncia penale immediata Indagine del Ministero pubblico della Confederazione',
+    'blog.article.fuga-dati-publica-cassa.imageAlt': 'Sede della Cassa pensioni Publica in Svizzera',
 };
 
 export default blogMetaChIt;

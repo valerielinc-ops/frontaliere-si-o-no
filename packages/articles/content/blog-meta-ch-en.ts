@@ -7949,6 +7949,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attacco-publica-dati-rubati.title': 'Names, AVS numbers and salaries: here is the data stolen from Publica',
     'blog.article.attacco-publica-dati-rubati.excerpt': 'Late September: attack on Publica’s software provider Names, AVS numbers and salaries among the data at risk Publica has 66’000 active insured persons and 40’000',
     'blog.article.attacco-publica-dati-rubati.imageAlt': 'Institutional headquarters in Switzerland related to the Publica pension fund',
+    'blog.article.fuga-dati-publica-cassa.title': 'Publica data breach: attack and federal investigation',
+    'blog.article.fuga-dati-publica-cassa.excerpt': 'Attack at the end of September against an external supplier of Publica Data leak and immediate criminal complaint Investigation by the Office of the Attorney General of Switzerland',
+    'blog.article.fuga-dati-publica-cassa.imageAlt': 'Publica pension fund headquarters in Switzerland',
 };
 
 export default blogMetaChEn;

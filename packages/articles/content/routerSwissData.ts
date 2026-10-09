@@ -2672,6 +2672,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-soldi-delusione-lavoro': { it: 'svizzera-soldi-delusione-lavoro', en: 'switzerland-money-disappointment-job', de: 'schweiz-geld-enttaeuschung-arbeit', fr: 'suisse-argent-deception-travail' },
  'linea-ginevra-friburgo-pressione': { it: 'linea-ginevra-friburgo-pressione', en: 'geneva-fribourg-rail-line-pressure', de: 'bahnstrecke-genf-freiburg-unter-druck', fr: 'ligne-geneve-fribourg-sous-pression' },
  'attacco-publica-dati-rubati': { it: 'attacco-publica-dati-rubati', en: 'publica-cyber-attack-stolen-data', de: 'publica-cyberangriff-daten-gestohlen', fr: 'attaque-cyber-publica-donnees-volees' },
+ 'fuga-dati-publica-cassa': { it: 'fuga-dati-publica-cassa', en: 'publica-data-leak-pension-fund', de: 'publica-datenleck-pensionskasse', fr: 'fuite-donnees-publica-caisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
