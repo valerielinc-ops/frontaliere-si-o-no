@@ -8009,6 +8009,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': 'Referendum IVA 2026: aumento per la tredicesima pensione',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'Il referendum sulla proposta si terrà il 29 novembre.',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Immagine editoriale relativa a: Referendum IVA 2026: aumento per la tredicesima pensione',
+    'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum contro nuove centrali nucleari in Svizzera',
+    'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'Oltre 131.800 firme consegnate a Berna da SP, Verdi, GLP e parte del Centro per mantenere il divieto sul nucleare; voto possibile il 28 febbraio 2027.',
+    'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Panorama delle Alpi svizzere con tralicci dell\'elettricità e un impianto solare in primo piano',
 };
 
 export default blogMetaChIt;

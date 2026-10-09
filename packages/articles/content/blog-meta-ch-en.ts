@@ -8009,6 +8009,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': '2026 VAT referendum: increase for the thirteenth pension payment',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'The referendum on the proposal will be held on November 29.',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Editorial image related to: Referendum IVA 2026: aumento per la tredicesima pensione',
+    'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum against new nuclear power plants in Switzerland',
+    'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'More than 131.800 signatures delivered to Bern by SP, Verdi, GLP and part of Centro to maintain the ban on nuclear power; vote possible on February 28, 2027.',
+    'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Panoramic view of the Swiss Alps with electricity pylons and a solar farm in the foreground',
 };
 
 export default blogMetaChEn;

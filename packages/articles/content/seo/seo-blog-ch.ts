@@ -100998,6 +100998,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-nucleare-svizzera-2027': {
+    title: 'Referendum contro nuove centrali nucleari in Svizzera',
+    description: 'Oltre 131.800 firme consegnate a Berna da SP, Verdi, GLP e parte del Centro per mantenere il divieto sul nucleare; voto possibile il 28 febbraio 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, contro, nuove, centrali',
+    ogTitle: 'Referendum contro nuove centrali nucleari in Svizzera',
+    ogDescription: 'Oltre 131.800 firme consegnate a Berna da SP, Verdi, GLP e parte del Centro per mantenere il divieto sul nucleare; voto possibile il 28 febbraio 2027.',
+    canonicalPath: '/articoli-svizzera/referendum-nucleare-svizzera-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum contro nuove centrali nucleari in Svizzera",
+      "description": "Oltre 131.800 firme consegnate a Berna da SP, Verdi, GLP e parte del Centro per mantenere il divieto sul nucleare; voto possibile il 28 febbraio 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-nucleare-svizzera-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama delle Alpi svizzere con tralicci dell'elettricità e un impianto solare in primo piano"
+      },
+      "datePublished": "2026-10-09T22:31:58+00:00",
+      "dateModified": "2026-10-09T22:31:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-nucleare-svizzera-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

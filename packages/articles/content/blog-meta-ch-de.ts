@@ -8009,6 +8009,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.title': 'Mehrwertsteuer-Referendum 2026: Erhöhung für die 13. Rente',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.excerpt': 'Das Referendum über den Vorschlag findet am 29.',
     'blog.article.referendum-iva-2026-aumento-per-la-tredicesima-pensione.imageAlt': 'Redaktionelles Bild zu: Referendum IVA 2026: aumento per la tredicesima pensione',
+    'blog.article.referendum-nucleare-svizzera-2027.title': 'Referendum gegen neue Kernkraftwerke in der Schweiz',
+    'blog.article.referendum-nucleare-svizzera-2027.excerpt': 'Mehr als 131.800 Unterschriften von SP, Grünen, GLP und einem Teil der Mitte in Bern eingereicht, um das Verbot der Kernenergie aufrechtzuerhalten; Abstimmung möglicherweise am 28.',
+    'blog.article.referendum-nucleare-svizzera-2027.imageAlt': 'Panoramablick auf die Schweizer Alpen mit Strommasten und einem Solarpark im Vordergrund',
 };
 
 export default blogMetaChDe;
