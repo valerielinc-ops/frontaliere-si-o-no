@@ -7999,7 +7999,10 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Façade d\'un bureau moderne en Suisse symbolisant la cybersécurité des entreprises.',
     'blog.article.voto-svizzera-esportazione-armi-2026.title': 'Exportation d’armes : le vote fédéral du 29 novembre 2026',
     'blog.article.voto-svizzera-esportazione-armi-2026.excerpt': 'Vote fédéral sur la loi : 29 novembre 2026 Ouverture possible pour certains partenaires proches Le conflit armé n’exclurait pas l’autorisation L’Ukraine reste',
-    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Façade du Palais fédéral à Berne, symbole de la politique fédérale suisse.',
+    'blog.article.spesa-famiglie-inflazione.title': 'Suisse, consommation en hausse de 0,9% en septembre',
+    'blog.article.spesa-famiglie-inflazione.excerpt': 'En septembre, la consommation suisse a augmenté de 0,9%.',
+    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Consommateurs en Suisse payant leurs achats par carte',
 };
 
 export default blogMetaChFr;

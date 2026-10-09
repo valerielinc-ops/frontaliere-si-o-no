@@ -2689,6 +2689,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ricardo-account-esposti': { it: 'ricardo-account-esposti', en: 'ricardo-exposed-accounts', de: 'ricardo-offengelegte-konten', fr: 'ricardo-comptes-exposes' },
  'cibersicurezza-svizzera-record-segnalazioni': { it: 'cibersicurezza-svizzera-record-segnalazioni', en: 'cybersecurity-switzerland-record-reports', de: 'cybersicherheit-schweiz-rekord-meldungen', fr: 'cybersecurite-suisse-record-signalements' },
  'voto-svizzera-esportazione-armi-2026': { it: 'voto-svizzera-esportazione-armi-2026', en: 'switzerland-vote-war-material-export-2026', de: 'schweiz-abstimmung-kriegsmaterialexport-2026', fr: 'suisse-vote-exportation-materiel-guerre-2026' },
+ 'spesa-famiglie-inflazione': { it: 'spesa-famiglie-inflazione', en: 'swiss-spending-september', de: 'schweizer-konsum-september', fr: 'consommation-suisse-septembre' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

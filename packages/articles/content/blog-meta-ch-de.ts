@@ -7999,7 +7999,10 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cibersicurezza-svizzera-record-segnalazioni.imageAlt': 'Moderne Bürofassade in der Schweiz, die die Cybersicherheit von Unternehmen symbolisiert.',
     'blog.article.voto-svizzera-esportazione-armi-2026.title': 'Waffenexport: die eidgenössische Abstimmung vom 29. November 2026',
     'blog.article.voto-svizzera-esportazione-armi-2026.excerpt': 'Eidgenössische Abstimmung über das Gesetz: 29.',
-    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.voto-svizzera-esportazione-armi-2026.imageAlt': 'Fassade des Bundeshauses in Bern, Symbol der schweizerischen Bundespolitik.',
+    'blog.article.spesa-famiglie-inflazione.title': 'Schweiz, Konsum im September um 0,9% gestiegen',
+    'blog.article.spesa-famiglie-inflazione.excerpt': 'Im September stieg der Schweizer Konsum um 0,9%.',
+    'blog.article.spesa-famiglie-inflazione.imageAlt': 'Schweizer Konsumenten beim Bezahlen mit Karte',
 };
 
 export default blogMetaChDe;

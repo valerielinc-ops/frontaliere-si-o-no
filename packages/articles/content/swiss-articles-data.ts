@@ -26707,6 +26707,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'spesa-famiglie-inflazione',
+    category: 'novita',
+    date: '2026-10-09T18:30:40.205Z',
+    image: '/images/blog/svizzeri-spesa-crescita-rallenta.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
