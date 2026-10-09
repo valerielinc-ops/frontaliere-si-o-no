@@ -174,6 +174,28 @@ describe('buildSimplePage · non-render-blocking CSS', () => {
     expect(html).toContain('<article><h1>Test</h1></article>');
   });
 
+  it('keeps trailing static ads inside the center rail grid column', () => {
+    const html = buildSimplePage({
+      ...baseOpts,
+      bodyHtml: '<main class="seo-static-content"><h1>Test</h1></main><section class="ad">Ad</section>',
+    });
+    const gridStart = html.indexOf('ft-rail-grid');
+    const footerRoot = html.indexOf('<div id="footer-root">');
+    const grid = html.slice(gridStart, footerRoot);
+    const mainStart = grid.indexOf('<main');
+    const mainEnd = grid.indexOf('</main>');
+    const adPosition = grid.indexOf('<section class="ad">');
+    const rightRail = grid.indexOf('id="rail-right-root"');
+
+    expect(html.match(/<main\b/gi) ?? []).toHaveLength(1);
+    expect(grid).toContain('<section class="ad">Ad</section>');
+    expect(mainStart).toBeGreaterThan(-1);
+    expect(adPosition).toBeGreaterThan(mainStart);
+    expect(adPosition).toBeLessThan(mainEnd);
+    expect(mainStart).toBeLessThan(rightRail);
+    expect((grid.match(/<aside\b/g) ?? []).length).toBe(2);
+  });
+
   it('keeps a non-lite-shell class when promoting an existing main', () => {
     const html = buildSimplePage({
       ...baseOpts,

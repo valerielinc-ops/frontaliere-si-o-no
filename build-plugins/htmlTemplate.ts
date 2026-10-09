@@ -337,9 +337,10 @@ export function buildSimplePage(opts: SimplePageOpts): string {
   * Several SEO emitters build their body as a complete `<main>` because they
   * also use that markup in hand-rolled/static-only paths. Wrapping that body
   * in another `<main>` when `seoContentOutsideRoot` is enabled produces two
-  * main landmarks and invalid landmark navigation. Only a leading main is
-  * promoted here: embedded mains remain ordinary page content and raw inner
-  * HTML continues through the canonical wrapper below.
+  * main landmarks and invalid landmark navigation. A leading complete main is
+  * promoted here, with any trailing siblings moved inside it so the rail grid
+  * still has exactly one center-column child. Embedded mains remain ordinary
+  * page content and raw inner HTML continues through the canonical wrapper.
   */
  const staticBody = seoContentOutsideRoot ? (() => {
    const leadingMain = bodyHtml.match(/^(\s*(?:<!--[\s\S]*?-->\s*)*)<main\b[^>]*>/i);
@@ -347,6 +348,19 @@ export function buildSimplePage(opts: SimplePageOpts): string {
 
    const prefix = leadingMain[1];
    const openingTag = leadingMain[0].slice(prefix.length);
+   const closingMainPattern = /<\/main\s*>/gi;
+   closingMainPattern.lastIndex = leadingMain[0].length;
+   let closingMain: RegExpExecArray | null = null;
+   let closingMatch: RegExpExecArray | null;
+   while ((closingMatch = closingMainPattern.exec(bodyHtml)) !== null) {
+     closingMain = closingMatch;
+   }
+   if (!closingMain) return `<main class="${seoMainClass}">\n${bodyHtml}\n</main>`;
+
+   const closingMainIndex = closingMain.index;
+   const closingMainEnd = closingMainIndex + closingMain[0].length;
+   const mainInnerHtml = bodyHtml.slice(leadingMain[0].length, closingMainIndex);
+   const trailingHtml = bodyHtml.slice(closingMainEnd);
    const classAttr = /\bclass\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(openingTag);
    const requestedClasses = seoMainClass.split(/\s+/).filter(Boolean);
    let promotedOpening = openingTag;
@@ -368,7 +382,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
      }
    }
 
-   return `${prefix}${promotedOpening}${bodyHtml.slice(leadingMain[0].length)}`;
+   return `${prefix}${promotedOpening}${mainInnerHtml}${trailingHtml}${closingMain[0]}`;
  })() : '';
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
