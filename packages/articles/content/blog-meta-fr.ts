@@ -12905,6 +12905,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, circulation paralysée en raison d’un accident sur la via Colombera',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Circulation paralysée à Caslano Accident sur la via Colombera Un motocycliste impliqué Circulation locale fortement perturbée Lieu → via Colombera, entre Caslano',
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustration générée pour cet article',
+    'blog.article.teatro-locarno-fondi-pubblici.title': 'Théâtre de Locarno : vous avez demandé plus de fonds aux organismes publics',
+    'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Plus de cent associés à l\'assemblée du jeudi soir Déficit d\'environ 55\'000 francs pour la saison 2025/26 Le déficit a été couvert par le patrimoine social',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Théâtre de Locarno, lieu de l’assemblée annuelle des Amici del Teatro',
 };
 
 export default blogMetaFr;

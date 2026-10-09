@@ -12903,6 +12903,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, traffic gridlocked due to an accident on Via Colombera',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Traffic at a standstill in Caslano Accident along via Colombera A motorcyclist involved Local traffic heavily disrupted Location → via Colombera, between Caslano',
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustration generated for this article',
+    'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: more funding sought from public authorities',
+    'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'More than one hundred members at Thursday evening\'s assembly A deficit of approximately 55\'000 francs in the 2025/26 season The shortfall was covered with the association\'s assets',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Locarno Theatre, venue of the Amici del Teatro annual assembly',
 };
 
 export default blogMetaEn;

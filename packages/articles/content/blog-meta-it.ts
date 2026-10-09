@@ -12904,6 +12904,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, traffico in tilt per incidente in via Colombera',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: chiesti più fondi agli enti pubblici',
+    'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55\'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Teatro di Locarno, sede dell’assemblea degli Amici del Teatro',
 };
 
 export default blogMetaIt;
