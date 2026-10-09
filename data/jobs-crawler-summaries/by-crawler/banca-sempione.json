@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-09T09:19:17.369Z",
+  "generatedAt": "2026-10-09T10:38:01.991Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5616,
-  "avgDurationMs": 5616,
+  "durationMs": 5650,
+  "avgDurationMs": 5650,
   "durationHistory": [
-    5616
+    5650
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -90,46 +90,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Stage Amministrazione Crediti – Banca del Sempione (Lugano)",
-      "company": "Banca del Sempione",
-      "companyKey": "banca-sempione",
-      "url": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "category": "administration",
-      "descriptionIt": "Il ruolo:\n\nCome stagista all’interno del nostro team Crediti, la persona inserita fornirà supporto alle attività amministrative e operative del Settore, contribuendo alla corretta gestione della documentazione e delle pratiche di credito. La figura scelta collaborerà quotidianamente con il team, assicurando ordine e precisione nello svolgimento delle attività di competenza.\n\nLe responsabilità:\n\n- Supporto amministrativo alle attività del Settore Crediti;\n- Gestione, verifica e organizzazione della documentazione relativa alle pratiche di credito;\n- Supporto nella gestione e nell’aggiornamento delle pratiche e dei relativi dati;\n- Verifica della completezza e della correttezza della documentazione ricevuta;\n- Archiviazione e gestione della documentazione secondo le procedure interne;\n- Collaborazione con le altre funzioni della Banca per la gestione delle attività di competenza;\n- Supporto operativo al team nelle attività quotidiane e nei processi del Settore Crediti.\n\nIl profilo:\n\n- Hai un interesse spiccato per il settore bancario, le attività di credito e per le attività amministrative;\n- Hai conseguito un Bachelor/Master in ambito economico, amministrativo o affine. Una precedente esperienza in ambito bancario o amministrativo è considerata un plus;\n- Possiedi una spiccata attitudine all’apprendimento e un approccio preciso e strutturato al lavoro;\n- Possiedi buone capacità organizzative, attenzione ai dettagli e capacità di gestione delle priorità;\n- Sei una persona affidabile, collaborativa e motivata a crescere professionalmente;\n- Possiedi buone capacità relazionali e attitudine al lavoro in team;\n- Sei madrelingua italiano con buona conoscenza della lingua inglese. Tedesco e/o francese sono considerati un plus.\n\nModalità di candidatura: Inviare il CV e la lettera di motivazione in italiano cliccando sul pulsante “CANDIDATI”.",
-      "datePosted": "2026-09-23T12:04:12Z",
-      "postedDate": "2026-09-23T12:04:12Z",
-      "postingDateSource": "reported",
-      "source": "company-website",
-      "slug": "banca-del-sempione-junior-amministrazione-crediti-banca-del-sempione-lugano",
-      "sourceLang": "it",
-      "id": "banca-sempione-4e013f27b2b5",
-      "firstSeenAt": "2026-09-24T14:25:08.686Z",
-      "crawledAt": "",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
@@ -169,5 +130,5 @@
       }
     }
   ],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "c80e11fc922b0eda78a69b7c43280da8e5fdbb79"
 }
