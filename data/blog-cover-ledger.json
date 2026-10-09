@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-09",
+  "generatedAt": "2026-10-10",
   "source": {
     "gitCommit": "7c8bdf2de2cfb1e12b15db19ba8171a57162d8dd",
     "heroFiles": 6818,
@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5155
+      "6": 5156
     },
-    "publishedCovers": 6867,
+    "publishedCovers": 6868,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182719,6 +182719,33 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1792,
       "verifiedAt": "2026-10-09",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-referendum-nucleare-svizzera-2027": {
+      "cover": "/images/blog/article-referendum-nucleare-svizzera-2027.webp",
+      "hash": "f1c598541c93bae546be2d78344a0f51855a7802cf4d68135dba2821a6dab832",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "referendum-nucleare-svizzera-2027",
+          "category": "novita",
+          "date": "2026-10-09T22:31:58.060Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
