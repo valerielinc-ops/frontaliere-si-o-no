@@ -124,22 +124,32 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('missing-trailing-slash')).toBe(1);
   });
 
-  it('drops a locale URL claimed by two different groups rather than trusting either', () => {
+  it('drops both conflicting groups rather than emitting partial cliques', () => {
     const other = {
       it: `${BASE}/altro/`,
       en: GROUP.en, // same EN URL, different group
       de: `${BASE}/de/anderes/`,
       fr: `${BASE}/fr/autre/`,
     };
-    const { entries, skipped } = collectLocaleVariantEntries(
-      [source(GROUP.it, GROUP), source(other.it, other)],
-      () => true,
-    );
-    expect(entries.map((e) => e.url)).not.toContain(GROUP.en);
-    expect(skipped.get('conflicting-group')).toBe(1);
-    // The non-conflicting members of both groups still land.
-    expect(entries.map((e) => e.url)).toContain(GROUP.de);
-    expect(entries.map((e) => e.url)).toContain(other.de);
+    const third = {
+      it: `${BASE}/dritto/`,
+      en: GROUP.en, // same EN URL, a third distinct group
+      de: `${BASE}/de/dritto/`,
+      fr: `${BASE}/fr/droit/`,
+    };
+    const groups = [source(GROUP.it, GROUP), source(other.it, other), source(third.it, third)];
+    const orders = [
+      [0, 1, 2], [0, 2, 1], [1, 0, 2],
+      [1, 2, 0], [2, 0, 1], [2, 1, 0],
+    ];
+    for (const order of orders) {
+      const { entries, skipped } = collectLocaleVariantEntries(
+        order.map((index) => groups[index]),
+        () => true,
+      );
+      expect(entries).toEqual([]);
+      expect(skipped.get('conflicting-group')).toBe(2);
+    }
   });
 
   it('ignores an incomplete group (fewer than 4 locales)', () => {
@@ -300,6 +310,29 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
       ...seeded,
       ...renderLocaleVariantSitemaps(entries),
     ]);
+    const sourceGroupsByAlternate = new Map<string, Map<string, Set<string>>>();
+    for (const s of sources) {
+      const signature = s.annotations
+        .filter((a) => a.lang !== 'x-default')
+        .map((a) => `${a.lang}|${a.href}`)
+        .sort()
+        .join('\0');
+      for (const a of s.annotations) {
+        if (a.href === s.loc) continue;
+        const groups = sourceGroupsByAlternate.get(a.href) ?? new Map<string, Set<string>>();
+        const owners = groups.get(signature) ?? new Set<string>();
+        owners.add(s.loc);
+        groups.set(signature, owners);
+        sourceGroupsByAlternate.set(a.href, groups);
+      }
+    }
+    const conflictingSourceLocs = new Set<string>();
+    for (const groups of sourceGroupsByAlternate.values()) {
+      if (groups.size < 2) continue;
+      for (const owners of groups.values()) {
+        for (const owner of owners) conflictingSourceLocs.add(owner);
+      }
+    }
     const blocksOf = (xml: string) => [...xml.matchAll(/<url>[\s\S]*?<\/url>/g)].map((m) => m[0]);
     const locOf = (block: string) => block.match(/<loc>\s*([^<]+?)\s*<\/loc>/)?.[1] ?? '';
     const hrefsOf = (block: string) =>
@@ -316,6 +349,11 @@ describe('committed sitemaps — the #5110 invariant, end to end', () => {
         const lost = hrefsOf(before[i]).length - hrefsOf(now[i]).length;
         if (lost === 0) continue;
         const loc = locOf(before[i]);
+        // A duplicated alternate makes the source data itself ambiguous: no
+        // backfill can make both cliques reciprocal. The collector drops both
+        // groups atomically, so this is an expected, diagnosable exception to
+        // the self-referential survival invariant.
+        if (conflictingSourceLocs.has(loc)) continue;
         // Only a group that fails to name itself may lose annotations.
         expect(
           hrefsOf(before[i]).includes(loc),

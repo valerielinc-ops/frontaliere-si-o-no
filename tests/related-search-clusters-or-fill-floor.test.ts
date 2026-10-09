@@ -21,6 +21,7 @@ import { describe, expect, it } from 'vitest';
 import {
   TokenIndex,
   buildClusterContext,
+  isClusterBelowFloor,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import type {
   CandidateEntry,
@@ -92,6 +93,48 @@ describe('OR-fill relevance floor — buildClusterContext derivation', () => {
     const ctx = buildClusterContext(makeCandidate('infermiere Lugano'), index, JOBS);
     expect(ctx).not.toBeNull();
     expect(ids(ctx!.matchingJobs)).toEqual(['infOnly']);
+  });
+});
+
+describe('qualified occupation clusters', () => {
+  const QUALIFIED_JOBS: RawJob[] = [
+    {
+      id: 'exact-facharzt',
+      title: 'Facharzt Anästhesiologie mit Führungsverantwortung',
+      titleByLocale: { it: 'Medico specialista in anestesiologia con responsabilità di leadership' },
+    },
+    {
+      id: 'exact-leitend',
+      title: 'Leitende Oberärztin / Leitender Oberarzt Anästhesiologie',
+      titleByLocale: { it: 'Medico senior in anestesiologia' },
+    },
+    {
+      id: 'exact-chefarzt',
+      title: 'Chefärztin Anästhesiologie',
+      titleByLocale: { it: 'Medico principale di anestesiologia' },
+    },
+    {
+      id: 'semantic-only',
+      title: 'Facharzt Anästhesiologie',
+      titleByLocale: { it: 'Medico specialista in anestesiologia' },
+      description: 'Sarà responsabile della direzione del reparto e del team.',
+    },
+    {
+      id: 'support-secretary',
+      title: 'Chefarztsekretärin Anästhesie',
+      titleByLocale: { it: 'Capo medico Anestesia' },
+    },
+  ];
+
+  it('counts title-qualified physicians before the cap and excludes body-only/support matches', () => {
+    const candidate = makeCandidate('medico anestesista responsabile');
+    const ctx = buildClusterContext(candidate, new TokenIndex(QUALIFIED_JOBS), QUALIFIED_JOBS);
+    expect(ctx?.matchingJobs.map((job) => job.id)).toEqual([
+      'exact-facharzt',
+      'exact-leitend',
+      'exact-chefarzt',
+    ]);
+    expect(isClusterBelowFloor(ctx!, undefined)).toBe(false);
   });
 });
 
