@@ -194,6 +194,26 @@ per trattamento nello stesso tipo di contenuto; poi si mantiene il migliore e
 si riscrive quello debole. Un miglioramento del 20% è un buon segnale operativo,
 non una prova statistica con un profilo appena avviato.
 
+La raccolta ora è automatizzata dal workflow `Instagram Insights Snapshot`,
+una volta al giorno. Legge il ledger dei post confermati, interroga soltanto
+le superfici read-only di Meta e salva `data/instagram-insights.json` quando
+un contenuto ha raggiunto almeno 72 ore. Il comando locale equivalente è:
+
+```bash
+node scripts/instagram-insights-snapshot.mjs \
+  --ledger data/instagram-posted.json \
+  --output data/instagram-insights.json \
+  --dry-run
+```
+
+Il collector usa l’`instagramMediaId` già presente quando possibile; per i post
+confermati dal robot che non lo conservano, cerca un solo media dell’account
+compatibile con l’orario di conferma. Non attribuisce il dato se trova più
+possibilità, se il media dichiarato non ritorna dall’account o se mancano i
+metadati della creatività. `snapshotAgeHours` e il metodo di riconciliazione
+restano nel dataset per audit. La tolleranza anticipata è disattivata di
+default; si può usare solo esplicitamente per una prova diagnostica.
+
 ## 7. Aggiornamento dello studio pubblico e matrice sperimentale
 
 Lo studio iniziale va letto insieme a questi segnali pubblici, che non sono
@@ -250,7 +270,7 @@ chiamare Meta e senza stampare identificativi personali:
 
 ```bash
 node scripts/instagram-insights-report.mjs \
-  --input insights-72h.json \
+  --input data/instagram-insights.json \
   --ledger data/instagram-posted.json \
   --json
 ```
@@ -294,6 +314,9 @@ La repository può automatizzare carousel, caption, UTM e misurazione dei clic.
 Non può dimostrare da sola che un Reel sia stato visto, salvato o condiviso:
 quei dati vivono in Instagram Insights e richiedono che il profilo abbia accesso
 alla pubblicazione. La pipeline resta fail-soft finché Meta non abilita le
-credenziali; il test di trasporto Graph API e il test creativo offline coprono
+credenziali necessarie: senza token o ID dell’account il workflow non scrive un
+dataset vuoto. Inoltre, i post storici privi di `creativeId` non vengono
+retro-etichettati; il campione valido parte dai post prodotti dalla matrice
+creativa. Il test di trasporto Graph API e il test creativo offline coprono
 quello che è verificabile nel codice, mentre la validazione live è il passaggio
 operativo successivo all’abilitazione dell’account.

@@ -1,0 +1,111 @@
+name: Instagram Insights Snapshot
+
+# Read-only Meta collection for the creative experiment loop. The collector
+# writes only data/instagram-insights.json; publishing remains owned by
+# instagram-daily-broadcast.yml and the local social robot.
+on:
+  schedule:
+    - cron: '45 10 * * *'
+  workflow_dispatch:
+    inputs:
+      window_hours:
+        description: 'Target measurement window in hours'
+        required: false
+        default: '72'
+        type: string
+      tolerance_hours:
+        description: 'How early a scheduled run may collect the target window'
+        required: false
+        default: '0'
+        type: string
+      as_of:
+        description: 'Optional ISO timestamp for a reproducible preview'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Read and report only; do not commit the snapshot'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: instagram-insights-snapshot
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
+      TOLERANCE_HOURS: ${{ github.event.inputs.tolerance_hours || '12' }}
+      AS_OF: ${{ github.event.inputs.as_of || '' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+
+      # The collector uses the same Remote Config bridge as the publisher.
+      # Empty/missing Firebase credentials are deliberately allowed: the next
+      # step then reports a clean credentials-missing skip instead of exposing
+      # a secret or failing an unrelated publishing pipeline.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON is absent; Remote Config cannot be loaded."
+            exit 0
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+        continue-on-error: true
+
+      - name: Collect Instagram Insights snapshot
+        run: |
+          set -euo pipefail
+          args=("--window-hours=$WINDOW_HOURS" "--tolerance-hours=$TOLERANCE_HOURS")
+          if [ -n "$AS_OF" ]; then args+=("--as-of=$AS_OF"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          node scripts/instagram-insights-snapshot.mjs "${args[@]}"
+
+      - name: Print creative scorecard
+        if: always()
+        run: |
+          if [ -f data/instagram-insights.json ]; then
+            node scripts/instagram-insights-report.mjs \
+              --input data/instagram-insights.json \
+              --ledger data/instagram-posted.json
+          else
+            echo "No Instagram Insights snapshot has been written yet."
+          fi
+
+      - name: Commit snapshot
+        if: success() && env.DRY_RUN != 'true'
+        run: |
+          set -euo pipefail
+          if [ ! -f data/instagram-insights.json ]; then
+            echo "No snapshot to commit"; exit 0
+          fi
+          git add data/instagram-insights.json
+          if git diff --cached --quiet; then
+            echo "No snapshot changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(instagram): record Insights snapshot [skip ci]"
+          bash scripts/lib/git-push-with-retry.sh --max-attempts 20

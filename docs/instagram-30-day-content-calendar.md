@@ -95,8 +95,15 @@ data/ora e fonte. A 24 e 72 ore raccogliere:
 
 Usare i tassi corretti per l’obiettivo: `shares/reach` per `proof`,
 `saves/reach` per `save`, `comments/reach` per `question`. Per accelerare il
-ciclo, esportare i dati a 72 ore e passarli a
-`node scripts/instagram-insights-report.mjs --input <file> --json`.
+ciclo, il workflow giornaliero raccoglie automaticamente il dataset a 72 ore.
+Per una prova locale:
+
+```bash
+node scripts/instagram-insights-snapshot.mjs --dry-run
+node scripts/instagram-insights-report.mjs \
+  --input data/instagram-insights.json --json
+```
+
 Il report separa le nove varianti, il tipo di contenuto e non mescola finestre
 24/72 ore; mantiene lo stato `needs-N-more` finché non ci sono almeno tre
 osservazioni comparabili per variante nello stesso tipo di contenuto.
