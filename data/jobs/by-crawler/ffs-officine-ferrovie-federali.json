@@ -3021,9 +3021,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/7ed8b6dc-5d17-4f56-b568-183a8448d9d1",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-09T21:29:16.287Z",
-      "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
@@ -3035,7 +3032,9 @@
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
-      "firstSeenAt": "2026-10-09T09:29:43.190Z",
+      "previousSlugs": [
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+      ],
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -3052,7 +3051,8 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "postalCode": "1020",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/7ed8b6dc-5d17-4f56-b568-183a8448d9d1"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/projektleiter-in-bauingenieurwesen/7ed8b6dc-5d17-4f56-b568-183a8448d9d1",
+      "firstSeenAt": "2026-10-09T09:29:43.190Z"
     },
     {
       "id": "sbb-fa6590e31714",
