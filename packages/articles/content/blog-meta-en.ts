@@ -12870,6 +12870,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, meat and wine not declared to customs',
     'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: 82 kilos of meat found on October 3 Stabio: 492 bottles of wine found on October 7 In both cases, the customs declaration was missing The FOCBS',
     'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Customs control in Mendrisiotto involving goods bought in Italy',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: nighttime closures for Castronno-Solbiate overpass',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'The A8 closes between Castronno and Solbiate Arno Albizzate First night: October 12, direction Milan Second night: October 13, direction Varese Solbiate Arno',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Night works on A8 overpass between Castronno and Solbiate Arno',
 };
 
 export default blogMetaEn;

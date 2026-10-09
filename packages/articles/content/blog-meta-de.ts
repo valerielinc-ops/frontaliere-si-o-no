@@ -12869,6 +12869,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, beim Zoll nicht deklariertes Fleisch und nicht deklarierter Wein',
     'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: 82 Kilo Fleisch am 3.',
     'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Zollkontrolle im Mendrisiotto mit in Italien gekauften Waren',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: nächtliche Sperrungen an der Überführung Castronno-Solbiate',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'Die A8 wird zwischen Castronno und Solbiate Arno Albizzate gesperrt Erste Nacht: 12. (Varese)',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Nächtliche Bauarbeiten an der A8-Überführung zwischen Castronno und Solbiate Arno',
 };
 
 export default blogMetaDe;

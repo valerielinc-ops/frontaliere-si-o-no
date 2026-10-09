@@ -104075,6 +104075,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a8-manutenzione-cavalcavia-ottobre-2026': {
+    title: 'A8: chiusure notturne per cavalcavia Castronno-Solbiate',
+    description: 'La A8 chiude tra Castronno e Solbiate Arno Albizzate Prima notte: 12 ottobre, direzione Milano Seconda notte: 13 ottobre, direzione Varese Solbiate Arno',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, cavalcavia, castronno-solbiate',
+    ogTitle: 'A8: chiusure notturne per cavalcavia Castronno-Solbiate',
+    ogDescription: 'La A8 chiude tra Castronno e Solbiate Arno Albizzate Prima notte: 12 ottobre, direzione Milano Seconda notte: 13 ottobre, direzione Varese Solbiate Arno',
+    canonicalPath: '/articoli-frontaliere/a8-manutenzione-cavalcavia-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8: chiusure notturne per cavalcavia Castronno-Solbiate",
+      "description": "La A8 chiude tra Castronno e Solbiate Arno Albizzate Prima notte: 12 ottobre, direzione Milano Seconda notte: 13 ottobre, direzione Varese Solbiate Arno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-a9-chiusure-notturne-sion-sierre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantieri notturni sul cavalcavia dell'A8 tra Castronno e Solbiate Arno"
+      },
+      "datePublished": "2026-10-09T09:14:11+00:00",
+      "dateModified": "2026-10-09T09:14:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a8-manutenzione-cavalcavia-ottobre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

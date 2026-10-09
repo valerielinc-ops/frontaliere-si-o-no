@@ -12872,6 +12872,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, viande et vin non déclarés à la douane',
     'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo : 82 kilos de viande trouvés le 3 octobre Stabio : 492 bouteilles de vin trouvées le 7 octobre Dans les deux cas, la déclaration en douane faisait défaut L\'UDSC',
     'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Contrôle douanier dans le Mendrisiotto avec des marchandises achetées en Italie',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8 : fermetures nocturnes du viaduc Castronno-Solbiate',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'L’A8 ferme entre Castronno et Solbiate Arno Albizzate Première nuit : 12 octobre, direction Milan Deuxième nuit : 13 octobre, direction Varese Solbiate Arno',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Travaux nocturnes sur le viaduc de l\'A8 entre Castronno et Solbiate Arno',
 };
 
 export default blogMetaFr;

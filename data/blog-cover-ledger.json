@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5121
+      "6": 5122
     },
-    "publishedCovers": 6833,
+    "publishedCovers": 6834,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180146,6 +180146,33 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
       "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-a9-chiusure-notturne-sion-sierre": {
+      "cover": "/images/blog/article-a9-chiusure-notturne-sion-sierre.webp",
+      "hash": "2582d856411f5ba2ac5bc9f829e9e0e62915c8907d0b38c0cd4d5724d2ea2ce2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "a8-manutenzione-cavalcavia-ottobre-2026",
+          "category": "pratico",
+          "date": "2026-10-09T09:14:11.744Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-09",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"

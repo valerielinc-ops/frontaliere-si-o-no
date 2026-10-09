@@ -12871,6 +12871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-dogana-mendrisiotto.title': 'Mendrisiotto, carne e vino non dichiarati alla dogana',
     'blog.article.controlli-dogana-mendrisiotto.excerpt': 'Vacallo: trovati 82 chili di carne il 3 ottobre Stabio: trovate 492 bottiglie di vino il 7 ottobre In entrambi i casi mancava la dichiarazione in dogana L\'UDSC',
     'blog.article.controlli-dogana-mendrisiotto.imageAlt': 'Controllo doganale nel Mendrisiotto con merce acquistata in Italia',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.title': 'A8: chiusure notturne per cavalcavia Castronno-Solbiate',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.excerpt': 'La A8 chiude tra Castronno e Solbiate Arno Albizzate Prima notte: 12 ottobre, direzione Milano Seconda notte: 13 ottobre, direzione Varese Solbiate Arno',
+    'blog.article.a8-manutenzione-cavalcavia-ottobre-2026.imageAlt': 'Cantieri notturni sul cavalcavia dell\'A8 tra Castronno e Solbiate Arno',
 };
 
 export default blogMetaIt;
