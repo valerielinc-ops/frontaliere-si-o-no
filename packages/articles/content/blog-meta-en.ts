@@ -12912,6 +12912,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frana-sementina-h13-gudo.title': 'Landslide in Sementina: H13 closed between Sementina and Gudo',
     'blog.article.frana-sementina-h13-gudo.excerpt': 'Landslide on the cantonal road in Sementina Roadway blocked and detours activated H13 closed between Sementina and Gudo No injuries; material damage',
     'blog.article.frana-sementina-h13-gudo.imageAlt': 'Landslide on the canton road in Sementina: the H13 toward Gudo is closed',
+    'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: alternating one-way traffic on Via Campo dei Fiori',
+    'blog.article.viabilita-sacro-monte-varese.excerpt': 'From October 9 to November 30, 2026, traffic arrangements change on Via Campo dei Fiori: alternating one-way traffic Temporary traffic light and maximum speed limit of 30 km/h Roadworks',
+    'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Road leading to Sacro Monte in Varese with road works',
 };
 
 export default blogMetaEn;

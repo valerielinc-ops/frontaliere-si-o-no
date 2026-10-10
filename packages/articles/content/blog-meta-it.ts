@@ -12913,6 +12913,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frana-sementina-h13-gudo.title': 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
     'blog.article.frana-sementina-h13-gudo.excerpt': 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
     'blog.article.frana-sementina-h13-gudo.imageAlt': 'Smottamento sulla strada cantonale a Sementina: la H13 verso Gudo è chiusa',
+    'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    'blog.article.viabilita-sacro-monte-varese.excerpt': 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Strada verso il Sacro Monte di Varese con cantiere stradale',
 };
 
 export default blogMetaIt;

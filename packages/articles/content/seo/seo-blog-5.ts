@@ -104631,6 +104631,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-viabilita-sacro-monte-varese': {
+    title: 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    description: 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    keywords: 'frontalieri, ticino, svizzera, italia, sacro, monte, senso, unico',
+    ogTitle: 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    ogDescription: 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    canonicalPath: '/articoli-frontaliere/viabilita-sacro-monte-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sacro Monte: senso unico alternato in via Campo dei Fiori",
+      "description": "Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-viabilita-sacro-monte-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada verso il Sacro Monte di Varese con cantiere stradale"
+      },
+      "datePublished": "2026-10-10T03:14:55+00:00",
+      "dateModified": "2026-10-10T03:14:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viabilita-sacro-monte-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

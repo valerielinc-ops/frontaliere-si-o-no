@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5163
+      "6": 5164
     },
-    "publishedCovers": 6875,
+    "publishedCovers": 6876,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182923,6 +182923,33 @@
           "id": "teatro-locarno-fondi-pubblici",
           "category": "novita",
           "date": "2026-10-09T23:43:17.647Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-viabilita-sacro-monte-varese": {
+      "cover": "/images/blog/article-viabilita-sacro-monte-varese.webp",
+      "hash": "9bcf61020bd536d0b09dbf57b357c1cec9f3805028f48fafa2ecbfc9ad280ae6",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "viabilita-sacro-monte-varese",
+          "category": "pratico",
+          "date": "2026-10-10T03:14:55.151Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
