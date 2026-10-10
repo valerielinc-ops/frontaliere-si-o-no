@@ -120,7 +120,10 @@ async function fetchHtml(url) {
  */
 export function parseKsblPage(html) {
   const out = [];
-  const cardRx = /<div class="col-12 col-sm-6 col-lg-4 mb-gap mt-gap">([\s\S]*?<h3 class="card-title">[\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g;
+  // KSBL changed the listing from the old responsive grid cards to one
+  // `col-12 mb-3` card per row. Match both known wrappers while leaving
+  // unrelated `col-12` layout containers out of the parser.
+  const cardRx = /<div\b(?=[^>]*class="[^"]*\bcol-12\b[^"]*")(?=[^>]*class="[^"]*\b(?:mb-gap|mb-3)\b[^"]*")[^>]*>([\s\S]*?<h3\b[^>]*class="[^"]*\bcard-title\b[^"]*"[^>]*>[\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/g;
   const seen = new Set();
   let m;
   while ((m = cardRx.exec(html))) {
@@ -136,18 +139,24 @@ export function parseKsblPage(html) {
     seen.add(uuid);
 
     // Title
-    const titleMatch = cardHtml.match(/<h3 class="card-title">([\s\S]*?)<\/h3>/);
+    const titleMatch = cardHtml.match(/<h3\b[^>]*class="[^"]*\bcard-title\b[^"]*"[^>]*>([\s\S]*?)<\/h3>/i);
     if (!titleMatch) continue;
     const title = normalizeSpace(decodeEntities(titleMatch[1].replace(/<[^>]+>/g, '')));
     if (!title || title.length < 3) continue;
 
     // Category (Pflege, Ärztliches Personal, Therapien, etc.)
-    const catMatch = cardHtml.match(/<span class="optional-label">([\s\S]*?)<\/span>/);
-    const category = catMatch ? normalizeSpace(decodeEntities(catMatch[1].replace(/<[^>]+>/g, ''))) : '';
+    // Old cards use a span; the current page uses a div with
+    // `list-optional-label`.
+    const catMatch = cardHtml.match(/<(span|div)\b[^>]*class="[^"]*\boptional-label\b[^"]*"[^>]*>([\s\S]*?)<\/\1>/i);
+    const category = catMatch ? normalizeSpace(decodeEntities(catMatch[2].replace(/<[^>]+>/g, ''))) : '';
 
-    // Occupation percentage (e.g. "80%", "60-100%")
-    const pctMatch = cardHtml.match(/<span class="lead font-weight-normal">([\s\S]*?)<\/span>/);
-    const occupation = pctMatch ? normalizeSpace(pctMatch[1].replace(/<[^>]+>/g, '')) : '';
+    // Occupation percentage (e.g. "80%", "60-100%"). The current listing
+    // moved it from a span into the first `jobs-text-gray` list item.
+    const oldPctMatch = cardHtml.match(/<span\b[^>]*class="[^"]*\blead\b[^"]*\bfont-weight-normal\b[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
+    const newPctMatch = cardHtml.match(/<li\b[^>]*class="[^"]*\bjobs-text-gray\b[^"]*"[^>]*>\s*((?:\d{2,3}\s*[-–]\s*)?\d{2,3}\s*%)\s*<\/li>/i);
+    const occupation = oldPctMatch
+      ? normalizeSpace(oldPctMatch[1].replace(/<[^>]+>/g, ''))
+      : newPctMatch ? normalizeSpace(newPctMatch[1]) : '';
 
     out.push({ uuid, slug, detailUrl, title, category, occupation });
   }
