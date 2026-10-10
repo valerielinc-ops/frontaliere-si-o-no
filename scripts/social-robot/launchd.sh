@@ -34,6 +34,7 @@ log_dir=${SR_LOG_DIR:-$home_dir/Library/Logs/frontaliere}
 log_file="$log_dir/social-robot.log"
 agents_dir=${SR_LAUNCH_AGENTS_DIR:-$home_dir/Library/LaunchAgents}
 state_dir=${SOCIAL_ROBOT_STATE_DIR:-$home_dir/Library/Application Support/frontaliere/social-robot}
+site_file="$state_dir/site.path"
 sa_file=${SR_SERVICE_ACCOUNT:-$home_dir/.config/frontaliere/sa-frontaliere-ticino.json}
 windows=${SR_WINDOWS:-11:30 18:30}
 max_log_lines=4000
@@ -46,7 +47,16 @@ snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs script
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
-site=${SR_SITE_REPO:-$(CDPATH="" cd -- "$script_dir/../.." && pwd -P)}
+site=${SR_SITE_REPO:-}
+# The installed copy lives in the state folder, so its dirname is not the
+# checkout. Persist the checkout at install time for manual/legacy launches
+# whose environment does not contain SR_SITE_REPO.
+if [ -z "$site" ] && [ -f "$site_file" ]; then
+  site=$(/usr/bin/head -n 1 "$site_file")
+fi
+if [ -z "$site" ]; then
+  site=$(CDPATH="" cd -- "$script_dir/../.." && pwd -P) || exit 1
+fi
 
 log() {
   /bin/mkdir -p "$log_dir" 2>/dev/null || return 0
@@ -243,6 +253,9 @@ cmd_install() {
   launchd_env_path=$(launchd_path) || exit 69
   entries=$(calendar_entries) || exit 64
   /bin/mkdir -p "$agents_dir" "$log_dir" "$state_dir" || exit 73
+  site_tmp="$site_file.$$"
+  printf '%s\n' "$site" >"$site_tmp" || exit 73
+  /bin/mv -f "$site_tmp" "$site_file" || { /bin/rm -f "$site_tmp"; exit 73; }
   # The plist points at a copy in the state folder: the checkout may later sit
   # on a branch without this file. `run` keeps the copy on origin/main's version.
   if [ "$script_dir/launchd.sh" != "$state_dir/launchd.sh" ]; then
