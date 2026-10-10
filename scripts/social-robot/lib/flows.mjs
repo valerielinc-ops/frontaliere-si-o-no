@@ -48,6 +48,8 @@ export const RX = Object.freeze({
   igNext: ANY_OF('Next', 'Avanti', 'Weiter', 'Suivant'),
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
+  igVideoReelNotice: /video posts are now shared as reels|i post con video ora vengono condivisi come reel|video-?beiträge werden jetzt als reels geteilt|les publications vidéo sont désormais partagées sous forme de reels/i,
+  igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', 'D’accordo', 'Verstanden', 'Compris'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
@@ -512,6 +514,7 @@ async function findVisible(candidates, { timeout = DEFAULT_TIMEOUTS.optional, in
 export const INTERSTITIAL_REGISTRY = Object.freeze({
   instagram: Object.freeze([
     Object.freeze({ id: 'instagram-not-now', surface: 'button', name: RX.notNow, safeAction: 'click' }),
+    Object.freeze({ id: 'instagram-video-reel-notice', surface: 'dialog', role: 'dialog', title: RX.igVideoReelNotice, name: RX.igNoticeAcknowledge, safeAction: 'click-dialog-acknowledge' }),
   ]),
   tiktok: Object.freeze([
     // Cookie consent is always handled first: it can cover a tour action.
@@ -614,6 +617,18 @@ async function dismissKnownInterstitial({ page, platform, target, entry, step, s
       throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe action`, { step: step.get() });
     }
     await clickChecked(page, target.action, { step, snap, platform, allowInterstitialRecovery: false, label: `safe action for ${entry.id}` });
+    return;
+  }
+
+  if (entry.safeAction === 'click-dialog-acknowledge') {
+    const acknowledge = await findVisible([
+      target.root.getByRole('button', { name: entry.name }),
+      target.root.locator('button').filter({ hasText: entry.name }),
+    ], { timeout: 0 });
+    if (!acknowledge) {
+      throw new RobotError('interstitial-unknown', `known interstitial "${entry.id}" has no safe acknowledgement`, { step: step.get() });
+    }
+    await clickChecked(page, acknowledge, { step, snap, platform, allowInterstitialRecovery: false, label: `acknowledge action for ${entry.id}` });
     return;
   }
 
@@ -746,13 +761,35 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
 
   step.set('create-menu');
   const reelMenu = await findFirst([
-    page.getByRole('link', { name: RX.igReelMenu }),
-    page.getByRole('menuitem', { name: RX.igReelMenu }),
+    // `getByRole('link', { name: /Reel/ })` also matches Instagram's
+    // persistent left-nav link. Creation choices are the href="#" controls;
+    // scope the lookup so selecting a Reel cannot navigate away from the
+    // composer before the file input is attached.
+    page.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
+    page.locator('[role="menuitem"]').filter({ hasText: RX.igReelMenu }),
+    page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igReelMenu }),
   ], { guard, timeout: t.optional });
   if (reelMenu) {
     await snap('create-menu');
     await clickChecked(page, reelMenu, { step, snap, platform: 'instagram', label: 'Instagram Reel menu item' });
     await human.pause();
+  } else {
+    // Instagram currently exposes video publishing under the Post entry for
+    // some professional accounts. That composer still creates a Reel for a
+    // video, but it does not render a separate Reel menu item. Keep the
+    // explicit Reel path preferred and use the normal Post entry only as this
+    // bounded, video-validated fallback; a missing menu is still allowed for
+    // layouts that opened the upload dialog directly.
+    const postMenu = await findFirst([
+      page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
+      page.locator('[role="menuitem"]').filter({ hasText: RX.igPostMenu }),
+      page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
+    ], { guard, timeout: t.optional });
+    if (postMenu) {
+      await snap('create-menu');
+      await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu fallback for Reel' });
+      await human.pause();
+    }
   }
 
   const input = await required(step, 'reel-upload', [
@@ -768,6 +805,10 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
   await input.setInputFiles(files);
   await human.pause();
+  // The first video upload on some accounts opens an informational Reel notice
+  // over the preview. It changes no setting; dismiss it only when its exact
+  // dialog title and bounded acknowledgement control are both present.
+  await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: t.optional });
 
   // Instagram has shipped both a one-Next and a two-Next Reel editor. Try the
   // first transition, then only look for a second one when the caption editor

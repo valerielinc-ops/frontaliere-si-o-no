@@ -46,11 +46,11 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, reel = false, reelNextDelayMs = 0, confirmText = '' } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false } = {}) {
   const createMenuMarkup = createMenu ? `
 <div id="menu" hidden>
   <a href="#" id="post-item" role="link"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></a>
-  <a href="#" id="reel-item" role="link"><span>Reel</span><svg aria-label="Reel" role="img"><title>Reel</title></svg></a>
+  ${reel && reelMenu ? '<a href="#" id="reel-item" role="link"><span>Reel</span><svg aria-label="Reel" role="img"><title>Reel</title></svg></a>' : ''}
   <a href="#"><span>Video in diretta</span><svg aria-label="Video in diretta" role="img"><title>Video in diretta</title></svg></a>
   <a href="#"><span>Inserzione</span><svg aria-label="Inserzione" role="img"><title>Inserzione</title></svg></a>
 </div>` : '';
@@ -67,21 +67,26 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const dialogMarkup = createMenu
     ? '<div id="dialog" role="dialog" hidden></div>'
     : `<div id="dialog" role="dialog" hidden>${dialogContent}</div>`;
+  const noticeMarkup = videoReelNotice
+    ? '<div id="video-reel-notice" role="dialog" aria-modal="true" hidden><h2>I post con video ora vengono condivisi come reel</h2><p>Il tuo account è pubblico, pertanto chiunque può scoprire il tuo video.</p><button id="video-reel-notice-ok" type="button">Ok</button></div>'
+    : '';
   const openDialog = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').hidden = false; bindDialog();`;
   const createAction = createMenu ? "$('menu').hidden = false;" : openDialog;
-  const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };${reel ? `$('reel-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };` : ''}` : '';
+  const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };${reel && reelMenu ? `$('reel-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };` : ''}` : '';
   return page('Instagram', `
-<nav>${createMarkup}<a href="/">Home</a></nav>
+<nav>${createMarkup}<a href="/">Home</a><a href="/reels/">Reels</a></nav>
 ${createMenuMarkup}
-${dialogMarkup}`, `
+${dialogMarkup}${noticeMarkup}`, `
 const $ = (id) => document.getElementById(id);
 let count = 0;
 $('create').onclick = (e) => { e.preventDefault(); ${createAction} };
 ${postAction}
+${videoReelNotice ? "$('video-reel-notice-ok').onclick = () => { $('video-reel-notice').hidden = true; };" : ''}
 function bindDialog() {
   $('file').onchange = () => {
     count = $('file').files.length;
     $('pick').hidden = true;
+    ${videoReelNotice ? "$('video-reel-notice').hidden = false;" : ''}
     ${reel && Number(reelNextDelayMs) > 0
       ? `$('crop').hidden = true; setTimeout(() => { $('crop').hidden = false; }, ${Number(reelNextDelayMs)});`
       : "$('crop').hidden = false;"}
@@ -266,6 +271,8 @@ function fakePlatforms() {
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
       case '/ig-reel/': return send(200, instagramPage({ reel: true }));
+      case '/ig-reel-post-fallback/': return send(200, instagramPage({ reel: true, reelMenu: false }));
+      case '/ig-reel-video-notice/': return send(200, instagramPage({ reel: true, reelMenu: false, videoReelNotice: true }));
       case '/ig-reel-direct/': return send(200, instagramPage({ createMenu: false, reel: true }));
       case '/ig-reel-slow-preview/': return send(200, instagramPage({ reel: true, reelNextDelayMs: 150 }));
       case '/ig-reel-de/': return send(200, instagramPage({ reel: true, confirmText: 'Dein Reel wurde geteilt.' }));
@@ -359,6 +366,12 @@ async function main() {
     check(r.result?.status === 'published' && /reel|condiviso/i.test(r.result.evidence), `Reel publish returns only with the confirmation (${r.result?.evidence || r.error?.message})`);
     check(state.igReels.length === 1 && state.igReels[0].files === 1, 'one Reel upload reaches the platform as one video file');
     check(state.igReels[0].caption.includes('#frontalieri'), 'the Reel caption reached the platform');
+
+    r = await run('instagram', `${base}/ig-reel-post-fallback/`, { dryRun: true, label: 'ig-reel-post-fallback', reel: true });
+    check(r.result?.status === 'dry-run', `the Post composer fallback supports Reel video upload (${r.error?.message || 'ok'})`);
+
+    r = await run('instagram', `${base}/ig-reel-video-notice/`, { dryRun: true, label: 'ig-reel-video-notice', reel: true });
+    check(r.result?.status === 'dry-run', `the first-upload Reel notice is dismissed safely (${r.error?.message || 'ok'})`);
 
     r = await run('instagram', `${base}/ig-reel-direct/`, { dryRun: true, label: 'ig-reel-direct', reel: true });
     check(r.result?.status === 'dry-run', `a Reel layout with a direct upload dialog remains supported (${r.error?.message || 'ok'})`);
