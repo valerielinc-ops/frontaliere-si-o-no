@@ -31,9 +31,9 @@
       "crawledAt": "2026-10-10T09:41:07.378Z",
       "firstSeenAt": "2026-10-09T21:40:49.232Z",
       "titleByLocale": {
+        "de": "Netzwerk-Spezialist/-in Junior Führungsnetz Schweiz",
         "it": "Specialista/trice di rete Rete dirigenziale Junior Svizzera",
         "en": "Network Specialist / Junior Swiss Leadership Network",
-        "de": "Netzwerk-Spezialist/-in Junior Führungsnetz Schweiz",
         "fr": "Spécialiste réseau junior Réseau de direction Suisse"
       },
       "descriptionByLocale": {
@@ -82,6 +82,8 @@
         "network-specialist-junior-swiss-leadership-network-swiss-armed-forces-vtg-dubendorf-fe7eld",
         "specialiste-reseau-junior-reseau-de-direction-suisse-swiss-armed-forces-vtg-dubendorf-fe7eld"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -93,9 +95,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-l96m5d",
@@ -178,6 +178,8 @@
         "building-operations-specialist-confederazione-svizzera-alpnach",
         "specialiste-en-exploitation-des-batiments-confederazione-svizzera-alpnach"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -189,9 +191,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-kgv9qj",
@@ -276,6 +276,8 @@
         "logistics-specialist-confederazione-svizzera-hinwil",
         "logisticien-ne-confederazione-svizzera-hinwil"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -287,9 +289,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-jdayky",
@@ -372,6 +372,8 @@
         "head-of-administration-office-in-the-engineer-rescue-abc-training-unit-confederazione-svizzera-zuchwil",
         "chef-fe-de-l-administration-de-la-chancellerie-au-sein-de-la-formation-d-application-du-genie-sauvetage-abc"
       ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -383,9 +385,7 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME",
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-wba9og",

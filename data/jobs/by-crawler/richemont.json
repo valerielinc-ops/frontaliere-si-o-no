@@ -8358,19 +8358,7 @@
       "jobReqId": "jr133497",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
-        ],
-        "it": [
-          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
-        ]
-      },
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -8384,7 +8372,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1752"
+      "postalCode": "1752",
+      "previousSlugsByLocale": {
+        "en": [
+          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        ],
+        "it": [
+          "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-39b950a43765",

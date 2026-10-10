@@ -571,6 +571,40 @@ describe('retiredEdgeResponse behaviour', () => {
       expect(live.has(lastSegment(to)), `${from} → ${to}, absent from the corpus registries`).toBe(true);
     }
   });
+
+  it('keeps Courmayeur retirement targets aligned with current locale slugs', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
+    );
+    expect(article, 'current Courmayeur article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current Courmayeur article missing from BLOG_SLUGS');
+
+    const prefixes = {
+      it: '/articoli-frontaliere',
+      en: '/en/cross-border-articles',
+      de: '/de/grenzgaenger-artikel',
+      fr: '/fr/articles-frontalier',
+    } as const;
+    const retiredPaths = {
+      it: '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/',
+      en: '/en/cross-border-articles/courmayeur-work-vallese-frontalier/',
+      de: '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/',
+      fr: '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/',
+    } as const;
+    const redirects = declaredRedirects();
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const target = `${prefixes[locale]}/${article[locale]}/`;
+      const retiredPath = retiredPaths[locale];
+      expect(redirects.get(retiredPath), `${retiredPath} build target`).toBe(target);
+      expect(RETIRED_TABLE[retiredPath], `${retiredPath} Worker target`).toBe(target);
+    }
+  });
 });
 
 describe('the Worker consults the table before dispatching to the shard', () => {

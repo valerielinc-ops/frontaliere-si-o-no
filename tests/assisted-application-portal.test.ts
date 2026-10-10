@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -641,6 +641,11 @@ describe('portal runner helpers', () => {
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
     expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
     expect(candidateAnswerForField(candidate, bareCap)).toEqual({ value: '43039', source: 'identity' });
+    expect(autoAnswersForPortalQuestions({
+      questions: [{ id: bareCap.id, source: 'portal', question: bareCap.label, context: bareCap.context, required: true, type: 'text', options: [] }],
+      candidate,
+      answers: {},
+    })).toEqual({ 'bare-cap': '43039' });
     expect(candidateAnswerForField(candidate, workCap)).toBeNull();
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
     const guarded = guardPlan({ actions: [
@@ -652,6 +657,10 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: 'country', value: 'Italia', source: 'identity' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+
+    const unresolvedCap = { id: 'unresolved-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)', required: true, options: [] };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [unresolvedCap], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).missingRequired)
+      .toEqual([expect.objectContaining({ fieldId: 'unresolved-cap', context: unresolvedCap.context })]);
   });
 
   it('does not infer a country from an unrecognised province code alone', () => {
@@ -677,6 +686,29 @@ describe('portal runner helpers', () => {
       { id: 'rule', source: 'rule', question: 'Qual è la tua via e il numero civico?' },
     ];
     expect(dedupePortalQuestions(questions).map((question) => question.id)).toEqual(['portal_old_address', 'school', 'rule']);
+  });
+
+  it('keeps same-label portal questions and answers independent by fieldset context', () => {
+    const residence = { id: portalQuestionId('CAP', 'Dati anagrafici · Indirizzo · CAP'), source: 'portal', question: 'CAP', context: 'Dati anagrafici · Indirizzo · CAP', required: true, type: 'text', options: [] };
+    const employer = { id: portalQuestionId('CAP', 'Esperienza professionale · Datore di lavoro · Indirizzo · CAP'), source: 'portal', question: 'CAP', context: 'Esperienza professionale · Datore di lavoro · Indirizzo · CAP', required: true, type: 'text', options: [] };
+    expect(portalQuestionId('CAP', ' Residence ')).toBe(portalQuestionId('cap', 'residence'));
+    expect(portalQuestionKey('CAP', 'Residence')).toBe(portalQuestionKey('CAP (obbligatorio)', ' residence '));
+    expect(portalQuestionKey('CAP', residence.context)).not.toBe(portalQuestionKey('CAP', employer.context));
+    expect(residence.id).not.toBe(employer.id);
+    expect(dedupePortalQuestions([residence, employer])).toEqual([residence, employer]);
+
+    const candidate = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      profile: { address: { street: '', postalCode: '', city: '', country: '' } },
+      answers: { [residence.id]: '43039', [employer.id]: '9999' },
+      portalQuestions: [residence, employer],
+    });
+    expect(candidate.portalQuestionsAnswered).toEqual(expect.arrayContaining([
+      expect.objectContaining({ question: 'CAP', context: residence.context, answer: '43039' }),
+      expect.objectContaining({ question: 'CAP', context: employer.context, answer: '9999' }),
+    ]));
+    expect(candidateAnswerForField(candidate, { label: 'CAP', context: residence.context, options: [] })).toEqual({ value: '43039', source: 'answers' });
+    expect(candidateAnswerForField(candidate, { label: 'CAP', context: employer.context, options: [] })).toEqual({ value: '9999', source: 'answers' });
   });
 
   it('derives an age threshold only from the explicit date of birth', () => {

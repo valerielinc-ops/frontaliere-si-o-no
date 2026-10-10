@@ -14548,26 +14548,6 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "id": "galenica-a8684ee95757",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
-        "pharmaassistent-in-afc-amavita-galenica-st-moritz",
-        "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
-        "assistant-di-farmacia-afc-amavita-galenica-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharmaassistent-in-afc-amavita-galenica-st-moritz",
-          "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
-          "assistant-di-farmacia-afc-amavita-galenica-st-moritz"
-        ],
-        "en": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz"
-        ],
-        "de": [
-          "pharmaassistent-in-afc-amavita-galenica-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -14582,7 +14562,29 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz"
+        ],
+        "it": [
+          "pharmaassistent-in-afc-amavita-galenica-st-moritz",
+          "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
+          "assistant-di-farmacia-afc-amavita-galenica-st-moritz",
+          "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc13v"
+        ],
+        "de": [
+          "pharmaassistent-in-afc-amavita-galenica-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz",
+        "pharmaassistent-in-afc-amavita-galenica-st-moritz",
+        "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc0fr",
+        "assistant-di-farmacia-afc-amavita-galenica-st-moritz",
+        "galenica-amavita-assistente-di-farmacia-afc-st-moritz-1nc13v"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16407,7 +16409,9 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+        "pharmacy-assistant-afc-sun-store-apotheke-galenica-conthey"
       ],
       "previousSlugsByLocale": {
         "it": [
