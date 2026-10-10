@@ -27,14 +27,27 @@ describe('MyMemory bounded request deadline', () => {
 
   it('bounds and cancels a response body that ignores the abort signal', async () => {
     vi.useFakeTimers();
-    const cancel = vi.fn(async () => {});
+    let readerCancellationResolved = false;
+    const cancelReader = vi.fn(async () => {
+      readerCancellationResolved = true;
+    });
+    const cancelBody = vi.fn(async () => {});
+    const releaseLock = vi.fn();
+    const json = vi.fn(() => new Promise(() => {}));
     let requestSignal: AbortSignal | null | undefined;
     vi.stubGlobal('fetch', vi.fn(async (_url: string | URL | Request, init?: RequestInit) => {
       requestSignal = init?.signal;
       return {
         ok: true,
-        body: { cancel },
-        json: () => new Promise(() => {}),
+        body: {
+          cancel: cancelBody,
+          getReader: () => ({
+            cancel: cancelReader,
+            read: () => new Promise(() => {}),
+            releaseLock,
+          }),
+        },
+        json,
       };
     }));
 
@@ -45,6 +58,10 @@ describe('MyMemory bounded request deadline', () => {
 
     await expect(translation).resolves.toBeNull();
     expect(requestSignal?.aborted).toBe(true);
-    expect(cancel).toHaveBeenCalledOnce();
+    expect(cancelReader).toHaveBeenCalledOnce();
+    expect(readerCancellationResolved).toBe(true);
+    expect(cancelBody).not.toHaveBeenCalled();
+    expect(json).not.toHaveBeenCalled();
+    expect(releaseLock).toHaveBeenCalledOnce();
   });
 });

@@ -30,18 +30,67 @@ let dailyChars = 0;
 const MYMEMORY_EMAIL = (process.env.MYMEMORY_EMAIL || 'info@frontaliereticino.ch').trim();
 const DAILY_CHAR_LIMIT = MYMEMORY_EMAIL ? 45000 : 4500;
 
-function cancelResponseBody(response) {
+function cancelResponseBody(response, reason = 'MyMemory request timed out') {
   try {
-    const cancellation = response?.body?.cancel?.('MyMemory request timed out');
+    const cancellation = response?.body?.cancel?.(reason);
     Promise.resolve(cancellation).catch(() => {});
   } catch {
-    // Minimal fetch doubles and locked response bodies may reject cancellation.
+    // Minimal fetch doubles may expose a throwing cancel().
+  }
+}
+
+function cancelReaderBestEffort(reader, reason) {
+  try {
+    const cancellation = reader?.cancel?.(reason);
+    Promise.resolve(cancellation).catch(() => {});
+  } catch {
+    // A test double may expose a throwing cancel().
+  }
+}
+
+async function readJsonWithDeadline(response, timeoutPromise, setActiveReader) {
+  const reader = response?.body?.getReader?.();
+  // Existing callers use minimal fetch doubles without a ReadableStream. Keep
+  // those compatible; native fetch responses always take the owned-reader path.
+  if (!reader) {
+    return await Promise.race([
+      Promise.resolve().then(() => response.json()),
+      timeoutPromise,
+    ]);
+  }
+
+  setActiveReader(reader);
+  const chunks = [];
+  let totalBytes = 0;
+  try {
+    for (;;) {
+      const { done, value } = await Promise.race([
+        Promise.resolve().then(() => reader.read()),
+        timeoutPromise,
+      ]);
+      if (done) break;
+      if (!(value instanceof Uint8Array)) throw new TypeError('Invalid MyMemory response chunk');
+      chunks.push(value);
+      totalBytes += value.byteLength;
+    }
+
+    const bytes = new Uint8Array(totalBytes);
+    let offset = 0;
+    for (const chunk of chunks) {
+      bytes.set(chunk, offset);
+      offset += chunk.byteLength;
+    }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } finally {
+    setActiveReader(undefined);
+    try { reader.releaseLock?.(); } catch { /* cancellation may still be settling */ }
   }
 }
 
 async function fetchJsonWithDeadline(url, init, timeoutMs = MYMEMORY_TIMEOUT_MS) {
   const controller = new AbortController();
   let response;
+  let activeReader;
   let timedOut = false;
   let rejectTimeout;
   const timeoutPromise = new Promise((_, reject) => {
@@ -56,7 +105,8 @@ async function fetchJsonWithDeadline(url, init, timeoutMs = MYMEMORY_TIMEOUT_MS)
     const reason = new DOMException('The MyMemory request timed out', 'TimeoutError');
     controller.abort(reason);
     rejectTimeout(reason);
-    cancelResponseBody(response);
+    if (activeReader) cancelReaderBestEffort(activeReader, reason);
+    else cancelResponseBody(response, reason);
   }, timeoutMs);
 
   try {
@@ -76,10 +126,9 @@ async function fetchJsonWithDeadline(url, init, timeoutMs = MYMEMORY_TIMEOUT_MS)
       return null;
     }
 
-    return await Promise.race([
-      Promise.resolve().then(() => response.json()),
-      timeoutPromise,
-    ]);
+    return await readJsonWithDeadline(response, timeoutPromise, (reader) => {
+      activeReader = reader;
+    });
   } catch {
     return null;
   } finally {
