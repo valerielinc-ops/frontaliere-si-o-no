@@ -68,6 +68,7 @@ export function candidateRules(candidateLocale) {
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
+- Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
@@ -198,13 +199,77 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 // One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
-const LANGUAGES = [
-  /deutsch|tedesco|allemand|german/i,
-  /englisch|inglese|anglais|english/i,
-  /französisch|franzoesisch|francese|français|francais|french/i,
-  /italienisch|italiano|italien|italian/i,
+const LANGUAGE_ALIASES = [
+  { code: 'de', pattern: /deutsch|tedesco|allemand|german/i },
+  { code: 'en', pattern: /englisch|inglese|anglais|english/i },
+  { code: 'fr', pattern: /französisch|franzoesisch|francese|français|francais|french/i },
+  { code: 'it', pattern: /italienisch|italiano|italien|italian/i },
 ];
-const languagesIn = (text) => LANGUAGES.map((pattern, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+const LANGUAGE_CODES = new Set(LANGUAGE_ALIASES.map(({ code }) => code));
+const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnisse|conoscenza|knowledge|proficiency|parlat[oa]|scritt[oa]|spoken|written|oral|mündlich|schriftlich|parlé|écrit/i;
+const NATIVE_LEVEL_RE = /^(?:native(?:\s+speaker)?|mother\s+tongue|first\s+language|lingua\s+madre|madrelingua|nativ[oa]|muttersprache|muttersprach(?:lich)?|langue\s+maternelle|langue\s+native|langue\s+premi[eè]re)(?:\s*[([{].*)?$/i;
+const LANGUAGE_CODE_RE = /^(it|de|fr|en)(?:[-_]\w+)?$/i;
+const languageCodeOf = (value) => {
+  const text = String(value || '').trim();
+  const code = LANGUAGE_CODE_RE.exec(text)?.[1]?.toLowerCase();
+  if (code && LANGUAGE_CODES.has(code)) return code;
+  return LANGUAGE_ALIASES.find(({ pattern }) => pattern.test(text))?.code || '';
+};
+const languagesIn = (text) => LANGUAGE_ALIASES.map(({ pattern }, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+
+/**
+ * Native-language evidence is deliberately narrower than "the CV is written
+ * in X": an English CV does not by itself prove that English is native. We
+ * accept an explicitly native/mother-tongue entry, or the CV language when the
+ * profile also names another language with an explicit level and does not give
+ * a conflicting level for the CV language.
+ */
+export function inferredNativeLanguageCodes(candidate) {
+  const entries = Array.isArray(candidate?.profile?.languages) ? candidate.profile.languages : [];
+  const explicitNative = new Set();
+  const statedLevels = new Set();
+  for (const entry of entries) {
+    const code = languageCodeOf(entry?.language);
+    if (!code) continue;
+    if (String(entry?.level || '').trim()) statedLevels.add(code);
+    if (NATIVE_LEVEL_RE.test(String(entry?.level || '').trim())) explicitNative.add(code);
+  }
+  const native = new Set(explicitNative);
+  const cvLanguage = languageCodeOf(candidate?.profile?.cvLanguage);
+  const hasContrastingLanguage = cvLanguage && entries.some((entry) => {
+    const code = languageCodeOf(entry?.language);
+    return code && code !== cvLanguage && String(entry?.level || '').trim();
+  });
+  if (cvLanguage && !statedLevels.has(cvLanguage) && hasContrastingLanguage) native.add(cvLanguage);
+  return native;
+}
+
+function languageQuestionCode(fieldOrQuestion, context = '') {
+  const text = typeof fieldOrQuestion === 'object'
+    ? `${fieldOrQuestion?.label || ''} ${fieldOrQuestion?.context || ''}`
+    : `${fieldOrQuestion || ''} ${context}`;
+  return LANGUAGE_LEVEL_RE.test(text) ? languageCodeOf(text) : '';
+}
+
+/** Whether the candidate's own data establishes a native language for a field/question. */
+export function nativeLanguageKnown(candidate, fieldOrQuestion, context = '') {
+  const code = languageQuestionCode(fieldOrQuestion, context);
+  return Boolean(code && inferredNativeLanguageCodes(candidate).has(code));
+}
+
+/** A native/mother-tongue answer is valid only for the inferred language. */
+export function nativeLanguageAnswerMatches(candidate, fieldOrQuestion, answer, context = '') {
+  return nativeLanguageKnown(candidate, fieldOrQuestion, context)
+    && NATIVE_LEVEL_RE.test(String(answer || '').trim());
+}
+
+/** The form option that means native/mother tongue, if the CV supports it. */
+export function nativeLanguageOption(field, candidate) {
+  if (!nativeLanguageKnown(candidate, field)) return null;
+  // An answer supplied by the candidate wins over this derived value.
+  if (recordedAnswerForQuestion(candidate, field?.label, field?.context)) return null;
+  return (field?.options || []).find((option) => NATIVE_LEVEL_RE.test(String(option?.label || '').trim())) || null;
+}
 
 /**
  * The quote SUPPORTS the answer, beyond being in the data (review of #10715:
@@ -523,6 +588,8 @@ export function candidateAnswerForField(candidate, field) {
     }
     return null;
   }
+  const native = nativeLanguageOption(field, candidate);
+  if (native) return { value: native.label, source: 'profile' };
   // The civil status the candidate's CV states in its own words, or they corrected (candidateWithEdits
   // `personal`): the one option of the list that says it, or the words themselves in a text field.
   if (topic === 'civil_status') {
@@ -638,10 +705,15 @@ export function guardPlan(plan, fields, candidate = null) {
   // availability and other candidate-only facts still go to the candidate.
   const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
   for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
+  // A native language is explicit either in the language list or, conservatively,
+  // in the detected CV language alongside another explicitly levelled language.
+  // It is still a candidate fact: an explicit portal answer always wins.
+  const nativePick = new Map(fields.map((field) => [field.id, nativeLanguageOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     const field = byId.get(item.fieldId);
@@ -682,6 +754,8 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
+    const native = ['fill', 'select'].includes(action.action)
+      && nativeLanguageAnswerMatches(candidate, field, action.value, field.context);
     // A permit or nationality field: the candidate's own status or nationality as the catalogue words it, their
     // answer to this very question, or declining; never the substring rule (decision 9).
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
@@ -690,7 +764,7 @@ export function guardPlan(plan, fields, candidate = null) {
         ask(field);
         continue;
       }
-    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
+    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !native && !declines) {
       ask(field);
       continue;
     }
@@ -708,7 +782,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given, field.context)
+    const supported = knownValues === null || native || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

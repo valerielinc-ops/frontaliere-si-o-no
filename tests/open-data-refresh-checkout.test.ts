@@ -95,7 +95,12 @@ function fixture() {
   return { repo, remote, bin, body, base };
 }
 
-function publish(setup: ReturnType<typeof fixture>, fail = false, extraArgs: string[] = []) {
+function publish(
+  setup: ReturnType<typeof fixture>,
+  fail = false,
+  extraArgs: string[] = [],
+  extraEnv: Record<string, string> = {},
+) {
   return spawnSync('bash', [
     'scripts/lib/open-data-refresh-pr.sh',
     '--path', 'data/cache.json', '--path', 'data/history.jsonl', '--path', 'services/body.ts',
@@ -109,6 +114,7 @@ function publish(setup: ReturnType<typeof fixture>, fail = false, extraArgs: str
       PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
       GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
       REFRESH_FIXTURE_GH_FAIL: fail ? '1' : '0',
+      ...extraEnv,
     },
   });
 }
@@ -1195,6 +1201,31 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
     expect(helper).toMatch(/--force-with-lease="refs\/heads\/\$\{BRANCH\}:\$\{REFRESH_BASE\}" \\\n\s+"\$PUSH_URL" ":refs\/heads\/\$\{BRANCH\}"/);
     expect(helper).not.toContain('-X DELETE');
+  });
+
+  it('requires a recovery branch to be absent and clears the one-step guard after verification', () => {
+    const setup = movingMainFixture({ afterHistoryGuard: false });
+    const githubEnv = path.join(setup.directory, 'github-env');
+    const run = publishSitemap(setup, {
+      EVENTS_REFRESH_REQUIRE_NEW_BRANCH: 'true',
+      GITHUB_ENV: githubEnv,
+    });
+
+    expect(run.result.status, run.output).toBe(0);
+    expect(remoteBranch(setup.remote, NEW_BRANCH)).not.toBeNull();
+    expect(fs.readFileSync(githubEnv, 'utf8')).toContain('EVENTS_REFRESH_REQUIRE_NEW_BRANCH=false');
+  });
+
+  it('refuses to reuse an existing branch when a stale refresh recovery requires a new one', () => {
+    const setup = fixture();
+    const pendingHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+
+    const result = publish(setup, false, [], { EVENTS_REFRESH_REQUIRE_NEW_BRANCH: 'true' });
+
+    expect(result.status).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('Refusing to reuse chore/refresh');
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(pendingHead);
   });
 });
 

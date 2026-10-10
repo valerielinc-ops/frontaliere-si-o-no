@@ -19,7 +19,7 @@ import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicat
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -186,6 +186,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
   const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
+    || nativeLanguageKnown(candidate, question, context)
     || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
@@ -232,6 +233,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
+    const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
     const fromCandidate = own !== null
       ? own || answeredByCandidate(candidate, action.question, answer, context)
       : knockOut
@@ -242,7 +244,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
+    if (fromCandidate || native || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
   }
   const refused = new Set();
   for (const action of sensitive) {

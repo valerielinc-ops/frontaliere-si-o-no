@@ -30,8 +30,14 @@ FORCE_ADD=false
 RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
 RECONCILE_MAIN=false
+REQUIRE_NEW_BRANCH="${EVENTS_REFRESH_REQUIRE_NEW_BRANCH:-false}"
 PATHS=()
 OPTIONAL_PATHS=()
+
+case "$REQUIRE_NEW_BRANCH" in
+  true|false) ;;
+  *) echo "::error::EVENTS_REFRESH_REQUIRE_NEW_BRANCH must be true or false"; exit 2 ;;
+esac
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -237,6 +243,18 @@ check_old_history_ref HEAD
 # main snapshot. The lease still protects the final push from a concurrent run.
 REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch" \
   git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+if [ "$REQUIRE_NEW_BRANCH" = true ]; then
+  if [ -n "$REMOTE_HEAD" ]; then
+    echo "::error::Refusing to reuse ${BRANCH}: this events refresh requires a new branch, but the remote already has ${REMOTE_HEAD}."
+    exit 1
+  fi
+  # This state is shared by later publisher steps in the same workflow run.
+  # Once the fresh branch is verified absent, only the first publisher needs
+  # the guard; subsequent steps may safely continue that run's own branch.
+  if [ -n "${GITHUB_ENV:-}" ]; then
+    printf 'EVENTS_REFRESH_REQUIRE_NEW_BRANCH=false\n' >> "$GITHUB_ENV"
+  fi
+fi
 REFRESH_BASE="$(git rev-parse HEAD)"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""

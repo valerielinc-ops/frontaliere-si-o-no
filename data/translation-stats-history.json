@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-09-19T00:07:49.614Z",
-    "label": "after",
-    "total": 31710,
-    "needsRetranslation": 4170,
-    "suppressed": 198,
-    "incomplete": 3321,
-    "complete": 28389,
-    "slotsPresent": 28389,
-    "flaggedAmongSlotsPresent": 1224,
-    "verifiedTranslated": 27165,
-    "sourceCopyExcused": 507,
-    "slotsPresentByLength": 31588,
-    "languageVerified": 29198,
-    "missingByLocale": {
-      "it": 202,
-      "en": 172,
-      "de": 111,
-      "fr": 191
-    },
-    "queueAge": {
-      "count": 4170,
-      "withTimestamp": 4170,
-      "oldestAgeDays": 158.6,
-      "p50AgeDays": 32.1,
-      "p90AgeDays": 100.7,
-      "buckets": {
-        "0-1d": 151,
-        "1-2d": 76,
-        "2-7d": 66,
-        "0-7d": 293,
-        "7-30d": 1727,
-        "30-90d": 1635,
-        "90-180d": 515,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 5,
-      "withTimestamp": 5,
-      "oldestAgeDays": 70.5,
-      "p50AgeDays": 7,
-      "p90AgeDays": 70.5,
-      "buckets": {
-        "0-1d": 1,
-        "1-2d": 0,
-        "2-7d": 1,
-        "0-7d": 2,
-        "7-30d": 2,
-        "30-90d": 1,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "awaiting-retranslation",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 581,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 313
-      },
-      {
-        "company": "Roche",
-        "pending": 236
-      },
-      {
-        "company": "Sulzer",
-        "pending": 131
-      },
-      {
-        "company": "PEMSA",
-        "pending": 129
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 104
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 62
-      },
-      {
-        "company": "JUMBO",
-        "pending": 59
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 58
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 57
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 55
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-19T03:17:22.586Z",
     "label": "before",
     "total": 31710,
@@ -22888,5 +22776,109 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-10T17:51:15.617Z",
+    "label": "before",
+    "total": 32324,
+    "needsRetranslation": 3162,
+    "suppressed": 225,
+    "incomplete": 3608,
+    "complete": 28716,
+    "slotsPresent": 28716,
+    "flaggedAmongSlotsPresent": 12,
+    "verifiedTranslated": 28704,
+    "sourceCopyExcused": 320,
+    "slotsPresentByLength": 32295,
+    "languageVerified": 30789,
+    "missingByLocale": {
+      "it": 293,
+      "en": 266,
+      "de": 23,
+      "fr": 265
+    },
+    "queueAge": {
+      "count": 3162,
+      "withTimestamp": 3162,
+      "oldestAgeDays": 758.1,
+      "p50AgeDays": 21.8,
+      "p90AgeDays": 103.2,
+      "buckets": {
+        "0-1d": 57,
+        "1-2d": 84,
+        "2-7d": 250,
+        "0-7d": 391,
+        "7-30d": 1313,
+        "30-90d": 935,
+        "90-180d": 515,
+        "180d+": 8
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 914,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "21b5b9761068733e",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 850,
+      "complete": 766
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 421
+      },
+      {
+        "company": "Ramseier Suisse AG",
+        "pending": 246
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 178
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 176
+      },
+      {
+        "company": "Medbase",
+        "pending": 126
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 106
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 98
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 97
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 84
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 71
+      }
+    ]
   }
 ]
