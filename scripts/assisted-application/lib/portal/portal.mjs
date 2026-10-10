@@ -992,6 +992,34 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     current = await extractFields(page);
     if (current.fields.length > before) done.add(expandKey);
   }
+  // Legacy Rexx/Portal7 forms (including the Ticino IAS portal) do not expose
+  // an "expand all" control. Their application groups are accordion legends
+  // (`.group_head`) and the first group is the only one open on first load.
+  // Reading only the visible group makes the runner press the final button
+  // while required fields in the other groups are still blank; the portal
+  // then returns the same page with `#errors` and the outcome is ambiguous.
+  // Open each closed group before planning so all required fields, consents
+  // and CV-derived answers take part in the same guarded plan.
+  const legacyHeaders = page.locator('.group_head');
+  const legacyCount = await legacyHeaders.count().catch(() => 0);
+  for (let index = 0; index < legacyCount; index += 1) {
+    const header = legacyHeaders.nth(index);
+    const closed = await header.evaluate((element) => {
+      if (element.getAttribute('aria-expanded') === 'true' || element.classList.contains('group_extended')) return false;
+      if (element.getAttribute('aria-expanded') === 'false') return true;
+      const group = element.nextElementSibling;
+      if (!group) return false;
+      const style = window.getComputedStyle(group);
+      return style.display === 'none' || group.getBoundingClientRect().height === 0;
+    }).catch(() => false);
+    if (!closed) continue;
+    const id = await header.getAttribute('id').catch(() => '') || String(index);
+    if (!attempt(`legacy|${where}|${id}`)) continue;
+    await header.click({ timeout: 6_000 }).catch(() => {});
+    await settle(page);
+    await page.waitForTimeout(1000);
+    current = await extractFields(page);
+  }
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
