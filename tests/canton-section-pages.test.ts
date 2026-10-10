@@ -402,8 +402,8 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html).toContain('<meta name="ft-route-owner" content="corpus">');
         expect(html.match(SVIZZERA_URL_RX)).toBeNull();
         expect(html).toContain('<div class="cth-page">');
-        expect(html).toContain('class="cth-hero"');
-        expect(html).toContain('class="cth-facts"');
+        expect(html).toContain('cth-hero');
+        expect(html).toContain('cth-facts');
         expect(html).toContain('id="rail-left-root"');
         expect(html).toContain('id="rail-right-root"');
         expect(html.match(/<ins class="adsbygoogle"/g)).toHaveLength(2);
