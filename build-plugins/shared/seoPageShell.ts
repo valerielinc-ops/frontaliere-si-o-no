@@ -62,15 +62,13 @@ import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
 import {
-  ORGANIZATION_ID,
-  ORGANIZATION_LD,
   SITE_URL,
   WEBSITE_ID,
   TICINO_CUSTOMS_DEPARTMENT_ID,
   TICINO_CUSTOMS_DEPARTMENT_NAME,
   stableOrganizationId,
 } from '../../services/seo/organizationLd';
-import { isSiteOrganizationCreator } from '../../services/seo/imageObjectLd';
+import { canonicalizeSiteOrganizationCreator } from '../../services/seo/imageObjectLd';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -175,20 +173,7 @@ export function normalizeStaticJsonLdScripts(
 
       if (normalizeWebPageIdentity(record)) changed = true;
 
-      if (isSiteOrganizationCreator(record)) {
-        if (record['@type'] !== ORGANIZATION_LD['@type']) {
-          record['@type'] = ORGANIZATION_LD['@type'];
-          changed = true;
-        }
-        if (record['@id'] !== ORGANIZATION_ID) {
-          record['@id'] = ORGANIZATION_ID;
-          changed = true;
-        }
-        if (record.name !== ORGANIZATION_LD.name) {
-          record.name = ORGANIZATION_LD.name;
-          changed = true;
-        }
-      }
+      if (canonicalizeSiteOrganizationCreator(record)) changed = true;
 
       if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
         record['@id'] = WEBSITE_ID;

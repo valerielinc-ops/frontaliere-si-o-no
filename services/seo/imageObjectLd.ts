@@ -94,6 +94,21 @@ export function isSiteOrganizationCreator(value: { '@type'?: unknown; '@id'?: un
         && (value.url === SITE_ORG.url || value.url === SITE_ORG.url.replace(/\/$/, ''))));
 }
 
+/** Repair identity fields only after the record is proven to be the site entity. */
+export function canonicalizeSiteOrganizationCreator(
+  value: { '@type'?: unknown; '@id'?: unknown; name?: unknown; url?: unknown },
+): boolean {
+  if (!isSiteOrganizationCreator(value)) return false;
+
+  const changed = value['@type'] !== SITE_ORG['@type']
+    || value['@id'] !== SITE_ORGANIZATION_ID
+    || value.name !== SITE_ORG.name;
+  value['@type'] = SITE_ORG['@type'];
+  value['@id'] = SITE_ORGANIZATION_ID;
+  value.name = SITE_ORG.name;
+  return changed;
+}
+
 export interface ImageObjectInput {
   /**
    * Direct URL of the image bytes. Maps to schema.org `contentUrl`. If only
@@ -173,9 +188,9 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     ? {
       ...creator,
       '@type': isOrganizationCreatorType(creator['@type']) ? 'Organization' : creator['@type'],
-      ...(isSiteOrganizationCreator(creator) ? { '@id': SITE_ORGANIZATION_ID } : {}),
     }
     : { ...SITE_ORG };
+  canonicalizeSiteOrganizationCreator(resolvedCreator);
 
   const out: ImageObjectLd = {
     '@type': 'ImageObject',

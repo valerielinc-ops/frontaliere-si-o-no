@@ -182,6 +182,28 @@ describe('static SEO JSON-LD identities', () => {
     );
   });
 
+  it('canonicalizes stale site creator names in article-engine JSON-LD', () => {
+    const serialized = inlineScriptJson({
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      image: {
+        '@type': 'ImageObject',
+        creator: {
+          '@type': 'Organization',
+          '@id': ORGANIZATION_ID,
+          name: 'frontaliereticino.ch',
+          url: 'https://frontaliereticino.ch/',
+        },
+      },
+    });
+
+    expect(JSON.parse(serialized).image.creator).toMatchObject({
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+    });
+  });
+
   it('completes WebPage identity fields for shell consumers', () => {
     const [serialized] = normalizeStaticJsonLdScripts([
       JSON.stringify({

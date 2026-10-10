@@ -16,7 +16,11 @@
  * Keep `name`/`url`/`logo` in sync with the index.html Organization block.
  */
 
-import { imageObjectLd, SITE_ORGANIZATION_ID } from './imageObjectLd';
+import {
+  canonicalizeSiteOrganizationCreator,
+  imageObjectLd,
+  SITE_ORGANIZATION_ID,
+} from './imageObjectLd';
 
 export const ORGANIZATION_ID = SITE_ORGANIZATION_ID;
 
@@ -171,8 +175,10 @@ export function normalizeOrganizationIdentities<T>(
     cloned[key] = normalizeOrganizationIdentities(nested, options);
   }
   if (isOrganizationRecord(cloned)) {
-    const id = stableOrganizationId(cloned, options);
-    if (id) cloned['@id'] = id;
+    if (!canonicalizeSiteOrganizationCreator(cloned)) {
+      const id = stableOrganizationId(cloned, options);
+      if (id) cloned['@id'] = id;
+    }
   }
   return cloned as T;
 }

@@ -17,7 +17,10 @@ import {
   WEBSITE_ID,
 } from '../services/seo/organizationLd';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
-import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import {
+  normalizeArticleStructuredData,
+  normalizeStructuredData,
+} from '../services/seo/schema-normalizers';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
@@ -285,6 +288,28 @@ describe('the canonical #organization entity', () => {
         '@id': ORGANIZATION_ID,
         name: ORGANIZATION_LD.name,
       },
+    });
+  });
+
+  it('canonicalizes stale site identities in Article author and publisher fields', () => {
+    const staleSiteEntity = {
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: 'frontaliereticino.ch',
+      url: `${BASE_URL}/`,
+    };
+    const normalized = normalizeArticleStructuredData({
+      '@type': 'NewsArticle',
+      datePublished: '2026-10-10',
+      author: staleSiteEntity,
+      publisher: staleSiteEntity,
+    });
+
+    expect(normalized.author).toMatchObject({
+      '@type': 'Organization', '@id': ORGANIZATION_ID, name: ORGANIZATION_LD.name,
+    });
+    expect(normalized.publisher).toMatchObject({
+      '@type': 'Organization', '@id': ORGANIZATION_ID, name: ORGANIZATION_LD.name,
     });
   });
 
