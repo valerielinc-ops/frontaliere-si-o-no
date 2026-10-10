@@ -641,6 +641,11 @@ describe('portal runner helpers', () => {
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
     expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
     expect(candidateAnswerForField(candidate, bareCap)).toEqual({ value: '43039', source: 'identity' });
+    expect(autoAnswersForPortalQuestions({
+      questions: [{ id: bareCap.id, source: 'portal', question: bareCap.label, context: bareCap.context, required: true, type: 'text', options: [] }],
+      candidate,
+      answers: {},
+    })).toEqual({ 'bare-cap': '43039' });
     expect(candidateAnswerForField(candidate, workCap)).toBeNull();
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
     const guarded = guardPlan({ actions: [
@@ -652,6 +657,10 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: 'country', value: 'Italia', source: 'identity' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+
+    const unresolvedCap = { id: 'unresolved-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)', required: true, options: [] };
+    expect(guardPlan({ actions: [], missingRequired: [] }, [unresolvedCap], { answers: {}, profile: {}, portalQuestionsAnswered: [] }).missingRequired)
+      .toEqual([expect.objectContaining({ fieldId: 'unresolved-cap', context: unresolvedCap.context })]);
   });
 
   it('does not infer a country from an unrecognised province code alone', () => {

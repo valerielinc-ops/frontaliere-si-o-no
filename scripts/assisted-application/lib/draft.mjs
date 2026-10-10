@@ -346,8 +346,8 @@ export async function buildDraft(ctx) {
       codex,
       log,
     });
-    const known = new Set(questions.map((question) => questionTopic(question.question) || question.id));
-    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question) || question.id)).filter(notAnsweredByUpload));
+    const known = new Set(questions.map((question) => questionTopic(question.question, question.context) || question.id));
+    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question, question.context) || question.id)).filter(notAnsweredByUpload));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked

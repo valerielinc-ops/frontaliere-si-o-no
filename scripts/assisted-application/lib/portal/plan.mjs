@@ -601,11 +601,13 @@ export function guardPlan(plan, fields, candidate = null) {
     missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
-    if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
+    const field = byId.get(item.fieldId);
+    const withContext = field?.context ? { ...item, context: String(field.context).slice(0, 240) } : item;
+    if (!missing.some((other) => other.fieldId === withContext.fieldId)) missing.push(withContext);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {

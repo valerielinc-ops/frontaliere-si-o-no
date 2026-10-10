@@ -255,7 +255,7 @@ function portalAnswersForQuestions(questions, answers) {
     .filter((item) => item.answer);
   const seen = new Map();
   for (const item of items) {
-    const topic = questionTopic(item.question.question);
+    const topic = questionTopic(item.question.question, item.question.context);
     const key = topic || item.question.id;
     const previous = seen.get(key);
     // Prefer an answer stored under this exact question id over an alias found
@@ -263,7 +263,7 @@ function portalAnswersForQuestions(questions, answers) {
     const exact = String(answers[item.question.id] ?? '').trim();
     if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer }));
+  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer, ...(question.context ? { context: question.context } : {}) }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
@@ -278,6 +278,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       id: question.id,
       kind: options.length || ['choice', 'yes_no'].includes(question.type) ? 'select' : 'text',
       label: question.question,
+      context: question.context || '',
       required: true,
       options,
     };
@@ -683,10 +684,10 @@ function questionsFrom(missingRequired) {
   const seen = new Set();
   for (const item of missingRequired) {
     const id = `portal_${slugId(item.question)}`;
-    const key = questionTopic(item.question) || id;
+    const key = questionTopic(item.question, item.context) || id;
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
+    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
 }
@@ -701,7 +702,7 @@ export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
   return (Array.isArray(questions) ? questions : []).filter((question) => {
     if (question?.source !== 'portal') return true;
-    const key = questionTopic(question.question) || question.id;
+    const key = questionTopic(question.question, question.context) || question.id;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;

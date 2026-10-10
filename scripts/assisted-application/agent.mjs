@@ -275,9 +275,9 @@ async function main() {
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
       const existing = dedupePortalQuestions(submitDraft.questions || []);
-      const known = new Set(existing.map((question) => questionTopic(question.question) || question.id));
+      const known = new Set(existing.map((question) => questionTopic(question.question, question.context) || question.id));
       const incoming = dedupePortalQuestions(event.questions);
-      const added = incoming.filter((question) => !known.has(questionTopic(question.question) || question.id));
+      const added = incoming.filter((question) => !known.has(questionTopic(question.question, question.context) || question.id));
       const questions = dedupePortalQuestions([...existing, ...added]);
       await orderRef.collection('ai_drafts').doc('current').set({ questions }, { merge: true });
       event.questions = added.map((question) => ({ id: question.id }));
