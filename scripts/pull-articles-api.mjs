@@ -46,6 +46,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { validateGeneratedImageRecord } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
@@ -55,6 +56,8 @@ import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const CHECK_ONLY = process.argv.includes('--check');
+const BLOG_CREDITS_ARTIFACT = 'data/image-credits-blog.json';
+const BLOG_GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 
 /**
  * Sitemaps this site serves verbatim from the articles repo.
@@ -452,6 +455,51 @@ const shadowedSitemapSlugs = loadAllShadowedSlugs(ROOT);
 log(`canonical-override shadowed slugs held out of the sitemaps: ${shadowedSitemapSlugs.size}`);
 
 const staged = new Map();
+
+// The public blog index carries the generated-image registry alongside the
+// reader-facing credit records. Keep that evidence pinned to the same manifest
+// commit and byte count as the article registry; the later cover-ledger sync
+// must never promote an inferred cover from a stale or truncated response.
+const creditsBytes = manifest.files?.[BLOG_CREDITS_ARTIFACT];
+if (!Number.isSafeInteger(creditsBytes) || creditsBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${BLOG_CREDITS_ARTIFACT} — refusing`);
+}
+
+let creditsRaw;
+try {
+  creditsRaw = await get(BLOG_CREDITS_ARTIFACT);
+} catch (err) {
+  fail(`${BLOG_CREDITS_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(creditsRaw, 'utf8') !== creditsBytes) {
+  fail(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
+}
+
+let credits;
+try {
+  credits = JSON.parse(creditsRaw);
+} catch (err) {
+  fail(`${BLOG_CREDITS_ARTIFACT} is not valid JSON: ${err.message}`);
+}
+if (!credits || credits.schema !== 1 || credits.section !== 'blog'
+  || credits.commit !== manifest.commit
+  || !credits.generated || typeof credits.generated !== 'object' || Array.isArray(credits.generated)) {
+  fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+for (const [imageUrl, record] of Object.entries(credits.generated)) {
+  const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
+  if (record?.kind !== 'generated' || record?.imageUrl !== imageUrl || !validation.valid) {
+    fail(`${BLOG_CREDITS_ARTIFACT} has invalid generated evidence for ${imageUrl}: `
+      + (validation.errors.join('; ') || 'kind or imageUrl does not match the record key'));
+  }
+}
+staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
+  schema: 1,
+  commit: credits.commit,
+  generated: credits.generated,
+}, null, 2)}\n`);
+log(`${BLOG_CREDITS_ARTIFACT}: validated ${Object.keys(credits.generated).length} generated cover records`);
+
 for (const name of SITEMAPS) {
   let xml;
   try {

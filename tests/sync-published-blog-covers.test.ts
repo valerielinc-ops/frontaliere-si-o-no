@@ -1,4 +1,5 @@
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -6,7 +7,101 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 const ROOT = process.cwd();
 const SCRIPT = path.join(ROOT, 'scripts/audit/sync-published-blog-covers.mjs');
+const VERIFY_SCRIPT = path.join(ROOT, 'scripts/ci/verify-blog-cover-ledger.mjs');
 const roots: string[] = [];
+const SOURCE_COMMIT = 'a'.repeat(40);
+const IMAGE = '/images/blog/new-cover.webp';
+const IMAGE_BYTES = Buffer.from('cover-bytes');
+
+function sha256(bytes: Buffer) {
+  return createHash('sha256').update(bytes).digest('hex');
+}
+
+function generatedRecord(sha = sha256(IMAGE_BYTES)) {
+  return {
+    schema: 1,
+    assetId: 'new-cover',
+    kind: 'generated',
+    provider: 'openai-codex',
+    model: 'gpt-image-2.5',
+    executorModel: 'gpt-5.6-luna',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'b'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: sha,
+    bytes: IMAGE_BYTES.length,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: '2026-10-07T10:00:00.000Z',
+    verifiedAt: '2026-10-07T10:05:00.000Z',
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: IMAGE,
+    category: 'blog',
+    area: 'Ticino and the Swiss Italian border region',
+    season: 'all seasons',
+    variant: 'generated-cover-sync-test',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      notes: 'Safe generic editorial illustration for the sync regression test.',
+    },
+  };
+}
+
+function generatedCreditRecord(generated: ReturnType<typeof generatedRecord>) {
+  return {
+    schema: 1,
+    cover: generated.imageUrl,
+    source: 'generated-provider',
+    commons: {
+      title: 'Generated editorial illustration',
+      pageUrl: generated.licenseUrl,
+      width: generated.width,
+      height: generated.height,
+      revision: generated.generatedAt,
+    },
+    author: { text: generated.credit, name: generated.credit, url: null, type: 'Organization' },
+    attribution: null,
+    licence: {
+      name: 'Generated media — provider terms apply',
+      url: generated.licenseUrl,
+      family: 'other-attribution',
+      attributionRequired: true,
+    },
+    restrictions: generated.restrictions,
+    modified: 'resized',
+    fetchedAt: generated.generatedAt.slice(0, 10),
+    status: 'ok',
+    curation: null,
+    generated,
+  };
+}
+
+function addGeneratedEvidence(root: string, sha?: string) {
+  const generated = generatedRecord(sha);
+  fs.writeFileSync(path.join(root, 'data/published-blog-generated-image-evidence.json'), `${JSON.stringify({
+    schema: 1,
+    commit: SOURCE_COMMIT,
+    generated: { [generated.imageUrl]: generated },
+  }, null, 2)}\n`);
+  const recordPath = path.join(root, 'packages/articles/content/image-credits/blog/new-cover.json');
+  fs.mkdirSync(path.dirname(recordPath), { recursive: true });
+  fs.writeFileSync(recordPath, `${JSON.stringify(generatedCreditRecord(generated), null, 2)}\n`);
+}
 
 function fixture({ withImage = true } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sync-blog-covers-'));
@@ -35,18 +130,24 @@ function fixture({ withImage = true } = {}) {
   }, null, 2)}\n`);
   fs.writeFileSync(path.join(root, 'data/image-credits-blog.json'), `${JSON.stringify({
     schema: 1,
+    files: {},
     covers: { existing: { evidence: 'inferred', provider: null, verifiedAt: '2026-10-06', status: 'no-credit' } },
+  }, null, 2)}\n`);
+  fs.writeFileSync(path.join(root, 'data/published-blog-generated-image-evidence.json'), `${JSON.stringify({
+    schema: 1,
+    commit: SOURCE_COMMIT,
+    generated: {},
   }, null, 2)}\n`);
   fs.writeFileSync(path.join(root, 'data/blog-cover-corpus-baseline.json'), `${JSON.stringify({
     schema: 1,
-    sourceCommit: 'b'.repeat(40),
+    sourceCommit: SOURCE_COMMIT,
     generatedAt: '2026-10-06',
     registries: {
       'packages/articles/content/blog-articles-data.ts': { corpusPath: 'content/blog-articles-data.ts', articles: 0, distinctImages: 0 },
       'packages/articles/content/swiss-articles-data.ts': { corpusPath: 'content/swiss-articles-data.ts', articles: 0, distinctImages: 0 },
     },
   }, null, 2)}\n`);
-  if (withImage) fs.writeFileSync(path.join(root, 'public/images/blog/new-cover.webp'), 'cover-bytes');
+  if (withImage) fs.writeFileSync(path.join(root, 'public/images/blog/new-cover.webp'), IMAGE_BYTES);
   return root;
 }
 
@@ -57,7 +158,7 @@ afterEach(() => {
 describe('sync-published-blog-covers', () => {
   it('adds only missing published covers to the paired ledger and index, idempotently', () => {
     const root = fixture();
-    execFileSync(process.execPath, [SCRIPT], { cwd: root, env: { ...process.env, ARTICLES_SYNC_COMMIT: 'a'.repeat(40) } });
+    execFileSync(process.execPath, [SCRIPT], { cwd: root, env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT } });
     const ledgerPath = path.join(root, 'data/blog-cover-ledger.json');
     const indexPath = path.join(root, 'data/image-credits-blog.json');
     const firstLedger = fs.readFileSync(ledgerPath, 'utf8');
@@ -96,6 +197,95 @@ describe('sync-published-blog-covers', () => {
     expect(JSON.parse(repairOutput)).toMatchObject({ added: 0, repairedIndexKeys: ['new-cover'] });
     expect(JSON.parse(fs.readFileSync(indexPath, 'utf8')).covers['new-cover']).toMatchObject({
       evidence: 'inferred',
+      status: 'no-credit',
+    });
+  });
+
+  it('records a newly published cover as generated only when the HTTP evidence and bytes agree', () => {
+    const root = fixture();
+    addGeneratedEvidence(root);
+    const output = execFileSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    });
+    const result = JSON.parse(output);
+    const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
+    const index = JSON.parse(fs.readFileSync(path.join(root, 'data/image-credits-blog.json'), 'utf8'));
+
+    expect(result).toMatchObject({ generatedAddedKeys: ['new-cover'], generatedEvidenceMismatches: [] });
+    expect(ledger.covers['new-cover']).toMatchObject({
+      proofLevel: 5,
+      evidence: 'generated-engine-record',
+      action: 'generated',
+      status: 'generated',
+      recordFile: 'packages/articles/content/image-credits/blog/new-cover.json',
+      hash: sha256(IMAGE_BYTES),
+      generated: { assetId: 'new-cover', imageUrl: IMAGE, provider: 'openai-codex' },
+    });
+    expect(ledger.counts).toMatchObject({ inferredRecords: 1, allCoversByProofLevel: { '5': 1, '6': 1 } });
+    expect(index.covers['new-cover']).toEqual({ file: 'generated:new-cover', modified: 'resized' });
+    expect(index.files['generated:new-cover']).toMatchObject({
+      source: 'generated-provider',
+      generated: { assetId: 'new-cover', sha256: sha256(IMAGE_BYTES) },
+    });
+
+    fs.writeFileSync(path.join(root, 'data/blog-cover-replacements.json'), `${JSON.stringify({ schema: 1, items: {} })}\n`);
+    fs.writeFileSync(path.join(root, 'data/blog-generated-image-registry.json'), `${JSON.stringify({
+      schema: 1,
+      cdnPrefix: '/images/blog/',
+      assetCount: 0,
+      assets: [],
+    })}\n`);
+    const verifyOutput = execFileSync(process.execPath, [VERIFY_SCRIPT], { cwd: root, encoding: 'utf8' });
+    expect(JSON.parse(verifyOutput)).toMatchObject({ generated: 1, errors: 0 });
+  });
+
+  it('backfills inferred covers and leaves a sha256 mismatch explicitly inferred', () => {
+    const root = fixture();
+    addGeneratedEvidence(root, 'f'.repeat(64));
+    const ledgerPath = path.join(root, 'data/blog-cover-ledger.json');
+    const ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+    ledger.covers['new-cover'] = {
+      cover: IMAGE,
+      hash: sha256(IMAGE_BYTES),
+      published: true,
+      historicalPublished: true,
+      references: [],
+      proofLevel: 6,
+      evidence: 'inferred',
+      recordFile: null,
+      action: 'record-inferred',
+      reason: 'Copertina senza prova certa.',
+      verifiedAt: '2026-10-06',
+      provider: null,
+      currentlyPublished: true,
+      status: 'no-credit',
+    };
+    fs.writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`);
+    const indexPath = path.join(root, 'data/image-credits-blog.json');
+    const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+    index.covers['new-cover'] = { evidence: 'inferred', provider: null, verifiedAt: '2026-10-06', status: 'no-credit' };
+    fs.writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
+
+    const output = execFileSync(process.execPath, [SCRIPT], {
+      cwd: root,
+      encoding: 'utf8',
+      env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+    });
+    const result = JSON.parse(output);
+    const updatedLedger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+
+    expect(result.generatedEvidenceMismatches).toContainEqual(expect.objectContaining({
+      key: 'new-cover',
+      expectedSha256: 'f'.repeat(64),
+      actualSha256: sha256(IMAGE_BYTES),
+    }));
+    expect(result.generatedBackfilledKeys).toEqual([]);
+    expect(updatedLedger.covers['new-cover']).toMatchObject({
+      proofLevel: 6,
+      evidence: 'inferred',
+      action: 'record-inferred',
       status: 'no-credit',
     });
   });
