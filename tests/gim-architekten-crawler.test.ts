@@ -4,6 +4,7 @@ import {
   GIM_ARCHITEKTEN_COMPANY_NAME,
   isGimArchitektenJob,
   isTrustedDomain,
+  fetchAllGimArchitektenJobs,
   parseVacancyLinks,
   extractJobPostingJsonLd,
   cleanStreetAddress,
@@ -137,6 +138,60 @@ describe('GIM Architekten AG crawler parser', () => {
     it('returns null for invalid input', () => {
       expect(extractJobPostingJsonLd('')).toBeNull();
       expect(extractJobPostingJsonLd(undefined as unknown as string)).toBeNull();
+    });
+  });
+
+  describe('fetchAllGimArchitektenJobs — source-only locality', () => {
+    it('resolves a unique official locality from the vacancy postal code instead of the employer HQ', async () => {
+      const vacancyId = '5e404baa-b2f6-4200-9737-2837b9fcf049';
+      const detailHtml = '<script type="application/ld+json">' + JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: 'Dipl. Architekt/In - GIM',
+        description: 'Planung und Entwicklung von Projekten in einem interdisziplinären Team. Zusammenarbeit mit Auftraggebern, Fachplanern und Behörden. Verantwortung für Entwurf, Ausführung und Qualitätssicherung.',
+        hiringOrganization: { '@type': 'Organization', name: 'GIM Architekten AG' },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: 'Jura',
+            postalCode: '2905',
+            addressCountry: 'CH',
+          },
+        },
+      }) + '</script>';
+      const fetchPage = async (url: string) => {
+        if (!url.includes('/companies/')) return detailHtml;
+        const slug = url.includes('/70650-')
+          ? '70650-gim-architekten-ag'
+          : '49929-gim-architekten-ag';
+        return '<h1>GIM Architekten AG</h1>'
+          + '<link rel="canonical" href="https://www.jobs.ch/en/companies/' + slug + '/">'
+          + '<a href="/en/companies/' + slug + '/vacancies/">Jobs (1)</a>'
+          + '<a href="/en/vacancies/detail/' + vacancyId + '/"><div data-cy="vacancy-serp-item">Dipl. Architekt/In - GIM</div></a>';
+      };
+
+      const jobs = await fetchAllGimArchitektenJobs({ fetchPage });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        location: 'Courtedoux',
+        addressLocality: 'Courtedoux',
+        addressRegion: 'JU',
+        postalCode: '2905',
+      });
+
+      const conflictingRegionHtml = detailHtml.replace('"addressRegion":"Jura"', '"addressRegion":"BE"');
+      const conflictingJobs = await fetchAllGimArchitektenJobs({
+        fetchPage: async (url) => url.includes('/companies/') ? fetchPage(url) : conflictingRegionHtml,
+      });
+
+      expect(conflictingJobs[0]).toMatchObject({
+        location: 'Bern',
+        addressLocality: 'Bern',
+        addressRegion: 'BE',
+        postalCode: '2905',
+      });
     });
   });
 
