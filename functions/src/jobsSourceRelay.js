@@ -1,4 +1,5 @@
 import { createPublicKey, verify as verifySignature } from 'node:crypto';
+import { cancelReaderWithDeadline } from './lib/boundedReaderCleanup.js';
 
 export const GITHUB_OIDC_ISSUER = 'https://token.actions.githubusercontent.com';
 export const GITHUB_OIDC_AUDIENCE = 'frontaliere-jobs-source-relay';
@@ -324,7 +325,7 @@ async function readResponseBodyLimited(response, maxBytes, signal) {
         chunks.push(chunk);
       }
     } catch (error) {
-      try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+      await cancelReaderWithDeadline(reader);
       if (error === tooLarge) return { tooLarge: true, bytes };
       throw error;
     } finally {

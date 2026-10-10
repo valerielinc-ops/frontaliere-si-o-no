@@ -1,4 +1,5 @@
 import { JSDOM } from 'jsdom';
+import { cancelReaderWithDeadline } from './bounded-response-body.mjs';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
 import { parseJsonLdText } from './json-ld-text.mjs';
 
@@ -141,10 +142,6 @@ export function extractEventBookingPrice(html, bookingUrl, event, { venueMatcher
   }
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
-}
-
 /** Bounded, public, allowlisted reads; failed or unrelated pages leave the price unknown. */
 export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fetch, venueMatcher } = {}) {
   let url = supportedEventBookingUrl(bookingUrl);
@@ -182,7 +179,7 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
         }
         body = Buffer.concat(chunks).toString('utf8');
       } catch (error) {
-        await cancelReaderOnReadError(reader);
+        await cancelReaderWithDeadline(reader);
         throw error;
       } finally {
         try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }

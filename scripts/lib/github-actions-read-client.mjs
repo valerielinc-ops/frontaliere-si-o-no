@@ -74,13 +74,27 @@ function copyOfChunk(value) {
   throw new GitHubActionsReadError('github_api_invalid', 'response chunk is not bytes');
 }
 
+const READER_CANCEL_DEADLINE_MS = 1_000;
+
 /**
  * Best-effort cleanup after a reader error. A rejected `reader.read()` may
- * already have errored the stream, but cancelling it is harmless; neither a
- * rejected cancellation nor a successful one may replace the read verdict.
+ * already have errored the stream, and some polyfills leave `reader.cancel()`
+ * pending forever. Cleanup is bounded and can never replace the read verdict.
  */
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+async function cancelReaderWithDeadline(reader) {
+  let timer;
+  try {
+    await Promise.race([
+      Promise.resolve().then(() => reader.cancel()),
+      new Promise((resolve) => {
+        timer = setTimeout(resolve, READER_CANCEL_DEADLINE_MS);
+      }),
+    ]);
+  } catch {
+    // The read verdict stays authoritative even if cancellation rejects.
+  } finally {
+    if (timer !== undefined) clearTimeout(timer);
+  }
 }
 
 async function readBoundedResponse(response, maxBytes) {
@@ -104,7 +118,7 @@ async function readBoundedResponse(response, maxBytes) {
       chunks.push(chunk);
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older

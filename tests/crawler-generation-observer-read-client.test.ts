@@ -316,5 +316,28 @@ for (const [label, load] of [
     expect(cancel).toHaveBeenCalledTimes(1);
     expect(releaseLock).toHaveBeenCalledTimes(1);
   });
+
+  it('bounds repeated cleanup when reader cancellation never settles', async () => {
+    const cancel = vi.fn(() => new Promise<void>(() => {}));
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockRejectedValue(new Error('reader read failed')),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader), cancel: vi.fn() },
+    };
+    const { result, fetchImpl } = await readWith(load, response, 64);
+    await expect(result).rejects.toThrow(/transport exhausted/);
+    // The existing transport retry policy remains intact, but each read-error
+    // cleanup is bounded so all configured attempts eventually terminate.
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(cancel).toHaveBeenCalledTimes(3);
+    expect(releaseLock).toHaveBeenCalledTimes(3);
+  }, 5_000);
   });
 }

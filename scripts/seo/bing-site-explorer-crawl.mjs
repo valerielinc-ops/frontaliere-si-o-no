@@ -18,6 +18,7 @@ import {
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
+import { cancelReaderWithDeadline } from '../lib/bounded-response-body.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
@@ -262,10 +263,6 @@ async function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch)
   }
 }
 
-async function cancelReaderOnReadError(reader) {
-  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
-}
-
 /**
  * The bytes of a stream chunk. A chunk that is not bytes is a read error, not
  * an empty chunk: `new Uint8Array(value.buffer, …)` over a value with no
@@ -318,7 +315,7 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
       }
     }
   } catch (error) {
-    await cancelReaderOnReadError(reader);
+    await cancelReaderWithDeadline(reader);
     if (error !== truncation) throw error;
   } finally {
     try { reader.releaseLock?.(); } catch { /* the read verdict stays authoritative */ }

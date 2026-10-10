@@ -141,7 +141,7 @@ describe('jobsSourceRelay', () => {
   });
 
   it('cancels an invalid streamed chunk before returning an upstream error', async () => {
-    const cancel = vi.fn().mockResolvedValue(undefined);
+    const cancel = vi.fn(() => new Promise<void>(() => {}));
     const releaseLock = vi.fn();
     const reader = {
       read: vi.fn().mockResolvedValue({ done: false, value: '<html>' }),
@@ -163,7 +163,7 @@ describe('jobsSourceRelay', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(1);
     expect(cancel).toHaveBeenCalledTimes(1);
     expect(releaseLock).toHaveBeenCalledTimes(1);
-  });
+  }, 5_000);
 
   it('returns 401 when the token is missing or invalid', async () => {
     const fetchImpl = vi.fn();
