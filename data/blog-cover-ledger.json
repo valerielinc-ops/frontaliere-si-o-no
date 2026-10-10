@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5167
+      "6": 5168
     },
-    "publishedCovers": 6879,
+    "publishedCovers": 6880,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -183031,6 +183031,33 @@
           "id": "viabilita-sacro-monte-varese",
           "category": "pratico",
           "date": "2026-10-10T03:14:55.151Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-frana-sementina-h13-gudo": {
+      "cover": "/images/blog/article-frana-sementina-h13-gudo.webp",
+      "hash": "96e52561121a4930ead703ca63c20ffd55ddb824b86d2a78db1411981608b6e4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frana-sementina-h13-gudo",
+          "category": "pratico",
+          "date": "2026-10-10T02:19:31.649Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
