@@ -20,6 +20,7 @@ import {
 import path from 'node:path';
 
 import { GRAPH_API } from './instagram-graph-constants.mjs';
+import { matchInstagramMedia } from './instagram-media-matching.mjs';
 
 export const COMMUNITY_STATE_SCHEMA_VERSION = 1;
 export const MAX_COMMENT_REPLIES_PER_RUN = 20;
@@ -281,54 +282,10 @@ export function groupPostedLedgerForAutomation(ledger) {
  * under the wrong creative and poison the experiment.
  */
 export function matchLedgerGroupsToMedia(groups, media, { maxDistanceMinutes = 45 } = {}) {
-  const byId = new Map(media.filter(isRecord).map((item) => [id(item.id), item]).filter(([mediaId]) => mediaId));
-  const used = new Set();
-  const matches = [];
-  const unmatched = [];
-  const unresolved = [];
-
-  for (const group of groups) {
-    if (group.mediaId) {
-      const item = byId.get(group.mediaId);
-      if (!item || used.has(group.mediaId)) unmatched.push({ group, reason: 'ledger-media-id-not-available' });
-      else {
-        used.add(group.mediaId);
-        matches.push({ group, media: item, method: 'ledger-media-id' });
-      }
-      continue;
-    }
-    const candidates = media
-      .map((item) => ({ item, mediaId: id(item.id), at: timestamp(item.timestamp || item.created_time) }))
-      .filter((candidate) => candidate.mediaId && candidate.at !== null && group.publishedAtMs !== null && !used.has(candidate.mediaId))
-      .map((candidate) => ({ ...candidate, distanceMs: Math.abs(candidate.at - group.publishedAtMs) }))
-      .filter((candidate) => candidate.distanceMs <= Math.max(1, Number(maxDistanceMinutes) || 45) * 60_000)
-      .sort((a, b) => a.distanceMs - b.distanceMs || a.mediaId.localeCompare(b.mediaId));
-    if (candidates.length === 0) unmatched.push({ group, reason: 'media-timestamp-not-found' });
-    else unresolved.push({ group, candidates });
-  }
-
-  const claims = new Map();
-  for (const candidate of unresolved) {
-    const best = candidate.candidates[0];
-    const second = candidate.candidates[1];
-    if (second && second.distanceMs - best.distanceMs <= 60_000) {
-      unmatched.push({ group: candidate.group, reason: 'ambiguous-media-timestamp' });
-      continue;
-    }
-    const claim = claims.get(best.mediaId) || [];
-    claim.push({ ...candidate, best });
-    claims.set(best.mediaId, claim);
-  }
-  for (const claim of claims.values()) {
-    if (claim.length !== 1) {
-      for (const item of claim) unmatched.push({ group: item.group, reason: 'media-candidate-reused' });
-      continue;
-    }
-    const item = claim[0];
-    used.add(item.best.mediaId);
-    matches.push({ group: item.group, media: item.best.item, method: 'confirmation-timestamp' });
-  }
-  return { matches, unmatched };
+  return matchInstagramMedia(groups, media, {
+    maxDistanceMinutes,
+    missingMediaIdReason: 'ledger-media-id-not-available',
+  });
 }
 
 function hashAction(...parts) {

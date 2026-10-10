@@ -8,6 +8,7 @@
  * a missing or ambiguous match is always skipped.
  */
 import { fetchRetry } from './ga4-service-account.mjs';
+import { matchInstagramMedia } from './instagram-media-matching.mjs';
 import { GRAPH_API } from './social-post-utils.mjs';
 
 export const SNAPSHOT_SCHEMA_VERSION = 1;
@@ -212,68 +213,16 @@ export async function listAccountMedia(
   return media;
 }
 
-function mediaTimestamp(media) {
-  return timestamp(media?.timestamp || media?.created_time);
-}
-
 /**
  * Match ledger groups to recent media. Ties and reused media candidates are
  * rejected instead of guessing, because a wrong creative attribution is
  * worse than a missing observation.
  */
 export function matchLedgerToMedia(groups, media, { maxDistanceMinutes = DEFAULT_MEDIA_MATCH_MINUTES } = {}) {
-  const byId = new Map(media.filter(isRecord).map((item) => [text(item.id), item]).filter(([id]) => id));
-  const used = new Set();
-  const matches = [];
-  const unmatched = [];
-  const unresolved = [];
-
-  for (const group of groups) {
-    if (group.mediaId) {
-      if (byId.has(group.mediaId)) {
-        const item = byId.get(group.mediaId);
-        used.add(group.mediaId);
-        matches.push({ group, media: item, method: 'ledger-media-id' });
-      } else {
-        unmatched.push({ group, reason: 'ledger-media-id-not-returned' });
-      }
-      continue;
-    }
-    const candidates = media
-      .map((item) => ({ item, id: text(item.id), at: mediaTimestamp(item) }))
-      .filter((candidate) => candidate.id && candidate.at !== null && !used.has(candidate.id) && group.publishedAtMs !== null)
-      .map((candidate) => ({ ...candidate, distanceMs: Math.abs(candidate.at - group.publishedAtMs) }))
-      .filter((candidate) => candidate.distanceMs <= Math.max(1, Number(maxDistanceMinutes) || DEFAULT_MEDIA_MATCH_MINUTES) * 60_000)
-      .sort((a, b) => a.distanceMs - b.distanceMs || a.id.localeCompare(b.id));
-    if (candidates.length === 0) {
-      unmatched.push({ group, reason: 'media-timestamp-not-found' });
-    } else {
-      unresolved.push({ group, candidates });
-    }
-  }
-
-  const claims = new Map();
-  for (const item of unresolved) {
-    const best = item.candidates[0];
-    const second = item.candidates[1];
-    if (second && second.distanceMs - best.distanceMs <= 60_000) {
-      unmatched.push({ group: item.group, reason: 'ambiguous-media-timestamp' });
-      continue;
-    }
-    const claim = claims.get(best.id) || [];
-    claim.push({ ...item, best });
-    claims.set(best.id, claim);
-  }
-  for (const claim of claims.values()) {
-    if (claim.length !== 1) {
-      for (const item of claim) unmatched.push({ group: item.group, reason: 'media-candidate-reused' });
-      continue;
-    }
-    const item = claim[0];
-    used.add(item.best.id);
-    matches.push({ group: item.group, media: item.best.item, method: 'confirmation-timestamp' });
-  }
-  return { matches, unmatched };
+  return matchInstagramMedia(groups, media, {
+    maxDistanceMinutes,
+    missingMediaIdReason: 'ledger-media-id-not-returned',
+  });
 }
 
 function metricValue(item) {
