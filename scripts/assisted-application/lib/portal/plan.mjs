@@ -143,6 +143,12 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
 const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
+// Some classic portals enforce their application privacy agreement without
+// adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
+// acceptance sentence is still the application's own consent, not a fact the
+// candidate must supply. Optional marketing/talent-pool wording is excluded
+// below by OPTIONAL_CONSENT.
+const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
 // svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
@@ -151,8 +157,33 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
   const label = String(field?.label || '');
-  return field?.kind === 'checkbox' && Boolean(field.required) && OWN_CONSENT.test(label)
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label)) && OWN_CONSENT.test(label)
     && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+}
+
+// A current job is explicit when the CV's experience period says "ad oggi",
+// "present", "heute", etc. It is not inferred from the first experience entry:
+// an undated or merely latest role may already have ended.
+const CURRENT_EXPERIENCE_RE = /\b(?:ad\s+oggi|oggi|attualmente|presente|tuttora|in\s+corso|present(?:e|ly)?|current|ongoing|now|today|en\s+cours|actuellement|jusqu['’]?[àa]\s+présent|heute|aktuell|derzeit|bis\s+heute)\b/i;
+const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
+const EMPLOYED_OPTION_RE = /^(?:occupat[oa](?:\s*\/\s*[oa])?|employed|working|beschäftigt|erwerbstätig|angestellt|salari(?:é|ée)|en\s+emploi|travail(?:leur|leuse)|dipendent[ei])(?:\s*[-–—:(].*)?$/i;
+const EMPLOYED_YES_RE = /^(?:yes|ja|s(?:ì|i)|oui)$/i;
+
+/** Whether the CV explicitly contains an experience that is still current. */
+function hasCurrentExperience(candidate) {
+  return (candidate?.profile?.experience || []).some((item) => CURRENT_EXPERIENCE_RE.test(item?.end || ''));
+}
+
+/** The one unambiguous "currently employed" option supported by the CV. */
+export function currentEmploymentOption(field, candidate) {
+  if (!CURRENT_EMPLOYMENT_RE.test(String(field?.label || '')) || !hasCurrentExperience(candidate)) return null;
+  const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
+  if (!options.length) return null;
+  const employed = options.filter((option) => EMPLOYED_OPTION_RE.test(String(option.label).trim()));
+  if (employed.length === 1) return employed[0];
+  const yes = options.filter((option) => EMPLOYED_YES_RE.test(String(option.label).trim()));
+  const no = options.filter((option) => /^(?:no|nein|non|ne)$/i.test(String(option.label).trim()));
+  return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
 /** A quote of the candidate's data: non-trivial and really in it. */
@@ -601,10 +632,15 @@ export function guardPlan(plan, fields, candidate = null) {
   // licence?» into a question for the candidate who has just uploaded it.
   const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
   for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
+  // A current employment status is a direct consequence of an experience that
+  // the CV marks as ongoing. Keep the mapping deterministic: language levels,
+  // availability and other candidate-only facts still go to the candidate.
+  const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     const field = byId.get(item.fieldId);
@@ -701,16 +737,16 @@ export function guardPlan(plan, fields, candidate = null) {
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (ownConsent(field)) {
+    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
+    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));

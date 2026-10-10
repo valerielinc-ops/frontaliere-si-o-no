@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -48,6 +48,62 @@ describe('portal link clicks', () => {
     expect(await clickPortalLink(page, link, { context })).toBe(popup);
     expect(order).toEqual(['watch', 'href', 'click']);
     expect(context.waitForEvent).toHaveBeenCalledWith('page', { timeout: 60_000 });
+  });
+});
+
+describe('legacy portal sections', () => {
+  it('opens closed Rexx/Portal7 accordion groups before planning the page', async () => {
+    const groups = [{ id: 'group_head_personal', open: false }, { id: 'group_head_language', open: false }];
+    const fields = () => [
+      { id: 'first', kind: 'text', label: 'First group', required: false },
+      ...groups.filter((group) => group.open).map((group) => ({ id: group.id, kind: 'select', label: group.id, required: true })),
+    ];
+    const frame = {
+      url: () => 'https://www.concorsi.ti.ch/forma-di-lavoro.html?yid=4304',
+      evaluate: vi.fn(async () => ({
+        url: 'https://www.concorsi.ti.ch/forma-di-lavoro.html?yid=4304',
+        title: 'Application',
+        fields: fields(),
+        buttons: [],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      })),
+    };
+    const headers = groups.map((group) => ({
+      getAttribute: vi.fn(async (name: string) => name === 'id' ? group.id : null),
+      evaluate: vi.fn(async (read: (element: any) => boolean) => read({
+        getAttribute: () => null,
+        classList: { contains: (name: string) => name === 'group_extended' && group.open },
+        nextElementSibling: { open: group.open, getBoundingClientRect: () => ({ height: group.open ? 100 : 0 }) },
+      })),
+      click: vi.fn(async () => { group.open = true; }),
+    }));
+    const page = {
+      url: () => 'https://www.concorsi.ti.ch/forma-di-lavoro.html?yid=4304',
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => headers.length), nth: (index: number) => headers[index] }
+        : { count: vi.fn(async () => 0) }),
+    };
+    const before = { url: page.url(), fields: [{ id: 'first', kind: 'text', label: 'First group', required: false }], buttons: [] };
+    const hadWindow = Object.prototype.hasOwnProperty.call(globalThis, 'window');
+    const previousWindow = (globalThis as any).window;
+    (globalThis as any).window = { getComputedStyle: (group: any) => ({ display: group.open ? 'block' : 'none' }) };
+    let result;
+    try {
+      result = await openFormSections(page as any, before as any);
+    } finally {
+      if (hadWindow) (globalThis as any).window = previousWindow;
+      else delete (globalThis as any).window;
+    }
+
+    expect(headers.every((header) => header.click.mock.calls.length === 1)).toBe(true);
+    expect(result.snapshot.fields.map((field: any) => field.id)).toEqual(['first', 'group_head_personal', 'group_head_language']);
   });
 });
 
@@ -446,19 +502,42 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       { id: 'c3', kind: 'checkbox', label: 'I hold a valid work permit and accept the privacy policy', required: true, checked: false },
       { id: 'c4', kind: 'checkbox', label: 'Datenschutzerklärung gelesen', required: false, checked: false },
       { id: 'c5', kind: 'checkbox', label: 'Ho letto l’informativa privacy e acconsento al trattamento dei dati', required: true, checked: false },
+      // Ticino Rexx omits the HTML `required` attribute even though its
+      // server rejects the application until this agreement is checked.
+      { id: 'c6', kind: 'checkbox', label: 'Accetto la memorizzazione elettronica dei miei dati ai sensi delle disposizioni in materia di protezione dei dati.', required: false, checked: false },
     ];
     // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
     const guarded = guardPlan({
       actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
-    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent']]);
+    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent'], ['c6', 'consent']]);
     // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
     expect(ownConsent(fields[3])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+  });
+
+  it('maps an explicitly ongoing CV experience to the current employment option', () => {
+    const field = {
+      id: 'employment',
+      kind: 'select',
+      label: 'Situazione lavorativa attuale *',
+      required: true,
+      options: [{ label: 'Disoccupato' }, { label: 'Occupato' }],
+    };
+    const candidate = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: 'ad oggi' }] }, portalQuestionsAnswered: [] };
+    expect(currentEmploymentOption(field, candidate)).toEqual({ label: 'Occupato' });
+    expect(guardPlan({ actions: [], missingRequired: [{ fieldId: 'employment', question: 'Situazione lavorativa attuale', why: '', type: 'choice', options: ['Disoccupato', 'Occupato'] }] }, [field], candidate)).toEqual({
+      actions: [{ fieldId: 'employment', action: 'select', value: 'Occupato', document: 'none', source: 'profile', evidence: '' }],
+      missingRequired: [],
+    });
+    // A past or undated last job does not justify choosing "employed".
+    const ended = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: '31/12/2024' }] }, portalQuestionsAnswered: [] };
+    expect(currentEmploymentOption(field, ended)).toBeNull();
+    expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
