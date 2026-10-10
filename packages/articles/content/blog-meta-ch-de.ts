@@ -8030,6 +8030,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sgkb-filiali-fisiche.title': 'SGKB bestätigt die 37 physischen Filialen',
     'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB hält am Netz von 37 physischen Standorten fest.',
     'blog.article.sgkb-filiali-fisiche.imageAlt': 'Physische Filiale einer Schweizer Kantonalbank in St. Gallen',
+    'blog.article.multe-como-targhe-estere.title': 'Como: 1.259 Bußgelder für ausländische Autos im August',
+    'blog.article.multe-como-targhe-estere.excerpt': '1.259 in Como im August ausgestellte Bußgeldbescheide 102.738 Euro in 31 Tagen 3.322 Euro pro Tag im Monat August Schätzungen zufolge werden über 80% der Bußgeldbescheide ignoriert Ort → Como',
+    'blog.article.multe-como-targhe-estere.imageAlt': 'Auto mit Schweizer Kennzeichen in Como geparkt',
 };
 
 export default blogMetaChDe;

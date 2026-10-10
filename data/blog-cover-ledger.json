@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5165
+      "6": 5166
     },
-    "publishedCovers": 6877,
+    "publishedCovers": 6878,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182842,6 +182842,33 @@
           "id": "lucerna-polizza-edifici-regole",
           "category": "pratico",
           "date": "2026-10-10T01:12:10.158Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-multe-como-targhe-estere": {
+      "cover": "/images/blog/article-multe-como-targhe-estere.webp",
+      "hash": "1d20a67e332bda4f4434f64e5ca5f5bd12f45413e6f780fd1fa73595543654d9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "multe-como-targhe-estere",
+          "category": "pratico",
+          "date": "2026-10-10T04:09:02.259Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

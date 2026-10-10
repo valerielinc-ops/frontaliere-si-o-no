@@ -8030,6 +8030,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sgkb-filiali-fisiche.title': 'SGKB confirms the 37 physical branches',
     'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB maintains the network of 37 physical locations.',
     'blog.article.sgkb-filiali-fisiche.imageAlt': 'Physical branch of a Swiss cantonal bank in St. Gallen',
+    'blog.article.multe-como-targhe-estere.title': 'Como: 1.259 fines for foreign cars in August',
+    'blog.article.multe-como-targhe-estere.excerpt': '1.259 fines issued in Como in August 102.738 euros in 31 days 3.322 euros per day in the month of August Estimates of over 80% of ignored tickets Location → Como',
+    'blog.article.multe-como-targhe-estere.imageAlt': 'Car with a Swiss plate parked in Como',
 };
 
 export default blogMetaChEn;

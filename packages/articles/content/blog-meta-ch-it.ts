@@ -8030,6 +8030,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sgkb-filiali-fisiche.title': 'SGKB conferma le 37 filiali fisiche',
     'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB mantiene la rete di 37 sedi fisiche.',
     'blog.article.sgkb-filiali-fisiche.imageAlt': 'Filiale fisica di una banca cantonale svizzera a San Gallo',
+    'blog.article.multe-como-targhe-estere.title': 'Como: 1.259 multe alle auto straniere in agosto',
+    'blog.article.multe-como-targhe-estere.excerpt': '1.259 multe redatte a Como in agosto 102.738 euro in 31 giorni 3.322 euro al giorno nel mese di agosto Stime oltre l\'80% di verbali ignorati Luogo → Como',
+    'blog.article.multe-como-targhe-estere.imageAlt': 'Auto con targa svizzera in sosta a Como',
 };
 
 export default blogMetaChIt;

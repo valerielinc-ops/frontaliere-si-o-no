@@ -8030,6 +8030,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sgkb-filiali-fisiche.title': 'SGKB confirme ses 37 agences physiques',
     'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB maintient le réseau de 37 sites physiques.',
     'blog.article.sgkb-filiali-fisiche.imageAlt': 'Agence physique d\'une banque cantonale suisse à Saint-Gall',
+    'blog.article.multe-como-targhe-estere.title': 'Como : 1.259 amendes infligées aux voitures étrangères en août',
+    'blog.article.multe-como-targhe-estere.excerpt': '1.259 amendes dressées à Como en août 102.738 euros en 31 jours 3.322 euros par jour au mois d\'août Estimations de plus de 80% de procès-verbaux ignorés Lieu → Como',
+    'blog.article.multe-como-targhe-estere.imageAlt': 'Voiture avec plaque suisse stationnée à Côme (Como)',
 };
 
 export default blogMetaChFr;
