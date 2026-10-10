@@ -851,7 +851,8 @@
       "firstSeenAt": "2026-09-30T21:21:24.995Z",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.138Z"
+      "crawledAt": "2026-10-10T09:22:42.138Z",
+      "needsRetranslation": true
     },
     {
       "title": "Associate - Marketing Consultant",
@@ -1007,7 +1008,8 @@
       "previousSlugs": [
         "intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-basel",
         "intern-in-audit-trade-industries-and-services-november-2026-bis-april-2027-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Associate - Support Assistant",
@@ -1861,7 +1863,7 @@
       },
       "slugByLocale": {
         "it": "manager-senior-manager-cyber-risk-regulations-consultant-auditor-pwc-switzerland-zurich",
-        "en": "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich",
+        "en": "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich",
         "de": "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
         "fr": "gestionnaire-gestionnaire-principal-cyberrisque-et-reglementation-consultant-verificateur-pwc-switzerland-zurich"
       },
@@ -1883,8 +1885,8 @@
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
       "previousSlugsByLocale": {
         "en": [
-          "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich",
-          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich"
+          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
+          "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich"
         ],
         "it": [
           "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich"
@@ -1895,7 +1897,7 @@
       },
       "previousSlugs": [
         "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
-        "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich"
+        "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-switzerland-zurich"
       ],
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
@@ -2275,7 +2277,8 @@
       },
       "previousSlugs": [
         "digital-audit-senior-manager-sox-risk-assurance-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager – Wealth Management / Asset Management Consulting",
@@ -2409,7 +2412,8 @@
       "firstSeenAt": "2026-09-19T22:57:51.229Z",
       "datePosted": "2026-09-14T07:39:49Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.183Z"
+      "crawledAt": "2026-10-10T09:22:42.183Z",
+      "needsRetranslation": true
     },
     {
       "title": "Manager Financial Services Consulting",
@@ -3115,7 +3119,7 @@
         "it": "direttore-cio-advisory-middle-markets-pwc-switzerland-zurich",
         "en": "director-cio-advisory-middle-markets-pwc-zurich",
         "de": "direktor-cio-advisory-middle-markets-pwc-switzerland-zurich",
-        "fr": "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
+        "fr": "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
       },
       "id": "pwc-474940c64b92",
       "salaryMin": 113000,
@@ -3135,7 +3139,7 @@
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+          "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
         ],
         "it": [
           "director-cio-advisory-middle-markets-pwc-zurich"
@@ -3146,7 +3150,7 @@
       },
       "previousSlugs": [
         "director-cio-advisory-middle-markets-pwc-zurich",
-        "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+        "director-cio-advisory-middle-markets-pwc-switzerland-zurich"
       ],
       "postalCode": "8001",
       "streetAddress": "",
@@ -4458,7 +4462,8 @@
       },
       "previousSlugs": [
         "manager-senior-manager-sap-s-4hana-technical-transformation-integration-and-clean-core-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate / Manager - Cybersecurity Berater und Prüfer",
@@ -6404,7 +6409,7 @@
       },
       "slugByLocale": {
         "it": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich",
-        "en": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+        "en": "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich",
         "de": "manager-transaktionssteuer-fusionen-und-ubernahmen-pwc-switzerland-zurich",
         "fr": "gestionnaire-taxe-des-transactions-fusions-et-acquisitions-pwc-switzerland-zurich"
       },
@@ -6435,7 +6440,7 @@
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ],
         "en": [
-          "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich"
+          "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ],
         "de": [
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
@@ -6445,8 +6450,7 @@
         ]
       },
       "previousSlugs": [
-        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
-        "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich"
+        "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
       ]
     },
     {
@@ -7545,7 +7549,8 @@
       "streetAddress": "",
       "datePosted": "2026-04-20T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.352Z"
+      "crawledAt": "2026-10-10T09:22:42.352Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager/ Director - Beratung Gesundheitswesen mit Fokus Krankenversicherung",
@@ -7890,7 +7895,8 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2026-04-01T13:57:05Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.362Z"
+      "crawledAt": "2026-10-10T09:22:42.362Z",
+      "needsRetranslation": true
     },
     {
       "title": "Financial Audit (Assistant) Manager - Trade, Industries & Services",
@@ -8539,7 +8545,8 @@
       "streetAddress": "Birchstrasse 160",
       "datePosted": "2025-09-23T22:00:00Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.382Z"
+      "crawledAt": "2026-10-10T09:22:42.382Z",
+      "needsRetranslation": true
     },
     {
       "title": "Audit – Career Start im Bereich Financial Services - Herbst 2026",
@@ -8720,7 +8727,8 @@
       "streetAddress": "",
       "datePosted": "2025-08-11T10:57:53Z",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:22:42.394Z"
+      "crawledAt": "2026-10-10T09:22:42.394Z",
+      "needsRetranslation": true
     },
     {
       "title": "Manager - SAP Master Data Governance Consulting",
