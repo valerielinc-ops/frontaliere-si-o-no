@@ -281,7 +281,7 @@ describe('confirmation → ledger', () => {
     const e = entry('article');
     const first = confirmQueueEntry({ queue: { pending: [e] }, ledger: { posted: [] }, queueId: e.id, confirmedAt: '2026-10-04T10:00:00Z', evidence: 'Post condiviso' });
     expect(first.queue.pending).toEqual([]);
-    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, robotEvidence: 'Post condiviso' }]);
+    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, instagramStoryImageUrl: e.imageUrls[0], robotEvidence: 'Post condiviso' }]);
     const again = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: first.ledgerEntries }, queueId: e.id, confirmedAt: '2026-10-04T10:05:00Z' });
     expect(again.alreadyConfirmed).toBe(true);
     expect(again.ledgerEntries).toEqual([]);
