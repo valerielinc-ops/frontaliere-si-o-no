@@ -22,6 +22,7 @@ import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mj
 import { listSliceFileNames } from './crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './translation-publication-hold.mjs';
 import { parseLedger } from './social-publish-queue.mjs';
+import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -33,14 +34,13 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 
 export const SITE_URL = 'https://frontaliereticino.ch';
 
-// Meta Graph API base — ONE literal for the four call sites that talk to it
-// (the two Facebook schedulers, the Instagram publish layer, the readiness
-// prober). It was copy-pasted in each of them, which meant a version bump had
-// to be remembered four times and a missed one would fail only for that single
-// channel, at its own cron hour. Check
+// Meta Graph API base — ONE literal for all call sites that talk to it
+// (the Facebook schedulers, Instagram publishing/community automation and the
+// readiness prober). It was copy-pasted in each of them, which meant a version
+// bump had to be remembered in several places and a missed one would fail only
+// for that single channel, at its own cron hour. Check
 // developers.facebook.com/docs/graph-api/changelog before bumping.
-export const GRAPH_API_VERSION = 'v21.0';
-export const GRAPH_API = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
+export { GRAPH_API, GRAPH_API_VERSION };
 
 // ── Canton naming ───────────────────────────────────────────
 // Canton ISO 2-letter code → Italian display name. Used both as prose (FB

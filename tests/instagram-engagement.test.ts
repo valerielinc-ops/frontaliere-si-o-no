@@ -28,7 +28,7 @@ const creativeEntry = (overrides: Record<string, unknown> = {}) => ({
 });
 
 describe('Instagram engagement brief', () => {
-  it('derives a manual 24/48/72-hour loop from queued creative metadata', () => {
+  it('derives an automatic 24/48/72-hour loop from queued creative metadata', () => {
     const brief = buildInstagramEngagementBrief(creativeEntry());
 
     expect(brief).toMatchObject({
@@ -44,7 +44,8 @@ describe('Instagram engagement brief', () => {
       storySlaHours: 48,
       decisionWindowHours: 72,
       minimumComparableObservations: 3,
-      manualOnly: true,
+      automationMode: 'graph-api',
+      manualOnly: false,
     });
     expect(brief?.responseAction).toContain('24h');
     expect(brief?.followUpAction).toContain('48h');
@@ -76,9 +77,9 @@ describe('Instagram engagement brief', () => {
     })).toBeNull();
   });
 
-  it('formats a readable local-only operator brief', () => {
+  it('formats a readable automatic worker brief', () => {
     const output = formatInstagramEngagementBrief(buildInstagramEngagementBrief(creativeEntry()));
     expect(output).toContain('🧭 Instagram engagement — article-2026-10-10 · question-choice · comments');
-    expect(output).toContain('Manuale: nessun commento, DM o Story viene inviato dal robot.');
+    expect(output).toContain('Automatico: commenti, DM consentiti e Story vengono gestiti dal worker Graph API.');
   });
 });

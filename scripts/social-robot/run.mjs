@@ -9,10 +9,12 @@
  *   node scripts/social-robot/run.mjs --login            # owner: log in once, then close the window
  *
  * Owner decision of 2026-10-04 (issues 9798 and 7648): automatic publishing
- * through the real web apps, no third-party service and no API app. The
- * owner ACCEPTS the risk that Instagram's and TikTok's terms allow them to
- * restrict or suspend accounts that publish through automation. Hence the
- * cadence limits in lib/cadence.mjs and the rule that the robot never insists.
+ * through the real web apps, with no third-party publishing service. The
+ * Instagram community loop additionally uses Meta's official Graph API for
+ * permitted comments, inbound messages and static Stories. The owner ACCEPTS
+ * the risk that Instagram's and TikTok's terms allow them to restrict or
+ * suspend accounts that publish through automation. Hence the cadence limits
+ * in lib/cadence.mjs and the rule that the robot never insists.
  *
  * What it publishes: data/<channel>-queue.json on origin/main, filled by the
  * daily posters (see scripts/lib/social-publish-queue.mjs). What it records:
@@ -31,6 +33,10 @@
  *   SOCIAL_ROBOT_STATE_DIR     profile, journal, diagnostics
  *                              (default: ~/Library/Application Support/frontaliere/social-robot)
  *   SOCIAL_ROBOT_BROWSER_PATH  browser binary (default: Google Chrome, else cached Chromium)
+ *   INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
+ *                              Graph API community worker credentials
+ *   FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN
+ *                              optional Conversations API credentials
  *   TRUSTED_GH_BIN / PATH      `gh` = the workspace coordinator shim
  *
  * Install the twice-a-day launchd job: bash scripts/social-robot/launchd.sh install
@@ -40,6 +46,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '../lib/instagram-community-automation.mjs';
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
@@ -100,6 +107,7 @@ async function main() {
     if (opts.jitter) await new Promise((r) => setTimeout(r, randomBetween(Math.random, { min: 0, max: START_JITTER_MAX_MS })));
 
     const repoDir = process.env.SOCIAL_ROBOT_SITE_REPO || path.resolve(__dirname, '..', '..');
+    const reader = gitMainReader({ repoDir });
     let context = null;
     const page = async () => {
       context ||= await openProfile({ stateDir, launch });
@@ -110,7 +118,7 @@ async function main() {
         cliMode: opts.mode,
         rcMode,
         platforms: opts.platforms,
-        reader: gitMainReader({ repoDir }),
+        reader,
         journalStore: fileJournalStore(stateDir),
         fetchImages: (entry) => downloadEntryFiles(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
         // --jitter marks the unattended launchd run: there a queue entry gets
@@ -136,7 +144,18 @@ async function main() {
           return createGithubIssue({ title, description, priority: 2, labels, workflow: 'social-robot (Mac host)' });
         },
       });
-      console.log(JSON.stringify({ results }));
+      let community = null;
+      if (opts.platforms.includes('instagram')) {
+        community = await runInstagramCommunityAutomation({
+          accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+          accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
+          ledger: reader.readLedger('instagram'),
+          statePath: path.join(stateDir, 'instagram-community-state.json'),
+          mode: resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode }),
+          log: console,
+        });
+      }
+      console.log(JSON.stringify({ results, community }));
       return results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed') ? 1 : 0;
     } finally {
       if (context) await context.close().catch(() => {});

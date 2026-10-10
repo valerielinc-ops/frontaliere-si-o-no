@@ -402,11 +402,15 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
     throw new Error(`no ledger entries for ${queueId}: not in the queue and none sent with the confirmation`);
   }
   const ts = new Date(confirmedAt).toISOString();
+  const storyImageUrl = entry?.channel === 'instagram' && Array.isArray(entry.imageUrls)
+    ? String(entry.imageUrls[0] || '').trim()
+    : '';
   const ledgerEntries = base.map((e) => ({
     ...enrichLegacyReelLedgerEntry(e),
     ts,
     queueId,
     via: ROBOT_LEDGER_VIA,
+    ...(storyImageUrl ? { instagramStoryImageUrl: storyImageUrl } : {}),
     ...(evidence ? { robotEvidence: String(evidence).slice(0, 200) } : {}),
   }));
   return { queue: remaining, ledgerEntries, alreadyConfirmed: false, source: sent ? 'confirmation' : 'queue' };

@@ -511,7 +511,7 @@ describe('runRobot', () => {
     }
   });
 
-  it('prints the human engagement brief for an Instagram creative without sending interactions', async () => {
+  it('prints the automatic engagement brief for an Instagram creative', async () => {
     const creative = buildQueueEntry({
       channel: 'instagram',
       kind: 'article',
@@ -540,7 +540,7 @@ describe('runRobot', () => {
     expect(output).toContain('24h');
     expect(output).toContain('48h');
     expect(output).toContain('3 osservazioni');
-    expect(output).toContain('nessun commento, DM o Story viene inviato');
+    expect(output).toContain('commenti, DM consentiti e Story vengono gestiti');
   });
 
   it('does nothing when Remote Config says off', async () => {
