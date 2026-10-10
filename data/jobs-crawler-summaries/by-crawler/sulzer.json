@@ -1,7 +1,7 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-10-10T09:30:37.763Z",
+  "generatedAt": "2026-10-10T21:34:15.691Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8257,
-  "avgDurationMs": 8257,
+  "durationMs": 7137,
+  "avgDurationMs": 7137,
   "durationHistory": [
-    8257
+    7137
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Legal-Assistant---Paralegal_JR105145-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:30:16.601Z",
+      "crawledAt": "2026-10-10T21:33:57.117Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:30:19.581Z",
+      "crawledAt": "2026-10-10T21:33:59.951Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:30:18.892Z",
+      "crawledAt": "2026-10-10T21:33:59.237Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:30:18.117Z",
+      "crawledAt": "2026-10-10T21:33:58.527Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/R-D-Chemical-Recycling-Intern_JR104882-1",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:30:17.411Z",
+      "crawledAt": "2026-10-10T21:33:57.829Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,5 +239,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
