@@ -123327,7 +123327,8 @@
     "slugByLocale": {
       "en": "insurance-and-provident-advisor-f-h-d-at-bienne-general-agency-die-mobiliar-biel",
       "de": "versicherungs-und-versicherungsberater-f-h-d-bei-der-bienne-general-agency-die-mobiliar-biel",
-      "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+      "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
+      "it": "assicurazione-e-provident-advisor-m-f-d-presso-bienne-general-agency-die-mobiliar-biel"
     }
   },
   "id|mobiliar.ch|1164040155": {
@@ -325928,7 +325929,9 @@
     "canonicalSlug": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
     "slugByLocale": {
       "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-      "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
+      "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen",
+      "it": "private-clients-consultant-vz-vermogenszentrum-rapperswil-jona",
+      "en": "private-clients-consultant-vz-vermogenszentrum-rapperswil-jona"
     },
     "createdAt": "2026-07-14",
     "canton": "SG"
@@ -333383,7 +333386,8 @@
     "slugByLocale": {
       "de": "system-engineer-cbtc-stadler-rail-ch",
       "it": "system-ingegnere-cbtc-stadler-rail-wallisellen",
-      "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen"
+      "fr": "system-ingenieur-cbtc-stadler-rail-wallisellen",
+      "en": "system-ingegnere-cbtc-stadler-rail-wallisellen"
     },
     "createdAt": "2026-07-15",
     "canton": "ZH"
@@ -334773,7 +334777,10 @@
   "id|vermoegenszentrum.ch|88021f17-636c-41cf-a978-26498edcfd5b": {
     "canonicalSlug": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermogenszentrum-thun",
     "slugByLocale": {
-      "de": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch"
+      "de": "trainee-programm-unabhangige-vermogensberatung-80-100-vz-vermoegenszentrum-ch",
+      "it": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun",
+      "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-thun-bern",
+      "fr": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-thun"
     },
     "createdAt": "2026-07-15",
     "canton": "BE"
@@ -373683,7 +373690,9 @@
     "canonicalSlug": "stv-living-area-manager-in-stiftung-solina-spiez",
     "slugByLocale": {
       "de": "stv-wohnbereichsleiter-in-solina-spiez",
-      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-spiez"
+      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-spiez",
+      "it": "direttore-della-zona-giorno-urbana-stiftung-solina-spiez",
+      "en": "stv-living-area-manager-in-stiftung-solina-spiez"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -373703,7 +373712,9 @@
     "canonicalSlug": "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
     "slugByLocale": {
       "de": "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-kirchbuhl"
+      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-kirchbuhl",
+      "it": "direttore-della-zona-giorno-urbana-stiftung-solina-steffisburg-kirchbuhl",
+      "en": "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -373786,7 +373797,9 @@
     "canonicalSlug": "stv-living-area-manager-in-stiftung-solina-steffisburg-ziegelei",
     "slugByLocale": {
       "de": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
+      "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei",
+      "it": "vice-responsabile-dell-area-abitativa-stiftung-solina-steffisburg-ziegelei",
+      "en": "deputy-residential-areamanager-stiftung-solina-steffisburg-ziegelei"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -373839,7 +373852,9 @@
     "canonicalSlug": "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl",
     "slugByLocale": {
       "de": "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
-      "fr": "directeur-de-la-zone-habitable-stiftung-solina-steffisburg-kirchbuhl"
+      "fr": "directeur-de-la-zone-habitable-stiftung-solina-steffisburg-kirchbuhl",
+      "it": "scala-di-soggiorno-stiftung-solina-steffisburg-kirchbuhl",
+      "en": "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -416984,7 +416999,9 @@
     "canonicalSlug": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez",
     "slugByLocale": {
       "de": "mitarbeiter-in-hauswirtschaft-solina-spiez",
-      "it": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez"
+      "it": "collaboratore-trice-hauswirtschaft-stiftung-solina-spiez",
+      "en": "housekeeping-staff-member-stiftung-solina-spiez",
+      "fr": "employe-dans-l-economie-domestique-stiftung-solina-spiez"
     },
     "createdAt": "2026-07-28",
     "canton": "BE"
@@ -455426,7 +455443,10 @@
   "id|vermoegenszentrum.ch|a61ff8a7-ad57-425a-b81e-8d017956f1e7": {
     "canonicalSlug": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
     "slugByLocale": {
-      "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch"
+      "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
+      "it": "private-clients-consulente-vz-vermogenszentrum-zurich",
+      "en": "private-clients-consultant-vz-vermogenszentrum-zurich",
+      "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-zurich-zurich"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -681072,7 +681092,10 @@
   "id|belimo.com|1165337955": {
     "canonicalSlug": "trusted-firmware-verification-engineer-80-100-belimo-hinwil",
     "slugByLocale": {
-      "en": "trusted-firmware-verification-engineer-80-100-belimo-hinwil"
+      "en": "trusted-firmware-verification-engineer-80-100-belimo-hinwil",
+      "it": "embedded-security-verification-engineer-80-100-belimo-hinwil",
+      "de": "embedded-security-verification-engineer-80-100-belimo-hinwil",
+      "fr": "embedded-security-verification-engineer-80-100-belimo-hinwil"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -682854,7 +682877,8 @@
     "slugByLocale": {
       "it": "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
       "de": "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch",
-      "fr": "erp-application-specialiste-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+      "fr": "erp-application-specialiste-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+      "en": "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -697600,7 +697624,9 @@
     "canonicalSlug": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug",
     "slugByLocale": {
       "de": "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-      "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-zug-zug"
+      "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-zug-zug",
+      "it": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug",
+      "fr": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
     },
     "createdAt": "2026-09-10",
     "canton": "ZG"
@@ -784144,7 +784170,10 @@
   "id|vermoegenszentrum.ch|f1eedd51-3b80-4b5d-828d-53990a77abc1": {
     "canonicalSlug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-horgen",
     "slugByLocale": {
-      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+      "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-horgen-zurich",
+      "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-horgen-zurich",
+      "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-horgen-zurich"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -784152,7 +784181,10 @@
   "id|vermoegenszentrum.ch|ba1496ff-a45a-42d8-a756-f4439fd06ca7": {
     "canonicalSlug": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermogenszentrum-freienbach",
     "slugByLocale": {
-      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
+      "de": "einstieg-ins-financial-consulting-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+      "it": "entrata-in-financial-consulting-servizi-di-gestione-patrimoniale-indipendenti-vz-vermogenszentrum-freienbach-schwyz",
+      "en": "entry-into-financial-consulting-independent-asset-management-services-vz-vermogenszentrum-freienbach-schwyz",
+      "fr": "entree-dans-conseils-financiers-services-independants-de-gestion-d-actifs-vz-vermogenszentrum-freienbach-schwyz"
     },
     "createdAt": "2026-09-22",
     "canton": "SZ"
@@ -801400,7 +801432,8 @@
     "slugByLocale": {
       "en": "working-student-packaging-engineering-20-40-belimo-hinwil",
       "it": "ingegneria-dell-imballaggio-degli-studenti-di-lavoro-20-40-belimo-hinwil",
-      "de": "werkstudent-packaging-engineering-20-40-belimo-hinwil"
+      "de": "werkstudent-packaging-engineering-20-40-belimo-hinwil",
+      "fr": "etudiant-actif-en-ingenierie-de-l-emballage-20-40-belimo-hinwil"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -815756,7 +815789,9 @@
     "canonicalSlug": "international-sales-trainer-m-w-omega-biel-bienne",
     "slugByLocale": {
       "en": "international-sales-trainer-m-w-omega-biel-bienne",
-      "de": "internationaler-verkaufstrainer-m-w-omega-sa-biel-bienne"
+      "de": "internationaler-verkaufstrainer-m-w-omega-sa-biel-bienne",
+      "it": "sales-trainer-m-f-omega-sa",
+      "fr": "trainer-international-de-ventes-h-f-omega-sa"
     },
     "createdAt": "2026-09-29",
     "canton": "BE"
@@ -870883,7 +870918,9 @@
     "canonicalSlug": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
     "slugByLocale": {
       "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
-      "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868"
+      "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+      "en": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+      "fr": "gartner-in-garten-e-landschaftsbau-stadt-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -905054,7 +905091,8 @@
     "slugByLocale": {
       "it": "consulente-clienti-privati-vz-vermogenszentrum-basel-basel-stadt",
       "de": "private-clients-consultant-vz-vermoegenszentrum-ch",
-      "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-basel-basel-stadt"
+      "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-basel-basel-stadt",
+      "en": "private-clients-consultant-vz-vermogenszentrum-basel"
     },
     "createdAt": "2026-10-08",
     "canton": "BS"
@@ -909412,7 +909450,8 @@
     "slugByLocale": {
       "de": "gestionnaire-rh-paie-et-assurances-sociales-hr-sachbearbeiter-in-lohnadministration-und",
       "it": "gestionnaire-rh-paie-et-assurances-sociales-risorse-umane-sachbearbeiter-in-lohnadministration-e-sozialversicherungen-hopital-fribourgeois-hfr-fribourg",
-      "en": "hr-administrator-payroll-and-social-insurance-hr-administrator-payroll-administration-and-social-insurance-hopital"
+      "en": "hr-administrator-payroll-and-social-insurance-hr-administrator-payroll-administration-and-social-insurance-hopital",
+      "fr": "gestionnaire-rh-paie-et-assurances-sociales-responsable-rh-administration-des-salaires-et-des-assurances-sociales"
     },
     "createdAt": "2026-10-10",
     "canton": "FR"
@@ -909485,7 +909524,10 @@
   "id|lombardodier.wd3.myworkdayjobs.com|r0007683": {
     "canonicalSlug": "senior-full-stack-engineer-lombard-odier-ch",
     "slugByLocale": {
-      "en": "senior-full-stack-engineer-lombard-odier-ch"
+      "en": "senior-full-stack-engineer-lombard-odier-ch",
+      "it": "senior-full-stack-ingegnere-lombard-odier-geneva",
+      "de": "senior-full-stack-ingenieur-lombard-odier-geneva",
+      "fr": "senior-full-stack-ingenieur-lombard-odier-geneva"
     },
     "createdAt": "2026-10-10",
     "canton": "GE"
@@ -909527,7 +909569,9 @@
     "canonicalSlug": "sport-leader-verkaufsberater-m-w-d-60-decathlon-altstetten-decathlon-ch",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-60-decathlon-altstetten-decathlon-ch",
-      "fr": "leader-sportif-conseiller-en-ventes-h-f-d-60-decathlon-altstetten-decathlon-zurich"
+      "fr": "leader-sportif-conseiller-en-ventes-h-f-d-60-decathlon-altstetten-decathlon-zurich",
+      "it": "sport-leader-sales-advisor-m-f-d-60-decathlon-altstetten-decathlon-zurich",
+      "en": "sport-leader-sales-advisor-m-f-d-60-decathlon-altstetten-decathlon-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -909597,7 +909641,9 @@
   "id|ruag.ch|e88c6dae-168c-4ece-8a8a-9c73d0db9649": {
     "canonicalSlug": "pmo-coordinator-100-w-m-d-ruag-ag-thun",
     "slugByLocale": {
-      "de": "pmo-coordinator-100-w-m-d-ruag-ag-thun"
+      "de": "pmo-coordinator-100-w-m-d-ruag-ag-thun",
+      "it": "pmo-coordinatore-100-w-m-d-ruag-ag-thun",
+      "fr": "pmo-coordinateur-100-w-m-d-ruag-ag-thun"
     },
     "createdAt": "2026-10-10",
     "canton": "BE"
@@ -909700,7 +909746,9 @@
   "id|mobiliar.ch|1165553655": {
     "canonicalSlug": "senior-backend-engineer-data-platform-asset-management-w-m-d-mobiliar-ch",
     "slugByLocale": {
-      "de": "senior-backend-engineer-data-platform-asset-management-w-m-d-mobiliar-ch"
+      "de": "senior-backend-engineer-data-platform-asset-management-w-m-d-mobiliar-ch",
+      "it": "senior-backend-ingegnere-data-platform-asset-management-w-m-d-die-mobiliar-bern",
+      "fr": "senior-backend-ingenieur-data-platform-asset-management-w-m-d-die-mobiliar-bern"
     },
     "createdAt": "2026-10-10",
     "canton": "BE"
@@ -909764,7 +909812,9 @@
     "canonicalSlug": "devops-engineer-java-cyber-security-m-w-d-zkb-zurich",
     "slugByLocale": {
       "de": "devops-engineer-java-cyber-security-m-w-d-zkb-zurich",
-      "en": "devops-engineer-java-cyber-security-m-w-d-zurcher-kantonalbank-zurich"
+      "en": "devops-engineer-java-cyber-security-m-w-d-zurcher-kantonalbank-zurich",
+      "it": "devops-ingegnere-java-cyber-security-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-ingenieur-java-cyber-security-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -909791,7 +909841,10 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer": {
     "canonicalSlug": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
     "slugByLocale": {
-      "en": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich"
+      "en": "applied-ml-graph-neural-network-research-software-engineer-google-switzerland-zurich",
+      "it": "applied-ml-graph-neural-network-ricerca-software-ingegnere-google-switzerland-zurich",
+      "de": "applied-ml-graph-neural-network-forschung-software-ingenieur-google-switzerland-zurich",
+      "fr": "applied-ml-graph-neural-network-recherche-software-ingenieur-google-switzerland-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -909808,7 +909861,9 @@
   "url|https://jobs.smartrecruiters.com/talan/744000154704665-lead-business-analyst?oga=true": {
     "canonicalSlug": "lead-business-analyst-talan-lausanne-switzerland",
     "slugByLocale": {
-      "fr": "lead-business-analyst-talan-lausanne-switzerland"
+      "fr": "lead-business-analyst-talan-lausanne-switzerland",
+      "it": "lead-business-analista-talan-lausanne",
+      "de": "leitender-business-analyst-talan-lausanne"
     },
     "createdAt": "2026-10-10",
     "canton": "VD"
@@ -909845,7 +909900,10 @@
   "url|https://www.google.com/about/careers/applications/jobs/results/123236883416130246-staff-research-engineer-generative-ai-cloud-ai-research-coscientist": {
     "canonicalSlug": "staff-research-engineer-generative-ai-cloud-ai-research-co-scientist-google-switzerland",
     "slugByLocale": {
-      "en": "staff-research-engineer-generative-ai-cloud-ai-research-co-scientist-google-switzerland"
+      "en": "staff-research-engineer-generative-ai-cloud-ai-research-co-scientist-google-switzerland",
+      "it": "staff-ricerca-ingegnere-generative-ai-cloud-ai-ricerca-co-scientist-google-switzerland-zurich",
+      "de": "staff-forschung-ingenieur-generative-ai-cloud-ai-forschung-co-scientist-google-switzerland-zurich",
+      "fr": "staff-recherche-ingenieur-generative-ai-cloud-ai-recherche-co-scientist-google-switzerland-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -910014,7 +910072,9 @@
   "id|thelivingcircle.ch|68011702": {
     "canonicalSlug": "demi-chef-entremetier-80-100-all-genders-the-living-circle-grindelwald",
     "slugByLocale": {
-      "de": "demi-chef-entremetier-80-100-all-genders-the-living-circle-grindelwald"
+      "de": "demi-chef-entremetier-80-100-all-genders-the-living-circle-grindelwald",
+      "it": "demi-chef-entremetier-80-100-tutti-i-generi-the-living-circle-grindelwald",
+      "fr": "demi-chef-entremetier-80-100-tous-les-sexes-the-living-circle-grindelwald"
     },
     "createdAt": "2026-10-10",
     "canton": "BE"
@@ -910088,7 +910148,9 @@
   "id|hitachienergy.com|jid3-219874": {
     "canonicalSlug": "hse-sustainability-roadmap-execution-lead-f-m-d-hitachi-energy-baden-switzerland",
     "slugByLocale": {
-      "en": "hse-sustainability-roadmap-execution-lead-f-m-d-hitachi-energy-baden-switzerland"
+      "en": "hse-sustainability-roadmap-execution-lead-f-m-d-hitachi-energy-baden-switzerland",
+      "de": "hse-nachhaltigkeit-roadmap-ausfuhrungsleitung-m-w-d-hitachi-energy-baden-switzerland",
+      "fr": "hse-sustainability-carnet-de-route-execution-plomb-h-f-d-hitachi-energy-baden-switzerland"
     },
     "createdAt": "2026-10-10",
     "canton": "AG"
@@ -910114,5 +910176,1026 @@
     },
     "createdAt": "2026-10-10",
     "canton": "SG"
+  },
+  "id|stadt-zuerich.ch|1373695757": {
+    "canonicalSlug": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+    "slugByLocale": {
+      "de": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zuerich-zurigo-51838",
+      "it": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+      "en": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+      "fr": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|liebherr.com|1445882633": {
+    "canonicalSlug": "tecnico-diagnostico-tecnico-m-f-x-liebherr-bulle",
+    "slugByLocale": {
+      "it": "tecnico-diagnostico-tecnico-m-f-x-liebherr-bulle",
+      "en": "technical-diagnostic-technician-m-f-x-liebherr-bulle",
+      "de": "techniker-befundung-m-f-x-liebherr-bulle",
+      "fr": "technicien-en-diagnostic-technique-h-f-x-liebherr-bulle"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "FR"
+  },
+  "id|vermoegenszentrum.ch|ce8c5aa4-6400-4c20-9b8d-018d4004b227": {
+    "canonicalSlug": "private-clients-consulente-vz-vermogenszentrum-uster",
+    "slugByLocale": {
+      "it": "private-clients-consulente-vz-vermogenszentrum-uster",
+      "en": "private-clients-consultant-vz-vermogenszentrum-uster",
+      "de": "private-clients-consultant-vz-vermoegenszentrum-ch",
+      "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-uster-zurich"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|vermoegenszentrum.ch|6193ca67-54d7-4950-9a0d-e9841b9ff698": {
+    "canonicalSlug": "gestione-applicazioni-clienti-aziendali-vz-vermogenszentrum-zurich-zurich",
+    "slugByLocale": {
+      "it": "gestione-applicazioni-clienti-aziendali-vz-vermogenszentrum-zurich-zurich",
+      "en": "application-manager-corporate-clients-vz-vermogenszentrum-zurich-zurich",
+      "de": "application-manager-firmenkunden-vz-vermoegenszentrum-ch",
+      "fr": "gestionnaire-d-applications-clients-ministeriels-vz-vermogenszentrum-zurich-zurich"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|vermoegenszentrum.ch|f93a514b-88d0-4baa-a870-597bb9e0d19d": {
+    "canonicalSlug": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-wil",
+    "slugByLocale": {
+      "it": "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-wil",
+      "en": "junior-consultant-independent-asset-advice-vz-vermogenszentrum-wil-sankt-gallen",
+      "de": "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
+      "fr": "consultant-junior-conseil-en-actifs-independants-vz-vermogenszentrum-wil-sankt-gallen"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "SG"
+  },
+  "id|vermoegenszentrum.ch|949958f4-67c9-478a-8946-7749b98b97fb": {
+    "canonicalSlug": "analista-di-portafoglio-junior-vz-vermogenszentrum-zug-zug",
+    "slugByLocale": {
+      "it": "analista-di-portafoglio-junior-vz-vermogenszentrum-zug-zug",
+      "en": "junior-portfolio-analyst-in-vz-vermogenszentrum-zug",
+      "de": "junior-portfolio-analyst-in-vz-vermoegenszentrum-ch",
+      "fr": "analyste-junior-de-portefeuille-vz-vermogenszentrum-zug-zug"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZG"
+  },
+  "url|https://jobs.zfv.ch/chef-de-service-90-de-j4750.html": {
+    "canonicalSlug": "chef-de-service-90-zfv-unternehmungen-bern",
+    "slugByLocale": {
+      "de": "chef-de-service-90-zfv-unternehmungen-bern",
+      "it": "capo-del-servizio-90-zfv-unternehmungen-bern",
+      "en": "chief-de-service-90-zfv-unternehmungen-bern"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "url|https://jobs.zfv.ch/nachtportier-40-de-j4749.html": {
+    "canonicalSlug": "nachtportier-40-zfv-unternehmungen-bern",
+    "slugByLocale": {
+      "de": "nachtportier-40-zfv-unternehmungen-bern",
+      "it": "portiere-notturno-40-zfv-unternehmungen-bern",
+      "en": "night-porter-40-zfv-unternehmungen-bern",
+      "fr": "porteur-nocturne-40-zfv-unternehmungen-bern"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|concordia.ch|9f6783bf-569a-4f48-8143-1b2fc0c36aa6": {
+    "canonicalSlug": "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen",
+    "slugByLocale": {
+      "de": "kundenberater-in-geschaftsstelle-ca-87-in-grosswangen-concordia-grosswangen",
+      "it": "ufficio-consulente-clienti-circa-87-in-grosswangen-concordia-grosswangen",
+      "en": "customer-consultant-office-about-87-in-grosswangen-concordia-grosswangen",
+      "fr": "bureau-de-consultants-clients-environ-87-a-grosswangen-concordia-grosswangen"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "LU"
+  },
+  "id|concordia.ch|42b79325-883d-4940-a0fc-bde13eeec78c": {
+    "canonicalSlug": "servizio-clienti-100-in-sursee-concordia-sursee",
+    "slugByLocale": {
+      "de": "kundenberater-in-100-in-sursee-concordia-sursee",
+      "it": "servizio-clienti-100-in-sursee-concordia-sursee",
+      "en": "customer-service-100-in-sursee-concordia-sursee",
+      "fr": "service-a-la-clientele-100-en-sursee-concordia-sursee"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "LU"
+  },
+  "id|prospective.ch|624df1db-96a6-4349-a312-52a34732a894": {
+    "canonicalSlug": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
+    "slugByLocale": {
+      "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+      "it": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
+      "en": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
+      "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|prospective.ch|8852c051-643a-4651-94ae-c7ed581760d9": {
+    "canonicalSlug": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+    "slugByLocale": {
+      "de": "kochin-koch-efz-80-100-sro-langenthal",
+      "it": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "fr": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|solina.ch|dipl-physiotherapeutin-hvg2ob2q": {
+    "canonicalSlug": "dipl-fisioterapista-in-stiftung-solina-standortubergreifend",
+    "slugByLocale": {
+      "it": "dipl-fisioterapista-in-stiftung-solina-standortubergreifend",
+      "en": "certified-physiotherapist-stiftung-solina-standortubergreifend",
+      "de": "dipl-physiotherapeut-in-solina-standortubergreifend",
+      "fr": "physiotherapeute-diplome-e-stiftung-solina-standortubergreifend"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|solina.ch|wohnbereichsleitung-uffrmq4l": {
+    "canonicalSlug": "linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei",
+    "slugByLocale": {
+      "it": "linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei",
+      "en": "living-area-line-stiftung-solina-steffisburg-ziegelei",
+      "de": "wohnbereichsleitung-solina-steffisburg-ziegelei",
+      "fr": "ligne-de-la-zone-habitable-stiftung-solina-steffisburg-ziegelei"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|solina.ch|fuehrungsverantwortlicher-front-office-81b6pn15": {
+    "canonicalSlug": "leader-r-ufficio-anteriore-stiftung-solina-standortubergreifend",
+    "slugByLocale": {
+      "it": "leader-r-ufficio-anteriore-stiftung-solina-standortubergreifend",
+      "en": "leader-r-front-office-stiftung-solina-standortubergreifend",
+      "de": "fuhrungsverantwortliche-r-front-office-solina-standortubergreifend",
+      "fr": "chef-de-file-stiftung-solina-standortubergreifend"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|solina.ch|projektleiterin-fokus-caring-80so7jrz": {
+    "canonicalSlug": "responsabile-di-progetto-fokus-caring-stiftung-solina-standortubergreifend",
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-fokus-caring-stiftung-solina-standortubergreifend",
+      "en": "project-manager-fokus-caring-stiftung-solina-standortubergreifend",
+      "de": "projektleiter-in-fokus-caring-solina-standortubergreifend",
+      "fr": "chef-de-projet-fokus-caring-stiftung-solina-standortubergreifend"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "id|solina.ch|product-owner-digital-solutions-yrc63rg5": {
+    "canonicalSlug": "product-owner-soluzioni-digitali-stiftung-solina-standortubergreifend",
+    "slugByLocale": {
+      "it": "product-owner-soluzioni-digitali-stiftung-solina-standortubergreifend",
+      "en": "product-owner-digital-solutions-stiftung-solina-standortubergreifend",
+      "de": "product-owner-digital-solutions-solina-standortubergreifend",
+      "fr": "proprietaire-du-produit-solutions-numeriques-stiftung-solina-standortubergreifend"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "BE"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-centre-medicauxpermanences-3128": {
+    "canonicalSlug": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-offerte-medizinische-zentren-wartezimmer-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-bloc-operatoire-anesthesieambulances-3126": {
+    "canonicalSlug": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-offer-operating-room-anesthesia-ambulances-radiology-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-offerte-operationssaal-anasthesie-rettungsdienst-radiologie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-hospitaliers-3125": {
+    "canonicalSlug": "offerta-di-lavoro-spontanea-assistenza-ospedaliera-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-di-lavoro-spontanea-assistenza-ospedaliera-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-job-offer-hospital-care-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "freiwillige-stellenanzeige-krankenhauspflege-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-soins-hospitaliers-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-techniqueinfrastructureachat-et-approit-3123": {
+    "canonicalSlug": "offerta-spontanea-tecnica-infrastruttura-acquisto-e-approvv-it-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-tecnica-infrastruttura-acquisto-e-approvv-it-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-offer-technical-infrastructure-purchase-and-appro-it-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-stellenanzeige-technik-infrastruktur-kauf-und-appro-it-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-technique-infrastructure-achat-et-appro-it-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-intendancehotellerie-3121": {
+    "canonicalSlug": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-offer-administration-hospitality-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-offerte-verwaltung-gastronomie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-intendance-hotellerie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-physiotherapieergotherapie-3120": {
+    "canonicalSlug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-medecinmedecin-en-formation-3119": {
+    "canonicalSlug": "offerta-spontanea-medico-medico-in-formazione-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-medico-medico-in-formazione-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-application-doctor-doctor-in-training-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-bewerbung-arzt-arzt-in-ausbildung-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-medecin-medecin-en-formation-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-pharmacie-3118": {
+    "canonicalSlug": "offerta-spontanea-farmacia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-farmacia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-application-pharmacy-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-bewerbung-apotheke-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-pharmacie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-soins-et-hebergement-ems-catanimation-3117": {
+    "canonicalSlug": "offerta-spontanea-cure-e-alloggio-ems-cat-animazione-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-cure-e-alloggio-ems-cat-animazione-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-application-care-and-accommodation-ems-cat-animation-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spontane-bewerbung-pflege-und-unterbringung-ems-cat-animation-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-soins-et-hebergement-ems-cat-animation-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/offre-spontanee-administrationsecretariat-medical-3116": {
+    "canonicalSlug": "offerta-spontanea-amministrazione-segreteria-medica-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "offerta-spontanea-amministrazione-segreteria-medica-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "spontaneous-application-medical-administration-secretariat-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "initiativbewerbung-medizinische-verwaltung-sekretariat-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "offre-spontanee-administration-secretariat-medical-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-rhumatologie-fh-3384": {
+    "canonicalSlug": "medico-specialista-in-reumatologia-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medico-specialista-in-reumatologia-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-specialist-in-rheumatology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "facharzt-fur-rheumatologie-w-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-specialiste-en-rhumatologie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/pedopsychiatre-3473": {
+    "canonicalSlug": "psichiatra-infantile-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "psichiatra-infantile-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "pediatric-psychiatrist-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "kinderpsychiater-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "pedopsychiatre-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-pediatre-avec-interet-pour-le-neurodeveloppement-fh-3532": {
+    "canonicalSlug": "medico-pediatrico-con-interesse-nel-neurosviluppo-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+    "slugByLocale": {
+      "it": "medico-pediatrico-con-interesse-nel-neurosviluppo-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "en": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "de": "padiater-mit-interesse-an-der-neuroentwicklung-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-endocrinologie-fh-3564": {
+    "canonicalSlug": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medico-specialista-in-endocrinologia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "specialist-physician-in-endocrinology-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spezialist-arzt-in-endokrinologie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-specialiste-en-endocrinologie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-assistant-medecine-interne-fh-mai-2028-3603": {
+    "canonicalSlug": "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/psychologue-du-sport-ou-psychologue-en-formation-fh-3639": {
+    "canonicalSlug": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "psicologo-sportivo-nella-formazione-psicoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "sports-psychologist-in-psychotherapy-training-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "sportpsychologe-im-psychotherapietraining-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "psychologue-du-sport-en-formation-de-psychotherapie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-fh-3640": {
+    "canonicalSlug": "salute-ausiliare-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "salute-ausiliare-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "health-auxiliary-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "gesundheitshilfe-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "auxiliaire-de-sante-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/atsso-assistant-technique-specialise-en-salle-doperation-fh-3643": {
+    "canonicalSlug": "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "atsso-technical-assistant-specialized-in-operating-room-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "atsso-assistent-technique-specialise-en-salle-d-operation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-specialiste-en-obesite-3646": {
+    "canonicalSlug": "specialista-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "specialista-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "obesity-specialist-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "spezialist-fur-fettleibigkeit-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-specialiste-en-obesite-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-de-premier-recours-3647": {
+    "canonicalSlug": "lisofone-hispanophone-medico-di-primo-rapporto-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "lisofone-hispanophone-medico-di-primo-rapporto-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "lisophone-hispanophone-first-recourse-physician-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "lisophone-hispanophone-first-recourse-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-de-premier-recours-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-soins-palliatifs-et-ctr-fh-3658": {
+    "canonicalSlug": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "capo-clinica-cure-palliative-e-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "head-of-palliative-care-and-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "leiterin-palliative-care-und-rtc-clinic-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "chef-de-clinique-soins-palliatifs-et-ctr-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-en-ctr-fh-3657": {
+    "canonicalSlug": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "capo-clinica-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "head-of-clinic-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "leiter-der-klinik-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "chef-de-clinique-en-ctr-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-generaliste-3663": {
+    "canonicalSlug": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-generaliste-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-chef-de-clinique-adjoint-en-medecine-interne-fh-3679": {
+    "canonicalSlug": "capo-clinica-adiuvante-in-medicina-interna-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "capo-clinica-adiuvante-in-medicina-interna-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "chief-clinician-adjunct-in-internal-medicine-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "leitender-kliniker-adjunkt-fur-innere-medizin-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-chef-de-clinique-adjoint-en-medecine-interne-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-socio-educatif-fh-3695": {
+    "canonicalSlug": "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-socio-educatif-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-mpc-fh-3784": {
+    "canonicalSlug": "tirocinante-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "tirocinante-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "mpc-trainee-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "mpc-praktikant-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "stagiaire-mpc-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-cuisinier-afp-ou-cfc-fh-3783": {
+    "canonicalSlug": "cucina-apprendista-afp-o-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "cucina-apprendista-afp-o-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "apprentice-cook-afp-or-cfc-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "auszubildender-koch-afp-oder-cfc-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "apprenti-cuisinier-afp-ou-cfc-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-employe-de-commerce-fh-3782": {
+    "canonicalSlug": "apprendista-impiegato-di-commercio-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "apprendista-impiegato-di-commercio-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "apprenti-commercial-employee-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "lehrling-kaufmannische-mitarbeiter-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "apprenti-employe-de-commerce-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-technique-en-sterilisation-fh-3706": {
+    "canonicalSlug": "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-du-simplon-3721": {
+    "canonicalSlug": "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-centro-medico-di-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "en": "medical-assistant-m-f-simplon-medical-center-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "de": "assistent-medical-f-h-centre-medical-du-simplon-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "fr": "assistant-medical-f-h-centre-medical-du-simplon-ehc-vd-renens"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-centre-medical-de-chavannes-pres-renens-3720": {
+    "canonicalSlug": "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-chavannes-near-renens-medical-centre-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+      "de": "assistent-medical-f-h-centre-medical-de-chavannes-pres-renens-ensemble-hospitalier-de-la-cote-ehc-chavannes-pres-renens",
+      "fr": "assistant-medical-f-h-centre-medical-de-chavannes-pres-renens-ehc-vd-chavannes-pres-renens"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/secretaire-medicale-fh-centre-medical-nedol-3719": {
+    "canonicalSlug": "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+    "slugByLocale": {
+      "it": "segretario-medico-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "en": "medical-secretary-m-f-nedol-medical-centre-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "de": "medizinischer-sekretar-m-w-nedol-medical-center-ensemble-hospitalier-de-la-cote-ehc-renens",
+      "fr": "secretaire-medicale-f-h-centre-medical-nedol-ehc-vd-renens"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-soins-aigus-fh-3711": {
+    "canonicalSlug": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "nurse-acute-care-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-soins-aigus-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-multisites-3718": {
+    "canonicalSlug": "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-medical-f-h-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-medical-f-h-multisites-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/neuropsychologue-fsp-3673": {
+    "canonicalSlug": "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+    "slugByLocale": {
+      "it": "neuropsicologo-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "en": "neuropsychologist-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "de": "neuropsychologe-fsp-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+      "fr": "neuropsychologue-fsp-ehc-vd-lavigny"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-medical-fh-3736": {
+    "canonicalSlug": "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-assistant-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-medical-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-en-psychiatrie-de-lage-avance-paa1-fh-3730": {
+    "canonicalSlug": "assistenza-sanitaria-psichiatrica-senior-paa1-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistenza-sanitaria-psichiatrica-senior-paa1-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "senior-psychiatric-health-assistant-paa1-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "senior-psychiatric-health-assistant-paa1-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa1-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-en-psychiatrie-de-lage-avance-paa2-fh-3732": {
+    "canonicalSlug": "assistenza-sanitaria-psichiatrica-senior-paa2-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistenza-sanitaria-psichiatrica-senior-paa2-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "senior-psychiatric-health-assistant-paa2-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "senior-psychiatric-health-assistant-paa2-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "auxiliaire-de-sante-en-psychiatrie-de-l-age-avance-paa2-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/aide-ergo-physio-etudiant-fh-3734": {
+    "canonicalSlug": "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "studente-ergo-physio-aiuto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "ergo-physio-student-help-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "ergo-physio-student-hilft-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "aide-ergo-physio-etudiant-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/chef-dequipe-dintendance-fh-3735": {
+    "canonicalSlug": "capo-del-team-stewardship-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "capo-del-team-stewardship-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "chief-of-stewardship-team-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "leiter-des-stewardship-teams-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "chef-d-equipe-d-intendance-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/psychiatre-3745": {
+    "canonicalSlug": "psichiatra-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "psichiatra-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "psychiatrist-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "psychiater-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "psychiatre-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/dermatologue-3744": {
+    "canonicalSlug": "dermatologo-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "dermatologo-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "dermatologist-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "dermatologe-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "dermatologue-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/aide-ou-assc-ctr-3748": {
+    "canonicalSlug": "aiuto-o-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "aiuto-o-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "aid-or-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "beihilfe-oder-ctr-assc-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "aide-ou-assc-ctr-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/technicien-biomedical-fh-3753": {
+    "canonicalSlug": "biomedico-tecnico-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "biomedico-tecnico-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "biomedical-technician-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "biomedizinischer-techniker-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "technicien-biomedical-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/aide-soignant-en-medecine-fh-3751": {
+    "canonicalSlug": "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistenza-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-caregiver-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "medizinische-betreuung-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "aide-soignant-en-medecine-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/electricien-fh-3756": {
+    "canonicalSlug": "elettricita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "elettricita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "electrician-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "elektriker-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "electricien-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/technologue-en-dispositifs-medicaux-fh-3758": {
+    "canonicalSlug": "technologue-en-dispositifs-medicaux-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "technologue-en-dispositifs-medicaux-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-device-technologist-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "medizinproduktetechnologe-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "technologue-en-dispositifs-medicaux-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-fh-en-ctr-3757": {
+    "canonicalSlug": "infermiera-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
+    "slugByLocale": {
+      "it": "infermiera-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
+      "en": "nurse-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
+      "de": "krankenschwester-m-w-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
+      "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-fh-en-ctr-3759": {
+    "canonicalSlug": "infermiera-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "infermiera-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "nurse-m-f-in-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "krankenschwester-m-w-in-ctr-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "infirmier-f-h-en-ctr-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/chef-de-clinique-en-angiologie-fh-3762": {
+    "canonicalSlug": "responsabile-della-clinica-angiologica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "responsabile-della-clinica-angiologica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "head-of-angiology-clinic-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "leiterin-der-angiologieklinik-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "chef-de-clinique-en-angiologie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-cadre-en-angiologie-fh-3761": {
+    "canonicalSlug": "medecin-cadre-en-angiologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medecin-cadre-en-angiologie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "frame-doctor-in-angiology-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "rahmenarzt-in-angiologie-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-cadre-en-angiologie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/auxiliaire-de-sante-fh-3764": {
+    "canonicalSlug": "assistente-sanitario-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "assistente-sanitario-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-specialise-soins-intensifs-fh-3767": {
+    "canonicalSlug": "infermiera-specializzata-in-terapia-intensiva-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-specializzata-in-terapia-intensiva-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "intensive-care-nurse-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "krankenschwester-spezialisiert-auf-intensivpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-specialise-soins-intensifs-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmierere-referente-du-cat-fh-3776": {
+    "canonicalSlug": "infermiere-di-riferimento-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiere-di-riferimento-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "reference-nurse-of-cat-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "referenzkrankenschwester-von-cat-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-ere-referent-e-du-cat-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-chirurgie-fh-3775": {
+    "canonicalSlug": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "surgical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-chirurgie-fh-3774": {
+    "canonicalSlug": "community-health-assistant-chirurgia-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "community-health-assistant-chirurgia-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "community-health-assistant-assc-surgery-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-soins-et-sante-communautaire-assc-chirurgie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-soins-et-sante-communautaire-assc-chirurgie-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3699": {
+    "canonicalSlug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "sagw-lehrling-pflege-und-gesundheitsassistent-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assistant-medical-fh-3755": {
+    "canonicalSlug": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "apprentice-medical-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "medizinischer-assistenzlehrling-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "apprenti-assistant-medical-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/stagiaire-assistant-medical-fh-3754": {
+    "canonicalSlug": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "trainee-medical-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "praktikant-medizinische-praxisassistentin-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "stagiaire-assistant-medical-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ghi-gestionnaire-en-hotellerie-intendance-fh-3747": {
+    "canonicalSlug": "apprendista-ghi-hospitality-manager-intendenza-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "apprendista-ghi-hospitality-manager-intendenza-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "ghi-apprentice-hospitality-stewardship-manager-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "auszubildender-ghi-hotelmanagement-manager-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "apprenti-ghi-gestionnaire-en-hotellerie-intendance-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-informaticien-fh-3746": {
+    "canonicalSlug": "apprendista-del-computer-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "apprendista-del-computer-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "computer-apprentice-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "computerlehrling-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "apprenti-informaticien-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-ase-assistant-socio-educatif-fh-3771": {
+    "canonicalSlug": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "apprenticeship-esa-socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "vse-lehrling-sozialpadagogischer-assistent-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-asa-aide-en-soins-et-accompagnement-fh-3770": {
+    "canonicalSlug": "apprentice-asa-assistenza-e-supporto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "apprentice-asa-assistenza-e-supporto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "apprentice-asa-care-and-support-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "lehrling-asa-pflege-und-unterstutzung-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/apprenti-assc-assistant-soins-et-sante-communautaire-fh-3769": {
+    "canonicalSlug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "sagw-lehrling-pflege-und-gesundheitsassistent-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/sage-femme-fh-3777": {
+    "canonicalSlug": "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "omosessualita-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "midwife-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "hebamme-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "sage-femme-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/assistant-soins-et-sante-communautaire-assc-medecine-fh-3778": {
+    "canonicalSlug": "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "community-health-assistant-medicina-assc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "community-health-assistant-assc-medicine-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "assistent-soins-et-sante-communautaire-assc-medecine-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "assistant-soins-et-sante-communautaire-assc-medecine-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/infirmier-en-medecine-fh-3786": {
+    "canonicalSlug": "infermiera-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "infermiera-medica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "medical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "infirmier-en-medecine-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "infirmier-en-medecine-f-h-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/neuropsychologue-sous-supervision-fh-3788": {
+    "canonicalSlug": "neuropsicologo-sotto-supervisione-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+    "slugByLocale": {
+      "it": "neuropsicologo-sotto-supervisione-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "en": "neuropsychologist-under-supervision-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "de": "neuropsychologe-unter-aufsicht-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "fr": "neuropsychologue-sous-supervision-f-h-ehc-vd-aubonne"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "url|https://emploi.ehc-vd.ch/fr/nos-offres/medecin-en-cardiologie-3787": {
+    "canonicalSlug": "medico-in-cardiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+    "slugByLocale": {
+      "it": "medico-in-cardiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "en": "physician-in-cardiology-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "de": "arzt-in-der-kardiologie-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "fr": "medecin-en-cardiologie-ehc-vd-morges"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "VD"
+  },
+  "id|belimo.com|1165590455": {
+    "canonicalSlug": "gestione-del-team-it-support-it-service-management-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "it": "gestione-del-team-it-support-it-service-management-80-100-belimo-hinwil",
+      "de": "teamleitung-it-support-it-service-management-80-100-belimo-hinwil",
+      "fr": "gestion-de-l-equipe-soutien-informatique-et-gestion-des-services-informatiques-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165555955": {
+    "canonicalSlug": "gestione-del-team-di-acquisto-indiretto-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "it": "gestione-del-team-di-acquisto-indiretto-80-100-belimo-hinwil",
+      "en": "team-management-of-indirect-purchasing-80-100-belimo-hinwil",
+      "de": "teamleitung-indirekter-einkauf-80-100-belimo-hinwil",
+      "fr": "gestion-d-equipe-des-achats-indirects-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165581855": {
+    "canonicalSlug": "intern-embedded-implementation-of-advanced-hvac-controllers-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "intern-embedded-implementation-of-advanced-hvac-controllers-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165581355": {
+    "canonicalSlug": "tirocinante-ricerca-electronic-design-100-belimo-hinwil",
+    "slugByLocale": {
+      "it": "tirocinante-ricerca-electronic-design-100-belimo-hinwil",
+      "en": "intern-research-electronic-design-100-belimo-hinwil",
+      "de": "praktikant-forschung-electronic-design-100-belimo-hinwil",
+      "fr": "stagiaire-recherche-electronic-design-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|belimo.com|1165551755": {
+    "canonicalSlug": "specialista-tecnico-del-supporto-clienti-80-100-belimo-granges-paccot",
+    "slugByLocale": {
+      "it": "specialista-tecnico-del-supporto-clienti-80-100-belimo-granges-paccot",
+      "en": "technical-customer-support-specialist-80-100-belimo-granges-paccot",
+      "de": "fachspezialist-in-technischer-kundensupport-80-100-belimo-granges-paccot",
+      "fr": "specialiste-technique-du-support-client-80-100-belimo-granges-paccot"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "FR"
+  },
+  "id|belimo.com|1165271655": {
+    "canonicalSlug": "development-engineer-electronics-80-100-belimo-hinwil",
+    "slugByLocale": {
+      "en": "development-engineer-electronics-80-100-belimo-hinwil"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|uzh.ch|5a90f439-987a-433b-93aa-caaec95af08c": {
+    "canonicalSlug": "collaboratore-trice-empfang-universitat-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-empfang-uzh-zurich",
+      "it": "collaboratore-trice-empfang-universitat-zurich",
+      "en": "mitarbeiter-in-empfang-universitat-zurich-zurich",
+      "fr": "mitarbeiter-in-empfang-universitat-zurich-zurich"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-220300": {
+    "canonicalSlug": "test-engineer-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "slugByLocale": {
+      "de": "test-engineer-80-100-w-m-d-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-10-10",
+    "canton": "ZH"
   }
 }

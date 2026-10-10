@@ -77,6 +77,7 @@ import {
 } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
 import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { localeOfDistPath, shouldEmitLocale } from './shared/localeEmitFilter';
 import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -816,6 +817,39 @@ function readJobSlugsMap(
   } catch (err) {
     console.warn('[seo-hubs] failed to read the canonical slug registry', err);
     return empty;
+  }
+}
+
+/**
+ * The slug registry is intentionally historical and monotonic. Only link a
+ * job from an archive hub when its detail page is present in this build's
+ * output; otherwise the deployed locale router can send that stale edge to
+ * the section root (and turn every archive page into a redirect frontier).
+ *
+ * Locale shards cannot inspect pages owned by another shard. Preserve those
+ * cross-shard links and let the owning shard validate its own output; an
+ * all-locale build validates every destination here.
+ */
+function hasEmittedJobDetailPage(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  href: string,
+): boolean {
+  try {
+    const target = new URL(href, `${BASE_URL}/`);
+    if (target.origin !== new URL(BASE_URL).origin || target.search || target.hash) return false;
+    const relativePath = decodeURIComponent(target.pathname).replace(/^\/+|\/+$/g, '');
+    if (!relativePath || relativePath.split('/').some((segment) => !segment || segment === '.' || segment === '..')) return false;
+
+    const distRoot = np.resolve(distDir);
+    const pageFile = np.resolve(distRoot, relativePath, 'index.html');
+    if (!pageFile.startsWith(`${distRoot}${np.sep}`)) return false;
+    // The output for a sibling locale is produced by its own matrix build.
+    if (!shouldEmitLocale(localeOfDistPath(pageFile, distRoot))) return true;
+    return fs.existsSync(pageFile);
+  } catch {
+    return false;
   }
 }
 
@@ -2686,7 +2720,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const itMap = jobPerLocale.it;
       for (const slug of jobSlugs) {
         const localePath = localeMap[slug] || itMap[slug];
-        if (!localePath) continue;
+        if (!localePath || !hasEmittedJobDetailPage(fs, np, distDir, localePath)) continue;
         items.push({ href: localePath, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {

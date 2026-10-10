@@ -588,6 +588,24 @@ describe('submit mode', () => {
     expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì' }]);
   });
 
+  it('defers a stale portal question to the live runner so it can recover field context', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = {
+      ...baseDraft,
+      questions: [{ id: 'portal_cap', source: 'portal', question: 'CAP', required: true, type: 'text', options: [] }],
+      channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' },
+    };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    expect(runner).toHaveBeenCalledTimes(1);
+  });
+
   // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.
   it('starts Coop on SuccessFactors and checks the posting, not the ATS sign-in, for liveness', async () => {
     const bucket = fakeBucket();

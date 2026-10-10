@@ -103,7 +103,8 @@ automatizzata.
 - Caption: una sola idea, elenco breve, CTA esplicita, link in bio.
 
 È il formato automatizzato in questa implementazione. Il carousel ora chiude con
-una slide CTA e registra `creativeId`, obiettivo e metrica nel ledger.
+una slide CTA e registra `creativeId`, obiettivo, metrica e meccanismo della CTA
+nel ledger.
 
 ### Reel “un problema, un numero, una svolta”
 
@@ -151,18 +152,31 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 - il caption esplicita l’azione primaria;
 - `utm_content` include creatività + slug;
 - il ledger conserva `creativeId`, `creativeBaseId`, `creativeVariant`,
-  `creativeObjective` e `primaryMetric`;
+  `creativeObjective`, `primaryMetric` e `engagementMechanic`;
 - `social-carousel-image.mjs` aggiunge una slide finale CTA senza superare il
   limite di 10 elementi del carousel;
 - `scripts/lib/instagram-reel-creative.mjs` definisce tre varianti separate:
   domanda immediata (`comments`), numero in primo piano (`shares`) e
   promemoria pratico (`saves`);
+- la domanda immediata riduce la fatica del commento con una parola-chiave:
+  `GUIDA` per gli articoli e `LAVORO` per le offerte; il ledger conserva anche
+  il meccanismo (`keyword-comment`, `direct-share` o `save-reminder`) così la
+  risposta non viene confusa con quella di una CTA diversa, sia per carousel
+  sia per Reel;
+- la conferma del robot arricchisce anche i Reel già in coda prima
+  dell’introduzione di `engagementMechanic`, usando solo la matrice nota dei
+  Reel; i carousel storici non vengono classificati retroattivamente dalla
+  sola metrica;
 - `scripts/lib/social-reel-image.mjs` compone tre card 1080×1920 e il poster
   `scripts/post-to-instagram-reel.mjs` genera un MP4 verificato, una cover e una
   voce di coda distinta (`kind: reel`);
-- `instagram-reel-experiment.yml` è dispatch-only e parte in preview: il
-  proprietario sceglie quando consumare uno slot, senza aggiungere un terzo
-  post quotidiano automaticamente;
+- `instagram-reel-experiment.yml` mantiene il dispatch manuale ma riserva anche
+  due slot automatici a settimana (articolo il lunedì, lavoro il venerdì),
+  prima della coda carousel quotidiana: usa uno dei due slot del robot e non
+  aggiunge un terzo post giornaliero;
+- il generatore non sostituisce una coorte Reel pending e aspetta 72 ore dalla
+  pubblicazione precedente prima di aprire la successiva, così il confronto
+  resta leggibile nel tempo;
 - il robot riconosce il file video, seleziona il composer Reel e attende la
   conferma “Il tuo reel è stato condiviso” prima di inviare il ledger;
 - la rotazione è pura e non introduce esperimenti PostHog: l’eventuale test
@@ -187,9 +201,13 @@ pressione di `Condividi`, conferma visibile e registrazione nel ledger.
 Il prossimo passo non è aumentare la frequenza a caso: la rotazione deterministica
 continua con i trattamenti successivi e ogni trattamento resta eleggibile solo
 dopo almeno tre osservazioni comparabili nella stessa finestra di 72 ore. Il
-Reel è ora un asse separato e controllato: il workflow manuale genera una sola
-voce `reel`, il robot la pubblica solo quando c’è uno slot scelto, e hook,
+Reel è ora un asse separato e controllato: il workflow manuale resta disponibile
+per preview e coorti scelte, mentre la pianificazione automatica apre al massimo
+due slot settimanali; il robot pubblica solo quando c’è uno slot utile, e hook,
 durata, CTA e metrica restano separati dal confronto carousel.
+
+La cadenza automatica riserva due slot settimanali (articolo il lunedì e lavoro
+il venerdì), con una guardia di 72 ore tra pubblicazioni successive.
 
 I test offline e il browser E2E verificano già tre card verticali, il render
 JPEG, il percorso MP4, il dry-run del Reel, la conferma simulata e il mancato
@@ -218,8 +236,14 @@ Il primo ciclo è una baseline creativa, non una dichiarazione di vittoria.
 
 ### Scheda di rilevazione
 
-Per ogni post, dopo 24 h e 72 h, registrare in un foglio o nel Meta
-Professional Dashboard:
+Per ogni post, osservare due finestre separate nel Meta Professional Dashboard
+o nel dataset automatico:
+
+- a 24 h: segnale diagnostico per capire se hook, copertina e CTA stanno
+  generando la prima reazione;
+- a 72 h: finestra decisionale da usare per confrontare le varianti.
+
+In entrambe le finestre registrare:
 
 - reach totale e reach non-follower;
 - like, commenti, salvataggi, condivisioni e visite al profilo;
@@ -239,24 +263,37 @@ si riscrive quello debole. Un miglioramento del 20% è un buon segnale operativo
 non una prova statistica con un profilo appena avviato.
 
 La raccolta ora è automatizzata dal workflow `Instagram Insights Snapshot`,
-una volta al giorno. Legge il ledger dei post confermati, interroga soltanto
-le superfici read-only di Meta e salva `data/instagram-insights.json` quando
-un contenuto ha raggiunto almeno 72 ore. Il comando locale equivalente è:
+una volta al giorno. Nel run standard il workflow raccoglie sia la finestra
+diagnostica a 24 ore sia quella decisionale a 72 ore; le righe restano separate
+tramite `windowHours` e non vengono mai aggregate insieme. Legge il ledger dei
+post confermati, interroga soltanto le superfici read-only di Meta e salva
+`data/instagram-insights.json` quando ciascuna finestra è stata raggiunta. Il
+comando locale equivalente per una singola finestra è:
 
 ```bash
 node scripts/instagram-insights-snapshot.mjs \
   --ledger data/instagram-posted.json \
   --output data/instagram-insights.json \
+  --window-hours 72 \
   --dry-run
 ```
+
+Per un controllo diagnostico anticipato usare `--window-hours 24`; la finestra
+a 24 ore serve a correggere rapidamente hook e CTA, non a dichiarare il
+vincitore. La decisione editoriale resta ancorata alla finestra a 72 ore e ad
+almeno tre post comparabili.
 
 Il collector usa l’`instagramMediaId` già presente quando possibile; per i post
 confermati dal robot che non lo conservano, cerca un solo media dell’account
 compatibile con l’orario di conferma. Non attribuisce il dato se trova più
 possibilità, se il media dichiarato non ritorna dall’account o se mancano i
 metadati della creatività. `snapshotAgeHours` e il metodo di riconciliazione
-restano nel dataset per audit. La tolleranza anticipata è disattivata di
-default; si può usare solo esplicitamente per una prova diagnostica.
+restano nel dataset per audit; per i nuovi post, `engagementMechanic` segue il
+post fino allo snapshot e alla scorecard (`keyword-comment`, `direct-share` o
+`save-reminder`). I post storici senza questo campo restano
+senza attribuzione della meccanica, per non confondere una metrica con una CTA.
+La tolleranza anticipata è disattivata di default; si può usare solo
+esplicitamente per una prova diagnostica.
 
 ## 7. Aggiornamento dello studio pubblico e matrice sperimentale
 
@@ -327,6 +364,8 @@ e finestra di misurazione; non mette nello stesso confronto un articolo, un
 lavoro e una classifica di dogane. Conserva quindi:
 
 - metrica primaria della variante (`shares`, `saves` o `comments`) / reach;
+- meccanica della CTA (`keyword-comment`, `direct-share` o `save-reminder`), per
+  distinguere l’azione richiesta dalla sola metrica osservata;
 - tasso comune di interazioni (`shares + saves + comments`) / reach, usato solo
   come confronto esplorativo;
 - stato `needs-N-more` finché non sono presenti tre osservazioni comparabili
@@ -335,6 +374,33 @@ lavoro e una classifica di dogane. Conserva quindi:
 Il tasso comune non sostituisce l’obiettivo: non si dichiara vincitore un
 contenuto “proof” solo perché ha più commenti di un contenuto “question”, né si
 confrontano direttamente tipi di contenuto diversi.
+
+### Stato operativo dell’esperimento
+
+Il report di stato separa l’unità editoriale dall’unità tecnica del ledger. Un
+carousel con cinque card è un solo post Instagram e quindi può generare una
+sola osservazione per ciascuna finestra; non viene contato come cinque prove
+indipendenti. Il workflow stampa entrambe le finestre; il comando locale
+equivalente per la decisione è:
+
+```bash
+node scripts/instagram-experiment-status.mjs \
+  --ledger data/instagram-posted.json \
+  --queue data/instagram-queue.json \
+  --insights data/instagram-insights.json
+```
+
+Per vedere il segnale iniziale aggiungere `--window-hours 24`. La scorecard può
+mostrare entrambe le finestre, ma il report non le fonde: ogni variante deve
+raggiungere tre post distinti nella stessa finestra prima di diventare
+`ready-to-compare`.
+
+Il report rende visibili coda pendente, creatività pubblicate, osservazioni
+attribuite, finestra non ancora raggiunta e credenziali mancanti. Una coorte
+passa a `ready-to-compare` solo dopo almeno tre post distinti nella stessa
+combinazione di obiettivo, formato e finestra; prima mostra `awaiting-*` o
+`needs-N-more`. Gli snapshot duplicati, con identità media o coda ripetuta, non
+aumentano il campione.
 
 ## 8. Azioni di community
 

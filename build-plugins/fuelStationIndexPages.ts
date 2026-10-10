@@ -69,88 +69,18 @@ import { FUEL_INDEX_SLUG } from './shared/fuelRouteSlugs.mjs';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import {
-  H1_STYLE,
   H2_STYLE,
-  HERO_EYEBROW_STYLE,
   ICON_FUEL_SVG,
   ICON_MAP_PIN_SVG,
   ICON_NAVIGATION_SVG,
-  LINK_ACCENT_STYLE,
-  STAT_TILE_ACCENT,
-  STAT_TILE_BASE,
-  STAT_TILE_SUCCESS,
   clampSiteSuffix,
   renderEntityCard,
 } from './shared/seoContentTokens';
 import { resolveStationBrandLogoUrl } from './shared/fuelBrandLogo';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 
-// ── Visual style constants (local to the index pages) ─────────────
-//
-// The index pages use a richer visual layout than the original flat list:
-// stat tiles + advice banner + primary CTA + sticky zone-chip jump nav +
-// per-zone header cards + entity-card station grid. All styles bind to the
-// shared OKLCH semantic tokens (CLAUDE.md "no new color values, ever") and
-// gracefully degrade to single column on mobile.
-
-const TAGLINE_STYLE =
-  'margin:0 0 18px;font-size:16px;line-height:1.55;color:var(--color-body);max-width:62ch';
-
-const STAT_GRID_STYLE =
-  'display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0 0 22px';
-
-const ADVICE_STYLE =
-  'display:flex;align-items:flex-start;gap:12px;margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)';
-
-const ADVICE_BADGE_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent)';
-
-const ADVICE_LABEL_STYLE =
-  'display:block;font-size:12px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px';
-
-const ADVICE_BODY_STYLE =
-  'margin:0;font-size:14.5px;line-height:1.5;color:var(--color-heading)';
-
-const CTA_ROW_STYLE =
-  'display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 26px';
-
-const ZONE_NAV_STYLE =
-  'display:flex;gap:8px;overflow-x:auto;margin:0 -8px 24px;padding:6px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch';
-
-const ZONE_CHIP_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-heading);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:border-color 0.15s';
-
-const ZONE_CHIP_COUNT_STYLE =
-  'display:inline-flex;align-items:center;justify-content:center;min-width:22px;padding:0 7px;height:20px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums';
-
-const ZONE_HEADER_STYLE =
-  'display:flex;align-items:center;gap:14px;margin:8px 0 14px;padding:14px 18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)';
-
-const ZONE_HEADER_BADGE_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent)';
-
-const ZONE_HEADER_TITLE_STYLE =
-  'margin:0;font-size:17px;font-weight:700;color:var(--color-heading);line-height:1.2';
-
-const ZONE_HEADER_META_STYLE =
-  'margin:3px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.4';
-
-const ZONE_HEADER_COUNT_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-accent-border);color:var(--color-accent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums';
-
-const STATION_GRID_STYLE =
-  'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:0 0 28px';
-
-const ZONE_SECTION_STYLE = 'margin:0 0 8px;scroll-margin-top:80px';
-
-const PROSE_BLOCK_STYLE =
-  'margin:40px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)';
-
-const PROSE_HEADING_STYLE =
-  'margin:0 0 10px;font-size:18px;font-weight:700;color:var(--color-heading);line-height:1.3';
-
-const PROSE_BODY_STYLE =
-  'margin:0 0 18px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px';
+// Index pages use shared semantic-token CSS classes instead of repeating long
+// inline declarations in every row and pagination chip.
 
 // Zone-context hint: short locale-aware line that adds geographic flavour
 // under each zone header. Keeps the page from feeling like a wall of brand
@@ -752,41 +682,36 @@ function paginateGroupedAnchors(
 }
 
 /**
- * Render a per-zone (or per-city) data block: zone header card + grid of
- * entity cards. Replaces the original flat `<ul><li>` list with a visually
- * scannable two-column grid that uses the shared `renderEntityCard` helper
- * and the lucide fuel-pump / map-pin icons for instant visual differentiation.
+ * Render fuel-index groups with a compact semantic list. These indexes can
+ * contain dozens of city/zone groups and hundreds of links; repeating a large
+ * inline-style card and decorative SVG for every row inflated HTML without
+ * adding information, pushing generated pages below the existing text/HTML
+ * quality floor.
  */
-function renderGroup(
+function renderCompactStationGroup(
   group: GroupedAnchors,
   copy: IndexCopy,
   locale: FuelDailyLocale,
-  cardIcon: 'fuel' | 'mapPin',
+  countKind: 'stations' | 'cities' = 'stations',
 ): string {
-  const iconSvg = cardIcon === 'fuel' ? ICON_FUEL_SVG : ICON_MAP_PIN_SVG;
   const count = group.anchors.length;
-  const noun = cardIcon === 'fuel' ? copy.stationsNoun(count) : copy.citiesNoun(count);
+  const noun = countKind === 'cities' ? copy.citiesNoun(count) : copy.stationsNoun(count);
   const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
+  const rows = group.anchors.map((anchor) => {
+    const logo = anchor.logoUrl
+      ? `<img src="${esc(anchor.logoUrl)}" alt="" width="32" height="32" loading="lazy" decoding="async">`
+      : '';
+    const subtitle = anchor.subtitle
+      ? `<small>${esc(anchor.subtitle)}</small>`
+      : '';
+    return `<li><a href="${esc(anchor.href)}">${logo}<strong>${esc(anchor.label)}</strong>${subtitle}</a></li>`;
+  }).join('');
 
-  const cards = group.anchors
-    .map((a) =>
-      renderEntityCard({
-        href: a.href,
-        logoUrl: a.logoUrl ?? undefined,
-        logoAlt: a.logoAlt ?? a.label,
-        iconSvg,
-        title: a.label,
-        subtitle: a.subtitle,
-      }),
-    )
-    .join('');
-
-  const headerBadge = `<span aria-hidden="true" style="${ZONE_HEADER_BADGE_STYLE}">${iconSvg}</span>`;
-  const headerTitle = `<div class="s-KGNylX"><h3 id="zone-${esc(group.slug)}" style="${ZONE_HEADER_TITLE_STYLE}">${esc(group.heading)}</h3>${borderHint ? `<p style="${ZONE_HEADER_META_STYLE}">${esc(borderHint)}</p>` : ''}</div>`;
-  const headerCount = `<span style="${ZONE_HEADER_COUNT_STYLE}" aria-label="${esc(`${count} ${noun}`)}">${count}</span>`;
-  const header = `<div style="${ZONE_HEADER_STYLE}">${headerBadge}${headerTitle}${headerCount}</div>`;
-
-  return `<section style="${ZONE_SECTION_STYLE}" aria-labelledby="zone-${esc(group.slug)}">${header}<div style="${STATION_GRID_STYLE}">${cards}</div></section>`;
+  return `<section class="fuel-index-compact-group" aria-labelledby="zone-${esc(group.slug)}">
+    <h3 class="fuel-index-compact-group__title" id="zone-${esc(group.slug)}">${esc(group.heading)} <small class="fuel-index-compact-group__count">(${count} ${esc(noun)})</small></h3>
+    ${borderHint ? `<p class="fuel-index-compact-group__hint">${esc(borderHint)}</p>` : ''}
+    <ul class="fuel-index-compact-group__list">${rows}</ul>
+  </section>`;
 }
 
 /** Build the locale-aware short tagline shown directly under the H1. */
@@ -830,31 +755,31 @@ function renderStatBar(
   const isCityIndex = kind === 'italianCities';
   const primaryLabel = isCityIndex ? copy.statLabels.cities : copy.statLabels.stations;
   const secondaryLabel = isCityIndex ? copy.statLabels.zones : copy.statLabels.zones;
-  const tile = (style: string, label: string, value: string) =>
-    `<div style="${style}"><div class="s-tlbl">${esc(label)}</div><div class="s-tval">${esc(value)}</div></div>`;
-  return `<div style="${STAT_GRID_STYLE}">
-    ${tile(STAT_TILE_ACCENT, primaryLabel, String(totalAnchors))}
-    ${tile(STAT_TILE_SUCCESS, secondaryLabel, String(totalGroups))}
-    ${tile(STAT_TILE_BASE, copy.statLabels.source, source)}
-    ${tile(STAT_TILE_BASE, copy.statLabels.updateFreq, copy.statLabels.updateValue)}
+  const tile = (tone: string, label: string, value: string) =>
+    `<div class="fuel-index-stat-tile ${tone}"><div class="s-tlbl">${esc(label)}</div><div class="s-tval">${esc(value)}</div></div>`;
+  return `<div class="fuel-index-stat-grid">
+    ${tile('s-tacc', primaryLabel, String(totalAnchors))}
+    ${tile('s-tok', secondaryLabel, String(totalGroups))}
+    ${tile('s-tbase', copy.statLabels.source, source)}
+    ${tile('s-tbase', copy.statLabels.updateFreq, copy.statLabels.updateValue)}
   </div>`;
 }
 
 /** Render the "Consiglio frontaliere" advice banner (always present). */
 function renderAdviceBanner(copy: IndexCopy, kind: FuelIndexKind, fuelLabel: string): string {
   const body = copy.advice.bodyByKind(kind, fuelLabel);
-  return `<aside style="${ADVICE_STYLE}" aria-label="${esc(copy.advice.label)}">
-    <span aria-hidden="true" style="${ADVICE_BADGE_STYLE}">${ICON_NAVIGATION_SVG}</span>
-    <div class="s-KGNylX">
-      <span style="${ADVICE_LABEL_STYLE}">${esc(copy.advice.label)}</span>
-      <p style="${ADVICE_BODY_STYLE}">${esc(body)}</p>
+  return `<aside class="fuel-index-advice" aria-label="${esc(copy.advice.label)}">
+    <span class="fuel-index-advice__icon" aria-hidden="true">${ICON_NAVIGATION_SVG}</span>
+    <div>
+      <span class="fuel-index-advice__label">${esc(copy.advice.label)}</span>
+      <p class="fuel-index-advice__body">${esc(body)}</p>
     </div>
   </aside>`;
 }
 
 /** Render the primary CTA row (link to the matching daily-hub page). */
 function renderCtaRow(href: string, label: string): string {
-  return `<div style="${CTA_ROW_STYLE}"><a href="${esc(href)}" class="s-cta">${esc(label)} →</a></div>`;
+  return `<div class="fuel-index-cta-row"><a href="${esc(href)}" class="s-cta">${esc(label)} →</a></div>`;
 }
 
 /** Render the horizontally-scrollable zone-chip quick-jump nav. */
@@ -865,17 +790,11 @@ function renderZoneNav(
   if (groups.length < 2 || groups.length > 8) return '';
   const chips = groups
     .map((g) =>
-      `<a href="#zone-${esc(g.slug)}" style="${ZONE_CHIP_STYLE}">${esc(g.heading)}<span style="${ZONE_CHIP_COUNT_STYLE}">${g.anchors.length}</span></a>`,
+      `<a class="fuel-index-zone-chip" href="#zone-${esc(g.slug)}">${esc(g.heading)}<span class="fuel-index-zone-chip__count">${g.anchors.length}</span></a>`,
     )
     .join('');
-  return `<nav aria-label="${esc(copy.jumpNavLabel)}" style="${ZONE_NAV_STYLE}">${chips}</nav>`;
+  return `<nav class="fuel-index-zone-nav" aria-label="${esc(copy.jumpNavLabel)}">${chips}</nav>`;
 }
-
-const INDEX_PAGINATION_STYLE =
-  'display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 24px';
-
-const INDEX_PAGINATION_LINK_STYLE =
-  'display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 9px;border:1px solid var(--color-edge);border-radius:9px;color:var(--color-heading);text-decoration:none;font-size:13px;font-weight:600';
 
 function paginationCopy(locale: FuelDailyLocale): {
   readonly nav: string;
@@ -914,13 +833,13 @@ function renderIndexPagination(
   const items = paginationItems(page, totalPages);
   const links = items
     .map((item) => {
-      if (item === 'ellipsis') return '<span aria-hidden="true" style="padding:0 2px;color:var(--color-subtle)">…</span>';
+      if (item === 'ellipsis') return '<span class="fuel-index-pagination__ellipsis" aria-hidden="true">…</span>';
       const rel = item === page - 1 ? ' rel="prev"' : item === page + 1 ? ' rel="next"' : '';
       const current = item === page ? ' aria-current="page"' : '';
-      return `<a href="${esc(pagePathFor(item))}" style="${INDEX_PAGINATION_LINK_STYLE}" aria-label="${esc(`${copy.page} ${item}`)}"${current}${rel}>${item}</a>`;
+      return `<a class="fuel-index-pagination__link" href="${esc(pagePathFor(item))}" aria-label="${esc(`${copy.page} ${item}`)}"${current}${rel}>${item}</a>`;
     })
     .join('');
-  return `<nav aria-label="${esc(copy.nav)}" style="${INDEX_PAGINATION_STYLE}">${links}</nav>`;
+  return `<nav class="fuel-index-pagination" aria-label="${esc(copy.nav)}">${links}</nav>`;
 }
 
 function pageSuffix(locale: FuelDailyLocale, page: number): string {
@@ -1007,6 +926,29 @@ function collectionLabel(locale: FuelDailyLocale, timestamp: string | null): str
   if (!timestamp) return ({ it: 'Data di acquisizione non disponibile', en: 'Collection time unavailable', de: 'Abrufzeit nicht verfügbar', fr: 'Date d’acquisition indisponible' })[locale];
   const date = new Intl.DateTimeFormat(`${locale}-CH`, { timeZone: 'Europe/Zurich', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }).format(new Date(timestamp));
   return `${({ it: 'Ultima acquisizione nel campione', en: 'Latest collection in the sample', de: 'Letzter Abruf in der Stichprobe', fr: 'Dernière acquisition dans l’échantillon' })[locale]}: ${date}`;
+}
+
+function stationPriceSummary(
+  locale: FuelDailyLocale,
+  priceChf: number,
+  collectedAt: string | null,
+): string {
+  const amount = new Intl.NumberFormat(`${locale}-CH`, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 3,
+  }).format(priceChf);
+  const priceLabel = ({ it: 'Prezzo', en: 'Price', de: 'Preis', fr: 'Prix' })[locale];
+  if (!collectedAt) return `${priceLabel} ${amount} CHF/l`;
+
+  const observedAt = new Intl.DateTimeFormat(`${locale}-CH`, {
+    timeZone: 'Europe/Zurich',
+    day: '2-digit',
+    month: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(new Date(collectedAt));
+  const observedLabel = ({ it: 'rilevato', en: 'checked', de: 'abgerufen', fr: 'relevé' })[locale];
+  return `${priceLabel} ${amount} CHF/l · ${observedLabel} ${observedAt}`;
 }
 
 function renderFuelMapSection(
@@ -1096,23 +1038,24 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     ? groups.flatMap((group) => group.anchors.flatMap((anchor) => anchor.mapStation ? [anchor.mapStation] : []))
     : [];
 
-  // Card icon per index kind — fuel-pump for station indexes, map-pin for the
-  // city index (so the visual signal matches the dominant entity).
-  const cardIcon: 'fuel' | 'mapPin' = kind === 'italianCities' ? 'mapPin' : 'fuel';
-
   // Browse blocks (the load-bearing internal-link section — these anchors are
   // what BFS from the homepage follows to reach the per-station / per-city
   // leaves and lift them out of the orphans bucket).
   const groupsHtml =
     totalAnchors > 0
-      ? groups.map((g) => renderGroup(g, copy, locale, cardIcon)).join('')
+      ? groups.map((g) => renderCompactStationGroup(
+        g,
+        copy,
+        locale,
+        kind === 'italianCities' ? 'cities' : 'stations',
+      )).join('')
       : `<p class="s-2n4DG5">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
 
   // Cross-links to sibling indexes + daily hub.
   const relatedHtml = relatedLinks.length > 0
-    ? `<aside class="s-card" style="margin:24px 0;padding:18px 20px"><h2 style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul class="s-UdsQkK">${relatedLinks
+    ? `<aside class="s-card fuel-index-related"><h2 class="fuel-index-related__title">${esc(copy.relatedHeading)}</h2><ul class="s-UdsQkK">${relatedLinks
         .map(
-          (rl) => `<li class="s-q3nqK4"><a href="${esc(rl.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(rl.label)} →</a></li>`,
+          (rl) => `<li class="s-q3nqK4"><a class="fuel-index-related__link" href="${esc(rl.href)}">${esc(rl.label)} →</a></li>`,
         )
         .join('')}</ul></aside>`
     : '';
@@ -1201,11 +1144,11 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
   const fuelMap = renderFuelMapSection(locale, fuel, lastCompleteCollection(mapStations.map((station) => station.collectedAt)), mapStations);
 
-  const proseBlock = `<section style="${PROSE_BLOCK_STYLE}" aria-label="${esc(copy.methodologyHeading)}">
-    <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.methodologyHeading)}</h2>
-    <p style="${PROSE_BODY_STYLE}">${esc(titles.methodology)}</p>
-    <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.frontaliereHeading)}</h2>
-    <p style="${PROSE_BODY_STYLE.replace('margin:0 0 18px;', 'margin:0;')}">${esc(titles.frontaliereContext)}</p>
+  const proseBlock = `<section class="fuel-index-methodology" aria-label="${esc(copy.methodologyHeading)}">
+    <h2 class="fuel-index-methodology__heading">${esc(copy.methodologyHeading)}</h2>
+    <p class="fuel-index-methodology__body">${esc(titles.methodology)}</p>
+    <h2 class="fuel-index-methodology__heading">${esc(copy.frontaliereHeading)}</h2>
+    <p class="fuel-index-methodology__body fuel-index-methodology__body--last">${esc(titles.frontaliereContext)}</p>
   </section>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
@@ -1217,9 +1160,9 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <span>${esc(pageH1)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(collectionLabel(locale, collectedAt))}</p>
-    <h1 style="${H1_STYLE}">${esc(pageH1)}</h1>
-    <p style="${TAGLINE_STYLE}">${esc(tagline)}</p>
+    <p class="s-eyb">${esc(collectionLabel(locale, collectedAt))}</p>
+    <h1 class="s-h1">${esc(pageH1)}</h1>
+    <p class="fuel-index-tagline">${esc(tagline)}</p>
   </header>
   ${statBar}
   ${advice}
@@ -1228,7 +1171,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   ${fuelMap}
   ${zoneNav}
   <section aria-labelledby="browseAll">
-    <h2 id="browseAll" style="${H2_STYLE};margin-top:8px">${esc(copy.browseHeading)}</h2>
+    <h2 id="browseAll" class="fuel-index-browse-title">${esc(copy.browseHeading)}</h2>
     ${groupsHtml}
   </section>
   ${relatedHtml}
@@ -1370,14 +1313,18 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           });
           if (list.length === 0) continue;
           const anchors = list
-            .map((s) => ({
+            .map((s) => {
+              const collectedAt = validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt);
+              const price = fuel === 'benzina' ? s.benzinaPriceChf : s.dieselPriceChf;
+              return {
               href: buildFuelStationPath(locale, fuel, zone, s.slug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
-              subtitle: s.address,
+              subtitle: [s.address, typeof price === 'number' ? stationPriceSummary(locale, price, collectedAt) : ''].filter(Boolean).join(' · '),
               logoUrl: resolveStationBrandLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
-              collectedAt: validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt),
-            }))
+              collectedAt,
+            };
+            })
             .filter((a) => isEmitted(a.href));
           if (anchors.length === 0) continue;
           const mapStationByHref = new Map(

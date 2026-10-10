@@ -20,33 +20,41 @@ import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityFie
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
 const S = { type: 'string' };
+const ACTION_PROPERTIES = {
+  ref: S,
+  action: { type: 'string', enum: ['click', 'fill', 'type', 'select', 'press', 'upload'] },
+  value: S,
+  document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
+  question: S,
+  context: S,
+  answer: S,
+  source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
+  evidence: S,
+};
+const QUESTION_PROPERTIES = {
+  question: S,
+  context: S,
+  why: S,
+  type: { type: 'string', enum: ['text', 'yes_no', 'choice', 'number', 'date'] },
+  options: LIST(S),
+  validation: ANSWER_VALIDATION_SCHEMA,
+};
+const ACTION_REQUIRED = Object.keys(ACTION_PROPERTIES).filter((key) => key !== 'context');
+const QUESTION_REQUIRED = Object.keys(QUESTION_PROPERTIES).filter((key) => key !== 'context');
+const OPTIONAL_CONTEXT_OBJ = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
 
 export const AGENT_SCHEMA = OBJ({
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OBJ({
-    ref: S,
-    action: { type: 'string', enum: ['click', 'fill', 'type', 'select', 'press', 'upload'] },
-    value: S,
-    document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
-    question: S,
-    answer: S,
-    source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
-    evidence: S,
-  })),
+  actions: LIST(OPTIONAL_CONTEXT_OBJ(ACTION_PROPERTIES, ACTION_REQUIRED)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OBJ({
-    question: S,
-    why: S,
-    type: { type: 'string', enum: ['text', 'yes_no', 'choice', 'number', 'date'] },
-    options: LIST(S),
-    validation: ANSWER_VALIDATION_SCHEMA,
-  })),
+  questions: LIST(OPTIONAL_CONTEXT_OBJ(QUESTION_PROPERTIES, QUESTION_REQUIRED)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
@@ -84,7 +92,8 @@ Actions:
 - select: a native select or a combobox; value = the option's label; the runner opens it, types and picks the option.
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
 - upload: a file input or an upload button; document = cv, cover_letter, or the slot of a document listed in documents.extra.
-For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
+For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); context = the surrounding section/fieldset labels that disambiguate the question (for example, the labels around a bare "CAP"; "" when none); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
+For each item in questions, use the same context field when its label is ambiguous (for example, a bare "CAP" in a residence fieldset); otherwise use "".
 Work history and education sections: add one entry per item of profile.experience and profile.education with the page's own "Add" button when there is one.
 
 Never press the button that sends the application, never Next or Continue (the runner does), never follow a link to another page, never sign in or create an account, never type a password.
@@ -150,6 +159,12 @@ const TOPICS = [
   /start|disponib|verfügbar|eintritt|inizio/i,
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
+const contextKey = (context) => normalizedPortalContext(context);
+const questionKey = (question, context = '') => portalQuestionKey(question, boundedPortalContext(context));
+const agentTopicKey = (question, context = '') => {
+  const topic = topicOf(question);
+  return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
+};
 
 /**
  * Code-side guard on one agent turn (the planner's guardPlan for refs): an
@@ -163,45 +178,51 @@ const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
  */
 export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const knownValues = knownValuesOf(candidate);
-  const answered = (candidate?.portalQuestionsAnswered || []).map((item) => item.question);
+  const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
+  const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answered.map(topicOf).filter((topic) => topic >= 0),
-    ...answered.map(questionTopic).filter(Boolean),
+    ...answeredItems.map((item) => questionKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
   ]);
-  const isAnswered = (question) => Boolean(candidateAnswerForQuestion(candidate, question))
+  const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
+  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
+    || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
-    || answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
-    || answeredTopics.has(topicOf(question))
-    || (questionTopic(question) && answeredTopics.has(questionTopic(question)));
+    || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
+      && normalizedPortalContext(item.context) === normalizedPortalContext(context))
+    || answeredTopics.has(questionKey(question, context))
+    || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
-    if (!question || isAnswered(question) || questions.some((other) => other.question === question)) return;
-    questions.push({ why: '', options: [], ...item, question, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
+    const context = boundedPortalContext(item.context);
+    if (!question || isAnswered(question, context) || questions.some((other) => other.question === question && other.context === context)) return;
+    questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
   const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
     || KNOCK_OUT.test(action.question || '')
-    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question)));
+    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, boundedPortalContext(action.context))));
   for (const action of sensitive) {
+    const context = boundedPortalContext(action.context);
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question);
+    const addressTopic = questionTopic(action.question, context);
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer)) {
+        if (!answeredByCandidate(candidate, action.question, answer, context)) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(action.question);
+        grounded.add(questionKey(action.question, context));
         continue;
       }
     }
@@ -212,26 +233,28 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const fromCandidate = own !== null
-      ? own || answeredByCandidate(candidate, action.question, answer)
+      ? own || answeredByCandidate(candidate, action.question, answer, context)
       : knockOut
-        ? answeredByCandidate(candidate, action.question, answer)
+        ? answeredByCandidate(candidate, action.question, answer, context)
         : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(action.question);
+    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
   }
   const refused = new Set();
   for (const action of sensitive) {
-    if (grounded.has(action.question)) continue;
-    refused.add(action.question);
-    ask({ question: action.question });
+    const context = boundedPortalContext(action.context);
+    const key = questionKey(action.question, context);
+    if (grounded.has(key)) continue;
+    refused.add(key);
+    ask({ question: action.question, ...(context ? { context } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(action.question) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks

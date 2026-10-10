@@ -222,7 +222,14 @@ const NOW = Date.parse('2026-10-04T12:00:00Z');
 const iso = (ms: number) => new Date(ms).toISOString();
 
 describe('serializeStateMarker / parseStateMarker', () => {
-  const state = { ids: ['farmacista', 'logopedista'], indexedViaGrace: ['farmacista'], bridgedNoindex: ['logopedista'] };
+  const state = {
+    ids: ['farmacista', 'logopedista'],
+    indexedViaGrace: ['farmacista'],
+    bridgedNoindex: ['logopedista'],
+    crawlerGap: ['logopedista'],
+    matcherGap: [],
+    unknown: ['farmacista'],
+  };
 
   it('round-trip con il marker della famiglia B', () => {
     const text = `## Testo\n\n${serializeStateMarker(TI_LEGACY_STATE_MARKER, state)}\n`;
@@ -241,6 +248,11 @@ describe('serializeStateMarker / parseStateMarker', () => {
     expect(parseStateMarker(TI_LEGACY_STATE_MARKER, `<!-- ${TI_LEGACY_STATE_MARKER}: {non json} -->`, isTiLegacyState)).toBeNull();
     expect(parseStateMarker(TI_SECTOR_STATE_MARKER, `<!-- ${TI_SECTOR_STATE_MARKER}: {"ids":"sicurezza"} -->`, isIdSetState)).toBeNull();
     expect(parseStateMarker(TI_LEGACY_STATE_MARKER, `<!-- ${TI_LEGACY_STATE_MARKER}: {"ids":["a"]} -->`, isTiLegacyState)).toBeNull();
+    expect(parseStateMarker(
+      TI_LEGACY_STATE_MARKER,
+      `<!-- ${TI_LEGACY_STATE_MARKER}: ${JSON.stringify({ ...state, unknown: [] })} -->`,
+      isTiLegacyState,
+    )).toBeNull();
   });
 
   it('non confonde i marker delle tre famiglie', () => {
@@ -283,6 +295,19 @@ describe('buildIdSetState / diffIdSets', () => {
     expect(d.opened).toEqual([]);
     expect(d.closed).toEqual([]);
     expect(d.regrouped).toEqual(['bridgedNoindex', 'indexedViaGrace']);
+    expect(d.changed).toBe(true);
+  });
+
+  it('a parità di id e bridge, un cambio della causa evidence-based è un cambio', () => {
+    const prev = {
+      ids: ['a'], indexedViaGrace: [], bridgedNoindex: ['a'],
+      crawlerGap: [], matcherGap: [], unknown: ['a'],
+    };
+    const next = {
+      ...prev, crawlerGap: ['a'], unknown: [],
+    };
+    const d = diffIdSets(prev, next);
+    expect(d.regrouped).toEqual(['crawlerGap', 'unknown']);
     expect(d.changed).toBe(true);
   });
 });
@@ -367,8 +392,16 @@ describe('ricorrenza sulla issue: un commento per insieme, non per deploy', () =
   function makeIssue() {
     const issue = { body: 'storico senza marker', createdAt: iso(NOW - 90 * DAY), comments: [] as { body: string; createdAt: string }[] };
     let createCalls = 0;
-    const run = (zeroIds: string[], now: number) => {
-      const state = { ...buildIdSetState(zeroIds), indexedViaGrace: [], bridgedNoindex: [...zeroIds].sort() };
+    const run = (zeroIds: string[], now: number, cause: 'unknown' | 'crawler-gap' = 'unknown') => {
+      const sortedIds = [...zeroIds].sort();
+      const state = {
+        ...buildIdSetState(zeroIds),
+        indexedViaGrace: [],
+        bridgedNoindex: sortedIds,
+        crawlerGap: cause === 'crawler-gap' ? sortedIds : [],
+        matcherGap: [],
+        unknown: cause === 'unknown' ? sortedIds : [],
+      };
       const previous = latestStateEntry(issue, TI_LEGACY_STATE_MARKER, isTiLegacyState);
       if (shouldSuppressRecurrence({ previous, next: state, now })) return;
       const delta = renderIdSetDeltaSection(diffIdSets(previous?.state ?? null, state), { baseline: !previous, noun: 'ruoli' });
@@ -396,6 +429,32 @@ describe('ricorrenza sulla issue: un commento per insieme, non per deploy', () =
     // Gap azzerato: il monitor esce senza scrivere. Ricompare identico 10 giorni dopo.
     run(['logopedista'], NOW + 10 * DAY);
     expect(calls()).toBe(2);
+  });
+
+  it('commenta una causa che cambia anche quando il set dei ruoli non cambia', () => {
+    const { run, calls } = makeIssue();
+    run(['logopedista'], NOW, 'unknown');
+    run(['logopedista'], NOW + 3_600_000, 'crawler-gap');
+    expect(calls()).toBe(2);
+  });
+});
+
+describe('regressione reference e classificazione TI legacy', () => {
+  const src = readFileSync(path.join(__dirname, '..', 'scripts/monitor-sector-coverage.mjs'), 'utf8');
+
+  it('nessun testo/commento del monitor cita ancora il tracker chiuso #3337', () => {
+    expect(src).not.toContain('#3337');
+    expect(src).not.toContain('vedi #3337');
+  });
+
+  it('il producer TI legacy usa l’aggregato per cantone e registra una causa per zero', () => {
+    const start = src.indexOf('async function checkTiLegacyProfessions(');
+    const end = src.indexOf('\nasync function ', start + 1);
+    const body = src.slice(start, end === -1 ? undefined : end);
+    expect(body).toContain('aggregateProfessionJobsByCanton(stagingRoot)');
+    expect(body).toContain('classifyTiLegacyZeroCause(');
+    expect(body).toContain('**Causa evidence-based per ogni zero**');
+    expect(body).toContain('serializeStateMarker(TI_LEGACY_STATE_MARKER, state)');
   });
 });
 

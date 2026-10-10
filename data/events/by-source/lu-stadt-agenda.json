@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-09T12:44:58.292Z",
+  "assembledAt": "2026-10-10T12:02:02.578Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -16,7 +16,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/6840391",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -83,7 +83,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7629577",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -104,7 +104,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7648402",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -125,7 +125,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7456402",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -148,7 +148,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7688353",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -171,7 +171,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7694293",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -194,7 +194,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7463707",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -217,7 +217,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7626901",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-09T12:44:58.292Z",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -228,6 +228,52 @@
         "name": "Stadt Luzern — Termine"
       },
       "sourceDescriptionHash": "53094c72ba1ae4eb8f48f20398dfa1dfca4f8b139aa62234bc1846adfebe66dc"
+    },
+    {
+      "id": "lu-stadt-agenda:7626880",
+      "title": "Pilzexkursion",
+      "startDate": "2026-10-17",
+      "startTime": "08:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7626880",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "87eebb903e237b70b6308774bfb3d72062afc58b5ff4e8387200d122e3eeddf1"
+    },
+    {
+      "id": "lu-stadt-agenda:7686649",
+      "title": "Tag der offenen Tür und Gespräch",
+      "startDate": "2026-10-18",
+      "startTime": "11:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7686649",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-10T12:02:02.578Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "0d7518414745490ac58cec67c60cc66684dafc56d3aa52adde2d6ff0c9d153af"
     }
   ]
 }

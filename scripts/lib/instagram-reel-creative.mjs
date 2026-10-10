@@ -8,12 +8,18 @@
  * pretending the two formats are one experiment.
  */
 
+import { instagramEngagementMechanic } from './instagram-engagement.mjs';
+
 export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
   Object.freeze({
     id: 'reel-question',
     label: 'Domanda immediata',
     objective: 'conversation',
     primaryMetric: 'comments',
+    hookType: 'question',
+    attentionMechanic: 'specific-keyword',
+    engagementLoop: 'keyword-comment-reply',
+    followUpFormat: 'comment-reply-reel',
     hook: Object.freeze({
       job: Object.freeze({ kicker: 'UNA DOMANDA', title: 'Stai cercando lavoro in Svizzera?' }),
       article: Object.freeze({ kicker: 'UNA DOMANDA', title: 'Questa regola ti crea dubbi?' }),
@@ -23,8 +29,8 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
       article: 'In 10 secondi partiamo da un dato reale e arriviamo alla domanda che conta.',
     }),
     cta: Object.freeze({
-      job: 'Commenta con il settore che stai cercando.',
-      article: 'Commenta con il tema che vuoi vedere spiegato.',
+      job: 'Scrivi “LAVORO” e indica il settore che stai cercando.',
+      article: 'Scrivi “GUIDA” e indica il tema che vuoi vedere spiegato.',
     }),
   }),
   Object.freeze({
@@ -32,6 +38,10 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
     label: 'Numero in primo piano',
     objective: 'share',
     primaryMetric: 'shares',
+    hookType: 'single-number',
+    attentionMechanic: 'single-number-proof',
+    engagementLoop: 'share-to-help',
+    followUpFormat: 'story-result',
     hook: Object.freeze({
       job: Object.freeze({ kicker: 'DATO DI IERI', title: 'Un ruolo ha attirato più attenzione degli altri' }),
       article: Object.freeze({ kicker: 'DATO DI IERI', title: 'Un tema ha attirato più letture degli altri' }),
@@ -50,6 +60,10 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
     label: 'Promemoria pratico',
     objective: 'save',
     primaryMetric: 'saves',
+    hookType: 'problem-solution',
+    attentionMechanic: 'one-problem-one-reference',
+    engagementLoop: 'save-then-return',
+    followUpFormat: 'carousel-checklist',
     hook: Object.freeze({
       job: Object.freeze({ kicker: 'TI SERVIRÀ', title: 'Prima di candidarti, guarda questo' }),
       article: Object.freeze({ kicker: 'TI SERVIRÀ', title: 'Prima di decidere, guarda questo' }),
@@ -99,6 +113,10 @@ export function chooseInstagramReelCreative({ kind, day } = {}) {
     label: variant.label,
     objective: variant.objective,
     primaryMetric: variant.primaryMetric,
+    hookType: variant.hookType,
+    attentionMechanic: variant.attentionMechanic,
+    engagementLoop: variant.engagementLoop,
+    followUpFormat: variant.followUpFormat,
     kind: safeKind,
     hook: variant.hook[safeKind],
     lead: variant.lead[safeKind],
@@ -169,13 +187,19 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative } = {
 }
 
 export function instagramReelLedgerFields(creative) {
+  const primaryMetric = creative?.primaryMetric || 'comments';
   return {
     creativeId: creative?.id || 'reel-question',
     creativeBaseId: 'reel',
     creativeVariant: creative?.id || 'reel-question',
     creativeLabel: creative?.label || 'Domanda immediata',
     creativeObjective: creative?.objective || 'conversation',
-    primaryMetric: creative?.primaryMetric || 'comments',
+    primaryMetric,
+    engagementMechanic: instagramEngagementMechanic(primaryMetric),
+    hookType: creative?.hookType || 'unknown',
+    attentionMechanic: creative?.attentionMechanic || 'unknown',
+    engagementLoop: creative?.engagementLoop || 'none',
+    followUpFormat: creative?.followUpFormat || 'none',
     creativeFormat: 'reel',
   };
 }

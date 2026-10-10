@@ -1046,7 +1046,9 @@ export const KNOWN_INSTITUTION_ACRONYMS = new Set([
   // Swiss federal — administration
   'AFC', 'ESTV', 'UST', 'BFS', 'OFS', 'SECO', 'UFSP', 'BAG', 'UFAS', 'BSV', 'SEM', 'UDSC', 'BAZG',
   'USTRA', 'ASTRA', 'UFT', 'BAV', 'UFAM', 'BAFU', 'UFE', 'BFE', 'UFAG', 'BLW', 'UFC', 'BAK',
-  'UFCOM', 'BAKOM', 'UFSC', 'UFAB', 'UFPP', 'BABS', 'UFG', 'BJ', 'UFM', 'IPI', 'METAS', 'SEFRI',
+  'UFCOM', 'BAKOM', 'UFSC',
+  'UFCS', // Ufficio federale della cibersicurezza — bacs.admin.ch/it
+  'UFAB', 'UFPP', 'BABS', 'UFG', 'BJ', 'UFM', 'IPI', 'METAS', 'SEFRI',
   'UFU', 'ARE', 'UFRI', 'SER', 'USTI', 'UFS', 'UFF', 'UFD', 'UFAE', 'UJP', 'UIDP', 'UDI', 'OSF',
   // Swiss federal — departments
   'DFI', 'DFGP', 'DFF', 'DFAE', 'DDPS', 'DATEC', 'DEFR', 'DFE', 'EDI', 'EJPD', 'EFD', 'EDA',

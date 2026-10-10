@@ -143,6 +143,13 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
 const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
+// Some classic portals enforce their application privacy agreement without
+// adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
+// acceptance sentence is still the application's own consent, not a fact the
+// candidate must supply. Optional marketing/talent-pool wording is excluded
+// below by OPTIONAL_CONSENT.
+const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
+const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
 // svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
@@ -151,8 +158,33 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
   const label = String(field?.label || '');
-  return field?.kind === 'checkbox' && Boolean(field.required) && OWN_CONSENT.test(label)
-    && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label)) && OWN_CONSENT.test(label)
+    && !NEGATED_CONSENT.test(label) && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+}
+
+// A current job is explicit when the CV's experience period says "ad oggi",
+// "present", "heute", etc. It is not inferred from the first experience entry:
+// an undated or merely latest role may already have ended.
+const CURRENT_EXPERIENCE_RE = /\b(?:ad\s+oggi|oggi|attualmente|presente|tuttora|in\s+corso|present(?:e|ly)?|current|ongoing|now|today|en\s+cours|actuellement|jusqu['’]?[àa]\s+présent|heute|aktuell|derzeit|bis\s+heute)\b/i;
+const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale|occupazionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
+const EMPLOYED_OPTION_RE = /^(?:occupat[oa](?:\s*\/\s*[oa])?|employed|working|beschäftigt|erwerbstätig|angestellt|salari(?:é|ée)|en\s+emploi|travail(?:leur|leuse)|dipendent[ei])(?:\s*[-–—:(].*)?$/i;
+const EMPLOYED_YES_RE = /^(?:yes|ja|s(?:ì|i)|oui)$/i;
+
+/** Whether the CV explicitly contains an experience that is still current. */
+function hasCurrentExperience(candidate) {
+  return (candidate?.profile?.experience || []).some((item) => CURRENT_EXPERIENCE_RE.test(item?.end || ''));
+}
+
+/** The one unambiguous "currently employed" option supported by the CV. */
+export function currentEmploymentOption(field, candidate) {
+  if (!CURRENT_EMPLOYMENT_RE.test(String(field?.label || '')) || !hasCurrentExperience(candidate)) return null;
+  const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
+  if (!options.length) return null;
+  const employed = options.filter((option) => EMPLOYED_OPTION_RE.test(String(option.label).trim()));
+  if (employed.length === 1) return employed[0];
+  const yes = options.filter((option) => EMPLOYED_YES_RE.test(String(option.label).trim()));
+  const no = options.filter((option) => /^(?:no|nein|non|ne)$/i.test(String(option.label).trim()));
+  return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
 /** A quote of the candidate's data: non-trivial and really in it. */
@@ -372,12 +404,16 @@ function ageAnswerMatches(candidate, question, answer) {
   return expected !== null && actual !== null && actual === booleanAnswer(expected);
 }
 
-function equivalentAnswer(question, left, right) {
+function comparableContext(context) {
+  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   if (a === b) return true;
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (topic === 'nationality') {
     const leftCode = nationalityOf(left)?.code;
     const rightCode = nationalityOf(right)?.code;
@@ -407,7 +443,7 @@ function equivalentAnswer(question, left, right) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question) {
+function recordedAnswerForQuestion(candidate, question, context = '') {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -417,16 +453,18 @@ function recordedAnswerForQuestion(candidate, question) {
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
-  const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
+  const requestedContext = comparableContext(context);
+  const sameContext = (item) => comparableContext(item.context) === requestedContext;
+  const exact = items.find((item) => sameContext(item) && comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (!topic) return '';
-  const semantic = items.find((item) => questionTopic(item.question) === topic);
+  const semantic = items.find((item) => sameContext(item) && questionTopic(item.question, item.context) === topic);
   return semantic ? String(semantic.answer).trim() : '';
 }
 
-export function candidateAnswerForQuestion(candidate, question) {
-  return recordedAnswerForQuestion(candidate, question) || addressQuestionAnswer(candidate, questionTopic(question));
+export function candidateAnswerForQuestion(candidate, question, context = '') {
+  return recordedAnswerForQuestion(candidate, question, context) || addressQuestionAnswer(candidate, questionTopic(question, context));
 }
 
 function optionForAnswer(field, answer) {
@@ -462,7 +500,7 @@ function optionForAnswer(field, answer) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context);
-  const previous = recordedAnswerForQuestion(candidate, field?.label);
+  const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
@@ -528,10 +566,10 @@ export function attachedDocumentYes(candidate, field) {
 const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
-export function answeredByCandidate(candidate, question, answer) {
+export function answeredByCandidate(candidate, question, answer, context = '') {
   const given = String(answer || '').trim();
-  const previous = candidateAnswerForQuestion(candidate, question);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
+  const previous = candidateAnswerForQuestion(candidate, question, context);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -595,17 +633,24 @@ export function guardPlan(plan, fields, candidate = null) {
   // licence?» into a question for the candidate who has just uploaded it.
   const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
   for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
+  // A current employment status is a direct consequence of an experience that
+  // the CV marks as ongoing. Keep the mapping deterministic: language levels,
+  // availability and other candidate-only facts still go to the candidate.
+  const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
-    if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
+    const field = byId.get(item.fieldId);
+    const withContext = field?.context ? { ...item, context: String(field.context).slice(0, 240) } : item;
+    if (!missing.some((other) => other.fieldId === withContext.fieldId)) missing.push(withContext);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -641,7 +686,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // answer to this very question, or declining; never the substring rule (decision 9).
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
     if (own !== null) {
-      if (!own && !answeredByCandidate(candidate, field.label, action.value) && !declines) {
+      if (!own && !answeredByCandidate(candidate, field.label, action.value, field.context) && !declines) {
         ask(field);
         continue;
       }
@@ -654,7 +699,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // below (candidateAnswerForField) when the candidate has said it.
     if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label, field.context) === 'civil_status') {
       const stated = civilStatusCode(statedCivilStatus(candidate));
-      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
+      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value, field.context)) {
         ask(field);
         continue;
       }
@@ -663,7 +708,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);
@@ -693,16 +738,16 @@ export function guardPlan(plan, fields, candidate = null) {
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (ownConsent(field)) {
+    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
+    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));

@@ -258,6 +258,13 @@ function isMissingCanonicalTrailingSlash(text) {
 // anything else (emitter paths, mixed, or no path) stays `structured-data`.
 const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
 
+// I18N-naming is a precise failure class, not a translation-area lexicon.
+// Keep broad context separate: when it appears only in a file path or in the
+// acceptance fixture, the finding belongs in a fingerprint based on the actual
+// reviewer statement, not in this escalation bucket.
+const I18N_NAMING_CONTEXT_RE = /locale|i18n|translat|canton|brand/i;
+const I18N_NAMING_RE = /(?:\blocale[- ](?:url[- ]?)?(?:segment|prefix)\b|\bcanton[- ]aware\s+(?:slug|naming|url)\b|\b(?:mis|un)?translated\s+brand(?:\s+name)?\b|\bbrand(?:\s+name)?\s+(?:is\s+)?(?:mis|un)?translated\b|\b(?:missing|untranslated)\s+(?:translation\s+)?key\b|\btranslation\s+key\b)/i;
+
 // ---- Regola o argomento: chi puo' aprire un'escalation ----------------------
 // Decisione del proprietario I3 del 2026-10-05: i bucket «di argomento» restano
 // SOLO nel report; l'escalation (`escalation(harvester): …`) scatta solo per le
@@ -351,19 +358,13 @@ export const TAXONOMY = [
   // net; they must not inflate the credential bucket.
   { key: 'workflow-scope-creds', re: WORKFLOW_SCOPE_CREDS_RE, docKeys: ['workflows`', 'capability-guard', 'github_pat'],
     escalation: 'rule', why: "autenticazione e capability dei workflow, con la guardia che legge solo il testo dopo il marcatore di severita'" },
-  // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
-  // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
-  // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
-  // `translat` swallowed the ENTIRE translate pipeline (a high-volume active area),
-  // `naming` matched any "naming" (e.g. ad-container naming), `brand` matched
-  // "branded"/"branding" — so heterogeneous, unrelated findings false-clustered here
-  // and tripped a phantom `recurringDespiteRule` escalation (issue #2122, 15 hits / 0
-  // real naming defects). Deliberately NO replacement topic-bucket for the translate
-  // pipeline: those findings are genuine process-failures (unvalidated-claim,
-  // sibling-class-fix, pr-body-contract) and now route to THOSE buckets, or fall to
-  // the fingerprint safety-net — which clusters only on truly-repeated lead-phrases.
-  { key: 'i18n-naming', re: /locale segment|locale-?prefix|canton-?aware (slug|naming|url)|translated? brand|brand.*translat|translation key|missing (locale|translation)|untranslated/i, docKeys: ['locale', 'i18n', 'canton-aware'],
-    escalation: 'ambiguous', why: "meta' alternative nominano la violazione (untranslated, missing translation), meta' un'area (locale segment, locale-prefix): resta nell'escalation" },
+  // i18n-naming matches explicit naming/key defects only. In #12407 the old
+  // line-wide regex counted unrelated translation failures because `untranslated`
+  // appeared in code paths and acceptance fixtures (for example an untranslated
+  // test field on a Codex-circuit finding). Broad translation work stays visible
+  // through the fingerprint safety net, keyed from the reviewer statement below.
+  { key: 'i18n-naming', re: I18N_NAMING_RE, docKeys: ['locale', 'i18n', 'canton-aware'],
+    escalation: 'rule', why: "ogni alternativa richiede un difetto esplicito: segmento/prefisso locale, slug canton-aware, brand tradotto o chiave di traduzione" },
   { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'],
     escalation: 'topic', why: "lessico dei nomi del router (router, parsePath, staticOverlay): un modulo, non una violazione" },
   // PROCESS-failure-mode buckets (see family note above):
@@ -389,6 +390,22 @@ export const TAXONOMY = [
 const STOPWORDS = new Set(['the', 'a', 'an', 'di', 'la', 'il', 'le', 'lo', 'un', 'una',
   'e', 'ed', 'o', 'in', 'su', 'per', 'con', 'da', 'del', 'della', 'dei', 'delle', 'al',
   'non', 'che', 'è', 'this', 'is', 'to', 'of', 'and', 'or', 'no', 'nel', 'nella']);
+
+// Identity fallback used only when an i18n word occurs outside an explicit
+// naming defect. A reviewer line may start with file locations and append an
+// `Accettazione:` fixture; neither is the defect being classified. Keep the
+// ordinary fingerprint path unchanged so this narrow fix does not churn the
+// existing fingerprint registry.
+function reviewerFindingStatement(text) {
+  const raw = String(text ?? '');
+  const marker = /[🔴🟡❓]/u.exec(raw);
+  let statement = marker ? raw.slice(marker.index + marker[0].length) : raw;
+  statement = statement.replace(/^\s*\*{0,2}\s*(?:important|nit|q)\b\*{0,2}\s*[:—-]?\s*/iu, '');
+  statement = statement.replace(/^\s*\[[^\]\r\n]{1,48}\]\s*/u, '');
+  statement = statement.replace(/\b(?:accettazione|acceptance)(?:\s+criteria)?\s*:[\s\S]*$/iu, '');
+  return statement.trim();
+}
+
 function fingerprintFinding(text) {
   const words = text
     .toLowerCase()
@@ -705,7 +722,7 @@ const SITEMAP_NEUTRAL_ACTIVITY_RE =
 // `coverage` alone is neutral, but a report that claims sitemap-only coverage
 // while a discovered frontier was never crawled states an explicit defect.
 const SITEMAP_EXPLICIT_DEFECT_RE =
-  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+crawled|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|incomplete|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|failed|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+(?:crawled|published)|not\s+crawled|mai\s+crawled)\b|\b(?:missing|empty|incomplete|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|failed|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*|never\s+(?:crawled|published)|not\s+crawled|mai\s+crawled)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
 
 export function isGenuineCanonicalSitemapFinding(text) {
   const s = String(text || '');
@@ -778,6 +795,8 @@ export function bucketFinding(text) {
   // ricevono il testo originale. Solo i guard dei bucket di processo rimuovono
   // la location label prima della loro discriminante.
   const scannable = stripNegatedImpactClauses(text);
+  const i18nFinding = reviewerFindingStatement(scannable);
+  let i18nContextOnly = false;
   // Reviews sometimes name sitemap concepts only inside camelCase identifiers
   // (for example `discoverGeSitemapListDocuments` and `sitemapError`). Split
   // those boundaries for this topic so genuine sitemap failures still reach
@@ -789,8 +808,15 @@ export function bucketFinding(text) {
     (id) => id.replace(/([a-z0-9])([A-Z])/g, '$1 $2'),
   );
   for (const t of TAXONOMY) {
-    const candidate = t.key === 'canonical-sitemap' ? canonicalSitemapScannable : scannable;
-    if (!t.re.test(candidate)) continue;
+    const candidate = t.key === 'canonical-sitemap'
+      ? canonicalSitemapScannable
+      : t.key === 'i18n-naming'
+        ? i18nFinding
+        : scannable;
+    if (!t.re.test(candidate)) {
+      if (t.key === 'i18n-naming' && I18N_NAMING_CONTEXT_RE.test(scannable)) i18nContextOnly = true;
+      continue;
+    }
     if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
     if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
@@ -825,7 +851,7 @@ export function bucketFinding(text) {
     if (t.key === 'canonical-sitemap' && !isGenuineCanonicalSitemapFinding(candidate)) continue;
     return t.key;
   }
-  // La rete fingerprint riceve il testo INTERO, non quello strippato. Lo strip e'
+  // La rete fingerprint ordinaria riceve il testo INTERO, non quello strippato. Lo strip e'
   // un'euristica sul CONFINE della clausola negata, e su una riga in cui la
   // negazione porta su un participio o su un verbo di impatto usato in senso
   // comportamentale — «il redirect non raggiunge `/lavoro/ticino`, il canonical
@@ -835,12 +861,15 @@ export function bucketFinding(text) {
   // direzione opposta a quella che questo modulo chiude (il falso positivo
   // GONFIA un bucket; questo lo SVUOTA in silenzio) ed e' la piu' pericolosa,
   // perche' invisibile. Passando `text` la riga perde al piu' il bucket topic,
-  // ma resta contata e puo' ancora escalare.
+  // ma resta contata e puo' ancora escalare. Eccezione stretta: se il solo
+  // contesto i18n è in path/acceptance, il fingerprint usa la frase del reviewer
+  // per non ricreare lo stesso cluster generico sotto `fp:scripts-*`.
   // Misurato su 651 righe con glifo di 172 review reali dei due repo: cambiano 6
   // righe, NESSUN bucket topic si muove (5 cambiano solo la lead-phrase del
   // fingerprint, 1 rientra nella rete da `null`), quindi il rimedio a #901 resta
   // intatto e i due controesempi smettono di sparire.
-  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
+  return fingerprintFinding(i18nContextOnly ? reviewerFindingStatement(text) : text);
+  // unbucketed → fingerprint safety net (or null)
 }
 
 // Severities that count as a CONFIRMED recurring mistake. `❓` is an

@@ -58,6 +58,7 @@ import {
 } from './jobs-ch-company-pages.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
+import { resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -257,9 +258,22 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
     const regionAsCity = addressRegionRaw && swissCityFromLocationField(addressRegionRaw)
       ? addressRegionRaw
       : '';
-    const city = addressLocality || regionAsCity || HQ.city;
     const postalCode = String(addr.postalCode || '').trim() || HQ.postalCode;
-    const canton = inferSwissTargetCanton(city) || inferAnyCanton(city) || HQ.canton;
+    const sourceCanton = inferAnyCanton(addressRegionRaw);
+    const postalPlace = resolveSwissPostalCodePlace(postalCode);
+    const postalPlaceAgrees = postalPlace && (!sourceCanton || postalPlace.canton === sourceCanton)
+      ? postalPlace
+      : null;
+    // A company can publish a vacancy for a canton away from its headquarters.
+    // When jobs.ch omits addressLocality but provides a unique official postal
+    // place, use that source address instead of silently assigning the
+    // employer's HQ city (e.g. GIM's Jura vacancy, postal code 2905).
+    const city = addressLocality || regionAsCity || postalPlaceAgrees?.locality || HQ.city;
+    const canton = inferSwissTargetCanton(city)
+      || inferAnyCanton(city)
+      || sourceCanton
+      || postalPlaceAgrees?.canton
+      || HQ.canton;
     const country = 'CH';
     const streetAddress = cleanStreetAddress(decodeEntities(addr.streetAddress || ''), city, postalCode) || HQ.city;
 

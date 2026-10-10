@@ -171,19 +171,26 @@ describe('runGa4ReportPaged', () => {
 });
 
 describe('fetchAttribution (cwv-attribution)', () => {
-  it('pagina le popolazioni (a) e (c) oltre una pagina; il top-N dei selettori resta una richiesta', async () => {
+  it('pagina tutte le popolazioni, inclusa la coda dei selettori oltre le prime 200 righe', async () => {
     const isTemplate = (body: any) => body.dimensions.some((d: { name: string }) => d.name === 'customEvent:page_template');
     const isSelector = (body: any) => body.dimensions.some((d: { name: string }) => d.name === 'customEvent:details');
     const fetchImpl = pagedFetch(
-      (body) => (isSelector(body) ? 3 : isTemplate(body) ? 120_000 : 12_000),
-      (i, body) => (isTemplate(body)
-        ? { dimensionValues: [{ value: 'job_detail' }, { value: 'CLS' }, { value: String(i) }, { value: 'mobile' }], metricValues: [{ value: '1' }] }
-        : { dimensionValues: [{ value: `/p/${i}/` }, { value: 'web_vitals' }, { value: 'cls' }, { value: 'main' }, { value: 'load' }, { value: 'x|ac1|cc1' }], metricValues: [{ value: '1' }] }),
+      (body) => (isSelector(body) ? 450 : isTemplate(body) ? 120_000 : 12_000),
+      (i, body) => {
+        if (isTemplate(body)) {
+          return { dimensionValues: [{ value: 'job_detail' }, { value: 'CLS' }, { value: String(i) }, { value: 'mobile' }], metricValues: [{ value: '1' }] };
+        }
+        if (isSelector(body)) {
+          return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'inp' }, { value: 'main' }, { value: 'pointer' }, { value: `button.${i}|ac1|cc1` }], metricValues: [{ value: '1' }] };
+        }
+        return { dimensionValues: [{ value: `/p/${i}/` }, { value: 'cls' }, { value: 'main' }, { value: 'load' }], metricValues: [{ value: '1' }] };
+      },
     );
     const report = await fetchAttribution({ token: 't', startDate: '2026-09-01', endDate: '2026-09-28', fetchImpl });
     expect(report.coverage).toEqual({ attributionTruncated: false, selectorsTruncated: false, templatesTruncated: false });
+    expect(report.selectors).toHaveLength(450);
     const selectorCalls = fetchImpl.mock.calls.filter(([, init]) => isSelector(JSON.parse(init.body)));
-    expect(selectorCalls).toHaveLength(1);
+    expect(selectorCalls).toHaveLength(3);
   });
 });
 

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5168
+      "6": 5169
     },
-    "publishedCovers": 6880,
+    "publishedCovers": 6881,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -183058,6 +183058,33 @@
           "id": "frana-sementina-h13-gudo",
           "category": "pratico",
           "date": "2026-10-10T02:19:31.649Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-schianto-camerlata-quattro-feriti": {
+      "cover": "/images/blog/article-schianto-camerlata-quattro-feriti.webp",
+      "hash": "1cf30cf6753cf153fc96efc27f0e07dbb7fc7ad211d57cd295cc93cbd1f526cd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "schianto-camerlata-quattro-feriti",
+          "category": "novita",
+          "date": "2026-10-10T07:25:28.334Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

@@ -257,8 +257,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // Slugs are the ones `pull-articles-corpus.mjs` printed when it refused both
  // removals as unledgered (run 33992697946, 2026-09-05T21:21Z); they also live in
  // the corpus's data/retired-articles.json, the only source that survives the
- // deletion. Every target was confirmed present in the published slugs.json at
- // manifest commit 6dfde254 before being written here, so no 301 lands on a 404.
+ // deletion. Locale target slugs can be renamed independently, so keep every
+ // target aligned with the current BLOG_SLUGS registry; the edge-retirement
+ // regression test checks the build and Worker maps against those locale rows.
  // Adding them here is what unblocks the sync: scripts/lib/corpus-removal-guard.mjs
  // refuses to let pull-articles-corpus.mjs prune the bodies and the registries
  // until the retirement is declared in this table — which is why the site half of
@@ -267,13 +268,13 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // serving-path half: the article shard is append-only and keeps answering 200
  // without it.
  '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/': '/articoli-frontaliere/vivere-courmayeur-e-lavorare-vallese-da-frontaliere/',
- '/en/cross-border-articles/courmayeur-work-vallese-frontalier/': '/en/cross-border-articles/living-in-courmayeur-and-working-in-vallese-as-a-cross-border-worker/',
- '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-vallese-as-grenzganger/',
- '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-vallese-en-tant-que-travailleur-frontalier/',
+ '/en/cross-border-articles/courmayeur-work-vallese-frontalier/': '/en/cross-border-articles/living-in-courmayeur-and-working-in-valais-as-a-cross-border-worker/',
+ '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-wallis-as-grenzganger/',
+ '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-valais-en-tant-que-travailleur-frontalier/',
  '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/': '/articoli-frontaliere/vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere/',
- '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-grigioni-as-a-border-worker/',
- '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-grigioni-als-grenzarbeiter/',
- '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grigioni-comme-travailleur-frontalier/',
+ '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-graubunden-as-a-border-worker/',
+ '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-graubunden-als-grenzarbeiter/',
+ '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grisons-comme-travailleur-frontalier/',
  // ── Upstream-aborted articles (2026-10-07) — three records, 12 URLs ──
  // The corpus removed these explicit abort records after rejecting their
  // topics: Pré-Saint-Didier is outside the relevant cross-border area,

@@ -84,7 +84,10 @@ function fakeGa4(rows: Partial<Record<Kind, Row[]>>) {
   const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
     const body = JSON.parse(init.body);
     bodies.push(body);
-    const data = { rows: rows[kindOf(body)] ?? [], rowCount: (rows[kindOf(body)] ?? []).length };
+    const source = rows[kindOf(body)] ?? [];
+    const offset = Number(body.offset || 0);
+    const limit = Number(body.limit || source.length || 1);
+    const data = { rows: source.slice(offset, offset + limit), rowCount: source.length };
     return { ok: true, status: 200, json: async () => data, text: async () => JSON.stringify(data) };
   });
   return { fetchImpl, bodies };
@@ -188,7 +191,10 @@ describe('GA4 requests', () => {
     ]);
     expect(b.dimensionFilter).toEqual(attributionFilter);
     expect(b.limit).toBe(200);
-    expect(b.orderBys).toEqual([{ metric: { metricName: 'eventCount' }, desc: true }]);
+    expect(b.orderBys).toEqual(b.dimensions.map((dimension: any) => ({
+      dimension: { dimensionName: dimension.name },
+      desc: false,
+    })));
 
     expect(c.dimensions.map((d: any) => d.name)).toEqual([
       'customEvent:page_template', 'customEvent:metric_name', 'customEvent:metric_value', 'deviceCategory',
@@ -199,8 +205,7 @@ describe('GA4 requests', () => {
       { filter: { fieldName: 'pagePath', stringFilter: { value: '/cerca-lavoro', matchType: 'BEGINS_WITH' } } },
     ] } });
     // The exported builders are what main() sends.
-    // (a) and (c) are whole populations read page by page from offset 0
-    // (issue 11423); (b) is a single top-N request.
+    // All three requests are whole populations read page by page from offset 0.
     const paged = (request: any) => ({
       ...request,
       orderBys: request.dimensions.map((dimension: any) => ({
@@ -208,10 +213,10 @@ describe('GA4 requests', () => {
         desc: false,
       })),
       offset: 0,
-      limit: 100000,
+      limit: request.limit ?? 100000,
     });
     expect(a).toEqual(paged(attributionRequest(range)));
-    expect(b).toEqual(selectorRequest(range));
+    expect(b).toEqual(paged(selectorRequest(range)));
     expect(c).toEqual(paged(templateRequest(range)));
   });
 
@@ -256,7 +261,7 @@ describe('report', () => {
     expect(code).toBe(0);
     expect(out).toContain(NO_EVENTS_MESSAGE);
     expect(out).toContain('#### Primi bersagli INP');
-    expect(out).toContain('Bersagli INP senza selettore: 0 eventi.');
+    expect(out).toContain('Bersagli INP unknown: 0 eventi.');
     expect(gh).not.toHaveBeenCalled();
   });
 
@@ -292,7 +297,7 @@ describe('report', () => {
     expect(clsSelectorsSection).not.toContain('button.cta');
     expect(out).toContain('#### Primi bersagli INP');
     expect(out).toContain('| 1 | `button.cta` | main | 20 | 2.0 | 2.0 |');
-    expect(out).toContain('Bersagli INP senza selettore: 0 eventi.');
+    expect(out).toContain('Bersagli INP unknown: 0 eventi.');
 
     // (iii) p75 per template, the most measured template first; equal to weightedQuantile.
     const jobDetail = parseTemplateRows({ rows: TEMPLATE_ROWS }).filter((r) => r.template === 'job_detail' && r.metric === 'CLS');
@@ -316,8 +321,28 @@ describe('report', () => {
       selectors: [...SELECTOR_ROWS, missing],
     });
     expect(code).toBe(0);
-    expect(out).toContain('| 2 | `(vuoto)` | main | 3 | 1.0 | 0.0 |');
-    expect(out).toContain('Bersagli INP senza selettore: 3 eventi.');
+    expect(out).toContain('| 2 | `unknown` | main | 3 | 1.0 | 0.0 |');
+    expect(out).toContain('Bersagli INP unknown: 3 eventi.');
+  });
+
+  it('paginates selector details and reports an unknown target from beyond the first 200 rows', async () => {
+    const selectors = Array.from({ length: 200 }, (_, i) => row([
+      `/cerca-lavoro-ticino/annuncio/${String(i).padStart(3, '0')}/`,
+      'inp',
+      'main',
+      'pointer',
+      `button.cta-${i}|ac1|cc0`,
+    ], 1));
+    selectors.push(row(['/cerca-lavoro-ticino/annuncio/zzz/', 'inp', 'unknown', 'pointer', 'unknown|ac1|cc0'], 7));
+
+    const { code, bodies, out } = await run(['--dry-run'], { ...FULL, selectors });
+    const selectorBodies = bodies.filter((body) => kindOf(body) === 'selectors');
+
+    expect(code).toBe(0);
+    expect(selectorBodies.map((body) => body.offset)).toEqual([0, 200]);
+    expect(out).toContain('| 1 | `unknown` | unknown | 7 | 1.0 | 0.0 |');
+    expect(out).toContain('Bersagli INP unknown: 7 eventi.');
+    expect(out).not.toContain('non ha raggiunto tutta la coda GA4');
   });
 
   it('--dry-run never invokes gh', async () => {

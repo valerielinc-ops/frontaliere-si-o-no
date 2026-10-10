@@ -21,12 +21,10 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  *
- * NOTE (2026-05-28): Zero-job runs since 2026-05-23 are NOT a parser bug.
- * The AIL AJAX endpoint currently returns the static message
- *   "Al momento non ci sono posizioni aperte"
- * inside a single <div class="inner-title"> (no <article class="job-position">
- * blocks). Parser logic is intact; source has zero openings. Keep this
- * crawler enabled — it will resume returning jobs when AIL posts new ones.
+ * NOTE: AIL can return an explicit no-openings marker inside a nested
+ * `.inner-title` block (no <article class="job-position"> blocks). Only that
+ * exact source-owned marker is an authoritative empty snapshot; unknown empty
+ * responses remain fail-closed as selector misses.
  */
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -333,12 +331,35 @@ export function parseListingPage(html) {
  */
 export function classifyAilListingHtml(html = '') {
   const listings = parseListingPage(html);
-  const emptyStateBlocks = html.matchAll(
-    /<div\b[^>]*(?:^|\s)class\s*=\s*(["'])([^"']*)\1[^>]*>([\s\S]*?)<\/div>/gi,
-  );
-  const authoritativeEmptySnapshot = listings.length === 0 && [...emptyStateBlocks].some(([, , classValue, content]) => {
-    if (!/(?:^|\s)inner-title(?:\s|$)/u.test(classValue)) return false;
-    const visibleText = normalizeSpace(decodeHtmlEntities(content).replace(/<[^>]*>/g, ' '));
+  const emptyStateContents = [];
+  const divTokens = /<!--[\s\S]*?-->|<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>|<\/?div\b[^>]*>/gi;
+  const divStack = [];
+  let tokenMatch;
+  while ((tokenMatch = divTokens.exec(html)) !== null) {
+    const token = tokenMatch[0];
+    if (token.startsWith('<!--') || tokenMatch[1]) continue;
+
+    if (/^<\//u.test(token)) {
+      const openingDiv = divStack.pop();
+      if (openingDiv?.isInnerTitle) {
+        emptyStateContents.push(html.slice(openingDiv.contentStart, tokenMatch.index));
+      }
+      continue;
+    }
+
+    const classMatch = token.match(/(?:^|\s)class\s*=\s*(["'])([^"']*)\1/i);
+    const classTokens = classMatch?.[2].split(/\s+/u) ?? [];
+    divStack.push({
+      contentStart: divTokens.lastIndex,
+      isInnerTitle: classTokens.includes('inner-title'),
+    });
+  }
+
+  const authoritativeEmptySnapshot = listings.length === 0 && emptyStateContents.some((content) => {
+    const visibleMarkup = content
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, ' ')
+      .replace(/<[^>]*>/g, ' ');
+    const visibleText = normalizeSpace(decodeHtmlEntities(visibleMarkup));
     return AIL_EMPTY_SOURCE_RE.test(visibleText);
   });
   return {

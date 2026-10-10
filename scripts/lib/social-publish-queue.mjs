@@ -32,6 +32,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
+import { instagramEngagementMechanic } from './instagram-engagement.mjs';
 import { TIKTOK_VIDEO_HEIGHT, TIKTOK_VIDEO_WIDTH } from './social-carousel-video.mjs';
 
 export const SOCIAL_CHANNELS = Object.freeze(['instagram', 'tiktok']);
@@ -54,6 +55,28 @@ export const QUEUE_TTL_HOURS = Object.freeze({ article: 36, job: 36, border: 7 *
 
 /** Marker the confirm step writes on every ledger entry it adds. */
 export const ROBOT_LEDGER_VIA = 'playwright-robot';
+
+// Reel queues created before the CTA-mechanic field was introduced can still
+// be confirmed later. Keep the migration local and free of external
+// dependencies because this module is part of the Mac robot snapshot. Never
+// infer this field for a carousel: comments/shares/saves alone do not identify
+// its CTA.
+const REEL_PRIMARY_METRIC_BY_CREATIVE = new Map([
+  ['reel-question', 'comments'],
+  ['reel-number', 'shares'],
+  ['reel-save', 'saves'],
+]);
+
+function enrichLegacyReelLedgerEntry(entry) {
+  if (!entry || typeof entry !== 'object' || entry.kind !== 'reel') return entry;
+  if (String(entry.engagementMechanic ?? entry.engagement_mechanic ?? '').trim()) return entry;
+  const creativeId = String(
+    entry.creativeId ?? entry.creative_id ?? entry.creativeVariant ?? entry.creative_variant ?? '',
+  ).trim();
+  const primaryMetric = REEL_PRIMARY_METRIC_BY_CREATIVE.get(creativeId);
+  const engagementMechanic = instagramEngagementMechanic(primaryMetric);
+  return engagementMechanic === 'unknown' ? entry : { ...entry, engagementMechanic };
+}
 
 /**
  * @param {Record<string, string|undefined>} [env]
@@ -356,7 +379,7 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
   }
   const ts = new Date(confirmedAt).toISOString();
   const ledgerEntries = base.map((e) => ({
-    ...e,
+    ...enrichLegacyReelLedgerEntry(e),
     ts,
     queueId,
     via: ROBOT_LEDGER_VIA,

@@ -6,7 +6,10 @@ import {
   chooseInstagramReelCreative,
   instagramReelLedgerFields,
 } from '../scripts/lib/instagram-reel-creative.mjs';
-import { pendingInstagramReel } from '../scripts/lib/instagram-reel-queue.mjs';
+import {
+  pendingInstagramReel,
+  recentInstagramReel,
+} from '../scripts/lib/instagram-reel-queue.mjs';
 import { buildReelSlidePlan } from '../scripts/lib/social-reel-image.mjs';
 import { buildQueueEntry, selectNextPending } from '../scripts/lib/social-publish-queue.mjs';
 
@@ -19,15 +22,26 @@ const ITEM = {
 
 describe('Instagram Reel creative experiment', () => {
   it('keeps three distinct, measurable treatments', () => {
+    const expectedMechanics = {
+      comments: 'keyword-comment',
+      shares: 'direct-share',
+      saves: 'save-reminder',
+    };
     expect(INSTAGRAM_REEL_VARIANTS).toHaveLength(3);
     expect(new Set(INSTAGRAM_REEL_VARIANTS.map((variant) => variant.id)).size).toBe(3);
     for (const variant of INSTAGRAM_REEL_VARIANTS) {
       expect(variant.objective).toBeTruthy();
       expect(variant.primaryMetric).toMatch(/comments|shares|saves/);
+      expect(variant.hookType).toBeTruthy();
+      expect(variant.attentionMechanic).toBeTruthy();
+      expect(variant.engagementLoop).toBeTruthy();
+      expect(variant.followUpFormat).toBeTruthy();
       expect(variant.hook.article.title).toBeTruthy();
       expect(variant.hook.job.title).toBeTruthy();
       expect(variant.cta.article).toBeTruthy();
       expect(variant.cta.job).toBeTruthy();
+      expect(instagramReelLedgerFields(variant).engagementMechanic)
+        .toBe(expectedMechanics[variant.primaryMetric]);
     }
   });
 
@@ -55,7 +69,26 @@ describe('Instagram Reel creative experiment', () => {
       creativeBaseId: 'reel',
       creativeFormat: 'reel',
       primaryMetric: creative.primaryMetric,
+      engagementMechanic: creative.primaryMetric === 'comments' ? 'keyword-comment' : expect.any(String),
+      hookType: creative.hookType,
+      attentionMechanic: creative.attentionMechanic,
+      engagementLoop: creative.engagementLoop,
+      followUpFormat: creative.followUpFormat,
     });
+  });
+
+  it('uses a low-friction keyword prompt for the comment treatment', () => {
+    const article = chooseInstagramReelCreative({ kind: 'article', day: '2026-10-08' });
+    const job = chooseInstagramReelCreative({ kind: 'job', day: '2026-10-07' });
+    expect(article).toMatchObject({ id: 'reel-question', primaryMetric: 'comments' });
+    expect(job).toMatchObject({ id: 'reel-question', primaryMetric: 'comments' });
+    expect(article.cta).toContain('“GUIDA”');
+    expect(job.cta).toContain('“LAVORO”');
+    expect(instagramReelLedgerFields(article).engagementMechanic).toBe('keyword-comment');
+  });
+
+  it('does not guess a mechanic for an unknown future metric', () => {
+    expect(instagramReelLedgerFields({ primaryMetric: 'replies' }).engagementMechanic).toBe('unknown');
   });
 
   it('accepts a verified vertical video in the same guarded queue', () => {
@@ -93,5 +126,18 @@ describe('Instagram Reel creative experiment', () => {
     };
     expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-10T10:00:00Z'))).toEqual(current);
     expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-12T02:00:00Z'))).toBeNull();
+  });
+
+  it('waits 72 hours before opening the next Reel cohort', () => {
+    const posted = {
+      queueId: 'reel-2026-10-11',
+      kind: 'reel',
+      ts: '2026-10-11T09:30:00Z',
+      creativeId: 'reel-question',
+    };
+    expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-13T08:00:00Z'))).toEqual(posted);
+    expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-14T09:30:00Z'))).toBeNull();
+    expect(recentInstagramReel({ posted: [{ ...posted, ts: '2026-10-14T10:00:00Z' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
+    expect(recentInstagramReel({ posted: [{ ...posted, kind: 'article' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
   });
 });
