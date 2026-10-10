@@ -81,6 +81,27 @@ function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', no
   });
 }
 
+function reelEntry(overrides: Record<string, unknown> = {}) {
+  return buildQueueEntry({
+    channel: 'instagram',
+    kind: 'reel',
+    day: '2026-10-09',
+    caption: 'reel 2026-10-09\n\n#frontalieri',
+    imageUrls: [cdn('reel-2026-10-09-0.jpg')],
+    ledgerEntries: [{
+      id: 'article:reel-source',
+      kind: 'reel',
+      sourceKind: 'article',
+      sourceId: 'reel-source',
+      day: '2026-10-09',
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      ...overrides,
+    }],
+    now: NOW,
+  });
+}
+
 describe('Remote Config switch SOCIAL_ROBOT_MODE', () => {
   it('reads absent, empty and unknown values as the safe dry run', () => {
     expect(DEFAULT_SOCIAL_ROBOT_MODE).toBe('dry');
@@ -252,6 +273,39 @@ describe('confirmation → ledger', () => {
     expect(res.source).toBe('confirmation');
     expect(res.ledgerEntries.map((e: { id: string }) => e.id)).toEqual(['old']);
     expect(res.queue.pending).toEqual([]);
+  });
+
+  it('backfills the CTA mechanic for a legacy Reel queue entry without touching carousels', () => {
+    const reel = reelEntry();
+    const reelResult = confirmQueueEntry({
+      queue: { pending: [reel] },
+      ledger: { posted: [] },
+      queueId: reel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(reelResult.ledgerEntries[0]).toMatchObject({
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      engagementMechanic: 'direct-share',
+    });
+
+    const futureReel = reelEntry({ creativeId: 'reel-future', primaryMetric: 'shares' });
+    const futureResult = confirmQueueEntry({
+      queue: { pending: [futureReel] },
+      ledger: { posted: [] },
+      queueId: futureReel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(futureResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
+
+    const carousel = entry('article');
+    const carouselResult = confirmQueueEntry({
+      queue: { pending: [carousel] },
+      ledger: { posted: [] },
+      queueId: carousel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(carouselResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
   });
 
   it('confirm.mjs writes queue and ledger files and validates its inputs', () => {
