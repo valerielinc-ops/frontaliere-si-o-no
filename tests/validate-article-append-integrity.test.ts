@@ -61,8 +61,9 @@ let tmpDir: string | null = null;
 function makeFixture(overrides: { swiss?: string; blog?: string; sitemap?: string } = {}): string {
   const dir = mkdtempSync(path.join(tmpdir(), 'article-integrity-fixture-'));
   mkdirSync(path.join(dir, 'services'), { recursive: true });
+  mkdirSync(path.join(dir, 'packages', 'articles', 'content'), { recursive: true });
   mkdirSync(path.join(dir, 'public'), { recursive: true });
-  writeFileSync(path.join(dir, 'services', 'routerSwissData.ts'), overrides.swiss ?? cleanSwissData);
+  writeFileSync(path.join(dir, 'packages', 'articles', 'content', 'routerSwissData.ts'), overrides.swiss ?? cleanSwissData);
   writeFileSync(path.join(dir, 'services', 'routerBlogData.ts'), overrides.blog ?? cleanBlogData);
   writeFileSync(path.join(dir, 'public', 'sitemap-test.xml'), overrides.sitemap ?? cleanSitemap);
   return dir;

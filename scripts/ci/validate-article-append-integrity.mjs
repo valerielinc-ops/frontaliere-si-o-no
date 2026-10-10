@@ -95,7 +95,10 @@ function checkSlugUniqueness(rel, reverseMapName) {
 }
 
 function checkSwissSlugUniqueness() {
-  checkSlugUniqueness('services/routerSwissData.ts', 'REVERSE_SWISS');
+  // The corpus sync writes this package-owned file directly. The services path
+  // is only a compatibility symlink in a full checkout and is absent from the
+  // sparse CI profile that runs --swiss-only.
+  checkSlugUniqueness('packages/articles/content/routerSwissData.ts', 'REVERSE_SWISS');
 }
 
 function checkBlogSlugUniqueness() {

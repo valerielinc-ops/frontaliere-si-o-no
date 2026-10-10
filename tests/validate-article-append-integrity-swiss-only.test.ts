@@ -16,9 +16,10 @@ describe('validate-article-append-integrity --swiss-only', () => {
   it('ignores an unrelated BLOG_SLUGS collision while preserving the Swiss gate', () => {
     fixture = mkdtempSync(path.join(tmpdir(), 'swiss-integrity-fixture-'));
     mkdirSync(path.join(fixture, 'services'), { recursive: true });
+    mkdirSync(path.join(fixture, 'packages', 'articles', 'content'), { recursive: true });
     mkdirSync(path.join(fixture, 'public'), { recursive: true });
     writeFileSync(
-      path.join(fixture, 'services/routerSwissData.ts'),
+      path.join(fixture, 'packages/articles/content/routerSwissData.ts'),
       "export const SWISS_SLUGS = { 'swiss-a': { it: 'swiss-a-it', en: 'swiss-a-en', de: 'swiss-a-de', fr: 'swiss-a-fr' } };\n",
     );
     writeFileSync(
