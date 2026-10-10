@@ -8033,6 +8033,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.multe-como-targhe-estere.title': 'Como: 1.259 fines for foreign cars in August',
     'blog.article.multe-como-targhe-estere.excerpt': '1.259 fines issued in Como in August 102.738 euros in 31 days 3.322 euros per day in the month of August Estimates of over 80% of ignored tickets Location → Como',
     'blog.article.multe-como-targhe-estere.imageAlt': 'Car with a Swiss plate parked in Como',
+    'blog.article.uri-soglia-salariale-controlli.title': 'Minimum wage in Uri: requirements and implementation',
+    'blog.article.uri-soglia-salariale-controlli.excerpt': 'In Switzerland, there is no federal minimum wage: for Uri, it is necessary to distinguish between cantonal regulations, the sectors concerned and collective agreements.',
+    'blog.article.uri-soglia-salariale-controlli.imageAlt': 'Employment documents about minimum wage rules in the canton of Uri',
 };
 
 export default blogMetaChEn;

@@ -2700,6 +2700,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'corsi-contributi-lucerna': { it: 'corsi-contributi-lucerna', en: 'continuing-education-lucerne', de: 'weiterbildung-luzern', fr: 'formation-continue-lucerne' },
  'sgkb-filiali-fisiche': { it: 'sgkb-filiali-fisiche', en: 'sgkb-physical-branches', de: 'sgkb-physische-filialen', fr: 'sgkb-filiales-physiques' },
  'multe-como-targhe-estere': { it: 'multe-como-targhe-estere', en: 'como-fines-foreign-plates', de: 'como-strafen-auslaendische-kennzeichen', fr: 'amendes-come-plaques-etrangeres' },
+ 'uri-soglia-salariale-controlli': { it: 'uri-soglia-salariale-controlli', en: 'uri-minimum-wage-rules', de: 'uri-mindestlohn-regeln', fr: 'uri-salaire-minimum-regles' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

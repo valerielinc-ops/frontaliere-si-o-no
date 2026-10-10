@@ -26821,6 +26821,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'uri-soglia-salariale-controlli',
+    category: 'pratico',
+    date: '2026-10-10T05:33:50.015Z',
+    image: '/images/blog/article-uri-soglia-salariale-controlli.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['UR'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

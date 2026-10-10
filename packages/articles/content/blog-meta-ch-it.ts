@@ -8033,6 +8033,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.multe-como-targhe-estere.title': 'Como: 1.259 multe alle auto straniere in agosto',
     'blog.article.multe-como-targhe-estere.excerpt': '1.259 multe redatte a Como in agosto 102.738 euro in 31 giorni 3.322 euro al giorno nel mese di agosto Stime oltre l\'80% di verbali ignorati Luogo → Como',
     'blog.article.multe-como-targhe-estere.imageAlt': 'Auto con targa svizzera in sosta a Como',
+    'blog.article.uri-soglia-salariale-controlli.title': 'Salario minimo a Uri: requisiti e applicazione',
+    'blog.article.uri-soglia-salariale-controlli.excerpt': 'In Svizzera non esiste un salario minimo federale: per Uri bisogna distinguere disciplina cantonale, settori interessati e contratti collettivi.',
+    'blog.article.uri-soglia-salariale-controlli.imageAlt': 'Documenti di lavoro sul salario minimo nel Cantone di Uri',
 };
 
 export default blogMetaChIt;

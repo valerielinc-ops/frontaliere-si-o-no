@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5166
+      "6": 5167
     },
-    "publishedCovers": 6878,
+    "publishedCovers": 6879,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182977,6 +182977,33 @@
           "id": "teatro-locarno-fondi-pubblici",
           "category": "novita",
           "date": "2026-10-09T23:43:17.647Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-uri-soglia-salariale-controlli": {
+      "cover": "/images/blog/article-uri-soglia-salariale-controlli.webp",
+      "hash": "90e36c9c28ef7108c8a7c777867203c05111e564a4ca1ff6c13dbc8c75351f5c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "uri-soglia-salariale-controlli",
+          "category": "pratico",
+          "date": "2026-10-10T05:33:50.015Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
