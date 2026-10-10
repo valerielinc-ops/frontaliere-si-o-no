@@ -17,6 +17,7 @@ import {
   ensureCdnShellAssets,
   probeCdnAsset,
   purgeCdnAssets,
+  r2UploadDeadline,
   shellAssetsFromStaticScripts,
   uploadShellAsset,
 } from '../scripts/lib/cdn-shell-assets.mjs';
@@ -204,6 +205,40 @@ describe('ensureCdnShellAssets', () => {
 
     expect(message).toContain('assets/two.js');
     expect(message).toContain('the upload failed');
+    expect(message).toContain('must not be published');
+    expect(cdn.calls.purge).toEqual([]);
+  });
+
+  it('shares one six-minute deadline across serial R2 work and fails closed before the next upload', async () => {
+    let elapsedMs = 0;
+    const cdn = fakeCdn([]);
+    const checks: string[] = [];
+    const uploads: string[] = [];
+    const checkStored = async (key: string, { deadlineAt }: { deadlineAt: number }) => {
+      checks.push(key);
+      expect(deadlineAt).toBe(r2UploadDeadline(0));
+      elapsedMs += key === 'assets/one.js' ? 200_000 : 1;
+      return 'missing' as const;
+    };
+    const upload = async (key: string, _content: string, { deadlineAt }: { deadlineAt: number }) => {
+      uploads.push(key);
+      expect(deadlineAt).toBe(r2UploadDeadline(0));
+      elapsedMs += 159_999;
+      return true;
+    };
+
+    const message = await failureOf(() => ensureCdnShellAssets({
+      assets: ASSETS,
+      ...cdn,
+      checkStored,
+      upload,
+      now: () => elapsedMs,
+    }));
+
+    expect(checks).toEqual(['assets/one.js', 'assets/two.js']);
+    expect(uploads).toEqual(['assets/one.js']);
+    expect(message).toContain('assets/two.js');
+    expect(message).toContain('shared 360s deadline');
     expect(message).toContain('must not be published');
     expect(cdn.calls.purge).toEqual([]);
   });
@@ -528,6 +563,57 @@ describe('upload-cdn-file.sh adapters', () => {
     expect(checkStoredAsset('assets/a.js', { spawn: helper.spawn, env: {} })).toBe(expected);
     expect(helper.calls[0].slice(1)).toEqual(['--check', 'assets/a.js']);
     expect(helper.calls[0][0]).toMatch(/upload-cdn-file\.sh$/);
+  });
+
+  it('sets the helper timeout to the time remaining on the shared R2 deadline', () => {
+    const helper = helperSays('✅ exists assets/a.js\n');
+    let timeout = 0;
+    const spawn = (command: string, args: string[], options: { timeout: number }) => {
+      timeout = options.timeout;
+      return helper.spawn(command, args);
+    };
+
+    expect(checkStoredAsset('assets/a.js', {
+      spawn,
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 6_500,
+    })).toBe('exists');
+    expect(timeout).toBe(500);
+  });
+
+  it('does not start an R2 helper after the shared deadline', () => {
+    let spawned = false;
+    expect(() => checkStoredAsset('assets/a.js', {
+      spawn: () => {
+        spawned = true;
+        return { stdout: '', stderr: '' };
+      },
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 7_000,
+    })).toThrow(/R2 upload deadline expired before the helper could start/);
+    expect(spawned).toBe(false);
+  });
+
+  it('classifies a timed-out child helper as an R2 deadline failure', () => {
+    const spawn = () => ({
+      status: null,
+      stdout: '',
+      stderr: '',
+      error: Object.assign(new Error('spawnSync timed out'), { code: 'ETIMEDOUT' }),
+    });
+
+    expect(() => checkStoredAsset('assets/a.js', {
+      spawn,
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 6_500,
+    })).toThrow(/R2 upload deadline expired while the helper was running/);
+  });
+
+  it('starts one monotonic six-minute R2 budget at the first helper operation', () => {
+    expect(r2UploadDeadline(1_234)).toBe(361_234);
   });
 
   it('uploadShellAsset puts the content under the key with the assets/ Cache-Control', () => {

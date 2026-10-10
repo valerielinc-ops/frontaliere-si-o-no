@@ -108,9 +108,10 @@ function buildLedgerLookup(ledger) {
     if (!isRecord(entry)) continue;
     const creativeId = firstString(entry.creativeId, entry.creative_id);
     if (!creativeId) continue;
+    const engagementMechanic = firstString(entry.engagementMechanic, entry.engagement_mechanic);
     for (const key of ['instagramMediaId', 'mediaId', 'media_id', 'queueId', 'queue_id']) {
       const value = firstString(entry[key]);
-      if (value) lookup.set(value, creativeId);
+      if (value) lookup.set(value, { creativeId, engagementMechanic });
     }
   }
   return lookup;
@@ -139,11 +140,12 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
 
     const postId = firstString(raw.id, raw.media_id, raw.mediaId, raw.post_id, raw.queueId, raw.queue_id)
       || `row-${index + 1}`;
+    const ledgerMetadata = lookup.get(postId);
     const creativeId = firstString(
       raw.creativeId,
       raw.creative_id,
       raw.creative?.id,
-      lookup.get(postId),
+      ledgerMetadata?.creativeId,
     );
     if (!creativeId) {
       reject(rejected, index, 'creativeId missing (add it or provide --ledger)');
@@ -172,6 +174,13 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       reject(rejected, index, 'objective/primary metric missing or unsupported');
       return;
     }
+
+    const engagementMechanic = firstString(
+      raw.engagementMechanic,
+      raw.engagement_mechanic,
+      raw.creative?.engagementMechanic,
+      ledgerMetadata?.engagementMechanic,
+    );
 
     const reach = readMetric(raw, 'reach', { required: true });
     if (reach === null || reach <= 0) {
@@ -204,6 +213,7 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       kind: firstString(raw.kind, raw.contentKind, raw.content_kind) || 'unknown',
       objective,
       primaryMetric,
+      engagementMechanic,
       windowHours,
       reach,
       ...metrics,
@@ -238,6 +248,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       creativeId: row.creativeId,
       objective: row.objective,
       primaryMetric: row.primaryMetric,
+      engagementMechanic: row.engagementMechanic || null,
       kind,
       windowHours: row.windowHours,
       observations: 0,
@@ -251,6 +262,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     };
     group.observations += 1;
     group.kinds.add(kind);
+    group.engagementMechanic ||= row.engagementMechanic || null;
     for (const metric of ['reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
       group[metric] += Number(row[metric]) || 0;
     }
@@ -265,6 +277,7 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       creativeId: group.creativeId,
       objective: group.objective,
       primaryMetric: group.primaryMetric,
+      engagementMechanic: group.engagementMechanic,
       kind: group.kind,
       windowHours: group.windowHours,
       observations: group.observations,
@@ -359,9 +372,10 @@ export function formatCreativeReport(report) {
     lines.push('   No valid treatment rows yet.');
   } else {
     for (const treatment of report.treatments) {
+      const mechanic = treatment.engagementMechanic ? ` · CTA ${treatment.engagementMechanic}` : '';
       lines.push(
         `   ${treatment.creativeId.padEnd(18)} ${treatment.kind.padEnd(8)} ${treatment.windowHours}h · ${treatment.observations} obs · `
-        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}`,
+        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${mechanic}`,
       );
     }
   }
