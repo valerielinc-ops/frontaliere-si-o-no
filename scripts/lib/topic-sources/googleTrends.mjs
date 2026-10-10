@@ -13,6 +13,7 @@
 //     (seed, geo) pair against the public trends.google.com page.
 //   - Cap: max 20 candidates per geo.
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
@@ -269,28 +270,25 @@ function sleep(ms) {
 //   </item>
 async function fetchTrendsRss(geo, fetchImpl = fetch) {
   const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
-  const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
-  if (t && typeof t.unref === 'function') t.unref();
-  try {
-    const res = await fetchImpl(url, {
+  const { response: res, body } = await fetchBodyWithDeadline(
+    fetchImpl,
+    url,
+    {
       headers: {
         // A plausible-browser UA reduces the chance of a defensive 403.
         'User-Agent':
           'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
         Accept: 'application/rss+xml, application/xml, text/xml',
       },
-      signal: ac.signal,
-    });
-    if (!res.ok) {
-      const e = new Error(`trends-rss ${res.status}`);
-      e.status = res.status;
-      throw e;
-    }
-    return await res.text();
-  } finally {
-    clearTimeout(t);
+    },
+    REQUEST_TIMEOUT_MS,
+  );
+  if (!res.ok) {
+    const e = new Error(`trends-rss ${res.status}`);
+    e.status = res.status;
+    throw e;
   }
+  return body;
 }
 
 // Parse the trending-RSS XML into Candidate-shape rising entries.

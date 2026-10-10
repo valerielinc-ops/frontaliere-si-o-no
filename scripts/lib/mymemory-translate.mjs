@@ -10,6 +10,8 @@
  * Rate limit: max 5 concurrent requests, 1s between calls.
  */
 
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
+
 const MYMEMORY_API = 'https://api.mymemory.translated.net/get';
 
 const LANG_MAP = {
@@ -65,8 +67,6 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     await new Promise((r) => setTimeout(r, wait));
   }
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
     const params = new URLSearchParams({
       q: text.slice(0, 5000), // API supports up to 5000 chars per call
@@ -79,13 +79,15 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
 
     const url = `${MYMEMORY_API}?${params.toString()}`;
 
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { 'User-Agent': 'FrontaliereTicino/1.0' },
-    });
+    const { response: res, body: data } = await fetchBodyWithDeadline(
+      fetch,
+      url,
+      { headers: { 'User-Agent': 'FrontaliereTicino/1.0' } },
+      8000,
+      { as: 'json' },
+    );
 
     if (!res.ok) return null;
-    const data = await res.json();
 
     const translated = data?.responseData?.translatedText;
     if (!translated || typeof translated !== 'string') return null;
@@ -105,8 +107,6 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
     return translated.trim();
   } catch {
     return null;
-  } finally {
-    clearTimeout(timeout);
   }
 }
 

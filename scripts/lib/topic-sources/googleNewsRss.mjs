@@ -18,6 +18,7 @@
 //   - One retry on transient error.
 //   - Per-seed graceful degradation.
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
@@ -112,21 +113,20 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
-  const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
-  try {
-    return await fetchImpl(url, {
+// The deadline covers the body read too: a body that stalls after the
+// headers must not hang the create-article discovery path.
+function fetchWithTimeout(fetchImpl, url, timeoutMs) {
+  return fetchBodyWithDeadline(
+    fetchImpl,
+    url,
+    {
       headers: {
         'User-Agent': USER_AGENT,
         Accept: 'application/rss+xml, application/xml, text/xml',
       },
-      signal: ac.signal,
-    });
-  } finally {
-    clearTimeout(t);
-  }
+    },
+    timeoutMs,
+  );
 }
 
 function extractTagText(block, tagName) {
@@ -182,13 +182,12 @@ async function fetchOneSeed(seed, fetchImpl) {
   let lastReason = null;
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
-      const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
+      const { response: res, body: xml } = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
       if (!res || typeof res.ok !== 'boolean') {
         lastReason = 'invalid response';
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
       } else {
-        const xml = await res.text();
         const items = parseNewsRss(xml);
         return { ok: true, items };
       }

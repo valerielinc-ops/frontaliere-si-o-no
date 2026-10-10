@@ -26,6 +26,8 @@
 // A single format change on Google's side degrades to "same as before this
 // module existed", never worse.
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
+
 const BATCHEXECUTE_URL =
   'https://news.google.com/_/DotsSplashUi/data/batchexecute';
 
@@ -82,7 +84,7 @@ function extractToken(gnUrl) {
 }
 
 /**
- * Fetch a URL and read its body text under ONE AbortController deadline.
+ * Fetch a URL and read its body text under ONE hard deadline.
  *
  * CRITICAL (hotfix 2026-07-12, run 29202963318 hung 2h42m): the previous
  * helper timed out only the fetch() (up to response headers) and returned the
@@ -91,21 +93,16 @@ function extractToken(gnUrl) {
  * forever — and the article generator's wall-clock budget can't interrupt a
  * single in-flight await, so the whole run sat in "Generate article" until the
  * 6h job timeout, blocking the concurrency-1 chain. Reading the body inside the
- * same abort scope means a stalled body aborts at `timeoutMs` too. Returns the
+ * same deadline means a stalled body aborts at `timeoutMs` too, and the
+ * deadline holds even when `fetchImpl` ignores the abort signal. Returns the
  * body text, or null on any non-ok/abort/error (caller falls back cleanly).
  */
 async function fetchText(fetchImpl, url, init, timeoutMs) {
-  const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
   try {
-    const res = await fetchImpl(url, { ...init, signal: ac.signal });
-    if (!res || res.ok === false) return null;
-    return await res.text();
+    const { body } = await fetchBodyWithDeadline(fetchImpl, url, init, timeoutMs);
+    return body;
   } catch {
     return null;
-  } finally {
-    clearTimeout(t);
   }
 }
 

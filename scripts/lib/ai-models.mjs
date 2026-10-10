@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
 import { CODEX_FALLBACK_MODEL } from './codex-fallback-contract.mjs';
 import { GH_MODELS_URL } from './gh-models-endpoint.mjs';
 
@@ -3047,24 +3048,21 @@ export async function _discoverProvider(cfg) {
   const apiKey = cfg.getKey();
   if (!apiKey) return { added: 0, stale: 0 };
 
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 10_000);
-  let res;
-  try {
-    res = await fetch(cfg.url, {
-      headers: { Authorization: `Bearer ${apiKey}`, ...(cfg.extraHeaders || {}) },
-      signal: controller.signal,
-    });
-  } finally {
-    clearTimeout(timeout);
-  }
+  // The deadline covers the listing body too: discovery runs inside the
+  // score-store init of every create-article run.
+  const { response: res, body: data } = await fetchBodyWithDeadline(
+    fetch,
+    cfg.url,
+    { headers: { Authorization: `Bearer ${apiKey}`, ...(cfg.extraHeaders || {}) } },
+    10_000,
+    { as: 'json' },
+  );
 
   if (!res.ok) {
     console.warn(`⚠️  [Discovery:${cfg.name}] API returned ${res.status} — using static list`);
     return { added: 0, stale: 0 };
   }
 
-  const data = await res.json();
   // Provider listings come in three shapes: OpenAI-compatible `{data:[…]}`
   // (most), a bare top-level array (Together), or `{models:[…]}` (Cohere
   // native). A cfg.getList() override wins; otherwise auto-detect.

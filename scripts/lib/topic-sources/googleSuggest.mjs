@@ -18,6 +18,7 @@
 //   - HTTP 429 / non-200 → empty result for that seed with `reason`.
 //   - Malformed JSON → empty result for that seed with `reason`.
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 
 // DENYLIST: Google Suggest sometimes autocompletes a seed into the wrong
@@ -101,22 +102,21 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
-  const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
-  try {
-    return await fetchImpl(url, {
+// The deadline covers the body read too: a body that stalls after the
+// headers must not hang the create-article discovery path.
+function fetchWithTimeout(fetchImpl, url, timeoutMs) {
+  return fetchBodyWithDeadline(
+    fetchImpl,
+    url,
+    {
       headers: {
         'User-Agent': USER_AGENT,
         Accept: 'application/json, text/javascript, */*; q=0.01',
         'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
       },
-      signal: ac.signal,
-    });
-  } finally {
-    clearTimeout(t);
-  }
+    },
+    timeoutMs,
+  );
 }
 
 // Parse the firefox-client suggest payload. Shape:
@@ -145,13 +145,12 @@ async function fetchOneSeed(seed, fetchImpl) {
   let lastReason = null;
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
-      const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
+      const { response: res, body: text } = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
       if (!res || typeof res.ok !== 'boolean') {
         lastReason = 'invalid response';
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
       } else {
-        const text = await res.text();
         const completions = parseSuggestPayload(text);
         if (!Array.isArray(completions)) {
           lastReason = 'malformed json';
