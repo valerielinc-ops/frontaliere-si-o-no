@@ -93,6 +93,7 @@ const SEEDS_FALLBACK = [
 const REQUEST_TIMEOUT_MS = 5000;
 const RETRY_DELAY_MS = 750;
 const MAX_PER_SEED = 10;
+const RESPONSE_CONTROLLERS = new WeakMap();
 
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
@@ -113,7 +114,37 @@ async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
         'Accept-Language': 'it-IT,it;q=0.9,en;q=0.8',
       },
       signal: ac.signal,
+    }).then((response) => {
+      if (response && (typeof response === 'object' || typeof response === 'function')) {
+        RESPONSE_CONTROLLERS.set(response, ac);
+      }
+      return response;
     });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function readTextWithTimeout(response, controller, timeoutMs) {
+  let t;
+  const timeoutPromise = new Promise((_, reject) => {
+    t = setTimeout(() => {
+      const reason = new DOMException('The response body timed out', 'TimeoutError');
+      controller.abort(reason);
+      try {
+        Promise.resolve(response?.body?.cancel?.()).catch(() => {});
+      } catch {
+        // Minimal fetch doubles and locked response bodies may reject cancellation.
+      }
+      reject(reason);
+    }, timeoutMs);
+  });
+
+  try {
+    return await Promise.race([
+      Promise.resolve().then(() => response.text()),
+      timeoutPromise,
+    ]);
   } finally {
     clearTimeout(t);
   }
@@ -151,7 +182,8 @@ async function fetchOneSeed(seed, fetchImpl) {
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
       } else {
-        const text = await res.text();
+        const controller = RESPONSE_CONTROLLERS.get(res);
+        const text = await readTextWithTimeout(res, controller, REQUEST_TIMEOUT_MS);
         const completions = parseSuggestPayload(text);
         if (!Array.isArray(completions)) {
           lastReason = 'malformed json';
