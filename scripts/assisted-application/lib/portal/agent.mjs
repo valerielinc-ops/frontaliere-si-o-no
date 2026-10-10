@@ -20,7 +20,7 @@ import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityFie
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
-import { portalQuestionKey } from './question-key.mjs';
+import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -44,14 +44,17 @@ const QUESTION_PROPERTIES = {
   options: LIST(S),
   validation: ANSWER_VALIDATION_SCHEMA,
 };
+const ACTION_REQUIRED = Object.keys(ACTION_PROPERTIES).filter((key) => key !== 'context');
+const QUESTION_REQUIRED = Object.keys(QUESTION_PROPERTIES).filter((key) => key !== 'context');
+const OPTIONAL_CONTEXT_OBJ = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
 
 export const AGENT_SCHEMA = OBJ({
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OBJ(ACTION_PROPERTIES)),
+  actions: LIST(OPTIONAL_CONTEXT_OBJ(ACTION_PROPERTIES, ACTION_REQUIRED)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OBJ(QUESTION_PROPERTIES)),
+  questions: LIST(OPTIONAL_CONTEXT_OBJ(QUESTION_PROPERTIES, QUESTION_REQUIRED)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
@@ -156,7 +159,8 @@ const TOPICS = [
   /start|disponib|verfügbar|eintritt|inizio/i,
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
-const contextKey = (context) => String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+const contextKey = (context) => normalizedPortalContext(context);
+const questionKey = (question, context = '') => portalQuestionKey(question, boundedPortalContext(context));
 const agentTopicKey = (question, context = '') => {
   const topic = topicOf(question);
   return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
@@ -177,8 +181,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answeredItems.map((item) => portalQuestionKey(item.question, item.context)).filter(Boolean),
-    ...answeredItems.map((item) => agentTopicKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => questionKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
   const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
@@ -186,38 +190,39 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
-      && (!context || !item.context || item.context === context))
-    || answeredTopics.has(portalQuestionKey(question, context))
+      && normalizedPortalContext(item.context) === normalizedPortalContext(context))
+    || answeredTopics.has(questionKey(question, context))
     || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
-    const context = String(item.context || '').slice(0, 240);
+    const context = boundedPortalContext(item.context);
     if (!question || isAnswered(question, context) || questions.some((other) => other.question === question && other.context === context)) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
   const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
     || KNOCK_OUT.test(action.question || '')
-    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, action.context)));
+    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, boundedPortalContext(action.context))));
   for (const action of sensitive) {
+    const context = boundedPortalContext(action.context);
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question, action.context);
+    const addressTopic = questionTopic(action.question, context);
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context: action.context, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer, action.context)) {
+        if (!answeredByCandidate(candidate, action.question, answer, context)) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(portalQuestionKey(action.question, action.context));
+        grounded.add(questionKey(action.question, context));
         continue;
       }
     }
@@ -228,27 +233,28 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const fromCandidate = own !== null
-      ? own || answeredByCandidate(candidate, action.question, answer, action.context)
+      ? own || answeredByCandidate(candidate, action.question, answer, context)
       : knockOut
-        ? answeredByCandidate(candidate, action.question, answer, action.context)
+        ? answeredByCandidate(candidate, action.question, answer, context)
         : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(portalQuestionKey(action.question, action.context));
+    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
   }
   const refused = new Set();
   for (const action of sensitive) {
-    const key = portalQuestionKey(action.question, action.context);
+    const context = boundedPortalContext(action.context);
+    const key = questionKey(action.question, context);
     if (grounded.has(key)) continue;
     refused.add(key);
-    ask({ question: action.question, ...(action.context ? { context: action.context } : {}) });
+    ask({ question: action.question, ...(context ? { context } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(portalQuestionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks

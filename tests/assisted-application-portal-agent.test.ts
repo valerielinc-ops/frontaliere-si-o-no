@@ -174,6 +174,13 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
   });
 
+  it('does not let a legacy contextless CAP answer suppress a contextual question', () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'CAP', answer: '9999' }] };
+    const context = 'Dati anagrafici · Indirizzo · CAP · Nazione (di residenza)';
+    const guarded = guardAgentStep(turn('needs_candidate', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+  });
+
   it('keeps same-topic questions independent when their fieldset contexts differ', () => {
     const firstContext = 'Dati anagrafici · Persona';
     const secondContext = 'Dati anagrafici · Esperienza professionale';
@@ -192,6 +199,22 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     ]), candidate);
     expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
     expect(guarded.actions).toEqual([expect.objectContaining({ ref: 'e1', context: firstContext })]);
+  });
+
+  it('uses one bounded context key across a refused long-context transition', () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const longContext = `Dati anagrafici · ${'x'.repeat(240)}`;
+    const first = guardAgentStep(turn('act', [
+      act({ ref: 'e1', question: 'Data di nascita', context: longContext, value: '1900-01-01', answer: '1900-01-01', source: 'model' }),
+    ]), candidate);
+    expect(first.actions).toEqual([]);
+    expect(first.questions).toEqual([expect.objectContaining({ context: longContext.slice(0, 240) })]);
+
+    const second = guardAgentStep(turn('act', [
+      act({ ref: 'e2', question: 'Data di nascita', context: first.questions[0].context, source: 'widget' }),
+    ]), candidate);
+    expect(second.actions).toEqual([]);
+    expect(second.questions).toEqual([expect.objectContaining({ context: first.questions[0].context })]);
   });
 
   it('turns an empty act into done and drops malformed refs', () => {
@@ -234,9 +257,13 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(prompt).toContain('in German');
     expect(planSystemPrompt('it')).toContain('date of birth');
     const strict = (schema: any): boolean => schema.type !== 'object'
-      || (schema.additionalProperties === false && Object.keys(schema.properties).every((key) => schema.required.includes(key) && strict(schema.properties[key]))
+      || (schema.additionalProperties === false && Object.keys(schema.properties).every((key) => (schema.required.includes(key) || key === 'context') && strict(schema.properties[key]))
         && Object.values(schema.properties).every((value: any) => value.type !== 'array' || strict(value.items)));
     expect(strict(AGENT_SCHEMA)).toBe(true);
+    expect(AGENT_SCHEMA.properties.actions.items.required).not.toContain('context');
+    expect(AGENT_SCHEMA.properties.questions.items.required).not.toContain('context');
+    const legacy = guardAgentStep(turn('act', [act({ question: 'Data di nascita', source: 'model', answer: '1900-01-01', value: '1900-01-01' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(legacy.questions).toEqual([expect.objectContaining({ question: 'Data di nascita', context: '' })]);
     const text = agentUserText({ url: 'https://x', title: '', snapshot: '- button "OK" [ref=e1]', candidate: { identity: {} }, hint: 'next_disabled' });
     expect(JSON.parse(text.slice(0, text.indexOf('\n\nPage snapshot:'))).agentPage.hint).toMatch(/disabled/);
   });

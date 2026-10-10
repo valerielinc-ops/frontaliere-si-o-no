@@ -1,12 +1,18 @@
 import { questionTopic } from './plan.mjs';
 
+export const PORTAL_CONTEXT_MAX_CHARS = 240;
+
+export function boundedPortalContext(context) {
+  return String(context || '').slice(0, PORTAL_CONTEXT_MAX_CHARS);
+}
+
 export function slugId(text) {
   return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
 }
 
 export function normalizedPortalContext(context) {
-  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  return boundedPortalContext(context).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
 }
 
 function portalQuestionHash(question, context) {
