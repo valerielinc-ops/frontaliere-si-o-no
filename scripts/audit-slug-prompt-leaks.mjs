@@ -138,7 +138,12 @@ export const KNOWN_LEGACY_LEAKS = Object.freeze(new Set([
   'slug-terzo-pilastro-3a-switzerland',
   'slug-terzo-pilastro-3a-schweiz',
   'slug-terzo-pilastro-3a-suisse',
-  'slug-terzo-pilastro-3a-vantaggi-2026-basilea',
+  // ── Reconciled 2026-10-10 (#12670) ────────────────────────────────────────
+  // The Swiss registry now has `slug-terzo-pilastro-3a-vantaggi-2026-basel`
+  // and `slug-terzo-pilastro-3a-vantaggi-2026-bale` as its leaking locale
+  // values; the old `...-basilea` exception is no longer present. Do not
+  // replace it with either current spelling: both are fresh leaks tracked by
+  // #12665 and must stay visible to the detector.
 ]));
 
 /**
