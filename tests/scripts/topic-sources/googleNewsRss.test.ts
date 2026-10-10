@@ -221,4 +221,25 @@ describe('fetchNewsRssCandidates', () => {
     expect(r.perSeed.x.ok).toBe(false);
     expect(r.perSeed.x.reason).toMatch(/fetch error|network/i);
   });
+
+  it('times out and cancels body readers that ignore abort', async () => {
+    const cancel = vi.fn();
+    const fetchImpl = vi.fn(async () => ({
+      ...makeRes({}),
+      body: { cancel },
+      text: () => new Promise<string>(() => {}),
+    }));
+
+    const r = await fetchNewsRssCandidates({
+      seeds: ['x'],
+      fetchImpl: fetchImpl as any,
+      timeoutMs: 5,
+    });
+
+    expect(r.ok).toBe(false);
+    expect(r.perSeed.x.ok).toBe(false);
+    expect(r.perSeed.x.reason).toMatch(/timeout|timed out/i);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(cancel).toHaveBeenCalledTimes(2);
+  });
 });
