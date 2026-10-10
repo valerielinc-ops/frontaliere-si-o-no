@@ -253,6 +253,25 @@ describe('the canonical #organization entity', () => {
     });
   });
 
+  it('canonicalizes the name on a site Organization with a stale hostname name', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: {
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+        name: 'frontaliereticino.ch',
+        url: `${BASE_URL}/`,
+      },
+    });
+    expect(normalized).toMatchObject({
+      creator: {
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+        name: ORGANIZATION_LD.name,
+      },
+    });
+  });
+
   it.each([
     'NewsMediaOrganization',
     ['NewsMediaOrganization', 'Organization'],

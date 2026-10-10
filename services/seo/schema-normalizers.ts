@@ -186,10 +186,13 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
 
  // Legacy records include both anonymous Organization nodes and the
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
- // Reattach site records to the canonical identity while emitting the base type.
+ // Reattach site records to the canonical identity and name while emitting the
+ // base type. Some corpus rows use the hostname as the display name even though
+ // their @id already points at this site Organization.
  if (isSiteOrganizationCreator(record)) {
   record['@type'] = ORGANIZATION_LD['@type'];
   record['@id'] = ORGANIZATION_ID;
+  record.name = ORGANIZATION_LD.name;
  }
 
  // Repeated external organizations (for example image credits and nursing
