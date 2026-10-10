@@ -547,6 +547,9 @@ describe('events source state carried over from a pending refresh', () => {
     expect(step).toContain("GIT_AUTHOR_NAME='frontaliere-automation[bot]'");
     expect(step).toContain("GIT_COMMITTER_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com'");
     expect(step).toContain('git checkout --detach "$main_sha"');
+    expect(step).toContain('starting this crawl from current main on a new branch');
+    expect(step).toContain('EVENTS_REFRESH_REQUIRE_NEW_BRANCH=true');
+    expect(step).toContain('EVENTS_REFRESH_BRANCH=${branch}');
     // The ref is written from the commit just fetched, not from a moving name.
     expect(step).toContain('git update-ref refs/crawl-events/carried-forward "$carry_sha"');
     expect(step.indexOf('refs/crawl-events/carried-forward', restored)).toBeGreaterThan(restored);
