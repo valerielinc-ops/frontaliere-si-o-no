@@ -584,8 +584,10 @@ describe('portal runner helpers', () => {
     expect(questionTopic('CAP', 'Indirizzo di residenza')).toBe('residence_postal_code');
     expect(questionTopic('CAP (obbligatorio)', 'Domicilio')).toBe('residence_postal_code');
     expect(questionTopic('CAP', 'Dati anagrafici · Indirizzo · CAP')).toBe('residence_postal_code');
+    expect(questionTopic('CAP', 'Dati anagrafici · Data di nascita · Indirizzo · CAP · Nazione (di residenza)')).toBe('residence_postal_code');
     expect(questionTopic('CAP', 'Employer address')).toBe('');
     expect(questionTopic('CAP', 'Datore di lavoro · CAP')).toBe('');
+    expect(questionTopic('CAP', 'Residenza / azienda · CAP')).toBe('');
     expect(questionTopic('Employer CAP')).toBe('');
     expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
     expect(questionTopic('Qual è la tua nazione di residenza?')).toBe('residence_country');
