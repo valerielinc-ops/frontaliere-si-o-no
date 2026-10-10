@@ -741,7 +741,7 @@ async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, 
   return Boolean(loc);
 }
 
-async function waitForInstagramReelPreview({ page, step, snap, guard, timeout }) {
+export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload }) {
   step.set('reel-next-preview');
   const deadline = Date.now() + timeout;
   const candidates = [page.getByRole('button', { name: RX.igNext })];
