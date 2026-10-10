@@ -157,6 +157,10 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 - `scripts/lib/instagram-reel-creative.mjs` definisce tre varianti separate:
   domanda immediata (`comments`), numero in primo piano (`shares`) e
   promemoria pratico (`saves`);
+- la domanda immediata riduce la fatica del commento con una parola-chiave:
+  `GUIDA` per gli articoli e `LAVORO` per le offerte; il ledger conserva anche
+  il meccanismo (`keyword-comment`, `direct-share` o `save-reminder`) così la
+  risposta non viene confusa con quella di una CTA diversa;
 - `scripts/lib/social-reel-image.mjs` compone tre card 1080×1920 e il poster
   `scripts/post-to-instagram-reel.mjs` genera un MP4 verificato, una cover e una
   voce di coda distinta (`kind: reel`);
