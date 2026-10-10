@@ -224,11 +224,13 @@ describe('fetchNewsRssCandidates', () => {
 
   it('times out and cancels body readers that ignore abort', async () => {
     const cancel = vi.fn();
-    const fetchImpl = vi.fn(async () => ({
-      ...makeRes({}),
-      body: { cancel },
-      text: () => new Promise<string>(() => {}),
-    }));
+    const bodies: ReadableStream<Uint8Array>[] = [];
+    const responseText = vi.fn(() => new Promise<string>(() => {}));
+    const fetchImpl = vi.fn(async () => {
+      const body = new ReadableStream<Uint8Array>({ cancel });
+      bodies.push(body);
+      return { ...makeRes({}), body, text: responseText };
+    });
 
     const r = await fetchNewsRssCandidates({
       seeds: ['x'],
@@ -241,5 +243,7 @@ describe('fetchNewsRssCandidates', () => {
     expect(r.perSeed.x.reason).toMatch(/timeout|timed out/i);
     expect(fetchImpl).toHaveBeenCalledTimes(2);
     expect(cancel).toHaveBeenCalledTimes(2);
+    expect(responseText).not.toHaveBeenCalled();
+    expect(bodies.every((body) => !body.locked)).toBe(true);
   });
 });

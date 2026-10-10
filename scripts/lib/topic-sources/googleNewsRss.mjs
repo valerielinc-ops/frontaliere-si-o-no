@@ -112,12 +112,38 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function cancelBodyBestEffort(response) {
+function cancelBodyBestEffort(response, reader) {
   try {
-    const cancelResult = response?.body?.cancel?.();
+    // A body is locked while a reader is consuming it, so cancel the retained
+    // reader rather than calling `response.body.cancel()` in that case.
+    const cancelResult = (reader ?? response?.body)?.cancel?.();
     Promise.resolve(cancelResult).catch(() => {});
   } catch {
     // Minimal fetch doubles and already-consumed bodies may reject cancellation.
+  }
+}
+
+async function readResponseText(response, onReader) {
+  const body = response?.body;
+  if (typeof body?.getReader !== 'function') return response.text();
+
+  const reader = body.getReader();
+  onReader(reader);
+  const decoder = new TextDecoder();
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      // Cancellation/error cleanup is best-effort; the timeout still bounds the caller.
+    }
   }
 }
 
@@ -125,6 +151,7 @@ async function fetchTextWithTimeout(fetchImpl, url, timeoutMs) {
   const ac = new AbortController();
   let rejectTimeout;
   let responseForCancellation;
+  let readerForCancellation;
   let timedOut = false;
   const timeoutPromise = new Promise((_, reject) => {
     rejectTimeout = reject;
@@ -136,7 +163,7 @@ async function fetchTextWithTimeout(fetchImpl, url, timeoutMs) {
     const reason = new DOMException('The operation timed out', 'TimeoutError');
     ac.abort(reason);
     rejectTimeout(reason);
-    cancelBodyBestEffort(responseForCancellation);
+    cancelBodyBestEffort(responseForCancellation, readerForCancellation);
   }, timeoutMs);
 
   const fetchPromise = Promise.resolve().then(() => fetchImpl(url, {
@@ -159,10 +186,14 @@ async function fetchTextWithTimeout(fetchImpl, url, timeoutMs) {
       cancelBodyBestEffort(response);
       return { response, text: null };
     }
-    const text = await Promise.race([
-      Promise.resolve().then(() => response.text()),
-      timeoutPromise,
-    ]);
+    const textPromise = Promise.resolve().then(() => readResponseText(response, (reader) => {
+      readerForCancellation = reader;
+      if (timedOut) cancelBodyBestEffort(response, reader);
+    }));
+    // If timeout wins, the retained reader is cancelled above; suppress a late
+    // stream error after the caller has already taken the bounded failure path.
+    textPromise.catch(() => {});
+    const text = await Promise.race([textPromise, timeoutPromise]);
     return { response, text };
   } finally {
     clearTimeout(t);
