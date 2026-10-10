@@ -259,7 +259,7 @@ export async function fetchAllGimArchitektenJobs({ fetchPage = fetchHtml } = {})
       ? addressRegionRaw
       : '';
     const postalCode = String(addr.postalCode || '').trim() || HQ.postalCode;
-    const sourceCanton = inferSwissTargetCanton(addressRegionRaw);
+    const sourceCanton = inferAnyCanton(addressRegionRaw);
     const postalPlace = resolveSwissPostalCodePlace(postalCode);
     const postalPlaceAgrees = postalPlace && (!sourceCanton || postalPlace.canton === sourceCanton)
       ? postalPlace

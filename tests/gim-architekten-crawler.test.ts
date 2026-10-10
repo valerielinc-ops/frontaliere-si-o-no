@@ -13,6 +13,8 @@ import {
   detectExperienceLevel,
 } from '../scripts/lib/gim-architekten-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { TARGET_CANTONS } from '../scripts/lib/crawler-location-config.mjs';
+import { inferAnyCanton, inferSwissTargetCanton } from '../scripts/lib/target-swiss-locations.mjs';
 
 describe('GIM Architekten AG crawler parser', () => {
   // ── Constants ──
@@ -192,6 +194,30 @@ describe('GIM Architekten AG crawler parser', () => {
         addressRegion: 'BE',
         postalCode: '2905',
       });
+
+      // Keep the source-address guard correct even if crawler targets are
+      // narrowed later: a recognized non-target canton must still invalidate
+      // a postal code from a different canton.
+      const originalTargetCantons = [...TARGET_CANTONS];
+      try {
+        TARGET_CANTONS.splice(0, TARGET_CANTONS.length, ...originalTargetCantons.filter((code) => code !== 'OW'));
+        expect(inferAnyCanton('Obwalden')).toBe('OW');
+        expect(inferSwissTargetCanton('Obwalden')).toBe('');
+
+        const nonTargetRegionHtml = detailHtml.replace('"addressRegion":"Jura"', '"addressRegion":"Obwalden"');
+        const nonTargetRegionJobs = await fetchAllGimArchitektenJobs({
+          fetchPage: async (url) => url.includes('/companies/') ? fetchPage(url) : nonTargetRegionHtml,
+        });
+
+        expect(nonTargetRegionJobs[0]).toMatchObject({
+          location: 'Bern',
+          addressLocality: 'Bern',
+          addressRegion: 'BE',
+          postalCode: '2905',
+        });
+      } finally {
+        TARGET_CANTONS.splice(0, TARGET_CANTONS.length, ...originalTargetCantons);
+      }
     });
   });
 
