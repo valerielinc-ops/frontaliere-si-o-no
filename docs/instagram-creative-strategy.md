@@ -161,6 +161,10 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
   `GUIDA` per gli articoli e `LAVORO` per le offerte; il ledger conserva anche
   il meccanismo (`keyword-comment`, `direct-share` o `save-reminder`) così la
   risposta non viene confusa con quella di una CTA diversa;
+- la conferma del robot arricchisce anche i Reel già in coda prima
+  dell’introduzione di `engagementMechanic`, usando solo la matrice nota dei
+  Reel; i carousel storici non vengono classificati retroattivamente dalla
+  sola metrica;
 - `scripts/lib/social-reel-image.mjs` compone tre card 1080×1920 e il poster
   `scripts/post-to-instagram-reel.mjs` genera un MP4 verificato, una cover e una
   voce di coda distinta (`kind: reel`);
