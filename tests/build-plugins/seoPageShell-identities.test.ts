@@ -6,8 +6,11 @@ import {
 } from '../../build-plugins/shared/seoPageShell';
 import { inlineScriptJson } from '../../build-plugins/shared/inlineJsonScript';
 import {
+  EDITORIAL_TEAM_ID,
   TICINO_CUSTOMS_DEPARTMENT_ID,
+  TICINO_CUSTOMS_DEPARTMENT_NAME,
   WEBSITE_ID,
+  organizationLdIds,
 } from '../../services/seo/organizationLd';
 
 describe('static SEO JSON-LD identities', () => {
@@ -25,6 +28,41 @@ describe('static SEO JSON-LD identities', () => {
     ]);
 
     expect(JSON.parse(serialized).isPartOf['@id']).toBe(WEBSITE_ID);
+  });
+
+  it('keeps website, editorial-team, and customs identities distinct in static JSON-LD', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'Article',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'Frontaliere Ticino',
+          url: 'https://frontaliereticino.ch/',
+        },
+        author: {
+          '@type': 'Organization',
+          '@id': EDITORIAL_TEAM_ID,
+          name: 'Redazione Frontaliere Ticino',
+        },
+        image: {
+          '@type': 'ImageObject',
+          creator: {
+            '@type': 'Organization',
+            name: TICINO_CUSTOMS_DEPARTMENT_NAME,
+          },
+        },
+      }),
+    ]);
+
+    const graph = JSON.parse(serialized);
+    const consumerIds = [
+      graph.isPartOf['@id'],
+      graph.author['@id'],
+      graph.image.creator['@id'],
+    ];
+    expect(consumerIds).toEqual(organizationLdIds());
+    expect(new Set(consumerIds).size).toBe(3);
+    expect(consumerIds[0]).toBe(WEBSITE_ID);
   });
 
   it('identifies the Ticino customs department used as webcam creator', () => {

@@ -12,6 +12,9 @@ import {
   ORGANIZATION_SAME_AS,
   ORGANIZATION_FOUNDING_DATE,
   EDITORIAL_TEAM_ID,
+  organizationLdIds,
+  TICINO_CUSTOMS_DEPARTMENT_ID,
+  WEBSITE_ID,
 } from '../services/seo/organizationLd';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -167,6 +170,14 @@ function homepageOrganization(): Record<string, unknown> {
 }
 
 describe('the canonical #organization entity', () => {
+  it('keeps the publisher, website, editorial team, and customs identities distinct', () => {
+    const ids = organizationLdIds();
+    expect(ids).toEqual([WEBSITE_ID, EDITORIAL_TEAM_ID, TICINO_CUSTOMS_DEPARTMENT_ID]);
+    expect(ids).toHaveLength(3);
+    expect(new Set(ids).size).toBe(3);
+    expect(new Set([ORGANIZATION_ID, ...ids]).size).toBe(4);
+  });
+
   it('uses the Google-supported Organization type and preserves its editorial specialization', () => {
     expect(ORGANIZATION_LD['@type']).toBe('Organization');
     expect(ORGANIZATION_LD_FULL.additionalType).toBe('https://schema.org/NewsMediaOrganization');
