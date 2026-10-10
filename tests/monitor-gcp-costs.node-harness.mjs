@@ -167,6 +167,52 @@ const healthyBody = (url) => {
     : { timeSeries: [series('svc', 1)] };
 };
 
+async function testTransientMonitoringTimeoutRetry() {
+  const timeout = Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+  let calls = 0;
+  const fetchImpl = async (url) => {
+    calls += 1;
+    if (calls === 1) throw timeout;
+    return { ok: true, status: 200, json: async () => healthyBody(url) };
+  };
+  const originalWarn = console.warn;
+  console.warn = () => {};
+  try {
+    const { measurements } = await measureCostDrivers({
+      fetchImpl,
+      token: 't',
+      retryOptions: { retries: 1, retryBaseMs: 0 },
+    });
+    assert.equal(measurements['firestore-reads'].value, 1);
+    assert.equal(calls, COST_DRIVERS.length + 2);
+  } finally {
+    console.warn = originalWarn;
+  }
+}
+
+async function testRepeatedMonitoringTimeoutDiagnostic() {
+  let calls = 0;
+  const fetchImpl = async () => {
+    calls += 1;
+    throw Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+  };
+  const originalWarn = console.warn;
+  console.warn = () => {};
+  try {
+    await assert.rejects(
+      measureCostDrivers({
+        fetchImpl,
+        token: 't',
+        retryOptions: { retries: 1, retryBaseMs: 0 },
+      }),
+      /Cloud Monitoring firestore\.googleapis\.com\/document\/read_ops_count: request timed out after 30000ms \(attempts 2\/2\)/,
+    );
+    assert.equal(calls, 2);
+  } finally {
+    console.warn = originalWarn;
+  }
+}
+
 async function testMissingSeries() {
   const fetchImpl = async (url) => ({
     ok: true,
@@ -226,6 +272,8 @@ const tests = [
   ['attribution metric query', testAttributionMetricQuery],
   ['cost driver paging', testCostDriverPaging],
   ['monitoring API error', testMonitoringApiError],
+  ['transient Monitoring timeout retry', testTransientMonitoringTimeoutRetry],
+  ['repeated Monitoring timeout diagnostic', testRepeatedMonitoringTimeoutDiagnostic],
   ['missing series', testMissingSeries],
   ['single storage observation', testSingleStorageObservation],
   ['unreadable point', testUnreadablePoint],
