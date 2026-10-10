@@ -78,11 +78,10 @@ describe('full-suite-dispatch.yml: trigger, permessi, limiti', () => {
     expect(DOC.concurrency?.['cancel-in-progress']).toBe(false);
   });
 
-  it('timeout del job esplicito e <= 60 minuti; lo step della suite ha un tetto più basso', () => {
-    expect(job['timeout-minutes']).toBeGreaterThan(0);
-    expect(job['timeout-minutes']).toBeLessThanOrEqual(60);
-    expect(testStep['timeout-minutes']).toBeGreaterThan(0);
-    expect(testStep['timeout-minutes']).toBeLessThan(job['timeout-minutes']);
+  it('riserva 60 minuti alla suite e 30 al setup/riepilogo del report #12130', () => {
+    expect(job['timeout-minutes']).toBe(90);
+    expect(testStep['timeout-minutes']).toBe(60);
+    expect(job['timeout-minutes'] - testStep['timeout-minutes']).toBeGreaterThanOrEqual(30);
   });
 });
 

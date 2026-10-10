@@ -52,10 +52,11 @@ jobs:
   full-suite:
     name: vitest (suite completa, checkout pieno)
     runs-on: ubuntu-latest
-    # Tetto del job: checkout + npm ci + assemble + suite. Lo step della suite
-    # ha un tetto proprio più basso, così gli step `if: always()` di riepilogo
-    # e upload girano anche quando la suite sfora.
-    timeout-minutes: 60
+    # Tetto del job: checkout + npm ci + assemble + suite. La misura #12130 ha
+    # raggiunto il limite suite di 40m dopo 17m di preparazione, senza produrre
+    # il report. Un job da 90m lascia fino a 30m per setup, preparazione e
+    # riepilogo/upload oltre al tetto suite di 60m.
+    timeout-minutes: 90
     steps:
       # Checkout PIENO: niente `sparse-checkout`. È il requisito di correttezza
       # di questa misura — i test leggono `data/`, `public/`,
@@ -128,7 +129,7 @@ jobs:
         # l'emulator viene avviato e ripulito anche quando Vitest è rosso.
         # L'exit code viene catturato prima di stampare il log per non
         # trasformare un failure di Vitest in un successo di `tee`.
-        timeout-minutes: 40
+        timeout-minutes: 60
         run: |
           set -o pipefail
           set +e
