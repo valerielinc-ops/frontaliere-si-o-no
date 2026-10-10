@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, portalQuestionId, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -692,6 +692,8 @@ describe('portal runner helpers', () => {
     const residence = { id: portalQuestionId('CAP', 'Dati anagrafici · Indirizzo · CAP'), source: 'portal', question: 'CAP', context: 'Dati anagrafici · Indirizzo · CAP', required: true, type: 'text', options: [] };
     const employer = { id: portalQuestionId('CAP', 'Esperienza professionale · Datore di lavoro · Indirizzo · CAP'), source: 'portal', question: 'CAP', context: 'Esperienza professionale · Datore di lavoro · Indirizzo · CAP', required: true, type: 'text', options: [] };
     expect(portalQuestionId('CAP', ' Residence ')).toBe(portalQuestionId('cap', 'residence'));
+    expect(portalQuestionKey('CAP', 'Residence')).toBe(portalQuestionKey('CAP (obbligatorio)', ' residence '));
+    expect(portalQuestionKey('CAP', residence.context)).not.toBe(portalQuestionKey('CAP', employer.context));
     expect(residence.id).not.toBe(employer.id);
     expect(dedupePortalQuestions([residence, employer])).toEqual([residence, employer]);
 
