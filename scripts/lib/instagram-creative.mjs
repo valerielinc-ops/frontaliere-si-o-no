@@ -451,3 +451,43 @@ export function instagramCreativeLedgerFields(creative) {
     followUpFormat: creative?.followUpFormat || 'none',
   };
 }
+
+/**
+ * Recover the stable metadata for a known carousel treatment from its id.
+ * This is intentionally null for unknown/legacy ids: a historical post
+ * without a creative id must never be classified from its metrics alone.
+ */
+export function instagramCreativeLedgerFieldsForId(creativeId) {
+  const id = String(creativeId || '').trim();
+  const variant = CREATIVE_VARIANT_BY_ID.get(id);
+  if (!variant) return null;
+  const definition = INSTAGRAM_CREATIVE_FORMATS[variant.baseId];
+  return instagramCreativeLedgerFields({
+    id: variant.id,
+    baseId: variant.baseId,
+    variant: variant.variant,
+    label: variant.label || definition.label,
+    objective: definition.objective,
+    primaryMetric: definition.primaryMetric,
+    hookType: variant.hookType || definition.hookType,
+    attentionMechanic: variant.attentionMechanic || definition.attentionMechanic,
+    engagementLoop: variant.engagementLoop || definition.engagementLoop,
+    followUpFormat: variant.followUpFormat || definition.followUpFormat,
+  });
+}
+
+/**
+ * Fill only absent metadata on a known carousel ledger row. Explicit values
+ * win so this helper cannot overwrite an audited correction or a future
+ * treatment. Reels and unknown legacy rows are left untouched.
+ */
+export function enrichInstagramCreativeLedgerEntry(entry) {
+  if (!entry || typeof entry !== 'object' || entry.kind === 'reel') return entry;
+  const inferred = instagramCreativeLedgerFieldsForId(entry.creativeId);
+  if (!inferred) return entry;
+  const enriched = { ...entry };
+  for (const [key, value] of Object.entries(inferred)) {
+    if (!String(enriched[key] ?? '').trim()) enriched[key] = value;
+  }
+  return enriched;
+}

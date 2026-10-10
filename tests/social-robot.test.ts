@@ -355,6 +355,43 @@ describe('confirmation → ledger', () => {
     expect(() => parseConfirmArgs(['--channel=tiktok', '--queue-id=../../etc', '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/queue-id/);
     expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
   });
+
+  it('backfills known Instagram creative metadata at confirmation time', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-09',
+      caption: 'question',
+      imageUrls: [cdn('question.jpg')],
+      ledgerEntries: [{
+        id: 'article-card',
+        kind: 'article',
+        day: '2026-10-09',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+      }],
+    });
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const result = applyConfirmation({
+      root,
+      ...parseConfirmArgs([
+        '--channel=instagram',
+        `--queue-id=${e.id}`,
+        '--confirmed-at=2026-10-10T10:00:00Z',
+        '--evidence=Post condiviso',
+      ]),
+    });
+    expect(result.ledgerEntries[0]).toMatchObject({
+      creativeId: 'question-choice',
+      hookType: 'forced-choice',
+      attentionMechanic: 'low-friction-choice',
+      engagementLoop: 'comment-to-poll',
+      followUpFormat: 'story-result',
+      engagementMechanic: 'keyword-comment',
+    });
+  });
 });
 
 describe('cadence', () => {

@@ -17,6 +17,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { appendLedger, loadLedger } from '../lib/social-post-utils.mjs';
+import { enrichInstagramCreativeLedgerEntry } from '../lib/instagram-creative.mjs';
 import {
   SOCIAL_CHANNELS,
   confirmQueueEntry,
@@ -63,9 +64,12 @@ export function applyConfirmation({ root = ROOT, channel, queueId, confirmedAt, 
     evidence,
     fallbackLedgerEntries,
   });
+  const ledgerEntries = channel === 'instagram'
+    ? result.ledgerEntries.map(enrichInstagramCreativeLedgerEntry)
+    : result.ledgerEntries;
   saveQueue(queuePath, result.queue);
-  appendLedger(ledgerPath, result.ledgerEntries, POSTED_TRIM_LIMIT);
-  return result;
+  appendLedger(ledgerPath, ledgerEntries, POSTED_TRIM_LIMIT);
+  return { ...result, ledgerEntries };
 }
 
 const invokedDirectly = (() => {
