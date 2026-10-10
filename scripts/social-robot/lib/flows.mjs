@@ -741,6 +741,23 @@ async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, 
   return Boolean(loc);
 }
 
+export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload }) {
+  step.set('reel-next-preview');
+  const deadline = Date.now() + timeout;
+  const candidates = [page.getByRole('button', { name: RX.igNext })];
+
+  for (;;) {
+    await guard();
+    await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
+    const next = await findFirst(candidates, { guard, timeout: 0 });
+    if (next) return next;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'no control found for step "reel-next-preview"', { step: 'reel-next-preview' });
+    }
+    await sleep(Math.min(100, deadline - Date.now()));
+  }
+}
+
 /** Publish one video through Instagram's Reel composer. */
 async function instagramReelFlow({ page, files, caption, dryRun, human, snap, startUrl = INSTAGRAM_HOME, timeouts = {}, step = stepTracker() }) {
   const t = { ...DEFAULT_TIMEOUTS, ...timeouts };
@@ -816,7 +833,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   // Video processing can outlast the ordinary UI timeout. Waiting for the
   // first transition with the bounded upload timeout keeps slow valid uploads
   // alive without allowing the flow to wait indefinitely.
-  const firstNext = await required(step, 'reel-next-preview', [page.getByRole('button', { name: RX.igNext })], { guard, timeout: t.upload });
+  const firstNext = await waitForInstagramReelPreview({ page, step, snap, guard, timeout: t.upload });
   await clickChecked(page, firstNext, { step, snap, platform: 'instagram', label: 'Instagram Reel preview next' });
   await human.pause();
 
