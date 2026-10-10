@@ -53,6 +53,17 @@ describe('static SEO JSON-LD identities', () => {
     });
   });
 
+  it('keeps the canonical site id when an Organization has only the site @id', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+      }),
+    ]);
+
+    expect(JSON.parse(serialized)['@id']).toBe(ORGANIZATION_ID);
+  });
+
   it('keeps website, editorial-team, and customs identities distinct in static JSON-LD', () => {
     const [serialized] = normalizeStaticJsonLdScripts([
       JSON.stringify({
