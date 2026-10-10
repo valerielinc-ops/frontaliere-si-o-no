@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-10-10T09:25:18.078Z",
+  "assembledAt": "2026-10-10T21:16:53.625Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:12.362Z",
+      "crawledAt": "2026-10-10T21:16:48.364Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -139,7 +139,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:12.175Z",
+      "crawledAt": "2026-10-10T21:16:48.174Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -200,10 +200,10 @@
       "id": "kulm-hotel-f99c2b318f49",
       "slug": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
       "slugByLocale": {
-        "it": "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "it": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
         "en": "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "veranstaltungsplanung-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-2f5977",
-        "fr": "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        "fr": "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -227,7 +227,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:11.182Z",
+      "crawledAt": "2026-10-10T21:16:47.184Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -252,6 +252,18 @@
       "pensum": "100%",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:44.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ],
+        "fr": [
+          "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+        ]
+      },
+      "previousSlugs": [
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977",
+        "gestionnaire-de-planification-des-evenements-h-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -297,7 +309,7 @@
       "url": "https://careers.kulm.com/en/vacancies/720",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:10.184Z",
+      "crawledAt": "2026-10-10T21:16:46.190Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -377,7 +389,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:09.199Z",
+      "crawledAt": "2026-10-10T21:16:45.160Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -424,7 +436,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-30d9a4628931",
@@ -457,7 +470,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:08.207Z",
+      "crawledAt": "2026-10-10T21:16:44.167Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -534,7 +547,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:07.211Z",
+      "crawledAt": "2026-10-10T21:16:43.173Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -611,7 +624,7 @@
       "url": "https://careers.kulm.com/en/vacancies/736",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:06.215Z",
+      "crawledAt": "2026-10-10T21:16:42.142Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -655,7 +668,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kulm-hotel-189b3fb9dd6a",
@@ -688,7 +702,7 @@
       "url": "https://careers.kulm.com/en/vacancies/730",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:05.207Z",
+      "crawledAt": "2026-10-10T21:16:41.148Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -757,7 +771,7 @@
       "url": "https://careers.kulm.com/en/vacancies/729",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:04.220Z",
+      "crawledAt": "2026-10-10T21:16:40.160Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -807,7 +821,7 @@
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -834,7 +848,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:03.234Z",
+      "crawledAt": "2026-10-10T21:16:39.158Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -876,7 +890,8 @@
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+        "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -897,7 +912,8 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -957,7 +973,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:02.228Z",
+      "crawledAt": "2026-10-10T21:16:38.160Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1008,7 +1024,7 @@
       "id": "kulm-hotel-9d02174bb4ef",
       "slug": "concierge-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "portineria-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "concierge-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "concierge-m-w-d-kulm-hotel-st-moritz",
         "de": "concierge-m-w-d-kulm-hotel-st-moritz",
         "fr": "concierge-m-w-d-kulm-hotel-st-moritz"
@@ -1035,7 +1051,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:25:01.217Z",
+      "crawledAt": "2026-10-10T21:16:37.170Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1059,11 +1075,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "concierge-m-w-d-kulm-hotel-st-moritz"
+        "concierge-m-w-d-kulm-hotel-st-moritz",
+        "portineria-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "concierge-m-w-d-kulm-hotel-st-moritz"
+          "concierge-m-w-d-kulm-hotel-st-moritz",
+          "portineria-m-f-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:25.104Z",
@@ -1112,7 +1130,7 @@
       "url": "https://careers.kulm.com/en/vacancies/732",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:59.949Z",
+      "crawledAt": "2026-10-10T21:16:36.157Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
