@@ -24,7 +24,11 @@ import {
   snapshotRetranslationBaseline,
 } from '../scripts/lib/crawler-retranslation-baseline.mjs';
 import { isIncomplete } from '../scripts/lib/translation-incomplete.mjs';
-import { seedCrawlerSlicesFromDataJobs } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  enrichJobLocalesDCC,
+  seedCrawlerSlicesFromDataJobs,
+  shouldMarkSkipAiRetranslation,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 type Job = Record<string, any>;
 type Pair = { case: string; before: Job; after: Job };
@@ -165,6 +169,73 @@ describe('dropSpuriousRetranslationFlags', () => {
 
   it('requires the completeness verdict to be injected', () => {
     expect(() => dropSpuriousRetranslationFlags([], [], {} as any)).toThrow(TypeError);
+  });
+});
+
+describe('SKIP_AI_TRANSLATION enqueue ownership', () => {
+  const forceContext = {
+    LOCALES: ['it', 'en', 'de', 'fr'],
+    FORCE_LOCALIZE_COMPANY_KEYS: new Set(['acme']),
+    normalizeCompanyKey: (value: string) => value.toLowerCase(),
+    normalizeHost: (value: string) => value,
+    hostOf: (value: string) => new URL(value).host,
+  };
+
+  beforeEach(() => {
+    vi.stubEnv('SKIP_AI_TRANSLATION', '1');
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  const prepare = (name: string) => {
+    const { before, after } = pair(name);
+    before.companyKey = 'acme';
+    after.companyKey = 'acme';
+    delete after.needsRetranslation;
+    recordRetranslationBaseline('acme', [before]);
+    return { before, after };
+  };
+
+  it('does not reflag unchanged complete maps in enrichJobLocalesDCC', async () => {
+    const { after } = prepare('source-unchanged');
+
+    expect(shouldMarkSkipAiRetranslation(after)).toBe(false);
+    const enriched = await enrichJobLocalesDCC(after, { minDescriptionChars: 120 }, forceContext);
+
+    expect(enriched.needsRetranslation).toBeUndefined();
+  });
+
+  it('still flags complete-looking maps when the source changed', async () => {
+    const { after } = prepare('source-changed');
+
+    const enriched = await enrichJobLocalesDCC(after, { minDescriptionChars: 120 }, forceContext);
+
+    expect(enriched.needsRetranslation).toBe(true);
+  });
+
+  it('never suppresses a queue marker already present in the previous run', async () => {
+    const { before, after } = pair('source-unchanged');
+    before.companyKey = 'acme';
+    before.needsRetranslation = true;
+    after.companyKey = 'acme';
+    after.needsRetranslation = true;
+    recordRetranslationBaseline('acme', [before]);
+
+    const enriched = await enrichJobLocalesDCC(after, { minDescriptionChars: 120 }, forceContext);
+
+    expect(enriched.needsRetranslation).toBe(true);
+  });
+
+  it('still flags unchanged maps when one locale is incomplete', async () => {
+    const { after } = prepare('source-unchanged');
+    const target = Object.keys(after.descriptionByLocale).find((locale) => locale !== after.sourceLang)!;
+    after.descriptionByLocale[target] = '';
+
+    const enriched = await enrichJobLocalesDCC(after, { minDescriptionChars: 120 }, forceContext);
+
+    expect(enriched.needsRetranslation).toBe(true);
   });
 });
 
