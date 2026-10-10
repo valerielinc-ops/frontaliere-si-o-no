@@ -151,14 +151,22 @@ export function residenceCountryCode(value) {
 }
 
 export function addressQuestionAnswer(candidate, topic) {
-  const address = resolveResidenceAddress(candidate?.identity?.address, candidate?.identity?.location);
+  // The normal browser path supplies candidateForForm(), where the residence
+  // is under identity.address. Keep the planner safe for older/raw callers as
+  // well: draft data historically kept the same address under profile.address.
+  // Merge rather than choose one wholesale so a partially enriched identity
+  // does not hide an explicit profile value.
+  const identity = candidate?.identity || {};
+  const profile = candidate?.profile || {};
+  const rawAddress = { ...(profile.address || {}), ...(identity.address || {}) };
+  const address = resolveResidenceAddress(rawAddress, identity.location || profile.location);
   if (topic === 'address' || topic === 'address_street') return address.street;
   if (topic === 'address_house_number') {
     const marked = address.street.match(/\b(?:n[°ºo]?|no\.?|numero|numéro|civico|house\s*(?:number|no)|street\s*(?:number|no))\s*([0-9]{1,5}[A-Za-z]?)/i)?.[1];
     return marked || address.street.match(/\b([0-9]{1,5}[A-Za-z]?)\b/)?.[1] || '';
   }
   if (topic === 'residence_postal_code') return address.postalCode;
-  if (topic === 'residence_city') return address.city || compact(candidate?.identity?.location);
+  if (topic === 'residence_city') return address.city || compact(identity.location || profile.location);
   if (topic === 'residence_country') return address.country;
   return '';
 }
