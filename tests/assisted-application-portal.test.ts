@@ -517,6 +517,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent(fields[3])).toBe(false);
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I do not accept the privacy policy', required: false, checked: false })).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', label: 'I cannot accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
   });

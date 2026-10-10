@@ -149,7 +149,7 @@ const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool
 // candidate must supply. Optional marketing/talent-pool wording is excluded
 // below by OPTIONAL_CONSENT.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
-const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
+const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
 // svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
