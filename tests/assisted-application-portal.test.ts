@@ -583,7 +583,9 @@ describe('portal runner helpers', () => {
     expect(questionTopic('CAP (obbligatorio)')).toBe('');
     expect(questionTopic('CAP', 'Indirizzo di residenza')).toBe('residence_postal_code');
     expect(questionTopic('CAP (obbligatorio)', 'Domicilio')).toBe('residence_postal_code');
+    expect(questionTopic('CAP', 'Dati anagrafici · Indirizzo · CAP')).toBe('residence_postal_code');
     expect(questionTopic('CAP', 'Employer address')).toBe('');
+    expect(questionTopic('CAP', 'Datore di lavoro · CAP')).toBe('');
     expect(questionTopic('Employer CAP')).toBe('');
     expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
     expect(questionTopic('Qual è la tua nazione di residenza?')).toBe('residence_country');
@@ -632,7 +634,7 @@ describe('portal runner helpers', () => {
     });
     expect(candidate.identity.address).toMatchObject({ postalCode: '43039', country: 'Italia' });
     const cap = { id: 'cap', kind: 'text', label: 'Qual è il tuo CAP di residenza?', required: true, options: [] };
-    const bareCap = { id: 'bare-cap', kind: 'text', label: 'CAP', context: 'Indirizzo di residenza', required: true, options: [] };
+    const bareCap = { id: 'bare-cap', kind: 'text', label: 'CAP', context: 'Dati anagrafici · Indirizzo · CAP', required: true, options: [] };
     const workCap = { id: 'work-cap', kind: 'text', label: 'CAP', context: 'Employer address', required: true, options: [] };
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
     expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
