@@ -63,6 +63,18 @@ function defaultRunCommand(args) {
   });
 }
 
+/** @param {{repo?: string, ledgerIssue?: string, body?: string}} options */
+function quotaFloorCommentArgs({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_ISSUE, body } = {}) {
+  return [
+    'api',
+    '--method',
+    'POST',
+    `repos/${token(repo, 'repo')}/issues/${token(ledgerIssue, 'ledgerIssue')}/comments`,
+    '--raw-field',
+    `body=${String(body ?? '')}`,
+  ];
+}
+
 /**
  * @param {{repo?: string, ledgerIssue?: string}} [options]
  * @returns {string[]}
@@ -235,7 +247,9 @@ export function quotaFloorLeaseDecision(ledger, { kind, subject, fairnessHold = 
 export function acquireQuotaFloorLease({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_ISSUE, kind, subject, owner, expiresAt, runCommand = defaultRunCommand } = {}) {
   const marker = quotaFloorLeaseMarker({ kind, subject, owner, expiresAt });
   try {
-    runCommand(['issue', 'comment', token(ledgerIssue, 'ledgerIssue'), '--repo', token(repo, 'repo'), '--body', marker]);
+    // `gh issue comment` calls GraphQL addComment, which rejects issues after
+    // 2,500 comments. Keep the append-only lease protocol writable via REST.
+    runCommand(quotaFloorCommentArgs({ repo, ledgerIssue, body: marker }));
     return { ok: true, marker, owner: token(owner, 'owner'), subject: token(subject, 'subject') };
   } catch (error) {
     return { ok: false, reason: `quota floor lease acquisition failed: ${error?.message || String(error)}` };
@@ -248,7 +262,7 @@ export function acquireQuotaFloorLease({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_
 export function releaseQuotaFloorLease({ repo, ledgerIssue = QUOTA_FLOOR_LEDGER_ISSUE, owner, runCommand = defaultRunCommand } = {}) {
   const marker = quotaFloorReleaseMarker(owner);
   try {
-    runCommand(['issue', 'comment', token(ledgerIssue, 'ledgerIssue'), '--repo', token(repo, 'repo'), '--body', marker]);
+    runCommand(quotaFloorCommentArgs({ repo, ledgerIssue, body: marker }));
     return { ok: true, marker, owner: token(owner, 'owner') };
   } catch (error) {
     return { ok: false, reason: `quota floor lease release failed: ${error?.message || String(error)}` };
