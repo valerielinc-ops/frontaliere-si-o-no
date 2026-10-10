@@ -16822,12 +16822,12 @@
     },
     {
       "id": "stadt-zuerich-a6a69235ee1e",
-      "slug": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775",
+      "slug": "direttore-d-ufficio-in-teatro-am-hechtplatz-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775",
+        "it": "direttore-d-ufficio-in-teatro-am-hechtplatz-stadt-zurich-zurich",
         "en": "office-manager-in-theater-am-hechtplatz-stadt-zurich-zurich",
         "de": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775",
-        "fr": "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775"
+        "fr": "directeur-de-bureau-au-theatre-am-hechtplatz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -16889,7 +16889,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775"
+        ],
+        "fr": [
+          "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775"
+        ]
+      },
+      "previousSlugs": [
+        "office-manager-in-theater-am-hechtplatz-stadt-zuerich-zurigo-51775"
+      ]
     },
     {
       "id": "stadt-zuerich-70462f9d0f5e",
