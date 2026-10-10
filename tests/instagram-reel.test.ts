@@ -32,6 +32,10 @@ describe('Instagram Reel creative experiment', () => {
     for (const variant of INSTAGRAM_REEL_VARIANTS) {
       expect(variant.objective).toBeTruthy();
       expect(variant.primaryMetric).toMatch(/comments|shares|saves/);
+      expect(variant.hookType).toBeTruthy();
+      expect(variant.attentionMechanic).toBeTruthy();
+      expect(variant.engagementLoop).toBeTruthy();
+      expect(variant.followUpFormat).toBeTruthy();
       expect(variant.hook.article.title).toBeTruthy();
       expect(variant.hook.job.title).toBeTruthy();
       expect(variant.cta.article).toBeTruthy();
@@ -66,6 +70,10 @@ describe('Instagram Reel creative experiment', () => {
       creativeFormat: 'reel',
       primaryMetric: creative.primaryMetric,
       engagementMechanic: creative.primaryMetric === 'comments' ? 'keyword-comment' : expect.any(String),
+      hookType: creative.hookType,
+      attentionMechanic: creative.attentionMechanic,
+      engagementLoop: creative.engagementLoop,
+      followUpFormat: creative.followUpFormat,
     });
   });
 

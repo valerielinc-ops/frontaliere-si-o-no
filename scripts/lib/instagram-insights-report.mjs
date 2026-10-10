@@ -21,6 +21,10 @@ const OBJECTIVE_BY_CREATIVE = Object.freeze({
   proof: 'share',
   save: 'save',
   question: 'conversation',
+  reel: 'conversation',
+  'reel-question': 'conversation',
+  'reel-number': 'share',
+  'reel-save': 'save',
 });
 
 function objectiveForCreative(creativeId) {
@@ -108,10 +112,20 @@ function buildLedgerLookup(ledger) {
     if (!isRecord(entry)) continue;
     const creativeId = firstString(entry.creativeId, entry.creative_id);
     if (!creativeId) continue;
-    const engagementMechanic = firstString(entry.engagementMechanic, entry.engagement_mechanic);
+    const metadata = {
+      creativeId,
+      creativeBaseId: firstString(entry.creativeBaseId, entry.creative_base_id),
+      creativeVariant: firstString(entry.creativeVariant, entry.creative_variant),
+      creativeLabel: firstString(entry.creativeLabel, entry.creative_label),
+      engagementMechanic: firstString(entry.engagementMechanic, entry.engagement_mechanic),
+      hookType: firstString(entry.hookType, entry.hook_type),
+      attentionMechanic: firstString(entry.attentionMechanic, entry.attention_mechanic),
+      engagementLoop: firstString(entry.engagementLoop, entry.engagement_loop),
+      followUpFormat: firstString(entry.followUpFormat, entry.follow_up_format),
+    };
     for (const key of ['instagramMediaId', 'mediaId', 'media_id', 'queueId', 'queue_id']) {
       const value = firstString(entry[key]);
-      if (value) lookup.set(value, { creativeId, engagementMechanic });
+      if (value) lookup.set(value, metadata);
     }
   }
   return lookup;
@@ -181,6 +195,48 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       raw.creative?.engagementMechanic,
       ledgerMetadata?.engagementMechanic,
     );
+    const creativeBaseId = firstString(
+      raw.creativeBaseId,
+      raw.creative_base_id,
+      raw.creative?.baseId,
+      ledgerMetadata?.creativeBaseId,
+    );
+    const creativeVariant = firstString(
+      raw.creativeVariant,
+      raw.creative_variant,
+      raw.creative?.variant,
+      ledgerMetadata?.creativeVariant,
+    );
+    const creativeLabel = firstString(
+      raw.creativeLabel,
+      raw.creative_label,
+      raw.creative?.label,
+      ledgerMetadata?.creativeLabel,
+    );
+    const hookType = firstString(
+      raw.hookType,
+      raw.hook_type,
+      raw.creative?.hookType,
+      ledgerMetadata?.hookType,
+    );
+    const attentionMechanic = firstString(
+      raw.attentionMechanic,
+      raw.attention_mechanic,
+      raw.creative?.attentionMechanic,
+      ledgerMetadata?.attentionMechanic,
+    );
+    const engagementLoop = firstString(
+      raw.engagementLoop,
+      raw.engagement_loop,
+      raw.creative?.engagementLoop,
+      ledgerMetadata?.engagementLoop,
+    );
+    const followUpFormat = firstString(
+      raw.followUpFormat,
+      raw.follow_up_format,
+      raw.creative?.followUpFormat,
+      ledgerMetadata?.followUpFormat,
+    );
 
     const reach = readMetric(raw, 'reach', { required: true });
     if (reach === null || reach <= 0) {
@@ -210,10 +266,17 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
     rows.push({
       postId,
       creativeId,
+      creativeBaseId,
+      creativeVariant,
+      creativeLabel,
       kind: firstString(raw.kind, raw.contentKind, raw.content_kind) || 'unknown',
       objective,
       primaryMetric,
       engagementMechanic,
+      hookType,
+      attentionMechanic,
+      engagementLoop,
+      followUpFormat,
       windowHours,
       reach,
       ...metrics,
@@ -246,9 +309,16 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     const key = `${row.creativeId}\u0000${kind}\u0000${row.windowHours}`;
     const group = groups.get(key) || {
       creativeId: row.creativeId,
+      creativeBaseId: row.creativeBaseId || null,
+      creativeVariant: row.creativeVariant || null,
+      creativeLabel: row.creativeLabel || null,
       objective: row.objective,
       primaryMetric: row.primaryMetric,
       engagementMechanic: row.engagementMechanic || null,
+      hookType: row.hookType || null,
+      attentionMechanic: row.attentionMechanic || null,
+      engagementLoop: row.engagementLoop || null,
+      followUpFormat: row.followUpFormat || null,
       kind,
       windowHours: row.windowHours,
       observations: 0,
@@ -263,6 +333,13 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     group.observations += 1;
     group.kinds.add(kind);
     group.engagementMechanic ||= row.engagementMechanic || null;
+    group.creativeBaseId ||= row.creativeBaseId || null;
+    group.creativeVariant ||= row.creativeVariant || null;
+    group.creativeLabel ||= row.creativeLabel || null;
+    group.hookType ||= row.hookType || null;
+    group.attentionMechanic ||= row.attentionMechanic || null;
+    group.engagementLoop ||= row.engagementLoop || null;
+    group.followUpFormat ||= row.followUpFormat || null;
     for (const metric of ['reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
       group[metric] += Number(row[metric]) || 0;
     }
@@ -275,9 +352,16 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     const eligible = group.observations >= minimumObservations;
     return {
       creativeId: group.creativeId,
+      creativeBaseId: group.creativeBaseId,
+      creativeVariant: group.creativeVariant,
+      creativeLabel: group.creativeLabel,
       objective: group.objective,
       primaryMetric: group.primaryMetric,
       engagementMechanic: group.engagementMechanic,
+      hookType: group.hookType,
+      attentionMechanic: group.attentionMechanic,
+      engagementLoop: group.engagementLoop,
+      followUpFormat: group.followUpFormat,
       kind: group.kind,
       windowHours: group.windowHours,
       observations: group.observations,
@@ -373,9 +457,11 @@ export function formatCreativeReport(report) {
   } else {
     for (const treatment of report.treatments) {
       const mechanic = treatment.engagementMechanic ? ` · CTA ${treatment.engagementMechanic}` : '';
+      const hook = treatment.hookType ? ` · hook ${treatment.hookType}` : '';
+      const loop = treatment.engagementLoop ? ` · loop ${treatment.engagementLoop}` : '';
       lines.push(
         `   ${treatment.creativeId.padEnd(18)} ${treatment.kind.padEnd(8)} ${treatment.windowHours}h · ${treatment.observations} obs · `
-        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${mechanic}`,
+        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${mechanic}${hook}${loop}`,
       );
     }
   }
