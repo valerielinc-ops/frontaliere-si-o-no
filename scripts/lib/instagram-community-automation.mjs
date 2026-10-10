@@ -30,6 +30,7 @@ export const MAX_STORIES_PER_RUN = 3;
 export const MAX_MEDIA_PER_RUN = 25;
 export const MAX_CONVERSATIONS_PER_RUN = 25;
 export const DM_RESPONSE_WINDOW_HOURS = 24;
+export const PRIVATE_REPLY_WINDOW_HOURS = 168;
 export const STORY_MIN_AGE_HOURS = 24;
 export const STORY_MAX_AGE_HOURS = 72;
 export const GRAPH_REQUEST_TIMEOUT_MS = 30_000;
@@ -538,10 +539,12 @@ export async function runInstagramCommunityAutomation({
       }
 
       const authorId = commentAuthorId(comment);
+      const commentAge = ageHours(timestamp(comment.timestamp || comment.created_time), nowMs);
       const privateKey = hashAction('comment-private-reply', commentId);
       if (
         authorId
         && shouldSendPrivateReply(comment.text)
+        && (commentAge === null || (commentAge >= 0 && commentAge <= PRIVATE_REPLY_WINDOW_HOURS))
         && !hasAction(state, privateKey)
         && privateAttempted < MAX_PRIVATE_REPLIES_PER_RUN
       ) {
