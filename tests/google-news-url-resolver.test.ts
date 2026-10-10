@@ -103,22 +103,28 @@ describe('decodeGoogleNewsUrl', () => {
     expect(await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl })).toBeNull();
   });
 
-  it('does NOT hang when the response body stalls — aborts at timeout → null (hotfix 2026-07-12)', async () => {
+  it('does NOT hang when a stalled response body ignores abort', async () => {
     // Regression for run 29202963318 (hung 2h42m): headers arrive OK but the
-    // body never completes. fetchText reads the body under the same abort
-    // scope, so it aborts at timeoutMs instead of hanging forever.
+    // body never completes. The explicit deadline must settle even when the
+    // provider ignores AbortController, then cancel the body best-effort.
     const opaqueUrl = 'https://news.google.com/rss/articles/CBMiwAFAU_yqLMstall?oc=5';
-    const fetchImpl = vi.fn(async (_url: string, init: any) => ({
-      ok: true,
-      // body that never resolves on its own — only the abort signal ends it
-      text: () => new Promise((_res, rej) => {
-        init.signal.addEventListener('abort', () => rej(new Error('aborted')));
-      }),
-    }));
+    const cancel = vi.fn(async () => {});
+    let signal: AbortSignal | undefined;
+    const fetchImpl = vi.fn(async (_url: string, init: any) => {
+      signal = init.signal;
+      return {
+        ok: true,
+        body: { cancel },
+        // Deliberately never settles and does not observe init.signal.
+        text: () => new Promise(() => {}),
+      };
+    });
     const started = Date.now();
     const out = await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl, timeoutMs: 50 });
     expect(out).toBeNull();
-    // Completed promptly (abort fired) — nowhere near a hang.
+    expect(signal?.aborted).toBe(true);
+    expect(cancel).toHaveBeenCalled();
+    // Completed promptly from the explicit race — nowhere near a hang.
     expect(Date.now() - started).toBeLessThan(2000);
   });
 
