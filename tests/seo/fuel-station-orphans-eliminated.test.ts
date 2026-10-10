@@ -51,8 +51,10 @@ import {
   FUEL_TYPES,
   FUEL_ZONES,
   FUEL_ITALIAN_CITIES,
+  buildFuelItalianCityPath,
   buildFuelStationPath,
   type FuelDailyLocale,
+  type ItalianCityEntry,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
@@ -90,6 +92,24 @@ const TEXT_RATIO_ITALIAN: ItalianStationLeaf[] = Array.from({ length: 220 }, (_,
   name: `Station ${index}`,
   brand: `Brand ${index % 18}`,
   address: `Via Roma ${index}, Como`,
+}));
+
+// Production fuel-prices data currently has 228 Italian municipalities with priced stations.
+const TEXT_RATIO_CITY_ENTRIES: ItalianCityEntry[] = Array.from({ length: 228 }, (_, index) => ({
+  slug: `border-city-${index}`,
+  display: `Border City ${index}`,
+  matchKey: `border city ${index}`,
+  province: index % 2 === 0 ? 'CO' : 'VA',
+  nearestZone: FUEL_ZONES[index % FUEL_ZONES.length]!,
+}));
+
+const TEXT_RATIO_CITY_STATIONS: ItalianStationLeaf[] = TEXT_RATIO_CITY_ENTRIES.map((city, index) => ({
+  citySlug: city.slug,
+  cityDisplay: city.display,
+  stationSlug: `station-${index}`,
+  name: `MIMIT station ${index}`,
+  brand: `Brand ${index % 18}`,
+  address: `Via Roma ${index}, ${city.display}`,
 }));
 
 const TEXT_RATIO_SWISS: SwissStationLeaf[] = Array.from({ length: 51 }, (_, index) => ({
@@ -447,22 +467,28 @@ describe('fuel-station index pagination — Italian station pages stay within th
   });
 });
 
-describe('fuel-station index pages — preserve the text/HTML quality floor', () => {
+describe('fuel index pages — preserve the text/HTML quality floor', () => {
   const pages = generateFuelIndexPages({
     today: TODAY,
     swissStations: TEXT_RATIO_SWISS,
     italianStations: TEXT_RATIO_ITALIAN,
+    italianStationsByFuel: {
+      benzina: TEXT_RATIO_CITY_STATIONS,
+      diesel: TEXT_RATIO_CITY_STATIONS,
+    },
+    italianCities: TEXT_RATIO_CITY_ENTRIES,
   });
   const targetRoots = FUEL_DAILY_LOCALES.flatMap((locale) => [
     buildFuelIndexPath(locale, 'benzina', 'swissStations'),
     buildFuelIndexPath(locale, 'diesel', 'swissStations'),
     buildFuelIndexPath(locale, 'benzina', 'italianStations'),
+    ...FUEL_TYPES.map((fuel) => buildFuelIndexPath(locale, fuel, 'italianCities')),
   ]);
   const targetPages = Object.entries(pages).filter(([path]) =>
     targetRoots.some((root) => path === root || path.startsWith(`${root.slice(0, -1)}/page-`)),
   );
 
-  it('keeps each generated station index above the production audit’s 10% hard floor', () => {
+  it('keeps each generated index above the production audit’s 10% hard floor', () => {
     expect(targetPages.length).toBeGreaterThan(0);
     for (const [path, html] of targetPages) {
       const htmlBytes = Buffer.byteLength(html, 'utf8');
@@ -477,6 +503,17 @@ describe('fuel-station index pages — preserve the text/HTML quality floor', ()
     expect(html).toContain('Prezzo');
     expect(html).toContain('CHF/l');
     expect(html).toContain('rilevato');
+  });
+
+  it('keeps every Italian city index leaf linked exactly once in every locale and fuel', () => {
+    for (const locale of FUEL_DAILY_LOCALES) {
+      for (const fuel of FUEL_TYPES) {
+        const html = pages[buildFuelIndexPath(locale, fuel, 'italianCities')]!;
+        for (const city of TEXT_RATIO_CITY_ENTRIES) {
+          expect(countAnchors(html, buildFuelItalianCityPath(locale, fuel, city.slug))).toBe(1);
+        }
+      }
+    }
   });
 });
 

@@ -82,26 +82,6 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 // Index pages use shared semantic-token CSS classes instead of repeating long
 // inline declarations in every station row and pagination chip.
 
-const ZONE_HEADER_STYLE =
-  'display:flex;align-items:center;gap:14px;margin:8px 0 14px;padding:14px 18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)';
-
-const ZONE_HEADER_BADGE_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent)';
-
-const ZONE_HEADER_TITLE_STYLE =
-  'margin:0;font-size:17px;font-weight:700;color:var(--color-heading);line-height:1.2';
-
-const ZONE_HEADER_META_STYLE =
-  'margin:3px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.4';
-
-const ZONE_HEADER_COUNT_STYLE =
-  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-accent-border);color:var(--color-accent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums';
-
-const STATION_GRID_STYLE =
-  'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:0 0 28px';
-
-const ZONE_SECTION_STYLE = 'margin:0 0 8px;scroll-margin-top:80px';
-
 // Zone-context hint: short locale-aware line that adds geographic flavour
 // under each zone header. Keeps the page from feeling like a wall of brand
 // names — gives commuters an instant "is this my crossing?" signal.
@@ -702,19 +682,19 @@ function paginateGroupedAnchors(
 }
 
 /**
- * Render station-index groups with a compact semantic list. These indexes can
- * contain dozens of city/zone groups and hundreds of station links; repeating
- * a large inline-style card and decorative SVG for every row inflated HTML
- * without adding information, pushing the generated pages below the existing
- * text/HTML quality floor.
+ * Render fuel-index groups with a compact semantic list. These indexes can
+ * contain hundreds of city/station links; repeating a rich card, inline styles
+ * and decorative SVG for every row inflates HTML without adding information,
+ * pushing generated pages below the existing text/HTML quality floor.
  */
-function renderCompactStationGroup(
+function renderCompactIndexGroup(
   group: GroupedAnchors,
   copy: IndexCopy,
   locale: FuelDailyLocale,
+  kind: FuelIndexKind,
 ): string {
   const count = group.anchors.length;
-  const noun = copy.stationsNoun(count);
+  const noun = kind === 'italianCities' ? copy.citiesNoun(count) : copy.stationsNoun(count);
   const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
   const rows = group.anchors.map((anchor) => {
     const logo = anchor.logoUrl
@@ -731,44 +711,6 @@ function renderCompactStationGroup(
     ${borderHint ? `<p class="fuel-index-compact-group__hint">${esc(borderHint)}</p>` : ''}
     <ul class="fuel-index-compact-group__list">${rows}</ul>
   </section>`;
-}
-
-/**
- * Render a per-zone (or per-city) data block: zone header card + grid of
- * entity cards. Replaces the original flat `<ul><li>` list with a visually
- * scannable two-column grid that uses the shared `renderEntityCard` helper
- * and the lucide fuel-pump / map-pin icons for instant visual differentiation.
- */
-function renderGroup(
-  group: GroupedAnchors,
-  copy: IndexCopy,
-  locale: FuelDailyLocale,
-  cardIcon: 'fuel' | 'mapPin',
-): string {
-  const iconSvg = cardIcon === 'fuel' ? ICON_FUEL_SVG : ICON_MAP_PIN_SVG;
-  const count = group.anchors.length;
-  const noun = cardIcon === 'fuel' ? copy.stationsNoun(count) : copy.citiesNoun(count);
-  const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
-
-  const cards = group.anchors
-    .map((a) =>
-      renderEntityCard({
-        href: a.href,
-        logoUrl: a.logoUrl ?? undefined,
-        logoAlt: a.logoAlt ?? a.label,
-        iconSvg,
-        title: a.label,
-        subtitle: a.subtitle,
-      }),
-    )
-    .join('');
-
-  const headerBadge = `<span aria-hidden="true" style="${ZONE_HEADER_BADGE_STYLE}">${iconSvg}</span>`;
-  const headerTitle = `<div class="s-KGNylX"><h3 id="zone-${esc(group.slug)}" style="${ZONE_HEADER_TITLE_STYLE}">${esc(group.heading)}</h3>${borderHint ? `<p style="${ZONE_HEADER_META_STYLE}">${esc(borderHint)}</p>` : ''}</div>`;
-  const headerCount = `<span style="${ZONE_HEADER_COUNT_STYLE}" aria-label="${esc(`${count} ${noun}`)}">${count}</span>`;
-  const header = `<div style="${ZONE_HEADER_STYLE}">${headerBadge}${headerTitle}${headerCount}</div>`;
-
-  return `<section style="${ZONE_SECTION_STYLE}" aria-labelledby="zone-${esc(group.slug)}">${header}<div style="${STATION_GRID_STYLE}">${cards}</div></section>`;
 }
 
 /** Build the locale-aware short tagline shown directly under the H1. */
@@ -1095,18 +1037,12 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     ? groups.flatMap((group) => group.anchors.flatMap((anchor) => anchor.mapStation ? [anchor.mapStation] : []))
     : [];
 
-  // Card icon per index kind — fuel-pump for station indexes, map-pin for the
-  // city index (so the visual signal matches the dominant entity).
-  const cardIcon: 'fuel' | 'mapPin' = kind === 'italianCities' ? 'mapPin' : 'fuel';
-
   // Browse blocks (the load-bearing internal-link section — these anchors are
   // what BFS from the homepage follows to reach the per-station / per-city
   // leaves and lift them out of the orphans bucket).
   const groupsHtml =
     totalAnchors > 0
-      ? groups.map((g) => kind === 'italianCities'
-        ? renderGroup(g, copy, locale, cardIcon)
-        : renderCompactStationGroup(g, copy, locale)).join('')
+      ? groups.map((g) => renderCompactIndexGroup(g, copy, locale, kind)).join('')
       : `<p class="s-2n4DG5">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
 
   // Cross-links to sibling indexes + daily hub.
