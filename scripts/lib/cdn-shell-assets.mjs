@@ -40,6 +40,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 
 // Node built-ins and two commands, on purpose: this file travels byte-identical
@@ -99,8 +100,23 @@ const PROBE_TIMEOUT_MS = 8_000;
 const isHtml = (contentType) => /^\s*text\/html\b/i.test(String(contentType || ''));
 
 // upload-cdn-file.sh bounds each rclone call itself (R2_TIMEOUT_OBJECT_S, two
-// attempts on the upload) and may first download rclone; this is the backstop.
+// attempts on the upload) and may first download rclone; this is both the
+// per-helper backstop and the total budget for all serial R2 work in one batch.
 const HELPER_TIMEOUT_MS = 6 * 60_000;
+const monotonicNow = () => performance.now();
+
+/** One monotonic deadline shared by every R2 lookup/upload in an asset batch. */
+export function r2UploadDeadline(startedAt = monotonicNow()) {
+  return startedAt + HELPER_TIMEOUT_MS;
+}
+
+class R2UploadDeadlineExceededError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'R2UploadDeadlineExceededError';
+    this.code = 'R2_UPLOAD_DEADLINE_EXCEEDED';
+  }
+}
 
 /** CDN keys of the files `listStaticScriptFiles()` returns. */
 export function shellAssetsFromStaticScripts(files) {
@@ -193,8 +209,23 @@ export async function confirmCdnAsset(key, {
   }
 }
 
-function runUploadHelper(args, { spawn = spawnSync, env = process.env } = {}) {
-  const result = spawn('bash', [UPLOAD_HELPER, ...args], { encoding: 'utf8', env, timeout: HELPER_TIMEOUT_MS });
+function runUploadHelper(args, {
+  spawn = spawnSync,
+  env = process.env,
+  deadlineAt,
+  now = monotonicNow,
+} = {}) {
+  let timeout = HELPER_TIMEOUT_MS;
+  if (deadlineAt !== undefined) {
+    timeout = Math.min(timeout, Math.floor(deadlineAt - now()));
+    if (timeout <= 0) {
+      throw new R2UploadDeadlineExceededError('R2 upload deadline expired before the helper could start');
+    }
+  }
+  const result = spawn('bash', [UPLOAD_HELPER, ...args], { encoding: 'utf8', env, timeout });
+  if (deadlineAt !== undefined && result.error?.code === 'ETIMEDOUT') {
+    throw new R2UploadDeadlineExceededError('R2 upload deadline expired while the helper was running');
+  }
   return `${result.stdout ?? ''}${result.stderr ?? ''}`;
 }
 
@@ -282,6 +313,7 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *   purge?: (keys: string[]) => boolean | Promise<boolean>,
  *   confirm?: (key: string, options: { pageOrigin?: string }) => Promise<'present' | 'absent' | 'unknown'>,
  *   wait?: (ms: number) => Promise<void>,
+ *   now?: () => number,
  *   log?: (line: string) => void,
  * }} options
  * @returns {Promise<Array<{ key: string, outcome: 'served' | 'stored' | 'uploaded' }>>}
@@ -294,8 +326,28 @@ export async function ensureCdnShellAssets({
   purge = purgeCdnAssets,
   confirm = confirmCdnAsset,
   wait = waitFor,
+  now = monotonicNow,
   log = console.log,
 }) {
+  let r2DeadlineAt;
+  const withR2Deadline = async (key, phase, operation) => {
+    if (r2DeadlineAt === undefined) r2DeadlineAt = r2UploadDeadline(now());
+    const deadlineFailure = () => new R2UploadDeadlineExceededError(
+      `${key}: R2 ${phase} exceeded the shared ${HELPER_TIMEOUT_MS / 1000}s deadline — HTML that references it must not be published`,
+    );
+    if (now() >= r2DeadlineAt) throw deadlineFailure();
+
+    let result;
+    try {
+      result = await operation({ deadlineAt: r2DeadlineAt, now });
+    } catch (error) {
+      if (error instanceof R2UploadDeadlineExceededError) throw deadlineFailure();
+      throw error;
+    }
+    if (now() >= r2DeadlineAt) throw deadlineFailure();
+    return result;
+  };
+
   const probed = await Promise.all(assets.map(({ key }) => probe(key)));
   const results = [];
   for (const [index, { key, content }] of assets.entries()) {
@@ -303,7 +355,7 @@ export async function ensureCdnShellAssets({
       results.push({ key, outcome: 'served' });
       continue;
     }
-    const stored = await checkStored(key);
+    const stored = await withR2Deadline(key, 'lookup', (options) => checkStored(key, options));
     if (stored === 'exists') {
       log(`${key}: on R2, not shown by the CDN (probe: ${probed[index]})`);
       results.push({ key, outcome: 'stored' });
@@ -313,7 +365,7 @@ export async function ensureCdnShellAssets({
       throw new Error(`${key}: the CDN did not serve it (probe: ${probed[index]}) and R2 could not be read — HTML that references it must not be published`);
     }
     log(`${key}: not on the CDN — uploading it`);
-    if (!(await upload(key, content))) {
+    if (!(await withR2Deadline(key, 'upload', (options) => upload(key, content, options)))) {
       throw new Error(`${key}: not on the CDN and the upload failed — HTML that references it must not be published`);
     }
     results.push({ key, outcome: 'uploaded' });
