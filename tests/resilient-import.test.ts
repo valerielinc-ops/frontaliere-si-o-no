@@ -421,7 +421,7 @@ describe('recoverFromStaleChunk', () => {
   });
 });
 
-describe('recoverFromBootFailure (index.tsx mountApp rejection handler)', () => {
+describe('recoverFromBootFailure (index.tsx bootstrap rejection handling)', () => {
   const chunkError = () =>
     new TypeError('error loading dynamically imported module: https://cdn.frontaliereticino.ch/assets/runtimeArticleSections.js');
   const setHostname = (hostname: string) => {
@@ -463,11 +463,14 @@ describe('recoverFromBootFailure (index.tsx mountApp rejection handler)', () => 
     expect(reload).not.toHaveBeenCalled();
   });
 
-  it('is the rejection handler index.tsx attaches to mountApp()', async () => {
+  it('routes mount and bootstrap failures through the stale-chunk recovery handler', async () => {
     const { readFileSync } = await import('node:fs');
     const { resolve } = await import('node:path');
     const entry = readFileSync(resolve(__dirname, '..', 'index.tsx'), 'utf-8');
-    expect(entry).toContain('void mountApp().catch(recoverFromBootFailure);');
+    expect(entry).toContain('await mountApp();');
+    expect(entry).toContain('void bootstrapApp().catch((error) => {');
+    expect(entry).toContain('recoverFromBootFailure(error);');
+    expect(entry).toContain("void import('./services/resilientImport')");
   });
 
   it('rethrows ad-blocker chunk failures without a reload, like the early-boot self-heal', async () => {

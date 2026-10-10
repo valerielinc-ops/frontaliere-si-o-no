@@ -1,44 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import { installDomReconciliationGuard } from './services/domReconciliationGuard';
-import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
-import { clearAssetCaches, recoverFromBootFailure } from './services/resilientImport';
-import {
- adoptStaticFallbackIntoRoot,
- hideRootForCrossfade,
- shouldAdoptStaticFallbackIntoRoot,
- type StaticFallbackKind,
- waitForStaticFirstPaint,
-} from './services/staticFallbackHandoff';
-
-// Harden the DOM against third-party mutation (Google Translate, extensions)
-// crashing React's reconciler with NotFoundError on insertBefore/removeChild.
-// Must run before any React render. See services/domReconciliationGuard.ts.
-installDomReconciliationGuard();
-
-// Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
-// Vite fires this event before the error reaches React ErrorBoundary.
-window.addEventListener('vite:preloadError', (event) => {
- const key = '_deployReload';
- const last = sessionStorage.getItem(key);
- // Allow one reload per 5-minute window to prevent infinite loops
- if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
- sessionStorage.setItem(key, String(Date.now()));
- // Clear both asset cache layers before reloading — a stale-but-200 preloaded
- // chunk would otherwise be re-served from the disk cache (#3097).
- void clearAssetCaches(event).finally(() => window.location.reload());
- }
-});
+import { waitForInitialPaintOpportunity } from './services/initialPaintBootstrap';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
  throw new Error("Could not find root element to mount to");
 }
-
-const root = ReactDOM.createRoot(rootElement);
-
-let mounted = false;
 
 /** Paths where i18n must be preloaded before render (avoid flash of untranslated text) */
 const HOME_CRITICAL_PATHS = new Set([
@@ -128,7 +94,46 @@ const hasStaticContent = (): boolean => {
 const hasPlateAuctionStaticFallback = (): boolean =>
  !!document.querySelector('main.plate-auction-static');
 
-const mountApp = async () => {
+let recoverFromBootFailure: ((error: unknown) => void) | undefined;
+
+const bootstrapApp = async () => {
+ // The job-board and other static SEO pages already contain useful HTML.
+ // Give it a frame before React's large shared runtime starts parsing and
+ // evaluating on the main thread (particularly costly under mobile CPU
+ // throttling). The handoff below still waits for its normal FCP/route gates.
+ await waitForInitialPaintOpportunity();
+
+ const [React, ReactDOM, { installDomReconciliationGuard }, { maybeHandleCvDownload }, resilientImport, staticHandoff] =
+   await Promise.all([
+     import('react'),
+     import('react-dom/client'),
+     import('./services/domReconciliationGuard'),
+     import('./services/cvDownloadIntercept'),
+     import('./services/resilientImport'),
+     import('./services/staticFallbackHandoff'),
+   ]);
+ recoverFromBootFailure = resilientImport.recoverFromBootFailure;
+
+ // Harden the DOM before the first React render. See
+ // services/domReconciliationGuard.ts.
+ installDomReconciliationGuard();
+
+ // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale
+ // index.html. Vite fires this event before the error reaches React's boundary.
+ window.addEventListener('vite:preloadError', (event) => {
+   const key = '_deployReload';
+   const last = sessionStorage.getItem(key);
+   if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
+     sessionStorage.setItem(key, String(Date.now()));
+     void resilientImport.clearAssetCaches(event).finally(() => window.location.reload());
+   }
+ });
+
+ const root = ReactDOM.createRoot(rootElement);
+ if (maybeHandleCvDownload()) return;
+
+ let mounted = false;
+ const mountApp = async () => {
  if (mounted) return;
  mounted = true;
 
@@ -139,7 +144,7 @@ const mountApp = async () => {
  // overlaps the App chunk download; awaited right before the first hide.
  // Without it the hide could win the race against the first frame and the
  // page stayed blank until React rendered (issue 11666).
- const staticFirstPaint = waitForStaticFirstPaint();
+ const staticFirstPaint = staticHandoff.waitForStaticFirstPaint();
 
  const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
@@ -196,7 +201,7 @@ const mountApp = async () => {
 
    if (fallback
      && !rootElement.contains(fallback)
-     && shouldAdoptStaticFallbackIntoRoot(
+   && staticHandoff.shouldAdoptStaticFallbackIntoRoot(
        parsedRoute,
        hasPlateAuctionStaticFallback(),
        fallbackKind,
@@ -217,7 +222,7 @@ const mountApp = async () => {
        fallback.style.removeProperty('display');
        // Adopt the body-level static hub sub-nav together with the fallback,
        // in painted order, so neither moves on screen (#8868).
-       adoptStaticFallbackIntoRoot(rootElement, fallback);
+       staticHandoff.adoptStaticFallbackIntoRoot(rootElement, fallback);
        staticPage = hasStaticContent();
      }
  } catch {
@@ -238,7 +243,7 @@ const mountApp = async () => {
  // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
  // its transient collapse can't move the blocks below; released after the React
  // content paints (heights match — same page — so the release is shift-free).
- hideRootForCrossfade(rootElement);
+ staticHandoff.hideRootForCrossfade(rootElement);
 
  // Wait for the fade-out to complete before React replaces content
  await new Promise<void>((resolve) => {
@@ -257,13 +262,11 @@ const mountApp = async () => {
  await waitForAsyncStylesheet();
  }
 
- root.render(
- <React.StrictMode>
- <ChunkLoadErrorBoundary>
- <RootPage />
- </ChunkLoadErrorBoundary>
- </React.StrictMode>
- );
+ root.render(React.createElement(
+   React.StrictMode,
+   null,
+   React.createElement(ChunkLoadErrorBoundary, null, React.createElement(RootPage)),
+ ));
 
  if (!homeCritical && staticPage) {
  await waitForAsyncStylesheet();
@@ -289,16 +292,17 @@ const mountApp = async () => {
  }
 
  document.getElementById('loading-shell')?.remove();
+ };
+
+ await mountApp();
 };
 
-// Canonical CV deep-links (/…/cv-uploads/<jobId>/<file>) are not real assets and
-// are not handled by the SPA router; intercept them here to resolve a signed,
-// owner-only download before mounting the app. On any other path this is a cheap
-// regex test that returns false and the app mounts normally.
-if (maybeHandleCvDownload()) {
- // Handled (redirecting to the signed URL or the dashboard) — do not mount.
-} else {
- // Mount React immediately on all paths for better LCP.
- // The loading shell provides instant visual feedback while JS loads.
- void mountApp().catch(recoverFromBootFailure);
-}
+void bootstrapApp().catch((error) => {
+ if (recoverFromBootFailure) {
+   recoverFromBootFailure(error);
+   return;
+ }
+ void import('./services/resilientImport')
+   .then(({ recoverFromBootFailure: recover }) => recover(error))
+   .catch((recoveryError) => console.error('App bootstrap and recovery failed', error, recoveryError));
+});
