@@ -23,8 +23,7 @@ import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
-import { dedupePortalQuestions, readPortalQuestions } from './lib/portal/portal.mjs';
-import { questionTopic } from './lib/portal/plan.mjs';
+import { dedupePortalQuestions, portalQuestionKey, readPortalQuestions } from './lib/portal/portal.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -275,9 +274,9 @@ async function main() {
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
       const existing = dedupePortalQuestions(submitDraft.questions || []);
-      const known = new Set(existing.map((question) => questionTopic(question.question, question.context) || question.id));
+      const known = new Set(existing.map((question) => portalQuestionKey(question.question, question.context) || question.id));
       const incoming = dedupePortalQuestions(event.questions);
-      const added = incoming.filter((question) => !known.has(questionTopic(question.question, question.context) || question.id));
+      const added = incoming.filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id));
       const questions = dedupePortalQuestions([...existing, ...added]);
       await orderRef.collection('ai_drafts').doc('current').set({ questions }, { merge: true });
       event.questions = added.map((question) => ({ id: question.id }));

@@ -372,12 +372,16 @@ function ageAnswerMatches(candidate, question, answer) {
   return expected !== null && actual !== null && actual === booleanAnswer(expected);
 }
 
-function equivalentAnswer(question, left, right) {
+function comparableContext(context) {
+  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   if (a === b) return true;
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (topic === 'nationality') {
     const leftCode = nationalityOf(left)?.code;
     const rightCode = nationalityOf(right)?.code;
@@ -407,7 +411,7 @@ function equivalentAnswer(question, left, right) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question) {
+function recordedAnswerForQuestion(candidate, question, context = '') {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -417,16 +421,18 @@ function recordedAnswerForQuestion(candidate, question) {
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
-  const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
+  const requestedContext = comparableContext(context);
+  const sameContext = (item) => comparableContext(item.context) === requestedContext;
+  const exact = items.find((item) => sameContext(item) && comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (!topic) return '';
-  const semantic = items.find((item) => questionTopic(item.question) === topic);
+  const semantic = items.find((item) => sameContext(item) && questionTopic(item.question, item.context) === topic);
   return semantic ? String(semantic.answer).trim() : '';
 }
 
-export function candidateAnswerForQuestion(candidate, question) {
-  return recordedAnswerForQuestion(candidate, question) || addressQuestionAnswer(candidate, questionTopic(question));
+export function candidateAnswerForQuestion(candidate, question, context = '') {
+  return recordedAnswerForQuestion(candidate, question, context) || addressQuestionAnswer(candidate, questionTopic(question, context));
 }
 
 function optionForAnswer(field, answer) {
@@ -462,7 +468,7 @@ function optionForAnswer(field, answer) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context);
-  const previous = recordedAnswerForQuestion(candidate, field?.label);
+  const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
@@ -528,10 +534,10 @@ export function attachedDocumentYes(candidate, field) {
 const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
-export function answeredByCandidate(candidate, question, answer) {
+export function answeredByCandidate(candidate, question, answer, context = '') {
   const given = String(answer || '').trim();
-  const previous = candidateAnswerForQuestion(candidate, question);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
+  const previous = candidateAnswerForQuestion(candidate, question, context);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -643,7 +649,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // answer to this very question, or declining; never the substring rule (decision 9).
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
     if (own !== null) {
-      if (!own && !answeredByCandidate(candidate, field.label, action.value) && !declines) {
+      if (!own && !answeredByCandidate(candidate, field.label, action.value, field.context) && !declines) {
         ask(field);
         continue;
       }
@@ -656,7 +662,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // below (candidateAnswerForField) when the candidate has said it.
     if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label, field.context) === 'civil_status') {
       const stated = civilStatusCode(statedCivilStatus(candidate));
-      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
+      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value, field.context)) {
         ask(field);
         continue;
       }
@@ -665,7 +671,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

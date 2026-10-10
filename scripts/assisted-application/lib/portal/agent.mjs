@@ -175,7 +175,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     ...answeredItems.map((item) => questionTopic(item.question, item.context)).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
-  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question))
+  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
     || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
@@ -206,7 +206,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer)) {
+        if (!answeredByCandidate(candidate, action.question, answer, action.context)) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
@@ -222,9 +222,9 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const fromCandidate = own !== null
-      ? own || answeredByCandidate(candidate, action.question, answer)
+      ? own || answeredByCandidate(candidate, action.question, answer, action.context)
       : knockOut
-        ? answeredByCandidate(candidate, action.question, answer)
+        ? answeredByCandidate(candidate, action.question, answer, action.context)
         : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);

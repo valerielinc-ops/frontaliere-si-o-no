@@ -161,6 +161,35 @@ export function slugId(text) {
     .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
 }
 
+function normalizedPortalContext(context) {
+  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function portalQuestionHash(question, context) {
+  let hash = 2166136261;
+  for (const character of `${normalizedPortalContext(question)}\u0000${normalizedPortalContext(context)}`) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+/** A stable answer id that keeps same-label fields in different fieldsets independent. */
+export function portalQuestionId(question, context = '') {
+  const label = typeof question === 'object' ? question?.question : question;
+  const surrounding = typeof question === 'object' ? question?.context : context;
+  const base = `portal_${slugId(label)}`;
+  return normalizedPortalContext(surrounding) ? `${base}_${portalQuestionHash(label, surrounding)}` : base;
+}
+
+/** Dedupe reworded questions only when both their semantic topic and context match. */
+export function portalQuestionKey(question, context = '') {
+  const label = typeof question === 'object' ? question?.question : question;
+  const surrounding = typeof question === 'object' ? question?.context : context;
+  const topic = questionTopic(label, surrounding);
+  return topic ? `${topic}|${normalizedPortalContext(surrounding)}` : portalQuestionId(label, surrounding);
+}
+
 /**
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
@@ -255,8 +284,7 @@ function portalAnswersForQuestions(questions, answers) {
     .filter((item) => item.answer);
   const seen = new Map();
   for (const item of items) {
-    const topic = questionTopic(item.question.question, item.question.context);
-    const key = topic || item.question.id;
+    const key = portalQuestionKey(item.question.question, item.question.context);
     const previous = seen.get(key);
     // Prefer an answer stored under this exact question id over an alias found
     // only by semantic topic.
@@ -683,8 +711,8 @@ function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
   for (const item of missingRequired) {
-    const id = `portal_${slugId(item.question)}`;
-    const key = questionTopic(item.question, item.context) || id;
+    const id = portalQuestionId(item.question, item.context);
+    const key = portalQuestionKey(item.question, item.context);
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
     questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
@@ -702,7 +730,7 @@ export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
   return (Array.isArray(questions) ? questions : []).filter((question) => {
     if (question?.source !== 'portal') return true;
-    const key = questionTopic(question.question, question.context) || question.id;
+    const key = portalQuestionKey(question.question, question.context) || question.id;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;

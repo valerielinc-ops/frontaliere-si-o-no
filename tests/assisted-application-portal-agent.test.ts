@@ -167,6 +167,13 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: 'CAP', context })] });
   });
 
+  it('does not let a saved employer CAP answer a residence question', () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [{ question: 'CAP', context: 'Datore di lavoro · Indirizzo', answer: '9999' }] };
+    const context = 'Dati anagrafici · Indirizzo · CAP · Nazione (di residenza)';
+    const guarded = guardAgentStep(turn('needs_candidate', [], [{ question: 'CAP', context, why: '', type: 'text', options: [] }]), candidate);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'CAP', context })] });
+  });
+
   it('turns an empty act into done and drops malformed refs', () => {
     expect(guardAgentStep(turn('act', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'done', actions: [] });
     expect(guardAgentStep({ ...turn('done'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');
