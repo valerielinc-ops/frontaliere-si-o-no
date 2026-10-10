@@ -3521,6 +3521,47 @@ function assertNoFabricatedLaborOfficeCrossLocale(data) {
   }
 }
 
+/**
+ * Run the deterministic article factuality gates on each completed translation
+ * against its Italian source. The source-only call in generateAndValidateArticle
+ * cannot see false friends or scaffolding introduced by translation; this gate
+ * runs at each admission path before any article files are written.
+ */
+export function assertTranslationsPassFactualityGates(data) {
+  const sectionsOf = (content) => ({
+    body1: typeof content?.body1 === 'string' ? content.body1 : '',
+    body2: typeof content?.body2 === 'string' ? content.body2 : '',
+    body3: typeof content?.body3 === 'string' ? content.body3 : '',
+  });
+  const it = data?.content?.it;
+  const italianCandidate = it ? sectionsOf(it) : null;
+  const italianSections = italianCandidate
+    && Object.values(italianCandidate).some((section) => section.trim())
+    ? italianCandidate
+    : null;
+
+  const blocking = [];
+  for (const locale of ['en', 'de', 'fr']) {
+    const sections = sectionsOf(data?.content?.[locale]);
+    const result = runFactualityGates({ sections, locale, italianSections });
+    if (result.issues.length > 0) {
+      console.error(
+        `  🔍 Gate fattualità [${locale}]: ${result.issues.length} rilievi, `
+        + `${result.blocking.length} bloccanti`,
+      );
+      console.error(formatIssues(result.issues));
+    }
+    blocking.push(...result.blocking);
+  }
+
+  if (blocking.length === 0) return;
+  const err = new Error(
+    `Articolo rigettato — ${blocking.length} rilievi bloccanti nei body tradotti:\n${formatIssues(blocking)}`,
+  );
+  err.qualityReject = true;
+  throw err;
+}
+
 // ── Reference sheet of verified domain facts ──
 // Fed into the LLM fact-check prompt so the model cross-checks against known-good data
 // instead of relying solely on training data.
@@ -11145,6 +11186,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     throw e;
   }
 
+  // This is the final body state after translation, link/CTA enrichment and
+  // source-citation insertion. Reject cross-locale factuality defects before
+  // image generation or any article-file write.
+  assertTranslationsPassFactualityGates(data);
+
   // Step 3b: Generate article image through the governed engine. If the
   // engine cannot return a verified record, the existing site-owned fallback
   // is used and no new unrecorded bytes are staged.
@@ -11456,6 +11502,9 @@ export async function registerArticleFiles(data, opts = {}) {
   // `clampSeoDescriptions`: troncare a 160 caratteri un campo che E' il
   // segnaposto lo renderebbe solo un segnaposto piu' corto, non lo toglierebbe.
   sanitizePromptPlaceholders(data);
+  // Secondary producers (including journalist publishing) bypass main(); keep
+  // the same translated-body admission gate on the shared writer path.
+  assertTranslationsPassFactualityGates(data);
   clampSeoDescriptions(data);
   const slugs = deriveAndSanitizeArticleSlugs(data);
   modifyRouterTs(data);
