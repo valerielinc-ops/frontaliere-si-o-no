@@ -149,7 +149,7 @@ const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool
 // candidate must supply. Optional marketing/talent-pool wording is excluded
 // below by OPTIONAL_CONSENT.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
-const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
+const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
 // svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
@@ -166,7 +166,7 @@ export function ownConsent(field) {
 // "present", "heute", etc. It is not inferred from the first experience entry:
 // an undated or merely latest role may already have ended.
 const CURRENT_EXPERIENCE_RE = /\b(?:ad\s+oggi|oggi|attualmente|presente|tuttora|in\s+corso|present(?:e|ly)?|current|ongoing|now|today|en\s+cours|actuellement|jusqu['’]?[àa]\s+présent|heute|aktuell|derzeit|bis\s+heute)\b/i;
-const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
+const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale|occupazionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
 const EMPLOYED_OPTION_RE = /^(?:occupat[oa](?:\s*\/\s*[oa])?|employed|working|beschäftigt|erwerbstätig|angestellt|salari(?:é|ée)|en\s+emploi|travail(?:leur|leuse)|dipendent[ei])(?:\s*[-–—:(].*)?$/i;
 const EMPLOYED_YES_RE = /^(?:yes|ja|s(?:ì|i)|oui)$/i;
 

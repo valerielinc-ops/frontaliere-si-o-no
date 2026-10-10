@@ -518,6 +518,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I do not accept the privacy policy', required: false, checked: false })).toBe(false);
     expect(ownConsent({ kind: 'checkbox', label: 'I cannot accept the privacy policy', required: false, checked: false })).toBe(false);
+    expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
   });
@@ -532,6 +533,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     };
     const candidate = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: 'ad oggi' }] }, portalQuestionsAnswered: [] };
     expect(currentEmploymentOption(field, candidate)).toEqual({ label: 'Occupato' });
+    expect(currentEmploymentOption({ ...field, label: 'Situazione occupazionale' }, candidate)).toEqual({ label: 'Occupato' });
     expect(guardPlan({ actions: [], missingRequired: [{ fieldId: 'employment', question: 'Situazione lavorativa attuale', why: '', type: 'choice', options: ['Disoccupato', 'Occupato'] }] }, [field], candidate)).toEqual({
       actions: [{ fieldId: 'employment', action: 'select', value: 'Occupato', document: 'none', source: 'profile', evidence: '' }],
       missingRequired: [],
