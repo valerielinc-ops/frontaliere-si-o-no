@@ -23,8 +23,8 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
       article: 'In 10 secondi partiamo da un dato reale e arriviamo alla domanda che conta.',
     }),
     cta: Object.freeze({
-      job: 'Commenta con il settore che stai cercando.',
-      article: 'Commenta con il tema che vuoi vedere spiegato.',
+      job: 'Scrivi “LAVORO” e indica il settore che stai cercando.',
+      article: 'Scrivi “GUIDA” e indica il tema che vuoi vedere spiegato.',
     }),
   }),
   Object.freeze({
@@ -169,13 +169,17 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative } = {
 }
 
 export function instagramReelLedgerFields(creative) {
+  const primaryMetric = creative?.primaryMetric || 'comments';
   return {
     creativeId: creative?.id || 'reel-question',
     creativeBaseId: 'reel',
     creativeVariant: creative?.id || 'reel-question',
     creativeLabel: creative?.label || 'Domanda immediata',
     creativeObjective: creative?.objective || 'conversation',
-    primaryMetric: creative?.primaryMetric || 'comments',
+    primaryMetric,
+    engagementMechanic: primaryMetric === 'comments'
+      ? 'keyword-comment'
+      : primaryMetric === 'shares' ? 'direct-share' : 'save-reminder',
     creativeFormat: 'reel',
   };
 }
