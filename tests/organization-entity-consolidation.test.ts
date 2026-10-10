@@ -224,7 +224,12 @@ describe('the canonical #organization entity', () => {
       '@id': 'https://example.com/#newsroom',
     });
     const normalized = normalizeStructuredData({ '@type': 'NewsArticle', creator, publisher });
-    expect(normalized.creator).toEqual({ ...creator, '@id': ORGANIZATION_ID });
+    expect(normalized.creator).toEqual({
+      ...creator,
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+      url: ORGANIZATION_LD.url,
+    });
     expect(normalized.publisher).toEqual(publisher);
     expect(creator['@id']).toBe('https://example.com/#stale-site-id');
   });

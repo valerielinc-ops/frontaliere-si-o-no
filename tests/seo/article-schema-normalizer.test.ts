@@ -24,6 +24,33 @@ describe('static Article JSON-LD safety net', () => {
     expect(normalized.image.contentUrl).toBe(normalized.image.url);
   });
 
+  it('repairs stale fields on an explicitly canonical site Organization', () => {
+    const staleSiteOrganization = {
+      '@type': 'NewsMediaOrganization',
+      '@id': ORGANIZATION_ID,
+      name: 'frontaliereticino.ch',
+      url: 'https://frontaliereticino.ch',
+    };
+    const normalizedImage = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: staleSiteOrganization,
+    }) as Record<string, any>;
+    const normalizedArticle = normalizeArticleStructuredData({
+      '@type': 'Article',
+      datePublished: '2026-10-01',
+      author: staleSiteOrganization,
+    }) as Record<string, any>;
+
+    for (const creator of [normalizedImage.creator, normalizedArticle.author]) {
+      expect(creator).toMatchObject({
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+        name: 'Frontaliere Ticino',
+        url: 'https://frontaliereticino.ch/',
+      });
+    }
+  });
+
   it('keeps Article semantics when an editorial publication date is present', () => {
     const normalized = normalizeArticleStructuredData({
       '@type': 'Article',
