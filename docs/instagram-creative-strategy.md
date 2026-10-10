@@ -103,7 +103,8 @@ automatizzata.
 - Caption: una sola idea, elenco breve, CTA esplicita, link in bio.
 
 È il formato automatizzato in questa implementazione. Il carousel ora chiude con
-una slide CTA e registra `creativeId`, obiettivo e metrica nel ledger.
+una slide CTA e registra `creativeId`, obiettivo, metrica e meccanismo della CTA
+nel ledger.
 
 ### Reel “un problema, un numero, una svolta”
 
@@ -151,7 +152,7 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 - il caption esplicita l’azione primaria;
 - `utm_content` include creatività + slug;
 - il ledger conserva `creativeId`, `creativeBaseId`, `creativeVariant`,
-  `creativeObjective` e `primaryMetric`;
+  `creativeObjective`, `primaryMetric` e `engagementMechanic`;
 - `social-carousel-image.mjs` aggiunge una slide finale CTA senza superare il
   limite di 10 elementi del carousel;
 - `scripts/lib/instagram-reel-creative.mjs` definisce tre varianti separate:
@@ -160,7 +161,8 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 - la domanda immediata riduce la fatica del commento con una parola-chiave:
   `GUIDA` per gli articoli e `LAVORO` per le offerte; il ledger conserva anche
   il meccanismo (`keyword-comment`, `direct-share` o `save-reminder`) così la
-  risposta non viene confusa con quella di una CTA diversa;
+  risposta non viene confusa con quella di una CTA diversa, sia per carousel
+  sia per Reel;
 - la conferma del robot arricchisce anche i Reel già in coda prima
   dell’introduzione di `engagementMechanic`, usando solo la matrice nota dei
   Reel; i carousel storici non vengono classificati retroattivamente dalla
@@ -286,9 +288,9 @@ confermati dal robot che non lo conservano, cerca un solo media dell’account
 compatibile con l’orario di conferma. Non attribuisce il dato se trova più
 possibilità, se il media dichiarato non ritorna dall’account o se mancano i
 metadati della creatività. `snapshotAgeHours` e il metodo di riconciliazione
-restano nel dataset per audit; quando presente, anche `engagementMechanic`
-segue il post fino allo snapshot e alla scorecard (`keyword-comment`,
-`direct-share` o `save-reminder`). I post storici senza questo campo restano
+restano nel dataset per audit; per i nuovi post, `engagementMechanic` segue il
+post fino allo snapshot e alla scorecard (`keyword-comment`, `direct-share` o
+`save-reminder`). I post storici senza questo campo restano
 senza attribuzione della meccanica, per non confondere una metrica con una CTA.
 La tolleranza anticipata è disattivata di default; si può usare solo
 esplicitamente per una prova diagnostica.
