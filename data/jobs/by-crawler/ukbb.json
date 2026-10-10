@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-10-09T21:14:29.557Z",
+  "assembledAt": "2026-10-10T09:16:39.882Z",
   "jobs": [
     {
       "id": "ukbb-05efc12d908a",
@@ -34,7 +34,7 @@
       "url": "https://jobs.ukbb.ch/jobs/terminkoordinator-in-polikliniken-80-100-befristet/ecdde5d7-ceea-404e-8e89-bb90b5a0033f",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:23.209Z",
+      "crawledAt": "2026-10-10T09:16:35.612Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://jobs.ukbb.ch/jobs/pflegeexpert-in-bscn-oder-mscn-80-90-neonatologie/df6d0d9e-3878-4204-8512-528c180fd64b",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:22.564Z",
+      "crawledAt": "2026-10-10T09:16:34.924Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://jobs.ukbb.ch/jobs/zivildienst-in-der-pflege/dd8e0921-3080-4959-bb5d-0b27319318dc",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:21.926Z",
+      "crawledAt": "2026-10-10T09:16:34.242Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-6-woechiges-wahlpflichtpraktikum-in-der-paediatrie/d31d0352-f7bd-40f5-b2ca-a196225b92bf",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:20.218Z",
+      "crawledAt": "2026-10-10T09:16:32.283Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-uewp-neonatologie-80-100/cf339dbd-db33-4f55-8ad0-135eee70b132",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:19.586Z",
+      "crawledAt": "2026-10-10T09:16:31.614Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -486,7 +486,7 @@
       "url": "https://jobs.ukbb.ch/jobs/bachelor-of-science-in-der-pflege-zusatzmodul-b-in-der-paediatrie/ce261eef-f32c-49c5-8688-17633be08e0d",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:18.949Z",
+      "crawledAt": "2026-10-10T09:16:30.938Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -566,7 +566,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-mpa-efz-mit-psg-eeg-erfahrung-60/c9c4baaf-d25a-4006-b59c-f80a0ddeb799",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:18.275Z",
+      "crawledAt": "2026-10-10T09:16:30.205Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -657,7 +657,7 @@
       "url": "https://jobs.ukbb.ch/jobs/wissenschaftliche-assistenz-hiwi-befristet-bis-31-dezember-2027/c89251f5-37ae-460a-b0ca-dd4b6013c787",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:17.621Z",
+      "crawledAt": "2026-10-10T09:16:29.527Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -713,9 +713,9 @@
       "id": "ukbb-52a40695be41",
       "slug": "analista-biomedico-a-diplomato-a-sss-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "de": "dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
         "it": "analista-biomedico-a-diplomato-a-sss-100-universitats-kinderspital-beider-basel-basel",
         "en": "dipl-biomedical-analyst-hf-100-universitats-kinderspital-beider-basel-basel",
+        "de": "dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
         "fr": "analyste-biomedical-e-diplome-e-es-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
@@ -723,16 +723,16 @@
       "companyDomain": "ukbb.ch",
       "title": "Dipl. Biomedizinische*r Analytiker*in HF 100%",
       "titleByLocale": {
-        "de": "Dipl. Biomedizinische*r Analytiker*in HF 100%",
         "it": "Analista biomedico/a diplomato/a SSS 100%",
         "en": "Dipl. Biomedical Analyst HF 100%",
+        "de": "Dipl. Biomedizinische*r Analytiker*in HF 100%",
         "fr": "Analyste biomédical·e diplômé·e ES 100%"
       },
       "description": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Selbstständiges Durchführen von Routineanalysen in der Hämatologie und Hämostase\n\n• Mikroskopische Differenzierung und Beurteilung von Blutbildern, Liquor und Punktaten\n\n• Durchführung von kapillären Blutentnahmen\n\n• Betreuung von POCT, v.a. Blutgas-Analysegeräten\n\n• Mitwirkung bei der Einführung neuer Methoden und Analysen\n\n• Kontinuierliche Weiterbildung\n\n• Durchführen von Feiertags-, Wochenend- und Bereitschaftsdiensten\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Eigenverantwortliche, motivierte, teamfähige und belastbare BMA mit exakter, organisierter und analytischer Arbeitsweise\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Berufserfahrung als BMA erwünscht\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
       "descriptionByLocale": {
-        "de": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Selbstständiges Durchführen von Routineanalysen in der Hämatologie und Hämostase\n\n• Mikroskopische Differenzierung und Beurteilung von Blutbildern, Liquor und Punktaten\n\n• Durchführung von kapillären Blutentnahmen\n\n• Betreuung von POCT, v.a. Blutgas-Analysegeräten\n\n• Mitwirkung bei der Einführung neuer Methoden und Analysen\n\n• Kontinuierliche Weiterbildung\n\n• Durchführen von Feiertags-, Wochenend- und Bereitschaftsdiensten\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Eigenverantwortliche, motivierte, teamfähige und belastbare BMA mit exakter, organisierter und analytischer Arbeitsweise\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Berufserfahrung als BMA erwünscht\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
         "it": "L'Università Children's Hospital di Basilea (UKBB) è un centro universitario indipendente di eccellenza per la medicina pediatrica e adolescente, nonché per l'insegnamento e la ricerca nella Svizzera nordoccidentale. A causa di un pensionamento nel team, stiamo cercando il nostro laboratorio pediatrico accreditato a 1. Gennaio 2027 o per accordo un *n Dipl. Analista biomedicale HF 100%.\n\nData di entrata: 1° gennaio 2027 o per accordo\n\n## I loro compiti\n• Esecuzione indipendente di analisi di routine in ematologia ed emostasi\n\n• Differenziazione microscopica e valutazione dei contatori di sangue, CSF e punture\n\n• Campionamento del sangue capillare\n\n• Supporto di POCT, in particolare analizzatori di sangue\n\n• Partecipazione all'introduzione di nuovi metodi e analisi\n\n• Formazione continua\n\n• Vacanza pubblica, week-end e servizi di prenotazione\n\n## Il tuo profilo\n• Allenamento completato come dipl. BMA HF o grado di formazione con riconoscimento SRC\n\n• BMA auto-responsabile, motivato, responsabile del team e resiliente con metodi di lavoro precisi, organizzati e analitici\n\n• Buone capacità di comunicazione e collaborazione con il team di gestione, i dipartimenti interdisciplinari e le istituzioni esterne\n\n• Esperienza professionale desiderata come BMA\n\n## La nostra offerta\n• Un'attività varia e significativa in un team di esperienza professionale, motivato e impegnato\n\n• Formazione completa e strutturata, apprezzata\n\n• Condizioni di lavoro attraenti e contemporanee con pianificazione dei servizi partecipativi\n\n• Partecipazione alla formazione interna ed esterna\n\n• Scopri numerosi altri vantaggi sotto \"i nostri vantaggi\" che offriamo ai nostri dipendenti",
         "en": "The University Children's Hospital of Basel (UKBB) is an independent university centre of excellence for pediatric and adolescent medicine as well as for teaching and research in northwestern Switzerland. Due to a retirement in the team, we are looking for our accredited pediatric laboratory at 1. January 2027 or by arrangement a *n Dipl. Biomedical analyst HF 100%.\n\nEntry date: as of January 1, 2027 or by arrangement\n\n## Their tasks\n• Independent performance of routine analyses in hematology and hemostasis\n\n• Microscopic differentiation and assessment of blood counts, CSF and punctures\n\n• Capillary blood sampling\n\n• Support of POCT, especially blood gas analyzers\n\n• Participation in the introduction of new methods and analyses\n\n• Continuous training\n\n• Public holiday, weekend and on-call services\n\n## Your profile\n• Completed training as a dipl. BMA HF or training degree with SRC recognition\n\n• Self-responsible, motivated, team-capable and resilient BMA with exact, organized and analytical working methods\n\n• Good communication skills and cooperation with the management team, interdisciplinary departments and external institutions\n\n• Professional experience desired as a BMA\n\n## Our offer\n• A varied and meaningful activity in a professionally experienced, motivated and committed team\n\n• Comprehensive and structured, appreciative training\n\n• Attractive and contemporary employment conditions with participatory service planning\n\n• Participation in internal and external training\n\n• Discover numerous other benefits under \"our benefits\" that we offer our employees",
+        "de": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Selbstständiges Durchführen von Routineanalysen in der Hämatologie und Hämostase\n\n• Mikroskopische Differenzierung und Beurteilung von Blutbildern, Liquor und Punktaten\n\n• Durchführung von kapillären Blutentnahmen\n\n• Betreuung von POCT, v.a. Blutgas-Analysegeräten\n\n• Mitwirkung bei der Einführung neuer Methoden und Analysen\n\n• Kontinuierliche Weiterbildung\n\n• Durchführen von Feiertags-, Wochenend- und Bereitschaftsdiensten\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Eigenverantwortliche, motivierte, teamfähige und belastbare BMA mit exakter, organisierter und analytischer Arbeitsweise\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Berufserfahrung als BMA erwünscht\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
         "fr": "L'Hôpital Universitaire des Enfants de Bâle (UKBB) est un centre universitaire indépendant d'excellence en médecine pédiatrique et adolescente ainsi que pour l'enseignement et la recherche dans le nord-ouest de la Suisse. En raison d'une retraite dans l'équipe, nous cherchons notre laboratoire pédiatrique accrédité à 1. Janvier 2027 ou par arrangement a *n Dipl. Analyste biomédical HF 100%.\n\nDate d'entrée : à compter du 1er janvier 2027 ou par arrangement\n\n## Leurs tâches\n• Performance indépendante des analyses de routine en hématologie et en hémostasie\n\n• différenciation et évaluation microscopiques de la numération sanguine, du LCR et des perforations\n\n• Prélèvement de sang capillaire\n\n• Soutien du POCT, en particulier des analyseurs de gaz sanguins\n\n• Participation à l'introduction de nouvelles méthodes et analyses\n\n• Formation continue\n\n• Jours fériés, week-end et services de garde\n\n## Votre profil\n• Achevé la formation comme dipl. BMA HF ou diplôme de formation avec reconnaissance SRC\n\n• Auto-responsable, motivé, capable d'équipe et résistant BMA avec des méthodes de travail exactes, organisées et analytiques\n\n• Bonnes compétences en communication et coopération avec l'équipe de gestion, les départements interdisciplinaires et les institutions externes\n\n• Expérience professionnelle souhaitée comme BMA\n\n## Notre offre\n• Une activité variée et significative dans une équipe professionnellement expérimentée, motivée et engagée\n\n• Formation complète et structurée, appréciée\n\n• Conditions d'emploi attrayantes et contemporaines avec planification participative des services\n\n• Participation à la formation interne et externe\n\n• Découvrez de nombreux autres avantages sous « nos avantages » que nous offrons à nos employés"
       },
       "location": "Basel",
@@ -740,7 +740,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-biomedizinische-r-analytiker-in-hf-100/c3466cc9-0e18-4de5-84b1-09a649724c61",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:16.959Z",
+      "crawledAt": "2026-10-10T09:16:28.821Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -759,9 +759,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.ukbb.ch/jobs/dipl-biomedizinische-r-analytiker-in-hf-100/c3466cc9-0e18-4de5-84b1-09a649724c61",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
+        "dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
@@ -774,10 +776,7 @@
           "dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
         ]
       },
-      "previousSlugs": [
-        "dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
-        "dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
-      ],
+      "firstSeenAt": "2026-10-09T21:14:16.959Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -790,8 +789,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-09T21:14:16.959Z"
+      }
     },
     {
       "id": "ukbb-8f8a88ec37c9",
@@ -824,7 +822,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-expert-in-anaesthesiepflege-nds-hf-80-100/a1852e47-d823-4635-b8d3-40883ab9b018",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:16.261Z",
+      "crawledAt": "2026-10-10T09:16:28.137Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -915,7 +913,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-fachperson-op-technik-hf-topa/9d53a3c1-93b5-4830-b9cd-a68109b1e097",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:15.507Z",
+      "crawledAt": "2026-10-10T09:16:27.448Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1000,7 +998,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-ertragsmanagement-60-70/97e75efa-3bbf-4cf2-880b-d78a2df122b5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:14.880Z",
+      "crawledAt": "2026-10-10T09:16:26.837Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1075,7 +1073,7 @@
       "url": "https://jobs.ukbb.ch/jobs/sozialarbeiter-in-60/92b661ac-3dc9-4965-8dc2-a9295adfd2ea",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:14.255Z",
+      "crawledAt": "2026-10-10T09:16:26.164Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1156,7 +1154,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fms-praktikant-in-100/81a0ef6f-8ff0-41de-89a5-2b32481afd77",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:13.635Z",
+      "crawledAt": "2026-10-10T09:16:25.494Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1236,7 +1234,7 @@
       "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-80/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:12.989Z",
+      "crawledAt": "2026-10-10T09:16:24.828Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1314,7 +1312,7 @@
       "url": "https://jobs.ukbb.ch/jobs/paediatrische-r-aerzt-in-in-unserem-ambulatorium/65c4b742-401c-42d9-8dea-f58e1029b856",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:12.309Z",
+      "crawledAt": "2026-10-10T09:16:24.161Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1394,7 +1392,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-neuropaediatrie-100/503c8e59-624f-42f2-9c06-4f7735d0ebe9",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:11.669Z",
+      "crawledAt": "2026-10-10T09:16:23.492Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1479,7 +1477,7 @@
       "url": "https://jobs.ukbb.ch/jobs/mitarbeiter-in-labor-biobank-30-40-befristet-auf-1-jahr-mit-aussicht-auf-verlaengerung/4c7b4c13-32e2-4767-8a69-54e30d61d017",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:10.933Z",
+      "crawledAt": "2026-10-10T09:16:22.795Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1554,7 +1552,7 @@
       "url": "https://jobs.ukbb.ch/jobs/expert-innen-intensivpflege-nds-oder-dipl-pflegefachperson-hf-100/4a0d26ea-c54c-4093-a107-521d48e3413e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:10.295Z",
+      "crawledAt": "2026-10-10T09:16:21.954Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1629,7 +1627,7 @@
       "url": "https://jobs.ukbb.ch/jobs/dipl-pflegefachperson-hf-oder-expert-in-notfallpflege-nds-hf-80-100/3f40a320-1e74-46d2-8bce-3c773f7e5011",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:09.643Z",
+      "crawledAt": "2026-10-10T09:16:21.286Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1719,7 +1717,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-terminkoordination-100-polikliniken-radiologie/3b3e5804-60ce-46a2-9df6-50de5a90193c",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:09.018Z",
+      "crawledAt": "2026-10-10T09:16:20.510Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1802,7 +1800,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-fuer-die-paediatrische-nephrologie-50-80/32cb67ef-2767-46fe-9291-c3e157a0c537",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:08.375Z",
+      "crawledAt": "2026-10-10T09:16:19.815Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1883,7 +1881,7 @@
       "url": "https://jobs.ukbb.ch/jobs/teamleiter-in-patientenaufnahme-100/2b78f596-2408-4404-b1af-83bdbe9f1d26",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:07.581Z",
+      "crawledAt": "2026-10-10T09:16:19.121Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1969,7 +1967,7 @@
       "url": "https://jobs.ukbb.ch/jobs/oberarzt-in-radiologie-80-100/1cb676e3-f106-43fa-b498-924913fd0aa5",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:06.855Z",
+      "crawledAt": "2026-10-10T09:16:18.410Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2050,7 +2048,7 @@
       "url": "https://jobs.ukbb.ch/jobs/ausbildung-dipl-fachperson-operationstechnik-hf-schwerpunkt-paediatrie/0fe24a9a-c685-47e4-8e93-962b860e240e",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:06.187Z",
+      "crawledAt": "2026-10-10T09:16:17.738Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2111,9 +2109,9 @@
       "id": "ukbb-b8abe3e084b4",
       "slug": "vice-responsabile-analista-biomedico-a-diplomato-a-hf-100-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
-        "de": "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
         "it": "vice-responsabile-analista-biomedico-a-diplomato-a-hf-100-universitats-kinderspital-beider-basel-basel",
         "en": "deputy-lead-dipl-biomedical-analyst-hf-100-universitats-kinderspital-beider-basel-basel",
+        "de": "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
         "fr": "adjoint-e-au-a-la-responsable-analyste-biomedical-e-diplome-e-es-100-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
@@ -2121,24 +2119,25 @@
       "companyDomain": "ukbb.ch",
       "title": "Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%",
       "titleByLocale": {
-        "de": "Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%",
         "it": "Vice responsabile analista biomedico/a diplomato/a HF 100%",
         "en": "Deputy Lead Dipl. Biomedical Analyst HF 100%",
+        "de": "Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%",
         "fr": "Adjoint·e au/à la responsable, analyste biomédical·e diplômé·e ES 100%"
       },
       "description": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Stellvertretende fachliche und organisatorische Leitung des pädiatrischen Labors\n\n• Mitwirkung bei der Führung, Einsatzplanung und Entwicklung des Laborteams\n\n• Fachliche Begleitung und Einarbeitung neuer Mitarbeitender\n\n• Sicherstellung effizienter und reibungsloser Laborabläufe\n\n• Mitverantwortung für das Qualitätsmanagement gemäss DIN EN ISO 15189 sowie für dessen Weiter- und Neuentwicklung\n\n• Mitarbeit bei der Einführung und Optimierung neuer Analyseverfahren und Laborprozesse\n\n• Sicherstellung der Einhaltung von Qualitäts-, Hygiene-, Sicherheits- und Arbeitsschutzstandards\n\n• Durchführung und Validierung medizinisch-technischer Laboranalysen (Hämatologie, Gerinnung und Spezialanalytik)\n\n• Durchführung und Überwachung interner und externer Qualitätskontrollen\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Mehrjährige Berufserfahrung in einem medizinischen Labor, idealerweise mit erster Führungs- oder Stellvertretungserfahrung\n\n• Gute Kenntnisse gängiger Laborinformationssysteme\n\n• Sehr gute Anwenderkenntnisse in Microsoft Office\n\n• Hohe Sozialkompetenz sowie Freude an der Zusammenarbeit und Entwicklung von Mitarbeitenden\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Organisationsgeschick, Eigeninitiative und Verantwortungsbewusstsein\n\n• Interesse an der Weiterentwicklung von Prozessen und Qualitätsstandards\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
       "descriptionByLocale": {
-        "de": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Stellvertretende fachliche und organisatorische Leitung des pädiatrischen Labors\n\n• Mitwirkung bei der Führung, Einsatzplanung und Entwicklung des Laborteams\n\n• Fachliche Begleitung und Einarbeitung neuer Mitarbeitender\n\n• Sicherstellung effizienter und reibungsloser Laborabläufe\n\n• Mitverantwortung für das Qualitätsmanagement gemäss DIN EN ISO 15189 sowie für dessen Weiter- und Neuentwicklung\n\n• Mitarbeit bei der Einführung und Optimierung neuer Analyseverfahren und Laborprozesse\n\n• Sicherstellung der Einhaltung von Qualitäts-, Hygiene-, Sicherheits- und Arbeitsschutzstandards\n\n• Durchführung und Validierung medizinisch-technischer Laboranalysen (Hämatologie, Gerinnung und Spezialanalytik)\n\n• Durchführung und Überwachung interner und externer Qualitätskontrollen\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Mehrjährige Berufserfahrung in einem medizinischen Labor, idealerweise mit erster Führungs- oder Stellvertretungserfahrung\n\n• Gute Kenntnisse gängiger Laborinformationssysteme\n\n• Sehr gute Anwenderkenntnisse in Microsoft Office\n\n• Hohe Sozialkompetenz sowie Freude an der Zusammenarbeit und Entwicklung von Mitarbeitenden\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Organisationsgeschick, Eigeninitiative und Verantwortungsbewusstsein\n\n• Interesse an der Weiterentwicklung von Prozessen und Qualitätsstandards\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
         "it": "L'Università Children's Hospital di Basilea (UKBB) è un centro universitario indipendente di eccellenza per la medicina pediatrica e adolescente, nonché per l'insegnamento e la ricerca nella Svizzera nordoccidentale. A causa di un pensionamento nel team, stiamo cercando il nostro laboratorio pediatrico accreditato a 1. Gennaio 2027 o d'accordo un Stv. Leitender Dipl. Analista biomedicale HF 100%.\n\nData di entrata: 1° gennaio 2027 o per accordo\n\n## I loro compiti\n• Direttore tecnico e organizzativo aggiunto del laboratorio pediatrico\n\n• Partecipazione alla gestione, pianificazione operativa e sviluppo del team di laboratorio\n\n• Supporto tecnico e formazione di nuovi dipendenti\n\n• Garantire operazioni di laboratorio efficienti e lisce\n\n• Co-responsabilità per la gestione della qualità secondo DIN EN ISO 15189 e per il suo ulteriore e nuovo sviluppo\n\n• Cooperazione nell'introduzione e nell'ottimizzazione di nuovi metodi analitici e processi di laboratorio\n\n• Garantire il rispetto delle norme di qualità, igiene, sicurezza e sicurezza sul lavoro\n\n• Prestazioni e validazione di analisi di laboratorio medico-tecnica (ematologia, coagulazione e analisi speciale)\n\n• Attuazione e monitoraggio dei controlli di qualità interni ed esterni\n\n## Il tuo profilo\n• Allenamento completato come dipl. BMA HF o grado di formazione con riconoscimento SRC\n\n• Diversi anni di esperienza professionale in un laboratorio medico, idealmente con prima esperienza di gestione o vice\n\n• Buona conoscenza dei sistemi di informazione di laboratorio attuali\n\n• Esperienza utente molto buona in Microsoft Office\n\n• Alte competenze sociali, nonché il godimento della cooperazione e dello sviluppo dei dipendenti\n\n• Buone capacità di comunicazione e collaborazione con il team di gestione, i dipartimenti interdisciplinari e le istituzioni esterne\n\n• Capacità organizzative, iniziativa e senso di responsabilità\n\n• Interessi nello sviluppo di processi e standard di qualità\n\n## La nostra offerta\n• Un'attività varia e significativa in un team di esperienza professionale, motivato e impegnato\n\n• Formazione completa e strutturata, apprezzata\n\n• Condizioni di lavoro attraenti e contemporanee con pianificazione dei servizi partecipativi\n\n• Partecipazione alla formazione interna ed esterna\n\n• Scopri numerosi altri vantaggi sotto \"i nostri vantaggi\" che offriamo ai nostri dipendenti",
         "en": "The University Children's Hospital of Basel (UKBB) is an independent university centre of excellence for pediatric and adolescent medicine as well as for teaching and research in northwestern Switzerland. Due to a retirement in the team, we are looking for our accredited pediatric laboratory at 1. January 2027 or by agreement a Stv. Leitender Dipl. Biomedical analyst HF 100%.\n\nEntry date: as of January 1, 2027 or by arrangement\n\n## Their tasks\n• Deputy technical and organisational director of the paediatric laboratory\n\n• Participation in the management, operational planning and development of the laboratory team\n\n• Technical support and training of new employees\n\n• Ensuring efficient and smooth laboratory operations\n\n• Co-responsibility for quality management according to DIN EN ISO 15189 as well as for its further and new development\n\n• Cooperation in the introduction and optimisation of new analytical methods and laboratory processes\n\n• Ensuring compliance with quality, hygiene, safety and occupational safety standards\n\n• Performance and validation of medical-technical laboratory analyses (haematology, clotting and special analysis)\n\n• Implementation and monitoring of internal and external quality controls\n\n## Your profile\n• Completed training as a dipl. BMA HF or training degree with SRC recognition\n\n• Several years of professional experience in a medical laboratory, ideally with first management or deputy experience\n\n• Good knowledge of current laboratory information systems\n\n• Very good user experience in Microsoft Office\n\n• High social competence as well as enjoyment of cooperation and development of employees\n\n• Good communication skills and cooperation with the management team, interdisciplinary departments and external institutions\n\n• Organizational skills, initiative and a sense of responsibility\n\n• Interest in the further development of processes and quality standards\n\n## Our offer\n• A varied and meaningful activity in a professionally experienced, motivated and committed team\n\n• Comprehensive and structured, appreciative training\n\n• Attractive and contemporary employment conditions with participatory service planning\n\n• Participation in internal and external training\n\n• Discover numerous other benefits under \"our benefits\" that we offer our employees",
+        "de": "Das Universitäts-Kinderspital beider Basel (UKBB) ist ein eigenständiges, universitäres Kompetenzzentrum für Kinder- und Jugendmedizin sowie für Lehre und Forschung in der Nordwestschweiz. Aufgrund einer Pensionierung im Team suchen wir für unser akkreditiertes Pädiatrielabor per 1. Januar 2027 oder nach Vereinbarung eine*n Stv. Leitende*r Dipl. Biomedizinische*r Analytiker*in HF 100%.\n\nEintrittsdatum: per 1. Januar 2027 oder nach Vereinbarung\n\n## Ihre Aufgaben\n• Stellvertretende fachliche und organisatorische Leitung des pädiatrischen Labors\n\n• Mitwirkung bei der Führung, Einsatzplanung und Entwicklung des Laborteams\n\n• Fachliche Begleitung und Einarbeitung neuer Mitarbeitender\n\n• Sicherstellung effizienter und reibungsloser Laborabläufe\n\n• Mitverantwortung für das Qualitätsmanagement gemäss DIN EN ISO 15189 sowie für dessen Weiter- und Neuentwicklung\n\n• Mitarbeit bei der Einführung und Optimierung neuer Analyseverfahren und Laborprozesse\n\n• Sicherstellung der Einhaltung von Qualitäts-, Hygiene-, Sicherheits- und Arbeitsschutzstandards\n\n• Durchführung und Validierung medizinisch-technischer Laboranalysen (Hämatologie, Gerinnung und Spezialanalytik)\n\n• Durchführung und Überwachung interner und externer Qualitätskontrollen\n\n## Ihr Profil\n• Abgeschlossene Ausbildung als dipl. BMA HF oder Ausbildungsabschluss mit SRK-Anerkennung\n\n• Mehrjährige Berufserfahrung in einem medizinischen Labor, idealerweise mit erster Führungs- oder Stellvertretungserfahrung\n\n• Gute Kenntnisse gängiger Laborinformationssysteme\n\n• Sehr gute Anwenderkenntnisse in Microsoft Office\n\n• Hohe Sozialkompetenz sowie Freude an der Zusammenarbeit und Entwicklung von Mitarbeitenden\n\n• Gute Kommunikationsfähigkeit und Zusammenarbeit mit dem Leitungsteam, interdisziplinären Abteilungen und externen Institutionen\n\n• Organisationsgeschick, Eigeninitiative und Verantwortungsbewusstsein\n\n• Interesse an der Weiterentwicklung von Prozessen und Qualitätsstandards\n\n## Unser Angebot\n• Eine abwechslungsreiche und sinnstiftende Tätigkeit in einem fachlich versierten, motivierten und engagierten Team\n\n• Umfassende und strukturierte, wertschätzende Einarbeitung\n\n• Attraktiven und zeitgemässen Anstellungsbedingungen mit Partizipativer Dienstplanung\n\n• Teilnahme an internen und externen Weiterbildungen\n\n• Entdecken Sie zahlreiche weitere Vorteile unter «unsere Benefits», die wir unseren Mitarbeitenden bieten",
         "fr": "L'Hôpital Universitaire des Enfants de Bâle (UKBB) est un centre universitaire indépendant d'excellence en médecine pédiatrique et adolescente ainsi que pour l'enseignement et la recherche dans le nord-ouest de la Suisse. En raison d'une retraite dans l'équipe, nous cherchons notre laboratoire pédiatrique accrédité à 1. Janvier 2027 ou par accord un Stv. Leitender Dipl. Analyste biomédical HF 100%.\n\nDate d'entrée : à compter du 1er janvier 2027 ou par arrangement\n\n## Leurs tâches\n• Directeur technique et organisationnel adjoint du laboratoire pédiatrique\n\n• Participation à la gestion, à la planification opérationnelle et au développement de l'équipe de laboratoire\n\n• Soutien technique et formation des nouveaux employés\n\n• Assurer des opérations de laboratoire efficaces et sans heurt\n\n• Coresponsabilité pour la gestion de la qualité selon la norme DIN EN ISO 15189 ainsi que pour son développement futur et nouveau\n\n• Coopération dans l'introduction et l'optimisation de nouvelles méthodes d'analyse et de nouveaux procédés de laboratoire\n\n• Assurer le respect des normes de qualité, d'hygiène, de sécurité et de sécurité au travail\n\n• Performance et validation des analyses de laboratoire médico-techniques (hématologie, coagulation et analyse spéciale)\n\n• Mise en œuvre et suivi des contrôles de qualité internes et externes\n\n## Votre profil\n• Achevé la formation comme dipl. BMA HF ou diplôme de formation avec reconnaissance SRC\n\n• Plusieurs années d'expérience professionnelle dans un laboratoire médical, idéalement avec une première gestion ou une expérience adjointe\n\n• Bonne connaissance des systèmes d'information de laboratoire actuels\n\n• Très bonne expérience utilisateur dans Microsoft Office\n\n• Haute compétence sociale ainsi que jouissance de la coopération et du développement des salariés\n\n• Bonnes compétences en communication et coopération avec l'équipe de gestion, les départements interdisciplinaires et les institutions externes\n\n• Compétences organisationnelles, initiative et sens des responsabilités\n\n• Intérêt pour la poursuite du développement des processus et des normes de qualité\n\n## Notre offre\n• Une activité variée et significative dans une équipe professionnellement expérimentée, motivée et engagée\n\n• Formation complète et structurée, appréciée\n\n• Conditions d'emploi attrayantes et contemporaines avec planification participative des services\n\n• Participation à la formation interne et externe\n\n• Découvrez de nombreux autres avantages sous « nos avantages » que nous offrons à nos employés"
       },
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.ukbb.ch/jobs/stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100/0e133948-fccd-4ba9-87f8-dbcf572c4974",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:05.504Z",
+      "crawledAt": "2026-10-10T09:16:17.062Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2157,9 +2156,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.ukbb.ch/jobs/stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100/0e133948-fccd-4ba9-87f8-dbcf572c4974",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
+        "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
@@ -2172,24 +2173,20 @@
           "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
         ]
       },
-      "previousSlugs": [
-        "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-ukbb-basel",
-        "stv-leitende-r-dipl-biomedizinische-r-analytiker-in-hf-100-universitats-kinderspital-beider-basel-basel"
-      ],
-      "salaryMin": 88000,
-      "salaryMax": 123000,
+      "firstSeenAt": "2026-10-09T21:14:05.504Z",
+      "salaryMin": 119000,
+      "salaryMax": 166000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
+          "minValue": 119000,
+          "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-09T21:14:05.504Z"
+      }
     },
     {
       "id": "ukbb-99239517625a",
@@ -2223,7 +2220,7 @@
       "url": "https://jobs.ukbb.ch/jobs/fachspezialist-in-mit-stv-leitung-med-dokumentation-80/080ffe54-956a-4977-89f2-a30d621e6477",
       "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:14:04.833Z",
+      "crawledAt": "2026-10-10T09:16:16.376Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",

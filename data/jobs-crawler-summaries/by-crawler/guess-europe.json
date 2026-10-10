@@ -1,19 +1,61 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-09T21:12:49.760Z",
+  "generatedAt": "2026-10-10T09:16:19.493Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 2526,
-  "avgDurationMs": 2526,
+  "unchangedCount": 11,
+  "durationMs": 2204,
+  "avgDurationMs": 2204,
   "durationHistory": [
-    2526
+    2204
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
+      "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "employmentType": "temporary",
+      "contractType": "temporary",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-20T00:00:00.000Z",
+      "validThrough": "",
+      "benefits": [],
+      "id": "guess-europe-edd49f72b008",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-20T21:37:24.333Z",
+      "salarySource": "estimated",
+      "datePosted": "2026-08-20T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "postalCode": "8001",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -331,47 +373,6 @@
       }
     },
     {
-      "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
-      "slug": "sales-associate-zona-di-zurigo-contratto-a-pagamento-guess-europe-sagl-zurich",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/E4DDE183A1/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "employmentType": "temporary",
-      "contractType": "temporary",
-      "category": "other",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-20T00:00:00.000Z",
-      "validThrough": "",
-      "benefits": [],
-      "id": "guess-europe-edd49f72b008",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-20T21:37:24.333Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "datePosted": "2026-08-20T00:00:00.000Z",
-      "postingDateSource": "reported",
-      "postalCode": "8001",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Senior Content Specialist",
       "slug": "senior-content-specialista-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/8B6EACA7AF/",
@@ -556,5 +557,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }
