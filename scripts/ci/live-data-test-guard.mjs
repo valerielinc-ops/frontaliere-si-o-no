@@ -96,7 +96,6 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   // These are emitted only by unattended data PRs (not direct main commits).
   'data/pharmacy-enrichment.json',
   'data/pharmacy-enrichment-sources.json',
-  'data/pharmacy-duties-geneva-sources.json',
   // Bot PRs can replace these license/image ledgers without a human choosing
   // their contents; they are live inputs even though no direct bot commit writes them.
   'data/blog-cover-ledger.json',
@@ -394,7 +393,6 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/pharmacy-swiss-canton-duty.test.ts', roots: ['data/pharmacy-duties-swiss-cantons.json', 'data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'review', runtime: true },
   { file: 'tests/seo-title-parity-factual.test.ts', roots: ['services/locales/'], since: '2026-10-10', evidence: 'review', runtime: true },
   { file: 'tests/pharmacy-enrichment.test.ts', roots: ['data/pharmacy-enrichment-sources.json', 'data/pharmacy-enrichment.json'], since: '2026-10-10', evidence: 'review', runtime: true },
-  { file: 'tests/pharmacy-geneva-duty-parser.test.ts', roots: ['data/pharmacy-duties-geneva-sources.json'], since: '2026-10-10', evidence: 'review', runtime: true },
 ]);
 
 /**
