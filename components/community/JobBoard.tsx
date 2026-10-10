@@ -65,6 +65,7 @@ import {
  offerBoundedRankedCandidate,
  rankedCandidateValues,
  scheduleFrameBudgetedScan,
+ shouldRearmCancelledFetchAttempt,
  type RankedCandidate,
 } from '@/services/jobBoardSearchPipeline';
 import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
@@ -4962,9 +4963,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // returned zero for a non-empty query. Same job ID across locale shards so
  // we dedup against the already-loaded pool (sortedJobs ∪ unscopedJobs) to
  // avoid surfacing jobs the user already saw filtered-out. Fetch is one-shot
- // per session (crossLocaleFetchAttempted ref) — cross-locale corpora are
- // similarly sized to the IT one, so a per-keystroke refetch would waste
- // bandwidth without changing results.
+ // after it settles; if route/seed navigation cancels it, cleanup re-arms the
+ // attempt so leaving the seeded route can retry.
  useEffect(() => {
  if (!unseededSearchPipelineEnabled) return;
  if (crossLocaleFetchAttempted.current) return;
@@ -4991,6 +4991,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  const allLocales: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
  const otherLocales = allLocales.filter((l) => l !== locale);
  (async () => {
@@ -5027,10 +5028,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPendingFallbacks((n) => n - 1);
  // Mark the terminal fallback settled (batched with setCrossLocaleJobs on the
  // success path, so results + settled flip together — no stale-0 frame).
- if (!cancelled) setCrossLocaleSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCrossLocaleSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) crossLocaleFetchAttempted.current = false;
+ };
  }, [
  deferredSearchQuery, jobsLoading, locale, unseededSearchPipelineEnabled,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
@@ -5064,7 +5071,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // canton-scoped pool has ZERO openings for that employer (HQ in another
  // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
  // company-broadening tier below can show its Swiss-wide openings instead of
- // the empty-state. One-shot per mount; skipped when the pool is already loaded.
+ // the empty-state. One-shot after settlement; cancellation re-arms the attempt.
  useEffect(() => {
  if (companyBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
@@ -5076,6 +5083,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  companyBroadenFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  (async () => {
  try {
  const pool = await loadUnscopedPool();
@@ -5088,10 +5096,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Mark the terminal company-broaden fallback settled (batched with
  // setUnscopedJobs on the success path, so results + settled flip together —
  // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
- if (!cancelled) setCompanyBroadenSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCompanyBroadenSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) companyBroadenFetchAttempted.current = false;
+ };
  }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool, inCantonDerivation.pending]);
 
  // Search-broaden trigger: a canton-scoped SEARCH whose in-canton tiers are

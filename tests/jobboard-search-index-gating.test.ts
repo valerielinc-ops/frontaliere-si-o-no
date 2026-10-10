@@ -25,6 +25,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { shouldRearmCancelledFetchAttempt } from '@/services/jobBoardSearchPipeline';
 
 const SRC = fs.readFileSync(
   path.resolve(__dirname, '../components/community/JobBoard.tsx'),
@@ -43,6 +44,25 @@ function effectBodyAfter(anchor: string): string {
 }
 
 describe('search-index gating of the lazy corpus-fetch tiers', () => {
+  it('re-arms an in-flight latch after cancellation but keeps a settled attempt terminal', () => {
+    let attempted = true;
+    let cancelled = false;
+    let attemptSettled = false;
+
+    cancelled = true;
+    if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) attempted = false;
+
+    expect(attempted).toBe(false);
+
+    attempted = true;
+    cancelled = true;
+    attemptSettled = true;
+    if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) attempted = false;
+
+    expect(attempted).toBe(true);
+    expect(SRC).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+  });
+
   it('derives one shared pending flag from an active query + a stale index', () => {
     const currentDecl = SRC.match(/const searchIndexCurrent = [\s\S]{0,200}?;/);
     expect(currentDecl, 'searchIndexCurrent must be declared').not.toBeNull();
@@ -86,6 +106,24 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
     expect(body).toContain('const cantonScopedSearch');
     expect(body).toContain('!searchBroadenSettledQueries.has(searchBroadenKey)');
     expect(body).toContain('searchBroadenSettledQueries,');
+  });
+
+  it('re-arms the cross-locale fallback when navigation cancels its in-flight fetch', () => {
+    const body = effectBodyAfter('if (crossLocaleFetchAttempted.current) return;');
+    expect(body).toContain('crossLocaleFetchAttempted.current = true;');
+    expect(body).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+    expect(body).toContain('crossLocaleFetchAttempted.current = false;');
+    expect(body).toContain('attemptSettled = true;');
+    expect(body).toContain('if (!cancelled) {');
+  });
+
+  it('re-arms the company fallback when its in-flight fetch is cancelled', () => {
+    const body = effectBodyAfter('if (companyBroadenFetchAttempted.current) return;');
+    expect(body).toContain('companyBroadenFetchAttempted.current = true;');
+    expect(body).toContain('shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)');
+    expect(body).toContain('companyBroadenFetchAttempted.current = false;');
+    expect(body).toContain('attemptSettled = true;');
+    expect(body).toContain('if (!cancelled) {');
   });
 
   it('tracks same-locale broaden completion per query and shares its pool request', () => {

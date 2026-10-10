@@ -156,6 +156,14 @@ export function deriveJobBoardOccupationTerms(
   return getJobSearchRoleTokens(query).filter((token) => !locationTokens.has(token));
 }
 
+/** A cancelled in-flight fallback may retry; a settled one remains terminal. */
+export function shouldRearmCancelledFetchAttempt(
+  cancelled: boolean,
+  attemptSettled: boolean,
+): boolean {
+  return cancelled && !attemptSettled;
+}
+
 /**
  * Autocomplete over a bounded result seed. Cluster seeds contain at most 30
  * records, so this keeps suggestions available without starting a corpus scan.
