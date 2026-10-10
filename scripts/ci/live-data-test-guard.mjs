@@ -569,6 +569,13 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'i path sono SORGENTI SINTETICI passati allo scanner (`scanTestSource`) e nomi interrogati sul matcher; il repo sintetico vive in os.tmpdir(). La scansione del repo legge test, moduli e workflow, mai un file sotto data/ (#9743)',
   },
   {
+    file: 'tests/run-related-tests-selection.test.ts',
+    roots: ['data/weather-snapshot.json'],
+    since: '2026-10-10',
+    evidence: 'review',
+    reason: 'data/weather-snapshot.json è creato e letto solo nel repository sintetico restituito da fixture() sotto os.tmpdir(); il test passa quel root al selettore e non legge lo snapshot del checkout',
+  },
+  {
     file: 'tests/merge-open-data-refresh.test.ts',
     roots: ['data/events.json', 'packages/articles/content/', 'services/locales/'],
     reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
