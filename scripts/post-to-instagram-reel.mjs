@@ -33,6 +33,7 @@ import {
 } from './lib/instagram-reel-creative.mjs';
 import { previousReportDay, rankCandidates, pickTopNUnposted } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
+import { pendingInstagramReel } from './lib/instagram-reel-queue.mjs';
 import { renderReelSlides } from './lib/social-reel-image.mjs';
 import { renderCarouselVideo } from './lib/social-carousel-video.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
@@ -40,6 +41,7 @@ import {
   buildQueueEntry,
   deliverSocialPost,
   enqueuePost,
+  loadQueue,
   queuePathFor,
   resolveSocialRobotMode,
   socialPublishRoute,
@@ -98,6 +100,13 @@ function buildItem(kind, pick, jobIndex) {
 }
 
 async function queueReel({ kind, day, dryRun, robotMode }) {
+  const pending = pendingInstagramReel(loadQueue(QUEUE_PATH));
+  if (pending) {
+    const creativeId = pending.ledgerEntries?.[0]?.creativeId || 'creative non specificata';
+    console.log(`ℹ️  Instagram Reel già in coda: ${pending.id} (${creativeId}) — preservato fino a pubblicazione o scadenza`);
+    return 'skipped';
+  }
+
   const rows = await fetchGa4PageReport(day);
   if (!rows) {
     console.log(`ℹ️  ${kind}: no GA4 data available — skipping Reel`);
