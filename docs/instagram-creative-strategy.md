@@ -158,6 +158,34 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
   futuro va letto da Instagram Insights + GA4. Se si introduce un flag remoto,
   dovrà passare da Firebase Remote Config secondo le regole del workspace.
 
+## 5 bis. Primo test live verificato — 10 ottobre 2026
+
+Il primo ciclo della matrice è stato pubblicato dal robot locale con il profilo
+Instagram autenticato. La catena operativa è quindi verificata end-to-end:
+selezione della creatività, generazione del carousel, upload nel browser,
+pressione di `Condividi`, conferma visibile e registrazione nel ledger.
+
+- `article-2026-10-09`: 5 elementi con `question-choice` / “Scelta guidata”;
+- `job-2026-10-09`: 5 elementi con `question-story` / “Esperienza personale”;
+- tutti i 10 elementi hanno evidenza `Post condiviso` e la coda Instagram è
+  vuota dopo la conferma;
+- non viene ancora dichiarato un vincitore: i campi `views` del ledger sono
+  visualizzazioni del contenuto sul sito, non reach, commenti o condivisioni
+  Instagram.
+
+Il prossimo passo non è aumentare la frequenza a caso: la rotazione deterministica
+continua con i trattamenti successivi e ogni trattamento resta eleggibile solo
+dopo almeno tre osservazioni comparabili nella stessa finestra di 72 ore. Il
+Reel resta un asse separato: il robot corrente pubblica carousel su Instagram,
+mentre il renderer video esistente è usato dal flusso TikTok. Perciò il primo
+Reel va provato manualmente, idealmente come Trial Reel, con hook, durata e CTA
+registrati separatamente dal confronto carousel.
+
+La validazione operativa è positiva; la validazione di performance è ancora
+aperta perché il collector read-only non dispone del token Meta necessario a
+leggere gli Insights. In assenza di quel dato non si usa il successo tecnico
+come prova di engagement.
+
 ## 6. Piano di test di 30 giorni
 
 Il primo ciclo è una baseline creativa, non una dichiarazione di vittoria.
@@ -312,11 +340,11 @@ confrontano direttamente tipi di contenuto diversi.
 
 La repository può automatizzare carousel, caption, UTM e misurazione dei clic.
 Non può dimostrare da sola che un Reel sia stato visto, salvato o condiviso:
-quei dati vivono in Instagram Insights e richiedono che il profilo abbia accesso
-alla pubblicazione. La pipeline resta fail-soft finché Meta non abilita le
-credenziali necessarie: senza token o ID dell’account il workflow non scrive un
-dataset vuoto. Inoltre, i post storici privi di `creativeId` non vengono
+quei dati vivono in Instagram Insights e richiedono il token read-only di Meta.
+La pipeline resta fail-soft finché le credenziali necessarie non sono
+disponibili: senza token o ID dell’account il workflow non scrive un dataset
+vuoto. Inoltre, i post storici privi di `creativeId` non vengono
 retro-etichettati; il campione valido parte dai post prodotti dalla matrice
-creativa. Il test di trasporto Graph API e il test creativo offline coprono
-quello che è verificabile nel codice, mentre la validazione live è il passaggio
-operativo successivo all’abilitazione dell’account.
+creativa. Il test di trasporto Graph API, il test creativo offline e il primo
+test live del robot sono verificati; resta aperta soltanto la validazione
+quantitativa nel tempo tramite Insights.
