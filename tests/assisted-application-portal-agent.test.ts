@@ -182,6 +182,18 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
   });
 
+  it('does not carry sensitive grounding from one same-label context to another', () => {
+    const firstContext = 'Dati anagrafici · Persona';
+    const secondContext = 'Dati anagrafici · Esperienza professionale';
+    const candidate = { answers: {}, profile: { dateOfBirth: '1990-05-12' }, portalQuestionsAnswered: [] };
+    const guarded = guardAgentStep(turn('act', [
+      act({ ref: 'e1', action: 'fill', question: 'Data di nascita', context: firstContext, value: '1990-05-12', answer: '1990-05-12', source: 'profile' }),
+      act({ ref: 'e2', action: 'fill', question: 'Data di nascita', context: secondContext, value: '1900-01-01', answer: '1900-01-01', source: 'model' }),
+    ]), candidate);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question: 'Data di nascita', context: secondContext })] });
+    expect(guarded.actions).toEqual([expect.objectContaining({ ref: 'e1', context: firstContext })]);
+  });
+
   it('turns an empty act into done and drops malformed refs', () => {
     expect(guardAgentStep(turn('act', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'done', actions: [] });
     expect(guardAgentStep({ ...turn('done'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');

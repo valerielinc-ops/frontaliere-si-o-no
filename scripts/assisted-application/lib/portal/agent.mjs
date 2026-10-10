@@ -217,7 +217,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(action.question);
+        grounded.add(portalQuestionKey(action.question, action.context));
         continue;
       }
     }
@@ -237,17 +237,18 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(action.question);
+    if (fromCandidate || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(portalQuestionKey(action.question, action.context));
   }
   const refused = new Set();
   for (const action of sensitive) {
-    if (grounded.has(action.question)) continue;
-    refused.add(action.question);
+    const key = portalQuestionKey(action.question, action.context);
+    if (grounded.has(key)) continue;
+    refused.add(key);
     ask({ question: action.question, ...(action.context ? { context: action.context } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(action.question) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(portalQuestionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
