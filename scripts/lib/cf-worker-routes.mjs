@@ -170,6 +170,11 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     const pattern = workerRouteForUrl(url, patterns);
     if (!pattern) continue; // apex passthrough — this purge is the real one
     const expectedCompanion = corpusEdgeUrlForApexUrl(url);
+    const expectedOrigin = shardOriginForApexUrl(url);
+    // The broad apex route also admits ordinary pages to the Worker so its
+    // response filter can run, but the router forwards those pages to the
+    // apex origin. They remain apex-keyed, so an apex purge is not blind.
+    if (!expectedOrigin && !expectedCompanion) continue;
     const covered = companions.some(
       (companion) =>
         companion.pathname === url.pathname ||
@@ -180,7 +185,7 @@ export function apexPurgeBlindSpots(urls, patterns = readWorkerRoutePatterns()) 
     gaps.push({
       url: url.toString(),
       pattern,
-      expectedOrigin: shardOriginForApexUrl(url),
+      expectedOrigin,
       expectedCompanion,
     });
   }

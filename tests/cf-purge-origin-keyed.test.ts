@@ -74,19 +74,20 @@ describe('the Worker route table is readable, and says what is apex-keyed', () =
     expect(patterns.every((p) => p.startsWith(`${APEX_HOST}/`))).toBe(true);
   });
 
-  it('claims the shard paths and leaves the IT passthrough alone', () => {
+  it('claims the apex for filtering while the router still selects shard paths in code', () => {
     const routed = (u: string) => workerRouteForUrl(new URL(u), patterns) !== null;
-    // Worker-routed → the served entry is origin-keyed, an apex purge is blind.
+    // The broad route admits every apex path to the Worker; shard selection is
+    // a separate in-code decision, and only those shard/R2 paths need a
+    // non-apex purge companion.
     expect(routed('https://frontaliereticino.ch/de/')).toBe(true);
     expect(routed('https://frontaliereticino.ch/de')).toBe(true);
     expect(routed('https://frontaliereticino.ch/cerca-lavoro-ticino/pagina/')).toBe(true);
-    // Passthrough → apex-keyed, and a per-URL purge there is the real one
-    // (measured: `/` at age 153 against the 300s apex TTL).
-    expect(routed('https://frontaliereticino.ch/')).toBe(false);
-    expect(routed('https://frontaliereticino.ch/blog/qualcosa/')).toBe(false);
-    expect(routed('https://frontaliereticino.ch/aziende/qualcuno/')).toBe(false);
-    // Look-alikes must not be swept in by the locale routes.
-    expect(routed('https://frontaliereticino.ch/enterprise/')).toBe(false);
+    expect(routed('https://frontaliereticino.ch/')).toBe(true);
+    expect(routed('https://frontaliereticino.ch/blog/qualcosa/')).toBe(true);
+    expect(routed('https://frontaliereticino.ch/aziende/qualcuno/')).toBe(true);
+    // Look-alikes reach the Worker but are rejected by the in-code section and
+    // locale matchers, so they remain apex passthroughs rather than shards.
+    expect(routed('https://frontaliereticino.ch/enterprise/')).toBe(true);
   });
 
   it('a route without a trailing star does not match a query string (#2611)', () => {
@@ -130,7 +131,7 @@ describe('apexPurgeBlindSpots flags exactly the purges that change nothing', () 
   it('flags an apex-only purge of a Worker-routed path', () => {
     const gaps = apexPurgeBlindSpots(['https://frontaliereticino.ch/de/']);
     expect(gaps).toHaveLength(1);
-    expect(gaps[0].pattern).toBe('frontaliereticino.ch/de/*');
+    expect(gaps[0].pattern).toBe('frontaliereticino.ch/*');
     expect(gaps[0].expectedOrigin).toBe('origin-de.frontaliereticino.ch');
   });
 
