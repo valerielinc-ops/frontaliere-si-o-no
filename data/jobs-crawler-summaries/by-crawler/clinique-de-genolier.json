@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-genolier",
   "label": "Clinique de Genolier",
-  "generatedAt": "2026-10-09T21:22:57.179Z",
+  "generatedAt": "2026-10-10T09:21:46.815Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6443,
-  "avgDurationMs": 6443,
+  "durationMs": 6810,
+  "avgDurationMs": 6810,
   "durationHistory": [
-    6443
+    6810
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000151035234-infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T21:22:37.681Z",
+      "crawledAt": "2026-10-10T09:21:26.610Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000150328649-aide-soignant-e-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T21:22:37.680Z",
+      "crawledAt": "2026-10-10T09:21:26.608Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152884179-assistant-e-en-pharmacie-hospitaliere",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-09T21:22:37.679Z",
+      "crawledAt": "2026-10-10T09:21:26.605Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }
