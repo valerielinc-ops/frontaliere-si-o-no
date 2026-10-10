@@ -64,4 +64,30 @@ describe('MyMemory bounded request deadline', () => {
     expect(json).not.toHaveBeenCalled();
     expect(releaseLock).toHaveBeenCalledOnce();
   });
+
+  it('parses a successful JSON response through the owned body reader', async () => {
+    const bytes = new TextEncoder().encode(JSON.stringify({
+      responseData: { translatedText: 'Pendolare', match: 0.9 },
+    }));
+    const read = vi.fn()
+      .mockResolvedValueOnce({ done: false, value: bytes })
+      .mockResolvedValueOnce({ done: true, value: undefined });
+    const cancelReader = vi.fn(async () => {});
+    const releaseLock = vi.fn();
+    const json = vi.fn();
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      body: {
+        cancel: vi.fn(async () => {}),
+        getReader: () => ({ read, cancel: cancelReader, releaseLock }),
+      },
+      json,
+    })));
+
+    await expect(translateWithMyMemory('Frontaliere', 'it', 'de')).resolves.toBe('Pendolare');
+    expect(read).toHaveBeenCalledTimes(2);
+    expect(cancelReader).not.toHaveBeenCalled();
+    expect(json).not.toHaveBeenCalled();
+    expect(releaseLock).toHaveBeenCalledOnce();
+  });
 });
