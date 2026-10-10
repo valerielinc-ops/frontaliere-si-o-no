@@ -13,6 +13,8 @@
  * GA4, R2 or credentials.
  */
 
+import { instagramEngagementMechanic } from './instagram-engagement.mjs';
+
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   proof: Object.freeze({
     id: 'proof',
@@ -414,5 +416,6 @@ export function instagramCreativeLedgerFields(creative) {
     creativeLabel: creative?.label || 'Dato verificabile',
     creativeObjective: creative?.objective || 'share',
     primaryMetric: creative?.primaryMetric || 'shares',
+    engagementMechanic: instagramEngagementMechanic(creative?.primaryMetric || 'shares'),
   };
 }

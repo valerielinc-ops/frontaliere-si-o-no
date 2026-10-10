@@ -22,6 +22,11 @@ const ITEM = {
 
 describe('Instagram Reel creative experiment', () => {
   it('keeps three distinct, measurable treatments', () => {
+    const expectedMechanics = {
+      comments: 'keyword-comment',
+      shares: 'direct-share',
+      saves: 'save-reminder',
+    };
     expect(INSTAGRAM_REEL_VARIANTS).toHaveLength(3);
     expect(new Set(INSTAGRAM_REEL_VARIANTS.map((variant) => variant.id)).size).toBe(3);
     for (const variant of INSTAGRAM_REEL_VARIANTS) {
@@ -31,6 +36,8 @@ describe('Instagram Reel creative experiment', () => {
       expect(variant.hook.job.title).toBeTruthy();
       expect(variant.cta.article).toBeTruthy();
       expect(variant.cta.job).toBeTruthy();
+      expect(instagramReelLedgerFields(variant).engagementMechanic)
+        .toBe(expectedMechanics[variant.primaryMetric]);
     }
   });
 

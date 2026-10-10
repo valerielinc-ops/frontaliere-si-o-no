@@ -310,9 +310,13 @@ function pharmacyPath(pharmacy: Pharmacy, locale: Locale): PharmacyPath {
 }
 
 function pharmacyAliasPath(alias: PharmacyUrlAlias, locale: Locale): PharmacyPath | null {
+  if (!alias.city || !alias.slug) return null;
+  if (alias.country === 'CH') {
+    return { kind: 'pharmacy', locale, country: 'CH', citySlug: pharmacyCitySlug(alias.city), pharmacySlug: alias.slug };
+  }
   if (alias.country !== 'IT') return null;
   const areaSlug = ITALY_BORDER_PROVINCES.find((area) => area.code === alias.province)?.slug;
-  if (!areaSlug || !alias.city || !alias.slug) return null;
+  if (!areaSlug) return null;
   return { kind: 'pharmacy', locale, country: 'IT', areaSlug, citySlug: pharmacyCitySlug(alias.city), pharmacySlug: alias.slug };
 }
 
@@ -325,18 +329,18 @@ export interface PharmacyUrlAliasDescriptor {
 }
 
 /**
- * Return every old Italian detail URL retained by the importer. The old
- * province/city are part of the alias because a Ministry correction can move
+ * Return every old pharmacy detail URL retained by the importer. The old
+ * province/city are part of the alias because an official correction can move
  * a record between localities as well as changing its display name.
  */
-export function pharmacyUrlAliasDescriptors(): PharmacyUrlAliasDescriptor[] {
+export function pharmacyUrlAliasDescriptors(pharmacies: Pharmacy[] = BORDER_PHARMACIES): PharmacyUrlAliasDescriptor[] {
   const canonicalPaths = new Set<string>();
-  for (const pharmacy of BORDER_PHARMACIES) {
+  for (const pharmacy of pharmacies) {
     for (const locale of LOCALES) canonicalPaths.add(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale));
   }
   const seen = new Map<string, string>();
   const descriptors: PharmacyUrlAliasDescriptor[] = [];
-  for (const pharmacy of ITALY_BORDER_PHARMACIES) {
+  for (const pharmacy of pharmacies) {
     for (const alias of pharmacy.urlAliases || []) {
       for (const locale of LOCALES) {
         const oldPath = pharmacyAliasPath(alias, locale);
