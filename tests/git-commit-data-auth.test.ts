@@ -54,7 +54,19 @@ describe('git-commit-data.sh GitHub auth hardening', () => {
     const code = GIT_COMMIT_DATA.split('\n')
       .map((text, index) => ({ text, number: index + 1 }))
       .filter(({ text }) => text.trim() !== '' && !text.trim().startsWith('#'));
-    const networkOps = code.filter(({ text }) => /\brun_bounded "\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS"/.test(text));
+    const boundedOps = code.filter(({ text }) => /\brun_bounded "\$GIT_COMMIT_DATA_[A-Z_]+_TIMEOUT_SECONDS"/.test(text));
+    const localArchiveOps = boundedOps.filter(({ text }) => text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
+    const networkOps = boundedOps.filter(({ text }) => !text.includes('GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS'));
+    expect(localArchiveOps.map(({ text }) => /"git archive ([^"]+)"/.exec(text)?.[1])).toEqual([
+      'remote crawler ownership view',
+      'changed crawler ownership slices',
+    ]);
+    for (const operation of localArchiveOps) {
+      const index = code.findIndex(({ number }) => number === operation.number);
+      const command = code.slice(index, index + 2).map(({ text }) => text).join('\n');
+      expect(command).toContain('git archive --format=tar');
+      expect(command).not.toMatch(/--remote|https?:\/\/|ssh:\/\//u);
+    }
     // the history API lookup, the fetch of the retry loop, three pulls, two pushes.
     expect(networkOps.map(({ text }) =>
       /TIMEOUT_SECONDS" "gh (\w+)/.exec(text)?.[1]

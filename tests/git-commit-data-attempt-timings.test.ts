@@ -34,20 +34,38 @@ function job(key: string, n: number, extra: Record<string, unknown> = {}) {
 
 /** The phase labels of a timing line, in the order the line prints them. */
 function phasesOf(body: string): string[] {
-  // The detail of a phase sits in parentheses and may name a path: drop it.
-  return body
-    .replace(/ \([^)]*\)/gu, '')
-    .split(', ')
-    .map((part) => {
-      const match = /^([a-z-]+) \d+\.\d s$/u.exec(part);
-      expect(match, `unexpected timing fragment "${part}" in "${body}"`).not.toBeNull();
-      return match![1];
-    });
+  // Split only at top-level commas: a phase detail can itself contain nested
+  // parentheses, as in "5 remote slice(s) refreshed since last snapshot".
+  const parts: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (let index = 0; index < body.length; index++) {
+    if (body[index] === '(') depth++;
+    else if (body[index] === ')') depth--;
+    else if (depth === 0 && body.startsWith(', ', index)) {
+      parts.push(body.slice(start, index));
+      start = index + 2;
+      index++;
+    }
+    expect(depth, `unbalanced timing detail in "${body}"`).toBeGreaterThanOrEqual(0);
+  }
+  expect(depth, `unbalanced timing detail in "${body}"`).toBe(0);
+
+  return parts.concat(body.slice(start)).map((part) => {
+    const match = /^([a-z-]+) \d+\.\d s(?: \(.+\))?$/u.exec(part);
+    expect(match, `unexpected timing fragment "${part}" in "${body}"`).not.toBeNull();
+    return match![1];
+  });
 }
 
 function timingLines(log: string) {
   return [...log.matchAll(TIMING_LINE)].map((match) => ({ attempt: Number(match[1]), body: match[2] }));
 }
+
+it('parses nested phase annotations without splitting their commas', () => {
+  expect(phasesOf('fetch 0.0 s, ownership-view 0.0 s (5 remote slice(s), refreshed since snapshot), files 0.2 s (integrity 0.1 s)'))
+    .toEqual(['fetch', 'ownership-view', 'files']);
+});
 
 function setup(keys: string[]) {
   const originDir = mkdtempSync(join(tmpdir(), 'gcd-timings-origin-'));
@@ -265,7 +283,7 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       execFileSync('git', [
         'clone', '-q', '--depth=1', '--filter=blob:none', '--no-checkout', '--branch', 'main', `file://${t.originDir}`, runner,
       ]);
-      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*');
+      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*', '!/data/jobs/by-crawler/*.json', '/data/jobs/by-crawler/s0.json', '/data/jobs/by-crawler/s6.json', '/data/jobs/by-crawler/s7.json');
       git(runner, 'checkout', '-q', 'main');
       git(runner, 'config', 'user.email', 'test@example.com');
       git(runner, 'config', 'user.name', 'Test');
@@ -303,7 +321,7 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       execFileSync('git', [
         'clone', '-q', '--depth=1', '--filter=blob:none', '--no-checkout', '--branch', 'main', `file://${t.originDir}`, runner,
       ]);
-      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*');
+      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*', '!/data/jobs/by-crawler/*.json', '/data/jobs/by-crawler/s0.json', '/data/jobs/by-crawler/s6.json', '/data/jobs/by-crawler/s7.json');
       git(runner, 'checkout', '-q', 'main');
       git(runner, 'config', 'user.email', 'test@example.com');
       git(runner, 'config', 'user.name', 'Test');

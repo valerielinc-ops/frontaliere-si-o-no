@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { resolve } from 'node:path';
+import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 export const CRAWL_EVENTS_REFRESH_TITLE = 'chore(data): refresh crawl events';
@@ -79,7 +79,7 @@ function readOptions(argv) {
   return options;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) {
   try {
     const pullRequests = JSON.parse(await new Promise((resolve, reject) => {
       let input = '';
