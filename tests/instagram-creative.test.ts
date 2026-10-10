@@ -7,8 +7,10 @@ import {
   INSTAGRAM_MAX_CAPTION_LENGTH,
   buildInstagramCaption,
   chooseInstagramCreative,
+  enrichInstagramCreativeLedgerEntry,
   instagramCreativeContent,
   instagramCreativeLedgerFields,
+  instagramCreativeLedgerFieldsForId,
 } from '../scripts/lib/instagram-creative.mjs';
 import { buildCarouselSlidePlan } from '../scripts/lib/social-carousel-image.mjs';
 
@@ -179,6 +181,38 @@ describe('Instagram creative system', () => {
       expect(instagramCreativeLedgerFields(format).engagementMechanic)
         .toBe(expectedMechanics[format.primaryMetric]);
     }
+  });
+
+  it('recovers metadata only for known creative ids and preserves explicit fields', () => {
+    expect(instagramCreativeLedgerFieldsForId('question-choice')).toMatchObject({
+      creativeId: 'question-choice',
+      creativeBaseId: 'question',
+      creativeVariant: 'choice',
+      engagementMechanic: 'keyword-comment',
+      hookType: 'forced-choice',
+      attentionMechanic: 'low-friction-choice',
+      engagementLoop: 'comment-to-poll',
+      followUpFormat: 'story-result',
+    });
+    expect(instagramCreativeLedgerFieldsForId('legacy-without-id')).toBeNull();
+
+    expect(enrichInstagramCreativeLedgerEntry({
+      id: 'card',
+      kind: 'article',
+      creativeId: 'question-story',
+      primaryMetric: 'comments',
+      hookType: 'editorial-override',
+    })).toMatchObject({
+      hookType: 'editorial-override',
+      attentionMechanic: 'identity-story',
+      engagementLoop: 'comment-to-story',
+      followUpFormat: 'comment-reply',
+      engagementMechanic: 'keyword-comment',
+    });
+    expect(enrichInstagramCreativeLedgerEntry({ id: 'old', kind: 'article' })).toEqual({ id: 'old', kind: 'article' });
+    expect(enrichInstagramCreativeLedgerEntry({ id: 'reel', kind: 'reel', creativeId: 'reel-number' })).toEqual({
+      id: 'reel', kind: 'reel', creativeId: 'reel-number',
+    });
   });
 });
 

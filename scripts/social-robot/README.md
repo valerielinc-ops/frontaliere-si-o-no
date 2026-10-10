@@ -109,6 +109,11 @@ sessione grafica aperta sul Mac: il browser non è headless.
 | Screenshot e HTML di un errore o di una prova a secco | `.../social-robot/diagnostics/<ora>-<canale>-<id>/` |
 | Errori | issue «Robot social: pubblicazione Instagram/TikTok non riuscita» (una per piattaforma, deduplicata) |
 
+Per ogni voce Instagram con metadati creativi, il log contiene anche una riga
+`🧭 Instagram engagement` con l'hook, il loop e le azioni manuali da eseguire
+entro 24/48/72 ore. È una consegna operativa: il robot non scrive commenti, non
+manda DM e non pubblica Stories.
+
 Nessuna credenziale passa dal repository: le sessioni stanno solo nel profilo
 del browser sul Mac.
 

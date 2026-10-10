@@ -157,6 +157,14 @@ Il piano operativo è:
 Commenti e DM restano azioni manuali: il piano non automatizza conversazioni,
 non invia spam e non promette una risposta che non sia già producibile.
 
+Quando il post entra nella coda del robot, il log locale stampa lo stesso
+brief operativo accanto all'ID della coda: hook, meccanica di attenzione, loop,
+azione entro 24 ore, follow-up entro 48/72 ore e soglia di tre osservazioni
+comparabili. In questo modo la finestra di pubblicazione lascia una consegna
+concreta a chi gestisce il profilo, senza trasformare il robot in un account
+che commenta, manda DM o pubblica Stories da solo. Il blocco è riconoscibile
+nel log dalla riga `🧭 Instagram engagement`.
+
 ## 6. Disegno del test nel tempo
 
 Ogni coorte è confrontata solo con la stessa combinazione di:
@@ -174,6 +182,23 @@ Ogni coorte è confrontata solo con la stessa combinazione di:
 Il report deve mostrare anche hook e loop, non solo la percentuale, così la
 decisione successiva è: “ripetiamo questa promessa per questo pubblico”, non
 “copiamo il post con più like”.
+
+Quando il token Meta non è ancora disponibile, la verifica può continuare con
+un export CSV del Professional Dashboard. Il report è read-only, non chiama
+Meta e collega ogni riga al ledger tramite `media id` o `queue id`:
+
+```bash
+node scripts/instagram-insights-report.mjs \
+  --input /percorso/export-instagram.csv \
+  --ledger data/instagram-posted.json \
+  --window-hours=72
+```
+
+Sono accettati CSV separati da virgola o punto e virgola; le colonne metriche
+minime sono `Post ID`/`Media ID`, `Reach`, `Shares`, `Saves` e `Comments`.
+Se l'export non contiene `creativeId`, il ledger deve contenere l'ID del post
+o della coda. Le righe senza attribuzione verificabile vengono rifiutate e non
+entrano nella classifica.
 
 La cadenza protegge anche l’unità del test: il poster consente una sola
 pubblicazione per `kind + day`. Se una classifica aggiornata ricrea la coda

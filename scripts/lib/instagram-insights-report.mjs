@@ -41,8 +41,114 @@ const METRIC_ALIASES = Object.freeze({
   linkClicks: ['linkClicks', 'link_clicks', 'website_clicks'],
 });
 
+const CSV_FIELD_ALIASES = Object.freeze({
+  id: ['id', 'mediaid', 'postid', 'queueid'],
+  kind: ['kind', 'contentkind', 'contenttype'],
+  creativeId: ['creativeid', 'creative'],
+  creativeBaseId: ['creativebaseid'],
+  creativeVariant: ['creativevariant', 'variant'],
+  creativeLabel: ['creativelabel'],
+  creativeObjective: ['creativeobjective', 'objective'],
+  primaryMetric: ['primarymetric'],
+  engagementMechanic: ['engagementmechanic'],
+  hookType: ['hooktype', 'hook'],
+  attentionMechanic: ['attentionmechanic'],
+  engagementLoop: ['engagementloop', 'loop'],
+  followUpFormat: ['followupformat', 'followup'],
+  reach: ['reach', 'reachcount', 'accountsreached'],
+  shares: ['shares', 'sharecount', 'sharescount'],
+  saves: ['saves', 'saved', 'savecount', 'savedcount'],
+  comments: ['comments', 'commentcount', 'commentscount'],
+  profileVisits: ['profilevisits', 'profileactivity'],
+  linkClicks: ['linkclicks', 'websiteclicks'],
+  windowHours: ['windowhours', 'measurementwindowhours'],
+});
+
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function normalizeCsvHeader(value) {
+  return String(value ?? '')
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
+function detectCsvDelimiter(text) {
+  const firstLine = String(text).split(/\r?\n/u).find((line) => line.trim()) || '';
+  const counts = [',', ';', '\t'].map((delimiter) => ({
+    delimiter,
+    count: [...firstLine].filter((char) => char === delimiter).length,
+  }));
+  const winner = counts.sort((a, b) => b.count - a.count)[0];
+  return winner?.count > 0 ? winner.delimiter : ',';
+}
+
+function parseCsvRecords(text, delimiter) {
+  const records = [];
+  let record = [];
+  let field = '';
+  let quoted = false;
+  const source = String(text ?? '').replace(/^\uFEFF/u, '');
+
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (quoted) {
+      if (char === '"' && source[index + 1] === '"') {
+        field += '"';
+        index += 1;
+      } else if (char === '"') {
+        quoted = false;
+      } else {
+        field += char;
+      }
+    } else if (char === '"' && field.length === 0) {
+      quoted = true;
+    } else if (char === delimiter) {
+      record.push(field.trim());
+      field = '';
+    } else if (char === '\n' || char === '\r') {
+      if (char === '\r' && source[index + 1] === '\n') index += 1;
+      record.push(field.trim());
+      if (record.some((value) => value !== '')) records.push(record);
+      record = [];
+      field = '';
+    } else {
+      field += char;
+    }
+  }
+  if (quoted) throw new Error('CSV contains an unterminated quoted field');
+  if (field.length > 0 || record.length > 0) {
+    record.push(field.trim());
+    if (record.some((value) => value !== '')) records.push(record);
+  }
+  return records;
+}
+
+function csvField(row, aliases) {
+  for (const alias of aliases) {
+    const key = Object.keys(row).find((candidate) => normalizeCsvHeader(candidate) === alias);
+    if (key && String(row[key] ?? '').trim()) return String(row[key]).trim();
+  }
+  return null;
+}
+
+/** Convert a Professional Dashboard CSV export into scorecard rows. */
+export function parseInstagramInsightsCsv(text) {
+  const records = parseCsvRecords(text, detectCsvDelimiter(text));
+  if (records.length < 2) return [];
+  const headers = records[0];
+  return records.slice(1).map((values) => {
+    const source = Object.fromEntries(headers.map((header, index) => [header, values[index] ?? '']));
+    const row = {};
+    for (const [field, aliases] of Object.entries(CSV_FIELD_ALIASES)) {
+      const value = csvField(source, aliases);
+      if (value !== null) row[field] = value;
+    }
+    return row;
+  });
 }
 
 function firstString(...values) {
@@ -114,6 +220,8 @@ function buildLedgerLookup(ledger) {
     if (!creativeId) continue;
     const metadata = {
       creativeId,
+      kind: firstString(entry.kind, entry.contentKind, entry.content_kind),
+      queueId: firstString(entry.queueId, entry.queue_id),
       creativeBaseId: firstString(entry.creativeBaseId, entry.creative_base_id),
       creativeVariant: firstString(entry.creativeVariant, entry.creative_variant),
       creativeLabel: firstString(entry.creativeLabel, entry.creative_label),
@@ -140,7 +248,7 @@ function reject(rejected, index, reason) {
  * `ledger` is optional; it lets a Meta export identify a treatment through a
  * media/queue id without copying captions or URLs into the export file.
  */
-export function normalizeInsightRows(input, { ledger = null } = {}) {
+export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAULT_WINDOW_HOURS } = {}) {
   const source = extractRows(input);
   const lookup = buildLedgerLookup(ledger);
   const rows = [];
@@ -257,8 +365,8 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
     }
 
     const rawWindow = firstString(raw.windowHours, raw.window_hours, raw.measurementWindowHours);
-    const windowHours = rawWindow === null ? DEFAULT_WINDOW_HOURS : finiteNumber(rawWindow);
-    if (windowHours === null || windowHours <= 0) {
+    const targetWindowHours = rawWindow === null ? windowHours : finiteNumber(rawWindow);
+    if (targetWindowHours === null || targetWindowHours <= 0) {
       reject(rejected, index, 'windowHours must be a positive number');
       return;
     }
@@ -269,7 +377,7 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       creativeBaseId,
       creativeVariant,
       creativeLabel,
-      kind: firstString(raw.kind, raw.contentKind, raw.content_kind) || 'unknown',
+      kind: firstString(raw.kind, raw.contentKind, raw.content_kind, ledgerMetadata?.kind) || 'unknown',
       objective,
       primaryMetric,
       engagementMechanic,
@@ -277,7 +385,7 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       attentionMechanic,
       engagementLoop,
       followUpFormat,
-      windowHours,
+      windowHours: targetWindowHours,
       reach,
       ...metrics,
     });
