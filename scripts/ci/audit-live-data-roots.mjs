@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { LIVE_DATA_ROOTS } from './live-data-test-guard.mjs';
 
 export const LIVE_DATA_ROOT_AUDIT_TITLE = 'Live-data root drift (30-day bot inventory)';
@@ -190,7 +190,7 @@ async function main(argv = process.argv.slice(2)) {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().then((code) => { process.exitCode = code; }, (error) => {
     console.error('[live-data-root-audit] ' + (error?.stack || error));
     process.exitCode = 1;
