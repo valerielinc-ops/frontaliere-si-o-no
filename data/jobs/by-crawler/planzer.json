@@ -1,6 +1,6 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-10-10T09:13:08.386Z",
+  "assembledAt": "2026-10-10T21:17:16.340Z",
   "jobs": [
     {
       "id": "planzer-8e929972c58e",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4079625",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:13:02.518Z",
+      "crawledAt": "2026-10-10T21:17:09.991Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -85,7 +85,7 @@
         "it": "vendite-interne-m-f-d-planzer-dallikon",
         "en": "intern-sales-m-f-d-planzer-dallikon",
         "de": "praktikant-sales-m-w-d-planzer-dallikon",
-        "fr": "ventes-internes-h-f-d-planzer-dallikon"
+        "fr": "praktikant-sales-m-w-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -109,7 +109,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4083249",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:13:01.876Z",
+      "crawledAt": "2026-10-10T21:17:09.267Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -131,7 +131,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-sales-m-w-d-planzer-dallikon"
+        "praktikant-sales-m-w-d-planzer-dallikon",
+        "ventes-internes-h-f-d-planzer-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -141,7 +142,7 @@
           "praktikant-sales-m-w-d-planzer-dallikon"
         ],
         "fr": [
-          "praktikant-sales-m-w-d-planzer-dallikon"
+          "ventes-internes-h-f-d-planzer-dallikon"
         ]
       },
       "firstSeenAt": "2026-10-09T21:11:30.233Z",
@@ -191,7 +192,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4074981",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:13:01.275Z",
+      "crawledAt": "2026-10-10T21:17:08.501Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Murtenstrasse 85",
@@ -272,7 +273,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4082957",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:13:00.525Z",
+      "crawledAt": "2026-10-10T21:17:07.787Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -355,7 +356,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4083252",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:59.903Z",
+      "crawledAt": "2026-10-10T21:17:07.075Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -412,7 +413,7 @@
         "it": "logistica-di-raccolta-m-f-d-planzer-lyss",
         "en": "logistics-picking-m-f-d-planzer-lyss",
         "de": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "fr": "recherche-logistique-h-f-d-planzer-lyss"
+        "fr": "logistiker-kommissionierung-m-w-d-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -436,7 +437,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4079619",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:59.285Z",
+      "crawledAt": "2026-10-10T21:17:06.278Z",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
       "streetAddress": "Industriering 17",
@@ -458,7 +459,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        "logistiker-kommissionierung-m-w-d-planzer-lyss",
+        "recherche-logistique-h-f-d-planzer-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -468,7 +470,7 @@
           "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ],
         "fr": [
-          "logistiker-kommissionierung-m-w-d-planzer-lyss"
+          "recherche-logistique-h-f-d-planzer-lyss"
         ]
       },
       "salaryMin": 68500,
@@ -511,12 +513,13 @@
         "de": "Ob auf Strasse, See oder in der Luft – unsere top ausgebildeten Mitarbeitenden transportieren und lagern wertvollen Güter und Valoren mit höchster Sicherheit und Präzision. So sorgen wir dafür, dass Wertsachen sicher, pünktlich und so schnell wie möglich ankommen. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition lieferst du die Sendungen im Valoren-Bereich zuverlässig und termingerecht innerhalb der Schweiz und Europa aus\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Du bleibst auf dem neuesten Stand durch regelmässige Weiterbildungen und entwickelst dich stetig weiter\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. C oder CE in der Tasche und hast bereits Berufserfahrung im Transportwesen\n• Technik und Fahrzeuge begeistern dich, und du liebst es, im LKW unterwegs zu sein und die Logistik am Laufen zu halten\n• Erfahrungen im Sicherheitsdienst sind von Vorteil, aber kein Muss\n• Ein einwandfreier Leumund (ADMAS, keine Einträge im Betreibungs- und Strafregister) ist für diese verantwortungsvolle Aufgabe unerlässlich\n• Deine geographischen Kenntnisse innerhalb der Schweiz und Europa sind top – du findest immer den besten Weg\n• Du kommunizierst sicher auf Deutsch in Wort und Schrift, und weitere Landessprachen oder Fremdsprachen sind ein Plus\n• Du bist zuverlässig, diskret und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Grosszügiges Spesenreglement: Mit unserem Spesenreglement bist du gut versorgt\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Que ce soit sur la route, sur la mer ou dans les airs – nos employés hautement qualifiés transportent et stockent des biens précieux et des valeurs avec la plus haute sécurité et précision. Cela garantit que les objets de valeur arrivent en toute sécurité, à temps et le plus rapidement possible. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Sur la base du calendrier, vous livrez les expéditions dans la région de Valoren de manière fiable et à temps en Suisse et en Europe\n• Chargement et déchargement ? Aucun problème pour vous - vous vous engagez et assurez-vous que tout est stocké en toute sécurité\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n• Vous restez à jour grâce à une formation régulière et développez constamment\n\nPourquoi tu réussis ?\n• Vous avez le permis de conduire Kat. C ou CE dans le sac et avez déjà une expérience professionnelle dans le transport\n• Technologie et véhicules vous excite, et vous aimez être sur la route dans le camion et maintenir la logistique en cours\n• L'expérience en matière de sécurité est bénéfique, mais pas indispensable.\n• Une réputation irréprochable (ADMAS, aucune inscription dans le registre de l'exécution et du crime) est essentielle pour cette tâche responsable\n• Votre connaissance géographique en Suisse et en Europe est la meilleure – vous trouverez toujours la meilleure façon\n• Vous communiquez en toute sécurité en allemand par la parole et l'écriture, et d'autres langues nationales ou étrangères sont un plus\n• Vous êtes fiable, discret et, grâce à votre résilience, prêt à aller à pleine vitesse même dans des moments stressants\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Réglementations de dépenses généreuses: Avec nos règlements de dépenses, vous êtes bien pris en charge\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": true,
       "location": "Dällikon",
       "canton": "ZH",
       "url": "https://live.solique.ch/planzer/job/details/4083036",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:57.896Z",
+      "crawledAt": "2026-10-10T21:17:05.561Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -537,7 +540,9 @@
       "externalId": "4083036",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-09T21:11:26.523Z",
+      "previousSlugs": [
+        "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
@@ -549,9 +554,7 @@
           "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-valoren-kat-ce-m-w-d-planzer-dallikon"
-      ],
+      "firstSeenAt": "2026-10-09T21:11:26.523Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -598,7 +601,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4079622",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:57.280Z",
+      "crawledAt": "2026-10-10T21:17:04.840Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -652,9 +655,9 @@
       "id": "planzer-7d51965e2ca1",
       "slug": "amministrazione-specialistica-reporting-m-f-d-planzer-dallikon",
       "slugByLocale": {
-        "de": "spezialist-administration-reporting-m-w-d-planzer-dallikon",
         "it": "amministrazione-specialistica-reporting-m-f-d-planzer-dallikon",
-        "en": "spezialist-administration-reporting-m-w-d-planzer-dallikon",
+        "en": "specialist-administration-reporting-m-f-d-planzer-dallikon",
+        "de": "spezialist-administration-reporting-m-w-d-planzer-dallikon",
         "fr": "specialiste-administration-et-rapports-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
@@ -662,24 +665,25 @@
       "companyDomain": "planzer.ch",
       "title": "Spezialist Administration & Reporting (m/w/d)",
       "titleByLocale": {
-        "de": "Spezialist Administration & Reporting (m/w/d)",
         "it": "Amministrazione specialistica & Reporting (m/f/d)",
         "en": "Specialist Administration & Reporting (m/f/d)",
+        "de": "Spezialist Administration & Reporting (m/w/d)",
         "fr": "Spécialiste Administration et rapports (h/f/d)"
       },
       "description": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du hältst den administrativen Alltag am Laufen – von Korrespondenz und Terminverwaltung bis zur Pflege von Kunden-, Geschäfts- und Fahrzeugstammdaten\n• Mit Reportings, Statistiken und Auswertungen für das Flottenmanagement bringst du relevante Daten auf den Punkt\n• Bei Projekten packst du mit an und unterstützt bei der Erstellung und Pflege von Dokumenten, Formularen und Listen\n• Eine hohe Datenqualität ist dir wichtig: Du arbeitest sorgfältig und gewissenhaft und hältst definierte Qualitätsstandards zuverlässig ein\n• Du hältst Prozesse und Arbeitsabläufe übersichtlich fest und sorgst mit sauber gepflegten System- und Prozessdokumentationen für eine strukturierte Ablage\n\nWeshalb es dir gelingt\n• Eine kaufmännische Ausbildung oder gleichwertige Weiterbildung hast du in der Tasche und idealerweise bereits mehrere Jahre Erfahrung in einer administrativen, analytischen oder datenorientierten Funktion gesammelt\n• Daten zu analysieren, aufzubereiten und zu interpretieren liegt dir – daraus leitest du aussagekräftige Reportings, Kennzahlen und Entscheidungsgrundlagen für das Flottenmanagement ab\n• Excel beherrschst du sehr gut und auch komplexe Formeln, Pivot-Tabellen, Datenaufbereitung und Auswertungen gehören für dich zum Alltag. Mit grösseren Datenmengen gehst du strukturiert und sicher um\n• Selbstständig, präzise und lösungsorientiert – so arbeitest du. Gleichzeitig hinterfragst du bestehende Prozesse und bringst Eigeninitiative mit, um Abläufe, Systeme und Datenqualität nachhaltig weiterzuentwickeln\n• Im Austausch mit unterschiedlichen Ansprechpartnern kommunizierst du sicher und professionell. Gute Französisch- und/oder Italienischkenntnisse sind ein Plus, ebenso Erfahrung in der Fahrzeug- oder Leasingbranche\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du hältst den administrativen Alltag am Laufen – von Korrespondenz und Terminverwaltung bis zur Pflege von Kunden-, Geschäfts- und Fahrzeugstammdaten\n• Mit Reportings, Statistiken und Auswertungen für das Flottenmanagement bringst du relevante Daten auf den Punkt\n• Bei Projekten packst du mit an und unterstützt bei der Erstellung und Pflege von Dokumenten, Formularen und Listen\n• Eine hohe Datenqualität ist dir wichtig: Du arbeitest sorgfältig und gewissenhaft und hältst definierte Qualitätsstandards zuverlässig ein\n• Du hältst Prozesse und Arbeitsabläufe übersichtlich fest und sorgst mit sauber gepflegten System- und Prozessdokumentationen für eine strukturierte Ablage\n\nWeshalb es dir gelingt\n• Eine kaufmännische Ausbildung oder gleichwertige Weiterbildung hast du in der Tasche und idealerweise bereits mehrere Jahre Erfahrung in einer administrativen, analytischen oder datenorientierten Funktion gesammelt\n• Daten zu analysieren, aufzubereiten und zu interpretieren liegt dir – daraus leitest du aussagekräftige Reportings, Kennzahlen und Entscheidungsgrundlagen für das Flottenmanagement ab\n• Excel beherrschst du sehr gut und auch komplexe Formeln, Pivot-Tabellen, Datenaufbereitung und Auswertungen gehören für dich zum Alltag. Mit grösseren Datenmengen gehst du strukturiert und sicher um\n• Selbstständig, präzise und lösungsorientiert – so arbeitest du. Gleichzeitig hinterfragst du bestehende Prozesse und bringst Eigeninitiative mit, um Abläufe, Systeme und Datenqualität nachhaltig weiterzuentwickeln\n• Im Austausch mit unterschiedlichen Ansprechpartnern kommunizierst du sicher und professionell. Gute Französisch- und/oder Italienischkenntnisse sind ein Plus, ebenso Erfahrung in der Fahrzeug- oder Leasingbranche\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "I veri professionisti sono qui richiesti – non solo sulla strada, ma anche nella logistica e nei nostri laboratori. La nostra flotta all'avanguardia di circa 1.800 veicoli merita una manutenzione regolare e riparazioni precise. Ti unisci a noi?\n\nChe cosa si muove\n• Mantenere la vita quotidiana amministrativa in esecuzione – dalla corrispondenza e la gestione degli appuntamenti al mantenimento dei dati del cliente, del business e del veicolo\n• Con report, statistiche e valutazioni per la gestione della flotta, si riportano dati rilevanti al punto\n• Nei progetti, partecipi e sostenga la creazione e la manutenzione di documenti, moduli e liste\n• L'alta qualità dei dati è importante per voi: lavorate con attenzione e consciamente e rispettate gli standard di qualità definiti in modo affidabile\n• Tenere i processi e i flussi di lavoro in modo chiaro e prendersi cura di uno storage strutturato con sistema pulito e documentazione di processo\n\nPerché hai successo?\n• Hai una formazione commerciale o una formazione equivalente in tasca e idealmente già acquisito diversi anni di esperienza in una funzione amministrativa, analitica o orientata ai dati.\n• Spetta a voi analizzare, preparare e interpretare i dati – da questo si ricavano report significativi, figure chiave e principi decisionali per la gestione della flotta.\n• Si padroneggia Excel molto bene e anche formule complesse, tabelle pivot, preparazione dei dati e valutazioni fanno parte della vita quotidiana per voi. Con maggiori quantità di dati gestisci strutturati e sicuri\n• Indipendente, preciso e orientato alla soluzione – ecco come si lavora. Allo stesso tempo, mettete in discussione i processi esistenti e portate la vostra iniziativa per sviluppare in modo sostenibile processi, sistemi e qualità dei dati.\n• In cambio di contatti diversi, si comunica in modo sicuro e professionale. Buona conoscenza del francese e/o italiano è un plus, così come l'esperienza nel settore del veicolo o del leasing\n\nI tuoi vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Real professionals are in demand here – not only on the road, but also in logistics and our own workshops. Our state-of-the-art fleet of around 1,800 vehicles deserves regular maintenance and precise repairs. Are you joining us?\n\nWhat you move\n• You keep administrative everyday life running – from correspondence and appointment management to the maintenance of customer, business and vehicle master data\n• With reports, statistics and evaluations for fleet management, you bring relevant data to the point\n• In projects, you participate and support in the creation and maintenance of documents, forms and lists\n• High data quality is important to you: you work carefully and conscientiously and adhere to defined quality standards reliably\n• You keep processes and workflows clearly and take care of a structured storage with cleanly maintained system and process documentation\n\nWhy do you succeed?\n• You have a commercial education or equivalent training in your pocket and ideally already gained several years of experience in an administrative, analytical or data-oriented function.\n• It is up to you to analyze, prepare and interpret data – from this you derive meaningful reporting, key figures and decision-making principles for fleet management.\n• You master Excel very well and even complex formulas, pivot tables, data preparation and evaluations are part of everyday life for you. With larger amounts of data you handle structured and secure\n• Independent, precise and solution-oriented – this is how you work. At the same time, you question existing processes and bring your own initiative to sustainably develop processes, systems and data quality.\n• In exchange with different contacts, you communicate safely and professionally. Good knowledge of French and/or Italian is a plus, as well as experience in the vehicle or leasing industry\n\nYour Benefits\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Bei uns sind echte Profis gefragt – nicht nur auf der Strasse, sondern auch in der Logistik und unseren eigenen Werkstätten. Unsere topmoderne Flotte mit rund 1'800 Fahrzeugen verdient regelmässige Wartung und präzise Reparaturen. Packst du mit an?\n\nWas du bewegst\n• Du hältst den administrativen Alltag am Laufen – von Korrespondenz und Terminverwaltung bis zur Pflege von Kunden-, Geschäfts- und Fahrzeugstammdaten\n• Mit Reportings, Statistiken und Auswertungen für das Flottenmanagement bringst du relevante Daten auf den Punkt\n• Bei Projekten packst du mit an und unterstützt bei der Erstellung und Pflege von Dokumenten, Formularen und Listen\n• Eine hohe Datenqualität ist dir wichtig: Du arbeitest sorgfältig und gewissenhaft und hältst definierte Qualitätsstandards zuverlässig ein\n• Du hältst Prozesse und Arbeitsabläufe übersichtlich fest und sorgst mit sauber gepflegten System- und Prozessdokumentationen für eine strukturierte Ablage\n\nWeshalb es dir gelingt\n• Eine kaufmännische Ausbildung oder gleichwertige Weiterbildung hast du in der Tasche und idealerweise bereits mehrere Jahre Erfahrung in einer administrativen, analytischen oder datenorientierten Funktion gesammelt\n• Daten zu analysieren, aufzubereiten und zu interpretieren liegt dir – daraus leitest du aussagekräftige Reportings, Kennzahlen und Entscheidungsgrundlagen für das Flottenmanagement ab\n• Excel beherrschst du sehr gut und auch komplexe Formeln, Pivot-Tabellen, Datenaufbereitung und Auswertungen gehören für dich zum Alltag. Mit grösseren Datenmengen gehst du strukturiert und sicher um\n• Selbstständig, präzise und lösungsorientiert – so arbeitest du. Gleichzeitig hinterfragst du bestehende Prozesse und bringst Eigeninitiative mit, um Abläufe, Systeme und Datenqualität nachhaltig weiterzuentwickeln\n• Im Austausch mit unterschiedlichen Ansprechpartnern kommunizierst du sicher und professionell. Gute Französisch- und/oder Italienischkenntnisse sind ein Plus, ebenso Erfahrung in der Fahrzeug- oder Leasingbranche\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Les vrais professionnels sont en demande ici – non seulement sur la route, mais aussi dans la logistique et nos propres ateliers. Notre flotte de pointe d'environ 1800 véhicules mérite un entretien régulier et des réparations précises. Tu nous rejoins ?\n\nCe que tu bouges\n• Vous gardez la vie de tous les jours administrative – de la gestion de la correspondance et des rendez-vous à la maintenance des données de gestion client, entreprise et véhicule\n• Avec des rapports, des statistiques et des évaluations pour la gestion de la flotte, vous apportez les données pertinentes au point\n• Dans les projets, vous participez et soutenez la création et la tenue de documents, formulaires et listes\n• La haute qualité des données est importante pour vous : vous travaillez avec soin et consciencieusement et respectez les normes de qualité définies de manière fiable\n• Vous gardez les processus et les workflows clairement et prenez soin d'un stockage structuré avec un système propre et la documentation de processus\n\nPourquoi tu réussis ?\n• Vous avez une formation commerciale ou équivalente dans votre poche et idéalement déjà acquis plusieurs années d'expérience dans une fonction administrative, analytique ou axée sur les données.\n• Il vous appartient d'analyser, de préparer et d'interpréter les données – vous en tirez des rapports significatifs, des chiffres clés et des principes décisionnels pour la gestion de la flotte.\n• Vous maîtrisez très bien Excel et même les formules complexes, les tables de pivot, la préparation des données et les évaluations font partie de la vie quotidienne pour vous. Avec de plus grandes quantités de données, vous manipulez structuré et sécurisé\n• Indépendant, précis et orienté vers la solution – voilà comment vous travaillez. En même temps, vous remettez en question les processus existants et apportez votre propre initiative pour développer durablement les processus, les systèmes et la qualité des données.\n• En échange avec différents contacts, vous communiquez en toute sécurité et professionnellement. Une bonne connaissance du français et/ou de l'italien est un atout, ainsi qu'une expérience dans le secteur des véhicules ou du leasing\n\nVos avantages\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Dällikon",
       "canton": "ZH",
       "url": "https://live.solique.ch/planzer/job/details/4082097",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:56.650Z",
+      "crawledAt": "2026-10-10T21:17:04.112Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -699,9 +703,22 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4082097",
       "externalId": "4082097",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "spezialist-administration-reporting-m-w-d-planzer-dallikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-administration-reporting-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "spezialist-administration-reporting-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "spezialist-administration-reporting-m-w-d-planzer-dallikon"
+        ]
       },
+      "firstSeenAt": "2026-10-10T09:12:56.650Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -714,27 +731,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-10T09:12:56.650Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-administration-reporting-m-w-d-planzer-dallikon"
-        ],
-        "fr": [
-          "spezialist-administration-reporting-m-w-d-planzer-dallikon"
-        ]
-      },
-      "previousSlugs": [
-        "spezialist-administration-reporting-m-w-d-planzer-dallikon"
-      ]
+      }
     },
     {
       "id": "planzer-e93cdc8f6f60",
       "slug": "addetto-a-alla-movimentazione-autista-cat-b-be-m-f-d-planzer-kolliken",
       "slugByLocale": {
-        "de": "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
         "it": "addetto-a-alla-movimentazione-autista-cat-b-be-m-f-d-planzer-kolliken",
         "en": "employee-envelope-chauffeur-kat-b-be-m-f-d-planzer-kolliken",
+        "de": "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
         "fr": "enveloppe-des-employes-chauffeur-kat-b-be-h-f-d-planzer-kolliken"
       },
       "company": "Planzer",
@@ -742,24 +747,25 @@
       "companyDomain": "planzer.ch",
       "title": "Mitarbeiter Umschlag / Chauffeur Kat. B / BE (m/w/d)",
       "titleByLocale": {
-        "de": "Mitarbeiter Umschlag / Chauffeur Kat. B / BE (m/w/d)",
         "it": "Addetto/a alla movimentazione / Autista cat. B / BE (m/f/d)",
         "en": "Employee envelope / Chauffeur Kat. B / BE (m/f/d)",
+        "de": "Mitarbeiter Umschlag / Chauffeur Kat. B / BE (m/w/d)",
         "fr": "Enveloppe des employés / Chauffeur Kat. B / BE (h/f/d)"
       },
       "description": "Nachttransport ist ein Geschäft für Anpacker – und Anpackerinnen. Natürlich gehört auch Gefühl dazu: Wir kennen nämlich die Sensibilität von Gütern und von Nachbarn. Mit 100% Engagement und hochkarätigen Lösungen fährt bei uns jeder Auftrag unter einem guten Stern. So gehört die Nacht unseren Kunden. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du sorgst für einen reibungslosen Warenumschlag und unterstützt beim Be- und Entladen von Fahrzeugen\n• Du scannst und erfasst Sendungen und stellst sicher, dass diese korrekt verarbeitet werden\n• Anhand der Einsatzplanung führst du Abholungen, Zustellungen und Sonderfahrten mit Fahrzeugen der Kategorie B bzw. BE durch\n• Du stellst sicher, dass die Ware sicher verladen und transportiert wird\n• Dein Fahrzeug ist zusammen mit dir die Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Ein Arbeitsbeginn zwischen 15 und 17 Uhr ist für dich kein Problem\n• In deiner Tätigkeit wirst du zu 50% als Mitarbeiter Umschlag und zu 50% als Chauffeur tätig sein\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis Kategorie BE\n• Idealerweise bringst du Erfahrung in der Logistik oder im Transport mit und verfügst über einen Staplerausweis\n• Du arbeitest zuverlässig, selbstständig und packst gerne mit an\n• Unterschiedliche Einsatzzeiten sowie Abend- und Nachtarbeit sind für dich kein Problem\n• Flexibilität ist für dich selbstverständlich - du bist auch bereit Ferienablös für die Tagesschicht zu machen\n• Du kannst dich mündlich und schriftlich gut in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
       "descriptionByLocale": {
-        "de": "Nachttransport ist ein Geschäft für Anpacker – und Anpackerinnen. Natürlich gehört auch Gefühl dazu: Wir kennen nämlich die Sensibilität von Gütern und von Nachbarn. Mit 100% Engagement und hochkarätigen Lösungen fährt bei uns jeder Auftrag unter einem guten Stern. So gehört die Nacht unseren Kunden. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du sorgst für einen reibungslosen Warenumschlag und unterstützt beim Be- und Entladen von Fahrzeugen\n• Du scannst und erfasst Sendungen und stellst sicher, dass diese korrekt verarbeitet werden\n• Anhand der Einsatzplanung führst du Abholungen, Zustellungen und Sonderfahrten mit Fahrzeugen der Kategorie B bzw. BE durch\n• Du stellst sicher, dass die Ware sicher verladen und transportiert wird\n• Dein Fahrzeug ist zusammen mit dir die Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Ein Arbeitsbeginn zwischen 15 und 17 Uhr ist für dich kein Problem\n• In deiner Tätigkeit wirst du zu 50% als Mitarbeiter Umschlag und zu 50% als Chauffeur tätig sein\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis Kategorie BE\n• Idealerweise bringst du Erfahrung in der Logistik oder im Transport mit und verfügst über einen Staplerausweis\n• Du arbeitest zuverlässig, selbstständig und packst gerne mit an\n• Unterschiedliche Einsatzzeiten sowie Abend- und Nachtarbeit sind für dich kein Problem\n• Flexibilität ist für dich selbstverständlich - du bist auch bereit Ferienablös für die Tagesschicht zu machen\n• Du kannst dich mündlich und schriftlich gut in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "it": "Il trasporto notturno è un business per Anpacker – e Anpackerinnen. Naturalmente, c'è anche la sensazione: conosciamo la sensibilità dei beni e dei vicini. Con il 100% di impegno e soluzioni di prima classe, ogni ordine viaggia sotto una buona stella. Quindi la notte appartiene ai nostri clienti. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Garantisci una gestione fluida delle merci e assiste i veicoli di carico e scarico\n• Eseguire la scansione e registrare le spedizioni e assicurarsi che siano elaborate correttamente\n• In base alla pianificazione dell'assegnazione, effettuerai pick-up, consegne e viaggi speciali con veicoli della categoria B o C. BE by\n• Assicurarsi che le merci siano caricate e trasportate in sicurezza\n• Insieme a voi, il vostro veicolo è il biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n• Il lavoro di partenza tra le 15 e le 17 non è un problema per voi\n• Nel tuo lavoro lavorerai 50% come busta dipendente e 50% come autista\n\nPerché hai successo?\n• Hai la categoria di patente di guida BE\n• Idealmente, porterai esperienza nella logistica o nel trasporto e avrai un ID camion.\n• Lavori in modo affidabile, indipendente e come partecipare\n• Diversi orari di lavoro così come il lavoro serale e notturno non sono un problema per voi\n• La flessibilità è una questione naturalmente per voi - siete anche pronti a fare le vacanze per il turno di giorno\n• Puoi esprimerti bene per via orale e per iscritto in tedesco\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attrezzature di lavoro moderne: Teniamo il passo con i tempi – attrezzature di lavoro moderne e sicure è a vostra disposizione\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
         "en": "Night transport is a business for Anpacker – and Anpackerinnen. Of course, there is also feeling: we know the sensitivity of goods and neighbors. With 100% commitment and top-class solutions, every order travels under a good star. So the night belongs to our customers. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You ensure a smooth handling of goods and assist in loading and unloading vehicles\n• You scan and record shipments and make sure they are processed correctly\n• Based on the assignment planning, you will carry out pick-ups, deliveries and special trips with vehicles of category B or C. BE by\n• Make sure the goods are safely loaded and transported\n• Together with you, your vehicle is the business card of our company – so you take care of its care and maintenance\n• Starting work between 3 pm and 5 pm is no problem for you\n• In your job you will work 50% as an employee envelope and 50% as a chauffeur\n\nWhy do you succeed?\n• You have the driving licence category BE\n• Ideally, you will bring experience in logistics or transport and have a truck ID.\n• You work reliably, independently and like to participate\n• Different working times as well as evening and night work are no problem for you\n• Flexibility is a matter of course for you - you are also ready to make holidays for the day shift\n• You can express yourself well orally and in writing in German\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times – modern and safe work equipment is available to you\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
+        "de": "Nachttransport ist ein Geschäft für Anpacker – und Anpackerinnen. Natürlich gehört auch Gefühl dazu: Wir kennen nämlich die Sensibilität von Gütern und von Nachbarn. Mit 100% Engagement und hochkarätigen Lösungen fährt bei uns jeder Auftrag unter einem guten Stern. So gehört die Nacht unseren Kunden. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du sorgst für einen reibungslosen Warenumschlag und unterstützt beim Be- und Entladen von Fahrzeugen\n• Du scannst und erfasst Sendungen und stellst sicher, dass diese korrekt verarbeitet werden\n• Anhand der Einsatzplanung führst du Abholungen, Zustellungen und Sonderfahrten mit Fahrzeugen der Kategorie B bzw. BE durch\n• Du stellst sicher, dass die Ware sicher verladen und transportiert wird\n• Dein Fahrzeug ist zusammen mit dir die Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n• Ein Arbeitsbeginn zwischen 15 und 17 Uhr ist für dich kein Problem\n• In deiner Tätigkeit wirst du zu 50% als Mitarbeiter Umschlag und zu 50% als Chauffeur tätig sein\n\nWeshalb es dir gelingt\n• Du besitzt den Führerausweis Kategorie BE\n• Idealerweise bringst du Erfahrung in der Logistik oder im Transport mit und verfügst über einen Staplerausweis\n• Du arbeitest zuverlässig, selbstständig und packst gerne mit an\n• Unterschiedliche Einsatzzeiten sowie Abend- und Nachtarbeit sind für dich kein Problem\n• Flexibilität ist für dich selbstverständlich - du bist auch bereit Ferienablös für die Tagesschicht zu machen\n• Du kannst dich mündlich und schriftlich gut in deutscher Sprache ausdrücken\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
         "fr": "Le transport de nuit est une entreprise pour Anpacker – et Anpackerinnen. Bien sûr, il y a aussi le sentiment : nous connaissons la sensibilité des biens et des voisins. Avec un engagement à 100% et des solutions de haut niveau, chaque commande voyage sous une bonne étoile. La nuit appartient donc à nos clients. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous veillez à la bonne manipulation des marchandises et aidez au chargement et au déchargement des véhicules\n• Vous numérisez et enregistrez les expéditions et assurez-vous qu'elles sont traitées correctement\n• Selon la planification de l'affectation, vous effectuerez des ramassage, des livraisons et des voyages spéciaux avec des véhicules de catégorie B ou C. BE par\n• Assurez-vous que les marchandises sont chargées et transportées en toute sécurité\n• Avec vous, votre véhicule est la carte de visite de notre entreprise.\n• Commencer le travail entre 15h et 17h n'est pas un problème pour vous\n• Dans votre travail, vous travaillerez 50% comme enveloppe d'employé et 50% comme chauffeur\n\nPourquoi tu réussis ?\n• Vous avez la catégorie de permis de conduire BE\n• Idéalement, vous apporterez de l'expérience dans la logistique ou le transport et avez une carte d'identité de camion.\n• Vous travaillez de façon fiable, indépendante et aimez participer\n• Différents temps de travail ainsi que le travail du soir et de nuit ne sont pas un problème pour vous\n• La flexibilité est une question bien sûr pour vous - vous êtes également prêt à faire des vacances pour le poste de jour\n• Vous pouvez vous exprimer bien oralement et par écrit en allemand\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous nous tenons au courant des temps – des équipements de travail modernes et sûrs sont à votre disposition\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
+      "needsRetranslation": false,
       "location": "Kölliken",
       "canton": "AG",
       "url": "https://live.solique.ch/planzer/job/details/4081058",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:55.883Z",
+      "crawledAt": "2026-10-10T21:17:03.197Z",
       "addressLocality": "Kölliken",
       "addressRegion": "AG",
       "streetAddress": "Hardfeld 3",
@@ -779,9 +785,11 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4081058",
       "externalId": "4081058",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
+        "collaboratore-trice-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
@@ -794,10 +802,6 @@
           "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken",
-        "collaboratore-trice-umschlag-chauffeur-kat-b-be-m-w-d-planzer-kolliken"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -877,7 +881,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "planzer-37c0b68631d1",
@@ -950,303 +954,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "planzer-d434f4713149",
-      "slug": "collaboratore-trice-unterhalt-e-fuhrpark-m-w-d-planzer-kallnach",
-      "slugByLocale": {
-        "it": "collaboratore-trice-unterhalt-e-fuhrpark-m-w-d-planzer-kallnach",
-        "en": "employees-maintenance-and-fleet-m-f-d-planzer-kallnach",
-        "de": "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach",
-        "fr": "employes-entretien-et-flotte-h-f-d-planzer-kallnach"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Mitarbeiter Unterhalt und Fuhrpark (m/w/d)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Unterhalt e Fuhrpark (m/w/d)",
-        "en": "Employees Maintenance and fleet (m/f/d)",
-        "de": "Mitarbeiter Unterhalt und Fuhrpark (m/w/d)",
-        "fr": "Employés Entretien et flotte (h/f/d)"
-      },
-      "description": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du sorgst dafür, dass unsere Förderband- und Lagerungsanlage zuverlässig läuft und morgens alles bereit ist\n• Bei der Förderbandanlage ist dein technisches Know-how gefragt – Unterhalt, Reinigung und das Beheben von Störungen gehören dazu\n• Ab 01:30 Uhr geht’s los: Fahrzeuge umparkieren, Schäden dokumentieren und kleinere Reparaturen direkt selbst erledigen\n• Bevor der Betrieb startet, kümmerst du dich um die wiederkehrenden Unterhaltsarbeiten an unserer hochmodernen Lagerungsanlage\n• Abwechslung ist garantiert: Mithilfe bei Regalumbauten, Reinigungsarbeiten mit der Maschine sowie verschiedene Reinigungsarbeiten im Innen- und Aussenbereich, auch die Toiletten müssen sauber sein\n• Mit deinem Einsatz hältst du unseren Betrieb am Laufen und sorgst dafür, dass Anlagen, Fahrzeuge und Infrastruktur in Schuss bleiben\n• Dein Arbeitstag beginnt um 01:30 Uhr und endet um ca. 10:30 Uhr, inklusive einer Stunde Pause. In der Regel Montag bis Freitag, kann aber auch einmal ein Samstag sein\n\nWeshalb es dir gelingt\n• Du verfügst über eine handwerkliche Grundausbildung und hast Freude an technischen und praktischen Aufgaben\n• Technisches Verständnis und idealerweise Erfahrung im Lesen von Schaltplänen\n• Kleinere Reparaturen, Fahrzeuge bewegen oder Flüssigkeiten nachfüllen? Kein Problem für dich\n• Selbstständiges Arbeiten liegt dir genauso wie die Zusammenarbeit im Team\n• Flexibilität und Verantwortungsbewusstsein gehören zu deinen Stärken\n• Die gängigen MS-Office-Programme beherrschst du\n• Du kannst dich mündlich wie schriftlich gut auf Deutsch ausdrücken - weitere Sprachkenntnisse sind von Vorteil\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Come azienda fortemente radicata in Zelanda, offriamo soluzioni complete di trasporto e stoccaggio e garantire la pulizia in più di 30 comunità con i nostri trasporti di rifiuti. Il nostro successo si basa su dipendenti motivati e infrastrutture moderne. Diventa parte del nostro team e modella il futuro della logistica!\n\nChe cosa si muove\n• Assicurarsi che il nostro nastro trasportatore e il sistema di stoccaggio funziona in modo affidabile e tutto è pronto al mattino\n• Il sistema di nastri trasportatori richiede il vostro know-how tecnico – Manutenzione, pulizia e riparazione di disturbi includono\n• A partire dalle ore 1:30: I veicoli cambiano il parcheggio, danneggiano i documenti e fanno riparazioni minori direttamente da soli\n• Prima dell'inizio dell'operazione, prendersi cura dei lavori di manutenzione ricorrenti sul nostro magazzino all'avanguardia\n• Varietà è garantita: assistenza con conversioni di scaffalatura, pulizia con la macchina e vari lavori di pulizia indoor e outdoor, anche i servizi igienici devono essere puliti\n• Con il vostro impegno, tenete le nostre operazioni in esecuzione e assicurate che impianti, veicoli e infrastrutture rimangano in funzione.\n• La tua giornata di lavoro inizia alle 01:30 e termina alle 10:30 circa, tra cui una pausa di un'ora. Di solito dal lunedì al venerdì, ma può anche essere un sabato\n\nPerché hai successo?\n• Hai un'artigianato di base e goditi compiti tecnici e pratici\n• La comprensione tecnica e l'esperienza ideale nella lettura degli schemi\n• Riparazioni minori, veicoli in movimento o liquidi di ricarica? Nessun problema per te\n• Lavorare in modo indipendente è altrettanto importante per voi come lavorare insieme in un team\n• Flessibilità e responsabilità sono tra i vostri punti di forza\n• I programmi comuni di MS Office si padroneggiano\n• Si può esprimere bene per via orale e per iscritto in tedesco - ulteriori competenze linguistiche sono benefiche\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attrezzature di lavoro moderne: Teniamo il passo con i tempi – attrezzature di lavoro moderne e sicure è a vostra disposizione\n• Parcheggio gratuito: Preparatevi per il parcheggio - con noi potete parcheggiare gratuitamente\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "As a firmly rooted company in Zealand, we offer comprehensive transport and storage solutions and ensure cleanliness in more than 30 communities with our waste transports. Our success is based on motivated employees and modern infrastructure. Become part of our team and shape the future of logistics!\n\nWhat you move\n• You ensure that our conveyor belt and storage system runs reliably and everything is ready in the morning\n• The conveyor belt system requires your technical know-how – Maintenance, cleaning and repair of disturbances include\n• Starting at 1:30 a.m.: Vehicles change parking, document damage and do minor repairs directly yourself\n• Before the operation starts, take care of the recurring maintenance work on our state-of-the-art storage facility\n• Variety is guaranteed: assistance with shelving conversions, cleaning work with the machine as well as various cleaning work indoors and outdoors, also the toilets must be clean\n• With your commitment, you keep our operations running and ensure that plants, vehicles and infrastructure remain in operation.\n• Your working day starts at 01:30 and ends at around 10:30, including an hour break. Usually Monday to Friday, but can also be a Saturday\n\nWhy do you succeed?\n• You have a basic craftsmanship and enjoy technical and practical tasks\n• Technical understanding and ideally experience in reading schematics\n• Minor repairs, moving vehicles or refilling liquids? No problem for you\n• Working independently is just as important to you as working together in a team\n• Flexibility and responsibility are among your strengths\n• The common MS Office programs you master\n• You can express yourself well orally and in writing in German - further language skills are beneficial\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times – modern and safe work equipment is available to you\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Als fest verwurzeltes Unternehmen im Seeland bieten wir umfassende Transport- und Lagerlösungen und sorgen mit unseren Abfalltransporten in über 30 Gemeinden für Sauberkeit. Unser Erfolg basiert auf motivierten Mitarbeitenden und moderner Infrastruktur. Werde Teil unseres Teams und gestalte die Zukunft der Logistik mit!\n\nWas du bewegst\n• Du sorgst dafür, dass unsere Förderband- und Lagerungsanlage zuverlässig läuft und morgens alles bereit ist\n• Bei der Förderbandanlage ist dein technisches Know-how gefragt – Unterhalt, Reinigung und das Beheben von Störungen gehören dazu\n• Ab 01:30 Uhr geht’s los: Fahrzeuge umparkieren, Schäden dokumentieren und kleinere Reparaturen direkt selbst erledigen\n• Bevor der Betrieb startet, kümmerst du dich um die wiederkehrenden Unterhaltsarbeiten an unserer hochmodernen Lagerungsanlage\n• Abwechslung ist garantiert: Mithilfe bei Regalumbauten, Reinigungsarbeiten mit der Maschine sowie verschiedene Reinigungsarbeiten im Innen- und Aussenbereich, auch die Toiletten müssen sauber sein\n• Mit deinem Einsatz hältst du unseren Betrieb am Laufen und sorgst dafür, dass Anlagen, Fahrzeuge und Infrastruktur in Schuss bleiben\n• Dein Arbeitstag beginnt um 01:30 Uhr und endet um ca. 10:30 Uhr, inklusive einer Stunde Pause. In der Regel Montag bis Freitag, kann aber auch einmal ein Samstag sein\n\nWeshalb es dir gelingt\n• Du verfügst über eine handwerkliche Grundausbildung und hast Freude an technischen und praktischen Aufgaben\n• Technisches Verständnis und idealerweise Erfahrung im Lesen von Schaltplänen\n• Kleinere Reparaturen, Fahrzeuge bewegen oder Flüssigkeiten nachfüllen? Kein Problem für dich\n• Selbstständiges Arbeiten liegt dir genauso wie die Zusammenarbeit im Team\n• Flexibilität und Verantwortungsbewusstsein gehören zu deinen Stärken\n• Die gängigen MS-Office-Programme beherrschst du\n• Du kannst dich mündlich wie schriftlich gut auf Deutsch ausdrücken - weitere Sprachkenntnisse sind von Vorteil\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Kostenfreie Parkplätze: Auf die Parkplätze fertig los - bei uns kannst du gratis parkieren\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "En tant qu'entreprise implantée en Zélande, nous proposons des solutions de transport et de stockage complètes et nous assurons la propreté dans plus de 30 communautés avec nos transports de déchets. Notre succès repose sur des employés motivés et des infrastructures modernes. Faites partie de notre équipe et façonnez l'avenir de la logistique!\n\nCe que tu bouges\n• Vous assurez que notre tapis roulant et système de stockage fonctionne de manière fiable et que tout est prêt le matin\n• Le système de bandes transporteuses nécessite votre savoir-faire technique – Entretien, nettoyage et réparation des perturbations\n• À partir de 1 h 30: Les véhicules changent de stationnement, documentent les dommages et font des réparations mineures directement vous-même\n• Avant le début de l'opération, prenez soin des travaux d'entretien récurrents de notre installation de stockage de pointe\n• La variété est garantie: assistance pour les conversions de rayonnage, nettoyage avec la machine ainsi que divers travaux de nettoyage à l'intérieur et à l'extérieur, les toilettes doivent également être propres\n• Avec votre engagement, vous maintenez nos opérations en marche et vous assurez que les installations, les véhicules et l'infrastructure restent en fonctionnement.\n• Votre journée de travail commence à 1 h 30 et se termine vers 10 h 30, y compris une pause d'une heure. Habituellement du lundi au vendredi, mais peut aussi être un samedi\n\nPourquoi tu réussis ?\n• Vous avez un savoir-faire de base et profitez de tâches techniques et pratiques\n• Compréhension technique et expérience idéale dans les schémas de lecture\n• Réparations mineures, déplacements de véhicules ou remplissage de liquides? Pas de problème pour toi\n• Travailler indépendamment est tout aussi important pour vous que de travailler ensemble dans une équipe\n• La flexibilité et la responsabilité font partie de vos forces\n• Les programmes communs de MS Office que vous maîtrisez\n• Vous pouvez vous exprimer bien oralement et par écrit en allemand - d'autres compétences linguistiques sont bénéfiques\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous nous tenons au courant des temps – des équipements de travail modernes et sûrs sont à votre disposition\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Kallnach",
-      "canton": "BE",
-      "url": "https://live.solique.ch/planzer/job/details/4081087",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:20:01.649Z",
-      "addressLocality": "Kallnach",
-      "addressRegion": "BE",
-      "streetAddress": "Brühlgasse 9",
-      "postalCode": "3283",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4081087",
-      "externalId": "4081087",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
-        ]
-      },
-      "firstSeenAt": "2026-10-06T21:16:01.613Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-e5d224a9f723",
-      "slug": "agente-logistico-m-f-d-planzer-harkingen",
-      "slugByLocale": {
-        "it": "agente-logistico-m-f-d-planzer-harkingen",
-        "en": "logistic-agent-m-f-d-planzer-harkingen",
-        "de": "sachbearbeiter-logistik-m-w-d-planzer-harkingen",
-        "fr": "agent-logistique-h-f-d-planzer-harkingen"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Sachbearbeiter Logistik (m/w/d)",
-      "titleByLocale": {
-        "it": "Agente logistico (m/f/d)",
-        "en": "Logistic agent (m/f/d)",
-        "de": "Sachbearbeiter Logistik (m/w/d)",
-        "fr": "Agent logistique (h/f/d)"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Als unser neues administratives Multitalent bist du vielseitig einsetzbar, egal ob Mandatenanfragen und Kundenreklamationen bearbeiten oder das Erledigen der täglichen Korrespondenz - du meisterst alle Aufgaben mit Leichtigkeit\n• Die Pflege und Aktualisierung der Stammdaten von Produktionsartikeln sowie das Auswerten von Logistikkennzahlen gehören ebenfall zu deinem Aufgabengebiet\n• Als Ausgleich arbeitest du aktiv in der Kommissionierung und im Tagesgeschäft mit\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du hältst das Lager stets in Schuss und bist offen für zusätzliche Aufgaben, um einen reibungslosen Ablauf zu gewährleisten\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ und bringst mindestend 1,5 Jahre Berufserfahrung in der Administration mit\n• Das tägliche Anwenden von MS-Office Tools wie Excel, Word oder Outlook bereitet dir keinerlei Mühe\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Hohes Dienstleistungsdenken und selbstständiges Arbeiten sind für dich eine Selbstverständlichkeit\n• Dein Zahlenflair, deine Flexibilität und Teamfähigkeit sowie dein Organisationstalent zeichnen dich aus\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Come il nostro nuovo multi-talent amministrativo, sei versatile, sia che tu gestisca richieste di mandato e reclami dei clienti o gestisca la corrispondenza quotidiana - padroneggi tutte le attività con facilità.\n• Mantenere e aggiornare i dati master degli articoli di produzione, nonché valutare le cifre chiave della logistica fanno parte anche del vostro settore di responsabilità.\n• Come compensazione si lavora attivamente nella raccolta e attività quotidiana\n• Le merci che si spostano principalmente con trasportatori da A a B\n• Si mantiene sempre il campo in controllo e sono aperti per ulteriori compiti per garantire un processo regolare\n\nPerché hai successo?\n• Hai completato la formazione professionale come EFZ logistica e portare almeno 1,5 anni di esperienza professionale in amministrazione\n• Utilizzando strumenti MS-Office come Excel, Word o Outlook su base giornaliera non ti disturberà.\n• Orale e scritto si può certamente esprimere in tedesco\n• Il pensiero di alto servizio e il lavoro indipendente sono una questione naturalmente per voi\n• Il tuo tocco di numero, la tua flessibilità e il tuo lavoro di squadra, così come il tuo talento organizzativo ti distingue\n• Sei già un orgoglioso proprietario di una cartolina\n\nI tuoi vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Cultura della famiglia: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Negozio personale interno: Approfitta dei prezzi scontati nel nostro negozio personale interno\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• As our new administrative multi-talent, you are versatile, whether handling mandate requests and customer complaints or handling daily correspondence - you master all tasks with ease.\n• Maintaining and updating the master data of production articles as well as evaluating logistics key figures are also part of your area of responsibility.\n• As compensation you work actively in the picking and daily business\n• The goods you move mainly with floor conveyors from A to B\n• You always keep the camp in check and are open for additional tasks to ensure a smooth process\n\nWhy do you succeed?\n• You have completed vocational training as a logistician EFZ and bring at least 1.5 years of professional experience in administration\n• Using MS-Office tools such as Excel, Word or Outlook on a daily basis won’t bother you.\n• Oral and written you can certainly express yourself in German\n• High service thinking and independent work are a matter of course for you\n• Your number flair, your flexibility and teamwork as well as your organizational talent set you apart\n• You are already a proud owner of a forklift card\n\nYour Benefits\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Internal personal store: Benefit from discounted prices in our internal personal store\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Als unser neues administratives Multitalent bist du vielseitig einsetzbar, egal ob Mandatenanfragen und Kundenreklamationen bearbeiten oder das Erledigen der täglichen Korrespondenz - du meisterst alle Aufgaben mit Leichtigkeit\n• Die Pflege und Aktualisierung der Stammdaten von Produktionsartikeln sowie das Auswerten von Logistikkennzahlen gehören ebenfall zu deinem Aufgabengebiet\n• Als Ausgleich arbeitest du aktiv in der Kommissionierung und im Tagesgeschäft mit\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du hältst das Lager stets in Schuss und bist offen für zusätzliche Aufgaben, um einen reibungslosen Ablauf zu gewährleisten\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ und bringst mindestend 1,5 Jahre Berufserfahrung in der Administration mit\n• Das tägliche Anwenden von MS-Office Tools wie Excel, Word oder Outlook bereitet dir keinerlei Mühe\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Hohes Dienstleistungsdenken und selbstständiges Arbeiten sind für dich eine Selbstverständlichkeit\n• Dein Zahlenflair, deine Flexibilität und Teamfähigkeit sowie dein Organisationstalent zeichnen dich aus\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous apprécions les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• En tant que notre nouveau multi-talent administratif, vous êtes polyvalent, que vous traitiez les demandes de mandat et les plaintes des clients ou que vous traitiez la correspondance quotidienne - vous maîtrisez facilement toutes les tâches.\n• Le maintien et la mise à jour des données de base des articles de production ainsi que l'évaluation des chiffres clés de la logistique font également partie de votre domaine de responsabilité.\n• Comme rémunération vous travaillez activement dans la cueillette et les affaires quotidiennes\n• Les marchandises que vous déplacez principalement avec des convoyeurs au sol de A à B\n• Vous gardez toujours le camp sous contrôle et êtes ouvert pour des tâches supplémentaires pour assurer un processus en douceur\n\nPourquoi tu réussis ?\n• Vous avez suivi une formation professionnelle en tant que logisticien EFZ et apportez au moins 1,5 ans d'expérience professionnelle en administration\n• Utiliser des outils MS-Office comme Excel, Word ou Outlook sur une base quotidienne ne vous dérange pas.\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• La pensée de service élevé et le travail indépendant sont une question de bien sûr pour vous\n• Votre numéro, votre flexibilité et votre travail d'équipe ainsi que votre talent organisationnel vous distinguent\n• Vous êtes déjà un fier propriétaire d'une carte élévateur\n\nVos avantages\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Magasin personnel interne: Bénéficiez de prix réduits dans notre magasin personnel interne\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Härkingen",
-      "canton": "SO",
-      "url": "https://live.solique.ch/planzer/job/details/4081972",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:20:00.920Z",
-      "addressLocality": "Härkingen",
-      "addressRegion": "SO",
-      "streetAddress": "Pfannenstiel 12",
-      "postalCode": "4624",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4081972",
-      "externalId": "4081972",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T21:21:49.582Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-54cdb5212251",
-      "slug": "addetto-a-alla-logistica-m-w-d-planzer-harkingen",
-      "slugByLocale": {
-        "it": "addetto-a-alla-logistica-m-w-d-planzer-harkingen",
-        "en": "employee-logistics-m-f-d-planzer-harkingen",
-        "de": "mitarbeiter-logistik-m-w-d-planzer-harkingen",
-        "fr": "logistique-des-employes-h-f-d-planzer-harkingen"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Mitarbeiter Logistik (m/w/d)",
-      "titleByLocale": {
-        "it": "Addetto/a alla logistica (m/w/d)",
-        "en": "Employee Logistics (m/f/d)",
-        "de": "Mitarbeiter Logistik (m/w/d)",
-        "fr": "Logistique des employés (h/f/d)"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du arbeitest aktiv in der Kommissionierung mit\n• Chaos? Nicht mit dir! Du sorgst dafür, dass die Ware sicher und schnell auf dem richtigen Lagerplatz landet\n• Mit deiner zuverlässigen und termingerechten Arbeitsweise bist du verantwortlich für die tagfertige Bearbeitung der Kundenaufträge\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du achtest auf die Einhaltung der Verpackungs-, Versand- und Etikettiervorschriften\n• Zusammen mit deinem Team bist du für die Bestandesinventur zuständig\n• Du hältst das Lager stets in Schuss und bist offen für zusätzliche Aufgaben, um einen reibungslosen Ablauf zu gewährleisten\n• Deine Arbeitszeiten liegen zwischen 09:00 und 19:00 Uhr\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst mindestens 5 Jahre Berufserfahrung in der Logistik mit\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Sei attivamente coinvolto nella raccolta\n• Caos? Non con te! Assicurarsi che le merci atterrano in modo sicuro e veloce nello spazio di archiviazione giusto\n• Con il vostro metodo di lavoro affidabile e tempestivo, siete responsabili dell'elaborazione quotidiana degli ordini del cliente\n• Le merci che si spostano principalmente con trasportatori da A a B\n• Si presta attenzione al rispetto delle norme di imballaggio, spedizione e etichettatura\n• Insieme al vostro team, siete responsabili dell'inventario\n• Si mantiene sempre il campo in controllo e sono aperti per ulteriori compiti per garantire un processo regolare\n• Le ore di lavoro sono dalle 09:00 alle 19:00\n\nPerché hai successo?\n• Hai completato la formazione professionale come EFZ logistica o hai almeno 5 anni di esperienza professionale nella logistica\n• Sei già un orgoglioso proprietario di una cartolina\n• Orale e scritto si può certamente esprimere in tedesco\n• Affidabilità, accuratezza e rapidità di adattamento a nuove sfide\n• Anche se diventa stressante, rimani fresco e tenere traccia.\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Negozio personale interno: Approfitta dei prezzi scontati nel nostro negozio personale interno\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• You are actively involved in picking\n• Chaos? Not with you! You ensure that the goods land safely and quickly in the right storage space\n• With your reliable and timely working method, you are responsible for the day-to-day processing of customer orders\n• The goods you move mainly with floor conveyors from A to B\n• You pay attention to compliance with packaging, shipping and labelling regulations\n• Together with your team, you are responsible for inventory\n• You always keep the camp in check and are open for additional tasks to ensure a smooth process\n• Your working hours are between 09:00 and 19:00\n\nWhy do you succeed?\n• You have completed vocational training as a logistician EFZ or have at least 5 years of professional experience in logistics\n• You are already a proud owner of a forklift card\n• Oral and written you can certainly express yourself in German\n• Reliability, accuracy and rapid adaptability to new challenges set you apart\n• Even if it gets stressful, you stay cool and keep track.\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Further education and development opportunities: With us you can develop yourself - we promote and challenge talents\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Internal personal store: Benefit from discounted prices in our internal personal store\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Du arbeitest aktiv in der Kommissionierung mit\n• Chaos? Nicht mit dir! Du sorgst dafür, dass die Ware sicher und schnell auf dem richtigen Lagerplatz landet\n• Mit deiner zuverlässigen und termingerechten Arbeitsweise bist du verantwortlich für die tagfertige Bearbeitung der Kundenaufträge\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du achtest auf die Einhaltung der Verpackungs-, Versand- und Etikettiervorschriften\n• Zusammen mit deinem Team bist du für die Bestandesinventur zuständig\n• Du hältst das Lager stets in Schuss und bist offen für zusätzliche Aufgaben, um einen reibungslosen Ablauf zu gewährleisten\n• Deine Arbeitszeiten liegen zwischen 09:00 und 19:00 Uhr\n\nWeshalb es dir gelingt\n• Du verfügst über eine abgeschlossene Berufsausbildung als Logistiker EFZ oder bringst mindestens 5 Jahre Berufserfahrung in der Logistik mit\n• Du bist bereits stolzer Besitzer eines Staplerausweises\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Zuverlässigkeit, Genauigkeit und eine schnelle Anpassungsfähigkeit an neue Herausforderungen zeichnen dich aus\n• Auch wenn's mal stressig wird, bleibst du cool und behältst den Überblick\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Interner Personalladen: Profitiere in unserem internen Personalladen von vergünstigten Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous apprécions les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Vous êtes activement impliqué dans la cueillette\n• Chaos ? Pas avec toi ! Vous assurez que les marchandises atterrissent en toute sécurité et rapidement dans le bon espace de stockage\n• Avec votre méthode de travail fiable et opportune, vous êtes responsable du traitement quotidien des commandes des clients\n• Les marchandises que vous déplacez principalement avec des convoyeurs au sol de A à B\n• Vous prêtez attention au respect des règlements d'emballage, d'expédition et d'étiquetage\n• Avec votre équipe, vous êtes responsable de l'inventaire\n• Vous gardez toujours le camp sous contrôle et êtes ouvert pour des tâches supplémentaires pour assurer un processus en douceur\n• Vos heures de travail sont entre 09:00 et 19:00\n\nPourquoi tu réussis ?\n• Vous avez suivi une formation professionnelle en tant que logisticien EFZ ou avez au moins 5 ans d'expérience professionnelle en logistique\n• Vous êtes déjà un fier propriétaire d'une carte élévateur\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• La fiabilité, la précision et l'adaptabilité rapide aux nouveaux défis vous distinguent\n• Même si ça devient stressant, tu restes calme et tu gardes la trace.\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilités d'éducation et de développement supplémentaires: Avec nous vous pouvez vous développer - nous promouvons et défions les talents\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Magasin personnel interne: Bénéficiez de prix réduits dans notre magasin personnel interne\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Härkingen",
-      "canton": "SO",
-      "url": "https://live.solique.ch/planzer/job/details/4081969",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:20:00.193Z",
-      "addressLocality": "Härkingen",
-      "addressRegion": "SO",
-      "streetAddress": "Pfannenstiel 12",
-      "postalCode": "4624",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4081969",
-      "externalId": "4081969",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-logistik-m-w-d-planzer-harkingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T21:21:48.772Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-6fbc4dedd2ce",
-      "slug": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-      "slugByLocale": {
-        "it": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-        "en": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-        "de": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon",
-        "fr": "it-software-engineer-frontend-wms-m-w-d-planzer-dietikon"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "IT Software Engineer Frontend WMS (m/w/d)",
-      "titleByLocale": {
-        "it": "IT Software Ingegnere Frontend WMS (m/w/d)",
-        "en": "IT Software Engineer Frontend WMS (m/f/d)",
-        "de": "IT Software Ingenieur Frontend WMS (m/w/d)",
-        "fr": "IT Software Ingénieur Frontend WMS (m/w/d)"
-      },
-      "description": "Das Leben ist zu kurz für schlechte Software – wir suchen kluge Köpfe! Werde Teil unseres 70-köpfigen IT-Teams voller Energie, Kreativität und Teamgeist.Unser Team besteht aus innovativen Business-Analysten, crazy Programmierern, hilfsbereiten Supportern und vielen anderen arbeitsfreudigen Mitarbeitenden. Bist du bereit, gemeinsam Neues zu bewegen? Dann bewirb dich jetzt!\n\nWas du bewegst\n• Du bist Teil der Transformation des aktuellen Warehouse Management System (WMS) auf eine neue und moderne Plattform\n• Gemeinsam mit dem UI/UX Design sowie den operativen Fachbereichen entwickelst du moderne Benutzeroberflächen für Web- und Mobile-Anwendungen, die im Lagerlogistikalltag einfach und intuitiv bedienbar sind\n• Mit dem modernen Framework Angular bzw. der Programmiersprache TypeScript setzt du Design-Vorgaben in performante Anwendungen um und sorgst für eine reibungslose Integration mit unserem Backend (.NET)\n• Benutzerfreundlichkeit und Performance hast du stets im Blick und optimierst sie kontinuierlich\n• Dokumentationen, Tests und Code-Reviews sind für dich selbstverständlich, weil du Wert auf Qualität und Transparenz legst\n• Deine Ideen teilst du aktiv in agilen Meetings und prägst damit das Gesicht des neuen WMS\n\nWeshalb es dir gelingt\n• Deine Informatik- oder Mediamatik-Ausbildung (EFZ, HF, FH oder vergleichbar) bildet die Grundlage für dein Können\n• Angular, HTML, TypeScript, beherrschst du souverän und setzt sie gezielt ein\n• Responsive Design und die Entwicklung für mobile Endgeräte sind dir vertraut\n• Kreativität, Empathie und ein Gespür für Benutzerfreundlichkeit zeichnen dich aus\n• Du bist teamfähig, kommunikationsstark und lernst gerne dazu\n• Du interessierst dich für Lagerlogistikprozesse und deren Digitalisierung\n• Du verfügst über sehr gute Deutschkenntnisse (min. C1) und rundest dein Profil mit soliden Englischkenntnissen ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Möglichkeit für Homeoffice: Wir gehen mit der Zeit - geniesse bei uns den Vorteil von Homeoffice\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "La vita è troppo breve per il software cattivo – stiamo cercando menti intelligenti! Entra a far parte del nostro team IT di 70 anni pieno di energia, creatività e spirito di squadra. Il nostro team è composto da analisti aziendali innovativi, programmatori folli, sostenitori utili e molti altri dipendenti che amano il lavoro. Siete pronti a fare la differenza insieme? Quindi applicare ora!\n\nChe cosa si muove\n• Sei parte della trasformazione dell'attuale sistema di gestione del magazzino (WMS) in una nuova e moderna piattaforma\n• Insieme al design UI/UX e ai dipartimenti operativi, svilupperai moderne interfacce utente per applicazioni web e mobili che sono facili e intuitivi da usare nella logistica di magazzino quotidiana.\n• Con il moderno framework Angular o il linguaggio di programmazione TypeScript, si implementano specifiche di progettazione in applicazioni ad alte prestazioni e garantiscono un'integrazione fluida con il nostro backend (.NET)\n• Hai sempre un occhio sulla facilità d'uso e le prestazioni e ottimizzarlo continuamente\n• La documentazione, i test e le recensioni dei codici sono una questione di certo per voi perché apprezzi la qualità e la trasparenza\n• Condividi attivamente le tue idee in incontri agili e quindi modella il volto del nuovo WMS\n\nPerché hai successo?\n• La vostra scienza informatica o l'istruzione media (EFZ, HF, FH o simili) costituisce la base per le vostre competenze\n• Angular, HTML, TypeScript, master e utilizzarli specificamente\n• Design e sviluppo reattivo per dispositivi mobili sono familiari a voi\n• Creatività, empatia e un senso di user-friendliness ti hanno separato\n• Sei in grado di lavorare di squadra, forte nella comunicazione e godere di imparare\n• Siete interessati ai processi logistici del magazzino e alla loro digitalizzazione\n• Hai una buona conoscenza del tedesco (min. C1) e completa il tuo profilo con solida conoscenza dell'inglese\n\nI tuoi vantaggi\n• Ulteriori opportunità di formazione e sviluppo: Con noi si può sviluppare - promuoviamo e sfidare i talenti\n• Cultura familiare: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Opportunità per l'ufficio di casa: andiamo con i tempi - godere del vantaggio dell'ufficio di casa\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Life is too short for bad software – we are looking for smart minds! Become part of our 70-strong IT team full of energy, creativity and team spirit.Our team consists of innovative business analysts, crazy programmers, helpful supporters and many other work-loving employees. Are you ready to make a difference together? Then apply now!\n\nWhat you move\n• You are part of the transformation of the current Warehouse Management System (WMS) to a new and modern platform\n• Together with the UI/UX design and the operational departments, you will develop modern user interfaces for web and mobile applications that are easy and intuitive to use in everyday warehouse logistics.\n• With the modern framework Angular or the programming language TypeScript, you implement design specifications in high-performance applications and ensure smooth integration with our backend (.NET)\n• You always have an eye on user-friendliness and performance and optimize it continuously\n• Documentation, tests and code reviews are a matter of course for you because you value quality and transparency\n• You actively share your ideas in agile meetings and thus shape the face of the new WMS\n\nWhy do you succeed?\n• Your computer science or media education (EFZ, HF, FH or comparable) forms the basis for your skills\n• Angular, HTML, TypeScript, you master and use them specifically\n• Responsive design and development for mobile devices are familiar to you\n• Creativity, empathy and a sense of user-friendliness set you apart\n• You are capable of teamwork, strong in communication and enjoy learning\n• You are interested in warehouse logistics processes and their digitalization\n• You have very good knowledge of German (min. C1) and round off your profile with solid knowledge of English\n\nYour benefits\n• Further education and development opportunities: With us you can develop - we promote and challenge talents\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Opportunity for home office: We go with the times - enjoy the advantage of home office\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Das Leben ist zu kurz für schlechte Software – wir suchen kluge Köpfe! Werde Teil unseres 70-köpfigen IT-Teams voller Energie, Kreativität und Teamgeist.Unser Team besteht aus innovativen Business-Analysten, crazy Programmierern, hilfsbereiten Supportern und vielen anderen arbeitsfreudigen Mitarbeitenden. Bist du bereit, gemeinsam Neues zu bewegen? Dann bewirb dich jetzt!\n\nWas du bewegst\n• Du bist Teil der Transformation des aktuellen Warehouse Management System (WMS) auf eine neue und moderne Plattform\n• Gemeinsam mit dem UI/UX Design sowie den operativen Fachbereichen entwickelst du moderne Benutzeroberflächen für Web- und Mobile-Anwendungen, die im Lagerlogistikalltag einfach und intuitiv bedienbar sind\n• Mit dem modernen Framework Angular bzw. der Programmiersprache TypeScript setzt du Design-Vorgaben in performante Anwendungen um und sorgst für eine reibungslose Integration mit unserem Backend (.NET)\n• Benutzerfreundlichkeit und Performance hast du stets im Blick und optimierst sie kontinuierlich\n• Dokumentationen, Tests und Code-Reviews sind für dich selbstverständlich, weil du Wert auf Qualität und Transparenz legst\n• Deine Ideen teilst du aktiv in agilen Meetings und prägst damit das Gesicht des neuen WMS\n\nWeshalb es dir gelingt\n• Deine Informatik- oder Mediamatik-Ausbildung (EFZ, HF, FH oder vergleichbar) bildet die Grundlage für dein Können\n• Angular, HTML, TypeScript, beherrschst du souverän und setzt sie gezielt ein\n• Responsive Design und die Entwicklung für mobile Endgeräte sind dir vertraut\n• Kreativität, Empathie und ein Gespür für Benutzerfreundlichkeit zeichnen dich aus\n• Du bist teamfähig, kommunikationsstark und lernst gerne dazu\n• Du interessierst dich für Lagerlogistikprozesse und deren Digitalisierung\n• Du verfügst über sehr gute Deutschkenntnisse (min. C1) und rundest dein Profil mit soliden Englischkenntnissen ab\n\nDeine Benefits\n• Weiterbildungs- und Entwicklungsmöglichkeiten: Bei uns kannst du dich entwickeln - wir fördern und fordern Talente\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Möglichkeit für Homeoffice: Wir gehen mit der Zeit - geniesse bei uns den Vorteil von Homeoffice\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "La vie est trop courte pour les mauvais logiciels – nous cherchons des esprits intelligents! Faites partie de notre équipe informatique de 70 personnes pleine d'énergie, de créativité et d'esprit d'équipe. Notre équipe est composée d'analystes d'affaires innovants, de programmeurs fous, de supporters serviables et de nombreux autres employés épris de travail. Êtes-vous prêt à faire la différence ensemble ? Alors appliquez maintenant !\n\nCe que tu bouges\n• Vous participez à la transformation du système actuel de gestion des entrepôts (WMS) en une nouvelle plateforme moderne\n• Avec la conception de l'UI/UX et les services opérationnels, vous développerez des interfaces utilisateur modernes pour les applications web et mobiles qui sont faciles et intuitives à utiliser dans la logistique d'entrepôt quotidienne.\n• Avec le cadre moderne Angular ou le langage de programmation TypeScript, vous implémentez les spécifications de conception dans des applications de haute performance et vous assurez une intégration en douceur avec notre moteur (.NET)\n• Vous avez toujours un œil sur la convivialité et la performance et l'optimiser continuellement\n• La documentation, les tests et les avis de code sont une question bien sûr pour vous car vous valorisez la qualité et la transparence\n• Vous partagez activement vos idées dans des réunions agiles et façonnez ainsi le visage du nouveau WMS\n\nPourquoi tu réussis ?\n• Votre formation en informatique ou en médias (EFZ, HF, FH ou comparable) constitue la base de vos compétences\n• Angulaire, HTML, TypeScript, vous maîtrisez et les utilisez spécifiquement\n• Conception et développement réactifs pour les appareils mobiles vous sont familiers\n• Créativité, empathie et un sentiment de convivialité vous distinguent\n• Vous êtes capable de travailler en équipe, forte dans la communication et apprécier l'apprentissage\n• Vous êtes intéressé par les processus logistiques d'entrepôt et leur numérisation\n• Vous avez une très bonne connaissance de l'allemand (min. C1) et compléter votre profil avec une connaissance solide de l'anglais\n\nVos avantages\n• Possibilités de formation continue et de développement: Avec nous vous pouvez développer - nous promouvons et défions les talents\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Possibilité pour le bureau à domicile: Nous allons avec le temps - profiter de l'avantage du bureau à domicile\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, l'utilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/planzer/job/details/4079533",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T09:19:59.466Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Lerzenstrasse 14",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4079533",
-      "externalId": "4079533",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
           "unitText": "YEAR"
         }
       },

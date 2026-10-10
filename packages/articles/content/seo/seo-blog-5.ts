@@ -101957,7 +101957,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-fischiava-treno-gorla': {
     title: 'Fischiava il treno: festa ferroviaria a Gorla Minore',
-    description: 'Domenica 11 ottobre 2026 a Gorla Minore',
+    description: 'Fischiava il treno torna a Gorla Minore l’11 ottobre: pranzo, trenini e giochi alla vecchia stazione; la festa si svolge solo con bel tempo.',
     keywords: 'frontalieri, ticino, svizzera, italia, fischiava, treno, festa, ferroviaria',
     ogTitle: 'Gorla Minore: festa per la storia ferroviaria',
     ogDescription: 'Domenica 11 ottobre 2026 a Gorla Minore',
@@ -102025,7 +102025,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-monte-olimpino-treni-weekend': {
     title: 'Treni Como-Svizzera: 4 weekend di chiusura nel 2026',
-    description: 'Quattro weekend di chiusura tra ottobre e novembre 2026',
+    description: 'Quattro weekend di chiusura sulla RE80 tra Como e la Svizzera: stop da venerdì alle 20:20 a lunedì alle 04:20 e coincidenza S11 a Cucciago.',
     keywords: 'frontalieri, ticino, svizzera, italia, treni, como-svizzera, weekend, chiusura',
     ogTitle: 'Monte Olimpino 1: chiusure ferroviarie nel 2026',
     ogDescription: 'Quattro weekend di chiusura tra ottobre e novembre 2026',
@@ -102098,7 +102098,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-domodossola-arresto-hashish-stazione': {
     title: 'Domodossola: arresto per chilo di hashish nel bagaglio',
-    description: 'Fermata alla stazione internazionale di Domodossola',
+    description: 'Alla stazione internazionale di Domodossola è stato fermato un passeggero arrivato da Milano: nel bagaglio aveva un chilo di hashish diviso in dieci panetti.',
     keywords: 'frontalieri, ticino, svizzera, italia, domodossola, arresto, chilo, hashish',
     ogTitle: 'Domodossola: arresto per chilo di hashish nel bagaglio',
     ogDescription: 'Fermata alla stazione internazionale di Domodossola',
@@ -102137,7 +102137,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-petizione-recupero-carovita-ticino': {
     title: 'Petizione sindacati per recupero carovati in Ticino',
-    description: 'OCST, VPOD e SIT chiedono il recupero del carovita.',
+    description: 'OCST, VPOD e SIT chiedono il recupero del carovita: rincaro dell’8,5% dal 2020, salari adeguati del 3% e proposta cantonale allo 0,25% per il 2027.',
     keywords: 'frontalieri, ticino, svizzera, italia, petizione, sindacati, recupero, carovati',
     ogTitle: 'Petizione sindacati per recupero carovati in Ticino',
     ogDescription: 'OCST, VPOD e SIT chiedono il recupero del carovita.',
@@ -102176,7 +102176,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-treno-foliage-locarno-domodossola': {
     title: 'Treno del Foliage: Locarno-Domodossola dal 10 ottobre',
-    description: 'Dal 10 ottobre al 15 novembre 2026',
+    description: 'Il Treno del Foliage collega Locarno e Domodossola dal 10 ottobre al 15 novembre: 52 km, quasi due ore per tratta e biglietti validi uno o due giorni.',
     keywords: 'frontalieri, ticino, svizzera, italia, treno, foliage, locarno-domodossola, ottobre',
     ogTitle: 'Treno del Foliage 2026 tra Locarno e Domodossola',
     ogDescription: 'Dal 10 ottobre al 15 novembre 2026',
@@ -102215,7 +102215,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-biasca-17enne-arrestato-accoltellamento': {
     title: 'Biasca: arrestato 17enne per accoltellamento vicino alla stazione',
-    description: 'A Biasca arrestato un 17enne siriano dimorante',
+    description: 'A Biasca è stato arrestato un 17enne per l’accoltellamento di un 21enne vicino alla stazione; il ferito, colpito all’addome, non è in pericolo di vita.',
     keywords: 'frontalieri, ticino, svizzera, italia, biasca, arrestato, 17enne, accoltellamento',
     ogTitle: 'Biasca: 17enne arrestato per accoltellamento vicino alla stazione',
     ogDescription: 'A Biasca arrestato un 17enne siriano dimorante',
@@ -102254,7 +102254,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-pedemontana-truffa-sms-frontalieri': {
     title: 'Pedemontana avverte: nessun pagamento pedaggio via SMS o email',
-    description: 'Pedemontana non chiede pedaggi via SMS o e-mail',
+    description: 'Pedemontana non chiede pagamenti via SMS o email: i messaggi truffa minacciano il fermo del veicolo e rimandano a siti falsi da verificare sui canali ufficiali.',
     keywords: 'frontalieri, ticino, svizzera, italia, pedemontana, avverte, nessun, pagamento',
     ogTitle: 'Pedemontana avverte: nessun pagamento pedaggio via SMS o email',
     ogDescription: 'Pedemontana non chiede pedaggi via SMS o e-mail',
@@ -102293,7 +102293,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-pedemontana-falso-pedaggio-sms': {
     title: 'Pedemontana: nessun pagamento pedaggio via SMS o email',
-    description: 'Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp',
+    description: 'La società segnala falsi pedaggi via email, SMS e WhatsApp, con minacce di fermo amministrativo: eventuali importi si verificano su pedemontana.com.',
     keywords: 'frontalieri, ticino, svizzera, italia, pedemontana, nessun, pagamento, pedaggio',
     ogTitle: 'Pedemontana: nessun pagamento pedaggio via SMS o email',
     ogDescription: 'Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp',
@@ -102332,7 +102332,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-aggressione-van-villa-olmo': {
     title: 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
-    description: 'Arrestato a Como un 21enne egiziano',
+    description: 'A Como un 21enne è stato arrestato dopo un furto da un van in via per Cernobbio e una colluttazione vicino a Villa Olmo; beni e documenti sono stati restituiti.',
     keywords: 'frontalieri, ticino, svizzera, italia, como, turisti, derubati, aggrediti',
     ogTitle: 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
     ogDescription: 'Arrestato a Como un 21enne egiziano',
@@ -102371,7 +102371,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-furto-van-cernobbio-21enne': {
     title: 'Como, turisti derubati nel van: arrestato un 21enne',
-    description: 'Arrestato a Como un 21enne egiziano',
+    description: 'Un 21enne è stato arrestato a Como per un furto ai turisti in via per Cernobbio; le indagini proseguono sul complice fuggito dopo la colluttazione a Villa Olmo.',
     keywords: 'frontalieri, ticino, svizzera, italia, como, turisti, derubati, arrestato',
     ogTitle: 'Como, turisti derubati nel van: arrestato un 21enne',
     ogDescription: 'Arrestato a Como un 21enne egiziano',
@@ -102449,7 +102449,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-caduta-scala-locate-varesino': {
     title: 'Locate Varesino, cade da una scala: grave un 79enne',
-    description: 'Caduta da una scala in via Madonnetta',
+    description: 'A Locate Varesino un 79enne è caduto da una scala in un’azienda agricola di via Madonnetta; i soccorsi sono intervenuti in codice rosso.',
     keywords: 'frontalieri, ticino, svizzera, italia, locate, varesino, cade, scala',
     ogTitle: 'Caduta da una scala a Locate Varesino: 79enne grave',
     ogDescription: 'Caduta da una scala in via Madonnetta',
@@ -102488,7 +102488,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-cantello-teatro-dialettale-ottobre-2026': {
     title: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
-    description: 'Due date: 10 ottobre alle 21 e 18 ottobre alle 15',
+    description: 'A Cantello la compagnia Tutti in Scena porta in dialetto Quei giargianes da giappunes, con spettacoli il 10 e il 18 ottobre e ingresso gratuito.',
     keywords: 'frontalieri, ticino, svizzera, italia, cantello, torna, teatro, dialettale',
     ogTitle: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
     ogDescription: 'Due date: 10 ottobre alle 21 e 18 ottobre alle 15',
@@ -102527,7 +102527,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vendemmia-mendrisiotto-lavoratori-terra': {
     title: 'Frontalieri della vendemmia: 15 franchi l\'ora | Frontaliere Ticino',
-    description: 'Circa 50 frontalieri animano la vendemmia nel Mendrisiotto',
+    description: 'Nel Mendrisiotto circa 50 frontalieri, soprattutto dalla provincia di Varese, lavorano alla vendemmia per circa 15 franchi netti l’ora e sei settimane.',
     keywords: 'frontalieri, ticino, svizzera, italia, vendemmia, franchi, breve, circa',
     ogTitle: 'Vendemmia in Ticino: 15 franchi netti l\'ora',
     ogDescription: 'Circa 50 frontalieri animano la vendemmia nel Mendrisiotto',
@@ -102644,7 +102644,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-incidente-via-albisetti': {
     title: 'Tradate, pedone investito: ferito un uomo di 58 anni',
-    description: 'Un uomo di 58 anni investito a Tradate',
+    description: 'Un uomo di 58 anni è stato investito in via Albisetti a Tradate poco prima delle 20; soccorso da Croce Rossa e automedica, non è in pericolo di vita.',
     keywords: 'frontalieri, ticino, svizzera, italia, tradate, pedone, investito, ferito',
     ogTitle: 'Tradate, pedone investito: ferito un uomo di 58 anni',
     ogDescription: 'Un uomo di 58 anni investito a Tradate',
@@ -102683,7 +102683,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-mcdonalds-pulizia-malnate-2026': {
     title: 'McDonald\'s ripulisce Malnate: raccolti 20 kg di rifiuti',
-    description: '16 persone hanno partecipato alla pulizia di Malnate',
+    description: 'A Malnate 16 persone hanno raccolto 20 chili di rifiuti nella pulizia del 5 ottobre, con scuole medie, palestra comunale e via Gasparotto coinvolte.',
     keywords: 'frontalieri, ticino, svizzera, italia, mcdonald, ripulisce, malnate, raccolti',
     ogTitle: 'McDonald\'s ripulisce Malnate: 20 kg di rifiuti raccolti',
     ogDescription: '16 persone hanno partecipato alla pulizia di Malnate',
@@ -102722,7 +102722,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-agrivarese-angera-ottobre-2026': {
     title: 'Agrivarese torna ad Angera: fiera agricola l\'11 ottobre',
-    description: 'Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera',
+    description: 'Agrivarese arriva sul lungolago di Angera l’11 ottobre, dalle 9 alle 19: oltre 40 aziende, animali e degustazioni nell’evento promosso con il Comune.',
     keywords: 'frontalieri, ticino, svizzera, italia, agrivarese, torna, angera, fiera',
     ogTitle: 'Agrivarese torna ad Angera: fiera agricola l\'11 ottobre',
     ogDescription: 'Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera',
@@ -102761,7 +102761,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-festival-racconto-varese-ottobre': {
     title: 'Festival del Racconto: due appuntamenti a Varese',
-    description: 'Due appuntamenti culturali a Varese il 9 e l\'11 ottobre',
+    description: 'Il Festival del Racconto propone due appuntamenti a Varese il 9 e l’11 ottobre: un incontro su Dante e tre racconti inediti di Carlo Linati.',
     keywords: 'frontalieri, ticino, svizzera, italia, festival, racconto, appuntamenti, varese',
     ogTitle: 'Festival del Racconto: Dante e inediti di Carlo Linati',
     ogDescription: 'Due appuntamenti culturali a Varese il 9 e l\'11 ottobre',
@@ -102800,7 +102800,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-luvinate-progetto-motorio-materna': {
     title: 'Luvinate: al via il progetto motorio alla scuola materna',
-    description: 'A Luvinate parte il progetto motorio 26-27',
+    description: 'A Luvinate la scuola materna avvia per il 2026-27 un progetto motorio con Varese Basket School, rivolto ai bambini e basato su sport e gioco.',
     keywords: 'frontalieri, ticino, svizzera, italia, luvinate, progetto, motorio, alla',
     ogTitle: 'Luvinate: al via il progetto motorio alla scuola materna',
     ogDescription: 'A Luvinate parte il progetto motorio 26-27',
@@ -102839,7 +102839,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-pro-patria-varese-5-2-coppa-italia': {
     title: 'Pro patria batte Varese 5-2 in coppa Italia | Frontaliere Ticino',
-    description: 'La Pro Patria batte il Varese 5-2 al Franco Ossola.',
+    description: 'La Pro Patria supera il Varese 5-2 al Franco Ossola: la rimonta si ferma sul 3-2 e la squadra bustocca prosegue in Coppa Italia contro la Leon.',
     keywords: 'frontalieri, ticino, svizzera, italia, patria, batte, varese, coppa',
     ogTitle: 'Pro Patria batte Varese 5-2 in Coppa Italia',
     ogDescription: 'La Pro Patria batte il Varese 5-2 al Franco Ossola.',
@@ -102917,7 +102917,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-operazione-hermes-frodi-iva-450-mln-sequestri-11-mln': {
     title: 'Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
-    description: 'Sei misure cautelari e sequestri per circa 11 milioni',
+    description: 'Hermes indaga su frodi IVA da 450 milioni in elettronica e informatica: sei misure cautelari, sequestri per 11 milioni e 300 perquisizioni in otto Paesi europei.',
     keywords: 'frontalieri, ticino, svizzera, italia, operazione, hermes, frodi, sequestri',
     ogTitle: 'Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
     ogDescription: 'Sei misure cautelari e sequestri per circa 11 milioni',
@@ -102995,7 +102995,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-salute-lavoro-progetti-ticino': {
     title: 'Salute mentale sul lavoro: progetti in Ticino | Frontaliere Ticino',
-    description: 'In Svizzera una persona su tre è emotivamente spossata.',
+    description: 'In Svizzera una persona su tre segnala spossatezza emotiva; in Ticino quasi un apprendista su tre riferisce disturbi d’ansia. DSS e Forum GSA avviano due progetti.',
     keywords: 'frontalieri, ticino, svizzera, italia, salute, mentale, lavoro, progetti',
     ogTitle: 'Salute mentale sul lavoro: progetti Ticino',
     ogDescription: 'In Svizzera una persona su tre è emotivamente spossata.',
@@ -103034,7 +103034,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-bellinzona-nord-svincolo': {
     title: 'Bellinzona Nord, chiusura notturna dello svincolo',
-    description: 'Chiusura tra venerdì 9 e sabato 10 ottobre',
+    description: 'Lo svincolo di Bellinzona Nord chiude dalle 20 alle 5 nella notte tra il 9 e 10 ottobre verso Chiasso e San Gottardo; alternative Bellinzona Centro o Biasca.',
     keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, nord, chiusura, notturna',
     ogTitle: 'Bellinzona Nord, chiusura notturna dello svincolo',
     ogDescription: 'Chiusura tra venerdì 9 e sabato 10 ottobre',
@@ -103073,7 +103073,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-lugano-lucerna-partita-traffico': {
     title: 'Lugano-Lucerna a Cornaredo: strade chiuse e ritardi sabato',
-    description: 'Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo',
+    description: 'La partita Lugano-Lucerna a Cornaredo è sabato alle 18: corteo ospite nel pomeriggio, piazzale della stazione chiuso dalle 15:50 e attese fino a 30 minuti.',
     keywords: 'frontalieri, ticino, svizzera, italia, lugano, lucerna, cornaredo, strade',
     ogTitle: 'Lugano-Lucerna a Cornaredo: strade chiuse e ritardi sabato',
     ogDescription: 'Sabato: FC Lugano-FC Lucerna alle 18 a Cornaredo',
@@ -103112,7 +103112,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-tifosi-lucerna-lugano-traffico': {
     title: 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
-    description: 'Partita alle 18 allo stadio di Cornaredo',
+    description: 'Per la partita al Cornaredo, il corteo dei tifosi del Lucerna è previsto tra le 16 e le 17:30: attese di 15-30 minuti e possibili disagi in via Ciani.',
     keywords: 'frontalieri, ticino, svizzera, italia, tifosi, lucerna, lugano, strade',
     ogTitle: 'Tifosi Lucerna a Lugano: strade chiuse e traffico',
     ogDescription: 'Partita alle 18 allo stadio di Cornaredo',
@@ -103229,7 +103229,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-ferrovia-albate-molteno-elettrificazione': {
     title: 'Elettrificazione Albate-Molteno: lavori da dicembre 2024',
-    description: 'Cantieri per l\'elettrificazione al via a metà dicembre',
+    description: 'I cantieri per elettrificare Albate-Molteno iniziano a dicembre: Como-Lecco sarà interrotta almeno fino a giugno 2029, ma Tilo potrà arrivare a Lecco.',
     keywords: 'frontalieri, ticino, svizzera, italia, elettrificazione, albate-molteno, lavori, dicembre',
     ogTitle: 'Elettrificazione Albate-Molteno: lavori da dicembre 2024',
     ogDescription: 'Cantieri per l\'elettrificazione al via a metà dicembre',
@@ -103268,7 +103268,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-porlezza-finto-carabiniere-chiede-oro-figlio-ferma-truffa': {
     title: 'Porlezza: finto carabiniere chiede oro, figlio ferma truffa',
-    description: 'A Porlezza tentata truffa del finto carabiniere',
+    description: 'A Porlezza un falso carabiniere ha chiesto oro per liberare il figlio di una donna: il piano è fallito quando il giovane è rientrato a casa il 7 ottobre.',
     keywords: 'frontalieri, ticino, svizzera, italia, porlezza, finto, carabiniere, chiede',
     ogTitle: 'Porlezza: finto carabiniere chiede oro, figlio ferma truffa',
     ogDescription: 'A Porlezza tentata truffa del finto carabiniere',
@@ -103307,7 +103307,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-mendrisiotto-aziende-conciliabilita': {
     title: 'Mendrisiotto aziende a confronto su conciliabilità vita-lavoro',
-    description: 'Incontro a Chiasso il primo ottobre scorso',
+    description: 'A Chiasso una trentina di aziende si sono confrontate sulla conciliabilità lavoro-famiglia; il sondaggio cantonale di Pro Familia resta aperto fino al 30 novembre.',
     keywords: 'frontalieri, ticino, svizzera, italia, mendrisiotto, aziende, confronto, conciliabilità',
     ogTitle: 'Mendrisiotto aziende a confronto su conciliabilità vita-lavoro',
     ogDescription: 'Incontro a Chiasso il primo ottobre scorso',
@@ -103346,7 +103346,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-scambio-portieri-lugano-ginevra': {
     title: 'Scambio di portieri: mayer a Lugano, van pottelberghe a Ginevra',
-    description: 'Mayer arriva a Lugano, Van Pottelberghe va a Ginevra',
+    description: 'Lugano e Ginevra si scambiano i portieri in prestito fino al termine del 2026-27: Mayer arriva dopo 397 partite in National League, Van Pottelberghe va a Ginevra.',
     keywords: 'frontalieri, ticino, svizzera, italia, scambio, portieri, mayer, lugano',
     ogTitle: 'Scambio di portieri: Mayer a Lugano, Van Pottelberghe a Ginevra',
     ogDescription: 'Mayer arriva a Lugano, Van Pottelberghe va a Ginevra',
@@ -103385,7 +103385,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-aperitivo-solidale-giubiasco': {
     title: 'Brindisi solidale al Mercato Coperto di Giubiasco',
-    description: 'Il Kiwanis Club Bellinzona e Valli festeggia 40 anni',
+    description: 'Il Kiwanis Club Bellinzona e Valli celebra 40 anni con l’aperitivo solidale Aperò In Sem a Giubiasco: ricavato ad Ares e L’Ora, ingresso 40 franchi.',
     keywords: 'frontalieri, ticino, svizzera, italia, brindisi, solidale, mercato, coperto',
     ogTitle: 'Aperò In Sem: serata solidale a Giubiasco',
     ogDescription: 'Il Kiwanis Club Bellinzona e Valli festeggia 40 anni',

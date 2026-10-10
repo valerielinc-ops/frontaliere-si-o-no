@@ -513,6 +513,17 @@ describe('every entry is in a valid phase of a rename (see the truth table above
   const published = readPublishedArticlePaths(ROOT);
   const entries = Object.entries(redirects);
 
+  it('bridges the three Basel prompt-leak paths to the sanitizer output', () => {
+    expect(redirects).toMatchObject({
+      '/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/':
+        '/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/',
+      '/de/schweiz-artikel/slug-terzo-pilastro-3a-vantaggi-2026-basel/':
+        '/de/schweiz-artikel/terzo-pilastro-3a-vantaggi-2026-basel/',
+      '/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/':
+        '/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/',
+    });
+  });
+
   it('reads the published slugs from both section registries', () => {
     // These live under packages/articles/content/ and are present in EVERY
     // worktree (unlike public/ and data/), which is what makes the assertions

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zuger-kantonsspital",
-  "assembledAt": "2026-10-10T09:24:39.667Z",
+  "assembledAt": "2026-10-10T21:34:16.495Z",
   "jobs": [
     {
       "id": "zuger-kantonsspital-9aa520e2497a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.zgks.ch/WMS-Praktikantin-mw-de-j893.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:27.730Z",
+      "crawledAt": "2026-10-10T21:34:11.900Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://jobs.zgks.ch/Med-Praxisassistentin-Pneumologie-80--de-j869.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:27.302Z",
+      "crawledAt": "2026-10-10T21:34:11.462Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://jobs.zgks.ch/Gruppenleiterin-Hauswirtschaft-80-100-mw-de-j894.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:26.734Z",
+      "crawledAt": "2026-10-10T21:34:10.891Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -297,7 +297,7 @@
       "url": "https://jobs.zgks.ch/Pflegefachperson-HF-Medizin-80-100--de-j895.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:26.269Z",
+      "crawledAt": "2026-10-10T21:34:10.440Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -380,7 +380,7 @@
       "url": "https://jobs.zgks.ch/Mitarbeiterin-Notfallempfang-40-50-mw-de-j879.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:25.691Z",
+      "crawledAt": "2026-10-10T21:34:09.885Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -464,7 +464,7 @@
       "url": "https://jobs.zgks.ch/Controllerin-80-100-mw-de-j896.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:25.123Z",
+      "crawledAt": "2026-10-10T21:34:09.331Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -544,7 +544,7 @@
       "url": "https://jobs.zgks.ch/Technische-Sterilisationsassistentin-80-100-mw-de-j899.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:24.670Z",
+      "crawledAt": "2026-10-10T21:34:08.909Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -625,7 +625,7 @@
       "url": "https://jobs.zgks.ch/Radiologiefachperson-HF-80-100--de-j901.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:24.118Z",
+      "crawledAt": "2026-10-10T21:34:08.371Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -671,13 +671,14 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-10T21:34:08.371Z"
     },
     {
       "id": "zuger-kantonsspital-fd59a9344c28",
-      "slug": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
+      "slug": "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar",
+        "it": "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar",
         "en": "hospital-pharmacist-60-80-m-f-zuger-kantonsspital-baar",
         "de": "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
         "fr": "pharmacie-hospitalier-60-80-h-f-zuger-kantonsspital-baar"
@@ -704,7 +705,7 @@
       "url": "https://jobs.zgks.ch/Spitalapothekerin-60-80-mw-de-j900.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:23.552Z",
+      "crawledAt": "2026-10-10T21:34:07.828Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -727,13 +728,13 @@
       "previousSlugs": [
         "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
         "farmacista-ospedaliera-60-80-m-f-zuger-kantonsspital-baar",
-        "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar"
+        "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar",
           "farmacista-ospedaliera-60-80-m-f-zuger-kantonsspital-baar",
-          "spitalapothekerin-60-80-m-w-d-zuger-kantonsspital-baar"
+          "farmacista-ospedaliero-60-80-m-f-zuger-kantonsspital-baar"
         ],
         "en": [
           "spitalapothekerin-60-80-m-w-zuger-kantonsspital-baar"
@@ -789,7 +790,7 @@
       "url": "https://jobs.zgks.ch/Chefarztsekretaerin-Frauenklinik-100--de-j897.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:22.981Z",
+      "crawledAt": "2026-10-10T21:34:07.278Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -869,7 +870,7 @@
       "url": "https://jobs.zgks.ch/Endoskopieassistentin-60-100-mw-de-j889.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:22.404Z",
+      "crawledAt": "2026-10-10T21:34:06.706Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -963,7 +964,7 @@
       "url": "https://jobs.zgks.ch/Expertin-Notfallpflege-NDS-HF-80-100-mw-de-j848.html",
       "source": "Zuger Kantonsspital Dedicated Parser (rexx systems jobs.zgks.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:24:21.829Z",
+      "crawledAt": "2026-10-10T21:34:06.162Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",

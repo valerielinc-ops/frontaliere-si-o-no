@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-10T09:31:15.485Z",
+  "generatedAt": "2026-10-10T21:26:33.888Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12004,
-  "avgDurationMs": 12004,
+  "durationMs": 9490,
+  "avgDurationMs": 9490,
   "durationHistory": [
-    12004
+    9490
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -260,48 +260,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Hotel Connectivity Specialist (Channel Managers & Switches)",
-      "slug": "hotel-connectivity-specialist-channel-managers-switches-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000150984354&jobName=Hotel+Connectivity+Specialist+%28Channel+Managers",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000150984354-hotel-connectivity-specialist-channel-managers-switches-?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-22T09:50:56.667Z",
-      "postedDate": "2026-09-22T09:50:56.667Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-7c38b1d2f9f2",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:49:43.585Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

@@ -1,7 +1,7 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-10-10T09:15:52.955Z",
+  "generatedAt": "2026-10-10T21:13:52.827Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4778,
-  "avgDurationMs": 4778,
+  "durationMs": 5978,
+  "avgDurationMs": 5978,
   "durationHistory": [
-    4778
+    5978
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:15:41.255Z",
+      "crawledAt": "2026-10-10T21:13:39.759Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -74,13 +74,13 @@
       "companyKey": "ergolz-klinik",
       "companyDomain": "ergolz.cardiance.com",
       "title": "Dipl. Pflegefachfrau/Pflegefachmann HF, 50-100% Festanstellung",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:15:40.621Z",
+      "crawledAt": "2026-10-10T21:13:39.012Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -101,11 +101,11 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -116,13 +116,12 @@
       "companyKey": "ergolz-klinik",
       "companyDomain": "ergolz.cardiance.com",
       "title": "Medizinische Praxisassistentin für Patientenmanagement 50-60%",
-      "needsRetranslation": true,
       "location": "Liestal",
       "canton": "BL",
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-MPA-Patientenmanagement-50-60.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:15:39.964Z",
+      "crawledAt": "2026-10-10T21:13:38.239Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -143,14 +142,14 @@
       "salaryMin": 52800,
       "salaryMax": 73800,
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
