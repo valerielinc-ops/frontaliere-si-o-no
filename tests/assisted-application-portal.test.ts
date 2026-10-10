@@ -834,6 +834,41 @@ describe('portal runner helpers', () => {
       .toEqual([expect.objectContaining({ fieldId: 'unresolved-cap', context: unresolvedCap.context })]);
   });
 
+  it('keeps legacy profile address data and repeated e-mail fields answerable', () => {
+    const candidate = {
+      identity: { email: 'c-abcdefghjk@candidature.frontaliereticino.ch' },
+      profile: {
+        location: 'Lugano',
+        address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' },
+      },
+      answers: {},
+      portalQuestionsAnswered: [],
+    };
+    const repeatEmail = { id: 'email-again', kind: 'text', label: 'E-Mail-Adresse erneut eingeben: *', required: true, options: [] };
+    const street = { id: 'street-name', kind: 'text', label: 'Street Name', context: 'My Information', required: true, options: [] };
+    const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
+    const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
+    expect(questionTopic('Postcode', 'My Information')).toBe('residence_postal_code');
+    expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
+    expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
+    expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
+    expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
+    expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Schweiz', source: 'identity' });
+    const guarded = guardPlan({ actions: [
+      { fieldId: repeatEmail.id, action: 'fill', value: candidate.identity.email, document: 'none', source: 'identity', evidence: '' },
+      { fieldId: street.id, action: 'fill', value: 'Via Esempio', document: 'none', source: 'identity', evidence: '' },
+      { fieldId: postcode.id, action: 'fill', value: '6830', document: 'none', source: 'identity', evidence: '' },
+      { fieldId: country.id, action: 'select', value: 'Italien', document: 'none', source: 'profile', evidence: '' },
+    ], missingRequired: [] }, [repeatEmail, street, postcode, country], candidate);
+    expect(guarded.actions).toEqual(expect.arrayContaining([
+      expect.objectContaining({ fieldId: repeatEmail.id, action: 'fill', value: candidate.identity.email }),
+      expect.objectContaining({ fieldId: street.id, action: 'fill', value: 'Via Esempio' }),
+      expect.objectContaining({ fieldId: postcode.id, action: 'fill', value: '6830' }),
+      expect.objectContaining({ fieldId: country.id, action: 'select', value: 'Schweiz' }),
+    ]));
+    expect(guarded.missingRequired).toEqual([]);
+  });
+
   it('does not infer a country from an unrecognised province code alone', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
