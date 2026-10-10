@@ -148,7 +148,33 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
     });
   });
 
-  it('sceglie la issue aggiornata piu recente indipendentemente dall ordine del listing', () => {
+  it('mantiene il thread failure canonico davanti a una lane di dominio aggiornata dopo', () => {
+    const issues = [
+      {
+        number: 12670,
+        title: 'Live-data test rosso: tests/slug-leak-allowlist-liveness.test.ts',
+        updatedAt: '2026-10-10T11:51:57Z',
+        body: '**Workflow:** live-data gates',
+      },
+      {
+        number: 9453,
+        title: 'Workflow Failure: live-data gates',
+        updatedAt: '2026-10-10T11:42:33Z',
+        body: '**Workflow:** live-data gates',
+      },
+    ];
+
+    expect(latestIssuePerWorkflow(issues).get('live-data gates')).toEqual({
+      number: 9453,
+      updatedAt: '2026-10-10T11:42:33Z',
+    });
+    expect(latestIssuePerWorkflow([...issues].reverse()).get('live-data gates')).toEqual({
+      number: 9453,
+      updatedAt: '2026-10-10T11:42:33Z',
+    });
+  });
+
+  it('fra issue della stessa famiglia sceglie ancora la piu recente', () => {
     const issues = [
       {
         number: 9195,
@@ -157,8 +183,8 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
         body: '**Workflow:** cathedral-seo-gates-check',
       },
       {
-        number: 7421,
-        title: 'CI Failure: cathedral-seo-gates-check',
+        number: 9194,
+        title: 'SEO gates regression: previous signal',
         updatedAt: '2026-09-19T11:46:18Z',
         body: '**Workflow:** cathedral-seo-gates-check',
       },
