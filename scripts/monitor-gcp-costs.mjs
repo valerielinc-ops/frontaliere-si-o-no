@@ -274,35 +274,17 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
   const retryBaseMs = Number.isFinite(retryOptions.retryBaseMs)
     ? Math.max(0, retryOptions.retryBaseMs)
     : MONITORING_RETRY_BASE_MS;
-  let pageToken = '';
-  do {
-    const params = new URLSearchParams({
-      filter: `metric.type="${metric}"${filter ? ` AND ${filter}` : ''}`,
-      'interval.startTime': start.toISOString(),
-      'interval.endTime': end.toISOString(),
-      'aggregation.alignmentPeriod': `${alignmentSeconds}s`,
-      'aggregation.perSeriesAligner': aligner,
-      'aggregation.crossSeriesReducer': reducer,
-    });
-    for (const field of groupBy) params.append('aggregation.groupByFields', field);
-    if (pageToken) params.set('pageToken', pageToken);
-    let response;
+  const fetchMonitoring = async (url, init) => {
     try {
-      response = await fetchWithRetry(async () => {
-        const attemptResponse = await fetchImpl(`${MONITORING_API}/projects/${GCP_PROJECT_ID}/timeSeries?${params}`, {
-          headers: { Authorization: `Bearer ${token}` },
-          // A hung call must fail the attempt well inside the 10-minute job.
-          // One bounded retry absorbs a transient Monitoring stall while
-          // keeping a persistent outage visible to the failure-report step.
-          signal: AbortSignal.timeout(MONITORING_TIMEOUT_MS),
-        });
-        if (attemptResponse.status === 429 || attemptResponse.status >= 500) {
-          const error = new Error(`Cloud Monitoring ${metric}: HTTP ${attemptResponse.status}`);
-          error.status = attemptResponse.status;
+      return await fetchWithRetry(async () => {
+        const response = await fetchImpl(url, init);
+        if (response.status === 429 || response.status >= 500) {
+          const error = new Error(`Cloud Monitoring ${metric}: HTTP ${response.status}`);
+          error.status = response.status;
           error.retryable = true;
           throw error;
         }
-        return attemptResponse;
+        return response;
       }, {
         retries,
         retryBaseMs,
@@ -324,6 +306,26 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
       }
       throw error;
     }
+  };
+  let pageToken = '';
+  do {
+    const params = new URLSearchParams({
+      filter: `metric.type="${metric}"${filter ? ` AND ${filter}` : ''}`,
+      'interval.startTime': start.toISOString(),
+      'interval.endTime': end.toISOString(),
+      'aggregation.alignmentPeriod': `${alignmentSeconds}s`,
+      'aggregation.perSeriesAligner': aligner,
+      'aggregation.crossSeriesReducer': reducer,
+    });
+    for (const field of groupBy) params.append('aggregation.groupByFields', field);
+    if (pageToken) params.set('pageToken', pageToken);
+    const response = await fetchMonitoring(`${MONITORING_API}/projects/${GCP_PROJECT_ID}/timeSeries?${params}`, {
+      headers: { Authorization: `Bearer ${token}` },
+      // A hung call must fail the step well inside the 10-minute job, so the
+      // failure-report step still runs. The wrapper above adds one bounded
+      // retry without widening this per-attempt clock cap.
+      signal: AbortSignal.timeout(MONITORING_TIMEOUT_MS),
+    });
     let body;
     try {
       body = await response.json();
