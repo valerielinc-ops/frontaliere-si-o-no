@@ -26,6 +26,8 @@ export const INSTAGRAM_CAMPAIGN_ARTICLE = 'instagram_daily_article';
 export const INSTAGRAM_CAMPAIGN_JOB = 'instagram_daily_job';
 /** Weekly "fastest dogane" carousel. */
 export const INSTAGRAM_CAMPAIGN_BORDER = 'instagram_weekly_border';
+/** Controlled vertical Reel experiment; kept separate from carousel traffic. */
+export const INSTAGRAM_CAMPAIGN_REEL = 'instagram_reel_experiment';
 
 /**
  * Tag a site URL with this channel's identity.
