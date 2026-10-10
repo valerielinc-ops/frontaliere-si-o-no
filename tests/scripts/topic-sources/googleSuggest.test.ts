@@ -109,6 +109,43 @@ describe('fetchSuggestCandidates', () => {
     expect(fetchImpl.mock.calls.length).toBeGreaterThanOrEqual(2);
   });
 
+  it('bounds and cancels a response body reader that ignores abort', async () => {
+    vi.useFakeTimers();
+    try {
+      const cancelBody = vi.fn(async () => undefined);
+      const fetchImpl = vi.fn(async () => {
+        return {
+          ok: true,
+          status: 200,
+          body: { cancel: cancelBody },
+          text: () => new Promise<string>(() => {}),
+        };
+      });
+
+      let settled = false;
+      const resultPromise = fetchSuggestCandidates({
+        seeds: ['frontaliere'],
+        fetchImpl: fetchImpl as any,
+      }).finally(() => {
+        settled = true;
+      });
+
+      await vi.advanceTimersByTimeAsync(5_000);
+      await vi.advanceTimersByTimeAsync(750);
+      await vi.advanceTimersByTimeAsync(5_000);
+      await Promise.resolve();
+
+      expect(settled).toBe(true);
+      const result = await resultPromise;
+      expect(result.ok).toBe(false);
+      expect(result.perSeed.frontaliere.reason).toMatch(/timed out/i);
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(cancelBody).toHaveBeenCalledTimes(2);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('empty completions array → ok:true with candidates:[]', async () => {
     const body = JSON.stringify(['frontaliere', [], [], {}]);
     const fetchImpl = vi.fn(async () => makeRes({ text: body }));

@@ -119,6 +119,30 @@ async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
   }
 }
 
+async function readTextWithTimeout(response, timeoutMs) {
+  let t;
+  const timeoutPromise = new Promise((_, reject) => {
+    t = setTimeout(() => {
+      const reason = new DOMException('The response body timed out', 'TimeoutError');
+      try {
+        Promise.resolve(response?.body?.cancel?.()).catch(() => {});
+      } catch {
+        // Minimal fetch doubles and locked response bodies may reject cancellation.
+      }
+      reject(reason);
+    }, timeoutMs);
+  });
+
+  try {
+    return await Promise.race([
+      Promise.resolve().then(() => response.text()),
+      timeoutPromise,
+    ]);
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 // Parse the firefox-client suggest payload. Shape:
 //   ["seed", ["completion1", "completion2", ...], [], {...}]
 // Returns string[] of completions, or [] on any malformed input.
@@ -151,7 +175,7 @@ async function fetchOneSeed(seed, fetchImpl) {
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
       } else {
-        const text = await res.text();
+        const text = await readTextWithTimeout(res, REQUEST_TIMEOUT_MS);
         const completions = parseSuggestPayload(text);
         if (!Array.isArray(completions)) {
           lastReason = 'malformed json';
