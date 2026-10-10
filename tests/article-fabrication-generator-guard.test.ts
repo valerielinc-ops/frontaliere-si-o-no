@@ -166,6 +166,26 @@ describe('assertTranslationsPassFactualityGates — post-translation admission',
     expect(thrown.message).toMatch(/\[fr\]/);
   });
 
+  it('checks translated titles for false friends before writing', () => {
+    const data = {
+      content: {
+        it: { ...italian, title: 'Frontalieri' },
+        en: { ...clean, title: 'Border guards' },
+        de: { ...clean, title: 'Grenzgänger' },
+        fr: { ...clean, title: 'Frontaliers' },
+      },
+    };
+    let thrown: any;
+    try {
+      assertTranslationsPassFactualityGates(data);
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(Error);
+    expect(thrown.message).toMatch(/translation-false-friend/i);
+    expect(thrown.qualityReject).toBe(true);
+  });
+
   it('blocks prompt scaffolding introduced in a translated body', () => {
     const data = {
       content: {

@@ -3529,6 +3529,7 @@ function assertNoFabricatedLaborOfficeCrossLocale(data) {
  */
 export function assertTranslationsPassFactualityGates(data) {
   const sectionsOf = (content) => ({
+    title: typeof content?.title === 'string' ? content.title : '',
     body1: typeof content?.body1 === 'string' ? content.body1 : '',
     body2: typeof content?.body2 === 'string' ? content.body2 : '',
     body3: typeof content?.body3 === 'string' ? content.body3 : '',
