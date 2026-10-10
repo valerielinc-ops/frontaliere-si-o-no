@@ -3363,6 +3363,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // `<loc>` backfill is gated on — see the sitemap-locale-variants emit at the
  // end of this hook.
  const emittedLocaleVariants = new Set<string>();
+ // Render-time noindex decisions for those same variants. This is populated
+ // for every hreflang variant before WriteCollector applies BUILD_LOCALE, so a
+ // quarantined DE/EN/FR page remains excluded from the shared root sitemap on
+ // every shard even when its HTML is physically written by another shard.
+ const noindexLocaleVariants = new Set<string>();
 
  // Only process Italian URLs (no /en/, /de/, /fr/ prefix) to avoid duplicates —
  // locale variants are generated from the hreflang data
@@ -6133,6 +6138,9 @@ ${hrefTags}
 
  const locDir = np.join(distDir, locPath);
  let locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs, url.path);
+ if (locPageHtml.includes('<meta name="robots" content="noindex')) {
+ noindexLocaleVariants.add(locNormalized);
+ }
  // Inject route-specific SEO block on home-critical landings to lift the
  // text-to-HTML ratio above the 10 % gate. Each route gets its own block
  // (calculator vs job-board), never the homepage block (off-topic).
@@ -6296,6 +6304,7 @@ ${hrefTags}
    const { entries, skipped: variantSkips } = collectLocaleVariantEntries(
      seededSources,
      (p) => emittedLocaleVariants.has(p) || ogPagesPaths.has(p),
+     (p) => !noindexLocaleVariants.has(p),
    );
    // Stale-shard sweep: a shrinking cohort must not leave a previous build's
    // higher-numbered shard behind for the index sweep to re-list.
