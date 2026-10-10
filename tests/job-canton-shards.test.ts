@@ -355,8 +355,10 @@ describe('SEO surfaces that must survive the shard (the traffic the owner asked 
     // Both triggers still present: thin in-canton search, and the company hub.
     expect(jobBoardSrc).toContain('searchBroadenAttemptedQueries');
     expect(jobBoardSrc).toContain('companyBroadenFetchAttempted');
-    // And the tier itself still reads the pool.
-    expect(jobBoardSrc).toMatch(/for \(const job of unscopedJobs\)/);
+    // And the tier itself still reads that pool, now through the bounded scan
+    // rather than a synchronous loop in React's render task.
+    expect(jobBoardSrc).toContain('const crossCantonDerivation = useInterruptibleDerivation({');
+    expect(jobBoardSrc).toContain('items: unscopedJobs,');
   });
 
   it('cross-LOCALE search (tier 4) still reaches the other locale corpora', () => {
