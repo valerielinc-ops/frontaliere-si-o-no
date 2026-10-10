@@ -2,11 +2,16 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  collectJobSearchLocationTokens,
+  deriveJobBoardOccupationTerms,
+  deriveJobBoardAutocompleteSuggestions,
   offerBoundedRankedCandidate,
   rankedCandidateValues,
   scheduleFrameBudgetedScan,
   type FrameBudgetScheduler,
 } from '@/services/jobBoardSearchPipeline';
+import { getJobSearchRoleTokens, matchesJobOccupation } from '@/services/jobSearchRelevance';
+import { stemSearchToken } from '@/services/textUtils';
 
 class FakeFrameScheduler implements FrameBudgetScheduler {
   clock = 0;
@@ -147,7 +152,7 @@ describe('JobBoard wiring preserves public surfaces while derivation is pending'
     expect(source).toContain('const crossLocaleDerivation = useInterruptibleDerivation');
     expect(source).toContain('const companyFallbackDerivation = useInterruptibleDerivation');
     expect(source).toContain('const resultDerivationPending =');
-    expect(source).toContain('enabled: !searchIndexPending && !clusterSeedApplies');
+    expect(source).toContain('enabled: unseededSearchPipelineEnabled && !searchIndexPending');
   });
 
   it('keeps URL/SEO, accessible status and ad placement on settled results', () => {
@@ -157,5 +162,77 @@ describe('JobBoard wiring preserves public surfaces while derivation is pending'
     expect(source).toContain('aria-live="polite"');
     expect(source).toContain('shouldPlaceInfeedAd(pos, {');
     expect(source).toContain('renderInfeedAd(`main-${idx}`');
+  });
+});
+
+describe('JobBoard cluster-seed handoff', () => {
+  const source = readFileSync(resolve(__dirname, '../components/community/JobBoard.tsx'), 'utf8');
+
+  it('keeps every broaden/fallback fetch and scan dormant while the seed is authoritative', () => {
+    // Three search scans: in-canton, cross-canton and cross-locale. The seed is
+    // already the build's ranked answer, so none may consume the deliberately
+    // empty in-canton derivation as a miss.
+    expect(source.match(/enabled: unseededSearchPipelineEnabled/g)).toHaveLength(3);
+    // Both network effects (same-locale broaden and DE/FR/EN cross-locale) have
+    // the same early return, and the fallback haystack index receives no items.
+    expect(source.match(/if \(!unseededSearchPipelineEnabled\) return;/g)).toHaveLength(2);
+    expect(source).toContain('if (!unseededSearchPipelineEnabled) return [];');
+    expect(source).toContain('const unseededSearchPipelineEnabled = !clusterSeedApplies;');
+  });
+
+  it('recognises seed locations before the asynchronous corpus index commits', () => {
+    const seedJobs = [{ location: 'Sementina', addressLocality: 'Sementina' }];
+    const locationTokens = collectJobSearchLocationTokens(seedJobs);
+    const cityStem = stemSearchToken('sementina');
+    const rawRoleTerms = getJobSearchRoleTokens('infermiere sementina');
+
+    expect(locationTokens.has(cityStem)).toBe(true);
+    expect(rawRoleTerms).toContain(cityStem);
+    expect(rawRoleTerms.filter((token) => !locationTokens.has(token))).not.toContain(cityStem);
+    expect(source).toContain('collectJobSearchLocationTokens(clusterSeedJobs, set)');
+  });
+
+  it('keeps the seed job through passingNonSearchFilters while the index is incomplete', () => {
+    const seedJob = {
+      title: 'Infermiere di reparto',
+      company: 'Clinica Seed',
+      location: 'Sementina',
+      addressLocality: 'Sementina',
+    };
+    const query = 'infermiere sementina';
+    const searchIndexCurrent = false;
+    const searchIndexLocationTokens = new Set<string>();
+    const searchLocationTokens = collectJobSearchLocationTokens(
+      [seedJob],
+      searchIndexCurrent ? searchIndexLocationTokens : new Set<string>(),
+    );
+    const occupationTerms = deriveJobBoardOccupationTerms(query, searchLocationTokens);
+
+    const passingNonSearchFilters = (job: typeof seedJob) => (
+      matchesJobOccupation(job, 'it', occupationTerms)
+    );
+
+    expect(searchIndexCurrent).toBe(false);
+    expect(searchIndexLocationTokens.size).toBe(0);
+    expect(getJobSearchRoleTokens(query)).toContain(stemSearchToken('sementina'));
+    expect(occupationTerms).not.toContain(stemSearchToken('sementina'));
+    expect(passingNonSearchFilters(seedJob)).toBe(true);
+    expect(matchesJobOccupation(seedJob, 'it', getJobSearchRoleTokens(query))).toBe(false);
+    expect(source).toContain('if (!matchesJobOccupation(job, locale, occupationTerms)) return false;');
+  });
+
+  it('keeps autocomplete and related suggestions populated from the bounded seed', () => {
+    const seedJobs = [
+      { title: 'Infermiere specializzato', company: 'Clinica Seed', location: 'Lugano' },
+      { title: 'Infermiere di cure generali', company: 'Ospedale Seed', location: 'Bellinzona' },
+    ];
+
+    expect(deriveJobBoardAutocompleteSuggestions(seedJobs, 'inf', 'it')).toEqual([
+      'Infermiere specializzato',
+      'Infermiere di cure generali',
+    ]);
+    expect(source).toContain('const matching = clusterSeedApplies ? clusterSeedJobs : inCantonDerivation.value.queryMatches;');
+    expect(source).toContain('const autocompleteSuggestions = clusterSeedApplies');
+    expect(source).toContain('deriveJobBoardAutocompleteSuggestions(clusterSeedJobs, deferredSearchQuery, locale)');
   });
 });
