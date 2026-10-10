@@ -29,11 +29,14 @@ const SLICE_DIRS = [
   path.resolve("data/translation-cache"),
 ];
 
+function linesWithoutTrailingCarriageReturn(text) {
+  return text.split("\n").map((line) => line.endsWith("\r") ? line.slice(0, -1) : line);
+}
+
 function stripMarkers(text) {
   // Drop the conflict marker lines entirely. We keep ALL content from both
   // sides; the extraction phase will dedupe via id and tolerate stray syntax.
-  return text
-    .split("\n")
+  return linesWithoutTrailingCarriageReturn(text)
     .filter((ln) => !/^(<<<<<<<|>>>>>>>|=======$)/.test(ln))
     .join("\n");
 }
@@ -124,7 +127,7 @@ function parseJobObjects(rawObjects) {
 function stripConflictSide(text, side) {
   const kept = [];
   let conflictSide = null;
-  for (const line of text.split("\n")) {
+  for (const line of linesWithoutTrailingCarriageReturn(text)) {
     if (/^<<<<<<<(?:\s|$)/.test(line)) {
       conflictSide = "ours";
       continue;

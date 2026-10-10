@@ -27,18 +27,20 @@ ${'<'.repeat(7)} HEAD
     "previousSlugs": ["old-route"],
     "previousSlugsByLocale": { "it": ["old-route"] },
 ${'='.repeat(7)}
-    "previousSlugs": [],
-    "previousSlugsByLocale": {},
+    "previousSlugs": ["new-route"],
+    "previousSlugsByLocale": { "it": ["new-route"] },
 ${'>'.repeat(7)} stale-writer
     "lastUpdatedAt": "2026-10-10T00:00:00.000Z"
   }]
-}\n`);
+}\n`.replace(/\n/gu, '\r\n'));
 
       execFileSync(process.execPath, [SCRIPT], { cwd: dir, encoding: 'utf8' });
 
       const recovered = JSON.parse(readFileSync(slicePath, 'utf8'));
       expect(recovered.jobs[0].previousSlugs).toContain('old-route');
       expect(recovered.jobs[0].previousSlugsByLocale.it).toContain('old-route');
+      expect(recovered.jobs[0].previousSlugs).toContain('new-route');
+      expect(recovered.jobs[0].previousSlugsByLocale.it).toContain('new-route');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
