@@ -162,6 +162,20 @@ export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, sta
   }
 }
 
+function instagramPostMenuCandidates(page) {
+  return [
+    page.getByRole('link', { name: RX.igPostMenu }),
+    page.getByRole('menuitem', { name: RX.igPostMenu }),
+    page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
+    page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igPostMenu }),
+    page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
+    // Instagram's Create popover can render its Post row as a roleless div.
+    // The icon remains explicitly labelled; clicking it bubbles to the row's
+    // handler without guessing from generic page text.
+    page.getByRole('img', { name: RX.igPostMenu }),
+  ];
+}
+
 async function isEnabled(loc) {
   try {
     if (await loc.isDisabled()) return false;
@@ -798,9 +812,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     // bounded, video-validated fallback; a missing menu is still allowed for
     // layouts that opened the upload dialog directly.
     const postMenu = await findFirst([
-      page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
-      page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igPostMenu }),
-      page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
+      ...instagramPostMenuCandidates(page),
     ], { guard, timeout: t.optional });
     if (postMenu) {
       await snap('create-menu');
@@ -907,10 +919,7 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
   await human.pause();
   // Newer layouts open a small menu (Post / Live / Ad) before the dialog.
   step.set('create-menu');
-  const postMenu = await findFirst([
-    page.getByRole('link', { name: RX.igPostMenu }),
-    page.getByRole('menuitem', { name: RX.igPostMenu }),
-  ], { guard, timeout: t.optional });
+  const postMenu = await findFirst(instagramPostMenuCandidates(page), { guard, timeout: t.optional });
   if (postMenu) {
     await snap('create-menu');
     await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu item' });
