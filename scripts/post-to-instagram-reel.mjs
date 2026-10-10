@@ -4,8 +4,8 @@
  *
  * This is intentionally separate from post-to-instagram.mjs: a Reel is a
  * different creative treatment, a different ledger cohort and a different
- * transport (the local browser robot). It is manual/workflow-dispatch only so
- * an experiment never silently adds a third daily Instagram post.
+ * transport (the local browser robot). The workflow reserves two controlled
+ * experiment slots per week without silently adding a third daily post.
  *
  * Usage:
  *   npx tsx scripts/post-to-instagram-reel.mjs --dry-run
@@ -33,7 +33,7 @@ import {
 } from './lib/instagram-reel-creative.mjs';
 import { previousReportDay, rankCandidates, pickTopNUnposted } from './lib/daily-top-content.mjs';
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
-import { pendingInstagramReel } from './lib/instagram-reel-queue.mjs';
+import { pendingInstagramReel, recentInstagramReel } from './lib/instagram-reel-queue.mjs';
 import { renderReelSlides } from './lib/social-reel-image.mjs';
 import { renderCarouselVideo } from './lib/social-carousel-video.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
@@ -100,10 +100,17 @@ function buildItem(kind, pick, jobIndex) {
 }
 
 async function queueReel({ kind, day, dryRun, robotMode }) {
+  const ledger = loadLedger(LEDGER_PATH);
   const pending = pendingInstagramReel(loadQueue(QUEUE_PATH));
   if (pending) {
     const creativeId = pending.ledgerEntries?.[0]?.creativeId || 'creative non specificata';
     console.log(`ℹ️  Instagram Reel già in coda: ${pending.id} (${creativeId}) — preservato fino a pubblicazione o scadenza`);
+    return 'skipped';
+  }
+  const recent = recentInstagramReel(ledger);
+  if (recent) {
+    const creativeId = recent.creativeId || 'creative non specificata';
+    console.log(`ℹ️  Instagram Reel recente: ${recent.queueId || recent.id || 'voce senza id'} (${creativeId}) — attendere 72 ore prima della prossima coorte`);
     return 'skipped';
   }
 
@@ -125,7 +132,6 @@ async function queueReel({ kind, day, dryRun, robotMode }) {
     isJobSlug: kind === 'job' ? (slug) => jobIndex.has(slug) : undefined,
   });
   const candidates = kind === 'job' ? jobs : articles;
-  const ledger = loadLedger(LEDGER_PATH);
   const { picks } = pickTopNUnposted(candidates, recentReelSources(ledger, kind), 1);
   const pick = picks[0];
   if (!pick) {

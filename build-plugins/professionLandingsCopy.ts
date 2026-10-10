@@ -1459,9 +1459,8 @@ function buildSections(
       {
         title: shell.sectionHeadings.context,
         paragraphs: [
-          `${strings.roleSummary} Il Ticino presenta una forte domanda di ${strings.role} italiani, facilitata dalla lingua comune e dalla prossimità geografica con Lombardia e Piemonte. Il dataset pubblico di Frontaliere Ticino registra ${facts.jobsCount} posizioni recenti per questo ruolo.`,
-          `Tra le caratteristiche specifiche del contesto ticinese: contratti a tempo indeterminato prevalenti, periodi di prova di 1–3 mesi (art. 335b CO), 5 settimane di vacanza minime salite a 6 dopo i 50 anni in molti CCL, assicurazioni sociali obbligatorie (AVS/AI/IPG, LAINF, LPP) a carico condiviso datore-lavoratore.`,
-          `Requisiti tipici: ${strings.requisiti}. I compiti di mestiere tipici includono: ${strings.typicalTasks}`,
+          strings.roleSummary,
+          `Nel lavoro quotidiano di ${strings.role}, le attività tipiche sono: ${strings.typicalTasks}`,
         ],
       },
       {
@@ -1470,7 +1469,7 @@ function buildSections(
           facts.regulated
             ? `Il ruolo di ${strings.role} in Svizzera è una professione regolamentata: per essere assunti a tempo pieno o accedere ai concorsi pubblici serve il riconoscimento del titolo italiano da parte di ${facts.recognitionAuthority}. La procedura è disciplinata dall'Accordo sulla libera circolazione delle persone CH-UE e dura tipicamente ${minLead}–${maxLead} mesi dall'inoltro della pratica completa.`
             : `Il ruolo di ${strings.role} in Svizzera non è una professione regolamentata: non è obbligatorio ottenere il riconoscimento del titolo italiano prima dell'assunzione. Tuttavia, molti datori di lavoro considerano la pratica ${facts.recognitionAuthority} un segnale positivo per posizioni tecniche o per accedere a concorsi pubblici.`,
-          `Documenti da preparare: diploma originale legalizzato (Apostille dell'Aia), traduzione ufficiale italiano/tedesco/francese, programma degli studi con elenco esami e ore di tirocinio, certificato di buona condotta, CV in formato europeo o svizzero. La pratica va inoltrata prima di accettare contratti a tempo indeterminato per evitare ritardi. [Fonte: ${facts.recognitionAuthority}](${facts.recognitionAuthorityUrl}) — aggiornato ${buildMonthYearLabel('it')}.`,
+          `Per ${strings.role}, verifica con ${facts.recognitionAuthority} i documenti e le eventuali misure compensative richieste per il tuo titolo. [Fonte ufficiale: ${facts.recognitionAuthority}](${facts.recognitionAuthorityUrl}) — aggiornato ${buildMonthYearLabel('it')}.`,
           facts.regulated
             ? `Se il percorso italiano risulta non pienamente equivalente allo standard svizzero, l'autorità può richiedere misure di compensazione: modulo di adattamento in struttura accreditata (3–12 mesi) oppure esame attitudinale. Molti datori offrono contratti-ponte durante l'iter.`
             : `Il riconoscimento facoltativo è particolarmente utile per chi punta a passare nel tempo dal settore privato al pubblico (concorsi cantonali, amministrazioni comunali) dove può diventare discriminante.`,
@@ -1479,41 +1478,32 @@ function buildSections(
       {
         title: shell.sectionHeadings.ccl,
         paragraphs: [
-          `Il contratto di riferimento per ${strings.role} in Ticino è il **${facts.cclReference}**. Il CCL regola salario minimo, 13a mensilità, vacanze, maggiorazioni per notturni e festivi, periodi di preavviso, indennità di malattia e infortunio. [Fonte: SECO — CCL/GAV di obbligatorietà generale](${facts.cclUrl}) — consultato ${buildMonthYearLabel('it')}.`,
-          `Per i frontalieri con permesso G il CCL svizzero si applica integralmente: salario, ferie, tredicesima, indennità di turno. Le assicurazioni sociali svizzere (AVS, AI, IPG, AD, LAINF, LPP) sono trattenute alla fonte o versate dal datore, con totalizzazione ai sensi del Regolamento (CE) 883/2004 [fonte: INPS — Prestazioni pensionistiche verso Svizzera](https://www.inps.it).`,
-          `Attenzione alle deroghe per piccoli datori di lavoro o settori scoperti dal CCL: in tal caso si applica il contratto individuale nel rispetto dei salari d'uso SECO per evitare dumping salariale.`,
+          `Il contratto di riferimento per ${strings.role} in Ticino è il **${facts.cclReference}**. [Fonte: SECO — CCL/GAV](${facts.cclUrl}) — consultato ${buildMonthYearLabel('it')}.`,
         ],
       },
       {
         title: shell.sectionHeadings.salary,
         paragraphs: [
-          `La forchetta salariale tipica per ${strings.role} in Ticino nel 2026 è CHF ${fmtN(minSal)}–${fmtN(maxSal)} lordi annui su 13 mensilità, con una stima editoriale di CHF ${fmtN(facts.medianSalaryChf)} come riferimento editoriale, non misurato sulle offerte attive. Le voci variabili — turni notturni, festivi, reperibilità, straordinari — possono aggiungere dal 5 al 20 % al totale.`,
-          `Per stimare il netto personalizzato (frontaliere vecchio/nuovo, chilometraggio dal confine, stato civile, figli a carico) usa il calcolatore stipendio di Frontaliere Ticino. Ricorda che l'Accordo bilaterale 2020 distingue i "nuovi frontalieri" (assunti dopo il 17/07/2023) — tassati alla fonte al 80 % in CH + dichiarazione in Italia — dai "vecchi frontalieri" che mantengono il regime precedente. [Fonte: AFC — Imposta alla fonte](https://www.estv.admin.ch/it/imposta-alla-fonte).`,
-          `Le differenze fra cantoni sono minime sui salari (CCL nazionale) ma importanti sulle tasse comunali: Lugano, Mendrisio, Bellinzona hanno moltiplicatori diversi. Il calcolatore del sito tiene conto anche di questo dettaglio.`,
+          `La forchetta salariale tipica per ${strings.role} in Ticino nel 2026 è CHF ${fmtN(minSal)}–${fmtN(maxSal)} lordi annui su 13 mensilità; CHF ${fmtN(facts.medianSalaryChf)} è una stima editoriale, non una misura delle offerte attive.`,
         ],
       },
       {
         title: shell.sectionHeadings.employers,
         paragraphs: [
-          `I principali datori di lavoro ticinesi per il ruolo di ${strings.role} includono: ${facts.topEmployers.join(', ')}. Queste realtà pubblicano concorsi regolari sui propri portali carriere e su aggregatori nazionali (jobs.ch, jobup.ch, jobagent.ch).`,
-          `Le sedi principali dei posti pubblicati negli ultimi 12 mesi sono concentrate a ${facts.topCities.join(', ')} — aree con migliore accessibilità dai valichi di Chiasso-Brogeda, Stabio-Gaggiolo e Ponte Tresa. Considerare la distanza dal confine quando si valuta lo stipendio netto: i "nuovi frontalieri" oltre i 20 km dal confine subiscono un regime fiscale leggermente diverso.`,
-          `Frontaliere Ticino pubblica un aggiornamento settimanale delle offerte per questo ruolo nella pagina "${strings.role} in Ticino" — iscriviti agli alert per non perdere i nuovi bandi.`,
+          `Tra i datori di lavoro ticinesi per ${strings.role} figurano: ${facts.topEmployers.join(', ')}.`,
+          `Le offerte recenti per ${strings.role} si concentrano soprattutto a ${facts.topCities.join(', ')}.`,
         ],
       },
       {
         title: shell.sectionHeadings.permits,
         paragraphs: [
-          `Permesso G (frontaliere): residenza in Italia, rientro settimanale, imposta alla fonte in CH + dichiarazione in IT (nuovi frontalieri post-2023). Vantaggi: possibile mantenere l'assicurazione sanitaria italiana (diritto di opzione LAMal), accesso al SSN per familiari, minori spese di trasloco. Svantaggi: LPP più contenuta, accesso limitato al mutuo svizzero, tempi di viaggio quotidiani. [Fonte: SEM — Permessi di lavoro](https://www.sem.admin.ch).`,
-          `Permesso B (residente): residenza in Svizzera, soggetto fiscale svizzero, obbligo LAMal, accesso pieno LPP (2° pilastro), possibilità di aprire mutui svizzeri. Vantaggi: netto spesso superiore a parità di lordo grazie al trattamento fiscale, stabilità professionale, accesso completo al welfare. Svantaggi: costo affitti (Lugano, Mendrisio), LAMal obbligatoria (CHF 400–600/mese adulto), distacco da famiglia/rete in Italia.`,
-          `La scelta dipende dal progetto di vita: per un ruolo con stipendio inferiore a CHF 75'000 e famiglia in Italia, il permesso G è quasi sempre più conveniente; oltre i CHF 90'000 o con progetti di acquisto casa, il permesso B diventa più vantaggioso.`,
+          `Per ${strings.role}, il permesso G si applica a chi risiede in Italia e rientra con la frequenza prevista; il permesso B a chi si trasferisce in Svizzera. Verifica condizioni e assicurazione sanitaria con la [SEM](https://www.sem.admin.ch).`,
         ],
       },
       {
         title: shell.sectionHeadings.application,
         paragraphs: [
-          `Un'applicazione di successo per ${strings.role} in Ticino segue le convenzioni svizzere: CV in italiano ma in formato "swiss standard" (foto, tutti i diplomi, ore di formazione certificate, referenze verificabili), lettera motivazionale personalizzata di massimo una pagina, copie dei certificati di lingua (se richiesti).`,
-          `Il processo di selezione prevede tipicamente: screening telefonico (10–15 min), colloquio HR (45–60 min), colloquio tecnico con il responsabile operativo (60–90 min), eventuale prova pratica o assessment (specialmente per ruoli ospedalieri, edili, elettrotecnici). La call-back al candidato avviene di solito entro 10 giorni lavorativi.`,
-          `Tempistiche realistiche dal primo invio del CV al contratto firmato: 4–8 settimane. Avvia in parallelo la pratica di riconoscimento e la richiesta del permesso G/B per non bloccare la data di inizio.`,
+          `Nel CV per ${strings.role}, documenta i requisiti richiesti: ${strings.requisiti}.`,
         ],
       },
     ];

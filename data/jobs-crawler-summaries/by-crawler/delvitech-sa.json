@@ -1,20 +1,62 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-09T21:21:34.139Z",
-  "total": 7,
+  "generatedAt": "2026-10-10T09:21:53.218Z",
+  "total": 8,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 49351,
-  "avgDurationMs": 49351,
+  "durationMs": 43521,
+  "avgDurationMs": 43521,
   "durationHistory": [
-    49351
+    43521
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Mechanical Engineer",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
+      "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
+      "applyUrl": "https://legacy.delvi.tech/mechanical-engineer-2/",
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "companyDomain": "delvi.tech",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "delvitech-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "contactEmail": "career@delvi.tech",
+      "id": "delvitech-sa-d624f7e54b9b",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-10T09:21:39.631Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -307,5 +349,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }

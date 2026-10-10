@@ -245,7 +245,12 @@ const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|po
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
+// A generic personal-data section can also contain unrelated labels such as
+// «Data di nascita». Only these residence-specific words override that noise
+// when a sibling-label context contains both kinds of information.
+const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
@@ -257,7 +262,11 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
   const surrounding = String(context || '');
-  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(surrounding)) return '';
+  const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
+  const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
+  const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
+  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
+    || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding);
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
@@ -363,12 +372,16 @@ function ageAnswerMatches(candidate, question, answer) {
   return expected !== null && actual !== null && actual === booleanAnswer(expected);
 }
 
-function equivalentAnswer(question, left, right) {
+function comparableContext(context) {
+  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   if (a === b) return true;
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (topic === 'nationality') {
     const leftCode = nationalityOf(left)?.code;
     const rightCode = nationalityOf(right)?.code;
@@ -398,7 +411,7 @@ function equivalentAnswer(question, left, right) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question) {
+function recordedAnswerForQuestion(candidate, question, context = '') {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -408,16 +421,18 @@ function recordedAnswerForQuestion(candidate, question) {
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
-  const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
+  const requestedContext = comparableContext(context);
+  const sameContext = (item) => comparableContext(item.context) === requestedContext;
+  const exact = items.find((item) => sameContext(item) && comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (!topic) return '';
-  const semantic = items.find((item) => questionTopic(item.question) === topic);
+  const semantic = items.find((item) => sameContext(item) && questionTopic(item.question, item.context) === topic);
   return semantic ? String(semantic.answer).trim() : '';
 }
 
-export function candidateAnswerForQuestion(candidate, question) {
-  return recordedAnswerForQuestion(candidate, question) || addressQuestionAnswer(candidate, questionTopic(question));
+export function candidateAnswerForQuestion(candidate, question, context = '') {
+  return recordedAnswerForQuestion(candidate, question, context) || addressQuestionAnswer(candidate, questionTopic(question, context));
 }
 
 function optionForAnswer(field, answer) {
@@ -453,7 +468,7 @@ function optionForAnswer(field, answer) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context);
-  const previous = recordedAnswerForQuestion(candidate, field?.label);
+  const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
@@ -519,10 +534,10 @@ export function attachedDocumentYes(candidate, field) {
 const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
-export function answeredByCandidate(candidate, question, answer) {
+export function answeredByCandidate(candidate, question, answer, context = '') {
   const given = String(answer || '').trim();
-  const previous = candidateAnswerForQuestion(candidate, question);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
+  const previous = candidateAnswerForQuestion(candidate, question, context);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -592,11 +607,13 @@ export function guardPlan(plan, fields, candidate = null) {
     missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
-    if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
+    const field = byId.get(item.fieldId);
+    const withContext = field?.context ? { ...item, context: String(field.context).slice(0, 240) } : item;
+    if (!missing.some((other) => other.fieldId === withContext.fieldId)) missing.push(withContext);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -632,7 +649,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // answer to this very question, or declining; never the substring rule (decision 9).
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
     if (own !== null) {
-      if (!own && !answeredByCandidate(candidate, field.label, action.value) && !declines) {
+      if (!own && !answeredByCandidate(candidate, field.label, action.value, field.context) && !declines) {
         ask(field);
         continue;
       }
@@ -645,7 +662,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // below (candidateAnswerForField) when the candidate has said it.
     if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label, field.context) === 'civil_status') {
       const stated = civilStatusCode(statedCivilStatus(candidate));
-      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
+      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value, field.context)) {
         ask(field);
         continue;
       }
@@ -654,7 +671,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

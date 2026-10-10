@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-09T09:25:08.916Z",
-  "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
-  "removedCount": 2,
+  "generatedAt": "2026-10-10T09:31:15.485Z",
+  "total": 6,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 11023,
-  "avgDurationMs": 11023,
+  "durationMs": 12004,
+  "avgDurationMs": 12004,
   "durationHistory": [
-    11023
+    12004
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Data Engineer",
       "slug": "data-engineer-chiasso",
@@ -93,9 +94,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Machine Learning Scientist",
       "slug": "machine-learning-scientist-chiasso",
@@ -134,47 +133,6 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Hotel Connectivity Specialist (Channel Managers & Switches)",
-      "slug": "hotel-connectivity-specialist-channel-managers-switches-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000150984354&jobName=Hotel+Connectivity+Specialist+%28Channel+Managers",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000150984354-hotel-connectivity-specialist-channel-managers-switches-?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-22T09:50:56.667Z",
-      "postedDate": "2026-09-22T09:50:56.667Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-7c38b1d2f9f2",
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:49:43.585Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
         "completeness": 25
       }
     },
@@ -304,10 +262,10 @@
   ],
   "removedJobs": [
     {
-      "title": "Data Engineer",
-      "slug": "data-ingegnere-lastminute-com-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000154143609&jobName=Data+Engineer",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000154143609-data-engineer?oga=true",
+      "title": "Hotel Connectivity Specialist (Channel Managers & Switches)",
+      "slug": "hotel-connectivity-specialist-channel-managers-switches-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000150984354&jobName=Hotel+Connectivity+Specialist+%28Channel+Managers",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000150984354-hotel-connectivity-specialist-channel-managers-switches-?oga=true",
       "company": "lastminute.com",
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
@@ -319,8 +277,8 @@
       "sourceLang": "en",
       "category": "tech",
       "sector": "Tecnologia & IT",
-      "datePosted": "2026-10-07T15:50:04.165Z",
-      "postedDate": "2026-10-07T15:50:04.165Z",
+      "datePosted": "2026-09-22T09:50:56.667Z",
+      "postedDate": "2026-09-22T09:50:56.667Z",
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -329,51 +287,12 @@
       "postalCode": "6830",
       "streetAddress": "Corso San Gottardo 84",
       "contract": "full-time",
-      "id": "lastminute-com-44d0ae878fc6",
+      "id": "lastminute-com-7c38b1d2f9f2",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Consolidation Specialist",
-      "slug": "consolidation-specialista-lastminute-com-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000154021259&jobName=Consolidation+Specialist",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000154021259-consolidation-specialist?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-10-07T07:10:11.562Z",
-      "postedDate": "2026-10-07T07:10:11.562Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-e9ca22f540fd",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-07T09:28:28.974Z",
+      "firstSeenAt": "2026-09-23T23:49:43.585Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -384,5 +303,5 @@
     }
   ],
   "unchangedJobs": [],
-  "codeCommit": "0ed18604b09a0e9ed661dc79fd4d82a259d75c69"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }

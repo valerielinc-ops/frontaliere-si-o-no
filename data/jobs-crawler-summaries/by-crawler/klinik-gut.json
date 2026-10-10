@@ -1,7 +1,7 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-10-09T21:21:36.096Z",
+  "generatedAt": "2026-10-10T09:36:43.510Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 3086,
-  "avgDurationMs": 3086,
+  "durationMs": 2821,
+  "avgDurationMs": 2821,
   "durationHistory": [
-    3086
+    2821
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.309Z",
+      "crawledAt": "2026-10-10T09:36:31.728Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -81,7 +81,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.312Z",
+      "crawledAt": "2026-10-10T09:36:31.731Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4923",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.311Z",
+      "crawledAt": "2026-10-10T09:36:31.729Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.306Z",
+      "crawledAt": "2026-10-10T09:36:31.725Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4447",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.304Z",
+      "crawledAt": "2026-10-10T09:36:31.723Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-3038",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.303Z",
+      "crawledAt": "2026-10-10T09:36:31.721Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -290,7 +290,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:21:23.292Z",
+      "crawledAt": "2026-10-10T09:36:31.709Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -320,5 +320,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }

@@ -294,6 +294,32 @@ describe('cadence', () => {
     );
     expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
   });
+
+  it('releases the pending Reel on the next Zurich day after the Instagram cap', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-03', confirmDispatched: true },
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - 2 * HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: true },
+    );
+    const reel = entry('reel', '2026-10-03', { now: NOW - 3 * HOUR });
+    const queue = { pending: [reel] };
+    const reader = {
+      readQueue: () => queue,
+      readLedger: () => ({ posted: [{ queueId: 'article-2026-10-03' }, { queueId: 'job-2026-10-03' }] }),
+    };
+    const h = harness({ queue, journal });
+
+    const capped = await runRobot(h.deps({ reader }));
+    expect(capped.results[0]).toMatchObject({ channel: 'instagram', outcome: 'cap' });
+    expect(h.calls.flow).toEqual([]);
+
+    h.advance(24 * HOUR);
+    const nextDay = await runRobot(h.deps({ reader }));
+    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published', queueId: reel.id });
+    expect(h.calls.flow).toEqual([{ dryRun: false, id: reel.id }]);
+    expect(pressedToday(h.journal(), 'instagram', NOW)).toBe(2);
+    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(1);
+  });
 });
 
 type Deps = Parameters<typeof runRobot>[0];

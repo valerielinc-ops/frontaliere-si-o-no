@@ -21,6 +21,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { beforeEach, describe, expect, it } from 'vitest';
 
+import { INITIAL_PAINT_FRAME_TIMEOUT_MS, waitForInitialPaintOpportunity } from '@/services/initialPaintBootstrap';
 import { adoptStaticFallbackIntoRoot } from '@/services/staticFallbackHandoff';
 
 const ROOT = resolve(__dirname, '..');
@@ -58,6 +59,61 @@ const STATIC_OVERLAY_HUB_BODY = `
   <div id="root"><div class="ft-hdr-reserve"></div></div>
   <div class="ft-rail-grid"><main class="seo-static-content"><h1>Hub</h1></main></div>
   <div id="footer-root"></div>`;
+
+describe('initial SPA bootstrap — mobile first paint', () => {
+  it('waits for a paint opportunity before importing the React runtime', async () => {
+    const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
+    const paintGate = entry.indexOf('await waitForInitialPaintOpportunity()');
+    expect(paintGate).toBeGreaterThanOrEqual(0);
+    expect(entry.indexOf("import('react')")).toBeGreaterThan(paintGate);
+    expect(entry.indexOf("import('react-dom/client')")).toBeGreaterThan(paintGate);
+    expect(entry).not.toMatch(/^import\s+(?:React|ReactDOM)\b/m);
+
+    const frames: FrameRequestCallback[] = [];
+    let timerCallback: (() => void) | undefined;
+    let clearedTimer = false;
+    const ready = waitForInitialPaintOpportunity({
+      visible: () => true,
+      requestFrame: (callback) => {
+        frames.push(callback);
+        return frames.length;
+      },
+      setTimer: (callback, ms) => {
+        expect(ms).toBe(INITIAL_PAINT_FRAME_TIMEOUT_MS);
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => { clearedTimer = true; },
+    });
+    let settled = false;
+    void ready.then(() => { settled = true; });
+
+    frames.shift()?.(16);
+    await Promise.resolve();
+    expect(settled).toBe(false);
+    frames.shift()?.(32);
+    await ready;
+
+    expect(settled).toBe(true);
+    expect(clearedTimer).toBe(true);
+    expect(timerCallback).toBeTypeOf('function');
+  });
+
+  it('bounds the paint wait when animation frames do not arrive', async () => {
+    let timerCallback: (() => void) | undefined;
+    const ready = waitForInitialPaintOpportunity({
+      visible: () => true,
+      requestFrame: () => 1,
+      setTimer: (callback) => {
+        timerCallback = callback;
+        return 1;
+      },
+      clearTimer: () => {},
+    });
+    timerCallback?.();
+    await expect(ready).resolves.toBeUndefined();
+  });
+});
 
 describe('#root 100vh reservation (index.css) — #8868', () => {
   it('has exactly one reservation rule, scoped to pages with a footer SEO block', () => {
