@@ -8,6 +8,51 @@ import { assertCrawlerSliceWriteSafe, isCrawlerSlicePath } from './crawler-slice
 // disambiguate them.
 let tmpSeq = 0;
 
+// The assembled jobs dataset is large enough that JSON.stringify(array) can
+// hit V8's maximum string length even though every individual job is safely
+// serializable. Keep the threshold high so ordinary JSON writes retain their
+// byte-for-byte output, while large top-level arrays are emitted one item at
+// a time into the atomic temporary file.
+const STREAMING_ARRAY_THRESHOLD = 1024;
+
+function writeTextSync(fd, text) {
+  const buffer = Buffer.from(text, 'utf8');
+  let offset = 0;
+  while (offset < buffer.length) {
+    offset += fs.writeSync(fd, buffer, offset, buffer.length - offset);
+  }
+}
+
+function stringifyArrayItem(item, compact) {
+  // JSON.stringify serializes undefined/function/symbol array entries as
+  // null. Preserve that array-specific behavior when writing items alone.
+  const json = JSON.stringify(item, null, compact ? 0 : 2);
+  return json === undefined ? 'null' : json;
+}
+
+function writeLargeArraySync(filePath, value, compact) {
+  const fd = fs.openSync(filePath, 'w');
+  try {
+    writeTextSync(fd, '[');
+    if (!compact && value.length > 0) writeTextSync(fd, '\n');
+    for (let index = 0; index < value.length; index++) {
+      if (index > 0) writeTextSync(fd, compact ? ',' : ',\n');
+      const item = stringifyArrayItem(value[index], compact);
+      if (compact) {
+        writeTextSync(fd, item);
+      } else {
+        // JSON.stringify(array, null, 2) indents every item line by two
+        // spaces relative to the array itself.
+        writeTextSync(fd, item.split('\n').map((line) => `  ${line}`).join('\n'));
+      }
+    }
+    if (!compact && value.length > 0) writeTextSync(fd, '\n');
+    writeTextSync(fd, ']\n');
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
 /**
  * Atomically write `value` as pretty-printed JSON to `filePath`.
  *
@@ -60,18 +105,29 @@ export function writeJsonAtomic(
   } catch {
     /* best-effort — a guard bug must never block the crawl */
   }
-  const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
-  const content = `${json}\n`;
-  if (isCrawlerSlicePath(filePath) && fs.existsSync(filePath)) {
-    assertCrawlerSliceWriteSafe(filePath, fs.readFileSync(filePath, 'utf8'), content, {
-      dedupReferenceJobs,
-      housekeepingProof,
-      expiredGhostProof,
-    });
+  // Crawler slices are guarded against catastrophic shrink using the full
+  // candidate bytes, so keep their existing path. The large assembled arrays
+  // are not crawler slices and can be written incrementally without first
+  // materializing a second copy of the whole dataset as one JS string.
+  const streamArray = Array.isArray(value)
+    && value.length >= STREAMING_ARRAY_THRESHOLD
+    && !isCrawlerSlicePath(filePath);
+  let content = null;
+  if (!streamArray) {
+    const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
+    content = `${json}\n`;
+    if (isCrawlerSlicePath(filePath) && fs.existsSync(filePath)) {
+      assertCrawlerSliceWriteSafe(filePath, fs.readFileSync(filePath, 'utf8'), content, {
+        dedupReferenceJobs,
+        housekeepingProof,
+        expiredGhostProof,
+      });
+    }
   }
   const tmp = `${filePath}.${process.pid}.${tmpSeq++}.tmp`;
   try {
-    fs.writeFileSync(tmp, content, 'utf8');
+    if (streamArray) writeLargeArraySync(tmp, value, compact);
+    else fs.writeFileSync(tmp, content, 'utf8');
     fs.renameSync(tmp, filePath);
   } catch (err) {
     try { fs.unlinkSync(tmp); } catch { /* best-effort cleanup */ }
