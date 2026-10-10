@@ -91,7 +91,7 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
 
   it('reuses the bounded index pass for scoped ids and location vocabulary', () => {
     expect(SRC).toContain('ids.add(job.id)');
-    expect(SRC).toContain('locationTokens.add(stem)');
+    expect(SRC).toContain('addJobSearchLocationTokens(locationTokens, job)');
     expect(SRC).not.toContain('const scopedSearchLocationTokens = useMemo');
   });
 
