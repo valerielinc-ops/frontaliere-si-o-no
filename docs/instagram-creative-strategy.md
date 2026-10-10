@@ -267,8 +267,12 @@ confermati dal robot che non lo conservano, cerca un solo media dell’account
 compatibile con l’orario di conferma. Non attribuisce il dato se trova più
 possibilità, se il media dichiarato non ritorna dall’account o se mancano i
 metadati della creatività. `snapshotAgeHours` e il metodo di riconciliazione
-restano nel dataset per audit. La tolleranza anticipata è disattivata di
-default; si può usare solo esplicitamente per una prova diagnostica.
+restano nel dataset per audit; quando presente, anche `engagementMechanic`
+segue il post fino allo snapshot e alla scorecard (`keyword-comment`,
+`direct-share` o `save-reminder`). I post storici senza questo campo restano
+senza attribuzione della meccanica, per non confondere una metrica con una CTA.
+La tolleranza anticipata è disattivata di default; si può usare solo
+esplicitamente per una prova diagnostica.
 
 ## 7. Aggiornamento dello studio pubblico e matrice sperimentale
 
@@ -339,6 +343,8 @@ e finestra di misurazione; non mette nello stesso confronto un articolo, un
 lavoro e una classifica di dogane. Conserva quindi:
 
 - metrica primaria della variante (`shares`, `saves` o `comments`) / reach;
+- meccanica della CTA (`keyword-comment`, `direct-share` o `save-reminder`), per
+  distinguere l’azione richiesta dalla sola metrica osservata;
 - tasso comune di interazioni (`shares + saves + comments`) / reach, usato solo
   come confronto esplorativo;
 - stato `needs-N-more` finché non sono presenti tre osservazioni comparabili

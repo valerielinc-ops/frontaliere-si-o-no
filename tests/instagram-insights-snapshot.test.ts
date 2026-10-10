@@ -26,6 +26,7 @@ function ledgerEntry(overrides: Record<string, unknown> = {}) {
     creativeLabel: 'Dato locale',
     creativeObjective: 'share',
     primaryMetric: 'shares',
+    engagementMechanic: 'direct-share',
     ...overrides,
   };
 }
@@ -48,6 +49,7 @@ describe('Instagram Insights snapshot collector', () => {
     expect(groups[0]).toMatchObject({
       queueId: 'article-2026-10-07',
       creativeId: 'proof-local',
+      engagementMechanic: 'direct-share',
       entries: 2,
     });
 
@@ -156,6 +158,7 @@ describe('Instagram Insights snapshot collector', () => {
       creativeVariant: 'local',
       creativeLabel: 'Dato locale',
       primaryMetric: 'shares',
+      engagementMechanic: 'direct-share',
       reach: 100,
       shares: 12,
       saves: 8,
