@@ -8027,6 +8027,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.corsi-contributi-lucerna.title': 'Continuing education in Lucerne: requirements and contributions',
     'blog.article.corsi-contributi-lucerna.excerpt': 'In the Canton of Lucerne, contributions follow cantonal rules.',
     'blog.article.corsi-contributi-lucerna.imageAlt': 'Swiss continuing-education classroom with computers and course papers',
+    'blog.article.sgkb-filiali-fisiche.title': 'SGKB confirms the 37 physical branches',
+    'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB maintains the network of 37 physical locations.',
+    'blog.article.sgkb-filiali-fisiche.imageAlt': 'Physical branch of a Swiss cantonal bank in St. Gallen',
 };
 
 export default blogMetaChEn;

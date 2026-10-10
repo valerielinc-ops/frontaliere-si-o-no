@@ -8027,6 +8027,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.corsi-contributi-lucerna.title': 'Weiterbildung in Luzern: Voraussetzungen und Beiträge',
     'blog.article.corsi-contributi-lucerna.excerpt': 'Im Kanton Luzern richten sich die Beiträge nach kantonalen Regeln.',
     'blog.article.corsi-contributi-lucerna.imageAlt': 'Schweizer Weiterbildungsraum mit Computern und Kursunterlagen',
+    'blog.article.sgkb-filiali-fisiche.title': 'SGKB bestätigt die 37 physischen Filialen',
+    'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB hält am Netz von 37 physischen Standorten fest.',
+    'blog.article.sgkb-filiali-fisiche.imageAlt': 'Physische Filiale einer Schweizer Kantonalbank in St. Gallen',
 };
 
 export default blogMetaChDe;

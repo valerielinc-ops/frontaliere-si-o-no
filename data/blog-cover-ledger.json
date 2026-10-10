@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5164
+      "6": 5165
     },
-    "publishedCovers": 6876,
+    "publishedCovers": 6877,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182896,6 +182896,33 @@
           "id": "seco-cambiamenti-istituzionali-2026",
           "category": "novita",
           "date": "2026-10-10T01:31:53.650Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-sgkb-filiali-fisiche": {
+      "cover": "/images/blog/article-sgkb-filiali-fisiche.webp",
+      "hash": "70785b66909cb174dad4792fb8b84a2b8f34c078a9d285e51115299232482aca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "sgkb-filiali-fisiche",
+          "category": "novita",
+          "date": "2026-10-10T03:27:02.646Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

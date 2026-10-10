@@ -26801,6 +26801,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sgkb-filiali-fisiche',
+    category: 'novita',
+    date: '2026-10-10T03:27:02.646Z',
+    image: '/images/blog/article-sgkb-filiali-fisiche.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

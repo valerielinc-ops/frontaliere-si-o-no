@@ -8027,6 +8027,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.corsi-contributi-lucerna.title': 'Formation continue à Lucerne : exigences et subventions',
     'blog.article.corsi-contributi-lucerna.excerpt': 'Dans le canton de Lucerne, les subventions sont régies par des règles cantonales.',
     'blog.article.corsi-contributi-lucerna.imageAlt': 'Salle suisse de formation continue avec ordinateurs et documents',
+    'blog.article.sgkb-filiali-fisiche.title': 'SGKB confirme ses 37 agences physiques',
+    'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB maintient le réseau de 37 sites physiques.',
+    'blog.article.sgkb-filiali-fisiche.imageAlt': 'Agence physique d\'une banque cantonale suisse à Saint-Gall',
 };
 
 export default blogMetaChFr;

@@ -8027,6 +8027,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.corsi-contributi-lucerna.title': 'Formazione continua a Lucerna: requisiti e contributi',
     'blog.article.corsi-contributi-lucerna.excerpt': 'Nel Cantone di Lucerna i contributi seguono regole cantonali.',
     'blog.article.corsi-contributi-lucerna.imageAlt': 'Aula svizzera per la formazione continua con computer e documenti',
+    'blog.article.sgkb-filiali-fisiche.title': 'SGKB conferma le 37 filiali fisiche',
+    'blog.article.sgkb-filiali-fisiche.excerpt': 'SGKB mantiene la rete di 37 sedi fisiche.',
+    'blog.article.sgkb-filiali-fisiche.imageAlt': 'Filiale fisica di una banca cantonale svizzera a San Gallo',
 };
 
 export default blogMetaChIt;

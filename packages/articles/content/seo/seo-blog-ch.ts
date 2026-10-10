@@ -101232,6 +101232,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sgkb-filiali-fisiche': {
+    title: 'SGKB conferma le 37 filiali fisiche | Frontaliere Ticino',
+    description: 'SGKB mantiene la rete di 37 sedi fisiche. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sgkb, conferma, filiali, fisiche',
+    ogTitle: 'SGKB: 37 filiali fisiche confermate',
+    ogDescription: 'SGKB mantiene la rete di 37 sedi fisiche.',
+    canonicalPath: '/articoli-svizzera/sgkb-filiali-fisiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SGKB conferma le 37 filiali fisiche",
+      "description": "SGKB mantiene la rete di 37 sedi fisiche. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sgkb-filiali-fisiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Filiale fisica di una banca cantonale svizzera a San Gallo"
+      },
+      "datePublished": "2026-10-10T03:27:02+00:00",
+      "dateModified": "2026-10-10T03:27:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sgkb-filiali-fisiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
