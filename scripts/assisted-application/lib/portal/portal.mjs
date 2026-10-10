@@ -28,7 +28,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, planPage, questionTopic } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic } from './plan.mjs';
 import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -77,6 +77,12 @@ export const REFRESH_ASKED_RE = /(refresh (the|this) page|reload (the|this) page
 const MAX_REFRESHES_PER_PAGE = 2;
 // The control that takes an uploaded file away again, by its name next to the file's («Delete CV_….pdf»).
 export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|rimuovi|supprimer|retirer)\b/i;
+
+/** A failed consent click never permits the runner to navigate or submit. */
+export function failedConsentRequiresHandoff(result, action, field) {
+  if (result?.ok || action?.action !== 'check') return false;
+  return action.source === 'consent' || Boolean(field?.required) || ownConsent(field);
+}
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
 export function removalsOf(buttons, names) {
@@ -1354,7 +1360,7 @@ async function waitForOutcome(page, captchaEnabled = false) {
     }
     if (urlConfirms(page.url(), snapshot)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > started + 4000 && VALIDATION_RE.test(text)) return 'validation';
+    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
   return 'ambiguous';
 }
@@ -1815,6 +1821,21 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        // A consent checkbox is part of the submission contract. If the
+        // browser did not register the check, do not press Next/Submit and
+        // turn a failed consent into an ambiguous portal outcome. The filler
+        // verifies the DOM state; this boundary makes that verification
+        // fail-closed for both required and legacy technical-name consents.
+        const failedConsent = results.find((result) => {
+          if (result.ok) return false;
+          const action = actions.find((item) => item.fieldId === result.fieldId);
+          const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
+          return failedConsentRequiresHandoff(result, action, field);
+        });
+        if (failedConsent) {
+          evidence.steps.at(-1).criticalFailure = failedConsent.error;
+          return await handoff('portal_choice_not_registered');
+        }
         if (redrawn && page.url() === plannedUrl) {
           redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
           evidence.steps.at(-1).redrawn = true;
