@@ -72,6 +72,10 @@ describe('Instagram Reel creative experiment', () => {
     expect(instagramReelLedgerFields(article).engagementMechanic).toBe('keyword-comment');
   });
 
+  it('does not guess a mechanic for an unknown future metric', () => {
+    expect(instagramReelLedgerFields({ primaryMetric: 'replies' }).engagementMechanic).toBe('unknown');
+  });
+
   it('accepts a verified vertical video in the same guarded queue', () => {
     const entry = buildQueueEntry({
       channel: 'instagram',
