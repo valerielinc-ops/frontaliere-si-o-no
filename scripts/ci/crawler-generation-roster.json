@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 624,
+  "crawlerCount": 625,
   "groups": {
     "10": [
       "atec-personal",
@@ -420,6 +420,7 @@
       "postauto",
       "postfinance",
       "premiumpflege24",
+      "rehaklinik-seewis",
       "tsmg"
     ],
     "24": [
@@ -1135,6 +1136,7 @@
     "reha-bellikon": "data/jobs/by-crawler/reha-bellikon.json",
     "rehab-basel": "data/jobs/by-crawler/rehab-basel.json",
     "rehaklinik-hasliberg": "data/jobs/by-crawler/rehaklinik-hasliberg.json",
+    "rehaklinik-seewis": "data/jobs/by-crawler/rehaklinik-seewis.json",
     "relewant": "data/jobs/by-crawler/relewant.json",
     "rennbahnklinik": "data/jobs/by-crawler/rennbahnklinik.json",
     "rfsm-fribourg": "data/jobs/by-crawler/rfsm-fribourg.json",
@@ -1302,5 +1304,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:12aa398fe2d5321db3b349699aec70d8efc39f7d2ea78103e7a9486dad4c78e8"
+  "digest": "sha256:0dd9e889af27feebc6d7a9765dfffbf66e741e8aa1e4fa499143c15b428df58f"
 }

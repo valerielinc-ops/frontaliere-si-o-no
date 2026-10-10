@@ -4,20 +4,20 @@
   "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "55ac0e4c93fd71cec51144b0d6d0109b418489f4",
+  "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe",
   "artifactObservation": {
     "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
     "sourceRef": "main",
-    "sourceCommit": "55ac0e4c93fd71cec51144b0d6d0109b418489f4"
+    "sourceCommit": "04187f9672b873d676c98eb43b4b14f3eab9fafe"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 625,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:12aa398fe2d5321db3b349699aec70d8efc39f7d2ea78103e7a9486dad4c78e8",
+    "rosterDigest": "sha256:0dd9e889af27feebc6d7a9765dfffbf66e741e8aa1e4fa499143c15b428df58f",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -436,6 +436,7 @@
     "scripts/update-reha-bellikon-jobs.mjs",
     "scripts/update-rehab-basel-jobs.mjs",
     "scripts/update-rehaklinik-hasliberg-jobs.mjs",
+    "scripts/update-rehaklinik-seewis-jobs.mjs",
     "scripts/update-rennbahnklinik-jobs.mjs",
     "scripts/update-rfsm-fribourg-jobs.mjs",
     "scripts/update-rheinmetall-air-defence-jobs.mjs",
@@ -1444,8 +1445,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "5d4e50203df8dd56b1d83b5351661f0850372efa30f5e572e9017faaae843ad0",
-      "artifactSha256": "95ee69a5edbcce8f8df8d20cc42ccce573d2db6649ad491884204a32dc49412e",
+      "sourceSha256": "56eb03c357893685586d1b315410c8c0d107b24e6bb609bf1ba75285830150c8",
+      "artifactSha256": "bdd2d83ef943da0ff5072660b9623a84ff15c989fdb6be6b880c228012d99825",
       "generatorSha256": "9fba7107028f24e98d76b2263a4d1428435d2bd72543cc911ef2bb2b364db0ca",
       "members": [
         "albergo-gardenia",
@@ -1472,7 +1473,8 @@
         "pantr-ch",
         "confederazione",
         "mediamarkt",
-        "pianorm"
+        "pianorm",
+        "rehaklinik-seewis"
       ]
     },
     {
