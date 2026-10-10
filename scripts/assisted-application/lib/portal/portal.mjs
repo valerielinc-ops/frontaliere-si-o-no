@@ -28,7 +28,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { candidateAnswerForField, holdsValue, planPage, questionTopic } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, ownConsent, planPage, questionTopic } from './plan.mjs';
 import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -77,6 +77,12 @@ export const REFRESH_ASKED_RE = /(refresh (the|this) page|reload (the|this) page
 const MAX_REFRESHES_PER_PAGE = 2;
 // The control that takes an uploaded file away again, by its name next to the file's («Delete CV_….pdf»).
 export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|rimuovi|supprimer|retirer)\b/i;
+
+/** A failed consent click never permits the runner to navigate or submit. */
+export function failedConsentRequiresHandoff(result, action, field) {
+  if (result?.ok || action?.action !== 'check') return false;
+  return action.source === 'consent' || Boolean(field?.required) || ownConsent(field);
+}
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
 export function removalsOf(buttons, names) {
@@ -1824,7 +1830,7 @@ export async function submitViaPortal(ctx) {
           if (result.ok) return false;
           const action = actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
-          return action?.action === 'check' && (action.source === 'consent' || field?.required);
+          return failedConsentRequiresHandoff(result, action, field);
         });
         if (failedConsent) {
           evidence.steps.at(-1).criticalFailure = failedConsent.error;

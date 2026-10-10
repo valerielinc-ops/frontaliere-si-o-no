@@ -182,13 +182,17 @@ export function isOpenEndedExperienceEnd(value) {
   return CURRENT_EXPERIENCE_RE.test(String(value || ''));
 }
 
-const DATE_PATTERN_RE = /\b(?:dd|gg|jj|tt)[./-]mm[./-](?:yyyy|aaaa|jjjj)\b/i;
+const DATE_PATTERN_RE = /\b(dd|gg|jj|tt|mm)([./-])(dd|gg|jj|tt|mm)([./-])(yyyy|aaaa|jjjj)\b/i;
 const ITALIAN_DATE_CONTEXT_RE = /\bdata\s+(?:di|del|della|dell['’]|inizio|fine|assunzione|nascita|scadenza|termine)\b/i;
 const NON_DATE_DATA_CONTEXT_RE = /\bdata\s+(?:processing|protection|privacy|sharing|retention)\b/i;
 
 /** Whether a portal field expects a calendar date rather than free text. */
 export function isDateField(field) {
-  const text = `${field?.label || ''} ${field?.context || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`;
+  // `context` is a section summary and can contain another field's label (for
+  // example "First name · Date of birth"). Date detection must stay local to
+  // the control or its own placeholder/pattern, otherwise an ordinary
+  // required field can be turned into an unanswerable date question.
+  const text = `${field?.label || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`;
   return field?.kind === 'date' || field?.inputType === 'date'
     || DATE_PATTERN_RE.test(text)
     || /\b(?:date|datum|fecha)\b/i.test(text)
@@ -208,9 +212,11 @@ export function normalizeDateAnswer(field, value) {
   if (!raw || isOpenEndedExperienceEnd(raw)) return '';
   const iso = isoDateOf(raw);
   if (!iso) return '';
-  if (DATE_PATTERN_RE.test(`${field?.label || ''} ${field?.context || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`)) {
+  const pattern = DATE_PATTERN_RE.exec(`${field?.label || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`);
+  if (pattern) {
     const [year, month, day] = iso.split('-');
-    return `${day}.${month}.${year}`;
+    const valueOf = (token) => /^(?:mm)$/i.test(token) ? month : /^(?:yyyy|aaaa|jjjj)$/i.test(token) ? year : day;
+    return `${valueOf(pattern[1])}${pattern[2]}${valueOf(pattern[3])}${pattern[4]}${valueOf(pattern[5])}`;
   }
   return field?.kind === 'date' || field?.inputType === 'date' ? iso : raw;
 }

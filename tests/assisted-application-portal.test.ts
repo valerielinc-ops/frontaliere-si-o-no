@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, knownValuesOf, nativeLanguageOption, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -549,6 +549,25 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const corrected = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: '2024-08-31', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
     expect(corrected.actions[0]).toMatchObject({ fieldId: 'past-end', value: '31.08.2024' });
     expect(corrected.missingRequired).toEqual([]);
+  });
+
+  it('preserves the advertised date separator and ignores section-only date labels', () => {
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'dd/mm/yyyy' }, '15/03/2020')).toBe('15/03/2020');
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'mm-dd-yyyy' }, '15/03/2020')).toBe('03-15-2020');
+    expect(isDateField({ kind: 'text', label: 'First name', context: 'First name · Date of birth' })).toBe(false);
+  });
+
+  it('fails closed when a legacy consent check is reported as a rule action', () => {
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'agbs_check', label: '', required: false },
+    )).toBe(true);
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'privacy_marketing', label: '', required: false },
+    )).toBe(false);
   });
 
   it('maps an explicitly ongoing CV experience to the current employment option', () => {
