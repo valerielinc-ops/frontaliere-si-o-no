@@ -112,8 +112,16 @@ describe('fetchSuggestCandidates', () => {
   it('bounds and cancels a response body reader that ignores abort', async () => {
     vi.useFakeTimers();
     try {
-      const cancelBody = vi.fn(async () => undefined);
-      const fetchImpl = vi.fn(async () => {
+      const cancelBody = vi.fn(async () => {
+        throw new Error('body is locked');
+      });
+      const abortReasons: unknown[] = [];
+      const fetchImpl = vi.fn(async (_url: string, init: { signal: AbortSignal }) => {
+        init.signal.addEventListener(
+          'abort',
+          () => abortReasons.push(init.signal.reason),
+          { once: true },
+        );
         return {
           ok: true,
           status: 200,
@@ -141,6 +149,8 @@ describe('fetchSuggestCandidates', () => {
       expect(result.perSeed.frontaliere.reason).toMatch(/timed out/i);
       expect(fetchImpl).toHaveBeenCalledTimes(2);
       expect(cancelBody).toHaveBeenCalledTimes(2);
+      expect(abortReasons).toHaveLength(2);
+      expect(abortReasons.every((reason) => (reason as DOMException).name === 'TimeoutError')).toBe(true);
     } finally {
       vi.useRealTimers();
     }
