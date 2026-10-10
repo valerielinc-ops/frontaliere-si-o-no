@@ -57,6 +57,8 @@ function loadHelpers(env: Record<string, string> = {}) {
       .normalize('NFD').replace(/[\\u0300-\\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
     ${pick('localeOf')}
+    ${pick('normPath')}
+    ${pick('treeEntryToRoute')}
     ${pick('extractAlternateHrefs')}
     ${constBlock('SECTION_BY_ROUTE_PREFIX')}
     ${pick('shardOwnerOf')}
@@ -68,11 +70,12 @@ function loadHelpers(env: Record<string, string> = {}) {
     ${pick('splitHubOffenders')}
     ${constBlock('SHARD_MAX_AGE_H')}
     ${pick('generationSummary')}
-    return { extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, splitHubOffenders, generationSummary };
+    return { treeEntryToRoute, extractAlternateHrefs, shardOwnerOf, classifyOffender, splitByGeneration, splitHubOffenders, generationSummary };
   `;
   // eslint-disable-next-line no-new-func
   return new Function(src)() as {
     extractAlternateHrefs: (xml: string) => string[];
+    treeEntryToRoute: (entry: string, section?: string | null, loc?: string | null) => string;
     shardOwnerOf: (p: string) => { kind: string; section?: string; loc: string };
     classifyOffender: (p: string, gen: unknown) => string;
     splitByGeneration: (paths: string[], gen: unknown) => { unserved: string[]; skew: string[] };
@@ -107,6 +110,43 @@ describe('deployed sitemap inventory — locale alternates are part of the set',
       'https://frontaliereticino.ch/de/jobs-im-tessin/',
       'https://frontaliereticino.ch/fr/trouver-emploi-tessin/',
     ]);
+  });
+});
+
+describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', () => {
+  const { treeEntryToRoute } = loadHelpers();
+
+  it('removes the storage bucket for Italian and localized Ticino section shards', () => {
+    expect(treeEntryToRoute(
+      'cerca-lavoro-ticino/_tree/mu/muratore/index.html',
+      'ticino',
+      'it',
+    )).toBe('/cerca-lavoro-ticino/muratore');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/mu/muller-amp-8211-bautischler/index.html',
+      'ticino',
+      'en',
+    )).toBe('/en/find-jobs-ticino/muller-amp-8211-bautischler');
+    expect(treeEntryToRoute(
+      'de/jobs-im-tessin/_tree/ir/Ir-Job-123/index.html',
+      'ticino',
+      'de',
+    )).toBe('/de/jobs-im-tessin/Ir-Job-123');
+  });
+
+  it('leaves section roots and non-Ticino trees unchanged', () => {
+    expect(treeEntryToRoute('fr/trouver-emploi-tessin/index.html', 'ticino', 'fr'))
+      .toBe('/fr/trouver-emploi-tessin');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/mu/example/index.html',
+      'argovia',
+      'en',
+    )).toBe('/en/find-jobs-ticino/_tree/mu/example');
+    expect(treeEntryToRoute(
+      'cerca-lavoro-ticino/_tree/zz/muratore/index.html',
+      'ticino',
+      'it',
+    )).toBe('/cerca-lavoro-ticino/_tree/zz/muratore');
   });
 });
 
