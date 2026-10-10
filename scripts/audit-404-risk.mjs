@@ -108,7 +108,7 @@
 
 import { readFile, access, mkdtemp, rm, readdir, stat } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
-import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -398,11 +398,16 @@ function treeEntryToRoute(entry, section = null, loc = null) {
         const bucket = bucketAndEntry.slice(0, bucketEnd);
         const canonicalEntry = bucketAndEntry.slice(bucketEnd + 1);
         const topLevelName = canonicalEntry.split('/')[0];
-        const expectedBucket = ticinoTreeBucket(topLevelName);
+        const expectedBuckets = new Set([
+          ticinoTreeBucket(topLevelName),
+          legacyTicinoTreeBucket(topLevelName),
+        ]);
         // The router derives this exact bucket from the public first-level
-        // entry. A mismatched physical bucket is still a real 404 risk and
-        // must not be normalized into a false-positive served route.
-        if (bucket === expectedBucket) e = toPublicRoute(`${routeRoot}/${canonicalEntry}`);
+        // entry. Accept the historical first-two-character bucket while old
+        // shard trees remain published during the hash-v1 rollout; an
+        // unrelated bucket is still a real 404 risk and must not be
+        // normalized into a false-positive served route.
+        if (expectedBuckets.has(bucket)) e = toPublicRoute(`${routeRoot}/${canonicalEntry}`);
       }
     }
   }

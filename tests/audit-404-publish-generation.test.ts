@@ -22,7 +22,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
-import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
@@ -56,6 +56,7 @@ function loadHelpers(env: Record<string, string> = {}) {
     const SECTION_SLUGS = ${JSON.stringify(slugs)};
     const utf8Encoder = new TextEncoder();
     ${ticinoTreeBucket.toString()}
+    ${legacyTicinoTreeBucket.toString()}
     const process = { env: ${JSON.stringify(env)} };
     const flatString = (value) => value;
     const slugifyCompanyName = (name) => String(name || '').toLowerCase()
@@ -143,6 +144,11 @@ describe('treeEntryToRoute — Ticino physical fan-out maps to public routes', (
       'ticino',
       'de',
     )).toBe('/de/jobs-im-tessin/direct-page');
+    expect(treeEntryToRoute(
+      'en/find-jobs-ticino/_tree/fo/foo/index.html',
+      'ticino',
+      'en',
+    )).toBe('/en/find-jobs-ticino/foo');
   });
 
   it('leaves section roots and non-Ticino trees unchanged', () => {
