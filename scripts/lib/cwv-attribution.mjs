@@ -10,16 +10,16 @@
 // A script cannot import the client's `.ts`, so the constants below are a copy
 // that tests/cwv-attribution-report.test.ts compares with the client module.
 // Changing either side without the other turns that test red on purpose.
-import { runGa4Report, runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
+import { runGa4ReportPaged, weightedQuantile } from './ga4-service-account.mjs';
 
 export const ATTRIBUTION_PAGE = 'web_vitals';
 export const ATTRIBUTION_SECTIONS = ['cls', 'inp'];
-export const ATTRIBUTION_COMPONENTS = ['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other'];
+export const ATTRIBUTION_COMPONENTS = ['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other', 'unknown'];
 
 export const ATTRIBUTION_EVENT = 'ui_interaction';
 export const VITALS_EVENT = 'web_vitals';
 export const JOBS_PATH_PREFIX = '/cerca-lavoro';
-export const SELECTOR_LIMIT = 200;
+export const SELECTOR_PAGE_SIZE = 200;
 export const TOP_SELECTORS = 5;
 const TEMPLATE_LIMIT = 100000;
 const TEMPLATE_METRICS = ['CLS', 'INP'];
@@ -62,15 +62,14 @@ export function attributionRequest({ startDate, endDate }) {
   };
 }
 
-/** Request (b): same as (a) plus the selector-bearing `details`, top rows only. */
+/** Request (b): same as (a) plus the selector-bearing `details`, read page by page. */
 export function selectorRequest({ startDate, endDate }) {
   return {
     dateRanges: [{ startDate, endDate }],
     dimensions: [...ATTRIBUTION_DIMENSIONS, 'customEvent:details'].map((name) => ({ name })),
     metrics: [{ name: 'eventCount' }],
     dimensionFilter: attributionFilter(),
-    orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
-    limit: SELECTOR_LIMIT,
+    limit: SELECTOR_PAGE_SIZE,
   };
 }
 
@@ -140,7 +139,10 @@ export function parseSelectorRows(data) {
   return (data?.rows || []).flatMap((row) => {
     const [path, section, component, action, details] = dims(row);
     const count = rowCount(row);
-    return section && count ? [{ path, section, component, action, ...parseDetails(details), count }] : [];
+    if (!section || !count) return [];
+    const parsed = parseDetails(details);
+    if (section === ATTRIBUTION_SECTIONS[1] && !parsed.selector) parsed.selector = 'unknown';
+    return [{ path, section, component, action, ...parsed, count }];
   });
 }
 
@@ -209,10 +211,10 @@ export function topInpSelectors(rows, limit = TOP_SELECTORS) {
   return topSelectors(rows, ATTRIBUTION_SECTIONS[1], limit);
 }
 
-/** Number of INP events whose attribution did not contain a selector. */
+/** Number of INP events whose target is explicitly unknown (or legacy-empty). */
 export function missingInpSelectorCount(rows) {
   return rows
-    .filter((row) => row.section === ATTRIBUTION_SECTIONS[1] && !row.selector)
+    .filter((row) => row.section === ATTRIBUTION_SECTIONS[1] && (!row.selector || row.selector === 'unknown'))
     .reduce((sum, row) => sum + row.count, 0);
 }
 
@@ -253,14 +255,12 @@ export function invalidDimension(message) {
  * an unregistered parameter must fail the run, not read as «no data».
  */
 export async function fetchAttribution({ token, startDate, endDate, fetchImpl = fetch, propertyId } = {}) {
-  const run = (body) => runGa4Report({ token, body, propertyId, fetchImpl });
-  // (a) e (c) sono popolazioni intere: paginate fino a rowCount, altrimenti
+  // Tutte e tre sono popolazioni intere: paginate fino a rowCount, altrimenti
   // un limit fisso senza offset le dichiara troncate (issue 11423).
-  // (b) resta una sola pagina: e' un top-N per costruzione (SELECTOR_LIMIT).
   const runAll = (body) => runGa4ReportPaged({ token, body, propertyId, fetchImpl });
   const range = { startDate, endDate };
   const attributionData = await runAll(attributionRequest(range));
-  const selectorData = await run(selectorRequest(range));
+  const selectorData = await runAll(selectorRequest(range));
   const templateData = await runAll(templateRequest(range));
   const attribution = parseAttributionRows(attributionData);
   const selectors = parseSelectorRows(selectorData);
