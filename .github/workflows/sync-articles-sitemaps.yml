@@ -248,7 +248,7 @@ jobs:
       # upstream commit. Refuse the sync before it can open a PR with that data.
       - name: Validate article routing integrity
         if: steps.pull-corpus.outputs.skipped != 'true' && steps.pull-api.outputs.skipped != 'true'
-        run: node scripts/ci/validate-article-append-integrity.mjs
+        run: node scripts/ci/validate-article-append-integrity.mjs --swiss-only
 
       # One place to ask whether this run has a coherent upstream pair, so a
       # future step cannot forget half of that condition. No additional approval

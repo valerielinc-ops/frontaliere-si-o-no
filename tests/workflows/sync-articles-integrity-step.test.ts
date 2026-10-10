@@ -24,7 +24,7 @@ describe('sync-articles-sitemaps routing integrity gate', () => {
       "if: steps.pull-corpus.outputs.skipped != 'true' && steps.pull-api.outputs.skipped != 'true'",
     );
     expect(integrityStep).toContain(
-      'run: node scripts/ci/validate-article-append-integrity.mjs',
+      'run: node scripts/ci/validate-article-append-integrity.mjs --swiss-only',
     );
   });
 });

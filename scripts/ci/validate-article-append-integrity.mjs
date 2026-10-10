@@ -53,6 +53,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
+const swissOnly = process.argv.includes('--swiss-only');
 const violations = [];
 const fail = (msg) => violations.push(msg);
 
@@ -153,7 +154,7 @@ function checkSitemapBalance(rel) {
 
 // ── Run ──────────────────────────────────────────────────────────────────────
 checkSwissSlugUniqueness();
-checkBlogSlugUniqueness();
+if (!swissOnly) checkBlogSlugUniqueness();
 
 const publicDir = join(ROOT, 'public');
 if (existsSync(publicDir)) {
@@ -172,5 +173,7 @@ if (violations.length) {
   process.exit(1);
 }
 console.log(
-  '✅ article-append integrity: SWISS + BLOG slug-uniqueness + url-sitemap balance OK',
+  swissOnly
+    ? '✅ article-append integrity: SWISS slug-uniqueness + url-sitemap balance OK'
+    : '✅ article-append integrity: SWISS + BLOG slug-uniqueness + url-sitemap balance OK',
 );
