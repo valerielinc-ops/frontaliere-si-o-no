@@ -3,13 +3,14 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   collectJobSearchLocationTokens,
+  deriveJobBoardOccupationTerms,
   deriveJobBoardAutocompleteSuggestions,
   offerBoundedRankedCandidate,
   rankedCandidateValues,
   scheduleFrameBudgetedScan,
   type FrameBudgetScheduler,
 } from '@/services/jobBoardSearchPipeline';
-import { getJobSearchRoleTokens } from '@/services/jobSearchRelevance';
+import { getJobSearchRoleTokens, matchesJobOccupation } from '@/services/jobSearchRelevance';
 import { stemSearchToken } from '@/services/textUtils';
 
 class FakeFrameScheduler implements FrameBudgetScheduler {
@@ -189,6 +190,35 @@ describe('JobBoard cluster-seed handoff', () => {
     expect(rawRoleTerms).toContain(cityStem);
     expect(rawRoleTerms.filter((token) => !locationTokens.has(token))).not.toContain(cityStem);
     expect(source).toContain('collectJobSearchLocationTokens(clusterSeedJobs, set)');
+  });
+
+  it('keeps the seed job through passingNonSearchFilters while the index is incomplete', () => {
+    const seedJob = {
+      title: 'Infermiere di reparto',
+      company: 'Clinica Seed',
+      location: 'Sementina',
+      addressLocality: 'Sementina',
+    };
+    const query = 'infermiere sementina';
+    const searchIndexCurrent = false;
+    const searchIndexLocationTokens = new Set<string>();
+    const searchLocationTokens = collectJobSearchLocationTokens(
+      [seedJob],
+      searchIndexCurrent ? searchIndexLocationTokens : new Set<string>(),
+    );
+    const occupationTerms = deriveJobBoardOccupationTerms(query, searchLocationTokens);
+
+    const passingNonSearchFilters = (job: typeof seedJob) => (
+      matchesJobOccupation(job, 'it', occupationTerms)
+    );
+
+    expect(searchIndexCurrent).toBe(false);
+    expect(searchIndexLocationTokens.size).toBe(0);
+    expect(getJobSearchRoleTokens(query)).toContain(stemSearchToken('sementina'));
+    expect(occupationTerms).not.toContain(stemSearchToken('sementina'));
+    expect(passingNonSearchFilters(seedJob)).toBe(true);
+    expect(matchesJobOccupation(seedJob, 'it', getJobSearchRoleTokens(query))).toBe(false);
+    expect(source).toContain('if (!matchesJobOccupation(job, locale, occupationTerms)) return false;');
   });
 
   it('keeps autocomplete and related suggestions populated from the bounded seed', () => {

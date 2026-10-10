@@ -60,6 +60,7 @@ import {
  addJobSearchLocationTokens,
  addJobBoardAutocompleteSuggestions,
  collectJobSearchLocationTokens,
+ deriveJobBoardOccupationTerms,
  deriveJobBoardAutocompleteSuggestions,
  offerBoundedRankedCandidate,
  rankedCandidateValues,
@@ -4691,7 +4692,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
  // path below and the OR-fallback path so the two stay consistent.
- const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? getJobSearchRoleTokens(deferredSearchQuery).filter(token => !searchLocationTokens.has(token)) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
+ const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? deriveJobBoardOccupationTerms(deferredSearchQuery, searchLocationTokens) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
  // The seed, strict search and every broadening tier share occupational relevance.
  const passingNonSearchFilters = useCallback((job: JobListing, now: number, cutoff: number): boolean => {
  if (!matchesJobOccupation(job, locale, occupationTerms)) return false;

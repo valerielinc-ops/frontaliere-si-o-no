@@ -1,4 +1,5 @@
 import { RELATED_SEARCH_STOPWORDS, sanitizeJobTitle } from './relatedSearchClusters';
+import { getJobSearchRoleTokens } from './jobSearchRelevance';
 import { normalizeSearchText, stemSearchToken } from './textUtils';
 
 export interface FrameBudgetScheduler {
@@ -145,6 +146,14 @@ export function collectJobSearchLocationTokens(
 ): Set<string> {
   for (const job of jobs) addJobSearchLocationTokens(tokens, job);
   return tokens;
+}
+
+/** Keep location words out of the occupation predicate before the full index exists. */
+export function deriveJobBoardOccupationTerms(
+  query: string,
+  locationTokens: ReadonlySet<string>,
+): string[] {
+  return getJobSearchRoleTokens(query).filter((token) => !locationTokens.has(token));
 }
 
 /**
