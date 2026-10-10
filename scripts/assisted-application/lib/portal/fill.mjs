@@ -29,6 +29,7 @@ import { extractFields } from './fields.mjs';
 
 const TYPE_DELAY_MS = 25;
 const ACTION_TIMEOUT_MS = 6000;
+const UPLOAD_INPUT_TIMEOUT_MS = 30_000;
 // How long a search box gets to list its matches after Enter: they come with a request.
 const SUGGESTIONS_TIMEOUT_MS = 5000;
 // A file sent as soon as it is chosen: how long it may travel, and how long nothing must be in flight.
@@ -568,13 +569,35 @@ async function dateRegistered(locator, value) {
  */
 export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
   const inFlight = new Set();
-  const started = (request) => { if (request.method() !== 'GET') inFlight.add(request); };
+  const uploads = new Set();
+  const failed = new Set();
+  const accepted = new Set();
+  const isUploadRequest = (request) => {
+    const contentType = String(request.headers?.()['content-type'] || '');
+    return /multipart\/form-data|application\/(?:octet-stream|pdf|msword|vnd\.openxmlformats-officedocument\.|vnd\.oasis\.opendocument\.)/i.test(contentType);
+  };
+  const started = (request) => {
+    if (request.method() === 'GET') return;
+    inFlight.add(request);
+    if (isUploadRequest(request)) uploads.add(request);
+  };
   const ended = (request) => { inFlight.delete(request); };
+  const failedRequest = (request) => {
+    if (uploads.has(request) && !accepted.has(request)) failed.add(request);
+    ended(request);
+  };
+  const received = (response) => {
+    const request = response.request();
+    if (!uploads.has(request)) return;
+    if (response.status() >= 400) failed.add(request);
+    else if (response.status() >= 200 && response.status() < 300) accepted.add(request);
+  };
   page.on('request', started);
   page.on('requestfinished', ended);
-  page.on('requestfailed', ended);
+  page.on('requestfailed', failedRequest);
+  page.on('response', received);
   try {
-    await locator.setInputFiles(paths, { timeout: ACTION_TIMEOUT_MS });
+    await locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS });
     const deadline = now() + settleMs;
     let quietSince = now();
     while (now() < deadline) {
@@ -585,8 +608,11 @@ export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETT
   } finally {
     page.off('request', started);
     page.off('requestfinished', ended);
-    page.off('requestfailed', ended);
+    page.off('requestfailed', failedRequest);
+    page.off('response', received);
   }
+  if (failed.size) throw new Error('upload_http_failed');
+  return { accepted: accepted.size > 0 };
 }
 
 /** The local paths of one document: the CV, the letter, or the files of a requested document (extra_N). */
@@ -610,8 +636,11 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (!paths.length) throw new Error('document_unavailable');
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-        await chooseFiles(page, locator, multiple ? paths : paths[0]);
+        const receipt = await chooseFiles(page, locator, multiple ? paths : paths[0]);
         uploaded = multiple ? paths.length : 1;
+        results.push({ fieldId: field.id, ok: true, files: uploaded, ...(receipt.accepted ? { uploadAccepted: true } : {}) });
+        await pause();
+        continue;
       } else if (action.action === 'check' || action.action === 'uncheck') {
         await setChoice(locator, action.action === 'check');
       } else if (field.kind === 'radio') {

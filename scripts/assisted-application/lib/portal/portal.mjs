@@ -79,7 +79,55 @@ export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|r
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
 export function removalsOf(buttons, names) {
-  return (buttons || []).filter((button) => !button.disabled && REMOVE_FILE_RE.test(button.text) && names.some((name) => name && button.text.includes(name)));
+  return (buttons || []).filter((button) => {
+    if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
+    const context = `${button.text || ''} ${button.fileContext || ''}`.toLocaleLowerCase();
+    return names.some((name) => name && context.includes(String(name).toLocaleLowerCase()));
+  });
+}
+
+const EXPERIENCE_SECTION_RE = /\b(?:experience|work history|employment history|berufserfahrung|erfahrung|expérience|parcours professionnel|esperienz[ae]|esperienza lavorativa|esperienze lavorative)\b/i;
+const EDUCATION_SECTION_RE = /\b(?:education|education history|academic history|school|ausbildung|bildung|études|formation|educazione|istruzione|formazione)\b/i;
+
+export function profileSectionKind(value) {
+  const text = String(value || '');
+  if (EXPERIENCE_SECTION_RE.test(text)) return 'experience';
+  if (EDUCATION_SECTION_RE.test(text)) return 'education';
+  return '';
+}
+
+function hasExplicitMonth(value) {
+  const text = String(value || '').trim();
+  let match = /^(\d{4})[-/.](\d{1,2})(?:[-/.]\d{1,2})?$/.exec(text);
+  if (match) return Number(match[2]) >= 1 && Number(match[2]) <= 12;
+  match = /^(\d{1,2})[-/.](\d{4})$/.exec(text);
+  if (match) return Number(match[1]) >= 1 && Number(match[1]) <= 12;
+  return /\b(?:jan(?:uary|uar)?|feb(?:ruary|ruar)?|mar(?:ch|z)?|apr(?:il)?|may|mai|jun(?:e|i)?|jul(?:y|i)?|aug(?:ust)?|sep(?:tember|t)?|oct(?:ober|ober)?|nov(?:ember)?|dec(?:ember)|gen(?:naio)?|febbraio|marzo|apr(?:ile)?|mag(?:gio)?|giu(?:gno)?|lug(?:lio)?|ago(?:sto)?|sett(?:embre)?|ott(?:obre)?|nov(?:embre)?|dic(?:embre)?|janv(?:ier)?|févr(?:ier)?|mars|avr(?:il)?|juin|juil(?:let)?|août|sept(?:embre)?|oct(?:obre)?|nov(?:embre)?|déc(?:embre)?|januar|februar|märz|mai|juni|juli|oktober|dezember)\b.*\b(?:19|20)\d{2}\b/i.test(text);
+}
+
+/** Profile rows whose dates retain month-level precision, in the source order. */
+export function profileEntriesForSection(candidate, kind) {
+  const source = candidate?.profile?.[kind];
+  if (!Array.isArray(source) || !['experience', 'education'].includes(kind)) return [];
+  return source.filter((entry) => {
+    const title = kind === 'experience' ? entry?.role : entry?.degree;
+    const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+    return Boolean(String(title || '').trim() && String(organization || '').trim()
+      && hasExplicitMonth(entry?.start) && hasExplicitMonth(entry?.end));
+  });
+}
+
+/** Exact labels in an opened history row can use only that row's own profile value. */
+export function profileEntryAnswer(entry, kind, field) {
+  const label = String(field?.label || '').trim();
+  const mappings = kind === 'experience'
+    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^employer\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+    : kind === 'education'
+      ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+      : [];
+  const key = mappings.find(([pattern]) => pattern.test(label))?.[1];
+  const value = key ? String(entry?.[key] || '').trim() : '';
+  return value ? { value, source: 'profile' } : null;
 }
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
@@ -1022,6 +1070,173 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   };
 }
 
+const PROFILE_ADD_RE = /^(?:\+\s*)?(?:add|hinzufügen|hinzufuegen|ajouter|ajouter une entrée|aggiungi|aggiungere)\b/i;
+const PROFILE_SAVE_RE = /^(?:save|speichern|enregistrer|sauvegarder|salva|salvare)\b/i;
+const PROFILE_CANCEL_RE = /^(?:cancel|abbrechen|annuler|annulla)\b/i;
+
+function profileFields(snapshot, kind) {
+  return (snapshot.fields || []).filter((field) => profileSectionKind(`${field.section || ''} ${field.label || ''}`) === kind);
+}
+
+function profileButtons(snapshot, kind, pattern) {
+  return (snapshot.buttons || []).filter((button) => !button.disabled
+    && profileSectionKind(button.section) === kind && pattern.test(String(button.text || '').trim()));
+}
+
+async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
+  const deadline = Date.now() + timeoutMs;
+  let snapshot = await extractFields(page);
+  while (Date.now() < deadline) {
+    const current = profileFields(snapshot, kind);
+    if (current.some((field) => !beforeIds.has(field.id))) return { snapshot, fields: current.filter((field) => !beforeIds.has(field.id)) };
+    await page.waitForTimeout(250);
+    snapshot = await extractFields(page);
+  }
+  return { snapshot, fields: [] };
+}
+
+async function uploadReceipt(page, field, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
+  const names = paths.map((file) => path.basename(file));
+  const requiresPortalReceipt = /workday/i.test(page.url());
+  const deadline = Date.now() + timeoutMs;
+  do {
+    const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
+    if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
+    const inputNames = await locatorFor(page, field).evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
+    const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
+    const inputHasFiles = names.every((name) => inputNames.includes(name));
+    if (names.every((name, index) => visibleNames[index])
+      || inputHasFiles && (!requiresPortalReceipt || acceptedResponse)) return true;
+    if (Date.now() >= deadline) break;
+    await page.waitForTimeout(250);
+  } while (true);
+  return false;
+}
+
+/**
+ * Workday's profile history is not a normal planner page: rows exist only
+ * after the matching section's Add control is pressed. Fill and save each
+ * complete row in source order; incomplete or unfillable rows are cancelled,
+ * never turned into invented dates or a reason to stop the application.
+ */
+export async function fillProfileSections(page, snapshot, { candidate, candidateLocale, codex, files = {}, done = new Set() } = {}) {
+  let current = snapshot;
+  const counts = [];
+  for (const kind of ['experience', 'education']) {
+    const entries = profileEntriesForSection(candidate, kind);
+    if (!entries.length || done.has(`${page.url()}|${kind}`)) continue;
+    if (!profileButtons(current, kind, PROFILE_ADD_RE).length) continue;
+    let added = 0;
+    let skipped = Math.max(0, (candidate?.profile?.[kind]?.length || 0) - entries.length);
+    for (const entry of entries) {
+      current = await extractFields(page);
+      const add = profileButtons(current, kind, PROFILE_ADD_RE)[0];
+      if (!add) return { snapshot: current, counts, handoff: 'profile_section_add_unavailable' };
+      const beforeIds = new Set(profileFields(current, kind).map((field) => field.id));
+      try {
+        await clickButton(page, add);
+      } catch {
+        return { snapshot: current, counts, handoff: 'profile_section_add_failed' };
+      }
+      const opened = await waitForProfileFields(page, kind, beforeIds);
+      current = opened.snapshot;
+      const rowFields = opened.fields;
+      if (!rowFields.length) return { snapshot: current, counts, handoff: 'profile_section_fields_unavailable' };
+
+      const rowCandidate = {
+        ...candidate,
+        profile: {
+          ...candidate.profile,
+          experience: kind === 'experience' ? [entry] : [],
+          education: kind === 'education' ? [entry] : [],
+          currentEducation: {},
+        },
+      };
+      let plan;
+      try {
+        plan = await planPage({ snapshot: { ...current, fields: rowFields }, candidate: rowCandidate, candidateLocale, codex });
+      } catch {
+        plan = null;
+      }
+      if (plan?.missingRequired.length) {
+        const unresolved = [];
+        const recoveredActions = [...plan.actions];
+        for (const missing of plan.missingRequired) {
+          const field = rowFields.find((item) => item.id === missing.fieldId);
+          const answer = profileEntryAnswer(entry, kind, field);
+          if (answer) recoveredActions.push({ fieldId: missing.fieldId, action: 'fill', ...answer, document: 'none', evidence: '' });
+          else unresolved.push(missing);
+        }
+        plan = { ...plan, actions: recoveredActions, missingRequired: unresolved };
+      }
+      const cancel = async () => {
+        current = await extractFields(page);
+        const control = profileButtons(current, kind, PROFILE_CANCEL_RE)[0];
+        if (!control) return false;
+        try {
+          await clickButton(page, control);
+          await page.waitForTimeout(250);
+          current = await extractFields(page);
+          return !rowFields.some((field) => current.fields.some((item) => item.id === field.id));
+        } catch {
+          return false;
+        }
+      };
+      if (!plan || plan.missingRequired.length) {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_incomplete' };
+        skipped += 1;
+        continue;
+      }
+      const results = await applyActions(page, rowFields, plan.actions, files);
+      if (results.some((result) => !result.ok)) {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_fill_failed' };
+        skipped += 1;
+        continue;
+      }
+      current = await extractFields(page);
+      const currentRows = current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
+      if (rowFields.some((field) => field.required && !holdsValue(currentRows.find((item) => item.id === field.id) || field))) {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_incomplete' };
+        skipped += 1;
+        continue;
+      }
+      const save = profileButtons(current, kind, PROFILE_SAVE_RE)[0];
+      if (!save) {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_save_unavailable' };
+        skipped += 1;
+        continue;
+      }
+      try {
+        await clickButton(page, save);
+      } catch {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_save_failed' };
+        skipped += 1;
+        continue;
+      }
+      const deadline = Date.now() + 10_000;
+      let closed = false;
+      while (Date.now() < deadline) {
+        await page.waitForTimeout(250);
+        current = await extractFields(page);
+        if (!rowFields.some((field) => current.fields.some((item) => item.id === field.id))) {
+          closed = true;
+          break;
+        }
+      }
+      if (!closed) {
+        if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_save_unconfirmed' };
+        skipped += 1;
+        continue;
+      }
+      added += 1;
+    }
+    done.add(`${page.url()}|${kind}`);
+    counts.push({ section: kind, added, skipped });
+    current = await extractFields(page);
+  }
+  return { snapshot: current, counts };
+}
+
 /**
  * The page a registration or a sign-in leads to, once the portal has answered its click: another kind of
  * page, or the same form with its messages. A page application answers without loading a new document, so
@@ -1524,6 +1739,7 @@ export async function submitViaPortal(ctx) {
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
     const openTries = new Map();
+    const profileSectionsDone = new Set();
     // What went into the form, question by question (career-ops application-answers):
     // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
     const given = new Map();
@@ -1703,6 +1919,16 @@ export async function submitViaPortal(ctx) {
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
       await openSections();
+      const profile = await fillProfileSections(page, snapshot, {
+        candidate: ctx.candidate,
+        candidateLocale: ctx.candidateLocale,
+        codex: ctx.codex,
+        files: ctx.files,
+        done: profileSectionsDone,
+      });
+      snapshot = profile.snapshot;
+      if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
+      if (profile.handoff) return await handoff(profile.handoff);
       // A section just opened may hold the form’s own password field.
       if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
       // Inside the form, any page with a field is planned: a step with one
@@ -1721,11 +1947,31 @@ export async function submitViaPortal(ctx) {
       // run uploaded itself stays.
       const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
       const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
-        .flatMap((document) => removalsOf(snapshot.buttons, documentPaths(ctx.files, document).map((file) => path.basename(file))).map((button) => ({ document, button })));
+        .flatMap((document) => {
+          const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
+          const removals = removalsOf(snapshot.buttons, names).map((button) => ({ document, button, names }));
+          return removals;
+        });
+      for (const document of Object.keys(ctx.files || {}).filter((item) => !sentNow.has(item))) {
+        const names = documentPaths(ctx.files, document).map((file) => path.basename(file));
+        const matchingRemoval = earlier.some((item) => item.document === document);
+        for (const name of names) {
+          const visible = await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
+          if (visible && !matchingRemoval) return await handoff('previous_file_not_removable');
+        }
+      }
       if (earlier.length) {
-        for (const { button } of earlier) {
-          await clickButton(page, button).catch(() => {});
-          await page.waitForTimeout(800);
+        for (const { button, names } of earlier) {
+          try {
+            await clickButton(page, button);
+          } catch {
+            return await handoff('previous_file_removal_failed');
+          }
+          let remains = false;
+          for (const name of names) {
+            remains ||= await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
+          }
+          if (remains) return await handoff('previous_file_removal_unconfirmed');
         }
         evidence.steps.at(-1).replaced = [...new Set(earlier.map((item) => item.document))];
         snapshot = await extractFields(page);
@@ -1773,6 +2019,22 @@ export async function submitViaPortal(ctx) {
           }
         }
         if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files));
+        if (!redrawn) {
+          for (const action of actions.filter((item) => item.action === 'upload')) {
+            const result = results.find((item) => item.fieldId === action.fieldId);
+            const field = snapshot.fields.find((item) => item.id === action.fieldId);
+            const files = documentPaths(ctx.files, action.document);
+            if (!result?.ok || !field || !await uploadReceipt(page, field, files, { acceptedResponse: result.uploadAccepted === true })) {
+              if (result) {
+                result.ok = false;
+                result.error ||= 'upload_not_confirmed';
+              } else results.push({ fieldId: action.fieldId, ok: false, error: 'upload_not_confirmed' });
+              evidence.steps.at(-1).actions = actions.map(({ fieldId, action: kind, source, document }) => ({ fieldId, action: kind, source, document }));
+              evidence.steps.at(-1).failures = results.filter((item) => !item.ok);
+              return await handoff('upload_failed');
+            }
+          }
+        }
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');

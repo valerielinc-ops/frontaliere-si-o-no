@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -14,6 +14,32 @@ const fields = [
   { id: 'f4', kind: 'select', label: 'Country', required: true, options: [{ label: 'Switzerland' }, { label: 'Italy' }] },
   { id: 'f5', kind: 'file', label: 'Resume/CV', required: true },
 ];
+
+describe('assisted application profile history and file replacement', () => {
+  it('matches an icon-only removal control through its nearby uploaded-file context', () => {
+    const remove = { id: 'remove-cv', text: 'Delete', fileContext: 'CV_Luca_Bianchi.pdf successfully uploaded', disabled: false };
+    expect(removalsOf([remove], ['CV_Luca_Bianchi.pdf'])).toEqual([remove]);
+    expect(removalsOf([{ ...remove, fileContext: 'Cover_Letter.pdf successfully uploaded' }], ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+
+  it('keeps profile entries in source order and skips entries without explicit month-level start and end dates', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First', employer: 'A', start: '03/2020', end: '2022-04' },
+      { role: 'Undated', employer: 'B', start: '2021', end: '' },
+      { role: 'Second', employer: 'C', start: 'May 2022', end: 'Oktober 2024' },
+      { role: '', employer: 'D', start: '2020-01', end: '2021-01' },
+    ] } };
+    expect(profileEntriesForSection(candidate, 'experience').map((entry) => entry.role)).toEqual(['First', 'Second']);
+    expect(profileEntriesForSection(candidate, 'education')).toEqual([]);
+  });
+
+  it('uses exact education-row labels to recover only the corresponding profile fact', () => {
+    const entry = { degree: 'Vocational Diploma', institution: 'Scuola Cantonale', start: '2015-09', end: '2018-06' };
+    expect(profileEntryAnswer(entry, 'education', { label: 'Degree *' })).toEqual({ value: 'Vocational Diploma', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'End Date *' })).toEqual({ value: '2018-06', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
+  });
+});
 
 describe('portal link clicks', () => {
   it('uses a locator with a bounded timeout', async () => {
@@ -462,29 +488,37 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
-  it('waits for a file the form sends as soon as it is chosen, and only a moment when it sends nothing', async () => {
-    const run = async (requests: Array<{ at: number; until: number; method?: string }>) => {
+  it('waits for upload requests, fails on an HTTP error, and removes its listeners', async () => {
+    const run = async (requests: Array<{ at: number; until: number; method?: string; status?: number; upload?: boolean; failAfterResponse?: boolean }>) => {
       let clock = 0;
-      const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set() };
-      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', started: false, ended: false }));
+      const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set(), response: new Set() };
+      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', headers: () => ({ 'content-type': item.upload === false ? 'application/json' : 'multipart/form-data; boundary=test' }), started: false, ended: false }));
       const page = {
         on: (event: string, handler: any) => handlers[event].add(handler),
         off: (event: string, handler: any) => handlers[event].delete(handler),
         waitForTimeout: async (ms: number) => {
           clock += ms;
           for (const request of live) {
-            if (!request.started && clock >= request.at) { request.started = true; handlers.request.forEach((handler) => handler(request)); }
+            if (!request.started && clock >= request.at) {
+              request.started = true;
+              handlers.request.forEach((handler) => handler(request));
+              if (request.status) handlers.response.forEach((handler) => handler({ request: () => request, status: () => request.status }));
+              if (request.failAfterResponse) handlers.requestfailed.forEach((handler) => handler(request));
+            }
             if (request.started && !request.ended && clock >= request.until) { request.ended = true; handlers.requestfinished.forEach((handler) => handler(request)); }
           }
         },
       };
       const chosen: any[] = [];
-      await chooseFiles(page as any, { setInputFiles: async (paths: any) => { chosen.push(paths); } } as any, '/tmp/cv.pdf', { now: () => clock });
-      return { clock, chosen, listeners: Object.values(handlers).reduce((sum, set) => sum + set.size, 0) };
+      let inputTimeout = 0;
+      const receipt = await chooseFiles(page as any, { setInputFiles: async (paths: any, options: any) => { chosen.push(paths); inputTimeout = options.timeout; } } as any, '/tmp/cv.pdf', { now: () => clock });
+      return { clock, chosen, inputTimeout, accepted: receipt.accepted, listeners: Object.values(handlers).reduce((sum, set) => sum + set.size, 0) };
     };
     // Nothing leaves on the choice (the file goes with the submit): the quiet moment only, and no listener left.
     const plain = await run([]);
     expect(plain.chosen).toEqual(['/tmp/cv.pdf']);
+    expect(plain.inputTimeout).toBe(30_000);
+    expect(plain.accepted).toBe(false);
     expect(plain.clock).toBeGreaterThanOrEqual(700);
     expect(plain.clock).toBeLessThan(1200);
     expect(plain.listeners).toBe(0);
@@ -492,6 +526,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const upload = await run([{ at: 150, until: 5000 }]);
     expect(upload.clock).toBeGreaterThanOrEqual(5700);
     expect(upload.clock).toBeLessThan(6500);
+    expect((await run([{ at: 150, until: 500, status: 204 }])).accepted).toBe(true);
+    expect((await run([{ at: 150, until: 500, status: 204, failAfterResponse: true }])).accepted).toBe(true);
     // Sent in two pieces with a short gap: both.
     expect((await run([{ at: 150, until: 2000 }, { at: 2300, until: 4000 }])).clock).toBeGreaterThanOrEqual(4600);
     // A plain GET (an image, a script) is nobody's upload; a request that never ends is not waited for ever.
@@ -499,6 +535,9 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const stuck = await run([{ at: 150, until: Infinity }]);
     expect(stuck.clock).toBeGreaterThanOrEqual(45_000);
     expect(stuck.clock).toBeLessThan(47_000);
+    const failed = await run([{ at: 150, until: 500, status: 500 }]).then(() => false, (error) => error.message === 'upload_http_failed');
+    expect(failed).toBe(true);
+    expect((await run([{ at: 150, until: 500, status: 500, upload: false }])).accepted).toBe(false);
   });
 
   // The record of what left (submit.mjs `sent`) names the files a form's field received.
