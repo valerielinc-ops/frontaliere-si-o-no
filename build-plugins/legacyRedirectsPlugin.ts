@@ -272,9 +272,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/': '/de/grenzgaenger-artikel/wohnen-in-courmayeur-und-arbeiten-in-wallis-as-grenzganger/',
  '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/': '/fr/articles-frontalier/vivre-a-courmayeur-et-travailler-a-valais-en-tant-que-travailleur-frontalier/',
  '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/': '/articoli-frontaliere/vivere-tovo-di-sant-agata-e-lavorare-in-grigioni-da-frontaliere/',
- '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-grigioni-as-a-border-worker/',
- '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-grigioni-als-grenzarbeiter/',
- '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grigioni-comme-travailleur-frontalier/',
+ '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-graubunden-as-a-border-worker/',
+ '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-graubunden-als-grenzarbeiter/',
+ '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grisons-comme-travailleur-frontalier/',
  // ── Upstream-aborted articles (2026-10-07) — three records, 12 URLs ──
  // The corpus removed these explicit abort records after rejecting their
  // topics: Pré-Saint-Didier is outside the relevant cross-border area,
