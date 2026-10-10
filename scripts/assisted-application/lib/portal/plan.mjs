@@ -184,7 +184,7 @@ export function isOpenEndedExperienceEnd(value) {
 
 const DATE_PATTERN_RE = /\b(dd|gg|jj|tt|mm)([./-])(dd|gg|jj|tt|mm)([./-])(yyyy|aaaa|jjjj)\b/i;
 const ITALIAN_DATE_CONTEXT_RE = /\bdata\s+(?:di|del|della|dell['’]|inizio|fine|assunzione|nascita|scadenza|termine)\b/i;
-const NON_DATE_DATA_CONTEXT_RE = /\bdata\s+(?:processing|protection|privacy|sharing|retention)\b/i;
+const BARE_ITALIAN_DATE_RE = /^\s*[*•·:!?-]?\s*data\s*[*•·:!?-]?\s*$/i;
 
 /** Whether a portal field expects a calendar date rather than free text. */
 export function isDateField(field) {
@@ -197,7 +197,7 @@ export function isDateField(field) {
     || DATE_PATTERN_RE.test(text)
     || /\b(?:date|datum|fecha)\b/i.test(text)
     || ITALIAN_DATE_CONTEXT_RE.test(text)
-    || (/\bdata\b/i.test(text) && !NON_DATE_DATA_CONTEXT_RE.test(text));
+    || BARE_ITALIAN_DATE_RE.test(String(field?.label || ''));
 }
 
 /**

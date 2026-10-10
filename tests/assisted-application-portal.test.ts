@@ -555,6 +555,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(normalizeDateAnswer({ kind: 'text', datePattern: 'dd/mm/yyyy' }, '15/03/2020')).toBe('15/03/2020');
     expect(normalizeDateAnswer({ kind: 'text', datePattern: 'mm-dd-yyyy' }, '15/03/2020')).toBe('03-15-2020');
     expect(isDateField({ kind: 'text', label: 'First name', context: 'First name · Date of birth' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data source' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data' })).toBe(true);
   });
 
   it('fails closed when a legacy consent check is reported as a rule action', () => {
