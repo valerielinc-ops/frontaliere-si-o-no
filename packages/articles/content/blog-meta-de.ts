@@ -12914,6 +12914,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: wechselseitiger Einbahnverkehr in der Via Campo dei Fiori',
     'blog.article.viabilita-sacro-monte-varese.excerpt': 'Vom 9. Oktober bis zum 30. November 2026 ändert sich die Verkehrsführung in der Via Campo dei Fiori: wechselseitiger Einbahnverkehr Temporäre Ampel und Höchstgeschwindigkeit von 30 km/h Arbeiten',
     'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Straße zum Sacro Monte in Varese mit Baustelle',
+    'blog.article.schianto-camerlata-quattro-feriti.title': 'Como, nächtlicher Unfall in Camerlata: 4 Verletzte',
+    'blog.article.schianto-camerlata-quattro-feriti.excerpt': 'Der Alarm wurde um 1:35 ausgelöst Absturz auf der Piazzale Camerlata in Como Betroffen waren zwei Mädchen und zwei Jungen Vier Verletzte, die in den gelben Code versetzt wurden Ort →',
+    'blog.article.schianto-camerlata-quattro-feriti.imageAlt': 'Nächtlicher Stadtplatz mit Blaulicht und Rettungsfahrzeugen.',
 };
 
 export default blogMetaDe;

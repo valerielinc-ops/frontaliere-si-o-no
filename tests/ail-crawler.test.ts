@@ -188,6 +188,23 @@ describe('AIL crawler listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('recognises the live nested empty state with its linked application CTA', () => {
+    const html = [
+      '<div class="col-12 col-lg-10 offset-lg-1">',
+      '<div class="inner-title mt-4">',
+      '<p>Al momento non ci sono posizioni aperte, ',
+      '<a href="/AIL/risorse-umane/candidatura-spontanea.html">inoltraci qui</a> ',
+      'il tuo dossier di candidatura spontanea.</p>',
+      '</div>',
+      '</div>',
+    ].join('');
+    const result = classifyAilListingHtml(html);
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
   it('does not treat an unexpected continuation as an authoritative empty marker', () => {
     const result = classifyAilListingHtml(
       '<div class="inner-title">Al momento non ci sono posizioni aperte, le candidature sono invece aperte.</div>',
@@ -214,6 +231,17 @@ describe('AIL crawler listing classification', () => {
 
     expect(result.fetchOutcome).toBe('selector_miss');
     expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('ignores script and style contents inside the empty-state container', () => {
+    for (const tag of ['script', 'style']) {
+      const result = classifyAilListingHtml(
+        `<div class="layout"><div class="inner-title"><${tag}>Al momento non ci sono posizioni aperte</${tag}></div></div>`,
+      );
+
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
   });
 
   it('requires an exact class attribute and class token', () => {

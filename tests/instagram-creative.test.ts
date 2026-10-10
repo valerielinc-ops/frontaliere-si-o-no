@@ -23,6 +23,10 @@ describe('Instagram creative system', () => {
       expect(format).toBeTruthy();
       expect(format.objective).toBeTruthy();
       expect(format.primaryMetric).toBeTruthy();
+      expect(format.hookType).toBeTruthy();
+      expect(format.attentionMechanic).toBeTruthy();
+      expect(format.engagementLoop).toBeTruthy();
+      expect(format.followUpFormat).toBeTruthy();
       for (const kind of ['job', 'article', 'border']) {
         expect(format.cover[kind].kicker).toBeTruthy();
         expect(format.cover[kind].title).toBeTruthy();
@@ -50,6 +54,10 @@ describe('Instagram creative system', () => {
       expect(creative.cover.title).toBeTruthy();
       expect(creative.cta).toBeTruthy();
       expect(creative.closing.title).toBeTruthy();
+      expect(creative.hookType).toBeTruthy();
+      expect(creative.attentionMechanic).toBeTruthy();
+      expect(creative.engagementLoop).toBeTruthy();
+      expect(creative.followUpFormat).toBeTruthy();
     }
   });
 
@@ -65,6 +73,33 @@ describe('Instagram creative system', () => {
       );
       expect(ids).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
     }
+  });
+
+  it('makes the 30-day coverage explicit for daily and weekly cohorts', () => {
+    const start = Date.UTC(2026, 9, 1);
+    const dailyCounts = new Map<string, Map<string, number>>();
+    for (const kind of ['article', 'job']) {
+      const counts = new Map<string, number>();
+      for (let offset = 0; offset < 30; offset += 1) {
+        const day = new Date(start + offset * 86400000).toISOString().slice(0, 10);
+        const id = chooseInstagramCreative({ kind, day }).id;
+        counts.set(id, (counts.get(id) || 0) + 1);
+      }
+      dailyCounts.set(kind, counts);
+    }
+    for (const counts of dailyCounts.values()) {
+      expect(new Set(counts.keys())).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
+      expect(Math.min(...counts.values())).toBeGreaterThanOrEqual(3);
+    }
+
+    const borderDays = INSTAGRAM_CREATIVE_IDS.length * 7;
+    const borderIds = new Set(
+      Array.from({ length: borderDays }, (_, offset) => {
+        const day = new Date(start + offset * 86400000).toISOString().slice(0, 10);
+        return chooseInstagramCreative({ kind: 'border', day }).id;
+      }),
+    );
+    expect(borderIds).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
   });
 
   it('gives article and job posts different treatments on the same day', () => {
@@ -127,6 +162,10 @@ describe('Instagram creative system', () => {
       creativeObjective: creative.objective,
       primaryMetric: creative.primaryMetric,
       engagementMechanic: 'keyword-comment',
+      hookType: creative.hookType,
+      attentionMechanic: creative.attentionMechanic,
+      engagementLoop: creative.engagementLoop,
+      followUpFormat: creative.followUpFormat,
     });
   });
 
