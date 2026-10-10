@@ -4,6 +4,7 @@ import {
   STRAUMANN_COMPANY_NAME,
   isStraumannJob,
   isTrustedDomain,
+  parseStraumannDetailHtml,
 } from '../scripts/lib/straumann-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,30 @@ describe('Straumann crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('detail geography', () => {
+    it('marks a foreign JobPosting leaked by the Switzerland listing facet', () => {
+      const url = 'https://careers.straumann.com/global/en/job/21681/example';
+      const html = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Global Medical Education Demo Materials Manager',
+        description: '<p>Coordinate medical education materials across the global organization.</p>',
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Madrid',
+            addressCountry: 'Spain',
+          },
+        },
+      })}</script>`;
+
+      expect(parseStraumannDetailHtml(html, url)).toMatchObject({
+        location: 'Madrid',
+        explicitlyForeign: true,
+      });
     });
   });
 
