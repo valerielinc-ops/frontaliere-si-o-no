@@ -32,10 +32,20 @@ attesa di pubblicazione/conferma. I sette post storici senza metadati creativi
 non vengono classificati retroattivamente: farlo dalla sola metrica GA4
 confonderebbe il test.
 
-Il dataset Instagram Insights non è ancora disponibile e nel runtime locale
-mancano `INSTAGRAM_BUSINESS_ACCOUNT_ID` e `INSTAGRAM_ACCESS_TOKEN`. La pipeline
-continua quindi a preparare e pubblicare creatività, ma non dichiara vincitori
-finché il collector non può leggere reach, salvataggi, condivisioni e commenti.
+Il dataset Instagram Insights non è ancora disponibile. Il preflight Remote
+Config ora trova l'identificativo pubblico `INSTAGRAM_BUSINESS_ACCOUNT_ID`, ma
+`INSTAGRAM_ACCESS_TOKEN` resta assente. La pipeline continua quindi a preparare
+e pubblicare creatività, ma non dichiara vincitori finché il collector non può
+leggere reach, salvataggi, condivisioni e commenti.
+
+La verifica read-only del 10 ottobre ha separato i due casi: senza il token il
+collector restituisce `credentials-missing` senza chiamare Meta; usando il
+`FB_PAGE_ACCESS_TOKEN` come sostituto, Meta risponde `400 Unsupported get
+request` sull'oggetto Instagram. Il Page token non viene quindi riutilizzato
+come token Insights. Per sbloccare la scorecard occorre completare il
+collegamento/permessi Meta e salvare il token Instagram in Remote Config come
+`SERVER_INSTAGRAM_ACCESS_TOKEN`; fino ad allora lo stato corretto è
+`blocked: Meta Insights`, non una conclusione sulla creatività.
 
 ## 2. Cosa insegna la piattaforma
 

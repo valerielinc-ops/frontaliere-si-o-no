@@ -46,20 +46,24 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0 } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0 } = {}) {
+  const menuItem = (id, label) => rolelessCreateMenu
+    ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
+    : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
   const createMenuMarkup = createMenu ? `
-<div id="menu" hidden>
-  <a href="#" id="post-item" role="link"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></a>
-  ${reel && reelMenu ? '<a href="#" id="reel-item" role="link"><span>Reel</span><svg aria-label="Reel" role="img"><title>Reel</title></svg></a>' : ''}
-  <a href="#"><span>Video in diretta</span><svg aria-label="Video in diretta" role="img"><title>Video in diretta</title></svg></a>
-  <a href="#"><span>Inserzione</span><svg aria-label="Inserzione" role="img"><title>Inserzione</title></svg></a>
+<div id="menu" data-popover="create" hidden>
+  ${menuItem('post-item', 'Post')}
+  ${reel && reelMenu ? menuItem('reel-item', 'Reel') : ''}
+  ${menuItem('live-item', 'Video in diretta')}
+  ${menuItem('ad-item', 'Inserzione')}
 </div>` : '';
   const createMarkup = fallbackCreate
     ? '<button type="button" id="create" aria-label="Open composer"><svg aria-label="New post" role="img" width="24" height="24"></svg></button>'
     : '<a href="#" id="create" role="link">Crea</a>';
+  const uploadInput = missingUpload ? '' : `<input id="file" type="file" accept="${reel ? 'video/mp4,video/quicktime' : 'image/jpeg,image/png,image/heic'}" multiple style="display:none">`;
   const dialogContent = `
   <h2>Crea nuovo post</h2>
-  <div id="pick"><form enctype="multipart/form-data"><input id="file" type="file" accept="${reel ? 'video/mp4,video/quicktime' : 'image/jpeg,image/png,image/heic'}" multiple style="display:none"></form><button type="button">Seleziona dal computer</button></div>
+  <div id="pick"><form enctype="multipart/form-data">${uploadInput}</form><button type="button">Seleziona dal computer</button></div>
   <div id="crop" hidden><p>Ritaglia</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="edit" hidden><p>Modifica</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="share-step" hidden><div id="caption" contenteditable="true" role="textbox" aria-label="Scrivi una didascalia..."></div><div role="button" tabindex="0" id="share">Condividi</div></div>
@@ -67,14 +71,18 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const dialogMarkup = createMenu
     ? '<div id="dialog" role="dialog" hidden></div>'
     : `<div id="dialog" role="dialog" hidden>${dialogContent}</div>`;
+  const externalPostMarkup = externalPost
+    ? '<div id="external-post"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></div>'
+    : '';
   const noticeMarkup = videoReelNotice
     ? '<div id="video-reel-notice" role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:20;background:#fff;padding:20%" hidden><h2>I post con video ora vengono condivisi come reel</h2><p>Il tuo account è pubblico, pertanto chiunque può scoprire il tuo video.</p><button id="video-reel-notice-ok" type="button">Ok</button></div>'
     : '';
-  const openDialog = `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').hidden = false; bindDialog();`;
-  const createAction = createMenu ? "$('menu').hidden = false;" : openDialog;
-  const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };${reel && reelMenu ? `$('reel-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog} };` : ''}` : '';
+  const openDialog = (entry) => `$('dialog').innerHTML = ${JSON.stringify(dialogContent)}; $('dialog').dataset.entry = ${JSON.stringify(entry)}; $('dialog').hidden = false; bindDialog();`;
+  const createAction = createMenu ? "$('menu').hidden = false;" : openDialog('direct');
+  const postAction = createMenu ? `$('post-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog('post')} };${reel && reelMenu ? `$('reel-item').onclick = (e) => { e.preventDefault(); $('menu').hidden = true; ${openDialog('reel')} };` : ''}` : '';
   return page('Instagram', `
 <nav>${createMarkup}<a href="/">Home</a><a href="/reels/">Reels</a></nav>
+${externalPostMarkup}
 ${createMenuMarkup}
 ${dialogMarkup}${noticeMarkup}`, `
 const $ = (id) => document.getElementById(id);
@@ -270,6 +278,9 @@ function fakePlatforms() {
       case '/ig/': return send(200, instagramPage());
       case '/ig-direct/': return send(200, instagramPage({ createMenu: false }));
       case '/ig-svg-fallback/': return send(200, instagramPage({ createMenu: false, fallbackCreate: true }));
+      case '/ig-roleless-create-menu/': return send(200, instagramPage({ rolelessCreateMenu: true, externalPost: true }));
+      case '/ig-roleless-create-menu-no-upload/': return send(200, instagramPage({ rolelessCreateMenu: true, missingUpload: true, externalPost: true }));
+      case '/ig-reel-roleless-menu/': return send(200, instagramPage({ reel: true, rolelessCreateMenu: true, externalPost: true }));
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
       case '/ig-reel/': return send(200, instagramPage({ reel: true }));
@@ -349,6 +360,21 @@ async function main() {
     check(existsSync(path.join(r.dir, 'create-menu.png')), 'submenu leaves a screenshot before Post is selected');
     check(existsSync(path.join(r.dir, 'ready-to-publish.png')), 'dry run leaves a screenshot of the ready post');
     check(state.igShares.length === 0, 'dry run shares nothing');
+
+    r = await run('instagram', `${base}/ig-roleless-create-menu/`, { dryRun: true, label: 'ig-roleless-create-menu', flowTimeouts: { ...timeouts, optional: 100 } });
+    check(r.result?.status === 'dry-run', `a roleless Create menu opens Post before the upload wait (${r.error?.message || 'ok'})`);
+    check(await tab.locator('#dialog').getAttribute('data-entry') === 'post', 'roleless Post comes from the active Create menu, not the external Post decoy');
+    check(state.igShares.length === 0, 'roleless-menu dry run never shares');
+
+    r = await run('instagram', `${base}/ig-roleless-create-menu-no-upload/`, { dryRun: true, label: 'ig-roleless-create-menu-no-upload', flowTimeouts: { ...timeouts, optional: 100 } });
+    check(r.error?.errorClass === 'selector-missing' && r.error?.step === 'upload', 'roleless Post recognition still fails closed when the upload input is missing');
+    check(await tab.locator('#dialog').isVisible(), 'roleless Post opened its composer before the missing upload field was rejected');
+    check(state.igShares.length === 0, 'missing-upload dry run never shares');
+
+    r = await run('instagram', `${base}/ig-reel-roleless-menu/`, { dryRun: true, label: 'ig-reel-roleless-menu', reel: true, flowTimeouts: { ...timeouts, optional: 100 } });
+    check(r.result?.status === 'dry-run', `a roleless Reel menu opens the Reel composer (${r.error?.message || 'ok'})`);
+    check(await tab.locator('#dialog').getAttribute('data-entry') === 'reel', 'roleless Reel wins over both the roleless Post row and the external Post decoy');
+    check(state.igReels.length === 0, 'roleless-Reel dry run never shares');
 
     r = await run('instagram', `${base}/ig-direct/`, { dryRun: true, label: 'ig-direct-dry' });
     check(r.result?.status === 'dry-run', `legacy direct dialog remains supported (${r.error?.message || 'ok'})`);
