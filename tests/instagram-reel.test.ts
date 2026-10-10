@@ -6,6 +6,7 @@ import {
   chooseInstagramReelCreative,
   instagramReelLedgerFields,
 } from '../scripts/lib/instagram-reel-creative.mjs';
+import { pendingInstagramReel } from '../scripts/lib/instagram-reel-queue.mjs';
 import { buildReelSlidePlan } from '../scripts/lib/social-reel-image.mjs';
 import { buildQueueEntry, selectNextPending } from '../scripts/lib/social-publish-queue.mjs';
 
@@ -79,5 +80,18 @@ describe('Instagram Reel creative experiment', () => {
       id: 'reel-2026-10-10',
       video: { width: 1080, height: 1920 },
     });
+  });
+
+  it('does not replace an active Reel cohort before it is published', () => {
+    const current = {
+      id: 'reel-current',
+      channel: 'instagram',
+      kind: 'reel',
+      createdAt: '2026-10-10T02:00:00Z',
+      expiresAt: '2026-10-12T02:00:00Z',
+      ledgerEntries: [{ creativeId: 'reel-number' }],
+    };
+    expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-10T10:00:00Z'))).toEqual(current);
+    expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-12T02:00:00Z'))).toBeNull();
   });
 });
