@@ -119,6 +119,21 @@ export function extractFieldsInPage() {
     }
     return found;
   };
+  // A few ATSes use a bare label such as «CAP». Preserve the nearest named
+  // section/heading so the planner can distinguish residence from work-history
+  // fields without guessing from the label alone.
+  const sectionContext = (element) => {
+    const parts = [];
+    const section = element.closest('fieldset, section, article, [role="tabpanel"], [role="region"], [role="group"], [role="radiogroup"]');
+    if (section) {
+      parts.push(section.getAttribute('aria-label') || '');
+      parts.push(textOf(section.getAttribute('aria-labelledby')));
+      const legend = section.querySelector('legend');
+      if (legend) parts.push(clean(legend.innerText || legend.textContent));
+    }
+    parts.push(headingBefore(element));
+    return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);
+  };
   // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
   // nearest before it, else the first after it, so two unnamed fields in one
   // zone never share the first one's question.
@@ -193,6 +208,7 @@ export function extractFieldsInPage() {
       inputType: 'date',
       name: clean(picker.getAttribute('name') || ''),
       label,
+      context: sectionContext(picker),
       required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
       value: clean(selected),
       search: false,
@@ -225,7 +241,7 @@ export function extractFieldsInPage() {
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
@@ -247,6 +263,7 @@ export function extractFieldsInPage() {
       form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
       label: labelFor(element),
+      context: sectionContext(element),
       required: required || REQUIRED_LABEL.test(labelFor(element)),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
@@ -286,6 +303,7 @@ export function extractFieldsInPage() {
       inputType: 'date',
       name: '',
       label,
+      context: sectionContext(element),
       required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
@@ -322,7 +340,7 @@ export function extractFieldsInPage() {
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -344,6 +362,7 @@ export function extractFieldsInPage() {
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
+      context: sectionContext(element),
       required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label),
       value: clean(element.innerText || element.textContent),
       invalid: element.getAttribute('aria-invalid') === 'true',
