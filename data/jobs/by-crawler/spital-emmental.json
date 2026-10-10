@@ -4070,12 +4070,12 @@
     },
     {
       "id": "spital-emmental-e610e1d159e5",
-      "slug": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-psichiatria-adulta-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
-        "it": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
-        "en": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
+        "it": "assistente-medico-psichiatria-adulta-a-spital-emmental-burgdorf",
+        "en": "assistant-doctor-adult-psychiatry-a-spital-emmental-burgdorf",
+        "fr": "medecin-assistant-psychiatrie-pour-adultes-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4139,7 +4139,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:04:49.257Z"
+      "firstSeenAt": "2026-09-10T23:04:49.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-292b26dd6c1e",

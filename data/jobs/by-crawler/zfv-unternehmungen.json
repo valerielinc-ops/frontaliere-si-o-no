@@ -826,11 +826,11 @@
     },
     {
       "id": "zfv-unternehmungen-84b32fd65b1b",
-      "slug": "chef-de-service-90-zfv-unternehmungen-bern",
+      "slug": "capo-del-servizio-90-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "chef-de-service-90-zfv-unternehmungen-bern",
-        "it": "chef-de-service-90-zfv-unternehmungen-bern",
-        "en": "chef-de-service-90-zfv-unternehmungen-bern",
+        "it": "capo-del-servizio-90-zfv-unternehmungen-bern",
+        "en": "chief-de-service-90-zfv-unternehmungen-bern",
         "fr": "chef-de-service-90-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
@@ -890,7 +890,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-10T09:24:27.567Z"
+      "firstSeenAt": "2026-10-10T09:24:27.567Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-service-90-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "chef-de-service-90-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-service-90-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-c132fe2c7861",
@@ -2767,7 +2778,7 @@
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
         "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
-        "fr": "cuire-80-zfv-unternehmungen-adliswil"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2817,7 +2828,8 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
+        "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2838,7 +2850,7 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+          "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
       "firstSeenAt": "2026-07-18T22:01:28.657Z",
@@ -4869,12 +4881,12 @@
     },
     {
       "id": "zfv-unternehmungen-d45b6dc7cd13",
-      "slug": "nachtportier-40-zfv-unternehmungen-bern",
+      "slug": "portiere-notturno-40-zfv-unternehmungen-bern",
       "slugByLocale": {
         "de": "nachtportier-40-zfv-unternehmungen-bern",
-        "it": "nachtportier-40-zfv-unternehmungen-bern",
-        "en": "nachtportier-40-zfv-unternehmungen-bern",
-        "fr": "nachtportier-40-zfv-unternehmungen-bern"
+        "it": "portiere-notturno-40-zfv-unternehmungen-bern",
+        "en": "night-porter-40-zfv-unternehmungen-bern",
+        "fr": "porteur-nocturne-40-zfv-unternehmungen-bern"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -4933,7 +4945,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-10T09:23:53.491Z"
+      "firstSeenAt": "2026-10-10T09:23:53.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtportier-40-zfv-unternehmungen-bern"
+        ],
+        "en": [
+          "nachtportier-40-zfv-unternehmungen-bern"
+        ],
+        "fr": [
+          "nachtportier-40-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "nachtportier-40-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-62ea87cf67c0",
@@ -5699,7 +5725,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5751,14 +5777,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",

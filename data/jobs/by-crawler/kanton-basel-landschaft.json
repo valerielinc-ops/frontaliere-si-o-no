@@ -1115,7 +1115,7 @@
       "slug": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049",
       "slugByLocale": {
         "it": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049",
-        "en": "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "vice-president-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "konrektorin-konrektor-kanton-basel-landschaft-liestal",
         "fr": "vicepresidente-kantonale-verwaltung-basel-landschaft-liestal-a1f049"
       },
@@ -1163,14 +1163,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konrektorin-konrektor-kanton-basel-landschaft-liestal",
-        "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
+        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konrektorin-konrektor-kanton-basel-landschaft-liestal"
         ],
         "en": [
-          "vice-president-kantonale-verwaltung-basel-landschaft-liestal"
+          "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:25.105Z",
@@ -5803,12 +5803,12 @@
     },
     {
       "id": "kanton-basel-landschaft-4c3427f9a5cc",
-      "slug": "mitarbeiterin-collaboratore-trice-gasteservice-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "addetta-addetto-al-servizio-ospiti-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
-        "it": "mitarbeiterin-collaboratore-trice-gasteservice-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
-        "fr": "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
+        "it": "addetta-addetto-al-servizio-ospiti-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "staff-member-guest-service-museum-bl-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "membre-du-personnel-guest-service-museum-bl-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5856,11 +5856,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
+          "mitarbeiterin-collaboratore-trice-gasteservice-museum-bl-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal"
+        "mitarbeiterin-mitarbeiter-gasteservice-museum-bl-kanton-basel-landschaft-liestal",
+        "mitarbeiterin-collaboratore-trice-gasteservice-museum-bl-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
