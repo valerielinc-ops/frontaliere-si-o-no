@@ -722,6 +722,13 @@ describe('Mac host launch agent', () => {
     expect(missing).toEqual([]);
   });
 
+  it('materializes only the declared files instead of archiving the partial clone', () => {
+    const source = fs.readFileSync(script, 'utf8');
+    expect(source).toContain('g ls-tree -r --name-only');
+    expect(source).toContain('g show "${sha}:${snapshot_file}"');
+    expect(source).not.toContain('g archive --format=tar');
+  });
+
   it('uses the destination SHA snapshot list even when the installed copy is old', () => {
     const fixture = createLaunchFixture();
     expect(fs.readFileSync(fixture.installed, 'utf8')).not.toContain(fixture.extraPath);
@@ -800,6 +807,20 @@ describe('workflows', () => {
       const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
       expect(commit?.run, channel).toContain(`data/${channel}-queue.json`);
       expect(commit?.run, channel).toContain(`data/${channel}-posted.json`);
+    }
+  });
+
+  it('does not hide a failed social ledger push', () => {
+    for (const workflow of [
+      'instagram-daily-broadcast.yml',
+      'tiktok-daily-broadcast.yml',
+      'linkedin-member-daily.yml',
+    ]) {
+      const steps = wf(workflow).jobs.post.steps as Array<{ name?: string; run?: string }>;
+      const commit = steps.find((s) => /git commit/.test(s.run ?? ''));
+      expect(commit?.run, workflow).toContain('git-push-with-retry.sh');
+      expect(commit?.run, workflow).toContain('--stash-dirty');
+      expect(commit?.run, workflow).not.toContain('ledger push skipped (non-fatal)');
     }
   });
 });

@@ -1,211 +1,5 @@
 [
   {
-    "timestamp": "2026-09-18T06:52:01.810Z",
-    "label": "after",
-    "total": 32003,
-    "needsRetranslation": 2635,
-    "suppressed": 206,
-    "incomplete": 2982,
-    "complete": 29021,
-    "slotsPresent": 29021,
-    "flaggedAmongSlotsPresent": 20,
-    "verifiedTranslated": 29001,
-    "sourceCopyExcused": 428,
-    "slotsPresentByLength": 31885,
-    "languageVerified": 29833,
-    "missingByLocale": {
-      "it": 60,
-      "en": 45,
-      "de": 61,
-      "fr": 65
-    },
-    "queueAge": {
-      "count": 2635,
-      "withTimestamp": 2635,
-      "oldestAgeDays": 157.9,
-      "p50AgeDays": 28.4,
-      "p90AgeDays": 103.8,
-      "buckets": {
-        "0-1d": 14,
-        "1-2d": 25,
-        "2-7d": 72,
-        "0-7d": 111,
-        "7-30d": 1244,
-        "30-90d": 946,
-        "90-180d": 334,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 27,
-      "withTimestamp": 27,
-      "oldestAgeDays": 48.3,
-      "p50AgeDays": 48.3,
-      "p90AgeDays": 48.3,
-      "buckets": {
-        "0-1d": 2,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 2,
-        "7-30d": 2,
-        "30-90d": 23,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 605,
-      "sampled": 120,
-      "processed": 1,
-      "residual": 0,
-      "residualRate": 0
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 333
-      },
-      {
-        "company": "Roche",
-        "pending": 236
-      },
-      {
-        "company": "Sulzer",
-        "pending": 133
-      },
-      {
-        "company": "PEMSA",
-        "pending": 129
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 103
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 62
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 60
-      },
-      {
-        "company": "JUMBO",
-        "pending": 59
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 57
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 55
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-09-18T07:39:22.013Z",
-    "label": "before",
-    "total": 32003,
-    "needsRetranslation": 2640,
-    "suppressed": 206,
-    "incomplete": 2982,
-    "complete": 29021,
-    "slotsPresent": 29021,
-    "flaggedAmongSlotsPresent": 25,
-    "verifiedTranslated": 28996,
-    "sourceCopyExcused": 428,
-    "slotsPresentByLength": 31885,
-    "languageVerified": 29833,
-    "missingByLocale": {
-      "it": 60,
-      "en": 45,
-      "de": 61,
-      "fr": 65
-    },
-    "queueAge": {
-      "count": 2640,
-      "withTimestamp": 2640,
-      "oldestAgeDays": 157.9,
-      "p50AgeDays": 28.4,
-      "p90AgeDays": 103.9,
-      "buckets": {
-        "0-1d": 5,
-        "1-2d": 34,
-        "2-7d": 72,
-        "0-7d": 111,
-        "7-30d": 1246,
-        "30-90d": 949,
-        "90-180d": 334,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "genderFormRepair": {
-      "measured": false,
-      "status": "cohort-captured",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 592,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 333
-      },
-      {
-        "company": "Roche",
-        "pending": 236
-      },
-      {
-        "company": "Sulzer",
-        "pending": 133
-      },
-      {
-        "company": "PEMSA",
-        "pending": 129
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 103
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 62
-      },
-      {
-        "company": "Swiss Re",
-        "pending": 60
-      },
-      {
-        "company": "JUMBO",
-        "pending": 59
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 57
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 55
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-18T11:17:04.374Z",
     "label": "after",
     "total": 32003,
@@ -22320,129 +22114,7 @@
         "residualRate": 0.016666666666666666,
         "runs": 32,
         "measured": true,
-        "queueCandidates": 1546,
-        "members": [
-          "16bd7d7d06dad494:0",
-          "8e7de298af3f0acf:0",
-          "0f98611aa6cdaa84:0",
-          "5ed0a060c9735992:0",
-          "87b4484089425043:0",
-          "b01c0892e2d3210b:0",
-          "b1741158507ce26b:0",
-          "e0e6d46bd4812815:0",
-          "157ae4492ca641be:0",
-          "4aba0d4b82b06aeb:0",
-          "11526061f479e9ae:0",
-          "6ce025c297a89db7:0",
-          "d16fb91790e3ffed:0",
-          "981876953dd003b8:0",
-          "37b0557d5846fcc9:0",
-          "b2ab1c7f18d75c11:0",
-          "4b4d83325fd501c5:0",
-          "b9acb55e88868e94:0",
-          "bd69c8a651e8baeb:0",
-          "58011146d751e1a1:0",
-          "055005659a438b7a:0",
-          "bfd16de74374a368:0",
-          "ff9b2f9435ef9276:0",
-          "69ccc0cbb89d4e7b:0",
-          "bd82f0cd4f8c88b1:0",
-          "976284d91566e37f:0",
-          "030397c2fc21196d:0",
-          "e7a9d4abb5290717:0",
-          "bf1b88261600358e:0",
-          "3117c9609680b2c7:0",
-          "0519d04a43efefe9:0",
-          "207d5645dbb233bf:0",
-          "bce4f43812f818b4:0",
-          "15c0798d83fba8c4:0",
-          "522b6fa9318f8458:0",
-          "1264943930e27029:0",
-          "ac180aec3d632a0b:0",
-          "f20bd43de65ec160:0",
-          "5815a0e4172238a3:0",
-          "471dc9c7bc55a6dc:0",
-          "703dba0078bffd21:0",
-          "c7d77d62ef35a41c:0",
-          "bea006861cc5e614:0",
-          "5aec58d011c42808:0",
-          "b9598ea610cc8353:0",
-          "db59acbc261cc90c:0",
-          "97427addf4552ac2:0",
-          "b03c03b87a093791:0",
-          "9171de5a87c7e5eb:0",
-          "30d8083713cf35ea:0",
-          "5c73053843e98610:0",
-          "896b3c2ecf5cdc8c:0",
-          "3669c484954c1b7e:0",
-          "01d827670e2978a9:0",
-          "447373739f946624:0",
-          "d495a920b02bcc01:0",
-          "4e682fd819721598:0",
-          "4aa1932443c4f122:0",
-          "154e2b2c18ce17da:0",
-          "c93a52fc0336e722:0",
-          "43266c1b56c6cbca:0",
-          "665f1da123236e3e:0",
-          "5ff4772aa1c7d1cf:0",
-          "69c0808461a63563:0",
-          "35e0509dd4dc5f87:0",
-          "3f610665efd61114:0",
-          "505932dac438fb41:0",
-          "0a2357fbe9e78497:0",
-          "a908735a81e39821:0",
-          "55507782e54fca6e:0",
-          "b5b55e547269ffa6:0",
-          "f42091166eda8ab9:0",
-          "038877dc0ecfd3b2:0",
-          "5dc7e83e9d6e44a9:0",
-          "7ac9e1fddaccccc1:0",
-          "956de1588911485b:0",
-          "436c0ee08188207a:0",
-          "a487b55f53a543d7:0",
-          "ddad6de0a51802cc:0",
-          "dcb9d06d22293ae9:0",
-          "e18b513fe6c73fdc:0",
-          "6735f031e21266a5:0",
-          "a163295668150e8d:0",
-          "c835453837b29b49:0",
-          "46178775d3df1420:0",
-          "d723eb0946ee0a94:0",
-          "b33da034fbf70af4:0",
-          "3b7758221f3913b6:0",
-          "7afdc24f6bd19766:0",
-          "0970e6bc2e654169:0",
-          "c5db7218be1b23da:1",
-          "fd5d47cfeb4475a8:1",
-          "58119758bebfbce0:0",
-          "4c4d36d00dabfc9a:0",
-          "bf78a2bd344d3f8b:0",
-          "0f8f681ea15e0d84:0",
-          "a5062b9370b4e09a:0",
-          "e221e219f0e3e0a5:0",
-          "7a9c0107b7e1c457:0",
-          "8c847f8c4632b5d8:0",
-          "4b90217c4b2e87b3:0",
-          "412ef1c9a3ffc53d:0",
-          "8f509936f3d3747d:0",
-          "eb580ea97f125e1c:0",
-          "a022f935ed4f5ae6:0",
-          "b80d8cc18fbd4368:0",
-          "d6f7b7c54019c82a:0",
-          "2b799ddfd23188e7:0",
-          "667423cbb9e5ec08:0",
-          "c75610c2336883bf:0",
-          "c66073857eaafdaa:0",
-          "dc6c3ab1426512b8:0",
-          "93ce4938d052ef43:0",
-          "504ad5138a948661:0",
-          "97ab366e73a3bc2d:0",
-          "67734006df8a8aef:0",
-          "4028c0488ff6a695:0",
-          "b30a1681ef0ee792:0",
-          "ab72e987518bc447:0",
-          "7c15640702ad603b:0"
-        ]
+        "queueCandidates": 1546
       }
     },
     "publicationHold": {
@@ -22559,6 +22231,414 @@
           "translated": 0,
           "rejected": 5,
           "stopReason": "3 fallimenti consecutivi"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-10-09T22:46:42.965Z",
+    "label": "before",
+    "total": 32609,
+    "needsRetranslation": 5394,
+    "suppressed": 220,
+    "incomplete": 4767,
+    "complete": 27842,
+    "slotsPresent": 27842,
+    "flaggedAmongSlotsPresent": 1205,
+    "verifiedTranslated": 26637,
+    "sourceCopyExcused": 326,
+    "slotsPresentByLength": 32533,
+    "languageVerified": 30035,
+    "missingByLocale": {
+      "it": 1163,
+      "en": 758,
+      "de": 153,
+      "fr": 798
+    },
+    "queueAge": {
+      "count": 5394,
+      "withTimestamp": 5394,
+      "oldestAgeDays": 757.3,
+      "p50AgeDays": 20,
+      "p90AgeDays": 99,
+      "buckets": {
+        "0-1d": 426,
+        "1-2d": 161,
+        "2-7d": 621,
+        "0-7d": 1208,
+        "7-30d": 1794,
+        "30-90d": 1578,
+        "90-180d": 812,
+        "180d+": 2
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 2051,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 56,
+      "byCrawler": {
+        "fachkraft": 31,
+        "sta": 7,
+        "stellenpartner": 10,
+        "stellentreff": 8
+      }
+    },
+    "predicateVersion": "21b5b9761068733e",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 839,
+      "complete": 716
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 1019
+      },
+      {
+        "company": "LANDI Sempach-Emmen Genossenschaft",
+        "pending": 250
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 184
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 183
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 141
+      },
+      {
+        "company": "Medbase",
+        "pending": 126
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 106
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 98
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 83
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 72
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-10T01:21:32.850Z",
+    "label": "after",
+    "total": 32609,
+    "needsRetranslation": 3836,
+    "suppressed": 221,
+    "incomplete": 4291,
+    "complete": 28318,
+    "slotsPresent": 28318,
+    "flaggedAmongSlotsPresent": 1,
+    "verifiedTranslated": 28317,
+    "sourceCopyExcused": 328,
+    "slotsPresentByLength": 32576,
+    "languageVerified": 30449,
+    "missingByLocale": {
+      "it": 726,
+      "en": 350,
+      "de": 28,
+      "fr": 399
+    },
+    "queueAge": {
+      "count": 3836,
+      "withTimestamp": 3836,
+      "oldestAgeDays": 757.5,
+      "p50AgeDays": 20.1,
+      "p90AgeDays": 97.6,
+      "buckets": {
+        "0-1d": 99,
+        "1-2d": 126,
+        "2-7d": 518,
+        "0-7d": 743,
+        "7-30d": 1385,
+        "30-90d": 1165,
+        "90-180d": 541,
+        "180d+": 2
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 478,
+      "withTimestamp": 478,
+      "oldestAgeDays": 179.2,
+      "p50AgeDays": 0.2,
+      "p90AgeDays": 52.6,
+      "buckets": {
+        "0-1d": 283,
+        "1-2d": 7,
+        "2-7d": 16,
+        "0-7d": 306,
+        "7-30d": 74,
+        "30-90d": 70,
+        "90-180d": 28,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 2051,
+      "sampled": 120,
+      "processed": 31,
+      "residual": 3,
+      "residualRate": 0.0967741935483871,
+      "window": {
+        "size": 120,
+        "processed": 120,
+        "residual": 3,
+        "residualRate": 0.025,
+        "runs": 33,
+        "measured": true,
+        "queueCandidates": 2051,
+        "members": [
+          "6ce025c297a89db7:0",
+          "d16fb91790e3ffed:0",
+          "981876953dd003b8:0",
+          "37b0557d5846fcc9:0",
+          "b2ab1c7f18d75c11:0",
+          "4b4d83325fd501c5:0",
+          "b9acb55e88868e94:0",
+          "bd69c8a651e8baeb:0",
+          "58011146d751e1a1:0",
+          "055005659a438b7a:0",
+          "bfd16de74374a368:0",
+          "ff9b2f9435ef9276:0",
+          "69ccc0cbb89d4e7b:0",
+          "bd82f0cd4f8c88b1:0",
+          "976284d91566e37f:0",
+          "030397c2fc21196d:0",
+          "e7a9d4abb5290717:0",
+          "bf1b88261600358e:0",
+          "3117c9609680b2c7:0",
+          "0519d04a43efefe9:0",
+          "207d5645dbb233bf:0",
+          "bce4f43812f818b4:0",
+          "15c0798d83fba8c4:0",
+          "522b6fa9318f8458:0",
+          "1264943930e27029:0",
+          "ac180aec3d632a0b:0",
+          "f20bd43de65ec160:0",
+          "5815a0e4172238a3:0",
+          "471dc9c7bc55a6dc:0",
+          "703dba0078bffd21:0",
+          "c7d77d62ef35a41c:0",
+          "bea006861cc5e614:0",
+          "5aec58d011c42808:0",
+          "b9598ea610cc8353:0",
+          "db59acbc261cc90c:0",
+          "97427addf4552ac2:0",
+          "b03c03b87a093791:0",
+          "9171de5a87c7e5eb:0",
+          "30d8083713cf35ea:0",
+          "5c73053843e98610:0",
+          "896b3c2ecf5cdc8c:0",
+          "3669c484954c1b7e:0",
+          "447373739f946624:0",
+          "d495a920b02bcc01:0",
+          "4e682fd819721598:0",
+          "4aa1932443c4f122:0",
+          "154e2b2c18ce17da:0",
+          "c93a52fc0336e722:0",
+          "43266c1b56c6cbca:0",
+          "665f1da123236e3e:0",
+          "35e0509dd4dc5f87:0",
+          "3f610665efd61114:0",
+          "505932dac438fb41:0",
+          "0a2357fbe9e78497:0",
+          "a908735a81e39821:0",
+          "55507782e54fca6e:0",
+          "b5b55e547269ffa6:0",
+          "f42091166eda8ab9:0",
+          "038877dc0ecfd3b2:0",
+          "7ac9e1fddaccccc1:0",
+          "956de1588911485b:0",
+          "436c0ee08188207a:0",
+          "a487b55f53a543d7:0",
+          "ddad6de0a51802cc:0",
+          "dcb9d06d22293ae9:0",
+          "e18b513fe6c73fdc:0",
+          "6735f031e21266a5:0",
+          "a163295668150e8d:0",
+          "c835453837b29b49:0",
+          "46178775d3df1420:0",
+          "d723eb0946ee0a94:0",
+          "b33da034fbf70af4:0",
+          "3b7758221f3913b6:0",
+          "7afdc24f6bd19766:0",
+          "4c4d36d00dabfc9a:0",
+          "a5062b9370b4e09a:0",
+          "e221e219f0e3e0a5:0",
+          "7a9c0107b7e1c457:0",
+          "412ef1c9a3ffc53d:0",
+          "8f509936f3d3747d:0",
+          "a022f935ed4f5ae6:0",
+          "c66073857eaafdaa:0",
+          "504ad5138a948661:0",
+          "97ab366e73a3bc2d:0",
+          "67734006df8a8aef:0",
+          "4028c0488ff6a695:0",
+          "b30a1681ef0ee792:0",
+          "ab72e987518bc447:0",
+          "7c15640702ad603b:0",
+          "9d49a83b9a03df06:0",
+          "99be5ae45ff82668:0",
+          "be0601fca1276dd5:0",
+          "01d827670e2978a9:0",
+          "e1c978eb5ee2efba:0",
+          "b5aa164c07208214:0",
+          "5ff4772aa1c7d1cf:0",
+          "69c0808461a63563:0",
+          "0970e6bc2e654169:0",
+          "c5db7218be1b23da:1",
+          "fd5d47cfeb4475a8:1",
+          "58119758bebfbce0:0",
+          "dc610eed351d20df:0",
+          "bf78a2bd344d3f8b:0",
+          "8a74b2f3b625f7ec:1",
+          "0f8f681ea15e0d84:0",
+          "8c847f8c4632b5d8:0",
+          "4b90217c4b2e87b3:0",
+          "eb580ea97f125e1c:0",
+          "aaaa177b1fd7e6f6:0",
+          "b80d8cc18fbd4368:0",
+          "d6f7b7c54019c82a:0",
+          "2b799ddfd23188e7:0",
+          "667423cbb9e5ec08:0",
+          "5dc7e83e9d6e44a9:0",
+          "c75610c2336883bf:0",
+          "516b707ce8844ef3:0",
+          "230a57da9db73381:0",
+          "a74cfd0746fb9233:0",
+          "dc6c3ab1426512b8:0",
+          "93ce4938d052ef43:0"
+        ]
+      }
+    },
+    "publicationHold": {
+      "held": 0,
+      "byCrawler": {}
+    },
+    "predicateVersion": "21b5b9761068733e",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 951,
+      "complete": 824
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 985
+      },
+      {
+        "company": "LANDI Sempach-Emmen Genossenschaft",
+        "pending": 246
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 180
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 180
+      },
+      {
+        "company": "Medbase",
+        "pending": 126
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 106
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 99
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 98
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 81
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 72
+      }
+    ],
+    "codexReserve": {
+      "calls": 459,
+      "textsSent": 1808,
+      "charsSent": 143011,
+      "avgTextsPerCall": 3.9389978213507626,
+      "avgCharsPerCall": 311.57080610021785,
+      "maxTextsPerCall": 25,
+      "maxCharsPerCall": 2984,
+      "failedRequests": 2,
+      "translated": 1400,
+      "rejected": 408,
+      "spentMs": 1935740,
+      "verdict": "covered",
+      "byPhase": {
+        "2b-cascade": {
+          "position": "primary",
+          "calls": 109,
+          "maxCalls": 350,
+          "textsSent": 774,
+          "charsSent": 94980,
+          "avgTextsPerCall": 7.10091743119266,
+          "avgCharsPerCall": 871.3761467889908,
+          "maxTextsPerCall": 25,
+          "maxCharsPerCall": 2984,
+          "failedRequests": 1,
+          "translated": 762,
+          "rejected": 12,
+          "stopReason": null
+        },
+        "2d-titles": {
+          "position": "primary",
+          "calls": 350,
+          "maxCalls": 350,
+          "textsSent": 1034,
+          "charsSent": 48031,
+          "avgTextsPerCall": 2.954285714285714,
+          "avgCharsPerCall": 137.23142857142858,
+          "maxTextsPerCall": 10,
+          "maxCharsPerCall": 459,
+          "failedRequests": 1,
+          "translated": 638,
+          "rejected": 396,
+          "stopReason": "budget di 350 chiamate esaurito (FREE_TRANSLATE_CODEX_MAX_CALLS)"
         }
       }
     }

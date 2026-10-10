@@ -1,9 +1,10 @@
 # Robot social (Instagram e TikTok)
 
 Pubblica i caroselli giornalieri (articoli e lavori più visti di ieri, dogane
-più veloci della settimana) su Instagram e TikTok **dal browser reale** del
-Mac host agenti, con Playwright e un profilo Chrome persistente. Nessun
-servizio terzo, nessuna app API.
+più veloci della settimana) e i Reel sperimentali controllati su Instagram,
+oltre ai contenuti TikTok, **dal browser reale** del Mac host agenti, con
+Playwright e un profilo Chrome persistente. Nessun servizio terzo, nessuna app
+API per il trasporto browser.
 
 **Decisione del proprietario, 2026-10-04 (issue 9798 e 7648).** Il
 proprietario accetta il rischio che Instagram e TikTok, secondo i loro termini
@@ -17,13 +18,16 @@ insiste mai dopo un errore.
    `scripts/post-to-tiktok.mjs`, workflow `*-daily-broadcast.yml`) scelgono il
    carosello, generano le slide, le caricano sulla CDN e, quando il robot è il
    trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
-   (`scripts/lib/social-publish-queue.mjs`). Per TikTok la voce in coda porta
-   anche un MP4 fatto dalle stesse slide, perché l'upload web accetta solo
-   video. È la stessa scelta, la stessa deduplica e lo stesso ledger della
-   pipeline API: il robot non decide cosa pubblicare.
+   (`scripts/lib/social-publish-queue.mjs`). Il workflow manuale
+   `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
+   generare una cover e un MP4 verticale, con `kind: reel` e ledger separato.
+   Per TikTok la voce in coda porta anche un MP4 fatto dalle stesse slide,
+   perché l'upload web accetta solo video. È la stessa deduplica e lo stesso
+   ledger della pipeline, ma il robot non decide cosa pubblicare.
 2. Il robot (`run.mjs`) legge la coda da `origin/main`, scarica le slide
-   Instagram o l'MP4 TikTok verificato dalla CDN e li pubblica dalla pagina
-   web della piattaforma.
+   Instagram, il Reel MP4 verticale o l'MP4 TikTok verificato dalla CDN e li
+   pubblica dalla pagina web della piattaforma. Una voce con `video` sul canale
+   Instagram seleziona il composer Reel; senza `video` resta nel composer Post.
 3. Solo dopo aver **visto la conferma** della piattaforma nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
    `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da
@@ -64,6 +68,12 @@ node scripts/social-robot/run.mjs --dry-run --platform=instagram
 # Pubblicazione: preme solo se Remote Config dice `live`.
 node scripts/social-robot/run.mjs --publish
 
+# Preview del prossimo Reel (non carica e non accoda nulla).
+npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article
+
+# La pubblicazione del Reel avviene dal workflow manuale
+# instagram-reel-experiment.yml, con dry_run=false, e poi dal robot.
+
 # Launch agent: due finestre al giorno (default 11:30 e 18:30 ora locale,
 # SR_WINDOWS="HH:MM HH:MM" per cambiarle), più fino a 20 minuti casuali.
 bash scripts/social-robot/launchd.sh install
@@ -85,6 +95,8 @@ sessione grafica aperta sul Mac: il browser non è headless.
 - dopo un clic senza conferma: piattaforma ferma finché un umano non risolve;
 - nel launch agent (`--jitter`) una sola prova a secco per post in coda, non
   una per finestra; a mano `--dry-run` la ripete sempre;
+- il Reel non ha un cron autonomo: è uno slot dispatch-only scelto dal
+  proprietario e sottoposto allo stesso tetto di 2 post Instagram al giorno;
 - una conferma inviata che dopo 2 ore non è ancora nel ledger viene rinviata
   alla finestra successiva (fino a 7 giorni dal clic).
 
@@ -104,5 +116,8 @@ del browser sul Mac.
 
 - `tests/social-robot.test.ts`: scelta dalla coda, cadenza e tetto giornaliero,
   marcatura solo dopo la conferma, issue su errore, interruttore, plist.
+- `tests/instagram-reel.test.ts`: tre trattamenti, card verticali, metadati e
+  coda MP4.
 - `node scripts/social-robot/robot-e2e.mjs` (workflow `social-robot-e2e.yml`):
-  i flussi Playwright su pagine locali che imitano Instagram e TikTok.
+  i flussi Playwright, inclusi dry-run e publish simulato del Reel, su pagine
+  locali che imitano Instagram e TikTok.
