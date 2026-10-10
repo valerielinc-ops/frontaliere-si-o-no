@@ -544,7 +544,9 @@ export async function runInstagramCommunityAutomation({
       if (
         authorId
         && shouldSendPrivateReply(comment.text)
-        && (commentAge === null || (commentAge >= 0 && commentAge <= PRIVATE_REPLY_WINDOW_HOURS))
+        && commentAge !== null
+        && commentAge >= 0
+        && commentAge <= PRIVATE_REPLY_WINDOW_HOURS
         && !hasAction(state, privateKey)
         && privateAttempted < MAX_PRIVATE_REPLIES_PER_RUN
       ) {

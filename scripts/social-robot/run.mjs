@@ -74,6 +74,12 @@ export function parseArgs(argv) {
 
 const stamp = (at) => new Date(at).toISOString().replace(/[:.]/g, '-');
 
+export function runHasErrors({ results = [], community = null } = {}) {
+  return (Array.isArray(results) && results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed'))
+    || community?.status === 'api-error'
+    || community?.status === 'partial';
+}
+
 async function login({ stateDir, platforms }) {
   const context = await openProfile({ stateDir });
   for (const p of platforms) {
@@ -156,7 +162,7 @@ async function main() {
         });
       }
       console.log(JSON.stringify({ results, community }));
-      return results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed') ? 1 : 0;
+      return runHasErrors({ results, community }) ? 1 : 0;
     } finally {
       if (context) await context.close().catch(() => {});
     }

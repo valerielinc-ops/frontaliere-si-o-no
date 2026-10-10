@@ -42,7 +42,7 @@ function fakeInstagramFetch() {
       }] });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/media-1/comments')) {
-      return response({ data: [{ id: 'comment-1', text: '1', from: { id: 'person-1' } }] });
+      return response({ data: [{ id: 'comment-1', text: '1', from: { id: 'person-1' }, timestamp: '2026-10-10T11:00:00.000Z' }] });
     }
     if (method === 'GET' && parsed.pathname.endsWith('/account-1/conversations')) {
       return response({ data: [{ id: 'conversation-1' }] });

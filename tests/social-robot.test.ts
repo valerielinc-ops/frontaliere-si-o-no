@@ -42,6 +42,7 @@ import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+import { runHasErrors } from '../scripts/social-robot/run.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];
@@ -391,6 +392,14 @@ describe('confirmation → ledger', () => {
       followUpFormat: 'story-result',
       engagementMechanic: 'keyword-comment',
     });
+  });
+});
+
+describe('social robot exit status', () => {
+  it('fails the unattended run when the community worker returns an API error or partial result', () => {
+    expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
   });
 });
 
