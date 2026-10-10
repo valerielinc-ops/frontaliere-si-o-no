@@ -1,9 +1,12 @@
 name: Instagram Reel Experiment
 
-# Deliberately workflow_dispatch-only. A Reel is a separate creative cohort;
-# the owner chooses when to spend one Instagram slot instead of silently
-# adding a third daily post to the carousel cadence.
+# Two reserved experiment slots per week run before the daily carousel queue:
+# they consume one of the robot's two daily Instagram slots, never a third one.
+# Manual dispatch remains available for previews or an owner-selected cohort.
 on:
+  schedule:
+    - cron: '30 7 * * 1' # Monday article, before the 08:20 UTC broadcast
+    - cron: '30 7 * * 5' # Friday job, before the 08:20 UTC broadcast
   workflow_dispatch:
     inputs:
       kind:
@@ -36,9 +39,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      KIND: ${{ inputs.kind || 'article' }}
+      KIND: ${{ github.event_name == 'schedule' && github.event.schedule == '30 7 * * 5' && 'job' || inputs.kind || 'article' }}
       REPORT_DATE: ${{ inputs.date || '' }}
-      DRY_RUN: ${{ inputs.dry_run || 'true' }}
+      DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run || 'true' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -54,7 +57,7 @@ jobs:
           fi
 
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: env.DRY_RUN != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -63,7 +66,7 @@ jobs:
           printf 'GOOGLE_APPLICATION_CREDENTIALS=%s\n' "$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
 
       - name: Load Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: env.DRY_RUN != 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Render or queue controlled Reel
@@ -75,7 +78,7 @@ jobs:
           npx --no-install tsx scripts/post-to-instagram-reel.mjs "${args[@]}"
 
       - name: Commit Reel queue
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: env.DRY_RUN != 'true'
         run: |
           set -euo pipefail
           if [ ! -f data/instagram-queue.json ]; then
