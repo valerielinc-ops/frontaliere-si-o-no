@@ -557,6 +557,62 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       + report.duplicateAssembledMatches.examples.length).toBeLessThanOrEqual(20);
   });
 
+  it('reserves missing-bridge examples for parity failures ahead of cap-suppressed candidates', () => {
+    const cappedPairs = Array.from({ length: 8 }, (_, index) => {
+      const sliceJob = {
+        ...baseSlice(),
+        id: `capped-${index}`,
+        url: `https://example.test/jobs/capped-${index}`,
+        previousSlugs: Array.from(
+          { length: LEGACY_PREV_SLUGS_CAP },
+          (_, slugIndex) => `existing-${index}-${slugIndex}`,
+        ),
+      };
+      return {
+        sliceJob,
+        assembled: { ...sliceJob, previousSlugs: [`above-cap-${index}`] },
+      };
+    });
+    const localeBridge = 'previously-served-in-fr';
+    const sliceJob = {
+      ...baseSlice(),
+      id: 'locale-drift',
+      url: 'https://example.test/jobs/locale-drift',
+      slugByLocale: { it: 'current-it', fr: 'current-fr' },
+      previousSlugs: [localeBridge],
+      previousSlugsByLocale: { fr: [localeBridge] },
+    };
+    const assembled = {
+      ...sliceJob,
+      previousSlugs: [localeBridge],
+      previousSlugsByLocale: { it: [localeBridge], fr: [localeBridge] },
+    };
+
+    const report = diagnoseScatterParity(
+      [...cappedPairs.map(({ assembled: job }) => job), assembled],
+      [
+        ...cappedPairs.map(({ sliceJob: job }, index) => ({ file: `capped-${index}.json`, jobs: [job] })),
+        { file: 'locale-drift.json', jobs: [sliceJob] },
+      ],
+    );
+
+    expect(report.missingBridges).toMatchObject({
+      total: 1,
+      byClass: { differentLocaleAttribution: 1 },
+      candidateCounts: { differentLocaleAttribution: 1 },
+      capSuppressed: 8,
+    });
+    expect(report.missingBridges.examples).toHaveLength(6);
+    expect(report.missingBridges.examples[0]).toMatchObject({
+      file: 'locale-drift.json',
+      locale: 'it',
+      slug: localeBridge,
+      class: 'differentLocaleAttribution',
+      parityMissing: true,
+    });
+    expect(report.missingBridges.examples.filter((example) => example.parityMissing)).toHaveLength(1);
+  });
+
   it('projects a bridge to its decontamination owner and is idempotent across a second scatter', () => {
     // Reduced from the real STA/Stellenpartner slice records seen in the
     // production collision sample: the bridge tail is the target job's

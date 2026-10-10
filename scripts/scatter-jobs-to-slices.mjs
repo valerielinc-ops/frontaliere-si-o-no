@@ -518,6 +518,8 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
     examples: [],
     capSuppressed: 0,
   };
+  const parityMissingExamplesByClass = new Map();
+  const candidateExamples = [];
   const duplicateAssembledMatches = { total: 0, examples: [] };
   const matchCounts = new Map();
   const firstMatch = new Map();
@@ -529,14 +531,22 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
     missingBridges.candidateCounts[key] = (missingBridges.candidateCounts[key] || 0) + 1;
   };
   const addBridgeExample = (entry, sliceJob, locale, slug, className, parityMissing) => {
-    if (missingBridges.examples.length >= budgets.missingBridges) return;
-    missingBridges.examples.push({
+    const example = {
       ...diagnosticJobRef(entry, sliceJob),
       locale,
       slug,
       class: className,
       parityMissing,
-    });
+    };
+    if (parityMissing) {
+      const examples = parityMissingExamplesByClass.get(className) || [];
+      if (examples.length < budgets.missingBridges) {
+        examples.push(example);
+        parityMissingExamplesByClass.set(className, examples);
+      }
+      return;
+    }
+    if (candidateExamples.length < budgets.missingBridges) candidateExamples.push(example);
   };
 
   for (const entry of entries) {
@@ -628,6 +638,19 @@ export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionE
       }
     }
   }
+
+  // Cap-suppressed candidates can outnumber actual parity failures by orders
+  // of magnitude and are encountered first in the assembled history. Reserve
+  // the bounded examples for the failures that make `passed` false, one per
+  // class first; only then use remaining slots to show non-failing candidates.
+  const parityExamplesByClass = [...parityMissingExamplesByClass.values()];
+  const parityRepresentatives = parityExamplesByClass.map((examples) => examples[0]);
+  const additionalParityExamples = parityExamplesByClass.flatMap((examples) => examples.slice(1));
+  missingBridges.examples = [
+    ...parityRepresentatives,
+    ...additionalParityExamples,
+    ...candidateExamples,
+  ].slice(0, budgets.missingBridges);
 
   return {
     exampleLimit: Math.min(20, Math.max(0, maxExamples)),
