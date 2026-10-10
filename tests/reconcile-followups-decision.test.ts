@@ -517,12 +517,12 @@ describe('allarme a titolo stabile per i bucket illeggibili dal parser', () => {
     expect(decideBucketAlarmAction({ ...plan, listComplete: true })).toBe('open');
   });
 
-  it('un Target repository fra backtick in un item è un veto strutturale e l’allarme ne dice la riga (forma di #11301)', () => {
+  it('un Target repository fra backtick ma diverso è un veto strutturale e l’allarme ne dice la riga (forma di #11301)', () => {
     const plain = '- Target repository: valerielinc-ops/frontaliere-si-o-no';
     const itemAt = bucket11003.body.indexOf(plain, bucket11003.body.indexOf('### FU-'));
     const quoted = {
       ...bucket11003,
-      body: `${bucket11003.body.slice(0, itemAt)}- Target repository: \`valerielinc-ops/frontaliere-si-o-no\`${bucket11003.body.slice(itemAt + plain.length)}`,
+      body: `${bucket11003.body.slice(0, itemAt)}- Target repository: \`another/repo\`${bucket11003.body.slice(itemAt + plain.length)}`,
     };
     expect(bucketStructuralVeto(quoted)).toBe('mismatched-target-repository');
     const [first] = planBucketAlarm([quoted], { now: hoursAfter(quoted.createdAt, 1) }).unparseable[0].violations;
