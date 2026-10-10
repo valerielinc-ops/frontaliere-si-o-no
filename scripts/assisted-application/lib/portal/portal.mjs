@@ -29,6 +29,7 @@ import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { candidateAnswerForField, holdsValue, planPage, questionTopic } from './plan.mjs';
+import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -156,39 +157,7 @@ export function machineLabel(label) {
   return !text || (/^[\w:.-]+$/.test(text) && /[_:\d]/.test(text));
 }
 
-export function slugId(text) {
-  return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
-}
-
-function normalizedPortalContext(context) {
-  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
-}
-
-function portalQuestionHash(question, context) {
-  let hash = 2166136261;
-  for (const character of `${normalizedPortalContext(question)}\u0000${normalizedPortalContext(context)}`) {
-    hash ^= character.codePointAt(0);
-    hash = Math.imul(hash, 16777619);
-  }
-  return (hash >>> 0).toString(36);
-}
-
-/** A stable answer id that keeps same-label fields in different fieldsets independent. */
-export function portalQuestionId(question, context = '') {
-  const label = typeof question === 'object' ? question?.question : question;
-  const surrounding = typeof question === 'object' ? question?.context : context;
-  const base = `portal_${slugId(label)}`;
-  return normalizedPortalContext(surrounding) ? `${base}_${portalQuestionHash(label, surrounding)}` : base;
-}
-
-/** Dedupe reworded questions only when both their semantic topic and context match. */
-export function portalQuestionKey(question, context = '') {
-  const label = typeof question === 'object' ? question?.question : question;
-  const surrounding = typeof question === 'object' ? question?.context : context;
-  const topic = questionTopic(label, surrounding);
-  return topic ? `${topic}|${normalizedPortalContext(surrounding)}` : portalQuestionId(label, surrounding);
-}
+export { portalQuestionId, portalQuestionKey, slugId };
 
 /**
  * What the planner may use, with the alias as the e-mail (candidateIdentity).

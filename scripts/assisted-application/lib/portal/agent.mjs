@@ -20,6 +20,7 @@ import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityFie
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -155,6 +156,11 @@ const TOPICS = [
   /start|disponib|verfügbar|eintritt|inizio/i,
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
+const contextKey = (context) => String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+const agentTopicKey = (question, context = '') => {
+  const topic = topicOf(question);
+  return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
+};
 
 /**
  * Code-side guard on one agent turn (the planner's guardPlan for refs): an
@@ -171,8 +177,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answered.map(topicOf).filter((topic) => topic >= 0),
-    ...answeredItems.map((item) => questionTopic(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => portalQuestionKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => agentTopicKey(item.question, item.context)).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
   const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
@@ -181,8 +187,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
       && (!context || !item.context || item.context === context))
-    || answeredTopics.has(topicOf(question))
-    || (questionTopic(question, context) && answeredTopics.has(questionTopic(question, context)));
+    || answeredTopics.has(portalQuestionKey(question, context))
+    || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);

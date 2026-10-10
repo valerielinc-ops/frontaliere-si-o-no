@@ -66,8 +66,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { documentsHeldAsked } from '../../../functions/src/lib/documentQuestions.js';
-import { candidateForForm } from './portal/portal.mjs';
-import { questionTopic } from './portal/plan.mjs';
+import { candidateForForm, portalQuestionKey } from './portal/portal.mjs';
 import { enrichProfileResidenceAddress } from './portal/residence-address.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -346,8 +345,8 @@ export async function buildDraft(ctx) {
       codex,
       log,
     });
-    const known = new Set(questions.map((question) => questionTopic(question.question, question.context) || question.id));
-    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question, question.context) || question.id)).filter(notAnsweredByUpload));
+    const known = new Set(questions.map((question) => portalQuestionKey(question.question, question.context) || question.id));
+    questions.push(...portal.filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id)).filter(notAnsweredByUpload));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
