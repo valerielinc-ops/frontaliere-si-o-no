@@ -15,6 +15,9 @@ un motivo concreto per tornare a seguire la conversazione.
 - Per i carousel automatici, il primo ciclo usa 9 ID creativi: tre varianti per
   `proof`, `save` e `question`. Il layout resta controllato; cambiano promessa,
   hook, caption, CTA e slide finale.
+- Articoli e lavoro ruotano ogni giorno: coprono i 9 ID in 9 giorni e arrivano
+  a 3 osservazioni per ID in 27 giorni. I valichi ruotano ogni settimana:
+  coprire tutti i 9 ID richiede 63 giorni e resta una coorte separata.
 - Il poster automatico resta la base: carousel articolo e lavoro ogni giorno,
   carousel dogane il lunedì. I contenuti manuali si pubblicano in un orario
   diverso, non si sommano senza motivo a due carousel già usciti.
