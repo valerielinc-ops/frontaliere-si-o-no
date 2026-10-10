@@ -1,7 +1,7 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-10-10T09:33:56.011Z",
+  "generatedAt": "2026-10-10T21:30:56.553Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4212,
-  "avgDurationMs": 4212,
+  "unchangedCount": 0,
+  "durationMs": 6214,
+  "avgDurationMs": 6214,
   "durationHistory": [
-    4212
+    6214
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "gim-architekten-58546e32c2db",
       "slug": "architetto-a-diplomato-a-gim-gim-architekten-ag-bern",
@@ -33,18 +31,18 @@
       "companyDomain": "gim.ch",
       "title": "Dipl. Architekt/In - GIM",
       "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
+      "location": "Courtedoux",
+      "canton": "JU",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:33:46.591Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
+      "crawledAt": "2026-10-10T21:30:38.233Z",
+      "addressLocality": "Courtedoux",
+      "addressRegion": "JU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "Bern",
+      "postalCode": "2905",
+      "streetAddress": "Courtedoux",
       "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -56,8 +54,8 @@
       "postedDate": "2025-05-06T09:40:29+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049/",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
       "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -68,5 +66,7 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
