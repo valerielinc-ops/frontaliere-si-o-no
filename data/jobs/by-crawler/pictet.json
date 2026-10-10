@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-10T09:24:51.640Z",
+  "assembledAt": "2026-10-10T21:20:54.942Z",
   "jobs": [
     {
       "id": "pictet-802e8cbc742a",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125174&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:45.965Z",
+      "crawledAt": "2026-10-10T21:20:48.545Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125177&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:45.424Z",
+      "crawledAt": "2026-10-10T21:20:47.950Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125179&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:44.807Z",
+      "crawledAt": "2026-10-10T21:20:47.373Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -232,7 +232,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "pictet-e5e666c24adc",
@@ -241,7 +242,7 @@
         "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
         "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
-        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
+        "fr": "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -265,7 +266,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125183&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:43.576Z",
+      "crawledAt": "2026-10-10T21:20:46.231Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -287,7 +288,7 @@
       "previousSlugs": [
         "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
         "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+        "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -295,7 +296,7 @@
         ],
         "fr": [
           "agent-de-relations-avec-les-clients-18-mois-de-duree-determinee-pictet-group-zurich",
-          "client-relationship-officer-18-months-fixed-term-pictet-group-zurich"
+          "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:18:07.156Z",
@@ -321,7 +322,7 @@
         "it": "ufficiale-di-conformita-pictet-group-geneva",
         "en": "compliance-officer-pictet-geneva",
         "de": "compliance-beauftragter-pictet-group-geneva",
-        "fr": "specialiste-du-respect-des-dispositions-pictet-group-geneva"
+        "fr": "compliance-officer-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -345,7 +346,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125189&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:42.978Z",
+      "crawledAt": "2026-10-10T21:20:45.689Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -366,14 +367,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "compliance-officer-pictet-geneva",
-        "compliance-officer-pictet-group-geneva"
+        "specialiste-du-respect-des-dispositions-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-pictet-geneva"
         ],
         "fr": [
-          "compliance-officer-pictet-group-geneva"
+          "specialiste-du-respect-des-dispositions-pictet-group-geneva"
         ]
       },
       "salaryMin": 69000,
@@ -422,7 +423,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125195&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:41.692Z",
+      "crawledAt": "2026-10-10T21:20:44.420Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -463,7 +464,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "pictet-d644fcbe0361",
@@ -496,7 +498,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125082&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:41.031Z",
+      "crawledAt": "2026-10-10T21:20:43.742Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -530,6 +532,7 @@
         ]
       },
       "firstSeenAt": "2026-10-08T21:26:12.238Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -576,7 +579,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125203&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:24:39.800Z",
+      "crawledAt": "2026-10-10T21:20:42.464Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
