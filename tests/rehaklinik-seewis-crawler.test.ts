@@ -28,6 +28,13 @@ describe('Kurhaus crawler parser', () => {
       expect(isRehaklinikSeewisJob({ url: 'https://vitrea-gesundheit.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects a URL whose hostname only contains the domain as a suffix', () => {
+      expect(isRehaklinikSeewisJob({
+        url: 'https://vitrea-gesundheit.ch.evil.invalid/job',
+        company: 'Other',
+      })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isRehaklinikSeewisJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });
