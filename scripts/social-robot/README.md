@@ -3,8 +3,9 @@
 Pubblica i caroselli giornalieri (articoli e lavori più visti di ieri, dogane
 più veloci della settimana) e i Reel sperimentali controllati su Instagram,
 oltre ai contenuti TikTok, **dal browser reale** del Mac host agenti, con
-Playwright e un profilo Chrome persistente. Nessun servizio terzo, nessuna app
-API per il trasporto browser.
+Playwright e un profilo Chrome persistente. Il trasporto dei post resta il
+browser; commenti, DM consentiti e Stories passano invece dal Graph API
+ufficiale, senza servizi terzi.
 
 **Decisione del proprietario, 2026-10-04 (issue 9798 e 7648).** Il
 proprietario accetta il rischio che Instagram e TikTok, secondo i loro termini
@@ -18,7 +19,7 @@ insiste mai dopo un errore.
    `scripts/post-to-tiktok.mjs`, workflow `*-daily-broadcast.yml`) scelgono il
    carosello, generano le slide, le caricano sulla CDN e, quando il robot è il
    trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
-   (`scripts/lib/social-publish-queue.mjs`). Il workflow manuale
+   (`scripts/lib/social-publish-queue.mjs`). Il workflow schedulato
    `instagram-reel-experiment.yml` usa `scripts/post-to-instagram-reel.mjs` per
    generare una cover e un MP4 verticale, con `kind: reel` e ledger separato.
    Per TikTok la voce in coda porta anche un MP4 fatto dalle stesse slide,
@@ -35,13 +36,19 @@ insiste mai dopo un errore.
    `unconfirmed`: il robot non lo ripubblica, apre una issue `needs-human` e
    **si ferma su quella piattaforma** finché un umano non risolve la riga.
    Non preme nemmeno un post successivo che ripete gli stessi articoli di un
-   clic non ancora arrivato nel ledger.
+   clic non ancora arrivato nel ledger. Subito dopo il passaggio di
+   pubblicazione il worker Graph API legge i commenti e le conversazioni,
+   risponde una sola volta per oggetto, invia una risposta privata solo quando
+   l’utente ha interagito, e pubblica automaticamente i follow-up visuali in
+   Story.
 
 Risolvere un `unconfirmed` (nel journal
 `~/Library/Application Support/frontaliere/social-robot/journal.json`):
 se il post è online, registrarlo con `gh workflow run social-robot-confirm.yml`
 (il ledger ne contiene allora l'id e il blocco cade da solo); se non lo è,
 aggiungere `"resolvedAt": "<ora ISO>"` alla riga, o cancellarla.
+Questo è solo il recupero di un errore del browser, non un passaggio della
+gestione ordinaria dei contenuti.
 
 ## Interruttore (Firebase Remote Config)
 
@@ -52,6 +59,16 @@ Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
 | `off` | solo API, come prima | non fa nulla |
 | `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | arriva al bottone di pubblicazione, screenshot, non preme |
 | `live` | mai API, sempre coda | preme il bottone (se lanciato con `--publish`) |
+
+In `live`, la stessa finestra avvia anche il worker di community. In assenza
+di un token Graph (`INSTAGRAM_ACCESS_TOKEN` o il Page token già configurato) o
+di `INSTAGRAM_BUSINESS_ACCOUNT_ID` il worker si ferma con uno skip pulito; non
+usa il browser per leggere DM o commenti. Il worker segue lo stesso
+interruttore Firebase `SOCIAL_ROBOT_MODE`, così il rollout resta centralizzato
+e non richiede un comando per ogni post.
+Quando il permesso Messaging usa il percorso Facebook Login, il worker usa
+anche `FB_PAGE_ID` e `FB_PAGE_ACCESS_TOKEN` già disponibili nel loader; se non
+sono presenti, prova il percorso Instagram Login con il token Instagram.
 
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
@@ -71,7 +88,7 @@ node scripts/social-robot/run.mjs --publish
 # Preview del prossimo Reel (non carica e non accoda nulla).
 npx tsx scripts/post-to-instagram-reel.mjs --dry-run --kind=article
 
-# La pubblicazione del Reel avviene dal workflow manuale
+# La pubblicazione del Reel avviene dagli slot schedulati di
 # instagram-reel-experiment.yml, con dry_run=false, e poi dal robot.
 
 # Launch agent: due finestre al giorno (default 11:30 e 18:30 ora locale,
@@ -110,12 +127,19 @@ sessione grafica aperta sul Mac: il browser non è headless.
 | Errori | issue «Robot social: pubblicazione Instagram/TikTok non riuscita» (una per piattaforma, deduplicata) |
 
 Per ogni voce Instagram con metadati creativi, il log contiene anche una riga
-`🧭 Instagram engagement` con l'hook, il loop e le azioni manuali da eseguire
-entro 24/48/72 ore. È una consegna operativa: il robot non scrive commenti, non
-manda DM e non pubblica Stories.
+`🧭 Instagram engagement` con l'hook, il loop e le finestre automatiche entro
+24/48/72 ore. Lo stato di deduplica del worker è locale in
+`.../social-robot/instagram-community-state.json` e conserva solo hash degli
+ID Instagram: nessun testo di commenti, username o messaggio viene scritto.
 
-Nessuna credenziale passa dal repository: le sessioni stanno solo nel profilo
-del browser sul Mac.
+Il worker invia un DM solo come risposta a una conversazione avviata dall’utente
+o a una risposta privata a un commento; non fa outreach a freddo. Le Stories
+sono follow-up visuali statici: il worker non finge di poter creare sticker
+interattivi non esposti dal Content Publishing API.
+
+Nessuna credenziale passa dal repository: il token Graph API viene caricato in
+memoria da Firebase Remote Config durante la finestra del launch agent e la
+sessione web resta solo nel profilo del browser sul Mac.
 
 ## Test
 

@@ -11,20 +11,20 @@ const ENGAGEMENT_MECHANIC_BY_METRIC = Object.freeze({
 });
 
 const RESPONSE_ACTION_BY_METRIC = Object.freeze({
-  comments: 'Rispondere a ogni commento entro 24h e raggruppare le risposte ricorrenti.',
-  shares: 'Rispondere entro 24h e annotare quali dati vengono passati ad altre persone.',
-  saves: 'Rispondere entro 24h e annotare quale voce richiede una guida più chiara.',
+  comments: 'Il worker risponde automaticamente ai commenti entro 24h; Insights misura commenti e reach.',
+  shares: 'Insights misura condivisioni e reach; il worker gestisce automaticamente le eventuali domande.',
+  saves: 'Insights misura salvataggi e reach; il worker gestisce automaticamente le eventuali domande.',
 });
 
 const FOLLOW_UP_ACTION_BY_FORMAT = Object.freeze({
-  'comment-reply': 'Entro 72h trasformare una domanda ricorrente in una risposta verificata.',
-  'comment-reply-reel': 'Entro 72h registrare un Reel di risposta, anonimizzando il commento salvo consenso.',
-  'story-poll': 'Entro 48h pubblicare un sondaggio nelle Stories e usare il risultato come contesto, non come prova causale.',
-  'story-result': 'Entro 48h pubblicare il risultato nelle Stories e collegare una guida o un dato verificato.',
-  'story-checklist': 'Entro 48h pubblicare una Story-quiz e rimandare alla checklist completa.',
-  'story-quiz': 'Entro 48h pubblicare una Story-quiz e usare la risposta più frequente per la prossima guida.',
-  'story-reminder': 'Entro 48h pubblicare un promemoria legato al momento concreto in cui riaprire il contenuto.',
-  'carousel-checklist': 'Entro 72h usare le domande ricevute per costruire un carousel-checklist.',
+  'comment-reply': 'Entro 72h il worker mantiene il ciclo automatico di risposta; la coda continua la rotazione del test.',
+  'comment-reply-reel': 'Entro 72h il worker risponde automaticamente; la coda Reel continua la rotazione sperimentale.',
+  'story-poll': 'Entro 48h il worker pubblica automaticamente una Story visuale di follow-up e ne registra la pubblicazione.',
+  'story-result': 'Entro 48h il worker pubblica automaticamente una Story visuale associata alla creatività; Insights misura il risultato.',
+  'story-checklist': 'Entro 48h il worker pubblica automaticamente una Story visuale che riporta alla checklist.',
+  'story-quiz': 'Entro 48h il worker pubblica automaticamente una Story visuale con la domanda del test.',
+  'story-reminder': 'Entro 48h il worker pubblica automaticamente un promemoria visuale legato al momento utile.',
+  'carousel-checklist': 'Entro 72h la coda automatica continua la rotazione del formato checklist.',
 });
 
 const DECISION_ACTION = 'A 72h confrontare solo con osservazioni della stessa creatività e formato; non dichiarare un vincitore prima di 3 osservazioni comparabili.';
@@ -49,13 +49,14 @@ export function instagramResponseAction(primaryMetric) {
 
 export function instagramFollowUpAction(followUpFormat) {
   return FOLLOW_UP_ACTION_BY_FORMAT[String(followUpFormat || '').trim()]
-    || 'Entro 72h scegliere un follow-up editoriale coerente, senza automatizzare commenti, DM o Stories.';
+    || 'Entro 72h il worker registra un follow-up editoriale coerente e verificabile.';
 }
 
 /**
- * Build the small human-only follow-up brief that travels with a queued post.
- * The robot may print it in its local log, but never sends the interaction.
- * Unknown/legacy ledger rows return null instead of guessing a strategy.
+ * Build the follow-up contract that travels with a queued post. The Mac robot
+ * prints it for observability and the Graph worker uses the same metadata to
+ * choose an automatic reply or Story follow-up. Unknown/legacy ledger rows
+ * return null instead of guessing a strategy.
  */
 export function buildInstagramEngagementBrief(entry) {
   const metadata = creativeMetadataForEntry(entry);
@@ -83,7 +84,8 @@ export function buildInstagramEngagementBrief(entry) {
     responseAction: instagramResponseAction(primaryMetric),
     followUpAction: instagramFollowUpAction(followUpFormat),
     decisionAction: DECISION_ACTION,
-    manualOnly: true,
+    automationMode: 'graph-api',
+    manualOnly: false,
     responseSlaHours: 24,
     storySlaHours: followUpFormat.startsWith('story-') ? 48 : null,
     decisionWindowHours: 72,
@@ -100,6 +102,6 @@ export function formatInstagramEngagementBrief(brief) {
     `   ${brief.responseAction}`,
     `   ${brief.followUpAction}`,
     `   ${brief.decisionAction}`,
-    '   Manuale: nessun commento, DM o Story viene inviato dal robot.',
+    '   Automatico: commenti, DM consentiti e Story vengono gestiti dal worker Graph API.',
   ].join('\n');
 }

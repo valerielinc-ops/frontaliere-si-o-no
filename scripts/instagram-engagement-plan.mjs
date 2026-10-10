@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Read-only human follow-up plan for one deterministic Instagram treatment.
+// Read-only automation plan for one deterministic Instagram treatment.
 
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { chooseInstagramCreative } from './lib/instagram-creative.mjs';
@@ -79,7 +79,7 @@ function promptsFor(creative, { kind, sourceKind }) {
       commentPrompt: creative.question || creative.cta,
       storyPrompt: `Sondaggio dopo il ${label}: quale risposta o dubbio vuoi vedere spiegato per primo?`,
       replyTemplate: 'Grazie per averlo scritto. Verifichiamo questo punto con una fonte e lo trasformiamo in una risposta utile per tutti.',
-      operatorAction: 'Rispondere ai commenti entro 24 ore e selezionare una sola domanda da portare nel prossimo contenuto.',
+      operatorAction: 'Il worker risponde ai commenti entro 24 ore e mantiene il ciclo automatico nel registro del test.',
     };
   }
   if (creative.primaryMetric === 'saves') {
@@ -87,14 +87,14 @@ function promptsFor(creative, { kind, sourceKind }) {
       commentPrompt: `Quale passaggio di questo ${label} vuoi ritrovare più facilmente?`,
       storyPrompt: `Quiz dopo il ${label}: quale voce della checklist controlleresti prima?`,
       replyTemplate: 'La voce più richiesta entra nella prossima checklist; nel frattempo trovi il riferimento completo nel link in bio.',
-      operatorAction: 'Rispondere ai commenti entro 24 ore, raccogliere la voce più richiesta e collegarla a una guida verificata.',
+      operatorAction: 'Il worker risponde ai commenti entro 24 ore; Insights misura salvataggi e reach della checklist.',
     };
   }
   return {
     commentPrompt: `Quale dato di questo ${label} condivideresti con una persona che vive tra Italia e Svizzera?`,
     storyPrompt: `Sondaggio dopo il ${label}: lo avevi previsto oppure il dato ti ha sorpreso?`,
     replyTemplate: 'Grazie: il dato è utile proprio quando aiuta una decisione concreta. Lo riprendiamo nel prossimo aggiornamento con fonte e data.',
-    operatorAction: 'Rispondere ai commenti entro 24 ore e rilanciare il dato solo in contesti pertinenti, senza spam o messaggi automatici.',
+    operatorAction: 'Il worker gestisce le eventuali domande entro 24 ore; Insights misura condivisioni e reach senza spam.',
   };
 }
 
@@ -134,7 +134,8 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
     replyTemplate: prompts.replyTemplate,
     operatorAction: prompts.operatorAction,
     followUpAction: instagramFollowUpAction(creative.followUpFormat),
-    manualOnly: true,
+    automationMode: 'graph-api',
+    manualOnly: false,
     responseSlaHours: 24,
     followUpWithinHours: 72,
     measurement: {
@@ -149,13 +150,13 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
 
 function usage() {
   return [
-    'instagram-engagement-plan.mjs — brief operativo per una creatività Instagram',
+    'instagram-engagement-plan.mjs — piano automatico per una creatività Instagram',
     '',
     'Usage:',
     '  node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=article',
     '  node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=reel --source-kind=job --json',
     '',
-    'Il comando è deterministico, read-only e non invia commenti, DM o Stories.',
+    'Il comando è deterministico e read-only; l’invio automatico è eseguito dal worker del robot.',
   ].join('\n');
 }
 
@@ -178,7 +179,7 @@ export function run(argv = process.argv.slice(2)) {
     `   Story prompt: ${plan.storyPrompt}`,
     `   Entro 24h: ${plan.operatorAction}`,
     `   Entro 72h: ${plan.followUpAction}`,
-    '   Manuale: commenti e DM non vengono automatizzati.',
+    '   Automatico: il worker Graph API gestisce commenti, DM consentiti e Stories.',
   ].join('\n'));
   return 0;
 }

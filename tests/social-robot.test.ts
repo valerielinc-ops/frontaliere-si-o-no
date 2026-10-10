@@ -42,6 +42,7 @@ import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+import { runHasErrors } from '../scripts/social-robot/run.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];
@@ -281,7 +282,7 @@ describe('confirmation → ledger', () => {
     const e = entry('article');
     const first = confirmQueueEntry({ queue: { pending: [e] }, ledger: { posted: [] }, queueId: e.id, confirmedAt: '2026-10-04T10:00:00Z', evidence: 'Post condiviso' });
     expect(first.queue.pending).toEqual([]);
-    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, robotEvidence: 'Post condiviso' }]);
+    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, instagramStoryImageUrl: e.imageUrls[0], robotEvidence: 'Post condiviso' }]);
     const again = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: first.ledgerEntries }, queueId: e.id, confirmedAt: '2026-10-04T10:05:00Z' });
     expect(again.alreadyConfirmed).toBe(true);
     expect(again.ledgerEntries).toEqual([]);
@@ -391,6 +392,15 @@ describe('confirmation → ledger', () => {
       followUpFormat: 'story-result',
       engagementMechanic: 'keyword-comment',
     });
+  });
+});
+
+describe('social robot exit status', () => {
+  it('fails the unattended run when the community worker returns an API error or partial result', () => {
+    expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'credentials-missing' } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
   });
 });
 
@@ -511,7 +521,7 @@ describe('runRobot', () => {
     }
   });
 
-  it('prints the human engagement brief for an Instagram creative without sending interactions', async () => {
+  it('prints the automatic engagement brief for an Instagram creative', async () => {
     const creative = buildQueueEntry({
       channel: 'instagram',
       kind: 'article',
@@ -540,7 +550,7 @@ describe('runRobot', () => {
     expect(output).toContain('24h');
     expect(output).toContain('48h');
     expect(output).toContain('3 osservazioni');
-    expect(output).toContain('nessun commento, DM o Story viene inviato');
+    expect(output).toContain('commenti, DM consentiti e Story vengono gestiti');
   });
 
   it('does nothing when Remote Config says off', async () => {

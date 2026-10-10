@@ -142,7 +142,12 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
       const ts = new Date().toISOString();
       appendLedger(
         LEDGER_PATH,
-        ledgerEntries.map((e) => ({ ...e, ts, instagramMediaId: res.mediaId })),
+        ledgerEntries.map((e) => ({
+          ...e,
+          ts,
+          instagramMediaId: res.mediaId,
+          instagramStoryImageUrl: urls[0],
+        })),
         POSTED_TRIM_LIMIT,
       );
     },

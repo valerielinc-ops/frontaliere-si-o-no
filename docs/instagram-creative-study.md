@@ -133,7 +133,7 @@ La ripartizione editoriale resta 60/30/10:
 - 10% esplorazione: Trial Reel, hook locali, risposta a domande e nuove
   composizioni.
 
-## 5. Sistema di engagement umano
+## 5. Sistema di engagement automatico via Graph API
 
 Il comando read-only `node scripts/instagram-engagement-plan.mjs` genera per
 la data e il formato scelti il prompt, la CTA, il follow-up e la metrica. Esempi:
@@ -143,27 +143,29 @@ node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=article
 node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=reel --source-kind=job --json
 ```
 
-Il piano operativo è:
+Il piano operativo viene eseguito dal worker del robot, senza un passaggio
+umano per ogni post:
 
-1. entro 24 ore: rispondere ai commenti con una fonte o un riferimento e una
-   sola domanda successiva;
-2. entro 48 ore: pubblicare il sondaggio, quiz o risultato coerente con il
-   `followUpFormat`;
-3. entro 72 ore: trasformare la domanda ricorrente in risposta, Reel o
-   checklist;
-4. classificare le domande in `netto`, `lavoro`, `dogana`, `fisco`, `altro`;
-5. dopo tre occorrenze dello stesso dubbio, inserirlo nella coda editoriale.
+1. entro 24 ore: leggere i commenti e pubblicare una sola risposta pubblica
+   idempotente per oggetto, usando una risposta breve coerente con la metrica;
+2. quando il commento contiene una richiesta azionabile: inviare una sola
+   risposta privata collegata al post, senza chiedere o conservare dati
+   sensibili;
+3. per le conversazioni avviate dall'utente: rispondere solo al messaggio in
+   ingresso più recente e solo entro la finestra consentita, mai fare outreach
+   a freddo;
+4. entro 24/72 ore: per i formati `story-*`, pubblicare il follow-up visuale
+   statico associato, se il post ha un'immagine valida e non è già stato
+   pubblicato;
+5. registrare solo hash degli ID degli oggetti già gestiti, così riavvii e
+   cadenze successive non duplicano commenti, DM o Stories.
 
-Commenti e DM restano azioni manuali: il piano non automatizza conversazioni,
-non invia spam e non promette una risposta che non sia già producibile.
-
-Quando il post entra nella coda del robot, il log locale stampa lo stesso
-brief operativo accanto all'ID della coda: hook, meccanica di attenzione, loop,
-azione entro 24 ore, follow-up entro 48/72 ore e soglia di tre osservazioni
-comparabili. In questo modo la finestra di pubblicazione lascia una consegna
-concreta a chi gestisce il profilo, senza trasformare il robot in un account
-che commenta, manda DM o pubblica Stories da solo. Il blocco è riconoscibile
-nel log dalla riga `🧭 Instagram engagement`.
+Il worker usa il Graph API ufficiale e il flag Firebase `SOCIAL_ROBOT_MODE`:
+`live` abilita le chiamate, mentre `dry`/valore assente non inviano nulla.
+Le Stories sono visuali statiche: gli sticker interattivi non vengono simulati
+quando il Content Publishing API non li espone. Il log locale stampa lo stesso
+brief accanto all'ID della coda, più i contatori delle azioni eseguite e degli
+errori, nella riga `🤖 Instagram community automation`.
 
 ## 6. Disegno del test nel tempo
 

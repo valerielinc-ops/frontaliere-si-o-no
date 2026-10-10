@@ -43,7 +43,7 @@ max_log_lines=4000
 # for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/instagram-engagement.mjs scripts/lib/instagram-community-automation.mjs scripts/lib/instagram-media-matching.mjs scripts/lib/instagram-graph-constants.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
 social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
@@ -177,17 +177,16 @@ snapshot() {
   printf '%s\n' "$dest"
 }
 
-# SOCIAL_ROBOT_MODE from Remote Config, through the site's loader. Prints the
-# raw value or nothing; run.mjs normalises it exactly like the CI posters do
-# (resolveSocialRobotMode: trimmed, lower case, unknown → `dry`), so ` Live`
-# means the same thing on the Mac and in Actions.
-rc_mode() {
+# Load the same Remote Config environment as the CI poster. The values stay in
+# this process and are never logged: the community worker needs a Graph token
+# as well as SOCIAL_ROBOT_MODE, while the latter remains the only value printed
+# below. Existing environment variables win inside the loader.
+load_rc_environment() {
   runner=$1
-  [ -f "$sa_file" ] || { log "service account missing ($sa_file): SOCIAL_ROBOT_MODE unknown, dry run"; return 0; }
-  line=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null \
-    | /usr/bin/grep -E "^export SOCIAL_ROBOT_MODE='[^']{0,32}'$" | /usr/bin/head -n 1)
-  [ -n "$line" ] || return 0
-  printf '%s\n' "$line" | /usr/bin/sed -E "s/^export SOCIAL_ROBOT_MODE='([^']*)'$/\\1/"
+  [ -f "$sa_file" ] || { log "service account missing ($sa_file): Remote Config unavailable, dry run"; return 0; }
+  rc_exports=$(GOOGLE_APPLICATION_CREDENTIALS="$sa_file" node "$runner/scripts/load-rc-env.mjs" 2>/dev/null) || rc_exports=''
+  [ -n "$rc_exports" ] || return 0
+  eval "$rc_exports"
 }
 
 cmd_run() {
@@ -198,7 +197,8 @@ cmd_run() {
   ref=${SR_REF:-origin/main} # SR_REF: another commit, only to try a branch by hand
   sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
   runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }
-  mode=$(rc_mode "$runner")
+  load_rc_environment "$runner"
+  mode=${SOCIAL_ROBOT_MODE:-}
   log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
   run_status=0
   SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \

@@ -26,10 +26,11 @@
  * and never thrown, matching the poster's own posture.
  */
 import { fetchRetry, sleep } from './ga4-service-account.mjs';
-import { GRAPH_API, GRAPH_API_VERSION } from './social-post-utils.mjs';
+import { GRAPH_API, GRAPH_API_VERSION } from './instagram-graph-constants.mjs';
 
-// Re-exported so the contract test and the poster read the base from here
-// without a second literal: the single definition lives in social-post-utils.
+// Re-exported so the contract test and the poster read the same base without
+// a second literal: the single definition lives in the dependency-free Graph
+// constants module shared with the Mac community worker.
 export { GRAPH_API, GRAPH_API_VERSION };
 export const CONTAINER_STATUS_MAX_ATTEMPTS = 5;
 export const CONTAINER_STATUS_DELAY_MS = 2000;
