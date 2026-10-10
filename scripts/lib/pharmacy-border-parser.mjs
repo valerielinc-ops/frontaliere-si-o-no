@@ -307,6 +307,16 @@ function sameTicinoLocation(left, right) {
   return text(left.postalCode) === text(right.postalCode) && sameTicinoStreetLocation(left, right);
 }
 
+// The identity health gate deliberately ignores locality labels: the official
+// canton feed may say "Lugano" where the OFCT catalogue says "Castagnola".
+// Reconcile across that change only when the complete normalized identity
+// (name, postal code and address) matches, never from a city or street guess.
+function sameTicinoIdentity(left, right) {
+  const leftIdentity = [left?.name, left?.postalCode, left?.address].map(normalizeText);
+  const rightIdentity = [right?.name, right?.postalCode, right?.address].map(normalizeText);
+  return leftIdentity.every(Boolean) && leftIdentity.every((value, index) => value === rightIdentity[index]);
+}
+
 function sameTicinoStreetLocation(left, right) {
   const leftNumber = streetNumber(left.address);
   const rightNumber = streetNumber(right.address);
@@ -454,6 +464,18 @@ function addItalianUrlAlias(aliases, alias, current) {
   if (!aliases.some((candidate) => italianUrlAliasKey(candidate) === key)) aliases.push(normalized);
 }
 
+function ticinoUrlAliasKey(alias) {
+  return normalizeText(alias.city) + '|' + text(alias.slug);
+}
+
+function addTicinoUrlAlias(aliases, alias, current) {
+  if (!alias || alias.country !== 'CH' || !text(alias.city) || !isStableSlug(alias.slug)) return;
+  const normalized = { country: 'CH', city: text(alias.city), slug: alias.slug };
+  if (normalizeText(normalized.city) === normalizeText(current.city) && normalized.slug === current.slug) return;
+  const key = ticinoUrlAliasKey(normalized);
+  if (!aliases.some((candidate) => ticinoUrlAliasKey(candidate) === key)) aliases.push(normalized);
+}
+
 export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElements = [], datasetUrl = ITALY_PHARMACY_DATASET_PAGE, previous = [] }) {
   const previousByMinistryId = new Map(
     (previous || [])
@@ -553,6 +575,9 @@ export function buildItalianBorderRecords(rawRecords, { fetchedAt, asOf, osmElem
 }
 
 function matchPreviousTicino(row, previous) {
+  const exactIdentity = previous.filter((candidate) => sameTicinoIdentity(row, candidate));
+  if (exactIdentity.length === 1) return exactIdentity[0];
+
   const scoreCandidate = (candidate) => {
     let score = 0;
     const address = normalizeText(row.address);
@@ -607,6 +632,15 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
     const slug = uniqueSlug(previousRecord?.slug || baseSlug, usedSlugs);
     if (usedIds.has(id)) continue;
     usedIds.add(id);
+    const aliasCandidates = new Set([
+      ...previous.filter((candidate) => sameTicinoIdentity(row, candidate)),
+      ...(previousRecord ? [previousRecord] : []),
+    ]);
+    const urlAliases = [];
+    for (const candidate of aliasCandidates) {
+      for (const alias of candidate?.urlAliases || []) addTicinoUrlAlias(urlAliases, alias, { city: row.city, slug });
+      addTicinoUrlAlias(urlAliases, { country: 'CH', city: candidate?.city, slug: candidate?.slug }, { city: row.city, slug });
+    }
     const record = {
       id,
       name: row.name,
@@ -621,6 +655,7 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
       sourceType: 'official',
       lastVerifiedAt: fetchedAt,
       dataAvailability: {},
+      ...(urlAliases.length ? { urlAliases } : {}),
     };
     if (addressOverride && !row.address) {
       record.fieldSources = { address: { url: addressOverride.url, sourceType: 'official', checkedAt: fetchedAt } };
@@ -642,8 +677,20 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
     // already be present under a newly generated id. Transfer the stable duty
     // identity to that exact physical location instead of publishing two
     // cards for one pharmacy.
-    const replacement = records.find((candidate) => sameTicinoLocation(candidate, previousRecord) || sameTicinoStreetLocation(candidate, previousRecord));
+    const replacement = records.find((candidate) => (
+      sameTicinoLocation(candidate, previousRecord)
+      || sameTicinoStreetLocation(candidate, previousRecord)
+      || sameTicinoIdentity(candidate, previousRecord)
+    ));
     if (replacement) {
+      const urlAliases = Array.isArray(replacement.urlAliases) ? replacement.urlAliases : [];
+      for (const alias of previousRecord.urlAliases || []) addTicinoUrlAlias(urlAliases, alias, replacement);
+      addTicinoUrlAlias(
+        urlAliases,
+        { country: 'CH', city: previousRecord.city, slug: previousRecord.slug },
+        replacement,
+      );
+      if (urlAliases.length) replacement.urlAliases = urlAliases;
       usedIds.delete(replacement.id);
       replacement.id = requiredId;
       usedIds.add(requiredId);

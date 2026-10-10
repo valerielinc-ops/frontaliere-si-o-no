@@ -2,14 +2,14 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
+import { buildPharmacyAliasBridge, buildPharmacyDirectoryPage, pharmacyDirectoryPagesPlugin, pharmacyPageDescriptors, pharmacyUrlAliasDescriptors } from '../build-plugins/pharmacyDirectoryPagesPlugin';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { currentDutyWeekStart } from '../services/pharmacies/dutyWeek';
 import { currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import catalogueJson from '../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../data/pharmacy-duties-ticino.json';
-import type { PharmacyDutiesDataset } from '../services/pharmacies/types';
+import type { Pharmacy, PharmacyDutiesDataset } from '../services/pharmacies/types';
 
 const tempRoots: string[] = [];
 
@@ -45,6 +45,40 @@ function routeForPageFile(file: string): string {
 function robotsOf(html: string): string {
   return /<meta name=["']?robots["']? content=["']?((?:no)?index,\s*follow)/i.exec(html)?.[1] ?? '';
 }
+
+describe('pharmacy URL aliases', () => {
+  it('emits a redirect bridge for a Ticino locality-label correction', () => {
+    const pharmacy: Pharmacy = {
+      id: 'ti-farmacia-castagnola-castagnola',
+      name: 'Farmacia Castagnola',
+      slug: 'farmacia-castagnola-lugano',
+      address: 'Strada di Gandria 4',
+      postalCode: '6976',
+      city: 'Lugano',
+      canton: 'Ticino',
+      country: 'CH',
+      sourceUrl: 'https://www4.ti.ch/fileadmin/DSS/DSP/UFC/PDF/Elenchi_e_Indirizzi/Lista_Farmacie.pdf',
+      sourceType: 'official',
+      lastVerifiedAt: '2026-10-10T10:47:38.013Z',
+      urlAliases: [{
+        country: 'CH',
+        city: 'Castagnola',
+        slug: 'farmacia-castagnola-castagnola',
+      }],
+    };
+
+    const descriptors = pharmacyUrlAliasDescriptors([pharmacy]);
+    const italian = descriptors.find((descriptor) => descriptor.locale === 'it');
+    expect(italian).toMatchObject({
+      from: '/farmacie/ticino/castagnola/farmacia-castagnola-castagnola/',
+      to: '/farmacie/ticino/lugano/farmacia-castagnola-lugano/',
+    });
+    expect(descriptors.map((descriptor) => descriptor.locale).sort()).toEqual(['de', 'en', 'fr', 'it']);
+
+    const bridge = buildPharmacyAliasBridge(italian!);
+    expect(bridge).toContain('https://frontaliereticino.ch/farmacie/ticino/lugano/farmacia-castagnola-lugano/');
+  });
+});
 
 describe('pharmacy directory static pages', () => {
   it('keeps a sparse Italian border city above the AdSense content floor', () => {
