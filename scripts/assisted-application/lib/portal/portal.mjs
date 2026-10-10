@@ -93,6 +93,19 @@ export function removalsOf(buttons, names) {
   });
 }
 
+const PREVIOUS_FILE_REMOVAL_TIMEOUT_MS = 1500;
+
+/** Wait for an asynchronously removed prior document to leave the rendered page. */
+export async function waitForFileRemoval(page, name) {
+  try {
+    await page.getByText(name, { exact: false }).first()
+      .waitFor({ state: 'hidden', timeout: PREVIOUS_FILE_REMOVAL_TIMEOUT_MS });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const EXPERIENCE_SECTION_RE = /\b(?:experience|work history|employment history|berufserfahrung|erfahrung|expérience|parcours professionnel|esperienz[ae]|esperienza lavorativa|esperienze lavorative)\b/i;
 const EDUCATION_SECTION_RE = /\b(?:education|education history|academic history|school|ausbildung|bildung|études|formation|educazione|istruzione|formazione)\b/i;
 
@@ -1987,7 +2000,7 @@ export async function submitViaPortal(ctx) {
           }
           let remains = false;
           for (const name of names) {
-            remains ||= await page.getByText(name, { exact: false }).first().isVisible().catch(() => false);
+            remains ||= !await waitForFileRemoval(page, name);
           }
           if (remains) return await handoff('previous_file_removal_unconfirmed');
         }
@@ -2021,6 +2034,7 @@ export async function submitViaPortal(ctx) {
         const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        const selectedUploads = new Map();
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
           ...await applyActions(page, snapshot.fields, choices, ctx.files),
@@ -2036,12 +2050,14 @@ export async function submitViaPortal(ctx) {
             redrawn = Boolean(now) && now.fields.length > 0 && labelsOf(now) !== labelsOf(snapshot);
           }
         }
-        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files));
+        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files, {
+          onUploadSelection: (fieldId, paths) => selectedUploads.set(fieldId, paths),
+        }));
         if (!redrawn) {
           for (const action of actions.filter((item) => item.action === 'upload')) {
             const result = results.find((item) => item.fieldId === action.fieldId);
             const field = snapshot.fields.find((item) => item.id === action.fieldId);
-            const files = documentPaths(ctx.files, action.document);
+            const files = selectedUploads.get(action.fieldId) || [];
             if (!result?.ok || !field || !await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true })) {
               if (result) {
                 result.ok = false;

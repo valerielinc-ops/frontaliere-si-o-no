@@ -624,6 +624,11 @@ export function chooseChooserFiles(page, chooser, paths, options = {}) {
   return observeFileUpload(page, () => chooser.setFiles(paths), options);
 }
 
+/** The files a file input can actually accept from this document. */
+function selectedUploadPaths(paths, multiple) {
+  return paths.length > 1 && multiple ? paths : paths.slice(0, 1);
+}
+
 /** A Workday file needs a successful upload response; its selected filename is not a receipt. */
 export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
   const names = paths.map((file) => path.basename(file));
@@ -650,7 +655,10 @@ export function documentPaths(files, document) {
   return (Array.isArray(value) ? value : [value]).filter((path) => typeof path === 'string' && path);
 }
 
-export async function applyActions(page, fields, actions, files, { pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)) } = {}) {
+export async function applyActions(page, fields, actions, files, {
+  pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)),
+  onUploadSelection = () => {},
+} = {}) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const results = [];
   for (const action of actions) {
@@ -665,8 +673,10 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (!paths.length) throw new Error('document_unavailable');
         // Every file of a requested document when the input takes several, else the first.
         const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-        const receipt = await chooseFiles(page, locator, multiple ? paths : paths[0]);
-        uploaded = multiple ? paths.length : 1;
+        const selectedPaths = selectedUploadPaths(paths, multiple);
+        const receipt = await chooseFiles(page, locator, selectedPaths.length > 1 ? selectedPaths : selectedPaths[0]);
+        onUploadSelection(field.id, selectedPaths);
+        uploaded = selectedPaths.length;
         results.push({ fieldId: field.id, ok: true, files: uploaded, ...(receipt.accepted ? { uploadAccepted: true } : {}) });
         await pause();
         continue;

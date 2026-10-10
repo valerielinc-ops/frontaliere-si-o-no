@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -20,6 +20,22 @@ describe('assisted application profile history and file replacement', () => {
     const remove = { id: 'remove-cv', text: 'Delete', fileContext: 'CV_Luca_Bianchi.pdf successfully uploaded', disabled: false };
     expect(removalsOf([remove], ['CV_Luca_Bianchi.pdf'])).toEqual([remove]);
     expect(removalsOf([{ ...remove, fileContext: 'Cover_Letter.pdf successfully uploaded' }], ['CV_Luca_Bianchi.pdf'])).toEqual([]);
+  });
+
+  it('waits boundedly for an asynchronously removed prior filename to disappear', async () => {
+    let visible = true;
+    const waitFor = vi.fn(async ({ state, timeout }: { state: string; timeout: number }) => {
+      expect(state).toBe('hidden');
+      expect(timeout).toBe(1500);
+      await new Promise((resolve) => setTimeout(() => { visible = false; resolve(undefined); }, 350));
+      if (visible) throw new Error('still visible');
+    });
+    const page = { getByText: () => ({ first: () => ({ waitFor }) }) };
+    expect(await waitForFileRemoval(page as any, 'CV.pdf')).toBe(true);
+    expect(visible).toBe(false);
+
+    const timeoutPage = { getByText: () => ({ first: () => ({ waitFor: vi.fn().mockRejectedValue(new Error('still visible')) }) }) };
+    expect(await waitForFileRemoval(timeoutPage as any, 'CV.pdf')).toBe(false);
   });
 
   it('keeps profile entries in source order and skips entries without explicit month-level start and end dates', () => {
@@ -730,6 +746,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
   // The record of what left (submit.mjs `sent`) names the files a form's field received.
   it('says how many files of a requested document an upload set: all of them in a multiple input, else the first', async () => {
     const chosen: unknown[] = [];
+    const selectedByField = new Map<string, string[]>();
     const page = (multiple: boolean) => {
       const input = {
         first: () => input,
@@ -743,10 +760,21 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const files = { cv: '/tmp/cv.pdf', cover_letter: '/tmp/letter.pdf', extra_1: ['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg'] };
     const upload = (document: string) => [{ fieldId: 'f9', action: 'upload', value: '', document }];
     const pause = async () => {};
-    expect(await applyActions(page(true) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 2 }]);
+    expect(await applyActions(page(true) as any, fields, upload('extra_1'), files, { pause, onUploadSelection: (fieldId, paths) => selectedByField.set(fieldId, paths) })).toEqual([{ fieldId: 'f9', ok: true, files: 2 }]);
     expect(chosen.at(-1)).toEqual(['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg']);
-    expect(await applyActions(page(false) as any, fields, upload('extra_1'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
+    expect(selectedByField.get('f9')).toEqual(['/tmp/zeugnis-1.pdf', '/tmp/zeugnis-2.jpg']);
+    expect(await applyActions(page(false) as any, fields, upload('extra_1'), files, { pause, onUploadSelection: (fieldId, paths) => selectedByField.set(fieldId, paths) })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
     expect(chosen.at(-1)).toBe('/tmp/zeugnis-1.pdf');
+    expect(selectedByField.get('f9')).toEqual(['/tmp/zeugnis-1.pdf']);
+    const inputWithOneAcceptedFile = { evaluate: async () => ['zeugnis-1.pdf'] };
+    const workday = {
+      url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+    expect(await uploadReceipt(workday as any, inputWithOneAcceptedFile as any, selectedByField.get('f9')!, { acceptedResponse: true, timeoutMs: 0 })).toBe(true);
+    expect(await uploadReceipt(workday as any, inputWithOneAcceptedFile as any, files.extra_1, { acceptedResponse: true, timeoutMs: 0 })).toBe(false);
     expect(await applyActions(page(false) as any, fields, upload('cv'), files, { pause })).toEqual([{ fieldId: 'f9', ok: true, files: 1 }]);
     // A document that is not there sets nothing.
     expect(await applyActions(page(true) as any, fields, upload('extra_2'), files, { pause })).toEqual([{ fieldId: 'f9', ok: false, error: 'document_unavailable' }]);
