@@ -12909,6 +12909,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.raffica-scontri-varesotto.title': 'Varesotto: four accidents in less than an hour',
     'blog.article.raffica-scontri-varesotto.excerpt': 'Four interventions in the province of Varese From 6.59 to 7.36 on Friday Incidents at Varese, Rancio Valcuvia, Tradate and Gallarate Three people assessed under code',
     'blog.article.raffica-scontri-varesotto.imageAlt': 'Quiet morning road with light traffic, symbolic image for a road incident report in the Varesotto area.',
+    'blog.article.frana-sementina-h13-gudo.title': 'Landslide in Sementina: H13 closed between Sementina and Gudo',
+    'blog.article.frana-sementina-h13-gudo.excerpt': 'Landslide on the cantonal road in Sementina Roadway blocked and detours activated H13 closed between Sementina and Gudo No injuries; material damage',
+    'blog.article.frana-sementina-h13-gudo.imageAlt': 'Landslide on the canton road in Sementina: the H13 toward Gudo is closed',
 };
 
 export default blogMetaEn;

@@ -12911,6 +12911,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.raffica-scontri-varesotto.title': 'Varesotto : quatre accidents en moins d\'une heure',
     'blog.article.raffica-scontri-varesotto.excerpt': 'Quatre interventions dans la province de Varese De 6.59 à 7.36 vendredi Épisodes à Varese, Rancio Valcuvia, Tradate et Gallarate Trois personnes évaluées en code',
     'blog.article.raffica-scontri-varesotto.imageAlt': 'Route calme au matin, image symbolique pour un reportage sur des accidents dans le Varesotto.',
+    'blog.article.frana-sementina-h13-gudo.title': 'Glissement de terrain à Sementina : fermeture de la H13 entre Sementina et Gudo',
+    'blog.article.frana-sementina-h13-gudo.excerpt': 'Glissement de terrain sur la route cantonale à Sementina Route bloquée et déviations activées H13 fermée entre Sementina et Gudo Aucun blessé ; dommages matériels',
+    'blog.article.frana-sementina-h13-gudo.imageAlt': 'Glissement de terrain sur la route cantonale à Sementina: la H13 vers Gudo est fermée',
 };
 
 export default blogMetaFr;

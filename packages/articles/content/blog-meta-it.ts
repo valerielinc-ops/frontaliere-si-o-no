@@ -12910,6 +12910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.raffica-scontri-varesotto.title': 'Varesotto: quattro incidenti in meno di un\'ora',
     'blog.article.raffica-scontri-varesotto.excerpt': 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
     'blog.article.raffica-scontri-varesotto.imageAlt': 'Strada al mattino con traffico leggero, immagine simbolica per la cronaca stradale del Varesotto.',
+    'blog.article.frana-sementina-h13-gudo.title': 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    'blog.article.frana-sementina-h13-gudo.excerpt': 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    'blog.article.frana-sementina-h13-gudo.imageAlt': 'Smottamento sulla strada cantonale a Sementina: la H13 verso Gudo è chiusa',
 };
 
 export default blogMetaIt;

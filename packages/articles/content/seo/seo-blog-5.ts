@@ -104592,6 +104592,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frana-sementina-h13-gudo': {
+    title: 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    description: 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    keywords: 'frontalieri, ticino, svizzera, italia, frana, sementina, chiusa, gudo',
+    ogTitle: 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    ogDescription: 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    canonicalPath: '/articoli-frontaliere/frana-sementina-h13-gudo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frana a Sementina: chiusa la H13 tra Sementina e Gudo",
+      "description": "Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smottamento sulla strada cantonale a Sementina: la H13 verso Gudo è chiusa"
+      },
+      "datePublished": "2026-10-10T02:19:31+00:00",
+      "dateModified": "2026-10-10T02:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frana-sementina-h13-gudo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
