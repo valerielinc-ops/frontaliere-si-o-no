@@ -1354,7 +1354,7 @@ async function waitForOutcome(page, captchaEnabled = false) {
     }
     if (urlConfirms(page.url(), snapshot)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > started + 4000 && VALIDATION_RE.test(text)) return 'validation';
+    if (Date.now() > started + 4000 && (VALIDATION_RE.test(text) || snapshot?.errors?.length)) return 'validation';
   }
   return 'ambiguous';
 }
@@ -1815,6 +1815,21 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        // A consent checkbox is part of the submission contract. If the
+        // browser did not register the check, do not press Next/Submit and
+        // turn a failed consent into an ambiguous portal outcome. The filler
+        // verifies the DOM state; this boundary makes that verification
+        // fail-closed for both required and legacy technical-name consents.
+        const failedConsent = results.find((result) => {
+          if (result.ok) return false;
+          const action = actions.find((item) => item.fieldId === result.fieldId);
+          const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
+          return action?.action === 'check' && (action.source === 'consent' || field?.required);
+        });
+        if (failedConsent) {
+          evidence.steps.at(-1).criticalFailure = failedConsent.error;
+          return await handoff('portal_choice_not_registered');
+        }
         if (redrawn && page.url() === plannedUrl) {
           redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
           evidence.steps.at(-1).redrawn = true;

@@ -27,6 +27,7 @@ import {
   permitStatusOf,
 } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionAnswer, residenceCountryCode } from './residence-address.mjs';
+import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -69,7 +70,7 @@ export function candidateRules(candidateLocale) {
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
-- Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
+- Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given. For a date field, use a full calendar date only. Never type an ongoing or partial-period marker such as "ad oggi", "2015", "present" or "current" into a date field; leave the end blank. Do not invent an end date for an ongoing or overlapping CV entry; if the portal requires a full end date and the candidate did not state one, put it in missingRequired.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): only from what the candidate said (answers.salutation, or an answer in portalQuestionsAnswered), choosing the option that means the same in the form's language. Never guess it from the first name: when the candidate has not said, a required one is missing.
@@ -150,6 +151,7 @@ const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool
 // candidate must supply. Optional marketing/talent-pool wording is excluded
 // below by OPTIONAL_CONSENT.
 const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
+const APPLICATION_CONSENT_NAME_RE = /^(?:agbs?|privacy(?:[_:-]?(?:policy|statement|notice))?|consent(?:[_:-]?(?:privacy|data))?|terms?)(?:[_:-]|$)/i;
 const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
@@ -159,8 +161,12 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
   const label = String(field?.label || '');
-  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label)) && OWN_CONSENT.test(label)
-    && !NEGATED_CONSENT.test(label) && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+  const name = `${field?.name || ''} ${field?.autocomplete || ''}`.trim();
+  const legacyApplicationConsent = APPLICATION_CONSENT_NAME_RE.test(name);
+  const consentText = `${label} ${name}`;
+  const ownText = OWN_CONSENT.test(label) || legacyApplicationConsent;
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label) || legacyApplicationConsent) && ownText
+    && !NEGATED_CONSENT.test(consentText) && !OPTIONAL_CONSENT.test(consentText) && !DECLARES_FACT.test(`${label} ${name}`);
 }
 
 // A current job is explicit when the CV's experience period says "ad oggi",
@@ -170,6 +176,44 @@ const CURRENT_EXPERIENCE_RE = /\b(?:ad\s+oggi|oggi|attualmente|presente|tuttora|
 const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale|occupazionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
 const EMPLOYED_OPTION_RE = /^(?:occupat[oa](?:\s*\/\s*[oa])?|employed|working|beschäftigt|erwerbstätig|angestellt|salari(?:é|ée)|en\s+emploi|travail(?:leur|leuse)|dipendent[ei])(?:\s*[-–—:(].*)?$/i;
 const EMPLOYED_YES_RE = /^(?:yes|ja|s(?:ì|i)|oui)$/i;
+
+/** An explicit ongoing marker in a CV period, never a value for a date input. */
+export function isOpenEndedExperienceEnd(value) {
+  return CURRENT_EXPERIENCE_RE.test(String(value || ''));
+}
+
+const DATE_PATTERN_RE = /\b(?:dd|gg|jj|tt)[./-]mm[./-](?:yyyy|aaaa|jjjj)\b/i;
+const ITALIAN_DATE_CONTEXT_RE = /\bdata\s+(?:di|del|della|dell['’]|inizio|fine|assunzione|nascita|scadenza|termine)\b/i;
+const NON_DATE_DATA_CONTEXT_RE = /\bdata\s+(?:processing|protection|privacy|sharing|retention)\b/i;
+
+/** Whether a portal field expects a calendar date rather than free text. */
+export function isDateField(field) {
+  const text = `${field?.label || ''} ${field?.context || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`;
+  return field?.kind === 'date' || field?.inputType === 'date'
+    || DATE_PATTERN_RE.test(text)
+    || /\b(?:date|datum|fecha)\b/i.test(text)
+    || ITALIAN_DATE_CONTEXT_RE.test(text)
+    || (/\bdata\b/i.test(text) && !NON_DATE_DATA_CONTEXT_RE.test(text));
+}
+
+/**
+ * A full date in the format the field advertises. An ongoing marker or a
+ * partial CV period is intentionally rejected: sending either to a calendar
+ * input creates a portal validation error and invents precision the CV did
+ * not provide.
+ */
+export function normalizeDateAnswer(field, value) {
+  const raw = String(value || '').trim();
+  if (!isDateField(field)) return raw;
+  if (!raw || isOpenEndedExperienceEnd(raw)) return '';
+  const iso = isoDateOf(raw);
+  if (!iso) return '';
+  if (DATE_PATTERN_RE.test(`${field?.label || ''} ${field?.context || ''} ${field?.placeholder || ''} ${field?.datePattern || ''}`)) {
+    const [year, month, day] = iso.split('-');
+    return `${day}.${month}.${year}`;
+  }
+  return field?.kind === 'date' || field?.inputType === 'date' ? iso : raw;
+}
 
 /** Whether the CV explicitly contains an experience that is still current. */
 function hasCurrentExperience(candidate) {
@@ -722,12 +766,21 @@ export function guardPlan(plan, fields, candidate = null) {
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: isDateField(field) ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
-  for (const action of plan.actions || []) {
+  for (const plannedAction of plan.actions || []) {
+    let action = plannedAction;
     const field = byId.get(action.fieldId);
     if (!field) continue;
+    if (action.action === 'fill' && isDateField(field)) {
+      const normalized = normalizeDateAnswer(field, action.value);
+      if (!normalized) {
+        ask(field);
+        continue;
+      }
+      action = { ...action, value: normalized };
+    }
     const value = String(action.value || '').toLowerCase().trim();
     // An empty answer answers nothing (and '' is in every candidate text):
     // a required field stays a question for the candidate.
@@ -799,10 +852,15 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     const answer = candidateAnswerForField(candidate, field);
     if (!answer) continue;
+    const value = field.options?.length ? answer.value : normalizeDateAnswer(field, answer.value);
+    if (!value) {
+      ask(field);
+      continue;
+    }
     actions.push({
       fieldId: field.id,
       action: field.options?.length ? 'select' : 'fill',
-      value: answer.value,
+      value,
       document: 'none',
       source: answer.source,
       evidence: '',
@@ -853,6 +911,7 @@ export function holdsValue(field) {
   if (field.kind === 'file') return false;
   const value = String(field.value || '').trim();
   if (!value) return false;
+  if (isDateField(field)) return Boolean(normalizeDateAnswer(field, value));
   if (field.kind === 'date') return /^\d{4}-\d{1,2}-\d{1,2}$/.test(value);
   if (field.kind === 'select') {
     const chosen = (field.options || []).find((option) => option.value === field.value);

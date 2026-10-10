@@ -155,6 +155,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
   });
 
+  it('reports a checkbox that did not commit instead of treating the click as done', async () => {
+    const control = {
+      setChecked: vi.fn(async () => {}),
+      isChecked: vi.fn(async () => false),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{ id: 'privacy', kind: 'checkbox', label: 'Privacy', required: true }], [{ fieldId: 'privacy', action: 'check', value: '' }], {}, { pause: async () => {} });
+    expect(result).toEqual([{ fieldId: 'privacy', ok: false, error: 'choice_not_registered' }]);
+  });
+
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
     let selected = '';
     const localizedOption = {
@@ -521,6 +532,23 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
+    expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
+  });
+
+  it('never sends an ongoing or partial CV period to a calendar field', () => {
+    const dateField = { id: 'past-end', kind: 'text', label: 'al (GG.MM.AAAA)', required: true };
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ start: '2015', end: 'ad oggi' }] },
+    });
+    expect(candidate.profile.experience[0].end).toBe('ad oggi');
+    const invalid = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: 'ad oggi', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(invalid.actions).toEqual([]);
+    expect(invalid.missingRequired.map((item: any) => item.fieldId)).toEqual(['past-end']);
+    const corrected = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: '2024-08-31', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(corrected.actions[0]).toMatchObject({ fieldId: 'past-end', value: '31.08.2024' });
+    expect(corrected.missingRequired).toEqual([]);
   });
 
   it('maps an explicitly ongoing CV experience to the current employment option', () => {
@@ -949,6 +977,7 @@ describe('portal runner helpers', () => {
     // Review of #10725: the whole label, so a filter control is never the submission.
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Indicare la data nel formato indicato.', 'Inserire la data nel formato corretto.', 'Datum im angegebenen Format']) expect(VALIDATION_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     // The same thanks in more words (an ATS in English, 2026-10-03).
     for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);
