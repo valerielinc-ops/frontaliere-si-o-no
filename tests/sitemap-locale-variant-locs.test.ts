@@ -103,6 +103,26 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('not-emitted')).toBe(1);
   });
 
+  it('excludes a quarantined cross-shard variant without dropping its indexable siblings', () => {
+    // An EN shard does not have the DE artifact on disk. The render loop still
+    // records the DE noindex decision before BUILD_LOCALE filters writes, so
+    // sitemap eligibility must use that cross-shard signal rather than local
+    // file existence. The page remains emitted; only its <loc> is withheld.
+    const inspectedPaths: string[] = [];
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP)],
+      () => true,
+      (pathNoSlash) => {
+        inspectedPaths.push(pathNoSlash);
+        return pathNoSlash !== '/de/gehalt-berechnen';
+      },
+    );
+
+    expect(inspectedPaths).toContain('/de/gehalt-berechnen');
+    expect(entries.map((entry) => entry.url)).toEqual([GROUP.en, GROUP.fr]);
+    expect(skipped.get('not-indexable')).toBe(1);
+  });
+
   it('skips a locale URL that already owns a <url> block in a seeded sitemap', () => {
     const sources = [
       source(GROUP.it, GROUP),
