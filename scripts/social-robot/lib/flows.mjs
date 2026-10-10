@@ -49,7 +49,7 @@ export const RX = Object.freeze({
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
   igVideoReelNotice: /video posts are now shared as reels|i post con video ora vengono condivisi come reel|video-?beiträge werden jetzt als reels geteilt|les publications vidéo sont désormais partagées sous forme de reels/i,
-  igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', 'D’accordo', 'Verstanden', 'Compris'),
+  igNoticeAcknowledge: EXACT_TEXT_ONE_OF('Ok', 'OK', 'Got it', 'Va bene', 'D’accord', "D'accord", 'D’accordo', "D'accordo", 'Verstanden', 'Compris'),
   igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
@@ -766,7 +766,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     // scope the lookup so selecting a Reel cannot navigate away from the
     // composer before the file input is attached.
     page.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
-    page.locator('[role="menuitem"]').filter({ hasText: RX.igReelMenu }),
+    page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igReelMenu }),
     page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igReelMenu }),
   ], { guard, timeout: t.optional });
   if (reelMenu) {
@@ -782,7 +782,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     // layouts that opened the upload dialog directly.
     const postMenu = await findFirst([
       page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
-      page.locator('[role="menuitem"]').filter({ hasText: RX.igPostMenu }),
+      page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igPostMenu }),
       page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
     ], { guard, timeout: t.optional });
     if (postMenu) {
