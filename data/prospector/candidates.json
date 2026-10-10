@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-10T11:51:23.767Z",
+  "updatedAt": "2026-10-10T11:51:48.777Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -727512,12 +727512,12 @@
     },
     "rehaklinik-seewis.ch": {
       "key": "rehaklinik-seewis.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:08:26.108Z",
-      "updatedAt": "2026-10-10T11:46:25.659Z",
+      "updatedAt": "2026-10-10T11:51:48.751Z",
       "name": "Kurhaus",
       "domain": "rehaklinik-seewis.ch",
       "city": "",
@@ -727673,7 +727673,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "12674",
+      "promotionBranch": "prospector/promote-2026-10-10"
     },
     "rehaklinik-seewis@seewis-dorf": {
       "key": "rehaklinik-seewis@seewis-dorf",
