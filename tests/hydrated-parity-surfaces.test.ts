@@ -16,14 +16,16 @@
 // DID request held 637 articles against the corpus's 647, on six of the eight
 // blog-index files, 12 to 16 hours old.
 //
-// These pin the two decisions that close that hole: read the bare url as well,
-// and build the client's id set from THAT read.
+// These pin the two decisions that close that hole: read both identities and
+// make the gate model the same union the current runtime uses. Either identity
+// may lead during publication (run 38079614519 caught the reverse direction).
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { missingFromClient } from '../scripts/lib/hydratedParity.mjs';
 
 const SRC = readFileSync(resolve(__dirname, '../scripts/ci/check-hydrated-article-parity.mjs'), 'utf8');
+const WORKFLOW = readFileSync(resolve(__dirname, '../.github/workflows/hydrated-article-parity.yml'), 'utf8');
 
 describe('the surfaces the gate reads', () => {
   it('reads the overlay at the bare url, not only under the rotating key', () => {
@@ -41,10 +43,9 @@ describe('the surfaces the gate reads', () => {
     expect(base).toContain('blog-index-');
   });
 
-  it("feeds clientIds from the bare read, so a green verdict covers both clients", () => {
+  it('feeds clientIds from both reads, matching the current runtime', () => {
     expect(SRC).toMatch(/for \(const id of overlayIds\.bare\) clientIds\.add\(id\)/);
-    // The rotated read must NOT widen the set — that is what hid the defect.
-    expect(SRC).not.toMatch(/for \(const id of overlayIds\.rotated\) clientIds\.add\(id\)/);
+    expect(SRC).toMatch(/for \(const id of overlayIds\.rotated\) clientIds\.add\(id\)/);
   });
 
   it('reads the chunks that carry the overlay mechanism, so a stale client is visible', () => {
@@ -56,7 +57,16 @@ describe('the surfaces the gate reads', () => {
   });
 });
 
-describe('why the bare read is the one that decides the verdict', () => {
+describe('the propagation retry window', () => {
+  it('rechecks failed surfaces in global five-minute rounds', () => {
+    expect(WORKFLOW).toContain('while [ -s parity-targets.txt ] && [ "$attempt" -le 3 ]');
+    expect(WORKFLOW).toContain('while read -r section locale');
+    expect(WORKFLOW).toContain('sleep 300');
+    expect(WORKFLOW).not.toContain('sleep 45');
+  });
+});
+
+describe('why both cache identities decide the current runtime verdict', () => {
   // Recorded from the live edge on 2026-08-08, same url within the same second.
   const RENDERED = ['salario-medio-professioni-svizzera-2026-basilea', 'salari-medi-zurigo-2026-confronto'];
   const reverse = Object.fromEntries(RENDERED.map((s) => [s, s]));
@@ -74,5 +84,12 @@ describe('why the bare read is the one that decides the verdict', () => {
     // Same hub, same corpus, same second — and a clean bill of health. This is
     // the green run of 2026-08-08 reproduced.
     expect(missingFromClient(RENDERED, reverse, rotatedRead)).toEqual([]);
+  });
+
+  it('also covers a rotating bucket populated before the bare URL was purged', () => {
+    const bareFresh = new Set(RENDERED);
+    const rotatedStale = new Set(['salari-medi-zurigo-2026-confronto']);
+    const runtimeIds = new Set([...bareFresh, ...rotatedStale]);
+    expect(missingFromClient(RENDERED, reverse, runtimeIds)).toEqual([]);
   });
 });
