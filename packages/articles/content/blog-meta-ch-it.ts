@@ -8018,6 +8018,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli non si candida per il Consiglio federale',
     'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
     'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Il Palazzo federale svizzero a Berna, simbolo della successione di Guy Parmelin.',
+    'blog.article.lucerna-polizza-edifici-regole.title': 'Assicurazione immobili a Lucerna: guida a obbligo e premi',
+    'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Obbligo cantonale, ente competente, coperture, premi e sinistri: la guida all\'assicurazione degli immobili nel Cantone di Lucerna.',
+    'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Edificio residenziale svizzero e documenti per l\'assicurazione immobiliare cantonale',
 };
 
 export default blogMetaChIt;

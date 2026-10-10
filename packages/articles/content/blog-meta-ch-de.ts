@@ -8018,6 +8018,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli kandidiert nicht für den Bundesrat',
     'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli wird nicht für den Bundesrat kandidieren Will im Ständerat für St.',
     'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Das Schweizer Bundeshaus in Bern als Symbol für die Nachfolge von Guy Parmelin.',
+    'blog.article.lucerna-polizza-edifici-regole.title': 'Gebäudeversicherung in Luzern: Leitfaden zu Pflicht und Prämien',
+    'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Kantonale Pflicht, zuständige Stelle, Deckungen, Prämien und Schadenfälle: der Leitfaden zur Gebäudeversicherung im Kanton Luzern.',
+    'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Schweizer Wohngebäude und Unterlagen zur kantonalen Gebäudeversicherung',
 };
 
 export default blogMetaChDe;

@@ -8018,6 +8018,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli ne se porte pas candidate au Conseil fédéral',
     'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli ne se présentera pas au Conseil fédéral Elle veut rester à la Chambre haute pour Saint-Gall Elle vise sa réélection l’année prochaine Martullo-Blocher',
     'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Le Palais fédéral à Berne, symbole de la succession de Guy Parmelin.',
+    'blog.article.lucerna-polizza-edifici-regole.title': 'Assurance des immeubles à Lucerne : guide de l’obligation et des primes',
+    'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Obligation cantonale, organisme compétent, couvertures, primes et sinistres : le guide de l’assurance des immeubles dans le canton de Lucerne.',
+    'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Immeuble résidentiel suisse et documents pour l\'assurance immobilière cantonale',
 };
 
 export default blogMetaChFr;

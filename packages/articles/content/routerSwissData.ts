@@ -2695,6 +2695,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'referendum-nucleare-svizzera-2027': { it: 'referendum-nucleare-svizzera-2027', en: 'referendum-nuclear-switzerland-2027', de: 'referendum-nuklear-schweiz-2027', fr: 'referendum-nucleaire-suisse-2027' },
  'axpo-solare-argovia': { it: 'axpo-solare-argovia', en: 'axpo-solar-aargau', de: 'axpo-solaranlage-aargau', fr: 'axpo-solaire-argovie' },
  'friedli-rinuncia-corsa-federale': { it: 'friedli-rinuncia-corsa-federale', en: 'esther-friedli-no-federal-council-bid', de: 'esther-friedli-keine-bundesratskandidatur', fr: 'esther-friedli-renonce-conseil-federal' },
+ 'lucerna-polizza-edifici-regole': { it: 'lucerna-polizza-edifici-regole', en: 'lucerne-building-insurance-rules', de: 'luzern-gebaeudeversicherung-regeln', fr: 'assurance-immeubles-lucerne-regles' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -101115,6 +101115,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lucerna-polizza-edifici-regole': {
+    title: 'Assicurazione immobili a Lucerna: guida a obbligo e premi',
+    description: 'Assicurazione immobili nel Cantone di Lucerna: guida pratica su obbligo, ente competente, coperture, premi e procedura per i sinistri e verifiche cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, lucerna, obbligo',
+    ogTitle: 'Assicurazione immobili a Lucerna: obbligo e premi',
+    ogDescription: 'Nel Cantone di Lucerna l\'assicurazione degli edifici va letta secondo le regole cantonali: una guida pratica orienta tra obbligo eventuale, ente cantonale o assicuratore autorizzato, coperture, premi e procedura dopo un sinistro.',
+    canonicalPath: '/articoli-svizzera/lucerna-polizza-edifici-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione immobili a Lucerna: guida a obbligo e premi",
+      "description": "Assicurazione immobili nel Cantone di Lucerna: guida pratica su obbligo, ente competente, coperture, premi e procedura per i sinistri e verifiche cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lucerna-polizza-edifici-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero e documenti per l'assicurazione immobiliare cantonale"
+      },
+      "datePublished": "2026-10-10T01:12:10+00:00",
+      "dateModified": "2026-10-10T01:12:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-polizza-edifici-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

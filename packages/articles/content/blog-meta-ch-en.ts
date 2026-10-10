@@ -8018,6 +8018,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli is not running for the Federal Council',
     'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli will not run for the Federal Council She wants to remain in the upper house for St.',
     'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'The Swiss Federal Palace in Bern, symbol of the race to succeed Guy Parmelin.',
+    'blog.article.lucerna-polizza-edifici-regole.title': 'Property insurance in Lucerne: guide to mandatory requirements and premiums',
+    'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Cantonal obligation, competent authority, coverage, premiums and claims: a guide to property insurance in the Canton of Lucerne.',
+    'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Swiss residential building and documents for cantonal property insurance',
 };
 
 export default blogMetaChEn;

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5159
+      "6": 5160
     },
-    "publishedCovers": 6871,
+    "publishedCovers": 6872,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182788,6 +182788,33 @@
           "id": "friedli-rinuncia-corsa-federale",
           "category": "novita",
           "date": "2026-10-10T00:22:01.565Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lucerna-polizza-edifici-regole": {
+      "cover": "/images/blog/article-lucerna-polizza-edifici-regole.webp",
+      "hash": "e0c7a7ece0c852a09ee07cbe17d6b155656dd26cd0168ea5e414d3147f4abe2a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lucerna-polizza-edifici-regole",
+          "category": "pratico",
+          "date": "2026-10-10T01:12:10.158Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
