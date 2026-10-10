@@ -99,11 +99,16 @@ function extractToken(gnUrl) {
 async function fetchText(fetchImpl, url, init, timeoutMs) {
   const ac = new AbortController();
   let response = null;
+  let reader = null;
   let timedOut = false;
+  let cancelledTarget = null;
 
-  const cancelBody = (res) => {
+  const cancelBody = (res = response) => {
+    const target = reader ?? res?.body;
+    if (!target || target === cancelledTarget) return;
+    cancelledTarget = target;
     try {
-      const cancellation = res?.body?.cancel?.();
+      const cancellation = target.cancel?.('Google News request timed out');
       if (cancellation && typeof cancellation.catch === 'function') {
         cancellation.catch(() => {});
       }
@@ -141,14 +146,32 @@ async function fetchText(fetchImpl, url, init, timeoutMs) {
       cancelBody(response);
       return null;
     }
-    return await Promise.race([
-      Promise.resolve().then(() => response.text()),
-      timeout,
-    ]);
+    if (!response.body || typeof response.body.getReader !== 'function') {
+      return await Promise.race([
+        Promise.resolve().then(() => response.text()),
+        timeout,
+      ]);
+    }
+
+    reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let text = '';
+    while (true) {
+      // Keep the pending read attached to the retained reader so timeout
+      // cleanup can cancel the actual lock owner, not the locked body.
+      // eslint-disable-next-line no-await-in-loop
+      const { done, value } = await Promise.race([reader.read(), timeout]);
+      if (timedOut) throw new Error('Google News response body timed out');
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
   } catch {
+    cancelBody();
     return null;
   } finally {
     clearTimeout(t);
+    try { reader?.releaseLock?.(); } catch { /* best effort after cancellation */ }
   }
 }
 

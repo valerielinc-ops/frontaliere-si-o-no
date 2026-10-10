@@ -108,22 +108,36 @@ describe('decodeGoogleNewsUrl', () => {
     // body never completes. The explicit deadline must settle even when the
     // provider ignores AbortController, then cancel the body best-effort.
     const opaqueUrl = 'https://news.google.com/rss/articles/CBMiwAFAU_yqLMstall?oc=5';
-    const cancel = vi.fn(async () => {});
+    let settleRead: ((value: { done: boolean; value?: Uint8Array }) => void) | undefined;
+    let readPending = false;
+    const read = vi.fn(() => new Promise<{ done: boolean; value?: Uint8Array }>((resolve) => {
+      readPending = true;
+      settleRead = (value) => {
+        readPending = false;
+        resolve(value);
+      };
+    }));
+    const cancel = vi.fn(async () => {
+      settleRead?.({ done: true });
+    });
+    const releaseLock = vi.fn();
     let signal: AbortSignal | undefined;
     const fetchImpl = vi.fn(async (_url: string, init: any) => {
       signal = init.signal;
       return {
         ok: true,
-        body: { cancel },
-        // Deliberately never settles and does not observe init.signal.
-        text: () => new Promise(() => {}),
+        body: {
+          getReader: () => ({ read, cancel, releaseLock }),
+        },
       };
     });
     const started = Date.now();
     const out = await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl, timeoutMs: 50 });
     expect(out).toBeNull();
     expect(signal?.aborted).toBe(true);
-    expect(cancel).toHaveBeenCalled();
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(readPending).toBe(false);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
     // Completed promptly from the explicit race — nowhere near a hang.
     expect(Date.now() - started).toBeLessThan(2000);
   });
