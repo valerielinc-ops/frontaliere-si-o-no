@@ -107,6 +107,7 @@ describe('Instagram Reel creative experiment', () => {
     };
     expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-13T08:00:00Z'))).toEqual(posted);
     expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-14T09:30:00Z'))).toBeNull();
+    expect(recentInstagramReel({ posted: [{ ...posted, ts: '2026-10-14T10:00:00Z' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
     expect(recentInstagramReel({ posted: [{ ...posted, kind: 'article' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
   });
 });
