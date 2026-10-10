@@ -1,10 +1,10 @@
 {
   "key": "privatklinik-obach",
   "label": "Privatklinik Obach",
-  "generatedAt": "2026-10-10T09:38:30.281Z",
+  "generatedAt": "2026-10-10T21:22:59.128Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5913,
-  "avgDurationMs": 5913,
+  "durationMs": 6151,
+  "avgDurationMs": 6151,
   "durationHistory": [
-    5913
+    6151
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,6 @@
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Sportphysiotherapeut/-in",
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131823739-sportphysiotherapeut-in",
@@ -57,6 +56,8 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -72,7 +73,6 @@
       "companyKey": "privatklinik-obach",
       "companyDomain": "swissmedical.net",
       "title": "Dipl. Physiotherapeut/-in",
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131822324-dipl-physiotherapeut-in",
@@ -99,6 +99,8 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,7 +126,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133075633-lagerungspfleger-in-60-100-",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:38:18.505Z",
+      "crawledAt": "2026-10-10T21:22:47.284Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -166,7 +168,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146478439-ausbildung-dipl-pflegefachperson-hf",
       "source": "Privatklinik Obach Dedicated Parser (SMN clinic=PKO)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:38:15.695Z",
+      "crawledAt": "2026-10-10T21:22:44.409Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -195,5 +197,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
