@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-b69c4ca7feaf",
-      "slug": "lohnbuchhalter-in-e-stv-abteilungsleiter-risorse-umane-gesundheitsnetz-kusnacht-ag-kusnacht",
+      "slug": "addetto-a-alla-contabilita-paghe-e-vice-responsabile-di-reparto-hr-gesundheitsnetz-kusnacht-ag-kusnacht",
       "slugByLocale": {
         "de": "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht",
-        "it": "lohnbuchhalter-in-e-stv-abteilungsleiter-risorse-umane-gesundheitsnetz-kusnacht-ag-kusnacht",
-        "en": "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht",
-        "fr": "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht"
+        "it": "addetto-a-alla-contabilita-paghe-e-vice-responsabile-di-reparto-hr-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "en": "payroll-accountant-and-deputy-head-of-hr-department-gesundheitsnetz-kusnacht-ag-kusnacht",
+        "fr": "gestionnaire-de-paie-et-responsable-adjoint-e-du-departement-rh-gesundheitsnetz-kusnacht-ag-kusnacht"
       },
       "company": "Gesundheitsnetz Küsnacht AG",
       "companyKey": "gesundheitsnetz-kuesnacht",
@@ -61,11 +61,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
+          "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht",
+          "lohnbuchhalter-in-e-stv-abteilungsleiter-risorse-umane-gesundheitsnetz-kusnacht-ag-kusnacht"
+        ],
+        "en": [
+          "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "fr": [
           "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht"
         ]
       },
       "previousSlugs": [
-        "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht"
+        "lohnbuchhalter-in-und-stv-abteilungsleiter-hr-gesundheitsnetz-kuesnacht-kusnacht",
+        "lohnbuchhalter-in-e-stv-abteilungsleiter-risorse-umane-gesundheitsnetz-kusnacht-ag-kusnacht"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

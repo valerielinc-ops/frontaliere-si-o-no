@@ -956,10 +956,10 @@
     },
     {
       "id": "talan-031a85eb2771",
-      "slug": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+      "slug": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
       "slugByLocale": {
         "fr": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
-        "it": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
+        "it": "piombo-di-trasformazione-sdlc-agente-talan-meyrin-switzerland",
         "en": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland",
         "de": "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
       },
@@ -1022,7 +1022,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:16:06.909Z"
+      "firstSeenAt": "2026-10-09T21:16:06.909Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "agentic-sdlc-transformation-lead-talan-meyrin-switzerland"
+      ]
     },
     {
       "id": "talan-bd30b6af0bc5",

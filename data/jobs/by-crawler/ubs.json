@@ -3640,7 +3640,7 @@
         "en": "2027-internship-investment-advisory-ag-so-ubs-aargau-solothurn",
         "it": "2027-internship-investment-advisory-ag-so-ubs-aargau-solothurn",
         "de": "2027-internship-investment-advisory-ag-so-ubs-aargau-solothurn",
-        "fr": "2027-internship-investment-advisory-ag-so-ubs-aargau-solothurn"
+        "fr": "2027-stage-conseil-en-investissement-ag-so-ubs-aargau-solothurn"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3711,12 +3711,12 @@
     },
     {
       "id": "ubs-0bda1bd8e681",
-      "slug": "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich",
+      "slug": "2027-stage-personale-affari-finanziari-pfa-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich",
-        "it": "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich",
+        "it": "2027-stage-personale-affari-finanziari-pfa-zurigo-ubs-zurich",
         "de": "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich",
-        "fr": "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich"
+        "fr": "2027-stage-affaires-financieres-du-personnel-pfa-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3783,7 +3783,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:12:34.603Z"
+      "firstSeenAt": "2026-10-09T21:12:34.603Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-personnel-financial-affairs-pfa-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-bdf5d837982e",
@@ -7917,7 +7928,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7971,8 +7982,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-        "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7983,7 +7993,7 @@
         ],
         "fr": [
           "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-          "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10801,9 +10811,9 @@
       "id": "ubs-e3d52b40c79a",
       "slug": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
       "slugByLocale": {
-        "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
+        "it": "event-attendant-hourly-paid-ubs-geneve-2",
         "en": "event-attendant-hourly-paid-ubs-geneve",
-        "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
+        "de": "event-attendant-hourly-paid-ubs-geneve-2",
         "fr": "event-attendant-hourly-paid-ubs-geneve-2"
       },
       "company": "UBS",
@@ -10858,15 +10868,14 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2"
+        "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-attendant-hourly-paid-ubs-geneve",
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "event-attendant-hourly-paid-ubs-geneve"
         ],
         "de": [
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",

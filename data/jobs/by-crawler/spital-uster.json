@@ -4761,12 +4761,12 @@
     },
     {
       "id": "spital-uster-b6dcb41acb16",
-      "slug": "pflegefachperson-come-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital-uster",
+      "slug": "professionista-infermieristico-a-come-vice-responsabile-di-reparto-70-100-riabilitazione-geriatrica-acuta-spital-uster",
       "slugByLocale": {
         "de": "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital",
-        "it": "pflegefachperson-come-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital-uster",
-        "en": "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital",
-        "fr": "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital"
+        "it": "professionista-infermieristico-a-come-vice-responsabile-di-reparto-70-100-riabilitazione-geriatrica-acuta-spital-uster",
+        "en": "nursing-professional-as-deputy-head-of-department-70-100-acute-geriatric-rehabilitation-spital-uster-uster",
+        "fr": "personnel-infirmier-comme-adjoint-e-a-la-direction-de-service-70-100-readaptation-aigue-geriatrique-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4814,11 +4814,19 @@
       "department": "Pflege",
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital",
+          "pflegefachperson-come-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital-uster"
+        ],
+        "en": [
+          "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital"
+        ],
+        "fr": [
           "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital"
+        "pflegefachperson-als-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital",
+        "pflegefachperson-come-stv-abteilungsleitung-70-100-geriatrische-akutrehabilitation-spital-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

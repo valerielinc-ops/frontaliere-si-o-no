@@ -2655,12 +2655,12 @@
     },
     {
       "id": "novartis-bfa2e4200e5c",
-      "slug": "journey-head-hire-move-vice-president-novartis-ch",
+      "slug": "responsabile-di-journey-assunzioni-e-mobilita-vicepresidente-novartis-basel-city",
       "slugByLocale": {
         "en": "journey-head-hire-move-vice-president-novartis-ch",
-        "it": "journey-head-hire-move-vice-president-novartis-ch",
+        "it": "responsabile-di-journey-assunzioni-e-mobilita-vicepresidente-novartis-basel-city",
         "de": "journey-head-hire-move-vice-president-novartis-ch",
-        "fr": "journey-head-hire-move-vice-president-novartis-ch"
+        "fr": "chef-de-voyage-location-et-demenagement-vice-president-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2718,7 +2718,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-09T21:19:10.475Z"
+      "firstSeenAt": "2026-10-09T21:19:10.475Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "journey-head-hire-move-vice-president-novartis-ch"
+        ],
+        "fr": [
+          "journey-head-hire-move-vice-president-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "journey-head-hire-move-vice-president-novartis-ch"
+      ]
     }
   ]
 }

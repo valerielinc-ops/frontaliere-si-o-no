@@ -3288,7 +3288,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3328,7 +3328,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3338,7 +3338,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",
@@ -4010,8 +4010,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-hilcona-oensingen",
         "it": "collaboratore-trice-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "en": "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "fr": "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen"
+        "en": "employee-infrastructure-maintenance-building-oensingen-bell-schweiz-ag-oensingen",
+        "fr": "batiment-d-entretien-de-l-infrastructure-des-employes-oensingen-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4055,10 +4055,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-hilcona-oensingen"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-hilcona-oensingen"
+        "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-hilcona-oensingen",
+        "mitarbeiter-mitarbeiterin-infrastruktur-unterhalt-neubau-oensingen-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,

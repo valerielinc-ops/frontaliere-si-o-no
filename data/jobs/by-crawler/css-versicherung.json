@@ -2730,12 +2730,12 @@
     },
     {
       "id": "css-versicherung-41b08670f06d",
-      "slug": "collaboratore-trice-kundenservice-solothurn-100-css-versicherung-solothurn",
+      "slug": "collaboratore-trice-servizio-clienti-soletta-100-css-versicherung-solothurn",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn",
-        "it": "collaboratore-trice-kundenservice-solothurn-100-css-versicherung-solothurn",
-        "en": "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn",
-        "fr": "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn"
+        "it": "collaboratore-trice-servizio-clienti-soletta-100-css-versicherung-solothurn",
+        "en": "customer-service-representative-solothurn-100-css-versicherung-solothurn",
+        "fr": "collaborateur-trice-du-service-clientele-soleure-100-css-versicherung-solothurn"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2783,11 +2783,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn",
+          "collaboratore-trice-kundenservice-solothurn-100-css-versicherung-solothurn"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn"
+        "mitarbeiter-in-kundenservice-solothurn-100-css-versicherung-solothurn",
+        "collaboratore-trice-kundenservice-solothurn-100-css-versicherung-solothurn"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2806,12 +2814,12 @@
     },
     {
       "id": "css-versicherung-5b6c985d7651",
-      "slug": "spontanbewerbung-kundenberater-in-per-privatkunden-stadt-zurich-80-100-css-versicherung-zurich",
+      "slug": "candidatura-spontanea-consulente-per-clienti-privati-citta-di-zurigo-80-100-css-versicherung-zurich",
       "slugByLocale": {
         "de": "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung",
-        "it": "spontanbewerbung-kundenberater-in-per-privatkunden-stadt-zurich-80-100-css-versicherung-zurich",
-        "en": "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung",
-        "fr": "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung"
+        "it": "candidatura-spontanea-consulente-per-clienti-privati-citta-di-zurigo-80-100-css-versicherung-zurich",
+        "en": "unsolicited-application-customer-advisor-for-private-customers-city-of-zurich-80-100-css-versicherung-zurich",
+        "fr": "candidature-spontanee-conseiller-ere-a-la-clientele-pour-clients-prives-ville-de-zurich-80-100-css-versicherung-zurich"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2859,11 +2867,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung",
+          "spontanbewerbung-kundenberater-in-per-privatkunden-stadt-zurich-80-100-css-versicherung-zurich"
+        ],
+        "en": [
+          "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung"
+        ],
+        "fr": [
           "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung"
+        "spontanbewerbung-kundenberater-in-fur-privatkunden-stadt-zurich-80-100-css-versicherung",
+        "spontanbewerbung-kundenberater-in-per-privatkunden-stadt-zurich-80-100-css-versicherung-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

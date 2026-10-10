@@ -5766,11 +5766,11 @@
     },
     {
       "id": "epfl-80362d98ab40",
-      "slug": "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne",
+      "slug": "assistente-per-le-relazioni-studenti-80-100-epfl-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne",
-        "it": "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne",
-        "en": "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne",
+        "it": "assistente-per-le-relazioni-studenti-80-100-epfl-lausanne",
+        "en": "student-relations-assistant-80-100-epfl-lausanne",
         "de": "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5832,7 +5832,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-09T21:23:08.131Z"
+      "firstSeenAt": "2026-10-09T21:23:08.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne"
+        ],
+        "en": [
+          "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "adjoint-e-aux-relations-estudiantines-80-100-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-23d9b7e51a76",

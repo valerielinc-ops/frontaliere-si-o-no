@@ -346,8 +346,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-affoltern-a",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "en": "sales-associate-m-w-d-aldi-suisse-affoltern-a",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-affoltern-a"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -427,6 +427,12 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
@@ -6732,12 +6738,12 @@
     },
     {
       "id": "aldi-suisse-87b1f6e375b9",
-      "slug": "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse",
+      "slug": "branch-manager-m-f-d-regione-biel-solothurn-aldi-suisse-biel",
       "slugByLocale": {
         "de": "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse",
-        "it": "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse",
-        "en": "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse",
-        "fr": "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
+        "it": "branch-manager-m-f-d-regione-biel-solothurn-aldi-suisse-biel",
+        "en": "branch-manager-m-f-d-region-biel-solothurn-aldi-suisse-biel",
+        "fr": "gestionnaire-de-branche-h-f-d-region-bienne-soleure-aldi-suisse-biel"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -6836,7 +6842,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:35:45.696Z"
+      "firstSeenAt": "2026-10-09T21:35:45.696Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
+        ],
+        "en": [
+          "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
+        ],
+        "fr": [
+          "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiter-m-w-d-region-biel-solothurn-aldi-suisse"
+      ]
     },
     {
       "id": "aldi-suisse-9bfd15eb8630",

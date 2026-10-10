@@ -2402,8 +2402,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis",
         "it": "collaboratore-trice-warenausgang-hornbach-affoltern-am-albis",
-        "en": "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis",
-        "fr": "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis"
+        "en": "associate-warenausgang-hornbach-affoltern-am-albis",
+        "fr": "collaborateur-trice-warenausgang-hornbach-affoltern-am-albis"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2451,6 +2451,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis"
+        ],
+        "en": [
+          "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis"
+        ],
+        "fr": [
           "mitarbeiter-in-warenausgang-hornbach-affoltern-am-albis"
         ]
       },

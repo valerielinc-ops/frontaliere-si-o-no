@@ -239,7 +239,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -283,14 +283,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+        "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano"
+          "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
       "firstSeenAt": "2026-05-28T12:29:52.777Z",
@@ -8664,12 +8664,12 @@
     },
     {
       "id": "eth-zurich-16ac5cf1daab",
-      "slug": "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-in-quantum-computing-per-le-dinamiche-fluide-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch",
-        "it": "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch"
+        "it": "ricercatore-post-dottorato-in-quantum-computing-per-le-dinamiche-fluide-eth-zurich-zurich",
+        "de": "postdoktorand-in-quantum-computing-fur-fluiddynamik-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-calcul-quantique-pour-la-dynamique-des-fluides-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8727,16 +8727,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:40:32.041Z"
+      "firstSeenAt": "2026-10-09T21:40:32.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-quantum-computing-for-fluid-dynamics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1c1b766ef1a6",
-      "slug": "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch",
+      "slug": "assistente-di-studenti-cas-eth-in-innovazione-climatica-eth-zurich-zurich",
       "slugByLocale": {
         "en": "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch",
-        "it": "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch",
+        "it": "assistente-di-studenti-cas-eth-in-innovazione-climatica-eth-zurich-zurich",
         "de": "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch",
-        "fr": "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch"
+        "fr": "assistant-etudiant-cas-eth-en-innovation-climatique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8795,7 +8809,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:40:31.544Z"
+      "firstSeenAt": "2026-10-09T21:40:31.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch"
+        ],
+        "fr": [
+          "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-cas-eth-in-climate-innovation-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-9829457e1b97",

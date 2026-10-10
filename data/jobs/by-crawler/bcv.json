@@ -83,12 +83,12 @@
     },
     {
       "id": "bcv-21bc0ac0f1e9",
-      "slug": "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication",
+      "slug": "project-manager-pianificazione-e-studi-per-il-dipartimento-media-e-comunicazione-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication",
-        "it": "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication",
-        "en": "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication",
-        "de": "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication"
+        "it": "project-manager-pianificazione-e-studi-per-il-dipartimento-media-e-comunicazione-banque-cantonale-vaudoise-lausanne",
+        "en": "project-manager-planning-and-studies-for-the-media-and-communication-department-banque-cantonale-vaudoise-lausanne",
+        "de": "projektleiter-planung-und-studium-fur-die-abteilung-medien-und-kommunikation-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -148,7 +148,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:16:04.813Z"
+      "firstSeenAt": "2026-10-09T21:16:04.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication"
+        ],
+        "en": [
+          "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication"
+        ],
+        "de": [
+          "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-projets-planification-et-etudes-pour-le-departement-medias-et-communication"
+      ]
     },
     {
       "id": "bcv-8eeac0ad9cee",
@@ -1980,7 +1994,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2037,14 +2051,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",

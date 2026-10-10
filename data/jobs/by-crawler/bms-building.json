@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-9a879820ec32",
-      "slug": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
+      "slug": "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bulle",
       "slugByLocale": {
         "fr": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
-        "it": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
-        "en": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch",
-        "de": "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+        "it": "materiale-consulente-di-vendita-interno-100-ingegneria-civile-m-f-d-bms-building-materials-bulle",
+        "en": "internal-sales-advisor-materials-100-civil-engineering-m-f-d-bms-building-materials-bulle",
+        "de": "interne-verkaufsberater-materialien-100-bauingenieurwesen-m-w-d-bms-building-materials-bulle"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -105,16 +105,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-05T21:27:46.998Z"
+      "firstSeenAt": "2026-10-05T21:27:46.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+        ],
+        "en": [
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+        ],
+        "de": [
+          "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-de-vente-interne-materiaux-genie-civil-a-100-h-f-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-9f6eb4a22aea",
-      "slug": "teamleitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur",
+      "slug": "responsabile-del-team-vendite-interne-settore-sanitari-m-f-d-100-bms-building-materials-winterthur",
       "slugByLocale": {
         "de": "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch",
-        "it": "teamleitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur",
-        "en": "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch",
-        "fr": "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch"
+        "it": "responsabile-del-team-vendite-interne-settore-sanitari-m-f-d-100-bms-building-materials-winterthur",
+        "en": "team-management-interior-service-sanitary-m-f-d-100-bms-building-materials-winterthur",
+        "fr": "gestion-d-equipe-service-interieur-sanitaire-h-f-d-100-bms-building-materials-winterthur"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -186,11 +200,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch",
+          "teamleitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
+        ],
+        "en": [
+          "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch"
+        ],
+        "fr": [
           "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch"
         ]
       },
       "previousSlugs": [
-        "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch"
+        "teamleitung-innendienst-sanitar-m-w-d-100-bms-building-ch",
+        "teamleitung-servizio-interno-sanitar-m-w-d-100-bms-building-materials-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -210,10 +232,10 @@
     },
     {
       "id": "bms-building-ed8109506747",
-      "slug": "key-account-manager-second-uvre-100-f-h-d-bms-building-ch",
+      "slug": "gestione-account-chiave-second-work-100-m-f-d-bms-building-materials-lausanne",
       "slugByLocale": {
         "fr": "key-account-manager-second-uvre-100-f-h-d-bms-building-ch",
-        "it": "key-account-manager-second-uvre-100-f-h-d-bms-building-ch",
+        "it": "gestione-account-chiave-second-work-100-m-f-d-bms-building-materials-lausanne",
         "en": "key-account-manager-second-uvre-100-f-h-d-bms-building-ch",
         "de": "key-account-manager-second-uvre-100-f-h-d-bms-building-ch"
       },
@@ -317,7 +339,15 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-09T21:12:42.070Z"
+      "firstSeenAt": "2026-10-09T21:12:42.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-second-uvre-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-second-uvre-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-df649286418b",

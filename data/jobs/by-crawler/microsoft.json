@@ -438,12 +438,12 @@
     },
     {
       "id": "microsoft-200059047",
-      "slug": "customer-success-account-management-student-worker-opportunities-microsoft-zurich",
+      "slug": "gestione-account-di-successo-del-cliente-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
       "slugByLocale": {
         "en": "customer-success-account-management-student-worker-opportunities-microsoft-zurich",
-        "it": "customer-success-account-management-student-worker-opportunities-microsoft-zurich",
-        "de": "customer-success-account-management-student-worker-opportunities-microsoft-zurich",
-        "fr": "customer-success-account-management-student-worker-opportunities-microsoft-zurich"
+        "it": "gestione-account-di-successo-del-cliente-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
+        "de": "kundenerfolg-account-management-studenten-arbeiter-chancen-microsoft-zurich",
+        "fr": "gestion-du-compte-de-reussite-client-possibilites-de-travail-etudiant-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -502,16 +502,30 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-09T21:14:28.763Z"
+      "firstSeenAt": "2026-10-09T21:14:28.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-success-account-management-student-worker-opportunities-microsoft-zurich"
+        ],
+        "de": [
+          "customer-success-account-management-student-worker-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "customer-success-account-management-student-worker-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "customer-success-account-management-student-worker-opportunities-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200060488",
-      "slug": "research-sciences-intern-microsoft-zurich",
+      "slug": "ricerca-sciences-tirocinante-microsoft-zurich",
       "slugByLocale": {
         "en": "research-sciences-intern-microsoft-zurich",
-        "it": "research-sciences-intern-microsoft-zurich",
-        "de": "research-sciences-intern-microsoft-zurich",
-        "fr": "research-sciences-intern-microsoft-zurich"
+        "it": "ricerca-sciences-tirocinante-microsoft-zurich",
+        "de": "forschung-sciences-praktikant-microsoft-zurich",
+        "fr": "recherche-sciences-stagiaire-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -570,16 +584,30 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-09T21:14:28.761Z"
+      "firstSeenAt": "2026-10-09T21:14:28.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-sciences-intern-microsoft-zurich"
+        ],
+        "de": [
+          "research-sciences-intern-microsoft-zurich"
+        ],
+        "fr": [
+          "research-sciences-intern-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "research-sciences-intern-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200059051",
-      "slug": "solution-area-specialists-student-worker-opportunities-microsoft-zurich",
+      "slug": "specialisti-dell-area-della-soluzione-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
       "slugByLocale": {
         "en": "solution-area-specialists-student-worker-opportunities-microsoft-zurich",
-        "it": "solution-area-specialists-student-worker-opportunities-microsoft-zurich",
-        "de": "solution-area-specialists-student-worker-opportunities-microsoft-zurich",
-        "fr": "solution-area-specialists-student-worker-opportunities-microsoft-zurich"
+        "it": "specialisti-dell-area-della-soluzione-opportunita-di-lavoro-degli-studenti-microsoft-zurich",
+        "de": "losungsbereich-spezialisten-student-worker-opportunities-microsoft-zurich",
+        "fr": "specialistes-du-secteur-de-la-solution-possibilites-pour-les-etudiants-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -638,7 +666,21 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-09T21:14:28.758Z"
+      "firstSeenAt": "2026-10-09T21:14:28.758Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-area-specialists-student-worker-opportunities-microsoft-zurich"
+        ],
+        "de": [
+          "solution-area-specialists-student-worker-opportunities-microsoft-zurich"
+        ],
+        "fr": [
+          "solution-area-specialists-student-worker-opportunities-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "solution-area-specialists-student-worker-opportunities-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200045205",

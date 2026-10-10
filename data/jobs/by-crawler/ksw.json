@@ -3121,8 +3121,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner",
         "it": "med-praxisassistentin-praxisassistent-con-zusatzfunktion-come-praxisbildnerin-praxisbildner-kantonsspital-winterthur-ksw-winterthur",
-        "en": "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner",
-        "fr": "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner"
+        "en": "med-practice-assistant-practice-assistant-with-additional-function-as-a-practice-instructor-practice-instructor",
+        "fr": "medicament-assistant-de-pratique-assistant-de-pratique-avec-fonction-supplementaire-comme-instructeur-de-pratique"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3171,6 +3171,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner"
+        ],
+        "fr": [
+          "med-praxisassistentin-praxisassistent-mit-zusatzfunktion-als-praxisbildnerin-praxisbildner"
         ]
       },
       "previousSlugs": [
@@ -3197,8 +3203,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
         "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-notfallpraxis-kantonsspital-winterthur-ksw-winterthur",
-        "en": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch",
-        "fr": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        "en": "med-practical-assistant-or-health-emergency-practice-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medicament-assistant-pratique-ou-cabinet-d-urgence-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3246,6 +3252,12 @@
       "department": "Notfallzentrum",
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
+        ],
+        "fr": [
           "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-notfallpraxis-ksw-ch"
         ]
       },

@@ -2383,7 +2383,7 @@
         "it": "gestione-dei-processi-stadtspital-zurich-zurich",
         "en": "process-manager-stadtspital-zurich-zurich",
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "gestionnairedeprocessus-stadtspital-zurich"
+        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2433,7 +2433,7 @@
       "previousSlugs": [
         "prozessmanager-in-stadtspital-zurich",
         "prozessmanager-in-stadtspital-zuerich-51681",
-        "gestionnaire-de-processus-stadtspital-zurich-zurich"
+        "gestionnairedeprocessus-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2444,7 +2444,7 @@
         ],
         "fr": [
           "prozessmanager-in-stadtspital-zurich",
-          "gestionnaire-de-processus-stadtspital-zurich-zurich"
+          "gestionnairedeprocessus-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.497Z",
@@ -4680,7 +4680,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich",
+        "en": "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich",
         "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
         "fr": "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
       },
@@ -4732,7 +4732,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
-        "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
+        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4741,7 +4741,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-          "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
@@ -6524,12 +6524,12 @@
     },
     {
       "id": "stadtspital-zuerich-766ed4497e58",
-      "slug": "dipl-pflegefachperson-imc-per-la-med-uberwachungsstation-befristet-stadtspital-zurich",
+      "slug": "infermiere-a-diplomato-a-imc-per-il-reparto-di-monitoraggio-medico-a-tempo-determinato-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich",
-        "it": "dipl-pflegefachperson-imc-per-la-med-uberwachungsstation-befristet-stadtspital-zurich",
-        "en": "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zurich-zurich"
+        "it": "infermiere-a-diplomato-a-imc-per-il-reparto-di-monitoraggio-medico-a-tempo-determinato-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-imc-for-the-med-monitoring-station-temporary-stadtspital-zurich-zurich-9c9c5a",
+        "fr": "dipl-infirmiere-imc-pour-le-traitement-station-de-surveillance-temporaire-stadtspital-zurich-zurich-9c9c5a"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -6580,11 +6580,20 @@
       "referenceNumber": "51928",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich"
+          "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich",
+          "dipl-pflegefachperson-imc-per-la-med-uberwachungsstation-befristet-stadtspital-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich"
+        "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zuerich",
+        "dipl-pflegefachperson-imc-per-la-med-uberwachungsstation-befristet-stadtspital-zurich",
+        "dipl-pflegefachperson-imc-fur-die-med-uberwachungsstation-befristet-stadtspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

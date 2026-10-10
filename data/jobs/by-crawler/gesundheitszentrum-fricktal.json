@@ -2260,12 +2260,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-fc68293e8b8d",
-      "slug": "abteilungsleitung-notfallpflege-e-aufnahmestation-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "responsabile-del-reparto-di-assistenza-infermieristica-d-urgenza-e-dell-unita-di-accettazione-m-f-d-gesundheitszentrum",
       "slugByLocale": {
         "de": "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal",
-        "it": "abteilungsleitung-notfallpflege-e-aufnahmestation-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal",
-        "fr": "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal"
+        "it": "responsabile-del-reparto-di-assistenza-infermieristica-d-urgenza-e-dell-unita-di-accettazione-m-f-d-gesundheitszentrum",
+        "en": "department-management-emergency-care-and-reception-station-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "gestion-du-departement-station-de-soins-d-urgence-et-d-accueil-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -2313,11 +2313,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal",
+          "abteilungsleitung-notfallpflege-e-aufnahmestation-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
           "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal"
         ]
       },
       "previousSlugs": [
-        "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal"
+        "abteilungsleitung-notfallpflege-und-aufnahmestation-m-w-d-gesundheitszentrum-fricktal",
+        "abteilungsleitung-notfallpflege-e-aufnahmestation-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

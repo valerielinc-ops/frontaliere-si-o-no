@@ -1053,10 +1053,10 @@
     },
     {
       "id": "hrc-d8eca08ebe30",
-      "slug": "secretaire-medical-h-f-a-100-hrc-rennaz",
+      "slug": "100-m-f-sottosegretario-medico-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "fr": "secretaire-medical-h-f-a-100-hrc-rennaz",
-        "it": "secretaire-medical-h-f-a-100-hrc-rennaz",
+        "it": "100-m-f-sottosegretario-medico-hopital-riviera-chablais-hrc-rennaz",
         "en": "secretaire-medical-h-f-a-100-hrc-rennaz",
         "de": "secretaire-medical-h-f-a-100-hrc-rennaz"
       },
@@ -1116,7 +1116,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:42:49.081Z"
+      "firstSeenAt": "2026-10-09T21:42:49.081Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-h-f-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-h-f-a-100-hrc-rennaz"
+      ]
     }
   ]
 }

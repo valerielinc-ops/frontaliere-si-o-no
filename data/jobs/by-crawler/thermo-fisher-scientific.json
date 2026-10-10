@@ -213,10 +213,10 @@
     },
     {
       "id": "thermo-fisher-scientific-f9ba3fbecc7b",
-      "slug": "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch",
+      "slug": "tecnico-di-manutenzione-dell-attrezzatura-di-sr-mfg-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
       "slugByLocale": {
         "de": "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch",
-        "it": "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch",
+        "it": "tecnico-di-manutenzione-dell-attrezzatura-di-sr-mfg-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch",
         "fr": "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch"
       },
@@ -276,7 +276,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:21:54.305Z"
+      "firstSeenAt": "2026-10-09T21:21:54.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-mfg-equipment-maintenance-technician-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-3a1d8abde88a",
@@ -284,7 +292,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -334,7 +342,8 @@
         "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
         "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
         "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -349,7 +358,8 @@
           "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
         ],
         "de": [
-          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil"

@@ -6030,12 +6030,12 @@
     },
     {
       "id": "hopital-du-valais-0cdc30c0c48d",
-      "slug": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
+      "slug": "medico-senior-80-100-medicina-di-emergenza-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "it": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "en": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp",
-        "fr": "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        "it": "medico-senior-80-100-medicina-di-emergenza-hopital-du-valais-visp",
+        "en": "senior-physician-80-100-emergency-medicine-hopital-du-valais-visp",
+        "fr": "medecin-senior-80-100-medecine-d-urgence-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -6095,7 +6095,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-09T21:17:23.847Z"
+      "firstSeenAt": "2026-10-09T21:17:23.847Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-80-100-notfallmedizin-hopital-du-valais-visp"
+      ]
     }
   ]
 }

@@ -221,12 +221,12 @@
     },
     {
       "id": "planzer-792b291e14d5",
-      "slug": "praktikant-sales-m-w-d-planzer-dallikon",
+      "slug": "vendite-interne-m-f-d-planzer-dallikon",
       "slugByLocale": {
         "de": "praktikant-sales-m-w-d-planzer-dallikon",
-        "it": "praktikant-sales-m-w-d-planzer-dallikon",
-        "en": "praktikant-sales-m-w-d-planzer-dallikon",
-        "fr": "praktikant-sales-m-w-d-planzer-dallikon"
+        "it": "vendite-interne-m-f-d-planzer-dallikon",
+        "en": "intern-sales-m-f-d-planzer-dallikon",
+        "fr": "ventes-internes-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -286,7 +286,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:11:30.233Z"
+      "firstSeenAt": "2026-10-09T21:11:30.233Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-sales-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "praktikant-sales-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "praktikant-sales-m-w-d-planzer-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-sales-m-w-d-planzer-dallikon"
+      ]
     },
     {
       "id": "planzer-f2014b7f62e6",
@@ -371,12 +385,12 @@
     },
     {
       "id": "planzer-0f4e19479b00",
-      "slug": "collaboratore-trice-umschlag-m-w-d-planzer-kallnach",
+      "slug": "addetto-a-alla-movimentazione-m-f-d-planzer-kallnach",
       "slugByLocale": {
         "de": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
-        "it": "collaboratore-trice-umschlag-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        "it": "addetto-a-alla-movimentazione-m-f-d-planzer-kallnach",
+        "en": "employee-envelope-m-f-d-planzer-kallnach",
+        "fr": "l-enveloppe-des-employes-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -425,11 +439,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
+          "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
           "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-umschlag-m-w-d-planzer-kallnach"
+        "mitarbeiter-umschlag-m-w-d-planzer-kallnach",
+        "collaboratore-trice-umschlag-m-w-d-planzer-kallnach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -451,8 +473,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-sales-m-w-d-planzer-dallikon",
         "it": "collaboratore-trice-sales-m-w-d-planzer-dallikon",
-        "en": "mitarbeiter-sales-m-w-d-planzer-dallikon",
-        "fr": "mitarbeiter-sales-m-w-d-planzer-dallikon"
+        "en": "employee-sales-m-f-d-planzer-dallikon",
+        "fr": "ventes-d-employes-h-f-d-planzer-dallikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -502,6 +524,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-sales-m-w-d-planzer-dallikon"
+        ],
+        "en": [
+          "mitarbeiter-sales-m-w-d-planzer-dallikon"
+        ],
+        "fr": [
+          "mitarbeiter-sales-m-w-d-planzer-dallikon"
         ]
       },
       "previousSlugs": [
@@ -529,7 +557,7 @@
         "it": "logistica-di-raccolta-m-f-d-planzer-lyss",
         "en": "logistics-picking-m-f-d-planzer-lyss",
         "de": "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "fr": "logistiker-kommissionierung-m-w-d-planzer-lyss"
+        "fr": "recherche-logistique-h-f-d-planzer-lyss"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -575,8 +603,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-kommissionierung-m-w-d-planzer-lyss",
-        "recherche-logistique-h-f-d-planzer-lyss"
+        "logistiker-kommissionierung-m-w-d-planzer-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -586,7 +613,7 @@
           "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ],
         "fr": [
-          "recherche-logistique-h-f-d-planzer-lyss"
+          "logistiker-kommissionierung-m-w-d-planzer-lyss"
         ]
       },
       "salaryMin": 68500,

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "endress-hauser-1100fc47d342",
-      "slug": "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach",
+      "slug": "addetto-a-agli-acquisti-strategici-componenti-meccanici-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "de": "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach",
-        "it": "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach",
-        "en": "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach",
-        "fr": "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach"
+        "it": "addetto-a-agli-acquisti-strategici-componenti-meccanici-m-f-d-endress-hauser-reinach",
+        "en": "strategic-buyer-mechanical-components-m-f-d-endress-hauser-reinach",
+        "fr": "acheteur-euse-strategique-de-composants-mecaniques-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -67,14 +67,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:22:13.351Z"
+      "firstSeenAt": "2026-10-09T21:22:13.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
+          "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "strategische-r-einkaufer-in-mechanische-komponenten-w-m-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-c4771ea264e6",
-      "slug": "data-engineer-in-m-w-d-endress-hauser-reinach",
+      "slug": "ingegnere-a-dei-dati-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "de": "data-engineer-in-m-w-d-endress-hauser-reinach",
-        "it": "data-engineer-in-m-w-d-endress-hauser-reinach",
+        "it": "ingegnere-a-dei-dati-m-f-d-endress-hauser-reinach",
         "en": "data-engineer-in-m-w-d-endress-hauser-reinach",
         "fr": "data-engineer-in-m-w-d-endress-hauser-reinach"
       },
@@ -134,7 +148,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:22:12.744Z"
+      "firstSeenAt": "2026-10-09T21:22:12.744Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-in-m-w-d-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "data-engineer-in-m-w-d-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-b3c33b4c3fb7",
@@ -1432,7 +1454,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -1479,15 +1501,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "computer-science-experts-endress-hauser-reinach"
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"

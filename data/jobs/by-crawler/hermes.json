@@ -330,7 +330,7 @@
         "fr": "cdi-referent-stock-h-f-hermes-ch",
         "it": "cdi-referent-stock-h-f-hermes-ch",
         "en": "cdi-referent-stock-h-f-hermes-ch",
-        "de": "cdi-referent-stock-h-f-hermes-ch"
+        "de": "cdi-referenzbestand-m-w-hermes-le-noirmont-jura-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -392,12 +392,12 @@
     },
     {
       "id": "hermes-037bccf8f274",
-      "slug": "cdi-charge-de-projet-communication-produit-h-f-hermes-ch",
+      "slug": "cdi-product-communication-project-manager-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "cdi-charge-de-projet-communication-produit-h-f-hermes-ch",
-        "it": "cdi-charge-de-projet-communication-produit-h-f-hermes-ch",
+        "it": "cdi-product-communication-project-manager-m-f-hermes-brugg-be-bern-switzerland",
         "en": "cdi-charge-de-projet-communication-produit-h-f-hermes-ch",
-        "de": "cdi-charge-de-projet-communication-produit-h-f-hermes-ch"
+        "de": "cdi-projektmanager-produktkommunikation-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -455,7 +455,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-10-09T21:13:42.707Z"
+      "firstSeenAt": "2026-10-09T21:13:42.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-charge-de-projet-communication-produit-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdi-charge-de-projet-communication-produit-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-charge-de-projet-communication-produit-h-f-hermes-ch"
+      ]
     }
   ]
 }

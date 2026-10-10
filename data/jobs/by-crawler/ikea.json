@@ -2749,7 +2749,7 @@
       "id": "ikea-afa273a9b1cf",
       "slug": "collaborateur-trice-de-vente-30-ikea-aubonne",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-30-ikea-aubonne",
+        "it": "collaboratore-sales-manager-30-ikea-aubonne-vaud",
         "en": "collaborator-sales-manager-30-ikea-aubonne-vaud",
         "de": "mitarbeiter-vertriebsleiter-30-ikea-aubonne-vaud",
         "fr": "collaborateur-trice-de-vente-30-ikea-ch"
@@ -2796,13 +2796,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-30-ikea-ch",
-        "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+        "collaborateur-trice-de-vente-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-30-ikea-ch",
-          "collaboratore-sales-manager-30-ikea-aubonne-vaud"
+          "collaborateur-trice-de-vente-30-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-30-ikea-ch"
@@ -2982,12 +2980,12 @@
     },
     {
       "id": "ikea-e692cdadc3d2",
-      "slug": "collaborateur-trice-service-clientele-70-ikea-ch",
+      "slug": "collaboratore-servizio-clienti-70-ikea-riddes-valais",
       "slugByLocale": {
         "fr": "collaborateur-trice-service-clientele-70-ikea-ch",
-        "it": "collaborateur-trice-service-clientele-70-ikea-ch",
-        "en": "collaborateur-trice-service-clientele-70-ikea-ch",
-        "de": "collaborateur-trice-service-clientele-70-ikea-ch"
+        "it": "collaboratore-servizio-clienti-70-ikea-riddes-valais",
+        "en": "collaborator-customer-service-70-ikea-riddes-valais",
+        "de": "mitarbeiter-kundenservice-70-ikea-riddes-valais"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3045,7 +3043,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-09T21:15:41.342Z"
+      "firstSeenAt": "2026-10-09T21:15:41.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-service-clientele-70-ikea-ch"
+        ],
+        "en": [
+          "collaborateur-trice-service-clientele-70-ikea-ch"
+        ],
+        "de": [
+          "collaborateur-trice-service-clientele-70-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-service-clientele-70-ikea-ch"
+      ]
     },
     {
       "id": "ikea-fe23a901d399",
@@ -3206,12 +3218,12 @@
     },
     {
       "id": "ikea-f555a51f47d0",
-      "slug": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-40-100-ikea-lyssach",
+      "slug": "addetto-a-alle-vendite-del-reparto-soggiorno-e-ufficio-40-100-ikea-lyssach-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch",
-        "it": "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-40-100-ikea-lyssach",
-        "en": "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch",
-        "fr": "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch"
+        "it": "addetto-a-alle-vendite-del-reparto-soggiorno-e-ufficio-40-100-ikea-lyssach-bern",
+        "en": "sales-associate-living-room-and-office-department-40-100-ikea-lyssach-bern",
+        "fr": "collaborateur-rice-de-vente-departements-salon-et-bureau-40-100-ikea-lyssach-bern"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3258,11 +3270,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch",
+          "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-40-100-ikea-lyssach"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch"
+        "mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-40-100-ikea-ch",
+        "addetto-a-alle-vendite-wohnzimmer-e-buroabteilung-40-100-ikea-lyssach"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,

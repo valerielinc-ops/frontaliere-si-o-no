@@ -2501,12 +2501,12 @@
     },
     {
       "id": "srg-ssr-46c217ccc579",
-      "slug": "data-governance-expert-master-data-srg-ssr-zurich",
+      "slug": "esperto-a-di-governance-dei-dati-dati-principali-srg-ssr-zurich",
       "slugByLocale": {
         "fr": "data-governance-expert-master-data-srg-ssr-zurich",
-        "it": "data-governance-expert-master-data-srg-ssr-zurich",
+        "it": "esperto-a-di-governance-dei-dati-dati-principali-srg-ssr-zurich",
         "en": "data-governance-expert-master-data-srg-ssr-zurich",
-        "de": "data-governance-expert-master-data-srg-ssr-zurich"
+        "de": "experte-fur-data-governance-stammdaten-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2587,7 +2587,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:10:31.036Z"
+      "firstSeenAt": "2026-10-09T21:10:31.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-governance-expert-master-data-srg-ssr-zurich"
+        ],
+        "de": [
+          "data-governance-expert-master-data-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "data-governance-expert-master-data-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-87362bcab0e0",
@@ -2694,7 +2705,7 @@
         "de": "video-host-srf-news-srg-ssr-zurich",
         "it": "video-host-srf-news-srg-ssr-zurich",
         "en": "video-host-srf-news-srg-ssr-zurich",
-        "fr": "video-host-srf-news-srg-ssr-zurich"
+        "fr": "video-hote-nouvelles-srf-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",

@@ -6471,7 +6471,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -6515,12 +6515,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -7857,12 +7861,12 @@
     },
     {
       "id": "roche-9ec17bb0b809",
-      "slug": "rna-biology-associate-in-oligonucleotide-screening-roche-ch",
+      "slug": "rna-biologia-associato-nella-screening-oligonucleotide-roche-basel",
       "slugByLocale": {
         "en": "rna-biology-associate-in-oligonucleotide-screening-roche-ch",
-        "it": "rna-biology-associate-in-oligonucleotide-screening-roche-ch",
+        "it": "rna-biologia-associato-nella-screening-oligonucleotide-roche-basel",
         "de": "rna-biology-associate-in-oligonucleotide-screening-roche-ch",
-        "fr": "rna-biology-associate-in-oligonucleotide-screening-roche-ch"
+        "fr": "biologie-de-l-arn-associe-au-depistage-des-oligonucleotides-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7920,16 +7924,27 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-09T21:12:34.231Z"
+      "firstSeenAt": "2026-10-09T21:12:34.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rna-biology-associate-in-oligonucleotide-screening-roche-ch"
+        ],
+        "fr": [
+          "rna-biology-associate-in-oligonucleotide-screening-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rna-biology-associate-in-oligonucleotide-screening-roche-ch"
+      ]
     },
     {
       "id": "roche-765a2ad5adde",
-      "slug": "experienced-discovery-scientist-in-immunology-roche-ch",
+      "slug": "esperto-scienziato-della-scoperta-in-immunologia-roche-basel",
       "slugByLocale": {
         "en": "experienced-discovery-scientist-in-immunology-roche-ch",
-        "it": "experienced-discovery-scientist-in-immunology-roche-ch",
-        "de": "experienced-discovery-scientist-in-immunology-roche-ch",
-        "fr": "experienced-discovery-scientist-in-immunology-roche-ch"
+        "it": "esperto-scienziato-della-scoperta-in-immunologia-roche-basel",
+        "de": "erfahrener-entdeckungswissenschaftler-in-immunologie-roche-basel",
+        "fr": "chercheur-experimente-en-immunologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7987,7 +8002,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-09T21:12:32.301Z"
+      "firstSeenAt": "2026-10-09T21:12:32.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experienced-discovery-scientist-in-immunology-roche-ch"
+        ],
+        "de": [
+          "experienced-discovery-scientist-in-immunology-roche-ch"
+        ],
+        "fr": [
+          "experienced-discovery-scientist-in-immunology-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experienced-discovery-scientist-in-immunology-roche-ch"
+      ]
     },
     {
       "id": "roche-1ca32efb2816",
@@ -7996,7 +8025,7 @@
         "de": "gmp-spezialist-fur-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-ch",
         "it": "gmp-spezialist-per-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-kaiseraugst",
         "en": "gmp-spezialist-fur-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-ch",
-        "fr": "gmp-spezialist-fur-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-ch"
+        "fr": "specialiste-gmp-pour-qrm-h-f-d-dans-le-support-de-fabrication-assemblage-et-emballage-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8041,6 +8070,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gmp-spezialist-fur-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-ch"
+        ],
+        "fr": [
           "gmp-spezialist-fur-qrm-m-w-d-im-manufacturing-support-assembly-packaging-roche-ch"
         ]
       },

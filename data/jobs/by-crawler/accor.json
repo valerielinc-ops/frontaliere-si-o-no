@@ -2035,7 +2035,7 @@
       "slugByLocale": {
         "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
@@ -2081,7 +2081,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2089,7 +2089,7 @@
         ],
         "de": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-          "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+          "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "fr": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
@@ -2180,12 +2180,12 @@
     },
     {
       "id": "accor-ea5be0100659",
-      "slug": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
+      "slug": "ciclo-di-cottura-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
       "slugByLocale": {
         "fr": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
-        "it": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
-        "en": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
-        "de": "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
+        "it": "ciclo-di-cottura-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
+        "en": "cooking-clerk-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010",
+        "de": "kochangestellter-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
       },
       "slugDisambiguator": "ea5be010",
       "company": "Ibis Budget",
@@ -2244,7 +2244,21 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-09T21:41:37.487Z"
+      "firstSeenAt": "2026-10-09T21:41:37.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
+        ],
+        "en": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
+        ],
+        "de": [
+          "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-ea5be010"
+      ]
     }
   ]
 }
