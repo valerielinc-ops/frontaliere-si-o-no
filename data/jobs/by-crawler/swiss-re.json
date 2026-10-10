@@ -929,7 +929,7 @@
       "slugByLocale": {
         "it": "assistente-del-progetto-di-governo-di-sottoscrizione-12-mesi-contratto-temporaneo-hybrid-m-f-x-d-swiss-re-zurich-ch",
         "en": "underwriting-governance-project-assistant-12-months-temporary-contract-hybrid-m-f-x-d",
-        "de": "underwriting-governance-project-assistent-12-months-temporary-contract-hybrid-m-f-x-d-swiss-re-zurich-ch",
+        "de": "underwriting-governance-project-assistant-12-monate-befristeter-vertrag-hybrid-m-w-x-d-swiss-re-zurich-ch",
         "fr": "assistant-a-la-gouvernance-du-projet-12-mois-de-contrat-temporaire-hybrid-m-f-x-d-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
@@ -972,7 +972,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "underwriting-governance-project-assistant-12-months-temporary-contract-hybrid-m-f-x-d"
+        "underwriting-governance-project-assistant-12-months-temporary-contract-hybrid-m-f-x-d",
+        "underwriting-governance-project-assistent-12-months-temporary-contract-hybrid-m-f-x-d-swiss-re-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -980,6 +981,9 @@
         ],
         "fr": [
           "underwriting-governance-project-assistant-12-months-temporary-contract-hybrid-m-f-x-d"
+        ],
+        "de": [
+          "underwriting-governance-project-assistent-12-months-temporary-contract-hybrid-m-f-x-d-swiss-re-zurich-ch"
         ]
       },
       "needsRetranslation": true,
