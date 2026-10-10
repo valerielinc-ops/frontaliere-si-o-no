@@ -58,7 +58,18 @@ describe('Instagram Reel creative experiment', () => {
       creativeBaseId: 'reel',
       creativeFormat: 'reel',
       primaryMetric: creative.primaryMetric,
+      engagementMechanic: creative.primaryMetric === 'comments' ? 'keyword-comment' : expect.any(String),
     });
+  });
+
+  it('uses a low-friction keyword prompt for the comment treatment', () => {
+    const article = chooseInstagramReelCreative({ kind: 'article', day: '2026-10-08' });
+    const job = chooseInstagramReelCreative({ kind: 'job', day: '2026-10-07' });
+    expect(article).toMatchObject({ id: 'reel-question', primaryMetric: 'comments' });
+    expect(job).toMatchObject({ id: 'reel-question', primaryMetric: 'comments' });
+    expect(article.cta).toContain('“GUIDA”');
+    expect(job.cta).toContain('“LAVORO”');
+    expect(instagramReelLedgerFields(article).engagementMechanic).toBe('keyword-comment');
   });
 
   it('accepts a verified vertical video in the same guarded queue', () => {

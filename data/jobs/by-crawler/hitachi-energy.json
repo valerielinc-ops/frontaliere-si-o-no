@@ -42,8 +42,8 @@
       "slugByLocale": {
         "it": "hse-sustainability-roadmap-execution-lead-f-m-d-hitachi-energy-baden-switzerland",
         "en": "hse-sustainability-roadmap-execution-lead-f-m-d-hitachi-energy-baden-switzerland",
-        "de": "hse-nachhaltigkeit-roadmap-ausfuhrungsleitung-m-w-d-hitachi-energy-baden",
-        "fr": "hse-sustainability-carnet-de-route-execution-plomb-h-f-d-hitachi-energy-baden"
+        "de": "hse-nachhaltigkeit-roadmap-ausfuhrungsleitung-m-w-d-hitachi-energy-baden-switzerland",
+        "fr": "hse-sustainability-carnet-de-route-execution-plomb-h-f-d-hitachi-energy-baden-switzerland"
       },
       "id": "hitachi-energy-184ea12afede",
       "needsRetranslation": true,
@@ -62,7 +62,19 @@
         }
       },
       "postalCode": "5400",
-      "firstSeenAt": "2026-10-09T21:16:19.995Z"
+      "firstSeenAt": "2026-10-09T21:16:19.995Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "hse-nachhaltigkeit-roadmap-ausfuhrungsleitung-m-w-d-hitachi-energy-baden"
+        ],
+        "fr": [
+          "hse-sustainability-carnet-de-route-execution-plomb-h-f-d-hitachi-energy-baden"
+        ]
+      },
+      "previousSlugs": [
+        "hse-nachhaltigkeit-roadmap-ausfuhrungsleitung-m-w-d-hitachi-energy-baden",
+        "hse-sustainability-carnet-de-route-execution-plomb-h-f-d-hitachi-energy-baden"
+      ]
     },
     {
       "title": "Test Engineer 80 - 100% (w/m/d)",
@@ -2568,7 +2580,7 @@
         "it": "r-d-design-ingegnere-insulation-and-components-global-product-care-hitachi-energy-lodz",
         "en": "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland",
         "de": "r-d-design-ingenieur-insulation-and-components-global-product-care-hitachi-energy-lodz",
-        "fr": "r-d-design-ingenieur-insulation-and-components-global-product-care-hitachi-energy-lodz"
+        "fr": "ingenieur-en-conception-de-r-d-isolation-et-composants-global-product-care-hitachi-energy-lodz-poland"
       },
       "id": "hitachi-energy-4c148a6f7c3c",
       "salaryMin": 58000,
@@ -2596,11 +2608,13 @@
           "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland"
         ],
         "fr": [
-          "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland"
+          "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland",
+          "r-d-design-ingenieur-insulation-and-components-global-product-care-hitachi-energy-lodz"
         ]
       },
       "previousSlugs": [
-        "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland"
+        "r-d-design-engineer-insulation-and-components-global-product-care-hitachi-energy-lodz-poland",
+        "r-d-design-ingenieur-insulation-and-components-global-product-care-hitachi-energy-lodz"
       ]
     },
     {

@@ -165,6 +165,9 @@ describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il so
     const findings = [
       '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',
       '🔴 Important: the sitemap inventory accepts an empty root and silently reports a clean crawl.',
+      '🔴 Important: sitemap coverage is incomplete.',
+      '🔴 Important: the sitemap was never published.',
+      '🔴 Important: the sitemap update failed.',
       '🔴 Important: the page does not emit the canonical when the locale is missing.',
       '🔴 Important: a sitemap URL has noindex and must be removed from the published sitemap.',
       '🔴 Important: the workflow does not republish the sitemap after a canonical slug changes.',
