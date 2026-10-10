@@ -356,8 +356,12 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).toContain(
       'remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
     );
-    expect(workflow).toContain('git ls-remote "$remote_url" "refs/heads/${branch}"');
-    expect(workflow).toContain('if [ ! -s "$probe" ]; then');
+    expect(workflow).toContain('git ls-remote "$remote_url" refs/heads/main "refs/heads/${branch}"');
+    expect(workflow).toContain('select-crawl-events-refresh-branch.mjs');
+    expect(workflow).toContain('gh pr list --repo "$GITHUB_REPOSITORY" --base main --state all --limit 1000');
+    expect(workflow.match(/--branch "\$EVENTS_REFRESH_BRANCH"/gu)).toHaveLength(3);
+    expect(workflow).toContain('EVENTS_REFRESH_REQUIRE_NEW_BRANCH=${require_new_branch}');
+    expect(workflow).toContain('[ -n "$remote_main" ] || {');
     expect(workflow).toContain('git fetch --no-tags --depth=1 "$remote_url"');
     expect(workflow).not.toContain('git fetch --no-tags origin');
   });

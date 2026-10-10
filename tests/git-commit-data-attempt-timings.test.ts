@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve } from 'node:path';
 
@@ -34,20 +34,38 @@ function job(key: string, n: number, extra: Record<string, unknown> = {}) {
 
 /** The phase labels of a timing line, in the order the line prints them. */
 function phasesOf(body: string): string[] {
-  // The detail of a phase sits in parentheses and may name a path: drop it.
-  return body
-    .replace(/ \([^)]*\)/gu, '')
-    .split(', ')
-    .map((part) => {
-      const match = /^([a-z-]+) \d+\.\d s$/u.exec(part);
-      expect(match, `unexpected timing fragment "${part}" in "${body}"`).not.toBeNull();
-      return match![1];
-    });
+  // Split only at top-level commas: a phase detail can itself contain nested
+  // parentheses, as in "5 remote slice(s) refreshed since last snapshot".
+  const parts: string[] = [];
+  let depth = 0;
+  let start = 0;
+  for (let index = 0; index < body.length; index++) {
+    if (body[index] === '(') depth++;
+    else if (body[index] === ')') depth--;
+    else if (depth === 0 && body.startsWith(', ', index)) {
+      parts.push(body.slice(start, index));
+      start = index + 2;
+      index++;
+    }
+    expect(depth, `unbalanced timing detail in "${body}"`).toBeGreaterThanOrEqual(0);
+  }
+  expect(depth, `unbalanced timing detail in "${body}"`).toBe(0);
+
+  return parts.concat(body.slice(start)).map((part) => {
+    const match = /^([a-z-]+) \d+\.\d s(?: \(.+\))?$/u.exec(part);
+    expect(match, `unexpected timing fragment "${part}" in "${body}"`).not.toBeNull();
+    return match![1];
+  });
 }
 
 function timingLines(log: string) {
   return [...log.matchAll(TIMING_LINE)].map((match) => ({ attempt: Number(match[1]), body: match[2] }));
 }
+
+it('parses nested phase annotations without splitting their commas', () => {
+  expect(phasesOf('fetch 0.0 s, ownership-view 0.0 s (5 remote slice(s), refreshed since snapshot), files 0.2 s (integrity 0.1 s)'))
+    .toEqual(['fetch', 'ownership-view', 'files']);
+});
 
 function setup(keys: string[]) {
   const originDir = mkdtempSync(join(tmpdir(), 'gcd-timings-origin-'));
@@ -71,7 +89,7 @@ function setup(keys: string[]) {
     writeFileSync(join(shimDir, name), [...lines, ''].join('\n'));
     chmodSync(join(shimDir, name), 0o755);
   };
-  const run = (cwd = repoDir) => {
+  const run = (cwd = repoDir, extraEnv: Record<string, string> = {}) => {
     const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'timings commit', `${SLICE_DIR}/`], {
       cwd,
       encoding: 'utf8',
@@ -87,6 +105,7 @@ function setup(keys: string[]) {
         GITHUB_RUN_ID: '',
         GITHUB_REPOSITORY: '',
         GITHUB_OUTPUT: '',
+        ...extraEnv,
       },
     });
     return { status: result.status, log: `${result.stdout}${result.stderr}` };
@@ -244,7 +263,7 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       expect(log).toContain('Pushed successfully');
       const [line] = timingLines(log);
       expect(phasesOf(line.body), line.body).toEqual(PHASES);
-      expect(line.body).toMatch(/(?:^|, )ownership-view \d+\.\d s \(remote slices fetched on demand: count unavailable\)/u);
+      expect(log).toContain('grouped-isolated ownership-view prepared before lease: remote slice count unavailable');
     } finally {
       t.cleanup();
     }
@@ -264,7 +283,7 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       execFileSync('git', [
         'clone', '-q', '--depth=1', '--filter=blob:none', '--no-checkout', '--branch', 'main', `file://${t.originDir}`, runner,
       ]);
-      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*');
+      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*', '!/data/jobs/by-crawler/*.json', '/data/jobs/by-crawler/s0.json', '/data/jobs/by-crawler/s6.json', '/data/jobs/by-crawler/s7.json');
       git(runner, 'checkout', '-q', 'main');
       git(runner, 'config', 'user.email', 'test@example.com');
       git(runner, 'config', 'user.name', 'Test');
@@ -284,9 +303,80 @@ describe('git-commit-data: every isolated attempt says where its time went', () 
       const lines = timingLines(log);
       expect(lines.map((line) => line.attempt), log).toEqual([1]);
       expect(phasesOf(lines[0].body), lines[0].body).toEqual(PHASES);
-      expect(lines[0].body).toMatch(
-        new RegExp(`(?:^|, )ownership-view \\d+\\.\\d s \\(${changed.length} of ${keys.length} remote slices fetched on demand\\)`, 'u'),
+      expect(log).toMatch(
+        new RegExp(`grouped-isolated ownership-view prepared before lease: ${changed.length} of ${keys.length} remote slices fetched on demand`, 'u'),
       );
+    } finally {
+      t.cleanup();
+    }
+  }, 120_000);
+
+  it('prepares ownership outside the lease, then refreshes only intervening slices before filtering claims', () => {
+    const keys = Array.from({ length: 8 }, (_, index) => `s${index}`);
+    const t = setup(keys);
+    try {
+      git(t.originDir, 'config', 'uploadpack.allowFilter', 'true');
+      git(t.originDir, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      const runner = join(t.otherDir, 'runner');
+      execFileSync('git', [
+        'clone', '-q', '--depth=1', '--filter=blob:none', '--no-checkout', '--branch', 'main', `file://${t.originDir}`, runner,
+      ]);
+      git(runner, 'sparse-checkout', 'set', '--no-cone', '/*', '!/data/jobs/by-crawler/*.json', '/data/jobs/by-crawler/s0.json', '/data/jobs/by-crawler/s6.json', '/data/jobs/by-crawler/s7.json');
+      git(runner, 'checkout', '-q', 'main');
+      git(runner, 'config', 'user.email', 'test@example.com');
+      git(runner, 'config', 'user.name', 'Test');
+
+      const changedBeforeLease = keys.slice(1, 6);
+      for (const key of changedBeforeLease) edit(t.repoDir, key, [job(key, 1), job(key, 2, { title: `Remote ${key}` })]);
+      git(t.repoDir, 'commit', '-q', '-am', 'other writer before ownership preparation');
+      git(t.repoDir, 'push', '-q', 'origin', 'HEAD:main');
+
+      const sharedUrl = 'https://jobs.example.com/shared/1';
+      edit(runner, 's0', [job('s0', 1), job('s0', 2), job('s0', 3, { url: sharedUrl })]);
+      const otherClone = join(t.otherDir, 'lease-writer');
+      execFileSync('git', ['clone', '-q', t.originDir, otherClone]);
+      git(otherClone, 'config', 'user.email', 'other@example.com');
+      git(otherClone, 'config', 'user.name', 'Other');
+      edit(otherClone, 's7', [job('s7', 1), job('s7', 2), job('s7', 3, { url: sharedUrl })]);
+      git(otherClone, 'commit', '-q', '-am', 'other writer while lease is acquired');
+
+      const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+      const realNode = process.execPath;
+      const order = join(t.shimDir, 'ownership-order');
+      const triggered = join(t.shimDir, 'lease-writer-triggered');
+      t.shim('git', [
+        '#!/bin/bash',
+        `if [ "\${1:-}" = archive ]; then printf 'archive %s\\n' "$*" >> '${order}'; fi`,
+        `exec '${realGit}' "$@"`,
+      ]);
+      t.shim('node', [
+        '#!/bin/bash',
+        'if [[ "$*" == *global-data-pipeline-lease.mjs* ]]; then',
+        '  case " $* " in',
+        '    *" acquire "*)',
+        `      printf 'lease-acquire\\n' >> '${order}'`,
+        `      if [ ! -f '${triggered}' ]; then '${realGit}' -C '${otherClone}' push -q origin HEAD:main >/dev/null 2>&1; : > '${triggered}'; fi`,
+        '      exit 0 ;;',
+        "    *' release '*) printf 'lease-release\\n' >> '" + order + "'; exit 0 ;;",
+        '  esac',
+        'fi',
+        `exec '${realNode}' "$@"`,
+      ]);
+
+      const { status, log } = t.run(runner, { DATA_PIPELINE_LEASE: '1' });
+      expect(status, log).toBe(0);
+      expect(log).toContain('grouped-isolated ownership-view prepared before lease: 5 of 8 remote slices fetched on demand');
+      expect(log).toContain('1 remote slice(s) refreshed since last snapshot');
+      expect(log).toContain('ownership guard filtered new claims from data/jobs/by-crawler/s0.json');
+
+      const orderLines = readFileSync(order, 'utf8').trim().split('\n');
+      const firstArchive = orderLines.findIndex((line) => line.startsWith('archive '));
+      const leaseAcquire = orderLines.indexOf('lease-acquire');
+      expect(firstArchive).toBeGreaterThanOrEqual(0);
+      expect(leaseAcquire).toBeGreaterThan(firstArchive);
+      expect(orderLines.some((line) => line.includes('-- data/jobs/by-crawler/s7.json'))).toBe(true);
+      expect(git(t.originDir, 'show', 'main:data/jobs/by-crawler/s7.json')).toContain(sharedUrl);
+      expect(git(t.originDir, 'show', 'main:data/jobs/by-crawler/s0.json')).not.toContain(sharedUrl);
     } finally {
       t.cleanup();
     }
