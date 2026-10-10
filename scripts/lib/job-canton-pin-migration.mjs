@@ -26,14 +26,32 @@ function hasHash(url) {
  * are therefore matched only when they are an exact stable identity (for
  * hash-aware identity families such as Johdi Suite).
  */
-function isLegacyKeyFor(stableKey, ledgerKey) {
-  if (stableKey === ledgerKey) return true;
-  if (!stableKey.startsWith('url:') || !ledgerKey.startsWith('url:')) return false;
+function indexLegacyPinKeys(ledger) {
+  const keysByStableIdentity = new Map();
+  const add = (identity, key) => {
+    let keys = keysByStableIdentity.get(identity);
+    if (!keys) {
+      keys = new Set();
+      keysByStableIdentity.set(identity, keys);
+    }
+    keys.add(key);
+  };
 
-  const rawLedgerUrl = ledgerKey.slice('url:'.length);
-  if (hasHash(rawLedgerUrl)) return false;
-  const normalized = identityUrlKey(rawLedgerUrl);
-  return normalized ? `url:${normalized}` === stableKey : false;
+  // The previous implementation re-enumerated and normalized the whole
+  // 90k-key ledger for every stable identity group. Build the same lookup
+  // once: exact matches retain all identity families, while URL aliases are
+  // indexed only for fragment-free legacy keys.
+  for (const key of Object.keys(ledger)) {
+    add(key, key);
+    if (!key.startsWith('url:')) continue;
+
+    const rawLedgerUrl = key.slice('url:'.length);
+    if (hasHash(rawLedgerUrl)) continue;
+    const normalized = identityUrlKey(rawLedgerUrl);
+    if (normalized) add(`url:${normalized}`, key);
+  }
+
+  return keysByStableIdentity;
 }
 
 /**
@@ -88,10 +106,11 @@ export function migrateLegacyCantonPins(ledger, jobs = []) {
   let legacyKeysRemoved = 0;
   let fragmentPinsWritten = 0;
   let skippedGroups = 0;
+  const legacyKeysByStableIdentity = indexLegacyPinKeys(ledger);
 
   for (const [stableKey, group] of groups) {
-    const legacyKeys = Object.keys(ledger).filter((key) => isLegacyKeyFor(stableKey, key));
-    if (legacyKeys.length === 0) continue;
+    const legacyKeys = legacyKeysByStableIdentity.get(stableKey);
+    if (!legacyKeys || legacyKeys.size === 0) continue;
 
     if (group.unresolved || group.candidates.size === 0) {
       skippedGroups++;
