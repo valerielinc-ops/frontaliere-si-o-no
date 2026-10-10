@@ -44,11 +44,7 @@ function upstreamJobs(jobs: Record<string, WorkflowJob>, jobId: string, seen = n
   return seen;
 }
 
-/**
- * The one-off D18 acceptance must never sit in front of the recurring write.
- * Returns the violations, so the same check runs on the real workflow and on
- * the shape that kept twelve daily refreshes out of Firestore.
- */
+/** The live D18 acceptance must fail before any Firestore write can start. */
 function gateOrderViolations(source: string): string[] {
   const jobs = workflowJobs(source);
   const located = Object.entries(jobs).flatMap(([jobId, job]) =>
@@ -60,80 +56,66 @@ function gateOrderViolations(source: string): string[] {
   if (gates.length === 0) violations.push(`no step runs ${LIVE_EVIDENCE_FLAG}`);
   for (const writer of writers) {
     const upstream = upstreamJobs(jobs, writer.jobId);
-    for (const gate of gates) {
-      if (gate.jobId === writer.jobId && gate.index < writer.index) {
-        violations.push(`"${gate.step.name}" precedes "${writer.step.name}" in job ${writer.jobId}`);
-      }
-      if (gate.jobId !== writer.jobId && upstream.has(gate.jobId)) {
-        violations.push(`job ${writer.jobId} needs job ${gate.jobId}, which runs ${LIVE_EVIDENCE_FLAG}`);
-      }
-      if (gate.step.id && String(writer.step.if ?? '').includes(`steps.${gate.step.id}.`)) {
-        violations.push(`"${writer.step.name}" is conditioned on the outcome of "${gate.step.name}"`);
-      }
+    const blockingGate = gates.find((gate) =>
+      (gate.jobId === writer.jobId && gate.index < writer.index)
+      || (gate.jobId !== writer.jobId && upstream.has(gate.jobId)));
+    if (!blockingGate) {
+      violations.push(`"${writer.step.name}" is not preceded by ${LIVE_EVIDENCE_FLAG}`);
     }
   }
   return violations;
 }
 
-describe('employer insights refresh: the one-off D18 gate does not hold the daily write', () => {
+describe('employer insights refresh: live D18 evidence fails closed before the write', () => {
   const jobs = workflowJobs(REFRESH_WORKFLOW_SOURCE);
   const steps = jobs.refresh?.steps ?? [];
   const indexOf = (predicate: (step: WorkflowStep) => boolean) => steps.findIndex(predicate);
   const writerIndex = indexOf((step) => String(step.run ?? '').includes(WRITER_CALL));
   const gateIndex = indexOf((step) => String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
 
-  it('runs the live-evidence gate after the write, never before it', () => {
+  const buildIndex = indexOf((step) => step.name === 'Build complete dry-run payload (no Firestore write)');
+
+  it('validates live evidence in the dry-run step before the write', () => {
     expect(gateOrderViolations(REFRESH_WORKFLOW_SOURCE)).toEqual([]);
+    expect(buildIndex).toBeGreaterThanOrEqual(0);
+    expect(buildIndex).toBeLessThan(writerIndex);
+    expect(String(steps[buildIndex].run)).toContain('scripts/build-employer-insights.mjs');
+    expect(String(steps[buildIndex].run)).toContain('validate-employer-insights-d18-payload.mjs');
+    expect(String(steps[buildIndex].run)).toContain(LIVE_EVIDENCE_FLAG);
   });
 
-  it('rejects the ordering that blocked the write (gate first, same job)', () => {
-    const blocked = YAML.parse(REFRESH_WORKFLOW_SOURCE);
-    const blockedSteps: WorkflowStep[] = blocked.jobs.refresh.steps;
-    const [gate] = blockedSteps.splice(gateIndex, 1);
-    blockedSteps.splice(writerIndex, 0, gate);
-    expect(gateOrderViolations(YAML.stringify(blocked)).join('\n')).toMatch(/precedes/);
+  it('rejects the historical post-write live gate', () => {
+    const late = YAML.parse(REFRESH_WORKFLOW_SOURCE);
+    const lateSteps: WorkflowStep[] = late.jobs.refresh.steps;
+    const [build] = lateSteps.splice(buildIndex, 1);
+    const shiftedWriterIndex = lateSteps.findIndex((step) => String(step.run ?? '').includes(WRITER_CALL));
+    lateSteps.splice(shiftedWriterIndex + 1, 0, build);
+    expect(gateOrderViolations(YAML.stringify(late)).join('\n')).toMatch(/not preceded/);
   });
 
-  it('rejects a write conditioned on the gate, in the same job or through needs', () => {
-    const conditioned = YAML.parse(REFRESH_WORKFLOW_SOURCE);
-    const gateId = conditioned.jobs.refresh.steps[gateIndex].id;
-    expect(gateId).toBeTruthy();
-    conditioned.jobs.refresh.steps[writerIndex].if = `steps.${gateId}.outcome == 'success'`;
-    expect(gateOrderViolations(YAML.stringify(conditioned)).join('\n')).toMatch(/conditioned on the outcome/);
-
-    const split = YAML.parse(REFRESH_WORKFLOW_SOURCE);
-    const [gate] = split.jobs.refresh.steps.splice(gateIndex, 1);
-    split.jobs.evidence = { 'runs-on': 'ubuntu-latest', steps: [gate] };
-    split.jobs.refresh.needs = ['evidence'];
-    expect(gateOrderViolations(YAML.stringify(split)).join('\n')).toMatch(/needs job evidence/);
+  it('rejects a dry-run that omits the live-evidence validator', () => {
+    const unchecked = REFRESH_WORKFLOW_SOURCE.replace(LIVE_EVIDENCE_FLAG, '--structural-only');
+    expect(gateOrderViolations(unchecked)).toContain(`no step runs ${LIVE_EVIDENCE_FLAG}`);
   });
 
-  it('keeps the daily write behind its own fail-closed validator and nothing else optional', () => {
+  it('keeps the write behind both fail-closed validators with no error bypass', () => {
     const validatorIndex = indexOf((step) => String(step.run ?? '').includes(LEGACY_VALIDATOR));
     expect(validatorIndex).toBeGreaterThanOrEqual(0);
+    expect(buildIndex).toBeLessThan(validatorIndex);
     expect(validatorIndex).toBeLessThan(writerIndex);
-    // No `if:` on either: both keep the implicit success() over every earlier step.
+    expect(steps[buildIndex].if).toBeUndefined();
     expect(steps[validatorIndex].if).toBeUndefined();
     expect(steps[writerIndex].if).toBeUndefined();
+    expect(steps[buildIndex]['continue-on-error']).toBeUndefined();
     expect(steps[validatorIndex]['continue-on-error']).toBeUndefined();
     expect(steps[writerIndex]['continue-on-error']).toBeUndefined();
   });
 
-  it('does not lower the gate: it still fails the run and judges the validated artifact', () => {
+  it('does not lower the gate: the dry-run judges the emitted artifact', () => {
     const gate = steps[gateIndex];
     expect(gate['continue-on-error']).toBeUndefined();
     expect(jobs.refresh['continue-on-error']).toBeUndefined();
-    const structuralIndex = indexOf((step) =>
-      String(step.run ?? '').includes('validate-employer-insights-d18-payload.mjs')
-      && !String(step.run ?? '').includes(LIVE_EVIDENCE_FLAG));
-    expect(structuralIndex).toBeGreaterThanOrEqual(0);
-    expect(structuralIndex).toBeLessThan(writerIndex);
-    const structuralId = steps[structuralIndex].id;
-    expect(structuralId).toBeTruthy();
-    // The verdict does not depend on the write either: it is reported whenever
-    // the artifact it reads was structurally valid.
-    expect(String(gate.if)).toContain(`steps.${structuralId}.outcome == 'success'`);
-    expect(String(gate.if)).toContain('!cancelled()');
+    expect(String(gate.run)).toContain('--payload /tmp/employer-insights-d18.json');
   });
 
   it('checks freshness on every run, before the credentials are removed', () => {

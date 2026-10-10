@@ -14,7 +14,7 @@
 //
 // Resilience:
 //   - Each request wrapped in try/catch; module never throws.
-//   - 15s per-request timeout (RSS payload heavier than Suggest).
+//   - 15s per-request timeout covers headers and body, even if abort is ignored.
 //   - One retry on transient error.
 //   - Per-seed graceful degradation.
 
@@ -112,18 +112,89 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function fetchWithTimeout(fetchImpl, url, timeoutMs) {
-  const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
+function cancelBodyBestEffort(response, reader) {
   try {
-    return await fetchImpl(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'application/rss+xml, application/xml, text/xml',
-      },
-      signal: ac.signal,
-    });
+    // A body is locked while a reader is consuming it, so cancel the retained
+    // reader rather than calling `response.body.cancel()` in that case.
+    const cancelResult = (reader ?? response?.body)?.cancel?.();
+    Promise.resolve(cancelResult).catch(() => {});
+  } catch {
+    // Minimal fetch doubles and already-consumed bodies may reject cancellation.
+  }
+}
+
+async function readResponseText(response, onReader) {
+  const body = response?.body;
+  if (typeof body?.getReader !== 'function') return response.text();
+
+  const reader = body.getReader();
+  onReader(reader);
+  const decoder = new TextDecoder();
+  let text = '';
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
+  } finally {
+    try {
+      reader.releaseLock();
+    } catch {
+      // Cancellation/error cleanup is best-effort; the timeout still bounds the caller.
+    }
+  }
+}
+
+async function fetchTextWithTimeout(fetchImpl, url, timeoutMs) {
+  const ac = new AbortController();
+  let rejectTimeout;
+  let responseForCancellation;
+  let readerForCancellation;
+  let timedOut = false;
+  const timeoutPromise = new Promise((_, reject) => {
+    rejectTimeout = reject;
+  });
+  // The deadline can fire before fetch() or text() attaches its race handler.
+  timeoutPromise.catch(() => {});
+  const t = setTimeout(() => {
+    timedOut = true;
+    const reason = new DOMException('The operation timed out', 'TimeoutError');
+    ac.abort(reason);
+    rejectTimeout(reason);
+    cancelBodyBestEffort(responseForCancellation, readerForCancellation);
+  }, timeoutMs);
+
+  const fetchPromise = Promise.resolve().then(() => fetchImpl(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'application/rss+xml, application/xml, text/xml',
+    },
+    signal: ac.signal,
+  }));
+  // Abort is only a hint. Cancel a Response that arrives after the explicit
+  // timeout race has already released the caller.
+  fetchPromise.then((response) => {
+    if (timedOut) cancelBodyBestEffort(response);
+  }, () => {});
+
+  try {
+    const response = await Promise.race([fetchPromise, timeoutPromise]);
+    responseForCancellation = response;
+    if (!response || typeof response.ok !== 'boolean' || !response.ok) {
+      cancelBodyBestEffort(response);
+      return { response, text: null };
+    }
+    const textPromise = Promise.resolve().then(() => readResponseText(response, (reader) => {
+      readerForCancellation = reader;
+      if (timedOut) cancelBodyBestEffort(response, reader);
+    }));
+    // If timeout wins, the retained reader is cancelled above; suppress a late
+    // stream error after the caller has already taken the bounded failure path.
+    textPromise.catch(() => {});
+    const text = await Promise.race([textPromise, timeoutPromise]);
+    return { response, text };
   } finally {
     clearTimeout(t);
   }
@@ -175,20 +246,23 @@ export function parseNewsRss(xml) {
   return out;
 }
 
-async function fetchOneSeed(seed, fetchImpl) {
+async function fetchOneSeed(seed, fetchImpl, timeoutMs) {
   const url = `https://news.google.com/rss/search?q=${encodeURIComponent(
     seed,
   )}&hl=it&gl=IT&ceid=IT:it`;
   let lastReason = null;
   for (let attempt = 0; attempt <= 1; attempt++) {
     try {
-      const res = await fetchWithTimeout(fetchImpl, url, REQUEST_TIMEOUT_MS);
+      const { response: res, text: xml } = await fetchTextWithTimeout(
+        fetchImpl,
+        url,
+        timeoutMs,
+      );
       if (!res || typeof res.ok !== 'boolean') {
         lastReason = 'invalid response';
       } else if (!res.ok) {
         lastReason = `HTTP ${res.status}`;
       } else {
-        const xml = await res.text();
         const items = parseNewsRss(xml);
         return { ok: true, items };
       }
@@ -208,6 +282,7 @@ async function fetchOneSeed(seed, fetchImpl) {
  * @param {string[]} [opts.seeds]
  * @param {Function} [opts.fetchImpl]
  * @param {number} [opts.maxPerSeed]
+ * @param {number} [opts.timeoutMs]
  * @returns {Promise<{
  *   ok: boolean,
  *   perSeed: Record<string, {ok: boolean, candidates: any[], reason?: string}>,
@@ -219,6 +294,9 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const maxPerSeed = Number.isFinite(opts.maxPerSeed) && opts.maxPerSeed > 0
     ? opts.maxPerSeed
     : DEFAULT_MAX_PER_SEED;
+  const timeoutMs = Number.isFinite(opts.timeoutMs) && opts.timeoutMs > 0
+    ? opts.timeoutMs
+    : REQUEST_TIMEOUT_MS;
   const fetchImpl = opts.fetchImpl ?? globalThis.fetch;
   if (typeof fetchImpl !== 'function') {
     const empty = {};
@@ -233,7 +311,7 @@ export async function fetchNewsRssCandidates(opts = {}) {
   const seenNorm = new Set();
 
   for (const seed of seeds) {
-    const { ok, items, reason } = await fetchOneSeed(seed, fetchImpl);
+    const { ok, items, reason } = await fetchOneSeed(seed, fetchImpl, timeoutMs);
     const seedCandidates = [];
     if (ok && items.length) {
       // RELEVANCE FILTER (positive): keep only titles containing a
