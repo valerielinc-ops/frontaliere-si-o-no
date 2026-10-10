@@ -84,6 +84,7 @@ jobs:
             /components/guide/FrontierGuide.tsx
             /services/
             /infra/cloudflare-worker/locale-router.js
+            /infra/cloudflare-worker/ticino-tree-bucket.js
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js

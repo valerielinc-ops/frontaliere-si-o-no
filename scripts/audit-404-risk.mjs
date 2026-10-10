@@ -108,6 +108,7 @@
 
 import { readFile, access, mkdtemp, rm, readdir, stat } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
+import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 import { join, dirname, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
@@ -370,11 +371,15 @@ function extractAlternateHrefs(xml) {
 function treeEntryToRoute(entry, section = null, loc = null) {
   // entry e.g. "de/jobs-im-tessin/x/index.html" → "/de/jobs-im-tessin/x"
   //            "de.html"                          → "/de"
-  let e = entry.replace(/\/index\.html$/i, '');
-  if (e.endsWith('.html')) e = e.slice(0, -'.html'.length);
+  const toPublicRoute = (value) => {
+    let route = value.replace(/\/index\.html$/i, '');
+    if (route.endsWith('.html')) route = route.slice(0, -'.html'.length);
+    return route;
+  };
+  let e = toPublicRoute(entry);
 
   // Ticino section shards are physically fanned out as
-  // `<section>/_tree/<first-two-chars>/<canonical-entry>` to keep GitHub tree
+  // `<section>/_tree/<hash-bucket>/<canonical-entry>` to keep GitHub tree
   // objects under their size limit. The Pages worker serves the canonical
   // route without `_tree/<bucket>`; counting the storage path verbatim makes
   // every fanned-out URL look absent from the served set. Keep this mapping
@@ -386,21 +391,18 @@ function treeEntryToRoute(entry, section = null, loc = null) {
   if (sectionSlug) {
     const routeRoot = loc === 'it' ? sectionSlug : `${loc}/${sectionSlug}`;
     const fanoutPrefix = `${routeRoot}/_tree/`;
-    if (e.startsWith(fanoutPrefix)) {
-      const bucketAndEntry = e.slice(fanoutPrefix.length);
+    if (entry.startsWith(fanoutPrefix)) {
+      const bucketAndEntry = entry.slice(fanoutPrefix.length);
       const bucketEnd = bucketAndEntry.indexOf('/');
       if (bucketEnd > 0 && bucketEnd < bucketAndEntry.length - 1) {
         const bucket = bucketAndEntry.slice(0, bucketEnd);
         const canonicalEntry = bucketAndEntry.slice(bucketEnd + 1);
         const topLevelName = canonicalEntry.split('/')[0];
-        const expectedBucket = [...topLevelName]
-          .slice(0, 2)
-          .join('')
-          .replace(/[A-Z]/g, (letter) => letter.toLowerCase()) || '__';
+        const expectedBucket = ticinoTreeBucket(topLevelName);
         // The router derives this exact bucket from the public first-level
         // entry. A mismatched physical bucket is still a real 404 risk and
         // must not be normalized into a false-positive served route.
-        if (bucket === expectedBucket) e = `${routeRoot}/${canonicalEntry}`;
+        if (bucket === expectedBucket) e = toPublicRoute(`${routeRoot}/${canonicalEntry}`);
       }
     }
   }

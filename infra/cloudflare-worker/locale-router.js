@@ -62,6 +62,8 @@
  *   their versioned release key comes from edge/sections/registry.json.
  */
 
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
+
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
 // needs the real table to name the host a shard path's cache entry is keyed on
@@ -402,25 +404,35 @@ function matchSection(pathname) {
 
 // GitHub rejects a single tree object above 50 MiB. The Ticino section's
 // localized job root eventually acquired hundreds of thousands of direct
-// entries, so its Pages shard stores those entries below stable two-character
-// buckets. This is a storage detail only: the public URL remains unchanged.
+// entries. Prefix buckets were still skewed (one DE tree reached 53 MB), so
+// hash the entry name into 256 stable buckets. This is storage-only: public
+// URLs remain unchanged, and the legacy prefix layout stays readable during
+// rollout and for already-published shard trees.
 const SECTION_TREE_FANOUT_DIR = '_tree';
 
-function sectionShardPhysicalPath(pathname, route) {
-  if (!route || route.section !== 'ticino') return pathname;
+function sectionShardPhysicalPaths(pathname, route) {
+  if (!route || route.section !== 'ticino') return [pathname];
   const prefix = route.prefix;
   if (pathname === prefix || pathname === `${prefix}.html` || !pathname.startsWith(`${prefix}/`)) {
-    return pathname;
+    return [pathname];
   }
 
   const rest = pathname.slice(`${prefix}/`.length);
-  if (!rest) return pathname;
+  if (!rest) return [pathname];
   const separator = rest.indexOf('/');
   const entry = separator === -1 ? rest : rest.slice(0, separator);
-  if (!entry || entry === 'index.html') return pathname;
+  if (!entry || entry === 'index.html') return [pathname];
   const suffix = separator === -1 ? '' : rest.slice(separator);
-  const bucket = (entry.slice(0, 2).toLowerCase() || '__');
-  return `${prefix}/${SECTION_TREE_FANOUT_DIR}/${bucket}/${entry}${suffix}`;
+  let decodedEntry = entry;
+  try {
+    decodedEntry = decodeURIComponent(entry);
+  } catch {
+    // Keep malformed/partially escaped path bytes addressable through the
+    // historical bucket and canonical fallbacks rather than inventing a slug.
+  }
+  const physical = [ticinoTreeBucket(decodedEntry), legacyTicinoTreeBucket(decodedEntry)]
+    .map((bucket) => `${prefix}/${SECTION_TREE_FANOUT_DIR}/${bucket}/${entry}${suffix}`);
+  return [...new Set([...physical, pathname])];
 }
 
 function sectionShardPublicPath(pathname, route) {
@@ -2368,25 +2380,18 @@ async function serveStaleOnError(url, reason) {
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
 async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null) {
-  const storagePath = sectionShardPhysicalPath(url.pathname, sectionRoute);
+  const storagePaths = sectionShardPhysicalPaths(url.pathname, sectionRoute);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
-  upstream.pathname = storagePath;
 
   let resp;
   try {
-    resp = await fetchOriginWithRetry(upstream, request, {
-      ...SHARD_ORIGIN_FETCH_CF,
-    });
-    // During rollout the Worker and the shard can briefly be on different
-    // versions. A physical miss therefore retries the old canonical path
-    // before entering the normal 404/recovery pipeline.
-    if (storagePath !== url.pathname && resp.status === 404) {
-      const legacyUpstream = new URL(request.url);
-      legacyUpstream.hostname = origin;
-      resp = await fetchOriginWithRetry(legacyUpstream, request, {
+    for (let index = 0; index < storagePaths.length; index += 1) {
+      upstream.pathname = storagePaths[index];
+      resp = await fetchOriginWithRetry(upstream, request, {
         ...SHARD_ORIGIN_FETCH_CF,
       });
+      if (resp.status !== 404 || index === storagePaths.length - 1) break;
     }
   } catch {
     // Every attempt timed out / threw — no origin response. Prefer a last-good
@@ -2641,6 +2646,19 @@ const router = {
     // stay a pure apex passthrough (the !match branch below).
     const sec = matchSection(url.pathname);
     if (sec) {
+      if (
+        sec.section === 'ticino'
+        && (url.pathname === sec.prefix || url.pathname === `${sec.prefix}/`)
+        && url.searchParams.get('__frontaliere_ticino_tree_layout') === 'hash-v1'
+      ) {
+        return new Response(null, {
+          status: 204,
+          headers: {
+            'cache-control': 'no-store',
+            'x-frontaliere-ticino-tree-layout': 'hash-v1',
+          },
+        });
+      }
       return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx, sec);
     }
 
