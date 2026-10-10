@@ -51,6 +51,14 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
   });
 
+  it('keeps the surrounding section for a bare CAP label', () => {
+    const page = extract(`
+      <section aria-label="Indirizzo di residenza"><label for="home-cap">CAP</label><input id="home-cap" required></section>
+      <section aria-label="Employer address"><label for="work-cap">CAP</label><input id="work-cap" required></section>`);
+    expect(page.fields.find((field: any) => field.context === 'Indirizzo di residenza')).toMatchObject({ label: 'CAP' });
+    expect(page.fields.find((field: any) => field.context === 'Employer address')).toMatchObject({ label: 'CAP' });
+  });
+
   // Giro di prova 2026-10-01 on JOIN: option cards are ARIA radios with no native input.
   it('reads an ARIA radio group as one question with its options, and the chosen one', () => {
     const card = (letter: string, title: string, text: string, checked = false) => `

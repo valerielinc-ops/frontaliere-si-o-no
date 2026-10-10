@@ -97,6 +97,7 @@ const trimField = (field) => ({
   id: field.id,
   kind: field.kind,
   label: field.label,
+  ...(field.context ? { context: field.context } : {}),
   required: Boolean(field.required),
   ...(field.value ? { currentValue: field.value } : {}),
   ...(field.maxLength ? { maxLength: field.maxLength } : {}),
@@ -245,14 +246,20 @@ const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+// Some ATS forms label the candidate's residence field only «CAP». A bare
+// label is safe only when field extraction supplies the surrounding residence
+// section; the label alone is also used by work-history forms.
+const STANDALONE_RESIDENCE_POSTAL_RE = /^\s*cap\s*$/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
 
-export function addressQuestionTopic(text) {
+export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
-  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value);
+  const surrounding = String(context || '');
+  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(surrounding)) return '';
+  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding);
+  if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
   if (CITY_RE.test(value)) return residenceContext ? 'residence_city' : '';
@@ -265,7 +272,7 @@ export function addressQuestionTopic(text) {
 }
 
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
-export function questionTopic(label) {
+export function questionTopic(label, context = '') {
   const text = questionFromLabel(label);
   if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
@@ -273,7 +280,7 @@ export function questionTopic(label) {
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
   const ageTopic = ageQuestionTopic(text);
   if (ageTopic) return ageTopic;
-  const addressTopic = addressQuestionTopic(text);
+  const addressTopic = addressQuestionTopic(text, context);
   if (addressTopic) return addressTopic;
   if (EDUCATION_QUESTION_RE.test(text) && CURRENT_EDUCATION_RE.test(text)) return 'current_school';
   return '';
@@ -418,7 +425,7 @@ function optionForAnswer(field, answer) {
   if (!options.length) return String(answer || '').trim();
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
-  const topic = questionTopic(field.label);
+  const topic = questionTopic(field.label, field.context);
   if (topic === 'nationality') {
     const answerCode = nationalityOf(answer)?.code;
     const match = options.find((option) => answerCode && nationalityOf(option.label)?.code === answerCode);
@@ -445,7 +452,7 @@ function optionForAnswer(field, answer) {
 
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
-  const topic = questionTopic(field?.label);
+  const topic = questionTopic(field?.label, field?.context);
   const previous = recordedAnswerForQuestion(candidate, field?.label);
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
@@ -608,7 +615,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    const addressTopic = questionTopic(field.label);
+    const addressTopic = questionTopic(field.label, field.context);
     const isAddressTopic = ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic);
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
@@ -636,7 +643,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // A civil status is the candidate's own to say: the one their CV states (or they corrected), their
     // answer to this very question, or declining. Never a planner's choice; the right option is put in
     // below (candidateAnswerForField) when the candidate has said it.
-    if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label) === 'civil_status') {
+    if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label, field.context) === 'civil_status') {
       const stated = civilStatusCode(statedCivilStatus(candidate));
       if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
         ask(field);
