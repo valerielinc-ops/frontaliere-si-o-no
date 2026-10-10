@@ -624,7 +624,7 @@ export function chooseChooserFiles(page, chooser, paths, options = {}) {
   return observeFileUpload(page, () => chooser.setFiles(paths), options);
 }
 
-/** A Workday file is accepted only with an upload response or a visible receipt. */
+/** A Workday file needs a successful upload response; its selected filename is not a receipt. */
 export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
   const names = paths.map((file) => path.basename(file));
   if (!names.length) return false;
@@ -636,8 +636,8 @@ export async function uploadReceipt(page, locator, paths, { acceptedResponse = f
     const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
     const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
     const inputHasFiles = names.every((name) => inputNames.includes(name));
-    if (names.every((name, index) => visibleNames[index])
-      || inputHasFiles && (!requiresPortalReceipt || acceptedResponse)) return true;
+    if ((!requiresPortalReceipt && names.every((name, index) => visibleNames[index]))
+      || (inputHasFiles && (!requiresPortalReceipt || acceptedResponse))) return true;
     if (Date.now() >= deadline) break;
     await page.waitForTimeout(250);
   } while (true);

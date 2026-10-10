@@ -21,9 +21,10 @@ const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', v
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
 
 describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
-  it('does not report a Workday file-input action complete without an upload receipt', async () => {
+  it('hands off a non-multipart Workday HTTP 500 even when the selected filename is visible', async () => {
     let clock = 0;
     const now = vi.spyOn(Date, 'now').mockImplementation(() => clock);
+    const listeners = new Map<string, Set<(event: any) => void>>();
     const input: any = {
       tagName: 'INPUT',
       type: 'file',
@@ -37,14 +38,21 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       setInputFiles: async (files: string | string[]) => {
         const selected = Array.isArray(files) ? files : [files];
         input.files = selected.map((file) => ({ name: file.split('/').at(-1) }));
+        const request = { method: () => 'POST', headers: () => ({ 'content-type': 'application/json' }) };
+        for (const listener of listeners.get('request') || []) listener(request);
+        for (const listener of listeners.get('response') || []) listener({ request: () => request, status: () => 500 });
+        for (const listener of listeners.get('requestfinished') || []) listener(request);
       },
     };
     const page = {
       locator: (selector: string) => selector === '[role="alert"]:visible' ? { allInnerTexts: async () => [] } : locator,
       url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
-      on: () => {},
-      off: () => {},
-      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      on: (event: string, listener: (event: any) => void) => {
+        if (!listeners.has(event)) listeners.set(event, new Set());
+        listeners.get(event)?.add(listener);
+      },
+      off: (event: string, listener: (event: any) => void) => { listeners.get(event)?.delete(listener); },
+      getByText: () => ({ first: () => ({ isVisible: async () => true }) }),
       waitForTimeout: async (ms: number) => { clock += ms; },
     };
     try {

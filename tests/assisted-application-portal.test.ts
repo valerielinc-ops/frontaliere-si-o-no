@@ -40,7 +40,7 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
   });
 
-  it('accepts a Workday upload only with a visible receipt or successful upload response', async () => {
+  it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
       url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
@@ -50,8 +50,10 @@ describe('assisted application profile history and file replacement', () => {
     };
     expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
     expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { acceptedResponse: true, timeoutMs: 0 })).toBe(true);
-    const visiblePage = { ...page, getByText: () => ({ first: () => ({ isVisible: async () => true }) }) };
-    expect(await uploadReceipt(visiblePage as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
+    const visibleWorkdayName = { ...page, getByText: () => ({ first: () => ({ isVisible: async () => true }) }) };
+    expect(await uploadReceipt(visibleWorkdayName as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
+    const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
+    expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
   });
 });
 

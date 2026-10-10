@@ -451,9 +451,12 @@ function fakePortal() {
           el('cv').addEventListener('change', async () => {
             const body = new FormData();
             body.append('cv', el('cv').files[0]);
-            const response = await fetch('/wd/upload', { method: 'POST', body });
+            const request = ${workday.uploadFails
+              ? "{ method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: el('cv').files[0].name }) }"
+              : "{ method: 'POST', body }"};
+            const response = await fetch('/wd/upload', request);
             if (response.ok) el('cv-status').textContent = el('cv').files[0].name + ' successfully uploaded';
-            else el('cv-status').innerHTML = '<p role="alert">CV upload failed</p>';
+            else el('cv-status').textContent = el('cv').files[0].name;
           });
           const addProfileRow = (kind) => {
             const root = el(kind + '-rows');
@@ -880,7 +883,7 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const failedUpload = await run();
   workday.resumed = false;
   workday.uploadFails = false;
-  check('Workday: an upload error after replacing the old CV is handed off before application submission',
+  check('Workday: HTTP 500 with the selected filename still visible is handed off before application submission',
     failedUpload.event.type === 'submit_handoff' && failedUpload.event.reason === 'upload_failed'
     && state.applications.length === beforeFailedUpload && workday.deletedFiles === 2);
 
