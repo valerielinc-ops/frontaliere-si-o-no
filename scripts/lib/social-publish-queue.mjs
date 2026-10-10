@@ -55,6 +55,26 @@ export const QUEUE_TTL_HOURS = Object.freeze({ article: 36, job: 36, border: 7 *
 /** Marker the confirm step writes on every ledger entry it adds. */
 export const ROBOT_LEDGER_VIA = 'playwright-robot';
 
+// Reel queues created before the CTA-mechanic field was introduced can still
+// be confirmed later. Keep the migration local and dependency-free because
+// this module is part of the Mac robot snapshot. Never infer this field for a
+// carousel: comments/shares/saves alone do not identify its CTA.
+const REEL_ENGAGEMENT_MECHANIC_BY_CREATIVE = new Map([
+  ['reel-question', 'keyword-comment'],
+  ['reel-number', 'direct-share'],
+  ['reel-save', 'save-reminder'],
+]);
+
+function enrichLegacyReelLedgerEntry(entry) {
+  if (!entry || typeof entry !== 'object' || entry.kind !== 'reel') return entry;
+  if (String(entry.engagementMechanic ?? entry.engagement_mechanic ?? '').trim()) return entry;
+  const creativeId = String(
+    entry.creativeId ?? entry.creative_id ?? entry.creativeVariant ?? entry.creative_variant ?? '',
+  ).trim();
+  const engagementMechanic = REEL_ENGAGEMENT_MECHANIC_BY_CREATIVE.get(creativeId);
+  return engagementMechanic ? { ...entry, engagementMechanic } : entry;
+}
+
 /**
  * @param {Record<string, string|undefined>} [env]
  * @returns {'off'|'dry'|'live'}
@@ -356,7 +376,7 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
   }
   const ts = new Date(confirmedAt).toISOString();
   const ledgerEntries = base.map((e) => ({
-    ...e,
+    ...enrichLegacyReelLedgerEntry(e),
     ts,
     queueId,
     via: ROBOT_LEDGER_VIA,
