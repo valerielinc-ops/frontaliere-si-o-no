@@ -42,6 +42,16 @@ export function instagramEngagementMechanic(primaryMetric) {
   return ENGAGEMENT_MECHANIC_BY_METRIC[String(primaryMetric || '').trim()] || 'unknown';
 }
 
+export function instagramResponseAction(primaryMetric) {
+  return RESPONSE_ACTION_BY_METRIC[String(primaryMetric || '').trim()]
+    || 'Entro 24h rispondere alle interazioni con un’informazione verificata.';
+}
+
+export function instagramFollowUpAction(followUpFormat) {
+  return FOLLOW_UP_ACTION_BY_FORMAT[String(followUpFormat || '').trim()]
+    || 'Entro 72h scegliere un follow-up editoriale coerente, senza automatizzare commenti, DM o Stories.';
+}
+
 /**
  * Build the small human-only follow-up brief that travels with a queued post.
  * The robot may print it in its local log, but never sends the interaction.
@@ -70,9 +80,8 @@ export function buildInstagramEngagementBrief(entry) {
     attentionMechanic: String(metadata.attentionMechanic ?? metadata.attention_mechanic ?? '').trim() || 'unknown',
     engagementLoop: String(metadata.engagementLoop ?? metadata.engagement_loop ?? '').trim() || 'none',
     followUpFormat,
-    responseAction: RESPONSE_ACTION_BY_METRIC[primaryMetric] || 'Entro 24h rispondere alle interazioni con un’informazione verificata.',
-    followUpAction: FOLLOW_UP_ACTION_BY_FORMAT[followUpFormat]
-      || 'Entro 72h scegliere un follow-up editoriale coerente, senza automatizzare commenti, DM o Stories.',
+    responseAction: instagramResponseAction(primaryMetric),
+    followUpAction: instagramFollowUpAction(followUpFormat),
     decisionAction: DECISION_ACTION,
     manualOnly: true,
     responseSlaHours: 24,

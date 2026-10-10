@@ -4,7 +4,7 @@
 
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { chooseInstagramCreative } from './lib/instagram-creative.mjs';
-import { instagramEngagementMechanic } from './lib/instagram-engagement.mjs';
+import { instagramEngagementMechanic, instagramFollowUpAction } from './lib/instagram-engagement.mjs';
 import { chooseInstagramReelCreative } from './lib/instagram-reel-creative.mjs';
 
 export const DEFAULT_DATE = new Date().toISOString().slice(0, 10);
@@ -98,20 +98,6 @@ function promptsFor(creative, { kind, sourceKind }) {
   };
 }
 
-function followUpAction(format) {
-  const actions = {
-    'comment-reply': 'Trasformare una domanda ricorrente in un contenuto di risposta entro 72 ore.',
-    'comment-reply-reel': 'Registrare un Reel di risposta entro 72 ore, anonimizzando il commento salvo consenso.',
-    'story-poll': 'Pubblicare un sondaggio nelle Stories entro 48 ore e usare il risultato come contesto, non come prova causale.',
-    'story-result': 'Pubblicare il risultato del sondaggio entro 48 ore e collegare la guida o il dato verificato.',
-    'story-checklist': 'Pubblicare una Story-quiz entro 48 ore e rimandare alla checklist completa.',
-    'story-quiz': 'Pubblicare una Story-quiz entro 48 ore e usare la risposta più frequente per la prossima guida.',
-    'story-reminder': 'Pubblicare un promemoria entro 48 ore, con il momento concreto in cui riaprire il contenuto.',
-    'carousel-checklist': 'Usare le domande ricevute per costruire un carousel-checklist entro 72 ore.',
-  };
-  return actions[format] || 'Scegliere un follow-up editoriale entro 72 ore senza automatizzare commenti o DM.';
-}
-
 /** Build a deterministic, read-only brief for the operator who manages the account. */
 export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind = 'article', day = DEFAULT_DATE } = {}) {
   if (!VALID_KINDS.includes(kind)) throw new Error(`unknown Instagram engagement plan kind: ${kind}`);
@@ -147,7 +133,7 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
     storyPrompt: prompts.storyPrompt,
     replyTemplate: prompts.replyTemplate,
     operatorAction: prompts.operatorAction,
-    followUpAction: followUpAction(creative.followUpFormat),
+    followUpAction: instagramFollowUpAction(creative.followUpFormat),
     manualOnly: true,
     responseSlaHours: 24,
     followUpWithinHours: 72,
