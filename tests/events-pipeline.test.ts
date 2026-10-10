@@ -449,13 +449,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: expect.any(String),
-      url: expect.stringMatching(/^https:\/\//),
-    });
+    expect(ld.offers).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -475,7 +469,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           url: 'https://www.tio.ch/agenda/day/20260704/62101',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
-          structuredDataDefaultsApplied: true,
         },
         'it',
       ),
@@ -495,7 +488,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         url: 'https://example.test/events/1',
         sourceKey: 'guidle',
         sourceName: 'Guidle',
-        structuredDataDefaultsApplied: true,
       },
       'it',
     ) as Record<string, any>;
@@ -616,7 +608,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
           url: 'https://www.tio.ch/agenda/day/20260704/62102',
           sourceKey: 'tio-agenda',
           sourceName: 'Tio.ch Agenda',
-          structuredDataDefaultsApplied: true,
         },
         'en',
       ),
@@ -692,19 +683,12 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers).toBeUndefined();
   });
 
-  it('emits a price-free Offer shell when the detail page has no verifiable amount', () => {
+  it('omits offers when the detail page has no verifiable amount', () => {
     const ld = eventLd({
       ...baseEvent,
-      structuredDataDefaultsApplied: true,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: baseEvent.startDate,
-      url: baseEvent.url,
-    });
+    expect(ld.offers).toBeUndefined();
   });
 });
 
