@@ -28,6 +28,10 @@ function ledgerEntry({ queueId = 'article-1', ts, creativeId = 'proof-local', id
     creativeObjective: 'share',
     primaryMetric: 'shares',
     engagementMechanic: 'direct-share',
+    hookType: 'local-ranking',
+    attentionMechanic: 'local-relevance',
+    engagementLoop: 'share-to-local-group',
+    followUpFormat: 'story-poll',
     ...overrides,
   };
 }
@@ -51,8 +55,8 @@ describe('Instagram experiment status', () => {
     });
 
     expect(status.publishedPosts).toHaveLength(1);
-    expect(status.publishedPosts[0]).toMatchObject({ entries: 5, eligibleForExperiment: true });
-    expect(status.cohorts[0]).toMatchObject({ publishedPosts: 1, observedPosts: 0, status: 'awaiting-insights' });
+    expect(status.publishedPosts[0]).toMatchObject({ entries: 5, eligibleForExperiment: true, hookType: 'local-ranking' });
+    expect(status.cohorts[0]).toMatchObject({ publishedPosts: 1, observedPosts: 0, status: 'awaiting-insights', engagementLoop: 'share-to-local-group' });
     expect(status.insights.independentObservations).toBe(0);
   });
 
@@ -68,6 +72,10 @@ describe('Instagram experiment status', () => {
             creativeObjective: 'conversation',
             primaryMetric: 'comments',
             engagementMechanic: 'keyword-comment',
+            hookType: 'question',
+            attentionMechanic: 'specific-keyword',
+            engagementLoop: 'keyword-comment-reply',
+            followUpFormat: 'comment-reply-reel',
           }],
         }],
       },
@@ -81,6 +89,7 @@ describe('Instagram experiment status', () => {
       kind: 'reel',
       creativeId: 'reel-question',
       engagementMechanic: 'keyword-comment',
+      engagementLoop: 'keyword-comment-reply',
     });
     expect(status.nextAction).toBe('publish-pending-creative');
   });

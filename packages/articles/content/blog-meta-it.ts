@@ -12916,6 +12916,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
     'blog.article.viabilita-sacro-monte-varese.excerpt': 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
     'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Strada verso il Sacro Monte di Varese con cantiere stradale',
+    'blog.article.schianto-camerlata-quattro-feriti.title': 'Como, schianto notturno a Camerlata: 4 feriti',
+    'blog.article.schianto-camerlata-quattro-feriti.excerpt': 'L\'allarme è scattato alle 1:35 Schianto in piazzale Camerlata a Como Coinvolti due ragazze e due ragazzi Quattro feriti trasferiti in codice giallo Luogo →',
+    'blog.article.schianto-camerlata-quattro-feriti.imageAlt': 'Piazza urbana notturna con luci di emergenza e mezzi di soccorso.',
 };
 
 export default blogMetaIt;
