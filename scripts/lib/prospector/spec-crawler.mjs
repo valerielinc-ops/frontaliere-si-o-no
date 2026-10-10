@@ -1247,6 +1247,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
     let geographyDrops = 0;
     let descriptionDrops = 0;
     let detailCandidateDrops = 0;
+    let detailTenantMatches = 0;
+    let detailTenantMismatches = 0;
     let expectedGeographyFilters = 0;
     let next = 0;
     const worker = async () => {
@@ -1279,9 +1281,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
           // detail discriminator when the detail response omits that evidence.
           const detailCandidate = { ...detail };
           if (!matchesDetailCandidateText(spec, detailCandidate)) {
-            detailCandidateDrops++;
+            detailTenantMismatches++;
             continue;
           }
+          detailTenantMatches++;
           const publication = mergeSourcePostingDates(row, detail);
           const publishable = { ...row, title: detail.title || row.title, description,
             ...publication,
@@ -1295,8 +1298,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
             // A generated consumer may have an explicit post-filter for rows the
             // source lists but does not locate. That callback is deliberately
             // narrow: it can classify only an already-extracted geography miss;
-            // fetch failures, tenant mismatches and thin descriptions remain
-            // detail failures and still trip the shared fail-closed guard.
+            // fetch failures and thin descriptions remain detail failures and
+            // still trip the shared fail-closed guard.
             const expectedDetailFilter = typeof runtime.isExpectedDetailFilter === 'function'
               && runtime.isExpectedDetailFilter({
                 spec,
@@ -1330,13 +1333,28 @@ export async function runSpecInProduction(spec, runtime = {}) {
     reportDroppedRows(spec, descriptionDrops, rows.length,
       'descrizione source-backed assente o non verificabile');
     reportDroppedRows(spec, detailCandidateDrops, rows.length,
-      'identità tenant assente nella pagina dettaglio source-backed');
+      'pagina dettaglio non recuperabile o non estraibile');
+    if (detailTenantMismatches) {
+      console.info(
+        `[prospector:${spec.companyKey}] discriminante tenant ha escluso `
+        + `${detailTenantMismatches}/${rows.length} dettaglio/i`,
+      );
+    }
+    // Multi-employer ATS feeds may list many unrelated tenants alongside the
+    // requested one. Once at least one detail positively proves the requested
+    // tenant, discriminator mismatches are expected source filters, not gone
+    // vacancies: measure the fail-closed detail ratio over the matched tenant
+    // candidates plus actual fetch/extraction failures. If no detail proves
+    // the tenant, keep every mismatch in the failure denominator so a stale
+    // discriminator or changed source layout still aborts publication.
+    const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
+    const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
     const publishedRows = enriched.filter(Boolean);
     const detailDrop = {
-      candidates: rows.length - expectedGeographyFilters,
-      gone: detailCandidateDrops,
+      candidates: rows.length - expectedGeographyFilters - expectedTenantFilters,
+      gone: detailCandidateDrops + unmatchedTenantFailures,
       rejected: geographyDrops + descriptionDrops,
-      dropped: detailCandidateDrops + geographyDrops + descriptionDrops,
+      dropped: detailCandidateDrops + unmatchedTenantFailures + geographyDrops + descriptionDrops,
     };
     copySpecFetchMetadata(publishedRows, { detailDrop });
     // A non-empty partial detail snapshot is just as dangerous as an empty
