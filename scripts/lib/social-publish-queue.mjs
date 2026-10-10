@@ -302,12 +302,21 @@ export function dropPending(queue, { channel, kind }) {
   };
 }
 
-/** Read the queue file, drop the channel/kind entries, write it back if it changed. */
-export function dequeuePosts(filePath, { channel, kind }) {
+/**
+ * Read the queue file and drop either one exact queue id or every pending
+ * entry of a channel/kind. The exact-id form lets a poster clean up a stale
+ * rerun without deleting a newer pending item of the same kind.
+ */
+export function dequeuePosts(filePath, { channel, kind, queueId = null }) {
   assertChannel(channel);
   if (!existsSync(filePath)) return emptyQueue();
   const current = loadQueue(filePath);
-  const next = dropPending(current, { channel, kind });
+  const next = queueId
+    ? {
+      schemaVersion: QUEUE_SCHEMA_VERSION,
+      pending: parseQueue(current).pending.filter((e) => !(e.channel === channel && e.id === queueId)),
+    }
+    : dropPending(current, { channel, kind });
   if (next.pending.length !== current.pending.length) saveQueue(filePath, next);
   return next;
 }
@@ -320,6 +329,21 @@ export function ledgerKey(e) {
 /** Whether the ledger already holds the robot's confirmation for `queueId`. */
 export function isConfirmedInLedger(ledger, queueId) {
   return parseLedger(ledger).posted.some((e) => e?.queueId === queueId);
+}
+
+/**
+ * Whether a content kind already has a published ledger row for the report
+ * day. A carousel contributes one row per card, so any matching row is enough
+ * to guard the post-level cadence for both API and robot transports.
+ */
+export function isPublishedForKindDay(ledger, { kind, day } = {}) {
+  const wantedKind = String(kind ?? '').trim();
+  const wantedDay = String(day ?? '').trim();
+  if (!wantedKind || !wantedDay) return false;
+  return parseLedger(ledger).posted.some((entry) => (
+    String(entry?.kind ?? '').trim() === wantedKind
+    && String(entry?.day ?? '').trim() === wantedDay
+  ));
 }
 
 /**
