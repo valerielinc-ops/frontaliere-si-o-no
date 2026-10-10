@@ -26790,6 +26790,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'corsi-contributi-lucerna',
+    category: 'pratico',
+    date: '2026-10-10T02:37:57.583Z',
+    image: '/images/blog/article-corsi-contributi-lucerna.webp',
+    hasCalculator: true,
+    articleType: 'evergreen',
+    canton: ['LU'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

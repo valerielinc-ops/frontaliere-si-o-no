@@ -8024,6 +8024,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO : droits de douane américains, votes et changement aux sommets',
     'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'À partir du 24 juillet 2026, droits de douane américains jusqu\'à 12,5 % sur les biens suisses.',
     'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Siège du Secrétariat d\'État à l\'économie SECO en Suisse',
+    'blog.article.corsi-contributi-lucerna.title': 'Formation continue à Lucerne : exigences et subventions',
+    'blog.article.corsi-contributi-lucerna.excerpt': 'Dans le canton de Lucerne, les subventions sont régies par des règles cantonales.',
+    'blog.article.corsi-contributi-lucerna.imageAlt': 'Salle suisse de formation continue avec ordinateurs et documents',
 };
 
 export default blogMetaChFr;

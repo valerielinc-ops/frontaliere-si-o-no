@@ -8024,6 +8024,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: US duties, votes and change at the top',
     'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'From 24 July 2026 US duties up to 12.5% on Swiss goods.',
     'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Headquarters of the State Secretariat for Economic Affairs SECO in Switzerland',
+    'blog.article.corsi-contributi-lucerna.title': 'Continuing education in Lucerne: requirements and contributions',
+    'blog.article.corsi-contributi-lucerna.excerpt': 'In the Canton of Lucerne, contributions follow cantonal rules.',
+    'blog.article.corsi-contributi-lucerna.imageAlt': 'Swiss continuing-education classroom with computers and course papers',
 };
 
 export default blogMetaChEn;

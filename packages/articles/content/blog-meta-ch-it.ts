@@ -8024,6 +8024,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: dazi USA, votazioni e cambio ai vertici',
     'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'Dal 24 luglio 2026 dazi USA fino al 12,5% su beni svizzeri.',
     'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Sede della Segreteria di Stato dell\'economia SECO in Svizzera',
+    'blog.article.corsi-contributi-lucerna.title': 'Formazione continua a Lucerna: requisiti e contributi',
+    'blog.article.corsi-contributi-lucerna.excerpt': 'Nel Cantone di Lucerna i contributi seguono regole cantonali.',
+    'blog.article.corsi-contributi-lucerna.imageAlt': 'Aula svizzera per la formazione continua con computer e documenti',
 };
 
 export default blogMetaChIt;

@@ -8024,6 +8024,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: US-Zölle, Abstimmungen und Wechsel an der Spitze',
     'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'Ab dem 24. Juli 2026 US-Zölle bis zu 12,5% auf Schweizer Waren.',
     'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Hauptsitz des Staatssekretariats für Wirtschaft SECO in der Schweiz',
+    'blog.article.corsi-contributi-lucerna.title': 'Weiterbildung in Luzern: Voraussetzungen und Beiträge',
+    'blog.article.corsi-contributi-lucerna.excerpt': 'Im Kanton Luzern richten sich die Beiträge nach kantonalen Regeln.',
+    'blog.article.corsi-contributi-lucerna.imageAlt': 'Schweizer Weiterbildungsraum mit Computern und Kursunterlagen',
 };
 
 export default blogMetaChDe;

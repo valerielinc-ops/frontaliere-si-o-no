@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5162
+      "6": 5163
     },
-    "publishedCovers": 6874,
+    "publishedCovers": 6875,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182761,6 +182761,33 @@
           "id": "axpo-solare-argovia",
           "category": "novita",
           "date": "2026-10-09T23:11:13.817Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-corsi-contributi-lucerna": {
+      "cover": "/images/blog/article-corsi-contributi-lucerna.webp",
+      "hash": "b2d18d9a1365ecfd0ba1bc11aad4065f2df8ebfaf066a687679ef7aa6f141a96",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "corsi-contributi-lucerna",
+          "category": "pratico",
+          "date": "2026-10-10T02:37:57.583Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
