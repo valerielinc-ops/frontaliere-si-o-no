@@ -160,9 +160,13 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
 - `scripts/lib/social-reel-image.mjs` compone tre card 1080×1920 e il poster
   `scripts/post-to-instagram-reel.mjs` genera un MP4 verificato, una cover e una
   voce di coda distinta (`kind: reel`);
-- `instagram-reel-experiment.yml` è dispatch-only e parte in preview: il
-  proprietario sceglie quando consumare uno slot, senza aggiungere un terzo
-  post quotidiano automaticamente;
+- `instagram-reel-experiment.yml` mantiene il dispatch manuale ma riserva anche
+  due slot automatici a settimana (articolo il lunedì, lavoro il venerdì),
+  prima della coda carousel quotidiana: usa uno dei due slot del robot e non
+  aggiunge un terzo post giornaliero;
+- il generatore non sostituisce una coorte Reel pending e aspetta 72 ore dalla
+  pubblicazione precedente prima di aprire la successiva, così il confronto
+  resta leggibile nel tempo;
 - il robot riconosce il file video, seleziona il composer Reel e attende la
   conferma “Il tuo reel è stato condiviso” prima di inviare il ledger;
 - la rotazione è pura e non introduce esperimenti PostHog: l’eventuale test
@@ -187,9 +191,13 @@ pressione di `Condividi`, conferma visibile e registrazione nel ledger.
 Il prossimo passo non è aumentare la frequenza a caso: la rotazione deterministica
 continua con i trattamenti successivi e ogni trattamento resta eleggibile solo
 dopo almeno tre osservazioni comparabili nella stessa finestra di 72 ore. Il
-Reel è ora un asse separato e controllato: il workflow manuale genera una sola
-voce `reel`, il robot la pubblica solo quando c’è uno slot scelto, e hook,
+Reel è ora un asse separato e controllato: il workflow manuale resta disponibile
+per preview e coorti scelte, mentre la pianificazione automatica apre al massimo
+due slot settimanali; il robot pubblica solo quando c’è uno slot utile, e hook,
 durata, CTA e metrica restano separati dal confronto carousel.
+
+La cadenza automatica riserva due slot settimanali (articolo il lunedì e lavoro
+il venerdì), con una guardia di 72 ore tra pubblicazioni successive.
 
 I test offline e il browser E2E verificano già tre card verticali, il render
 JPEG, il percorso MP4, il dry-run del Reel, la conferma simulata e il mancato

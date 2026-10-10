@@ -6,7 +6,10 @@ import {
   chooseInstagramReelCreative,
   instagramReelLedgerFields,
 } from '../scripts/lib/instagram-reel-creative.mjs';
-import { pendingInstagramReel } from '../scripts/lib/instagram-reel-queue.mjs';
+import {
+  pendingInstagramReel,
+  recentInstagramReel,
+} from '../scripts/lib/instagram-reel-queue.mjs';
 import { buildReelSlidePlan } from '../scripts/lib/social-reel-image.mjs';
 import { buildQueueEntry, selectNextPending } from '../scripts/lib/social-publish-queue.mjs';
 
@@ -93,5 +96,18 @@ describe('Instagram Reel creative experiment', () => {
     };
     expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-10T10:00:00Z'))).toEqual(current);
     expect(pendingInstagramReel({ pending: [current] }, Date.parse('2026-10-12T02:00:00Z'))).toBeNull();
+  });
+
+  it('waits 72 hours before opening the next Reel cohort', () => {
+    const posted = {
+      queueId: 'reel-2026-10-11',
+      kind: 'reel',
+      ts: '2026-10-11T09:30:00Z',
+      creativeId: 'reel-question',
+    };
+    expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-13T08:00:00Z'))).toEqual(posted);
+    expect(recentInstagramReel({ posted: [posted] }, Date.parse('2026-10-14T09:30:00Z'))).toBeNull();
+    expect(recentInstagramReel({ posted: [{ ...posted, ts: '2026-10-14T10:00:00Z' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
+    expect(recentInstagramReel({ posted: [{ ...posted, kind: 'article' }] }, Date.parse('2026-10-13T08:00:00Z'))).toBeNull();
   });
 });

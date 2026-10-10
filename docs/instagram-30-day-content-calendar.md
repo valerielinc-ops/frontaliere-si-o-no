@@ -18,6 +18,9 @@ un motivo concreto per tornare a seguire la conversazione.
 - Il poster automatico resta la base: carousel articolo e lavoro ogni giorno,
   carousel dogane il lunedì. I contenuti manuali si pubblicano in un orario
   diverso, non si sommano senza motivo a due carousel già usciti.
+- Il workflow Reel riserva due slot settimanali (lunedì articolo e venerdì
+  lavoro) prima della coda quotidiana: il Reel prende uno dei due slot del
+  robot, attende 72 ore dalla coorte precedente e non crea un terzo post.
 - Ogni domanda pubblica deve avere una risposta entro 24 ore. Se non si può
   rispondere, non si invita a commentare.
 - Ogni numero ha fonte e data. Niente dati personali, cedolini, targhe o volti
