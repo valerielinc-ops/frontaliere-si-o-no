@@ -242,6 +242,14 @@ jobs:
         if: steps.pull-corpus.outputs.skipped != 'true'
         run: node scripts/pull-articles-api.mjs
 
+      # The corpus registry and the published sitemap must also be internally
+      # bijective. A localized slug collision makes REVERSE_SWISS last-wins and
+      # leaves one article unreachable even when both pulls came from the same
+      # upstream commit. Refuse the sync before it can open a PR with that data.
+      - name: Validate article routing integrity
+        if: steps.pull-corpus.outputs.skipped != 'true' && steps.pull-api.outputs.skipped != 'true'
+        run: node scripts/ci/validate-article-append-integrity.mjs
+
       # One place to ask whether this run has a coherent upstream pair, so a
       # future step cannot forget half of that condition. No additional approval
       # gate is involved in this workflow.
