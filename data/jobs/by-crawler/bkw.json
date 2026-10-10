@@ -6564,7 +6564,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch"
@@ -15646,7 +15645,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -15695,8 +15694,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15705,7 +15703,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -20755,7 +20753,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20801,14 +20799,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",

@@ -5496,9 +5496,9 @@
       "slug": "tecnico-operativo-manutenzione-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
       "slugByLocale": {
         "it": "tecnico-operativo-manutenzione-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
-        "en": "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon",
+        "en": "operational-technician-maintenance-shunting-locomotives-ffs-officine-ferrovie-federali-dietikon",
         "de": "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon",
-        "fr": "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon"
+        "fr": "technicien-operationnel-maintenance-des-locomotives-de-man-uvre-ffs-officine-ferrovie-federali-dietikon"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -5569,9 +5569,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/operative-r-techniker-in-instandhaltung-rangierlokomotiven/7cde8d77-04bb-4ab3-8322-a544472e01a4",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-09T21:29:02.875Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon"
+        ],
+        "en": [
+          "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon"
+        ],
+        "fr": [
           "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon"
         ]
       },
@@ -8038,7 +8043,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitungszugmaschine-fzm/0afed118-c50d-4613-ae0d-a0e0f2a20798",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-09T21:29:01.751Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
@@ -8463,7 +8467,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/monteur-in-fahrleitung-b100-und-triebfahrzeugfuehrer-in/e370c8ad-1ed8-4f15-9560-280ae8f25242",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-09T21:29:01.260Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-arth-goldau"
@@ -10107,7 +10110,8 @@
       "postalCode": "4600",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
       "retranslationAttempts": 0,
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-cb132e80c76e",

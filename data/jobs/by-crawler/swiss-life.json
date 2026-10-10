@@ -1853,7 +1853,7 @@
       "id": "swiss-life-1e1d2e0b2c19",
       "slug": "consulente-in-previdenza-e-finanza-m-f-d-con-esperienza-professionale-agenzia-generale-losanna-swiss-life-lausanne",
       "slugByLocale": {
-        "it": "consulente-in-previdenza-e-finanza-m-f-d-con-esperienza-professionale-agenzia-generale-losanna-swiss-life-lausanne",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
@@ -1902,18 +1902,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R09222",
       "hiringOrganization": "Swiss Life AG Lausanne",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
-          "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t",
-        "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-bh9n5t"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -1929,7 +1926,9 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:01:25.374Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2104
     },
     {
       "id": "swiss-life-7145a0717956",
@@ -5457,7 +5456,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:44.391Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -6601,7 +6599,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:33.733Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -6851,7 +6848,7 @@
         "it": "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-langenthal-swiss-life-solothurn",
         "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2",
-        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
+        "fr": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6900,7 +6897,7 @@
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
+        "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6908,7 +6905,7 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-bhp12r"
         ],
         "fr": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-2"
+          "conseillers-et-conseilleres-en-prevoyance-et-en-finance-h-f-d-les-personnes-en-reconversion-sont-les-bienvenues"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:31.051Z",
@@ -6933,7 +6930,7 @@
         "it": "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-solothurn-oberaargau-gebiet-olten-swiss-life-solothurn",
         "en": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
         "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-        "fr": "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
+        "fr": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6981,7 +6978,8 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3",
-        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
+        "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn",
+        "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6989,7 +6987,7 @@
           "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn"
         ],
         "fr": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-solothurn-3"
+          "conseillers-et-conseilleres-en-prevoyance-et-en-finances-h-f-d-personnes-en-reconversion-bienvenues-agence-generale"
         ]
       },
       "firstSeenAt": "2026-09-19T23:00:30.363Z",

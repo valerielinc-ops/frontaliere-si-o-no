@@ -432,8 +432,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "ubs-c1087089fe17",
@@ -3859,7 +3858,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:18:56.184Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -7461,7 +7459,7 @@
         "categoryRaw": "Information Technology (IT)",
         "jobType": ""
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T19:48:47.847Z",
       "salaryMin": 113500,
       "salaryMax": 172000,

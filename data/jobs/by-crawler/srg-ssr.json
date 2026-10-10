@@ -2593,7 +2593,7 @@
       "id": "srg-ssr-87362bcab0e0",
       "slug": "data-governance-expert-master-data-srg-ssr-zurich-2",
       "slugByLocale": {
-        "de": "data-governance-expert-master-data-srg-ssr-zurich",
+        "de": "data-governance-expert-master-data-srg-ssr-zurich-si08ve",
         "it": "data-governance-expert-master-data-srg-ssr-zurich-2",
         "en": "data-governance-expert-master-data-srg-ssr-zurich-2",
         "fr": "data-governance-expert-master-data-srg-ssr-zurich-2"
@@ -2677,7 +2677,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-09T21:10:30.359Z"
+      "firstSeenAt": "2026-10-09T21:10:30.359Z",
+      "previousSlugs": [
+        "data-governance-expert-master-data-srg-ssr-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "data-governance-expert-master-data-srg-ssr-zurich"
+        ]
+      }
     },
     {
       "id": "srg-ssr-ab99da9bdf68",

@@ -1152,11 +1152,13 @@
       "postingDateSource": "unknown",
       "id": "galenica-d57b2fe53fb1",
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+        "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+        "farmacista-farmacista-m-f-d-galenica-galenica-sirnach-nx24ld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach",
+          "farmacista-farmacista-m-f-d-galenica-galenica-sirnach-nx24ld"
         ],
         "en": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-sirnach"
@@ -1415,7 +1417,7 @@
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern-ed51ef",
         "en": "pharmaceutical-assistant-pharmaceutical-assistant-m-f-d-galenica-ag-galenica-bern",
-        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nx2xey",
         "fr": "assistant-pharmaceutique-assistant-pharmaceutique-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
@@ -1438,6 +1440,9 @@
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ],
         "fr": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
@@ -3623,11 +3628,13 @@
       "postingDateSource": "unknown",
       "id": "galenica-63467eef1376",
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+        "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss-nx2v49"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+          "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss-nx2v49"
         ],
         "en": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
@@ -3726,7 +3733,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -6460,7 +6468,15 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle-nwm5ts"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-pharmacien-pharmacienne-f-h-d-aigle-nwm5ts"
+        ]
+      }
     },
     {
       "title": "Head of Marketing (w/m/d)",
@@ -7196,7 +7212,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-4d7f67e26c36",
       "previousSlugsByLocale": {
         "de": [
@@ -7537,14 +7552,25 @@
       "postingDateSource": "unknown",
       "id": "galenica-383f1a01d082",
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+        "apothekenassistent-afc-amavita-galenica-moutier",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h",
+        "assistant-di-farmacia-afc-amavita-galenica-moutier"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier",
+          "apothekenassistent-afc-amavita-galenica-moutier"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
+        ],
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+          "apothekenassistent-afc-amavita-galenica-moutier",
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h",
+          "assistant-di-farmacia-afc-amavita-galenica-moutier"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -7690,15 +7716,20 @@
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern",
         "pharmaassistentin-afc-amavita-galenica-luzern",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4"
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+        "pharmacy-assistant-afc-amavita-galenica-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharmaassistentin-afc-amavita-galenica-luzern",
-          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4"
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+          "pharmacy-assistant-afc-amavita-galenica-luzern"
         ],
         "en": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern",
+          "pharmacy-assistant-afc-amavita-galenica-luzern"
         ],
         "de": [
           "pharmaassistentin-afc-amavita-galenica-luzern"
@@ -8325,7 +8356,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-453a2b29bdfd",
       "previousSlugsByLocale": {
         "de": [
@@ -8841,7 +8871,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-78405c8f57d0",
       "previousSlugsByLocale": {
         "de": [
@@ -9052,7 +9081,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a8684ee95757",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -9114,7 +9142,12 @@
       "postingDateSource": "unknown",
       "id": "galenica-424d64daef2a",
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc0ez",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -9122,6 +9155,13 @@
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne"
+        ],
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc0ez",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc135",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc16n",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc17k"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -9766,10 +9806,18 @@
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach"
+        ],
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6",
+          "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0gq",
+          "assistant-di-farmacia-afc-amavita-galenica-bulach"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulach",
+        "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6",
+        "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0gq",
+        "assistant-di-farmacia-afc-amavita-galenica-bulach"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
@@ -11959,7 +12007,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-2bde75e4df6e",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -13095,7 +13142,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-616b5c735b43",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -13598,7 +13644,8 @@
       "postingDateSource": "unknown",
       "id": "galenica-0b43bf70c4af",
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -13606,6 +13653,9 @@
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
+        ],
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-bulle-1nbyyl"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -13881,7 +13931,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f31036d027b4",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -13941,7 +13990,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-def87906abed",
       "previousSlugsByLocale": {
         "de": [
@@ -14227,7 +14275,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-7118abba4965",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -14507,7 +14554,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-740c37ce8660",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -15954,7 +16000,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f4a3027ba193",
       "previousSlugsByLocale": {
         "de": [
@@ -17277,12 +17322,14 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
-          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
         ],
         "en": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
