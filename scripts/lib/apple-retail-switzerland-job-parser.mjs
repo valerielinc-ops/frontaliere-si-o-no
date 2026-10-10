@@ -10,6 +10,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
 import { sourcePostingDateCandidatesFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -139,14 +140,9 @@ const PAGE_SAFETY_CAP = 25; // pages; well above Apple's current ~1-page CH volu
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-async function fetchWithTimeout(url, options = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    return await fetch(url, { ...options, signal: controller.signal });
-  } finally {
-    clearTimeout(timer);
-  }
+// The deadline covers the body read too: returns `{ response, body }`.
+function fetchWithTimeout(url, options = {}, as = 'text') {
+  return fetchBodyWithDeadline(fetch, url, options, TIMEOUT_MS, { as });
 }
 
 /**
@@ -156,7 +152,7 @@ async function fetchWithTimeout(url, options = {}) {
  * empty-but-200 response, not an HTTP error).
  */
 async function bootstrapSession() {
-  const res = await fetchWithTimeout(CSRF_URL, {
+  const { response: res } = await fetchWithTimeout(CSRF_URL, {
     headers: { 'User-Agent': BROWSER_UA, Accept: 'application/json' },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} bootstrapping ${CSRF_URL}`);
@@ -203,7 +199,7 @@ async function fetchJobListings() {
   let pageSize = 0;
 
   while (listings.length < totalRecords && page <= PAGE_SAFETY_CAP) {
-    const res = await fetchWithTimeout(SEARCH_URL, {
+    const { response: res, body: payload } = await fetchWithTimeout(SEARCH_URL, {
       method: 'POST',
       headers,
       body: JSON.stringify({
@@ -214,10 +210,9 @@ async function fetchJobListings() {
         sort: 'newest',
         format: { longDate: 'MMMM D, YYYY', mediumDate: 'MMM D, YYYY' },
       }),
-    });
+    }, 'json');
     if (!res.ok) throw new Error(`HTTP ${res.status} on search page ${page}`);
 
-    const payload = await res.json();
     if (payload?.error) throw new Error(`Apple search API error: ${payload.error}`);
 
     const pageResults = payload?.res?.searchResults || [];
@@ -312,11 +307,11 @@ export function buildAppleJobDescription(jobsData) {
 
 async function fetchAppleJobDescription(url) {
   try {
-    const res = await fetchWithTimeout(url, {
+    const { response: res, body: html } = await fetchWithTimeout(url, {
       headers: { 'User-Agent': BROWSER_UA, Accept: 'text/html' },
     });
     if (!res.ok) return '';
-    return buildAppleJobDescription(parseAppleJobDetailsData(await res.text()));
+    return buildAppleJobDescription(parseAppleJobDetailsData(html));
   } catch {
     return '';
   }

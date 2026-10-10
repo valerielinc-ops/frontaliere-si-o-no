@@ -22,6 +22,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -220,23 +221,18 @@ const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)
 async function fetchAshbyBoard() {
   return fetchWithRetry(
     async () => {
-      const ac = new AbortController();
-      const timer = setTimeout(() => ac.abort(), TIMEOUT_MS);
-      let res;
-      try {
-        res = await fetch(ASHBY_API_URL, {
-          signal: ac.signal,
-          headers: { 'User-Agent': POLITE_UA, Accept: 'application/json' },
-        });
-      } finally {
-        clearTimeout(timer);
-      }
+      const { response: res, body: json } = await fetchBodyWithDeadline(
+        fetch,
+        ASHBY_API_URL,
+        { headers: { 'User-Agent': POLITE_UA, Accept: 'application/json' } },
+        TIMEOUT_MS,
+        { as: 'json' },
+      );
       if (!res.ok) {
         const err = new Error(`Ashby API ${res.status} ${res.statusText} for ${ASHBY_API_URL}`);
         err.statusCode = res.status;
         throw err;
       }
-      const json = await res.json();
       const jobs = Array.isArray(json?.jobs) ? json.jobs : null;
       if (!jobs) {
         const err = new Error(`Ashby API returned unexpected body shape for ${ASHBY_API_URL}`);

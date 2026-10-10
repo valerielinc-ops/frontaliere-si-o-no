@@ -5,6 +5,7 @@
  * resolves each Swiss workplace across all 26 cantons, and runs AI localization
  * for SEO-critical fields.
  */
+import { fetchBodyWithDeadline } from './lib/bounded-fetch-body.mjs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -256,22 +257,22 @@ function inferEmploymentType(title = '', workload = '') {
 // Fetch & Parse
 // ─────────────────────────────────────────────────────────────
 
-async function fetchWithTimeout(url, options = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    return await fetch(url, {
+// The deadline covers the body read too: returns `{ response, body }`.
+function fetchWithTimeout(url, options = {}, as = 'text') {
+  return fetchBodyWithDeadline(
+    fetch,
+    url,
+    {
       ...options,
-      signal: controller.signal,
       headers: {
         'User-Agent': UA,
         Accept: 'text/html,application/json,*/*',
         ...options.headers,
       },
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+    },
+    TIMEOUT_MS,
+    { as },
+  );
 }
 
 export async function fetchJobListings() {
@@ -287,13 +288,12 @@ export async function fetchJobListings() {
   for (let page = 0; page < MAX_LISTING_PAGES; page++) {
     const url = `${API_BASE}${API_PATH}&page=${page}`;
     console.log(`  📡 Fetching API page ${page + 1}: ${url}`);
-    const res = await fetchWithTimeout(url, {
+    const { response: res, body: data } = await fetchWithTimeout(url, {
       headers: { Accept: 'application/json' },
-    });
+    }, 'json');
     if (!res.ok) {
       throw new Error(`API returned ${res.status}`);
     }
-    const data = await res.json();
     const {
       listings: pageListings,
       declaredTotal: pageTotal,
@@ -356,12 +356,12 @@ export async function fetchJobListings() {
 async function fetchDetailPage(relativeUrl) {
   const url = `${API_BASE}${relativeUrl}`;
   try {
-    const res = await fetchWithTimeout(url);
+    const { response: res, body } = await fetchWithTimeout(url);
     if (!res.ok) {
       console.warn(`  ⚠️ Detail page ${res.status}: ${url}`);
       return null;
     }
-    return await res.text();
+    return body;
   } catch (err) {
     console.warn(`  ⚠️ Detail page error: ${url} — ${err.message}`);
     return null;

@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 import {
   addPreviousSlugForLocale,
@@ -299,14 +300,9 @@ function detectEmploymentType(text = '') {
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-async function fetchWithTimeout(url, options = {}) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    return await fetch(url, { ...options, signal: controller.signal });
-  } finally {
-    clearTimeout(timer);
-  }
+// The deadline covers the body read too: returns `{ response, body }`.
+function fetchWithTimeout(url, options = {}, as = 'text') {
+  return fetchBodyWithDeadline(fetch, url, options, TIMEOUT_MS, { as });
 }
 
 /**
@@ -316,7 +312,7 @@ async function fetchWithTimeout(url, options = {}) {
  * (without the X-CSRF-Token header the POST returns HTTP 400).
  */
 async function bootstrapSession() {
-  const res = await fetchWithTimeout(CAREER_URL, {
+  const { response: res, body: html } = await fetchWithTimeout(CAREER_URL, {
     headers: { 'User-Agent': BROWSER_UA, Accept: 'text/html' },
   });
   if (!res.ok) throw new Error(`HTTP ${res.status} bootstrapping ${CAREER_URL}`);
@@ -330,7 +326,6 @@ async function bootstrapSession() {
     .filter(Boolean)
     .join('; ');
 
-  const html = await res.text();
   const tokenMatch = html.match(/CSRFToken\s*=\s*["']([0-9a-fA-F-]{20,})["']/);
   if (!tokenMatch) throw new Error('CSRF token not found in search-results HTML');
 
@@ -375,10 +370,9 @@ async function fetchJobListings() {
       rcmCandidateId: '',
     });
 
-    const res = await fetchWithTimeout(JOBS_API_URL, { method: 'POST', headers, body });
+    const { response: res, body: data } = await fetchWithTimeout(JOBS_API_URL, { method: 'POST', headers, body }, 'json');
     if (!res.ok) throw new Error(`HTTP ${res.status} from jobs API (page ${pageNumber})`);
 
-    const data = await res.json();
     if (Number.isFinite(data.totalJobs)) totalJobs = data.totalJobs;
 
     const results = assertJsonListShape(data, { key: 'jobSearchResult', source: 'implenia' });

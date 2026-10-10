@@ -19,6 +19,8 @@
  * completely untouched.
  */
 
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
+
 export const JINA_READER_BASE = 'https://r.jina.ai/';
 
 /* ── Per-run egress circuit breaker (#1461 item 2) ──────────────────────────
@@ -127,23 +129,17 @@ const AKAMAI_CHALLENGE_MARKERS = Object.freeze([
 ]);
 
 /**
- * Fetch a URL through the Jina proxy with an AbortController timeout, so a slow
- * or hanging Jina request can never stall a crawler run until the global job
- * timeout. Returns the raw `Response`. Used by dedicated crawlers that fetch
- * outside the shared `fetchWithTimeout` chokepoint (discovery / single-page).
+ * Fetch a URL through the Jina proxy and read a 2xx body under one deadline,
+ * so a slow or hanging Jina request (headers or body) can never stall a
+ * crawler run until the global job timeout. Returns `{ response, body }`;
+ * `body` is null and the stream is unread for a non-2xx response.
  */
-export async function fetchViaJina(
+export function fetchViaJina(
   targetUrl,
   { timeoutMs = 30000, fetchImpl = fetch, format } = {},
 ) {
   const { url, headers } = jinaProxiedRequest(targetUrl, { format });
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    return await fetchImpl(url, { headers, signal: controller.signal });
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchBodyWithDeadline(fetchImpl, url, { headers }, timeoutMs);
 }
 
 /**
@@ -183,7 +179,7 @@ export async function fetchViaJinaWithRetry(
   let lastReason = 'no attempt made';
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl, format });
+      const { response: res, body } = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl, format });
       lastStatus = res.status;
       if (!res.ok) {
         // Jina's own non-2xx (rate limit / upstream) — a fresh IP may fare better.
@@ -197,7 +193,6 @@ export async function fetchViaJinaWithRetry(
         lastBody = '';
         lastReason = `HTTP ${res.status}`;
       } else {
-        const body = await res.text();
         lastBody = body;
         const reason = detectJinaErrorBody(body);
         if (!reason) {
@@ -343,9 +338,8 @@ export async function fetchHtmlViaJinaWithRetry(
   let lastReason = 'unknown';
   for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
     try {
-      const res = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
+      const { response: res, body: html } = await fetchViaJina(targetUrl, { timeoutMs, fetchImpl });
       if (res.ok) {
-        const html = await res.text();
         const reason = detectJinaErrorBody(html);
         if (!reason) {
           recordJinaSuccess();

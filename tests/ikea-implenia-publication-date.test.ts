@@ -21,7 +21,11 @@ for (const company of ['ikea', 'implenia']) {
     it.each(['', 'not-a-date', '2025-02-30', `junk ${date}`, date])('validates the complete detail date %s', async (raw) => {
       state.company = company;
       state.date = raw;
-      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((callback: () => void) => {
+      const realSetTimeout = globalThis.setTimeout;
+      // Skip only the short polite page delays: the request deadline keeps a
+      // real timer, or it would fire before the mocked fetch resolves.
+      vi.spyOn(globalThis, 'setTimeout').mockImplementation(((callback: () => void, ms?: number) => {
+        if ((ms ?? 0) >= 1000) return realSetTimeout(callback, ms);
         callback(); return 0 as unknown as ReturnType<typeof setTimeout>;
       }) as typeof setTimeout);
       vi.stubGlobal('fetch', vi.fn(async (url: string) => {

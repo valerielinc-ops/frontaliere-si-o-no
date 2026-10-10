@@ -17,6 +17,7 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { fetchBodyWithDeadline } from '../lib/bounded-fetch-body.mjs';
 import { getJobBoardSectionPrefix } from '../lib/jobBoardSections.mjs';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
@@ -250,16 +251,12 @@ function sleep(ms) {
   return new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 }
 
-async function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch) {
+// `read(response)` runs under the same deadline as the fetch, so a body that
+// stalls after the headers cannot hang the crawl.
+function fetchWithTimeout(url, options = {}, fetchImpl = globalThis.fetch) {
   const timeoutMs = Number(options.timeoutMs || DEFAULT_TIMEOUT_MS);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  const { timeoutMs: _ignored, ...fetchOptions } = options;
-  try {
-    return await fetchImpl(url, { ...fetchOptions, signal: controller.signal });
-  } finally {
-    clearTimeout(timer);
-  }
+  const { timeoutMs: _ignored, read, ...fetchOptions } = options;
+  return fetchBodyWithDeadline(fetchImpl, url, fetchOptions, timeoutMs, { read });
 }
 
 async function cancelReaderOnReadError(reader) {
@@ -333,14 +330,14 @@ async function readLimitedBody(response, maxBytes = DEFAULT_MAX_BODY_BYTES) {
 }
 
 async function fetchSitemap(url, { fetchImpl = globalThis.fetch, timeoutMs = DEFAULT_TIMEOUT_MS } = {}) {
-  const response = await fetchWithTimeout(url, {
+  const { response, body } = await fetchWithTimeout(url, {
     method: 'GET',
     redirect: 'follow',
     headers: { 'user-agent': CRAWLER_USER_AGENT, accept: 'application/xml,text/xml,text/plain;q=0.8' },
     timeoutMs,
+    read: (res) => (res.ok ? readLimitedBody(res, DEFAULT_MAX_SITEMAP_BYTES) : null),
   }, fetchImpl);
   if (!response.ok) throw new Error(`sitemap ${response.status} ${url}`);
-  const body = await readLimitedBody(response, DEFAULT_MAX_SITEMAP_BYTES);
   if (body.truncated) throw new Error(`sitemap oltre ${DEFAULT_MAX_SITEMAP_BYTES} byte: ${url}`);
   return body.text;
 }
@@ -749,22 +746,26 @@ async function probeOnce(url, {
   scope = SITEMAP_SCOPE,
 } = {}) {
   let response;
+  let body;
   try {
-    response = await fetchWithTimeout(url, {
+    ({ response, body } = await fetchWithTimeout(url, {
       method: 'GET',
       redirect: 'manual',
       headers: { 'user-agent': CRAWLER_USER_AGENT, accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.1' },
       timeoutMs,
-    }, fetchImpl);
+      read: (res) => {
+        const type = header(res, 'content-type').toLowerCase();
+        return res.status >= 200 && res.status < 400 && (type.includes('html') || !type)
+          ? readLimitedBody(res, maxBodyBytes)
+          : { text: '', truncated: false };
+      },
+    }, fetchImpl));
   } catch (error) {
     return { url, status: 0, finalUrl: url, findings: [finding('fetch-error', url, error?.message || String(error))], links: [] };
   }
   const location = header(response, 'location');
   const finalUrl = location ? normalizeUrl(location, url) || location : url;
   const contentType = header(response, 'content-type').toLowerCase();
-  const body = response.status >= 200 && response.status < 400 && (contentType.includes('html') || !contentType)
-    ? await readLimitedBody(response, maxBodyBytes)
-    : { text: '', truncated: false };
   const classified = classifyDocument({
     url,
     status: response.status,

@@ -9,9 +9,11 @@
  * read race one timer; at the deadline the request is aborted, the body is
  * cancelled, and the call rejects even if `fetchImpl` ignores the signal.
  *
- * Returns `{ response, body }`. The body is read (as text, or parsed JSON with
- * `as: 'json'`) only when `response.ok === true`; otherwise `body` is null.
- * Rejects on network errors, invalid JSON and the deadline.
+ * Returns `{ response, body }`. By default the body is read (as text, or
+ * parsed JSON with `as: 'json'`) only when `response.ok === true`; otherwise
+ * `body` is null. A caller with its own read rule (any status, a byte cap)
+ * passes `read(response)`, and its result becomes `body`, still under the
+ * deadline. Rejects on network errors, invalid JSON and the deadline.
  *
  * Dependency-free (no Node-only APIs) so CI scripts can use it before
  * `npm ci`.
@@ -35,7 +37,7 @@ async function boundedCancel(cancel) {
   }
 }
 
-export async function fetchBodyWithDeadline(fetchImpl, url, init, timeoutMs, { as = 'text' } = {}) {
+export async function fetchBodyWithDeadline(fetchImpl, url, init, timeoutMs, { as = 'text', read } = {}) {
   const controller = new AbortController();
   let response;
   let reader;
@@ -65,7 +67,9 @@ export async function fetchBodyWithDeadline(fetchImpl, url, init, timeoutMs, { a
 
   const work = (async () => {
     response = await fetchImpl(url, { ...init, signal: controller.signal });
-    const body = response?.ok === true ? await readBody() : null;
+    let body = null;
+    if (read) body = await read(response);
+    else if (response?.ok === true) body = await readBody();
     return { response, body };
   })();
   const deadline = new Promise((_, reject) => {

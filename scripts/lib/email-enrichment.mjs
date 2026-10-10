@@ -7,6 +7,7 @@
 // blocklist, scrape paths and DDG rate-limit from drifting apart.
 
 import dns from 'node:dns/promises';
+import { fetchBodyWithDeadline } from './bounded-fetch-body.mjs';
 import { extractCompanyEmails } from './email-finder.mjs';
 import { extractDdgDomains, guessDomains, rankDomains } from './domain-finder.mjs';
 
@@ -26,12 +27,14 @@ export const ATS_DOMAINS = new Set([
 /** Fetch a URL's text (best-effort, capped, timed out). Empty string on any failure. */
 export async function fetchText(url, timeoutMs = 8000) {
   try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), timeoutMs);
-    const r = await fetch(url, { signal: ctrl.signal, redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (compatible; frontaliereticino-enrichment/1.0)' } });
-    clearTimeout(t);
+    const { response: r, body } = await fetchBodyWithDeadline(
+      fetch,
+      url,
+      { redirect: 'follow', headers: { 'User-Agent': 'Mozilla/5.0 (compatible; frontaliereticino-enrichment/1.0)' } },
+      timeoutMs,
+    );
     if (!r.ok) return '';
-    return (await r.text()).slice(0, 500_000);
+    return body.slice(0, 500_000);
   } catch { return ''; }
 }
 
@@ -49,12 +52,13 @@ export async function findDomain(name) {
   _lastDdg = Date.now();
   let candidates = [];
   try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 9000);
-    const r = await fetch('https://html.duckduckgo.com/html/?q=' + encodeURIComponent(name + ' sito ufficiale'),
-      { signal: ctrl.signal, headers: { 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'it' } });
-    clearTimeout(t);
-    if (r.ok) candidates = extractDdgDomains(await r.text());
+    const { response: r, body } = await fetchBodyWithDeadline(
+      fetch,
+      'https://html.duckduckgo.com/html/?q=' + encodeURIComponent(name + ' sito ufficiale'),
+      { headers: { 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'it' } },
+      9000,
+    );
+    if (r.ok) candidates = extractDdgDomains(body);
   } catch { /* search unavailable → fall back to guesses */ }
   candidates.push(...guessDomains(name));
   const valid = [];

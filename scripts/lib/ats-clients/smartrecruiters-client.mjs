@@ -89,6 +89,7 @@
  *                                                that need extra fields.
  */
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
 import { fetchWithRetry } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { sourcePostingDateFields } from '../source-posting-date.mjs';
@@ -152,26 +153,25 @@ function slugify(input = '') {
 }
 
 /**
- * Promise wrapper around `fetch` that aborts after `timeoutMs`.
+ * `fetch` plus JSON body read under one `timeoutMs` deadline.
  * @param {string} url
  * @param {{ timeoutMs?: number, headers?: Record<string,string> }} [opts]
- * @returns {Promise<Response>}
+ * @returns {Promise<{ response: Response, body: any }>}
  */
-async function timedFetch(url, { timeoutMs = DEFAULT_TIMEOUT_MS, headers = {} } = {}) {
-  const ac = new AbortController();
-  const timer = setTimeout(() => ac.abort(), timeoutMs);
-  try {
-    return await fetch(url, {
-      signal: ac.signal,
+function timedFetchJson(url, { timeoutMs = DEFAULT_TIMEOUT_MS, headers = {} } = {}) {
+  return fetchBodyWithDeadline(
+    fetch,
+    url,
+    {
       headers: {
         'User-Agent': POLITE_UA,
         Accept: 'application/json',
         ...headers,
       },
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+    },
+    timeoutMs,
+    { as: 'json' },
+  );
 }
 
 /* ── Public API ──────────────────────────────────────────────── */
@@ -281,12 +281,11 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
   // typo / case mismatch) fail fast.
   return fetchWithRetry(
     async () => {
-      const res = await timedFetch(url, {
+      const { response: res, body: json } = await timedFetchJson(url, {
         timeoutMs,
         headers: { 'User-Agent': userAgent },
       });
       if (res.ok) {
-        const json = await res.json();
         const content = assertJsonListShape(json, { key: 'content', source: 'smartrecruiters' });
         const hasTotalFoundField = Boolean(
           json && typeof json === 'object' && Object.prototype.hasOwnProperty.call(json, 'totalFound'),
@@ -345,12 +344,11 @@ async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent
   // which trips the thin-source guard for crawlers like Avaloq + HUG.
   const url = `${SR_API_BASE}/${encodeURIComponent(tenant)}/postings/${encodeURIComponent(id)}`;
   try {
-    const res = await timedFetch(url, {
+    const { response: res, body: full } = await timedFetchJson(url, {
       timeoutMs,
       headers: { 'User-Agent': userAgent },
     });
     if (!res.ok) return listingPosting;
-    const full = await res.json();
     if (!full || typeof full !== 'object' || Array.isArray(full)) return listingPosting;
 
     // SmartRecruiters documents the detail response as a full PostingDetails

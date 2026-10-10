@@ -48,6 +48,7 @@
  */
 
 import process from "node:process";
+import { fetchBodyWithDeadline } from "./lib/bounded-fetch-body.mjs";
 
 const SITE = "https://frontaliereticino.ch";
 const SITEMAP_URL = `${SITE}/sitemap-blog.xml`;
@@ -76,11 +77,13 @@ function log(line) {
   else console.error(line);
 }
 
-async function fetchWithTimeout(url, init = {}) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
-  try {
-    return await fetch(url, {
+// The deadline covers the body read too, so a stalled body cannot hang the
+// canary.
+function fetchWithTimeout(url, init = {}) {
+  return fetchBodyWithDeadline(
+    fetch,
+    url,
+    {
       ...init,
       headers: {
         "User-Agent": USER_AGENT,
@@ -88,17 +91,14 @@ async function fetchWithTimeout(url, init = {}) {
           "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         ...(init.headers || {}),
       },
-      signal: ctrl.signal,
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+    },
+    FETCH_TIMEOUT_MS,
+  );
 }
 
 async function loadArticleUrls() {
-  const res = await fetchWithTimeout(SITEMAP_URL);
+  const { response: res, body: xml } = await fetchWithTimeout(SITEMAP_URL);
   if (!res.ok) throw new Error(`sitemap fetch ${res.status}`);
-  const xml = await res.text();
   const urls = [];
   const rx = /<loc>([^<]+)<\/loc>/g;
   let m;
@@ -119,8 +119,9 @@ function pickSample(urls, n) {
 
 async function probe(url) {
   let res;
+  let body;
   try {
-    res = await fetchWithTimeout(url, { redirect: "manual" });
+    ({ response: res, body } = await fetchWithTimeout(url, { redirect: "manual" }));
   } catch (err) {
     return { url, ok: false, reason: `fetch error: ${err.message || err}` };
   }
@@ -131,7 +132,6 @@ async function probe(url) {
   if (!ct.toLowerCase().startsWith("text/html")) {
     return { url, ok: false, reason: `content-type=${ct || "(none)"}` };
   }
-  const body = await res.text();
   const bytes = Buffer.byteLength(body, "utf8");
   if (bytes < MIN_BYTES) {
     return { url, ok: false, reason: `body=${bytes}B < ${MIN_BYTES}B (stub?)`, bytes };

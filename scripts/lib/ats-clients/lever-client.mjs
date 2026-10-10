@@ -56,6 +56,7 @@
  *   actually renders.
  */
 
+import { fetchBodyWithDeadline } from '../bounded-fetch-body.mjs';
 import { fetchWithRetry } from '../transient-fetch.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
@@ -122,26 +123,25 @@ function msToIso(ms) {
 }
 
 /**
- * Promise wrapper around `fetch` that aborts after `timeoutMs`.
+ * `fetch` plus JSON body read under one `timeoutMs` deadline.
  * @param {string} url
  * @param {{ timeoutMs?: number, headers?: Record<string,string> }} [opts]
- * @returns {Promise<Response>}
+ * @returns {Promise<{ response: Response, body: any }>}
  */
-async function timedFetch(url, { timeoutMs = DEFAULT_TIMEOUT_MS, headers = {} } = {}) {
-  const ac = new AbortController();
-  const timer = setTimeout(() => ac.abort(), timeoutMs);
-  try {
-    return await fetch(url, {
-      signal: ac.signal,
+function timedFetchJson(url, { timeoutMs = DEFAULT_TIMEOUT_MS, headers = {} } = {}) {
+  return fetchBodyWithDeadline(
+    fetch,
+    url,
+    {
       headers: {
         'User-Agent': POLITE_UA,
         Accept: 'application/json',
         ...headers,
       },
-    });
-  } finally {
-    clearTimeout(timer);
-  }
+    },
+    timeoutMs,
+    { as: 'json' },
+  );
 }
 
 /* ── Public API ──────────────────────────────────────────────── */
@@ -183,9 +183,8 @@ async function fetchLeverPage(url, timeoutMs) {
   // A non-array body is a parse-shape error, not transient → fail fast.
   return fetchWithRetry(
     async () => {
-      const res = await timedFetch(url, { timeoutMs });
+      const { response: res, body: json } = await timedFetchJson(url, { timeoutMs });
       if (res.ok) {
-        const json = await res.json();
         if (!Array.isArray(json)) {
           const e = new LeverApiError(
             `Lever API returned non-array body for ${url}`,
@@ -209,7 +208,7 @@ async function fetchLeverPage(url, timeoutMs) {
           // statusCode null = network/abort/parse → transient; else only 5xx.
           return err.statusCode == null || err.statusCode >= 500;
         }
-        // Bare network/abort error thrown by timedFetch before wrapping.
+        // Bare network/abort/deadline error thrown by timedFetchJson before wrapping.
         return true;
       },
     },
