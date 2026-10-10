@@ -290,6 +290,61 @@ describe('sync-published-blog-covers', () => {
     });
   });
 
+  it.each(['missing', 'rejected', 'mismatch'] as const)(
+    'demotes an existing generated cover when pinned evidence is %s',
+    (failure) => {
+      const root = fixture();
+      addGeneratedEvidence(root);
+      const firstRun = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
+        cwd: root,
+        encoding: 'utf8',
+        env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+      }));
+      expect(firstRun.generatedAddedKeys).toEqual(['new-cover']);
+
+      const snapshotPath = path.join(root, 'data/published-blog-generated-image-evidence.json');
+      const snapshot = JSON.parse(fs.readFileSync(snapshotPath, 'utf8'));
+      if (failure === 'missing') {
+        snapshot.generated = {};
+      } else if (failure === 'rejected') {
+        snapshot.generated[IMAGE].assetId = 'different-cover';
+      } else {
+        const mismatchedSha = 'f'.repeat(64);
+        snapshot.generated[IMAGE].sha256 = mismatchedSha;
+        const creditPath = path.join(root, 'packages/articles/content/image-credits/blog/new-cover.json');
+        const credit = JSON.parse(fs.readFileSync(creditPath, 'utf8'));
+        credit.generated.sha256 = mismatchedSha;
+        fs.writeFileSync(creditPath, `${JSON.stringify(credit, null, 2)}\n`);
+      }
+      fs.writeFileSync(snapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
+
+      const output = JSON.parse(execFileSync(process.execPath, [SCRIPT], {
+        cwd: root,
+        encoding: 'utf8',
+        env: { ...process.env, ARTICLES_SYNC_COMMIT: SOURCE_COMMIT },
+      }));
+      const ledger = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-ledger.json'), 'utf8'));
+      const index = JSON.parse(fs.readFileSync(path.join(root, 'data/image-credits-blog.json'), 'utf8'));
+
+      expect(output.demotedGeneratedKeys).toEqual(['new-cover']);
+      expect(ledger.covers['new-cover']).toMatchObject({
+        proofLevel: 6,
+        evidence: 'inferred',
+        recordFile: null,
+        action: 'record-inferred',
+        status: 'no-credit',
+      });
+      expect(ledger.covers['new-cover'].generated).toBeUndefined();
+      expect(index.covers['new-cover']).toMatchObject({ evidence: 'inferred', status: 'no-credit' });
+      expect(index.covers['new-cover'].file).toBeUndefined();
+      expect(index.files).not.toHaveProperty('generated:new-cover');
+
+      if (failure === 'missing') expect(output.generatedEvidenceMissing).toEqual([{ key: 'new-cover' }]);
+      if (failure === 'rejected') expect(output.generatedEvidenceRejected).toEqual([expect.objectContaining({ key: 'new-cover' })]);
+      if (failure === 'mismatch') expect(output.generatedEvidenceMismatches).toEqual([expect.objectContaining({ key: 'new-cover' })]);
+    },
+  );
+
   it('fails closed without changing either file when a published cover blob is unavailable', () => {
     const root = fixture({ withImage: false });
     const ledgerPath = path.join(root, 'data/blog-cover-ledger.json');

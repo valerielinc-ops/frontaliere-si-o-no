@@ -4,9 +4,9 @@
  *
  * The corpus sync writes article registries and cover blobs before it opens its
  * stable PR. This bounded writer closes that transaction without re-auditing
- * historical covers: existing entries are untouched, while a new cover is
- * recorded conservatively as inferred/no-credit until the dedicated licence
- * audit can prove a stronger source.
+ * historical covers: new covers are recorded conservatively as inferred/no-
+ * credit, and generated entries are demoted if their pinned proof stops
+ * matching the published asset.
  */
 
 import crypto from 'node:crypto';
@@ -136,6 +136,38 @@ function setGeneratedIndex(index, key, creditRecord) {
   index.files[file] = fileValue;
   index.covers[key] = coverValue;
   return changed;
+}
+
+function demoteGeneratedEvidence(index, key, item, evidence) {
+  const currentCover = index.covers[key];
+  const generatedFiles = new Set([
+    currentCover?.file,
+    item.generated?.assetId ? `generated:${item.generated.assetId}` : null,
+  ].filter((file) => typeof file === 'string' && file.startsWith('generated:')));
+
+  delete index.covers[key];
+  for (const file of generatedFiles) {
+    const referencedElsewhere = Object.values(index.covers).some((cover) => cover?.file === file);
+    if (!referencedElsewhere && index.files) delete index.files[file];
+  }
+
+  Object.assign(item, {
+    proofLevel: 6,
+    evidence: 'inferred',
+    recordFile: null,
+    action: 'record-inferred',
+    reason: `Prova generated non verificata (${evidence.state}${evidence.reason ? `: ${evidence.reason}` : ''}); mantenuta come inferred senza credito.`,
+    verifiedAt: TODAY,
+    provider: null,
+    status: 'no-credit',
+  });
+  delete item.generated;
+  index.covers[key] = {
+    evidence: 'inferred',
+    provider: null,
+    verifiedAt: TODAY,
+    status: 'no-credit',
+  };
 }
 
 function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null) {
@@ -273,6 +305,8 @@ function main() {
   const generatedAddedKeys = [];
   const generatedBackfilledKeys = [];
   const reconciledGeneratedKeys = [];
+  const demotedGeneratedKeys = [];
+  const generatedEvidenceMissing = [];
   const generatedEvidenceMismatches = [];
   const generatedEvidenceRejected = [];
   const repairedIndexKeys = [];
@@ -322,7 +356,7 @@ function main() {
     if (item?.evidence !== 'inferred' && item?.evidence !== 'generated-engine-record') continue;
     const image = byKey.get(key)?.[0]?.image || item.cover;
     if (typeof image !== 'string') continue;
-    if ((recordsByImage.get(image) || []).length === 0) continue;
+    if ((recordsByImage.get(image) || []).length === 0 && item.evidence !== 'generated-engine-record') continue;
 
     const beforeItem = JSON.stringify(item);
     const beforeCoverIndex = JSON.stringify(index.covers[key]);
@@ -338,6 +372,11 @@ function main() {
       generatedEvidenceMismatches.push({ key, ...evidence });
     } else if (evidence.state === 'rejected') {
       generatedEvidenceRejected.push({ key, reason: evidence.reason });
+    }
+    if (evidence.state !== 'verified' && item.evidence === 'generated-engine-record') {
+      demoteGeneratedEvidence(index, key, item, evidence);
+      demotedGeneratedKeys.push(key);
+      if (evidence.state === 'missing') generatedEvidenceMissing.push({ key });
     }
   }
 
@@ -369,7 +408,7 @@ function main() {
   }
   const baselineUpdated = JSON.stringify(baseline) !== beforeBaseline;
 
-  if (additions.length || generatedBackfilledKeys.length || reconciledGeneratedKeys.length
+  if (additions.length || generatedBackfilledKeys.length || reconciledGeneratedKeys.length || demotedGeneratedKeys.length
     || repairedIndexKeys.length || baselineUpdated) {
     ledger.generatedAt = TODAY;
     index.covers = Object.fromEntries(Object.entries(index.covers).sort(([a], [b]) => a.localeCompare(b)));
@@ -386,7 +425,9 @@ function main() {
     generatedAddedKeys,
     generatedBackfilledKeys,
     reconciledGeneratedKeys,
+    demotedGeneratedKeys,
     repairedIndexKeys,
+    generatedEvidenceMissing,
     generatedEvidenceMismatches,
     generatedEvidenceRejected,
     baselineUpdated,
