@@ -17,10 +17,11 @@ import {
  *
  * WHAT IS ASSERTED is in `judgeStaticHandoff` and unit-tested in
  * tests/article-hydration-handoff.test.ts: from the first paint of the static
- * snapshot until the SPA copy has settled, a reader sees exactly one of the
- * two, the snapshot does not move while it is the one on screen, and the SPA
- * `<main>` is not painted above it. Sampled every animation frame, not on a
- * 250 ms tick: a blank that lasts 100 ms is still a blank.
+ * snapshot until the SPA copy has settled (or a version-skewed canton payload
+ * leaves the fail-closed snapshot in charge), a reader sees exactly one body,
+ * the snapshot does not move while it is on screen, and the SPA `<main>` is
+ * not painted above it. Sampled every animation frame, not on a 250 ms tick: a
+ * blank that lasts 100 ms is still a blank.
  *
  * ON THE PLAIN URL, like daily-brief-table-parity-live.spec.ts: what the edge
  * serves is what the reader gets.
@@ -70,14 +71,20 @@ async function readHandoff(page: Page, probe: HandoffProbeOptions): Promise<Hand
   return page.evaluate(() => (window as unknown as { __staticHandoff: HandoffRecord }).__staticHandoff);
 }
 
-function expectCleanHandoff(label: string, url: string, record: HandoffRecord): void {
-  const verdict = judgeStaticHandoff(record);
+function expectCleanHandoff(
+  label: string,
+  url: string,
+  record: HandoffRecord,
+  { allowStableSnapshot = false }: { allowStableSnapshot?: boolean } = {},
+): void {
+  const verdict = judgeStaticHandoff(record, { allowStableSnapshot });
   // One line a red check can be read from, without reopening a browser.
   console.log(
     `[static-handoff] ${label} snapshotMs=${verdict.firstSnapshotMs ?? 'n/a'} swapMs=${verdict.swapMs ?? 'n/a'} `
     + `gapMs=${verdict.gapMs} bothMs=${verdict.bothMs} spaMainOverSnapshotMs=${verdict.spaMainOverSnapshotMs} `
     + `snapshotShiftPx=${verdict.snapshotShiftPx} layoutShift=${record.layoutShift.toFixed(4)} `
-    + `samples=${record.samples} longestSampleGapMs=${record.longestSampleGapMs} url=${url}`,
+    + `outcome=${record.settled ? 'spa' : 'static-fallback'} samples=${record.samples} `
+    + `longestSampleGapMs=${record.longestSampleGapMs} url=${url}`,
   );
   expect(verdict.violations, `${label}: ${url}`).toEqual([]);
 }
@@ -108,10 +115,20 @@ test.describe('static article → SPA handoff', () => {
     const status = await openWithProbe(page, url, TOPIC_HUB_PROBE);
     expect(status, `${url} must serve 200`).toBe(200);
 
-    expectCleanHandoff('topic-hub-it', url, await readHandoff(page, TOPIC_HUB_PROBE));
-    // Removed at the swap, not hidden: left behind, the rail grid is an empty
-    // band after the footer and the snapshot a second copy of the page.
-    expect(await page.locator('main.seo-static-content').count()).toBe(0);
-    expect(await page.locator('body > .ft-rail-grid').count()).toBe(0);
+    const record = await readHandoff(page, TOPIC_HUB_PROBE);
+    // The runtime contract rejects a canton-hub payload whose commit differs
+    // from the edge registry. In that fail-closed state the complete corpus
+    // snapshot deliberately remains the only page body; it is a valid handoff
+    // outcome as long as the probe saw no blank, duplicate or moving frame.
+    expectCleanHandoff('topic-hub-it', url, record, { allowStableSnapshot: true });
+    if (record.settled) {
+      // Removed at the swap, not hidden: left behind, the rail grid is an empty
+      // band after the footer and the snapshot a second copy of the page.
+      expect(await page.locator('main.seo-static-content').count()).toBe(0);
+      expect(await page.locator('body > .ft-rail-grid').count()).toBe(0);
+    } else {
+      await expect(page.locator('main.seo-static-content')).toBeVisible();
+      expect(await page.locator('body > .ft-rail-grid').count()).toBe(1);
+    }
   });
 });
