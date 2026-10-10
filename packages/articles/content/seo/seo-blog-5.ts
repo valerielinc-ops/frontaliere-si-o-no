@@ -104514,6 +104514,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-teatro-locarno-fondi-pubblici': {
+    title: 'Teatro di Locarno: chiesti più fondi agli enti pubblici',
+    description: 'Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55\'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale',
+    keywords: 'frontalieri, ticino, svizzera, italia, teatro, locarno, chiesti, fondi',
+    ogTitle: 'Teatro di Locarno, chiesti più fondi pubblici',
+    ogDescription: 'Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55\'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale',
+    canonicalPath: '/articoli-frontaliere/teatro-locarno-fondi-pubblici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Teatro di Locarno: chiesti più fondi agli enti pubblici",
+      "description": "Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-teatro-locarno-fondi-pubblici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-09T23:43:17+00:00",
+      "dateModified": "2026-10-09T23:43:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/teatro-locarno-fondi-pubblici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-raffica-scontri-varesotto': {
+    title: 'Varesotto: quattro incidenti in meno di un\'ora',
+    description: 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    keywords: 'frontalieri, ticino, svizzera, italia, varesotto, quattro, incidenti, meno',
+    ogTitle: 'Varesotto: quattro incidenti in meno di un\'ora',
+    ogDescription: 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    canonicalPath: '/articoli-frontaliere/raffica-scontri-varesotto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varesotto: quattro incidenti in meno di un'ora",
+      "description": "Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-raffica-scontri-varesotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada al mattino con traffico leggero, immagine simbolica per la cronaca stradale del Varesotto."
+      },
+      "datePublished": "2026-10-10T01:44:21+00:00",
+      "dateModified": "2026-10-10T01:44:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raffica-scontri-varesotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frana-sementina-h13-gudo': {
+    title: 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    description: 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    keywords: 'frontalieri, ticino, svizzera, italia, frana, sementina, chiusa, gudo',
+    ogTitle: 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    ogDescription: 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    canonicalPath: '/articoli-frontaliere/frana-sementina-h13-gudo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frana a Sementina: chiusa la H13 tra Sementina e Gudo",
+      "description": "Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smottamento sulla strada cantonale a Sementina: la H13 verso Gudo è chiusa"
+      },
+      "datePublished": "2026-10-10T02:19:31+00:00",
+      "dateModified": "2026-10-10T02:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frana-sementina-h13-gudo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-viabilita-sacro-monte-varese': {
+    title: 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    description: 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    keywords: 'frontalieri, ticino, svizzera, italia, sacro, monte, senso, unico',
+    ogTitle: 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    ogDescription: 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    canonicalPath: '/articoli-frontaliere/viabilita-sacro-monte-varese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sacro Monte: senso unico alternato in via Campo dei Fiori",
+      "description": "Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-viabilita-sacro-monte-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada verso il Sacro Monte di Varese con cantiere stradale"
+      },
+      "datePublished": "2026-10-10T03:14:55+00:00",
+      "dateModified": "2026-10-10T03:14:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viabilita-sacro-monte-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

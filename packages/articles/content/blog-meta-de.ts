@@ -12902,6 +12902,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, Verkehr wegen eines Unfalls in der Via Colombera lahmgelegt',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Verkehr in Caslano lahmgelegt Unfall entlang der Via Colombera Motorradfahrer beteiligt Lokaler Verkehr stark beeinträchtigt Ort → Via Colombera, zwischen Caslano',
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: Mehr Mittel von den öffentlichen Stellen gefordert',
+    'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Über hundert Mitglieder an der Versammlung am Donnerstagabend Defizit von rund 55\'000 Franken in der Saison 2025/26 Das Defizit wurde mit dem Vereinsvermögen gedeckt',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.raffica-scontri-varesotto.title': 'Varesotto: vier Unfälle in weniger als einer Stunde',
+    'blog.article.raffica-scontri-varesotto.excerpt': 'Vier Einsätze in der Provinz Varese Von 6.59 bis 7.36 Uhr am Freitag Vorfälle in Varese, Rancio Valcuvia, Tradate und Gallarate Drei Personen nach Dringlichkeitscode beurteilt',
+    'blog.article.raffica-scontri-varesotto.imageAlt': 'Ruhige Straße am Morgen, symbolisches Bild für einen Verkehrsunfallbericht aus dem Varesotto.',
+    'blog.article.frana-sementina-h13-gudo.title': 'Erdrutsch in Sementina: H13 zwischen Sementina und Gudo gesperrt',
+    'blog.article.frana-sementina-h13-gudo.excerpt': 'Erdrutsch auf der Kantonsstrasse in Sementina Fahrbahn blockiert und Umleitungen eingerichtet H13 zwischen Sementina und Gudo gesperrt Keine Verletzten; Sachschäden',
+    'blog.article.frana-sementina-h13-gudo.imageAlt': 'Erdrutsch auf der Kantonsstrasse in Sementina: Die H13 nach Gudo ist gesperrt',
+    'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: wechselseitiger Einbahnverkehr in der Via Campo dei Fiori',
+    'blog.article.viabilita-sacro-monte-varese.excerpt': 'Vom 9. Oktober bis zum 30. November 2026 ändert sich die Verkehrsführung in der Via Campo dei Fiori: wechselseitiger Einbahnverkehr Temporäre Ampel und Höchstgeschwindigkeit von 30 km/h Arbeiten',
+    'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Straße zum Sacro Monte in Varese mit Baustelle',
 };
 
 export default blogMetaDe;

@@ -12904,6 +12904,18 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.title': 'Caslano, traffico in tilt per incidente in via Colombera',
     'blog.article.caslano-colombera-incidente-moto.excerpt': 'Traffico in tilt a Caslano Incidente lungo via Colombera Coinvolto un motociclista Viabilità locale fortemente perturbata Luogo → via Colombera, tra Caslano',
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: chiesti più fondi agli enti pubblici',
+    'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55\'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.raffica-scontri-varesotto.title': 'Varesotto: quattro incidenti in meno di un\'ora',
+    'blog.article.raffica-scontri-varesotto.excerpt': 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    'blog.article.raffica-scontri-varesotto.imageAlt': 'Strada al mattino con traffico leggero, immagine simbolica per la cronaca stradale del Varesotto.',
+    'blog.article.frana-sementina-h13-gudo.title': 'Frana a Sementina: chiusa la H13 tra Sementina e Gudo',
+    'blog.article.frana-sementina-h13-gudo.excerpt': 'Smottamento sulla strada cantonale a Sementina Carreggiata bloccata e deviazioni attivate H13 chiusa tra Sementina e Gudo Nessun ferito; danni materiali',
+    'blog.article.frana-sementina-h13-gudo.imageAlt': 'Smottamento sulla strada cantonale a Sementina: la H13 verso Gudo è chiusa',
+    'blog.article.viabilita-sacro-monte-varese.title': 'Sacro Monte: senso unico alternato in via Campo dei Fiori',
+    'blog.article.viabilita-sacro-monte-varese.excerpt': 'Dal 9 ottobre al 30 novembre 2026 cambia la viabilità Via Campo dei Fiori: senso unico alternato Semaforo temporaneo e limite massimo di 30 km/h Lavori',
+    'blog.article.viabilita-sacro-monte-varese.imageAlt': 'Strada verso il Sacro Monte di Varese con cantiere stradale',
 };
 
 export default blogMetaIt;

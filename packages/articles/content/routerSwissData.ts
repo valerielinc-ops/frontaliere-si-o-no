@@ -2693,6 +2693,14 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mastercard-pagamenti-rete-assente': { it: 'mastercard-pagamenti-rete-assente', en: 'mastercard-payments-without-internet', de: 'mastercard-zahlungen-ohne-internet', fr: 'mastercard-paiements-sans-internet' },
  'referendum-iva-2026-aumento-per-la-tredicesima-pensione': { it: 'referendum-iva-2026-aumento-per-la-tredicesima-pensione', en: '2026-vat-referendum-increase-for-the-thirteenth-pension-payment', de: 'mehrwertsteuer-referendum-2026-erhohung-fur-die-13-rente', fr: 'referendum-sur-la-tva-2026-hausse-pour-la-treizieme-rente' },
  'referendum-nucleare-svizzera-2027': { it: 'referendum-nucleare-svizzera-2027', en: 'referendum-nuclear-switzerland-2027', de: 'referendum-nuklear-schweiz-2027', fr: 'referendum-nucleaire-suisse-2027' },
+ 'axpo-solare-argovia': { it: 'axpo-solare-argovia', en: 'axpo-solar-aargau', de: 'axpo-solaranlage-aargau', fr: 'axpo-solaire-argovie' },
+ 'friedli-rinuncia-corsa-federale': { it: 'friedli-rinuncia-corsa-federale', en: 'esther-friedli-no-federal-council-bid', de: 'esther-friedli-keine-bundesratskandidatur', fr: 'esther-friedli-renonce-conseil-federal' },
+ 'lucerna-polizza-edifici-regole': { it: 'lucerna-polizza-edifici-regole', en: 'lucerne-building-insurance-rules', de: 'luzern-gebaeudeversicherung-regeln', fr: 'assurance-immeubles-lucerne-regles' },
+ 'seco-cambiamenti-istituzionali-2026': { it: 'seco-cambiamenti-istituzionali-2026', en: 'seco-institutional-changes-2026', de: 'seco-institutionelle-aenderungen-2026', fr: 'seco-changements-institutionnels-2026' },
+ 'corsi-contributi-lucerna': { it: 'corsi-contributi-lucerna', en: 'continuing-education-lucerne', de: 'weiterbildung-luzern', fr: 'formation-continue-lucerne' },
+ 'sgkb-filiali-fisiche': { it: 'sgkb-filiali-fisiche', en: 'sgkb-physical-branches', de: 'sgkb-physische-filialen', fr: 'sgkb-filiales-physiques' },
+ 'multe-como-targhe-estere': { it: 'multe-como-targhe-estere', en: 'como-fines-foreign-plates', de: 'como-strafen-auslaendische-kennzeichen', fr: 'amendes-come-plaques-etrangeres' },
+ 'uri-soglia-salariale-controlli': { it: 'uri-soglia-salariale-controlli', en: 'uri-minimum-wage-rules', de: 'uri-mindestlohn-regeln', fr: 'uri-salaire-minimum-regles' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

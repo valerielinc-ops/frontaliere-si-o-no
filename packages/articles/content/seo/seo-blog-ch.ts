@@ -101037,6 +101037,318 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-axpo-solare-argovia': {
+    title: 'Axpo: impianto solare su terreno agricolo in Argovia',
+    description: 'Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua',
+    keywords: 'frontalieri, ticino, svizzera, italia, axpo, impianto, solare, terreno',
+    ogTitle: 'Axpo: solare su terreno agricolo in Argovia',
+    ogDescription: 'Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua',
+    canonicalPath: '/articoli-svizzera/axpo-solare-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Axpo: impianto solare su terreno agricolo in Argovia",
+      "description": "Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-axpo-solare-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto solare su terreno agricolo a Suhr, nel canton Argovia"
+      },
+      "datePublished": "2026-10-09T23:11:13+00:00",
+      "dateModified": "2026-10-09T23:11:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/axpo-solare-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-friedli-rinuncia-corsa-federale': {
+    title: 'Esther Friedli non si candida per il Consiglio federale',
+    description: 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
+    keywords: 'frontalieri, ticino, svizzera, italia, esther, friedli, candida, consiglio',
+    ogTitle: 'Esther Friedli non si candida per il Consiglio federale',
+    ogDescription: 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
+    canonicalPath: '/articoli-svizzera/friedli-rinuncia-corsa-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esther Friedli non si candida per il Consiglio federale",
+      "description": "Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-friedli-rinuncia-corsa-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale svizzero a Berna, simbolo della successione di Guy Parmelin."
+      },
+      "datePublished": "2026-10-10T00:22:01+00:00",
+      "dateModified": "2026-10-10T00:22:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/friedli-rinuncia-corsa-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lucerna-polizza-edifici-regole': {
+    title: 'Assicurazione immobili a Lucerna: guida a obbligo e premi',
+    description: 'Assicurazione immobili nel Cantone di Lucerna: guida pratica su obbligo, ente competente, coperture, premi e procedura per i sinistri e verifiche cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, lucerna, obbligo',
+    ogTitle: 'Assicurazione immobili a Lucerna: obbligo e premi',
+    ogDescription: 'Nel Cantone di Lucerna l\'assicurazione degli edifici va letta secondo le regole cantonali: una guida pratica orienta tra obbligo eventuale, ente cantonale o assicuratore autorizzato, coperture, premi e procedura dopo un sinistro.',
+    canonicalPath: '/articoli-svizzera/lucerna-polizza-edifici-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione immobili a Lucerna: guida a obbligo e premi",
+      "description": "Assicurazione immobili nel Cantone di Lucerna: guida pratica su obbligo, ente competente, coperture, premi e procedura per i sinistri e verifiche cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lucerna-polizza-edifici-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero e documenti per l'assicurazione immobiliare cantonale"
+      },
+      "datePublished": "2026-10-10T01:12:10+00:00",
+      "dateModified": "2026-10-10T01:12:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-polizza-edifici-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-seco-cambiamenti-istituzionali-2026': {
+    title: 'SECO: dazi USA, votazioni e cambio ai vertici | Frontaliere Ticino',
+    description: 'Aggiornamenti SECO: dazi USA fino al 12,5% dal 24 luglio 2026, votazione sul materiale bellico il 29 novembre e dimissioni della Segretaria di Stato nel 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, dazi, votazioni, cambio',
+    ogTitle: 'SECO: dazi USA, votazioni e cambio ai vertici',
+    ogDescription: 'Dazi USA del 12,5% su beni svizzeri, votazione federale sul materiale bellico e transizione ai vertici della SECO: ecco i fatti principali del 2026 e 2027.',
+    canonicalPath: '/articoli-svizzera/seco-cambiamenti-istituzionali-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO: dazi USA, votazioni e cambio ai vertici",
+      "description": "Aggiornamenti SECO: dazi USA fino al 12,5% dal 24 luglio 2026, votazione sul materiale bellico il 29 novembre e dimissioni della Segretaria di Stato nel 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-seco-cambiamenti-istituzionali-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Segreteria di Stato dell'economia SECO in Svizzera"
+      },
+      "datePublished": "2026-10-10T01:31:53+00:00",
+      "dateModified": "2026-10-10T01:31:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-cambiamenti-istituzionali-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-corsi-contributi-lucerna': {
+    title: 'Formazione continua a Lucerna: requisiti e contributi',
+    description: 'Nel Cantone di Lucerna i contributi seguono regole cantonali. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, lucerna, requisiti',
+    ogTitle: 'Formazione continua a Lucerna: requisiti e contributi',
+    ogDescription: 'Nel Cantone di Lucerna i contributi seguono regole cantonali.',
+    canonicalPath: '/articoli-svizzera/corsi-contributi-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione continua a Lucerna: requisiti e contributi",
+      "description": "Nel Cantone di Lucerna i contributi seguono regole cantonali. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-corsi-contributi-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula svizzera per la formazione continua con computer e documenti"
+      },
+      "datePublished": "2026-10-10T02:37:57+00:00",
+      "dateModified": "2026-10-10T02:37:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/corsi-contributi-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sgkb-filiali-fisiche': {
+    title: 'SGKB conferma le 37 filiali fisiche | Frontaliere Ticino',
+    description: 'SGKB mantiene la rete di 37 sedi fisiche. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sgkb, conferma, filiali, fisiche',
+    ogTitle: 'SGKB: 37 filiali fisiche confermate',
+    ogDescription: 'SGKB mantiene la rete di 37 sedi fisiche.',
+    canonicalPath: '/articoli-svizzera/sgkb-filiali-fisiche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SGKB conferma le 37 filiali fisiche",
+      "description": "SGKB mantiene la rete di 37 sedi fisiche. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sgkb-filiali-fisiche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Filiale fisica di una banca cantonale svizzera a San Gallo"
+      },
+      "datePublished": "2026-10-10T03:27:02+00:00",
+      "dateModified": "2026-10-10T03:27:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sgkb-filiali-fisiche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-multe-como-targhe-estere': {
+    title: 'Como: 1.259 multe alle auto straniere in agosto',
+    description: '1.259 multe redatte a Como in agosto 102.738 euro in 31 giorni 3.322 euro al giorno nel mese di agosto Stime oltre l\'80% di verbali ignorati Luogo → Como',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, multe, alle, auto',
+    ogTitle: 'Multe a Como: 102.738 euro in agosto',
+    ogDescription: '1.259 multe redatte a Como in agosto 102.738 euro in 31 giorni 3.322 euro al giorno nel mese di agosto Stime oltre l\'80% di verbali ignorati Luogo → Como',
+    canonicalPath: '/articoli-svizzera/multe-como-targhe-estere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como: 1.259 multe alle auto straniere in agosto",
+      "description": "1.259 multe redatte a Como in agosto 102.738 euro in 31 giorni 3.322 euro al giorno nel mese di agosto Stime oltre l'80% di verbali ignorati Luogo → Como",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-multe-como-targhe-estere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto con targa svizzera in sosta a Como"
+      },
+      "datePublished": "2026-10-10T04:09:02+00:00",
+      "dateModified": "2026-10-10T04:09:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/multe-como-targhe-estere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-uri-soglia-salariale-controlli': {
+    title: 'Salario minimo a Uri: requisiti e applicazione',
+    description: 'Salario minimo nel Cantone di Uri: guida pratica a disciplina cantonale, contratti collettivi, requisiti, controlli e voci della busta paga e trattenute.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, requisiti, applicazione',
+    ogTitle: 'Uri, salario minimo: requisiti e controlli',
+    ogDescription: 'In Svizzera non esiste un minimo federale. Per il Cantone di Uri la verifica passa da eventuale disciplina cantonale, settori, requisiti, controlli e contratti collettivi; la guida separa anche contributi sociali e LAMal.',
+    canonicalPath: '/articoli-svizzera/uri-soglia-salariale-controlli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo a Uri: requisiti e applicazione",
+      "description": "Salario minimo nel Cantone di Uri: guida pratica a disciplina cantonale, contratti collettivi, requisiti, controlli e voci della busta paga e trattenute.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-uri-soglia-salariale-controlli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti di lavoro sul salario minimo nel Cantone di Uri"
+      },
+      "datePublished": "2026-10-10T05:33:50+00:00",
+      "dateModified": "2026-10-10T05:33:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-soglia-salariale-controlli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
