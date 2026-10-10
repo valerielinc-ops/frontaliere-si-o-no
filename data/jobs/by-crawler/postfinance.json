@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-10-09T21:44:36.071Z",
+  "assembledAt": "2026-10-10T09:33:29.145Z",
   "jobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Chargeback-Spezialistin-Acquiring/74693-de_DE",
@@ -41,7 +41,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:31.469Z",
+      "crawledAt": "2026-10-10T09:33:22.963Z",
       "validThrough": "16.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -76,85 +76,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",
-      "title": "Senior DevOps Software & Specification Engineer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen, Anforderungen nachhaltig als Code zu führen und den nutzenden Teams in der Transition hin zu moderner Arbeitsweise zu unterstützen. So können wir die nutzenden Teams enabeln, ihr T-Shaping zu fördern, ihre Artefakte as-Code zu führen und die AI-readiness zu erhöhen. Dabei schaffen wir die Grundlage für eine durchgängige Traceability von der Anforderung über die Umsetzung bis zum produktiven Einsatz und leisten einen wesentlichen Beitrag zur Beschleunigung der Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du übernimmst Verantwortung für den Betrieb, die Wartung und die Weiterentwicklung unserer Requirements-Management-Plattformen\n\n- Du betreibst unser etabliertes Requirements-Management-Tool Polarion und gestaltest dessen kontinuierliche Weiterentwicklung zu einer modernen, zukunftsorientierten Lösung aktiv mit\n\n- Du gestaltest den Aufbau und die Umsetzung einer modernen Requirements-as-Code Lösung mit Spec-Driven-Development Ansatz.\n\n- Du entwickelst und betreibst Lösungen, Integrationen sowie verschiedene Automatisierungen durchgängig entlang der Toolchain vom Software Delivery Lifecycle\n\n- Du setzt CI/CD-Pipelines sowie AI-gestützte Werkzeuge für Entwicklung, Analyse, Testing und Dokumentation ein\n\n- Du arbeitest eng mit Entwicklern, Business Analysten, Testern, Architekten, Product Owner und weiteren Stakeholdern aus den rund 100 Delivery Teams der PostFinance zusammen\n\nDas bringst du mit\n\n- Höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) oder eine vergleichbare Praxiserfahrung, mit guten Deutsch- und Englischkenntnissen\n\n- Mindestens 5 Jahre Erfahrung als Software Engineer, DevOps Engineer oder in einer vergleichbaren technischen Rolle\n\n- Erfahrung im Betrieb und in der Weiterentwicklung geschäftskritischer Anwendungen und Plattformen\n\n- Gute Kenntnisse in Java, Spring Boot, TypeScript, Angular, REST-APIs sowie CI/CD-Pipelines\n\n- Erfahrung mit gewachsenen Enterprise-Landschaften, idealerweise mit Polarion ALM, Groovy oder vergleichbaren Technologien\n\n- Hohes Qualitätsbewusstsein, ausgeprägte Problemlösungskompetenz sowie Interesse an modernen Engineering-Praktiken, AI-Tools und Specs-as-Code",
-      "descriptionByLocale": {
-        "it": "A PostFinance, continuiamo a operare e sviluppare la nostra piattaforma di gestione dei requisiti Polarion ALM mentre costruiamo un moderno approccio specifica-as-code. Siamo un team in costruzione e siamo alla ricerca di te come Senior DevOps Software & Specification Engineer. Sei esperto di tecnologia, uno sviluppatore esperto con DevOps mindset, che ha fun costruzione toolchains e standard, guidando i requisiti in modo sostenibile come codice e sostenere le squadre degli utenti nella transizione ai metodi di lavoro moderni. In questo modo, possiamo permettere ai team di promuovere il loro T-shaping, guidare i loro artefatti come codice e aumentare la disponibilità AI. In questo modo, creiamo la base per una tracciabilità coerente dai requisiti per l'implementazione all'uso produttivo e contribuiamo significativamente all'accelerazione dello sviluppo software a PostFinance.\n\nPuoi farlo.\n\n- Ti assumerai la responsabilità per il funzionamento, la manutenzione e l'ulteriore sviluppo delle nostre piattaforme di gestione dei requisiti\n\n- Gestisci il nostro strumento di gestione dei requisiti stabilito Polarion e forma attivamente il suo sviluppo continuo in una soluzione moderna e orientata al futuro\n\n- Potrai progettare e implementare una moderna soluzione requisiti-as-code con un approccio Spec-Driven-Development.\n\n- Sviluppi e utilizzi soluzioni, integrazioni e varie automazioni in tutta la gamma di strumenti del ciclo di vita del software.\n\n- Usate le tubazioni CI/CD e gli strumenti basati su AI per lo sviluppo, l'analisi, il test e la documentazione\n\n- Potrai lavorare a stretto contatto con sviluppatori, analisti di business, tester, architetti, proprietari di prodotti e altri stakeholder di PostFinance circa 100 team di consegna.\n\nLo porti con te.\n\n- Istruzione superiore o ulteriore istruzione in informatica (HF, FH, Uni/ETH) o esperienza pratica comparabile, con una buona conoscenza del tedesco e dell'inglese\n\n- Almeno 5 anni di esperienza come Software Engineer, DevOps Engineer o in un ruolo tecnico simile\n\n- Esperienza nel funzionamento e sviluppo di applicazioni e piattaforme mission-critical\n\n- Buona conoscenza delle Java, Spring Boot, TypeScript, Angular, REST API e CI/CD pipelines\n\n- Esperienza con paesaggi aziendali coltivati, idealmente con Polarion ALM, Groovy o tecnologie simili\n\n- Sensibilizzazione di alta qualità, forti capacità di problem solving e interesse per le pratiche di ingegneria moderne, strumenti AI e Specs-as-Code",
-        "en": "At PostFinance, we continue to operate and develop our Polarion ALM requirements management platform while building a modern specification-as-code approach. We are a team under construction and are looking for you as a Senior DevOps Software & Specification Engineer. You are tech-savvy, an experienced developer with DevOps mindset, who has fun building toolchains and standards, guiding requirements sustainably as code and supporting the user teams in the transition to modern working methods. In this way, we can empower the teams to promote their T-shaping, guide their artifacts as code and increase AI readiness. In doing so, we create the basis for consistent traceability from requirements to implementation to productive use and make a significant contribution to accelerating software development at PostFinance.\n\nYou can do that.\n\n- You take responsibility for the operation, maintenance and further development of our requirements management platforms\n\n- You run our established requirements management tool Polarion and actively shape its continuous development into a modern, future-oriented solution\n\n- You will design and implement a modern requirements-as-code solution with a Spec-Driven-Development approach.\n\n- You develop and operate solutions, integrations and various automations throughout the software delivery lifecycle toolchain.\n\n- You use CI/CD pipelines and AI-based tools for development, analysis, testing and documentation\n\n- You will work closely with developers, business analysts, testers, architects, product owners and other stakeholders from PostFinance’s approximately 100 delivery teams.\n\nYou bring that with you\n\n- Higher education or further education in computer science (HF, FH, Uni/ETH) or comparable practical experience, with good knowledge of German and English\n\n- At least 5 years of experience as a Software Engineer, DevOps Engineer or in a similar technical role\n\n- Experience in the operation and further development of mission-critical applications and platforms\n\n- Good knowledge of Java, Spring Boot, TypeScript, Angular, REST APIs and CI/CD pipelines\n\n- Experience with grown enterprise landscapes, ideally with Polarion ALM, Groovy or similar technologies\n\n- High quality awareness, strong problem-solving skills and interest in modern engineering practices, AI tools and Specs-as-Code",
-        "de": "Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen, Anforderungen nachhaltig als Code zu führen und den nutzenden Teams in der Transition hin zu moderner Arbeitsweise zu unterstützen. So können wir die nutzenden Teams enabeln, ihr T-Shaping zu fördern, ihre Artefakte as-Code zu führen und die AI-readiness zu erhöhen. Dabei schaffen wir die Grundlage für eine durchgängige Traceability von der Anforderung über die Umsetzung bis zum produktiven Einsatz und leisten einen wesentlichen Beitrag zur Beschleunigung der Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du übernimmst Verantwortung für den Betrieb, die Wartung und die Weiterentwicklung unserer Requirements-Management-Plattformen\n\n- Du betreibst unser etabliertes Requirements-Management-Tool Polarion und gestaltest dessen kontinuierliche Weiterentwicklung zu einer modernen, zukunftsorientierten Lösung aktiv mit\n\n- Du gestaltest den Aufbau und die Umsetzung einer modernen Requirements-as-Code Lösung mit Spec-Driven-Development Ansatz.\n\n- Du entwickelst und betreibst Lösungen, Integrationen sowie verschiedene Automatisierungen durchgängig entlang der Toolchain vom Software Delivery Lifecycle\n\n- Du setzt CI/CD-Pipelines sowie AI-gestützte Werkzeuge für Entwicklung, Analyse, Testing und Dokumentation ein\n\n- Du arbeitest eng mit Entwicklern, Business Analysten, Testern, Architekten, Product Owner und weiteren Stakeholdern aus den rund 100 Delivery Teams der PostFinance zusammen\n\nDas bringst du mit\n\n- Höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) oder eine vergleichbare Praxiserfahrung, mit guten Deutsch- und Englischkenntnissen\n\n- Mindestens 5 Jahre Erfahrung als Software Engineer, DevOps Engineer oder in einer vergleichbaren technischen Rolle\n\n- Erfahrung im Betrieb und in der Weiterentwicklung geschäftskritischer Anwendungen und Plattformen\n\n- Gute Kenntnisse in Java, Spring Boot, TypeScript, Angular, REST-APIs sowie CI/CD-Pipelines\n\n- Erfahrung mit gewachsenen Enterprise-Landschaften, idealerweise mit Polarion ALM, Groovy oder vergleichbaren Technologien\n\n- Hohes Qualitätsbewusstsein, ausgeprägte Problemlösungskompetenz sowie Interesse an modernen Engineering-Praktiken, AI-Tools und Specs-as-Code",
-        "fr": "Chez PostFinance, nous continuons d'exploiter et de développer notre plateforme de gestion des exigences Polarion ALM tout en construisant une approche moderne de spécification comme code. Nous sommes une équipe en construction et sommes à votre recherche en tant qu'ingénieur principal DevOps Software & Specification. Vous êtes tech-savvy, un développeur expérimenté avec DevOps mindset, qui a du plaisir à construire des chaînes d'outils et des normes, guider les exigences durablement comme code et soutenir les équipes d'utilisateurs dans la transition vers des méthodes de travail modernes. De cette façon, nous pouvons donner aux équipes les moyens de promouvoir leur façonnage en T, de guider leurs artefacts en tant que code et d'accroître la préparation à l'IA. Ce faisant, nous créons la base d'une traçabilité uniforme, des exigences à la mise en oeuvre jusqu'à l'utilisation productive et contribuons de façon significative à accélérer le développement de logiciels à PostFinance.\n\nTu peux le faire.\n\n- Vous assumez la responsabilité de l'exploitation, de la maintenance et du développement de nos plateformes de gestion des besoins\n\n- Vous dirigez notre outil de gestion des exigences établi Polarion et façonnez activement son développement continu en une solution moderne et orientée vers l'avenir\n\n- Vous allez concevoir et mettre en œuvre une solution moderne en tant que code avec une approche Spec-Driven-Development.\n\n- Vous développez et exploitez des solutions, des intégrations et diverses automatisations tout au long de la chaîne d'outils du cycle de vie de la livraison de logiciels.\n\n- Vous utilisez des pipelines CI/CD et des outils basés sur l'IA pour le développement, l'analyse, les essais et la documentation\n\n- Vous travaillerez en étroite collaboration avec les développeurs, les analystes d'affaires, les testeurs, les architectes, les propriétaires de produits et d'autres intervenants de PostFinance.\n\nApporte ça avec toi.\n\n- Enseignement supérieur ou enseignement supérieur en informatique (HF, FH, Uni/ETH) ou expérience pratique comparable, avec une bonne connaissance de l'allemand et de l'anglais\n\n- Au moins 5 ans d'expérience en tant qu'ingénieur logiciel, ingénieur DevOps ou dans un rôle technique similaire\n\n- Expérience dans le fonctionnement et le développement d ' applications et de plates-formes critiques pour la mission\n\n- Bonne connaissance de Java, Spring Boot, TypeScript, Angulaire, API REST et pipelines CI/CD\n\n- Expérience avec des paysages d'entreprise cultivés, idéalement avec Polarion ALM, Groovy ou des technologies similaires\n\n- Sensibilisation de haute qualité, compétences fortes en résolution de problèmes et intérêt pour les pratiques d'ingénierie modernes, les outils d'IA et les spécifications en tant que code"
-      },
-      "titleByLocale": {
-        "it": "Senior DevOps Software & Specification Ingegnere (w/m/d)",
-        "en": "Senior DevOps Software & Specification Engineer (m/f/d)",
-        "de": "Senior DevOps Software & Specification Ingenieur (w/m/d)",
-        "fr": "Senior DevOps Software & Specification Ingénieur (w/m/d)"
-      },
-      "slug": "senior-devops-software-specification-ingegnere-w-m-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "senior-devops-software-specification-ingegnere-w-m-d-postfinance-bern",
-        "en": "senior-devops-software-specification-engineer-w-m-d-postfinance",
-        "de": "senior-devops-software-specification-engineer-w-m-d-postfinance",
-        "fr": "senior-devops-software-specification-ingenieur-w-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:30.402Z",
-      "validThrough": "09.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-c47e0b2a7f0e",
-      "previousSlugs": [
-        "senior-devops-software-specification-engineer-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-devops-software-specification-engineer-w-m-d-postfinance"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-09T13:52:28.945Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
           "unitText": "YEAR"
         }
       },
@@ -201,7 +122,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:29.238Z",
+      "crawledAt": "2026-10-10T09:33:21.902Z",
       "validThrough": "12.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -285,7 +206,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:28.006Z",
+      "crawledAt": "2026-10-10T09:33:20.871Z",
       "validThrough": "14.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -366,7 +287,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:26.826Z",
+      "crawledAt": "2026-10-10T09:33:19.859Z",
       "validThrough": "16.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -453,7 +374,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:25.619Z",
+      "crawledAt": "2026-10-10T09:33:18.857Z",
       "validThrough": "18.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -531,7 +452,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:24.558Z",
+      "crawledAt": "2026-10-10T09:33:17.857Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -609,7 +530,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:23.377Z",
+      "crawledAt": "2026-10-10T09:33:16.839Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -688,7 +609,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:22.171Z",
+      "crawledAt": "2026-10-10T09:33:15.818Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -769,7 +690,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:20.826Z",
+      "crawledAt": "2026-10-10T09:33:14.814Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -848,7 +769,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:19.635Z",
+      "crawledAt": "2026-10-10T09:33:13.789Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -934,7 +855,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:18.447Z",
+      "crawledAt": "2026-10-10T09:33:12.772Z",
       "validThrough": "27.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1020,7 +941,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:17.242Z",
+      "crawledAt": "2026-10-10T09:33:11.777Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1098,7 +1019,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:16.059Z",
+      "crawledAt": "2026-10-10T09:33:10.764Z",
       "validThrough": "31.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1176,7 +1097,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:14.869Z",
+      "crawledAt": "2026-10-10T09:33:09.750Z",
       "validThrough": "20.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1257,7 +1178,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:13.682Z",
+      "crawledAt": "2026-10-10T09:33:08.747Z",
       "validThrough": "02.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1335,7 +1256,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:12.491Z",
+      "crawledAt": "2026-10-10T09:33:07.738Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1373,94 +1294,6 @@
       "postalCode": "8001",
       "addressLocality": "Zürich",
       "addressRegion": "ZH"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "title": "Athletenprogramm Asset Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
-      "descriptionByLocale": {
-        "it": "A PostFinance, prendiamo sempre più il controllo della gestione dei nostri fondi e ampliamo continuamente le nostre competenze nel settore dei fondi. Per questo progetto strategicamente importante, stiamo cercando una personalità impegnata che supporta il nostro team nel progetto di trasformazione in corso. Sei attivamente coinvolto nell'integrazione di sistemi, processi di costruzione, nell'attuazione dei requisiti normativi e nella preparazione dell'organizzazione per il go-live.\n\nPuoi farlo.\n\n- Supporti lo sviluppo di nuovi processi, controlli e responsabilità lungo l'intera catena del valore e lavori a stretto contatto con i team Fund Management, Sustainable Investing, Mid-Office, Performance Controlling e Compliance & Risk.\n\n- Siete attivamente coinvolti nella concezione e nell'attuazione di prove e formazioni, nonché nella pianificazione e nell'attuazione del rollout.\n\n- Lavori con parti interessate interne ed esterne e supporto nella progettazione della futura gestione dei fondi operativi.\n\n- Lei sostiene nella chiarificazione di argomenti normativi e nell'Ufficio di gestione del progetto\n\nLo porti con te.\n\n- Sei attivo:r o ex:r atleta superiore:in (la tua carriera sportiva non è più di un anno fa).\n\n- Hai completato la formazione professionale o sei in una laurea (preferibilmente in amministrazione aziendale, economia, banca e finanza) o l'hai già completato, che non era più di due anni fa all'inizio del programma.\n\n- Siete motivati a assumersi la responsabilità, pensare in modo imprenditoriale e guidare argomenti in modo indipendente.\n\n- Hai un modo analitico e strutturato di pensare e godere di lavorare insieme in un team su nuove sfide.\n\n- Sei interessato al business degli investimenti, ai mercati finanziari e alle sfide di un ambiente di gestione patrimoniale in evoluzione.",
-        "en": "At PostFinance, we increasingly take over the management of our funds ourselves and continuously expand our expertise in the fund business. For this strategically important project, we are looking for a committed personality who supports our team in the ongoing transformation project. You are actively involved in integrating systems, building processes, implementing regulatory requirements and successfully preparing the organization for the go-live.\n\nYou can do that.\n\n- You support the development of new processes, controls and responsibilities along the entire value chain and work closely with the teams Fund Management, Sustainable Investing, Mid-Office, Performance Controlling and Compliance & Risk.\n\n- You are actively involved in the conception and implementation of tests and trainings as well as in the planning and implementation of the rollout.\n\n- You work with internal and external stakeholders and support in the design of future operational fund management.\n\n- You support in the clarification of regulatory topics as well as in the Project Management Office\n\nYou bring that with you\n\n- You are active:r or former:r top athlete:in (your sports career is not more than a year ago).\n\n- You have completed vocational training or are in a bachelor’s degree (preferably in business administration, economics, banking & finance) or have already completed it, which was not more than two years ago at the start of the program.\n\n- You are motivated to take on responsibility, think entrepreneurially and drive topics forward independently.\n\n- You have an analytical and structured way of thinking and enjoy working together in a team on new challenges.\n\n- You are interested in the investment business, financial markets and the challenges of a changing asset management environment.",
-        "de": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
-        "fr": "Chez PostFinance, nous prenons de plus en plus en charge la gestion de nos fonds nous-mêmes et développons continuellement notre expertise dans le domaine des fonds. Pour ce projet stratégiquement important, nous recherchons une personnalité engagée qui soutient notre équipe dans le projet de transformation en cours. Vous participez activement à l'intégration des systèmes, à la construction des processus, à la mise en oeuvre des exigences réglementaires et à la préparation réussie de l'organisation pour la mise en oeuvre.\n\nTu peux le faire.\n\n- Vous soutenez le développement de nouveaux processus, contrôles et responsabilités tout au long de la chaîne de valeur et travaillez en étroite collaboration avec les équipes Gestion de fonds, Investissement durable, Mid-Office, Contrôle de performance et Conformité et Risque.\n\n- Vous participez activement à la conception et à la mise en oeuvre des tests et des formations ainsi qu'à la planification et à la mise en œuvre du déploiement.\n\n- Vous travaillez avec des intervenants internes et externes et vous aidez à concevoir la future gestion des fonds opérationnels.\n\n- Vous soutenez la clarification des sujets réglementaires ainsi que le Bureau de gestion de projet\n\nApporte ça avec toi.\n\n- Vous êtes actif:r ou ancien:r meilleur athlète:in (votre carrière sportive n'est pas plus d'un an).\n\n- Vous avez suivi une formation professionnelle ou vous êtes titulaire d'un baccalauréat (de préférence en administration des affaires, en économie, en banque et en finance) ou l'avez déjà terminé, ce qui n'était pas plus de deux ans au début du programme.\n\n- Vous êtes motivé à assumer vos responsabilités, à penser de manière entrepreneuriale et à faire avancer les sujets de façon indépendante.\n\n- Vous avez une façon analytique et structurée de penser et aimez travailler ensemble dans une équipe sur de nouveaux défis.\n\n- Vous êtes intéressé par l'entreprise d'investissement, les marchés financiers et les défis d'un environnement de gestion d'actifs en évolution."
-      },
-      "titleByLocale": {
-        "it": "Athletic Program Asset Management (m/f/d)",
-        "en": "Athletic Program Asset Management (m/f/d)",
-        "de": "Athletenprogramm Asset Management (w/m/d)",
-        "fr": "Programme sportif Gestion d'actifs (h/f/d)"
-      },
-      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
-        "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
-        "de": "athletenprogramm-asset-management-w-m-d-postfinance",
-        "fr": "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:11.312Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "40-70%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-45a5161f48b7",
-      "previousSlugs": [
-        "athletenprogramm-asset-management-w-m-d-postfinance",
-        "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-        "athletenprogramm-asset-management-m-w-d-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "athletenprogramm-asset-management-w-m-d-postfinance"
-        ],
-        "en": [
-          "athletenprogramm-asset-management-w-m-d-postfinance"
-        ],
-        "fr": [
-          "athletenprogramm-asset-management-w-m-d-postfinance",
-          "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-          "athletenprogramm-asset-management-m-w-d-postfinance-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T09:36:41.204Z",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Project-Portfolio-Steering-&-Business-Intelligence-%28wmd%29/74926-de_DE",
@@ -1501,7 +1334,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:10.107Z",
+      "crawledAt": "2026-10-10T09:33:06.726Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1538,6 +1371,94 @@
         ]
       },
       "firstSeenAt": "2026-10-05T22:00:32.507Z",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "title": "Athletenprogramm Asset Management (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
+      "descriptionByLocale": {
+        "it": "A PostFinance, prendiamo sempre più il controllo della gestione dei nostri fondi e ampliamo continuamente le nostre competenze nel settore dei fondi. Per questo progetto strategicamente importante, stiamo cercando una personalità impegnata che supporta il nostro team nel progetto di trasformazione in corso. Sei attivamente coinvolto nell'integrazione di sistemi, processi di costruzione, nell'attuazione dei requisiti normativi e nella preparazione dell'organizzazione per il go-live.\n\nPuoi farlo.\n\n- Supporti lo sviluppo di nuovi processi, controlli e responsabilità lungo l'intera catena del valore e lavori a stretto contatto con i team Fund Management, Sustainable Investing, Mid-Office, Performance Controlling e Compliance & Risk.\n\n- Siete attivamente coinvolti nella concezione e nell'attuazione di prove e formazioni, nonché nella pianificazione e nell'attuazione del rollout.\n\n- Lavori con parti interessate interne ed esterne e supporto nella progettazione della futura gestione dei fondi operativi.\n\n- Lei sostiene nella chiarificazione di argomenti normativi e nell'Ufficio di gestione del progetto\n\nLo porti con te.\n\n- Sei attivo:r o ex:r atleta superiore:in (la tua carriera sportiva non è più di un anno fa).\n\n- Hai completato la formazione professionale o sei in una laurea (preferibilmente in amministrazione aziendale, economia, banca e finanza) o l'hai già completato, che non era più di due anni fa all'inizio del programma.\n\n- Siete motivati a assumersi la responsabilità, pensare in modo imprenditoriale e guidare argomenti in modo indipendente.\n\n- Hai un modo analitico e strutturato di pensare e godere di lavorare insieme in un team su nuove sfide.\n\n- Sei interessato al business degli investimenti, ai mercati finanziari e alle sfide di un ambiente di gestione patrimoniale in evoluzione.",
+        "en": "At PostFinance, we increasingly take over the management of our funds ourselves and continuously expand our expertise in the fund business. For this strategically important project, we are looking for a committed personality who supports our team in the ongoing transformation project. You are actively involved in integrating systems, building processes, implementing regulatory requirements and successfully preparing the organization for the go-live.\n\nYou can do that.\n\n- You support the development of new processes, controls and responsibilities along the entire value chain and work closely with the teams Fund Management, Sustainable Investing, Mid-Office, Performance Controlling and Compliance & Risk.\n\n- You are actively involved in the conception and implementation of tests and trainings as well as in the planning and implementation of the rollout.\n\n- You work with internal and external stakeholders and support in the design of future operational fund management.\n\n- You support in the clarification of regulatory topics as well as in the Project Management Office\n\nYou bring that with you\n\n- You are active:r or former:r top athlete:in (your sports career is not more than a year ago).\n\n- You have completed vocational training or are in a bachelor’s degree (preferably in business administration, economics, banking & finance) or have already completed it, which was not more than two years ago at the start of the program.\n\n- You are motivated to take on responsibility, think entrepreneurially and drive topics forward independently.\n\n- You have an analytical and structured way of thinking and enjoy working together in a team on new challenges.\n\n- You are interested in the investment business, financial markets and the challenges of a changing asset management environment.",
+        "de": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
+        "fr": "Chez PostFinance, nous prenons de plus en plus en charge la gestion de nos fonds nous-mêmes et développons continuellement notre expertise dans le domaine des fonds. Pour ce projet stratégiquement important, nous recherchons une personnalité engagée qui soutient notre équipe dans le projet de transformation en cours. Vous participez activement à l'intégration des systèmes, à la construction des processus, à la mise en oeuvre des exigences réglementaires et à la préparation réussie de l'organisation pour la mise en oeuvre.\n\nTu peux le faire.\n\n- Vous soutenez le développement de nouveaux processus, contrôles et responsabilités tout au long de la chaîne de valeur et travaillez en étroite collaboration avec les équipes Gestion de fonds, Investissement durable, Mid-Office, Contrôle de performance et Conformité et Risque.\n\n- Vous participez activement à la conception et à la mise en oeuvre des tests et des formations ainsi qu'à la planification et à la mise en œuvre du déploiement.\n\n- Vous travaillez avec des intervenants internes et externes et vous aidez à concevoir la future gestion des fonds opérationnels.\n\n- Vous soutenez la clarification des sujets réglementaires ainsi que le Bureau de gestion de projet\n\nApporte ça avec toi.\n\n- Vous êtes actif:r ou ancien:r meilleur athlète:in (votre carrière sportive n'est pas plus d'un an).\n\n- Vous avez suivi une formation professionnelle ou vous êtes titulaire d'un baccalauréat (de préférence en administration des affaires, en économie, en banque et en finance) ou l'avez déjà terminé, ce qui n'était pas plus de deux ans au début du programme.\n\n- Vous êtes motivé à assumer vos responsabilités, à penser de manière entrepreneuriale et à faire avancer les sujets de façon indépendante.\n\n- Vous avez une façon analytique et structurée de penser et aimez travailler ensemble dans une équipe sur de nouveaux défis.\n\n- Vous êtes intéressé par l'entreprise d'investissement, les marchés financiers et les défis d'un environnement de gestion d'actifs en évolution."
+      },
+      "titleByLocale": {
+        "it": "Athletic Program Asset Management (m/f/d)",
+        "en": "Athletic Program Asset Management (m/f/d)",
+        "de": "Athletenprogramm Asset Management (w/m/d)",
+        "fr": "Programme sportif Gestion d'actifs (h/f/d)"
+      },
+      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
+        "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
+        "de": "athletenprogramm-asset-management-w-m-d-postfinance",
+        "fr": "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-10T09:33:05.680Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "40-70%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-45a5161f48b7",
+      "previousSlugs": [
+        "athletenprogramm-asset-management-w-m-d-postfinance",
+        "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
+        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "athletenprogramm-asset-management-w-m-d-postfinance"
+        ],
+        "en": [
+          "athletenprogramm-asset-management-w-m-d-postfinance"
+        ],
+        "fr": [
+          "athletenprogramm-asset-management-w-m-d-postfinance",
+          "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
+          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-05T09:36:41.204Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "currency": "CHF",
@@ -1595,7 +1516,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:08.759Z",
+      "crawledAt": "2026-10-10T09:33:04.657Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1675,7 +1596,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:07.566Z",
+      "crawledAt": "2026-10-10T09:33:03.649Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1729,9 +1650,9 @@
         "de": "Traineeprogramm Interne Revision (w/m/d)",
         "fr": "Programme de stagiaires Révision interne (h/f/d)"
       },
-      "slug": "programma-traine-revisione-interna-m-f-d-postfinance-bern",
+      "slug": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
       "slugByLocale": {
-        "it": "programma-traine-revisione-interna-m-f-d-postfinance-bern",
+        "it": "traineeprogramm-interne-revision-m-w-d-postfinance-bern",
         "en": "trainee-program-internal-revision-m-f-d-postfinance-bern",
         "de": "traineeprogramm-interne-revision-w-m-d-postfinance",
         "fr": "programme-de-stagiaires-revision-interne-h-f-d-postfinance-bern"
@@ -1746,7 +1667,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:06.384Z",
+      "crawledAt": "2026-10-10T09:33:02.698Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1761,13 +1682,13 @@
       "previousSlugs": [
         "traineeprogramm-interne-revision-w-m-d-postfinance",
         "programma-di-tirocinio-revisione-interna-m-f-d-postfinance-bern",
-        "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
+        "programma-traine-revisione-interna-m-f-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "traineeprogramm-interne-revision-w-m-d-postfinance",
           "programma-di-tirocinio-revisione-interna-m-f-d-postfinance-bern",
-          "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
+          "programma-traine-revisione-interna-m-f-d-postfinance-bern"
         ],
         "en": [
           "traineeprogramm-interne-revision-w-m-d-postfinance"
@@ -1835,7 +1756,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:05.199Z",
+      "crawledAt": "2026-10-10T09:33:01.652Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1920,7 +1841,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:04.019Z",
+      "crawledAt": "2026-10-10T09:33:00.616Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -2018,7 +1939,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:02.831Z",
+      "crawledAt": "2026-10-10T09:32:59.613Z",
       "validThrough": "11.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -2103,7 +2024,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:44:01.625Z",
+      "crawledAt": "2026-10-10T09:32:58.586Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -2149,139 +2070,68 @@
       "addressRegion": "BE"
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Spezialteam-TWINT/74843-de_DE",
-      "title": "Kundenbetreuer:in Spezialteam TWINT",
+      "url": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",
+      "title": "Senior DevOps Software & Specification Engineer (w/m/d)",
       "company": "PostFinance",
       "companyKey": "postfinance",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "description": "Möchtest du wertvolle Erfahrungen im digitalen Payment-Umfeld sammeln und deine Sprachkenntnisse gezielt einsetzen? Bei PostFinance unterstützt du Kund:innen rund um unsere Apps und Onlineapplikationen und hilfst ihnen, digitale Services optimal zu nutzen. Mit deinem technischen Verständnis und deiner Kommunikationsstärke trägst du zu einem reibungslosen Kundenerlebnis bei. So bewegst du PostFinance im digitalen Banking nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest Anfragen zu unseren Produkten und Dienstleistungen telefonisch und per E-Mail\n\n- Du unterstützt Privatkund:innen bei der Nutzung der TWINT Prepaid App\n\n- Du berätst Geschäftskund:innen zur Zahlungslösung TWINT und begleitest sie bei der Einführung\n\n- Du sorgst mit deiner kommunikativen Art für positive Kundenerlebnisse\n\nDas bringst du mit\n\n- Abgeschlossene Detailhandels- oder kaufmaennische Grundausbildung, idealerweise ergaenzt durch Erfahrung im Callcenter\n\n- Flexibilitaet fuer Einsaetze von Montag bis Freitag zwischen 08:00 und 17:00 Uhr\n\n- Digitale Affinitaet und schnelle Auffassungsgabe im Umgang mit neuen Systemen\n\n- Ausgezeichnete muendliche Kommunikationsfaehigkeiten in Deutsch, Franzoesisch und Italienisch",
+      "description": "Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen, Anforderungen nachhaltig als Code zu führen und den nutzenden Teams in der Transition hin zu moderner Arbeitsweise zu unterstützen. So können wir die nutzenden Teams enabeln, ihr T-Shaping zu fördern, ihre Artefakte as-Code zu führen und die AI-readiness zu erhöhen. Dabei schaffen wir die Grundlage für eine durchgängige Traceability von der Anforderung über die Umsetzung bis zum produktiven Einsatz und leisten einen wesentlichen Beitrag zur Beschleunigung der Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du übernimmst Verantwortung für den Betrieb, die Wartung und die Weiterentwicklung unserer Requirements-Management-Plattformen\n\n- Du betreibst unser etabliertes Requirements-Management-Tool Polarion und gestaltest dessen kontinuierliche Weiterentwicklung zu einer modernen, zukunftsorientierten Lösung aktiv mit\n\n- Du gestaltest den Aufbau und die Umsetzung einer modernen Requirements-as-Code Lösung mit Spec-Driven-Development Ansatz.\n\n- Du entwickelst und betreibst Lösungen, Integrationen sowie verschiedene Automatisierungen durchgängig entlang der Toolchain vom Software Delivery Lifecycle\n\n- Du setzt CI/CD-Pipelines sowie AI-gestützte Werkzeuge für Entwicklung, Analyse, Testing und Dokumentation ein\n\n- Du arbeitest eng mit Entwicklern, Business Analysten, Testern, Architekten, Product Owner und weiteren Stakeholdern aus den rund 100 Delivery Teams der PostFinance zusammen\n\nDas bringst du mit\n\n- Höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) oder eine vergleichbare Praxiserfahrung, mit guten Deutsch- und Englischkenntnissen\n\n- Mindestens 5 Jahre Erfahrung als Software Engineer, DevOps Engineer oder in einer vergleichbaren technischen Rolle\n\n- Erfahrung im Betrieb und in der Weiterentwicklung geschäftskritischer Anwendungen und Plattformen\n\n- Gute Kenntnisse in Java, Spring Boot, TypeScript, Angular, REST-APIs sowie CI/CD-Pipelines\n\n- Erfahrung mit gewachsenen Enterprise-Landschaften, idealerweise mit Polarion ALM, Groovy oder vergleichbaren Technologien\n\n- Hohes Qualitätsbewusstsein, ausgeprägte Problemlösungskompetenz sowie Interesse an modernen Engineering-Praktiken, AI-Tools und Specs-as-Code",
       "descriptionByLocale": {
-        "it": "Vuoi acquisire una preziosa esperienza nell'ambiente di pagamento digitale e utilizzare le tue competenze linguistiche in modo mirato? A PostFinance, supporti i clienti intorno alle nostre applicazioni e applicazioni online e li aiuti a sfruttare al meglio i servizi digitali. Con la vostra comprensione tecnica e la forza di comunicazione, contribuite a un'esperienza clienti fluida. Questo è il modo in cui si sposta PostFinance in modo sostenibile nel digital banking.\n\nPuoi farlo.\n\n- Rispondete alle richieste sui nostri prodotti e servizi per telefono ed e-mail\n\n- Supporti i clienti privati quando utilizzi l'App TWINT Prepaid\n\n- Si consiglia ai clienti aziendali sulla soluzione di pagamento TWINT e li accompagna durante l'introduzione\n\n- Fornite la vostra natura comunicativa per le esperienze positive dei clienti\n\nLo porti con te.\n\n- Completato retail o formazione di base commerciale, ottenuto idealmente attraverso l'esperienza nel call center\n\n- Flessibilità dal lunedì al venerdì dalle 08:00 alle 17:00\n\n- L'affinità digitale e la comprensione rapida nell'affrontare nuovi sistemi\n\n- Eccellente capacità di comunicazione in tedesco, francese e italiano",
-        "en": "Do you want to gain valuable experience in the digital payment environment and use your language skills in a targeted manner? At PostFinance, you support customers around our apps and online applications and help them to make the most of digital services. With your technical understanding and communication strength, you contribute to a smooth customer experience. This is how you move PostFinance sustainably in digital banking.\n\nYou can do that.\n\n- You answer inquiries about our products and services by phone and email\n\n- You support private customers when using the TWINT Prepaid App\n\n- You advise business customers on the payment solution TWINT and accompany them during the introduction\n\n- You provide with your communicative nature for positive customer experiences\n\nYou bring that with you\n\n- Completed retail or commercial basic training, ideally obtained through experience in the call center\n\n- Flexibilities from Monday to Friday between 08:00 and 17:00\n\n- Digital affinity and fast comprehension in dealing with new systems\n\n- Excellent communication skills in German, French and Italian",
-        "de": "Möchtest du wertvolle Erfahrungen im digitalen Payment-Umfeld sammeln und deine Sprachkenntnisse gezielt einsetzen? Bei PostFinance unterstützt du Kund:innen rund um unsere Apps und Onlineapplikationen und hilfst ihnen, digitale Services optimal zu nutzen. Mit deinem technischen Verständnis und deiner Kommunikationsstärke trägst du zu einem reibungslosen Kundenerlebnis bei. So bewegst du PostFinance im digitalen Banking nachhaltig.\n\nDas kannst du bewirken\n\n- Du beantwortest Anfragen zu unseren Produkten und Dienstleistungen telefonisch und per E-Mail\n\n- Du unterstützt Privatkund:innen bei der Nutzung der TWINT Prepaid App\n\n- Du berätst Geschäftskund:innen zur Zahlungslösung TWINT und begleitest sie bei der Einführung\n\n- Du sorgst mit deiner kommunikativen Art für positive Kundenerlebnisse\n\nDas bringst du mit\n\n- Abgeschlossene Detailhandels- oder kaufmaennische Grundausbildung, idealerweise ergaenzt durch Erfahrung im Callcenter\n\n- Flexibilitaet fuer Einsaetze von Montag bis Freitag zwischen 08:00 und 17:00 Uhr\n\n- Digitale Affinitaet und schnelle Auffassungsgabe im Umgang mit neuen Systemen\n\n- Ausgezeichnete muendliche Kommunikationsfaehigkeiten in Deutsch, Franzoesisch und Italienisch",
-        "fr": "Voulez-vous acquérir une expérience précieuse dans l'environnement de paiement numérique et utiliser vos compétences linguistiques de manière ciblée? Chez PostFinance, vous aidez les clients autour de nos applications et applications en ligne et les aidez à tirer le meilleur parti des services numériques. Avec votre compréhension technique et votre force de communication, vous contribuez à une expérience client harmonieuse. C'est ainsi que vous déplacez durablement PostFinance dans la banque numérique.\n\nTu peux le faire.\n\n- Vous répondez aux demandes de renseignements concernant nos produits et services par téléphone et par courriel\n\n- Vous aidez les clients privés lors de l'utilisation de l'application prépayée TWINT\n\n- Vous conseillez les clients professionnels sur la solution de paiement TWINT et les accompagnez pendant l'introduction\n\n- Vous fournissez votre nature communicative pour des expériences client positives\n\nApporte ça avec toi.\n\n- Formation de base au commerce ou au commerce, idéalement obtenue grâce à l'expérience du centre d'appels\n\n- Flexibilités du lundi au vendredi entre 08:00 et 17:00\n\n- affinité numérique et compréhension rapide dans le traitement des nouveaux systèmes\n\n- Excellentes compétences en communication en allemand, français et italien"
+        "it": "A PostFinance, continuiamo a operare e sviluppare la nostra piattaforma di gestione dei requisiti Polarion ALM mentre costruiamo un moderno approccio specifica-as-code. Siamo un team in costruzione e siamo alla ricerca di te come Senior DevOps Software & Specification Engineer. Sei esperto di tecnologia, uno sviluppatore esperto con DevOps mindset, che ha fun costruzione toolchains e standard, guidando i requisiti in modo sostenibile come codice e sostenere le squadre degli utenti nella transizione ai metodi di lavoro moderni. In questo modo, possiamo permettere ai team di promuovere il loro T-shaping, guidare i loro artefatti come codice e aumentare la disponibilità AI. In questo modo, creiamo la base per una tracciabilità coerente dai requisiti per l'implementazione all'uso produttivo e contribuiamo significativamente all'accelerazione dello sviluppo software a PostFinance.\n\nPuoi farlo.\n\n- Ti assumerai la responsabilità per il funzionamento, la manutenzione e l'ulteriore sviluppo delle nostre piattaforme di gestione dei requisiti\n\n- Gestisci il nostro strumento di gestione dei requisiti stabilito Polarion e forma attivamente il suo sviluppo continuo in una soluzione moderna e orientata al futuro\n\n- Potrai progettare e implementare una moderna soluzione requisiti-as-code con un approccio Spec-Driven-Development.\n\n- Sviluppi e utilizzi soluzioni, integrazioni e varie automazioni in tutta la gamma di strumenti del ciclo di vita del software.\n\n- Usate le tubazioni CI/CD e gli strumenti basati su AI per lo sviluppo, l'analisi, il test e la documentazione\n\n- Potrai lavorare a stretto contatto con sviluppatori, analisti di business, tester, architetti, proprietari di prodotti e altri stakeholder di PostFinance circa 100 team di consegna.\n\nLo porti con te.\n\n- Istruzione superiore o ulteriore istruzione in informatica (HF, FH, Uni/ETH) o esperienza pratica comparabile, con una buona conoscenza del tedesco e dell'inglese\n\n- Almeno 5 anni di esperienza come Software Engineer, DevOps Engineer o in un ruolo tecnico simile\n\n- Esperienza nel funzionamento e sviluppo di applicazioni e piattaforme mission-critical\n\n- Buona conoscenza delle Java, Spring Boot, TypeScript, Angular, REST API e CI/CD pipelines\n\n- Esperienza con paesaggi aziendali coltivati, idealmente con Polarion ALM, Groovy o tecnologie simili\n\n- Sensibilizzazione di alta qualità, forti capacità di problem solving e interesse per le pratiche di ingegneria moderne, strumenti AI e Specs-as-Code",
+        "en": "At PostFinance, we continue to operate and develop our Polarion ALM requirements management platform while building a modern specification-as-code approach. We are a team under construction and are looking for you as a Senior DevOps Software & Specification Engineer. You are tech-savvy, an experienced developer with DevOps mindset, who has fun building toolchains and standards, guiding requirements sustainably as code and supporting the user teams in the transition to modern working methods. In this way, we can empower the teams to promote their T-shaping, guide their artifacts as code and increase AI readiness. In doing so, we create the basis for consistent traceability from requirements to implementation to productive use and make a significant contribution to accelerating software development at PostFinance.\n\nYou can do that.\n\n- You take responsibility for the operation, maintenance and further development of our requirements management platforms\n\n- You run our established requirements management tool Polarion and actively shape its continuous development into a modern, future-oriented solution\n\n- You will design and implement a modern requirements-as-code solution with a Spec-Driven-Development approach.\n\n- You develop and operate solutions, integrations and various automations throughout the software delivery lifecycle toolchain.\n\n- You use CI/CD pipelines and AI-based tools for development, analysis, testing and documentation\n\n- You will work closely with developers, business analysts, testers, architects, product owners and other stakeholders from PostFinance’s approximately 100 delivery teams.\n\nYou bring that with you\n\n- Higher education or further education in computer science (HF, FH, Uni/ETH) or comparable practical experience, with good knowledge of German and English\n\n- At least 5 years of experience as a Software Engineer, DevOps Engineer or in a similar technical role\n\n- Experience in the operation and further development of mission-critical applications and platforms\n\n- Good knowledge of Java, Spring Boot, TypeScript, Angular, REST APIs and CI/CD pipelines\n\n- Experience with grown enterprise landscapes, ideally with Polarion ALM, Groovy or similar technologies\n\n- High quality awareness, strong problem-solving skills and interest in modern engineering practices, AI tools and Specs-as-Code",
+        "de": "Bei PostFinance betreiben und entwickeln wir unsere Requirements-Management-Plattform Polarion ALM weiter und gestalten gleichzeitig den Aufbau eines modernen Specification-as-Code Ansatzes. Wir sind ein Team im Aufbau und suchen dich als Senior DevOps Software & Specification Engineer. Du bist technisch versiert, ein erfahrener Developer mit DevOps-Mindset, der Spass hat, Toolchains und Standards aufzubauen, Anforderungen nachhaltig als Code zu führen und den nutzenden Teams in der Transition hin zu moderner Arbeitsweise zu unterstützen. So können wir die nutzenden Teams enabeln, ihr T-Shaping zu fördern, ihre Artefakte as-Code zu führen und die AI-readiness zu erhöhen. Dabei schaffen wir die Grundlage für eine durchgängige Traceability von der Anforderung über die Umsetzung bis zum produktiven Einsatz und leisten einen wesentlichen Beitrag zur Beschleunigung der Softwareentwicklung bei PostFinance.\n\nDas kannst du bewirken\n\n- Du übernimmst Verantwortung für den Betrieb, die Wartung und die Weiterentwicklung unserer Requirements-Management-Plattformen\n\n- Du betreibst unser etabliertes Requirements-Management-Tool Polarion und gestaltest dessen kontinuierliche Weiterentwicklung zu einer modernen, zukunftsorientierten Lösung aktiv mit\n\n- Du gestaltest den Aufbau und die Umsetzung einer modernen Requirements-as-Code Lösung mit Spec-Driven-Development Ansatz.\n\n- Du entwickelst und betreibst Lösungen, Integrationen sowie verschiedene Automatisierungen durchgängig entlang der Toolchain vom Software Delivery Lifecycle\n\n- Du setzt CI/CD-Pipelines sowie AI-gestützte Werkzeuge für Entwicklung, Analyse, Testing und Dokumentation ein\n\n- Du arbeitest eng mit Entwicklern, Business Analysten, Testern, Architekten, Product Owner und weiteren Stakeholdern aus den rund 100 Delivery Teams der PostFinance zusammen\n\nDas bringst du mit\n\n- Höhere Aus- oder Weiterbildung in Informatik (HF, FH, Uni/ETH) oder eine vergleichbare Praxiserfahrung, mit guten Deutsch- und Englischkenntnissen\n\n- Mindestens 5 Jahre Erfahrung als Software Engineer, DevOps Engineer oder in einer vergleichbaren technischen Rolle\n\n- Erfahrung im Betrieb und in der Weiterentwicklung geschäftskritischer Anwendungen und Plattformen\n\n- Gute Kenntnisse in Java, Spring Boot, TypeScript, Angular, REST-APIs sowie CI/CD-Pipelines\n\n- Erfahrung mit gewachsenen Enterprise-Landschaften, idealerweise mit Polarion ALM, Groovy oder vergleichbaren Technologien\n\n- Hohes Qualitätsbewusstsein, ausgeprägte Problemlösungskompetenz sowie Interesse an modernen Engineering-Praktiken, AI-Tools und Specs-as-Code",
+        "fr": "Chez PostFinance, nous continuons d'exploiter et de développer notre plateforme de gestion des exigences Polarion ALM tout en construisant une approche moderne de spécification comme code. Nous sommes une équipe en construction et sommes à votre recherche en tant qu'ingénieur principal DevOps Software & Specification. Vous êtes tech-savvy, un développeur expérimenté avec DevOps mindset, qui a du plaisir à construire des chaînes d'outils et des normes, guider les exigences durablement comme code et soutenir les équipes d'utilisateurs dans la transition vers des méthodes de travail modernes. De cette façon, nous pouvons donner aux équipes les moyens de promouvoir leur façonnage en T, de guider leurs artefacts en tant que code et d'accroître la préparation à l'IA. Ce faisant, nous créons la base d'une traçabilité uniforme, des exigences à la mise en oeuvre jusqu'à l'utilisation productive et contribuons de façon significative à accélérer le développement de logiciels à PostFinance.\n\nTu peux le faire.\n\n- Vous assumez la responsabilité de l'exploitation, de la maintenance et du développement de nos plateformes de gestion des besoins\n\n- Vous dirigez notre outil de gestion des exigences établi Polarion et façonnez activement son développement continu en une solution moderne et orientée vers l'avenir\n\n- Vous allez concevoir et mettre en œuvre une solution moderne en tant que code avec une approche Spec-Driven-Development.\n\n- Vous développez et exploitez des solutions, des intégrations et diverses automatisations tout au long de la chaîne d'outils du cycle de vie de la livraison de logiciels.\n\n- Vous utilisez des pipelines CI/CD et des outils basés sur l'IA pour le développement, l'analyse, les essais et la documentation\n\n- Vous travaillerez en étroite collaboration avec les développeurs, les analystes d'affaires, les testeurs, les architectes, les propriétaires de produits et d'autres intervenants de PostFinance.\n\nApporte ça avec toi.\n\n- Enseignement supérieur ou enseignement supérieur en informatique (HF, FH, Uni/ETH) ou expérience pratique comparable, avec une bonne connaissance de l'allemand et de l'anglais\n\n- Au moins 5 ans d'expérience en tant qu'ingénieur logiciel, ingénieur DevOps ou dans un rôle technique similaire\n\n- Expérience dans le fonctionnement et le développement d ' applications et de plates-formes critiques pour la mission\n\n- Bonne connaissance de Java, Spring Boot, TypeScript, Angulaire, API REST et pipelines CI/CD\n\n- Expérience avec des paysages d'entreprise cultivés, idéalement avec Polarion ALM, Groovy ou des technologies similaires\n\n- Sensibilisation de haute qualité, compétences fortes en résolution de problèmes et intérêt pour les pratiques d'ingénierie modernes, les outils d'IA et les spécifications en tant que code"
       },
       "titleByLocale": {
-        "en": "TWINT Special Team Account Manager",
-        "de": "Kundenbetreuer:in Spezialteam TWINT",
-        "fr": "Responsable de compte :dans l'équipe spéciale TWINT",
-        "it": "Consulente clienti del team speciale TWINT"
+        "it": "Senior DevOps Software & Specification Ingegnere (w/m/d)",
+        "en": "Senior DevOps Software & Specification Engineer (m/f/d)",
+        "de": "Senior DevOps Software & Specification Ingenieur (w/m/d)",
+        "fr": "Senior DevOps Software & Specification Ingénieur (w/m/d)"
       },
-      "slug": "consulente-clienti-del-team-speciale-twint-postfinance-bern",
+      "slug": "senior-devops-software-specification-ingegnere-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "consulente-clienti-del-team-speciale-twint-postfinance-bern",
-        "en": "twint-special-team-account-manager-postfinance-bern",
-        "de": "kundenbetreuer-in-spezialteam-twint-postfinance",
-        "fr": "responsable-de-compte-dans-l-equipe-speciale-twint-postfinance-bern"
+        "it": "senior-devops-software-specification-ingegnere-w-m-d-postfinance-bern",
+        "en": "senior-devops-software-specification-engineer-w-m-d-postfinance",
+        "de": "senior-devops-software-specification-engineer-w-m-d-postfinance",
+        "fr": "senior-devops-software-specification-ingenieur-w-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
       "category": [
-        "Verkauf und Kundenberatung"
+        "Informatik und Digital Services"
       ],
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:19.436Z",
-      "validThrough": "30.10.26",
+      "crawledAt": "2026-10-09T21:44:30.402Z",
+      "validThrough": "09.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "50-60%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-4d53e2a2b190",
-      "firstSeenAt": "2026-09-30T21:35:43.116Z",
-      "salaryMin": 109000,
-      "salaryMax": 167000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 167000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "crawlerMissStreak": 2,
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-in-spezialteam-twint-postfinance"
-        ]
-      },
-      "previousSlugs": [
-        "kundenbetreuer-in-spezialteam-twint-postfinance"
-      ]
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/UXUI-Designer-mit-Fokus-Visual-Design-%28wmd%29/74806-de_DE",
-      "title": "UX/UI Designer mit Fokus Visual Design (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Mit deiner Kreativität, deinem analytischen Denken und deiner Eigenverantwortung gestaltest du das digitale Benutzererlebnis von über 2 Millionen Kund:innen. Du entwickelst innovative und nutzerzentrierte Lösungen für das Online Banking von PostFinance. Dabei vereinfachst du komplexe Prozesse und machst sie verständlich und überzeugend. So trägst du dazu bei, dass unsere digitalen Angebote einfach und relevant bleiben und stärkst das Vertrauen unserer Kund:innen.\n\nDas kannst du bewirken\n\n- Du konzipierst und gestaltest nutzerzentrierte Erlebnisse für unser Online Banking – von der ersten Idee über die Validierung bis zur erfolgreichen Umsetzung im interdisziplinären Team\n\n- Du entwickelst hochwertige Visual Designs für UI-Komponenten und treibst die Weiterentwicklung eines konsistenten, skalierbaren Designsystems voran\n\n- Du analysierst Kundenbedürfnisse, Nutzungskontexte und Geschäftsprozesse und übersetzt sie in einfache, intuitive und wirkungsvolle Lösungen\n\n- Du erstellst User Flows, Informationsarchitekturen, Wireframes, Mockups und interaktive Prototypen\n\n- Du planst, begleitest und interpretierst Usability- und Accessibility-Tests und leitest daraus Optimierungsmassnahmen ab\n\n- Du optimierst in Abstimmung mit Stakeholdern digitale Customer Journeys mit Fokus auf Nutzerbedürfnisse, Verständlichkeit, Vertrauensbildung und Conversion\n\n- Du bringst neue Impulse in die UX-Disziplin bei PostFinance ein, insbesondere in den Bereichen Designsysteme und Einsatz von KI im Designprozess\n\nDas bringst du mit\n\n- Abgeschlossenes Studium oder höhere Ausbildung in Interaction Design, Visual Design, UX/UI Design, Interactive Media Design oder einem vergleichbaren Fachgebiet\n\n- Mehrjährige Erfahrung in der Gestaltung und Umsetzung digitaler Produkte sowie ausgeprägte Kompetenzen im User Interface und Visual Design\n\n- Erfahrung im Aufbau, in der Nutzung und Weiterentwicklung von Designsystemen sowie gutes Verständnis für deren Zusammenspiel mit modernen Frontend-Technologien\n\n- Erfahrung in der Konzeption und Optimierung digitaler Customer Journeys mit Fokus auf Einfachheit, Vertrauen und Conversion\n\n- Praxis in der Gestaltung barrierefreier Lösungen sowie in der Durchführung und Auswertung von User-Testing, Kenntnisse relevanter Standards wie WCAG von Vorteil\n\n- Überzeugende Kommunikationsfähigkeiten, Eigeninitiative und Durchsetzungsstärke zur fundierten Vertretung von UX- und Visual-Design-Entscheidungen",
-      "descriptionByLocale": {
-        "it": "Con la vostra creatività, il vostro pensiero analitico e la vostra responsabilità personale, plasmate l'esperienza digitale dell'utente di oltre 2 milioni di clienti. svilupperai soluzioni innovative e user-centric per il banking online da PostFinance. Semplifichi i processi complessi e li rendi comprensibili e convincenti. In questo modo, aiuta a garantire che le nostre offerte digitali rimangano semplici e pertinenti e rafforzare la fiducia dei nostri clienti: all'interno.\n\nPuoi farlo.\n\n- Progettare e creare esperienze incentrate sull'utente per la nostra banca online – dalla prima idea alla validazione all'implementazione di successo in un team interdisciplinare\n\n- Sviluppare disegni visivi di alta qualità per i componenti UI e far progredire l'evoluzione di un sistema di progettazione coerente e scalabile\n\n- Analizzare le esigenze dei clienti, i contesti di utilizzo e i processi aziendali e tradurli in soluzioni semplici, intuitive e d'impatto\n\n- Crea flussi utente, architetture di informazione, wireframe, mockup e prototipi interattivi\n\n- Pianifichi, accompagni e interpreti test di usabilità e accessibilità e ne derivi misure di ottimizzazione\n\n- Ottimizzare i viaggi digitali dei clienti in coordinamento con le parti interessate con un focus sulle esigenze degli utenti, la comprensione, la costruzione di fiducia e la conversione\n\n- Porti nuovi impulsi alla disciplina UX a PostFinance, soprattutto nei settori dei sistemi di progettazione e dell'uso dell'IA nel processo di progettazione\n\nLo porti con te.\n\n- Laurea completa o istruzione superiore in progettazione di interazione, progettazione visiva, progettazione UX/UI, progettazione multimediale interattiva o campo equivalente\n\n- Diversi anni di esperienza nella progettazione e nell'implementazione di prodotti digitali e competenze forti nell'interfaccia utente e nel design visivo\n\n- Esperienza nella costruzione, uso e sviluppo di sistemi di progettazione e una buona comprensione della loro interazione con le moderne tecnologie di front-end\n\n- Esperienza nella progettazione e nell'ottimizzazione dei viaggi dei clienti digitali con un focus sulla semplicità, la fiducia e la conversione\n\n- Pratica nella progettazione di soluzioni accessibili, nonché nell'implementazione e nella valutazione dei test degli utenti, la conoscenza di standard rilevanti come WCAG è vantaggiosa\n\n- Capacità di comunicazione persuasive, iniziativa e assertività per una ben fondata rappresentazione delle decisioni UX e di progettazione visiva",
-        "en": "With your creativity, your analytical thinking and your personal responsibility, you shape the digital user experience of over 2 million customers. You will develop innovative and user-centric solutions for online banking from PostFinance. You simplify complex processes and make them understandable and convincing. In this way, you help ensure that our digital offers remain simple and relevant and strengthen the trust of our customers: inside.\n\nYou can do that.\n\n- You design and create user-centred experiences for our online banking – from the first idea to validation to successful implementation in an interdisciplinary team\n\n- Develop high-quality visual designs for UI components and advance the evolution of a consistent, scalable design system\n\n- Analyze customer needs, usage contexts and business processes and translate them into simple, intuitive and impactful solutions\n\n- Create user flows, information architectures, wireframes, mockups and interactive prototypes\n\n- You plan, accompany and interpret usability and accessibility tests and derive optimization measures from them\n\n- You optimize digital customer journeys in coordination with stakeholders with a focus on user needs, comprehensibility, trust building and conversion\n\n- You bring new impetus to the UX discipline at PostFinance, especially in the areas of design systems and the use of AI in the design process\n\nYou bring that with you\n\n- Completed degree or higher education in Interaction Design, Visual Design, UX/UI Design, Interactive Media Design or equivalent field\n\n- Several years of experience in the design and implementation of digital products as well as strong competences in the user interface and visual design\n\n- Experience in the construction, use and further development of design systems as well as a good understanding of their interaction with modern front-end technologies\n\n- Experience in designing and optimizing digital customer journeys with a focus on simplicity, trust and conversion\n\n- Practice in the design of accessible solutions as well as in the implementation and evaluation of user testing, knowledge of relevant standards such as WCAG is advantageous\n\n- Persuasive communication skills, initiative and assertiveness for a well-founded representation of UX and visual design decisions",
-        "de": "Mit deiner Kreativität, deinem analytischen Denken und deiner Eigenverantwortung gestaltest du das digitale Benutzererlebnis von über 2 Millionen Kund:innen. Du entwickelst innovative und nutzerzentrierte Lösungen für das Online Banking von PostFinance. Dabei vereinfachst du komplexe Prozesse und machst sie verständlich und überzeugend. So trägst du dazu bei, dass unsere digitalen Angebote einfach und relevant bleiben und stärkst das Vertrauen unserer Kund:innen.\n\nDas kannst du bewirken\n\n- Du konzipierst und gestaltest nutzerzentrierte Erlebnisse für unser Online Banking – von der ersten Idee über die Validierung bis zur erfolgreichen Umsetzung im interdisziplinären Team\n\n- Du entwickelst hochwertige Visual Designs für UI-Komponenten und treibst die Weiterentwicklung eines konsistenten, skalierbaren Designsystems voran\n\n- Du analysierst Kundenbedürfnisse, Nutzungskontexte und Geschäftsprozesse und übersetzt sie in einfache, intuitive und wirkungsvolle Lösungen\n\n- Du erstellst User Flows, Informationsarchitekturen, Wireframes, Mockups und interaktive Prototypen\n\n- Du planst, begleitest und interpretierst Usability- und Accessibility-Tests und leitest daraus Optimierungsmassnahmen ab\n\n- Du optimierst in Abstimmung mit Stakeholdern digitale Customer Journeys mit Fokus auf Nutzerbedürfnisse, Verständlichkeit, Vertrauensbildung und Conversion\n\n- Du bringst neue Impulse in die UX-Disziplin bei PostFinance ein, insbesondere in den Bereichen Designsysteme und Einsatz von KI im Designprozess\n\nDas bringst du mit\n\n- Abgeschlossenes Studium oder höhere Ausbildung in Interaction Design, Visual Design, UX/UI Design, Interactive Media Design oder einem vergleichbaren Fachgebiet\n\n- Mehrjährige Erfahrung in der Gestaltung und Umsetzung digitaler Produkte sowie ausgeprägte Kompetenzen im User Interface und Visual Design\n\n- Erfahrung im Aufbau, in der Nutzung und Weiterentwicklung von Designsystemen sowie gutes Verständnis für deren Zusammenspiel mit modernen Frontend-Technologien\n\n- Erfahrung in der Konzeption und Optimierung digitaler Customer Journeys mit Fokus auf Einfachheit, Vertrauen und Conversion\n\n- Praxis in der Gestaltung barrierefreier Lösungen sowie in der Durchführung und Auswertung von User-Testing, Kenntnisse relevanter Standards wie WCAG von Vorteil\n\n- Überzeugende Kommunikationsfähigkeiten, Eigeninitiative und Durchsetzungsstärke zur fundierten Vertretung von UX- und Visual-Design-Entscheidungen",
-        "fr": "Avec votre créativité, votre réflexion analytique et votre responsabilité personnelle, vous façonnez l'expérience utilisateur numérique de plus de 2 millions de clients. Vous développerez des solutions innovantes et centrées sur l'utilisateur pour la banque en ligne de PostFinance. Vous simplifiez les processus complexes et les rendez compréhensibles et convaincants. De cette façon, vous contribuez à ce que nos offres numériques restent simples et pertinentes et renforcent la confiance de nos clients : à l'intérieur.\n\nTu peux le faire.\n\n- Vous concevez et créez des expériences centrées sur l'utilisateur pour notre banque en ligne – de la première idée à la validation à la mise en œuvre réussie dans une équipe interdisciplinaire\n\n- Développer des conceptions visuelles de haute qualité pour les composants de l'interface utilisateur et faire progresser l'évolution d'un système de conception cohérent et évolutive\n\n- Analyser les besoins des clients, les contextes d'utilisation et les processus d'affaires et les traduire en solutions simples, intuitives et efficaces\n\n- Créer des flux utilisateurs, des architectures d'information, des trames filaires, des maquettes et des prototypes interactifs\n\n- Vous planifiez, accompagnez et interprètez des tests d'utilisation et d'accessibilité et en tirez des mesures d'optimisation\n\n- Vous optimisez les parcours clients numériques en coordination avec les parties prenantes en mettant l'accent sur les besoins des utilisateurs, la compréhensibilité, la confiance et la conversion\n\n- Vous apportez un nouvel élan à la discipline UX de PostFinance, en particulier dans les domaines des systèmes de conception et de l'utilisation de l'IA dans le processus de conception\n\nApporte ça avec toi.\n\n- Diplôme ou diplôme supérieur en Interaction Design, Visual Design, UX/UI Design, Interactive Media Design ou domaine équivalent\n\n- Plusieurs années d'expérience dans la conception et la mise en œuvre de produits numériques ainsi que de fortes compétences dans l'interface utilisateur et la conception visuelle\n\n- Expérience dans la construction, l'utilisation et le développement de systèmes de conception ainsi qu'une bonne compréhension de leur interaction avec les technologies de pointe modernes\n\n- Expérience dans la conception et l'optimisation des parcours clients numériques en mettant l'accent sur la simplicité, la confiance et la conversion\n\n- Pratique dans la conception de solutions accessibles ainsi que dans la mise en œuvre et l'évaluation des tests des utilisateurs, connaissance des normes pertinentes telles que WCAG est avantageux\n\n- Compétences de communication persuasive, initiative et assurance pour une représentation bien fondée des décisions en matière d'UX et de conception visuelle"
-      },
-      "titleByLocale": {
-        "it": "UX/UI Designer con Fokus Visual Design (w/m/d)",
-        "en": "UX/UI Designer with focus on Visual Design (m/f/d)",
-        "de": "UX/UI Designer mit Fokus Visual Design (w/m/d)",
-        "fr": "Designer UX/UI avec accent sur le design visuel (h/f/d)"
-      },
-      "slug": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
-      "slugByLocale": {
-        "it": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
-        "en": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
-        "de": "ux-ui-designer-mit-fokus-visual-design-w-m-d-postfinance",
-        "fr": "designer-ux-ui-avec-accent-sur-le-design-visuel-h-f-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Büro-Geschäftsentwicklung"
-      ],
-      "category": [
-        "Büro-Geschäftsentwicklung"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T22:37:17.895Z",
-      "validThrough": "22.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
+      "sector": "IT",
       "workload": "80-100%",
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
-      "id": "postfinance-88eacf7ad27d",
+      "id": "postfinance-c47e0b2a7f0e",
+      "previousSlugs": [
+        "senior-devops-software-specification-engineer-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-devops-software-specification-engineer-w-m-d-postfinance"
+        ]
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:32:58.564Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
+      "firstSeenAt": "2026-09-09T13:52:28.945Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -2289,15 +2139,15 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
+          "minValue": 113000,
+          "maxValue": 192000,
           "unitText": "YEAR"
         }
       },
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
