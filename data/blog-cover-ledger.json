@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5161
+      "6": 5162
     },
-    "publishedCovers": 6873,
+    "publishedCovers": 6874,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182815,6 +182815,33 @@
           "id": "lucerna-polizza-edifici-regole",
           "category": "pratico",
           "date": "2026-10-10T01:12:10.158Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-raffica-scontri-varesotto": {
+      "cover": "/images/blog/article-raffica-scontri-varesotto.webp",
+      "hash": "14811c835962eaa133812215a641fefa37de719c52837aa254c74cfbab7d979a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "raffica-scontri-varesotto",
+          "category": "novita",
+          "date": "2026-10-10T01:44:21.822Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

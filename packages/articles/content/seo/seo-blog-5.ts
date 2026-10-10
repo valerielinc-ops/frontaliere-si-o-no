@@ -104553,6 +104553,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raffica-scontri-varesotto': {
+    title: 'Varesotto: quattro incidenti in meno di un\'ora',
+    description: 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    keywords: 'frontalieri, ticino, svizzera, italia, varesotto, quattro, incidenti, meno',
+    ogTitle: 'Varesotto: quattro incidenti in meno di un\'ora',
+    ogDescription: 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    canonicalPath: '/articoli-frontaliere/raffica-scontri-varesotto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varesotto: quattro incidenti in meno di un'ora",
+      "description": "Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-raffica-scontri-varesotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada al mattino con traffico leggero, immagine simbolica per la cronaca stradale del Varesotto."
+      },
+      "datePublished": "2026-10-10T01:44:21+00:00",
+      "dateModified": "2026-10-10T01:44:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raffica-scontri-varesotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

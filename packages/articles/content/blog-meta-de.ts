@@ -12905,6 +12905,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: Mehr Mittel von den öffentlichen Stellen gefordert',
     'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Über hundert Mitglieder an der Versammlung am Donnerstagabend Defizit von rund 55\'000 Franken in der Saison 2025/26 Das Defizit wurde mit dem Vereinsvermögen gedeckt',
     'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Für diesen Artikel erstellte Illustration',
+    'blog.article.raffica-scontri-varesotto.title': 'Varesotto: vier Unfälle in weniger als einer Stunde',
+    'blog.article.raffica-scontri-varesotto.excerpt': 'Vier Einsätze in der Provinz Varese Von 6.59 bis 7.36 Uhr am Freitag Vorfälle in Varese, Rancio Valcuvia, Tradate und Gallarate Drei Personen nach Dringlichkeitscode beurteilt',
+    'blog.article.raffica-scontri-varesotto.imageAlt': 'Ruhige Straße am Morgen, symbolisches Bild für einen Verkehrsunfallbericht aus dem Varesotto.',
 };
 
 export default blogMetaDe;

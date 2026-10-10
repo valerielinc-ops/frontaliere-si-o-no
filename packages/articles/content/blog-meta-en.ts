@@ -12906,6 +12906,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: more funding sought from public authorities',
     'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'More than one hundred members at Thursday evening\'s assembly A deficit of approximately 55\'000 francs in the 2025/26 season The shortfall was covered with the association\'s assets',
     'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Illustration generated for this article',
+    'blog.article.raffica-scontri-varesotto.title': 'Varesotto: four accidents in less than an hour',
+    'blog.article.raffica-scontri-varesotto.excerpt': 'Four interventions in the province of Varese From 6.59 to 7.36 on Friday Incidents at Varese, Rancio Valcuvia, Tradate and Gallarate Three people assessed under code',
+    'blog.article.raffica-scontri-varesotto.imageAlt': 'Quiet morning road with light traffic, symbolic image for a road incident report in the Varesotto area.',
 };
 
 export default blogMetaEn;

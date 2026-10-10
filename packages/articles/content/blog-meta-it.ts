@@ -12907,6 +12907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: chiesti più fondi agli enti pubblici',
     'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Oltre cento soci all’assemblea di giovedì sera Deficit di circa 55\'000 franchi nella stagione 2025/26 Il disavanzo è stato coperto con il patrimonio sociale',
     'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Illustrazione generata per questo articolo',
+    'blog.article.raffica-scontri-varesotto.title': 'Varesotto: quattro incidenti in meno di un\'ora',
+    'blog.article.raffica-scontri-varesotto.excerpt': 'Quattro interventi in provincia di Varese Dalle 6.59 alle 7.36 di venerdì Episodi a Varese, Rancio Valcuvia, Tradate e Gallarate Tre persone valutate in codice',
+    'blog.article.raffica-scontri-varesotto.imageAlt': 'Strada al mattino con traffico leggero, immagine simbolica per la cronaca stradale del Varesotto.',
 };
 
 export default blogMetaIt;
