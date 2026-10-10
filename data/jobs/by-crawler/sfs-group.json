@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-10-09T21:34:53.737Z",
+  "assembledAt": "2026-10-10T09:24:11.351Z",
   "jobs": [
     {
       "id": "sfs-group-0d3da9babeb0",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/steuerungstechniker-in-anlagentechniker-in-support-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:48.428Z",
+      "crawledAt": "2026-10-10T09:24:07.476Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -109,7 +109,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:48.279Z",
+      "crawledAt": "2026-10-10T09:24:07.344Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -142,6 +142,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -187,7 +188,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:48.132Z",
+      "crawledAt": "2026-10-10T09:24:07.204Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -264,7 +265,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.984Z",
+      "crawledAt": "2026-10-10T09:24:07.068Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -287,6 +288,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -332,7 +334,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.838Z",
+      "crawledAt": "2026-10-10T09:24:06.933Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -394,6 +396,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -439,7 +442,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.693Z",
+      "crawledAt": "2026-10-10T09:24:06.796Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -515,7 +518,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-walzen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.543Z",
+      "crawledAt": "2026-10-10T09:24:06.663Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -597,7 +600,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-mit-perspektive-teamleitung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.393Z",
+      "crawledAt": "2026-10-10T09:24:06.528Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -655,7 +658,7 @@
         "it": "meccanico-a-di-presse-a-doppia-pressione-m-f-d-sfs-group-heerbrugg",
         "en": "mechanic-for-double-printing-presses-m-f-d-sfs-group-heerbrugg",
         "de": "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
-        "fr": "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
+        "fr": "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -679,7 +682,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/mechaniker-in-doppeldruckpressen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.243Z",
+      "crawledAt": "2026-10-10T09:24:06.393Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -704,7 +707,7 @@
       "previousSlugs": [
         "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
         "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
-        "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
+        "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -716,7 +719,7 @@
         "fr": [
           "mechaniker-in-doppeldruckpressen-m-f-d-sfs-group-heerbrugg",
           "mecanicien-ne-de-presses-a-double-pression-h-f-d-sfs-group-heerbrugg",
-          "mechaniker-in-doppeldruckpressen-m-w-d-sfs-group-heerbrugg"
+          "mecanicien-ne-presses-a-double-pression-h-f-d-sfs-group-heerbrugg"
         ]
       },
       "firstSeenAt": "2026-10-05T21:36:44.506Z",
@@ -765,7 +768,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:47.097Z",
+      "crawledAt": "2026-10-10T09:24:06.255Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "streetAddress": "Rotkreuz",
@@ -848,7 +851,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.948Z",
+      "crawledAt": "2026-10-10T09:24:06.119Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -924,7 +927,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.797Z",
+      "crawledAt": "2026-10-10T09:24:05.983Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "streetAddress": "Altstätten",
@@ -1002,7 +1005,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.647Z",
+      "crawledAt": "2026-10-10T09:24:05.849Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "streetAddress": "Hallau",
@@ -1040,6 +1043,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1085,7 +1089,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.497Z",
+      "crawledAt": "2026-10-10T09:24:05.717Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1161,7 +1165,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.349Z",
+      "crawledAt": "2026-10-10T09:24:05.582Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1240,7 +1244,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.198Z",
+      "crawledAt": "2026-10-10T09:24:05.447Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
@@ -1271,6 +1275,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1316,7 +1321,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:46.046Z",
+      "crawledAt": "2026-10-10T09:24:05.309Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1378,6 +1383,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1423,7 +1429,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:45.896Z",
+      "crawledAt": "2026-10-10T09:24:05.175Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1499,7 +1505,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:45.747Z",
+      "crawledAt": "2026-10-10T09:24:05.039Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1577,7 +1583,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-im-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:34:45.570Z",
+      "crawledAt": "2026-10-10T09:24:04.885Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1690,7 +1696,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "sfs-group-8b08e282ac9a",
@@ -1767,7 +1773,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
