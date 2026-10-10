@@ -22,6 +22,7 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
  */
 import { appendFileSync, readFileSync } from 'node:fs';
 import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
+import { fetchWithRetry } from './lib/transient-fetch.mjs';
 
 export const GCP_COST_ISSUE_TITLE = 'Costi GCP sopra la soglia giornaliera (monitor-gcp-costs)';
 export const GCP_PROJECT_ID = 'frontaliere-ticino';
@@ -31,6 +32,8 @@ const MONITORING_API = 'https://monitoring.googleapis.com/v3';
 const DAY_MS = 24 * 60 * 60 * 1000;
 const GIB = 1024 ** 3;
 const MONITORING_TIMEOUT_MS = 30_000;
+const MONITORING_RETRIES = 1;
+const MONITORING_RETRY_BASE_MS = 1_000;
 
 /**
  * Thresholds sit well above the normal day (September 1-12, before the
@@ -265,8 +268,45 @@ async function readCredentials(env = process.env) {
   }
 }
 
-async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, alignmentSeconds, aligner, reducer, groupBy = [] }) {
+async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, alignmentSeconds, aligner, reducer, groupBy = [] }, retryOptions = {}) {
   const series = [];
+  const retries = Number.isFinite(retryOptions.retries) ? Math.max(0, retryOptions.retries) : MONITORING_RETRIES;
+  const retryBaseMs = Number.isFinite(retryOptions.retryBaseMs)
+    ? Math.max(0, retryOptions.retryBaseMs)
+    : MONITORING_RETRY_BASE_MS;
+  const fetchMonitoring = async (url, init) => {
+    try {
+      return await fetchWithRetry(async () => {
+        const response = await fetchImpl(url, init);
+        if (response.status === 429 || response.status >= 500) {
+          const error = new Error(`Cloud Monitoring ${metric}: HTTP ${response.status}`);
+          error.status = response.status;
+          error.retryable = true;
+          throw error;
+        }
+        return response;
+      }, {
+        retries,
+        retryBaseMs,
+        label: `Cloud Monitoring ${metric}`,
+      });
+    } catch (error) {
+      const exhausted = error?.retryExhausted === true;
+      const attempts = exhausted ? retries + 1 : 1;
+      if (error?.name === 'AbortError' || error?.name === 'TimeoutError') {
+        throw new Error(
+          `Cloud Monitoring ${metric}: request timed out after ${MONITORING_TIMEOUT_MS}ms (attempts ${attempts}/${retries + 1})`,
+          { cause: error },
+        );
+      }
+      if (exhausted) {
+        const detail = error instanceof Error ? error.message : String(error);
+        const prefix = detail.startsWith('Cloud Monitoring ') ? '' : `Cloud Monitoring ${metric}: `;
+        throw new Error(`${prefix}${detail} (attempts ${attempts}/${retries + 1})`, { cause: error });
+      }
+      throw error;
+    }
+  };
   let pageToken = '';
   do {
     const params = new URLSearchParams({
@@ -279,10 +319,11 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
     });
     for (const field of groupBy) params.append('aggregation.groupByFields', field);
     if (pageToken) params.set('pageToken', pageToken);
-    const response = await fetchImpl(`${MONITORING_API}/projects/${GCP_PROJECT_ID}/timeSeries?${params}`, {
+    const response = await fetchMonitoring(`${MONITORING_API}/projects/${GCP_PROJECT_ID}/timeSeries?${params}`, {
       headers: { Authorization: `Bearer ${token}` },
       // A hung call must fail the step well inside the 10-minute job, so the
-      // failure-report step still runs.
+      // failure-report step still runs. The wrapper above adds one bounded
+      // retry without widening this per-attempt clock cap.
       signal: AbortSignal.timeout(MONITORING_TIMEOUT_MS),
     });
     let body;
@@ -302,7 +343,7 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
 }
 
 /** Read script-side Firestore attribution only when the total reads breach. */
-export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token, start, end }) {
+export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token, start, end, retryOptions }) {
   const series = await listTimeSeries(fetchImpl, token, {
     metric: FIRESTORE_READ_ATTRIBUTION_METRIC,
     start,
@@ -311,7 +352,7 @@ export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token
     aligner: 'ALIGN_SUM',
     reducer: 'REDUCE_SUM',
     groupBy: ['metric.label.caller'],
-  });
+  }, retryOptions);
   const attributed = sumSeries(series);
   return {
     callers: breakdownSeries(series, 'metric.label.caller', 5),
@@ -320,7 +361,7 @@ export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token
 }
 
 /** Measure every driver over the 24 hours ending at `now`. */
-export async function measureCostDrivers({ fetchImpl = fetch, token, now = new Date() }) {
+export async function measureCostDrivers({ fetchImpl = fetch, token, now = new Date(), retryOptions }) {
   const end = new Date(now.getTime());
   const start = new Date(end.getTime() - DAY_MS);
   const measurements = {};
@@ -334,7 +375,7 @@ export async function measureCostDrivers({ fetchImpl = fetch, token, now = new D
       aligner: 'ALIGN_SUM',
       reducer: 'REDUCE_SUM',
       groupBy: driver.breakdownBy ? [driver.breakdownBy] : [],
-    });
+    }, retryOptions);
     measurements[driver.key] = {
       value: sumSeries(series),
       breakdown: driver.breakdownBy ? breakdownSeries(series, driver.breakdownBy) : [],
@@ -347,7 +388,7 @@ export async function measureCostDrivers({ fetchImpl = fetch, token, now = new D
     alignmentSeconds: DAY_MS / 1000,
     aligner: 'ALIGN_MAX',
     reducer: 'REDUCE_SUM',
-  });
+  }, retryOptions);
   const growth = dailyGrowth(storage);
   measurements[STORAGE_DRIVER.key] = { value: growth.perDay, level: growth.level };
   return { measurements, windowStart: start.toISOString(), windowEnd: end.toISOString() };

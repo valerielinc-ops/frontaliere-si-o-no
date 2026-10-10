@@ -20,6 +20,7 @@ import {
   deliverSocialPost,
   dequeuePosts,
   enqueuePost,
+  isPublishedForKindDay,
   ledgerPathFor,
   loadQueue,
   queuePathFor,
@@ -41,6 +42,7 @@ import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
 import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
+import { runHasErrors } from '../scripts/social-robot/run.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];
@@ -214,6 +216,38 @@ describe('the queue', () => {
     expect(next.pending.map((e: { id: string }) => e.id).sort()).toEqual(['article-2026-10-03', 'border-2026-09-28']);
   });
 
+  it('removes one stale queue id without deleting a newer entry of the same kind', () => {
+    const root = tempDir();
+    const file = path.join(root, 'instagram-queue.json');
+    const stale = entry('article', '2026-10-03');
+    const newer = entry('article', '2026-10-04');
+    fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, pending: [stale, newer] }));
+
+    dequeuePosts(file, { channel: 'instagram', kind: 'article', queueId: stale.id });
+
+    expect(loadQueue(file).pending.map((item: { id: string }) => item.id)).toEqual([newer.id]);
+  });
+
+  it('recognizes a published kind-day for API and robot ledger rows', () => {
+    const ledger = {
+      posted: [
+        { id: 'card-a', kind: 'article', day: '2026-10-03' },
+        { id: 'card-b', kind: 'article', day: '2026-10-03', queueId: 'article-2026-10-03' },
+      ],
+    };
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-03' })).toBe(true);
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-04' })).toBe(false);
+    expect(isPublishedForKindDay(ledger, { kind: 'job', day: '2026-10-03' })).toBe(false);
+  });
+
+  it('guards both daily posters against a same-day replay', () => {
+    for (const [file, channel] of [['post-to-instagram.mjs', 'instagram'], ['post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, 'scripts', file), 'utf8');
+      expect(src).toContain('isPublishedForKindDay(ledger, { kind, day })');
+      expect(src).toContain(`dequeuePosts(QUEUE_PATH, { channel: '${channel}', kind, queueId })`);
+    }
+  });
+
   it('writes the queue file the workflow commits', () => {
     const dir = tempDir();
     const file = path.join(dir, 'instagram-queue.json');
@@ -248,7 +282,7 @@ describe('confirmation → ledger', () => {
     const e = entry('article');
     const first = confirmQueueEntry({ queue: { pending: [e] }, ledger: { posted: [] }, queueId: e.id, confirmedAt: '2026-10-04T10:00:00Z', evidence: 'Post condiviso' });
     expect(first.queue.pending).toEqual([]);
-    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, robotEvidence: 'Post condiviso' }]);
+    expect(first.ledgerEntries).toEqual([{ ...e.ledgerEntries[0], ts: '2026-10-04T10:00:00.000Z', queueId: e.id, via: ROBOT_LEDGER_VIA, instagramStoryImageUrl: e.imageUrls[0], robotEvidence: 'Post condiviso' }]);
     const again = confirmQueueEntry({ queue: { pending: [] }, ledger: { posted: first.ledgerEntries }, queueId: e.id, confirmedAt: '2026-10-04T10:05:00Z' });
     expect(again.alreadyConfirmed).toBe(true);
     expect(again.ledgerEntries).toEqual([]);
@@ -322,6 +356,52 @@ describe('confirmation → ledger', () => {
     expect(() => parseConfirmArgs(['--channel=tiktok', '--queue-id=../../etc', '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/queue-id/);
     expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
   });
+
+  it('backfills known Instagram creative metadata at confirmation time', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-09',
+      caption: 'question',
+      imageUrls: [cdn('question.jpg')],
+      ledgerEntries: [{
+        id: 'article-card',
+        kind: 'article',
+        day: '2026-10-09',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+      }],
+    });
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const result = applyConfirmation({
+      root,
+      ...parseConfirmArgs([
+        '--channel=instagram',
+        `--queue-id=${e.id}`,
+        '--confirmed-at=2026-10-10T10:00:00Z',
+        '--evidence=Post condiviso',
+      ]),
+    });
+    expect(result.ledgerEntries[0]).toMatchObject({
+      creativeId: 'question-choice',
+      hookType: 'forced-choice',
+      attentionMechanic: 'low-friction-choice',
+      engagementLoop: 'comment-to-poll',
+      followUpFormat: 'story-result',
+      engagementMechanic: 'keyword-comment',
+    });
+  });
+});
+
+describe('social robot exit status', () => {
+  it('fails the unattended run when the community worker returns an API error or partial result', () => {
+    expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'credentials-missing' } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
+  });
 });
 
 describe('cadence', () => {
@@ -381,7 +461,7 @@ type Deps = Parameters<typeof runRobot>[0];
 function harness({ queue = { pending: [entry('article')] }, journal = emptyJournal(), flow = async (_c: string, _e: unknown, _f: string[], o: { dryRun: boolean }) => ({ status: o.dryRun ? 'dry-run' : 'published', evidence: 'Post condiviso' }) } = {}) {
   let stored = journal;
   let clock = NOW;
-  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[] };
+  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[], logs: [] as string[] };
   const deps = (over: Partial<Deps> = {}): Deps => ({
     cliMode: 'publish',
     rcMode: 'live',
@@ -400,7 +480,7 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
     },
     dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
     reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
-    log: { log: () => {}, warn: () => {}, error: () => {} },
+    log: { log: (message: string) => { calls.logs.push(message); }, warn: () => {}, error: () => {} },
     ...over,
   }) as Deps;
   return { deps, calls, journal: () => stored, advance: (ms: number) => { clock += ms; } };
@@ -439,6 +519,38 @@ describe('runRobot', () => {
       expect(h.calls.dispatch).toEqual([]);
       expect(h.journal().attempts.map((a: { outcome: string }) => a.outcome)).toEqual(['dry-run']);
     }
+  });
+
+  it('prints the automatic engagement brief for an Instagram creative', async () => {
+    const creative = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-10',
+      caption: 'Quale tema scegli: tasse, sanità o permessi?',
+      imageUrls: [cdn('article-2026-10-10-0.jpg')],
+      ledgerEntries: [{
+        id: 'article-slug',
+        kind: 'article',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+        engagementMechanic: 'keyword-comment',
+        hookType: 'forced-choice',
+        attentionMechanic: 'low-friction-choice',
+        engagementLoop: 'comment-to-poll',
+        followUpFormat: 'story-result',
+      }],
+      now: NOW,
+    });
+    const h = harness({ queue: { pending: [creative] } });
+
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+
+    const output = h.calls.logs.join('\n');
+    expect(output).toContain('Instagram engagement — article-2026-10-10 · question-choice · comments');
+    expect(output).toContain('24h');
+    expect(output).toContain('48h');
+    expect(output).toContain('3 osservazioni');
+    expect(output).toContain('commenti, DM consentiti e Story vengono gestiti');
   });
 
   it('does nothing when Remote Config says off', async () => {

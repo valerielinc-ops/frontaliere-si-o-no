@@ -174,14 +174,27 @@ export interface HandoffVerdict {
   violations: string[];
 }
 
+export interface HandoffVerdictOptions {
+  toleratedShiftPx?: number;
+  /**
+   * A version-skewed runtime payload deliberately leaves the complete static
+   * snapshot in charge. Callers that own that fail-closed contract may accept
+   * the unchanged snapshot after the probe window instead of requiring a SPA
+   * takeover; gaps, duplicate copies, movement and a painted SPA main still
+   * remain violations.
+   */
+  allowStableSnapshot?: boolean;
+}
+
 /**
  * The invariant: from the first paint of the snapshot until the SPA copy has
- * settled, a reader always sees exactly one of the two, and the snapshot does
- * not move while it is the one on screen.
+ * settled (or an opted-in fail-closed snapshot owns the whole probe window), a
+ * reader always sees exactly one body, and the snapshot does not move while it
+ * is the one on screen.
  */
 export function judgeStaticHandoff(
   record: HandoffRecord,
-  { toleratedShiftPx = 4 }: { toleratedShiftPx?: number } = {},
+  { toleratedShiftPx = 4, allowStableSnapshot = false }: HandoffVerdictOptions = {},
 ): HandoffVerdict {
   const verdict: HandoffVerdict = {
     firstSnapshotMs: null, swapMs: null, gapMs: 0, bothMs: 0, spaMainOverSnapshotMs: 0, snapshotShiftPx: 0, violations: [],
@@ -228,7 +241,14 @@ export function judgeStaticHandoff(
   if (verdict.snapshotShiftPx > toleratedShiftPx) {
     verdict.violations.push(`the static snapshot moved by ${verdict.snapshotShiftPx} px while it was on screen`);
   }
-  if (!record.settled || verdict.swapMs === null) {
+  const finalState = record.states[record.states.length - 1];
+  const spaEverPainted = record.states.some((state) => state.spaTop !== null || state.spaMainPainted);
+  const stableSnapshotFallback = allowStableSnapshot
+    && !record.settled
+    && finalState?.snapshot === 'outside-visible'
+    && finalState.spaTop === null
+    && !spaEverPainted;
+  if ((!record.settled || verdict.swapMs === null) && !stableSnapshotFallback) {
     verdict.violations.push('the SPA never settled on its own copy within the time limit');
   }
   return verdict;

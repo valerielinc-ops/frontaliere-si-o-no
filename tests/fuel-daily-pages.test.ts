@@ -29,6 +29,7 @@ import {
   generateFuelArchivePages,
   generateFuelDailyPages,
 } from '../build-plugins/fuelDailyPagesPlugin';
+import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
@@ -183,6 +184,41 @@ describe('fuel-daily page generation — content quality', () => {
       const words = text.split(' ').filter((w) => w.length > 0).length;
       expect(words, `page ${path} has only ${words} words`).toBeGreaterThanOrEqual(250);
     }
+  });
+
+  it('keeps history-rich daily pages above the production text/HTML floor', async () => {
+    const history = Array.from({ length: 180 }, (_, index) => {
+      const date = new Date(today.getTime() - (179 - index) * 86_400_000);
+      const zones = Object.fromEntries(FUEL_ZONES.map((zone, zoneIndex) => [
+        zone,
+        {
+          benzina: 1.75 + zoneIndex * 0.01 + index * 0.0005,
+          diesel: 1.9 + zoneIndex * 0.01 + index * 0.0005,
+        },
+      ]));
+      return { date: date.toISOString().slice(0, 10), zones };
+    });
+    const historyPages = generateFuelDailyPages({
+      rootDir: process.cwd(),
+      dataset: DATASET,
+      history,
+      today,
+    });
+    const audit = createTextHtmlRatioAuditor({
+      threshold: 10,
+      featureFilter: 'fuel-daily',
+      failOnOffenders: true,
+    });
+
+    for (const [path, html] of Object.entries(historyPages)) {
+      audit.collect(`${process.cwd()}/dist${path}index.html`, html);
+      expect(html, `${path} duplicated its chart series as a decorative area path`).not.toContain('class="s-cpa"');
+    }
+
+    const result = await audit.report();
+    expect(result.extra.scannedByFeature['fuel-daily']).toBe(48);
+    expect(result.offendersTotal, result.humanSummary).toBe(0);
+    expect(result.passed, result.humanSummary).toBe(true);
   });
 
   it('every page sets self-referencing canonical', () => {

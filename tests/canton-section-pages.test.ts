@@ -401,9 +401,21 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html).not.toMatch(/noindex/i);
         expect(html).toContain('<meta name="ft-route-owner" content="corpus">');
         expect(html.match(SVIZZERA_URL_RX)).toBeNull();
+        expect(html).toContain('<div class="cth-page">');
+        expect(html).toContain('cth-hero');
+        expect(html).toContain('cth-facts');
+        expect(html).toContain('id="rail-left-root"');
+        expect(html).toContain('id="rail-right-root"');
+        expect(html.match(/<ins class="adsbygoogle"/g)).toHaveLength(2);
+        expect(html).toContain('data-ad-slot="3205029282"');
+        expect(html).toContain('data-ad-slot="5196931137"');
+        expect(html).toContain('data-ad-format="horizontal" data-full-width-responsive="true"');
+        expect(html).toContain('data-ad-format="autorelaxed" data-ad-placement="ssg_end_multiplex"');
+        expect(html).toContain(`aria-label="${locale === 'it' ? 'Pubblicità' : locale === 'en' ? 'Advertisement' : locale === 'de' ? 'Werbung' : 'Publicité'}"`);
         const ld = jsonLd(html);
         expect(ld.map((x) => x['@type'])).toEqual(['BreadcrumbList', 'CollectionPage', 'Dataset']);
         expect(ld[2].creator).toEqual(ORGANIZATION_LD);
+        expect(ld[2].license).toBe('https://creativecommons.org/licenses/by/4.0/');
         expect(ld[0].itemListElement.map((i: any) => i.item)).toEqual([
           `${BASE}/`, `${BASE}${landingPath(section, locale)}`, `${BASE}${paths[locale]}`,
         ]);

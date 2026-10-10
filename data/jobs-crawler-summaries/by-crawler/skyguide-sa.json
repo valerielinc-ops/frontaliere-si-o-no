@@ -1,7 +1,7 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-10-10T09:21:54.112Z",
+  "generatedAt": "2026-10-10T21:14:15.416Z",
   "total": 8,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 17719,
-  "avgDurationMs": 17719,
+  "durationMs": 14968,
+  "avgDurationMs": 14968,
   "durationHistory": [
-    17719
+    14968
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:29.104Z",
+      "crawledAt": "2026-10-10T21:13:56.114Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -89,11 +89,51 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:29.634Z",
+      "crawledAt": "2026-10-10T21:13:56.640Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Ausbildung Flugverkehrsleiter:in / Fluglots:in",
+      "slug": "controllore-del-traffico-aereo-di-formazione-in-controllore-del-traffico-aereo-in-skyguide-dubendorf",
+      "url": "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Ausbildung-Flugverkehrsleiterin-Fluglotsin/1140795501/",
+      "applyUrl": "https://jobs.skyguide.ch/talentcommunity/apply/1140795501/?locale=de_DE",
+      "company": "Skyguide",
+      "companyKey": "skyguide-sa",
+      "companyDomain": "skyguide.ch",
+      "location": "Dübendorf",
+      "addressLocality": "Dübendorf",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Logistica",
+      "source": "skyguide-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "skyguide-sa-0f90550605de",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "postalCode": "8600",
+      "firstSeenAt": "2026-06-29T14:06:51.228Z",
+      "salarySource": "estimated",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-10T21:13:57.613Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
@@ -130,53 +170,13 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:30.157Z",
+      "crawledAt": "2026-10-10T21:13:57.954Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
         "completeness": 23
-      }
-    },
-    {
-      "title": "Ausbildung Flugverkehrsleiter:in / Fluglots:in",
-      "slug": "controllore-del-traffico-aereo-di-formazione-in-controllore-del-traffico-aereo-in-skyguide-dubendorf",
-      "url": "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Ausbildung-Flugverkehrsleiterin-Fluglotsin/1140795501/",
-      "applyUrl": "https://jobs.skyguide.ch/talentcommunity/apply/1140795501/?locale=de_DE",
-      "company": "Skyguide",
-      "companyKey": "skyguide-sa",
-      "companyDomain": "skyguide.ch",
-      "location": "Dübendorf",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "other",
-      "sector": "Logistica",
-      "source": "skyguide-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "skyguide-sa-0f90550605de",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "postalCode": "8600",
-      "firstSeenAt": "2026-06-29T14:06:51.228Z",
-      "salarySource": "estimated",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:31.013Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
       }
     },
     {
@@ -211,7 +211,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:31.379Z",
+      "crawledAt": "2026-10-10T21:13:58.398Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,7 +254,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:30.612Z",
+      "crawledAt": "2026-10-10T21:13:57.136Z",
       "retranslationAttempts": 0,
       "needsRetranslation": true,
       "_qualityScore": 88,
@@ -296,7 +296,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:31.806Z",
+      "crawledAt": "2026-10-10T21:13:58.837Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,7 +336,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:21:32.186Z",
+      "crawledAt": "2026-10-10T21:13:59.249Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,5 +346,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

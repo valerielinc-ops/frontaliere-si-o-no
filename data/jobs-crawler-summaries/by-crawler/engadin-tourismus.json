@@ -1,7 +1,7 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-10-10T09:20:05.366Z",
+  "generatedAt": "2026-10-10T21:21:45.230Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4241,
-  "avgDurationMs": 4241,
+  "durationMs": 4767,
+  "avgDurationMs": 4767,
   "durationHistory": [
-    4241
+    4767
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-m-w-d-70-tourist-information-sils",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:19:51.658Z",
+      "crawledAt": "2026-10-10T21:21:33.419Z",
       "firstSeenAt": "2026-08-12T21:56:51.841Z",
       "salaryMin": 40300,
       "salaryMax": 60900,
@@ -93,7 +93,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/mitarbeiter-in-human-resources-80-100",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:19:51.386Z",
+      "crawledAt": "2026-10-10T21:21:33.062Z",
       "firstSeenAt": "2026-09-29T21:19:13.663Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -108,5 +108,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

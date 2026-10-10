@@ -102,6 +102,26 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(absent).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question })] });
   });
 
+  it('grounds a native-language choice from the CV language and contrasting language levels', () => {
+    const candidate = {
+      answers: {},
+      profile: {
+        cvLanguage: 'it',
+        languages: [{ language: 'Inglese', level: 'Buona conoscenza' }, { language: 'Francese', level: 'Buona conoscenza' }],
+      },
+      portalQuestionsAnswered: [],
+    };
+    const question = 'Qual è il livello di italiano scritto?';
+    const native = guardAgentStep(turn('act', [act({ action: 'select', value: 'Lingua madre', answer: 'Lingua madre', question, source: 'profile' })]), candidate);
+    expect(native).toMatchObject({ status: 'act', questions: [] });
+    expect(native.actions).toHaveLength(1);
+
+    const invented = guardAgentStep(turn('act', [act({ action: 'select', value: 'Fluente', answer: 'Fluente', question, source: 'profile' })]), candidate);
+    // A wrong non-native level is dropped rather than sent or turned into a
+    // new candidate question: the CV-derived native fact is already known.
+    expect(invented).toMatchObject({ status: 'done', actions: [], questions: [] });
+  });
+
   it('presses an unusual step button only when its name says next step', () => {
     expect(advanceName('Salva e prosegui')).toBe(true);
     expect(advanceName('Vai al passo successivo')).toBe(true);

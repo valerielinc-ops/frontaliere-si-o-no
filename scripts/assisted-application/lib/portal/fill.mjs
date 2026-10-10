@@ -671,7 +671,10 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         await pause();
         continue;
       } else if (action.action === 'check' || action.action === 'uncheck') {
-        await setChoice(locator, action.action === 'check');
+        const wanted = action.action === 'check';
+        await setChoice(locator, wanted);
+        const registered = await locator.isChecked({ timeout: 2000 }).catch(() => null);
+        if (registered !== wanted) throw new Error('choice_not_registered');
       } else if (field.kind === 'radio') {
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
         if (!option) throw new Error('radio_option_missing');
@@ -736,7 +739,7 @@ export const CONFIRM_RE = /(thank you (very much |so much )?for (your )?appl|man
 // 2026-10-01: «Non siamo riusciti a inviare la tua candidatura. Riprova.»).
 export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
 // SuccessFactors (Coop, 2026-10-03): «Bitte korrigieren Sie die folgenden Fehler.», «Anrede ist erforderlich».
-export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
+export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|indicare\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|inserire\s+(?:la\s+)?data\s+(?:nel|in)\s+formato\s+(?:indicato|corretto|richiesto)|date\s+(?:in|au)\s+(?:the\s+)?(?:indicated|specified|correct)\s+format|datum\s+im\s+(?:angegebenen|korrekten)\s+format|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
 
 /**
  * First enabled button matching the pattern (a disabled one is returned only when asked). One of the page's

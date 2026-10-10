@@ -1,7 +1,7 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-10-10T09:29:18.840Z",
+  "generatedAt": "2026-10-10T21:28:30.625Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 7637,
-  "avgDurationMs": 7637,
+  "durationMs": 6680,
+  "avgDurationMs": 6680,
   "durationHistory": [
-    7637
+    6680
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:03.144Z",
+      "crawledAt": "2026-10-10T21:28:13.232Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:02.936Z",
+      "crawledAt": "2026-10-10T21:28:13.051Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:02.739Z",
+      "crawledAt": "2026-10-10T21:28:12.878Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:02.519Z",
+      "crawledAt": "2026-10-10T21:28:12.703Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-60-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:02.153Z",
+      "crawledAt": "2026-10-10T21:28:12.382Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-ab-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:29:01.442Z",
+      "crawledAt": "2026-10-10T21:28:11.722Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -277,5 +277,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

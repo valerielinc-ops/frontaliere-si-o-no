@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-10T09:14:32.817Z",
+  "generatedAt": "2026-10-10T21:13:18.636Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 10495,
-  "avgDurationMs": 10495,
+  "durationMs": 8645,
+  "avgDurationMs": 8645,
   "durationHistory": [
-    10495
+    8645
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -575,5 +575,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

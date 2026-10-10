@@ -56,6 +56,18 @@ import {
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import { professionSynonymText } from '@/services/professionSynonyms';
+import {
+ addJobSearchLocationTokens,
+ addJobBoardAutocompleteSuggestions,
+ collectJobSearchLocationTokens,
+ deriveJobBoardOccupationTerms,
+ deriveJobBoardAutocompleteSuggestions,
+ offerBoundedRankedCandidate,
+ rankedCandidateValues,
+ scheduleFrameBudgetedScan,
+ shouldRearmCancelledFetchAttempt,
+ type RankedCandidate,
+} from '@/services/jobBoardSearchPipeline';
 import { cantonSearchTokens, CANTON_CODES, getCantonLabel } from '@/services/cantonList';
 import {
   loadSavedJobs,
@@ -309,6 +321,7 @@ const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 // the documented "SPA may over-recover vs the static landing" intent — broadening
 // never de-indexes a canonical page, it only fills the hydrated board.
 const BROADEN_BELOW = 10;
+const MAX_FALLBACK_RESULTS = 30;
 // Rank boost applied to a broadened cross-canton job whose LOCATION matches a
 // city named in the query (e.g. "…lausanne" → jobs physically in Lausanne sort
 // above jobs that merely mention the city in their description). Large enough to
@@ -2298,6 +2311,61 @@ function isExternalApplicationJob(job: JobListing): boolean {
 }
 
 const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
+
+interface InterruptibleDerivation<T> {
+ value: T;
+ pending: boolean;
+}
+
+/**
+ * Build a complete derived value outside React's render task. A dependency
+ * change cancels the old scan; only the result for the current revision can be
+ * observed, so downstream fetch/SEO effects never consume a partial corpus.
+ */
+function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
+ items,
+ enabled,
+ emptyValue,
+ createAccumulator,
+ visit,
+ finish,
+}: {
+ items: ReadonlyArray<TItem>;
+ enabled: boolean;
+ emptyValue: TResult;
+ createAccumulator: () => TAccumulator;
+ visit: (accumulator: TAccumulator, item: TItem, index: number) => boolean | void;
+ finish: (accumulator: TAccumulator) => TResult;
+}): InterruptibleDerivation<TResult> {
+ const revision = useMemo(
+  () => ({}),
+  [items, enabled, createAccumulator, visit, finish],
+ );
+ const [settled, setSettled] = useState<{ revision: object | null; value: TResult }>(() => ({
+  revision: null,
+  value: emptyValue,
+ }));
+
+ useEffect(() => {
+  if (!enabled) return;
+  const scan = scheduleFrameBudgetedScan({
+   items,
+   createAccumulator,
+   visit,
+   finish,
+   onComplete: (value) => {
+    startTransition(() => setSettled({ revision, value }));
+   },
+  });
+  return () => scan.cancel();
+ }, [items, enabled, createAccumulator, visit, finish, revision]);
+
+ const current = enabled && settled.revision === revision;
+ return {
+  value: current ? settled.value : emptyValue,
+  pending: enabled && !current,
+ };
+}
 
 /**
  * The gate's unified subscriber write. An enrolled jobgate visitor also gets
@@ -4421,11 +4489,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // that matches nothing — the 7,16 MB stampede this component is trying to
  // avoid. A locale switch has the same shape from the other side: same array
  // identity, haystacks built for the previous language.
+ /**
+  * A build seed is already the complete answer for its route. While it applies,
+  * no fallback may interpret the deliberately empty client derivation as a
+  * corpus miss: doing so downloads and scans pools that cannot affect the UI.
+ * Facets deliberately do not disable the seed: they narrow its bounded result
+ * set below, matching the build-to-SPA handoff contract.
+  */
+ const clusterSeedApplies = clusterSeedJobs.length > 0
+   && !!clusterSeed
+   && deferredSearchQuery.trim() === clusterSeed.q.trim()
+   && !companySlugFilter
+   && !locationSlugFilter;
+ const unseededSearchPipelineEnabled = !clusterSeedApplies;
+
  const [searchIndex, setSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
  readonly jobs: ReadonlyArray<JobListing> | null;
  readonly locale: Locale | null;
- }>(() => ({ map: new Map(), jobs: null, locale: null }));
+ readonly ids: ReadonlySet<string>;
+ readonly locationTokens: ReadonlySet<string>;
+ }>(() => ({ map: new Map(), jobs: null, locale: null, ids: new Set(), locationTokens: new Set() }));
 
  // Time-sliced, not fixed-count. A 50-job chunk per rAF frame makes the wall
  // clock a function of the FRAME COUNT, not of the work: 14.700 jobs (the
@@ -4441,6 +4525,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // before, not later.
  useEffect(() => {
  const map = new Map<JobListing, string>();
+ const ids = new Set<string>();
+ const locationTokens = new Set<string>();
  let i = 0;
  let raf = 0;
  let cancelled = false;
@@ -4460,6 +4546,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like "nurse" or "Pflegefachfrau" surfaces a job titled "Infermiera".
  const synonyms = professionSynonymText(localizedTitle);
  map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
+ ids.add(job.id);
+ addJobSearchLocationTokens(locationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4471,7 +4559,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (i < sortedJobs.length) {
  raf = requestAnimationFrame(processChunk);
  } else {
- setSearchIndex({ map, jobs: sortedJobs, locale });
+ setSearchIndex({ map, jobs: sortedJobs, locale, ids, locationTokens });
  }
  }
 
@@ -4493,6 +4581,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Keep both fallback pools in one identity-keyed index: cross-locale results
  // use the same matcher, and object references remain stable after setState.
  const fallbackIndexJobs = useMemo<ReadonlyArray<JobListing>>(() => {
+ if (!unseededSearchPipelineEnabled) return [];
  const merged: JobListing[] = [];
  const seen = new Set<JobListing>();
  for (const job of [...unscopedJobs, ...crossLocaleJobs]) {
@@ -4501,7 +4590,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  merged.push(job);
  }
  return merged;
- }, [unscopedJobs, crossLocaleJobs]);
+ }, [unscopedJobs, crossLocaleJobs, unseededSearchPipelineEnabled]);
 
  const [fallbackSearchIndex, setFallbackSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
@@ -4524,13 +4613,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  while (i < fallbackIndexJobs.length) {
  const job = fallbackIndexJobs[i];
  fallbackMap.set(job, getBroadenHaystack(job, locale));
- const location = `${job.addressLocality || ''} ${job.location || ''}`;
- for (const token of normalizeSearchText(location).split(' ')) {
-  if (!token) continue;
-  const stem = stemSearchToken(token);
-  if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
-  fallbackLocationTokens.add(stem);
- }
+ addJobSearchLocationTokens(fallbackLocationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4591,8 +4674,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   * discarded, because once the index completed the strict tier had 8 results
   * all along. One flag for all four consumers so they cannot drift apart.
   */
- const searchIndexPending = Boolean(deferredSearchQuery.trim())
- && (searchIndex.jobs !== sortedJobs || searchIndex.locale !== locale);
+ const searchIndexCurrent = searchIndex.jobs === sortedJobs && searchIndex.locale === locale;
+ const searchIndexPending = Boolean(deferredSearchQuery.trim()) && !searchIndexCurrent;
 
  // Post-auth prompt removed 2026-05-19: PostHog 30-day data showed 88%
  // dismiss rate · 3 open · 0 accepts · 3 silent errors on
@@ -4600,31 +4683,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // "second-job" trigger has no audience either — the job-detail prompt
  // (relaxed gating, max 2/day) carries conversions instead.
 
- const scopedSearchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set<string>();
- for (const j of sortedJobs) {
- const loc = `${j.addressLocality || ''} ${j.location || ''}`;
- for (const tok of normalizeSearchText(loc).split(' ')) {
- if (!tok) continue;
- const stem = stemSearchToken(tok);
- if (stem.length <= 3) continue;
- if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
- set.add(stem);
- }
- }
- return set;
- }, [sortedJobs]);
-
  const searchLocationTokens = useMemo<Set<string>>(() => {
- const set = new Set(scopedSearchLocationTokens);
+ const set = new Set(searchIndexCurrent ? searchIndex.locationTokens : []);
+ if (clusterSeedApplies) collectJobSearchLocationTokens(clusterSeedJobs, set);
  for (const token of fallbackSearchIndex.locationTokens) set.add(token);
  return set;
- }, [scopedSearchLocationTokens, fallbackSearchIndex]);
+ }, [searchIndex, searchIndexCurrent, fallbackSearchIndex, clusterSeedApplies, clusterSeedJobs]);
 
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
  // path below and the OR-fallback path so the two stay consistent.
- const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? getJobSearchRoleTokens(deferredSearchQuery).filter(token => !searchLocationTokens.has(token)) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
+ const occupationTerms = useMemo(() => hasActiveSalarySearchIntent(deferredSearchQuery, searchSlugFilter, initialJobSlug) ? deriveJobBoardOccupationTerms(deferredSearchQuery, searchLocationTokens) : [], [deferredSearchQuery, searchLocationTokens, searchSlugFilter, initialJobSlug]);
  // The seed, strict search and every broadening tier share occupational relevance.
  const passingNonSearchFilters = useCallback((job: JobListing, now: number, cutoff: number): boolean => {
  if (!matchesJobOccupation(job, locale, occupationTerms)) return false;
@@ -4665,22 +4734,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  return true;
  }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly, deferredShowSavedOnly, savedJobIds, salaryRangeFilter, locale, occupationTerms]);
-
- // strictFilteredJobs: AND-match on every search token (current behavior).
- // The OR-fallback layer below kicks in when this is empty for a
- // multi-token query — typical for slug-driven URLs like
- // /cerca-lavoro-ticino/ricerca-koch-davos/ where no job has BOTH "koch"
- // and "davos" but many have one of the two.
- const strictFilteredJobs = useMemo(() => {
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
- const query = deferredSearchQuery.trim();
- return sortedJobs.filter((job) => {
- if (!passingNonSearchFilters(job, now, cutoff)) return false;
- if (query) return indexedQueryMatch(job, query);
- return true;
- });
- }, [sortedJobs, deferredSelectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
 
  // Location vocabulary for the OR-fallback relevance floor. Stemmed tokens of
  // every job location currently in memory (canton-scoped + unscoped pool).
@@ -4756,39 +4809,90 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // matches (excluding the strict ids, which `filteredJobs` lists first), so the
  // hydrated page matches the static cluster page instead of collapsing to 1
  // (which also removed the jarring static-30 → hydrated-1 layout shift).
- const MAX_FALLBACK_RESULTS = 30;
- const orFallbackInCantonJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query || strictFilteredJobs.length >= BROADEN_BELOW) return [];
+ const orFallbackTokens = useMemo(
+  () => normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken),
+  [orFallbackQuery],
+ );
 
- // Score the boilerplate-stripped query so the matched tokens stay
- // consistent with the floor (`orFallbackMinScore`, which counts content
- // tokens) — see `orFallbackQuery` above.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
+ type InCantonAccumulator = {
+  now: number;
+  cutoff: number;
+  strict: JobListing[];
+  fallback: RankedCandidate<JobListing>[];
+  queryMatches: JobListing[];
+  autocomplete: string[];
+  autocompleteSeen: Set<string>;
+ };
+ type InCantonResult = {
+  strict: JobListing[];
+  fallback: JobListing[];
+  queryMatches: JobListing[];
+  autocomplete: string[];
+ };
+ const emptyInCantonResult = useMemo<InCantonResult>(() => ({
+  strict: [], fallback: [], queryMatches: [], autocomplete: [],
+ }), []);
+ const createInCantonAccumulator = useCallback((): InCantonAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   strict: [],
+   fallback: [],
+   queryMatches: [],
+   autocomplete: [],
+   autocompleteSeen: new Set(),
+  };
+ }, [deferredSelectedDateRange]);
+ const visitInCantonJob = useCallback((accumulator: InCantonAccumulator, job: JobListing, sourceIndex: number) => {
+  const query = deferredSearchQuery.trim();
+  const queryMatches = !query || indexedQueryMatch(job, query);
+  if (query && queryMatches) accumulator.queryMatches.push(job);
 
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
+  if (accumulator.autocomplete.length < 5) {
+   addJobBoardAutocompleteSuggestions(
+    accumulator.autocomplete,
+    accumulator.autocompleteSeen,
+    job,
+    query,
+    locale,
+   );
+  }
 
- // Exclude jobs already matched by the strict AND tier — this tier supplies
- // only the OR-fill tail; `filteredJobs` lists the strict matches first.
- const strictIds = new Set<string>();
- for (const j of strictFilteredJobs) strictIds.add(j.id);
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of sortedJobs) {
- if (strictIds.has(job.id)) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = searchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score >= orFallbackMinScore) scored.push({ job, score });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, deferredSelectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  if (queryMatches) {
+   accumulator.strict.push(job);
+   return;
+  }
+  if (orFallbackTokens.length < 2) return;
+  const haystack = searchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  offerBoundedRankedCandidate(accumulator.fallback, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [deferredSearchQuery, indexedQueryMatch, locale, passingNonSearchFilters, orFallbackTokens, searchIndex, orFallbackMinScore]);
+ const finishInCantonDerivation = useCallback((accumulator: InCantonAccumulator): InCantonResult => ({
+  strict: accumulator.strict,
+  fallback: deferredSearchQuery.trim()
+   && accumulator.strict.length < BROADEN_BELOW
+   && orFallbackTokens.length >= 2
+   ? rankedCandidateValues(accumulator.fallback)
+   : [],
+  queryMatches: accumulator.queryMatches,
+  autocomplete: accumulator.autocomplete.slice(0, 5),
+ }), [deferredSearchQuery, orFallbackTokens.length]);
+ const inCantonDerivation = useInterruptibleDerivation({
+  items: sortedJobs,
+  enabled: unseededSearchPipelineEnabled && !searchIndexPending,
+  emptyValue: emptyInCantonResult,
+  createAccumulator: createInCantonAccumulator,
+  visit: visitInCantonJob,
+  finish: finishInCantonDerivation,
+ });
+ const strictFilteredJobs = inCantonDerivation.value.strict;
+ const orFallbackInCantonJobs = inCantonDerivation.value.fallback;
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -4799,73 +4903,73 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // date-range or non-search filter. The locale-wide haystacks are prepared in
  // a frame-budgeted fallback index above, so a date/filter change only scans
  // the already-indexed records and never rebuilds 26k strings in the render.
- const crossCantonFallbackJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query) return [];
- // Broaden when the in-canton tiers returned FEWER than BROADEN_BELOW jobs
- // (was: only when they returned exactly zero). A single weak in-canton match
- // — e.g. a TI job whose description happens to mention "lausanne" — used to
- // suppress the much richer cross-canton set, leaving the page stuck at 1.
- // The in-canton result is whichever tier won: strict (AND) if it has any,
- // else the in-canton OR fallback. These are merged-with (not replaced) by the
- // consumer (`filteredJobs`), so this tier only supplies the broadened tail.
- // strict + OR-fill tail (the fill excludes strict ids, so no double count).
+ type RankedFallbackAccumulator = {
+  now: number;
+  cutoff: number;
+  ranked: RankedCandidate<JobListing>[];
+ };
+ const createRankedFallbackAccumulator = useCallback((): RankedFallbackAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   ranked: [],
+  };
+ }, [deferredSelectedDateRange]);
+ const crossCantonCityTokens = useMemo(
+  () => orFallbackTokens.filter((token) => searchLocationTokens.has(token)),
+  [orFallbackTokens, searchLocationTokens],
+ );
+ const visitCrossCantonJob = useCallback((accumulator: RankedFallbackAccumulator, job: JobListing, sourceIndex: number) => {
+  if (searchIndex.ids.has(job.id)) return;
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  const haystack = fallbackSearchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  if (crossCantonCityTokens.length > 0) {
+   const locationHaystack = buildStemmedHaystack(`${job.addressLocality || ''} ${job.location || ''}`);
+   if (crossCantonCityTokens.some((token) => locationHaystack.includes(` ${token}`))) {
+    score += CITY_MATCH_BOOST;
+   }
+  }
+  offerBoundedRankedCandidate(accumulator.ranked, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [searchIndex, passingNonSearchFilters, fallbackSearchIndex, orFallbackTokens, orFallbackMinScore, crossCantonCityTokens]);
+ const finishRankedFallback = useCallback(
+  (accumulator: RankedFallbackAccumulator) => rankedCandidateValues(accumulator.ranked),
+  [],
+ );
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
- if (inCantonCount >= BROADEN_BELOW) return [];
- if (unscopedJobs.length === 0) return [];
- if (fallbackSearchIndexPending) return [];
-
- // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
- // tokens match the floor's content-token count.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length === 0) return [];
-
- // City-aware relevance: query tokens that are part of the location vocabulary
- // (`searchLocationTokens`) name a place ("lausanne"). A broadened job whose
- // own LOCATION matches one of them is far more relevant than a job that only
- // mentions the city in prose, so it gets CITY_MATCH_BOOST and leads the tail.
- const cityTokens = queryTokens.filter((t) => searchLocationTokens.has(t));
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scopedIds = new Set<string>();
- for (const j of sortedJobs) scopedIds.add(j.id);
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of unscopedJobs) {
- if (scopedIds.has(job.id)) continue;
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = fallbackSearchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score < orFallbackMinScore) continue;
- let locBoost = 0;
- if (cityTokens.length > 0) {
- const locHay = buildStemmedHaystack(`${job.addressLocality || ''} ${job.location || ''}`);
- for (const ct of cityTokens) {
- if (locHay.includes(` ${ct}`)) { locBoost = CITY_MATCH_BOOST; break; }
- }
- }
- scored.push({ job, score: score + locBoost });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens, fallbackSearchIndex, fallbackSearchIndexPending]);
+ const crossCantonDerivation = useInterruptibleDerivation({
+  items: unscopedJobs,
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
+   && Boolean(deferredSearchQuery.trim())
+   && inCantonCount < BROADEN_BELOW
+   && unscopedJobs.length > 0
+   && !fallbackSearchIndexPending
+   && searchIndexCurrent,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createRankedFallbackAccumulator,
+  visit: visitCrossCantonJob,
+  finish: finishRankedFallback,
+ });
+ const crossCantonFallbackJobs = crossCantonDerivation.value;
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
  // we dedup against the already-loaded pool (sortedJobs ∪ unscopedJobs) to
  // avoid surfacing jobs the user already saw filtered-out. Fetch is one-shot
- // per session (crossLocaleFetchAttempted ref) — cross-locale corpora are
- // similarly sized to the IT one, so a per-keystroke refetch would waste
- // bandwidth without changing results.
+ // after it settles; if route/seed navigation cancels it, cleanup re-arms the
+ // attempt so leaving the seeded route can retry.
  useEffect(() => {
+ if (!unseededSearchPipelineEnabled) return;
  if (crossLocaleFetchAttempted.current) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending || crossCantonDerivation.pending) return;
  // The zero below is only an answer once the index covers the corpus.
  if (searchIndexPending) return;
  if (fallbackSearchIndexPending) return;
@@ -4887,6 +4991,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  crossLocaleFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  const allLocales: ReadonlyArray<Locale> = ['it', 'en', 'de', 'fr'];
  const otherLocales = allLocales.filter((l) => l !== locale);
  (async () => {
@@ -4923,18 +5028,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPendingFallbacks((n) => n - 1);
  // Mark the terminal fallback settled (batched with setCrossLocaleJobs on the
  // success path, so results + settled flip together — no stale-0 frame).
- if (!cancelled) setCrossLocaleSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCrossLocaleSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) crossLocaleFetchAttempted.current = false;
+ };
  }, [
- deferredSearchQuery, jobsLoading, locale,
+ deferredSearchQuery, jobsLoading, locale, unseededSearchPipelineEnabled,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
  unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettledQueries,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
  // never change when the index completes, so without this dep the effect
  // would not re-run and the fallback would never fire at all.
  searchIndexPending, fallbackSearchIndexPending,
+ inCantonDerivation.pending, crossCantonDerivation.pending,
  ]);
 
  // Shared locale-wide pool loader (slim index). Used by BOTH the company-hub
@@ -4959,10 +5071,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // canton-scoped pool has ZERO openings for that employer (HQ in another
  // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
  // company-broadening tier below can show its Swiss-wide openings instead of
- // the empty-state. One-shot per mount; skipped when the pool is already loaded.
+ // the empty-state. One-shot after settlement; cancellation re-arms the attempt.
  useEffect(() => {
  if (companyBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending) return;
  if (!companySlugFilter) return;
  if (deferredSearchQuery.trim()) return; // search active → cross-locale tier owns the pool fetch
  if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
@@ -4970,6 +5083,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  companyBroadenFetchAttempted.current = true;
  setPendingFallbacks((n) => n + 1);
  let cancelled = false;
+ let attemptSettled = false;
  (async () => {
  try {
  const pool = await loadUnscopedPool();
@@ -4982,11 +5096,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Mark the terminal company-broaden fallback settled (batched with
  // setUnscopedJobs on the success path, so results + settled flip together —
  // no stale-0 frame). Mirrors the crossLocaleSettled pattern for Tier 4.
- if (!cancelled) setCompanyBroadenSettled(true);
+ if (!cancelled) {
+   attemptSettled = true;
+   setCompanyBroadenSettled(true);
+ }
  }
  })();
- return () => { cancelled = true; };
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool]);
+ return () => {
+   cancelled = true;
+   if (shouldRearmCancelledFetchAttempt(cancelled, attemptSettled)) companyBroadenFetchAttempted.current = false;
+ };
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale, loadUnscopedPool, inCantonDerivation.pending]);
 
  // Search-broaden trigger: a canton-scoped SEARCH whose in-canton tiers are
  // thin (< BROADEN_BELOW) needs the locale-wide pool so the city-aware cross-
@@ -4998,7 +5118,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // A query that was attempted but is not terminal yet may attach again after
  // A→B→A, so the current query still receives the shared pool result.
  useEffect(() => {
+ if (!unseededSearchPipelineEnabled) return;
  if (jobsLoading) return;
+ if (inCantonDerivation.pending) return;
  // The in-canton counts below are provisional until the index is complete.
  if (searchIndexPending) return;
  if (companySlugFilter) return; // company path owns its loader
@@ -5045,48 +5167,41 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
  // a genuinely thin search leaves every other dep unchanged when the index
  // completes, so the broaden would never fire without it.
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries, inCantonDerivation.pending, unseededSearchPipelineEnabled]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
  // shards, so the result still routes to the Italian URL via the existing
  // slug field — the only thing that may render in another language is the
  // title when no IT translation exists for that record.
- const crossLocaleFallbackJobs = useMemo<JobListing[]>(() => {
- const query = deferredSearchQuery.trim();
- if (!query) return [];
- if (strictFilteredJobs.length > 0) return [];
- if (orFallbackInCantonJobs.length > 0) return [];
- if (crossCantonFallbackJobs.length > 0) return [];
- if (crossLocaleJobs.length === 0) return [];
- if (fallbackSearchIndexPending) return [];
-
- // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
- // tokens match the floor's content-token count.
- const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
- if (queryTokens.length === 0) return [];
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scored: { job: JobListing; score: number }[] = [];
- for (const job of crossLocaleJobs) {
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const haystack = fallbackSearchIndex.map.get(job) ?? '';
- let score = 0;
- for (const t of queryTokens) {
- if (haystack.includes(` ${t}`)) score++;
- }
- if (score >= orFallbackMinScore) scored.push({ job, score });
- }
- scored.sort((a, b) => b.score - a.score);
- return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [
- strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
- fallbackSearchIndex, fallbackSearchIndexPending,
- ]);
+ const visitCrossLocaleJob = useCallback((accumulator: RankedFallbackAccumulator, job: JobListing, sourceIndex: number) => {
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  const haystack = fallbackSearchIndex.map.get(job) ?? '';
+  let score = 0;
+  for (const token of orFallbackTokens) {
+   if (haystack.includes(` ${token}`)) score++;
+  }
+  if (score < orFallbackMinScore) return;
+  offerBoundedRankedCandidate(accumulator.ranked, { value: job, score, sourceIndex }, MAX_FALLBACK_RESULTS);
+ }, [passingNonSearchFilters, fallbackSearchIndex, orFallbackTokens, orFallbackMinScore]);
+ const crossLocaleDerivation = useInterruptibleDerivation({
+  items: crossLocaleJobs,
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
+   && !crossCantonDerivation.pending
+   && Boolean(deferredSearchQuery.trim())
+   && strictFilteredJobs.length === 0
+   && orFallbackInCantonJobs.length === 0
+   && crossCantonFallbackJobs.length === 0
+   && crossLocaleJobs.length > 0
+   && !fallbackSearchIndexPending,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createRankedFallbackAccumulator,
+  visit: visitCrossLocaleJob,
+  finish: finishRankedFallback,
+ });
+ const crossLocaleFallbackJobs = crossLocaleDerivation.value;
 
  // Tier 3.5 — company-hub broadening. Fires when a company filter is active
  // but every in-canton tier (and the search cross-canton tier) returned zero:
@@ -5102,29 +5217,50 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // this tier stays out so the search-driven cross-locale Tier 4 can answer
  // the keyword instead of dumping every Swiss-wide opening for the employer
  // (which would ignore the query and mislead the "N positions" banner).
- const companyBroadeningFallbackJobs = useMemo<JobListing[]>(() => {
- if (!companySlugFilter) return [];
- if (deferredSearchQuery.trim()) return [];
- if (strictFilteredJobs.length > 0) return [];
- if (orFallbackInCantonJobs.length > 0) return [];
- if (crossCantonFallbackJobs.length > 0) return [];
- if (unscopedJobs.length === 0) return [];
-
- const now = Date.now();
- const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange];
-
- const scopedIds = new Set<string>();
- for (const j of sortedJobs) scopedIds.add(j.id);
-
- const matches: JobListing[] = [];
- for (const job of unscopedJobs) {
- if (scopedIds.has(job.id)) continue;
- if (isForeignLocation(job.addressLocality || job.location || '')) continue;
- if (!passingNonSearchFilters(job, now, cutoff)) continue; // company filter enforced here
- matches.push(job);
- }
- return matches.slice(0, MAX_FALLBACK_RESULTS);
- }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, deferredSelectedDateRange, passingNonSearchFilters]);
+ type OrderedFallbackAccumulator = {
+  now: number;
+  cutoff: number;
+  matches: JobListing[];
+ };
+ const createOrderedFallbackAccumulator = useCallback((): OrderedFallbackAccumulator => {
+  const now = Date.now();
+  return {
+   now,
+   cutoff: deferredSelectedDateRange === 'all' ? 0 : now - DATE_RANGE_MS[deferredSelectedDateRange],
+   matches: [],
+  };
+ }, [deferredSelectedDateRange]);
+ const visitCompanyFallbackJob = useCallback((accumulator: OrderedFallbackAccumulator, job: JobListing) => {
+  if (searchIndex.ids.has(job.id)) return;
+  if (isForeignLocation(job.addressLocality || job.location || '')) return;
+  if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
+  accumulator.matches.push(job);
+  return accumulator.matches.length < MAX_FALLBACK_RESULTS;
+ }, [searchIndex, passingNonSearchFilters]);
+ const finishOrderedFallback = useCallback(
+  (accumulator: OrderedFallbackAccumulator) => accumulator.matches,
+  [],
+ );
+ const companyFallbackDerivation = useInterruptibleDerivation({
+  items: unscopedJobs,
+  enabled: !inCantonDerivation.pending
+   && Boolean(companySlugFilter)
+   && !deferredSearchQuery.trim()
+   && strictFilteredJobs.length === 0
+   && orFallbackInCantonJobs.length === 0
+   && crossCantonFallbackJobs.length === 0
+   && unscopedJobs.length > 0
+   && searchIndexCurrent,
+  emptyValue: emptyInCantonResult.strict,
+  createAccumulator: createOrderedFallbackAccumulator,
+  visit: visitCompanyFallbackJob,
+  finish: finishOrderedFallback,
+ });
+ const companyBroadeningFallbackJobs = companyFallbackDerivation.value;
+ const resultDerivationPending = inCantonDerivation.pending
+  || crossCantonDerivation.pending
+  || crossLocaleDerivation.pending
+  || companyFallbackDerivation.pending;
 
  // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
@@ -5137,20 +5273,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
- /**
-  * True while the build's seeded result set is still the right answer for what
-  * is on screen: the visitor has not changed the query away from the one this
-  * page is about, and is not in a company/location view (those have their own
-  * loaders and their own corpora). Facet filters are deliberately NOT part of
-  * this test — they narrow the seeded set inside the tier rather than throwing
-  * it away, which is what a visitor ticking "ultime 24h" expects.
-  */
- const clusterSeedApplies = clusterSeedJobs.length > 0
-   && !!clusterSeed
-   && deferredSearchQuery.trim() === clusterSeed.q.trim()
-   && !companySlugFilter
-   && !locationSlugFilter;
-
  const filteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
@@ -5202,9 +5324,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // The loaded result set is authoritative for the root hub's metadata too.
  useEffect(() => {
-  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending) return;
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending) return;
   updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
- }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, filteredJobs.length]);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, filteredJobs.length]);
 
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
@@ -5312,14 +5434,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  searchBroadenAttemptedQueries.current.size > 0
  || companyBroadenFetchAttempted.current
  || crossLocaleFetchAttempted.current;
- const resultsResolving =
+ const fallbackResultsResolving =
  (Boolean(deferredSearchQuery.trim()) || Boolean(companySlugFilter))
  // ...unless the build already handed us the answer. With the cluster seed
  // applied `filteredJobs` is not provisional — it is the exact set this page
  // was emitted with, complete on the first frame — so holding the skeleton
  // until the shards land would spend the whole win on an animation. Every
  // window below is about waiting for a corpus we no longer need to wait for.
- && !clusterSeedApplies
  && (
  fullLoadPending
  || (filteredJobs.length === 0 && (
@@ -5354,6 +5475,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
+ const resultsResolving = (resultDerivationPending || fallbackResultsResolving)
+ && !clusterSeedApplies;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -5456,7 +5579,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const relatedSearchSuggestions = useMemo(() => {
  const baseQuery = deferredSearchQuery.trim();
  if (!baseQuery) return [];
- const matching = sortedJobs.filter((job) => indexedQueryMatch(job, baseQuery));
+ const matching = clusterSeedApplies ? clusterSeedJobs : inCantonDerivation.value.queryMatches;
  if (matching.length === 0) return [];
 
  const seen = new Set<string>();
@@ -5468,7 +5591,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const key = normalizeSearchText(clean);
  if (!key || key === normBase || seen.has(key)) return;
  // Validate candidate against the already-filtered matches instead of all jobs (O(n) vs O(n²))
- if (!matching.some((job) => indexedQueryMatch(job, clean))) return;
+ if (!clusterSeedApplies && !matching.some((job) => indexedQueryMatch(job, clean))) return;
  seen.add(key);
  out.push(clean);
  };
@@ -5485,40 +5608,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return out.slice(0, 5);
- }, [deferredSearchQuery, sortedJobs, locale, indexedQueryMatch]);
+ }, [deferredSearchQuery, clusterSeedApplies, clusterSeedJobs, inCantonDerivation.value.queryMatches, locale, indexedQueryMatch]);
 
  // Autocomplete suggestions as user types in job search
- const autocompleteSuggestions = useMemo(() => {
- const q = deferredSearchQuery.trim().toLowerCase();
- if (!q || q.length < 2) return [];
- const seen = new Set<string>();
- const suggestions: string[] = [];
- const add = (text: string) => {
- const clean = text.trim();
- if (!clean || clean.toLowerCase() === q) return;
- const key = clean.toLowerCase();
- if (seen.has(key)) return;
- seen.add(key);
- suggestions.push(clean);
- };
- for (const job of sortedJobs) {
- const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title).split(/[-–—|•·]/)[0]?.trim() || '';
- if (title.toLowerCase().startsWith(q)) add(title);
- const company = String(job.company || '').trim();
- if (company.toLowerCase().startsWith(q)) add(company);
- const location = String(job.location || '').trim();
- if (location.toLowerCase().startsWith(q)) add(location);
- if (suggestions.length >= 5) break;
- }
- return suggestions.slice(0, 5);
- }, [deferredSearchQuery, sortedJobs, locale]);
+ const clusterSeedAutocompleteSuggestions = useMemo(
+  () => clusterSeedApplies
+   ? deriveJobBoardAutocompleteSuggestions(clusterSeedJobs, deferredSearchQuery, locale)
+   : [],
+  [clusterSeedApplies, clusterSeedJobs, deferredSearchQuery, locale],
+ );
+ const autocompleteSuggestions = clusterSeedApplies
+  ? clusterSeedAutocompleteSuggestions
+  : inCantonDerivation.value.autocomplete;
 
  // Smart 0-results (issue #4301): candidate pool of real job titles/
  // locations for fuzzy "did you mean" suggestions when the query matches
  // nothing (autocompleteSuggestions above only catches startsWith matches,
  // so a typo or an unrelated-but-close term surfaces nothing there).
  const zeroResultCandidatePool = useMemo(() => {
- if (filteredJobs.length !== 0) return [];
  const seen = new Set<string>();
  const out: string[] = [];
  for (const job of sortedJobs) {
@@ -5534,7 +5641,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (out.length >= 300) break;
  }
  return out;
- }, [filteredJobs.length, sortedJobs, locale]);
+ }, [sortedJobs, locale]);
 
  const zeroResultSuggestions = useMemo(() => {
  const q = deferredSearchQuery.trim();
@@ -5736,8 +5843,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!searchSlugFilter) {
  syncQueryParamsToUrl({ q: deferredSearchQuery.trim() });
  }
+ if (searchIndexPending || resultDerivationPending) return;
  Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
- }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
+ }, [deferredSearchQuery, searchSlugFilter, searchIndexPending, resultDerivationPending, filteredJobs.length]);
 
  // A free-text URL such as `?q=nurse` starts from the static landing HTML,
  // whose title contains the all-board count. Once the authoritative filtered
@@ -6079,6 +6187,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const el = document.getElementById(ITEMLIST_ID);
  if (el) el.remove();
  };
+ if (resultDerivationPending) return;
 
  // Skip ONLY on a real job-detail view. Search/company/location landing
  // pages also set initialJobSlug but render a job LIST, so they should still
@@ -6152,7 +6261,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t, resultDerivationPending]);
 
  const daysSincePosted = (dateStr: string) => {
  if (!dateStr || !Number.isFinite(Date.parse(dateStr))) return ({

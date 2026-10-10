@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -193,6 +193,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
+  });
+
+  it('reports a checkbox that did not commit instead of treating the click as done', async () => {
+    const control = {
+      setChecked: vi.fn(async () => {}),
+      isChecked: vi.fn(async () => false),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{ id: 'privacy', kind: 'checkbox', label: 'Privacy', required: true }], [{ fieldId: 'privacy', action: 'check', value: '' }], {}, { pause: async () => {} });
+    expect(result).toEqual([{ fieldId: 'privacy', ok: false, error: 'choice_not_registered' }]);
   });
 
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
@@ -561,6 +572,44 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(ownConsent({ kind: 'checkbox', label: 'I will not accept the privacy policy', required: false, checked: false })).toBe(false);
     // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
     expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+    expect(ownConsent({ kind: 'checkbox', name: 'agbs_check', label: '', required: false })).toBe(true);
+    expect(ownConsent({ kind: 'checkbox', name: 'privacy_marketing', label: '', required: false })).toBe(false);
+  });
+
+  it('never sends an ongoing or partial CV period to a calendar field', () => {
+    const dateField = { id: 'past-end', kind: 'text', label: 'al (GG.MM.AAAA)', required: true };
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com', phone: '' },
+      profile: { experience: [{ start: '2015', end: 'ad oggi' }] },
+    });
+    expect(candidate.profile.experience[0].end).toBe('ad oggi');
+    const invalid = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: 'ad oggi', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(invalid.actions).toEqual([]);
+    expect(invalid.missingRequired.map((item: any) => item.fieldId)).toEqual(['past-end']);
+    const corrected = guardPlan({ actions: [{ fieldId: 'past-end', action: 'fill', value: '2024-08-31', source: 'profile' }], missingRequired: [] }, [dateField], candidate);
+    expect(corrected.actions[0]).toMatchObject({ fieldId: 'past-end', value: '31.08.2024' });
+    expect(corrected.missingRequired).toEqual([]);
+  });
+
+  it('preserves the advertised date separator and ignores section-only date labels', () => {
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'dd/mm/yyyy' }, '15/03/2020')).toBe('15/03/2020');
+    expect(normalizeDateAnswer({ kind: 'text', datePattern: 'mm-dd-yyyy' }, '15/03/2020')).toBe('03-15-2020');
+    expect(isDateField({ kind: 'text', label: 'First name', context: 'First name · Date of birth' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data source' })).toBe(false);
+    expect(isDateField({ kind: 'text', label: 'Data' })).toBe(true);
+  });
+
+  it('fails closed when a legacy consent check is reported as a rule action', () => {
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'agbs_check', label: '', required: false },
+    )).toBe(true);
+    expect(failedConsentRequiresHandoff(
+      { ok: false, error: 'choice_not_registered' },
+      { action: 'check', source: 'rule' },
+      { kind: 'checkbox', name: 'privacy_marketing', label: '', required: false },
+    )).toBe(false);
   });
 
   it('maps an explicitly ongoing CV experience to the current employment option', () => {
@@ -582,6 +631,45 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const ended = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: '31/12/2024' }] }, portalQuestionsAnswered: [] };
     expect(currentEmploymentOption(field, ended)).toBeNull();
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
+  });
+
+  it('derives a native language from the CV language only with contrasting language evidence', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: {
+        cvLanguage: 'it',
+        languages: [
+          { language: 'Inglese', level: 'Buona conoscenza' },
+          { language: 'Francese', level: 'Buona conoscenza' },
+        ],
+      },
+    });
+    const field = {
+      id: 'italian-spoken', kind: 'select', label: 'Qual è il livello di italiano parlato *', required: true,
+      options: [{ label: '---' }, { label: 'Lingua madre' }, { label: 'Fluente' }, { label: 'Avanzato' }],
+    };
+    expect(candidate.profile.cvLanguage).toBe('it');
+    expect([...inferredNativeLanguageCodes(candidate)]).toEqual(['it']);
+    expect(nativeLanguageOption(field, candidate)).toEqual({ label: 'Lingua madre' });
+    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Lingua madre', source: 'profile' });
+    // A model answer that undershoots the supported fact is replaced by the deterministic guard.
+    expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate)).toEqual({
+      actions: [{ fieldId: field.id, action: 'select', value: 'Lingua madre', document: 'none', source: 'profile', evidence: '' }],
+      missingRequired: [],
+    });
+
+    const noContrastingEvidence = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: { cvLanguage: 'en', languages: [] },
+    });
+    expect(nativeLanguageOption({ ...field, label: 'What is your level of English?', options: [{ label: 'Mother tongue' }] }, noContrastingEvidence)).toBeNull();
+
+    const conflictingLevel = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: { cvLanguage: 'it', languages: [{ language: 'Italiano', level: 'C1' }, { language: 'English', level: 'B2' }] },
+    });
+    expect(nativeLanguageOption(field, conflictingLevel)).toBeNull();
+    expect(planSystemPrompt('it')).toContain('profile.cvLanguage');
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
@@ -963,6 +1051,7 @@ describe('portal runner helpers', () => {
     // Review of #10725: the whole label, so a filter control is never the submission.
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Indicare la data nel formato indicato.', 'Inserire la data nel formato corretto.', 'Datum im angegebenen Format']) expect(VALIDATION_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
     // The same thanks in more words (an ATS in English, 2026-10-03).
     for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);

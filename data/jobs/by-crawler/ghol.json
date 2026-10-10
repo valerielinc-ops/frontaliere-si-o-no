@@ -1,14 +1,14 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-10T09:27:21.879Z",
+  "assembledAt": "2026-10-10T21:27:19.884Z",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -49,7 +49,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.885Z",
+      "crawledAt": "2026-10-10T21:27:13.908Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -77,8 +78,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -86,10 +87,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -154,7 +155,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.884Z",
+      "crawledAt": "2026-10-10T21:27:13.907Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -232,7 +233,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.883Z",
+      "crawledAt": "2026-10-10T21:27:13.906Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -304,7 +305,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.881Z",
+      "crawledAt": "2026-10-10T21:27:13.905Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -350,9 +351,9 @@
       },
       "description": "Descriptif du poste :\n Le programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\n La région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\n Profil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\n Formation :\n\n• Diplôme de médecin suisse ou équivalent",
       "descriptionByLocale": {
-        "it": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent",
-        "en": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent",
-        "de": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent",
+        "it": "Descrizione del lavoro:\n Il programma Training and Succession in Family and Child Medicine (FoRCab MFE) sostiene la prossima generazione di professionisti della medicina di famiglia, in particolare sovvenzionando e organizzando assistentati di pratica nel Cantone di Vaud. L'organizzazione è regionale.\n La regione Ovest offre corsi di formazione della durata di diversi anni, riservati ai futuri medici di famiglia. Oltre a un periodo in uno studio di formazione (6 mesi al 100% o 12 mesi al 50%), sono possibili rotazioni nei seguenti reparti: medicina interna, chirurgia, clinica d'emergenza/ambulatoriale e pediatria presso l'Ospedale di Nyon, pneumologia a Rolle e psichiatria a Prangins.\n Profilo richiesto:\n\n• Medico che si è laureato o sta per ottenere una laurea in medicina\n\n• Obiettivo di ottenere una qualifica di specialista in medicina interna generale\n\n• Obiettivo di aprire uno studio come medico di famiglia nell'ovest del Cantone di Vaud\n\n• Non ha ricevuto un sussidio cantonale come parte dell'assistentato nella pratica (tutti i cantoni)\n Istruzione:\n\n• Una laurea in medicina svizzera o equivalente",
+        "en": "Job description:\n The Training and Succession in Family and Child Medicine (FoRCab MFE) program supports the next generation of family medicine professionals, in particular by subsidizing and organizing practice assistantships in the Canton of Vaud. The organization is regional.\n The West region offers training courses lasting several years, reserved for future family doctors. In addition to a stint in a training practice (6 months at 100% or 12 months at 50%), rotations are possible in the following departments: internal medicine, surgery, emergency/outpatient clinic and paediatrics at the Nyon Hospital, pulmonology in Rolle and psychiatry in Prangins.\n Required profile:\n\n• Doctor who has graduated or is in the process of obtaining a medical degree\n\n• Aim to obtain a specialist designation in general internal medicine\n\n• Objective to set up a practice as a family doctor in the west of the Canton of Vaud\n\n• Not have received a cantonal subsidy as part of the assistantship in the practice (all cantons)\n Education:\n\n• Swiss medical degree or equivalent",
+        "de": "Stellenbeschreibung:\n Das Programm Training and Succession in Family and Child Medicine (FoRCab MFE) unterstützt die nächste Generation von Fachkräften für Allgemeinmediziner, insbesondere durch Subventionierung und Organisation von Praxisassistenten im Kanton Vaud. Die Organisation ist regional ausgerichtet.\n Die West-Region bietet mehrere Jahre dauernde Ausbildungen an, die künftigen Hausärzten vorbehalten sind. Neben einer Ausbildungstätigkeit (6 Monate bei 100 % oder 12 Monate bei 50 %) sind Rotationen in folgenden Abteilungen möglich: Innere Medizin, Chirurgie, Notaufnahme/Ambulanz und Pädiatrie am Nyon Hospital, Pneumologie in Rolle und Psychiatrie in Prangins.\n Erforderliches Profil:\n\n• Arzt, der seinen Abschluss gemacht hat oder gerade einen medizinischen Abschluss erwirbt\n\n• Streben Sie an, eine Facharztausbildung in der allgemeinen Inneren Medizin zu erwerben\n\n• Ziel der Errichtung einer Praxis als Hausarzt im Westen des Kantons Vaud\n\n• Keine kantonale Subvention im Rahmen der Assistenztätigkeit in der Praxis erhalten haben (alle Kantone)\n Ausbildung:\n\n• Schweizer medizinischer Abschluss oder äquivalent",
         "fr": "Descriptif du poste :\nLe programme Formation et Relève au Cabinet de Médecine de Famille et de l'Enfance (FoRCab MFE) soutient la relève en médecine de famille, notamment en subventionnant et en organisant des postes d'assistanat au cabinet dans le Canton de Vaud. L'organisation est régionale.\nLa région Ouest offre des cursus de formation de plusieurs années, réservés aux futurs médecins de famille. En plus d'un passage dans un cabinet formateur (6 mois à 100% ou 12 mois à 50%), des rotations sont possibles dans les services suivants : médecine interne, chirurgie, urgences/policlinique et pédiatrie à l'Hôpital de Nyon, pneumologie à Rolle et psychiatrie à Prangins.\nProfil requis :\n\n• Médecin diplômé ou en voie d'obtention du diplôme de médecin\n\n• Viser l'obtention d'un titre de spécialiste en médecine interne générale\n\n• Objectif de s'installer en cabinet comme médecin de famille dans l'Ouest du Canton de Vaud\n\n• Ne pas avoir bénéficié d'une subvention cantonale dans le cadre de l'assistanat au cabinet (tous cantons)\nFormation :\n\n• Diplôme de médecin suisse ou équivalent"
       },
       "location": "Nyon",
@@ -376,7 +377,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.880Z",
+      "crawledAt": "2026-10-10T21:27:13.903Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
@@ -448,7 +449,7 @@
       "applyUrl": "https://app.beehire.com/invite/DYAYXSAFI",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T09:27:14.879Z",
+      "crawledAt": "2026-10-10T21:27:13.902Z",
       "previousSlugs": [
         "infirmier-ere-a-l-ems-les-jardins-du-leman-groupement-hospitalier-de-l-ouest-lemanique"
       ],

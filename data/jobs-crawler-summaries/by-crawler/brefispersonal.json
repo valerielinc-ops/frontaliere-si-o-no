@@ -1,7 +1,7 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-10-10T09:35:40.532Z",
+  "generatedAt": "2026-10-10T21:49:02.059Z",
   "total": 6,
   "discovered": null,
   "parsed": 15,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 2,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 20206,
-  "avgDurationMs": 20206,
+  "durationMs": 20046,
+  "avgDurationMs": 20046,
   "durationHistory": [
-    20206
+    20046
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "brefispersonal-2fccb6e3f33f",
-      "slug": "metallbauer-in-efz-zurich-brefispersonal-ch",
+      "slug": "costruttore-trice-metallico-a-afc-brefis-personal-ag-zurich",
       "company": "brefis personal ag",
       "companyKey": "brefispersonal",
       "companyDomain": "brefis.ch",
@@ -34,7 +35,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46129",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.737Z",
+      "crawledAt": "2026-10-10T21:48:53.790Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -51,55 +52,10 @@
       "postedDate": "2026-07-12",
       "postingDateSource": "reported",
       "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46129",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:22:20.043Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-27T05:22:20.043Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "brefispersonal-a2ade1aa873e",
-      "slug": "metallbauer-a-afc-brefis-personal-ag-zurich",
-      "company": "brefis personal ag",
-      "companyKey": "brefispersonal",
-      "companyDomain": "brefis.ch",
-      "title": "Metallbauer/in EFZ",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://brefis.ch/Vacancyboard/Detail/46130",
-      "source": "brefis personal ag Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:42:01.187Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-12",
-      "postedDate": "2026-07-12",
-      "postingDateSource": "reported",
-      "applyUrl": "https://brefis.ch/Vacancyboard/Detail/46130",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-27T05:22:20.043Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -109,6 +65,7 @@
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "brefispersonal-4e3066c425b5",
@@ -122,7 +79,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46126",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.740Z",
+      "crawledAt": "2026-10-10T21:48:53.795Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +120,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46127",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.739Z",
+      "crawledAt": "2026-10-10T21:48:53.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -204,7 +161,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46128",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.738Z",
+      "crawledAt": "2026-10-10T21:48:53.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +202,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46131",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.734Z",
+      "crawledAt": "2026-10-10T21:48:53.786Z",
       "addressLocality": "ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -286,7 +243,7 @@
       "url": "https://brefis.ch/Vacancyboard/Detail/46132",
       "source": "brefis personal ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:35:28.734Z",
+      "crawledAt": "2026-10-10T21:48:53.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -316,5 +273,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

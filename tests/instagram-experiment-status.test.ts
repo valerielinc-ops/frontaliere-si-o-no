@@ -94,6 +94,28 @@ describe('Instagram experiment status', () => {
     expect(status.nextAction).toBe('publish-pending-creative');
   });
 
+  it('does not report a queue item that the ledger already published for the same kind-day', () => {
+    const status = buildExperimentStatus({
+      ledger: { posted: carouselLedger('article-1', 'proof-local', new Date(AS_OF_MS - (4 * 24 * 3_600_000)).toISOString()) },
+      queue: {
+        pending: [{
+          id: 'article-1',
+          kind: 'article',
+          day: 'relative-fixture-day',
+          createdAt: AS_OF,
+          ledgerEntries: [{ creativeId: 'proof-local', primaryMetric: 'shares' }],
+        }],
+      },
+      asOf: AS_OF,
+      hasCredentials: true,
+    });
+
+    expect(status.pending).toEqual([]);
+    expect(status.nextActions).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ code: 'publish-pending-creative' }),
+    ]));
+  });
+
   it('makes the Meta credential blocker explicit before claiming a result', () => {
     const status = buildExperimentStatus({
       ledger: { posted: carouselLedger() },

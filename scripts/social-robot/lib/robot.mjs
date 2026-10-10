@@ -33,6 +33,7 @@ import {
   parseQueue,
   selectNextPending,
 } from '../../lib/social-publish-queue.mjs';
+import { buildInstagramEngagementBrief, formatInstagramEngagementBrief } from '../../lib/instagram-engagement.mjs';
 import {
   BETWEEN_PLATFORMS_MS,
   BLOCKING_ERROR_CLASSES,
@@ -334,6 +335,10 @@ export async function runRobot(deps) {
 
       const diagnostics = diagnosticsFor(channel, entry, at);
       log.log(`▶️  ${channel}: ${entry.id} (${entry.imageUrls.length} slides) — ${dryRun ? 'dry run' : 'publish'}`);
+      if (channel === 'instagram') {
+        const engagementBrief = buildInstagramEngagementBrief(entry);
+        if (engagementBrief) log.log(formatInstagramEngagementBrief(engagementBrief));
+      }
       try {
         const files = await fetchImages(entry);
         const res = await publishWith(channel, entry, files, { dryRun, human, diagnosticsDir: diagnostics, video: entry.video });

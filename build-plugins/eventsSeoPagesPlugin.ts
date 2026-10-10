@@ -151,10 +151,6 @@ interface SiteEvent {
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
   performer?: EventEntity | EventEntity[];
-  // Set only by the detail-page builder after the page contract has opted into
-  // deterministic defaults for partial crawler slices. Direct callers that
-  // have no price evidence must not receive a synthetic Offer implicitly.
-  structuredDataDefaultsApplied?: boolean;
   address?: { street?: string; postalCode?: string; locality?: string; region?: string };
   geo?: { lat: number; lng: number };
   recurring?: boolean;
@@ -1490,10 +1486,9 @@ export function zurichOffset(isoDate: string): string {
  * deterministic factual sentence built from event fields; it never falls
  * back to crawler prose. Older and partial slices are completed at
  * detail-page render time with deterministic catalog/venue/image defaults.
- * Detail pages also emit an Offer shell when the source has no verifiable
- * price, so the page still exposes its source URL and availability without
- * fabricating a zero or other amount. Direct callers only get that fallback
- * when they explicitly opt into the detail-page contract.
+ * Offers remain optional when the source has no verifiable price. When a
+ * source proves free access, the emitted Offer contains price 0 rather than
+ * an incomplete Offer shell.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1535,12 +1530,12 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const highPrice = fromPrice && typeof event.price?.highPrice === 'number' && event.price.highPrice > (event.price.amount ?? 0)
     ? event.price.highPrice
     : undefined;
-  const offer = (confidentPrice || event.structuredDataDefaultsApplied)
+  const offer = confidentPrice
     ? {
       '@type': fromPrice ? 'AggregateOffer' : 'Offer',
       ...(fromPrice
         ? { lowPrice: event.price!.amount, ...(highPrice !== undefined ? { highPrice } : {}) }
-        : confidentPrice ? { price: event.price!.isFree ? 0 : event.price!.amount } : {}),
+        : { price: event.price!.isFree ? 0 : event.price!.amount }),
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
@@ -3672,7 +3667,7 @@ export function renderEventDetailPage(params: {
   // explicitly supports a past `validThrough` — see comment on `isPast` above.
   const eventLdScript = isPast
     ? null
-    : inlineScriptJson(eventLd({ ...event, structuredDataDefaultsApplied: true }, locale, canonicalUrl));
+    : inlineScriptJson(eventLd(event, locale, canonicalUrl));
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

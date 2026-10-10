@@ -87,6 +87,7 @@ import {
   queuePathFor,
   resolveSocialRobotMode,
   socialPublishRoute,
+  isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { publishCarousel } from './lib/instagram-publish.mjs';
 
@@ -141,7 +142,12 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
       const ts = new Date().toISOString();
       appendLedger(
         LEDGER_PATH,
-        ledgerEntries.map((e) => ({ ...e, ts, instagramMediaId: res.mediaId })),
+        ledgerEntries.map((e) => ({
+          ...e,
+          ts,
+          instagramMediaId: res.mediaId,
+          instagramStoryImageUrl: urls[0],
+        })),
         POSTED_TRIM_LIMIT,
       );
     },
@@ -161,6 +167,12 @@ async function deliver({ route, kind, day, caption, urls, ledgerEntries, publish
 async function postGa4Carousel({ kind, day, dryRun, accessToken, igUserId, robotMode }) {
   const campaign = kind === 'job' ? INSTAGRAM_CAMPAIGN_JOB : INSTAGRAM_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
+  if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
+    const queueId = `${kind}-${day}`;
+    dequeuePosts(QUEUE_PATH, { channel: 'instagram', kind, queueId });
+    console.log(`ℹ️  ${kind}: post ${queueId} già pubblicato — nessun replay e coda stale ripulita`);
+    return;
+  }
   const cutoff = Date.now() - DEDUP_WINDOW_DAYS * 86400000;
   const recent = new Set(
     ledger.posted

@@ -54,6 +54,7 @@ import { getAuthorBySlug } from '../data/authors';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 import { HUB_LOCALES, ARTICLES_PAGE_SIZE, HUB_SLUGS } from './seoHubsData';
 import { railGutters } from './shared/railGutters';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { buildDayStampIso } from './shared/buildDayStamp';
 import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import {
@@ -65,6 +66,7 @@ import {
   configureSiteShell,
   type SiteShellContract,
   type ArticleLocale,
+  type StaticAdSlotKey,
 } from '../packages/articles/engine/siteShell';
 
 const blogIndexSlugs: Record<ArticleLocale, string> = {
@@ -80,6 +82,9 @@ const swissBlogIndexSlugs: Record<ArticleLocale, string> = {
   de: SLUG_TABLES.de.blogCh,
   fr: SLUG_TABLES.fr.blogCh,
 };
+
+const staticAdSlotHtml: NonNullable<SiteShellContract['staticAdSlotHtml']> = (slot: StaticAdSlotKey) =>
+  adSlotHtml(slot === 'canton-hub-top' ? 'JOBDETAIL_TOP_BANNER' : 'SSG_END_MULTIPLEX');
 
 const contract: SiteShellContract = {
   baseUrl: BASE_URL,
@@ -98,6 +103,7 @@ const contract: SiteShellContract = {
   rootShell,
 
   railGutters,
+  staticAdSlotHtml,
 
   buildDayStampIso,
 

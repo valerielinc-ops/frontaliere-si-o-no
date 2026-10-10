@@ -97,6 +97,38 @@ export function extractFieldsInPage() {
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  // Classic portals sometimes put the checkbox name in the input's label
+  // position and leave the human sentence as an adjacent text node (for
+  // example: <input name="agbs_check"> Accetto ...). Keep that sentence in
+  // the field metadata so the planner can distinguish application consent
+  // from a marketing opt-in without knowing the portal's field name.
+  const TECHNICAL_CHECKBOX_LABEL_RE = /^(?:agbs?|privacy|consent|terms?)(?:[_:-](?:check|checkbox|box|accept))?$/i;
+  const nodeText = (node) => {
+    if (!node || node.nodeType === 3) return clean(node?.textContent || '');
+    if (node.nodeType !== 1 || node.matches('input, select, textarea, button, script, style')) return '';
+    return clean(node.innerText || node.textContent || '');
+  };
+  const adjacentCheckboxText = (element) => {
+    const parent = element.parentElement;
+    if (!parent) return '';
+    const nodes = [...parent.childNodes];
+    const index = nodes.indexOf(element);
+    return clean([...nodes.slice(index + 1), ...nodes.slice(0, index)]
+      .map(nodeText)
+      .filter(Boolean)
+      .join(' '));
+  };
+  const checkboxLabelFor = (element) => {
+    const label = labelFor(element);
+    if (element.type !== 'checkbox' || (label && !TECHNICAL_CHECKBOX_LABEL_RE.test(label))) return label;
+    const nearby = [
+      adjacentCheckboxText(element),
+      ...['td', 'li', '.field', '.form-group', '.application-question', 'p']
+        .map((selector) => element.closest(selector))
+        .map((scope) => clean(scope?.innerText || scope?.textContent || '')),
+    ];
+    return nearby.find((text) => text && text !== label && text.length <= 300 && !GENERATED_ID_RE.test(text)) || label;
+  };
   // A heading of another step a portal keeps in the page, hidden, names nothing.
   const shown = (node) => {
     if (node.closest('[hidden], [aria-hidden="true"]')) return false;
@@ -259,6 +291,7 @@ export function extractFieldsInPage() {
     const pills = multiselectId
       ? [...document.querySelectorAll(`[data-uxi-widget-type="selectinputlistitem"][data-uxi-multiselect-id="${CSS.escape(multiselectId)}"]`)].map((item) => clean(item.innerText)).filter(Boolean)
       : [];
+    const label = type === 'checkbox' ? checkboxLabelFor(element) : labelFor(element);
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
@@ -266,10 +299,10 @@ export function extractFieldsInPage() {
       inputType: type,
       form: formOf(element),
       name: clean(element.getAttribute('name') || ''),
-      label: labelFor(element),
+      label,
       context: sectionContext(element),
       section: headingBefore(element),
-      required: required || REQUIRED_LABEL.test(labelFor(element)),
+      required: required || REQUIRED_LABEL.test(label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),

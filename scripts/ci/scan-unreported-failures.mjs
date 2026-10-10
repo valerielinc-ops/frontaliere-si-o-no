@@ -1006,20 +1006,33 @@ export function issueMatchSource(issue) {
 
 /**
  * Sceglie una sola issue canonica quando piu' reporter dichiarano lo stesso
- * workflow. Il listing GitHub non e' un ordine stabile: conservare l'ultima
- * riga iterata puo' quindi riattivare una issue generica vecchia mentre una
- * issue specifica piu' recente sta gia' seguendo lo stesso guasto.
+ * workflow. Un titolo della famiglia failure ha precedenza sulle issue di
+ * dominio: queste ultime restano disponibili nella mappa separata sotto, ma
+ * non possono nascondere il thread che il reporter interno ha gia' aggiornato.
+ * A parita' di famiglia vince invece l'aggiornamento piu' recente, senza
+ * dipendere dall'ordine instabile del listing GitHub.
  */
 export function latestIssuePerWorkflow(issues) {
   const byWorkflow = new Map();
+  const sourceByWorkflow = new Map();
   for (const issue of issues) {
     const workflowName = workflowNameFromIssue(issue);
     if (!workflowName) continue;
 
     const candidate = { number: issue.number, updatedAt: issue.updatedAt ?? null };
+    const candidateSource = issueMatchSource(issue);
     const previous = byWorkflow.get(workflowName);
     if (!previous) {
       byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
+      continue;
+    }
+
+    const previousSource = sourceByWorkflow.get(workflowName);
+    if (previousSource === 'failure-title' && candidateSource !== 'failure-title') continue;
+    if (candidateSource === 'failure-title' && previousSource !== 'failure-title') {
+      byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
       continue;
     }
 
@@ -1031,6 +1044,7 @@ export function latestIssuePerWorkflow(issues) {
       || (candidateTime === previousTime && Number(candidate.number) > Number(previous.number))
     ) {
       byWorkflow.set(workflowName, candidate);
+      sourceByWorkflow.set(workflowName, candidateSource);
     }
   }
   return byWorkflow;

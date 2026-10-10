@@ -42,7 +42,7 @@
 
 import type fsT from 'node:fs';
 import type npT from 'node:path';
-import { getSiteShell, type ArticleLocale } from './siteShell';
+import { getSiteShell, type ArticleLocale, type StaticAdSlotKey } from './siteShell';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
 import {
@@ -251,7 +251,9 @@ ${ldTags}
     ${rootShell(true)}
     ${gutters.open}
     <main class="seo-static-content s-xzWvwM">
+      <div class="cth-page">
 ${a.mainHtml}
+      </div>
     </main>${gutters.close}
     <div id="footer-root"></div>
     <script type="module" crossorigin src="${CORPUS_PAGE_ENTRY_JS}"></script>
@@ -290,6 +292,18 @@ function aboutCanton(section: string, locale: Locale): unknown {
   return { '@type': 'AdministrativeArea', name: cantonDisplayName(section, locale), containedInPlace: { '@type': 'Country', name: 'Switzerland' } };
 }
 
+/**
+ * One manual AdSense slot for a canton page. The host supplies only the raw
+ * unit so the engine remains independent from the site's ad registry; this
+ * wrapper owns the stable reserved space, label and page-specific styling.
+ */
+function cantonAdHtml(slot: StaticAdSlotKey, label: string, className: string): string {
+  const { staticAdSlotHtml } = getSiteShell();
+  const ad = staticAdSlotHtml?.(slot);
+  if (!ad) return '';
+  return `      <section class="cth-ad ${className}" aria-label="${esc(label)}"><p class="cth-ad-label">${esc(label)}</p>${ad}</section>`;
+}
+
 // ── Landing ────────────────────────────────────────────────────────────────
 
 const LANDING_COPY: Record<Locale, {
@@ -300,6 +314,7 @@ const LANDING_COPY: Record<Locale, {
   latestHeading: string;
   empty: string;
   count: (n: number) => string;
+  advertisement: string;
 }> = {
   it: {
     title: (label) => `${label}: notizie e guide`,
@@ -309,6 +324,7 @@ const LANDING_COPY: Record<Locale, {
     latestHeading: 'Ultimi articoli',
     empty: 'I primi articoli di questa sezione sono in preparazione.',
     count: (n) => (n === 1 ? '1 articolo pubblicato' : `${n.toLocaleString('it-IT')} articoli pubblicati`),
+    advertisement: 'Pubblicità',
   },
   en: {
     title: (label) => `${label}: news and guides`,
@@ -318,6 +334,7 @@ const LANDING_COPY: Record<Locale, {
     latestHeading: 'Latest articles',
     empty: 'The first articles of this section are being prepared.',
     count: (n) => (n === 1 ? '1 published article' : `${n.toLocaleString('en-US')} published articles`),
+    advertisement: 'Advertisement',
   },
   de: {
     title: (label) => `${label}: Nachrichten und Ratgeber`,
@@ -327,6 +344,7 @@ const LANDING_COPY: Record<Locale, {
     latestHeading: 'Neueste Artikel',
     empty: 'Die ersten Artikel dieser Rubrik sind in Vorbereitung.',
     count: (n) => (n === 1 ? '1 veröffentlichter Artikel' : `${n.toLocaleString('de-DE')} veröffentlichte Artikel`),
+    advertisement: 'Werbung',
   },
   fr: {
     title: (label) => `${label} : actualités et guides`,
@@ -336,6 +354,7 @@ const LANDING_COPY: Record<Locale, {
     latestHeading: 'Derniers articles',
     empty: 'Les premiers articles de cette rubrique sont en préparation.',
     count: (n) => (n === 1 ? '1 article publié' : `${n.toLocaleString('fr-FR')} articles publiés`),
+    advertisement: 'Publicité',
   },
 };
 
@@ -411,15 +430,17 @@ export function renderCantonSectionLanding(input: CantonSectionLandingInput): Ca
 
   const mainHtml = [
     breadcrumbNavHtml(locale, [{ name: label }]),
-    `      <header class="s-S1RSUf"><h1 class="s-e3gkVi">${esc(label)}</h1><p class="s-OPPwy-">${esc(copy.lede)}</p>${input.articles.length ? `<p class="s-Sn0UIv">${esc(copy.count(input.articles.length))}</p>` : ''}</header>`,
-    `      <section aria-labelledby="canton-topics"><h2 id="canton-topics" class="s-sXAwQz">${esc(copy.topicsHeading)}</h2><ul class="s-N93mPe">${hubLinks
+    `      <header class="s-S1RSUf cth-hero"><h1 class="s-e3gkVi">${esc(label)}</h1><p class="s-OPPwy-">${esc(copy.lede)}</p>${input.articles.length ? `<p class="s-Sn0UIv">${esc(copy.count(input.articles.length))}</p>` : ''}</header>`,
+    cantonAdHtml('canton-hub-top', copy.advertisement, 'cth-ad-top'),
+    `      <section class="cth-section" aria-labelledby="canton-topics"><h2 id="canton-topics" class="s-sXAwQz cth-section-title">${esc(copy.topicsHeading)}</h2><ul class="s-N93mPe cth-topic-list">${hubLinks
       .map((l) => `<li><a class="s-7DS5hj" href="${esc(l.href)}">${esc(l.label)}</a></li>`)
       .join('')}</ul></section>`,
-    `      <section aria-labelledby="canton-latest"><h2 id="canton-latest" class="s-sXAwQz">${esc(copy.latestHeading)}</h2>${shown.length
+    `      <section class="cth-section" aria-labelledby="canton-latest"><h2 id="canton-latest" class="s-sXAwQz cth-section-title">${esc(copy.latestHeading)}</h2>${shown.length
       ? `${ARTICLE_HUB_GRID_OPEN}${cardsHtml}</div>`
       : `<p class="s-s6RP5r">${esc(copy.empty)}</p>`}</section>`,
-    `      <p class="s-Sn0UIv"><a class="s-7DS5hj" href="${esc(archivePath)}">${esc(archiveTitle)} →</a></p>`,
+    `      <p class="s-Sn0UIv cth-archive-link"><a class="s-7DS5hj" href="${esc(archivePath)}">${esc(archiveTitle)} →</a></p>`,
     `      ${cantonMethodologyAccordionHtml(section as ArticleSection, locale)}`,
+    cantonAdHtml('canton-hub-end', copy.advertisement, 'cth-ad-bottom'),
   ].join('\n');
 
   const pageUrl = `${baseUrl}${canonicalPath}`;
@@ -618,11 +639,12 @@ const HUB_COPY: Record<Locale, {
   noCurated: string;
   tools: string;
   otherTopics: string;
+  advertisement: string;
 }> = {
-  it: { updated: 'Aggiornato il', keyFacts: 'Dati chiave', source: 'Fonte', curated: 'Articoli consigliati', noCurated: 'Gli articoli su questo tema compariranno qui man mano che vengono pubblicati.', tools: 'Strumenti utili', otherTopics: 'Altri temi' },
-  en: { updated: 'Updated on', keyFacts: 'Key data', source: 'Source', curated: 'Recommended articles', noCurated: 'Articles on this topic will appear here as they are published.', tools: 'Useful tools', otherTopics: 'Other topics' },
-  de: { updated: 'Aktualisiert am', keyFacts: 'Eckdaten', source: 'Quelle', curated: 'Empfohlene Artikel', noCurated: 'Artikel zu diesem Thema erscheinen hier, sobald sie veröffentlicht werden.', tools: 'Nützliche Tools', otherTopics: 'Weitere Themen' },
-  fr: { updated: 'Mis à jour le', keyFacts: 'Données clés', source: 'Source', curated: 'Articles recommandés', noCurated: 'Les articles sur ce thème apparaîtront ici au fil de leur publication.', tools: 'Outils utiles', otherTopics: 'Autres thèmes' },
+  it: { updated: 'Aggiornato il', keyFacts: 'Dati chiave', source: 'Fonte', curated: 'Articoli consigliati', noCurated: 'Gli articoli su questo tema compariranno qui man mano che vengono pubblicati.', tools: 'Strumenti utili', otherTopics: 'Altri temi', advertisement: 'Pubblicità' },
+  en: { updated: 'Updated on', keyFacts: 'Key data', source: 'Source', curated: 'Recommended articles', noCurated: 'Articles on this topic will appear here as they are published.', tools: 'Useful tools', otherTopics: 'Other topics', advertisement: 'Advertisement' },
+  de: { updated: 'Aktualisiert am', keyFacts: 'Eckdaten', source: 'Quelle', curated: 'Empfohlene Artikel', noCurated: 'Artikel zu diesem Thema erscheinen hier, sobald sie veröffentlicht werden.', tools: 'Nützliche Tools', otherTopics: 'Weitere Themen', advertisement: 'Werbung' },
+  fr: { updated: 'Mis à jour le', keyFacts: 'Données clés', source: 'Source', curated: 'Articles recommandés', noCurated: 'Les articles sur ce thème apparaîtront ici au fil de leur publication.', tools: 'Outils utiles', otherTopics: 'Autres thèmes', advertisement: 'Publicité' },
 };
 
 function sourceLineHtml(locale: Locale, name: string | undefined, url: string | undefined, what: string): string {
@@ -678,13 +700,13 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
   }
 
   const factsHtml = input.keyFacts.length
-    ? `      <section class="s-iQjIAb" aria-label="${esc(copy.keyFacts)}">${input.keyFacts.map((f) => {
+    ? `      <section class="s-iQjIAb cth-facts" aria-label="${esc(copy.keyFacts)}">${input.keyFacts.map((f) => {
         const source = f.sourceName
           ? (f.sourceUrl
             ? `<div class="s-tlbl"><a href="${esc(safeHref(f.sourceUrl, 'keyFacts.sourceUrl'))}" rel="noopener">${esc(f.sourceName)}</a></div>`
             : `<div class="s-tlbl">${esc(f.sourceName)}</div>`)
           : '';
-        return `<div class="s-tacc"><div class="s-tlbl">${esc(f.label)}</div><div class="s-tval">${esc(f.value)}</div>${f.note ? `<div class="s-tlbl">${esc(f.note)}</div>` : ''}${source}</div>`;
+        return `<div class="s-tacc cth-fact"><div class="s-tlbl">${esc(f.label)}</div><div class="s-tval">${esc(f.value)}</div>${f.note ? `<div class="s-tlbl">${esc(f.note)}</div>` : ''}${source}</div>`;
       }).join('')}</section>`
     : '';
 
@@ -701,34 +723,36 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     const snapshot = b.updatedAt
       ? `<p class="s-Sn0UIv">${esc(copy.updated)} <time datetime="${esc(requireDate(b.updatedAt, `dataBlocks.${b.id}.updatedAt`))}">${esc(formatDate(b.updatedAt, locale))}</time></p>`
       : '';
-    return `      <section aria-labelledby="${headingId}"><h2 id="${headingId}" class="s-sXAwQz">${esc(b.title)}</h2>${b.description ? `<p>${esc(b.description)}</p>` : ''}${items ? `<ul class="s-N93mPe">${items}</ul>` : ''}${snapshot}${sourceLineHtml(locale, b.sourceName, b.sourceUrl, `dataBlocks.${b.id}.sourceUrl`)}</section>`;
+    return `      <section class="cth-section cth-data-block" aria-labelledby="${headingId}"><h2 id="${headingId}" class="s-sXAwQz cth-section-title">${esc(b.title)}</h2>${b.description ? `<p class="cth-section-intro">${esc(b.description)}</p>` : ''}${items ? `<ul class="s-N93mPe cth-data-list">${items}</ul>` : ''}${snapshot}${sourceLineHtml(locale, b.sourceName, b.sourceUrl, `dataBlocks.${b.id}.sourceUrl`)}</section>`;
   }).join('\n');
 
-  const curatedHtml = `      <section aria-labelledby="hub-articles"><h2 id="hub-articles" class="s-sXAwQz">${esc(copy.curated)}</h2>${input.curatedArticles.length
-    ? `<ul class="s-0c2lhY">${input.curatedArticles.map((a) => {
+  const curatedHtml = `      <section class="cth-section cth-curated" aria-labelledby="hub-articles"><h2 id="hub-articles" class="s-sXAwQz cth-section-title">${esc(copy.curated)}</h2>${input.curatedArticles.length
+    ? `<ul class="s-0c2lhY cth-article-list">${input.curatedArticles.map((a) => {
         const date = a.date ? ` <time datetime="${esc(requireDate(a.date, 'curatedArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
         return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'curatedArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}</a>${date}</li>`;
       }).join('')}</ul>`
     : `<p class="s-s6RP5r">${esc(copy.noCurated)}</p>`}</section>`;
 
   const toolsHtml = input.links.length
-    ? `      <section aria-labelledby="hub-tools"><h2 id="hub-tools" class="s-sXAwQz">${esc(copy.tools)}</h2><ul class="s-N93mPe">${input.links.map((l) =>
+    ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
         `<li><a class="s-7DS5hj" href="${esc(safeHref(l.url, 'links.url'))}">${esc(l.label)}</a>${l.description ? ` — ${esc(l.description)}` : ''}</li>`).join('')}</ul></section>`
     : '';
 
   const otherTopics = cantonTopicHubLinks(section as ArticleSection, locale).filter((l) => l.topic !== topic);
-  const navHtml = `      <nav class="s-4nYHgH" aria-label="${esc(copy.otherTopics)}"><h2 class="s-sXAwQz">${esc(copy.otherTopics)}</h2><ul class="s-N93mPe">${otherTopics
+  const navHtml = `      <nav class="s-4nYHgH cth-topic-nav" aria-label="${esc(copy.otherTopics)}"><h2 class="s-sXAwQz cth-section-title">${esc(copy.otherTopics)}</h2><ul class="s-N93mPe cth-topic-list">${otherTopics
     .map((l) => `<li><a class="s-7DS5hj" href="${esc(l.href)}">${esc(l.label)}</a></li>`)
     .join('')}<li><a class="s-7DS5hj" href="${esc(landingPath)}">${esc(sectionLabel)}</a></li><li><a class="s-7DS5hj" href="${esc(cantonSectionArchivePath(section, locale))}">${esc(cantonArchiveCopy(section, locale).title)}</a></li></ul></nav>`;
 
   const mainHtml = [
     breadcrumbNavHtml(locale, [{ name: sectionLabel, href: landingPath }, { name: hubLabel }]),
-    `      <header class="s-S1RSUf"><h1 class="s-e3gkVi">${esc(hubLabel)}</h1>${paragraphs.map((p, i) => `<p${i === 0 ? ' class="s-OPPwy-"' : ''}>${esc(p)}</p>`).join('')}<p class="s-Sn0UIv">${esc(copy.updated)} <time datetime="${esc(updatedAt)}">${esc(formatDate(updatedAt, locale))}</time></p></header>`,
+    `      <header class="s-S1RSUf cth-hero"><h1 class="s-e3gkVi">${esc(hubLabel)}</h1>${paragraphs.map((p, i) => `<p${i === 0 ? ' class="s-OPPwy-"' : ''}>${esc(p)}</p>`).join('')}<p class="s-Sn0UIv">${esc(copy.updated)} <time datetime="${esc(updatedAt)}">${esc(formatDate(updatedAt, locale))}</time></p></header>`,
+    cantonAdHtml('canton-hub-top', copy.advertisement, 'cth-ad-top'),
     factsHtml,
     blocksHtml,
     curatedHtml,
     toolsHtml,
     navHtml,
+    cantonAdHtml('canton-hub-end', copy.advertisement, 'cth-ad-bottom'),
   ].filter(Boolean).join('\n');
 
   const pageUrl = `${baseUrl}${canonicalPath}`;
@@ -773,6 +797,7 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
       url: pageUrl,
       inLanguage: locale,
       dateModified: updatedAt,
+      license: 'https://creativecommons.org/licenses/by/4.0/',
       isAccessibleForFree: true,
       spatialCoverage: { '@type': 'Place', name: cantonDisplayName(section, locale) },
       // Dataset creator is the same publisher entity used by every other

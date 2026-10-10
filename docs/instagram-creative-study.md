@@ -32,10 +32,20 @@ attesa di pubblicazione/conferma. I sette post storici senza metadati creativi
 non vengono classificati retroattivamente: farlo dalla sola metrica GA4
 confonderebbe il test.
 
-Il dataset Instagram Insights non è ancora disponibile e nel runtime locale
-mancano `INSTAGRAM_BUSINESS_ACCOUNT_ID` e `INSTAGRAM_ACCESS_TOKEN`. La pipeline
-continua quindi a preparare e pubblicare creatività, ma non dichiara vincitori
-finché il collector non può leggere reach, salvataggi, condivisioni e commenti.
+Il dataset Instagram Insights non è ancora disponibile. Il preflight Remote
+Config ora trova l'identificativo pubblico `INSTAGRAM_BUSINESS_ACCOUNT_ID`, ma
+`INSTAGRAM_ACCESS_TOKEN` resta assente. La pipeline continua quindi a preparare
+e pubblicare creatività, ma non dichiara vincitori finché il collector non può
+leggere reach, salvataggi, condivisioni e commenti.
+
+La verifica read-only del 10 ottobre ha separato i due casi: senza il token il
+collector restituisce `credentials-missing` senza chiamare Meta; usando il
+`FB_PAGE_ACCESS_TOKEN` come sostituto, Meta risponde `400 Unsupported get
+request` sull'oggetto Instagram. Il Page token non viene quindi riutilizzato
+come token Insights. Per sbloccare la scorecard occorre completare il
+collegamento/permessi Meta e salvare il token Instagram in Remote Config come
+`SERVER_INSTAGRAM_ACCESS_TOKEN`; fino ad allora lo stato corretto è
+`blocked: Meta Insights`, non una conclusione sulla creatività.
 
 ## 2. Cosa insegna la piattaforma
 
@@ -123,7 +133,7 @@ La ripartizione editoriale resta 60/30/10:
 - 10% esplorazione: Trial Reel, hook locali, risposta a domande e nuove
   composizioni.
 
-## 5. Sistema di engagement umano
+## 5. Sistema di engagement automatico via Graph API
 
 Il comando read-only `node scripts/instagram-engagement-plan.mjs` genera per
 la data e il formato scelti il prompt, la CTA, il follow-up e la metrica. Esempi:
@@ -133,19 +143,29 @@ node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=article
 node scripts/instagram-engagement-plan.mjs --date=2026-10-10 --kind=reel --source-kind=job --json
 ```
 
-Il piano operativo è:
+Il piano operativo viene eseguito dal worker del robot, senza un passaggio
+umano per ogni post:
 
-1. entro 24 ore: rispondere ai commenti con una fonte o un riferimento e una
-   sola domanda successiva;
-2. entro 48 ore: pubblicare il sondaggio, quiz o risultato coerente con il
-   `followUpFormat`;
-3. entro 72 ore: trasformare la domanda ricorrente in risposta, Reel o
-   checklist;
-4. classificare le domande in `netto`, `lavoro`, `dogana`, `fisco`, `altro`;
-5. dopo tre occorrenze dello stesso dubbio, inserirlo nella coda editoriale.
+1. entro 24 ore: leggere i commenti e pubblicare una sola risposta pubblica
+   idempotente per oggetto, usando una risposta breve coerente con la metrica;
+2. quando il commento contiene una richiesta azionabile: inviare una sola
+   risposta privata collegata al post, senza chiedere o conservare dati
+   sensibili;
+3. per le conversazioni avviate dall'utente: rispondere solo al messaggio in
+   ingresso più recente e solo entro la finestra consentita, mai fare outreach
+   a freddo;
+4. entro 24/72 ore: per i formati `story-*`, pubblicare il follow-up visuale
+   statico associato, se il post ha un'immagine valida e non è già stato
+   pubblicato;
+5. registrare solo hash degli ID degli oggetti già gestiti, così riavvii e
+   cadenze successive non duplicano commenti, DM o Stories.
 
-Commenti e DM restano azioni manuali: il piano non automatizza conversazioni,
-non invia spam e non promette una risposta che non sia già producibile.
+Il worker usa il Graph API ufficiale e il flag Firebase `SOCIAL_ROBOT_MODE`:
+`live` abilita le chiamate, mentre `dry`/valore assente non inviano nulla.
+Le Stories sono visuali statiche: gli sticker interattivi non vengono simulati
+quando il Content Publishing API non li espone. Il log locale stampa lo stesso
+brief accanto all'ID della coda, più i contatori delle azioni eseguite e degli
+errori, nella riga `🤖 Instagram community automation`.
 
 ## 6. Disegno del test nel tempo
 
@@ -164,6 +184,29 @@ Ogni coorte è confrontata solo con la stessa combinazione di:
 Il report deve mostrare anche hook e loop, non solo la percentuale, così la
 decisione successiva è: “ripetiamo questa promessa per questo pubblico”, non
 “copiamo il post con più like”.
+
+Quando il token Meta non è ancora disponibile, la verifica può continuare con
+un export CSV del Professional Dashboard. Il report è read-only, non chiama
+Meta e collega ogni riga al ledger tramite `media id` o `queue id`:
+
+```bash
+node scripts/instagram-insights-report.mjs \
+  --input /percorso/export-instagram.csv \
+  --ledger data/instagram-posted.json \
+  --window-hours=72
+```
+
+Sono accettati CSV separati da virgola o punto e virgola; le colonne metriche
+minime sono `Post ID`/`Media ID`, `Reach`, `Shares`, `Saves` e `Comments`.
+Se l'export non contiene `creativeId`, il ledger deve contenere l'ID del post
+o della coda. Le righe senza attribuzione verificabile vengono rifiutate e non
+entrano nella classifica.
+
+La cadenza protegge anche l’unità del test: il poster consente una sola
+pubblicazione per `kind + day`. Se una classifica aggiornata ricrea la coda
+dello stesso giorno dopo una pubblicazione già confermata, la nuova esecuzione
+non ripubblica il contenuto e rimuove solo l’entry stale corrispondente; un
+eventuale item più recente dello stesso tipo resta intatto.
 
 ## 7. Roadmap di 30 giorni
 

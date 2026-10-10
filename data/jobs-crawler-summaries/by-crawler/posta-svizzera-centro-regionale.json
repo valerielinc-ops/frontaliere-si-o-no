@@ -1,16 +1,16 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-10-10T09:41:44.510Z",
+  "generatedAt": "2026-10-10T22:00:25.437Z",
   "total": 193,
   "newCount": 2,
   "updatedCount": 8,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 183,
-  "durationMs": 332610,
-  "avgDurationMs": 332610,
+  "durationMs": 380191,
+  "avgDurationMs": 380191,
   "durationHistory": [
-    332610
+    380191
   ],
   "newJobs": [
     {
@@ -29,7 +29,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:40:09.742Z",
+      "crawledAt": "2026-10-10T21:58:45.707Z",
       "validThrough": "",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
@@ -74,7 +74,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:39:13.619Z",
+      "crawledAt": "2026-10-10T21:57:40.696Z",
       "validThrough": "",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
@@ -129,7 +129,7 @@
         "canton": "NE",
         "location": "Neuchâtel"
       },
-      "crawledAt": "2026-10-10T09:41:03.622Z",
+      "crawledAt": "2026-10-10T21:59:47.421Z",
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -173,7 +173,7 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "crawledAt": "2026-10-10T09:39:30.855Z",
+      "crawledAt": "2026-10-10T21:58:00.402Z",
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -218,7 +218,7 @@
         "canton": "TI",
         "location": "Bellinzona"
       },
-      "crawledAt": "2026-10-10T09:37:40.338Z",
+      "crawledAt": "2026-10-10T21:55:52.866Z",
       "id": "posta-svizzera-centro-regionale-03dbc337a9c0",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -264,7 +264,7 @@
         "canton": "BE",
         "location": "Bern"
       },
-      "crawledAt": "2026-10-10T09:37:06.441Z",
+      "crawledAt": "2026-10-10T21:55:13.893Z",
       "id": "posta-svizzera-centro-regionale-619189f17882",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -301,7 +301,7 @@
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:36:45.400Z",
+      "crawledAt": "2026-10-10T21:54:49.374Z",
       "validThrough": "2026-11-04",
       "source": "postch-careers-crawler",
       "employmentType": "PART_TIME",
@@ -345,7 +345,7 @@
       "datePosted": "2026-10-06",
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:36:32.424Z",
+      "crawledAt": "2026-10-10T21:54:33.970Z",
       "validThrough": "2026-11-05",
       "source": "postch-careers-crawler",
       "employmentType": "PART_TIME",
@@ -389,7 +389,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:36:29.795Z",
+      "crawledAt": "2026-10-10T21:54:30.945Z",
       "validThrough": "2026-11-04",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -441,7 +441,7 @@
         "canton": "TI",
         "location": "Bellinzona"
       },
-      "crawledAt": "2026-10-10T09:36:19.264Z",
+      "crawledAt": "2026-10-10T21:54:18.292Z",
       "id": "posta-svizzera-centro-regionale-828379c77929",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -463,96 +463,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Prozessarchitektin/74788-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Prozessarchitektin/74788-de_DE",
-      "title": "Prozessarchitekt:in",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "architetto-diprocesso-die-schweizerische-post-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-09-22",
-      "validThrough": "2026-10-09",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "2026-10-09T21:43:22.105Z",
-      "id": "posta-svizzera-centro-regionale-491cf419fdab",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z",
-      "postedDate": "2026-09-22",
-      "postingDateSource": "reported",
-      "postalCode": "3004",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Leiterin-Distributionsgebiet-W%C3%A4denswil/74931-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Leiterin-Distributionsgebiet-W%C3%A4denswil/74931-de_DE",
-      "title": "Leiter:in Distributionsgebiet Wädenswil",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Wädenswil",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "responsabile-distributionsgebiet-wadenswil-die-schweizerische-post-wadenswil",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-09T21:41:58.657Z",
-      "validThrough": "2026-10-09",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Wädenswil"
-      },
-      "id": "posta-svizzera-centro-regionale-3843581c7d94",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Wädenswil",
-      "addressRegion": "ZH",
-      "postalCode": "8820",
-      "firstSeenAt": "2026-10-07T09:49:11.904Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC%E2%80%AFDistribution-mixte-%E2%80%AF-Vaud/74046-fr_FR",
@@ -578,7 +489,7 @@
         "canton": "VD",
         "location": "Lausanne"
       },
-      "crawledAt": "2026-10-10T09:41:15.716Z",
+      "crawledAt": "2026-10-10T22:00:01.422Z",
       "id": "posta-svizzera-centro-regionale-fae40bef01a6",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -622,7 +533,7 @@
         "canton": "VS",
         "location": "Sion"
       },
-      "crawledAt": "2026-10-10T09:41:14.468Z",
+      "crawledAt": "2026-10-10T21:59:59.924Z",
       "id": "posta-svizzera-centro-regionale-81ef13f9dde0",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -667,7 +578,7 @@
         "canton": "GE",
         "location": "Genève"
       },
-      "crawledAt": "2026-10-10T09:41:13.149Z",
+      "crawledAt": "2026-10-10T21:59:58.453Z",
       "id": "posta-svizzera-centro-regionale-f82f71aa9d56",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -712,7 +623,7 @@
         "canton": "VS",
         "location": "Vétroz"
       },
-      "crawledAt": "2026-10-10T09:41:11.957Z",
+      "crawledAt": "2026-10-10T21:59:57.091Z",
       "id": "posta-svizzera-centro-regionale-850caaf96020",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -756,7 +667,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-10T09:41:10.775Z",
+      "crawledAt": "2026-10-10T21:59:55.705Z",
       "id": "posta-svizzera-centro-regionale-d91508233f4d",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -800,7 +711,7 @@
         "canton": "VS",
         "location": "Martigny"
       },
-      "crawledAt": "2026-10-10T09:41:09.576Z",
+      "crawledAt": "2026-10-10T21:59:54.319Z",
       "id": "posta-svizzera-centro-regionale-00603e78532f",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -844,7 +755,7 @@
         "canton": "GE",
         "location": "Genève"
       },
-      "crawledAt": "2026-10-10T09:41:08.381Z",
+      "crawledAt": "2026-10-10T21:59:52.928Z",
       "id": "posta-svizzera-centro-regionale-95ef5a59c9a0",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -888,7 +799,7 @@
         "canton": "JU",
         "location": "Delémont"
       },
-      "crawledAt": "2026-10-10T09:41:07.186Z",
+      "crawledAt": "2026-10-10T21:59:51.569Z",
       "id": "posta-svizzera-centro-regionale-07eebf4edc3d",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -932,7 +843,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-10T09:41:05.992Z",
+      "crawledAt": "2026-10-10T21:59:50.162Z",
       "id": "posta-svizzera-centro-regionale-e382cd332f1d",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -976,7 +887,7 @@
         "canton": "NE",
         "location": "Colombier NE"
       },
-      "crawledAt": "2026-10-10T09:41:04.802Z",
+      "crawledAt": "2026-10-10T21:59:48.798Z",
       "id": "posta-svizzera-centro-regionale-38b87e7858e9",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1020,7 +931,7 @@
         "canton": "VS",
         "location": "Martigny"
       },
-      "crawledAt": "2026-10-10T09:41:02.424Z",
+      "crawledAt": "2026-10-10T21:59:45.843Z",
       "id": "posta-svizzera-centro-regionale-39cbb5d74178",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1064,7 +975,7 @@
         "canton": "GE",
         "location": "Genève"
       },
-      "crawledAt": "2026-10-10T09:41:01.114Z",
+      "crawledAt": "2026-10-10T21:59:44.453Z",
       "id": "posta-svizzera-centro-regionale-946fe367161a",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1108,7 +1019,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-10T09:40:59.909Z",
+      "crawledAt": "2026-10-10T21:59:42.974Z",
       "id": "posta-svizzera-centro-regionale-601d0feee2eb",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1152,7 +1063,7 @@
         "canton": "VD",
         "location": "Renens VD"
       },
-      "crawledAt": "2026-10-10T09:40:58.725Z",
+      "crawledAt": "2026-10-10T21:59:41.588Z",
       "id": "posta-svizzera-centro-regionale-b0e07fa7ced0",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1196,7 +1107,7 @@
         "canton": "VD",
         "location": "Eclépens"
       },
-      "crawledAt": "2026-10-10T09:40:57.531Z",
+      "crawledAt": "2026-10-10T21:59:40.229Z",
       "id": "posta-svizzera-centro-regionale-e706580cbef2",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1240,7 +1151,7 @@
         "canton": "VD",
         "location": "Eclépens"
       },
-      "crawledAt": "2026-10-10T09:40:56.341Z",
+      "crawledAt": "2026-10-10T21:59:38.851Z",
       "id": "posta-svizzera-centro-regionale-7fe973f03d0c",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1284,7 +1195,7 @@
         "canton": "VD",
         "location": "Vevey"
       },
-      "crawledAt": "2026-10-10T09:40:55.137Z",
+      "crawledAt": "2026-10-10T21:59:37.390Z",
       "id": "posta-svizzera-centro-regionale-bd237fd58a9b",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1328,7 +1239,7 @@
         "canton": "VD",
         "location": "Renens VD"
       },
-      "crawledAt": "2026-10-10T09:40:53.971Z",
+      "crawledAt": "2026-10-10T21:59:36.019Z",
       "id": "posta-svizzera-centro-regionale-5ee8de20d861",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1372,7 +1283,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-10T09:40:52.771Z",
+      "crawledAt": "2026-10-10T21:59:34.645Z",
       "id": "posta-svizzera-centro-regionale-b056518b193f",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1416,7 +1327,7 @@
         "canton": "VD",
         "location": "Daillens"
       },
-      "crawledAt": "2026-10-10T09:40:51.550Z",
+      "crawledAt": "2026-10-10T21:59:33.273Z",
       "id": "posta-svizzera-centro-regionale-7853772c3e4b",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1460,7 +1371,7 @@
         "canton": "BE",
         "location": "Bienne"
       },
-      "crawledAt": "2026-10-10T09:40:50.346Z",
+      "crawledAt": "2026-10-10T21:59:31.892Z",
       "id": "posta-svizzera-centro-regionale-5b7191ce93dc",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1504,7 +1415,7 @@
         "canton": "NE",
         "location": "Neuchâtel"
       },
-      "crawledAt": "2026-10-10T09:40:49.122Z",
+      "crawledAt": "2026-10-10T21:59:30.523Z",
       "id": "posta-svizzera-centro-regionale-fc6ee327cf4a",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1540,7 +1451,7 @@
       "datePosted": "2026-10-07",
       "postedDate": "2026-10-07",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T09:40:47.930Z",
+      "crawledAt": "2026-10-10T21:59:29.162Z",
       "validThrough": "2026-10-28",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1592,7 +1503,7 @@
         "canton": "LU",
         "location": "Kriens"
       },
-      "crawledAt": "2026-10-10T09:40:46.577Z",
+      "crawledAt": "2026-10-10T21:59:27.679Z",
       "id": "posta-svizzera-centro-regionale-ae408c5d54c3",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1636,7 +1547,7 @@
         "canton": "GR",
         "location": "Chur"
       },
-      "crawledAt": "2026-10-10T09:40:45.389Z",
+      "crawledAt": "2026-10-10T21:59:26.313Z",
       "id": "posta-svizzera-centro-regionale-3ab4890186f7",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1680,7 +1591,7 @@
         "canton": "ZG",
         "location": "Baar"
       },
-      "crawledAt": "2026-10-10T09:40:44.202Z",
+      "crawledAt": "2026-10-10T21:59:24.798Z",
       "id": "posta-svizzera-centro-regionale-9371c781658b",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1724,7 +1635,7 @@
         "canton": "ZG",
         "location": "Baar"
       },
-      "crawledAt": "2026-10-10T09:40:42.975Z",
+      "crawledAt": "2026-10-10T21:59:23.417Z",
       "id": "posta-svizzera-centro-regionale-534bd3f25bdc",
       "salaryMin": 58500,
       "salaryMax": 89000,
@@ -1760,7 +1671,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T09:40:41.766Z",
+      "crawledAt": "2026-10-10T21:59:22.041Z",
       "validThrough": "",
       "source": "postch-careers-crawler",
       "employmentType": "INTERN",
@@ -1812,7 +1723,7 @@
         "canton": "TG",
         "location": "Frauenfeld"
       },
-      "crawledAt": "2026-10-10T09:40:40.570Z",
+      "crawledAt": "2026-10-10T21:59:20.671Z",
       "id": "posta-svizzera-centro-regionale-c5c4bd106b2e",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1856,7 +1767,7 @@
         "canton": "TG",
         "location": "Frauenfeld"
       },
-      "crawledAt": "2026-10-10T09:40:39.245Z",
+      "crawledAt": "2026-10-10T21:59:19.288Z",
       "id": "posta-svizzera-centro-regionale-36e70ca7b38c",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -1877,5 +1788,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
