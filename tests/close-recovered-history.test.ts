@@ -14,6 +14,9 @@ import {
   BRANCH_HISTORY_FALLBACK_MARGIN_DAYS,
   runHistoryMemoKey,
   RUN_HISTORY_STATUS_FILTERS,
+  RECOVERY_REQUIRED_JOBS,
+  dropUnprovenRecoveryRuns,
+  hasRequiredRecoveryJobs,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
 const NOW = Date.parse('2026-10-06T20:00:00Z');
@@ -31,6 +34,69 @@ function run(id: number, createdAt: string, conclusion: 'success' | 'failure' | 
 }
 
 describe('close-recovered history reads', () => {
+  it('requires real validate-dist and validate-live jobs before treating the publish wrapper as recovered', () => {
+    const workflow = 'Publish to GitHub Pages (deploy + validate)';
+    expect(RECOVERY_REQUIRED_JOBS[workflow]).toEqual([
+      'validate-dist / validate-dist-postbuild',
+      'validate-live / validate-live',
+    ]);
+    expect(hasRequiredRecoveryJobs(workflow, {
+      jobs: [
+        { name: 'Resolve per-locale publish plan', conclusion: 'success' },
+        { name: 'validate-dist / validate-dist-postbuild', conclusion: 'skipped' },
+        { name: 'validate-live / validate-live', conclusion: 'skipped' },
+      ],
+    })).toBe(false);
+    expect(hasRequiredRecoveryJobs(workflow, {
+      jobs: [
+        { name: 'validate-dist / validate-dist-postbuild', conclusion: 'success' },
+        { name: 'validate-live / validate-live', conclusion: 'success' },
+      ],
+    })).toBe(true);
+  });
+
+  it('drops skip-only green wrappers and lets the preceding real failure decide', () => {
+    const workflow = 'Publish to GitHub Pages (deploy + validate)';
+    const history = [
+      run(38057823907, '2026-10-10T13:59:15Z', 'success'),
+      run(38057579086, '2026-10-10T13:55:14Z', 'success'),
+      run(38051163222, '2026-10-10T12:13:15Z', 'failure'),
+      run(37880634143, '2026-10-09T03:44:14Z', 'success'),
+    ];
+    const reads: number[] = [];
+    const filtered = dropUnprovenRecoveryRuns(workflow, history, (databaseId) => {
+      reads.push(databaseId);
+      return {
+        jobs: [
+          { name: 'validate-dist / validate-dist-postbuild', conclusion: 'skipped' },
+          { name: 'validate-live / validate-live', conclusion: 'skipped' },
+        ],
+      };
+    }, { now: Date.parse('2026-10-10T14:30:00Z'), windowHours: 8 });
+
+    expect(filtered.map((item) => item.databaseId)).toEqual([38051163222, 37880634143]);
+    expect(reads).toEqual([38057823907, 38057579086]);
+  });
+
+  it('retains a full green wrapper and fails closed when its jobs are unreadable', () => {
+    const workflow = 'Publish to GitHub Pages (deploy + validate)';
+    const success = run(37880634143, '2026-10-09T03:44:14Z', 'success');
+    const jobs = {
+      jobs: [
+        { name: 'validate-dist / validate-dist-postbuild', conclusion: 'success' },
+        { name: 'validate-live / validate-live', conclusion: 'success' },
+      ],
+    };
+
+    expect(dropUnprovenRecoveryRuns(workflow, [success], () => jobs)).toEqual([success]);
+    expect(dropUnprovenRecoveryRuns(workflow, [success], () => null)).toEqual([]);
+
+    const unrelated = [run(7, '2026-10-10T19:00:00Z', 'success')];
+    expect(dropUnprovenRecoveryRuns('Unrelated workflow', unrelated, () => {
+      throw new Error('unrelated workflows must not spend a Jobs API read');
+    })).toBe(unrelated);
+  });
+
   it('builds server-filtered ordinary listings and leaves crawler population untouched', () => {
     expect(RUN_HISTORY_STATUS_FILTERS).toEqual(['success', 'failure', 'timed_out', 'startup_failure']);
     const success = buildRunListArgs('Deploy to GitHub Pages', { status: 'success' });
