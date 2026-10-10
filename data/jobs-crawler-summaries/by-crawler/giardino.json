@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-09T21:42:11.544Z",
+  "generatedAt": "2026-10-10T09:41:30.869Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3007,
-  "avgDurationMs": 3007,
+  "durationMs": 3329,
+  "avgDurationMs": 3329,
   "durationHistory": [
-    3007
+    3329
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T21:42:03.037Z",
+      "crawledAt": "2026-10-10T09:41:18.158Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -78,7 +78,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T21:42:02.845Z",
+      "crawledAt": "2026-10-10T09:41:17.971Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -119,7 +119,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-09T21:42:02.803Z",
+      "crawledAt": "2026-10-10T09:41:17.788Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -149,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }
