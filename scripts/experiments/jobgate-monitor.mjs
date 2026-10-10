@@ -33,6 +33,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  */
 
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -199,7 +200,7 @@ function repoFlag() {
 }
 
 function gh(args) {
-  return execFileSync('gh', [...args, ...repoFlag()], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] }).trim();
+  return execFileSync('gh', [...args, ...repoFlag()], { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] }).trim();
 }
 
 function findStatusIssue() {

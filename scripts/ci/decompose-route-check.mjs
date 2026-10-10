@@ -39,6 +39,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { appendFileSync, realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { decomposedChildNumbers } from './lib/parent-close-recurrence.mjs';
@@ -218,7 +219,7 @@ function siteHasPath(p) {
 function corpusHasPath(corpusRepo, p) {
   const encoded = p.split('/').map(encodeURIComponent).join('/');
   try {
-    execFileSync('gh', ['api', `repos/${corpusRepo}/contents/${encoded}?ref=main`, '--jq', '.sha'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    execFileSync('gh', ['api', `repos/${corpusRepo}/contents/${encoded}?ref=main`, '--jq', '.sha'], { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] });
     return true;
   } catch (e) {
     const err = `${e?.stderr || ''} ${e?.stdout || ''}`;
@@ -247,13 +248,13 @@ function realIo({ repo, corpusRepo }) {
       }
     },
     comment: (n, body) => {
-      execFileSync('gh', ['issue', 'comment', String(n), '--repo', repo, '--body-file', '-'], { input: body, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'] });
+      execFileSync('gh', ['issue', 'comment', String(n), '--repo', repo, '--body-file', '-'], { input: body, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['pipe', 'pipe', 'pipe'] });
     },
     editLabels: (n, { add, remove }) => {
       const args = ['issue', 'edit', String(n), '--repo', repo];
       for (const l of add) args.push('--add-label', l);
       for (const l of remove) args.push('--remove-label', l);
-      execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+      execFileSync('gh', args, { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] });
     },
     log: (line) => console.log(line),
   };

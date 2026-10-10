@@ -16,6 +16,7 @@ import { realpathSync } from 'node:fs';
  *   REPO=owner/repo ISSUE_NUMBER=123 node scripts/ci/detect-aggregate.mjs
  */
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { appendFileSync } from 'node:fs';
 
 import { isAggregate } from './check-issue-already-resolved.mjs';
@@ -47,7 +48,7 @@ function readIssue(repo, issue) {
     const out = execFileSync(
       'gh',
       ['issue', 'view', String(issue), '--repo', repo, '--json', 'title,body'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] },
     );
     return parseIssuePayload(JSON.parse(out));
   } catch (err) {

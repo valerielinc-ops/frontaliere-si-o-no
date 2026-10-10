@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { fileURLToPath } from 'node:url';
 import { parseDocument } from 'yaml';
 import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creator.mjs';
@@ -2282,7 +2283,7 @@ function syncAuditIssueContract(issueNumber, contract, fallbackBody) {
     const currentJson = execFileSync('gh', [
       'issue', 'view', String(issueNumber), '--json', 'body',
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     const current = JSON.parse(currentJson).body || '';
     const body = L11_ISSUE_CONTRACT_RE.test(current)
       ? current.replace(L11_ISSUE_CONTRACT_RE, marker)
@@ -2293,7 +2294,7 @@ function syncAuditIssueContract(issueNumber, contract, fallbackBody) {
     execFileSync('gh', [
       'issue', 'edit', String(issueNumber), '--body', boundedBody,
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     console.log(`Issue audit #${issueNumber}: contratto L11 aggiornato nel body`);
   } catch (error) {
     // The issue/comment remains durable even if this reconciliation is
@@ -2323,7 +2324,7 @@ function syncAuditIssueRouting(issueNumber, summary, metadata) {
       '--add-label', routing.add,
       '--remove-label', routing.remove,
       ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-    ], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+    ], { cwd: ROOT, encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
     console.log(`Issue audit #${issueNumber}: routing=${routing.route}`);
   } catch (error) {
     // The issue itself is already persisted by createGithubIssue. A label-sync
