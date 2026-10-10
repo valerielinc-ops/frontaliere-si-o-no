@@ -35,6 +35,7 @@
  *   4. Index canonical paths follow the expected per-locale slug pattern.
  */
 
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   generateFuelIndexPages,
@@ -56,6 +57,7 @@ import {
 } from '../../build-plugins/fuelDailyData';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
+import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
 
@@ -79,6 +81,28 @@ const SYNTHETIC_ITALIAN_LARGE: ItalianStationLeaf[] = Array.from({ length: 260 }
   name: `MIMIT station ${index} with a representative long station name`,
   brand: `Brand ${index % 18}`,
   address: `Via del valico ${index}, zona frontaliera nord, 22100 Como — ingresso lato autostrada e servizio self-service`,
+}));
+
+const TEXT_RATIO_ITALIAN: ItalianStationLeaf[] = Array.from({ length: 220 }, (_, index) => ({
+  citySlug: `city-${Math.floor(index / 2)}`,
+  cityDisplay: `City ${Math.floor(index / 2)}`,
+  stationSlug: `station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index % 18}`,
+  address: `Via Roma ${index}, Como`,
+}));
+
+const TEXT_RATIO_SWISS: SwissStationLeaf[] = Array.from({ length: 51 }, (_, index) => ({
+  zone: FUEL_ZONES[index % FUEL_ZONES.length],
+  slug: `station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index % 18}`,
+  address: `Via Roma ${index}, Como`,
+  lat: 45.8 + index / 10_000,
+  lng: 8.9 + index / 10_000,
+  benzinaPriceChf: 1.8,
+  dieselPriceChf: 1.9,
+  updatedAt: '2026-04-28T08:00:00.000Z',
 }));
 
 function countAnchors(html: string, hrefSubstr: string): number {
@@ -325,6 +349,7 @@ describe('fuel-station map — Swiss index carries a client island without losin
 });
 
 describe('fuel-station indexes — mobile typography keeps advice labels readable', () => {
+  const staticCss = readFileSync(new URL('../../public/assets/seo-static.css', import.meta.url), 'utf8');
   const pages = generateFuelIndexPages({
     today: TODAY,
     swissStations: SYNTHETIC_SWISS,
@@ -335,12 +360,8 @@ describe('fuel-station indexes — mobile typography keeps advice labels readabl
     for (const locale of FUEL_DAILY_LOCALES) {
       it(`uses at least 12px for the advice label (${locale}/${fuel})`, () => {
         const html = pages[buildFuelIndexPath(locale, fuel, 'swissStations')]!;
-        expect(html).toContain(
-          'display:block;font-size:12px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px',
-        );
-        expect(html).not.toContain(
-          'display:block;font-size:11px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px',
-        );
+        expect(html).toContain('fuel-index-advice__label');
+        expect(staticCss).toMatch(/\.fuel-index-advice__label\{[^}]*font-size:12px[^}]*\}/);
       });
     }
   }
@@ -423,6 +444,39 @@ describe('fuel-station index pagination — Italian station pages stay within th
     expect(pages[middlePath]).toMatch(/rel(?:="prev"|=prev)/);
     expect(pages[middlePath]).toMatch(/rel(?:="next"|=next)/);
     expect(pages[middlePath]).toContain('Stazioni benzina Italia confine — indice completo — pagina 2');
+  });
+});
+
+describe('fuel-station index pages — preserve the text/HTML quality floor', () => {
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: TEXT_RATIO_SWISS,
+    italianStations: TEXT_RATIO_ITALIAN,
+  });
+  const targetRoots = FUEL_DAILY_LOCALES.flatMap((locale) => [
+    buildFuelIndexPath(locale, 'benzina', 'swissStations'),
+    buildFuelIndexPath(locale, 'diesel', 'swissStations'),
+    buildFuelIndexPath(locale, 'benzina', 'italianStations'),
+  ]);
+  const targetPages = Object.entries(pages).filter(([path]) =>
+    targetRoots.some((root) => path === root || path.startsWith(`${root.slice(0, -1)}/page-`)),
+  );
+
+  it('keeps each generated station index above the production audit’s 10% hard floor', () => {
+    expect(targetPages.length).toBeGreaterThan(0);
+    for (const [path, html] of targetPages) {
+      const htmlBytes = Buffer.byteLength(html, 'utf8');
+      const textBytes = Buffer.byteLength(extractVisibleText(html), 'utf8');
+      const ratio = (textBytes / htmlBytes) * 100;
+      expect(ratio, `${path}: ${textBytes}/${htmlBytes} bytes (${ratio.toFixed(2)}%)`).toBeGreaterThan(10);
+    }
+  });
+
+  it('shows the source-backed Swiss price and collection time in the compact station link', () => {
+    const html = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')]!;
+    expect(html).toContain('Prezzo');
+    expect(html).toContain('CHF/l');
+    expect(html).toContain('rilevato');
   });
 });
 
