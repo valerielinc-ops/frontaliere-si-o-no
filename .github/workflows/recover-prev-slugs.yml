@@ -66,13 +66,12 @@ env:
 jobs:
   recover:
     runs-on: ubuntu-latest
-    # 5 (Checkout) + 5 (Deepen shallow-since attempt) + 21 (unshallow
-    # fallback, worst-case historical full-fetch cost — see "Fallback:
-    # unshallow checkout" below) + 8 (Setup Node/npm ci/reconcile/scan/
-    # backfill/commit/re-scan/tripwire/upload, the same historical remainder
-    # the old fetch-depth:0 Checkout left after eating 17-21min) = 39min
-    # worst case; 40 leaves a minute of margin.
-    timeout-minutes: 40
+    # Runs 37832659303 and 37977831139 both exhausted the 5min shallow-since
+    # cap and then the 21min unshallow cap. Keep the same scan coverage, but
+    # allow the observed slow fetches to finish: 5 (Checkout) + 15 (targeted
+    # fetch) + 30 (complete-history fallback) + 8 (remaining pipeline) = 58;
+    # 60 leaves two minutes of job-level margin.
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -127,10 +126,13 @@ jobs:
         # it can complete; a cap sized for the fallback makes the fast path's
         # own hang-detection meaningless. `continue-on-error` + `id: deepen`
         # let "Fallback: unshallow checkout" below run only when this attempt
-        # fails, each with a timeout matched to what it actually costs.
+        # fails, each with a timeout matched to what it actually costs. Runs
+        # 37832659303 and 37977831139 both hit the 5-minute cap; allow 15
+        # minutes before using the complete-history fallback, without changing
+        # the requested scan window.
         id: deepen
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 15
         env:
           SINCE: ${{ github.event.inputs.since || '24 hours ago' }}
           CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -145,15 +147,15 @@ jobs:
       - name: 'Fallback: unshallow checkout'
         # Only runs when the shallow-since attempt above failed (network
         # hiccup, git version quirk, unparseable `since`, or it hanging past
-        # its own 5min cap) — rather than silently under-covering the scan
+        # its own 15min cap) — rather than silently under-covering the scan
         # window. Gets its own timeout sized for what this branch actually
         # costs: a full unshallow replicates the old fetch-depth:0 Checkout's
         # measured 17-21min (issue #5996), not the fast shallow-since path's
-        # budget. 21min covers the observed worst case; the job-level
-        # timeout-minutes above was widened to fit it plus the rest of the
-        # pipeline.
+        # budget. Run 37977831139 exceeded the 21-minute cap by seconds; 30
+        # minutes covers that recurrence while the job-level timeout still
+        # bounds total work.
         if: steps.deepen.outcome == 'failure'
-        timeout-minutes: 21
+        timeout-minutes: 30
         env:
           CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
