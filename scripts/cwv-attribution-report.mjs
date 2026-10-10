@@ -104,7 +104,7 @@ export function renderReport(report, { runUrl } = {}) {
       lines.push('| # | selettore | component | eventi | ac medio | cc medio |', '|---:|---|---|---:|---:|---:|');
       top.forEach((row, i) => lines.push(`| ${i + 1} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${row.count} | ${fmtMean(row.ac)} | ${fmtMean(row.cc)} |`));
       lines.push('', '_`ac` = contenitori Auto Ads presenti, `cc` = quelli collassati da `services/autoAdCollapse.ts`, medie pesate per evento._');
-      if (coverage.selectorsTruncated) lines.push('_I selettori sono letti dalle prime righe per eventi: la coda e\' fuori dal limite della richiesta._');
+      if (coverage.selectorsTruncated) lines.push('_Attenzione: la lettura paginata dei selettori non ha raggiunto tutta la coda GA4._');
     }
   }
 
@@ -112,12 +112,12 @@ export function renderReport(report, { runUrl } = {}) {
   const inpTargets = topInpSelectors(selectors);
   const missingInp = missingInpSelectorCount(selectors);
   if (!inpTargets.length) {
-    lines.push('_Nessun bersaglio INP nella finestra._', '', `_Bersagli INP senza selettore: ${missingInp} eventi._`);
+    lines.push('_Nessun bersaglio INP nella finestra._', '', `_Bersagli INP unknown: ${missingInp} eventi._`);
   } else {
     lines.push('| # | bersaglio | component | eventi | ac medio | cc medio |', '|---:|---|---|---:|---:|---:|');
     inpTargets.forEach((row, i) => lines.push(`| ${i + 1} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${row.count} | ${fmtMean(row.ac)} | ${fmtMean(row.cc)} |`));
-    lines.push('', `_Bersagli INP senza selettore: ${missingInp} eventi._`);
-    if (coverage.selectorsTruncated) lines.push('_I selettori sono letti dalle prime righe per eventi: la coda e\' fuori dal limite della richiesta._');
+    lines.push('', `_Bersagli INP unknown: ${missingInp} eventi._`);
+    if (coverage.selectorsTruncated) lines.push('_Attenzione: la lettura paginata dei selettori non ha raggiunto tutta la coda GA4._');
   }
 
   lines.push('', '#### p75 per template su `/cerca-lavoro*`', '');
