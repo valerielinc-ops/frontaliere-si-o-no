@@ -57,6 +57,10 @@ import {
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import { professionSynonymText } from '@/services/professionSynonyms';
 import {
+ addJobSearchLocationTokens,
+ addJobBoardAutocompleteSuggestions,
+ collectJobSearchLocationTokens,
+ deriveJobBoardAutocompleteSuggestions,
  offerBoundedRankedCandidate,
  rankedCandidateValues,
  scheduleFrameBudgetedScan,
@@ -4483,6 +4487,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // that matches nothing — the 7,16 MB stampede this component is trying to
  // avoid. A locale switch has the same shape from the other side: same array
  // identity, haystacks built for the previous language.
+ /**
+  * A build seed is already the complete answer for its route. While it applies,
+  * no fallback may interpret the deliberately empty client derivation as a
+  * corpus miss: doing so downloads and scans pools that cannot affect the UI.
+ * Facets deliberately do not disable the seed: they narrow its bounded result
+ * set below, matching the build-to-SPA handoff contract.
+  */
+ const clusterSeedApplies = clusterSeedJobs.length > 0
+   && !!clusterSeed
+   && deferredSearchQuery.trim() === clusterSeed.q.trim()
+   && !companySlugFilter
+   && !locationSlugFilter;
+ const unseededSearchPipelineEnabled = !clusterSeedApplies;
+
  const [searchIndex, setSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
  readonly jobs: ReadonlyArray<JobListing> | null;
@@ -4527,13 +4545,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const synonyms = professionSynonymText(localizedTitle);
  map.set(job, buildStemmedHaystack(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${cantonSearchTokens(job.canton)} ${description} ${synonyms}`));
  ids.add(job.id);
- const location = `${job.addressLocality || ''} ${job.location || ''}`;
- for (const token of normalizeSearchText(location).split(' ')) {
-  if (!token) continue;
-  const stem = stemSearchToken(token);
-  if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
-  locationTokens.add(stem);
- }
+ addJobSearchLocationTokens(locationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4567,6 +4579,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Keep both fallback pools in one identity-keyed index: cross-locale results
  // use the same matcher, and object references remain stable after setState.
  const fallbackIndexJobs = useMemo<ReadonlyArray<JobListing>>(() => {
+ if (!unseededSearchPipelineEnabled) return [];
  const merged: JobListing[] = [];
  const seen = new Set<JobListing>();
  for (const job of [...unscopedJobs, ...crossLocaleJobs]) {
@@ -4575,7 +4588,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  merged.push(job);
  }
  return merged;
- }, [unscopedJobs, crossLocaleJobs]);
+ }, [unscopedJobs, crossLocaleJobs, unseededSearchPipelineEnabled]);
 
  const [fallbackSearchIndex, setFallbackSearchIndex] = useState<{
  readonly map: Map<JobListing, string>;
@@ -4598,13 +4611,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  while (i < fallbackIndexJobs.length) {
  const job = fallbackIndexJobs[i];
  fallbackMap.set(job, getBroadenHaystack(job, locale));
- const location = `${job.addressLocality || ''} ${job.location || ''}`;
- for (const token of normalizeSearchText(location).split(' ')) {
-  if (!token) continue;
-  const stem = stemSearchToken(token);
-  if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
-  fallbackLocationTokens.add(stem);
- }
+ addJobSearchLocationTokens(fallbackLocationTokens, job);
  i++;
  if ((i & CLOCK_CHECK_MASK) === 0 && performance.now() >= deadline) break;
  }
@@ -4674,25 +4681,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // "second-job" trigger has no audience either — the job-detail prompt
  // (relaxed gating, max 2/day) carries conversions instead.
 
- /**
-  * True while the build's seeded result set is still the right answer for what
-  * is on screen: the visitor has not changed the query away from the one this
-  * page is about, and is not in a company/location view (those have their own
-  * loaders and their own corpora). Facet filters are deliberately NOT part of
-  * this test — they narrow the seeded set inside the tier rather than throwing
-  * it away, which is what a visitor ticking "ultime 24h" expects.
-  */
- const clusterSeedApplies = clusterSeedJobs.length > 0
-   && !!clusterSeed
-   && deferredSearchQuery.trim() === clusterSeed.q.trim()
-   && !companySlugFilter
-   && !locationSlugFilter;
-
  const searchLocationTokens = useMemo<Set<string>>(() => {
  const set = new Set(searchIndexCurrent ? searchIndex.locationTokens : []);
+ if (clusterSeedApplies) collectJobSearchLocationTokens(clusterSeedJobs, set);
  for (const token of fallbackSearchIndex.locationTokens) set.add(token);
  return set;
- }, [searchIndex, searchIndexCurrent, fallbackSearchIndex]);
+ }, [searchIndex, searchIndexCurrent, fallbackSearchIndex, clusterSeedApplies, clusterSeedJobs]);
 
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
@@ -4853,21 +4847,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const queryMatches = !query || indexedQueryMatch(job, query);
   if (query && queryMatches) accumulator.queryMatches.push(job);
 
-  const autocompleteQuery = query.toLowerCase();
-  if (autocompleteQuery.length >= 2 && accumulator.autocomplete.length < 5) {
-   const addAutocomplete = (raw: string) => {
-    const clean = raw.trim();
-    const key = clean.toLowerCase();
-    if (!clean || key === autocompleteQuery || accumulator.autocompleteSeen.has(key)) return;
-    accumulator.autocompleteSeen.add(key);
-    accumulator.autocomplete.push(clean);
-   };
-   const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title).split(/[-–—|•·]/)[0]?.trim() || '';
-   const company = String(job.company || '').trim();
-   const location = String(job.location || '').trim();
-   if (title.toLowerCase().startsWith(autocompleteQuery)) addAutocomplete(title);
-   if (accumulator.autocomplete.length < 5 && company.toLowerCase().startsWith(autocompleteQuery)) addAutocomplete(company);
-   if (accumulator.autocomplete.length < 5 && location.toLowerCase().startsWith(autocompleteQuery)) addAutocomplete(location);
+  if (accumulator.autocomplete.length < 5) {
+   addJobBoardAutocompleteSuggestions(
+    accumulator.autocomplete,
+    accumulator.autocompleteSeen,
+    job,
+    query,
+    locale,
+   );
   }
 
   if (!passingNonSearchFilters(job, accumulator.now, accumulator.cutoff)) return;
@@ -4896,7 +4883,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }), [deferredSearchQuery, orFallbackTokens.length]);
  const inCantonDerivation = useInterruptibleDerivation({
   items: sortedJobs,
-  enabled: !searchIndexPending && !clusterSeedApplies,
+  enabled: unseededSearchPipelineEnabled && !searchIndexPending,
   emptyValue: emptyInCantonResult,
   createAccumulator: createInCantonAccumulator,
   visit: visitInCantonJob,
@@ -4956,7 +4943,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  const crossCantonDerivation = useInterruptibleDerivation({
   items: unscopedJobs,
-  enabled: !inCantonDerivation.pending
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
    && Boolean(deferredSearchQuery.trim())
    && inCantonCount < BROADEN_BELOW
    && unscopedJobs.length > 0
@@ -4977,6 +4965,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // similarly sized to the IT one, so a per-keystroke refetch would waste
  // bandwidth without changing results.
  useEffect(() => {
+ if (!unseededSearchPipelineEnabled) return;
  if (crossLocaleFetchAttempted.current) return;
  if (jobsLoading) return;
  if (inCantonDerivation.pending || crossCantonDerivation.pending) return;
@@ -5042,7 +5031,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  })();
  return () => { cancelled = true; };
  }, [
- deferredSearchQuery, jobsLoading, locale,
+ deferredSearchQuery, jobsLoading, locale, unseededSearchPipelineEnabled,
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
  unscopedJobs, sortedJobs, initialFilterCanton, companySlugFilter, searchBroadenSettledQueries,
  // Load-bearing: on a search that is genuinely empty, the tier counts above
@@ -5114,6 +5103,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // A query that was attempted but is not terminal yet may attach again after
  // A→B→A, so the current query still receives the shared pool result.
  useEffect(() => {
+ if (!unseededSearchPipelineEnabled) return;
  if (jobsLoading) return;
  if (inCantonDerivation.pending) return;
  // The in-canton counts below are provisional until the index is complete.
@@ -5162,7 +5152,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // `searchIndexPending` is load-bearing, same reason as the cross-locale tier:
  // a genuinely thin search leaves every other dep unchanged when the index
  // completes, so the broaden would never fire without it.
- }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries, inCantonDerivation.pending]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, initialFilterCanton, strictFilteredJobs.length, orFallbackInCantonJobs.length, unscopedJobs.length, locale, loadUnscopedPool, searchIndexPending, searchBroadenSettledQueries, inCantonDerivation.pending, unseededSearchPipelineEnabled]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -5182,7 +5172,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [passingNonSearchFilters, fallbackSearchIndex, orFallbackTokens, orFallbackMinScore]);
  const crossLocaleDerivation = useInterruptibleDerivation({
   items: crossLocaleJobs,
-  enabled: !inCantonDerivation.pending
+  enabled: unseededSearchPipelineEnabled
+   && !inCantonDerivation.pending
    && !crossCantonDerivation.pending
    && Boolean(deferredSearchQuery.trim())
    && strictFilteredJobs.length === 0
@@ -5573,7 +5564,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const relatedSearchSuggestions = useMemo(() => {
  const baseQuery = deferredSearchQuery.trim();
  if (!baseQuery) return [];
- const matching = inCantonDerivation.value.queryMatches;
+ const matching = clusterSeedApplies ? clusterSeedJobs : inCantonDerivation.value.queryMatches;
  if (matching.length === 0) return [];
 
  const seen = new Set<string>();
@@ -5585,7 +5576,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const key = normalizeSearchText(clean);
  if (!key || key === normBase || seen.has(key)) return;
  // Validate candidate against the already-filtered matches instead of all jobs (O(n) vs O(n²))
- if (!matching.some((job) => indexedQueryMatch(job, clean))) return;
+ if (!clusterSeedApplies && !matching.some((job) => indexedQueryMatch(job, clean))) return;
  seen.add(key);
  out.push(clean);
  };
@@ -5602,10 +5593,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  return out.slice(0, 5);
- }, [deferredSearchQuery, inCantonDerivation.value.queryMatches, locale, indexedQueryMatch]);
+ }, [deferredSearchQuery, clusterSeedApplies, clusterSeedJobs, inCantonDerivation.value.queryMatches, locale, indexedQueryMatch]);
 
  // Autocomplete suggestions as user types in job search
- const autocompleteSuggestions = inCantonDerivation.value.autocomplete;
+ const clusterSeedAutocompleteSuggestions = useMemo(
+  () => clusterSeedApplies
+   ? deriveJobBoardAutocompleteSuggestions(clusterSeedJobs, deferredSearchQuery, locale)
+   : [],
+  [clusterSeedApplies, clusterSeedJobs, deferredSearchQuery, locale],
+ );
+ const autocompleteSuggestions = clusterSeedApplies
+  ? clusterSeedAutocompleteSuggestions
+  : inCantonDerivation.value.autocomplete;
 
  // Smart 0-results (issue #4301): candidate pool of real job titles/
  // locations for fuzzy "did you mean" suggestions when the query matches
