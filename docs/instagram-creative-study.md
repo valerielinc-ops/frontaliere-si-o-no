@@ -175,6 +175,23 @@ Il report deve mostrare anche hook e loop, non solo la percentuale, così la
 decisione successiva è: “ripetiamo questa promessa per questo pubblico”, non
 “copiamo il post con più like”.
 
+Quando il token Meta non è ancora disponibile, la verifica può continuare con
+un export CSV del Professional Dashboard. Il report è read-only, non chiama
+Meta e collega ogni riga al ledger tramite `media id` o `queue id`:
+
+```bash
+node scripts/instagram-insights-report.mjs \
+  --input /percorso/export-instagram.csv \
+  --ledger data/instagram-posted.json \
+  --window-hours=72
+```
+
+Sono accettati CSV separati da virgola o punto e virgola; le colonne metriche
+minime sono `Post ID`/`Media ID`, `Reach`, `Shares`, `Saves` e `Comments`.
+Se l'export non contiene `creativeId`, il ledger deve contenere l'ID del post
+o della coda. Le righe senza attribuzione verificabile vengono rifiutate e non
+entrano nella classifica.
+
 La cadenza protegge anche l’unità del test: il poster consente una sola
 pubblicazione per `kind + day`. Se una classifica aggiornata ricrea la coda
 dello stesso giorno dopo una pubblicazione già confermata, la nuova esecuzione

@@ -95,6 +95,12 @@ export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=604800';
 const PROBE_USER_AGENT = 'FrontaliereTicino-ShellAssets/1.0 (+https://frontaliereticino.ch)';
 const PROBE_TIMEOUT_MS = 8_000;
 
+// One confirmation variant gets the complete retry schedule plus the last
+// request's bounded header wait. Earlier request latency consumes the same
+// budget: a slow edge cannot silently extend the publication gate.
+const EDGE_CONFIRMATION_WINDOW_MS = CONFIRM_DELAYS_MS.reduce((total, delay) => total + delay, 0)
+  + PROBE_TIMEOUT_MS;
+
 // A 200 whose body is HTML is not a script or a stylesheet: an origin that
 // serves the SPA on any path answers that way for a file it does not have.
 const isHtml = (contentType) => /^\s*text\/html\b/i.test(String(contentType || ''));
@@ -110,11 +116,24 @@ export function r2UploadDeadline(startedAt = monotonicNow()) {
   return startedAt + HELPER_TIMEOUT_MS;
 }
 
+/** One monotonic deadline for a cache variant's complete edge confirmation. */
+export function edgeConfirmationDeadline(startedAt = monotonicNow()) {
+  return startedAt + EDGE_CONFIRMATION_WINDOW_MS;
+}
+
 class R2UploadDeadlineExceededError extends Error {
   constructor(message) {
     super(message);
     this.name = 'R2UploadDeadlineExceededError';
     this.code = 'R2_UPLOAD_DEADLINE_EXCEEDED';
+  }
+}
+
+class EdgeConfirmationDeadlineExceededError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'EdgeConfirmationDeadlineExceededError';
+    this.code = 'EDGE_CONFIRMATION_DEADLINE_EXCEEDED';
   }
 }
 
@@ -311,7 +330,7 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *   checkStored?: (key: string) => 'exists' | 'missing' | 'indeterminate' | Promise<'exists' | 'missing' | 'indeterminate'>,
  *   upload?: (key: string, content: string) => boolean | Promise<boolean>,
  *   purge?: (keys: string[]) => boolean | Promise<boolean>,
- *   confirm?: (key: string, options: { pageOrigin?: string }) => Promise<'present' | 'absent' | 'unknown'>,
+ *   confirm?: (key: string, options: { pageOrigin?: string, timeoutMs?: number }) => Promise<'present' | 'absent' | 'unknown'>,
  *   wait?: (ms: number) => Promise<void>,
  *   now?: () => number,
  *   log?: (line: string) => void,
@@ -392,14 +411,31 @@ export async function ensureCdnShellAssets({
     }
     for (const key of purged) {
       for (const pageOrigin of CACHE_VARIANTS) {
+        const deadlineAt = edgeConfirmationDeadline(now());
         let answer = 'unknown';
+        let confirmed = false;
         for (const delay of CONFIRM_DELAYS_MS) {
-          if (delay > 0) await wait(delay);
-          answer = await confirm(key, { pageOrigin });
-          if (answer === 'present') break;
+          if (delay > 0) {
+            const remainingBeforeWait = Math.floor(deadlineAt - now());
+            if (remainingBeforeWait <= 0) break;
+            await wait(Math.min(delay, remainingBeforeWait));
+          }
+          const remainingForRequest = Math.floor(deadlineAt - now());
+          if (remainingForRequest <= 0) break;
+          answer = await confirm(key, {
+            pageOrigin,
+            timeoutMs: Math.min(PROBE_TIMEOUT_MS, remainingForRequest),
+          });
+          if (answer === 'present' && now() <= deadlineAt) {
+            confirmed = true;
+            break;
+          }
+          if (now() >= deadlineAt) break;
         }
-        if (answer !== 'present') {
-          throw new Error(`${key}: on R2 and purged, but the URL the pages use still does not serve it (${variantLabel(pageOrigin)}: ${answer}) — HTML that references it must not be published`);
+        if (!confirmed) {
+          throw new EdgeConfirmationDeadlineExceededError(
+            `${key}: on R2 and purged, but the URL the pages use still does not serve it; edge confirmation exceeded the ${EDGE_CONFIRMATION_WINDOW_MS / 1000}s cumulative deadline (${variantLabel(pageOrigin)}: ${answer}) — HTML that references it must not be published`,
+          );
         }
       }
     }
