@@ -1932,7 +1932,12 @@ grouped_ownership_view_refresh() {
       [[ "$file" =~ ^data/jobs/by-crawler/[^/]+\.json$ ]] || continue
       changed_paths+=("$file")
       rm -f -- "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot/$file"
-      if GIT_NO_LAZY_FETCH=1 git cat-file -e "$remote_sha:$file" 2>/dev/null; then
+      # A blobless checkout may know the path in the remote tree without
+      # having its blob locally. `cat-file -e` with lazy fetch disabled calls
+      # that present path absent, so the ownership guard would miss a claim
+      # that arrived while the lease was held. Inspect the tree entry instead;
+      # the bounded archive below fetches the blob only when it is present.
+      if git ls-tree -r --name-only "$remote_sha" -- "$file" 2>/dev/null | grep -Fxq "$file"; then
         present_paths+=("$file")
       fi
     done < "$changed_file_list"
