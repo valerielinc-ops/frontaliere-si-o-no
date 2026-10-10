@@ -245,7 +245,12 @@ const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|po
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
+// A generic personal-data section can also contain unrelated labels such as
+// «Data di nascita». Only these residence-specific words override that noise
+// when a sibling-label context contains both kinds of information.
+const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
@@ -257,7 +262,11 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
   const surrounding = String(context || '');
-  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(surrounding)) return '';
+  const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
+  const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
+  const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
+  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
+    || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding);
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';

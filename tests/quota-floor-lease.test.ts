@@ -91,17 +91,26 @@ describe('shared quota-floor lease ledger', () => {
   it('emits append-only acquire/release markers through the injected command', () => {
     const commands: string[][] = [];
     const owner = quotaFloorLeaseOwner({ kind: 'repair', subject: 'pr-9', runId: 'run-9', attempt: '1' });
-    expect(acquireQuotaFloorLease({
+    const acquired = acquireQuotaFloorLease({
       repo: 'owner/repo', ledgerIssue: '8306', kind: 'repair', subject: 'pr-9', owner, expiresAt: quotaFloorLeaseExpiry(1_000, 60),
       runCommand: (args) => { commands.push(args); },
-    }).ok).toBe(true);
-    expect(releaseQuotaFloorLease({
+    });
+    const released = releaseQuotaFloorLease({
       repo: 'owner/repo', ledgerIssue: '8306', owner,
       runCommand: (args) => { commands.push(args); },
-    }).ok).toBe(true);
-    expect(commands).toHaveLength(2);
-    expect(commands[0].join(' ')).toContain('QUOTA_FLOOR_LEASE');
-    expect(commands[1].join(' ')).toContain('QUOTA_FLOOR_RELEASE');
+    });
+    expect(acquired.ok).toBe(true);
+    expect(released.ok).toBe(true);
+    expect(commands).toEqual([
+      [
+        'api', '--method', 'POST', 'repos/owner/repo/issues/8306/comments', '--raw-field',
+        `body=${acquired.marker}`,
+      ],
+      [
+        'api', '--method', 'POST', 'repos/owner/repo/issues/8306/comments', '--raw-field',
+        `body=${released.marker}`,
+      ],
+    ]);
   });
 
   it('does not release a reservation reused from another run', () => {

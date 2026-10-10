@@ -130,6 +130,10 @@ export function extractFieldsInPage() {
       parts.push(textOf(section.getAttribute('aria-labelledby')));
       const legend = section.querySelector('legend');
       if (legend) parts.push(clean(legend.innerText || legend.textContent));
+      // Rexx/Ticino puts «Indirizzo» and «CAP» in sibling labels under the
+      // generic «Dati anagrafici» legend. Labels carry field semantics but no
+      // candidate values, so they are safe context for the classifier.
+      parts.push([...section.querySelectorAll('label')].map((label) => clean(label.innerText || label.textContent)).filter(Boolean).join(' · '));
     }
     parts.push(headingBefore(element));
     return [...new Set(parts.map(clean).filter(Boolean))].join(' · ').slice(0, 240);

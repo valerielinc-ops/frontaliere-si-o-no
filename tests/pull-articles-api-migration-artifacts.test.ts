@@ -108,6 +108,9 @@ const archiveSitemap = urlset([
 ]);
 
 const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-archive.xml'];
+const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
+const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
+const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
 const FEEDS = [
   'rss.xml',
   'rss-it.xml',
@@ -129,6 +132,7 @@ let baseUrl: string;
 let routes: Routes = {};
 
 function baseRoutes(): Routes {
+  const credits = JSON.stringify({ schema: 1, section: 'blog', commit: API_COMMIT, generated: {} });
   const r: Routes = {
     // A FULL sha, as nanako's build-api.mjs actually emits (checked against the
     // live manifest: c6897c287da4a97b40135713a217aef6579486c9). The fixture used
@@ -137,9 +141,11 @@ function baseRoutes(): Routes {
     // resolves nothing abbreviated, so an abbreviated commit now skips the sync
     // (issue #5298, scripts/lib/articles-sync-pin.mjs).
     'manifest.json': JSON.stringify({
-      commit: 'deadbeefcafe1234567890abcdef1234567890ab',
+      commit: API_COMMIT,
       counts: { articles: 500 },
+      files: { [BLOG_CREDITS_PATH]: Buffer.byteLength(credits) },
     }),
+    [BLOG_CREDITS_PATH]: credits,
     'news-ticker-live.json': ticker,
   };
   for (const s of SITEMAPS) {
@@ -147,6 +153,15 @@ function baseRoutes(): Routes {
   }
   for (const f of FEEDS) r[f] = feed;
   return r;
+}
+
+function routesWithCredits(credits: string): Routes {
+  const result = baseRoutes();
+  const manifest = JSON.parse(result['manifest.json'] as string);
+  manifest.files[BLOG_CREDITS_PATH] = Buffer.byteLength(credits);
+  result['manifest.json'] = JSON.stringify(manifest);
+  result[BLOG_CREDITS_PATH] = credits;
+  return result;
 }
 
 beforeAll(async () => {
@@ -492,6 +507,84 @@ describe('pull-articles-api: hero-image manifest', () => {
 
     expect(code).toBe(1);
     expect(out).toContain('lists zero images');
+  });
+});
+
+describe('pull-articles-api: generated cover evidence', () => {
+  it('stages generated records from the manifest-pinned HTTP blog index', async () => {
+    const generated = {
+      schema: 1,
+      assetId: 'test-generated-cover',
+      kind: 'generated',
+      provider: 'openai-codex',
+      model: 'gpt-image-2.5',
+      executorModel: 'gpt-5.6-luna',
+      promptVersion: 'frontaliereticino.generated-image-policy.v1',
+      promptHash: 'a'.repeat(64),
+      license: 'generated-provider',
+      licenseUrl: 'https://openai.com/policies/terms-of-use/',
+      credit: 'frontaliereticino.ch',
+      sha256: 'b'.repeat(64),
+      bytes: 64,
+      width: 1200,
+      height: 675,
+      format: 'webp',
+      generatedAt: '2026-10-07T10:00:00.000Z',
+      verifiedAt: '2026-10-07T10:05:00.000Z',
+      restrictions: [
+        'illustrative-only',
+        'no-real-recognizable-foreground-person',
+        'no-public-figure-face',
+        'no-logo-brand-or-text',
+        'no-specific-real-event-photojournalism',
+      ],
+      scope: 'article-hero',
+      imageUrl: '/images/blog/test-generated-cover.webp',
+      category: 'blog',
+      area: 'Swiss Italian border region',
+      season: 'all seasons',
+      variant: 'pull-api-regression-test',
+      vision: {
+        ok: true,
+        contains_text: false,
+        contains_logo: false,
+        contains_recognizable_face: false,
+        looks_like_specific_real_event: false,
+        is_photograph: false,
+        notes: 'Safe generic illustration for the API pull regression test.',
+      },
+    };
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8'))).toEqual({
+      schema: 1,
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    });
+  });
+
+  it('refuses a blog index whose bytes disagree with the pinned manifest before writing artifacts', async () => {
+    routes = baseRoutes();
+    const manifest = JSON.parse(routes['manifest.json'] as string);
+    manifest.files[BLOG_CREDITS_PATH] += 1;
+    routes['manifest.json'] = JSON.stringify(manifest);
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain(`${BLOG_CREDITS_PATH} byte count differs from manifest`);
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
+    expect(readPub(dir, 'sitemap-blog.xml')).toBe(blogSitemap);
   });
 });
 

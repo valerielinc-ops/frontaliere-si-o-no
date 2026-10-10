@@ -55,8 +55,17 @@ describe('portal field extraction', () => {
     const page = extract(`
       <section aria-label="Indirizzo di residenza"><label for="home-cap">CAP</label><input id="home-cap" required></section>
       <section aria-label="Employer address"><label for="work-cap">CAP</label><input id="work-cap" required></section>`);
-    expect(page.fields.find((field: any) => field.context === 'Indirizzo di residenza')).toMatchObject({ label: 'CAP' });
-    expect(page.fields.find((field: any) => field.context === 'Employer address')).toMatchObject({ label: 'CAP' });
+    expect(page.fields.find((field: any) => field.context?.includes('Indirizzo di residenza'))).toMatchObject({ label: 'CAP' });
+    expect(page.fields.find((field: any) => field.context?.includes('Employer address'))).toMatchObject({ label: 'CAP' });
+  });
+
+  it('keeps sibling address labels under a generic fieldset legend', () => {
+    const page = extract(`
+      <fieldset><legend>Dati anagrafici</legend>
+        <label for="street">Indirizzo *</label><input id="street">
+        <label for="cap">CAP *</label><input id="cap" required>
+      </fieldset>`);
+    expect(page.fields.find((field: any) => field.label === 'CAP *')).toMatchObject({ context: expect.stringContaining('Indirizzo') });
   });
 
   // Giro di prova 2026-10-01 on JOIN: option cards are ARIA radios with no native input.

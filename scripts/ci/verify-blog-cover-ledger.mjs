@@ -9,7 +9,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
-import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import {
+  validateGeneratedImageRecord,
+  validateGeneratedImageRegistry,
+} from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { isExplicitInferredCover } from '../lib/blog-cover-decisions.mjs';
 
 const ROOT = process.cwd();
@@ -19,6 +22,7 @@ const REGISTRIES = [
 ];
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
 const IMAGE_CREDITS_INDEX = path.join(ROOT, 'data/image-credits-blog.json');
+const GENERATED_EVIDENCE_SNAPSHOT = path.join(ROOT, 'data/published-blog-generated-image-evidence.json');
 
 function readJson(file, fallback = null) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return fallback; }
@@ -47,6 +51,9 @@ function main() {
   const replacements = readJson(path.join(ROOT, 'data/blog-cover-replacements.json'));
   const imageCreditsIndex = readJson(IMAGE_CREDITS_INDEX);
   const generatedRegistry = readJson(path.join(ROOT, 'data/blog-generated-image-registry.json'));
+  const generatedEvidenceExists = fs.existsSync(GENERATED_EVIDENCE_SNAPSHOT);
+  const generatedEvidence = generatedEvidenceExists ? readJson(GENERATED_EVIDENCE_SNAPSHOT) : null;
+  const corpusBaseline = readJson(path.join(ROOT, 'data/blog-cover-corpus-baseline.json'));
   if (!inventory || !replacements || !imageCreditsIndex) {
     throw new Error('blog-cover-ledger.json, blog-cover-replacements.json and image-credits-blog.json are required');
   }
@@ -56,8 +63,35 @@ function main() {
     : { valid: true, errors: [] };
   if (!generatedValidation.valid) throw new Error(`generated registry invalid: ${generatedValidation.errors.join('; ')}`);
   const generatedByUrl = new Map((generatedRegistry?.assets || []).map((record) => [record.imageUrl, record]));
-  const currentKeys = new Set(REGISTRIES.flatMap((file) => [...parseCovers(file)]));
   const errors = [];
+  if (generatedEvidenceExists) {
+    if (!generatedEvidence || generatedEvidence.schema !== 1
+      || !/^[0-9a-f]{40}$/.test(String(generatedEvidence.commit || ''))
+      || !generatedEvidence.generated || typeof generatedEvidence.generated !== 'object'
+      || Array.isArray(generatedEvidence.generated)) {
+      errors.push('published generated-image evidence snapshot is invalid');
+    } else {
+      if (corpusBaseline?.sourceCommit && generatedEvidence.commit !== corpusBaseline.sourceCommit) {
+        errors.push('published generated-image evidence commit differs from the corpus baseline');
+      }
+      for (const [imageUrl, record] of Object.entries(generatedEvidence.generated)) {
+        const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
+        if (!validation.valid || record?.kind !== 'generated' || record?.imageUrl !== imageUrl) {
+          errors.push(`${imageUrl}: invalid published generated-image evidence${validation.errors.length
+            ? `: ${validation.errors.join('; ')}`
+            : ' (kind or imageUrl does not match the record key)'}`);
+          continue;
+        }
+        const existing = generatedByUrl.get(imageUrl);
+        if (existing && existing.sha256 !== record.sha256) {
+          errors.push(`${imageUrl}: published and site generated registries disagree on sha256`);
+          continue;
+        }
+        generatedByUrl.set(imageUrl, record);
+      }
+    }
+  }
+  const currentKeys = new Set(REGISTRIES.flatMap((file) => [...parseCovers(file)]));
   const counts = { currentUnique: currentKeys.size, withRecord: 0, generated: 0, wikimedia: 0, inferred: 0 };
   for (const key of [...currentKeys].sort()) {
     const inventoryItem = inventory.covers[key];
