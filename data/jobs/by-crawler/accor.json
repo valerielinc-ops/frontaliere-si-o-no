@@ -2040,7 +2040,7 @@
       "slugByLocale": {
         "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
@@ -2086,7 +2086,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2094,7 +2094,7 @@
         ],
         "de": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-          "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+          "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "fr": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
@@ -2265,12 +2265,12 @@
     },
     {
       "id": "accor-1141e9a73b7d",
-      "slug": "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
+      "slug": "assistente-generale-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
       "slugByLocale": {
         "fr": "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
-        "it": "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
-        "en": "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
-        "de": "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
+        "it": "assistente-generale-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
+        "en": "general-assistant-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7",
+        "de": "general-assistant-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
       },
       "slugDisambiguator": "1141e9a7",
       "company": "Ibis Budget",
@@ -2330,7 +2330,21 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-10T21:34:12.665Z"
+      "firstSeenAt": "2026-10-10T21:34:12.665Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
+        ],
+        "en": [
+          "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
+        ],
+        "de": [
+          "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-gouvernante-generale-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-1141e9a7"
+      ]
     }
   ]
 }

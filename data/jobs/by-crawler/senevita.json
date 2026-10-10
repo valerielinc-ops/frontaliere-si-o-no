@@ -689,7 +689,7 @@
         "it": "cuocere-cuocere-dietetico-80-senevita-be-muri-b",
         "en": "diet-cook-diet-cook-80-senevita-be-muri-b",
         "de": "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "fr": "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
+        "fr": "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -740,7 +740,7 @@
         "cook-culinary-80-senevita-be-muri-b",
         "cuisson-culinaire-80-senevita-be-muri-b",
         "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
+        "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -758,7 +758,7 @@
         "fr": [
           "koch-kochin-80-senevita-be-muri-b-bern",
           "cuisson-culinaire-80-senevita-be-muri-b",
-          "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
+          "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
         ]
       },
       "firstSeenAt": "2026-07-30T11:30:14.913Z",
@@ -7714,7 +7714,7 @@
         "it": "risorse-umane-collaboratore-trice-50-senevita-bl-lausen",
         "en": "hr-employee-50-senevita-bl-lausen",
         "de": "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "fr": "collaborateur-trice-rh-50-senevita-bl-lausen"
+        "fr": "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7760,14 +7760,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-mitarbeiter-in-50-senevita-bl-lausen",
-        "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+        "collaborateur-trice-rh-50-senevita-bl-lausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-mitarbeiter-in-50-senevita-bl-lausen"
         ],
         "fr": [
-          "ressources-humaines-mitarbeiter-in-50-senevita-bl-lausen"
+          "collaborateur-trice-rh-50-senevita-bl-lausen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:20.770Z",
@@ -15926,7 +15926,7 @@
       "slug": "sottocuoco-senevita-zh-dietikon",
       "slugByLocale": {
         "it": "sottocuoco-senevita-zh-dietikon",
-        "en": "sous-chef-senevita-zh-dietikon",
+        "en": "sous-chief-senevita-zh-dietikon",
         "de": "sous-chef-senevita-zh-dietikon",
         "fr": "sous-chef-senevita-zh-dietikon"
       },
@@ -15978,6 +15978,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sous-chef-senevita-zh-dietikon"
+        ],
+        "en": [
           "sous-chef-senevita-zh-dietikon"
         ]
       },
