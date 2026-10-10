@@ -4,6 +4,8 @@ name: Instagram Reel Experiment
 # they consume one of the robot's two daily Instagram slots, never a third one.
 # Manual dispatch remains available for previews or an owner-selected cohort.
 on:
+  # GitHub exposes the exact cron string in github.event.schedule; keep the
+  # weekdays separate so KIND can distinguish article from job reliably.
   schedule:
     - cron: '30 7 * * 1' # Monday article, before the 08:20 UTC broadcast
     - cron: '30 7 * * 5' # Friday job, before the 08:20 UTC broadcast
