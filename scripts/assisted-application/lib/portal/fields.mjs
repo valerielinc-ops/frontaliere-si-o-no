@@ -277,7 +277,7 @@ export function extractFieldsInPage() {
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
@@ -301,6 +301,7 @@ export function extractFieldsInPage() {
       name: clean(element.getAttribute('name') || ''),
       label,
       context: sectionContext(element),
+      section: headingBefore(element),
       required: required || REQUIRED_LABEL.test(label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
@@ -416,6 +417,13 @@ export function extractFieldsInPage() {
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
   const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
+  const fileContext = (element) => {
+    for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
+      const text = clean(node.innerText || node.textContent);
+      if (text.length <= 500 && /\.(?:pdf|docx?|rtf|odt)\b/i.test(text)) return text;
+    }
+    return '';
+  };
   const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
   const underClickFilter = (element) => {
     if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
@@ -432,6 +440,8 @@ export function extractFieldsInPage() {
       id: idFor(element),
       ...dialogMeta(element),
       text: buttonName(element),
+      section: headingBefore(element),
+      fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       ...(inSiteChrome(element) ? { chrome: true } : {}),
