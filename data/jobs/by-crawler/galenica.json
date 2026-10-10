@@ -1285,7 +1285,8 @@
       "id": "galenica-9c9f022f3f87",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen",
+          "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen-nx2y31"
         ],
         "en": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
@@ -1295,7 +1296,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-ittigen",
+        "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-ittigen-nx2y31"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3733,7 +3735,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -6041,7 +6044,17 @@
       "id": "galenica-7d6bd1412bf3",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken"
+          "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken",
+          "farmacista-come-sostituto-farmacista-come-sostituto-m-f-d-galenica-ag-galenica-nx29qj",
+          "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern",
+          "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-m-w-d-galenica-ag-galenica-bern",
+          "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-w-m-d-galenica-ag-galenica-interlaken",
+          "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-m-f-d-galenica-ag-galenica-interlaken",
+          "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-h-f-d-galenica-ag-galenica-interlaken",
+          "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-m-w-d-galenica-ag-nx61e1",
+          "pharmacist-as-deputy-m-f-d-galenica-galenica-bern",
+          "pharmacien-remplacant-pharmacienne-remplacante-w-m-d-galenica-galenica-bern",
+          "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-m-w-d-galenica-bern"
         ],
         "en": [
           "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken"
@@ -6051,7 +6064,17 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken"
+        "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-interlaken",
+        "farmacista-come-sostituto-farmacista-come-sostituto-m-f-d-galenica-ag-galenica-nx29qj",
+        "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern",
+        "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-m-w-d-galenica-ag-galenica-bern",
+        "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-w-m-d-galenica-ag-galenica-interlaken",
+        "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-m-f-d-galenica-ag-galenica-interlaken",
+        "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-h-f-d-galenica-ag-galenica-interlaken",
+        "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-m-w-d-galenica-ag-nx61e1",
+        "pharmacist-as-deputy-m-f-d-galenica-galenica-bern",
+        "pharmacien-remplacant-pharmacienne-remplacante-w-m-d-galenica-galenica-bern",
+        "apotheker-als-stellvertretung-apothekerin-als-stellvertretung-m-w-d-galenica-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6881,7 +6904,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-63dd406e2ce7",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7103,7 +7125,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-5289723b7fb0",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -7667,10 +7688,18 @@
         ],
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey"
+        ],
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbyxo",
+          "pharmacy-assistant-afc-sun-store-apotheke-galenica-monthey"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-monthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbyxo",
+        "pharmacy-assistant-afc-sun-store-apotheke-galenica-monthey"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -8086,7 +8115,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f0ffbc082b32",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -8314,7 +8342,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d4509eb15173",
       "previousSlugsByLocale": {
         "de": [
@@ -8817,7 +8844,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-6bbd4224b0eb",
       "previousSlugsByLocale": {
         "de": [
@@ -9315,7 +9341,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-91ba3de79930",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9442,7 +9467,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-dd51a8881f1e",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11491,7 +11515,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a790ec99bd47",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -12103,7 +12126,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-ed28c9713a09",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12233,7 +12255,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d957410d3f3c",
       "previousSlugsByLocale": {
         "de": [
@@ -13060,7 +13081,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-10ec4c14a409",
       "previousSlugsByLocale": {
         "de": [
@@ -13265,7 +13285,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-57e382b814b1",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14252,7 +14271,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-630e2b9ad0e6",
       "previousSlugsByLocale": {
         "en": [
@@ -14707,7 +14725,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-9424e2f2f279",
       "previousSlugsByLocale": {
         "de": [
@@ -16409,8 +16426,7 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
-        "pharmacy-assistant-afc-sun-store-apotheke-galenica-conthey"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16479,7 +16495,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-0b1d553a7819",
       "previousSlugsByLocale": {
         "de": [
@@ -18265,7 +18280,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-f24cf3002989",
       "previousSlugsByLocale": {
         "de": [
@@ -18773,7 +18787,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-019b0922d394",
       "previousSlugsByLocale": {
         "de": [
