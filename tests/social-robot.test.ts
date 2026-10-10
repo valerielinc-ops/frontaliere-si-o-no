@@ -778,6 +778,7 @@ describe('Mac host launch agent', () => {
     expect(windows).toEqual(['9:5', '17:45']);
     expect(plist).toContain(`<string>${path.join(dir, 'state', 'launchd.sh')}</string>`);
     expect(fs.existsSync(path.join(dir, 'state', 'launchd.sh'))).toBe(true);
+    expect(fs.readFileSync(path.join(dir, 'state', 'site.path'), 'utf8').trim()).toBe(ROOT);
     const bad = spawnSync('bash', [script, 'install'], { env: { ...env, SR_WINDOWS: '24:61' }, encoding: 'utf8' });
     expect(bad.status).not.toBe(0);
   });
@@ -816,6 +817,20 @@ describe('Mac host launch agent', () => {
     expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
     expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
     expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('uses the persisted checkout when the installed launcher has no repo env', () => {
+    const fixture = createLaunchFixture();
+    const installEnv = launchEnv(fixture, {
+      SR_NO_LAUNCHCTL: '1',
+      SR_LAUNCH_AGENTS_DIR: path.join(fixture.root, 'agents'),
+      SR_WINDOWS: '11:30',
+    });
+    execFileSync('bash', [script, 'install'], { env: installEnv, encoding: 'utf8' });
+    const installedEnv = launchEnv(fixture, { SR_SITE_REPO: '' });
+    runLauncher(fixture, installedEnv, fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.readFileSync(path.join(fixture.state, 'site.path'), 'utf8').trim()).toBe(fixture.repo);
   });
 
   it('does not cache or execute an incomplete snapshot and alerts through gh', () => {
