@@ -43587,7 +43587,7 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  id: 'frana-sementina-h13-gudo',
  category: 'pratico',
  date: '2026-10-10T02:19:31.649Z',
- image: '/images/places/lugano-view.webp',
+ image: '/images/blog/article-frana-sementina-h13-gudo.webp',
  hasCalculator: true,
  articleType: 'news',
  canton: ['TI'],

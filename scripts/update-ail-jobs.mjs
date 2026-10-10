@@ -92,7 +92,8 @@ const AJAX_URL =
   'https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true';
 const BASE_URL = 'https://www.ail.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const AIL_EMPTY_SOURCE_RE = /^al momento\s+non ci sono\s+posizioni\s+aperte[.!]?$/i;
+const AIL_EMPTY_SOURCE_RE =
+  /^al momento\s+non ci sono\s+posizioni\s+aperte(?:[.!?]|,\s+inoltraci qui il tuo dossier di candidatura spontanea[.!]?)?$/i;
 const SUMMARY_COUNTS = {
   discovered: null,
   parsed: null,

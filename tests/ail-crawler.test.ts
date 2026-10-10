@@ -178,6 +178,25 @@ describe('AIL crawler listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('accepts the official no-openings marker when AIL appends its application CTA', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title mt-4">Al momento non ci sono posizioni aperte, inoltraci qui il tuo dossier di candidatura spontanea.</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('does not treat an unexpected continuation as an authoritative empty marker', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Al momento non ci sono posizioni aperte, le candidature sono invece aperte.</div>',
+    );
+
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
   it('keeps an unrecognised zero fail-closed', () => {
     const result = classifyAilListingHtml(
       '<div class="inner-title">Le posizioni saranno aggiornate a breve</div>',
