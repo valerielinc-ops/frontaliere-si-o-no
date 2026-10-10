@@ -16,10 +16,11 @@ import { realpathSync } from 'node:fs';
  *   REPO=owner/repo ISSUE_NUMBER=123 node scripts/ci/detect-aggregate.mjs
  */
 import { execFileSync } from 'node:child_process';
-import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { appendFileSync } from 'node:fs';
-
 import { isAggregate } from './check-issue-already-resolved.mjs';
+
+// Keep this identical twin self-contained; it is also copied to the corpus.
+const GH_EXEC_MAX_BUFFER = 64 * 1024 * 1024;
 
 export function detectAggregate({ title = '', body = '', readable = true } = {}) {
   if (!readable) return { aggregate: true, fallback: true };
