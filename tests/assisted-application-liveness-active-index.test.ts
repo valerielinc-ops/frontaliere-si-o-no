@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { JOB_ACTIVE_IDS_URL } from '../functions/src/assistedApplicationAiJob.js';
+import { parseActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { checkPostingLiveness } from '../functions/src/assistedApplicationLiveness.js';
 
 const JOB_ID = 'medbase-ccaaa7fa003b';
@@ -29,6 +30,18 @@ function activeIndex(ids: string[], generatedAt = new Date().toISOString()) {
 }
 
 describe('assisted-application liveness active-ID corroboration', () => {
+  it('rejects an index containing IDs outside the shared job-ID grammar', () => {
+    const generatedAt = new Date().toISOString();
+    const payload = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt,
+      total: 2,
+      ids: ['ok', 'bad/id'],
+    });
+
+    expect(parseActiveJobIdIndex(new TextEncoder().encode(payload))).toBeNull();
+  });
+
   it('refunds a Workday withdrawal when the fresh active inventory omits the ID, even if detail remains 200', async () => {
     const { calls, fetchImpl } = makeFetch(activeIndex(['another-active-job']));
 

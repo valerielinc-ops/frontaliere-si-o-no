@@ -48,7 +48,8 @@ export function parseActiveJobIdIndex(bytes, nowMs = Date.now()) {
   const generatedAt = Date.parse(index.generatedAt);
   const ageMs = nowMs - generatedAt;
   if (!Number.isFinite(generatedAt) || ageMs < -MAX_FUTURE_SKEW_MS || ageMs > MAX_INDEX_AGE_MS) return null;
-  if (!index.ids.every((id) => typeof id === 'string' && id.length > 0 && id.length <= 200 && id.trim() === id)) return null;
+  if (!index.ids.every((id) => typeof id === 'string' && JOB_ID_RE.test(id)
+    && id.trim() === id)) return null;
 
   const ids = new Set(index.ids);
   if (ids.size !== index.ids.length) return null;
