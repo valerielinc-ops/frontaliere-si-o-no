@@ -579,6 +579,9 @@ describe('portal runner helpers', () => {
     const school = { id: 'school', kind: 'select', label: 'In quale scuola sei attualmente?', required: true, options: [{ label: 'Ecole de Commerce' }, { label: 'Autre' }] };
     expect(questionTopic('Qual è la tua via e il numero civico?')).toBe('address');
     expect(questionTopic('Qual è il tuo CAP di residenza?')).toBe('residence_postal_code');
+    expect(questionTopic('CAP')).toBe('residence_postal_code');
+    expect(questionTopic('CAP (obbligatorio)')).toBe('residence_postal_code');
+    expect(questionTopic('Employer CAP')).toBe('');
     expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
     expect(questionTopic('Qual è la tua nazione di residenza?')).toBe('residence_country');
     expect(questionTopic('Employer country')).toBe('');
@@ -626,8 +629,10 @@ describe('portal runner helpers', () => {
     });
     expect(candidate.identity.address).toMatchObject({ postalCode: '43039', country: 'Italia' });
     const cap = { id: 'cap', kind: 'text', label: 'Qual è il tuo CAP di residenza?', required: true, options: [] };
+    const bareCap = { id: 'bare-cap', kind: 'text', label: 'CAP', required: true, options: [] };
     const country = { id: 'country', kind: 'select', label: 'Qual è la tua nazione di residenza?', required: true, options: [{ label: 'Italia' }, { label: 'Svizzera' }] };
     expect(candidateAnswerForField(candidate, cap)).toEqual({ value: '43039', source: 'identity' });
+    expect(candidateAnswerForField(candidate, bareCap)).toEqual({ value: '43039', source: 'identity' });
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Italia', source: 'identity' });
     const guarded = guardPlan({ actions: [
       { fieldId: 'cap', action: 'fill', value: '00000', document: 'none', source: 'rule', evidence: '' },
