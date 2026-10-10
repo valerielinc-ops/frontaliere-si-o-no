@@ -50,7 +50,7 @@ export const SOCIAL_IMAGE_ORIGIN = 'https://cdn.frontaliereticino.ch';
  * run, so in normal operation an entry is younger than a day anyway: the TTL
  * only matters when the poster stops and the robot keeps running.
  */
-export const QUEUE_TTL_HOURS = Object.freeze({ article: 36, job: 36, border: 7 * 24 });
+export const QUEUE_TTL_HOURS = Object.freeze({ article: 36, job: 36, border: 7 * 24, reel: 48 });
 
 /** Marker the confirm step writes on every ledger entry it adds. */
 export const ROBOT_LEDGER_VIA = 'playwright-robot';
@@ -174,9 +174,11 @@ function toIso(now) {
 }
 
 /**
- * The queue entry for one finished carousel. `id` is `<kind>-<day>`, the same
- * key the slides were uploaded under, so a re-run of the same day replaces the
- * entry instead of adding a twin.
+ * The queue entry for one finished social post. `id` is `<kind>-<day>`, the
+ * same key the assets were uploaded under, so a re-run of the same day
+ * replaces the entry instead of adding a twin. A Reel still carries one cover
+ * image because the queue's asset-origin guard requires an image URL; the
+ * verified `video` is what the Instagram Reel flow uploads.
  *
  * @param {{ channel: string, kind: string, day: string, caption: string,
  *   imageUrls: string[], video?: object, ledgerEntries: object[], now?: number|Date }} opts

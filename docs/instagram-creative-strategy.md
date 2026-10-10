@@ -107,19 +107,19 @@ una slide CTA e registra `creativeId`, obiettivo e metrica nel ledger.
 
 ### Reel “un problema, un numero, una svolta”
 
-Formato manuale da 15–30 secondi, da provare anche come Trial Reel:
+Formato verticale da 9–12 secondi, da provare anche come Trial Reel:
 
 1. 0–2 s: “Con CHF 5.000, quanto ti resta davvero?” oppure “Questa dogana ti
    fa perdere 20 minuti?”
-2. 2–12 s: schermata del simulatore, mappa o dato reale; sottotitoli sempre
-   presenti.
-3. 12–22 s: un esempio numerico verificabile.
-4. finale: “Scrivi `NETTO` / `DOGANA` nei commenti” solo se si è pronti a
+2. 2–8 s: un dato reale o un titolo verificabile; testo leggibile anche senza
+   audio.
+3. 8–12 s: una sola azione misurabile.
+4. Per il formato umano, “Scrivi `NETTO` / `DOGANA` nei commenti” solo se si è pronti a
    rispondere, oppure “salva il video”.
 
-Non va generato dal poster automatico: serve una persona, una voce o una
-ripresa locale, perché la differenza creativa richiesta è proprio l’esperienza
-umana del frontaliere.
+Il primo Reel automatizzato usa tre card verticali generate dai dati GA4; non
+finge una testimonianza umana. I Reel con voce, riprese locali o risposta a un
+commento restano un secondo filone editoriale e richiedono revisione umana.
 
 ### Stories “sondaggio → risposta”
 
@@ -154,6 +154,17 @@ obiettivo. La rotazione è deterministica per data e tipo di contenuto.
   `creativeObjective` e `primaryMetric`;
 - `social-carousel-image.mjs` aggiunge una slide finale CTA senza superare il
   limite di 10 elementi del carousel;
+- `scripts/lib/instagram-reel-creative.mjs` definisce tre varianti separate:
+  domanda immediata (`comments`), numero in primo piano (`shares`) e
+  promemoria pratico (`saves`);
+- `scripts/lib/social-reel-image.mjs` compone tre card 1080×1920 e il poster
+  `scripts/post-to-instagram-reel.mjs` genera un MP4 verificato, una cover e una
+  voce di coda distinta (`kind: reel`);
+- `instagram-reel-experiment.yml` è dispatch-only e parte in preview: il
+  proprietario sceglie quando consumare uno slot, senza aggiungere un terzo
+  post quotidiano automaticamente;
+- il robot riconosce il file video, seleziona il composer Reel e attende la
+  conferma “Il tuo reel è stato condiviso” prima di inviare il ledger;
 - la rotazione è pura e non introduce esperimenti PostHog: l’eventuale test
   futuro va letto da Instagram Insights + GA4. Se si introduce un flag remoto,
   dovrà passare da Firebase Remote Config secondo le regole del workspace.
@@ -176,10 +187,15 @@ pressione di `Condividi`, conferma visibile e registrazione nel ledger.
 Il prossimo passo non è aumentare la frequenza a caso: la rotazione deterministica
 continua con i trattamenti successivi e ogni trattamento resta eleggibile solo
 dopo almeno tre osservazioni comparabili nella stessa finestra di 72 ore. Il
-Reel resta un asse separato: il robot corrente pubblica carousel su Instagram,
-mentre il renderer video esistente è usato dal flusso TikTok. Perciò il primo
-Reel va provato manualmente, idealmente come Trial Reel, con hook, durata e CTA
-registrati separatamente dal confronto carousel.
+Reel è ora un asse separato e controllato: il workflow manuale genera una sola
+voce `reel`, il robot la pubblica solo quando c’è uno slot scelto, e hook,
+durata, CTA e metrica restano separati dal confronto carousel.
+
+I test offline e il browser E2E verificano già tre card verticali, il render
+JPEG, il percorso MP4, il dry-run del Reel, la conferma simulata e il mancato
+invio in preview. La prima pubblicazione reale del Reel resta il prossimo
+passo operativo, dopo aver scelto uno slot senza sovrapporlo ai due carousel
+quotidiani.
 
 La validazione operativa è positiva; la validazione di performance è ancora
 aperta perché il collector read-only non dispone del token Meta necessario a
@@ -338,8 +354,9 @@ confrontano direttamente tipi di contenuto diversi.
 
 ## 9. Limiti dichiarati
 
-La repository può automatizzare carousel, caption, UTM e misurazione dei clic.
-Non può dimostrare da sola che un Reel sia stato visto, salvato o condiviso:
+La repository può automatizzare carousel, caption, UTM, la generazione del
+Reel verticale e la sua pubblicazione via browser robot. Non può dimostrare da
+sola che un Reel sia stato visto, salvato o condiviso:
 quei dati vivono in Instagram Insights e richiedono il token read-only di Meta.
 La pipeline resta fail-soft finché le credenziali necessarie non sono
 disponibili: senza token o ID dell’account il workflow non scrive un dataset
