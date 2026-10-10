@@ -100,6 +100,64 @@ describe('SuccessFactors client', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
+  it('retries a transient empty page until all declared jobs are parsed', async () => {
+    const withTotal = (rows: string) =>
+      `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>${rows}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(2001)), { status: 200 }))
+      .mockResolvedValueOnce(new Response('<main>temporarily no rows</main>', { status: 200 }))
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(2011)), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 3, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs.map((job) => job.jobReqId)).toEqual([
+      '2001', '2002', '2003', '2004', '2005',
+      '2006', '2007', '2008', '2009', '2010',
+      '2011', '2012', '2013', '2014', '2015',
+      '2016', '2017', '2018', '2019', '2020',
+    ]);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock.mock.calls[1][0]).toContain('startrow=10');
+    expect(fetchMock.mock.calls[2][0]).toContain('startrow=10');
+  });
+
+  it('fails closed when retries cannot fill the declared result total', async () => {
+    const withTotal = (rows: string) =>
+      `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>${rows}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(withTotal(fullSearchPage(3001)), { status: 200 }))
+      .mockImplementation(async () => new Response('<main>temporarily no rows</main>', { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+        { maxPages: 3, minDelayMs: 0, company: 'Nestlé' },
+      )) {
+        jobs.push(job);
+      }
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(
+      'incomplete jobs2web snapshot for https://jobdetails.nestle.com/search/',
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(fetchMock.mock.calls.slice(1).map(([url]) => url)).toEqual([
+      expect.stringContaining('startrow=10'),
+      expect.stringContaining('startrow=10'),
+      expect.stringContaining('startrow=10'),
+    ]);
+  });
+
   // A search row without a requisition id is identified by its URL. Before,
   // every such row counted as new, so a repeated full page of them never
   // reached "no new requisition" and the loop ran until maxPages.

@@ -126,6 +126,7 @@ const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0';
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_MIN_DELAY_MS = 2_000;
 const DEFAULT_PAGE_SIZE = 100;
+const JOBS2WEB_INCOMPLETE_PAGE_RETRIES = 2;
 
 /** Hosts unambiguously belonging to SAP SuccessFactors. */
 const SF_HOSTS = [
@@ -706,45 +707,84 @@ export async function* fetchSuccessFactorsJobs(careerUrl, options = {}) {
     let declaredTotal = null;
     for (let page = 0; page < maxPages; page++) {
       const pageUrl = buildJobs2WebPageUrl(careerUrl, page);
-      const res = await fetchOnce(pageUrl, {
-        timeoutMs,
-        userAgent,
-        accept: 'text/html,application/xhtml+xml',
-      });
-      // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
-      const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
-      const ldJob = extractJsonLdJobPosting(html);
-      if (ldJob) {
-        const job = extractSuccessFactorsJobIdentity(ldJob, { company });
-        if (matchesLocation(job.location)) yield job;
-        return;
-      }
-      // Classic jobs2web overlay uses <tr>/<td> search rows; the newer CSB
-      // "JobTeaserList" card template (Swiss Re, #3797) has no table at all —
-      // fall back to card scraping when the row parser finds nothing (an
-      // `[]` from either is truthy, so check .length, not the array itself).
-      let rows = parseJobs2WebSearchRows(html, pageUrl);
-      if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
-      if (rows.length === 0) return;
-      if (page === 0) declaredTotal = extractJobs2WebDeclaredTotal(html);
-      let newRows = 0;
-      for (const row of rows) {
-        const job = extractSuccessFactorsJobIdentity(row, { company });
-        if (!admitJobs2WebRow(job, seenJobIds)) continue;
-        newRows += 1;
-        if (matchesLocation(job.location)) {
-          yield job;
+      let rows = [];
+      let candidateJobs = [];
+      let candidateSeen = new Set(seenJobIds);
+      let incompleteAttempts = 0;
+      while (true) {
+        const res = await fetchOnce(pageUrl, {
+          timeoutMs,
+          userAgent,
+          accept: 'text/html,application/xhtml+xml',
+        });
+        // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
+        const html = await rescueHtmlIfChallenged(await res.text(), pageUrl, { timeoutMs });
+        const ldJob = extractJsonLdJobPosting(html);
+        if (ldJob) {
+          const job = extractSuccessFactorsJobIdentity(ldJob, { company });
+          if (matchesLocation(job.location)) yield job;
+          return;
         }
+        if (page === 0) declaredTotal = extractJobs2WebDeclaredTotal(html);
+        // Classic jobs2web overlay uses <tr>/<td> search rows; the newer CSB
+        // "JobTeaserList" card template (Swiss Re, #3797) has no table at all —
+        // fall back to card scraping when the row parser finds nothing (an
+        // `[]` from either is truthy, so check .length, not the array itself).
+        rows = parseJobs2WebSearchRows(html, pageUrl);
+        if (rows.length === 0) rows = parseJobTeaserListCards(html, pageUrl);
+
+        // Stage a page against a copy: an HTTP 200 with a transiently empty,
+        // short, or repeated page must not mutate the accepted snapshot before
+        // completeness against the source's declared total is established.
+        candidateSeen = new Set(seenJobIds);
+        candidateJobs = [];
+        for (const row of rows) {
+          const job = extractSuccessFactorsJobIdentity(row, { company });
+          if (!admitJobs2WebRow(job, candidateSeen)) continue;
+          candidateJobs.push(job);
+        }
+        const reachesDeclaredTotal =
+          declaredTotal === null || candidateSeen.size >= declaredTotal;
+        const pageSignalsEnd =
+          rows.length < 10 || (page > 0 && candidateJobs.length === 0) ||
+          (declaredTotal !== null && buildJobs2WebNextStartrow(page) >= declaredTotal);
+        const underfilledDeclaredSnapshot = !reachesDeclaredTotal && pageSignalsEnd;
+        if (!underfilledDeclaredSnapshot) break;
+
+        if (incompleteAttempts >= JOBS2WEB_INCOMPLETE_PAGE_RETRIES) {
+          const startrow = page === 0 ? 0 : buildJobs2WebNextStartrow(page - 1);
+          throw new Error(
+            `[successfactors-client] incomplete jobs2web snapshot for ${careerUrl}: ` +
+              `declared ${declaredTotal} results but parsed ${candidateSeen.size} distinct rows ` +
+              `at startrow=${startrow} after ${incompleteAttempts + 1} attempts`,
+          );
+        }
+        incompleteAttempts += 1;
+        if (minDelayMs > 0) await sleep(minDelayMs);
       }
+
+      if (rows.length === 0) return;
+      for (const identity of candidateSeen) seenJobIds.add(identity);
+      for (const job of candidateJobs) {
+        if (matchesLocation(job.location)) yield job;
+      }
+      if (declaredTotal !== null && seenJobIds.size >= declaredTotal) return;
       if (rows.length < 10) return;
       // Past the declared total some tenants keep serving a full page of
       // unrelated results (jobdetails.nestle.com: 110 Swiss results, then the
       // same Qiryat Gat page at startrow=5000 and 50000). A page that adds no
       // new requisition, or a next offset past "Results … of N", is the end;
       // otherwise the loop ran until maxPages (100000 for Nestlé).
-      if (page > 0 && newRows === 0) return;
+      if (page > 0 && candidateJobs.length === 0) return;
       if (declaredTotal && buildJobs2WebNextStartrow(page) >= declaredTotal) return;
       if (page < maxPages - 1 && minDelayMs > 0) await sleep(minDelayMs);
+    }
+    if (declaredTotal !== null && seenJobIds.size < declaredTotal) {
+      throw new Error(
+        `[successfactors-client] incomplete jobs2web snapshot for ${careerUrl}: ` +
+          `parsed ${seenJobIds.size} distinct rows but source declared ${declaredTotal} ` +
+          `after maxPages=${maxPages}`,
+      );
     }
     return;
   }
