@@ -196,4 +196,36 @@ describe('source-backed Galenica location audit — issue #11049', () => {
     expect(second).toEqual({ legacyKeysRemoved: 0, fragmentPinsWritten: 0, skippedGroups: 0 });
     expect(JSON.stringify(pins)).toBe(snapshot);
   });
+
+  it('enumerates the pin ledger once when migrating many stable identity groups', () => {
+    const ledger = {};
+    const jobs = [];
+    for (let index = 0; index < 32; index += 1) {
+      const url = `https://jobs.galenica.com/it/jobs/${index}`;
+      ledger[`url:${url}`] = 'TI';
+      jobs.push(
+        { url: `${url}#job.id=${index}-1`, canton: 'BE' },
+        { url: `${url}#job.id=${index}-2`, canton: 'JU' },
+      );
+    }
+    for (let index = 0; index < 2_000; index += 1) {
+      ledger[`url:https://unrelated.example/jobs/${index}`] = 'TI';
+    }
+
+    let enumerations = 0;
+    const observedLedger = new Proxy(ledger, {
+      ownKeys(target) {
+        enumerations += 1;
+        return Reflect.ownKeys(target);
+      },
+    });
+
+    const result = migrateLegacyCantonPins(observedLedger, jobs);
+
+    expect(enumerations).toBe(1);
+    expect(result).toEqual({ legacyKeysRemoved: 32, fragmentPinsWritten: 64, skippedGroups: 0 });
+    expect(observedLedger['url:https://jobs.galenica.com/it/jobs/0#job.id=0-1']).toBe('BE');
+    expect(observedLedger['url:https://jobs.galenica.com/it/jobs/0#job.id=0-2']).toBe('JU');
+    expect(Object.hasOwn(observedLedger, 'url:https://jobs.galenica.com/it/jobs/0')).toBe(false);
+  });
 });
