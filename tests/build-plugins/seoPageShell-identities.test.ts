@@ -7,6 +7,8 @@ import {
 import { inlineScriptJson } from '../../build-plugins/shared/inlineJsonScript';
 import {
   EDITORIAL_TEAM_ID,
+  ORGANIZATION_ID,
+  ORGANIZATION_LD,
   TICINO_CUSTOMS_DEPARTMENT_ID,
   TICINO_CUSTOMS_DEPARTMENT_NAME,
   WEBSITE_ID,
@@ -28,6 +30,27 @@ describe('static SEO JSON-LD identities', () => {
     ]);
 
     expect(JSON.parse(serialized).isPartOf['@id']).toBe(WEBSITE_ID);
+  });
+
+  it('canonicalizes a stale hostname name on the site Organization creator', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'ImageObject',
+        creator: {
+          '@type': 'Organization',
+          '@id': ORGANIZATION_ID,
+          name: 'frontaliereticino.ch',
+          url: 'https://frontaliereticino.ch/',
+        },
+      }),
+    ]);
+
+    expect(JSON.parse(serialized).creator).toMatchObject({
+      '@type': ORGANIZATION_LD['@type'],
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+      url: ORGANIZATION_LD.url,
+    });
   });
 
   it('keeps website, editorial-team, and customs identities distinct in static JSON-LD', () => {
