@@ -23,7 +23,7 @@
 
 import { normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
-import { matchingJobPostingPublication } from './jobposting-source-publication.mjs';
+import { identifiedPostingPublication } from './identified-posting-publication.mjs';
 
 /** SAP SuccessFactors base URL for ALDI Suisse */
 export const ALDI_SUCCESSFACTORS_BASE = 'https://career5.successfactors.eu/career?company=aldisuis';
@@ -272,7 +272,7 @@ function aldiCompanyText(html = '') {
  * @param {string} html - Raw HTML of a job detail page
  * @returns {{ title: string, body: string, location: string, percentage: string, datePosted: string } | null}
  */
-export function parseAldiDetailPage(html = '') {
+export function parseAldiDetailPage(html = '', pageUrl = '') {
   if (!html) return null;
 
   const titleSource = stripScriptsAndStyles(html);
@@ -342,7 +342,7 @@ export function parseAldiDetailPage(html = '') {
 
   if (!title && !body) return null;
 
-  const publication = matchingJobPostingPublication(html, title);
+  const publication = identifiedPostingPublication(html, pageUrl, title);
   return { title, body, location, percentage, requirements, datePosted: publication.datePosted };
 }
 

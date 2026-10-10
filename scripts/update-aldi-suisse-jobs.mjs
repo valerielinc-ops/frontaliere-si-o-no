@@ -259,7 +259,7 @@ async function fetchAndParseDetailPages(listings) {
       if (r.status !== 'fulfilled' || !r.value) continue;
       const { listing, html } = r.value;
 
-      const parsed = parseAldiDetailPage(html) || {};
+      const parsed = parseAldiDetailPage(html, listing.url) || {};
       const rawTitle = listing.title || parsed.title || '';
       if (!rawTitle || rawTitle.length < 3) continue;
 

@@ -279,8 +279,9 @@ describe('parseAldiDetailPage', () => {
     const html = `${DETAIL_HTML}<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting', title: 'Area Manager (100%)', datePosted,
     })}</script>`;
-    expect(parseAldiDetailPage(html)?.datePosted).toBe(datePosted);
-    expect(parseAldiDetailPage(html.replace('Area Manager (100%)', 'Different vacancy'))?.datePosted).toBe('');
+    const pageUrl = 'https://www.jobs.aldi.ch/job/fixture';
+    expect(parseAldiDetailPage(html, pageUrl)?.datePosted).toBe(datePosted);
+    expect(parseAldiDetailPage(html.replace('Area Manager (100%)', 'Different vacancy'), pageUrl)?.datePosted).toBe('');
   });
 
   it('extracts location', () => {

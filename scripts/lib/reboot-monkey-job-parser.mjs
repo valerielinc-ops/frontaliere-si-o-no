@@ -25,7 +25,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { fetchMatchingJobPostingPublication } from './jobposting-source-publication.mjs';
+import { fetchIdentifiedPostingPublication } from './identified-posting-publication.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -279,7 +279,7 @@ export async function fetchAllRebootMonkeyJobs() {
 
     // API creation is not evidence of the vacancy's public release. The
     // public detail page, however, carries a title-matched JobPosting date.
-    const publication = await fetchMatchingJobPostingPublication(publicUrl, title);
+    const publication = await fetchIdentifiedPostingPublication(publicUrl, title);
 
     const apiEmploymentType = listing.employment_type || '';
 
