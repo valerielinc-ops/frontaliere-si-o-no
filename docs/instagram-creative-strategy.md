@@ -358,6 +358,28 @@ Il tasso comune non sostituisce l’obiettivo: non si dichiara vincitore un
 contenuto “proof” solo perché ha più commenti di un contenuto “question”, né si
 confrontano direttamente tipi di contenuto diversi.
 
+### Stato operativo dell’esperimento
+
+Il report di stato separa l’unità editoriale dall’unità tecnica del ledger. Un
+carousel con cinque card è un solo post Instagram e quindi può generare una
+sola osservazione per la finestra di 72 ore; non viene contato come cinque
+prove indipendenti. Il comando locale equivalente a quello stampato dal
+workflow è:
+
+```bash
+node scripts/instagram-experiment-status.mjs \
+  --ledger data/instagram-posted.json \
+  --queue data/instagram-queue.json \
+  --insights data/instagram-insights.json
+```
+
+Il report rende visibili coda pendente, creatività pubblicate, osservazioni
+attribuite, finestra non ancora raggiunta e credenziali mancanti. Una coorte
+passa a `ready-to-compare` solo dopo almeno tre post distinti nella stessa
+combinazione di obiettivo, formato e finestra; prima mostra `awaiting-*` o
+`needs-N-more`. Gli snapshot duplicati, con identità media o coda ripetuta, non
+aumentano il campione.
+
 ## 8. Azioni di community
 
 1. Fissare tre post in alto: “cosa trovi qui”, simulatore netto, guida

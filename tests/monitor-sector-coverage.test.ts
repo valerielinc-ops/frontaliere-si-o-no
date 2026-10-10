@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { resolve } from 'node:path';
 import {
+  classifyTiLegacyZeroCause,
   classifyTiSectorZeros,
+  renderTiLegacyZeroCauseLines,
   STRUCTURAL_TI_ZERO_EVIDENCE,
 } from '../scripts/monitor-sector-coverage.mjs';
 import {
@@ -11,6 +13,45 @@ import {
 import { buildSectorLandingHtml } from '../build-plugins/jobSectorPagesPlugin';
 
 const ROOT_DIR = resolve(__dirname, '..');
+
+describe('TI legacy zero-cause evidence', () => {
+  it('classifies a zero as crawler-gap only when the same matcher has live matches outside TI', () => {
+    expect(classifyTiLegacyZeroCause({
+      tiLiveCount: 0,
+      nonTiLiveCounts: [0, 2, 1],
+    })).toBe('crawler-gap');
+  });
+
+  it('uses matcher-gap only with independently verified relevant TI titles', () => {
+    expect(classifyTiLegacyZeroCause({
+      tiLiveCount: 0,
+      nonTiLiveCounts: [3],
+      verifiedUnmatchedTiTitleCount: 1,
+    })).toBe('matcher-gap');
+  });
+
+  it('keeps missing, ambiguous, or non-zero TI evidence unknown instead of inferring a cause', () => {
+    expect(classifyTiLegacyZeroCause({ tiLiveCount: 0, nonTiLiveCounts: [] })).toBe('unknown');
+    expect(classifyTiLegacyZeroCause({ tiLiveCount: 0, nonTiLiveCounts: null })).toBe('unknown');
+    expect(classifyTiLegacyZeroCause({ tiLiveCount: undefined, nonTiLiveCounts: [2] })).toBe('unknown');
+    expect(classifyTiLegacyZeroCause({ tiLiveCount: 1, nonTiLiveCounts: [2] })).toBe('unknown');
+  });
+
+  it('emits one evidence line for every zero, including unknown and verified matcher gaps', () => {
+    const lines = renderTiLegacyZeroCauseLines(
+      ['logopedista', 'architetto', 'assistente-dentale'],
+      new Map([
+        ['logopedista', { cause: 'crawler-gap', matchingCantons: [{ cantonKey: 'BE', liveCount: 2 }] }],
+        ['assistente-dentale', { cause: 'matcher-gap', matchingCantons: [] }],
+      ]),
+    );
+    expect(lines.match(/^- /gm)).toHaveLength(3);
+    expect(lines).toContain('`logopedista`: `crawler-gap`');
+    expect(lines).toContain('BE (2)');
+    expect(lines).toContain('`architetto`: `unknown`');
+    expect(lines).toContain('`assistente-dentale`: `matcher-gap`');
+  });
+});
 
 describe('TI sector zero classification', () => {
   it('keeps the verified orologeria zero observable without routing it to crawler onboarding', () => {

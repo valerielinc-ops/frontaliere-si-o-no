@@ -94,6 +94,14 @@ jobs:
             echo "No Instagram Insights snapshot has been written yet."
           fi
 
+      - name: Print experiment status
+        if: always()
+        run: |
+          node scripts/instagram-experiment-status.mjs \
+            --ledger data/instagram-posted.json \
+            --queue data/instagram-queue.json \
+            --insights data/instagram-insights.json
+
       - name: Commit snapshot
         if: success() && env.DRY_RUN != 'true'
         run: |
