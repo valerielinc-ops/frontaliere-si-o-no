@@ -176,6 +176,46 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
       : { timeSeries: [series('svc', 1)] };
   };
 
+  it('retries one transient Monitoring timeout and completes the measurement', async () => {
+    const timeout = Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+    const fetchImpl = vi.fn()
+      .mockRejectedValueOnce(timeout)
+      .mockImplementation(async (url: string) => ({
+        ok: true,
+        status: 200,
+        json: async () => healthyBody(url),
+      }));
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const { measurements } = await measureCostDrivers({
+      fetchImpl: fetchImpl as never,
+      token: 't',
+      retryOptions: { retries: 1, retryBaseMs: 0 },
+    });
+
+    expect(measurements['firestore-reads'].value).toBe(1);
+    expect(fetchImpl).toHaveBeenCalledTimes(COST_DRIVERS.length + 2);
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining('firestore.googleapis.com/document/read_ops_count'));
+    warn.mockRestore();
+  });
+
+  it('names the metric and attempt budget after repeated Monitoring timeouts', async () => {
+    const fetchImpl = vi.fn(async () => {
+      throw Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+    });
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    await expect(measureCostDrivers({
+      fetchImpl: fetchImpl as never,
+      token: 't',
+      retryOptions: { retries: 1, retryBaseMs: 0 },
+    })).rejects.toThrow(
+      'Cloud Monitoring firestore.googleapis.com/document/read_ops_count: request timed out after 30000ms (attempts 2/2)',
+    );
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    warn.mockRestore();
+  });
+
   it('reports a driver whose answer has no series as missing, not as zero', async () => {
     const fetchImpl = async (url: string) => ({
       ok: true,
