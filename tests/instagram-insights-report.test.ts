@@ -80,20 +80,32 @@ describe('Instagram Insights creative scorecard', () => {
       ledger: { posted: [{
         instagramMediaId: 'ig-123',
         creativeId: 'proof',
+        creativeBaseId: 'proof',
+        creativeVariant: 'baseline',
+        creativeLabel: 'Dato verificabile',
         engagementMechanic: 'direct-share',
+        hookType: 'data-proof',
+        attentionMechanic: 'single-source-number',
+        engagementLoop: 'share-with-utility',
+        followUpFormat: 'story-poll',
       }] },
     });
 
     expect(result.rejected).toEqual([]);
     expect(result.rows[0]).toMatchObject({
       creativeId: 'proof',
+      creativeVariant: 'baseline',
       engagementMechanic: 'direct-share',
+      hookType: 'data-proof',
+      engagementLoop: 'share-with-utility',
     });
 
     const report = aggregateCreativePerformance(result.rows, { minimumObservations: 1 });
     expect(report.treatments[0]).toMatchObject({
       creativeId: 'proof',
+      creativeVariant: 'baseline',
       engagementMechanic: 'direct-share',
+      followUpFormat: 'story-poll',
     });
   });
 

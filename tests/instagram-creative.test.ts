@@ -23,6 +23,10 @@ describe('Instagram creative system', () => {
       expect(format).toBeTruthy();
       expect(format.objective).toBeTruthy();
       expect(format.primaryMetric).toBeTruthy();
+      expect(format.hookType).toBeTruthy();
+      expect(format.attentionMechanic).toBeTruthy();
+      expect(format.engagementLoop).toBeTruthy();
+      expect(format.followUpFormat).toBeTruthy();
       for (const kind of ['job', 'article', 'border']) {
         expect(format.cover[kind].kicker).toBeTruthy();
         expect(format.cover[kind].title).toBeTruthy();
@@ -50,6 +54,10 @@ describe('Instagram creative system', () => {
       expect(creative.cover.title).toBeTruthy();
       expect(creative.cta).toBeTruthy();
       expect(creative.closing.title).toBeTruthy();
+      expect(creative.hookType).toBeTruthy();
+      expect(creative.attentionMechanic).toBeTruthy();
+      expect(creative.engagementLoop).toBeTruthy();
+      expect(creative.followUpFormat).toBeTruthy();
     }
   });
 
@@ -127,6 +135,10 @@ describe('Instagram creative system', () => {
       creativeObjective: creative.objective,
       primaryMetric: creative.primaryMetric,
       engagementMechanic: 'keyword-comment',
+      hookType: creative.hookType,
+      attentionMechanic: creative.attentionMechanic,
+      engagementLoop: creative.engagementLoop,
+      followUpFormat: creative.followUpFormat,
     });
   });
 

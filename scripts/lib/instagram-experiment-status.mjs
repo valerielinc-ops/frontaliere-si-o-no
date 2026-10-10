@@ -87,6 +87,10 @@ function pendingCreative(item) {
     creativeObjective: read('creativeObjective', 'creative_objective'),
     primaryMetric: read('primaryMetric', 'primary_metric'),
     engagementMechanic: read('engagementMechanic', 'engagement_mechanic'),
+    hookType: read('hookType', 'hook_type'),
+    attentionMechanic: read('attentionMechanic', 'attention_mechanic'),
+    engagementLoop: read('engagementLoop', 'engagement_loop'),
+    followUpFormat: read('followUpFormat', 'follow_up_format'),
     createdAt: isoTimestamp(item.createdAt || item.created_at),
     expiresAt: isoTimestamp(item.expiresAt || item.expires_at),
   };
@@ -174,11 +178,16 @@ function createCohort(group, windowHours) {
   return {
     key: cohortKey(group, windowHours),
     creativeId: group.creativeId,
+    creativeBaseId: group.creativeBaseId || null,
     creativeVariant: group.creativeVariant || null,
     creativeLabel: group.creativeLabel || null,
     objective: group.creativeObjective,
     primaryMetric: group.primaryMetric,
     engagementMechanic: group.engagementMechanic || null,
+    hookType: group.hookType || null,
+    attentionMechanic: group.attentionMechanic || null,
+    engagementLoop: group.engagementLoop || null,
+    followUpFormat: group.followUpFormat || null,
     kind: group.kind,
     windowHours,
     publishedPostKeys: new Set(),
@@ -232,6 +241,10 @@ function serializePublishedGroup(group, observedWindows = []) {
     creativeObjective: group.creativeObjective || null,
     primaryMetric: group.primaryMetric || null,
     engagementMechanic: group.engagementMechanic || null,
+    hookType: group.hookType || null,
+    attentionMechanic: group.attentionMechanic || null,
+    engagementLoop: group.engagementLoop || null,
+    followUpFormat: group.followUpFormat || null,
     publishedAt: group.publishedAtMs === null || group.publishedAtMs === undefined
       ? null
       : new Date(group.publishedAtMs).toISOString(),
@@ -252,11 +265,16 @@ function serializeCohort(cohort, args) {
     : new Date(cohort.nextEligibleAtMs).toISOString();
   return {
     creativeId: cohort.creativeId,
+    creativeBaseId: cohort.creativeBaseId,
     creativeVariant: cohort.creativeVariant,
     creativeLabel: cohort.creativeLabel,
     objective: cohort.objective,
     primaryMetric: cohort.primaryMetric,
     engagementMechanic: cohort.engagementMechanic,
+    hookType: cohort.hookType,
+    attentionMechanic: cohort.attentionMechanic,
+    engagementLoop: cohort.engagementLoop,
+    followUpFormat: cohort.followUpFormat,
     kind: cohort.kind,
     windowHours: cohort.windowHours,
     publishedPosts,
@@ -486,9 +504,10 @@ export function formatExperimentStatus(status) {
   } else {
     for (const cohort of status.cohorts) {
       const label = cohort.creativeVariant ? ` (${cohort.creativeVariant})` : '';
+      const loop = cohort.engagementLoop ? ` · loop ${cohort.engagementLoop}` : '';
       lines.push(
         `   ${cohort.creativeId}${label} · ${cohort.kind} · ${cohort.observedPosts}/${cohort.minimumObservations} independent obs · `
-        + `${cohort.publishedPosts} published · ${cohort.status}`,
+        + `${cohort.publishedPosts} published · ${cohort.status}${loop}`,
       );
     }
   }

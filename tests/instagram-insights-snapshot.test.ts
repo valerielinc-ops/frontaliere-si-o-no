@@ -27,6 +27,10 @@ function ledgerEntry(overrides: Record<string, unknown> = {}) {
     creativeObjective: 'share',
     primaryMetric: 'shares',
     engagementMechanic: 'direct-share',
+    hookType: 'local-ranking',
+    attentionMechanic: 'local-relevance',
+    engagementLoop: 'share-to-local-group',
+    followUpFormat: 'story-poll',
     ...overrides,
   };
 }
@@ -50,6 +54,8 @@ describe('Instagram Insights snapshot collector', () => {
       queueId: 'article-2026-10-07',
       creativeId: 'proof-local',
       engagementMechanic: 'direct-share',
+      hookType: 'local-ranking',
+      engagementLoop: 'share-to-local-group',
       entries: 2,
     });
 
@@ -159,6 +165,10 @@ describe('Instagram Insights snapshot collector', () => {
       creativeLabel: 'Dato locale',
       primaryMetric: 'shares',
       engagementMechanic: 'direct-share',
+      hookType: 'local-ranking',
+      attentionMechanic: 'local-relevance',
+      engagementLoop: 'share-to-local-group',
+      followUpFormat: 'story-poll',
       reach: 100,
       shares: 12,
       saves: 8,

@@ -112,6 +112,10 @@ export function groupPostedLedger(ledger) {
       creativeObjective: firstText(entry.creativeObjective, entry.creative_objective),
       primaryMetric: firstText(entry.primaryMetric, entry.primary_metric),
       engagementMechanic: firstText(entry.engagementMechanic, entry.engagement_mechanic),
+      hookType: firstText(entry.hookType, entry.hook_type),
+      attentionMechanic: firstText(entry.attentionMechanic, entry.attention_mechanic),
+      engagementLoop: firstText(entry.engagementLoop, entry.engagement_loop),
+      followUpFormat: firstText(entry.followUpFormat, entry.follow_up_format),
       publishedAtMs: entryTs,
       entries: 0,
       conflictingCreativeId: false,
@@ -119,6 +123,16 @@ export function groupPostedLedger(ledger) {
     if (group.creativeId !== creativeId) group.conflictingCreativeId = true;
     group.mediaId ||= mediaId;
     group.queueId ||= queueId;
+    group.creativeBaseId ||= firstText(entry.creativeBaseId, entry.creative_base_id);
+    group.creativeVariant ||= firstText(entry.creativeVariant, entry.creative_variant);
+    group.creativeLabel ||= firstText(entry.creativeLabel, entry.creative_label);
+    group.creativeObjective ||= firstText(entry.creativeObjective, entry.creative_objective);
+    group.primaryMetric ||= firstText(entry.primaryMetric, entry.primary_metric);
+    group.engagementMechanic ||= firstText(entry.engagementMechanic, entry.engagement_mechanic);
+    group.hookType ||= firstText(entry.hookType, entry.hook_type);
+    group.attentionMechanic ||= firstText(entry.attentionMechanic, entry.attention_mechanic);
+    group.engagementLoop ||= firstText(entry.engagementLoop, entry.engagement_loop);
+    group.followUpFormat ||= firstText(entry.followUpFormat, entry.follow_up_format);
     group.publishedAtMs = group.publishedAtMs === null
       ? entryTs
       : entryTs === null ? group.publishedAtMs : Math.min(group.publishedAtMs, entryTs);
@@ -386,6 +400,10 @@ export async function collectSnapshots({
         creativeObjective: group.creativeObjective || undefined,
         primaryMetric: group.primaryMetric || undefined,
         engagementMechanic: group.engagementMechanic || undefined,
+        hookType: group.hookType || undefined,
+        attentionMechanic: group.attentionMechanic || undefined,
+        engagementLoop: group.engagementLoop || undefined,
+        followUpFormat: group.followUpFormat || undefined,
         mediaType: text(mediaItem.media_type),
         permalink: text(mediaItem.permalink),
         windowHours: targetWindow,
