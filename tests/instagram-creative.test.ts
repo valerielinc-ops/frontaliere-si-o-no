@@ -126,7 +126,20 @@ describe('Instagram creative system', () => {
       creativeLabel: creative.label,
       creativeObjective: creative.objective,
       primaryMetric: creative.primaryMetric,
+      engagementMechanic: 'keyword-comment',
     });
+  });
+
+  it('persists the CTA mechanism for every carousel objective', () => {
+    const expectedMechanics = {
+      shares: 'direct-share',
+      saves: 'save-reminder',
+      comments: 'keyword-comment',
+    };
+    for (const format of Object.values(INSTAGRAM_CREATIVE_FORMATS)) {
+      expect(instagramCreativeLedgerFields(format).engagementMechanic)
+        .toBe(expectedMechanics[format.primaryMetric]);
+    }
   });
 });
 
