@@ -162,17 +162,44 @@ export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, sta
   }
 }
 
+const INSTAGRAM_ACTIVE_CREATE_MENU_SELECTOR = [
+  '[role="menu"]:visible',
+  '[data-menu]:visible',
+  '[data-popover]:visible',
+  '[data-testid*="menu" i]:visible',
+  '[data-testid*="popover" i]:visible',
+].join(', ');
+
+function instagramActiveCreateMenu(page) {
+  return page.locator(INSTAGRAM_ACTIVE_CREATE_MENU_SELECTOR);
+}
+
 function instagramPostMenuCandidates(page) {
+  const menu = instagramActiveCreateMenu(page);
   return [
-    page.getByRole('link', { name: RX.igPostMenu }),
-    page.getByRole('menuitem', { name: RX.igPostMenu }),
-    page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
-    page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igPostMenu }),
-    page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
-    // Instagram's Create popover can render its Post row as a roleless div.
-    // The icon remains explicitly labelled; clicking it bubbles to the row's
-    // handler without guessing from generic page text.
-    page.getByRole('img', { name: RX.igPostMenu }),
+    menu.getByRole('link', { name: RX.igPostMenu }),
+    menu.getByRole('menuitem', { name: RX.igPostMenu }),
+    menu.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
+    menu.locator('[role="menuitem"]').filter({ hasText: RX.igPostMenu }),
+    menu.locator('[role="link"]').filter({ hasText: RX.igPostMenu }),
+    // Instagram's active Create popover can render its Post row as a
+    // roleless div. The icon remains explicitly labelled; scope it to the
+    // active menu so a navigation/decoy Post cannot be clicked.
+    menu.getByRole('img', { name: RX.igPostMenu }),
+  ];
+}
+
+function instagramReelMenuCandidates(page) {
+  const menu = instagramActiveCreateMenu(page);
+  return [
+    menu.getByRole('link', { name: RX.igReelMenu }),
+    menu.getByRole('menuitem', { name: RX.igReelMenu }),
+    menu.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
+    menu.locator('[role="menuitem"]').filter({ hasText: RX.igReelMenu }),
+    menu.locator('[role="link"]').filter({ hasText: RX.igReelMenu }),
+    // Keep Reel recognition independent from the Post fallback while still
+    // supporting the same roleless icon shape in the active Create popover.
+    menu.getByRole('img', { name: RX.igReelMenu }),
   ];
 }
 
@@ -792,13 +819,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
 
   step.set('create-menu');
   const reelMenu = await findFirst([
-    // `getByRole('link', { name: /Reel/ })` also matches Instagram's
-    // persistent left-nav link. Creation choices are the href="#" controls;
-    // scope the lookup so selecting a Reel cannot navigate away from the
-    // composer before the file input is attached.
-    page.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
-    page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igReelMenu }),
-    page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igReelMenu }),
+    ...instagramReelMenuCandidates(page),
   ], { guard, timeout: t.optional });
   if (reelMenu) {
     await snap('create-menu');
@@ -811,9 +832,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     // explicit Reel path preferred and use the normal Post entry only as this
     // bounded, video-validated fallback; a missing menu is still allowed for
     // layouts that opened the upload dialog directly.
-    const postMenu = await findFirst([
-      ...instagramPostMenuCandidates(page),
-    ], { guard, timeout: t.optional });
+    const postMenu = await findFirst(instagramPostMenuCandidates(page), { guard, timeout: t.optional });
     if (postMenu) {
       await snap('create-menu');
       await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu fallback for Reel' });
