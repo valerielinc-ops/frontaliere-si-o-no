@@ -801,8 +801,26 @@ export function isSuitableArticlePhotoCandidate(spec, candidate) {
   return !ARTICLE_PHOTO_FORBIDDEN_METADATA.some((term) => text.includes(term));
 }
 
+export function canonicalPhotoSourceUrl(value) {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  if (!raw) return '';
+  try {
+    const parsed = new URL(raw);
+    if (!['http:', 'https:'].includes(parsed.protocol)) return raw;
+    const decodedPath = decodeURIComponent(parsed.pathname);
+    parsed.pathname = decodedPath.replace(/\/+$/u, '') || '/';
+    parsed.search = '';
+    parsed.hash = '';
+    return parsed.toString();
+  } catch {
+    // Keep a non-URL value visible to the existing fail-closed filters instead
+    // of making a malformed record disappear from collision diagnostics.
+    return raw;
+  }
+}
+
 function recordSourcePageUrl(record) {
-  return String(record?.sourcePageUrl || record?.pageUrl || '').trim();
+  return canonicalPhotoSourceUrl(record?.sourcePageUrl || record?.pageUrl);
 }
 
 function photoCollisionKey(value) {
@@ -837,7 +855,7 @@ export function selectDeterministicPhotoCandidates(spec, candidates, { usedRecor
   const excludedPages = new Set((excludedSourcePageUrls instanceof Set
     ? [...excludedSourcePageUrls]
     : Array.isArray(excludedSourcePageUrls) ? excludedSourcePageUrls : [])
-    .map((url) => String(url || '').trim())
+    .map(canonicalPhotoSourceUrl)
     .filter(Boolean));
   const unique = new Map();
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
