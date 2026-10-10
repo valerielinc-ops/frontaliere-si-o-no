@@ -279,4 +279,32 @@ describe('the verdict of the live handoff probe', () => {
       state(400, { snapshot: 'outside-visible', snapshotTop: 120 }),
     ], false)).violations).toEqual(['the SPA never settled on its own copy within the time limit']);
   });
+
+  it('accepts an opted-in, stable static snapshot when version skew blocks the SPA copy', () => {
+    const versionSkewFallback = record([
+      state(400, { snapshot: 'outside-visible', snapshotTop: 120 }),
+      state(30_000, { snapshot: 'outside-visible', snapshotTop: 121 }),
+    ], false);
+
+    expect(judgeStaticHandoff(versionSkewFallback).violations).toEqual([
+      'the SPA never settled on its own copy within the time limit',
+    ]);
+    expect(judgeStaticHandoff(versionSkewFallback, { allowStableSnapshot: true })).toMatchObject({
+      swapMs: null,
+      gapMs: 0,
+      bothMs: 0,
+      spaMainOverSnapshotMs: 0,
+      snapshotShiftPx: 1,
+      violations: [],
+    });
+
+    const snapshotReturnedAfterSpa = record([
+      state(400, { snapshot: 'outside-visible', snapshotTop: 120 }),
+      state(1200, { snapshot: 'none', spaTop: 180, spaMainPainted: true }),
+      state(30_000, { snapshot: 'outside-visible', snapshotTop: 121 }),
+    ], false);
+    expect(judgeStaticHandoff(snapshotReturnedAfterSpa, { allowStableSnapshot: true }).violations).toEqual([
+      'the SPA never settled on its own copy within the time limit',
+    ]);
+  });
 });
