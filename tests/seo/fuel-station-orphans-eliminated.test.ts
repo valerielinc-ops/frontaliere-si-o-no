@@ -51,13 +51,17 @@ import {
   FUEL_TYPES,
   FUEL_ZONES,
   FUEL_ITALIAN_CITIES,
+  buildFuelItalianCityPath,
   buildFuelStationPath,
   type FuelDailyLocale,
   type FuelType,
 } from '../../build-plugins/fuelDailyData';
 import { generateFuelStationPages } from '../../build-plugins/fuelDailyPagesPlugin';
 import { createAuditor, MAX_HTML_BYTES } from '../../scripts/audit-page-weight.mjs';
-import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
+import {
+  createAuditor as createTextHtmlRatioAuditor,
+  extractVisibleText,
+} from '../../scripts/audit-text-html-ratio.mjs';
 
 // ── Synthetic leaves ──────────────────────────────────────────────
 
@@ -90,6 +94,15 @@ const TEXT_RATIO_ITALIAN: ItalianStationLeaf[] = Array.from({ length: 220 }, (_,
   name: `Station ${index}`,
   brand: `Brand ${index % 18}`,
   address: `Via Roma ${index}, Como`,
+}));
+
+const TEXT_RATIO_ITALIAN_CITIES: ItalianStationLeaf[] = FUEL_ITALIAN_CITIES.map((city, index) => ({
+  citySlug: city.slug,
+  cityDisplay: city.display,
+  stationSlug: `city-station-${index}`,
+  name: `Station ${index}`,
+  brand: `Brand ${index}`,
+  address: `Via Roma ${index}, ${city.display}`,
 }));
 
 const TEXT_RATIO_SWISS: SwissStationLeaf[] = Array.from({ length: 51 }, (_, index) => ({
@@ -477,6 +490,42 @@ describe('fuel-station index pages — preserve the text/HTML quality floor', ()
     expect(html).toContain('Prezzo');
     expect(html).toContain('CHF/l');
     expect(html).toContain('rilevato');
+  });
+});
+
+describe('Italian-cities fuel index — text/HTML ratio and link preservation', () => {
+  const path = buildFuelIndexPath('it', 'benzina', 'italianCities');
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: [],
+    italianStations: TEXT_RATIO_ITALIAN_CITIES,
+  });
+  const html = pages[path]!;
+
+  it('passes the production text/HTML ratio auditor’s 10% floor', async () => {
+    const audit = createTextHtmlRatioAuditor({
+      threshold: 10,
+      featureFilter: 'fuel-daily',
+      failOnOffenders: true,
+    });
+    audit.collect(`${process.cwd()}/dist${path}index.html`, html);
+
+    const result = await audit.report();
+    expect(result.extra.scannedByFeature['fuel-daily']).toBe(1);
+    expect(result.offendersTotal, result.humanSummary).toBe(0);
+    expect(result.passed, result.humanSummary).toBe(true);
+  });
+
+  it('preserves each city href and stable zone fragment while labeling city counts', () => {
+    for (const city of FUEL_ITALIAN_CITIES) {
+      const href = buildFuelItalianCityPath('it', 'benzina', city.slug);
+      expect(countAnchors(html, href), `missing or duplicate city link: ${href}`).toBe(1);
+    }
+    for (const zone of FUEL_ZONES) {
+      if (!FUEL_ITALIAN_CITIES.some((city) => city.nearestZone === zone)) continue;
+      expect(html).toMatch(new RegExp(`\\bid=["']?zone-${zone}["']?(?=[\\s>])`));
+    }
+    expect(html).toMatch(/class=["']?fuel-index-compact-group__count["']?(?=[\s>])[^>]*>\(\d+ città\)<\/small>/);
   });
 });
 
