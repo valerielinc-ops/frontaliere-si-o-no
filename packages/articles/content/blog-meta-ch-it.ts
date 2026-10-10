@@ -8021,6 +8021,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucerna-polizza-edifici-regole.title': 'Assicurazione immobili a Lucerna: guida a obbligo e premi',
     'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Obbligo cantonale, ente competente, coperture, premi e sinistri: la guida all\'assicurazione degli immobili nel Cantone di Lucerna.',
     'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Edificio residenziale svizzero e documenti per l\'assicurazione immobiliare cantonale',
+    'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: dazi USA, votazioni e cambio ai vertici',
+    'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'Dal 24 luglio 2026 dazi USA fino al 12,5% su beni svizzeri.',
+    'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Sede della Segreteria di Stato dell\'economia SECO in Svizzera',
 };
 
 export default blogMetaChIt;

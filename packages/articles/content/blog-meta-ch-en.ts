@@ -8021,6 +8021,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-polizza-edifici-regole.title': 'Property insurance in Lucerne: guide to mandatory requirements and premiums',
     'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Cantonal obligation, competent authority, coverage, premiums and claims: a guide to property insurance in the Canton of Lucerne.',
     'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Swiss residential building and documents for cantonal property insurance',
+    'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: US duties, votes and change at the top',
+    'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'From 24 July 2026 US duties up to 12.5% on Swiss goods.',
+    'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Headquarters of the State Secretariat for Economic Affairs SECO in Switzerland',
 };
 
 export default blogMetaChEn;

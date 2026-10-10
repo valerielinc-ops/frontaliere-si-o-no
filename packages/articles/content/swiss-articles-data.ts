@@ -26780,6 +26780,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'seco-cambiamenti-istituzionali-2026',
+    category: 'novita',
+    date: '2026-10-10T01:31:53.650Z',
+    image: '/images/blog/article-seco-cambiamenti-istituzionali-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

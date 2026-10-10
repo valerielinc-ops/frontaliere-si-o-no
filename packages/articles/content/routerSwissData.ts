@@ -2696,6 +2696,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'axpo-solare-argovia': { it: 'axpo-solare-argovia', en: 'axpo-solar-aargau', de: 'axpo-solaranlage-aargau', fr: 'axpo-solaire-argovie' },
  'friedli-rinuncia-corsa-federale': { it: 'friedli-rinuncia-corsa-federale', en: 'esther-friedli-no-federal-council-bid', de: 'esther-friedli-keine-bundesratskandidatur', fr: 'esther-friedli-renonce-conseil-federal' },
  'lucerna-polizza-edifici-regole': { it: 'lucerna-polizza-edifici-regole', en: 'lucerne-building-insurance-rules', de: 'luzern-gebaeudeversicherung-regeln', fr: 'assurance-immeubles-lucerne-regles' },
+ 'seco-cambiamenti-istituzionali-2026': { it: 'seco-cambiamenti-istituzionali-2026', en: 'seco-institutional-changes-2026', de: 'seco-institutionelle-aenderungen-2026', fr: 'seco-changements-institutionnels-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

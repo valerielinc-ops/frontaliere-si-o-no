@@ -8021,6 +8021,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lucerna-polizza-edifici-regole.title': 'Assurance des immeubles à Lucerne : guide de l’obligation et des primes',
     'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Obligation cantonale, organisme compétent, couvertures, primes et sinistres : le guide de l’assurance des immeubles dans le canton de Lucerne.',
     'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Immeuble résidentiel suisse et documents pour l\'assurance immobilière cantonale',
+    'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO : droits de douane américains, votes et changement aux sommets',
+    'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'À partir du 24 juillet 2026, droits de douane américains jusqu\'à 12,5 % sur les biens suisses.',
+    'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Siège du Secrétariat d\'État à l\'économie SECO en Suisse',
 };
 
 export default blogMetaChFr;

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5160
+      "6": 5161
     },
-    "publishedCovers": 6872,
+    "publishedCovers": 6873,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182815,6 +182815,33 @@
           "id": "lucerna-polizza-edifici-regole",
           "category": "pratico",
           "date": "2026-10-10T01:12:10.158Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-seco-cambiamenti-istituzionali-2026": {
+      "cover": "/images/blog/article-seco-cambiamenti-istituzionali-2026.webp",
+      "hash": "ee3a224bc02db9c01fb130995fa676c80ef8f667a81d7ce30666458d2e1a43ce",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "seco-cambiamenti-istituzionali-2026",
+          "category": "novita",
+          "date": "2026-10-10T01:31:53.650Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

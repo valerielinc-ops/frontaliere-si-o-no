@@ -101154,6 +101154,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-seco-cambiamenti-istituzionali-2026': {
+    title: 'SECO: dazi USA, votazioni e cambio ai vertici | Frontaliere Ticino',
+    description: 'Aggiornamenti SECO: dazi USA fino al 12,5% dal 24 luglio 2026, votazione sul materiale bellico il 29 novembre e dimissioni della Segretaria di Stato nel 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, dazi, votazioni, cambio',
+    ogTitle: 'SECO: dazi USA, votazioni e cambio ai vertici',
+    ogDescription: 'Dazi USA del 12,5% su beni svizzeri, votazione federale sul materiale bellico e transizione ai vertici della SECO: ecco i fatti principali del 2026 e 2027.',
+    canonicalPath: '/articoli-svizzera/seco-cambiamenti-istituzionali-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO: dazi USA, votazioni e cambio ai vertici",
+      "description": "Aggiornamenti SECO: dazi USA fino al 12,5% dal 24 luglio 2026, votazione sul materiale bellico il 29 novembre e dimissioni della Segretaria di Stato nel 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-seco-cambiamenti-istituzionali-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Segreteria di Stato dell'economia SECO in Svizzera"
+      },
+      "datePublished": "2026-10-10T01:31:53+00:00",
+      "dateModified": "2026-10-10T01:31:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-cambiamenti-istituzionali-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

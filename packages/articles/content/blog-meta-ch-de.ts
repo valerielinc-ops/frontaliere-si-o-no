@@ -8021,6 +8021,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-polizza-edifici-regole.title': 'Gebäudeversicherung in Luzern: Leitfaden zu Pflicht und Prämien',
     'blog.article.lucerna-polizza-edifici-regole.excerpt': 'Kantonale Pflicht, zuständige Stelle, Deckungen, Prämien und Schadenfälle: der Leitfaden zur Gebäudeversicherung im Kanton Luzern.',
     'blog.article.lucerna-polizza-edifici-regole.imageAlt': 'Schweizer Wohngebäude und Unterlagen zur kantonalen Gebäudeversicherung',
+    'blog.article.seco-cambiamenti-istituzionali-2026.title': 'SECO: US-Zölle, Abstimmungen und Wechsel an der Spitze',
+    'blog.article.seco-cambiamenti-istituzionali-2026.excerpt': 'Ab dem 24. Juli 2026 US-Zölle bis zu 12,5% auf Schweizer Waren.',
+    'blog.article.seco-cambiamenti-istituzionali-2026.imageAlt': 'Hauptsitz des Staatssekretariats für Wirtschaft SECO in der Schweiz',
 };
 
 export default blogMetaChDe;
