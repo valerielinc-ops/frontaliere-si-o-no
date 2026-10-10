@@ -4,8 +4,9 @@ import { realpathSync } from 'node:fs';
 /**
  * Dedicated lastminute.com Switzerland-wide crawler runner.
  *
- * Source:
- *   https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=
+ * Discovery source:
+ *   POST https://corporate.lastminute.com/wp-admin/admin-ajax.php?action=lm_careers_search
+ *   with HTMX form fields search, department, contract, and page.
  *
  * This script:
  *   1. Reads the complete lastminute careers listing.
