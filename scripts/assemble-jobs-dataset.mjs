@@ -54,6 +54,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
 import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
 import {
   applyDeclaredBrandRelabel,
@@ -650,6 +651,8 @@ export function normalizeParsedJobsForSlice(jobs) {
     applyUrlBackfilled,
   };
 }
+
+const assemblerDedupIdentity = createAssemblerDedupIdentity();
 
 function assemblerIdentity(job = {}) {
   return buildAssembledJobIdentity(job);
@@ -3323,7 +3326,7 @@ async function assembleJobs() {
   // forever. That is the #5637 failure re-entering through the dedup.
   const { winners: sliceJobs, marksCarried, collapsed } = dedupeByIdentityPreservingMarks(
     allTagged,
-    assemblerIdentity
+    assemblerDedupIdentity
   );
   if (marksCarried > 0) {
     console.log(
@@ -3336,7 +3339,7 @@ async function assembleJobs() {
   // Deduplicate across them: slice jobs take precedence over baseline
   // Publication evidence is independent of slice precedence; a baseline
   // clock must not survive through the later sort/slug collision winner.
-  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerIdentity);
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerDedupIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
