@@ -399,6 +399,7 @@ describe('social robot exit status', () => {
   it('fails the unattended run when the community worker returns an API error or partial result', () => {
     expect(runHasErrors({ results: [], community: { status: 'api-error', errors: ['x'] } })).toBe(true);
     expect(runHasErrors({ results: [], community: { status: 'partial', errors: ['x'] } })).toBe(true);
+    expect(runHasErrors({ results: [], community: { status: 'credentials-missing' } })).toBe(true);
     expect(runHasErrors({ results: [], community: { status: 'completed', errors: [] } })).toBe(false);
   });
 });

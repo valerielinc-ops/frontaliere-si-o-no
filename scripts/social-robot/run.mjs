@@ -77,7 +77,8 @@ const stamp = (at) => new Date(at).toISOString().replace(/[:.]/g, '-');
 export function runHasErrors({ results = [], community = null } = {}) {
   return (Array.isArray(results) && results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed'))
     || community?.status === 'api-error'
-    || community?.status === 'partial';
+    || community?.status === 'partial'
+    || community?.status === 'credentials-missing';
 }
 
 async function login({ stateDir, platforms }) {
