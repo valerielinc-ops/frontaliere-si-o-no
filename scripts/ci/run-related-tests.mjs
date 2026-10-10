@@ -415,7 +415,7 @@ const assetLiteralRe = /(?<=['"`])(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z
 // 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
 // `'.github'` vale come il path unito con `/`.
-const segmentedAssetRe = /(['"])\.github\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+const segmentedAssetRe = /(['"])(?:\.github|data)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
 const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
