@@ -18,6 +18,7 @@
  */
 
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import process from "node:process";
 import { writeJsonAtomic } from "./lib/atomic-write-json.mjs";
@@ -28,6 +29,19 @@ const SLICE_DIRS = [
   path.resolve("data/jobs/expired/by-crawler"),
   path.resolve("data/translation-cache"),
 ];
+
+function sha256(value) {
+  return createHash("sha256").update(value, "utf8").digest("hex");
+}
+
+function conflictRecoveryProof(fullPath, original, output) {
+  return {
+    kind: "conflict-marker-recovery",
+    path: fullPath,
+    sourceDigest: sha256(original),
+    candidateDigest: sha256(`${JSON.stringify(output, null, 2)}\n`),
+  };
+}
 
 function linesWithoutTrailingCarriageReturn(text) {
   return text.split("\n").map((line) => line.endsWith("\r") ? line.slice(0, -1) : line);
@@ -202,7 +216,12 @@ function rebuildSlice(sliceDir, file) {
   try {
     const parsed = JSON.parse(cleaned);
     preserveRecoveredSlugHistory(sliceDir, fullPath, original, parsed);
-    writeJsonAtomic(fullPath, parsed);
+    writeJsonAtomic(fullPath, parsed, {
+      // `writeJsonAtomic` transports this through its existing housekeeping
+      // proof option; the integrity guard validates the exact source/candidate
+      // digests before allowing a malformed conflict file to be replaced.
+      housekeepingProof: conflictRecoveryProof(fullPath, original, parsed),
+    });
     return { file, status: "recovered", rawObjects: 0, parsed: 0, deduped: 0, strategy: "strip-only" };
   } catch {
     // Fall through to object-extraction strategy.
@@ -238,7 +257,9 @@ function rebuildSlice(sliceDir, file) {
   JSON.parse(serialized);
 
   preserveRecoveredSlugHistory(sliceDir, fullPath, original, output);
-  writeJsonAtomic(fullPath, output);
+  writeJsonAtomic(fullPath, output, {
+    housekeepingProof: conflictRecoveryProof(fullPath, original, output),
+  });
 
   return {
     file,

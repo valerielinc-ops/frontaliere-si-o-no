@@ -823,6 +823,23 @@ const path = require('path');
 
 const [basePath, remotePath, localPath, outPath, keyField, label] = process.argv.slice(2);
 
+// The decontamination denylist is keyed by slice basename + slug. A stale
+// merge input must not reintroduce one of those intentionally removed routes
+// merely because the append-only archive branch sees it as a new value.
+const restoreDenylistPath = process.env.PREV_SLUG_RESTORE_DENYLIST_PATH
+  || path.resolve('data/prev-slug-restore-denylist.json');
+const restoreDenylist = new Set();
+try {
+  const denylist = JSON.parse(fs.readFileSync(restoreDenylistPath, 'utf8'));
+  for (const entry of denylist.entries || []) {
+    if (entry && entry.file && entry.slug) restoreDenylist.add(`${entry.file}\u0000${entry.slug}`);
+  }
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error;
+}
+const labelFile = path.basename(String(label || '').replace(/\\/g, '/'));
+const isRestoreDenylisted = (slug) => restoreDenylist.has(`${labelFile}\u0000${slug}`);
+
 function readJson(filePath, allowMissing = false) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -1121,7 +1138,7 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   const bankArchived = (slug, locale) => {
     if (typeof slug !== 'string') return;
     const norm = slug.trim();
-    if (!norm || activeSlugs.has(norm)) return;
+    if (!norm || activeSlugs.has(norm) || isRestoreDenylisted(norm)) return;
     let added = false;
     reachable.add(norm);
     if (locale) {

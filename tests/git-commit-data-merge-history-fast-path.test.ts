@@ -32,8 +32,8 @@ describe('git-commit-data merge history fast path (#12498)', () => {
       url: 'https://example.ch/jobs/123456',
       slug: 'active-route',
       title: 'Original title',
-      previousSlugs: ['legacy-route'],
-      previousSlugsByLocale: { it: ['legacy-route'], de: ['alte-route'] },
+      previousSlugs: ['legacy-route', 'denylisted-route'],
+      previousSlugsByLocale: { it: ['legacy-route', 'denylisted-route'], de: ['alte-route'] },
     }];
     const local = [{
       ...base[0],
@@ -44,6 +44,8 @@ describe('git-commit-data merge history fast path (#12498)', () => {
     writeJson(basePath, base);
     writeJson(remotePath, base);
     writeJson(localPath, local);
+    const denylistPath = join(dir, 'denylist.json');
+    writeJson(denylistPath, { entries: [{ file: 'acme.json', slug: 'denylisted-route' }] });
 
     const shell = readFileSync(SHELL_PATH, 'utf8');
     const heredoc = shell.match(
@@ -54,11 +56,17 @@ describe('git-commit-data merge history fast path (#12498)', () => {
     const output = execFileSync(
       process.execPath,
       ['-', basePath, remotePath, localPath, outPath, 'url', SLICE],
-      { cwd: ROOT, input: heredoc, encoding: 'utf8' },
+      {
+        cwd: ROOT,
+        input: heredoc,
+        encoding: 'utf8',
+        env: { ...process.env, PREV_SLUG_RESTORE_DENYLIST_PATH: denylistPath },
+      },
     );
     const merged = JSON.parse(readFileSync(outPath, 'utf8'));
     expect(merged[0].title).toBe('Updated title');
     expect(merged[0].previousSlugs).toContain('legacy-route');
+    expect(merged[0].previousSlugs).not.toContain('denylisted-route');
     expect(merged[0].previousSlugsByLocale.it).toContain('legacy-route');
     expect(merged[0].previousSlugsByLocale.de).toContain('alte-route');
     expect(output).toContain('Historical slug preserved');
