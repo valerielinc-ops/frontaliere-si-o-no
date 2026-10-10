@@ -30,6 +30,15 @@ function isArticleSchema(record: Record<string, any>): boolean {
   : Array.isArray(typeValue) && typeValue.some((type) => ARTICLE_SCHEMA_TYPES.has(type));
 }
 
+function applyCanonicalSiteOrganizationIdentity(record: Record<string, any>): void {
+ // The explicit site @id is the authoritative identity. Leaving stale name or
+ // URL fields beside it creates contradictory definitions of the same node.
+ record['@type'] = ORGANIZATION_LD['@type'];
+ record['@id'] = ORGANIZATION_ID;
+ record.name = ORGANIZATION_LD.name;
+ record.url = ORGANIZATION_LD.url;
+}
+
 function normalizeArticleEntity(
  value: unknown,
  fallback: Record<string, any>,
@@ -40,8 +49,7 @@ function normalizeArticleEntity(
  // A shared name (with or without an external ID) is not proof of identity.
  if (value['@id'] !== ORGANIZATION_ID && !isSiteOrganizationCreator(value)) return { ...value };
  const out = { ...fallback, ...value };
- if (!out.name) out.name = fallback.name;
- if (!out.url) out.url = fallback.url;
+ applyCanonicalSiteOrganizationIdentity(out);
  return out;
 }
 
@@ -188,8 +196,7 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
  // Reattach site records to the canonical identity while emitting the base type.
  if (isSiteOrganizationCreator(record)) {
-  record['@type'] = ORGANIZATION_LD['@type'];
-  record['@id'] = ORGANIZATION_ID;
+  applyCanonicalSiteOrganizationIdentity(record);
  }
 
  // Repeated external organizations (for example image credits and nursing
