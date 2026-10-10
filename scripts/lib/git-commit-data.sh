@@ -3009,6 +3009,13 @@ commit_isolated_from_worktree() {
 }
 
 ensure_git_auth
+# The pre-lease ownership snapshot must describe the current remote tip. A
+# blobless crawler checkout can have an origin/main ref from its checkout time;
+# without this fetch, the first in-lease refresh re-counts every slice changed
+# before the snapshot instead of only the delta created while the lease is held.
+if [ "$GROUPED_ISOLATED" = true ]; then
+  git_fetch_retry
+fi
 old_history_guard_main
 
 if [ "$GROUPED_ISOLATED" = true ]; then
