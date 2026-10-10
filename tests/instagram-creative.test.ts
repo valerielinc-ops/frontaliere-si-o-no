@@ -75,6 +75,33 @@ describe('Instagram creative system', () => {
     }
   });
 
+  it('makes the 30-day coverage explicit for daily and weekly cohorts', () => {
+    const start = Date.UTC(2026, 9, 1);
+    const dailyCounts = new Map<string, Map<string, number>>();
+    for (const kind of ['article', 'job']) {
+      const counts = new Map<string, number>();
+      for (let offset = 0; offset < 30; offset += 1) {
+        const day = new Date(start + offset * 86400000).toISOString().slice(0, 10);
+        const id = chooseInstagramCreative({ kind, day }).id;
+        counts.set(id, (counts.get(id) || 0) + 1);
+      }
+      dailyCounts.set(kind, counts);
+    }
+    for (const counts of dailyCounts.values()) {
+      expect(new Set(counts.keys())).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
+      expect(Math.min(...counts.values())).toBeGreaterThanOrEqual(3);
+    }
+
+    const borderDays = INSTAGRAM_CREATIVE_IDS.length * 7;
+    const borderIds = new Set(
+      Array.from({ length: borderDays }, (_, offset) => {
+        const day = new Date(start + offset * 86400000).toISOString().slice(0, 10);
+        return chooseInstagramCreative({ kind: 'border', day }).id;
+      }),
+    );
+    expect(borderIds).toEqual(new Set(INSTAGRAM_CREATIVE_IDS));
+  });
+
   it('gives article and job posts different treatments on the same day', () => {
     const article = chooseInstagramCreative({ kind: 'article', day: '2026-10-09' });
     const job = chooseInstagramCreative({ kind: 'job', day: '2026-10-09' });

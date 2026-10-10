@@ -4,8 +4,10 @@ Studio operativo del 10 ottobre 2026 per trasformare la pubblicazione
 automatica in un sistema di apprendimento: una promessa per post, una CTA,
 un loop di relazione e una metrica primaria.
 
-Il documento precede l'implementazione del piano operativo e va aggiornato
-quando arrivano gli Insights reali.
+Il documento precede e accompagna l'implementazione del piano operativo e va aggiornato
+quando arrivano gli Insights reali. I numeri di ledger e coda riportati qui
+sono una fotografia del 10 ottobre 2026; per lo stato corrente usare
+`instagram-experiment-status.mjs`.
 
 ## 1. Evidenze e diagnosi
 
@@ -167,10 +169,16 @@ decisione successiva è: “ripetiamo questa promessa per questo pubblico”, no
 
 | Periodo | Esecuzione | Decisione |
 |---|---|---|
-| Giorni 1–7 | completare la rotazione dei 9 carousel ID e pubblicare il Reel in coda; usare il piano 24/48/72h | nessun vincitore; controllare qualità del loop e risposta entro SLA |
-| Giorni 8–14 | ripetere le promesse con lo stesso obiettivo su articoli, lavoro e valichi | eliminare solo hook che non genera il gesto previsto dopo almeno 3 osservazioni |
-| Giorni 15–21 | inserire un comment-reply e un Trial Reel se l’account lo consente | confrontare non-follower, reach e metrica primaria, separando il formato |
-| Giorni 22–30 | consolidare i due loop migliori e provare una variante locale/sorprendente | aggiornare la matrice; non aumentare la frequenza senza capacità di risposta |
+| Giorni 1–9 | completare il primo giro dei 9 carousel ID per articoli e lavoro; pubblicare il Reel in coda; usare il piano 24/48/72h | nessun vincitore; controllare qualità del loop e risposta entro SLA |
+| Giorni 10–14 | ripetere le promesse con lo stesso obiettivo su articoli e lavoro; mantenere separata la rotazione settimanale dei valichi | accumulare la seconda osservazione senza dichiarare vincitori |
+| Giorni 15–21 | inserire un comment-reply e un Trial Reel se l'account lo consente | confrontare non-follower, reach e metrica primaria, separando il formato |
+| Giorni 22–27 | completare la terza osservazione delle coorti quotidiane e continuare il loop commento → risposta | arrivare a 3 osservazioni comparabili per ogni ID quotidiano; eliminare solo hook che non genera il gesto previsto |
+| Giorni 28–30 | consolidare i due loop migliori e provare una variante locale/sorprendente | aggiornare la matrice; non aumentare la frequenza senza capacità di risposta |
+
+La coorte `border` è settimanale: un giro completo dei 9 ID richiede 63
+giorni, quindi non viene dichiarata comparabile con quella quotidiana entro il
+primo mese. La decisione sui valichi resta separata finché non ha le sue 3
+osservazioni per trattamento.
 
 Decision rules:
 

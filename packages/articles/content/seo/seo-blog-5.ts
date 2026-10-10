@@ -104670,6 +104670,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-schianto-camerlata-quattro-feriti': {
+    title: 'Como, schianto notturno a Camerlata: 4 feriti | Frontaliere Ticino',
+    description: 'L\'allarme è scattato alle 1:35 Schianto in piazzale Camerlata a Como Coinvolti due ragazze e due ragazzi Quattro feriti trasferiti in codice giallo Luogo →',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, schianto, notturno, camerlata',
+    ogTitle: 'Como, schianto notturno a Camerlata: 4 feriti',
+    ogDescription: 'L\'allarme è scattato alle 1:35 Schianto in piazzale Camerlata a Como Coinvolti due ragazze e due ragazzi Quattro feriti trasferiti in codice giallo Luogo →',
+    canonicalPath: '/articoli-frontaliere/schianto-camerlata-quattro-feriti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, schianto notturno a Camerlata: 4 feriti",
+      "description": "L'allarme è scattato alle 1:35 Schianto in piazzale Camerlata a Como Coinvolti due ragazze e due ragazzi Quattro feriti trasferiti in codice giallo Luogo →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-schianto-camerlata-quattro-feriti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza urbana notturna con luci di emergenza e mezzi di soccorso."
+      },
+      "datePublished": "2026-10-10T07:25:28+00:00",
+      "dateModified": "2026-10-10T07:25:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/schianto-camerlata-quattro-feriti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
