@@ -762,9 +762,36 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
  */
 export const MAX_COLLAPSE_PASSES = 8;
 
+/**
+ * Hash only the state the collapse can mutate, entry by entry.
+ *
+ * Expired entries also carry translated descriptions. Serializing the whole
+ * aggregate for the fixpoint guard used to materialize the complete archive
+ * as one string; the current archive is large enough for that to throw
+ * `Invalid string length` before the 5000-entry cap is applied.
+ */
+function collapseStateSignature(entries) {
+  const hash = createHash('sha256');
+  hash.update(`${entries.length}\n`);
+  for (const entry of entries) {
+    hash.update(stableSerialize({
+      companyKey: entry?.companyKey,
+      slug: entry?.slug,
+      expiredAt: entry?.expiredAt,
+      slugByLocale: entry?.slugByLocale,
+      previousSlugs: entry?.previousSlugs,
+      previousSlugsByLocale: entry?.previousSlugsByLocale,
+      sourceIdentity: entry?.sourceIdentity,
+      sourceIdentityHistory: entry?.sourceIdentityHistory,
+    }));
+    hash.update('\n');
+  }
+  return hash.digest('hex');
+}
+
 export function collapseDuplicateRouteEntries(entries, options = {}) {
   let current = entries;
-  let currentSignature = JSON.stringify(current);
+  let currentSignature = collapseStateSignature(current);
   const seenSignatures = new Set([currentSignature]);
   let collapsed = 0;
   let slugsTransferred = 0;
@@ -776,7 +803,7 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     collapsed += result.collapsed;
     slugsTransferred += result.slugsTransferred;
 
-    const nextSignature = JSON.stringify(result.entries);
+    const nextSignature = collapseStateSignature(result.entries);
     if (nextSignature === currentSignature) {
       return {
         ...result,

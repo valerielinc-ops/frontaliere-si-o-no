@@ -167,4 +167,20 @@ describe('collapseDuplicateRouteEntries fixed point', () => {
       for (const route of namespacedRoutes(fixture)) expect(served.has(route), route).toBe(true);
     }
   });
+
+  it('does not serialize the translated payload to guard convergence', () => {
+    const entry = {
+      companyKey: 'large-payload-company',
+      slug: 'current-route',
+      slugByLocale: { en: 'current-route' },
+    } as Record<string, unknown>;
+    Object.defineProperty(entry, 'descriptionByLocale', {
+      enumerable: true,
+      get() {
+        throw new Error('the convergence guard serialized the full payload');
+      },
+    });
+
+    expect(() => collapseDuplicateRouteEntries([entry])).not.toThrow();
+  });
 });
