@@ -67,6 +67,11 @@ export const INSTAGRAM_REEL_VARIANTS = Object.freeze([
 
 const VARIANT_BY_ID = new Map(INSTAGRAM_REEL_VARIANTS.map((variant) => [variant.id, variant]));
 const KIND_OFFSETS = Object.freeze({ article: 0, job: 1 });
+const ENGAGEMENT_MECHANIC_BY_METRIC = Object.freeze({
+  comments: 'keyword-comment',
+  shares: 'direct-share',
+  saves: 'save-reminder',
+});
 const ISO_DAY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
 function dayIndex(day) {
@@ -177,9 +182,7 @@ export function instagramReelLedgerFields(creative) {
     creativeLabel: creative?.label || 'Domanda immediata',
     creativeObjective: creative?.objective || 'conversation',
     primaryMetric,
-    engagementMechanic: primaryMetric === 'comments'
-      ? 'keyword-comment'
-      : primaryMetric === 'shares' ? 'direct-share' : 'save-reminder',
+    engagementMechanic: ENGAGEMENT_MECHANIC_BY_METRIC[primaryMetric] || 'unknown',
     creativeFormat: 'reel',
   };
 }
