@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-10T09:12:57.892Z",
+  "generatedAt": "2026-10-10T21:14:36.472Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2371,
-  "avgDurationMs": 2371,
+  "durationMs": 3977,
+  "avgDurationMs": 3977,
   "durationHistory": [
-    2371
+    3977
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:50.372Z",
+      "crawledAt": "2026-10-10T21:14:21.709Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,7 +80,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:50.370Z",
+      "crawledAt": "2026-10-10T21:14:21.706Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -123,7 +123,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:50.368Z",
+      "crawledAt": "2026-10-10T21:14:21.698Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -166,7 +166,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:50.366Z",
+      "crawledAt": "2026-10-10T21:14:21.690Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }

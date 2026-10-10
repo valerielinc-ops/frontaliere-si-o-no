@@ -1,7 +1,7 @@
 {
   "key": "felfel",
   "label": "FELFEL",
-  "generatedAt": "2026-10-10T09:10:13.336Z",
+  "generatedAt": "2026-10-10T21:11:21.955Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7046,
-  "avgDurationMs": 7046,
+  "durationMs": 10496,
+  "avgDurationMs": 10496,
   "durationHistory": [
-    7046
+    10496
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://felfel.jobs.personio.de/job/2798583",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:10:02.585Z",
+      "crawledAt": "2026-10-10T21:11:04.026Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -79,7 +79,7 @@
       "url": "https://felfel.jobs.personio.de/job/2793209",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:10:02.582Z",
+      "crawledAt": "2026-10-10T21:11:04.023Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -123,7 +123,7 @@
       "url": "https://felfel.jobs.personio.de/job/2785461",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:10:02.578Z",
+      "crawledAt": "2026-10-10T21:11:04.016Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -169,7 +169,7 @@
       "url": "https://felfel.jobs.personio.de/job/2834630",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:10:02.581Z",
+      "crawledAt": "2026-10-10T21:11:04.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -212,7 +212,7 @@
       "url": "https://felfel.jobs.personio.de/job/2626851",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:10:02.574Z",
+      "crawledAt": "2026-10-10T21:11:04.009Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -244,5 +244,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
