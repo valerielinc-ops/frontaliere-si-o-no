@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-09T12:30:59.716Z",
+  "assembledAt": "2026-10-10T11:48:36.020Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -15923,7 +15923,16 @@
         "lng": 8.6249023
       },
       "recurring": true,
-      "sourceDescriptionHash": "c2c3027a106112b025bec7fda9fd75a09747da51e89439f23de8d657c4c93d12"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Schaffhausen"
+      },
+      "sourceDescriptionHash": "6d32904ad909d570ca33e7253d5672bc4789b884a61fa2971ed680f64809ea9a"
     },
     {
       "id": "myswitzerland:c1793a2fa931456db795627e90daac15",
@@ -99267,17 +99276,26 @@
       "endDate": "2026-11-28",
       "startTime": "02:00",
       "category": "Event",
-      "venue": "6600 Locarno",
+      "venue": "Locarno",
       "comune": "Locarno",
       "canton": "TI",
       "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/festival-la-donna-crea/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
-        "lat": 46.1699014,
-        "lng": 8.7952478
+        "lat": 46.1698002,
+        "lng": 8.7913474
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Locarno"
+      },
       "italianFrontierComuni": [
         "Tronzano Lago Maggiore",
         "Maccagno con Pino e Veddasca",
@@ -115512,13 +115530,13 @@
         "de": "Öffentliche Museumsführungen «Der Kleine Prinz und seine Welt»",
         "fr": "Öffentliche Museumsführungen «Der Kleine Prinz und seine Welt»"
       },
-      "startDate": "2026-08-29",
-      "endDate": "2026-12-29",
+      "startDate": "2026-10-10",
+      "endDate": "2027-12-28",
       "startTime": "02:00",
       "category": "Event",
-      "venue": "Stiftung Museum Palais Besenval",
-      "canton": "",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/oeffentliche-museumsfuehrungen-der-kleine-prinz-und-seine-welt/",
+      "venue": "Soletta",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/oeffentliche-museumsfuehrungen-der-kleine-prinz-und-seine-welt/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -115526,7 +115544,23 @@
         "lng": 7.5387733
       },
       "recurring": true,
-      "sourceDescriptionHash": "7e93d1378ed76177fafb3bdb1bbc53e33a33bf33d5026e19f7080243ec6593b2"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Soletta"
+      },
+      "sourceDescriptionHash": "7e93d1378ed76177fafb3bdb1bbc53e33a33bf33d5026e19f7080243ec6593b2",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "offentliche-museumsfuhrungen-der-kleine-prinz-und-2026-08-29"
+        }
+      ]
     },
     {
       "id": "myswitzerland:c1f8549c14af46a08614158892d634de",
@@ -131679,6 +131713,15 @@
         "lng": 7.520055
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "86d00aca9d2328047597542b499e73e111d67fccd953844095db7d9def039685"
     },
     {
@@ -131835,6 +131878,15 @@
         "lng": 7.5412039
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "fc1b3795e5f71b6b47f4ef746ca88709c323e0bce16057e2eecf2d9e814dac3f"
     },
     {
@@ -131913,6 +131965,15 @@
         "lng": 7.5412796
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "bc8b95ef8834ee214809307879b00a9ce25d78821f2f48c42cbc2eda02d128cf"
     },
     {
@@ -262680,6 +262741,369 @@
         "url": "https://www.myswitzerland.com/en/"
       },
       "sourceDescriptionHash": "b7d07bc17c8eab2c0c12711f2bd9790c51b4ae3c2308aeef8aedd53313e18e85"
+    },
+    {
+      "id": "myswitzerland:c55c28745f9b4a5bbb96559f1c67793f",
+      "title": "Kitsch in der bildenden Kunst",
+      "titleByLocale": {
+        "it": "Kitsch in der bildenden Kunst",
+        "en": "Kitsch in der bildenden Kunst",
+        "de": "Kitsch in der bildenden Kunst",
+        "fr": "Kitsch in der bildenden Kunst"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-12-02",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kitsch-in-der-bildenden-kunst/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2046977,
+        "lng": 7.5412039
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
+      "sourceDescriptionHash": "5ce8cea05d3b9e47382522cf23d6d5207de0e428b947d15b016348c6590fb766"
+    },
+    {
+      "id": "myswitzerland:c4fdb3e5f7a14bde9657fc6098f88436",
+      "title": "Incontro con 18enni",
+      "titleByLocale": {
+        "it": "Incontro con 18enni",
+        "en": "Incontro con 18enni",
+        "de": "Incontro con 18enni",
+        "fr": "Incontro con 18enni"
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Roveredo GR",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/incontro-con-18enni/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2395042252218,
+        "lng": 9.13453429508578
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Roveredo GR"
+      },
+      "italianFrontierComuni": [
+        "Dosso del Liro",
+        "Garzeno"
+      ],
+      "sourceDescriptionHash": "5915ebeb5dbf1e9ad9ff6850a6de5dcbc3ba1c65026c22c4eff8f629b0533939"
+    },
+    {
+      "id": "myswitzerland:c4225d0127b94f72add942427a6535ed",
+      "title": "Openair al Lagh - Valposchiavo",
+      "titleByLocale": {
+        "it": "Openair al Lagh - Valposchiavo",
+        "en": "Openair al Lagh - Valposchiavo",
+        "de": "Openair al Lagh - Valposchiavo",
+        "fr": "Openair al Lagh - Valposchiavo"
+      },
+      "startDate": "2027-06-18",
+      "endDate": "2027-06-18",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Le Prese",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/openair-al-lagh-valposchiavo-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.292261,
+        "lng": 10.087658
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Le Prese"
+      },
+      "italianFrontierComuni": [
+        "Tirano",
+        "Villa di Tirano",
+        "Bianzone",
+        "Sernio",
+        "Vervio"
+      ],
+      "sourceDescriptionHash": "fc2905d925d427c98167b37876ab0275bc275e909b4aa41fb410f1559eb04dd7"
+    },
+    {
+      "id": "myswitzerland:c39f371ba258489f8b3a5264da727043",
+      "title": "Dorfmärit Thunstetten-Bützberg",
+      "titleByLocale": {
+        "it": "Dorfmärit Thunstetten-Bützberg",
+        "en": "Dorfmärit Thunstetten-Bützberg",
+        "de": "Dorfmärit Thunstetten-Bützberg",
+        "fr": "Dorfmärit Thunstetten-Bützberg"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Thunstetten",
+      "comune": "Thunstetten",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/dorfmaerit-thunstetten-buetzberg/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.216087,
+        "lng": 7.748317
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Thunstetten"
+      },
+      "sourceDescriptionHash": "572e4bb3487b0797d78d92a2ba9dd5932a0dbe341e427ba2edfcbdd3c96406f2"
+    },
+    {
+      "id": "myswitzerland:c329b14dc9974345ac4c4ff0b72736f8",
+      "title": "Legno 100% Valposchiavo",
+      "titleByLocale": {
+        "it": "Legno 100% Valposchiavo",
+        "en": "Legno 100% Valposchiavo",
+        "de": "Legno 100% Valposchiavo",
+        "fr": "Legno 100% Valposchiavo"
+      },
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-09",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Poschiavo",
+      "comune": "Poschiavo",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/legno-100-valposchiavo-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.325026,
+        "lng": 10.055005
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Poschiavo"
+      },
+      "italianFrontierComuni": [
+        "Villa di Tirano",
+        "Tirano"
+      ],
+      "sourceDescriptionHash": "41b62b2f852fa60a1aa2ba749df49241a45a4ce74277cbe6b0ea7da32ff7a780"
+    },
+    {
+      "id": "myswitzerland:c3257a83d3f64fe5a7bbe8475a1d88fa",
+      "title": "Waldegg-Bühne Uitikon \"Der nackte Wahnsinn\"",
+      "titleByLocale": {
+        "it": "Waldegg-Bühne Uitikon \"Der nackte Wahnsinn\"",
+        "en": "Waldegg-Bühne Uitikon \"Der nackte Wahnsinn\"",
+        "de": "Waldegg-Bühne Uitikon \"Der nackte Wahnsinn\"",
+        "fr": "Waldegg-Bühne Uitikon \"Der nackte Wahnsinn\""
+      },
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-10",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Uitikon-Waldegg",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/waldegg-buehne-uitikon-der-nackte-wahnsinn/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3701812,
+        "lng": 8.4536026
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Uitikon-Waldegg"
+      },
+      "sourceDescriptionHash": "57838818a72e9a20237d882e0aa3680a0cc42147154b6e3e3f2c5cdfe1b1bf52"
+    },
+    {
+      "id": "myswitzerland:c2fd4399279f44b18dc13dc147dc5bba",
+      "title": "Rumpelstilzli",
+      "titleByLocale": {
+        "it": "Rumpelstilzli",
+        "en": "Rumpelstilzli",
+        "de": "Rumpelstilzli",
+        "fr": "Rumpelstilzli"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-03-07",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/rumpelstilzli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4802454,
+        "lng": 8.3102615
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "fd980f7b575eb751b6cb15868938bf4618744414347df525b67ca8d37531fb8c"
+    },
+    {
+      "id": "myswitzerland:c1bbd5a8e9024a0ba7d385eb09b948af",
+      "title": "Offizieller Bahnkurs November 2026",
+      "titleByLocale": {
+        "it": "Offizieller Bahnkurs November 2026",
+        "en": "Offizieller Bahnkurs November 2026",
+        "de": "Offizieller Bahnkurs November 2026",
+        "fr": "Offizieller Bahnkurs November 2026"
+      },
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-23",
+      "startTime": "15:45",
+      "category": "Event",
+      "venue": "Grenchen",
+      "comune": "Grenchen",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/offizieller-bahnkurs-november-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1845939,
+        "lng": 7.4057796
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Grenchen"
+      },
+      "sourceDescriptionHash": "aa80fa1924e8cef1e57e24a42baaa5310fdd46d9a18d717703ac105c0b53a95a"
+    },
+    {
+      "id": "myswitzerland:c14a09f941b7414ea81a74403fc14982",
+      "title": "Till Reiners – Raclette-Dinner im Jumi Chalet",
+      "titleByLocale": {
+        "it": "Till Reiners – Raclette-Dinner im Jumi Chalet",
+        "en": "Till Reiners – Raclette-Dinner im Jumi Chalet",
+        "de": "Till Reiners – Raclette-Dinner im Jumi Chalet",
+        "fr": "Till Reiners – Raclette-Dinner im Jumi Chalet"
+      },
+      "startDate": "2027-02-26",
+      "endDate": "2027-02-26",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Dübendorf",
+      "comune": "Dübendorf",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/till-reiners-raclette-dinner-im-jumi-chalet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3957944,
+        "lng": 8.5979351
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Raclette-Dinner im Jumi Chalet"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "4712018f80e2550b17d7d7a981d8ba0bfa7368fc1ed256cada20bdcd8532972a"
+    },
+    {
+      "id": "myswitzerland:c02a2247964d46fb821617c405f77ec9",
+      "title": "Costruzione e progettazione sperimentale",
+      "titleByLocale": {
+        "it": "Costruzione e progettazione sperimentale",
+        "en": "Experimental building and design",
+        "de": "Experimentelles Bauen und Gestalten",
+        "fr": "Construction et création expérimentales"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2027-01-30",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Kloten",
+      "comune": "Kloten",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/costruzione-e-progettazione-sperimentale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.451987,
+        "lng": 8.5895
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Kloten"
+      },
+      "sourceDescriptionHash": "3c579a8e6b0259509e8b04b65af67e7029e10a25e66f9a133dddbec9b1eb1b77"
     }
   ]
 }
