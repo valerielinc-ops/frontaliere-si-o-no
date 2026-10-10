@@ -1168,7 +1168,7 @@ function renderFuelAreaChartSvg(opts: {
   readonly locale: FuelDailyLocale;
   readonly formatValue: (v: number) => string;
 }): string {
-  const { series, rangeKey, ariaLabel, locale, formatValue } = opts;
+  const { series, ariaLabel, locale, formatValue } = opts;
   const dims = FUEL_CHART_DIMS;
   const plotW = dims.width - dims.padLeft - dims.padRight;
   const plotH = dims.height - dims.padTop - dims.padBottom;
@@ -1199,11 +1199,10 @@ function renderFuelAreaChartSvg(opts: {
     date: p.date,
   }));
 
+  const compactCoord = (value: number): string => String(Number(value.toFixed(1)));
   const linePath = coords
-    .map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)} ${c.y.toFixed(1)}`)
-    .join(' ');
-  const baseY = dims.padTop + plotH;
-  const areaPath = `${linePath} L${coords[coords.length - 1].x.toFixed(1)} ${baseY.toFixed(1)} L${coords[0].x.toFixed(1)} ${baseY.toFixed(1)} Z`;
+    .map((c, i) => `${i === 0 ? 'M' : 'L'}${compactCoord(c.x)},${compactCoord(c.y)}`)
+    .join('');
 
   const Y_TICKS = 5;
   const yTicks: Array<{ y: number; v: number }> = [];
@@ -1222,56 +1221,33 @@ function renderFuelAreaChartSvg(opts: {
     .sort((a, b) => a - b)
     .map((idx) => coords[idx]);
 
-  const gradientId = `fuelGradient-${rangeKey}-${zone_safe(rangeKey)}`;
   // Axis-tick text style lives in seo-static.css `.s-ctk` (font + fill +
   // tabular-nums) — repeats ~13×/page, so a class instead of an inline style
   // strips ~1.4 MB across the fuel corpus.
 
-  // Grid-line + path stroke styling lives in seo-static.css (.s-cgl / .s-cgx /
-  // .s-cpl / .s-cpa); only the per-element geometry stays inline.
-  const yGridLines = yTicks
-    .map(
-      (t) =>
-        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" class="s-cgl"></line>`,
-    )
+  // One path per grid direction avoids repeating the same class and geometry
+  // attributes on every line. The chart used to duplicate the complete series
+  // path for a decorative area fill as well as the visible stroke; across five
+  // hidden range panels that added 8-12 KB of non-content HTML to every fuel
+  // page. The line, axes, labels and min/avg/max values carry the same data
+  // without that duplicate payload.
+  const yGridPath = yTicks
+    .map((t) => `M${dims.padLeft},${compactCoord(t.y)}H${dims.width - dims.padRight}`)
     .join('');
-  const yLabels = yTicks
-    .map(
-      (t) =>
-        `<text x="${(dims.padLeft - 6).toFixed(0)}" y="${t.y.toFixed(1)}" text-anchor="end" dominant-baseline="middle" class="s-ctk">${esc(formatValue(t.v))}</text>`,
-    )
+  const xGridPath = xTicks
+    .map((t) => `M${compactCoord(t.x)},${dims.padTop}V${compactCoord(dims.padTop + plotH)}`)
     .join('');
-  const xGridLines = xTicks
-    .map(
-      (t) =>
-        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" class="s-cgx"></line>`,
-    )
-    .join('');
-  const xLabels = xTicks
-    .map(
-      (t) =>
-        `<text x="${t.x.toFixed(1)}" y="${(dims.padTop + plotH + 18).toFixed(1)}" text-anchor="middle" class="s-ctk">${esc(formatFuelDateShort(t.date, locale))}</text>`,
-    )
-    .join('');
+  const yLabels = `<g class="s-ctk" text-anchor="end" dominant-baseline="middle">${yTicks
+    .map((t) => `<text x="${dims.padLeft - 6}" y="${compactCoord(t.y)}">${esc(formatValue(t.v))}</text>`)
+    .join('')}</g>`;
+  const xLabels = `<g class="s-ctk" text-anchor="middle">${xTicks
+    .map((t) => `<text x="${compactCoord(t.x)}" y="${compactCoord(dims.padTop + plotH + 18)}">${esc(formatFuelDateShort(t.date, locale))}</text>`)
+    .join('')}</g>`;
 
-  return `<svg class="s-hUQt0t" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <linearGradient id="${gradientId}" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="5%" stop-color="var(--color-chart-area)" stop-opacity="0.35"></stop>
-        <stop offset="95%" stop-color="var(--color-chart-area)" stop-opacity="0"></stop>
-      </linearGradient>
-    </defs>
-    ${yGridLines}
-    ${xGridLines}
-    <path d="${areaPath}" fill="url(#${gradientId})" class="s-cpa"></path>
-    <path d="${linePath}" class="s-cpl"></path>
-    ${yLabels}
-    ${xLabels}
-  </svg>`;
+  return `<svg class="s-hUQt0t" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}"><path d="${yGridPath}" class="s-cgl"></path><path d="${xGridPath}" class="s-cgx"></path><path d="${linePath}" class="s-cpl"></path>${yLabels}${xLabels}</svg>`;
 }
 
-// Defensive id-suffix sanitiser — guarantees the gradient id stays valid even
-// if rangeKey ever drifts (no-op for the current 1M/3M/6M/1Y/5Y set).
+// Defensive id-suffix sanitiser for the tab/panel prefix.
 function zone_safe(s: string): string {
   return s.replace(/[^a-zA-Z0-9_-]/g, '');
 }
