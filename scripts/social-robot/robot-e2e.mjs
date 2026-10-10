@@ -46,7 +46,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, reel = false } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, reel = false, reelNextDelayMs = 0, confirmText = '' } = {}) {
   const createMenuMarkup = createMenu ? `
 <div id="menu" hidden>
   <a href="#" id="post-item" role="link"><span>Post</span><svg aria-label="Post" role="img"><title>Post</title></svg></a>
@@ -63,7 +63,7 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   <div id="crop" hidden><p>Ritaglia</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="edit" hidden><p>Modifica</p><div role="button" tabindex="0" class="next">Avanti</div></div>
   <div id="share-step" hidden><div id="caption" contenteditable="true" role="textbox" aria-label="Scrivi una didascalia..."></div><div role="button" tabindex="0" id="share">Condividi</div></div>
-  <div id="done" hidden><img alt="" src="data:,"><span>Il tuo ${reel ? 'reel' : 'post'} è stato condiviso.</span></div>`;
+  <div id="done" hidden><img alt="" src="data:,"><span>${confirmText || `Il tuo ${reel ? 'reel' : 'post'} è stato condiviso.`}</span></div>`;
   const dialogMarkup = createMenu
     ? '<div id="dialog" role="dialog" hidden></div>'
     : `<div id="dialog" role="dialog" hidden>${dialogContent}</div>`;
@@ -79,7 +79,13 @@ let count = 0;
 $('create').onclick = (e) => { e.preventDefault(); ${createAction} };
 ${postAction}
 function bindDialog() {
-  $('file').onchange = () => { count = $('file').files.length; $('pick').hidden = true; $('crop').hidden = false; };
+  $('file').onchange = () => {
+    count = $('file').files.length;
+    $('pick').hidden = true;
+    ${reel && Number(reelNextDelayMs) > 0
+      ? `$('crop').hidden = true; setTimeout(() => { $('crop').hidden = false; }, ${Number(reelNextDelayMs)});`
+      : "$('crop').hidden = false;"}
+  };
   const steps = ['crop', 'edit', 'share-step'];
   document.querySelectorAll('.next').forEach((b) => b.onclick = () => { const i = steps.findIndex((s) => !$(s).hidden); $(steps[i]).hidden = true; $(steps[i + 1]).hidden = false; });
   $('share').onclick = async () => {
@@ -260,6 +266,10 @@ function fakePlatforms() {
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
       case '/ig-reel/': return send(200, instagramPage({ reel: true }));
+      case '/ig-reel-direct/': return send(200, instagramPage({ createMenu: false, reel: true }));
+      case '/ig-reel-slow-preview/': return send(200, instagramPage({ reel: true, reelNextDelayMs: 150 }));
+      case '/ig-reel-de/': return send(200, instagramPage({ reel: true, confirmText: 'Dein Reel wurde geteilt.' }));
+      case '/ig-reel-fr/': return send(200, instagramPage({ reel: true, confirmText: 'Votre Reel a été partagé.' }));
       case '/challenge/': return send(200, page('Instagram', '<h1>Help us confirm it\'s you</h1>'));
       case '/ig-logged-out/': return send(302, '', 'text/plain', { location: '/accounts/login/' });
       case '/accounts/login/': return send(200, instagramLogin());
@@ -311,12 +321,12 @@ async function main() {
   const tab = context.pages()[0] || (await context.newPage());
   tab.setDefaultTimeout(1_500);
 
-  const run = async (channel, startUrl, { dryRun, label, reel = false }) => {
+  const run = async (channel, startUrl, { dryRun, label, reel = false, flowTimeouts = timeouts }) => {
     const dir = path.join(work, 'diagnostics', label);
     const step = stepTracker();
     const snap = (name) => captureDiagnostics(tab, dir, name, { channel, step: step.get() });
     try {
-      return { result: await FLOWS[channel]({ page: tab, files: channel === 'tiktok' || reel ? videoFiles : files, caption: CAPTION, dryRun, human, snap, startUrl, timeouts, video: channel === 'tiktok' || reel ? { bytes: 8, durationMs: 7_750 } : undefined, step }), dir };
+      return { result: await FLOWS[channel]({ page: tab, files: channel === 'tiktok' || reel ? videoFiles : files, caption: CAPTION, dryRun, human, snap, startUrl, timeouts: flowTimeouts, video: channel === 'tiktok' || reel ? { bytes: 8, durationMs: 7_750 } : undefined, step }), dir };
     } catch (err) {
       return { error: err, dir };
     }
@@ -349,6 +359,17 @@ async function main() {
     check(r.result?.status === 'published' && /reel|condiviso/i.test(r.result.evidence), `Reel publish returns only with the confirmation (${r.result?.evidence || r.error?.message})`);
     check(state.igReels.length === 1 && state.igReels[0].files === 1, 'one Reel upload reaches the platform as one video file');
     check(state.igReels[0].caption.includes('#frontalieri'), 'the Reel caption reached the platform');
+
+    r = await run('instagram', `${base}/ig-reel-direct/`, { dryRun: true, label: 'ig-reel-direct', reel: true });
+    check(r.result?.status === 'dry-run', `a Reel layout with a direct upload dialog remains supported (${r.error?.message || 'ok'})`);
+
+    r = await run('instagram', `${base}/ig-reel-slow-preview/`, { dryRun: true, label: 'ig-reel-slow-preview', reel: true, flowTimeouts: { ...timeouts, ui: 50, upload: 1_000 } });
+    check(r.result?.status === 'dry-run', `a delayed Reel preview uses the bounded upload wait (${r.error?.message || 'ok'})`);
+
+    for (const [locale, pathName] of [['German', 'ig-reel-de'], ['French', 'ig-reel-fr']]) {
+      r = await run('instagram', `${base}/${pathName}/`, { dryRun: false, label: `ig-reel-${pathName}`, reel: true });
+      check(r.result?.status === 'published', `${locale} Reel confirmation is accepted (${r.result?.evidence || r.error?.message})`);
+    }
 
     r = await run('instagram', `${base}/ig-silent/`, { dryRun: false, label: 'ig-silent' });
     check(r.error instanceof RobotError && r.error.errorClass === 'confirmation-missing' && r.error.pressed === true, 'a press without confirmation is confirmation-missing, pressed');

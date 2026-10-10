@@ -48,7 +48,7 @@ export const RX = Object.freeze({
   igNext: ANY_OF('Next', 'Avanti', 'Weiter', 'Suivant'),
   igShare: ANY_OF('Share', 'Condividi', 'Teilen', 'Partager'),
   igCaption: /caption|didascalia|bildunterschrift|légende/i,
-  igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein beitrag wurde geteilt|beitrag geteilt|votre publication a été partagée|publication partagée/i,
+  igConfirm: /your (?:post|reel) has been shared|(?:post|reel) shared|il tuo (?:post|reel) è stato condiviso|(?:post|reel) condiviso|dein (?:beitrag|reel) wurde geteilt|(?:beitrag|reel) geteilt|votre (?:publication|reel) a été partag(?:ée|é)|(?:publication|reel) partag(?:ée|é)/i,
   notNow: ANY_OF('Not now', 'Not Now', 'Non ora', 'Jetzt nicht', 'Plus tard'),
   ttPost: ANY_OF('Post', 'Pubblica', 'Posten', 'Veröffentlichen', 'Publier'),
   ttPostNow: ANY_OF('Post now', 'Pubblica ora', 'Jetzt posten', 'Publier maintenant'),
@@ -745,13 +745,15 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   await human.pause();
 
   step.set('create-menu');
-  const reelMenu = await required(step, 'reel-menu', [
+  const reelMenu = await findFirst([
     page.getByRole('link', { name: RX.igReelMenu }),
     page.getByRole('menuitem', { name: RX.igReelMenu }),
-  ], { guard, timeout: t.ui });
-  await snap('create-menu');
-  await clickChecked(page, reelMenu, { step, snap, platform: 'instagram', label: 'Instagram Reel menu item' });
-  await human.pause();
+  ], { guard, timeout: t.optional });
+  if (reelMenu) {
+    await snap('create-menu');
+    await clickChecked(page, reelMenu, { step, snap, platform: 'instagram', label: 'Instagram Reel menu item' });
+    await human.pause();
+  }
 
   const input = await required(step, 'reel-upload', [
     page.locator('div[role="dialog"] input[type="file"][accept*="video"]'),
@@ -770,7 +772,10 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   // Instagram has shipped both a one-Next and a two-Next Reel editor. Try the
   // first transition, then only look for a second one when the caption editor
   // is not present yet; never guess a publish control.
-  const firstNext = await required(step, 'reel-next-preview', [page.getByRole('button', { name: RX.igNext })], { guard, timeout: t.ui });
+  // Video processing can outlast the ordinary UI timeout. Waiting for the
+  // first transition with the bounded upload timeout keeps slow valid uploads
+  // alive without allowing the flow to wait indefinitely.
+  const firstNext = await required(step, 'reel-next-preview', [page.getByRole('button', { name: RX.igNext })], { guard, timeout: t.upload });
   await clickChecked(page, firstNext, { step, snap, platform: 'instagram', label: 'Instagram Reel preview next' });
   await human.pause();
 
