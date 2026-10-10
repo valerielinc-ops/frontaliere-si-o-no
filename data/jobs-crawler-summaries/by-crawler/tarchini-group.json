@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-10-09T21:14:21.553Z",
+  "generatedAt": "2026-10-10T09:14:33.901Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3949,
-  "avgDurationMs": 3949,
+  "durationMs": 3816,
+  "avgDurationMs": 3816,
   "durationHistory": [
-    3949
+    3816
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       "firstSeenAt": "2026-10-01T09:14:30.664Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:14:11.625Z",
+      "crawledAt": "2026-10-10T09:14:23.382Z",
       "postalCode": "6850",
       "needsRetranslation": true,
       "_qualityScore": 90,
@@ -92,7 +92,7 @@
       "applicationEmail": "info@tarchinigroup.com",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:14:11.644Z",
+      "crawledAt": "2026-10-10T09:14:23.398Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-09-29T21:13:20.401Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-09T21:14:11.649Z",
+      "crawledAt": "2026-10-10T09:14:23.402Z",
       "postalCode": "6850",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -143,5 +143,5 @@
       }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }
