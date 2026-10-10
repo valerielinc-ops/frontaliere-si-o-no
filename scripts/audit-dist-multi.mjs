@@ -843,8 +843,9 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // Image, organizer and performer remain required Event fields. Detail-page
-  // Offer shells may omit price when the source has no verifiable amount.
+  // Image, organizer and performer remain required Event fields. Offers are
+  // optional when the source has no verifiable price; when present, an Offer
+  // must contain a numeric price and AggregateOffer must contain lowPrice.
   for (const field of ['image', 'organizer', 'performer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
@@ -863,22 +864,21 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
     }
   }
-  // A missing price is valid only for the detail-page fallback shell. Any
-  // price that is present must remain source-backed, numeric and non-negative.
-  // Kept in lockstep with the same rule in
-  // scripts/validate-structured-data-completeness.mjs (shared Event contract).
+  // Keep this in lockstep with validate-structured-data-completeness.mjs:
+  // an emitted Offer must always contain a numeric amount.
+  const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
+  const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if (Object.prototype.hasOwnProperty.call(schema.offers, 'price')) {
-        if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
-        } else if (schema.offers.price < 0) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
-        } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
-          errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
-        }
+      const price = schema.offers[offerAmountField];
+      if (typeof price !== 'number' || !Number.isFinite(price)) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must be a finite number` });
+      } else if (price < 0) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must not be negative` });
+      } else if (price === 0 && schema.isAccessibleForFree !== true) {
+        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} 0 requires isAccessibleForFree=true` });
       }
       if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
@@ -894,8 +894,9 @@ function sdValidateEvent(schema, filePath) {
       }
     }
   }
-  if (schema.isAccessibleForFree === true && schema.offers?.price !== 0) {
-    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: 'isAccessibleForFree=true requires offers.price=0' });
+  const freeOfferAmount = offerType === 'AggregateOffer' ? schema.offers?.lowPrice : schema.offers?.price;
+  if (schema.isAccessibleForFree === true && freeOfferAmount !== 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: `isAccessibleForFree=true requires offers.${offerAmountField}=0` });
   }
   return errors;
 }
