@@ -1,7 +1,7 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-10-10T09:12:56.390Z",
+  "generatedAt": "2026-10-10T21:13:37.249Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 13125,
-  "avgDurationMs": 13125,
+  "durationMs": 10584,
+  "avgDurationMs": 10584,
   "durationHistory": [
-    13125
+    10584
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-60-100--4079319",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:23.663Z",
+      "crawledAt": "2026-10-10T21:13:16.311Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -78,7 +78,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Betriebselektriker-Elektromonteur-mwd-80-100--4080292",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:21.891Z",
+      "crawledAt": "2026-10-10T21:13:15.103Z",
       "addressLocality": "Rapperswil Switzerland",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -125,7 +125,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4076949",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:27.385Z",
+      "crawledAt": "2026-10-10T21:13:19.411Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -167,7 +167,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:26.771Z",
+      "crawledAt": "2026-10-10T21:13:18.803Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -210,7 +210,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Technical-Service-Delivery-Lead-100-fmd---4082051",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:25.892Z",
+      "crawledAt": "2026-10-10T21:13:18.190Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -252,7 +252,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4081929",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:25.219Z",
+      "crawledAt": "2026-10-10T21:13:17.581Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -295,7 +295,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Export-Sachbearbeiter-in-80-100-12-Monate-befristet--4073960",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T09:12:24.575Z",
+      "crawledAt": "2026-10-10T21:13:16.912Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -338,7 +338,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Business-Controller-EMEA-and-Americas--4071513",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:22.783Z",
+      "crawledAt": "2026-10-10T21:13:15.713Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -381,7 +381,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4079315",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T09:12:21.230Z",
+      "crawledAt": "2026-10-10T21:13:14.504Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -413,5 +413,5 @@
       }
     }
   ],
-  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
+  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
 }
