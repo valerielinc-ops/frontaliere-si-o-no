@@ -175,6 +175,12 @@ Il report deve mostrare anche hook e loop, non solo la percentuale, così la
 decisione successiva è: “ripetiamo questa promessa per questo pubblico”, non
 “copiamo il post con più like”.
 
+La cadenza protegge anche l’unità del test: il poster consente una sola
+pubblicazione per `kind + day`. Se una classifica aggiornata ricrea la coda
+dello stesso giorno dopo una pubblicazione già confermata, la nuova esecuzione
+non ripubblica il contenuto e rimuove solo l’entry stale corrispondente; un
+eventuale item più recente dello stesso tipo resta intatto.
+
 ## 7. Roadmap di 30 giorni
 
 | Periodo | Esecuzione | Decisione |

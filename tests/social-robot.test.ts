@@ -20,6 +20,7 @@ import {
   deliverSocialPost,
   dequeuePosts,
   enqueuePost,
+  isPublishedForKindDay,
   ledgerPathFor,
   loadQueue,
   queuePathFor,
@@ -212,6 +213,38 @@ describe('the queue', () => {
     const border = entry('border', '2026-09-28', { now: NOW - 72 * HOUR });
     const next = upsertPending({ pending: [old, stale, border] }, entry('article'), NOW);
     expect(next.pending.map((e: { id: string }) => e.id).sort()).toEqual(['article-2026-10-03', 'border-2026-09-28']);
+  });
+
+  it('removes one stale queue id without deleting a newer entry of the same kind', () => {
+    const root = tempDir();
+    const file = path.join(root, 'instagram-queue.json');
+    const stale = entry('article', '2026-10-03');
+    const newer = entry('article', '2026-10-04');
+    fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, pending: [stale, newer] }));
+
+    dequeuePosts(file, { channel: 'instagram', kind: 'article', queueId: stale.id });
+
+    expect(loadQueue(file).pending.map((item: { id: string }) => item.id)).toEqual([newer.id]);
+  });
+
+  it('recognizes a published kind-day for API and robot ledger rows', () => {
+    const ledger = {
+      posted: [
+        { id: 'card-a', kind: 'article', day: '2026-10-03' },
+        { id: 'card-b', kind: 'article', day: '2026-10-03', queueId: 'article-2026-10-03' },
+      ],
+    };
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-03' })).toBe(true);
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-04' })).toBe(false);
+    expect(isPublishedForKindDay(ledger, { kind: 'job', day: '2026-10-03' })).toBe(false);
+  });
+
+  it('guards both daily posters against a same-day replay', () => {
+    for (const [file, channel] of [['post-to-instagram.mjs', 'instagram'], ['post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, 'scripts', file), 'utf8');
+      expect(src).toContain('isPublishedForKindDay(ledger, { kind, day })');
+      expect(src).toContain(`dequeuePosts(QUEUE_PATH, { channel: '${channel}', kind, queueId })`);
+    }
   });
 
   it('writes the queue file the workflow commits', () => {

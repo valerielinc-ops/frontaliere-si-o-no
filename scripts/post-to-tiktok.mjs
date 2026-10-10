@@ -111,6 +111,7 @@ import {
   queuePathFor,
   resolveSocialRobotMode,
   socialPublishRoute,
+  isPublishedForKindDay,
 } from './lib/social-publish-queue.mjs';
 import { TIKTOK_API, publishCarousel } from './lib/tiktok-publish.mjs';
 
@@ -221,6 +222,12 @@ function prepareTikTokVideo(slides, keyPrefix) {
 async function postGa4Carousel({ kind, day, dryRun, accessToken, robotMode }) {
   const campaign = kind === 'job' ? TIKTOK_CAMPAIGN_JOB : TIKTOK_CAMPAIGN_ARTICLE;
   const ledger = loadLedger(LEDGER_PATH);
+  if (!dryRun && isPublishedForKindDay(ledger, { kind, day })) {
+    const queueId = `${kind}-${day}`;
+    dequeuePosts(QUEUE_PATH, { channel: 'tiktok', kind, queueId });
+    console.log(`ℹ️  ${kind}: post TikTok ${queueId} già pubblicato — nessun replay e coda stale ripulita`);
+    return;
+  }
   const cutoff = Date.now() - DEDUP_WINDOW_DAYS * 86400000;
   const recent = new Set(
     ledger.posted
