@@ -24,29 +24,33 @@ import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocu
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
 const S = { type: 'string' };
+const ACTION_PROPERTIES = {
+  ref: S,
+  action: { type: 'string', enum: ['click', 'fill', 'type', 'select', 'press', 'upload'] },
+  value: S,
+  document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
+  question: S,
+  context: S,
+  answer: S,
+  source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
+  evidence: S,
+};
+const QUESTION_PROPERTIES = {
+  question: S,
+  context: S,
+  why: S,
+  type: { type: 'string', enum: ['text', 'yes_no', 'choice', 'number', 'date'] },
+  options: LIST(S),
+  validation: ANSWER_VALIDATION_SCHEMA,
+};
 
 export const AGENT_SCHEMA = OBJ({
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OBJ({
-    ref: S,
-    action: { type: 'string', enum: ['click', 'fill', 'type', 'select', 'press', 'upload'] },
-    value: S,
-    document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
-    question: S,
-    answer: S,
-    source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
-    evidence: S,
-  })),
+  actions: LIST(OBJ(ACTION_PROPERTIES)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OBJ({
-    question: S,
-    why: S,
-    type: { type: 'string', enum: ['text', 'yes_no', 'choice', 'number', 'date'] },
-    options: LIST(S),
-    validation: ANSWER_VALIDATION_SCHEMA,
-  })),
+  questions: LIST(OBJ(QUESTION_PROPERTIES)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
@@ -84,7 +88,8 @@ Actions:
 - select: a native select or a combobox; value = the option's label; the runner opens it, types and picks the option.
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
 - upload: a file input or an upload button; document = cv, cover_letter, or the slot of a document listed in documents.extra.
-For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
+For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); context = the surrounding section/fieldset labels that disambiguate the question (for example, the labels around a bare "CAP"; "" when none); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
+For each item in questions, use the same context field when its label is ambiguous (for example, a bare "CAP" in a residence fieldset); otherwise use "".
 Work history and education sections: add one entry per item of profile.experience and profile.education with the page's own "Add" button when there is one.
 
 Never press the button that sends the application, never Next or Continue (the runner does), never follow a link to another page, never sign in or create an account, never type a password.
@@ -163,35 +168,40 @@ const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
  */
 export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const knownValues = knownValuesOf(candidate);
-  const answered = (candidate?.portalQuestionsAnswered || []).map((item) => item.question);
+  const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
+  const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
     ...answered.map(topicOf).filter((topic) => topic >= 0),
-    ...answered.map(questionTopic).filter(Boolean),
+    ...answeredItems.map((item) => questionTopic(item.question, item.context)).filter(Boolean),
   ]);
-  const isAnswered = (question) => Boolean(candidateAnswerForQuestion(candidate, question))
+  const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
+  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question))
+    || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
-    || answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
+    || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
+      && (!context || !item.context || item.context === context))
     || answeredTopics.has(topicOf(question))
-    || (questionTopic(question) && answeredTopics.has(questionTopic(question)));
+    || (questionTopic(question, context) && answeredTopics.has(questionTopic(question, context)));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
-    if (!question || isAnswered(question) || questions.some((other) => other.question === question)) return;
-    questions.push({ why: '', options: [], ...item, question, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
+    const context = String(item.context || '').slice(0, 240);
+    if (!question || isAnswered(question, context) || questions.some((other) => other.question === question && other.context === context)) return;
+    questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
   const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
     || KNOCK_OUT.test(action.question || '')
-    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question)));
+    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, action.context)));
   for (const action of sensitive) {
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question);
+    const addressTopic = questionTopic(action.question, action.context);
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context: action.context, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
@@ -227,7 +237,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   for (const action of sensitive) {
     if (grounded.has(action.question)) continue;
     refused.add(action.question);
-    ask({ question: action.question });
+    ask({ question: action.question, ...(action.context ? { context: action.context } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
