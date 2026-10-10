@@ -356,7 +356,10 @@ export function classifyAilListingHtml(html = '') {
   }
 
   const authoritativeEmptySnapshot = listings.length === 0 && emptyStateContents.some((content) => {
-    const visibleText = normalizeSpace(decodeHtmlEntities(content).replace(/<[^>]*>/g, ' '));
+    const visibleMarkup = content
+      .replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, ' ')
+      .replace(/<[^>]*>/g, ' ');
+    const visibleText = normalizeSpace(decodeHtmlEntities(visibleMarkup));
     return AIL_EMPTY_SOURCE_RE.test(visibleText);
   });
   return {

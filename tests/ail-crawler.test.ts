@@ -233,6 +233,17 @@ describe('AIL crawler listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(false);
   });
 
+  it('ignores script and style contents inside the empty-state container', () => {
+    for (const tag of ['script', 'style']) {
+      const result = classifyAilListingHtml(
+        `<div class="layout"><div class="inner-title"><${tag}>Al momento non ci sono posizioni aperte</${tag}></div></div>`,
+      );
+
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
+  });
+
   it('requires an exact class attribute and class token', () => {
     for (const html of [
       '<div data-class="inner-title">Al momento non ci sono posizioni aperte</div>',
