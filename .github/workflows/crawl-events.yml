@@ -142,42 +142,139 @@ jobs:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          branch='chore/crawl-events-refresh'
+          run_bounded() {
+            node scripts/lib/run-bounded-command.mjs --timeout-seconds "$1" --label "$2" -- "${@:3}"
+          }
           [ -n "$GH_TOKEN" ] || {
             echo "::error::No authenticated refresh token is available to probe the stable events refresh branch"
             exit 1
           }
+          refresh_prs="$(run_bounded 60 'gh pr list events refresh branches' \
+            gh pr list --repo "$GITHUB_REPOSITORY" --base main --state all --limit 1000 \
+              --json number,title,headRefName,headRepository,state,createdAt,mergedAt)" || {
+            echo "::error::Unable to inspect the events refresh PR history"
+            exit 1
+          }
+          branch_plan="$(printf '%s' "$refresh_prs" | node scripts/ci/select-crawl-events-refresh-branch.mjs \
+            --repository "$GITHUB_REPOSITORY" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "${GITHUB_RUN_ATTEMPT:-1}")" || {
+            echo "::error::Unable to select a safe events refresh branch"
+            exit 1
+          }
+          branch="$(printf '%s' "$branch_plan" | jq -r '.branch')"
+          require_new_branch="$(printf '%s' "$branch_plan" | jq -r '.requireNewBranch')"
+          require_existing_branch="$(printf '%s' "$branch_plan" | jq -r '.requireExistingBranch')"
+          echo "Selected events refresh branch ${branch}: $(printf '%s' "$branch_plan" | jq -r '.reason')"
           remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           probe="$RUNNER_TEMP/crawl-events-refresh-remote-head"
-          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+          if ! run_bounded 60 'git ls-remote events refresh refs' \
+            git ls-remote "$remote_url" refs/heads/main "refs/heads/${branch}" >"$probe" 2>/dev/null; then
             echo "::error::Unable to authenticate or probe the stable events refresh branch"
             exit 1
           fi
-          if [ ! -s "$probe" ]; then
-            echo "No in-flight events refresh PR branch found."
-            exit 0
-          fi
-          if ! git fetch --no-tags --depth=1 "$remote_url" \
-            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
-            >/dev/null 2>&1; then
-            echo "::error::Unable to fetch the stable events refresh branch"
+          remote_main="$(awk '$2 == "refs/heads/main" { print $1; exit }' "$probe")"
+          remote_refresh="$(awk -v ref="refs/heads/${branch}" '$2 == ref { print $1; exit }' "$probe")"
+          if [ "$require_new_branch" = true ] && [ -n "$remote_refresh" ]; then
+            echo "::error::The selected fresh events refresh branch already exists; refusing to carry its state."
             exit 1
           fi
-          # The crawl below starts from this pending refresh: its slices and
-          # checkpoints are the ones restored here, plus what this run adds.
-          # If the pending PR is merged while the crawl runs, main and this
-          # run both hold a change to the same files, and the publisher needs
-          # to know that one continues the other. The remote-tracking ref is
-          # moved by every later publisher call, so the starting commit gets a
-          # ref of its own, and the reconciler reads it by name.
-          git update-ref refs/crawl-events/carried-forward \
-            "$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
+          if [ -z "$remote_refresh" ] && [ "$require_existing_branch" = true ]; then
+            branch="chore/crawl-events-refresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT:-1}"
+            require_new_branch=true
+            echo "The latest open refresh PR branch is missing remotely; starting a fresh branch ${branch}."
+          fi
+          echo "EVENTS_REFRESH_BRANCH=${branch}" >> "$GITHUB_ENV"
+          echo "EVENTS_REFRESH_REQUIRE_NEW_BRANCH=${require_new_branch}" >> "$GITHUB_ENV"
+          [ -n "$remote_main" ] || {
+            echo "::error::Unable to resolve current main while probing the stable events refresh branch"
+            exit 1
+          }
+          fetch_refs=(+refs/heads/main:refs/remotes/origin/main)
+          if [ -n "$remote_refresh" ]; then
+            fetch_refs+=("+refs/heads/${branch}:refs/remotes/origin/${branch}")
+          fi
+          if ! run_bounded 300 'git fetch events refresh and main refs' \
+            git fetch --no-tags --depth=1 "$remote_url" "${fetch_refs[@]}" >/dev/null 2>&1; then
+            echo "::error::Unable to fetch current main and the stable events refresh branch"
+            exit 1
+          fi
+          main_sha="$(git rev-parse --verify 'refs/remotes/origin/main^{commit}')"
+          if [ -z "$remote_refresh" ]; then
+            echo "No in-flight events refresh PR branch found; starting from current main."
+            git checkout --detach "$main_sha"
+            exit 0
+          fi
+          refresh_sha="$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"
+          merge_base="$(run_bounded 60 'gh api events refresh merge base' \
+            gh api "repos/${GITHUB_REPOSITORY}/compare/${main_sha}...${refresh_sha}" --jq '.merge_base_commit.sha')"
+          [ -n "$merge_base" ] && [ "$merge_base" != null ] || {
+            echo "::error::GitHub did not return a merge base for the pending events refresh"
+            exit 1
+          }
+          if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${merge_base}^{commit}" 2>/dev/null; then
+            run_bounded 300 'git fetch events refresh merge base' \
+              git fetch --no-tags --depth=1 "$remote_url" "$merge_base" >/dev/null 2>&1 || {
+                echo "::error::Unable to fetch the pending events refresh merge base"
+                exit 1
+              }
+          fi
+
+          probe_root="$(mktemp -d "$RUNNER_TEMP/crawl-events-refresh-preflight.XXXXXX")"
+          probe_worktree="$probe_root/worktree"
+          cleanup_probe() {
+            git worktree remove --force "$probe_worktree" >/dev/null 2>&1 || true
+            rm -rf -- "$probe_root"
+          }
+          trap cleanup_probe EXIT
+          if ! git worktree add --detach --no-checkout "$probe_worktree" "$refresh_sha" >/dev/null; then
+            echo "::error::Unable to create an isolated worktree for the pending events refresh preflight"
+            exit 1
+          fi
+          preflight_log="$probe_root/reconcile.log"
+          if (
+            cd "$probe_worktree"
+            GIT_AUTHOR_NAME='frontaliere-automation[bot]' \
+              GIT_AUTHOR_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+              GIT_COMMITTER_NAME='frontaliere-automation[bot]' \
+              GIT_COMMITTER_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com' \
+            EVENTS_DERIVED_DATASET_RECONCILIATION=events \
+              EVENTS_REFRESH_CARRIED_REF='' \
+              RECONCILE_SOURCE_ROOT="$GITHUB_WORKSPACE" \
+              node "$GITHUB_WORKSPACE/scripts/ci/reconcile-data-refresh-main.mjs" \
+                --base "$merge_base" --main "$main_sha" --message 'events refresh carry-forward preflight'
+          ) >"$preflight_log" 2>&1; then
+            cat "$preflight_log"
+            carry_sha="$(git -C "$probe_worktree" rev-parse --verify HEAD)"
+            echo "Pending events refresh can be reconciled with current main."
+          elif grep -Eq 'Not a continuation of the refresh this crawl started from|No starting refresh was recorded \(EVENTS_REFRESH_CARRIED_REF\)' "$preflight_log"; then
+            cat "$preflight_log"
+            echo "::warning::Pending events refresh has an unreconcilable source slice/checkpoint conflict; preserving its remote branch and starting this crawl from current main on a new branch."
+            branch="chore/crawl-events-refresh-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT:-1}"
+            echo "EVENTS_REFRESH_BRANCH=${branch}" >> "$GITHUB_ENV"
+            echo "EVENTS_REFRESH_REQUIRE_NEW_BRANCH=true" >> "$GITHUB_ENV"
+            git checkout --detach "$main_sha"
+            exit 0
+          else
+            cat "$preflight_log"
+            echo "::error::Pending events refresh preflight failed for a reason other than an unreconcilable source slice/checkpoint conflict"
+            exit 1
+          fi
+
+          # The reconciler ran only in the disposable worktree. Use the exact
+          # main tip checked above as this crawl's base before restoring carry.
+          git checkout --detach "$main_sha"
+          # Restore from the preflight merge result, not the stale branch tip:
+          # a clean merge may include source/checkpoint updates that landed on
+          # main after the pending branch was created. Keep this exact start
+          # state reachable while the publisher moves the remote-tracking ref.
+          git update-ref refs/crawl-events/carried-forward "$carry_sha"
           echo "EVENTS_REFRESH_CARRIED_REF=refs/crawl-events/carried-forward" >> "$GITHUB_ENV"
-          # Restore only blobs present in the pending branch. A directory
+          # Restore only blobs present in the reconciled refresh. A directory
           # restore would also delete files added to current main after that
           # branch was created, turning stale branch absence into data loss.
           bash scripts/lib/restore-stable-refresh-files.sh \
-            "refs/remotes/origin/${branch}" \
+            refs/crawl-events/carried-forward \
             data/events.json \
             public/data/events.json \
             data/events-geocode-cache.json \
@@ -228,7 +325,7 @@ jobs:
           Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
           ## Implementato
-          - Il crawler aggiorna le cache geo/traduzioni tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+          - Il crawler aggiorna le cache geo/traduzioni tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
           ## Non implementato (ancora)
           - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
@@ -237,7 +334,7 @@ jobs:
             --reconcile-main \
             --path data/events-geocode-cache.json \
             --path data/events-translation-cache.json \
-            --branch chore/crawl-events-refresh \
+            --branch "$EVENTS_REFRESH_BRANCH" \
             --commit-message "chore(events): persist crawl caches" \
             --title "chore(data): refresh crawl events" \
             --body-file "$body"
@@ -405,7 +502,7 @@ jobs:
           Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
           ## Implementato
-          - Il crawler aggiorna checkpoint e slice nationwide tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+          - Il crawler aggiorna checkpoint e slice nationwide tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
           ## Non implementato (ancora)
           - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
@@ -417,7 +514,7 @@ jobs:
             --path data/events/by-source/myswitzerland.json \
             --path data/events-translation-cache.json \
             --path data/events-geocode-cache.json \
-            --branch chore/crawl-events-refresh \
+            --branch "$EVENTS_REFRESH_BRANCH" \
             --commit-message "chore(events): persist nationwide crawl progress" \
             --title "chore(data): refresh crawl events" \
             --body-file "$body"
@@ -509,7 +606,7 @@ jobs:
           Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
           ## Implementato
-          - Il crawler pubblica dataset, slice, checkpoint, manifest e superfici articolo tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+          - Il crawler pubblica dataset, slice, checkpoint, manifest e superfici articolo tramite il branch eventi selezionato dal control plane, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
           ## Non implementato (ancora)
           - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
@@ -540,7 +637,7 @@ jobs:
             --reconcile-main \
             --resolve-symlinks \
             "${paths[@]}" \
-            --branch chore/crawl-events-refresh \
+            --branch "$EVENTS_REFRESH_BRANCH" \
             --commit-message "📅 Refresh Ticino + nationwide events agenda" \
             --title "chore(data): refresh crawl events" \
             --body-file "$body"
