@@ -20,6 +20,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { writeJsonAtomic } from "./lib/atomic-write-json.mjs";
+import { preserveSlugHistory } from "./lib/slug-preservation-guard.mjs";
 
 const SLICE_DIRS = [
   path.resolve("data/jobs/by-crawler"),
@@ -119,6 +121,50 @@ function parseJobObjects(rawObjects) {
   return parsed;
 }
 
+function stripConflictSide(text, side) {
+  const kept = [];
+  let conflictSide = null;
+  for (const line of text.split("\n")) {
+    if (/^<<<<<<<(?:\s|$)/.test(line)) {
+      conflictSide = "ours";
+      continue;
+    }
+    if (/^=======$/.test(line)) {
+      conflictSide = "theirs";
+      continue;
+    }
+    if (/^>>>>>>>/.test(line)) {
+      conflictSide = null;
+      continue;
+    }
+    if (conflictSide === null || conflictSide === side) kept.push(line);
+  }
+  return kept.join("\n");
+}
+
+function parsedJobsFromConflictSide(text, side) {
+  try {
+    const parsed = JSON.parse(stripConflictSide(text, side));
+    if (Array.isArray(parsed)) return parsed;
+    return Array.isArray(parsed?.jobs) ? parsed.jobs : [];
+  } catch {
+    return [];
+  }
+}
+
+function preserveRecoveredSlugHistory(sliceDir, fullPath, original, output) {
+  if (path.resolve(sliceDir) !== path.resolve("data/jobs/by-crawler")) return;
+  // The original file is intentionally malformed, so writeJsonAtomic cannot
+  // parse it as its own history source. Recover both conflict sides explicitly
+  // and run the same preservation guard against each before the atomic write.
+  for (const side of ["ours", "theirs"]) {
+    preserveSlugHistory(fullPath, output, {
+      previousValue: { jobs: parsedJobsFromConflictSide(original, side) },
+      root: process.cwd(),
+    });
+  }
+}
+
 function dedupeJobs(jobs) {
   const byId = new Map();
   for (const job of jobs) {
@@ -151,8 +197,9 @@ function rebuildSlice(sliceDir, file) {
   // Fast path: many conflicts are within an object (translation-cache shape)
   // where stripping markers yields valid JSON outright. Try that first.
   try {
-    JSON.parse(cleaned);
-    fs.writeFileSync(fullPath, cleaned.endsWith("\n") ? cleaned : cleaned + "\n", "utf8");
+    const parsed = JSON.parse(cleaned);
+    preserveRecoveredSlugHistory(sliceDir, fullPath, original, parsed);
+    writeJsonAtomic(fullPath, parsed);
     return { file, status: "recovered", rawObjects: 0, parsed: 0, deduped: 0, strategy: "strip-only" };
   } catch {
     // Fall through to object-extraction strategy.
@@ -187,7 +234,8 @@ function rebuildSlice(sliceDir, file) {
   const serialized = JSON.stringify(output, null, 2);
   JSON.parse(serialized);
 
-  fs.writeFileSync(fullPath, serialized + "\n", "utf8");
+  preserveRecoveredSlugHistory(sliceDir, fullPath, original, output);
+  writeJsonAtomic(fullPath, output);
 
   return {
     file,

@@ -1077,9 +1077,16 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   if (!hasActive || !looksLikeJob) return;
 
   const reachable = new Set();
+  const activeSlugs = new Set();
   const note = (v) => { if (typeof v === 'string' && v.trim()) reachable.add(v.trim()); };
-  note(merged.slug);
-  if (isPlainObject(merged.slugByLocale)) for (const v of Object.values(merged.slugByLocale)) note(v);
+  const noteActive = (v) => {
+    if (typeof v !== 'string' || !v.trim()) return;
+    const norm = v.trim();
+    activeSlugs.add(norm);
+    reachable.add(norm);
+  };
+  noteActive(merged.slug);
+  if (isPlainObject(merged.slugByLocale)) for (const v of Object.values(merged.slugByLocale)) noteActive(v);
   if (Array.isArray(merged.previousSlugs)) for (const v of merged.previousSlugs) note(v);
   if (isPlainObject(merged.previousSlugsByLocale)) {
     for (const arr of Object.values(merged.previousSlugsByLocale)) {
@@ -1106,6 +1113,45 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
       `-> banked into previousSlugs (${norm})`
     );
   };
+
+  // Base-equality shortcuts clone one complete side and never descend into
+  // `mergeValue()`'s append-only-array branch. Preserve both inputs' archived
+  // routes here too, or a stale writer can erase previousSlugs while changing
+  // an unrelated field (the post-backfill loss reported in #12498).
+  const bankArchived = (slug, locale) => {
+    if (typeof slug !== 'string') return;
+    const norm = slug.trim();
+    if (!norm || activeSlugs.has(norm)) return;
+    let added = false;
+    reachable.add(norm);
+    if (locale) {
+      if (!isPlainObject(merged.previousSlugsByLocale)) merged.previousSlugsByLocale = {};
+      if (!Array.isArray(merged.previousSlugsByLocale[locale])) merged.previousSlugsByLocale[locale] = [];
+      if (!merged.previousSlugsByLocale[locale].includes(norm)) {
+        merged.previousSlugsByLocale[locale].push(norm);
+        added = true;
+      }
+    }
+    if (!Array.isArray(merged.previousSlugs)) merged.previousSlugs = [];
+    if (!merged.previousSlugs.includes(norm)) {
+      merged.previousSlugs.push(norm);
+      added = true;
+    }
+    if (added) {
+      warnings.push(`Historical slug preserved at ${pathLabel}${locale ? `.previousSlugsByLocale.${locale}` : '.previousSlugs'} (${norm})`);
+    }
+  };
+  for (const source of [remoteObj, localObj]) {
+    for (const slug of Array.isArray(source?.previousSlugs) ? source.previousSlugs : []) {
+      bankArchived(slug, '');
+    }
+    if (isPlainObject(source?.previousSlugsByLocale)) {
+      for (const [locale, slugs] of Object.entries(source.previousSlugsByLocale)) {
+        if (!Array.isArray(slugs)) continue;
+        for (const slug of slugs) bankArchived(slug, locale);
+      }
+    }
+  }
 
   const remoteMap = isPlainObject(remoteObj?.slugByLocale) ? remoteObj.slugByLocale : {};
   const localMap = isPlainObject(localObj?.slugByLocale) ? localObj.slugByLocale : {};
