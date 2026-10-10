@@ -77,6 +77,11 @@ GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-
 GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS:-60}"
 GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
 GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
+# The ownership archive used to run inside the cross-repository lease. Real
+# grouped-isolated attempts measured 66.8–169.0 s fetching 56–612 missing
+# slice blobs on demand (2026-10-09). Prepare it before the lease, then bound
+# that one-time materialization independently of the push timeout.
+GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS:-300}"
 
 run_bounded() {
   local seconds="$1" label="$2"
@@ -1810,11 +1815,15 @@ old_history_guard_main() {
 # together. The generated crawler groups and translate-pending therefore opt
 # into one Firestore-backed lease. Keep acquisition outside the isolated
 # plumbing function, and the EXIT trap releases it on all normal failure/success
-# paths. The lease covers each attempt's fetch/rebuild/push but NOT the backoff
-# sleep between attempts: see the note on
+# paths. The full ownership archive is prepared before the lease; each attempt
+# covers fetch/rebuild/push and only the small ownership delta since the last
+# snapshot, but NOT the backoff sleep between attempts: see the note on
 # global_data_pipeline_lease_release_for_backoff for the measurement that
 # changed this, and why narrowing the lock is safe here.
 GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
+GROUPED_OWNERSHIP_VIEW_DIR=""
+GROUPED_OWNERSHIP_VIEW_SHA=""
+GROUPED_OWNERSHIP_CHANGED_COUNT=0
 global_data_pipeline_lease_acquire() {
   [ "${DATA_PIPELINE_LEASE:-0}" = "1" ] || return 0
   local lease_script
@@ -1842,9 +1851,114 @@ global_data_pipeline_lease_cleanup() {
     fi
     GLOBAL_DATA_PIPELINE_LEASE_ACQUIRED=0
   fi
+  if [ -n "${GROUPED_OWNERSHIP_VIEW_DIR:-}" ]; then
+    rm -rf -- "$GROUPED_OWNERSHIP_VIEW_DIR"
+    GROUPED_OWNERSHIP_VIEW_DIR=""
+  fi
   return "$exit_status"
 }
 trap global_data_pipeline_lease_cleanup EXIT
+
+# The ownership view can be large on the blobless grouped-crawler checkout.
+# Build it before acquiring the cross-repository writer lease; once the lease
+# is held, only refresh paths changed since this snapshot. A clean copy is made
+# for each isolated attempt so local candidate overlays never leak into retries.
+grouped_ownership_view_needed() {
+  local file remote_blob
+  for file in "${RESOLVED_FILES[@]}"; do
+    [[ "$file" == data/jobs/by-crawler/*.json ]] || continue
+    if [ "$GROUP_BATCH" = true ]; then
+      [ "${_BATCH_SNAPSHOT_OPERATION[$file]:-unchanged}" != unchanged ] || continue
+      [ "${_BATCH_SNAPSHOT_STATE[$file]:-absent}" = present ] || continue
+      return 0
+    fi
+    [ -f "$file" ] || continue
+    if ! git check-ignore -q "$file" 2>/dev/null; then
+      remote_blob="$(git rev-parse -q --verify "refs/remotes/origin/main:$file" 2>/dev/null || true)"
+      [ -n "$remote_blob" ] && [ "$(git hash-object -- "$file")" = "$remote_blob" ] && continue
+    fi
+    return 0
+  done
+  return 1
+}
+
+grouped_ownership_view_prepare() {
+  local remote_sha="$1" ownership_listing ownership_missing ownership_total started_seconds
+  started_seconds="$SECONDS"
+  if [ -z "$GROUPED_OWNERSHIP_VIEW_DIR" ]; then
+    GROUPED_OWNERSHIP_VIEW_DIR="$(mktemp -d /tmp/crawler-ownership-view.XXXXXX)"
+  fi
+  rm -rf -- "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot"
+  mkdir -p "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot/data/jobs/by-crawler"
+
+  ownership_missing=0
+  ownership_total=0
+  if GIT_NO_LAZY_FETCH=1 git cat-file -e "$remote_sha:data/jobs/by-crawler" 2>/dev/null; then
+    if ownership_listing="$(GIT_NO_LAZY_FETCH=1 git rev-list --objects --missing=print "$remote_sha:data/jobs/by-crawler" 2>/dev/null)"; then
+      ownership_missing="$(grep -c '^?' <<< "$ownership_listing" || true)"
+    else
+      ownership_missing=unknown
+    fi
+    ownership_total="$(GIT_NO_LAZY_FETCH=1 git ls-tree -r --name-only "$remote_sha" -- data/jobs/by-crawler 2>/dev/null | grep -c . || true)"
+    if ! run_bounded "$GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS" "git archive remote crawler ownership view" \
+      bash -o pipefail -c 'git archive --format=tar "$1" data/jobs/by-crawler | tar -xf - -C "$2"' \
+      crawler-ownership-view "$remote_sha" "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot"; then
+      echo "❌ grouped-isolated: could not materialise remote crawler slices for ownership guard"
+      return 1
+    fi
+  fi
+
+  GROUPED_OWNERSHIP_VIEW_SHA="$remote_sha"
+  if [ "$ownership_missing" = unknown ]; then
+    echo "ℹ️ grouped-isolated ownership-view prepared before lease: remote slice count unavailable in $((SECONDS - started_seconds))s"
+  elif [ "$ownership_missing" -gt 0 ]; then
+    echo "ℹ️ grouped-isolated ownership-view prepared before lease: ${ownership_missing} of ${ownership_total} remote slices fetched on demand in $((SECONDS - started_seconds))s"
+  else
+    echo "ℹ️ grouped-isolated ownership-view prepared before lease: ${ownership_total} remote slices already available in $((SECONDS - started_seconds))s"
+  fi
+}
+
+grouped_ownership_view_refresh() {
+  local remote_sha="$1" changed_file_list="$2" ownership_root="$3" file
+  local -a changed_paths=() present_paths=()
+  [ -n "$GROUPED_OWNERSHIP_VIEW_SHA" ] || return 1
+  if [ "$GROUPED_OWNERSHIP_VIEW_SHA" != "$remote_sha" ]; then
+    if ! GIT_NO_LAZY_FETCH=1 git diff --no-renames --name-only -z \
+      "$GROUPED_OWNERSHIP_VIEW_SHA" "$remote_sha" -- data/jobs/by-crawler > "$changed_file_list"; then
+      echo "❌ grouped-isolated: could not compare ownership snapshot with current origin/main"
+      return 1
+    fi
+    while IFS= read -r -d '' file; do
+      [[ "$file" =~ ^data/jobs/by-crawler/[^/]+\.json$ ]] || continue
+      changed_paths+=("$file")
+      rm -f -- "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot/$file"
+      # A blobless checkout may know the path in the remote tree without
+      # having its blob locally. `cat-file -e` with lazy fetch disabled calls
+      # that present path absent, so the ownership guard would miss a claim
+      # that arrived while the lease was held. Inspect the tree entry instead;
+      # the bounded archive below fetches the blob only when it is present.
+      if git ls-tree -r --name-only "$remote_sha" -- "$file" 2>/dev/null | grep -Fxq "$file"; then
+        present_paths+=("$file")
+      fi
+    done < "$changed_file_list"
+    if [ "${#present_paths[@]}" -gt 0 ]; then
+      if ! run_bounded "$GIT_COMMIT_DATA_OWNERSHIP_VIEW_TIMEOUT_SECONDS" "git archive changed crawler ownership slices" \
+        bash -o pipefail -c 'sha=$1; dest=$2; shift 2; git archive --format=tar "$sha" -- "$@" | tar -xf - -C "$dest"' \
+        crawler-ownership-delta "$remote_sha" "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot" "${present_paths[@]}"; then
+        echo "❌ grouped-isolated: could not refresh changed remote crawler slices for ownership guard"
+        return 1
+      fi
+    fi
+    GROUPED_OWNERSHIP_VIEW_SHA="$remote_sha"
+  fi
+
+  rm -rf -- "$ownership_root"
+  mkdir -p "$ownership_root/data/jobs/by-crawler"
+  if [ -d "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot/data/jobs/by-crawler" ]; then
+    cp -al "$GROUPED_OWNERSHIP_VIEW_DIR/snapshot/data/jobs/by-crawler/." "$ownership_root/data/jobs/by-crawler/"
+  fi
+  GROUPED_OWNERSHIP_CHANGED_COUNT="${#changed_paths[@]}"
+}
 
 # ── Il lease NON deve coprire il sonno del backoff ──────────────────────────
 #
@@ -2125,8 +2239,8 @@ append_translation_stats_to_index() {
 }
 
 # ── Where an isolated attempt spends its time ────────────────────────────────
-# One line per attempt. Everything in this path runs inside the global
-# data-pipeline lease, and most of it is silent: a stall used to be visible
+# One line per attempt. Most of this path runs inside the global data-pipeline
+# lease, and most of it is silent: a stall used to be visible
 # only as a gap between two log timestamps. Issue 12379 measured 52-197 s
 # without a single log line in the first attempt of the crawler groups, and
 # the blobless write-tree fixed in PR 12388 cost 298-321 s the same way.
@@ -2238,7 +2352,7 @@ commit_isolated_from_worktree() {
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
-  local phase_started file_phase_started ownership_listing ownership_missing ownership_total
+  local phase_started file_phase_started ownership_changed_count
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
@@ -2307,11 +2421,27 @@ commit_isolated_from_worktree() {
       fi
       effective_files+=("$f")
       if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
-        has_primary_slice=true
+        if [ "$GROUP_BATCH" = true ]; then
+          [ "${_BATCH_SNAPSHOT_STATE[$f]:-absent}" = present ] && has_primary_slice=true
+        elif [ -f "$f" ]; then
+          has_primary_slice=true
+        fi
       fi
     done
     isolated_phase_add skip-scan "$phase_started"
     echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${skipped_identical} file(s) skipped because identical to origin/main, ${#effective_files[@]} candidate(s)"
+
+    # A concurrent main update can turn a file that was identical during the
+    # pre-lease scan into a candidate. Do not fetch the full ownership archive
+    # while holding the cross-repository lease: yield it, prepare from this
+    # exact remote tip, then restart the attempt against a fresh fetch.
+    if [ "$has_primary_slice" = true ] && [ -z "$GROUPED_OWNERSHIP_VIEW_SHA" ]; then
+      global_data_pipeline_lease_release_for_backoff || return 1
+      grouped_ownership_view_prepare "$remote_sha" || return 1
+      global_data_pipeline_lease_resume_after_backoff || return $?
+      push_attempt=$((push_attempt - 1))
+      continue
+    fi
 
     # Private index seeded from the CURRENT remote head — never the shared
     # .git/index (GIT_INDEX_FILE scopes every index operation below).
@@ -2322,39 +2452,16 @@ commit_isolated_from_worktree() {
     computed_count=0
 
     # A crawler group can be the second writer to main even when its checkout
-    # started from the same base as the first writer. The write-time guard has
-    # already run against that stale checkout, so build a fresh ownership view
-    # from the remote tree before staging any primary slice. The filtered local
-    # slices are added to this temporary view as we go, which also makes the
-    # atomic batch deterministic when two descriptors in the same group claim
-    # one URL.
+    # started from the same base as the first writer. The ownership snapshot
+    # was materialised before the lease; refresh only paths changed since that
+    # snapshot, then add this attempt's filtered local slices as we go. A clean
+    # copy per attempt prevents candidate overlays from leaking into retries.
     isolated_mark phase_started
     if [ "$has_primary_slice" = true ]; then
       ownership_root="$merge_dir/remote-ownership"
-      rm -rf "$ownership_root"
-      mkdir -p "$ownership_root/data/jobs/by-crawler"
-      if git cat-file -e "$remote_sha:data/jobs/by-crawler" 2>/dev/null; then
-        # On a blobless checkout (what actions/checkout makes of a sparse one)
-        # `git archive` asks the promisor for every slice that changed on main
-        # since the checkout. Count them first, without fetching anything.
-        # A listing that fails is reported as such: a silent zero would read as
-        # "every slice was already here".
-        if ownership_listing="$(git rev-list --objects --missing=print "${remote_sha}:data/jobs/by-crawler" 2>/dev/null)"; then
-          ownership_missing="$(grep -c '^?' <<< "$ownership_listing" || true)"
-        else
-          ownership_missing=unknown
-        fi
-        if ! git archive --format=tar "$remote_sha" data/jobs/by-crawler | tar -xf - -C "$ownership_root"; then
-          echo "❌ grouped-isolated: could not materialise remote crawler slices for ownership guard"
-          return 1
-        fi
-        if [ "$ownership_missing" = unknown ]; then
-          _ISOLATED_PHASE_NOTE[ownership-view]="remote slices fetched on demand: count unavailable"
-        elif [ "${ownership_missing:-0}" -gt 0 ]; then
-          ownership_total="$(git ls-tree -r --name-only "$remote_sha" -- data/jobs/by-crawler 2>/dev/null | grep -c . || true)"
-          _ISOLATED_PHASE_NOTE[ownership-view]="${ownership_missing} of ${ownership_total} remote slices fetched on demand"
-        fi
-      fi
+      grouped_ownership_view_refresh "$remote_sha" "$merge_dir/ownership-changed-paths" "$ownership_root" || return 1
+      ownership_changed_count="$GROUPED_OWNERSHIP_CHANGED_COUNT"
+      _ISOLATED_PHASE_NOTE[ownership-view]="${ownership_changed_count} remote slice(s) refreshed since last snapshot"
       isolated_phase_add ownership-view "$phase_started"
     fi
 
@@ -2609,6 +2716,7 @@ commit_isolated_from_worktree() {
           # Keep the ownership view in step for the later slices of this
           # attempt, exactly as the computed path does.
           mkdir -p "$ownership_root/data/jobs/by-crawler"
+          rm -f -- "$ownership_root/$f"
           git cat-file blob "${_ISOLATED_RESULT_OWNED_BLOB[$f]}" > "$ownership_root/$f"
         fi
         stage_isolated_blob "$tmp_index" "$mode_to_stage" "${_ISOLATED_RESULT_BLOB[$f]}" "$f" || return 1
@@ -2660,6 +2768,7 @@ commit_isolated_from_worktree() {
         local_blob="$(git hash-object -w -- "$ownership_output_path")"
         local_merge_path="$ownership_output_path"
         mkdir -p "$ownership_root/data/jobs/by-crawler"
+        rm -f -- "$ownership_root/$f"
         cp "$ownership_output_path" "$ownership_root/$f"
         if [ "$ownership_result" != '{"dropped":[]}' ]; then
           echo "⚠️ grouped-isolated: ownership guard filtered new claims from $f: $ownership_result"
@@ -2905,9 +3014,19 @@ commit_isolated_from_worktree() {
 }
 
 ensure_git_auth
+# The pre-lease ownership snapshot must describe the current remote tip. A
+# blobless crawler checkout can have an origin/main ref from its checkout time;
+# without this fetch, the first in-lease refresh re-counts every slice changed
+# before the snapshot instead of only the delta created while the lease is held.
+if [ "$GROUPED_ISOLATED" = true ]; then
+  git_fetch_retry
+fi
 old_history_guard_main
 
 if [ "$GROUPED_ISOLATED" = true ]; then
+  if grouped_ownership_view_needed; then
+    grouped_ownership_view_prepare "$(git rev-parse refs/remotes/origin/main)"
+  fi
   # Both non-zero results are captured through `||` rather than a bare call:
   # under `set -e` (L31), errexit would skip the coordination mapping below.
   _lease_result=0

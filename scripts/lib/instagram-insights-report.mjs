@@ -21,6 +21,10 @@ const OBJECTIVE_BY_CREATIVE = Object.freeze({
   proof: 'share',
   save: 'save',
   question: 'conversation',
+  reel: 'conversation',
+  'reel-question': 'conversation',
+  'reel-number': 'share',
+  'reel-save': 'save',
 });
 
 function objectiveForCreative(creativeId) {
@@ -37,8 +41,114 @@ const METRIC_ALIASES = Object.freeze({
   linkClicks: ['linkClicks', 'link_clicks', 'website_clicks'],
 });
 
+const CSV_FIELD_ALIASES = Object.freeze({
+  id: ['id', 'mediaid', 'postid', 'queueid'],
+  kind: ['kind', 'contentkind', 'contenttype'],
+  creativeId: ['creativeid', 'creative'],
+  creativeBaseId: ['creativebaseid'],
+  creativeVariant: ['creativevariant', 'variant'],
+  creativeLabel: ['creativelabel'],
+  creativeObjective: ['creativeobjective', 'objective'],
+  primaryMetric: ['primarymetric'],
+  engagementMechanic: ['engagementmechanic'],
+  hookType: ['hooktype', 'hook'],
+  attentionMechanic: ['attentionmechanic'],
+  engagementLoop: ['engagementloop', 'loop'],
+  followUpFormat: ['followupformat', 'followup'],
+  reach: ['reach', 'reachcount', 'accountsreached'],
+  shares: ['shares', 'sharecount', 'sharescount'],
+  saves: ['saves', 'saved', 'savecount', 'savedcount'],
+  comments: ['comments', 'commentcount', 'commentscount'],
+  profileVisits: ['profilevisits', 'profileactivity'],
+  linkClicks: ['linkclicks', 'websiteclicks'],
+  windowHours: ['windowhours', 'measurementwindowhours'],
+});
+
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+function normalizeCsvHeader(value) {
+  return String(value ?? '')
+    .normalize('NFKD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
+function detectCsvDelimiter(text) {
+  const firstLine = String(text).split(/\r?\n/u).find((line) => line.trim()) || '';
+  const counts = [',', ';', '\t'].map((delimiter) => ({
+    delimiter,
+    count: [...firstLine].filter((char) => char === delimiter).length,
+  }));
+  const winner = counts.sort((a, b) => b.count - a.count)[0];
+  return winner?.count > 0 ? winner.delimiter : ',';
+}
+
+function parseCsvRecords(text, delimiter) {
+  const records = [];
+  let record = [];
+  let field = '';
+  let quoted = false;
+  const source = String(text ?? '').replace(/^\uFEFF/u, '');
+
+  for (let index = 0; index < source.length; index += 1) {
+    const char = source[index];
+    if (quoted) {
+      if (char === '"' && source[index + 1] === '"') {
+        field += '"';
+        index += 1;
+      } else if (char === '"') {
+        quoted = false;
+      } else {
+        field += char;
+      }
+    } else if (char === '"' && field.length === 0) {
+      quoted = true;
+    } else if (char === delimiter) {
+      record.push(field.trim());
+      field = '';
+    } else if (char === '\n' || char === '\r') {
+      if (char === '\r' && source[index + 1] === '\n') index += 1;
+      record.push(field.trim());
+      if (record.some((value) => value !== '')) records.push(record);
+      record = [];
+      field = '';
+    } else {
+      field += char;
+    }
+  }
+  if (quoted) throw new Error('CSV contains an unterminated quoted field');
+  if (field.length > 0 || record.length > 0) {
+    record.push(field.trim());
+    if (record.some((value) => value !== '')) records.push(record);
+  }
+  return records;
+}
+
+function csvField(row, aliases) {
+  for (const alias of aliases) {
+    const key = Object.keys(row).find((candidate) => normalizeCsvHeader(candidate) === alias);
+    if (key && String(row[key] ?? '').trim()) return String(row[key]).trim();
+  }
+  return null;
+}
+
+/** Convert a Professional Dashboard CSV export into scorecard rows. */
+export function parseInstagramInsightsCsv(text) {
+  const records = parseCsvRecords(text, detectCsvDelimiter(text));
+  if (records.length < 2) return [];
+  const headers = records[0];
+  return records.slice(1).map((values) => {
+    const source = Object.fromEntries(headers.map((header, index) => [header, values[index] ?? '']));
+    const row = {};
+    for (const [field, aliases] of Object.entries(CSV_FIELD_ALIASES)) {
+      const value = csvField(source, aliases);
+      if (value !== null) row[field] = value;
+    }
+    return row;
+  });
 }
 
 function firstString(...values) {
@@ -108,9 +218,22 @@ function buildLedgerLookup(ledger) {
     if (!isRecord(entry)) continue;
     const creativeId = firstString(entry.creativeId, entry.creative_id);
     if (!creativeId) continue;
+    const metadata = {
+      creativeId,
+      kind: firstString(entry.kind, entry.contentKind, entry.content_kind),
+      queueId: firstString(entry.queueId, entry.queue_id),
+      creativeBaseId: firstString(entry.creativeBaseId, entry.creative_base_id),
+      creativeVariant: firstString(entry.creativeVariant, entry.creative_variant),
+      creativeLabel: firstString(entry.creativeLabel, entry.creative_label),
+      engagementMechanic: firstString(entry.engagementMechanic, entry.engagement_mechanic),
+      hookType: firstString(entry.hookType, entry.hook_type),
+      attentionMechanic: firstString(entry.attentionMechanic, entry.attention_mechanic),
+      engagementLoop: firstString(entry.engagementLoop, entry.engagement_loop),
+      followUpFormat: firstString(entry.followUpFormat, entry.follow_up_format),
+    };
     for (const key of ['instagramMediaId', 'mediaId', 'media_id', 'queueId', 'queue_id']) {
       const value = firstString(entry[key]);
-      if (value) lookup.set(value, creativeId);
+      if (value) lookup.set(value, metadata);
     }
   }
   return lookup;
@@ -125,7 +248,7 @@ function reject(rejected, index, reason) {
  * `ledger` is optional; it lets a Meta export identify a treatment through a
  * media/queue id without copying captions or URLs into the export file.
  */
-export function normalizeInsightRows(input, { ledger = null } = {}) {
+export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAULT_WINDOW_HOURS } = {}) {
   const source = extractRows(input);
   const lookup = buildLedgerLookup(ledger);
   const rows = [];
@@ -139,11 +262,12 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
 
     const postId = firstString(raw.id, raw.media_id, raw.mediaId, raw.post_id, raw.queueId, raw.queue_id)
       || `row-${index + 1}`;
+    const ledgerMetadata = lookup.get(postId);
     const creativeId = firstString(
       raw.creativeId,
       raw.creative_id,
       raw.creative?.id,
-      lookup.get(postId),
+      ledgerMetadata?.creativeId,
     );
     if (!creativeId) {
       reject(rejected, index, 'creativeId missing (add it or provide --ledger)');
@@ -173,6 +297,55 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
       return;
     }
 
+    const engagementMechanic = firstString(
+      raw.engagementMechanic,
+      raw.engagement_mechanic,
+      raw.creative?.engagementMechanic,
+      ledgerMetadata?.engagementMechanic,
+    );
+    const creativeBaseId = firstString(
+      raw.creativeBaseId,
+      raw.creative_base_id,
+      raw.creative?.baseId,
+      ledgerMetadata?.creativeBaseId,
+    );
+    const creativeVariant = firstString(
+      raw.creativeVariant,
+      raw.creative_variant,
+      raw.creative?.variant,
+      ledgerMetadata?.creativeVariant,
+    );
+    const creativeLabel = firstString(
+      raw.creativeLabel,
+      raw.creative_label,
+      raw.creative?.label,
+      ledgerMetadata?.creativeLabel,
+    );
+    const hookType = firstString(
+      raw.hookType,
+      raw.hook_type,
+      raw.creative?.hookType,
+      ledgerMetadata?.hookType,
+    );
+    const attentionMechanic = firstString(
+      raw.attentionMechanic,
+      raw.attention_mechanic,
+      raw.creative?.attentionMechanic,
+      ledgerMetadata?.attentionMechanic,
+    );
+    const engagementLoop = firstString(
+      raw.engagementLoop,
+      raw.engagement_loop,
+      raw.creative?.engagementLoop,
+      ledgerMetadata?.engagementLoop,
+    );
+    const followUpFormat = firstString(
+      raw.followUpFormat,
+      raw.follow_up_format,
+      raw.creative?.followUpFormat,
+      ledgerMetadata?.followUpFormat,
+    );
+
     const reach = readMetric(raw, 'reach', { required: true });
     if (reach === null || reach <= 0) {
       reject(rejected, index, 'reach must be a positive number');
@@ -192,8 +365,8 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
     }
 
     const rawWindow = firstString(raw.windowHours, raw.window_hours, raw.measurementWindowHours);
-    const windowHours = rawWindow === null ? DEFAULT_WINDOW_HOURS : finiteNumber(rawWindow);
-    if (windowHours === null || windowHours <= 0) {
+    const targetWindowHours = rawWindow === null ? windowHours : finiteNumber(rawWindow);
+    if (targetWindowHours === null || targetWindowHours <= 0) {
       reject(rejected, index, 'windowHours must be a positive number');
       return;
     }
@@ -201,10 +374,18 @@ export function normalizeInsightRows(input, { ledger = null } = {}) {
     rows.push({
       postId,
       creativeId,
-      kind: firstString(raw.kind, raw.contentKind, raw.content_kind) || 'unknown',
+      creativeBaseId,
+      creativeVariant,
+      creativeLabel,
+      kind: firstString(raw.kind, raw.contentKind, raw.content_kind, ledgerMetadata?.kind) || 'unknown',
       objective,
       primaryMetric,
-      windowHours,
+      engagementMechanic,
+      hookType,
+      attentionMechanic,
+      engagementLoop,
+      followUpFormat,
+      windowHours: targetWindowHours,
       reach,
       ...metrics,
     });
@@ -236,8 +417,16 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     const key = `${row.creativeId}\u0000${kind}\u0000${row.windowHours}`;
     const group = groups.get(key) || {
       creativeId: row.creativeId,
+      creativeBaseId: row.creativeBaseId || null,
+      creativeVariant: row.creativeVariant || null,
+      creativeLabel: row.creativeLabel || null,
       objective: row.objective,
       primaryMetric: row.primaryMetric,
+      engagementMechanic: row.engagementMechanic || null,
+      hookType: row.hookType || null,
+      attentionMechanic: row.attentionMechanic || null,
+      engagementLoop: row.engagementLoop || null,
+      followUpFormat: row.followUpFormat || null,
       kind,
       windowHours: row.windowHours,
       observations: 0,
@@ -251,6 +440,14 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     };
     group.observations += 1;
     group.kinds.add(kind);
+    group.engagementMechanic ||= row.engagementMechanic || null;
+    group.creativeBaseId ||= row.creativeBaseId || null;
+    group.creativeVariant ||= row.creativeVariant || null;
+    group.creativeLabel ||= row.creativeLabel || null;
+    group.hookType ||= row.hookType || null;
+    group.attentionMechanic ||= row.attentionMechanic || null;
+    group.engagementLoop ||= row.engagementLoop || null;
+    group.followUpFormat ||= row.followUpFormat || null;
     for (const metric of ['reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
       group[metric] += Number(row[metric]) || 0;
     }
@@ -263,8 +460,16 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     const eligible = group.observations >= minimumObservations;
     return {
       creativeId: group.creativeId,
+      creativeBaseId: group.creativeBaseId,
+      creativeVariant: group.creativeVariant,
+      creativeLabel: group.creativeLabel,
       objective: group.objective,
       primaryMetric: group.primaryMetric,
+      engagementMechanic: group.engagementMechanic,
+      hookType: group.hookType,
+      attentionMechanic: group.attentionMechanic,
+      engagementLoop: group.engagementLoop,
+      followUpFormat: group.followUpFormat,
       kind: group.kind,
       windowHours: group.windowHours,
       observations: group.observations,
@@ -359,9 +564,12 @@ export function formatCreativeReport(report) {
     lines.push('   No valid treatment rows yet.');
   } else {
     for (const treatment of report.treatments) {
+      const mechanic = treatment.engagementMechanic ? ` · CTA ${treatment.engagementMechanic}` : '';
+      const hook = treatment.hookType ? ` · hook ${treatment.hookType}` : '';
+      const loop = treatment.engagementLoop ? ` · loop ${treatment.engagementLoop}` : '';
       lines.push(
         `   ${treatment.creativeId.padEnd(18)} ${treatment.kind.padEnd(8)} ${treatment.windowHours}h · ${treatment.observations} obs · `
-        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}`,
+        + `primary ${percentage(treatment.primaryRate)} · interactions ${percentage(treatment.interactionRate)} · ${treatment.status}${mechanic}${hook}${loop}`,
       );
     }
   }

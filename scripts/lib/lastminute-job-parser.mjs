@@ -126,6 +126,90 @@ const SECTION_HEADINGS = {
  */
 const SECTION_ORDER = ['jobDescription', 'qualifications', 'additionalInformation', 'companyDescription'];
 
+const LASTMINUTE_CORPORATE_ORIGIN = 'https://corporate.lastminute.com';
+
+function lastminuteDeclaredTotals(html = '') {
+  return [...new Set(
+    [...String(html || '').matchAll(/\b(\d+)\s+(?:open\s+positions?|positions?\s+found)\b/giu)]
+      .map((match) => Number(match[1]))
+      .filter((value) => Number.isInteger(value)),
+  )];
+}
+
+/**
+ * Read the total exposed by the corporate page or its HTMX search response.
+ * A missing or contradictory count is deliberately not a completeness proof.
+ */
+export function parseLastminuteDeclaredTotal(html = '') {
+  const totals = lastminuteDeclaredTotals(html);
+  return totals.length === 1 ? totals[0] : null;
+}
+
+/**
+ * Parse the source-owned Lastminute listing response and prove discovery.
+ *
+ * The HTMX endpoint emits two anchors for each job row, so completeness is
+ * based on unique SmartRecruiters IDs, not anchor occurrences. The response is
+ * complete only when its single declared total is positive and exactly equals
+ * the number of unique canonical detail URLs.
+ */
+export function parseLastminuteListingDiscovery(html = '') {
+  const source = String(html || '');
+  const totals = lastminuteDeclaredTotals(source);
+  const detailById = new Map();
+  const hrefRe = /href\s*=\s*(["'])(.*?)\1/giu;
+  let anchorOccurrences = 0;
+  let match = null;
+
+  while ((match = hrefRe.exec(source)) !== null) {
+    const rawHref = decodeHTML(String(match[2] || ''));
+    if (!rawHref) continue;
+
+    let detailUrl = null;
+    try {
+      detailUrl = new URL(rawHref, LASTMINUTE_CORPORATE_ORIGIN);
+    } catch {
+      continue;
+    }
+    if (
+      detailUrl.hostname.toLowerCase() !== 'corporate.lastminute.com'
+      || !/^\/careers\/jobs\/job\/?$/i.test(detailUrl.pathname)
+    ) {
+      continue;
+    }
+
+    const postingId = extractSrIdFromUrl(detailUrl.href);
+    if (!postingId) continue;
+    anchorOccurrences += 1;
+    detailUrl.hash = '';
+    if (!detailById.has(postingId)) detailById.set(postingId, detailUrl.href);
+  }
+
+  const detailUrls = [...detailById.values()];
+  const declaredTotal = totals.length === 1 ? totals[0] : null;
+  let reason = '';
+  if (detailUrls.length === 0) {
+    reason = 'no canonical detail URLs';
+  } else if (totals.length === 0) {
+    reason = 'no source-declared total';
+  } else if (totals.length > 1) {
+    reason = `conflicting source-declared totals: ${totals.join(', ')}`;
+  } else if (declaredTotal === 0) {
+    reason = 'empty source discovery is not publishable';
+  } else if (detailUrls.length !== declaredTotal) {
+    reason = `discovered ${detailUrls.length} unique detail URLs but source declared ${declaredTotal}`;
+  }
+
+  return {
+    complete: reason === '',
+    reason,
+    declaredTotal,
+    declaredTotals: totals,
+    detailUrls,
+    anchorOccurrences,
+  };
+}
+
 /**
  * Parse SmartRecruiters API response into a structured job detail.
  *

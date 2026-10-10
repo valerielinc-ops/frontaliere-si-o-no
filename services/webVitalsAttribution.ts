@@ -22,7 +22,7 @@
 
 export const CWV_ATTRIBUTION_PAGE = 'web_vitals';
 export const CWV_ATTRIBUTION_SECTIONS = ['cls', 'inp'] as const;
-export const CWV_ATTRIBUTION_COMPONENTS = ['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other'] as const;
+export const CWV_ATTRIBUTION_COMPONENTS = ['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other', 'unknown'] as const;
 export const CWV_ATTRIBUTION_PARAM_KEYS = ['page', 'section', 'component', 'action', 'cta_id', 'details'] as const;
 
 export type CwvAttributionSection = (typeof CWV_ATTRIBUTION_SECTIONS)[number];
@@ -55,6 +55,7 @@ const COMPONENT_CLASSIFIERS: ReadonlyArray<readonly [CwvAttributionComponent, st
   ['main', '#main-content'],
 ];
 const FALLBACK_COMPONENT: CwvAttributionComponent = 'other';
+const UNKNOWN_COMPONENT: CwvAttributionComponent = 'unknown';
 
 const SELECTOR_MAX_LENGTH = 70;
 // GA4 truncates event parameter values used as dimensions at 100 characters.
@@ -80,13 +81,26 @@ function toElement(node: unknown): ClosestCapable | null {
 
 /**
  * The node reference web-vitals keeps for the attributed element:
- * `largestShiftSource.node` for CLS, the first processed event entry's
- * `target` for INP. Absent when the browser dropped it.
+ * `largestShiftSource.node` for CLS, the best available processed event entry's
+ * `target` for INP. Absent when the browser dropped every target.
  */
 function attributedNode(a: Record<string, unknown>, isCls: boolean): unknown {
   if (isCls) return (a.largestShiftSource as { node?: unknown } | undefined)?.node;
   const entries = a.processedEventEntries;
-  return Array.isArray(entries) ? (entries[0] as { target?: unknown } | undefined)?.target : undefined;
+  if (!Array.isArray(entries)) return undefined;
+  let firstAvailable: unknown;
+  for (const entry of entries) {
+    const target = (entry as { target?: unknown } | undefined)?.target;
+    const el = toElement(target);
+    if (!el) continue;
+    firstAvailable ??= target;
+    try {
+      if (classifyElement(el) !== FALLBACK_COMPONENT) return target;
+    } catch {
+      // Keep looking: buildCwvAttributionEvent must remain fail-open.
+    }
+  }
+  return firstAvailable;
 }
 
 function classifyElement(el: ClosestCapable): CwvAttributionComponent {
@@ -96,7 +110,12 @@ function classifyElement(el: ClosestCapable): CwvAttributionComponent {
   return FALLBACK_COMPONENT;
 }
 
-function classifyTarget(node: unknown, selector: string, doc: Document): CwvAttributionComponent {
+function classifyTarget(
+  node: unknown,
+  selector: string,
+  doc: Document,
+  unavailableComponent: CwvAttributionComponent = FALLBACK_COMPONENT,
+): CwvAttributionComponent {
   try {
     const el = toElement(node);
     if (el) return classifyElement(el);
@@ -105,13 +124,13 @@ function classifyTarget(node: unknown, selector: string, doc: Document): CwvAttr
     // valid CSS (`md:pb-8`, `py-0.5`, `w-1/2`) and querySelector throws or
     // matches nothing. It is also anchored at the nearest id ancestor and can
     // point elsewhere after an SPA navigation. Hence the node reference first.
-    if (!selector) return FALLBACK_COMPONENT;
+    if (!selector) return unavailableComponent;
     const found = toElement(doc.querySelector(selector));
-    return found ? classifyElement(found) : FALLBACK_COMPONENT;
+    return found ? classifyElement(found) : unavailableComponent;
   } catch {
     // Invalid selector, or a document without querySelector: the event still
     // goes out, unattributed.
-    return FALLBACK_COMPONENT;
+    return unavailableComponent;
   }
 }
 
@@ -143,8 +162,14 @@ export function buildCwvAttributionEvent(
   const [clsSection] = CWV_ATTRIBUTION_SECTIONS;
   const a = (metric.attribution ?? {}) as Record<string, unknown>;
   const isCls = section === clsSection;
-  const selector = String((isCls ? a.largestShiftTarget : a.interactionTarget) ?? '');
-  const component = classifyTarget(attributedNode(a, isCls), selector, doc);
+  const rawSelector = String((isCls ? a.largestShiftTarget : a.interactionTarget) ?? '');
+  const selector = rawSelector || (isCls ? '' : UNKNOWN_COMPONENT);
+  const component = classifyTarget(
+    attributedNode(a, isCls),
+    rawSelector,
+    doc,
+    isCls ? FALLBACK_COMPONENT : UNKNOWN_COMPONENT,
+  );
   const action = sanitizeAction(isCls ? a.loadState : a.interactionType);
   const autoAds = countMatches(doc, AUTO_AD_SELECTOR);
   const collapsedAutoAds = countMatches(doc, AUTO_AD_COLLAPSED_SELECTOR);

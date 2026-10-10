@@ -14,7 +14,7 @@ describe('webVitalsAttribution in a node environment', () => {
     const mod = await import('@/services/webVitalsAttribution');
     expect(mod.CWV_ATTRIBUTION_PAGE).toBe('web_vitals');
     expect([...mod.CWV_ATTRIBUTION_SECTIONS]).toEqual(['cls', 'inp']);
-    expect([...mod.CWV_ATTRIBUTION_COMPONENTS]).toEqual(['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other']);
+    expect([...mod.CWV_ATTRIBUTION_COMPONENTS]).toEqual(['footer', 'auto_ad', 'manual_ad', 'rail', 'job_gate', 'main', 'other', 'unknown']);
     expect([...mod.CWV_ATTRIBUTION_PARAM_KEYS]).toEqual(['page', 'section', 'component', 'action', 'cta_id', 'details']);
     expect(typeof mod.buildCwvAttributionEvent).toBe('function');
   });

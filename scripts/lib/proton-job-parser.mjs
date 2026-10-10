@@ -14,7 +14,10 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang, hasExplicitForeignCountrySignal } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isAllowlistedAuthoritativeNonSwissLocation,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 import {
   fetchGreenhouseJobs,
   extractGreenhouseBoardToken,
@@ -124,6 +127,18 @@ const GREENHOUSE_BOARD_TOKEN =
 const GREENHOUSE_LOCATION_CONTAINS = ['Geneva', 'Genève', 'Switzerland'];
 const GREENHOUSE_LOCATION_PART_SPLIT_RE = /\s*(?:[,;|/])\s*/;
 const SWISS_COUNTRY_PART_RE = /^(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i;
+// Greenhouse's Proton board publishes these exact office names as individual
+// entries in `location.name`, often without country labels (for example,
+// "Geneva; Taipei; Skopje"). Keep the exception source-specific and exact:
+// unknown entries and unqualified locations remain rejected below.
+const PROTON_FOREIGN_OFFICE_ALLOWLIST = new Set([
+  'barcelona',
+  'london',
+  'paris',
+  'skopje',
+  'taipei',
+  'vilnius',
+]);
 
 function stripSwissCountryPart(value = '') {
   const parts = normalizeSpace(value).split(/\s+/).filter(Boolean);
@@ -139,9 +154,10 @@ function stripSwissCountryPart(value = '') {
  * to the Swiss canton returned by the same row.
  *
  * Reduce the value only when the source contains exactly one independently
- * resolvable Swiss part and every other part is explicitly foreign. Unknown
- * or multiply-Swiss values stay rejected; this avoids choosing a first match
- * from an ambiguous multi-office listing.
+ * resolvable Swiss part and every other part is explicitly foreign or is an
+ * exact Proton office name reviewed from Greenhouse's `location.name` list.
+ * Unknown or multiply-Swiss values stay rejected; this avoids choosing a
+ * first match from an ambiguous multi-office listing.
  */
 function resolveProtonSourceGeography(rawLocation = '') {
   const location = normalizeSpace(rawLocation);
@@ -170,12 +186,18 @@ function resolveProtonSourceGeography(rawLocation = '') {
       continue;
     }
 
-    // A component without an explicit country label/code is ambiguous. A
-    // bare known foreign city (for example, "Belgrade") is not enough to
-    // prove that it is an office rather than an unclassified source token.
+    // An unqualified component is accepted only when the exact Proton office
+    // allowlist proves it is a source-listed office; generic city inference
+    // is deliberately insufficient for unknown tokens.
     const partHasForeignCountry = hasExplicitForeignCountrySignal(part);
     const nextPartHasForeignCountry = hasExplicitForeignCountrySignal(nextPart);
-    if (!partHasForeignCountry && !nextPartHasForeignCountry) return null;
+    const partIsReviewedForeignOffice = isAllowlistedAuthoritativeNonSwissLocation(
+      part,
+      PROTON_FOREIGN_OFFICE_ALLOWLIST,
+    );
+    if (!partHasForeignCountry && !nextPartHasForeignCountry && !partIsReviewedForeignOffice) {
+      return null;
+    }
     hasForeignOffice = true;
     if (!partHasForeignCountry && nextPartHasForeignCountry) index += 1;
   }

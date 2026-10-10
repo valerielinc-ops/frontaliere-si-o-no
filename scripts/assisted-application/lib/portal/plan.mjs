@@ -68,6 +68,7 @@ export function candidateRules(candidateLocale) {
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
+- Native language: an explicitly native/mother-tongue entry is sufficient. When profile.cvLanguage identifies the language the CV is written in, and the profile also lists at least one different language with an explicit level while giving no conflicting level for cvLanguage, treat cvLanguage as native/mother tongue for that language's level questions. Do not infer a native language from the CV language alone, and do not infer any other level.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
@@ -143,6 +144,13 @@ export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (profession
 // apply, nor a box that also declares a fact (a permit, a licence, a level).
 const OWN_CONSENT = /(privacy|datenschutz|data protection|data processing|protezione dei dati|trattamento dei (miei |tuoi |propri )?dati|informativa|protection des données|traitement de(s| mes| vos) données|terms|nutzungsbedingungen|teilnahmebedingungen|termini e condizioni|conditions (générales|d.utilisation))/i;
 const OPTIONAL_CONSENT = /(newsletter|marketing|job.?alert|job.?abo|talent.?pool|future (openings|opportunities|positions|vacancies)|other (companies|vacancies|positions)|weitere stellen|andere stellen|altre (posizioni|offerte|società)|autres (postes|offres|sociétés)|third part|dritte|\bterzi\b|\btiers\b)/i;
+// Some classic portals enforce their application privacy agreement without
+// adding `required` to the checkbox (Ticino Rexx: `agbs_check`). An explicit
+// acceptance sentence is still the application's own consent, not a fact the
+// candidate must supply. Optional marketing/talent-pool wording is excluded
+// below by OPTIONAL_CONSENT.
+const CONSENT_ACCEPTANCE = /\b(accett[oa]|accept(?:e|ed)?|agree(?:d)?|consent(?:o|ire)|j['’]?accepte|ich akzeptiere|ich stimme zu)\b/i;
+const NEGATED_CONSENT = /\b(?:do(?:es)?\s+not|don['’]?t|doesn['’]?t|cannot|can['’]?t|can\s+not|unable\s+to|not\s+able\s+to|will\s+not|won['’]?t|shall\s+not|shan['’]?t)\s+(?:accept|agree|consent)|\b(?:non|nein|nicht)\s+(?:accett|acconsent|accept|agree|consent|akzept|stimm)|\bn['’]?accepte\s+pas|\b(?:accepte|akzeptiere|stimme)\s+nicht|\b(?:refus(?:e|al)?|rifiut[oa]|verweigere)\b/i;
 // «I hold a valid work permit and accept the privacy policy»: a fact only the candidate can state. So is a work
 // authorisation or a citizenship («Ich habe eine gültige Arbeitserlaubnis und akzeptiere…», «Ho la cittadinanza
 // svizzera e accetto…»); not the bare «permesso»: «Do il permesso al trattamento dei dati» is the consent.
@@ -151,8 +159,33 @@ const DECLARES_FACT = new RegExp(String.raw`(permit|bewilligung|permesso di (lav
 /** A required checkbox that is the application's own consent, and nothing else. */
 export function ownConsent(field) {
   const label = String(field?.label || '');
-  return field?.kind === 'checkbox' && Boolean(field.required) && OWN_CONSENT.test(label)
-    && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+  return field?.kind === 'checkbox' && (Boolean(field.required) || CONSENT_ACCEPTANCE.test(label)) && OWN_CONSENT.test(label)
+    && !NEGATED_CONSENT.test(label) && !OPTIONAL_CONSENT.test(label) && !DECLARES_FACT.test(label);
+}
+
+// A current job is explicit when the CV's experience period says "ad oggi",
+// "present", "heute", etc. It is not inferred from the first experience entry:
+// an undated or merely latest role may already have ended.
+const CURRENT_EXPERIENCE_RE = /\b(?:ad\s+oggi|oggi|attualmente|presente|tuttora|in\s+corso|present(?:e|ly)?|current|ongoing|now|today|en\s+cours|actuellement|jusqu['’]?[àa]\s+présent|heute|aktuell|derzeit|bis\s+heute)\b/i;
+const CURRENT_EMPLOYMENT_RE = /\b(?:current(?:ly)?\s+(?:employ(?:ed|ment)|work(?:ing)?|job)|employment\s+status|status\s+occupazionale|situazione\s+(?:lavorativa|professionale|occupazionale)(?:\s+attuale)?|stato\s+(?:occupazionale|lavorativo)|situation\s+professionnelle(?:\s+actuelle)?|statut\s+professionnel|aktuelle\s+berufliche\s+situation|beruflicher\s+status|(?:attualmente|actuellement|derzeit)\s+(?:occupat|employ|arbeit))\b/i;
+const EMPLOYED_OPTION_RE = /^(?:occupat[oa](?:\s*\/\s*[oa])?|employed|working|beschäftigt|erwerbstätig|angestellt|salari(?:é|ée)|en\s+emploi|travail(?:leur|leuse)|dipendent[ei])(?:\s*[-–—:(].*)?$/i;
+const EMPLOYED_YES_RE = /^(?:yes|ja|s(?:ì|i)|oui)$/i;
+
+/** Whether the CV explicitly contains an experience that is still current. */
+function hasCurrentExperience(candidate) {
+  return (candidate?.profile?.experience || []).some((item) => CURRENT_EXPERIENCE_RE.test(item?.end || ''));
+}
+
+/** The one unambiguous "currently employed" option supported by the CV. */
+export function currentEmploymentOption(field, candidate) {
+  if (!CURRENT_EMPLOYMENT_RE.test(String(field?.label || '')) || !hasCurrentExperience(candidate)) return null;
+  const options = Array.isArray(field?.options) ? field.options.filter((option) => option && String(option.label || '').trim()) : [];
+  if (!options.length) return null;
+  const employed = options.filter((option) => EMPLOYED_OPTION_RE.test(String(option.label).trim()));
+  if (employed.length === 1) return employed[0];
+  const yes = options.filter((option) => EMPLOYED_YES_RE.test(String(option.label).trim()));
+  const no = options.filter((option) => /^(?:no|nein|non|ne)$/i.test(String(option.label).trim()));
+  return yes.length === 1 && no.length === 1 ? yes[0] : null;
 }
 
 /** A quote of the candidate's data: non-trivial and really in it. */
@@ -166,13 +199,77 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 // One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
-const LANGUAGES = [
-  /deutsch|tedesco|allemand|german/i,
-  /englisch|inglese|anglais|english/i,
-  /französisch|franzoesisch|francese|français|francais|french/i,
-  /italienisch|italiano|italien|italian/i,
+const LANGUAGE_ALIASES = [
+  { code: 'de', pattern: /deutsch|tedesco|allemand|german/i },
+  { code: 'en', pattern: /englisch|inglese|anglais|english/i },
+  { code: 'fr', pattern: /französisch|franzoesisch|francese|français|francais|french/i },
+  { code: 'it', pattern: /italienisch|italiano|italien|italian/i },
 ];
-const languagesIn = (text) => LANGUAGES.map((pattern, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+const LANGUAGE_CODES = new Set(LANGUAGE_ALIASES.map(({ code }) => code));
+const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnisse|conoscenza|knowledge|proficiency|parlat[oa]|scritt[oa]|spoken|written|oral|mündlich|schriftlich|parlé|écrit/i;
+const NATIVE_LEVEL_RE = /^(?:native(?:\s+speaker)?|mother\s+tongue|first\s+language|lingua\s+madre|madrelingua|nativ[oa]|muttersprache|muttersprach(?:lich)?|langue\s+maternelle|langue\s+native|langue\s+premi[eè]re)(?:\s*[([{].*)?$/i;
+const LANGUAGE_CODE_RE = /^(it|de|fr|en)(?:[-_]\w+)?$/i;
+const languageCodeOf = (value) => {
+  const text = String(value || '').trim();
+  const code = LANGUAGE_CODE_RE.exec(text)?.[1]?.toLowerCase();
+  if (code && LANGUAGE_CODES.has(code)) return code;
+  return LANGUAGE_ALIASES.find(({ pattern }) => pattern.test(text))?.code || '';
+};
+const languagesIn = (text) => LANGUAGE_ALIASES.map(({ pattern }, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+
+/**
+ * Native-language evidence is deliberately narrower than "the CV is written
+ * in X": an English CV does not by itself prove that English is native. We
+ * accept an explicitly native/mother-tongue entry, or the CV language when the
+ * profile also names another language with an explicit level and does not give
+ * a conflicting level for the CV language.
+ */
+export function inferredNativeLanguageCodes(candidate) {
+  const entries = Array.isArray(candidate?.profile?.languages) ? candidate.profile.languages : [];
+  const explicitNative = new Set();
+  const statedLevels = new Set();
+  for (const entry of entries) {
+    const code = languageCodeOf(entry?.language);
+    if (!code) continue;
+    if (String(entry?.level || '').trim()) statedLevels.add(code);
+    if (NATIVE_LEVEL_RE.test(String(entry?.level || '').trim())) explicitNative.add(code);
+  }
+  const native = new Set(explicitNative);
+  const cvLanguage = languageCodeOf(candidate?.profile?.cvLanguage);
+  const hasContrastingLanguage = cvLanguage && entries.some((entry) => {
+    const code = languageCodeOf(entry?.language);
+    return code && code !== cvLanguage && String(entry?.level || '').trim();
+  });
+  if (cvLanguage && !statedLevels.has(cvLanguage) && hasContrastingLanguage) native.add(cvLanguage);
+  return native;
+}
+
+function languageQuestionCode(fieldOrQuestion, context = '') {
+  const text = typeof fieldOrQuestion === 'object'
+    ? `${fieldOrQuestion?.label || ''} ${fieldOrQuestion?.context || ''}`
+    : `${fieldOrQuestion || ''} ${context}`;
+  return LANGUAGE_LEVEL_RE.test(text) ? languageCodeOf(text) : '';
+}
+
+/** Whether the candidate's own data establishes a native language for a field/question. */
+export function nativeLanguageKnown(candidate, fieldOrQuestion, context = '') {
+  const code = languageQuestionCode(fieldOrQuestion, context);
+  return Boolean(code && inferredNativeLanguageCodes(candidate).has(code));
+}
+
+/** A native/mother-tongue answer is valid only for the inferred language. */
+export function nativeLanguageAnswerMatches(candidate, fieldOrQuestion, answer, context = '') {
+  return nativeLanguageKnown(candidate, fieldOrQuestion, context)
+    && NATIVE_LEVEL_RE.test(String(answer || '').trim());
+}
+
+/** The form option that means native/mother tongue, if the CV supports it. */
+export function nativeLanguageOption(field, candidate) {
+  if (!nativeLanguageKnown(candidate, field)) return null;
+  // An answer supplied by the candidate wins over this derived value.
+  if (recordedAnswerForQuestion(candidate, field?.label, field?.context)) return null;
+  return (field?.options || []).find((option) => NATIVE_LEVEL_RE.test(String(option?.label || '').trim())) || null;
+}
 
 /**
  * The quote SUPPORTS the answer, beyond being in the data (review of #10715:
@@ -245,7 +342,12 @@ const POSTAL_CODE_RE = /\b(?:cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|po
 const COUNTRY_RE = /\b(?:country|land|pays|nazione|paese)\b/i;
 const CITY_RE = /\b(?:city|citt(?:à|a)|town|locality|ville|ort|comune|localit(?:à|a)|lieu)\b/i;
 const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indirizz\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
+// A generic personal-data section can also contain unrelated labels such as
+// «Data di nascita». Only these residence-specific words override that noise
+// when a sibling-label context contains both kinds of information.
+const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
+const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
@@ -257,7 +359,11 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
   const surrounding = String(context || '');
-  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(surrounding)) return '';
+  const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
+  const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
+  const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
+  if (CONTACT_ADDRESS_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
+    || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding);
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
@@ -363,12 +469,16 @@ function ageAnswerMatches(candidate, question, answer) {
   return expected !== null && actual !== null && actual === booleanAnswer(expected);
 }
 
-function equivalentAnswer(question, left, right) {
+function comparableContext(context) {
+  return String(context || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function equivalentAnswer(question, left, right, context = '') {
   const a = comparableAnswer(left);
   const b = comparableAnswer(right);
   if (!a || !b) return false;
   if (a === b) return true;
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (topic === 'nationality') {
     const leftCode = nationalityOf(left)?.code;
     const rightCode = nationalityOf(right)?.code;
@@ -398,7 +508,7 @@ function equivalentAnswer(question, left, right) {
 }
 
 /** The candidate already answered this question, including a wording/ID variant. */
-function recordedAnswerForQuestion(candidate, question) {
+function recordedAnswerForQuestion(candidate, question, context = '') {
   const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
   // A portal can discover a new question while submitting, after the draft's
   // question list was built. Keep the semantic fallback usable in that path
@@ -408,16 +518,18 @@ function recordedAnswerForQuestion(candidate, question) {
     .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
   const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
-  const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
+  const requestedContext = comparableContext(context);
+  const sameContext = (item) => comparableContext(item.context) === requestedContext;
+  const exact = items.find((item) => sameContext(item) && comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
-  const topic = questionTopic(question);
+  const topic = questionTopic(question, context);
   if (!topic) return '';
-  const semantic = items.find((item) => questionTopic(item.question) === topic);
+  const semantic = items.find((item) => sameContext(item) && questionTopic(item.question, item.context) === topic);
   return semantic ? String(semantic.answer).trim() : '';
 }
 
-export function candidateAnswerForQuestion(candidate, question) {
-  return recordedAnswerForQuestion(candidate, question) || addressQuestionAnswer(candidate, questionTopic(question));
+export function candidateAnswerForQuestion(candidate, question, context = '') {
+  return recordedAnswerForQuestion(candidate, question, context) || addressQuestionAnswer(candidate, questionTopic(question, context));
 }
 
 function optionForAnswer(field, answer) {
@@ -453,7 +565,7 @@ function optionForAnswer(field, answer) {
 /** A safe answer already stated by the candidate, or the current institution from the CV. */
 export function candidateAnswerForField(candidate, field) {
   const topic = questionTopic(field?.label, field?.context);
-  const previous = recordedAnswerForQuestion(candidate, field?.label);
+  const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;
@@ -476,6 +588,8 @@ export function candidateAnswerForField(candidate, field) {
     }
     return null;
   }
+  const native = nativeLanguageOption(field, candidate);
+  if (native) return { value: native.label, source: 'profile' };
   // The civil status the candidate's CV states in its own words, or they corrected (candidateWithEdits
   // `personal`): the one option of the list that says it, or the words themselves in a text field.
   if (topic === 'civil_status') {
@@ -519,10 +633,10 @@ export function attachedDocumentYes(candidate, field) {
 const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
-export function answeredByCandidate(candidate, question, answer) {
+export function answeredByCandidate(candidate, question, answer, context = '') {
   const given = String(answer || '').trim();
-  const previous = candidateAnswerForQuestion(candidate, question);
-  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
+  const previous = candidateAnswerForQuestion(candidate, question, context);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given, context);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -586,17 +700,29 @@ export function guardPlan(plan, fields, candidate = null) {
   // licence?» into a question for the candidate who has just uploaded it.
   const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
   for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
+  // A current employment status is a direct consequence of an experience that
+  // the CV marks as ongoing. Keep the mapping deterministic: language levels,
+  // availability and other candidate-only facts still go to the candidate.
+  const employmentPick = new Map(fields.map((field) => [field.id, currentEmploymentOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of employmentPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
+  // A native language is explicit either in the language list or, conservatively,
+  // in the detected CV language alongside another explicitly levelled language.
+  // It is still a candidate fact: an explicit portal answer always wins.
+  const nativePick = new Map(fields.map((field) => [field.id, nativeLanguageOption(field, candidate)]).filter(([, option]) => option));
+  for (const [fieldId, option] of nativePick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'profile', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId) && !employmentPick.has(action.fieldId) && !nativePick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId) && !employmentPick.has(item.fieldId) && !nativePick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
-    if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
+    const field = byId.get(item.fieldId);
+    const withContext = field?.context ? { ...item, context: String(field.context).slice(0, 240) } : item;
+    if (!missing.some((other) => other.fieldId === withContext.fieldId)) missing.push(withContext);
   }
   const ask = (field) => {
     if (field.required && !missing.some((item) => item.fieldId === field.id)) {
-      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
+      missing.push({ fieldId: field.id, question: questionFromLabel(field.label), ...(field.context ? { context: String(field.context).slice(0, 240) } : {}), why: '', type: field.kind === 'date' || field.inputType === 'date' ? 'date' : field.options ? 'choice' : 'text', options: (field.options || []).map((option) => option.label) });
     }
   };
   for (const action of plan.actions || []) {
@@ -628,15 +754,17 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
+    const native = ['fill', 'select'].includes(action.action)
+      && nativeLanguageAnswerMatches(candidate, field, action.value, field.context);
     // A permit or nationality field: the candidate's own status or nationality as the catalogue words it, their
     // answer to this very question, or declining; never the substring rule (decision 9).
     const own = ['fill', 'select'].includes(action.action) ? ownStatusAnswer(candidate, field.label, action.value, { option: action.action === 'select' }) : null;
     if (own !== null) {
-      if (!own && !answeredByCandidate(candidate, field.label, action.value) && !declines) {
+      if (!own && !answeredByCandidate(candidate, field.label, action.value, field.context) && !declines) {
         ask(field);
         continue;
       }
-    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
+    } else if ((SENSITIVE.test(field.label) || isAddressTopic) && ['fill', 'select'].includes(action.action) && !fromCandidate && !native && !declines) {
       ask(field);
       continue;
     }
@@ -645,7 +773,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // below (candidateAnswerForField) when the candidate has said it.
     if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label, field.context) === 'civil_status') {
       const stated = civilStatusCode(statedCivilStatus(candidate));
-      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
+      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value, field.context)) {
         ask(field);
         continue;
       }
@@ -654,7 +782,7 @@ export function guardPlan(plan, fields, candidate = null) {
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
     // candidate's own answer to this question, or a quote that supports the answer.
     const given = action.action === 'check' ? 'ja' : action.value;
-    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+    const supported = knownValues === null || native || answeredByCandidate(candidate, field.label, given, field.context)
       || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);
@@ -684,16 +812,16 @@ export function guardPlan(plan, fields, candidate = null) {
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
   for (const field of fields) {
-    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     // The application's own consent is no question for the candidate: the
     // mandate covers it, so the box the plan left alone is ticked here (umantis,
     // 2026-10-03: «I agree to the Privacy Policy Statement» came back skipped,
     // and went to the candidate as a text question).
-    if (ownConsent(field)) {
+    if (!answered.has(field.id) && !holdsValue(field) && ownConsent(field)) {
       actions.push({ fieldId: field.id, action: 'check', value: '', document: 'none', source: 'consent', evidence: '' });
       answered.add(field.id);
       continue;
     }
+    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
     ask(field);
   }
   const asked = new Set(missing.filter((item) => byId.has(item.fieldId) && !answered.has(item.fieldId)).map((item) => item.fieldId));

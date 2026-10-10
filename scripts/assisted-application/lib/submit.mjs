@@ -54,8 +54,10 @@ export function portalNeedsPlanner(draft) {
 }
 
 /** Open required questions block the submission, whatever the channel. */
-export function openRequiredQuestions(draft, answers = {}) {
-  return (draft?.questions || []).filter((question) => question.required && !String(answers?.[question.id] ?? '').trim());
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false } = {}) {
+  return (draft?.questions || []).filter((question) => question.required
+    && !(deferPortal && question.source === 'portal')
+    && !String(answers?.[question.id] ?? '').trim());
 }
 
 /**
@@ -221,7 +223,11 @@ export async function submitApplication(ctx) {
   log('liveness before submit', liveness.page?.result, liveness.page?.code);
   if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
 
-  const open = openRequiredQuestions(draft, answers);
+  // Portal questions can be stale: an earlier run stored only their label and
+  // stopped before the live field context was available. Let the runner read
+  // the current form and apply its structural safety checks; if the question
+  // is still unanswered, the runner hands it back with its context preserved.
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft) });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
   if (open.length || missingDocuments.length) {
     return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };

@@ -29,6 +29,7 @@ import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { candidateAnswerForField, holdsValue, planPage, questionTopic } from './plan.mjs';
+import { portalQuestionId, portalQuestionKey, slugId } from './question-key.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -156,10 +157,7 @@ export function machineLabel(label) {
   return !text || (/^[\w:.-]+$/.test(text) && /[_:\d]/.test(text));
 }
 
-export function slugId(text) {
-  return String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 50) || 'question';
-}
+export { portalQuestionId, portalQuestionKey, slugId };
 
 /**
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
@@ -196,6 +194,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       experience: (profile.experience || []).slice(0, 8)
         .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
+      // The detected language of the candidate's CV is evidence for the
+      // planner's conservative native-language rule; it is not a nationality
+      // or a replacement for explicitly stated language levels.
+      cvLanguage: profile.cvLanguage || '',
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
       currentEducation: {
@@ -255,15 +257,14 @@ function portalAnswersForQuestions(questions, answers) {
     .filter((item) => item.answer);
   const seen = new Map();
   for (const item of items) {
-    const topic = questionTopic(item.question.question);
-    const key = topic || item.question.id;
+    const key = portalQuestionKey(item.question.question, item.question.context);
     const previous = seen.get(key);
     // Prefer an answer stored under this exact question id over an alias found
     // only by semantic topic.
     const exact = String(answers[item.question.id] ?? '').trim();
     if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer }));
+  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer, ...(question.context ? { context: question.context } : {}) }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
@@ -278,6 +279,7 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       id: question.id,
       kind: options.length || ['choice', 'yes_no'].includes(question.type) ? 'select' : 'text',
       label: question.question,
+      context: question.context || '',
       required: true,
       options,
     };
@@ -682,11 +684,11 @@ function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
   for (const item of missingRequired) {
-    const id = `portal_${slugId(item.question)}`;
-    const key = questionTopic(item.question) || id;
+    const id = portalQuestionId(item.question, item.context);
+    const key = portalQuestionKey(item.question, item.context);
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
+    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
 }
@@ -701,7 +703,7 @@ export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
   return (Array.isArray(questions) ? questions : []).filter((question) => {
     if (question?.source !== 'portal') return true;
-    const key = questionTopic(question.question) || question.id;
+    const key = portalQuestionKey(question.question, question.context) || question.id;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -993,6 +995,34 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     await page.waitForTimeout(1000);
     current = await extractFields(page);
     if (current.fields.length > before) done.add(expandKey);
+  }
+  // Legacy Rexx/Portal7 forms (including the Ticino IAS portal) do not expose
+  // an "expand all" control. Their application groups are accordion legends
+  // (`.group_head`) and the first group is the only one open on first load.
+  // Reading only the visible group makes the runner press the final button
+  // while required fields in the other groups are still blank; the portal
+  // then returns the same page with `#errors` and the outcome is ambiguous.
+  // Open each closed group before planning so all required fields, consents
+  // and CV-derived answers take part in the same guarded plan.
+  const legacyHeaders = page.locator('.group_head');
+  const legacyCount = await legacyHeaders.count().catch(() => 0);
+  for (let index = 0; index < legacyCount; index += 1) {
+    const header = legacyHeaders.nth(index);
+    const closed = await header.evaluate((element) => {
+      if (element.getAttribute('aria-expanded') === 'true' || element.classList.contains('group_extended')) return false;
+      if (element.getAttribute('aria-expanded') === 'false') return true;
+      const group = element.nextElementSibling;
+      if (!group) return false;
+      const style = window.getComputedStyle(group);
+      return style.display === 'none' || group.getBoundingClientRect().height === 0;
+    }).catch(() => false);
+    if (!closed) continue;
+    const id = await header.getAttribute('id').catch(() => '') || String(index);
+    if (!attempt(`legacy|${where}|${id}`)) continue;
+    await header.click({ timeout: 6_000 }).catch(() => {});
+    await settle(page);
+    await page.waitForTimeout(1000);
+    current = await extractFields(page);
   }
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;

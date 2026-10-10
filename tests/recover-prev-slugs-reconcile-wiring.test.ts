@@ -32,6 +32,7 @@ type Step = {
   name?: string;
   id?: string;
   if?: string;
+  'timeout-minutes'?: number;
   env?: Record<string, string>;
   run?: string;
   uses?: string;
@@ -115,6 +116,23 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     expect(workflow.permissions?.['pull-requests']).toBe('write');
     expect(checkout?.with?.['persist-credentials']).toBe(false);
     expect(steps.some((step) => step.run === 'node scripts/ci/mint-app-token.mjs')).toBe(true);
+  });
+});
+
+describe('recover-prev-slugs.yml — history-fetch budgets preserve complete scan coverage (#10777)', () => {
+  it('allows the repeated slow fetches to finish without shrinking the history window', () => {
+    const job = (parse(readFileSync(WORKFLOW, 'utf8')) as {
+      jobs: { recover: { 'timeout-minutes': number; steps: Step[] } };
+    }).jobs.recover;
+    const deepen = job.steps.find((step) => step.id === 'deepen');
+    const fallback = job.steps.find((step) => step.name === 'Fallback: unshallow checkout');
+
+    expect(job['timeout-minutes']).toBe(60);
+    expect(deepen?.['timeout-minutes']).toBe(15);
+    expect(fallback?.['timeout-minutes']).toBe(30);
+    expect(deepen?.run).toContain('git fetch --shallow-since="$SHALLOW_SINCE"');
+    expect(fallback?.run).toContain('git fetch --unshallow');
+    expect(deepen?.run).toContain('date -u -d "$SINCE - 1 day"');
   });
 });
 

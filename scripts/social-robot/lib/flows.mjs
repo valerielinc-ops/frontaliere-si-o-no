@@ -162,6 +162,47 @@ export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, sta
   }
 }
 
+const INSTAGRAM_ACTIVE_CREATE_MENU_SELECTOR = [
+  '[role="menu"]:visible',
+  '[data-menu]:visible',
+  '[data-popover]:visible',
+  '[data-testid*="menu" i]:visible',
+  '[data-testid*="popover" i]:visible',
+].join(', ');
+
+function instagramActiveCreateMenu(page) {
+  return page.locator(INSTAGRAM_ACTIVE_CREATE_MENU_SELECTOR);
+}
+
+function instagramPostMenuCandidates(page) {
+  const menu = instagramActiveCreateMenu(page);
+  return [
+    menu.getByRole('link', { name: RX.igPostMenu }),
+    menu.getByRole('menuitem', { name: RX.igPostMenu }),
+    menu.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
+    menu.locator('[role="menuitem"]').filter({ hasText: RX.igPostMenu }),
+    menu.locator('[role="link"]').filter({ hasText: RX.igPostMenu }),
+    // Instagram's active Create popover can render its Post row as a
+    // roleless div. The icon remains explicitly labelled; scope it to the
+    // active menu so a navigation/decoy Post cannot be clicked.
+    menu.getByRole('img', { name: RX.igPostMenu }),
+  ];
+}
+
+function instagramReelMenuCandidates(page) {
+  const menu = instagramActiveCreateMenu(page);
+  return [
+    menu.getByRole('link', { name: RX.igReelMenu }),
+    menu.getByRole('menuitem', { name: RX.igReelMenu }),
+    menu.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
+    menu.locator('[role="menuitem"]').filter({ hasText: RX.igReelMenu }),
+    menu.locator('[role="link"]').filter({ hasText: RX.igReelMenu }),
+    // Keep Reel recognition independent from the Post fallback while still
+    // supporting the same roleless icon shape in the active Create popover.
+    menu.getByRole('img', { name: RX.igReelMenu }),
+  ];
+}
+
 async function isEnabled(loc) {
   try {
     if (await loc.isDisabled()) return false;
@@ -741,6 +782,23 @@ async function optionalClick(candidates, { timeout = DEFAULT_TIMEOUTS.optional, 
   return Boolean(loc);
 }
 
+export async function waitForInstagramReelPreview({ page, step, snap, guard, timeout = DEFAULT_TIMEOUTS.upload }) {
+  step.set('reel-next-preview');
+  const deadline = Date.now() + timeout;
+  const candidates = [page.getByRole('button', { name: RX.igNext })];
+
+  for (;;) {
+    await guard();
+    await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
+    const next = await findFirst(candidates, { guard, timeout: 0 });
+    if (next) return next;
+    if (Date.now() >= deadline) {
+      throw new RobotError('selector-missing', 'no control found for step "reel-next-preview"', { step: 'reel-next-preview' });
+    }
+    await sleep(Math.min(100, deadline - Date.now()));
+  }
+}
+
 /** Publish one video through Instagram's Reel composer. */
 async function instagramReelFlow({ page, files, caption, dryRun, human, snap, startUrl = INSTAGRAM_HOME, timeouts = {}, step = stepTracker() }) {
   const t = { ...DEFAULT_TIMEOUTS, ...timeouts };
@@ -761,13 +819,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
 
   step.set('create-menu');
   const reelMenu = await findFirst([
-    // `getByRole('link', { name: /Reel/ })` also matches Instagram's
-    // persistent left-nav link. Creation choices are the href="#" controls;
-    // scope the lookup so selecting a Reel cannot navigate away from the
-    // composer before the file input is attached.
-    page.locator('a[href="#"]').filter({ hasText: RX.igReelMenu }),
-    page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igReelMenu }),
-    page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igReelMenu }),
+    ...instagramReelMenuCandidates(page),
   ], { guard, timeout: t.optional });
   if (reelMenu) {
     await snap('create-menu');
@@ -780,11 +832,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     // explicit Reel path preferred and use the normal Post entry only as this
     // bounded, video-validated fallback; a missing menu is still allowed for
     // layouts that opened the upload dialog directly.
-    const postMenu = await findFirst([
-      page.locator('a[href="#"]').filter({ hasText: RX.igPostMenu }),
-      page.locator('[role="menu"] [role="menuitem"]').filter({ hasText: RX.igPostMenu }),
-      page.locator('[role="menu"] [role="link"]').filter({ hasText: RX.igPostMenu }),
-    ], { guard, timeout: t.optional });
+    const postMenu = await findFirst(instagramPostMenuCandidates(page), { guard, timeout: t.optional });
     if (postMenu) {
       await snap('create-menu');
       await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu fallback for Reel' });
@@ -816,7 +864,7 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   // Video processing can outlast the ordinary UI timeout. Waiting for the
   // first transition with the bounded upload timeout keeps slow valid uploads
   // alive without allowing the flow to wait indefinitely.
-  const firstNext = await required(step, 'reel-next-preview', [page.getByRole('button', { name: RX.igNext })], { guard, timeout: t.upload });
+  const firstNext = await waitForInstagramReelPreview({ page, step, snap, guard, timeout: t.upload });
   await clickChecked(page, firstNext, { step, snap, platform: 'instagram', label: 'Instagram Reel preview next' });
   await human.pause();
 
@@ -890,10 +938,7 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
   await human.pause();
   // Newer layouts open a small menu (Post / Live / Ad) before the dialog.
   step.set('create-menu');
-  const postMenu = await findFirst([
-    page.getByRole('link', { name: RX.igPostMenu }),
-    page.getByRole('menuitem', { name: RX.igPostMenu }),
-  ], { guard, timeout: t.optional });
+  const postMenu = await findFirst(instagramPostMenuCandidates(page), { guard, timeout: t.optional });
   if (postMenu) {
     await snap('create-menu');
     await clickChecked(page, postMenu, { step, snap, platform: 'instagram', label: 'Instagram Post menu item' });

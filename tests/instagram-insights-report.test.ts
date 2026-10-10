@@ -4,6 +4,7 @@ import {
   aggregateCreativePerformance,
   buildCreativeReport,
   normalizeInsightRows,
+  parseInstagramInsightsCsv,
 } from '../scripts/lib/instagram-insights-report.mjs';
 
 const rows = [
@@ -15,6 +16,48 @@ const rows = [
 ];
 
 describe('Instagram Insights creative scorecard', () => {
+  it('parses a Dashboard CSV and joins a queue id to the creative ledger', () => {
+    const csv = '\ufeffPost ID;Reach;Shares;Saves;Comments\narticle-1;120;9;4;3\n';
+    const parsed = parseInstagramInsightsCsv(csv);
+    const result = normalizeInsightRows(parsed, {
+      windowHours: 24,
+      ledger: {
+        posted: [{
+          queueId: 'article-1',
+          kind: 'article',
+          creativeId: 'question-choice',
+          creativeObjective: 'conversation',
+          primaryMetric: 'comments',
+          hookType: 'forced-choice',
+        }],
+      },
+    });
+
+    expect(result.rejected).toEqual([]);
+    expect(result.rows[0]).toMatchObject({
+      postId: 'article-1',
+      kind: 'article',
+      creativeId: 'question-choice',
+      objective: 'conversation',
+      primaryMetric: 'comments',
+      hookType: 'forced-choice',
+      reach: 120,
+      comments: 3,
+      windowHours: 24,
+    });
+  });
+
+  it('handles quoted commas in CSV fields without shifting metric columns', () => {
+    const parsed = parseInstagramInsightsCsv('Post ID,Creative ID,Reach,Shares\n"post,1",proof,100,8\n');
+
+    expect(parsed).toEqual([{
+      id: 'post,1',
+      creativeId: 'proof',
+      reach: '100',
+      shares: '8',
+    }]);
+  });
+
   it('normalizes dashboard aliases and derives the treatment objective', () => {
     const result = normalizeInsightRows({ data: [
       {
@@ -34,6 +77,7 @@ describe('Instagram Insights creative scorecard', () => {
       creativeId: 'question-story',
       objective: 'conversation',
       primaryMetric: 'comments',
+      engagementMechanic: null,
       reach: 100,
       shares: 4,
       saves: 12,
@@ -76,11 +120,36 @@ describe('Instagram Insights creative scorecard', () => {
     const result = normalizeInsightRows([
       { id: 'ig-123', reach: 100, shares: 5, saves: 1, comments: 0 },
     ], {
-      ledger: { posted: [{ instagramMediaId: 'ig-123', creativeId: 'proof' }] },
+      ledger: { posted: [{
+        instagramMediaId: 'ig-123',
+        creativeId: 'proof',
+        creativeBaseId: 'proof',
+        creativeVariant: 'baseline',
+        creativeLabel: 'Dato verificabile',
+        engagementMechanic: 'direct-share',
+        hookType: 'data-proof',
+        attentionMechanic: 'single-source-number',
+        engagementLoop: 'share-with-utility',
+        followUpFormat: 'story-poll',
+      }] },
     });
 
     expect(result.rejected).toEqual([]);
-    expect(result.rows[0].creativeId).toBe('proof');
+    expect(result.rows[0]).toMatchObject({
+      creativeId: 'proof',
+      creativeVariant: 'baseline',
+      engagementMechanic: 'direct-share',
+      hookType: 'data-proof',
+      engagementLoop: 'share-with-utility',
+    });
+
+    const report = aggregateCreativePerformance(result.rows, { minimumObservations: 1 });
+    expect(report.treatments[0]).toMatchObject({
+      creativeId: 'proof',
+      creativeVariant: 'baseline',
+      engagementMechanic: 'direct-share',
+      followUpFormat: 'story-poll',
+    });
   });
 
   it('rejects incomplete rows instead of turning missing reach into a zero-rate winner', () => {

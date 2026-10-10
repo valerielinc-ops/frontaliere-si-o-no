@@ -468,12 +468,21 @@ describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ende
     return readFileSync(limits, 'utf8').trim();
   }
 
-  /** Runs `upload-cdn-file.sh --check` with the same recording `timeout` stub. */
-  function lookupLimit(name: string, value: string): string {
+  /** Runs `upload-cdn-file.sh --check` with a deterministic rclone stat result. */
+  function checkObjectKey(
+    name: string,
+    key: string,
+    statJson: string,
+    rcloneStatus = 0,
+    timeoutSeconds = '120',
+  ) {
     const dir = join(SCRATCH, name);
     const bin = join(dir, 'bin');
     mkdirSync(bin, { recursive: true });
-    writeFileSync(join(bin, 'rclone'), '#!/usr/bin/env bash\nexit 0\n');
+    writeFileSync(
+      join(bin, 'rclone'),
+      '#!/usr/bin/env bash\nprintf "%s\\0" "$@" > "$STUB_RCLONE_ARGS"\nprintf "%s" "$STUB_RCLONE_OUTPUT"\nexit "$STUB_RCLONE_STATUS"\n',
+    );
     writeFileSync(
       join(bin, 'timeout'),
       '#!/usr/bin/env bash\n[ "$1" = "-k" ] && shift 2\necho "$1" >> "$STUB_LIMITS"\nshift\nexec "$@"\n',
@@ -481,8 +490,9 @@ describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ende
     chmodSync(join(bin, 'rclone'), 0o755);
     chmodSync(join(bin, 'timeout'), 0o755);
     const limits = join(dir, 'limits.log');
+    const argsFile = join(dir, 'rclone-args.bin');
     writeFileSync(limits, '');
-    const out = execFileSync('bash', ['scripts/lib/upload-cdn-file.sh', '--check', 'images/hero.webp'], {
+    const out = execFileSync('bash', ['scripts/lib/upload-cdn-file.sh', '--check', key], {
       cwd: ROOT,
       encoding: 'utf8',
       timeout: 30_000,
@@ -493,17 +503,52 @@ describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ende
         R2_SECRET_ACCESS_KEY: 's',
         R2_S3_ENDPOINT: 'https://r2.invalid',
         R2_BUCKET: 'bkt',
-        R2_TIMEOUT_OBJECT_S: value,
+        R2_TIMEOUT_OBJECT_S: timeoutSeconds,
         STUB_LIMITS: limits,
+        STUB_RCLONE_ARGS: argsFile,
+        STUB_RCLONE_OUTPUT: statJson,
+        STUB_RCLONE_STATUS: String(rcloneStatus),
       },
     });
-    expect(out).toMatch(/missing images\/hero\.webp/);
-    return readFileSync(limits, 'utf8').trim();
+    return {
+      out,
+      limits: readFileSync(limits, 'utf8').trim(),
+      args: readFileSync(argsFile, 'utf8').split('\0').filter(Boolean),
+    };
+  }
+
+  /** Runs the timed lookup and asserts that a prefix-only R2 stat is missing. */
+  function lookupLimit(name: string, value: string): string {
+    const output = JSON.stringify({ Name: 'hero.webp', Path: 'images/hero.webp', Size: -1, IsDir: true });
+    const result = checkObjectKey(name, 'images/hero.webp', output, 0, value);
+    expect(result.out).toMatch(/missing images\/hero\.webp/);
+    return result.limits;
   }
 
   it('upload-cdn-file.sh --check: the lookup runs under the same per-object limit', () => {
     expect(lookupLimit('lookup-valid', '45')).toBe('45');
     expect(lookupLimit('lookup-zero', '0')).toBe('120');
+  });
+
+  it('upload-cdn-file.sh --check: a zero-byte object exists even with special key characters', () => {
+    const key = "images/équipe, \"hero\"; l'été.webp";
+    const output = JSON.stringify({ Name: key.split('/').at(-1), Path: key, Size: 0, IsDir: false });
+    const result = checkObjectKey('lookup-zero-byte-special-key', key, output);
+    expect(result.out).toMatch(/✅ exists/);
+    expect(result.args).toContain('lsjson');
+    expect(result.args).toContain('--stat');
+    expect(result.args.at(-1)).toBe(`:s3:bkt/${key}`);
+  });
+
+  it('upload-cdn-file.sh --check: malformed stat metadata is indeterminate, not a miss', () => {
+    const result = checkObjectKey('lookup-invalid-stat', 'images/hero.webp', 'not-json');
+    expect(result.out).toMatch(/check indeterminate.*invalid R2 object metadata/);
+    expect(result.out).not.toMatch(/❌ missing/);
+  });
+
+  it('upload-cdn-file.sh --check: preserves an R2 lookup failure as indeterminate', () => {
+    const result = checkObjectKey('lookup-failed', 'images/hero.webp', '{}', 5);
+    expect(result.out).toMatch(/check indeterminate.*R2 lookup failed \(exit 5\)/);
   });
 
   it('upload-cdn-file.sh: R2_TIMEOUT_OBJECT_S=0 still runs the PUT under the 120 s default', () => {

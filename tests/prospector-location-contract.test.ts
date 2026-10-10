@@ -729,6 +729,34 @@ describe('prospector location and identity contract', () => {
     ]);
   });
 
+  it('accepts only reviewed Proton foreign office names in unlabeled Greenhouse composites', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Geneva Barcelona Vilnius offices',
+        location: 'Geneva; Barcelona; Vilnius',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/13',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Taipei Geneva Skopje offices',
+        location: 'Taipei; Geneva; Skopje',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/14',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Unknown remote office',
+        location: 'Geneva, Switzerland, Unknown Satellite Office',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/15',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toMatchObject([
+      { title: 'Geneva Barcelona Vilnius offices', location: 'Geneva', canton: 'GE' },
+      { title: 'Taipei Geneva Skopje offices', location: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
   it('drops repeated Swiss offices instead of deduplicating them', async () => {
     fetchGreenhouseJobs.mockResolvedValue([
       {

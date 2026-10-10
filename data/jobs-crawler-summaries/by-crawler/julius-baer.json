@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-09T21:11:15.609Z",
+  "generatedAt": "2026-10-10T09:12:49.059Z",
   "total": 58,
-  "newCount": 4,
+  "newCount": 2,
   "updatedCount": 10,
-  "removedCount": 2,
-  "unchangedCount": 44,
-  "durationMs": 37241,
-  "avgDurationMs": 37241,
+  "removedCount": 1,
+  "unchangedCount": 46,
+  "durationMs": 33821,
+  "avgDurationMs": 33821,
   "durationHistory": [
-    37241
+    33821
   ],
   "newJobs": [
     {
@@ -41,99 +41,15 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-09T21:11:04.933Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-09T21:11:04.933Z",
-      "_qualityScore": 65,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 16
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer-Global-Sanctions-Advisory-80----100---f-m-d-_r-19935-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer-Global-Sanctions-Advisory-80----100---f-m-d-_r-19935-2",
-      "title": "Compliance Officer Global Sanctions Advisory 80% - 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "compliance-officer-global-sanctions-advisory-80-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-10-09",
-      "postedDate": "2026-10-09",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-09T04:57:42.234Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
-      "title": "IT Team Lead for Business Process & Content Management Services 80%-100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "it-team-lead-for-business-process-content-management-services-80-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-29T09:13:05.388Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 16
       }
@@ -598,6 +514,49 @@
   ],
   "removedJobs": [
     {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Quantitative-Analyst---Interest-Rate-Pricing-Models-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027--possible-extension-_r-20119-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Quantitative-Analyst---Interest-Rate-Pricing-Models-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027--possible-extension-_r-20119-1",
+      "title": "Senior Quantitative Analyst - Interest Rate Pricing Models 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.12.2027, possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "analista-quantitativo-senior-modelli-di-prezzo-del-tasso-di-interesse-100-m-f-d-contrasportare-attraverso-il-nostro",
+      "category": "risk",
+      "datePosted": "2026-10-09",
+      "postedDate": "2026-10-09",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-09T21:11:04.933Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 16
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer-Global-Sanctions-Advisory-80----100---f-m-d-_r-19935-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Compliance-Officer-Global-Sanctions-Advisory-80----100---f-m-d-_r-19935-2",
       "title": "Compliance Officer Global Sanctions Advisory 80% - 100% (f/m/d)",
@@ -611,7 +570,7 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "responsabile-della-conformita-global-sanzioni-advisory-80-100-m-f-d-julius-baer-zurich",
+      "slug": "compliance-officer-global-sanctions-advisory-80-100-f-m-d-julius-baer",
       "category": "risk",
       "datePosted": "2026-10-09",
       "postedDate": "2026-10-09",
@@ -626,11 +585,11 @@
         "location": "Zurich"
       },
       "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-10-09T04:57:42.234Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-09T04:57:42.234Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -639,49 +598,6 @@
         "completeness": 16
       }
     },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
-      "title": "IT Team Lead for Business Process & Content Management Services 80%-100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "leader-del-team-it-per-i-servizi-di-gestione-dei-processi-aziendali-e-dei-contenuti-80-100-m-f-d-julius-baer-zurich",
-      "category": "technology",
-      "datePosted": "2026-09-29",
-      "postedDate": "2026-09-29",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-29T09:13:05.388Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 16
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Test-Environment-and-Data-Specialist-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-for-11-months--possible-extension-_r-20062-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Test-Environment-and-Data-Specialist-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-for-11-months--possible-extension-_r-20062-1",
@@ -1249,6 +1165,47 @@
       "firstSeenAt": "2026-09-30T21:10:36.349Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 16
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/IT-Team-Lead-for-Business-Process---Content-Management-Services-80--100---f-m-d-_r-19534-1",
+      "title": "IT Team Lead for Business Process & Content Management Services 80%-100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "it-team-lead-for-business-process-content-management-services-80-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-09-29",
+      "postedDate": "2026-09-29",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-09-29T09:13:05.388Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
       "currency": "CHF",
       "salarySource": "estimated",
       "_qualityScore": 84,
@@ -1835,89 +1792,7 @@
         "translation": 25,
         "completeness": 16
       }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Compliance-Specialist---Conduct-Framework-Employee-Compliance--100---f-m-d-_r-18578-1",
-      "title": "Compliance Specialist - Conduct Framework Employee Compliance 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "compliance-specialist-conduct-framework-employee-compliance-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-09-07",
-      "postedDate": "2026-09-07",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-07T15:04:01.668Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 16
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Employee-Banking-100---fixed-term-contract-Start-Date-01-February-2027--8-months-Maternity-Leave-coverage-_r-19521-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Employee-Banking-100---fixed-term-contract-Start-Date-01-February-2027--8-months-Maternity-Leave-coverage-_r-19521-1",
-      "title": "Account Manager Employee Banking 100% (fixed-term contract Start Date 01 February 2027/ 8 months Maternity Leave coverage)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "account-manager-employee-banking-100-fixed-term-contract-start-date-01-february-2027-8-months-maternity-leave-coverage-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-08-31",
-      "postedDate": "2026-08-31",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-31T17:01:31.790Z",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 16
-      }
     }
   ],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }

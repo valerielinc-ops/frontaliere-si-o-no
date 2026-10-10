@@ -40,6 +40,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { fileURLToPath } from 'node:url';
 
 // Node built-ins and two commands, on purpose: this file travels byte-identical
@@ -94,13 +95,47 @@ export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=604800';
 const PROBE_USER_AGENT = 'FrontaliereTicino-ShellAssets/1.0 (+https://frontaliereticino.ch)';
 const PROBE_TIMEOUT_MS = 8_000;
 
+// One confirmation variant gets the complete retry schedule plus the last
+// request's bounded header wait. Earlier request latency consumes the same
+// budget: a slow edge cannot silently extend the publication gate.
+const EDGE_CONFIRMATION_WINDOW_MS = CONFIRM_DELAYS_MS.reduce((total, delay) => total + delay, 0)
+  + PROBE_TIMEOUT_MS;
+
 // A 200 whose body is HTML is not a script or a stylesheet: an origin that
 // serves the SPA on any path answers that way for a file it does not have.
 const isHtml = (contentType) => /^\s*text\/html\b/i.test(String(contentType || ''));
 
 // upload-cdn-file.sh bounds each rclone call itself (R2_TIMEOUT_OBJECT_S, two
-// attempts on the upload) and may first download rclone; this is the backstop.
+// attempts on the upload) and may first download rclone; this is both the
+// per-helper backstop and the total budget for all serial R2 work in one batch.
 const HELPER_TIMEOUT_MS = 6 * 60_000;
+const monotonicNow = () => performance.now();
+
+/** One monotonic deadline shared by every R2 lookup/upload in an asset batch. */
+export function r2UploadDeadline(startedAt = monotonicNow()) {
+  return startedAt + HELPER_TIMEOUT_MS;
+}
+
+/** One monotonic deadline for a cache variant's complete edge confirmation. */
+export function edgeConfirmationDeadline(startedAt = monotonicNow()) {
+  return startedAt + EDGE_CONFIRMATION_WINDOW_MS;
+}
+
+class R2UploadDeadlineExceededError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'R2UploadDeadlineExceededError';
+    this.code = 'R2_UPLOAD_DEADLINE_EXCEEDED';
+  }
+}
+
+class EdgeConfirmationDeadlineExceededError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'EdgeConfirmationDeadlineExceededError';
+    this.code = 'EDGE_CONFIRMATION_DEADLINE_EXCEEDED';
+  }
+}
 
 /** CDN keys of the files `listStaticScriptFiles()` returns. */
 export function shellAssetsFromStaticScripts(files) {
@@ -193,8 +228,23 @@ export async function confirmCdnAsset(key, {
   }
 }
 
-function runUploadHelper(args, { spawn = spawnSync, env = process.env } = {}) {
-  const result = spawn('bash', [UPLOAD_HELPER, ...args], { encoding: 'utf8', env, timeout: HELPER_TIMEOUT_MS });
+function runUploadHelper(args, {
+  spawn = spawnSync,
+  env = process.env,
+  deadlineAt,
+  now = monotonicNow,
+} = {}) {
+  let timeout = HELPER_TIMEOUT_MS;
+  if (deadlineAt !== undefined) {
+    timeout = Math.min(timeout, Math.floor(deadlineAt - now()));
+    if (timeout <= 0) {
+      throw new R2UploadDeadlineExceededError('R2 upload deadline expired before the helper could start');
+    }
+  }
+  const result = spawn('bash', [UPLOAD_HELPER, ...args], { encoding: 'utf8', env, timeout });
+  if (deadlineAt !== undefined && result.error?.code === 'ETIMEDOUT') {
+    throw new R2UploadDeadlineExceededError('R2 upload deadline expired while the helper was running');
+  }
   return `${result.stdout ?? ''}${result.stderr ?? ''}`;
 }
 
@@ -280,8 +330,9 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *   checkStored?: (key: string) => 'exists' | 'missing' | 'indeterminate' | Promise<'exists' | 'missing' | 'indeterminate'>,
  *   upload?: (key: string, content: string) => boolean | Promise<boolean>,
  *   purge?: (keys: string[]) => boolean | Promise<boolean>,
- *   confirm?: (key: string, options: { pageOrigin?: string }) => Promise<'present' | 'absent' | 'unknown'>,
+ *   confirm?: (key: string, options: { pageOrigin?: string, timeoutMs?: number }) => Promise<'present' | 'absent' | 'unknown'>,
  *   wait?: (ms: number) => Promise<void>,
+ *   now?: () => number,
  *   log?: (line: string) => void,
  * }} options
  * @returns {Promise<Array<{ key: string, outcome: 'served' | 'stored' | 'uploaded' }>>}
@@ -294,8 +345,28 @@ export async function ensureCdnShellAssets({
   purge = purgeCdnAssets,
   confirm = confirmCdnAsset,
   wait = waitFor,
+  now = monotonicNow,
   log = console.log,
 }) {
+  let r2DeadlineAt;
+  const withR2Deadline = async (key, phase, operation) => {
+    if (r2DeadlineAt === undefined) r2DeadlineAt = r2UploadDeadline(now());
+    const deadlineFailure = () => new R2UploadDeadlineExceededError(
+      `${key}: R2 ${phase} exceeded the shared ${HELPER_TIMEOUT_MS / 1000}s deadline — HTML that references it must not be published`,
+    );
+    if (now() >= r2DeadlineAt) throw deadlineFailure();
+
+    let result;
+    try {
+      result = await operation({ deadlineAt: r2DeadlineAt, now });
+    } catch (error) {
+      if (error instanceof R2UploadDeadlineExceededError) throw deadlineFailure();
+      throw error;
+    }
+    if (now() >= r2DeadlineAt) throw deadlineFailure();
+    return result;
+  };
+
   const probed = await Promise.all(assets.map(({ key }) => probe(key)));
   const results = [];
   for (const [index, { key, content }] of assets.entries()) {
@@ -303,7 +374,7 @@ export async function ensureCdnShellAssets({
       results.push({ key, outcome: 'served' });
       continue;
     }
-    const stored = await checkStored(key);
+    const stored = await withR2Deadline(key, 'lookup', (options) => checkStored(key, options));
     if (stored === 'exists') {
       log(`${key}: on R2, not shown by the CDN (probe: ${probed[index]})`);
       results.push({ key, outcome: 'stored' });
@@ -313,7 +384,7 @@ export async function ensureCdnShellAssets({
       throw new Error(`${key}: the CDN did not serve it (probe: ${probed[index]}) and R2 could not be read — HTML that references it must not be published`);
     }
     log(`${key}: not on the CDN — uploading it`);
-    if (!(await upload(key, content))) {
+    if (!(await withR2Deadline(key, 'upload', (options) => upload(key, content, options)))) {
       throw new Error(`${key}: not on the CDN and the upload failed — HTML that references it must not be published`);
     }
     results.push({ key, outcome: 'uploaded' });
@@ -340,14 +411,31 @@ export async function ensureCdnShellAssets({
     }
     for (const key of purged) {
       for (const pageOrigin of CACHE_VARIANTS) {
+        const deadlineAt = edgeConfirmationDeadline(now());
         let answer = 'unknown';
+        let confirmed = false;
         for (const delay of CONFIRM_DELAYS_MS) {
-          if (delay > 0) await wait(delay);
-          answer = await confirm(key, { pageOrigin });
-          if (answer === 'present') break;
+          if (delay > 0) {
+            const remainingBeforeWait = Math.floor(deadlineAt - now());
+            if (remainingBeforeWait <= 0) break;
+            await wait(Math.min(delay, remainingBeforeWait));
+          }
+          const remainingForRequest = Math.floor(deadlineAt - now());
+          if (remainingForRequest <= 0) break;
+          answer = await confirm(key, {
+            pageOrigin,
+            timeoutMs: Math.min(PROBE_TIMEOUT_MS, remainingForRequest),
+          });
+          if (answer === 'present' && now() <= deadlineAt) {
+            confirmed = true;
+            break;
+          }
+          if (now() >= deadlineAt) break;
         }
-        if (answer !== 'present') {
-          throw new Error(`${key}: on R2 and purged, but the URL the pages use still does not serve it (${variantLabel(pageOrigin)}: ${answer}) — HTML that references it must not be published`);
+        if (!confirmed) {
+          throw new EdgeConfirmationDeadlineExceededError(
+            `${key}: on R2 and purged, but the URL the pages use still does not serve it; edge confirmation exceeded the ${EDGE_CONFIRMATION_WINDOW_MS / 1000}s cumulative deadline (${variantLabel(pageOrigin)}: ${answer}) — HTML that references it must not be published`,
+          );
         }
       }
     }

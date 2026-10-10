@@ -32,6 +32,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import {
+  bucketEscalationKind,
   bucketFinding,
   stripNegatedImpactClauses,
   tallyFindings,
@@ -132,6 +133,51 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
   });
 });
 
+// Verbatim-style reviewer lines behind the recurring #12407 i18n-naming
+// escalation. The old classifier matched `untranslated` in a path or in the
+// acceptance fixture, even when the finding itself described another defect.
+const I18N_NAMING_FALSE_POSITIVES: Array<[string, string]> = [
+  ['#12463', 'scripts/lib/untranslated-title-repair.mjs:L41; scripts/fix-untranslated-titles.mjs:L375: 🔴 Important: [funnel] `titleRepairDetectorVerdict()` admits a handoff using `job.titleByLocale[sourceLang]`, but the Codex discovery still exits on an empty `job.title`. Accettazione: an allowlisted untranslated `de` title makes the Codex discovery emit that locale.'],
+  ['#12179', 'scripts/fix-untranslated-titles.mjs:L7: 🟡 Nit The module header still describes the free-translate cascade as “DeepL → MyMemory → etc.” although this workflow now puts Codex first; update the parenthetical to match production order.'],
+  ['#11905', 'scripts/lib/ai-models.mjs:L7278; scripts/lib/free-translate.mjs:L2244: 🔴 Important: [funnel] `callSingleModel()` trips the run-local Codex circuit on a direct failure but still invokes `_callModel` on later direct translation calls. Accettazione: after the first failure, a second untranslated field uses DeepL/Azure with exactly one Codex request.'],
+  ['#11898', 'scripts/fix-untranslated-titles.mjs:L31: 🔴 Important: [regression] Removing `titleContainsLlmReasoning` from this import leaves the existing guard as an unbound identifier; the batch throws `ReferenceError` before persisting repaired titles.'],
+  ['#11411', 'scripts/lib/translation-publication-hold.mjs:L382: 🔴 Important: [funnel] A previously held job is released when either the current or prior copy has publishable titles; this can publish untranslated content when the current copy lost a locale.'],
+  ['#10480', 'scripts/lib/free-translate.mjs:L1669: 🔴 Important: [correctness] `fromServiceAccount` is inferred from a mutable token cache, so a rejected service-account request skips the OAuth fallback and leaves that field untranslated. Accettazione: neither concurrent call returns an untranslated field.'],
+  ['#10265', 'scripts/crawl-tio-agenda.mjs:L440: 🔴 Important: [funnel] The deadline is checked only before the title enters the `missing` loop, so later sequential translation calls can exceed the budget. Accettazione: input with two missing locales crosses the deadline during the first call.'],
+];
+
+describe('bucketFinding — #12407 keeps i18n context separate from finding identity', () => {
+  it('does not group the seven heterogeneous #12407 examples as i18n naming or lose them', () => {
+    const buckets = I18N_NAMING_FALSE_POSITIVES.map(([pr, line]) => {
+      const bucket = bucketFinding(line);
+      expect(bucket, pr).toMatch(/^fp:/);
+      return bucket;
+    });
+    expect(new Set(buckets).size).toBe(I18N_NAMING_FALSE_POSITIVES.length);
+
+    const prs = I18N_NAMING_FALSE_POSITIVES.map(([pr, body]) => ({
+      number: Number(pr.slice(1)),
+      mergedAt: '2026-10-10T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body }],
+    }));
+    const { counts } = tallyFindings(prs);
+    expect(counts['i18n-naming']).toBeUndefined();
+    expect(Object.values(counts).reduce((sum, count) => sum + count, 0)).toBe(7);
+  });
+
+  it.each([
+    '🔴 Important: the localized route is emitted without its locale segment.',
+    '🔴 Important: the translated brand name is emitted unchanged in the German locale.',
+    '🔴 Important: the missing translation key `jobs.title.de` falls back to Italian.',
+  ])('continues to classify an explicit naming/key defect: %s', (line) => {
+    expect(bucketFinding(line)).toBe('i18n-naming');
+  });
+
+  it('keeps the precise naming bucket actionable at the unchanged threshold', () => {
+    expect(bucketEscalationKind('reviewer-finding', 'i18n-naming')).toBe('rule');
+  });
+});
+
 describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il solo token canonical', () => {
   const NON_SEO_CANONICAL_MENTIONS: Array<[string, string]> = [
     ['#10097', 'Build listedKeys from every canonical vacancy link independently of title extraction before using it as shrink evidence.'],
@@ -165,6 +211,9 @@ describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il so
     const findings = [
       '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',
       '🔴 Important: the sitemap inventory accepts an empty root and silently reports a clean crawl.',
+      '🔴 Important: sitemap coverage is incomplete.',
+      '🔴 Important: the sitemap was never published.',
+      '🔴 Important: the sitemap update failed.',
       '🔴 Important: the page does not emit the canonical when the locale is missing.',
       '🔴 Important: a sitemap URL has noindex and must be removed from the published sitemap.',
       '🔴 Important: the workflow does not republish the sitemap after a canonical slug changes.',

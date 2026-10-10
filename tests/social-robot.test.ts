@@ -20,6 +20,7 @@ import {
   deliverSocialPost,
   dequeuePosts,
   enqueuePost,
+  isPublishedForKindDay,
   ledgerPathFor,
   loadQueue,
   queuePathFor,
@@ -78,6 +79,27 @@ function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', no
     imageUrls: [cdn(`${kind}-${day}-0.jpg`), cdn(`${kind}-${day}-1.jpg`)],
     ledgerEntries: [{ id: `${kind}-slug-a`, kind, url: 'https://frontaliereticino.ch/a/', day }],
     now,
+  });
+}
+
+function reelEntry(overrides: Record<string, unknown> = {}) {
+  return buildQueueEntry({
+    channel: 'instagram',
+    kind: 'reel',
+    day: '2026-10-09',
+    caption: 'reel 2026-10-09\n\n#frontalieri',
+    imageUrls: [cdn('reel-2026-10-09-0.jpg')],
+    ledgerEntries: [{
+      id: 'article:reel-source',
+      kind: 'reel',
+      sourceKind: 'article',
+      sourceId: 'reel-source',
+      day: '2026-10-09',
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      ...overrides,
+    }],
+    now: NOW,
   });
 }
 
@@ -193,6 +215,38 @@ describe('the queue', () => {
     expect(next.pending.map((e: { id: string }) => e.id).sort()).toEqual(['article-2026-10-03', 'border-2026-09-28']);
   });
 
+  it('removes one stale queue id without deleting a newer entry of the same kind', () => {
+    const root = tempDir();
+    const file = path.join(root, 'instagram-queue.json');
+    const stale = entry('article', '2026-10-03');
+    const newer = entry('article', '2026-10-04');
+    fs.writeFileSync(file, JSON.stringify({ schemaVersion: 1, pending: [stale, newer] }));
+
+    dequeuePosts(file, { channel: 'instagram', kind: 'article', queueId: stale.id });
+
+    expect(loadQueue(file).pending.map((item: { id: string }) => item.id)).toEqual([newer.id]);
+  });
+
+  it('recognizes a published kind-day for API and robot ledger rows', () => {
+    const ledger = {
+      posted: [
+        { id: 'card-a', kind: 'article', day: '2026-10-03' },
+        { id: 'card-b', kind: 'article', day: '2026-10-03', queueId: 'article-2026-10-03' },
+      ],
+    };
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-03' })).toBe(true);
+    expect(isPublishedForKindDay(ledger, { kind: 'article', day: '2026-10-04' })).toBe(false);
+    expect(isPublishedForKindDay(ledger, { kind: 'job', day: '2026-10-03' })).toBe(false);
+  });
+
+  it('guards both daily posters against a same-day replay', () => {
+    for (const [file, channel] of [['post-to-instagram.mjs', 'instagram'], ['post-to-tiktok.mjs', 'tiktok']]) {
+      const src = fs.readFileSync(path.join(ROOT, 'scripts', file), 'utf8');
+      expect(src).toContain('isPublishedForKindDay(ledger, { kind, day })');
+      expect(src).toContain(`dequeuePosts(QUEUE_PATH, { channel: '${channel}', kind, queueId })`);
+    }
+  });
+
   it('writes the queue file the workflow commits', () => {
     const dir = tempDir();
     const file = path.join(dir, 'instagram-queue.json');
@@ -254,6 +308,39 @@ describe('confirmation → ledger', () => {
     expect(res.queue.pending).toEqual([]);
   });
 
+  it('backfills the CTA mechanic for a legacy Reel queue entry without touching carousels', () => {
+    const reel = reelEntry();
+    const reelResult = confirmQueueEntry({
+      queue: { pending: [reel] },
+      ledger: { posted: [] },
+      queueId: reel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(reelResult.ledgerEntries[0]).toMatchObject({
+      creativeId: 'reel-number',
+      primaryMetric: 'shares',
+      engagementMechanic: 'direct-share',
+    });
+
+    const futureReel = reelEntry({ creativeId: 'reel-future', primaryMetric: 'shares' });
+    const futureResult = confirmQueueEntry({
+      queue: { pending: [futureReel] },
+      ledger: { posted: [] },
+      queueId: futureReel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(futureResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
+
+    const carousel = entry('article');
+    const carouselResult = confirmQueueEntry({
+      queue: { pending: [carousel] },
+      ledger: { posted: [] },
+      queueId: carousel.id,
+      confirmedAt: '2026-10-10T10:00:00Z',
+    });
+    expect(carouselResult.ledgerEntries[0].engagementMechanic).toBeUndefined();
+  });
+
   it('confirm.mjs writes queue and ledger files and validates its inputs', () => {
     const root = tempDir();
     fs.mkdirSync(path.join(root, 'data'));
@@ -267,6 +354,43 @@ describe('confirmation → ledger', () => {
     expect(() => parseConfirmArgs(['--channel=facebook', `--queue-id=${e.id}`, '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/channel/);
     expect(() => parseConfirmArgs(['--channel=tiktok', '--queue-id=../../etc', '--confirmed-at=2026-10-04T10:00:00Z'])).toThrow(/queue-id/);
     expect(() => parseConfirmArgs(['--channel=tiktok', `--queue-id=${e.id}`, '--confirmed-at=ieri'])).toThrow(/confirmed-at/);
+  });
+
+  it('backfills known Instagram creative metadata at confirmation time', () => {
+    const root = tempDir();
+    fs.mkdirSync(path.join(root, 'data'));
+    const e = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-09',
+      caption: 'question',
+      imageUrls: [cdn('question.jpg')],
+      ledgerEntries: [{
+        id: 'article-card',
+        kind: 'article',
+        day: '2026-10-09',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+      }],
+    });
+    fs.writeFileSync(path.join(root, 'data', 'instagram-queue.json'), JSON.stringify({ schemaVersion: 1, pending: [e] }));
+    const result = applyConfirmation({
+      root,
+      ...parseConfirmArgs([
+        '--channel=instagram',
+        `--queue-id=${e.id}`,
+        '--confirmed-at=2026-10-10T10:00:00Z',
+        '--evidence=Post condiviso',
+      ]),
+    });
+    expect(result.ledgerEntries[0]).toMatchObject({
+      creativeId: 'question-choice',
+      hookType: 'forced-choice',
+      attentionMechanic: 'low-friction-choice',
+      engagementLoop: 'comment-to-poll',
+      followUpFormat: 'story-result',
+      engagementMechanic: 'keyword-comment',
+    });
   });
 });
 
@@ -294,6 +418,32 @@ describe('cadence', () => {
     );
     expect(pressedToday(journal, 'instagram', NOW)).toBe(2);
   });
+
+  it('releases the pending Reel on the next Zurich day after the Instagram cap', async () => {
+    const journal = emptyJournal();
+    journal.attempts.push(
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - HOUR).toISOString(), queueId: 'article-2026-10-03', confirmDispatched: true },
+      { channel: 'instagram', outcome: 'published', at: new Date(NOW - 2 * HOUR).toISOString(), queueId: 'job-2026-10-03', confirmDispatched: true },
+    );
+    const reel = entry('reel', '2026-10-03', { now: NOW - 3 * HOUR });
+    const queue = { pending: [reel] };
+    const reader = {
+      readQueue: () => queue,
+      readLedger: () => ({ posted: [{ queueId: 'article-2026-10-03' }, { queueId: 'job-2026-10-03' }] }),
+    };
+    const h = harness({ queue, journal });
+
+    const capped = await runRobot(h.deps({ reader }));
+    expect(capped.results[0]).toMatchObject({ channel: 'instagram', outcome: 'cap' });
+    expect(h.calls.flow).toEqual([]);
+
+    h.advance(24 * HOUR);
+    const nextDay = await runRobot(h.deps({ reader }));
+    expect(nextDay.results[0]).toMatchObject({ channel: 'instagram', outcome: 'published', queueId: reel.id });
+    expect(h.calls.flow).toEqual([{ dryRun: false, id: reel.id }]);
+    expect(pressedToday(h.journal(), 'instagram', NOW)).toBe(2);
+    expect(pressedToday(h.journal(), 'instagram', NOW + 24 * HOUR)).toBe(1);
+  });
 });
 
 type Deps = Parameters<typeof runRobot>[0];
@@ -301,7 +451,7 @@ type Deps = Parameters<typeof runRobot>[0];
 function harness({ queue = { pending: [entry('article')] }, journal = emptyJournal(), flow = async (_c: string, _e: unknown, _f: string[], o: { dryRun: boolean }) => ({ status: o.dryRun ? 'dry-run' : 'published', evidence: 'Post condiviso' }) } = {}) {
   let stored = journal;
   let clock = NOW;
-  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[] };
+  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[], logs: [] as string[] };
   const deps = (over: Partial<Deps> = {}): Deps => ({
     cliMode: 'publish',
     rcMode: 'live',
@@ -320,7 +470,7 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
     },
     dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
     reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
-    log: { log: () => {}, warn: () => {}, error: () => {} },
+    log: { log: (message: string) => { calls.logs.push(message); }, warn: () => {}, error: () => {} },
     ...over,
   }) as Deps;
   return { deps, calls, journal: () => stored, advance: (ms: number) => { clock += ms; } };
@@ -359,6 +509,38 @@ describe('runRobot', () => {
       expect(h.calls.dispatch).toEqual([]);
       expect(h.journal().attempts.map((a: { outcome: string }) => a.outcome)).toEqual(['dry-run']);
     }
+  });
+
+  it('prints the human engagement brief for an Instagram creative without sending interactions', async () => {
+    const creative = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-10',
+      caption: 'Quale tema scegli: tasse, sanità o permessi?',
+      imageUrls: [cdn('article-2026-10-10-0.jpg')],
+      ledgerEntries: [{
+        id: 'article-slug',
+        kind: 'article',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+        engagementMechanic: 'keyword-comment',
+        hookType: 'forced-choice',
+        attentionMechanic: 'low-friction-choice',
+        engagementLoop: 'comment-to-poll',
+        followUpFormat: 'story-result',
+      }],
+      now: NOW,
+    });
+    const h = harness({ queue: { pending: [creative] } });
+
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+
+    const output = h.calls.logs.join('\n');
+    expect(output).toContain('Instagram engagement — article-2026-10-10 · question-choice · comments');
+    expect(output).toContain('24h');
+    expect(output).toContain('48h');
+    expect(output).toContain('3 osservazioni');
+    expect(output).toContain('nessun commento, DM o Story viene inviato');
   });
 
   it('does nothing when Remote Config says off', async () => {
@@ -698,6 +880,7 @@ describe('Mac host launch agent', () => {
     expect(windows).toEqual(['9:5', '17:45']);
     expect(plist).toContain(`<string>${path.join(dir, 'state', 'launchd.sh')}</string>`);
     expect(fs.existsSync(path.join(dir, 'state', 'launchd.sh'))).toBe(true);
+    expect(fs.readFileSync(path.join(dir, 'state', 'site.path'), 'utf8').trim()).toBe(ROOT);
     const bad = spawnSync('bash', [script, 'install'], { env: { ...env, SR_WINDOWS: '24:61' }, encoding: 'utf8' });
     expect(bad.status).not.toBe(0);
   });
@@ -736,6 +919,20 @@ describe('Mac host launch agent', () => {
     expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
     expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
     expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('uses the persisted checkout when the installed launcher has no repo env', () => {
+    const fixture = createLaunchFixture();
+    const installEnv = launchEnv(fixture, {
+      SR_NO_LAUNCHCTL: '1',
+      SR_LAUNCH_AGENTS_DIR: path.join(fixture.root, 'agents'),
+      SR_WINDOWS: '11:30',
+    });
+    execFileSync('bash', [script, 'install'], { env: installEnv, encoding: 'utf8' });
+    const installedEnv = launchEnv(fixture, { SR_SITE_REPO: '' });
+    runLauncher(fixture, installedEnv, fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.readFileSync(path.join(fixture.state, 'site.path'), 'utf8').trim()).toBe(fixture.repo);
   });
 
   it('does not cache or execute an incomplete snapshot and alerts through gh', () => {

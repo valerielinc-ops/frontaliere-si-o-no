@@ -1,0 +1,21 @@
+{
+  "companyKey": "neba-therm-ch",
+  "companyName": "NEBA Therm AG",
+  "companyHost": "neba-therm.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://neba-therm.ch/karriere"
+  ],
+  "detailTemplate": "/images/stelleninserate/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Stelleninserat Fassadenbauer",
+    "Stelleninserat Polier"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-10T11:45:05.713Z"
+}

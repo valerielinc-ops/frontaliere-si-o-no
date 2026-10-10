@@ -4,8 +4,9 @@ import { realpathSync } from 'node:fs';
 /**
  * Dedicated lastminute.com Switzerland-wide crawler runner.
  *
- * Source:
- *   https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=
+ * Discovery source:
+ *   POST https://corporate.lastminute.com/wp-admin/admin-ajax.php?action=lm_careers_search
+ *   with HTMX form fields search, department, contract, and page.
  *
  * This script:
  *   1. Reads the complete lastminute careers listing.
@@ -50,6 +51,8 @@ import {
 import {
   extractSrIdFromUrl,
   fetchSmartRecruitersDetail,
+  parseLastminuteDeclaredTotal,
+  parseLastminuteListingDiscovery,
   parseSmartRecruitersDetail,
   validateLastminuteDescription,
 } from './lib/lastminute-job-parser.mjs';
@@ -78,9 +81,10 @@ const LASTMINUTE_COMPANY_NAME = 'lastminute.com';
 const LASTMINUTE_COMPANY_DOMAIN = 'lastminute.com';
 const LASTMINUTE_CORP_HOST = 'corporate.lastminute.com';
 const LASTMINUTE_SOURCE = {
-  listingUrl:
-    'https://corporate.lastminute.com/careers/jobs/?search=&department=&contract=',
+  listingUrl: 'https://corporate.lastminute.com/wp-admin/admin-ajax.php?action=lm_careers_search',
 };
+
+export { parseLastminuteDeclaredTotal };
 
 const SWISS_COUNTRY_TOKENS = new Set(['ch', 'switzerland', 'svizzera', 'schweiz', 'suisse']);
 const LASTMINUTE_BAD_FOOTER_LOCATION_RE =
@@ -274,31 +278,24 @@ function isExplicitlyForeignSmartRecruitersDetail(detail = {}) {
   );
 }
 
-function parseJobLinksFromListingHtml(html = '') {
-  const source = String(html || '');
-  const hrefRe = /href=(["'])(.*?)\1/gi;
-  const outByKey = new Map();
-  let match = null;
-  while ((match = hrefRe.exec(source)) !== null) {
-    const rawHref = decodeHtmlEntities(match[2] || '');
-    if (!rawHref || !rawHref.includes('/careers/jobs/job?')) continue;
-    const canonical = canonicalizeLastminuteUrl(rawHref);
-    if (!canonical) continue;
-    const id = extractLastminuteIdFromUrl(canonical);
-    const key = id ? `id:${id}` : `url:${canonical.toLowerCase()}`;
-    if (!outByKey.has(key)) outByKey.set(key, canonical);
-  }
-  return [...outByKey.values()];
-}
-
-async function fetchListingPage(url, timeoutMs, userAgent) {
+async function fetchListingPage(url, timeoutMs, userAgent, page) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
+    const body = new URLSearchParams({
+      search: '',
+      department: '',
+      contract: '',
+      page: String(page),
+    });
     const res = await fetch(url, {
+      method: 'POST',
+      body,
       signal: controller.signal,
       headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        Accept: 'text/html, */*;q=0.1',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'HX-Request': 'true',
         'User-Agent': userAgent,
       },
     });
@@ -327,17 +324,6 @@ export function hasLastminuteNextPageSignal(html = '', nextPage = 2) {
   return hasNextPageHref || hasRelNext || hasNextLabel;
 }
 
-export function parseLastminuteDeclaredTotal(html = '') {
-  const source = String(html || '');
-  const totals = [
-    ...source.matchAll(/\b(\d+)\s+(?:open\s+positions?|positions?\s+found)\b/giu),
-  ]
-    .map((match) => Number(match[1]))
-    .filter((value) => Number.isInteger(value));
-  const distinctTotals = [...new Set(totals)];
-  return distinctTotals.length === 1 ? distinctTotals[0] : null;
-}
-
 export async function fetchLastminuteJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
   const userAgent =
@@ -358,7 +344,7 @@ export async function fetchLastminuteJobDetailUrls() {
     console.log(`  📡 page ${page}: ${pageUrl.href}`);
     let html = '';
     try {
-      html = await fetchListingPage(pageUrl.href, timeoutMs, userAgent);
+      html = await fetchListingPage(pageUrl.href, timeoutMs, userAgent, page);
     } catch (err) {
       console.warn(`    ⚠️ Fetch failed on page ${page}: ${err?.message || err}`);
       if (page === 1) throw err;
@@ -368,7 +354,8 @@ export async function fetchLastminuteJobDetailUrls() {
       );
     }
 
-    const links = parseJobLinksFromListingHtml(html);
+    const discovery = parseLastminuteListingDiscovery(html);
+    const links = discovery.detailUrls;
     if (links.length === 0) {
       if (page === 1) {
         throw new Error(
@@ -380,7 +367,14 @@ export async function fetchLastminuteJobDetailUrls() {
       );
     }
 
-    const pageDeclaredTotal = parseLastminuteDeclaredTotal(html);
+    if (discovery.declaredTotals.length > 1) {
+      throw new Error(
+        `lastminute careers listing declared inconsistent totals (${discovery.declaredTotals.join(', ')}); `
+        + 'source completeness is unverified, preserving the previous adapter and data',
+      );
+    }
+
+    const pageDeclaredTotal = discovery.declaredTotal;
     if (pageDeclaredTotal !== null) {
       if (declaredTotal !== null && pageDeclaredTotal !== declaredTotal) {
         throw new Error(
@@ -402,7 +396,9 @@ export async function fetchLastminuteJobDetailUrls() {
       }
     }
 
-    console.log(`    📦 ${links.length} link(s), ${pageNew} new`);
+    console.log(
+      `    📦 ${links.length} unique link(s) from ${discovery.anchorOccurrences} source anchor(s), ${pageNew} new`,
+    );
 
     if (pageNew === 0) {
       throw new Error(
@@ -419,7 +415,9 @@ export async function fetchLastminuteJobDetailUrls() {
     }
 
     if (declaredTotal !== null && detailByKey.size === declaredTotal) {
-      console.log(`    ✅ Source declares ${declaredTotal} position(s); listing is complete.`);
+      console.log(
+        `    ✅ Source completeness proved: ${detailByKey.size}/${declaredTotal} unique position(s).`,
+      );
       break;
     }
 

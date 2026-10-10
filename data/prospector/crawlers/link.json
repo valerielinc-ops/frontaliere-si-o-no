@@ -1,20 +1,20 @@
 {
   "companyKey": "link",
-  "companyName": "Wassermann&Company AG",
+  "companyName": "Walter Zoo AG Gossau",
   "companyHost": "link.ostendis.com",
   "platform": "ostendis.com",
   "mode": "jsonld",
   "seedUrls": [
-    "https://link.ostendis.com/publication/initiativbewerbung/w2h4brghustu5murcl7d106x7y68xyuz08p5rys0zs32xc3o4oviqk4o7f3uhfbw"
+    "https://link.ostendis.com/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my"
   ],
-  "detailTemplate": "/publication/initiativbewerbung/w2h4brghustu5murcl7d106x7y68xyuz08p5rys0zs32xc3o4oviqk4o7f3uhfbw",
+  "detailTemplate": "/publication/praktikant-in-artenschutz-und-umweltbildung/w05mfrjvrqa2sp5p65u3xytohx3k7lzcj24lzul6djmij6fkv4vqm8iltprql1my",
   "detailEnrichment": false,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Initiativbewerbung für eine Festanstellung"
+    "Praktikant:in Artenschutz und Umweltbildung 100%"
   ],
-  "canton": "BS",
+  "canton": "SG",
   "sourceLang": "de",
-  "learnedAt": "2026-09-17T10:09:05.946Z"
+  "learnedAt": "2026-10-10T11:44:34.606Z"
 }

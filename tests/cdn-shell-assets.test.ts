@@ -14,9 +14,11 @@ import {
   SHELL_ASSET_PURGE_BATCH,
   checkStoredAsset,
   confirmCdnAsset,
+  edgeConfirmationDeadline,
   ensureCdnShellAssets,
   probeCdnAsset,
   purgeCdnAssets,
+  r2UploadDeadline,
   shellAssetsFromStaticScripts,
   uploadShellAsset,
 } from '../scripts/lib/cdn-shell-assets.mjs';
@@ -208,6 +210,40 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.purge).toEqual([]);
   });
 
+  it('shares one six-minute deadline across serial R2 work and fails closed before the next upload', async () => {
+    let elapsedMs = 0;
+    const cdn = fakeCdn([]);
+    const checks: string[] = [];
+    const uploads: string[] = [];
+    const checkStored = async (key: string, { deadlineAt }: { deadlineAt: number }) => {
+      checks.push(key);
+      expect(deadlineAt).toBe(r2UploadDeadline(0));
+      elapsedMs += key === 'assets/one.js' ? 200_000 : 1;
+      return 'missing' as const;
+    };
+    const upload = async (key: string, _content: string, { deadlineAt }: { deadlineAt: number }) => {
+      uploads.push(key);
+      expect(deadlineAt).toBe(r2UploadDeadline(0));
+      elapsedMs += 159_999;
+      return true;
+    };
+
+    const message = await failureOf(() => ensureCdnShellAssets({
+      assets: ASSETS,
+      ...cdn,
+      checkStored,
+      upload,
+      now: () => elapsedMs,
+    }));
+
+    expect(checks).toEqual(['assets/one.js', 'assets/two.js']);
+    expect(uploads).toEqual(['assets/one.js']);
+    expect(message).toContain('assets/two.js');
+    expect(message).toContain('shared 360s deadline');
+    expect(message).toContain('must not be published');
+    expect(cdn.calls.purge).toEqual([]);
+  });
+
   // A runner the edge challenges gets 403 for a file that is there. R2 decides
   // the upload: nothing is replaced. The URL is still purged and asked again.
   it.each(['unknown', 'absent'] as const)('never replaces an object R2 holds when the probe says %s', async (answer) => {
@@ -265,6 +301,92 @@ describe('ensureCdnShellAssets', () => {
     expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
     expect(cdn.calls.confirm.filter(([key]) => key === 'assets/two.js')).toHaveLength(4);
     expect(cdn.calls.wait).toEqual([5_000, 5_000]);
+  });
+
+  it('accepts an edge that converges on the last attempt inside the cumulative confirmation window', async () => {
+    let elapsedMs = 0;
+    const cdn = fakeCdn(['assets/one.js'], {
+      confirmAnswer: (key, pageOrigin, attempt) => (
+        key === 'assets/two.js' && pageOrigin === undefined && attempt < 3 ? 'absent' : 'present'
+      ),
+    });
+    const wait = async (ms: number) => {
+      cdn.calls.wait.push(ms);
+      elapsedMs += ms;
+    };
+
+    const results: Outcome[] = await ensureCdnShellAssets({
+      assets: ASSETS,
+      ...cdn,
+      wait,
+      now: () => elapsedMs,
+    });
+
+    expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
+    expect(cdn.calls.wait).toEqual([5_000, 15_000, 30_000]);
+    expect(elapsedMs).toBe(50_000);
+  });
+
+  it('returns a deterministic fail-closed verdict when confirmation requests consume the deadline', async () => {
+    let elapsedMs = 0;
+    const cdn = fakeCdn([]);
+    const wait = async (ms: number) => {
+      cdn.calls.wait.push(ms);
+      elapsedMs += ms;
+    };
+    const confirm = async (_key: string, { timeoutMs }: { timeoutMs?: number }) => {
+      elapsedMs += timeoutMs ?? 0;
+      return 'unknown' as const;
+    };
+
+    let failure: unknown;
+    try {
+      await ensureCdnShellAssets({
+        assets: [ASSETS[1]],
+        ...cdn,
+        confirm,
+        wait,
+        now: () => elapsedMs,
+      });
+    } catch (error) {
+      failure = error;
+    }
+
+    expect(failure).toMatchObject({
+      name: 'EdgeConfirmationDeadlineExceededError',
+      code: 'EDGE_CONFIRMATION_DEADLINE_EXCEEDED',
+    });
+    expect(String((failure as Error)?.message)).toContain('58s cumulative deadline');
+    expect(String((failure as Error)?.message)).toContain('must not be published');
+    expect(elapsedMs).toBe(edgeConfirmationDeadline(0));
+    expect(cdn.calls.wait).toEqual([5_000, 15_000, 14_000]);
+  });
+
+  it('rejects a present edge response that arrives after the cumulative deadline', async () => {
+    let elapsedMs = 0;
+    let attempt = 0;
+    const cdn = fakeCdn([]);
+    const wait = async (ms: number) => {
+      elapsedMs += ms;
+    };
+    const confirm = async (_key: string, { timeoutMs }: { timeoutMs?: number }) => {
+      attempt += 1;
+      if (attempt < 4) return 'absent' as const;
+      elapsedMs += (timeoutMs ?? 0) + 1;
+      return 'present' as const;
+    };
+
+    const message = await failureOf(() => ensureCdnShellAssets({
+      assets: [ASSETS[1]],
+      ...cdn,
+      confirm,
+      wait,
+      now: () => elapsedMs,
+    }));
+
+    expect(message).toContain('58s cumulative deadline');
+    expect(message).toContain('must not be published');
+    expect(elapsedMs).toBe(edgeConfirmationDeadline(0) + 1);
   });
 
   it.each([
@@ -528,6 +650,61 @@ describe('upload-cdn-file.sh adapters', () => {
     expect(checkStoredAsset('assets/a.js', { spawn: helper.spawn, env: {} })).toBe(expected);
     expect(helper.calls[0].slice(1)).toEqual(['--check', 'assets/a.js']);
     expect(helper.calls[0][0]).toMatch(/upload-cdn-file\.sh$/);
+  });
+
+  it('sets the helper timeout to the time remaining on the shared R2 deadline', () => {
+    const helper = helperSays('✅ exists assets/a.js\n');
+    let timeout = 0;
+    const spawn = (command: string, args: string[], options: { timeout: number }) => {
+      timeout = options.timeout;
+      return helper.spawn(command, args);
+    };
+
+    expect(checkStoredAsset('assets/a.js', {
+      spawn,
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 6_500,
+    })).toBe('exists');
+    expect(timeout).toBe(500);
+  });
+
+  it('does not start an R2 helper after the shared deadline', () => {
+    let spawned = false;
+    expect(() => checkStoredAsset('assets/a.js', {
+      spawn: () => {
+        spawned = true;
+        return { stdout: '', stderr: '' };
+      },
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 7_000,
+    })).toThrow(/R2 upload deadline expired before the helper could start/);
+    expect(spawned).toBe(false);
+  });
+
+  it('classifies a timed-out child helper as an R2 deadline failure', () => {
+    const spawn = () => ({
+      status: null,
+      stdout: '',
+      stderr: '',
+      error: Object.assign(new Error('spawnSync timed out'), { code: 'ETIMEDOUT' }),
+    });
+
+    expect(() => checkStoredAsset('assets/a.js', {
+      spawn,
+      env: {},
+      deadlineAt: 7_000,
+      now: () => 6_500,
+    })).toThrow(/R2 upload deadline expired while the helper was running/);
+  });
+
+  it('starts one monotonic six-minute R2 budget at the first helper operation', () => {
+    expect(r2UploadDeadline(1_234)).toBe(361_234);
+  });
+
+  it('makes the cumulative edge confirmation deadline explicit', () => {
+    expect(edgeConfirmationDeadline(1_234)).toBe(59_234);
   });
 
   it('uploadShellAsset puts the content under the key with the assets/ Cache-Control', () => {

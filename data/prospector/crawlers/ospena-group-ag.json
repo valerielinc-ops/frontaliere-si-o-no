@@ -10,14 +10,15 @@
   "detailTemplate": "/de/unsere-unternehmen/job/pizzeria-ristorante-molino/*/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 4,
+  "sampleVacancyCount": 6,
   "sampleTitles": [
+    "<p class=\"font-micro font-bold md:font-sans m",
     "<p class=\"font-micro font-bold md:font-sans m",
     "<p class=\"font-micro font-bold md:font-sans m",
     "<p class=\"font-micro font-bold md:font-sans m",
     "<p class=\"font-micro font-bold md:font-sans m"
   ],
-  "canton": "ZH",
+  "canton": "AG",
   "sourceLang": "de",
-  "learnedAt": "2026-10-01T07:46:31.738Z"
+  "learnedAt": "2026-10-10T11:44:31.705Z"
 }

@@ -32,6 +32,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
+import { instagramEngagementMechanic } from './instagram-engagement.mjs';
 import { TIKTOK_VIDEO_HEIGHT, TIKTOK_VIDEO_WIDTH } from './social-carousel-video.mjs';
 
 export const SOCIAL_CHANNELS = Object.freeze(['instagram', 'tiktok']);
@@ -54,6 +55,28 @@ export const QUEUE_TTL_HOURS = Object.freeze({ article: 36, job: 36, border: 7 *
 
 /** Marker the confirm step writes on every ledger entry it adds. */
 export const ROBOT_LEDGER_VIA = 'playwright-robot';
+
+// Reel queues created before the CTA-mechanic field was introduced can still
+// be confirmed later. Keep the migration local and free of external
+// dependencies because this module is part of the Mac robot snapshot. Never
+// infer this field for a carousel: comments/shares/saves alone do not identify
+// its CTA.
+const REEL_PRIMARY_METRIC_BY_CREATIVE = new Map([
+  ['reel-question', 'comments'],
+  ['reel-number', 'shares'],
+  ['reel-save', 'saves'],
+]);
+
+function enrichLegacyReelLedgerEntry(entry) {
+  if (!entry || typeof entry !== 'object' || entry.kind !== 'reel') return entry;
+  if (String(entry.engagementMechanic ?? entry.engagement_mechanic ?? '').trim()) return entry;
+  const creativeId = String(
+    entry.creativeId ?? entry.creative_id ?? entry.creativeVariant ?? entry.creative_variant ?? '',
+  ).trim();
+  const primaryMetric = REEL_PRIMARY_METRIC_BY_CREATIVE.get(creativeId);
+  const engagementMechanic = instagramEngagementMechanic(primaryMetric);
+  return engagementMechanic === 'unknown' ? entry : { ...entry, engagementMechanic };
+}
 
 /**
  * @param {Record<string, string|undefined>} [env]
@@ -279,12 +302,21 @@ export function dropPending(queue, { channel, kind }) {
   };
 }
 
-/** Read the queue file, drop the channel/kind entries, write it back if it changed. */
-export function dequeuePosts(filePath, { channel, kind }) {
+/**
+ * Read the queue file and drop either one exact queue id or every pending
+ * entry of a channel/kind. The exact-id form lets a poster clean up a stale
+ * rerun without deleting a newer pending item of the same kind.
+ */
+export function dequeuePosts(filePath, { channel, kind, queueId = null }) {
   assertChannel(channel);
   if (!existsSync(filePath)) return emptyQueue();
   const current = loadQueue(filePath);
-  const next = dropPending(current, { channel, kind });
+  const next = queueId
+    ? {
+      schemaVersion: QUEUE_SCHEMA_VERSION,
+      pending: parseQueue(current).pending.filter((e) => !(e.channel === channel && e.id === queueId)),
+    }
+    : dropPending(current, { channel, kind });
   if (next.pending.length !== current.pending.length) saveQueue(filePath, next);
   return next;
 }
@@ -297,6 +329,21 @@ export function ledgerKey(e) {
 /** Whether the ledger already holds the robot's confirmation for `queueId`. */
 export function isConfirmedInLedger(ledger, queueId) {
   return parseLedger(ledger).posted.some((e) => e?.queueId === queueId);
+}
+
+/**
+ * Whether a content kind already has a published ledger row for the report
+ * day. A carousel contributes one row per card, so any matching row is enough
+ * to guard the post-level cadence for both API and robot transports.
+ */
+export function isPublishedForKindDay(ledger, { kind, day } = {}) {
+  const wantedKind = String(kind ?? '').trim();
+  const wantedDay = String(day ?? '').trim();
+  if (!wantedKind || !wantedDay) return false;
+  return parseLedger(ledger).posted.some((entry) => (
+    String(entry?.kind ?? '').trim() === wantedKind
+    && String(entry?.day ?? '').trim() === wantedDay
+  ));
 }
 
 /**
@@ -356,7 +403,7 @@ export function confirmQueueEntry({ queue, ledger, queueId, confirmedAt, evidenc
   }
   const ts = new Date(confirmedAt).toISOString();
   const ledgerEntries = base.map((e) => ({
-    ...e,
+    ...enrichLegacyReelLedgerEntry(e),
     ts,
     queueId,
     via: ROBOT_LEDGER_VIA,

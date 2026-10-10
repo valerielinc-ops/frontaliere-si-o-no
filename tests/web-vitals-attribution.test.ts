@@ -163,14 +163,28 @@ describe('buildCwvAttributionEvent', () => {
     expect(event.component).toBe('footer');
   });
 
-  it('classifies an INP from the first processed event entry target', () => {
+  it('keeps the best available INP target across all processed event entries', () => {
     const event = buildCwvAttributionEvent(inp('poor', {
-      interactionTarget: FOOTER_SELECTOR,
+      interactionTarget: '#job-auth-gate>button.gate-cta',
       interactionType: 'pointer',
-      processedEventEntries: [{ target: document.querySelector('#job-auth-gate button') }],
+      processedEventEntries: [
+        { target: null },
+        { target: document.querySelector('.outside-root') },
+        { target: document.querySelector('#job-auth-gate button') },
+      ],
     }));
     assertRegisteredShape(event);
     expect(event).toMatchObject({ section: 'inp', component: 'job_gate', action: 'pointer' });
+  });
+
+  it('emits an explicit unknown INP target when the browser exposes none', () => {
+    const event = buildCwvAttributionEvent(inp('poor', {
+      interactionType: 'pointer',
+      processedEventEntries: [{ target: null }, {}],
+    }));
+    assertRegisteredShape(event);
+    expect(event).toMatchObject({ section: 'inp', component: 'unknown', action: 'pointer' });
+    expect(event.details).toBe('unknown|ac3|cc1');
   });
 
   // Without a node reference the selector is the fallback.

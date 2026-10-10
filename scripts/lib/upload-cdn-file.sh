@@ -224,19 +224,40 @@ bkt=":s3:$R2_BUCKET"
 # and the lookup added with the governed image engine looked unbounded.
 r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 
+## Inspect the single-object result without treating an implicit S3 prefix as a file.
+# On bucket remotes, a missing object can resolve to an empty directory/prefix;
+# `lsf` output is a listing, so any child row is not proof that this exact key
+# exists. `lsjson --stat` returns one JSON item: IsDir=false means an object,
+# including a zero-byte object; IsDir=true means only a directory/prefix.
+# JSON parsing also avoids delimiter and quoting ambiguity for special keys.
+rcloneObjectKeyPresent() {
+  node -e '
+    let item;
+    try { item = JSON.parse(process.argv[1] ?? ""); } catch { process.exit(2); }
+    if (!item || typeof item !== "object" || Array.isArray(item)
+        || typeof item.IsDir !== "boolean") process.exit(2);
+    process.exit(item.IsDir ? 1 : 0);
+  ' "$1"
+}
+
 if [ "$check_mode" -eq 1 ]; then
-  # `lsf` returns no rows for a missing object on R2. A non-zero result is a
-  # transport/authentication failure, so the caller must upload defensively.
+  # A non-zero result is a transport/authentication failure, so upload callers
+  # remain conservative and do not treat the lookup as a confirmed hit.
   check_output=""
   check_status=0
   check_output="$(timeout -k 10 "$r2_timeout_object_s" \
-    "${RC[@]}" lsf --files-only "$bkt/$cdn_key" 2>/dev/null)" || check_status=$?
+    "${RC[@]}" lsjson --stat --no-mimetype --no-modtime "$bkt/$cdn_key" 2>/dev/null)" || check_status=$?
   if [ "$check_status" -ne 0 ]; then
     echo "⚠️ check indeterminate for $cdn_key: R2 lookup failed (exit $check_status)"
-  elif [ -n "$check_output" ]; then
+  elif rcloneObjectKeyPresent "$check_output"; then
     echo "✅ exists $cdn_key"
   else
-    echo "❌ missing $cdn_key"
+    check_presence_status=$?
+    if [ "$check_presence_status" -eq 1 ]; then
+      echo "❌ missing $cdn_key"
+    else
+      echo "⚠️ check indeterminate for $cdn_key: invalid R2 object metadata"
+    fi
   fi
   exit 0
 fi

@@ -13,12 +13,18 @@
  * GA4, R2 or credentials.
  */
 
+import { instagramEngagementMechanic } from './instagram-engagement.mjs';
+
 export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
   proof: Object.freeze({
     id: 'proof',
     label: 'Dato verificabile',
     objective: 'share',
     primaryMetric: 'shares',
+    hookType: 'data-proof',
+    attentionMechanic: 'single-source-number',
+    engagementLoop: 'share-with-utility',
+    followUpFormat: 'story-poll',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'DATI REALI', title: 'Dove stanno cliccando i frontalieri?' }),
       article: Object.freeze({ kicker: 'DATI REALI', title: 'Cosa stanno leggendo i frontalieri?' }),
@@ -61,6 +67,10 @@ export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
     label: 'Guida da salvare',
     objective: 'save',
     primaryMetric: 'saves',
+    hookType: 'utility-promise',
+    attentionMechanic: 'reference-utility',
+    engagementLoop: 'save-for-later',
+    followUpFormat: 'story-checklist',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'DA SALVARE', title: '5 lavori da tenere d’occhio' }),
       article: Object.freeze({ kicker: 'DA SALVARE', title: '5 articoli da tenere a portata di mano' }),
@@ -103,6 +113,10 @@ export const INSTAGRAM_CREATIVE_FORMATS = Object.freeze({
     label: 'Domanda alla community',
     objective: 'conversation',
     primaryMetric: 'comments',
+    hookType: 'open-question',
+    attentionMechanic: 'community-question',
+    engagementLoop: 'comment-to-content',
+    followUpFormat: 'comment-reply',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'PARLIAMONE', title: 'Che lavoro stai cercando?' }),
       article: Object.freeze({ kicker: 'PARLIAMONE', title: 'Quale dubbio vuoi risolvere?' }),
@@ -155,6 +169,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   Object.freeze({ id: 'proof', baseId: 'proof', variant: 'baseline' }),
   Object.freeze({
     id: 'proof-local', baseId: 'proof', variant: 'local', label: 'Dato locale',
+    hookType: 'local-ranking', attentionMechanic: 'local-relevance',
+    engagementLoop: 'share-to-local-group', followUpFormat: 'story-poll',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'TICINO, IERI', title: 'Quale lavoro ha attirato il Ticino?' }),
       article: Object.freeze({ kicker: 'TICINO, IERI', title: 'Quale tema ha cercato il Ticino?' }),
@@ -178,6 +194,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   }),
   Object.freeze({
     id: 'proof-surprise', baseId: 'proof', variant: 'surprise', label: 'Dato sorprendente',
+    hookType: 'counterintuitive-data', attentionMechanic: 'surprise-gap',
+    engagementLoop: 'share-and-predict', followUpFormat: 'story-poll',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'DATO INATTESO', title: 'Il clic più sorprendente di ieri' }),
       article: Object.freeze({ kicker: 'DATO INATTESO', title: 'La domanda che non ti aspetti' }),
@@ -202,6 +220,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   Object.freeze({ id: 'save', baseId: 'save', variant: 'baseline' }),
   Object.freeze({
     id: 'save-checklist', baseId: 'save', variant: 'checklist', label: 'Checklist da salvare',
+    hookType: 'checklist', attentionMechanic: 'checklist',
+    engagementLoop: 'save-and-return', followUpFormat: 'story-quiz',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'CHECKLIST', title: '5 lavori da controllare prima di candidarti' }),
       article: Object.freeze({ kicker: 'CHECKLIST', title: '5 risposte da tenere a portata di mano' }),
@@ -225,6 +245,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   }),
   Object.freeze({
     id: 'save-moment', baseId: 'save', variant: 'moment', label: 'Promemoria del momento',
+    hookType: 'situational-utility', attentionMechanic: 'moment-relevance',
+    engagementLoop: 'save-before-moment', followUpFormat: 'story-reminder',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'QUANDO TI SERVE', title: '5 occasioni da non perdere' }),
       article: Object.freeze({ kicker: 'QUANDO TI SERVE', title: '5 risposte da ritrovare' }),
@@ -249,6 +271,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   Object.freeze({ id: 'question', baseId: 'question', variant: 'baseline' }),
   Object.freeze({
     id: 'question-choice', baseId: 'question', variant: 'choice', label: 'Scelta guidata',
+    hookType: 'forced-choice', attentionMechanic: 'low-friction-choice',
+    engagementLoop: 'comment-to-poll', followUpFormat: 'story-result',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'SCEGLI TU', title: 'Quale ruolo ti interessa di più?' }),
       article: Object.freeze({ kicker: 'SCEGLI TU', title: 'Quale dubbio viene prima?' }),
@@ -273,6 +297,8 @@ export const INSTAGRAM_CREATIVE_VARIANTS = Object.freeze([
   }),
   Object.freeze({
     id: 'question-story', baseId: 'question', variant: 'story', label: 'Esperienza personale',
+    hookType: 'lived-experience', attentionMechanic: 'identity-story',
+    engagementLoop: 'comment-to-story', followUpFormat: 'comment-reply',
     cover: Object.freeze({
       job: Object.freeze({ kicker: 'RACCONTACI', title: 'Come è andata la tua ricerca?' }),
       article: Object.freeze({ kicker: 'RACCONTACI', title: 'Cosa ti è successo davvero?' }),
@@ -339,6 +365,10 @@ function definitionFor(kind, id) {
     label: variant.label || definition.label,
     objective: definition.objective,
     primaryMetric: definition.primaryMetric,
+    hookType: variant.hookType || definition.hookType || 'unknown',
+    attentionMechanic: variant.attentionMechanic || definition.attentionMechanic || 'unknown',
+    engagementLoop: variant.engagementLoop || definition.engagementLoop || 'none',
+    followUpFormat: variant.followUpFormat || definition.followUpFormat || 'none',
     kind,
     cover: variant.cover?.[kind] || definition.cover[kind],
     lead: variant.lead?.[kind] || definition.lead[kind],
@@ -414,5 +444,50 @@ export function instagramCreativeLedgerFields(creative) {
     creativeLabel: creative?.label || 'Dato verificabile',
     creativeObjective: creative?.objective || 'share',
     primaryMetric: creative?.primaryMetric || 'shares',
+    engagementMechanic: instagramEngagementMechanic(creative?.primaryMetric || 'shares'),
+    hookType: creative?.hookType || 'unknown',
+    attentionMechanic: creative?.attentionMechanic || 'unknown',
+    engagementLoop: creative?.engagementLoop || 'none',
+    followUpFormat: creative?.followUpFormat || 'none',
   };
+}
+
+/**
+ * Recover the stable metadata for a known carousel treatment from its id.
+ * This is intentionally null for unknown/legacy ids: a historical post
+ * without a creative id must never be classified from its metrics alone.
+ */
+export function instagramCreativeLedgerFieldsForId(creativeId) {
+  const id = String(creativeId || '').trim();
+  const variant = CREATIVE_VARIANT_BY_ID.get(id);
+  if (!variant) return null;
+  const definition = INSTAGRAM_CREATIVE_FORMATS[variant.baseId];
+  return instagramCreativeLedgerFields({
+    id: variant.id,
+    baseId: variant.baseId,
+    variant: variant.variant,
+    label: variant.label || definition.label,
+    objective: definition.objective,
+    primaryMetric: definition.primaryMetric,
+    hookType: variant.hookType || definition.hookType,
+    attentionMechanic: variant.attentionMechanic || definition.attentionMechanic,
+    engagementLoop: variant.engagementLoop || definition.engagementLoop,
+    followUpFormat: variant.followUpFormat || definition.followUpFormat,
+  });
+}
+
+/**
+ * Fill only absent metadata on a known carousel ledger row. Explicit values
+ * win so this helper cannot overwrite an audited correction or a future
+ * treatment. Reels and unknown legacy rows are left untouched.
+ */
+export function enrichInstagramCreativeLedgerEntry(entry) {
+  if (!entry || typeof entry !== 'object' || entry.kind === 'reel') return entry;
+  const inferred = instagramCreativeLedgerFieldsForId(entry.creativeId);
+  if (!inferred) return entry;
+  const enriched = { ...entry };
+  for (const [key, value] of Object.entries(inferred)) {
+    if (!String(enriched[key] ?? '').trim()) enriched[key] = value;
+  }
+  return enriched;
 }

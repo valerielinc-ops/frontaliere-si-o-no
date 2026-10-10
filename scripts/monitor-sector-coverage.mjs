@@ -5,12 +5,12 @@ import { realpathSync } from 'node:fs';
  * monitor-sector-coverage.mjs — Post-deploy check for job-matching coverage
  * gaps across every canton×profession page family, not just Ticino.
  *
- * frontaliere-si-o-no ships job data exclusively via 580+ per-employer
- * crawlers (docs/CRAWLERS.md) — there is no generic multi-employer job
- * board source (job-room.ch/SECO was investigated and is blocked: 401 on
- * its API, no SSR — see #3337). Any profession/sector whose local
- * employers aren't individually onboarded shows 0 real matches, in ANY
- * canton. That is the root cause behind issue #4824
+ * frontaliere-si-o-no ships job data via 580+ per-employer crawlers
+ * (docs/CRAWLERS.md). A zero in one canton is not, by itself, proof of a
+ * missing crawler or a matcher defect: this monitor reports only causes
+ * supported by its current corpus evidence and preserves unknown otherwise.
+ * Any profession/sector whose local employers aren't individually onboarded
+ * may show 0 real matches, in ANY canton. That is the root cause behind issue #4824
  * ("camerieri" TI sector: 0 match) — but it was only VISIBLE
  * for Ticino because only a TI-only monitor existed. Identical gaps in
  * GR/VS/VD/ZH/etc were invisible to CI. This script generalizes detection
@@ -332,7 +332,56 @@ export function isIdSetState(state) {
 
 /** Stato della famiglia B: gli id piu' la ripartizione grace window / noindex. Pura. */
 export function isTiLegacyState(state) {
-  return isIdSetState(state) && isStringArray(state.indexedViaGrace) && isStringArray(state.bridgedNoindex);
+  if (
+    !isIdSetState(state) ||
+    !isStringArray(state.indexedViaGrace) ||
+    !isStringArray(state.bridgedNoindex) ||
+    !isStringArray(state.crawlerGap) ||
+    !isStringArray(state.matcherGap) ||
+    !isStringArray(state.unknown)
+  ) return false;
+
+  const causeIds = [...state.crawlerGap, ...state.matcherGap, ...state.unknown];
+  const uniqueCauseIds = new Set(causeIds);
+  return uniqueCauseIds.size === causeIds.length && sameMembers(causeIds, state.ids);
+}
+
+/**
+ * Classifica uno zero TI solo con evidenza esplicita. `verifiedUnmatchedTiTitleCount`
+ * deve provenire da una fonte indipendente e validata di titoli TI pertinenti:
+ * il monitor attuale non ne ha una e il chiamante passa `null`, quindi non
+ * inferisce mai un matcher-gap da categoria o titolo localizzato. Un match del
+ * matcher professionale negli altri cantoni prova invece il crawler-gap; ogni
+ * evidenza mancante o ambigua resta unknown. Pura.
+ */
+export function classifyTiLegacyZeroCause({
+  tiLiveCount,
+  nonTiLiveCounts,
+  verifiedUnmatchedTiTitleCount = null,
+}) {
+  if (tiLiveCount !== 0) return 'unknown';
+  if (Number.isInteger(verifiedUnmatchedTiTitleCount) && verifiedUnmatchedTiTitleCount > 0) {
+    return 'matcher-gap';
+  }
+  if (Array.isArray(nonTiLiveCounts) && nonTiLiveCounts.some((count) => Number.isFinite(count) && count > 0)) {
+    return 'crawler-gap';
+  }
+  return 'unknown';
+}
+
+/** Rende una riga evidence-based per ciascun id zero, senza omettere unknown. Pura. */
+export function renderTiLegacyZeroCauseLines(zeroIds, classificationById) {
+  return zeroIds.map((id) => {
+    const { cause = 'unknown', matchingCantons = [] } = classificationById.get(id) ?? {};
+    if (cause === 'crawler-gap') {
+      const evidence = matchingCantons.map(({ cantonKey, liveCount }) => `${cantonKey} (${liveCount})`).join(', ');
+      return `- \`${id}\`: \`crawler-gap\` — lo stesso matcher trova offerte in ${evidence}, ma non in TI.`;
+    }
+    if (cause === 'matcher-gap') {
+      return `- \`${id}\`: \`matcher-gap\` — titoli TI pertinenti ma non riconosciuti, verificati da una fonte indipendente.`;
+    }
+    return `- \`${id}\`: \`unknown\` — nessun match cross-canton disponibile e nessuna evidenza indipendente di titoli TI pertinenti non riconosciuti.`;
+  }).join('\n');
 }
 
 /** Marker HTML machine-readable da appendere al corpo del commento. Pura. */
@@ -582,7 +631,7 @@ ${structuralZeroSectors.map((s) => `- \`${TI_SECTOR_HUB_PATH}${s}/\` — ${STRUC
 ` : ''}
 
 **Possibili cause da verificare:**
-- Gap di copertura crawler per questo settore/vertical (vedi #3337 — backlog aziende svizzere non ancora crawlate)
+- Gap di copertura crawler per questo settore/vertical (ipotesi da verificare sui match e sulle fonti per cantone)
 - Regex \`SECTOR_MATCHERS\` (\`build-plugins/jobSectorLanding.ts\`) troppo stretta rispetto ai titoli/categorie reali del settore
 - Domanda di lavoro genuinamente scarsa in Ticino per questo settore (verificare vs. altri cantoni)
 
@@ -624,7 +673,7 @@ ${serializeStateMarker(TI_SECTOR_STATE_MARKER, state)}`;
 }
 
 async function checkTiLegacyProfessions(stagingRoot) {
-  const { aggregateProfessionJobs, aggregateRecentlyExpiredProfessionCounts } = await import(
+  const { aggregateProfessionJobs, aggregateProfessionJobsByCanton, aggregateRecentlyExpiredProfessionCounts } = await import(
     path.join(REPO_ROOT, 'build-plugins/professionJobsAggregate.ts')
   );
   const { PROFESSION_IDS } = await import(
@@ -635,6 +684,7 @@ async function checkTiLegacyProfessions(stagingRoot) {
   );
 
   const snapshots = aggregateProfessionJobs(stagingRoot);
+  const byCanton = aggregateProfessionJobsByCanton(stagingRoot);
   const zeroIds = PROFESSION_IDS.filter((id) => (snapshots[id]?.liveCount ?? 0) === 0);
 
   if (zeroIds.length === 0) {
@@ -654,13 +704,36 @@ async function checkTiLegacyProfessions(stagingRoot) {
   );
   const indexedViaGrace = [];
   const bridgedNoindex = [];
+  const crawlerGap = [];
+  const matcherGap = [];
+  const unknown = [];
+  const classificationById = new Map();
   for (const id of zeroIds) {
     const verdict = meetsJobsFloor({
       liveCount: 0,
       recentlyExpiredCount: recentlyExpired ? recentlyExpired[id] : null,
     });
     (verdict.meetsFloor ? indexedViaGrace : bridgedNoindex).push(id);
+
+    const matchingCantons = Object.entries(byCanton)
+      .filter(([cantonKey, perProfession]) => cantonKey !== 'TI' && (perProfession[id]?.liveCount ?? 0) > 0)
+      .map(([cantonKey, perProfession]) => ({ cantonKey, liveCount: perProfession[id].liveCount }))
+      .sort((a, b) => a.cantonKey.localeCompare(b.cantonKey));
+    const cause = classifyTiLegacyZeroCause({
+      tiLiveCount: snapshots[id]?.liveCount,
+      nonTiLiveCounts: matchingCantons.map(({ liveCount }) => liveCount),
+      // No independent, validated inventory of relevant-but-unmatched TI
+      // titles is available in this monitor. Preserve unknown rather than
+      // inferring a matcher defect from adjacent metadata.
+      verifiedUnmatchedTiTitleCount: null,
+    });
+    classificationById.set(id, { cause, matchingCantons });
+    ({ 'crawler-gap': crawlerGap, 'matcher-gap': matcherGap, unknown })[cause].push(id);
   }
+
+  crawlerGap.sort();
+  matcherGap.sort();
+  unknown.sort();
 
   log(
     '⚠️',
@@ -672,6 +745,9 @@ async function checkTiLegacyProfessions(stagingRoot) {
     ...buildIdSetState(zeroIds),
     indexedViaGrace: [...indexedViaGrace].sort(),
     bridgedNoindex: [...bridgedNoindex].sort(),
+    crawlerGap,
+    matcherGap,
+    unknown,
   };
   const previous = readPreviousState({
     title: TI_LEGACY_ISSUE_TITLE,
@@ -687,6 +763,8 @@ async function checkTiLegacyProfessions(stagingRoot) {
     noun: 'ruoli',
   });
 
+  const zeroCauseLines = renderTiLegacyZeroCauseLines(zeroIds, classificationById);
+
   const description = `## Professioni TI (legacy) a 0 match reali
 
 Le seguenti pagine \`/lavoro-ticino-{ruolo}/\` non hanno **nessuna offerta reale** in questo deploy. Dal fix #5322/#5323 questa famiglia condivide il floor MIN_JOBS + bridge noindex (con grace window di ${PROFESSION_FLOOR_GRACE_DAYS}gg su annunci scaduti) della famiglia per-cantone (\`professionJobsFloor.ts\`) — un 0-match non è più automaticamente una pagina indicizzata thin come i sector-hub (#4824).
@@ -698,22 +776,27 @@ ${indexedViaGrace.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 
 ${bridgedNoindex.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 ` : ''}
-**Causa più probabile:** gap di copertura crawler per il ruolo/vertical in Ticino (vedi #3337) — stessa diagnosi di #4824, non un problema di regex/matching.
+**Causa evidence-based per ogni zero** (stesso matcher usato dalle pagine TI):
+
+${zeroCauseLines}
+
+Il monitor non dispone di un inventario indipendente di titoli TI pertinenti ma non riconosciuti; senza tale prova non dichiara \`matcher-gap\` e conserva \`unknown\`.
 
 **Run:** ${runUrl()}
 
 ${deltaSection}
 ${buildScheda({
   causa: [
-    `(ipotesi, da confermare.) ${zeroIds.length} ruolo/i TI legacy è/sono a 0 offerte live nel`,
-    'deploy. La grace window separa una pagina ancora indicizzata da una già bridged, ma non',
-    'spiega da sola perché il crawler non abbia portato un annuncio utile.',
+    `${crawlerGap.length} zero/i hanno match dello stesso matcher fuori TI; ${matcherGap.length} hanno`,
+    `titoli TI pertinenti non riconosciuti con prova indipendente; ${unknown.length} restano unknown`,
+    'perché il corpus non offre evidenza sufficiente per attribuire la causa.',
   ],
   fix: [
-    'Dipende dalla causa confermata: onboarding del crawler o verifica del matching del ruolo.',
+    'Per crawler-gap verificare la copertura locale; per matcher-gap serve una prova indipendente',
+    'dei titoli TI pertinenti; unknown non autorizza modifiche a crawler o regex.',
     '| **REPO**: sito; non preassegnata qui.',
   ],
-  metrica: `prima=${zeroIds.length} ruoli TI legacy a 0 match atteso=0 ruoli TI legacy a 0 match`,
+  metrica: `prima=0/${zeroIds.length} zeri TI legacy classificati atteso=${zeroIds.length}/${zeroIds.length} classificati`,
   comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando rivaluta anche la grace window e stampa il verdetto senza scrivere l\'artefatto',
@@ -832,7 +915,7 @@ ${nationalZero.map((id) => `- \`${id}\``).join('\n')}
 
   const description = `## Copertura professioni per cantone: gap sistemici rilevati
 
-Generalizzazione di #4824 a tutti i cantoni (non solo Ticino) — stessa root cause: 580+ crawler sono tutti **per-azienda**, nessuna fonte generica multi-employer copre tutti i settori/cantoni (job-room.ch/SECO bloccato, vedi #3337). Le pagine \`/lavoro-{cantone}-{ruolo}/\` restano sicure (soglia MIN_JOBS=${MIN_JOBS} + bridge noindex sotto soglia, \`professionCantonLandings.ts\`) — nessun rischio thin-content — ma il gap di dati sottostante resta e va tracciato per priorità crawler-onboarding.
+Generalizzazione di #4824 a tutti i cantoni (non solo Ticino). Le pagine \`/lavoro-{cantone}-{ruolo}/\` restano sicure (soglia MIN_JOBS=${MIN_JOBS} + bridge noindex sotto soglia, \`professionCantonLandings.ts\`) — nessun rischio thin-content. Il tracker corrente è #5323; uno zero locale, da solo, non prova se la causa sia fonte, matching o domanda.
 
 ${deltaSection}
 Elenco **completo** (non troncato) e ordinabile: artefatto \`data/profession-canton-coverage-gaps.json\` prodotto da questo stesso run.

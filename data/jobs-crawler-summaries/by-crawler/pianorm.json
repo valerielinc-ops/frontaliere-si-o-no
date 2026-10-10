@@ -1,7 +1,7 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-10-09T21:43:26.547Z",
+  "generatedAt": "2026-10-10T09:41:34.978Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3870,
-  "avgDurationMs": 3870,
+  "unchangedCount": 1,
+  "durationMs": 4820,
+  "avgDurationMs": 4820,
   "durationHistory": [
-    3870
+    4820
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "pianorm-6c0cc8f2f116",
       "slug": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
@@ -35,7 +37,7 @@
       "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-09T21:43:17.403Z",
+      "crawledAt": "2026-10-10T09:41:22.508Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "Schweiz",
@@ -66,7 +68,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "8683a6893164a3b8ad4b6f064f33ad477ffcb763"
+  "codeCommit": "7c685423fe30f49ae0f93df50cace982aca06718"
 }
