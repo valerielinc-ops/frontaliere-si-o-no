@@ -45,7 +45,7 @@ const consumers = [
   ['equans', fetchAllEquansJobs, true],
   ['grand-resort-bad-ragaz', fetchAllGrandResortBadRagazJobs, false],
   ['gz-dielsdorf', fetchAllGzDielsdorfJobs, true],
-  ['helvetia', fetchAllHelvetiaJobs, false],
+  ['helvetia', fetchAllHelvetiaJobs, true],
   ['kanton-basel-landschaft', fetchAllKantonBaselLandschaftJobs, true],
   ['klinik-lengg', fetchAllKlinikLenggJobs, false],
   ['klinik-sgm', fetchAllKlinikSgmJobs, true],

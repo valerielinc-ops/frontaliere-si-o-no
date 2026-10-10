@@ -274,6 +274,15 @@ describe('parseAldiDetailPage', () => {
     expect(result.title).toBe('Area Manager (100%)');
   });
 
+  it('extracts only the matching source JobPosting publication date', () => {
+    const datePosted = new Date(Date.now() - 86_400_000).toISOString();
+    const html = `${DETAIL_HTML}<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Area Manager (100%)', datePosted,
+    })}</script>`;
+    expect(parseAldiDetailPage(html)?.datePosted).toBe(datePosted);
+    expect(parseAldiDetailPage(html.replace('Area Manager (100%)', 'Different vacancy'))?.datePosted).toBe('');
+  });
+
   it('extracts location', () => {
     const result = parseAldiDetailPage(DETAIL_HTML);
     expect(result.location).toBe('Bellinzona');
@@ -403,9 +412,20 @@ describe('buildAldiJobRecord', () => {
     expect(job).toMatchObject({
       url,
       applyUrl: url,
-      postedDate: '2026-09-22',
+      postedDate: '',
+      postingDateSource: 'unknown',
       crawledAt: '2026-09-22T00:00:00.000Z',
     });
+  });
+
+  it('publishes the detail page date instead of crawl time', () => {
+    const datePosted = new Date(Date.now() - 86_400_000).toISOString();
+    const job = buildAldiJobRecord({
+      listing: { url: 'https://www.jobs.aldi.ch/job/1', title: 'Verkauf', city: 'St. Gallen' },
+      parsed: { body: 'Aufgaben und Anforderungen. '.repeat(20), datePosted },
+      now: new Date('2026-09-22T00:00:00.000Z'),
+    });
+    expect(job).toMatchObject({ datePosted, postedDate: datePosted, postingDateSource: 'reported' });
   });
 });
 

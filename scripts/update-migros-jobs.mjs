@@ -613,7 +613,11 @@ export function buildMigrosAdapterConfig(baseAdapter, seedUrls, updatedAt = new 
   return {
     ...(baseAdapter || {}),
     companyHost: 'jobs.migros.ch',
-    seedUrls,
+    // These are authoritative vacancy pages, not discovery/listing seeds.
+    // Marking them as detail seeds prevents the known-URL optimisation from
+    // freezing old records before their current JSON-LD can be re-read.
+    seedUrls: [],
+    seedDetailUrls: seedUrls,
     priority: Math.max(baseAdapter?.priority || 0, 10),
     crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html']))
       .filter((mode) => mode !== 'jsonld'),
@@ -623,7 +627,9 @@ export function buildMigrosAdapterConfig(baseAdapter, seedUrls, updatedAt = new 
 }
 
 export function assertMigrosAdapterParity(adapter, seedUrls) {
-  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls) || adapter?.crawlerModes?.includes('jsonld')) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, [])
+    || !isDeepStrictEqual(adapter?.seedDetailUrls, seedUrls)
+    || adapter?.crawlerModes?.includes('jsonld')) {
     throw new Error('Migros adapter parity failed: persisted seeds or crawler modes differ from the complete SPA listing.');
   }
   return true;

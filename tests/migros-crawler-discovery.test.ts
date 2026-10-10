@@ -8,6 +8,8 @@ import {
   extractMigrosListingDetailPaths,
   extractMigrosListingPageNumbers,
   fetchMigrosHttpJobDetailUrls,
+  buildMigrosAdapterConfig,
+  assertMigrosAdapterParity,
   migrosListingPageUrl,
 } from '../scripts/update-migros-jobs.mjs';
 
@@ -17,6 +19,13 @@ const PAGE_1 = fs.readFileSync(new URL('./fixtures/migros-listing-page-1.html', 
 const PAGE_2 = fs.readFileSync(new URL('./fixtures/migros-listing-page-2.html', import.meta.url), 'utf8');
 
 describe('Migros browser-free SSR discovery', () => {
+  it('marks discovered vacancies as detail seeds so known URLs are refreshed', () => {
+    const urls = ['https://jobs.migros.ch/de/unsere-unternehmen/job/example/role/fixture'];
+    const adapter = buildMigrosAdapterConfig({ crawlerModes: ['html'] }, urls, '2026-10-11T00:00:00Z');
+    expect(adapter.seedUrls).toEqual([]);
+    expect(adapter.seedDetailUrls).toEqual(urls);
+    expect(assertMigrosAdapterParity(adapter, urls)).toBe(true);
+  });
   it('extracts only canonical same-host job paths and page numbers', () => {
     expect(extractMigrosListingDetailPaths(PAGE_1)).toEqual([
       '/de/unsere-unternehmen/job/migros-ticino/verkauf/11111111-1111-4111-8111-111111111111',

@@ -191,8 +191,9 @@ function buildJob(raw, detailOrDescription = '') {
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;
-  // issueDate has no verified publication contract; creation/operational dates are not substitutes.
-  const publication = sourcePostingDateFields();
+  // issueDate has no verified publication contract. The detail page's own
+  // JobPosting date is source evidence; creation/operational dates are not.
+  const publication = sourcePostingDateFields(detail.postedDate);
   const sourceLang = detectLang(`${title} ${description}`, 'de');
 
   // Determine employment type from title
