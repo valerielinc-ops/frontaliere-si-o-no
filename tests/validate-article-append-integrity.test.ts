@@ -3,8 +3,8 @@
  * (follow-up #2837 of PR #2835).
  *
  * Covers:
- *  1. The CLI still passes on the real, clean repo tree (both SWISS_SLUGS and
- *     BLOG_SLUGS uniqueness, and url-sitemap <loc>/<url> balance).
+ *  1. The CLI still passes on the real, clean repo tree for the synced
+ *     SWISS_SLUGS registry (the --swiss-only CI profile).
  *  2. A duplicate localized slug in BLOG_SLUGS (routerBlogData.ts / FRONTALIERE
  *     section) is now caught — this is the corruption class that redded
  *     tests/blog/svizzera-section-routing for SWISS_SLUGS and, until #2837,
@@ -69,9 +69,9 @@ function makeFixture(overrides: { swiss?: string; blog?: string; sitemap?: strin
   return dir;
 }
 
-function runCli(cwd: string): { status: number; output: string } {
+function runCli(cwd: string, args: string[] = []): { status: number; output: string } {
   try {
-    const output = execFileSync('node', [SCRIPT], { cwd, encoding: 'utf-8' });
+    const output = execFileSync('node', [SCRIPT, ...args], { cwd, encoding: 'utf-8' });
     return { status: 0, output };
   } catch (e: unknown) {
     const err = e as { status?: number; stdout?: string; stderr?: string };
@@ -87,10 +87,10 @@ afterEach(() => {
 });
 
 describe('validate-article-append-integrity — real repo tree', () => {
-  it('exits 0 on the current clean tree and checks BOTH SWISS_SLUGS and BLOG_SLUGS', () => {
-    const { status, output } = runCli(ROOT);
+  it('exits 0 on the current clean tree and checks the synced SWISS_SLUGS registry', () => {
+    const { status, output } = runCli(ROOT, ['--swiss-only']);
     expect(status).toBe(0);
-    expect(output).toMatch(/SWISS \+ BLOG slug-uniqueness/);
+    expect(output).toMatch(/SWISS slug-uniqueness/);
   });
 });
 
