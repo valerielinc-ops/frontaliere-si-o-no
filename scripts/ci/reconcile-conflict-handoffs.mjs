@@ -178,7 +178,7 @@ export function groupHandoffs(issues, openPrs = []) {
     const group = head
       ? groups.find((candidate) => candidate.origin === origin
         && candidate.head
-        && (candidate.head.startsWith(head) || head.startsWith(candidate.head)))
+        && candidate.head === head)
       : null;
     if (group) group.members.push(issue);
     else groups.push({ origin, head, members: [issue] });

@@ -214,6 +214,31 @@ describe('groupHandoffs: duplicati della stessa PR di origine (#10586/#10587)', 
     expect(groups.every((group) => group.origin === 10569 && group.duplicates.length === 0)).toBe(true);
   });
 
+  it('non fonde HEAD distinte quando il matching per prefisso non è transitivo', () => {
+    const withHead = (number: number, head: string) => ({
+      number,
+      ...buildConflictHandoffIssue({
+        num: 10569,
+        branch: `fix/${number}`,
+        head,
+        files: [`${number}.ts`],
+      }),
+      labels: [],
+      created_at: OPENED,
+    });
+    const groups = groupHandoffs([
+      withHead(10586, 'abcdef0'),
+      withHead(10587, 'abcdef01'),
+      withHead(10588, 'abcdef02'),
+    ]);
+
+    expect(groups.map(({ head, duplicates }) => [head, duplicates.length])).toEqual([
+      ['abcdef0', 0],
+      ['abcdef01', 0],
+      ['abcdef02', 0],
+    ]);
+  });
+
   it('il lavoro avviato vince sull\'età: claim o PR in volo sulla più recente', () => {
     const claimed = groupHandoffs([handoff(10586, 10569), handoff(10587, 10569, { labels: ['agent:in-progress'] })]);
     expect(claimed[0].keeper.number).toBe(10587);
