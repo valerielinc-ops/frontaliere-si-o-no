@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, knownValuesOf, nativeLanguageOption, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
@@ -542,6 +542,45 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const ended = { answers: {}, profile: { experience: [{ role: 'Impiegata', employer: 'Comune', end: '31/12/2024' }] }, portalQuestionsAnswered: [] };
     expect(currentEmploymentOption(field, ended)).toBeNull();
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
+  });
+
+  it('derives a native language from the CV language only with contrasting language evidence', () => {
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: {
+        cvLanguage: 'it',
+        languages: [
+          { language: 'Inglese', level: 'Buona conoscenza' },
+          { language: 'Francese', level: 'Buona conoscenza' },
+        ],
+      },
+    });
+    const field = {
+      id: 'italian-spoken', kind: 'select', label: 'Qual è il livello di italiano parlato *', required: true,
+      options: [{ label: '---' }, { label: 'Lingua madre' }, { label: 'Fluente' }, { label: 'Avanzato' }],
+    };
+    expect(candidate.profile.cvLanguage).toBe('it');
+    expect([...inferredNativeLanguageCodes(candidate)]).toEqual(['it']);
+    expect(nativeLanguageOption(field, candidate)).toEqual({ label: 'Lingua madre' });
+    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Lingua madre', source: 'profile' });
+    // A model answer that undershoots the supported fact is replaced by the deterministic guard.
+    expect(guardPlan({ actions: [{ fieldId: field.id, action: 'select', value: 'Fluente', source: 'rule' }], missingRequired: [] }, [field], candidate)).toEqual({
+      actions: [{ fieldId: field.id, action: 'select', value: 'Lingua madre', document: 'none', source: 'profile', evidence: '' }],
+      missingRequired: [],
+    });
+
+    const noContrastingEvidence = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: { cvLanguage: 'en', languages: [] },
+    });
+    expect(nativeLanguageOption({ ...field, label: 'What is your level of English?', options: [{ label: 'Mother tongue' }] }, noContrastingEvidence)).toBeNull();
+
+    const conflictingLevel = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'test@example.com' },
+      profile: { cvLanguage: 'it', languages: [{ language: 'Italiano', level: 'C1' }, { language: 'English', level: 'B2' }] },
+    });
+    expect(nativeLanguageOption(field, conflictingLevel)).toBeNull();
+    expect(planSystemPrompt('it')).toContain('profile.cvLanguage');
   });
 
   // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
