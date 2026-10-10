@@ -7,7 +7,8 @@ import { dirname, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SHELL_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
-const SLICE = 'data/jobs/by-crawler/acme.json';
+// This is a display label for the merge helper, not a checkout data path.
+const SLICE = 'crawler-slices/acme.json';
 const tempDirs: string[] = [];
 
 afterEach(() => {
