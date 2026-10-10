@@ -103,22 +103,42 @@ describe('decodeGoogleNewsUrl', () => {
     expect(await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl })).toBeNull();
   });
 
-  it('does NOT hang when the response body stalls — aborts at timeout → null (hotfix 2026-07-12)', async () => {
+  it('does NOT hang when a stalled response body ignores abort', async () => {
     // Regression for run 29202963318 (hung 2h42m): headers arrive OK but the
-    // body never completes. fetchText reads the body under the same abort
-    // scope, so it aborts at timeoutMs instead of hanging forever.
+    // body never completes. The explicit deadline must settle even when the
+    // provider ignores AbortController, then cancel the body best-effort.
     const opaqueUrl = 'https://news.google.com/rss/articles/CBMiwAFAU_yqLMstall?oc=5';
-    const fetchImpl = vi.fn(async (_url: string, init: any) => ({
-      ok: true,
-      // body that never resolves on its own — only the abort signal ends it
-      text: () => new Promise((_res, rej) => {
-        init.signal.addEventListener('abort', () => rej(new Error('aborted')));
-      }),
+    let settleRead: ((value: { done: boolean; value?: Uint8Array }) => void) | undefined;
+    let readPending = false;
+    const read = vi.fn(() => new Promise<{ done: boolean; value?: Uint8Array }>((resolve) => {
+      readPending = true;
+      settleRead = (value) => {
+        readPending = false;
+        resolve(value);
+      };
     }));
+    const cancel = vi.fn(async () => {
+      settleRead?.({ done: true });
+    });
+    const releaseLock = vi.fn();
+    let signal: AbortSignal | undefined;
+    const fetchImpl = vi.fn(async (_url: string, init: any) => {
+      signal = init.signal;
+      return {
+        ok: true,
+        body: {
+          getReader: () => ({ read, cancel, releaseLock }),
+        },
+      };
+    });
     const started = Date.now();
     const out = await decodeGoogleNewsUrl(opaqueUrl, { fetchImpl, timeoutMs: 50 });
     expect(out).toBeNull();
-    // Completed promptly (abort fired) — nowhere near a hang.
+    expect(signal?.aborted).toBe(true);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(readPending).toBe(false);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
+    // Completed promptly from the explicit race — nowhere near a hang.
     expect(Date.now() - started).toBeLessThan(2000);
   });
 

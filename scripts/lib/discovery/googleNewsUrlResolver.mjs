@@ -82,7 +82,7 @@ function extractToken(gnUrl) {
 }
 
 /**
- * Fetch a URL and read its body text under ONE AbortController deadline.
+ * Fetch a URL and read its body text under one explicit deadline.
  *
  * CRITICAL (hotfix 2026-07-12, run 29202963318 hung 2h42m): the previous
  * helper timed out only the fetch() (up to response headers) and returned the
@@ -91,21 +91,87 @@ function extractToken(gnUrl) {
  * forever — and the article generator's wall-clock budget can't interrupt a
  * single in-flight await, so the whole run sat in "Generate article" until the
  * 6h job timeout, blocking the concurrency-1 chain. Reading the body inside the
- * same abort scope means a stalled body aborts at `timeoutMs` too. Returns the
- * body text, or null on any non-ok/abort/error (caller falls back cleanly).
+ * same deadline means a stalled body rejects at `timeoutMs` even when the
+ * provider ignores abort. The transport is aborted and the body is cancelled
+ * best-effort. Returns the body text, or null on any non-ok/timeout/error
+ * (caller falls back cleanly).
  */
 async function fetchText(fetchImpl, url, init, timeoutMs) {
   const ac = new AbortController();
-  const t = setTimeout(() => ac.abort(), timeoutMs);
-  if (t && typeof t.unref === 'function') t.unref();
+  let response = null;
+  let reader = null;
+  let timedOut = false;
+  let cancelledTarget = null;
+
+  const cancelBody = (res = response) => {
+    const target = reader ?? res?.body;
+    if (!target || target === cancelledTarget) return;
+    cancelledTarget = target;
+    try {
+      const cancellation = target.cancel?.('Google News request timed out');
+      if (cancellation && typeof cancellation.catch === 'function') {
+        cancellation.catch(() => {});
+      }
+    } catch {
+      // Best-effort cleanup only; timeout fallback must still return null.
+    }
+  };
+
+  let t;
+  const timeout = new Promise((_, reject) => {
+    t = setTimeout(() => {
+      timedOut = true;
+      ac.abort();
+      cancelBody(response);
+      const error = new Error(`Google News request timed out after ${timeoutMs}ms`);
+      error.name = 'TimeoutError';
+      reject(error);
+    }, timeoutMs);
+  });
+
+  const fetchPromise = Promise.resolve().then(() =>
+    fetchImpl(url, { ...init, signal: ac.signal }),
+  );
+  void fetchPromise.then(
+    (res) => {
+      response = res;
+      if (timedOut) cancelBody(res);
+    },
+    () => {},
+  );
+
   try {
-    const res = await fetchImpl(url, { ...init, signal: ac.signal });
-    if (!res || res.ok === false) return null;
-    return await res.text();
+    response = await Promise.race([fetchPromise, timeout]);
+    if (!response || response.ok === false) {
+      cancelBody(response);
+      return null;
+    }
+    if (!response.body || typeof response.body.getReader !== 'function') {
+      return await Promise.race([
+        Promise.resolve().then(() => response.text()),
+        timeout,
+      ]);
+    }
+
+    reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let text = '';
+    while (true) {
+      // Keep the pending read attached to the retained reader so timeout
+      // cleanup can cancel the actual lock owner, not the locked body.
+      // eslint-disable-next-line no-await-in-loop
+      const { done, value } = await Promise.race([reader.read(), timeout]);
+      if (timedOut) throw new Error('Google News response body timed out');
+      if (done) break;
+      text += decoder.decode(value, { stream: true });
+    }
+    return text + decoder.decode();
   } catch {
+    cancelBody();
     return null;
   } finally {
     clearTimeout(t);
+    try { reader?.releaseLock?.(); } catch { /* best effort after cancellation */ }
   }
 }
 
