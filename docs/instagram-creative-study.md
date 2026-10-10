@@ -157,6 +157,14 @@ Il piano operativo è:
 Commenti e DM restano azioni manuali: il piano non automatizza conversazioni,
 non invia spam e non promette una risposta che non sia già producibile.
 
+Quando il post entra nella coda del robot, il log locale stampa lo stesso
+brief operativo accanto all'ID della coda: hook, meccanica di attenzione, loop,
+azione entro 24 ore, follow-up entro 48/72 ore e soglia di tre osservazioni
+comparabili. In questo modo la finestra di pubblicazione lascia una consegna
+concreta a chi gestisce il profilo, senza trasformare il robot in un account
+che commenta, manda DM o pubblica Stories da solo. Il blocco è riconoscibile
+nel log dalla riga `🧭 Instagram engagement`.
+
 ## 6. Disegno del test nel tempo
 
 Ogni coorte è confrontata solo con la stessa combinazione di:

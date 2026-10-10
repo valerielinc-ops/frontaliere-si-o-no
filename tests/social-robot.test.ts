@@ -451,7 +451,7 @@ type Deps = Parameters<typeof runRobot>[0];
 function harness({ queue = { pending: [entry('article')] }, journal = emptyJournal(), flow = async (_c: string, _e: unknown, _f: string[], o: { dryRun: boolean }) => ({ status: o.dryRun ? 'dry-run' : 'published', evidence: 'Post condiviso' }) } = {}) {
   let stored = journal;
   let clock = NOW;
-  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[] };
+  const calls = { flow: [] as Array<{ dryRun: boolean; id: string }>, dispatch: [] as Array<Record<string, unknown>>, issues: [] as Array<{ title: string; description: string; labels: string[] }>, order: [] as string[], logs: [] as string[] };
   const deps = (over: Partial<Deps> = {}): Deps => ({
     cliMode: 'publish',
     rcMode: 'live',
@@ -470,7 +470,7 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
     },
     dispatchConfirm: async (args: Record<string, unknown>) => { calls.dispatch.push(args); calls.order.push('dispatch'); return { ok: true }; },
     reportIssue: async (issue: { title: string; description: string; labels: string[] }) => { calls.issues.push(issue); },
-    log: { log: () => {}, warn: () => {}, error: () => {} },
+    log: { log: (message: string) => { calls.logs.push(message); }, warn: () => {}, error: () => {} },
     ...over,
   }) as Deps;
   return { deps, calls, journal: () => stored, advance: (ms: number) => { clock += ms; } };
@@ -509,6 +509,38 @@ describe('runRobot', () => {
       expect(h.calls.dispatch).toEqual([]);
       expect(h.journal().attempts.map((a: { outcome: string }) => a.outcome)).toEqual(['dry-run']);
     }
+  });
+
+  it('prints the human engagement brief for an Instagram creative without sending interactions', async () => {
+    const creative = buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-10-10',
+      caption: 'Quale tema scegli: tasse, sanità o permessi?',
+      imageUrls: [cdn('article-2026-10-10-0.jpg')],
+      ledgerEntries: [{
+        id: 'article-slug',
+        kind: 'article',
+        creativeId: 'question-choice',
+        primaryMetric: 'comments',
+        engagementMechanic: 'keyword-comment',
+        hookType: 'forced-choice',
+        attentionMechanic: 'low-friction-choice',
+        engagementLoop: 'comment-to-poll',
+        followUpFormat: 'story-result',
+      }],
+      now: NOW,
+    });
+    const h = harness({ queue: { pending: [creative] } });
+
+    await runRobot(h.deps({ cliMode: 'dry-run', rcMode: 'dry' }));
+
+    const output = h.calls.logs.join('\n');
+    expect(output).toContain('Instagram engagement — article-2026-10-10 · question-choice · comments');
+    expect(output).toContain('24h');
+    expect(output).toContain('48h');
+    expect(output).toContain('3 osservazioni');
+    expect(output).toContain('nessun commento, DM o Story viene inviato');
   });
 
   it('does nothing when Remote Config says off', async () => {
