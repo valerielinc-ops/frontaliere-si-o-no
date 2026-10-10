@@ -225,6 +225,35 @@ const actualKeys = Object.keys(RETIRED_TABLE).sort();
 const expectedKeys = [...expected.keys()].sort();
 
 describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => {
+  it('pins all locale URLs of the 2026-10-07 upstream-aborted articles', () => {
+    const groups = pinnedRetiredGroups().groups;
+    const expected = new Map<string, string[]>([
+      ['frontaliere/abort-saint-nicolas-non-frontaliero', [
+        '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/',
+        '/en/cross-border-articles/moving-to-saint-nicolas-as-a-cross-border-worker-pros-and-cons/',
+        '/de/grenzgaenger-artikel/umzug-nach-saint-nicolas-als-grenzgaenger-vor-und-nachteile/',
+        '/fr/articles-frontalier/demenager-a-saint-nicolas-en-tant-que-frontalier-avantages-et-inconvenients/',
+      ]],
+      ['frontaliere/abort-topical-relevance-pre-saint-didier', [
+        '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/',
+        '/en/cross-border-articles/living-pre-saint-didier-working-valais/',
+        '/de/grenzgaenger-artikel/leben-pre-saint-didier-arbeiten-wallis/',
+        '/fr/articles-frontalier/vivre-pre-saint-didier-travailler-valais/',
+      ]],
+      ['svizzera/abort-topical-relevance-trump-health', [
+        '/articoli-svizzera/abort-topical-relevance-trump-health/',
+        '/en/swiss-articles/news-not-relevant/',
+        '/de/schweiz-artikel/nicht-zutreffende-nachrichten/',
+        '/fr/articles-suisse/information-non-pertinente/',
+      ]],
+    ]);
+
+    for (const [key, paths] of expected) {
+      expect(groups.get(key), `${key}: missing persistent retirement pin`).toEqual(paths);
+      for (const path of paths) expect(RETIRED_TABLE[path], `${path}: missing edge 410`).toBeNull();
+    }
+  });
+
   it('has no declared retirement missing from the edge table', () => {
     const missing = expectedKeys.filter((k) => !(k in RETIRED_TABLE));
     expect(
