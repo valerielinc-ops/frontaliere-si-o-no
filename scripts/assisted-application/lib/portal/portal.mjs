@@ -34,7 +34,7 @@ import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -74,15 +74,15 @@ const MAX_REDRAWS_PER_PAGE = 2;
 // application), and how often one address is loaded again for it.
 export const REFRESH_ASKED_RE = /(refresh (the|this) page|reload (the|this) page|seite (neu laden|aktualisieren)|laden sie die seite neu|aktualisieren sie die seite|ricaric(a|are|hi) la pagina|aggiorn(a|are|i) la pagina|(actualise[rz]|rafra[iî]chi(r|ssez)|recharge[rz]) la page)/i;
 const MAX_REFRESHES_PER_PAGE = 2;
-// The control that takes an uploaded file away again, by its name next to the file's («Delete CV_….pdf»).
+// The control that takes an uploaded file away again, associated with the row containing its filename.
 export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|rimuovi|supprimer|retirer)\b/i;
 
 /** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
 export function removalsOf(buttons, names) {
   return (buttons || []).filter((button) => {
     if (button.disabled || !REMOVE_FILE_RE.test(button.text || '')) return false;
-    const context = `${button.text || ''} ${button.fileContext || ''}`.toLocaleLowerCase();
-    return names.some((name) => name && context.includes(String(name).toLocaleLowerCase()));
+    const context = `${button.text || ''} ${button.fileContext || ''}`.toLowerCase();
+    return names.some((name) => name && context.includes(String(name).toLowerCase()));
   });
 }
 
@@ -1095,24 +1095,6 @@ async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
   return { snapshot, fields: [] };
 }
 
-async function uploadReceipt(page, field, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
-  const names = paths.map((file) => path.basename(file));
-  const requiresPortalReceipt = /workday/i.test(page.url());
-  const deadline = Date.now() + timeoutMs;
-  do {
-    const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
-    if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
-    const inputNames = await locatorFor(page, field).evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
-    const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
-    const inputHasFiles = names.every((name) => inputNames.includes(name));
-    if (names.every((name, index) => visibleNames[index])
-      || inputHasFiles && (!requiresPortalReceipt || acceptedResponse)) return true;
-    if (Date.now() >= deadline) break;
-    await page.waitForTimeout(250);
-  } while (true);
-  return false;
-}
-
 /**
  * Workday's profile history is not a normal planner page: rows exist only
  * after the matching section's Add control is pressed. Fill and save each
@@ -2024,7 +2006,7 @@ export async function submitViaPortal(ctx) {
             const result = results.find((item) => item.fieldId === action.fieldId);
             const field = snapshot.fields.find((item) => item.id === action.fieldId);
             const files = documentPaths(ctx.files, action.document);
-            if (!result?.ok || !field || !await uploadReceipt(page, field, files, { acceptedResponse: result.uploadAccepted === true })) {
+            if (!result?.ok || !field || !await uploadReceipt(page, locatorFor(page, field), files, { acceptedResponse: result.uploadAccepted === true })) {
               if (result) {
                 result.ok = false;
                 result.error ||= 'upload_not_confirmed';

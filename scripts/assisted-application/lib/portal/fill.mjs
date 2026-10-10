@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { isNationalityField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
 import { addressQuestionTopic } from './plan.mjs';
 import { residenceCountryCode } from './residence-address.mjs';
@@ -567,7 +568,7 @@ async function dateRegistered(locator, value) {
  * none has been in flight for UPLOAD_QUIET_MS — bounded, and a short pause on
  * a form that sends its files with the submit.
  */
-export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
+async function observeFileUpload(page, setFiles, { settleMs = UPLOAD_SETTLE_MS, quietMs = UPLOAD_QUIET_MS, now = Date.now } = {}) {
   const inFlight = new Set();
   const uploads = new Set();
   const failed = new Set();
@@ -597,7 +598,7 @@ export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETT
   page.on('requestfailed', failedRequest);
   page.on('response', received);
   try {
-    await locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS });
+    await setFiles();
     const deadline = now() + settleMs;
     let quietSince = now();
     while (now() < deadline) {
@@ -613,6 +614,34 @@ export async function chooseFiles(page, locator, paths, { settleMs = UPLOAD_SETT
   }
   if (failed.size) throw new Error('upload_http_failed');
   return { accepted: accepted.size > 0 };
+}
+
+export function chooseFiles(page, locator, paths, options = {}) {
+  return observeFileUpload(page, () => locator.setInputFiles(paths, { timeout: UPLOAD_INPUT_TIMEOUT_MS }), options);
+}
+
+export function chooseChooserFiles(page, chooser, paths, options = {}) {
+  return observeFileUpload(page, () => chooser.setFiles(paths), options);
+}
+
+/** A Workday file is accepted only with an upload response or a visible receipt. */
+export async function uploadReceipt(page, locator, paths, { acceptedResponse = false, timeoutMs = 60_000 } = {}) {
+  const names = paths.map((file) => path.basename(file));
+  if (!names.length) return false;
+  const requiresPortalReceipt = /workday/i.test(page.url());
+  const deadline = Date.now() + timeoutMs;
+  do {
+    const alerts = await page.locator('[role="alert"]:visible').allInnerTexts().catch(() => []);
+    if (/(?:upload|file|document).{0,40}(?:fail|error|unable|could not|couldn['’]t)|(?:fail|error).{0,40}(?:upload|file|document)/i.test(alerts.join(' '))) return false;
+    const inputNames = await locator.evaluate((element) => [...(element.files || [])].map((file) => file.name)).catch(() => []);
+    const visibleNames = await Promise.all(names.map((name) => page.getByText(name, { exact: false }).first().isVisible().catch(() => false)));
+    const inputHasFiles = names.every((name) => inputNames.includes(name));
+    if (names.every((name, index) => visibleNames[index])
+      || inputHasFiles && (!requiresPortalReceipt || acceptedResponse)) return true;
+    if (Date.now() >= deadline) break;
+    await page.waitForTimeout(250);
+  } while (true);
+  return false;
 }
 
 /** The local paths of one document: the CV, the letter, or the files of a requested document (extra_N). */

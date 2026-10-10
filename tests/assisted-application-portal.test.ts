@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
@@ -38,6 +38,20 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileEntryAnswer(entry, 'education', { label: 'Degree *' })).toEqual({ value: 'Vocational Diploma', source: 'profile' });
     expect(profileEntryAnswer(entry, 'education', { label: 'End Date *' })).toEqual({ value: '2018-06', source: 'profile' });
     expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
+  });
+
+  it('accepts a Workday upload only with a visible receipt or successful upload response', async () => {
+    const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
+    const page = {
+      url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
+      locator: () => ({ allInnerTexts: async () => [] }),
+      getByText: () => ({ first: () => ({ isVisible: async () => false }) }),
+      waitForTimeout: async () => {},
+    };
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
+    expect(await uploadReceipt(page as any, locator as any, ['/tmp/CV.pdf'], { acceptedResponse: true, timeoutMs: 0 })).toBe(true);
+    const visiblePage = { ...page, getByText: () => ({ first: () => ({ isVisible: async () => true }) }) };
+    expect(await uploadReceipt(visiblePage as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
   });
 });
 
