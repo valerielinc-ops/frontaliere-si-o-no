@@ -1,3 +1,7 @@
+import { RELATED_SEARCH_STOPWORDS, sanitizeJobTitle } from './relatedSearchClusters';
+import { getJobSearchRoleTokens } from './jobSearchRelevance';
+import { normalizeSearchText, stemSearchToken } from './textUtils';
+
 export interface FrameBudgetScheduler {
   now(): number;
   request(callback: () => void): number;
@@ -112,4 +116,96 @@ export function offerBoundedRankedCandidate<T>(
 
 export function rankedCandidateValues<T>(ranked: ReadonlyArray<RankedCandidate<T>>): T[] {
   return ranked.map(({ value }) => value);
+}
+
+export interface JobBoardSearchSurfaceItem {
+  readonly title?: string;
+  readonly titleByLocale?: Partial<Record<string, string>>;
+  readonly company?: string;
+  readonly location?: string;
+  readonly addressLocality?: string;
+}
+
+/** Add the non-ambiguous location vocabulary used to remove cities from role intent. */
+export function addJobSearchLocationTokens(
+  target: Set<string>,
+  job: JobBoardSearchSurfaceItem,
+): void {
+  const location = `${job.addressLocality || ''} ${job.location || ''}`;
+  for (const token of normalizeSearchText(location).split(' ')) {
+    if (!token) continue;
+    const stem = stemSearchToken(token);
+    if (stem.length <= 3 || RELATED_SEARCH_STOPWORDS.has(stem)) continue;
+    target.add(stem);
+  }
+}
+
+export function collectJobSearchLocationTokens(
+  jobs: ReadonlyArray<JobBoardSearchSurfaceItem>,
+  tokens = new Set<string>(),
+): Set<string> {
+  for (const job of jobs) addJobSearchLocationTokens(tokens, job);
+  return tokens;
+}
+
+/** Keep location words out of the occupation predicate before the full index exists. */
+export function deriveJobBoardOccupationTerms(
+  query: string,
+  locationTokens: ReadonlySet<string>,
+): string[] {
+  return getJobSearchRoleTokens(query).filter((token) => !locationTokens.has(token));
+}
+
+/** A cancelled in-flight fallback may retry; a settled one remains terminal. */
+export function shouldRearmCancelledFetchAttempt(
+  cancelled: boolean,
+  attemptSettled: boolean,
+): boolean {
+  return cancelled && !attemptSettled;
+}
+
+/**
+ * Autocomplete over a bounded result seed. Cluster seeds contain at most 30
+ * records, so this keeps suggestions available without starting a corpus scan.
+ */
+export function addJobBoardAutocompleteSuggestions(
+  suggestions: string[],
+  seen: Set<string>,
+  job: JobBoardSearchSurfaceItem,
+  query: string,
+  locale: string,
+  limit = 5,
+): void {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (normalizedQuery.length < 2 || limit <= 0 || suggestions.length >= limit) return;
+  const add = (raw: string) => {
+    const clean = raw.trim();
+    const key = clean.toLowerCase();
+    if (!clean || key === normalizedQuery || seen.has(key)) return;
+    seen.add(key);
+    suggestions.push(clean);
+  };
+
+  const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title ?? '')
+    .split(/[-–—|•·]/)[0]?.trim() || '';
+  const company = String(job.company || '').trim();
+  const location = String(job.location || '').trim();
+  if (title.toLowerCase().startsWith(normalizedQuery)) add(title);
+  if (suggestions.length < limit && company.toLowerCase().startsWith(normalizedQuery)) add(company);
+  if (suggestions.length < limit && location.toLowerCase().startsWith(normalizedQuery)) add(location);
+}
+
+export function deriveJobBoardAutocompleteSuggestions(
+  jobs: ReadonlyArray<JobBoardSearchSurfaceItem>,
+  query: string,
+  locale: string,
+  limit = 5,
+): string[] {
+  const suggestions: string[] = [];
+  const seen = new Set<string>();
+  for (const job of jobs) {
+    addJobBoardAutocompleteSuggestions(suggestions, seen, job, query, locale, limit);
+    if (suggestions.length >= limit) break;
+  }
+  return suggestions.slice(0, limit);
 }
