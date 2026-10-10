@@ -479,10 +479,8 @@ function matchesListingCandidateText(spec, candidate) {
  * @param {any} candidate
  * @returns {boolean}
  */
-function candidateContainsText(requiredText, candidate) {
-  const needle = normalizeListingCandidateText(requiredText);
-  if (!needle) return true;
-  const haystack = normalizeListingCandidateText([
+function candidateText(candidate) {
+  return normalizeListingCandidateText([
     candidate?.title,
     candidate?.url,
     candidate?.sourceUrl,
@@ -498,16 +496,33 @@ function candidateContainsText(requiredText, candidate) {
       ? candidate.workplaceLabels
       : [candidate?.workplaceLabels]),
   ].filter(Boolean).join(' '));
+}
+
+function candidateContainsText(requiredText, candidate) {
+  const needle = normalizeListingCandidateText(requiredText);
+  if (!needle) return true;
+  const haystack = candidateText(candidate);
   return haystack.includes(needle);
 }
 
 /**
+ * Distinguish a detail page that names another tenant from one that carries no
+ * usable tenant identity at all. The longest token in the configured identity
+ * is the stable employer anchor (`Schweizerhof` in `Schweizerhof Flims`), so a
+ * page that repeats that anchor but not the complete identity is an explicit
+ * non-target. A page with no anchor is unknown and must remain in the
+ * fail-closed detail denominator.
+ *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
  * @param {any} candidate
- * @returns {boolean}
+ * @returns {'matched'|'mismatch'|'missing'}
  */
-function matchesDetailCandidateText(spec, candidate) {
-  return candidateContainsText(spec.detailCandidateText, candidate);
+function detailCandidateIdentityState(spec, candidate) {
+  const needle = normalizeListingCandidateText(spec.detailCandidateText);
+  if (!needle || candidateContainsText(needle, candidate)) return 'matched';
+  const anchor = needle.split(/\s+/u).sort((a, b) => b.length - a.length)[0] || '';
+  const haystackTokens = new Set(candidateText(candidate).split(/\s+/u).filter(Boolean));
+  return anchor && haystackTokens.has(anchor) ? 'mismatch' : 'missing';
 }
 
 /**
@@ -1249,6 +1264,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     let detailCandidateDrops = 0;
     let detailTenantMatches = 0;
     let detailTenantMismatches = 0;
+    let detailTenantMissing = 0;
     let expectedGeographyFilters = 0;
     let next = 0;
     const worker = async () => {
@@ -1280,8 +1296,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
           // valid enrichment fallbacks below, but they must never satisfy the
           // detail discriminator when the detail response omits that evidence.
           const detailCandidate = { ...detail };
-          if (!matchesDetailCandidateText(spec, detailCandidate)) {
-            detailTenantMismatches++;
+          const tenantIdentity = detailCandidateIdentityState(spec, detailCandidate);
+          if (tenantIdentity !== 'matched') {
+            if (tenantIdentity === 'mismatch') detailTenantMismatches++;
+            else detailTenantMissing++;
             continue;
           }
           detailTenantMatches++;
@@ -1334,6 +1352,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'descrizione source-backed assente o non verificabile');
     reportDroppedRows(spec, detailCandidateDrops, rows.length,
       'pagina dettaglio non recuperabile o non estraibile');
+    reportDroppedRows(spec, detailTenantMissing, rows.length,
+      'identità tenant assente nella pagina dettaglio source-backed');
     if (detailTenantMismatches) {
       console.info(
         `[prospector:${spec.companyKey}] discriminante tenant ha escluso `
@@ -1352,9 +1372,10 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const publishedRows = enriched.filter(Boolean);
     const detailDrop = {
       candidates: rows.length - expectedGeographyFilters - expectedTenantFilters,
-      gone: detailCandidateDrops + unmatchedTenantFailures,
+      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures,
       rejected: geographyDrops + descriptionDrops,
-      dropped: detailCandidateDrops + unmatchedTenantFailures + geographyDrops + descriptionDrops,
+      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures
+        + geographyDrops + descriptionDrops,
     };
     copySpecFetchMetadata(publishedRows, { detailDrop });
     // A non-empty partial detail snapshot is just as dangerous as an empty

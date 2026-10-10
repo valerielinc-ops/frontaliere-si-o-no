@@ -418,6 +418,57 @@ describe('prospector public-only polite transport', () => {
     expect(error.message).toMatch(/detail snapshot incompleto: 2\/10/);
   });
 
+  it('keeps a detail without tenant identity in the fail-closed denominator', async () => {
+    const seed = 'https://romantik.example/list/';
+    const details = Array.from({ length: 22 }, (_, index) => (
+      `https://romantik.example/list/${250 + index}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Hospitality role ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => {
+      const target = index < 20;
+      const explicitNonTarget = index === 20;
+      const location = target || index === 21 ? 'Flims' : 'Grindelwald';
+      const identity = target
+        ? 'Schweizerhof Flims'
+        : explicitNonTarget
+          ? 'Schweizerhof Grindelwald'
+          : 'Independent hospitality employer';
+      return '<h1>Hospitality role ' + (index + 1) + '</h1>'
+        + `<div class="job-location">${location}</div>`
+        + '<article class="vacancy-description">'
+        + `Join ${identity} in this hospitality role. We offer a varied position, `
+        + 'supportive colleagues, fair working hours and an attractive workplace in the region.'
+        + '</article>';
+    };
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    const rows = await runSpecInProduction({
+      companyKey: 'schweizerhof-flims', companyName: 'Schweizerhof',
+      companyHost: 'romantik.example', mode: 'template', seedUrls: [seed],
+      detailTemplate: '/list/*', detailEnrichment: true,
+      detailCandidateText: 'Schweizerhof Flims',
+    } as any, {
+      fetchImpl,
+      disableWafProxy: true,
+      retries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+    });
+
+    expect(rows).toHaveLength(20);
+    expect((rows as any).detailDrop).toEqual({
+      candidates: 21, gone: 1, rejected: 0, dropped: 1,
+    });
+  });
+
   it('fails closed when no detail page proves the requested tenant', async () => {
     const seed = 'https://romantik.example/list/';
     const details = Array.from({ length: 10 }, (_, index) => (
