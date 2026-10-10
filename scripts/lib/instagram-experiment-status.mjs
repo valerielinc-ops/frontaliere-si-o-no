@@ -96,10 +96,14 @@ function pendingCreative(item) {
   };
 }
 
-function pendingCreatives(queue) {
+function pendingCreatives(queue, ledger = { posted: [] }) {
+  const publishedKindDays = new Set(
+    groupPostedLedger(ledger).map((group) => `${group.kind}\u0000${group.day}`),
+  );
   return queueRows(queue)
     .map(pendingCreative)
     .filter((item) => item.id)
+    .filter((item) => !publishedKindDays.has(`${item.kind}\u0000${item.day}`))
     .sort((a, b) => String(a.createdAt || '').localeCompare(String(b.createdAt || '')) || a.id.localeCompare(b.id));
 }
 
@@ -458,13 +462,13 @@ export function buildExperimentStatus({
   }
 
   const nextActions = buildNextActions({
-    pending: pendingCreatives(queue),
+    pending: pendingCreatives(queue, ledger),
     publishedPosts,
     cohorts: serializedCohorts,
     blockers,
     hasCredentials: Boolean(hasCredentials),
   });
-  const pending = pendingCreatives(queue);
+  const pending = pendingCreatives(queue, ledger);
 
   return {
     schemaVersion: EXPERIMENT_STATUS_SCHEMA_VERSION,

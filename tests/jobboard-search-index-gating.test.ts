@@ -44,6 +44,10 @@ function effectBodyAfter(anchor: string): string {
 
 describe('search-index gating of the lazy corpus-fetch tiers', () => {
   it('derives one shared pending flag from an active query + a stale index', () => {
+    const currentDecl = SRC.match(/const searchIndexCurrent = [\s\S]{0,200}?;/);
+    expect(currentDecl, 'searchIndexCurrent must be declared').not.toBeNull();
+    expect(currentDecl![0]).toContain('searchIndex.jobs === sortedJobs');
+    expect(currentDecl![0]).toContain('searchIndex.locale === locale');
     const decl = SRC.match(/const searchIndexPending = [\s\S]{0,200}?;/);
     expect(decl, 'searchIndexPending must be declared').not.toBeNull();
     const text = decl![0];
@@ -53,8 +57,7 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
     // replaced by one of the same length (job-detail enrichment re-creates one
     // job) or a locale switch leaves every key stale while `size` still
     // matches: a size check calls that "complete" and lets the tiers fire.
-    expect(text).toContain('searchIndex.jobs !== sortedJobs');
-    expect(text).toContain('searchIndex.locale !== locale');
+    expect(text).toContain('!searchIndexCurrent');
     expect(text).not.toContain('searchIndex.size');
     // Exactly one definition: the skeleton and the fetch tiers must not drift.
     expect(SRC.match(/const searchIndexPending =/g)).toHaveLength(1);
@@ -62,8 +65,14 @@ describe('search-index gating of the lazy corpus-fetch tiers', () => {
 
   it('commits the index together with the (jobs, locale) pair it describes', () => {
     // One state value, so the map and the pair it describes cannot diverge.
-    expect(SRC).toContain('setSearchIndex({ map, jobs: sortedJobs, locale })');
+    expect(SRC).toContain('setSearchIndex({ map, jobs: sortedJobs, locale, ids, locationTokens })');
     expect(SRC.match(/setSearchIndex\(/g)).toHaveLength(1);
+  });
+
+  it('reuses the bounded index pass for scoped ids and location vocabulary', () => {
+    expect(SRC).toContain('ids.add(job.id)');
+    expect(SRC).toContain('locationTokens.add(stem)');
+    expect(SRC).not.toContain('const scopedSearchLocationTokens = useMemo');
   });
 
   it('gates the cross-locale tier (DE/FR/EN slim indexes) on it', () => {
