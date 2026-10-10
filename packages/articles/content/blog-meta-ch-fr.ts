@@ -8015,6 +8015,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.axpo-solare-argovia.title': 'Axpo : installation solaire sur un terrain agricole en Argovie',
     'blog.article.axpo-solare-argovia.excerpt': 'Axpo construit à Suhr une installation solaire La puissance prévue est de 600 kWp Les modules occuperont 1,2 hectares sur 2,8 Le FiBL étudiera les récoltes, l’eau',
     'blog.article.axpo-solare-argovia.imageAlt': 'Installation solaire sur une terre agricole à Suhr, dans le canton d\'Argovie',
+    'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli ne se porte pas candidate au Conseil fédéral',
+    'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli ne se présentera pas au Conseil fédéral Elle veut rester à la Chambre haute pour Saint-Gall Elle vise sa réélection l’année prochaine Martullo-Blocher',
+    'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Le Palais fédéral à Berne, symbole de la succession de Guy Parmelin.',
 };
 
 export default blogMetaChFr;

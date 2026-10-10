@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5158
+      "6": 5159
     },
-    "publishedCovers": 6870,
+    "publishedCovers": 6871,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182761,6 +182761,33 @@
           "id": "axpo-solare-argovia",
           "category": "novita",
           "date": "2026-10-09T23:11:13.817Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-friedli-rinuncia-corsa-federale": {
+      "cover": "/images/blog/article-friedli-rinuncia-corsa-federale.webp",
+      "hash": "89ca63ac30834f2a9d84b56e60d0a621f0cbe55a47ad591b25c16940817ddc2a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "friedli-rinuncia-corsa-federale",
+          "category": "novita",
+          "date": "2026-10-10T00:22:01.565Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

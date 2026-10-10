@@ -8015,6 +8015,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.axpo-solare-argovia.title': 'Axpo: impianto solare su terreno agricolo in Argovia',
     'blog.article.axpo-solare-argovia.excerpt': 'Axpo costruisce a Suhr un impianto solare La potenza prevista è di 600 kWp I moduli occuperanno 1,2 ettari su 2,8 Il FiBL studierà raccolti, acqua',
     'blog.article.axpo-solare-argovia.imageAlt': 'Impianto solare su terreno agricolo a Suhr, nel canton Argovia',
+    'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli non si candida per il Consiglio federale',
+    'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
+    'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Il Palazzo federale svizzero a Berna, simbolo della successione di Guy Parmelin.',
 };
 
 export default blogMetaChIt;

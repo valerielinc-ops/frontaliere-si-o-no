@@ -8015,6 +8015,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.axpo-solare-argovia.title': 'Axpo: Solaranlage auf landwirtschaftlichem Boden im Aargau',
     'blog.article.axpo-solare-argovia.excerpt': 'Axpo baut in Suhr eine Solaranlage Die geplante Leistung beträgt 600 kWp Die Module werden 1,2 von 2,8 Hektar belegen Das FiBL wird Ernten und Wasser untersuchen',
     'blog.article.axpo-solare-argovia.imageAlt': 'Solaranlage über Ackerland in Suhr im Kanton Aargau',
+    'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli kandidiert nicht für den Bundesrat',
+    'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli wird nicht für den Bundesrat kandidieren Will im Ständerat für St.',
+    'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'Das Schweizer Bundeshaus in Bern als Symbol für die Nachfolge von Guy Parmelin.',
 };
 
 export default blogMetaChDe;

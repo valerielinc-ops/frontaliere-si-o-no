@@ -8015,6 +8015,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.axpo-solare-argovia.title': 'Axpo: solar plant on agricultural land in Aargau',
     'blog.article.axpo-solare-argovia.excerpt': 'Axpo is building a solar plant in Suhr The planned capacity is 600 kWp The modules will occupy 1,2 hectares out of 2,8 FiBL will study crops, water',
     'blog.article.axpo-solare-argovia.imageAlt': 'Solar installation above cultivated land in Suhr, in the canton of Aargau',
+    'blog.article.friedli-rinuncia-corsa-federale.title': 'Esther Friedli is not running for the Federal Council',
+    'blog.article.friedli-rinuncia-corsa-federale.excerpt': 'Esther Friedli will not run for the Federal Council She wants to remain in the upper house for St.',
+    'blog.article.friedli-rinuncia-corsa-federale.imageAlt': 'The Swiss Federal Palace in Bern, symbol of the race to succeed Guy Parmelin.',
 };
 
 export default blogMetaChEn;

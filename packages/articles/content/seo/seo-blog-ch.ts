@@ -101076,6 +101076,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friedli-rinuncia-corsa-federale': {
+    title: 'Esther Friedli non si candida per il Consiglio federale',
+    description: 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
+    keywords: 'frontalieri, ticino, svizzera, italia, esther, friedli, candida, consiglio',
+    ogTitle: 'Esther Friedli non si candida per il Consiglio federale',
+    ogDescription: 'Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher',
+    canonicalPath: '/articoli-svizzera/friedli-rinuncia-corsa-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esther Friedli non si candida per il Consiglio federale",
+      "description": "Esther Friedli non correrà per il Consiglio federale Vuole restare nella Camera alta per San Gallo Punta alla rielezione il prossimo anno Martullo-Blocher",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-friedli-rinuncia-corsa-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale svizzero a Berna, simbolo della successione di Guy Parmelin."
+      },
+      "datePublished": "2026-10-10T00:22:01+00:00",
+      "dateModified": "2026-10-10T00:22:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/friedli-rinuncia-corsa-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
