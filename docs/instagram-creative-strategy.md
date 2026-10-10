@@ -234,8 +234,14 @@ Il primo ciclo è una baseline creativa, non una dichiarazione di vittoria.
 
 ### Scheda di rilevazione
 
-Per ogni post, dopo 24 h e 72 h, registrare in un foglio o nel Meta
-Professional Dashboard:
+Per ogni post, osservare due finestre separate nel Meta Professional Dashboard
+o nel dataset automatico:
+
+- a 24 h: segnale diagnostico per capire se hook, copertina e CTA stanno
+  generando la prima reazione;
+- a 72 h: finestra decisionale da usare per confrontare le varianti.
+
+In entrambe le finestre registrare:
 
 - reach totale e reach non-follower;
 - like, commenti, salvataggi, condivisioni e visite al profilo;
@@ -255,16 +261,25 @@ si riscrive quello debole. Un miglioramento del 20% è un buon segnale operativo
 non una prova statistica con un profilo appena avviato.
 
 La raccolta ora è automatizzata dal workflow `Instagram Insights Snapshot`,
-una volta al giorno. Legge il ledger dei post confermati, interroga soltanto
-le superfici read-only di Meta e salva `data/instagram-insights.json` quando
-un contenuto ha raggiunto almeno 72 ore. Il comando locale equivalente è:
+una volta al giorno. Nel run standard il workflow raccoglie sia la finestra
+diagnostica a 24 ore sia quella decisionale a 72 ore; le righe restano separate
+tramite `windowHours` e non vengono mai aggregate insieme. Legge il ledger dei
+post confermati, interroga soltanto le superfici read-only di Meta e salva
+`data/instagram-insights.json` quando ciascuna finestra è stata raggiunta. Il
+comando locale equivalente per una singola finestra è:
 
 ```bash
 node scripts/instagram-insights-snapshot.mjs \
   --ledger data/instagram-posted.json \
   --output data/instagram-insights.json \
+  --window-hours 72 \
   --dry-run
 ```
+
+Per un controllo diagnostico anticipato usare `--window-hours 24`; la finestra
+a 24 ore serve a correggere rapidamente hook e CTA, non a dichiarare il
+vincitore. La decisione editoriale resta ancorata alla finestra a 72 ore e ad
+almeno tre post comparabili.
 
 Il collector usa l’`instagramMediaId` già presente quando possibile; per i post
 confermati dal robot che non lo conservano, cerca un solo media dell’account
@@ -362,9 +377,9 @@ confrontano direttamente tipi di contenuto diversi.
 
 Il report di stato separa l’unità editoriale dall’unità tecnica del ledger. Un
 carousel con cinque card è un solo post Instagram e quindi può generare una
-sola osservazione per la finestra di 72 ore; non viene contato come cinque
-prove indipendenti. Il comando locale equivalente a quello stampato dal
-workflow è:
+sola osservazione per ciascuna finestra; non viene contato come cinque prove
+indipendenti. Il workflow stampa entrambe le finestre; il comando locale
+equivalente per la decisione è:
 
 ```bash
 node scripts/instagram-experiment-status.mjs \
@@ -372,6 +387,11 @@ node scripts/instagram-experiment-status.mjs \
   --queue data/instagram-queue.json \
   --insights data/instagram-insights.json
 ```
+
+Per vedere il segnale iniziale aggiungere `--window-hours 24`. La scorecard può
+mostrare entrambe le finestre, ma il report non le fonde: ogni variante deve
+raggiungere tre post distinti nella stessa finestra prima di diventare
+`ready-to-compare`.
 
 Il report rende visibili coda pendente, creatività pubblicate, osservazioni
 attribuite, finestra non ancora raggiunta e credenziali mancanti. Una coorte

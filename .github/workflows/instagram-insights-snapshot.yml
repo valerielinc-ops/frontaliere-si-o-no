@@ -44,7 +44,7 @@ jobs:
     env:
       DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
-      TOLERANCE_HOURS: ${{ github.event.inputs.tolerance_hours || '12' }}
+      TOLERANCE_HOURS: ${{ github.event.inputs.tolerance_hours || '0' }}
       AS_OF: ${{ github.event.inputs.as_of || '' }}
     steps:
       - uses: actions/checkout@v7
@@ -75,13 +75,23 @@ jobs:
         run: node scripts/load-rc-env.mjs
         continue-on-error: true
 
-      - name: Collect Instagram Insights snapshot
+      - name: Collect Instagram Insights snapshots
         run: |
           set -euo pipefail
-          args=("--window-hours=$WINDOW_HOURS" "--tolerance-hours=$TOLERANCE_HOURS")
-          if [ -n "$AS_OF" ]; then args+=("--as-of=$AS_OF"); fi
-          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          node scripts/instagram-insights-snapshot.mjs "${args[@]}"
+          # The normal 72h run also records an early 24h diagnostic. The
+          # snapshot document stores windowHours, so the scorecard never
+          # pools the two windows. A custom dispatch target remains one-shot.
+          windows=("$WINDOW_HOURS")
+          if [ "$WINDOW_HOURS" = "72" ]; then
+            windows=(24 72)
+          fi
+          for window in "${windows[@]}"; do
+            echo "Collecting ${window}h Instagram Insights window"
+            args=("--window-hours=$window" "--tolerance-hours=$TOLERANCE_HOURS")
+            if [ -n "$AS_OF" ]; then args+=("--as-of=$AS_OF"); fi
+            if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+            node scripts/instagram-insights-snapshot.mjs "${args[@]}"
+          done
 
       - name: Print creative scorecard
         if: always()
@@ -97,10 +107,18 @@ jobs:
       - name: Print experiment status
         if: always()
         run: |
-          node scripts/instagram-experiment-status.mjs \
-            --ledger data/instagram-posted.json \
-            --queue data/instagram-queue.json \
-            --insights data/instagram-insights.json
+          status_windows=("$WINDOW_HOURS")
+          if [ "$WINDOW_HOURS" = "72" ]; then
+            status_windows=(24 72)
+          fi
+          for window in "${status_windows[@]}"; do
+            echo "Experiment status (${window}h window)"
+            node scripts/instagram-experiment-status.mjs \
+              --ledger data/instagram-posted.json \
+              --queue data/instagram-queue.json \
+              --insights data/instagram-insights.json \
+              --window-hours="$window"
+          done
 
       - name: Commit snapshot
         if: success() && env.DRY_RUN != 'true'
