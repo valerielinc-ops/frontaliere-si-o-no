@@ -12907,7 +12907,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Illustration générée pour cet article',
     'blog.article.teatro-locarno-fondi-pubblici.title': 'Théâtre de Locarno : vous avez demandé plus de fonds aux organismes publics',
     'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Plus de cent associés à l\'assemblée du jeudi soir Déficit d\'environ 55\'000 francs pour la saison 2025/26 Le déficit a été couvert par le patrimoine social',
-    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Théâtre de Locarno, lieu de l’assemblée annuelle des Amici del Teatro',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Illustration générée pour cet article',
 };
 
 export default blogMetaFr;

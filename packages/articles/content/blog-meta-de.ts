@@ -12904,7 +12904,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caslano-colombera-incidente-moto.imageAlt': 'Für diesen Artikel erstellte Illustration',
     'blog.article.teatro-locarno-fondi-pubblici.title': 'Teatro di Locarno: Mehr Mittel von den öffentlichen Stellen gefordert',
     'blog.article.teatro-locarno-fondi-pubblici.excerpt': 'Über hundert Mitglieder an der Versammlung am Donnerstagabend Defizit von rund 55\'000 Franken in der Saison 2025/26 Das Defizit wurde mit dem Vereinsvermögen gedeckt',
-    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Theater von Locarno als Ort der Jahresversammlung der Amici del Teatro',
+    'blog.article.teatro-locarno-fondi-pubblici.imageAlt': 'Für diesen Artikel erstellte Illustration',
 };
 
 export default blogMetaDe;

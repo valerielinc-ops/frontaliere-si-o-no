@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5157
+      "6": 5158
     },
-    "publishedCovers": 6869,
+    "publishedCovers": 6870,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -182761,6 +182761,33 @@
           "id": "axpo-solare-argovia",
           "category": "novita",
           "date": "2026-10-09T23:11:13.817Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-10",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-teatro-locarno-fondi-pubblici": {
+      "cover": "/images/blog/article-teatro-locarno-fondi-pubblici.webp",
+      "hash": "a10262f144f482db638228981aae08ea8a1e80e48543f8680badb055231f325c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "teatro-locarno-fondi-pubblici",
+          "category": "novita",
+          "date": "2026-10-09T23:43:17.647Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
