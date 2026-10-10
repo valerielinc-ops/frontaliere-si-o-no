@@ -34,6 +34,7 @@ describe('Instagram Insights creative scorecard', () => {
       creativeId: 'question-story',
       objective: 'conversation',
       primaryMetric: 'comments',
+      engagementMechanic: null,
       reach: 100,
       shares: 4,
       saves: 12,
@@ -76,11 +77,24 @@ describe('Instagram Insights creative scorecard', () => {
     const result = normalizeInsightRows([
       { id: 'ig-123', reach: 100, shares: 5, saves: 1, comments: 0 },
     ], {
-      ledger: { posted: [{ instagramMediaId: 'ig-123', creativeId: 'proof' }] },
+      ledger: { posted: [{
+        instagramMediaId: 'ig-123',
+        creativeId: 'proof',
+        engagementMechanic: 'direct-share',
+      }] },
     });
 
     expect(result.rejected).toEqual([]);
-    expect(result.rows[0].creativeId).toBe('proof');
+    expect(result.rows[0]).toMatchObject({
+      creativeId: 'proof',
+      engagementMechanic: 'direct-share',
+    });
+
+    const report = aggregateCreativePerformance(result.rows, { minimumObservations: 1 });
+    expect(report.treatments[0]).toMatchObject({
+      creativeId: 'proof',
+      engagementMechanic: 'direct-share',
+    });
   });
 
   it('rejects incomplete rows instead of turning missing reach into a zero-rate winner', () => {
