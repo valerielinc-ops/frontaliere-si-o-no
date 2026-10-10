@@ -235,6 +235,35 @@ function runReconciler(
   });
 }
 
+function runReconcilerInDisposableWorktree(
+  scenario: { repository: string; base: string; main: string; refresh: string },
+  extraEnv: Record<string, string> = {},
+) {
+  const probeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'events-refresh-preflight-test-'));
+  const probe = path.join(probeRoot, 'worktree');
+  try {
+    git(scenario.repository, ['worktree', 'add', '-q', '--detach', '--no-checkout', probe, scenario.refresh]);
+    const result = runReconciler({ ...scenario, repository: probe }, {
+      EVENTS_REFRESH_CARRIED_REF: '',
+      ...extraEnv,
+    });
+    return {
+      result,
+      refreshRef: git(scenario.repository, ['rev-parse', 'refs/heads/refresh']),
+      mainRef: git(scenario.repository, ['rev-parse', 'refs/heads/main']),
+      probedHead: git(probe, ['rev-parse', 'HEAD']),
+      probedSlice: git(probe, ['show', `HEAD:${SLICE_IN_TREE}`]),
+      refresh: scenario.refresh,
+      main: scenario.main,
+      repository: scenario.repository,
+      probe,
+    };
+  } finally {
+    git(scenario.repository, ['worktree', 'remove', '--force', probe]);
+    fs.rmSync(probeRoot, { recursive: true, force: true });
+  }
+}
+
 const CARRIED_REF = 'refs/crawl-events/carried-forward';
 
 // The run of 2026-10-08: the crawl restores the slices and checkpoints of the
@@ -501,15 +530,62 @@ describe('events source state carried over from a pending refresh', () => {
     const step = workflow.slice(start, end);
 
     const fetched = step.indexOf('git fetch --no-tags --depth=1');
+    const disposableWorktree = step.indexOf('git worktree add --detach --no-checkout');
+    const preflight = step.indexOf('reconcile-data-refresh-main.mjs');
+    const sourceConflict = step.indexOf('Not a continuation of the refresh this crawl started from');
     const recorded = step.indexOf(`git update-ref ${CARRIED_REF}`);
     const exported = step.indexOf(`echo "EVENTS_REFRESH_CARRIED_REF=${CARRIED_REF}" >> "$GITHUB_ENV"`);
     const restored = step.indexOf('bash scripts/lib/restore-stable-refresh-files.sh');
     expect(fetched).toBeGreaterThan(-1);
-    expect(recorded).toBeGreaterThan(fetched);
+    expect(disposableWorktree).toBeGreaterThan(fetched);
+    expect(preflight).toBeGreaterThan(disposableWorktree);
+    expect(sourceConflict).toBeGreaterThan(preflight);
+    expect(recorded).toBeGreaterThan(sourceConflict);
     expect(exported).toBeGreaterThan(recorded);
     expect(restored).toBeGreaterThan(exported);
+    expect(step).toContain('No starting refresh was recorded \\(EVENTS_REFRESH_CARRIED_REF\\)');
+    expect(step).toContain("GIT_AUTHOR_NAME='frontaliere-automation[bot]'");
+    expect(step).toContain("GIT_COMMITTER_EMAIL='296434481+frontaliere-automation[bot]@users.noreply.github.com'");
+    expect(step).toContain('git checkout --detach "$main_sha"');
     // The ref is written from the commit just fetched, not from a moving name.
-    expect(step).toContain('"$(git rev-parse --verify "refs/remotes/origin/${branch}^{commit}")"');
+    expect(step).toContain('git update-ref refs/crawl-events/carried-forward "$carry_sha"');
+    expect(step.indexOf('refs/crawl-events/carried-forward', restored)).toBeGreaterThan(restored);
+  });
+
+  it('preflights cache/derived conflicts in a disposable worktree without moving the stable branch', () => {
+    const scenario = createScenario('crawl');
+    const { result, refreshRef, mainRef, probedHead, refresh, main } = runReconcilerInDisposableWorktree(scenario);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('regenerated data/events.json, public/data/events.json');
+    expect(refreshRef).toBe(refresh);
+    expect(mainRef).toBe(main);
+    expect(probedHead).not.toBe(refresh);
+  });
+
+  it('carries source state already advanced on main when the pending refresh does not conflict', () => {
+    const scenario = createScenario('rewrite');
+    const { result, probedSlice, refreshRef, mainRef, refresh, main } = runReconcilerInDisposableWorktree(scenario);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(JSON.parse(probedSlice).events.map((event: { id: string }) => event.id))
+      .toEqual(['fantasia:lanterna', 'fantasia:aurora']);
+    expect(refreshRef).toBe(refresh);
+    expect(mainRef).toBe(main);
+  });
+
+  it('preflight rejects an unreconcilable source conflict while preserving the pending branch', () => {
+    const scenario = createCarriedScenario({ editedOnMain: true });
+    const { result, refreshRef, mainRef, probedHead, refresh, main } = runReconcilerInDisposableWorktree(scenario);
+
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(
+      'Unresolved refresh conflict outside event caches or derived datasets: data/events/by-source/fantasia.json',
+    );
+    expect(result.stderr).toContain('No starting refresh was recorded (EVENTS_REFRESH_CARRIED_REF)');
+    expect(refreshRef).toBe(refresh);
+    expect(mainRef).toBe(main);
+    expect(probedHead).toBe(refresh);
   });
 });
 
