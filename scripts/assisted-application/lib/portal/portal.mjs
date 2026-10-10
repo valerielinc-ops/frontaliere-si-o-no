@@ -194,6 +194,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       experience: (profile.experience || []).slice(0, 8)
         .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
+      // The detected language of the candidate's CV is evidence for the
+      // planner's conservative native-language rule; it is not a nationality
+      // or a replacement for explicitly stated language levels.
+      cvLanguage: profile.cvLanguage || '',
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
       currentEducation: {
