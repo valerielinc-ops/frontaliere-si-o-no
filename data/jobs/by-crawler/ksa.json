@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksa",
-  "assembledAt": "2026-10-11T09:17:54.369Z",
+  "assembledAt": "2026-10-11T11:23:48.975Z",
   "jobs": [
     {
       "id": "ksa-b17df214a77f",
@@ -170,7 +170,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-1e88d1772ea0",
@@ -274,7 +275,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-e757110d087f",
@@ -773,7 +775,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-a12ffcf3c070",
@@ -856,7 +859,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -902,9 +905,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -914,7 +915,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -1333,7 +1334,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-6e5f0bbdaa95",
@@ -2301,7 +2303,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-dc3d5b6a3940",
@@ -2836,11 +2839,13 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "fachfrau-fachmann-gesundheit-ksa-ch",
+        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
+          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
@@ -2866,7 +2871,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ade538bd57af",
@@ -2940,7 +2946,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-40184956d47c",
@@ -3293,7 +3300,6 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
           "professional-health-kantonsspital-aarau-ksa-aarau-917953",
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
@@ -3312,6 +3318,7 @@
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
           "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -3339,7 +3346,7 @@
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
-        "fachfrau-fachmann-gesundheit-ksa-ch",
+        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
@@ -3598,7 +3605,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ed9eb4d484f7",
@@ -4743,7 +4751,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b4257baebfa2",
@@ -5462,7 +5471,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-8a77baaa8428",
@@ -6678,7 +6688,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-ed623fa7465e",
@@ -6908,7 +6919,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-91d6257c78c8",
@@ -7221,7 +7233,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-8b4e41611b2e",
@@ -7382,7 +7395,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-0b6c3dd0024c",
@@ -7844,7 +7858,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-196da50b930d",
@@ -7920,7 +7935,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b11a9e0071d5",
@@ -8003,7 +8019,7 @@
       "slugByLocale": {
         "it": "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau-779ef7",
         "en": "team-leadership-care-kantonsspital-aarau-ksa-aarau-779ef7",
-        "de": "teamleitung-pflege-ksa-ch",
+        "de": "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
         "fr": "soins-de-direction-de-l-equipe-kantonsspital-aarau-ksa-aarau-779ef7"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -8059,6 +8075,9 @@
           "teamleitung-pflege-ksa-ch"
         ],
         "fr": [
+          "teamleitung-pflege-ksa-ch"
+        ],
+        "de": [
           "teamleitung-pflege-ksa-ch"
         ]
       },
@@ -8155,7 +8174,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-33a2c08ac082",

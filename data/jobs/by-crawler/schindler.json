@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-10-11T09:19:04.044Z",
+  "assembledAt": "2026-10-11T11:24:34.709Z",
   "jobs": [
     {
       "id": "schindler-7edfc2c56f83",
@@ -262,7 +262,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1156ef7552dd",
@@ -424,7 +425,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c861aa791f7a",
@@ -509,7 +511,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0eaeefd5874a",
@@ -586,7 +589,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1228"
+      "postalCode": "1228",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5f919475ed80",
@@ -663,7 +667,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a4a2b0d71e03",
@@ -744,7 +749,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e4d6518fad20",
@@ -825,7 +831,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-38747dab18f0",
@@ -1066,7 +1073,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6585fefe51c3",
@@ -1626,7 +1634,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-af11f019be4a",
@@ -2792,7 +2801,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8907"
+      "postalCode": "8907",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-3d02bceb11b4",
@@ -3109,7 +3119,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1030"
+      "postalCode": "1030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-94ab073e092b",
@@ -3677,7 +3688,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-604676bbf76f",
@@ -3754,7 +3766,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d63f5410bf6d",
@@ -4560,7 +4573,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-104c227cd583",
@@ -4873,7 +4887,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-861a0eb4b222",
@@ -6186,7 +6201,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-edab4d4f6924",
@@ -6404,6 +6420,7 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
+          "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
           "gestore-consenso-ai-cookie-schindler-locarno"
         ],
         "de": [
@@ -6417,6 +6434,7 @@
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
         "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
         "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "salaryMin": 41600,
@@ -6488,6 +6506,7 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
           "gestore-consenso-ai-cookie-schindler-locarno"
         ],
         "en": [
@@ -6508,6 +6527,7 @@
         "manager-consent-to-cookies-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
         "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
         "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "firstSeenAt": "2026-09-28T03:23:27.827Z",
@@ -6608,7 +6628,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8907"
+      "postalCode": "8907",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ad0b0bb2e8d9",
@@ -6690,7 +6711,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8907"
+      "postalCode": "8907",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-2bfed4e32e3e",
@@ -6748,6 +6770,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon",
+          "apprendistato-come-konstrukteur-in-cfc-per-2027-schindler-ebikon-51652b669b",
           "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "de": [
@@ -6760,6 +6783,7 @@
       "previousSlugs": [
         "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon",
         "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086",
+        "apprendistato-come-konstrukteur-in-cfc-per-2027-schindler-ebikon-51652b669b",
         "manager-per-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 58500,
@@ -6856,7 +6880,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-3b52ff90ea83",
@@ -6914,6 +6939,7 @@
         ],
         "it": [
           "lehrstelle-als-elektroniker-in-efz-fur-2027-schindler-ebikon",
+          "posto-di-apprendistato-come-elettronico-a-efz-per-il-2027-schindler-ebikon-f98e14a843",
           "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
@@ -6922,6 +6948,7 @@
       },
       "previousSlugs": [
         "lehrstelle-als-elektroniker-in-efz-fur-2027-schindler-ebikon",
+        "posto-di-apprendistato-come-elettronico-a-efz-per-il-2027-schindler-ebikon-f98e14a843",
         "manager-per-cookie-einwilligungen-schindler-ebikon"
       ],
       "salaryMin": 54000,
@@ -7120,7 +7147,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1052"
+      "postalCode": "1052",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-77e328639f49",
@@ -7196,7 +7224,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ac50fb4b31b2",
@@ -7287,7 +7316,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b82c81022d46",
@@ -7363,7 +7393,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c6f765471b8d",
@@ -7437,7 +7468,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8f68c9fc6d74",
@@ -7523,7 +7555,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0bd40b237b5b",
@@ -7608,7 +7641,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -7689,7 +7723,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-02cc08a824e6",
@@ -7774,7 +7809,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3004"
+      "postalCode": "3004",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a82d244bb274",
@@ -8033,7 +8069,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7807a9a8ea51",
@@ -8202,7 +8239,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-43239c3e6fdb",
@@ -8285,7 +8323,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d6eff07d967b",
@@ -8372,7 +8411,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-163870e9dc4c",
@@ -8454,7 +8494,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-86b7b701f51c",
@@ -8538,7 +8579,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e4356c2b5ab8",
@@ -8618,7 +8660,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1f7eaecff099",
@@ -8698,7 +8741,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-89bbe2dfc3da",
@@ -8782,7 +8826,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-11c03dae919d",
@@ -8866,7 +8911,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9323"
+      "postalCode": "9323",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-917d0b49b488",
@@ -9020,7 +9066,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6030"
+      "postalCode": "6030",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",

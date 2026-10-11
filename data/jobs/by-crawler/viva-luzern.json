@@ -1,6 +1,6 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-10-11T09:15:29.174Z",
+  "assembledAt": "2026-10-11T11:25:14.869Z",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -98,7 +98,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-e87910a5c03f",
@@ -173,6 +174,7 @@
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
         "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
         "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "previousSlugsByLocale": {
@@ -194,6 +196,7 @@
           "soins-infirmiers-professionnels-hf-viva-luzern-luzern",
           "nursing-professional-hf-temporary-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
           "pflegefachfrau-mann-hf-viva-luzern"
         ],
         "en": [
@@ -409,7 +412,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-cdef27786435",
@@ -568,7 +572,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-78534e424536",
@@ -648,7 +653,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-d284b9a04df5",
@@ -803,7 +809,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-192ba1989699",
@@ -1356,11 +1363,13 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern",
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
           "pflegefachfrau-mann-hf-viva-luzern"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-hf-viva-luzern-luzern",
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
         "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "salaryMin": 86500,
@@ -1449,7 +1458,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-f45f34fec097",
@@ -1508,11 +1518,13 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
           "pflegefachfrau-mann-hf-viva-luzern"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
         "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "salaryMin": 86500,

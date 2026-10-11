@@ -1,14 +1,14 @@
 {
   "crawlerKey": "psgn",
-  "assembledAt": "2026-10-11T09:16:28.094Z",
+  "assembledAt": "2026-10-11T11:24:22.486Z",
   "jobs": [
     {
       "id": "psgn-92cef58b71fe",
-      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
-        "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+        "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-pfafers",
         "en": "assistant-doctor-assistant-doctor-psychiatrie-st-gallen-wil-sg",
-        "de": "assistenzarztin-assistenzarzt-psgn-pfafers",
+        "de": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-pfafers",
         "fr": "assistant-medecin-assistant-medecin-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -54,15 +54,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "assistenzarztin-assistenzarzt-psgn-pfafers"
+        "assistenzarztin-assistenzarzt-psgn-pfafers",
+        "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+          "assistenzarztin-assistenzarzt-psgn-wil-sg",
+          "assistenzarztin-assistenzarzt-psgn-pfafers"
         ],
         "it": [
           "assistenzarztin-assistenzarzt-psgn-wil-sg",
-          "assistenzarztin-assistenzarzt-psgn-pfafers"
+          "assistenzarztin-assistenzarzt-psgn-pfafers",
+          "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-09-21T15:58:39.552Z",
@@ -78,15 +81,16 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "psgn-b82a78f73fc0",
-      "slug": "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3",
+      "slug": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
-        "it": "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3",
+        "it": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
         "en": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3",
-        "de": "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "de": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
         "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3"
       },
       "company": "Psychiatrie St.Gallen",
@@ -133,12 +137,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
+          "dipl-pflegefachperson-hf-fh-psgn-pfafers"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+          "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+          "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
@@ -150,7 +156,8 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+        "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3"
       ],
       "firstSeenAt": "2026-09-21T15:58:38.959Z",
       "salaryMin": 81500,
@@ -169,11 +176,11 @@
     },
     {
       "id": "psgn-b906b3af55b2",
-      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-pfafers-9923ea8cec",
       "slugByLocale": {
-        "it": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+        "it": "stage-commerciale-psychiatrie-st-gallen-pfafers-9923ea8cec",
         "en": "commercial-internship-psychiatrie-st-gallen-wil-sg",
-        "de": "kaufmannisches-praktikum-psgn-pfafers",
+        "de": "kaufmannisches-praktikum-psychiatrie-st-gallen-pfafers",
         "fr": "stage-commercial-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -220,11 +227,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kaufmannisches-praktikum-psgn-wil-sg"
+          "kaufmannisches-praktikum-psgn-wil-sg",
+          "kaufmannisches-praktikum-psgn-pfafers"
         ],
         "it": [
           "kaufmannisches-praktikum-psgn-wil-sg",
-          "kaufmannisches-praktikum-psgn-pfafers"
+          "kaufmannisches-praktikum-psgn-pfafers",
+          "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+          "stage-commerciale-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
           "kaufmannisches-praktikum-psgn-wil-sg"
@@ -235,7 +245,9 @@
       },
       "previousSlugs": [
         "kaufmannisches-praktikum-psgn-wil-sg",
-        "kaufmannisches-praktikum-psgn-pfafers"
+        "kaufmannisches-praktikum-psgn-pfafers",
+        "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+        "stage-commerciale-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -253,11 +265,11 @@
     },
     {
       "id": "psgn-4936616ccb5c",
-      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg-382567",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-pfafers-5f9fc4b125",
       "slugByLocale": {
-        "it": "stage-commerciale-psychiatrie-st-gallen-wil-sg-382567",
+        "it": "stage-commerciale-psychiatrie-st-gallen-pfafers-5f9fc4b125",
         "en": "commercial-internship-psychiatrie-st-gallen-wil-sg-382567",
-        "de": "kaufmannisches-praktikum-psgn-pfafers",
+        "de": "kaufmannisches-praktikum-psychiatrie-st-gallen-pfafers",
         "fr": "stage-commercial-psychiatrie-st-gallen-wil-sg-382567"
       },
       "company": "Psychiatrie St.Gallen",
@@ -304,11 +316,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "kaufmannisches-praktikum-psgn-wil-sg"
+          "kaufmannisches-praktikum-psgn-wil-sg",
+          "kaufmannisches-praktikum-psgn-pfafers"
         ],
         "it": [
           "kaufmannisches-praktikum-psgn-wil-sg-2",
-          "kaufmannisches-praktikum-psgn-pfafers-2"
+          "kaufmannisches-praktikum-psgn-pfafers-2",
+          "stage-commerciale-psychiatrie-st-gallen-wil-sg-382567",
+          "stage-commerciale-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
           "kaufmannisches-praktikum-psgn-wil-sg-2"
@@ -320,7 +335,10 @@
       "previousSlugs": [
         "kaufmannisches-praktikum-psgn-wil-sg-2",
         "kaufmannisches-praktikum-psgn-wil-sg",
-        "kaufmannisches-praktikum-psgn-pfafers-2"
+        "kaufmannisches-praktikum-psgn-pfafers-2",
+        "stage-commerciale-psychiatrie-st-gallen-wil-sg-382567",
+        "kaufmannisches-praktikum-psgn-pfafers",
+        "stage-commerciale-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -338,11 +356,11 @@
     },
     {
       "id": "psgn-a1673bdd211a",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-44dbe19373",
       "slugByLocale": {
-        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-44dbe19373",
         "en": "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg",
-        "de": "oberarztin-oberarzt-psgn-pfafers",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers",
         "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -389,11 +407,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-psgn-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "oberarztin-oberarzt-psgn-pfafers"
         ],
         "it": [
           "oberarztin-oberarzt-psgn-wil-sg",
-          "oberarztin-oberarzt-psgn-pfafers"
+          "oberarztin-oberarzt-psgn-pfafers",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg"
@@ -404,7 +425,9 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-psgn-wil-sg",
-        "oberarztin-oberarzt-psgn-pfafers"
+        "oberarztin-oberarzt-psgn-pfafers",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
       ],
       "firstSeenAt": "2026-09-25T14:44:45.642Z",
       "salaryMin": 110500,
@@ -423,11 +446,11 @@
     },
     {
       "id": "psgn-75d6a46746b6",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-52877b8995",
       "slugByLocale": {
-        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-52877b8995",
         "en": "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg-b449e6",
-        "de": "oberarztin-oberarzt-psgn-pfafers",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers",
         "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg-b449e6"
       },
       "company": "Psychiatrie St.Gallen",
@@ -475,11 +498,14 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-psgn-wil-sg",
-          "oberarztin-oberarzt-psgn-wil-sg-n84y4n"
+          "oberarztin-oberarzt-psgn-wil-sg-n84y4n",
+          "oberarztin-oberarzt-psgn-pfafers"
         ],
         "it": [
           "oberarztin-oberarzt-psgn-wil-sg-2",
-          "oberarztin-oberarzt-psgn-pfafers-2"
+          "oberarztin-oberarzt-psgn-pfafers-2",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg-2"
@@ -492,7 +518,10 @@
         "oberarztin-oberarzt-psgn-wil-sg",
         "oberarztin-oberarzt-psgn-wil-sg-2",
         "oberarztin-oberarzt-psgn-wil-sg-n84y4n",
-        "oberarztin-oberarzt-psgn-pfafers-2"
+        "oberarztin-oberarzt-psgn-pfafers-2",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+        "oberarztin-oberarzt-psgn-pfafers",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
       ],
       "firstSeenAt": "2026-09-25T14:44:45.642Z",
       "salaryMin": 110500,
@@ -511,11 +540,11 @@
     },
     {
       "id": "psgn-bbb9a101c94e",
-      "slug": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-wil-sg",
+      "slug": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
-        "it": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-wil-sg",
+        "it": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
         "en": "senior-physician-senior-physician-mbf-psychiatrie-st-gallen-wil-sg",
-        "de": "oberarztin-oberarzt-mbf-psgn-pfafers",
+        "de": "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-pfafers",
         "fr": "medecin-principal-medecin-principal-mbf-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -561,15 +590,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "oberarztin-oberarzt-mbf-psgn-pfafers"
+        "oberarztin-oberarzt-mbf-psgn-pfafers",
+        "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-mbf-psgn-wil-sg"
+          "oberarztin-oberarzt-mbf-psgn-wil-sg",
+          "oberarztin-oberarzt-mbf-psgn-pfafers"
         ],
         "it": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg",
-          "oberarztin-oberarzt-mbf-psgn-pfafers"
+          "oberarztin-oberarzt-mbf-psgn-pfafers",
+          "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg"
@@ -591,15 +623,16 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "psgn-7aed00f10117",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-8d2d29",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-ea9f2d747b",
       "slugByLocale": {
-        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-8d2d29",
+        "it": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-ea9f2d747b",
         "en": "senior-physician-senior-physician-psychiatrie-st-gallen-wil-sg-8d2d29",
-        "de": "oberarztin-oberarzt-psgn-pfafers",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-pfafers",
         "fr": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg-8d2d29"
       },
       "company": "Psychiatrie St.Gallen",
@@ -647,11 +680,14 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-psgn-wil-sg",
-          "oberarztin-oberarzt-psgn-wil-sg-5yrup5"
+          "oberarztin-oberarzt-psgn-wil-sg-5yrup5",
+          "oberarztin-oberarzt-psgn-pfafers"
         ],
         "it": [
           "oberarztin-oberarzt-psgn-wil-sg-3",
-          "oberarztin-oberarzt-psgn-pfafers-3"
+          "oberarztin-oberarzt-psgn-pfafers-3",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-8d2d29",
+          "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
           "oberarztin-oberarzt-psgn-wil-sg-3"
@@ -664,7 +700,10 @@
         "oberarztin-oberarzt-psgn-wil-sg",
         "oberarztin-oberarzt-psgn-wil-sg-3",
         "oberarztin-oberarzt-psgn-wil-sg-5yrup5",
-        "oberarztin-oberarzt-psgn-pfafers-3"
+        "oberarztin-oberarzt-psgn-pfafers-3",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-8d2d29",
+        "oberarztin-oberarzt-psgn-pfafers",
+        "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers"
       ],
       "firstSeenAt": "2026-09-25T14:44:45.642Z",
       "salaryMin": 110500,
@@ -683,11 +722,11 @@
     },
     {
       "id": "psgn-fa7a454f5c47",
-      "slug": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-wil-sg",
+      "slug": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
-        "it": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "it": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-pfafers",
         "en": "training-responsible-training-responsible-care-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "de": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers",
+        "de": "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psychiatrie-st-gallen-pfafers",
         "fr": "formation-responsable-formation-responsable-soins-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -734,11 +773,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-wil-sg"
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-wil-sg",
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers"
         ],
         "it": [
           "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-wil-sg",
-          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers"
+          "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers",
+          "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
           "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-wil-sg"
@@ -749,7 +790,8 @@
       },
       "previousSlugs": [
         "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-wil-sg",
-        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers"
+        "ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh-psgn-pfafers",
+        "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "firstSeenAt": "2026-10-08T21:16:19.210Z",
       "salaryMin": 110500,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitaeler-schaffhausen",
-  "assembledAt": "2026-10-11T09:38:03.366Z",
+  "assembledAt": "2026-10-11T11:24:41.931Z",
   "jobs": [
     {
       "id": "spitaeler-schaffhausen-043ddb8a44ce",
@@ -1549,7 +1549,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-07664661acfa",
@@ -1977,7 +1978,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-ef31a8a82373",
@@ -2053,7 +2055,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-5b880bae9572",
@@ -2285,7 +2288,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-3f897db31257",
@@ -2361,7 +2365,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-48d9983c43dc",
@@ -2420,11 +2425,13 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-32848bf7b4",
           "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-32848bf7b4",
         "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
       ],
       "salaryMin": 81500,
@@ -2532,7 +2539,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "fr": "physiotherapeute-spitaler-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2581,7 +2588,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeute-spitaler-schaffhausen"
+        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2591,7 +2598,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeute-spitaler-schaffhausen"
+          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -3003,7 +3010,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-b2bad4b36233",
@@ -3105,7 +3113,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-9a6bbed20f71",
@@ -3197,7 +3206,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-8cd40c576fbc",
@@ -3283,7 +3293,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-3bddf1ef9953",
@@ -3369,7 +3380,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-9717306ffe0a",
@@ -3461,7 +3473,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-a5f08b49ab98",
@@ -3555,7 +3568,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-fa1ee1962a23",
@@ -3649,7 +3663,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-969536106e2d",
@@ -3872,7 +3887,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-32dcc0daa843",
@@ -4108,7 +4124,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spitaeler-schaffhausen-be17f08b1340",
@@ -4239,11 +4256,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-0ae6bbc253",
         "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen-schaffhausen-0ae6bbc253",
           "dipl-pflegefachfrau-mann-hf-spitaler-schaffhausen"
         ]
       },
@@ -4339,9 +4358,9 @@
     },
     {
       "id": "spitaeler-schaffhausen-a2a712d5c72e",
-      "slug": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
+      "slug": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
+        "it": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
         "en": "nursing-assistant-nursing-assistant-srk-spitaler-schaffhausen-schaffhausen",
         "de": "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
         "fr": "assistant-infirmier-assistant-infirmier-srk-spitaler-schaffhausen-schaffhausen"
@@ -4389,13 +4408,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
-        "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
+        "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
+        "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
-          "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
+          "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
+          "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-07T09:42:15.855Z",
@@ -4500,7 +4519,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-portier-spitaler-schaffhausen",
         "en": "porter-spitaler-schaffhausen-schaffhausen",
-        "de": "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
+        "de": "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen",
         "fr": "employe-e-de-conciergerie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4559,6 +4578,9 @@
         ],
         "fr": [
           "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-08T09:38:15.234Z",
@@ -4582,7 +4604,7 @@
       "slugByLocale": {
         "it": "tirocinante-nelle-terapie-spitaler-schaffhausen-schaffhausen",
         "en": "therapy-intern-spitaler-schaffhausen-schaffhausen",
-        "de": "praktikant-in-therapien-spitaeler-schaffhausen-schaffhausen",
+        "de": "praktikant-in-therapien-spitaler-schaffhausen-schaffhausen",
         "fr": "stagiaire-en-therapies-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4639,6 +4661,9 @@
           "praktikant-in-therapien-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
+          "praktikant-in-therapien-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "de": [
           "praktikant-in-therapien-spitaeler-schaffhausen-schaffhausen"
         ]
       },
