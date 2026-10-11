@@ -5,6 +5,19 @@ import { describe, expect, it } from 'vitest';
 import { writeJsonAtomic } from '../scripts/lib/atomic-write-json.mjs';
 
 describe('writeJsonAtomic large arrays', () => {
+  it('keeps the exact existing pretty format for small arrays too', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atomic-small-array-'));
+    const target = path.join(dir, 'jobs.json');
+    const rows = [{ id: 1, nested: ['a', 'b'] }];
+
+    try {
+      writeJsonAtomic(target, rows);
+      expect(fs.readFileSync(target, 'utf8')).toBe(`${JSON.stringify(rows, null, 2)}\n`);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('writes compact arrays incrementally without changing their JSON value', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atomic-large-array-'));
     const target = path.join(dir, 'jobs.json');

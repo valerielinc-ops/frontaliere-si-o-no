@@ -8,12 +8,10 @@ import { assertCrawlerSliceWriteSafe, isCrawlerSlicePath } from './crawler-slice
 // disambiguate them.
 let tmpSeq = 0;
 
-// The assembled jobs dataset is large enough that JSON.stringify(array) can
-// hit V8's maximum string length even though every individual job is safely
-// serializable. Keep the threshold high so ordinary JSON writes retain their
-// byte-for-byte output, while large top-level arrays are emitted one item at
-// a time into the atomic temporary file.
-const STREAMING_ARRAY_THRESHOLD = 1024;
+// The assembled jobs and expired-job datasets are large enough that
+// JSON.stringify(array) can hit V8's maximum string length even though every
+// individual entry is safely serializable. Emit top-level arrays one item at
+// a time into the atomic temporary file; objects keep the existing path.
 
 function writeTextSync(fd, text) {
   const buffer = Buffer.from(text, 'utf8');
@@ -106,12 +104,14 @@ export function writeJsonAtomic(
     /* best-effort — a guard bug must never block the crawl */
   }
   // Crawler slices are guarded against catastrophic shrink using the full
-  // candidate bytes, so keep their existing path. The large assembled arrays
-  // are not crawler slices and can be written incrementally without first
-  // materializing a second copy of the whole dataset as one JS string.
+  // candidate bytes, so keep their existing path. The assembled arrays are not
+  // crawler slices and can be written incrementally without first
+  // materializing a second copy of the whole dataset as one JS string. A
+  // custom array-level toJSON remains on the legacy path because it changes
+  // the value that JSON.stringify would serialize.
   const streamArray = Array.isArray(value)
-    && value.length >= STREAMING_ARRAY_THRESHOLD
-    && !isCrawlerSlicePath(filePath);
+    && !isCrawlerSlicePath(filePath)
+    && typeof value.toJSON !== 'function';
   let content = null;
   if (!streamArray) {
     const json = compact ? JSON.stringify(value) : JSON.stringify(value, null, 2);
