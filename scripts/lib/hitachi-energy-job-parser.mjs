@@ -168,6 +168,10 @@ export async function collectHitachiEnergyListings({
   const allItems = [];
   const seenIds = new Set();
   let declaredTotal = 0;
+  const recordDeclaredTotal = (json) => {
+    const pageTotal = Number(json?.totalNumber);
+    if (Number.isFinite(pageTotal) && pageTotal > declaredTotal) declaredTotal = pageTotal;
+  };
   const unseen = (json) => parseHitachiEnergyListingJson(json).filter((item) => !seenIds.has(item.jobId));
 
   for (let page = 0; page < maxPages; page++) {
@@ -182,6 +186,7 @@ export async function collectHitachiEnergyListings({
       break;
     }
 
+    recordDeclaredTotal(json);
     let newItems = unseen(json);
     for (let retry = 1; newItems.length === 0 && allItems.length < declaredTotal; retry++) {
       const reason = `page ${page + 1} returned no new listings at ${allItems.length} of totalNumber=${declaredTotal}`;
@@ -191,12 +196,10 @@ export async function collectHitachiEnergyListings({
       console.warn(`  🔁 Listing ${reason} — retry ${retry}/${emptyPageRetries}`);
       await sleep(retryDelayMs * retry);
       json = await fetchPage(offset);
+      recordDeclaredTotal(json);
       newItems = unseen(json);
     }
     if (newItems.length === 0) break;
-
-    const pageTotal = Number(json?.totalNumber);
-    if (Number.isFinite(pageTotal) && pageTotal > declaredTotal) declaredTotal = pageTotal;
 
     for (const item of newItems) {
       seenIds.add(item.jobId);

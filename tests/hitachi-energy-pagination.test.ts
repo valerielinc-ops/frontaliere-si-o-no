@@ -141,6 +141,21 @@ describe('collectHitachiEnergyListings (issue #12802)', () => {
     expect(fetchPage.mock.calls.filter(([offset]) => offset === PAGE_SIZE)).toHaveLength(3);
   });
 
+  it('records a higher totalNumber from an empty later page before deciding to retry', async () => {
+    const fetchPage = vi.fn((offset: number) =>
+      Promise.resolve(
+        offset === 0
+          ? payload(PAGE_SIZE, { totalNumber: PAGE_SIZE, loadMore: true })
+          : payload(0, { totalNumber: 74, loadMore: false }),
+      ),
+    );
+    const run = collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 2 });
+    const err = await run.then(() => null, (e) => e);
+    expect(err?.message).toMatch(/page 2 returned no new listings at 20 of totalNumber=74/);
+    expect(isRetryBudgetExhausted(err)).toBe(true);
+    expect(fetchPage.mock.calls.filter(([offset]) => offset === PAGE_SIZE)).toHaveLength(3);
+  });
+
   it('treats a page that only repeats seen listings like an empty page', async () => {
     const live = board(74);
     const fetchPage = (offset: number) => live(offset === PAGE_SIZE ? 0 : offset);
