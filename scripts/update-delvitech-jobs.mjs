@@ -321,7 +321,7 @@ async function buildDelvitechJob(listing) {
       sector: 'Tecnologia & IT',
       source: 'delvitech-dedicated-crawler',
       sourceLang: localized.sourceLang,
-      ...sourcePostingDateFields(),
+      ...sourcePostingDateFields(detail.datePublished),
       employmentType: 'full-time',
       contractType: 'full-time',
       validThrough: '',

@@ -99,6 +99,28 @@ export function parseDelvitechJobDetail(html = '', url = '') {
   const email = String(root.querySelector('a[href^="mailto:"]')?.getAttribute('href') || '')
     .replace(/^mailto:/i, '')
     .trim();
+  let datePublished = '';
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const value = JSON.parse(script.textContent || '{}');
+      const nodes = Array.isArray(value) ? value : (Array.isArray(value?.['@graph']) ? value['@graph'] : [value]);
+      const pages = nodes.filter((node) => {
+        const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+        if (!types.includes('WebPage')) return false;
+        try {
+          const source = new URL(node.url || node['@id']);
+          const detail = new URL(url);
+          return source.origin === detail.origin
+            && source.pathname.replace(/\/+$/, '') === detail.pathname.replace(/\/+$/, '');
+        } catch {
+          return false;
+        }
+      });
+      if (pages.length === 1) datePublished = String(pages[0].datePublished || '').trim();
+    } catch {
+      // Ignore unrelated malformed JSON-LD blocks; page identity remains required.
+    }
+  }
 
   const mainContainer = root.querySelector('.fusion-fullwidth') || root;
   const textBlocks = [...mainContainer.querySelectorAll('.fusion-text')];
@@ -147,6 +169,7 @@ export function parseDelvitechJobDetail(html = '', url = '') {
     location,
     description,
     email,
+    datePublished,
   };
 }
 

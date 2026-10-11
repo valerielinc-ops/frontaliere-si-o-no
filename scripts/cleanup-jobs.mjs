@@ -36,6 +36,7 @@ import {
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { deduplicateJobsBySlug } from './lib/job-slug-dedup.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { dropHousekeepingDuplicatePostings } from './lib/housekeeping-duplicate-postings.mjs';
 import {
@@ -353,6 +354,30 @@ function disambiguateDedupLoser(loser, collidingSlug) {
 }
 
 /**
+ * Archive only records with matching source identity. Distinct jobs that
+ * happen to share a route stay active and receive town-bearing Italian slugs.
+ */
+function deduplicateWithinSliceSlugs(jobs) {
+  const deduped = deduplicateJobsBySlug(jobs, {
+    preferCurrent: (current, previous) => {
+      const currentTimestamp = jobRecencyTimestamp(current);
+      const previousTimestamp = jobRecencyTimestamp(previous);
+      return currentTimestamp > previousTimestamp
+        || (currentTimestamp === previousTimestamp
+          && String(current.id || current.url || '') < String(previous.id || previous.url || ''));
+    },
+  });
+  return {
+    ...deduped,
+    archived: deduped.duplicates.map(({ loser, winner, slug }) => ({
+      loser: disambiguateDedupLoser(loser, slug),
+      winner,
+      slug,
+    })),
+  };
+}
+
+/**
  * Archive removed jobs to data/expired-jobs.json (aggregated, used during deploy).
  *
  * Only jobs with a slug are archived (slugless jobs have no page to land on).
@@ -597,57 +622,40 @@ async function main() {
         if (urlRemoved.length > 0) console.log(`🧹 Removed ${urlRemoved.length} invalid-URL jobs from slice.`);
       }
 
-      // Within-slice dedup (slug). Losers are NOT silently dropped — they get a
-      // disambiguated slug and are archived to the expired pipeline so the
-      // build plugin can serve enriched soft-landing pages on the original URL.
-      const seenSlug = new Map();
-      const deduped = [];
-      const dedupLosers = []; // disambiguated loser jobs to be archived
-      const dedupCollisions = []; // { removedId, keptId, slug }
-      for (const job of kept) {
-        const slug = String(job.slug || '').trim();
-        if (!slug) { deduped.push(job); continue; }
-        const prev = seenSlug.get(slug);
-        if (prev) {
-          // Tiebreak by recency: datePosted (employer-published timestamp)
-          // wins over crawledAt because a job posted on 2026-05-10 that we
-          // crawled on 2026-05-04 should beat a job posted on 2026-04-01
-          // that we crawled on 2026-05-04 — even though both share the
-          // same crawledAt minute, the user wants the freshest LISTING.
-          const prevTs = jobRecencyTimestamp(prev);
-          const currTs = jobRecencyTimestamp(job);
-          if (currTs > prevTs) {
-            const idx = deduped.indexOf(prev);
-            if (idx !== -1) deduped[idx] = job;
-            seenSlug.set(slug, job);
-            // Newer job wins; the previously-kept job is the loser.
-            dedupCollisions.push({ removedId: prev.id, keptId: job.id, slug });
-            dedupLosers.push(disambiguateDedupLoser(prev, slug));
-          } else {
-            // Existing kept job stays; current job is the loser.
-            dedupCollisions.push({ removedId: job.id, keptId: prev.id, slug });
-            dedupLosers.push(disambiguateDedupLoser(job, slug));
-          }
-          continue;
-        }
-        seenSlug.set(slug, job);
-        deduped.push(job);
+      const slugDedup = deduplicateWithinSliceSlugs(kept);
+      const dedupLosers = slugDedup.archived.map((entry) => entry.loser);
+      const dedupCollisions = slugDedup.archived.map((entry) => ({
+        removedId: entry.loser.id,
+        keptId: entry.winner.id,
+        slug: entry.slug,
+      }));
+      const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+        buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+      ).length;
+      if (archivedIdentityMismatches !== 0) {
+        throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
       }
-      const dedupCount = kept.length - deduped.length;
-      if (dedupCount > 0) {
-        console.log(`🧹 Archived ${dedupCount} within-slice duplicate-slug jobs from slice (preserved in expired/).`);
+      if (dedupLosers.length > 0) {
+        console.log(`🧹 Archived ${dedupLosers.length} within-slice same-identity duplicate-slug jobs from slice (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
         for (const c of dedupCollisions.slice(0, 5)) {
           console.log(`   - ${c.removedId} (duplicate of ${c.keptId}) slug=${c.slug}`);
         }
       }
-      kept = deduped;
+      if (slugDedup.distinctCollisions.length > 0) {
+        console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+      }
+      kept = slugDedup.jobs;
 
       // Archive removed jobs to per-crawler expired slice (not the shared file).
       // Combines URL/age-prune removals (`sliceRemoved`) with dedup losers
       // (`dedupLosers`). Dedup losers are NOT in the original `hardenedJobs`
       // map under their disambiguated slug, so they're tracked separately.
-      const keptSlugs = new Set(kept.map((j) => j.slug).filter(Boolean));
-      const sliceRemoved = hardenedJobs.filter((j) => j.slug && !keptSlugs.has(j.slug));
+      const keptKeys = new Set(kept.map((job) => resolveJobDiffKey(job)));
+      const archivedDedupKeys = new Set(dedupLosers.map((job) => resolveJobDiffKey(job)));
+      const sliceRemoved = hardenedJobs.filter((job) => {
+        const key = resolveJobDiffKey(job);
+        return job.slug && !keptKeys.has(key) && !archivedDedupKeys.has(key);
+      });
       // Keyed by resolveJobDiffKey() not bare j.id — see comment above on the
       // checkById Map for why bare id-less-slice ids collide (#3411).
       const archiveJobsById = new Map(hardenedJobs.map((j) => [resolveJobDiffKey(j), j]));
@@ -671,7 +679,7 @@ async function main() {
 
       // Write back to slice file (preserve envelope)
       const totalRemoved = hardenedJobs.length - kept.length;
-      if (totalRemoved > 0 || decontaminationChanged) {
+      if (totalRemoved > 0 || decontaminationChanged || slugDedup.distinctCollisions.length > 0) {
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
           ? { ...sliceData, jobs: kept, assembledAt: new Date().toISOString() }
           : kept;
@@ -848,54 +856,32 @@ async function main() {
   }
   kept = afterTcDedup;
 
-  // ── 4. Slug dedup (different URLs mapping to the same slug) ──
-  // Losers are NOT silently dropped — they get a disambiguated slug and are
-  // archived to the expired pipeline so the build plugin can serve enriched
-  // soft-landing pages on the original URL.
-  const seenSlug = new Map();
-  const afterSlugDedup = [];
-  const slugDedupCount0 = removed.length;
-  const standardDedupLosers = []; // disambiguated loser jobs to be archived
-  for (const job of kept) {
-    const slug = String(job.slug || '').trim();
-    if (!slug) { afterSlugDedup.push(job); continue; }
-    const prev = seenSlug.get(slug);
-    if (prev) {
-      // Recency tiebreak: prefer datePosted (employer publish time) over
-      // crawledAt — see jobRecencyTimestamp() comment for why both signals.
-      const prevTs = jobRecencyTimestamp(prev);
-      const currTs = jobRecencyTimestamp(job);
-      let loser;
-      let winner;
-      if (currTs > prevTs) {
-        const idx = afterSlugDedup.indexOf(prev);
-        if (idx !== -1) afterSlugDedup[idx] = job;
-        seenSlug.set(slug, job);
-        loser = prev;
-        winner = job;
-      } else {
-        loser = job;
-        winner = prev;
-      }
-      dedupProofEntries.push({
-        job: dedupProofJob(loser),
-        retainedJob: dedupProofJob(winner),
-        sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, loser),
-        reason: 'duplicate slug',
-        duplicateKey: slug,
-      });
-      standardDedupLosers.push(disambiguateDedupLoser(loser, slug));
-      removed.push({ id: loser.id, url: loser.url, reason: 'duplicate slug' });
-      continue;
-    }
-    seenSlug.set(slug, job);
-    afterSlugDedup.push(job);
+  // ── 4. Slug collisions: archive only confirmed duplicate postings. ──
+  const slugDedup = deduplicateWithinSliceSlugs(kept);
+  const standardDedupLosers = slugDedup.archived.map((entry) => entry.loser);
+  const archivedIdentityMismatches = slugDedup.archived.filter((entry) =>
+    buildStableJobIdentity(entry.loser) !== buildStableJobIdentity(entry.winner),
+  ).length;
+  if (archivedIdentityMismatches !== 0) {
+    throw new Error(`slug dedup attempted to archive ${archivedIdentityMismatches} job(s) with a different stable identity`);
   }
-  const slugDedupCount = removed.length - slugDedupCount0;
-  if (slugDedupCount > 0) {
-    console.log(`🧹 Archived ${slugDedupCount} within-slice duplicate-slug jobs (preserved in expired/).`);
+  for (const entry of slugDedup.archived) {
+    dedupProofEntries.push({
+      job: dedupProofJob(entry.loser),
+      retainedJob: dedupProofJob(entry.winner),
+      sourceJobs: dedupProofSourceJobs(dedupProofSourceIndex, entry.loser),
+      reason: 'duplicate slug',
+      duplicateKey: entry.slug,
+    });
+    removed.push({ id: entry.loser.id, url: entry.loser.url, reason: 'duplicate slug' });
   }
-  kept = afterSlugDedup;
+  if (standardDedupLosers.length > 0) {
+    console.log(`🧹 Archived ${standardDedupLosers.length} within-slice same-identity duplicate-slug jobs (winner identity differs: ${archivedIdentityMismatches}; preserved in expired/).`);
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
+  }
+  kept = slugDedup.jobs;
 
   if (removed.length === 0) {
     // A clean run must still persist repairs to the existing aggregate archive.

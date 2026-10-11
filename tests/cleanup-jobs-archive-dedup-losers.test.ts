@@ -48,6 +48,8 @@ interface CleanupSliceJob {
   applyUrl?: string;
   previousSlugs?: string[];
   previousSlugsByLocale?: Record<string, string[]>;
+  slugByLocale?: Record<string, string>;
+  titleByLocale?: Record<string, string>;
 }
 
 interface ExpiredEntry {
@@ -307,12 +309,14 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
       buildJob({
         id: 'job-loser-001',
         slug: 'engineer-lugano',
+        url: urlForId('same-engineer-posting'),
         title: 'Engineer Lugano (older)',
         crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'job-winner-002',
         slug: 'engineer-lugano',
+        url: urlForId('same-engineer-posting'),
         title: 'Engineer Lugano (winner)',
         crawledAt: daysAgo(5),
       }),
@@ -368,8 +372,62 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
     expect(archived.title).toBe('Engineer Lugano (older)');
 
     // The audit log message must reflect the new "Archived" wording.
-    expect(output).toContain('Archived 1 within-slice duplicate-slug jobs from slice');
+    expect(output).toContain('Archived 1 within-slice same-identity duplicate-slug jobs from slice');
     expect(output).toContain('expired');
+  }, 30000);
+
+  it('keeps different postings with the same slug active under Italian town-specific routes', async () => {
+    const dir = makeTempDir();
+    const slicePath = path.join(dir, 'distinct-postings.json');
+    const expiredDir = path.join(dir, 'expired');
+    const crawlerKey = `distinct-postings-${Date.now()}`;
+    const sharedSlug = 'apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse';
+    const jobs: CleanupSliceJob[] = [
+      buildJob({
+        id: 'aldi-mendrisio',
+        url: urlForId('aldi-mendrisio'),
+        slug: sharedSlug,
+        slugByLocale: { it: sharedSlug, de: `${sharedSlug}-mendrisio` },
+        title: 'Apprendista nel commercio al dettaglio (m/f/x)',
+        titleByLocale: { it: 'Apprendista nel commercio al dettaglio (m/f/x)' },
+        company: 'ALDI Suisse',
+        location: 'Mendrisio',
+        addressLocality: 'Mendrisio',
+        crawledAt: daysAgo(2),
+      }),
+      buildJob({
+        id: 'aldi-agno',
+        url: urlForId('aldi-agno'),
+        slug: sharedSlug,
+        slugByLocale: { it: sharedSlug, de: `${sharedSlug}-agno` },
+        title: 'Apprendista nel commercio al dettaglio (m/f/x)',
+        titleByLocale: { it: 'Apprendista nel commercio al dettaglio (m/f/x)' },
+        company: 'ALDI Suisse',
+        location: 'Agno',
+        addressLocality: 'Agno',
+        crawledAt: daysAgo(1),
+      }),
+    ];
+    fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs }, null, 2), 'utf-8');
+
+    const result = await runCleanupSlice(slicePath, expiredDir);
+    const output = result.stdout + result.stderr;
+    expect(result.code, output).toBe(0);
+    const parsed = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    const active = parsed.jobs as CleanupSliceJob[];
+    expect(active).toHaveLength(2);
+    expect(new Set(active.map((job) => job.slug)).size, `${output}\n${JSON.stringify(active.map(({ id, slug }) => ({ id, slug })))}`).toBe(2);
+    expect(active.find((job) => job.id === 'aldi-mendrisio')?.slug).toContain('mendrisio');
+    expect(active.find((job) => job.id === 'aldi-agno')?.slug).toContain('agno');
+    expect(active.map((job) => job.url).sort()).toEqual(jobs.map((job) => job.url).sort());
+    expect(output).toContain('Kept 2 distinct posting(s)');
+    expect(output).not.toContain('Archived 1 within-slice same-identity duplicate-slug jobs');
+
+    const expiredPath = path.join(expiredDir, `${crawlerKey}.json`);
+    if (fs.existsSync(expiredPath)) {
+      const archived: ExpiredEntry[] = JSON.parse(fs.readFileSync(expiredPath, 'utf8'));
+      expect(archived.filter((entry) => entry.dedupArchive === true)).toHaveLength(0);
+    }
   }, 30000);
 
   it('is idempotent: re-running cleanup does not duplicate the archived loser', async () => {
@@ -382,12 +440,14 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
       buildJob({
         id: 'job-A',
         slug: 'role-shared',
+        url: urlForId('same-role-posting'),
         title: 'Role A',
         crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'job-B',
         slug: 'role-shared',
+        url: urlForId('same-role-posting'),
         title: 'Role B',
         crawledAt: daysAgo(5),
       }),
@@ -423,6 +483,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
     keptJobs.push(buildJob({
       id: 'job-A',
       slug: 'role-shared',
+      url: urlForId('same-role-posting'),
       title: 'Role A',
       crawledAt: daysAgo(10),
     }));
@@ -448,6 +509,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         ...buildJob({
           id: 'job-loser',
           slug: 'lead-engineer',
+          url: urlForId('same-lead-engineer-posting'),
           title: 'Lead Engineer (loser)',
           crawledAt: daysAgo(10),
         }),
@@ -456,6 +518,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
       buildJob({
         id: 'job-winner',
         slug: 'lead-engineer',
+        url: urlForId('same-lead-engineer-posting'),
         title: 'Lead Engineer (winner)',
         crawledAt: daysAgo(5),
       }),
@@ -650,12 +713,14 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
       buildJob({
         id: 'std-loser',
         slug: 'data-scientist-lugano',
+        url: urlForId('same-data-scientist-posting'),
         title: 'Data Scientist Lugano (loser)',
         crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'std-winner',
         slug: 'data-scientist-lugano',
+        url: urlForId('same-data-scientist-posting'),
         title: 'Data Scientist Lugano (winner)',
         crawledAt: daysAgo(5),
       }),
@@ -666,6 +731,15 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
         location: 'Bellinzona',
         addressLocality: 'Bellinzona',
         crawledAt: daysAgo(7),
+      }),
+      buildJob({
+        id: 'std-mendrisio',
+        slug: 'data-scientist-lugano',
+        url: urlForId('different-mendrisio-posting'),
+        title: 'Data Scientist',
+        location: 'Mendrisio',
+        addressLocality: 'Mendrisio',
+        crawledAt: daysAgo(2),
       }),
     ];
 
@@ -707,11 +781,13 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
 
     const sandboxJobs = JSON.parse(fs.readFileSync(path.join(sandbox, 'data', 'jobs.json'), 'utf-8'));
     expect(Array.isArray(sandboxJobs), output).toBe(true);
-    expect(sandboxJobs.length, output).toBe(2);
-    const sandboxSlugs = sandboxJobs.map((j: { slug: string }) => j.slug).sort();
-    expect(sandboxSlugs).toEqual(['data-scientist-lugano', 'designer-bellinzona-std']);
-    const winner = sandboxJobs.find((j: { slug: string; id: string }) => j.slug === 'data-scientist-lugano');
+    expect(sandboxJobs.length, output).toBe(3);
+    const winner = sandboxJobs.find((j: { slug: string; id: string }) => j.id === 'std-winner');
     expect(winner.id).toBe('std-winner');
+    expect(winner.slug).toContain('lugano');
+    const distinct = sandboxJobs.find((j: { slug: string; id: string }) => j.id === 'std-mendrisio');
+    expect(distinct.slug).toContain('mendrisio');
+    expect(new Set(sandboxJobs.map((j: { slug: string }) => j.slug)).size).toBe(3);
 
     // The expired-jobs.json (env-redirected outside the sandbox) should now
     // contain the dedup-archived loser.
@@ -726,6 +802,8 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     expect(archived.previousSlugs).toContain('data-scientist-lugano');
     expect(archived.title).toBe('Data Scientist Lugano (loser)');
 
-    expect(output).toContain('Archived 1 within-slice duplicate-slug jobs');
+    expect(output).toContain('Archived 1 within-slice same-identity duplicate-slug jobs');
+    expect(output).toContain('winner identity differs: 0');
+    expect(output).toContain('Kept 2 distinct posting(s)');
   }, 60000);
 });

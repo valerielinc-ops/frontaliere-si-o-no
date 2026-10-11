@@ -15,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { fetchIdentifiedPostingPublication } from './identified-posting-publication.mjs';
 import {
   fetchLeverJobs,
   extractLeverCompanySlug,
@@ -182,6 +183,7 @@ export async function fetchAllAnyboticsJobs() {
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+    const detailPublication = await fetchIdentifiedPostingPublication(publicUrl, title);
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} anybotics ch`);
@@ -217,7 +219,7 @@ export async function fetchAllAnyboticsJobs() {
       sector: 'Robotica / Automazione',
       currency: 'CHF',
       featured: false,
-      ...mergeSourcePostingDates({}, listing),
+      ...mergeSourcePostingDates(listing, detailPublication),
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
