@@ -184,6 +184,15 @@ export function gitMainReader({ repoDir, exec = execFileSync, log = console }) {
   return {
     readQueue: (channel) => parseQueue(show(`data/${channel}-queue.json`) ?? ''),
     readLedger: (channel) => parseLedger(show(`data/${channel}-posted.json`) ?? ''),
+    readInsights: () => {
+      const raw = show('data/instagram-insights.json');
+      if (!raw) return null;
+      try {
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    },
   };
 }
 

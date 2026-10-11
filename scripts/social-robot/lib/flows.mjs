@@ -186,6 +186,11 @@ function instagramPostMenuCandidates(page) {
     // roleless div. The icon remains explicitly labelled; scope it to the
     // active menu so a navigation/decoy Post cannot be clicked.
     menu.getByRole('img', { name: RX.igPostMenu }),
+    // The current desktop popover is rendered as a roleless div without a
+    // menu/data-popover attribute. Its icon is still an accessible image;
+    // keep this fallback global because the navigation has no Post icon.
+    page.locator('svg[aria-label="Post"]:visible').locator('..'),
+    page.getByRole('img', { name: RX.igPostMenu }).locator('..'),
   ];
 }
 
@@ -845,6 +850,11 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
     page.locator('form[enctype="multipart/form-data"] input[type="file"][accept*="video"]'),
     page.locator('input[type="file"][accept*="video"]'),
     page.locator('div[role="dialog"] input[type="file"]'),
+    // Some current desktop builds omit both the dialog wrapper and accept
+    // attribute from the shared media input. The upload dialog is already
+    // scoped by the preceding Create click, so this final fallback remains
+    // bounded to the one visible file control.
+    page.locator('input[type="file"]'),
   ], { guard, timeout: t.ui, state: 'attached' });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
   if (accept && !/video(?:\/|,|\s|$)/i.test(accept)) {

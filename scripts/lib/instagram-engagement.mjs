@@ -54,7 +54,7 @@ export function instagramFollowUpAction(followUpFormat) {
 
 /**
  * Build the follow-up contract that travels with a queued post. The Mac robot
- * prints it for observability and the Graph worker uses the same metadata to
+ * prints it for observability and the Chrome worker uses the same metadata to
  * choose an automatic reply or Story follow-up. Unknown/legacy ledger rows
  * return null instead of guessing a strategy.
  */
@@ -84,7 +84,7 @@ export function buildInstagramEngagementBrief(entry) {
     responseAction: instagramResponseAction(primaryMetric),
     followUpAction: instagramFollowUpAction(followUpFormat),
     decisionAction: DECISION_ACTION,
-    automationMode: 'graph-api',
+    automationMode: 'chrome-browser',
     manualOnly: false,
     responseSlaHours: 24,
     storySlaHours: followUpFormat.startsWith('story-') ? 48 : null,
@@ -102,6 +102,6 @@ export function formatInstagramEngagementBrief(brief) {
     `   ${brief.responseAction}`,
     `   ${brief.followUpAction}`,
     `   ${brief.decisionAction}`,
-    '   Automatico: commenti, DM consentiti e Story vengono gestiti dal worker Graph API.',
+    '   Automatico: commenti e DM consentiti vengono gestiti dal worker Chrome; le Stories restano nel fallback Graph esplicito.',
   ].join('\n');
 }

@@ -9,7 +9,7 @@
  */
 import { fetchRetry } from './ga4-service-account.mjs';
 import { matchInstagramMedia } from './instagram-media-matching.mjs';
-import { GRAPH_API } from './social-post-utils.mjs';
+import { GRAPH_API } from './instagram-graph-constants.mjs';
 
 export const SNAPSHOT_SCHEMA_VERSION = 1;
 export const DEFAULT_WINDOW_HOURS = 72;
@@ -106,6 +106,9 @@ export function groupPostedLedger(ledger) {
       queueId,
       kind,
       day,
+      sourceKind: firstText(entry.sourceKind, entry.source_kind),
+      sourceId: firstText(entry.sourceId, entry.source_id),
+      storyImageUrl: firstText(entry.instagramStoryImageUrl, entry.storyImageUrl, entry.story_image_url),
       creativeId,
       creativeBaseId: firstText(entry.creativeBaseId, entry.creative_base_id),
       creativeVariant: firstText(entry.creativeVariant, entry.creative_variant),
@@ -124,6 +127,9 @@ export function groupPostedLedger(ledger) {
     if (group.creativeId !== creativeId) group.conflictingCreativeId = true;
     group.mediaId ||= mediaId;
     group.queueId ||= queueId;
+    group.sourceKind ||= firstText(entry.sourceKind, entry.source_kind);
+    group.sourceId ||= firstText(entry.sourceId, entry.source_id);
+    group.storyImageUrl ||= firstText(entry.instagramStoryImageUrl, entry.storyImageUrl, entry.story_image_url);
     group.creativeBaseId ||= firstText(entry.creativeBaseId, entry.creative_base_id);
     group.creativeVariant ||= firstText(entry.creativeVariant, entry.creative_variant);
     group.creativeLabel ||= firstText(entry.creativeLabel, entry.creative_label);

@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 /**
- * Collect one stable Instagram Insights observation for every eligible
- * creative post. The command is read-only against Meta; the only local write
- * is the generated snapshot document when --dry-run is not set.
+ * Legacy Graph collector for one stable Instagram Insights observation per
+ * eligible creative post. The Mac launch agent uses the Chrome collector in
+ * scripts/social-robot/run.mjs by default; this command remains available for
+ * explicit compatibility and diagnostics.
  */
 import {
   existsSync,
@@ -36,7 +37,7 @@ function usage() {
     '',
     'The command reads data/instagram-posted.json and writes',
     'data/instagram-insights.json after a successful 72h snapshot.',
-    'It needs INSTAGRAM_BUSINESS_ACCOUNT_ID and INSTAGRAM_ACCESS_TOKEN.',
+    'It needs the explicit Graph credentials loaded by the caller.',
     'Missing credentials or unmatchable posts are a clean, non-writing skip.',
     '',
     'Options:',

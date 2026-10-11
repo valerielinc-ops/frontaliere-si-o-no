@@ -3,9 +3,9 @@
 Pubblica i caroselli giornalieri (articoli e lavori più visti di ieri, dogane
 più veloci della settimana) e i Reel sperimentali controllati su Instagram,
 oltre ai contenuti TikTok, **dal browser reale** del Mac host agenti, con
-Playwright e un profilo Chrome persistente. Il trasporto dei post resta il
-browser; commenti, DM consentiti e Stories passano invece dal Graph API
-ufficiale, senza servizi terzi.
+Playwright e un profilo Chrome persistente. Il trasporto dei post, degli
+Insights e della community passa dall'interfaccia visibile del browser; il
+Graph API resta soltanto un fallback esplicito per le Stories.
 
 **Decisione del proprietario, 2026-10-04 (issue 9798 e 7648).** Il
 proprietario accetta il rischio che Instagram e TikTok, secondo i loro termini
@@ -36,11 +36,10 @@ insiste mai dopo un errore.
    `unconfirmed`: il robot non lo ripubblica, apre una issue `needs-human` e
    **si ferma su quella piattaforma** finché un umano non risolve la riga.
    Non preme nemmeno un post successivo che ripete gli stessi articoli di un
-   clic non ancora arrivato nel ledger. Subito dopo il passaggio di
-   pubblicazione il worker Graph API legge i commenti e le conversazioni,
-   risponde una sola volta per oggetto, invia una risposta privata solo quando
-   l’utente ha interagito, e pubblica automaticamente i follow-up visuali in
-   Story.
+   clic non ancora arrivato nel ledger. Subito dopo la pubblicazione il
+   worker Chrome apre Inbox Instagram/Business Suite, risponde una sola volta
+   per thread accessibile e registra gli Insights leggendo le metriche visibili
+   nel Professional Dashboard.
 
 Risolvere un `unconfirmed` (nel journal
 `~/Library/Application Support/frontaliere/social-robot/journal.json`):
@@ -60,15 +59,12 @@ Parametro `SOCIAL_ROBOT_MODE`, letto dai poster in Actions e dal robot sul Mac:
 | `dry` (default: assente, vuoto o sconosciuto) | API se ha le credenziali, altrimenti coda | arriva al bottone di pubblicazione, screenshot, non preme |
 | `live` | mai API, sempre coda | preme il bottone (se lanciato con `--publish`) |
 
-In `live`, la stessa finestra avvia anche il worker di community. In assenza
-di un token Graph (`INSTAGRAM_ACCESS_TOKEN` o il Page token già configurato) o
-di `INSTAGRAM_BUSINESS_ACCOUNT_ID` il worker si ferma con uno skip pulito; non
-usa il browser per leggere DM o commenti. Il worker segue lo stesso
-interruttore Firebase `SOCIAL_ROBOT_MODE`, così il rollout resta centralizzato
-e non richiede un comando per ogni post.
-Quando il permesso Messaging usa il percorso Facebook Login, il worker usa
-anche `FB_PAGE_ID` e `FB_PAGE_ACCESS_TOKEN` già disponibili nel loader; se non
-sono presenti, prova il percorso Instagram Login con il token Instagram.
+In `live`, la stessa finestra avvia il worker browser di community e Insights.
+Il profilo Chrome persistente è la sola autenticazione necessaria; se la
+sessione mostra login o challenge il worker si ferma senza insistere e apre la
+diagnosi locale. `SOCIAL_ROBOT_INSIGHTS_SOURCE` vale `browser` di default;
+`graph` mantiene il vecchio percorso solo come fallback esplicito per la
+community.
 
 I valori sono tutti più corti di sei caratteri: il loader di Remote Config non
 li maschera nei log di CI.
@@ -137,9 +133,10 @@ o a una risposta privata a un commento; non fa outreach a freddo. Le Stories
 sono follow-up visuali statici: il worker non finge di poter creare sticker
 interattivi non esposti dal Content Publishing API.
 
-Nessuna credenziale passa dal repository: il token Graph API viene caricato in
-memoria da Firebase Remote Config durante la finestra del launch agent e la
-sessione web resta solo nel profilo del browser sul Mac.
+Nessuna credenziale passa dal repository: la sessione web resta solo nel
+profilo del browser sul Mac. Il Graph token opzionale, quando il fallback è
+stato scelto esplicitamente, viene caricato in memoria da Firebase Remote
+Config durante la finestra del launch agent.
 
 ## Test
 

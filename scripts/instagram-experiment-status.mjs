@@ -8,6 +8,7 @@ import {
   DEFAULT_MINIMUM_OBSERVATIONS,
   DEFAULT_WINDOW_HOURS,
   formatExperimentStatus,
+  resolveInstagramInsightsSource,
 } from './lib/instagram-experiment-status.mjs';
 
 const DEFAULT_LEDGER = 'data/instagram-posted.json';
@@ -96,6 +97,8 @@ function readJson(file, label, { optional = false, fallback = null } = {}) {
 }
 
 function configuredCredentials() {
+  if (resolveInstagramInsightsSource() === 'browser') return true;
+  if (resolveInstagramInsightsSource() === 'off') return false;
   return Boolean(
     String(process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '').trim()
     && String(process.env.INSTAGRAM_ACCESS_TOKEN || '').trim(),

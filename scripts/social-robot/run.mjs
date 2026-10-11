@@ -10,7 +10,8 @@
  *
  * Owner decision of 2026-10-04 (issues 9798 and 7648): automatic publishing
  * through the real web apps, with no third-party publishing service. The
- * Instagram community loop additionally uses Meta's official Graph API for
+ * Instagram community loop and Insights reader use the authenticated Chrome
+ * UI. The official Graph API remains an explicit compatibility path for
  * permitted comments, inbound messages and static Stories. The owner ACCEPTS
  * the risk that Instagram's and TikTok's terms allow them to restrict or
  * suspend accounts that publish through automation. Hence the cadence limits
@@ -33,19 +34,26 @@
  *   SOCIAL_ROBOT_STATE_DIR     profile, journal, diagnostics
  *                              (default: ~/Library/Application Support/frontaliere/social-robot)
  *   SOCIAL_ROBOT_BROWSER_PATH  browser binary (default: Google Chrome, else cached Chromium)
+ *   SOCIAL_ROBOT_INSIGHTS_SOURCE browser (default) | graph | off
+ *                              browser keeps Insights/community in Chrome
  *   INSTAGRAM_ACCESS_TOKEN / INSTAGRAM_BUSINESS_ACCOUNT_ID
- *                              Graph API community worker credentials
+ *                              optional explicit Graph fallback credentials
  *   FB_PAGE_ID / FB_PAGE_ACCESS_TOKEN
  *                              optional Conversations API credentials
  *   TRUSTED_GH_BIN / PATH      `gh` = the workspace coordinator shim
  *
  * Install the twice-a-day launchd job: bash scripts/social-robot/launchd.sh install
  */
-import { realpathSync } from 'node:fs';
+import { existsSync, readFileSync, realpathSync, renameSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  collectInstagramBrowserSnapshots,
+  mergeInstagramBrowserSnapshots,
+} from '../lib/instagram-insights-browser.mjs';
+import { runInstagramCommunityBrowserAutomation } from '../lib/instagram-community-browser.mjs';
 import { resolveInstagramCommunityMode, runInstagramCommunityAutomation } from '../lib/instagram-community-automation.mjs';
 import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-queue.mjs';
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, resolveBrowserLaunch } from './lib/browser.mjs';
@@ -74,11 +82,75 @@ export function parseArgs(argv) {
 
 const stamp = (at) => new Date(at).toISOString().replace(/[:.]/g, '-');
 
-export function runHasErrors({ results = [], community = null } = {}) {
+export function runHasErrors({ results = [], community = null, insights = null } = {}) {
   return (Array.isArray(results) && results.some((r) => r.outcome === 'error' || r.outcome === 'unconfirmed'))
     || community?.status === 'api-error'
     || community?.status === 'partial'
-    || community?.status === 'credentials-missing';
+    || community?.status === 'credentials-missing'
+    || community?.status === 'login-required'
+    || community?.status === 'browser-unavailable'
+    || insights?.status === 'api-error'
+    || insights?.status === 'login-required'
+    || insights?.status === 'page-error';
+}
+
+function readLocalJson(file) {
+  if (!existsSync(file)) return null;
+  try {
+    return JSON.parse(readFileSync(file, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+function writeJsonAtomically(file, value) {
+  mkdirSync(path.dirname(file), { recursive: true });
+  const temporary = `${file}.tmp-${process.pid}`;
+  writeFileSync(temporary, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+  renameSync(temporary, file);
+}
+
+function resolveInsightsSource(env = process.env) {
+  const source = String(env.SOCIAL_ROBOT_INSIGHTS_SOURCE || '').trim().toLowerCase();
+  return ['browser', 'graph', 'off'].includes(source) ? source : 'browser';
+}
+
+async function runBrowserInsights({ context, reader, stateDir, mode, log = console }) {
+  if (mode === 'off' || resolveInsightsSource() !== 'browser') {
+    return { status: 'disabled', additions: [], candidates: 0, source: resolveInsightsSource() };
+  }
+  const localPath = path.join(stateDir, 'instagram-insights.json');
+  const remoteExisting = reader.readInsights();
+  const localExisting = readLocalJson(localPath);
+  const existing = mergeInstagramBrowserSnapshots(remoteExisting || localExisting, {
+    additions: localExisting?.posts || [],
+  });
+  const page = await context.newPage();
+  try {
+    const result = await collectInstagramBrowserSnapshots({
+      page,
+      ledger: reader.readLedger('instagram'),
+      existing,
+      asOf: new Date(),
+      log,
+    });
+    if (result.additions?.length) {
+      const document = mergeInstagramBrowserSnapshots(existing, result, { generatedAt: new Date(), windowHours: 72 });
+      writeJsonAtomically(localPath, document);
+      result.output = localPath;
+    }
+    return { ...result, source: 'browser' };
+  } catch (error) {
+    return {
+      status: 'page-error',
+      source: 'browser',
+      additions: [],
+      candidates: 0,
+      skipped: [{ reason: 'browser-insights-failed', message: String(error.message || error).slice(0, 180) }],
+    };
+  } finally {
+    await page.close().catch(() => {});
+  }
 }
 
 async function login({ stateDir, platforms }) {
@@ -152,18 +224,31 @@ async function main() {
         },
       });
       let community = null;
+      let insights = null;
       if (opts.platforms.includes('instagram')) {
-        community = await runInstagramCommunityAutomation({
-          accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
-          accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
-          ledger: reader.readLedger('instagram'),
-          statePath: path.join(stateDir, 'instagram-community-state.json'),
-          mode: resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode }),
-          log: console,
-        });
+        const communityMode = resolveInstagramCommunityMode({ ...process.env, SOCIAL_ROBOT_MODE: rcMode });
+        context ||= await openProfile({ stateDir, launch });
+        if (resolveInsightsSource() === 'graph') {
+          community = await runInstagramCommunityAutomation({
+            accountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID,
+            accessToken: process.env.INSTAGRAM_ACCESS_TOKEN,
+            ledger: reader.readLedger('instagram'),
+            statePath: path.join(stateDir, 'instagram-community-state.json'),
+            mode: communityMode,
+            log: console,
+          });
+        } else {
+          community = await runInstagramCommunityBrowserAutomation({
+            context,
+            statePath: path.join(stateDir, 'instagram-community-state.json'),
+            mode: communityMode,
+            log: console,
+          });
+        }
+        insights = await runBrowserInsights({ context, reader, stateDir, mode: rcMode, log: console });
       }
-      console.log(JSON.stringify({ results, community }));
-      return runHasErrors({ results, community }) ? 1 : 0;
+      console.log(JSON.stringify({ results, community, insights }));
+      return runHasErrors({ results, community, insights }) ? 1 : 0;
     } finally {
       if (context) await context.close().catch(() => {});
     }
