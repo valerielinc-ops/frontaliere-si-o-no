@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-10T21:31:18.488Z",
+  "generatedAt": "2026-10-11T21:24:08.129Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6795,
-  "avgDurationMs": 6795,
+  "durationMs": 6418,
+  "avgDurationMs": 6418,
   "durationHistory": [
-    6795
+    6418
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T21:30:59.725Z",
+      "crawledAt": "2026-10-11T21:23:51.348Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -82,7 +82,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T21:30:59.727Z",
+      "crawledAt": "2026-10-11T21:23:51.350Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }

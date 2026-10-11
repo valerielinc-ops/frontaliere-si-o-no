@@ -1,6 +1,6 @@
 {
   "crawlerKey": "proton",
-  "assembledAt": "2026-10-10T21:30:12.518Z",
+  "assembledAt": "2026-10-11T21:21:54.427Z",
   "jobs": [
     {
       "id": "proton-550dbdc996fb",
@@ -33,7 +33,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848724101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:03.055Z",
+      "crawledAt": "2026-10-11T21:21:42.578Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +112,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4996320101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:02.751Z",
+      "crawledAt": "2026-10-11T21:21:42.271Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -186,7 +186,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4767539101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:02.437Z",
+      "crawledAt": "2026-10-11T21:21:41.963Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -265,7 +265,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:02.129Z",
+      "crawledAt": "2026-10-11T21:21:41.652Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,18 +282,18 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "requirements": [],
       "requirementsByLocale": {},
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 11446,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-09-26T14:07:31.618Z",
+      "previousSlugs": [
+        "software-engineer-linux-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "software-engineer-linux-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "software-engineer-linux-proton-ch"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 11446,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-26T14:07:31.618Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -341,7 +341,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:01.825Z",
+      "crawledAt": "2026-10-11T21:21:41.347Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -423,7 +423,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:01.521Z",
+      "crawledAt": "2026-10-11T21:21:41.040Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,16 +440,16 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:07:30.709Z",
+      "previousSlugs": [
+        "site-reliability-engineer-storage-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "site-reliability-engineer-storage-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "site-reliability-engineer-storage-proton-ch"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T14:07:30.709Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -497,7 +497,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:01.217Z",
+      "crawledAt": "2026-10-11T21:21:40.737Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -579,7 +579,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:00.913Z",
+      "crawledAt": "2026-10-11T21:21:40.430Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -661,7 +661,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:00.608Z",
+      "crawledAt": "2026-10-11T21:21:40.126Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -740,7 +740,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:30:00.303Z",
+      "crawledAt": "2026-10-11T21:21:39.820Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -820,7 +820,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4777667101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:59.995Z",
+      "crawledAt": "2026-10-11T21:21:39.514Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -899,7 +899,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4725157101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:59.691Z",
+      "crawledAt": "2026-10-11T21:21:39.206Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -980,7 +980,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:59.381Z",
+      "crawledAt": "2026-10-11T21:21:38.896Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1008,7 +1008,6 @@
           "senior-product-manager-b2b-vpn-proton-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:27.978Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1057,7 +1056,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:59.072Z",
+      "crawledAt": "2026-10-11T21:21:38.589Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1079,11 +1078,11 @@
         "senior-product-manager-proton-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "senior-product-manager-proton-geneva-switzerland-paris-france"
-        ],
         "it": [
           "senior-product-manager-proton-ch"
+        ],
+        "fr": [
+          "senior-product-manager-proton-geneva-switzerland-paris-france"
         ]
       },
       "firstSeenAt": "2026-09-26T14:07:27.675Z",
@@ -1134,7 +1133,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:58.770Z",
+      "crawledAt": "2026-10-11T21:21:38.287Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1151,16 +1150,16 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-06T21:30:27.425Z",
+      "previousSlugs": [
+        "senior-product-designer-vpn-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-product-designer-vpn-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-product-designer-vpn-proton-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-06T21:30:27.425Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1208,7 +1207,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4947375101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:58.452Z",
+      "crawledAt": "2026-10-11T21:21:37.974Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1282,7 +1281,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:58.145Z",
+      "crawledAt": "2026-10-11T21:21:37.667Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1366,7 +1365,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4870234101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:57.839Z",
+      "crawledAt": "2026-10-11T21:21:37.362Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1445,7 +1444,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:57.534Z",
+      "crawledAt": "2026-10-11T21:21:37.057Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1462,16 +1461,16 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T23:16:31.304Z",
+      "previousSlugs": [
+        "senior-ios-software-engineer-geneva-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-ios-software-engineer-geneva-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-ios-software-engineer-geneva-proton-ch"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T23:16:31.304Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -1519,7 +1518,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:57.232Z",
+      "crawledAt": "2026-10-11T21:21:36.754Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1601,7 +1600,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:56.925Z",
+      "crawledAt": "2026-10-11T21:21:36.450Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1623,11 +1622,11 @@
         "senior-engineering-manager-proton-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "senior-engineering-manager-proton-geneva-switzerland-paris-france"
-        ],
         "it": [
           "senior-engineering-manager-proton-ch"
+        ],
+        "fr": [
+          "senior-engineering-manager-proton-geneva-switzerland-paris-france"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1681,7 +1680,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953832101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:56.623Z",
+      "crawledAt": "2026-10-11T21:21:36.148Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1760,7 +1759,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4826396101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:56.313Z",
+      "crawledAt": "2026-10-11T21:21:35.841Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1839,7 +1838,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4739749101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:56.003Z",
+      "crawledAt": "2026-10-11T21:21:35.534Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1918,7 +1917,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:55.698Z",
+      "crawledAt": "2026-10-11T21:21:35.228Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1935,18 +1934,18 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "requirements": [],
       "requirementsByLocale": {},
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 9042,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-20T12:41:17.657Z",
+      "previousSlugs": [
+        "senior-android-software-engineer-geneva-proton-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-android-software-engineer-geneva-proton-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-android-software-engineer-geneva-proton-ch"
-      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 9042,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-07-20T12:41:17.657Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -1994,7 +1993,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:55.396Z",
+      "crawledAt": "2026-10-11T21:21:34.925Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2076,7 +2075,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:55.091Z",
+      "crawledAt": "2026-10-11T21:21:34.619Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2160,7 +2159,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4903325101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:54.784Z",
+      "crawledAt": "2026-10-11T21:21:34.312Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2242,7 +2241,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4941983101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:54.478Z",
+      "crawledAt": "2026-10-11T21:21:34.004Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2320,7 +2319,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4555348101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:54.168Z",
+      "crawledAt": "2026-10-11T21:21:33.695Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2399,7 +2398,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:53.860Z",
+      "crawledAt": "2026-10-11T21:21:33.388Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2488,7 +2487,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:53.549Z",
+      "crawledAt": "2026-10-11T21:21:33.082Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2562,7 +2561,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:53.233Z",
+      "crawledAt": "2026-10-11T21:21:32.771Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -2584,14 +2583,13 @@
         "business-development-manager-proton-ch"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "business-development-manager-proton-geneva"
-        ],
         "it": [
           "business-development-manager-proton-ch"
+        ],
+        "fr": [
+          "business-development-manager-proton-geneva"
         ]
       },
-      "needsRetranslation": false,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2639,7 +2637,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953086101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:29:52.926Z",
+      "crawledAt": "2026-10-11T21:21:32.465Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
