@@ -17,7 +17,7 @@ import { codexPrompt } from '../../../../functions/src/assistedApplicationAiProm
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
-import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel } from './fill.mjs';
+import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
@@ -348,8 +348,10 @@ async function chooseOption(page, locator, info, value, question = '') {
 async function upload(page, locator, info, paths) {
   if (info.tag === 'input' && info.inputType === 'file') {
     const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
-    await chooseFiles(page, locator, multiple ? paths : paths[0]);
-    return multiple ? paths.length : 1;
+    const selected = multiple ? paths : [paths[0]];
+    const receipt = await chooseFiles(page, locator, multiple ? selected : selected[0]);
+    if (!await uploadReceipt(page, locator, selected, { acceptedResponse: receipt.accepted })) throw new Error('upload_not_confirmed');
+    return selected.length;
   }
   // An upload button opens the browser's file chooser. The wait never
   // outlives the action: a failed click leaves no rejection behind.
@@ -357,8 +359,10 @@ async function upload(page, locator, info, paths) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   const opened = await chooser;
   if (!opened) throw new Error('no_file_chooser');
-  await opened.setFiles(opened.isMultiple() ? paths : paths[0]);
-  return opened.isMultiple() ? paths.length : 1;
+  const selected = opened.isMultiple() ? paths : [paths[0]];
+  const receipt = await chooseChooserFiles(page, opened, selected.length > 1 ? selected : selected[0]);
+  if (!await uploadReceipt(page, await opened.element(), selected, { acceptedResponse: receipt.accepted })) throw new Error('upload_not_confirmed');
+  return selected.length;
 }
 
 /** One action on its ref; never throws. `files`: how many files an upload set. */
