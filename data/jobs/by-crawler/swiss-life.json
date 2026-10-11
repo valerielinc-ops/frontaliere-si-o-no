@@ -2315,6 +2315,21 @@
       "requirementsByLocale": {},
       "jobReqId": "R10613",
       "hiringOrganization": "Swiss Life AG Genève Rive Droite",
+      "needsRetranslation": true,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 183500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:44:18.883Z",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-bhnrtd",
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-bhnrtd",
@@ -2334,21 +2349,7 @@
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:44:18.883Z",
-      "salaryMin": 104500,
-      "salaryMax": 183500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 104500,
-          "maxValue": 183500,
-          "unitText": "YEAR"
-        }
-      }
+      "retranslationAttempts": 2
     },
     {
       "id": "swiss-life-65abd0757165",
@@ -3964,7 +3965,8 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 2
     },
     {
       "id": "swiss-life-e12b28060b4c",

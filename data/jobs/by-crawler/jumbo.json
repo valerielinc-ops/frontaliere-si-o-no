@@ -10241,7 +10241,6 @@
       "streetAddress": "",
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
-      "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -10254,7 +10253,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T03:26:08.796Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "jumbo-b9c1f865-7b5",
@@ -10326,7 +10327,6 @@
       "streetAddress": "",
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
-      "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -10339,7 +10339,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T03:26:08.796Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "jumbo-a0f1e72e-340",
@@ -10411,7 +10413,6 @@
       "streetAddress": "",
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
-      "firstSeenAt": "2026-09-28T03:26:08.796Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -10424,7 +10425,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-28T03:26:08.796Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "jumbo-664aaff5-09c",
