@@ -132,6 +132,7 @@ function tiktokPage({
   unknownOverlay = false,
   lateUnknownOverlay = false,
   prefilledCaption = 'video',
+  visibility = 'Tutti',
 } = {}) {
   const cookieShadowMarkup = `
     <style>
@@ -173,6 +174,7 @@ function tiktokPage({
   <div id="processing" data-e2e="upload-progress" role="progressbar" hidden>Processing video…</div>
   <div id="editor" hidden>
     <div data-e2e="caption_container"><div class="public-DraftEditor-content" contenteditable="true" role="combobox" id="caption"></div><div id="hashtag-suggestions" role="listbox" hidden><div role="option">different-suggestion</div></div></div>
+    <div data-e2e="video_visibility_container"><span>Who can view this post</span><button id="visibility" type="button" role="combobox"><span id="visibility-value">${visibility}</span></button><div id="visibility-options" role="listbox" hidden><div role="option">Tutti</div><div role="option">Amici</div><div role="option">Solo io</div></div></div>
     <button data-e2e="post_video_button" id="post" disabled>Post</button>
   </div>
   ${(hasCookieBanner || cookieConfig) ? '<script id="tiktok-cookie-banner-config" type="application/json">{"i18n":{"cookieBannerTitle":"Consentire i cookie da TikTok su questo browser?","cookieBannerBtnDecline":"Rifiuta i cookie opzionali"}}</script>' : ''}
@@ -190,6 +192,7 @@ let contentAction = 'none';
 let cookieAction = 'none';
 let cookieAcceptClicks = 0;
 let cookieShownByHover = false;
+let selectedVisibility = ${JSON.stringify(visibility)};
 ${hasCookieBanner ? `
 const cookie = $('cookie-banner');
 const installCookie = (host, mode) => {
@@ -235,8 +238,14 @@ $('caption').addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { popupEscapes += 1; $('hashtag-suggestions').hidden = true; }
   if (e.key === ' ') $('hashtag-suggestions').hidden = true;
 });
+$('visibility').addEventListener('click', () => { $('visibility-options').hidden = false; });
+document.querySelectorAll('#visibility-options [role="option"]').forEach((option) => option.addEventListener('click', () => {
+  selectedVisibility = option.innerText;
+  $('visibility-value').innerText = selectedVisibility;
+  $('visibility-options').hidden = true;
+}));
 const sendPost = async () => {
-  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes, contentAction, cookieAction, cookieAcceptClicks, cookieShownByHover }) });
+  await fetch('/api/tt/post', { method: 'POST', body: JSON.stringify({ caption: $('caption').innerText, files: count, popupEscapes, contentAction, cookieAction, cookieAcceptClicks, cookieShownByHover, visibility: selectedVisibility }) });
   ${captchaAfterPost
     ? "document.querySelector('main').insertAdjacentHTML('afterbegin', '<div id=\"captcha-verify-container\"><p>Drag the slider to fit the puzzle</p></div>');"
     : after}
@@ -296,6 +305,7 @@ function fakePlatforms() {
       case '/accounts/login/': return send(200, instagramLogin());
       case '/tiktokstudio/upload': return send(200, tiktokPage());
       case '/tt-captcha/tiktokstudio/upload': return send(200, tiktokPage({ captcha: true }));
+      case '/tt-private/tiktokstudio/upload': return send(200, tiktokPage({ visibility: 'Solo io' }));
       case '/tt-video-only/tiktokstudio/upload': return send(200, tiktokPage({ accept: 'video/*' }));
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
@@ -436,6 +446,11 @@ async function main() {
     check(existsSync(path.join(r.dir, 'ready-to-publish.png')), 'dry run leaves a screenshot of the ready post');
     check(state.ttPosts.length === 0, 'dry run posts nothing');
 
+    r = await run('tiktok', `${base}/tt-private/tiktokstudio/upload`, { dryRun: true, label: 'tt-private' });
+    check(r.result?.status === 'dry-run', `a remembered private audience is switched to public before publishing (${r.error?.message || 'ok'})`);
+    check(await tab.locator('#visibility-value').innerText() === 'Tutti', 'the visibility guard selects the public audience');
+    check(state.ttPosts.length === 0, 'the visibility dry run posts nothing');
+
     r = await run('tiktok', `${base}/tt-cookie-config-no-action/tiktokstudio/upload`, { dryRun: true, label: 'tt-cookie-config-no-action' });
     check(r.result?.status === 'dry-run', `a non-actionable cookie config does not block upload (${r.error?.message || 'ok'})`);
 
@@ -443,6 +458,7 @@ async function main() {
     check(r.result?.status === 'published', `publish returns with the redirect to the content page (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.length === 1 && !state.ttPosts[0].caption.includes('slide-1.jpg'), 'the pre-filled file name was replaced by the caption');
     check(state.ttPosts[0].caption.includes('#ticino') && state.ttPosts[0].files === videoFiles.length && state.ttPosts[0].popupEscapes > 0, 'caption, hashtag popup handling and video reached the platform');
+    check(state.ttPosts[0].visibility === 'Tutti', 'published TikTok content is sent with the public audience');
 
     r = await run('tiktok', `${base}/tt-captcha/tiktokstudio/upload`, { dryRun: false, label: 'tt-captcha' });
     check(r.error?.errorClass === 'challenge', 'a captcha is a challenge');
