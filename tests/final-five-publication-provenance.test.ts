@@ -30,6 +30,15 @@ for (const [name, producer, city] of [['ANYbotics', fetchAllAnyboticsJobs, 'Zuri
     expect(jobs[0]).toMatchObject({ datePosted: postedAt, postedDate: postedAt, postingDateSource: 'reported' });
   });
 }
+it('ANYbotics reads publication from the title-matched hosted JobPosting', async () => {
+  const postedAt = past();
+  const hostedUrl = 'https://jobs.lever.co/anybotics/fixture';
+  vi.stubGlobal('fetch', vi.fn(async (url: string) => url.includes('api.lever.co')
+    ? new Response(JSON.stringify([{ id: 'fixture', text: 'Software Engineer', categories: { location: 'Zurich' }, hostedUrl, description: body }]), { status: 200 })
+    : new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Software Engineer', datePosted: postedAt })}</script>`, { status: 200, headers: { 'content-type': 'text/html' } })));
+  const jobs = await fetchAllAnyboticsJobs();
+  expect(jobs[0]).toMatchObject({ datePosted: postedAt, postedDate: postedAt, postingDateSource: 'reported' });
+});
 it('GHOL: collection and unverified campaign dates cannot become publication', async () => {
   vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify({ campaigns: [{ _id: 'fixture', title: { '1': 'Infirmier spécialisé' }, description: { '1': body }, language: 1, inviteKey: 'fixture', location: { city: 'Nyon', state: 'VD', country: 'CH', zip: '1260' }, createdAt: past(), updatedAt: past() }] }), { status: 200 })));
   const jobs = await fetchAllGholJobs();

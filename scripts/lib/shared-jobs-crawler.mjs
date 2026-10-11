@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
+import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 /**
  * Ticino Company Careers Crawler
  *
@@ -4722,7 +4722,12 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     description,
     requirements: extractRequirements(description),
     featured: false,
-    ...mergeSourcePostingDates(seedMeta, sourcePostingDateFields(node.datePosted)),
+    ...mergeSourcePostingDates(
+      seedMeta,
+      /jobs\.migros\.ch$/i.test(hostOf(sourcePageUrl))
+        ? sourceCompactOffsetPostingDateFields(node.datePosted)
+        : sourcePostingDateFields(node.datePosted),
+    ),
     url,
     // The generic parser exposes the canonical detail URL as the handoff
     // target when JSON-LD does not publish a separate application URL. This

@@ -22,6 +22,7 @@ describe('Delvitech job parser', () => {
 
   it('parses detail sections and apply email', () => {
     const html = `
+      <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', url: 'https://legacy.delvi.tech/application-engineer-2/', datePublished: '2025-04-17T06:46:33+00:00' }] })}</script>
       <div class="post-content">
         <div class="fusion-fullwidth">
           <div class="fusion-text"><h1>Application Engineer</h1></div>
@@ -39,6 +40,12 @@ describe('Delvitech job parser', () => {
     expect(detail.email).toBe('career@delvi.tech');
     expect(detail.description).toContain('## ABOUT DELVITECH');
     expect(detail.description).toContain('- Support customers');
+    expect(detail.datePublished).toBe('2025-04-17T06:46:33+00:00');
+  });
+
+  it('rejects a publication date from an unrelated WebPage node', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({ '@type': 'WebPage', url: 'https://legacy.delvi.tech/other/', datePublished: '2025-04-17' })}</script><div class="post-content"><h1>Application Engineer</h1></div>`;
+    expect(parseDelvitechJobDetail(html, 'https://legacy.delvi.tech/application-engineer-2/').datePublished).toBe('');
   });
 
   it('filters out the explicit Germany role', () => {
