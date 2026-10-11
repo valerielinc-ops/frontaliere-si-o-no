@@ -7756,7 +7756,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7810,8 +7810,7 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-        "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7822,7 +7821,7 @@
         ],
         "fr": [
           "participant-a-l-evenement-paye-en-heures-ubs-geneve",
-          "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
@@ -10640,9 +10639,9 @@
       "id": "ubs-e3d52b40c79a",
       "slug": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
       "slugByLocale": {
-        "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
+        "it": "event-attendant-hourly-paid-ubs-geneve-2",
         "en": "event-attendant-hourly-paid-ubs-geneve",
-        "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
+        "de": "event-attendant-hourly-paid-ubs-geneve-2",
         "fr": "event-attendant-hourly-paid-ubs-geneve-2"
       },
       "company": "UBS",
@@ -10697,15 +10696,14 @@
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
         "event-attendant-hourly-paid-ubs-geneve",
-        "event-attendant-hourly-paid-ubs-geneve-2"
+        "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-attendant-hourly-paid-ubs-geneve",
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "event-attendant-hourly-paid-ubs-geneve"
         ],
         "de": [
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",

@@ -611,8 +611,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -659,8 +659,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -668,10 +668,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -5589,7 +5589,7 @@
       "id": "bkw-dd2ab293c23a",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-5c2d0d6a56",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "apprenticeship-as-an-electrical-installer-efz-all-genders-bkw-zuchwil",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "place-d-apprentissage-d-installateur-rice-electricien-ne-cfc-tous-bkw-zuchwil"
@@ -6557,7 +6557,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -6738,7 +6738,7 @@
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-05fe4ec1be",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3",
         "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
       },
@@ -7094,9 +7094,9 @@
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-        "en": "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "fr": "bauleiter-in-elektro-alle-bkw-zuchwil"
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
+        "en": "construction-manager-in-electric-all-bkw-zuchwil",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -7149,10 +7149,10 @@
           "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
         ],
         "en": [
-          "construction-manager-in-electric-all-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ],
         "fr": [
-          "directeur-de-construction-en-electric-tous-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-zuchwil"
         ]
       },
       "previousSlugs": [
@@ -7160,7 +7160,8 @@
         "construction-manager-in-electric-all-bkw-zuchwil",
         "directeur-de-construction-en-electric-tous-bkw-zuchwil",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -8817,7 +8818,7 @@
       "id": "bkw-1d4021379161",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-7aba2201d9",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-7aba2201d9",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich",
         "en": "apprenticeship-electrical-installer-in-efz-all-bkw-zurich",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zurich"
@@ -12323,7 +12324,7 @@
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-654fb1230f",
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich-654fb1230f",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zurich",
         "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2",
         "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-2"
       },
@@ -13925,7 +13926,7 @@
       "id": "bkw-30357fc5576d",
       "slug": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-ee4e911d80",
       "slugByLocale": {
-        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun-ee4e911d80",
+        "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-thun",
         "en": "apprenticeship-as-an-electrician-efz-all-bkw-thun",
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "fr": "apprentissage-d-electricien-efz-tous-bkw-thun"
@@ -16026,7 +16027,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -16075,8 +16076,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16085,7 +16085,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -16271,7 +16271,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -16320,7 +16320,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16328,7 +16328,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -18271,7 +18271,7 @@
         "de": "elektroplaner-in-alle-bkw-ch",
         "en": "elektroplaner-in-alle-bkw-ch-2",
         "fr": "elektroplaner-in-alle-bkw-ch-2",
-        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf-aff330fe50"
+        "it": "progettista-elettrico-a-in-alle-bkw-dubendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21154,7 +21154,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21200,14 +21200,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",

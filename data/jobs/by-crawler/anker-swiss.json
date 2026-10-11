@@ -4999,12 +4999,12 @@
     },
     {
       "id": "anker-swiss-6fa1ae284194",
-      "slug": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+      "slug": "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "it": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "en": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
-        "fr": "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+        "it": "pittura-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+        "en": "painter-100-anker-swiss-ticino-ag-luzern-6fa1ae28",
+        "fr": "peintre-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
       },
       "slugDisambiguator": "6fa1ae28",
       "company": "Anker Swiss Ticino AG",
@@ -5053,14 +5053,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+          "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
         ]
       },
       "previousSlugs": [
-        "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2"
+        "maler-100-anker-swiss-ticino-ag-luzern-cd923fc2",
+        "maler-100-anker-swiss-ticino-ag-luzern-6fa1ae28"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

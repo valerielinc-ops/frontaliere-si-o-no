@@ -1043,9 +1043,9 @@
       "slug": "wissenschaftliche-assistenz-universitat-zurich-zurich-db2b02fe7b",
       "slugByLocale": {
         "de": "wissenschaftliche-assistenz-uzh-zurich",
-        "en": "wissenschaftliche-assistenz-universitat-zurich",
-        "fr": "wissenschaftliche-assistenz-universitat-zurich",
-        "it": "wissenschaftliche-assistenz-universitat-zurich-zurich-db2b02fe7b"
+        "en": "scientific-assistance-universitat-zurich-zurich",
+        "fr": "assistance-scientifique-universitat-zurich-zurich",
+        "it": "assistenza-scientifica-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1098,10 +1098,10 @@
           "assistenza-scientifica-universitat-zurich-zurich"
         ],
         "en": [
-          "scientific-assistance-universitat-zurich-zurich"
+          "wissenschaftliche-assistenz-universitat-zurich"
         ],
         "fr": [
-          "assistance-scientifique-universitat-zurich-zurich"
+          "wissenschaftliche-assistenz-universitat-zurich"
         ]
       },
       "previousSlugs": [
@@ -1109,7 +1109,8 @@
         "scientific-assistance-universitat-zurich-zurich",
         "assistance-scientifique-universitat-zurich-zurich",
         "wissenschaftliche-assistenz-universitat-zurich-zurich-db2b02fe7b",
-        "assistenza-scientifica-universitat-zurich-zurich"
+        "assistenza-scientifica-universitat-zurich-zurich",
+        "wissenschaftliche-assistenz-universitat-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2153,7 +2154,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2200,7 +2201,7 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2208,7 +2209,7 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.623Z",
@@ -9012,7 +9013,7 @@
       "id": "uzh-a62aff43d87d",
       "slug": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
       "slugByLocale": {
-        "it": "assistenza-scientifica-universitat-zurich-zurich-7539031e49",
+        "it": "assistenza-scientifica-universitat-zurich-zurich",
         "en": "scientific-assistance-universitat-zurich-zurich",
         "de": "wissenschaftliche-assistenz-uzh-zurich",
         "fr": "assistance-scientifique-universitat-zurich-zurich"

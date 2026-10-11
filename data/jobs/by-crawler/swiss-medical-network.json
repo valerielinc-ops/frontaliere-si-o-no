@@ -397,7 +397,7 @@
         "fr": "omnipraticiens (50 à 100 %)"
       },
       "slugByLocale": {
-        "it": "professionisti-generali-50-100-swiss-medical-network-ittigen-28e990d98f",
+        "it": "professionisti-generali-50-100-swiss-medical-network-ittigen",
         "en": "general-practitioners-50-to-100-swiss-medical-network-ittigen",
         "de": "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
         "fr": "omnipraticiens-50-a-100-swiss-medical-network-ittigen"
@@ -430,14 +430,6 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "professionisti-generali-50-100-swiss-medical-network-ittigen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "professionisti-generali-50-100-swiss-medical-network-ittigen"
-        ]
       }
     },
     {
@@ -528,7 +520,7 @@
         "fr": "Spécialiste / Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen-d63cfffa0b",
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
         "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
@@ -561,14 +553,6 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen"
-        ]
       }
     },
     {
@@ -598,11 +582,11 @@
       },
       "slugByLocale": {
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506",
-        "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506"
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-reinach",
+        "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-reinach",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-reinach"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506",
+      "slug": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-reinach",
       "category": "medical",
       "datePosted": "2026-09-30T09:13:07.282Z",
       "postedDate": "2026-09-30T09:13:07.282Z",
@@ -632,11 +616,19 @@
         }
       },
       "previousSlugs": [
-        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506"
+        ],
+        "fr": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-reinach-e2a6e1c506"
         ]
       }
     },
@@ -667,11 +659,11 @@
       },
       "slugByLocale": {
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa",
-        "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa"
+        "it": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
+        "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-beromunster",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
       },
-      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa",
+      "slug": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-beromunster",
       "category": "medical",
       "datePosted": "2026-09-30T09:12:22.897Z",
       "postedDate": "2026-09-30T09:12:22.897Z",
@@ -701,11 +693,19 @@
         }
       },
       "previousSlugs": [
-        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+        "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa"
+        ],
+        "fr": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster-0168b038fa"
         ]
       }
     },
@@ -1914,11 +1914,11 @@
       },
       "slugByLocale": {
         "de": "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
-        "it": "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3",
-        "en": "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3",
-        "fr": "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3"
+        "it": "professionisti-generali-50-100-swiss-medical-network-bern",
+        "en": "general-practitioners-50-to-100-swiss-medical-network-bern",
+        "fr": "omnipraticiens-50-a-100-swiss-medical-network-bern"
       },
-      "slug": "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3",
+      "slug": "professionisti-generali-50-100-swiss-medical-network-bern",
       "category": "healthcare",
       "datePosted": "2026-09-14T12:44:17.872Z",
       "postedDate": "2026-09-14T12:44:17.872Z",
@@ -1948,11 +1948,19 @@
         }
       },
       "previousSlugs": [
-        "allgemeinmediziner-in-50-bis-100-swiss-medical-network"
+        "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
+        "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allgemeinmediziner-in-50-bis-100-swiss-medical-network"
+          "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
+          "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3"
+        ],
+        "en": [
+          "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3"
+        ],
+        "fr": [
+          "allgemeinmediziner-in-50-bis-100-swiss-medical-network-bern-9831307ef3"
         ]
       }
     },
@@ -2672,7 +2680,7 @@
         "fr": "Spécialiste en médecine interne générale"
       },
       "slugByLocale": {
-        "it": "specialista-medicina-interna-swiss-medical-network-wengen-244df2ecf9",
+        "it": "specialista-medicina-interna-swiss-medical-network-wengen",
         "en": "specialist-general-internal-medicine-swiss-medical-network-wengen",
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
@@ -2706,14 +2714,6 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "specialista-medicina-interna-swiss-medical-network-wengen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialista-medicina-interna-swiss-medical-network-wengen"
-        ]
       }
     },
     {
@@ -2867,11 +2867,11 @@
       },
       "slugByLocale": {
         "de": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9",
-        "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9",
-        "fr": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9"
+        "it": "specialista-medicina-interna-swiss-medical-network-grindelwald",
+        "en": "specialist-general-internal-medicine-swiss-medical-network-grindelwald",
+        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-grindelwald"
       },
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9",
+      "slug": "specialista-medicina-interna-swiss-medical-network-grindelwald",
       "category": "healthcare",
       "datePosted": "2026-08-25T09:55:30.282Z",
       "postedDate": "2026-08-25T09:55:30.282Z",
@@ -2902,11 +2902,19 @@
       },
       "firstSeenAt": "2026-09-23T23:43:24.352Z",
       "previousSlugs": [
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9"
+        ],
+        "en": [
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9"
+        ],
+        "fr": [
+          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald-82a267d4b9"
         ]
       }
     },
