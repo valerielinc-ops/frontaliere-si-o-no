@@ -142,11 +142,7 @@ export async function fetchAllRehaklinikSeewisJobs() {
     if (!title || title.length < 3) continue;
 
     const resolvedGeography = resolveSourceBackedSwissGeography(listing);
-    const geography = resolvedGeography && {
-      ...sourceBackedSwissGeographyFields(listing, resolvedGeography),
-      postalCode: normalizeSpace(listing.postalCode || ''),
-      streetAddress: normalizeSpace(listing.streetAddress || ''),
-    };
+    const geography = resolvedGeography && sourceBackedSwissGeographyFields(listing, resolvedGeography);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
