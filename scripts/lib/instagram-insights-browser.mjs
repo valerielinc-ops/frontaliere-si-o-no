@@ -133,6 +133,11 @@ export function parseInstagramBrowserMetrics(bodyText) {
   };
 }
 
+export function hasVisibleAudienceMetrics(metrics) {
+  return metrics?.views !== null && metrics?.views !== undefined
+    || metrics?.reach !== null && metrics?.reach !== undefined;
+}
+
 export function parseInstagramMediaId(value) {
   const match = String(value ?? '').match(INSTAGRAM_INSIGHTS_DETAIL_PATTERN);
   return match?.[1] || null;
@@ -408,7 +413,7 @@ export async function collectInstagramBrowserSnapshots({
         skipped.push({ reason: 'detail-media-id-missing', identity: match.expected.identity });
         continue;
       }
-      if (!detail.metrics.views && !detail.metrics.reach) {
+      if (!hasVisibleAudienceMetrics(detail.metrics)) {
         skipped.push({ reason: 'visible-metrics-missing', identity: match.expected.identity });
         continue;
       }

@@ -4,6 +4,7 @@ import {
   chooseVisualMatches,
   coverUrlForInstagramGroup,
   fingerprintDistance,
+  hasVisibleAudienceMetrics,
   mergeInstagramBrowserSnapshots,
   parseInstagramBrowserMetrics,
   parseInstagramMediaId,
@@ -37,6 +38,11 @@ describe('Chrome Instagram Insights adapter', () => {
       reach: 1234,
       audienceMetric: 'views',
     });
+  });
+
+  it('keeps a legitimate zero audience observation', () => {
+    expect(hasVisibleAudienceMetrics({ views: 0, reach: 0 })).toBe(true);
+    expect(hasVisibleAudienceMetrics({ views: null, reach: null })).toBe(false);
   });
 
   it('recognizes the detail media id and derives deterministic carousel covers', () => {
