@@ -5,6 +5,10 @@ import {
   isRehaklinikSeewisJob,
   isTrustedDomain,
 } from '../scripts/lib/rehaklinik-seewis-job-parser.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from '../scripts/lib/prospector/location-evidence.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Kurhaus crawler parser', () => {
@@ -64,6 +68,21 @@ describe('Kurhaus crawler parser', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
     });
+  });
+
+  it('carries resolver-backed postal and street evidence into the published geography', () => {
+    const resolved = resolveSourceBackedSwissGeography({
+      location: 'Chur, GR',
+      addressLocality: 'Chur',
+      addressRegion: 'GR',
+      addressCountry: 'CH',
+      postalCode: '7212',
+      streetAddress: 'Via fonte',
+    });
+    const listingWithoutAddressFields = { location: 'Chur, GR', addressCountry: 'CH' };
+    const geography = sourceBackedSwissGeographyFields(listingWithoutAddressFields, resolved);
+
+    expect(geography).toMatchObject({ postalCode: '7212', streetAddress: 'Via fonte' });
   });
 
   // ── slugify (imported from crawler-template) ──
