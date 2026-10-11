@@ -7065,7 +7065,7 @@
       "slug": "railway-signalling-specialista-stadler-rail-wallisellen",
       "slugByLocale": {
         "it": "railway-signalling-specialista-stadler-rail-wallisellen",
-        "en": "railway-signalling-specialista-stadler-rail-wallisellen",
+        "en": "railway-signaling-specialist-stadler-rail-wallisellen",
         "de": "railway-signalling-specialist-stadler-rail-ch",
         "fr": "railway-signalling-specialiste-stadler-rail-wallisellen"
       },
@@ -11508,12 +11508,12 @@
     },
     {
       "id": "stadler-rail-c5fc2f5e46cb",
-      "slug": "einkaufsdisponent-in-stadler-rail-winterthur",
+      "slug": "disponente-acquisti-stadler-rail-winterthur",
       "slugByLocale": {
-        "it": "einkaufsdisponent-in-stadler-rail-winterthur",
-        "en": "einkaufsdisponent-in-stadler-rail-winterthur",
+        "it": "disponente-acquisti-stadler-rail-winterthur",
+        "en": "procurement-planner-stadler-rail-winterthur",
         "de": "einkaufsdisponent-in-stadler-rail-ch",
-        "fr": "einkaufsdisponent-in-stadler-rail-winterthur"
+        "fr": "planificateur-rice-des-achats-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11557,11 +11557,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einkaufsdisponent-in-stadler-rail-ch"
+        "einkaufsdisponent-in-stadler-rail-ch",
+        "einkaufsdisponent-in-stadler-rail-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einkaufsdisponent-in-stadler-rail-ch"
+          "einkaufsdisponent-in-stadler-rail-ch",
+          "einkaufsdisponent-in-stadler-rail-winterthur"
+        ],
+        "en": [
+          "einkaufsdisponent-in-stadler-rail-winterthur"
+        ],
+        "fr": [
+          "einkaufsdisponent-in-stadler-rail-winterthur"
         ]
       },
       "firstSeenAt": "2026-10-09T09:40:33.000Z",

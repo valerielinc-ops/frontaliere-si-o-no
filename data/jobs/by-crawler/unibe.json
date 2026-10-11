@@ -1405,10 +1405,10 @@
       "id": "unibe-d8e0f02fa4d1",
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
-        "it": "spezialhandwerker-in-ii-universitat-bern-bern",
-        "en": "spezialhandwerker-in-ii-universitat-bern-bern",
+        "it": "artigiano-specializzato-ii-universitat-bern-bern",
+        "en": "specialist-skilled-worker-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
-        "fr": "spezialhandwerker-in-ii-universitat-bern-bern"
+        "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1457,16 +1457,20 @@
         "spezialhandwerker-in-ii-unibe-bern",
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
-        "artisan-ne-specialise-e-ii-universitat-bern-bern"
+        "spezialhandwerker-in-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern"
+          "artigiani-specializzati-ii-universitat-bern-bern",
+          "spezialhandwerker-in-ii-universitat-bern-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
-          "artisan-ne-specialise-e-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-universitat-bern-bern"
+        ],
+        "en": [
+          "spezialhandwerker-in-ii-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.247Z",
@@ -2542,12 +2546,12 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-systemadministrator-in-universitat-bern-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
+        "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "it-systemadministrator-in-universitat-bern-bern"
+        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2593,18 +2597,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
-        "it-system-administrator-universitat-bern-bern",
-        "administrateur-systeme-informatique-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-systemadministrator-in-unibe-bern"
+          "it-systemadministrator-in-unibe-bern",
+          "it-systemadministrator-in-universitat-bern-bern"
         ],
         "en": [
-          "it-system-administrator-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern-bern"
         ],
         "fr": [
-          "administrateur-systeme-informatique-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -3279,12 +3283,12 @@
     },
     {
       "id": "unibe-7e6aae9ff6f9",
-      "slug": "laborant-in-im-forschungslabor-universitat-bern-bern",
+      "slug": "tecnico-di-laboratorio-nel-laboratorio-di-ricerca-universitat-bern-bern",
       "slugByLocale": {
-        "it": "laborant-in-im-forschungslabor-universitat-bern-bern",
-        "en": "laborant-in-im-forschungslabor-universitat-bern-bern",
+        "it": "tecnico-di-laboratorio-nel-laboratorio-di-ricerca-universitat-bern-bern",
+        "en": "laboratory-technician-in-the-research-laboratory-universitat-bern-bern",
         "de": "laborant-in-im-forschungslabor-unibe-bern",
-        "fr": "laborant-in-im-forschungslabor-universitat-bern-bern"
+        "fr": "laborant-e-en-laboratoire-de-recherche-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3330,11 +3334,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborant-in-im-forschungslabor-unibe-bern"
+        "laborant-in-im-forschungslabor-unibe-bern",
+        "laborant-in-im-forschungslabor-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-im-forschungslabor-unibe-bern"
+          "laborant-in-im-forschungslabor-unibe-bern",
+          "laborant-in-im-forschungslabor-universitat-bern-bern"
+        ],
+        "en": [
+          "laborant-in-im-forschungslabor-universitat-bern-bern"
+        ],
+        "fr": [
+          "laborant-in-im-forschungslabor-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-01T09:29:43.589Z",

@@ -862,12 +862,12 @@
     },
     {
       "id": "unispital-basel-2b18bfb9f371",
-      "slug": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2",
+      "slug": "salute-professionale-fage-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2",
-        "en": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2",
+        "it": "salute-professionale-fage-universitatsspital-basel-basel",
+        "en": "professional-health-fage-universitatsspital-basel-basel",
         "de": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch",
-        "fr": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2"
+        "fr": "sante-professionnelle-fage-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -921,7 +921,8 @@
         "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel",
         "specialista-mann-salute-fage-neurologia-universitatsspital-basel-basel",
         "specialist-mann-health-fage-neurology-universitatsspital-basel-basel",
-        "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel"
+        "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel",
+        "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -935,10 +936,12 @@
           "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel",
           "specialista-mann-salute-fage-neurologia-universitatsspital-basel-basel",
           "specialist-mann-health-fage-neurology-universitatsspital-basel-basel",
-          "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel"
+          "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel",
+          "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2"
         ],
         "en": [
-          "professional-payroll-universitatsspital-basel-basel"
+          "professional-payroll-universitatsspital-basel-basel",
+          "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2"
         ],
         "de": [
           "fachfrau-fachmann-payroll-unispital-basel-ch",
@@ -947,7 +950,8 @@
         "fr": [
           "remuneration-professionnelle-universitatsspital-basel-basel",
           "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch",
-          "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel"
+          "specialiste-mann-sante-fage-neurologie-universitatsspital-basel-basel",
+          "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch-2"
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.629Z",
@@ -1309,12 +1313,12 @@
     },
     {
       "id": "unispital-basel-eea124ba543e",
-      "slug": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
+      "slug": "responsabile-principale-r-formazione-professionale-hvbb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
-        "en": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel",
+        "it": "responsabile-principale-r-formazione-professionale-hvbb-universitatsspital-basel-basel",
+        "en": "main-responsible-r-vocational-training-care-hvbb-universitatsspital-basel-basel",
         "de": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-unispital-basel-ch",
-        "fr": "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
+        "fr": "responsable-principal-des-soins-de-formation-professionnelle-hvbb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1363,14 +1367,20 @@
         ],
         "it": [
           "hauptverantwortliche-r-berufsbildung-pflege-hvbb-unispital-basel-ch",
-          "responsabile-principale-r-formazione-professionale-hvbb-universitatsspital-basel-basel",
-          "hauptverantwortliche-r-berufsbildung-pflege-vbb-unispital-basel-ch"
+          "hauptverantwortliche-r-berufsbildung-pflege-vbb-unispital-basel-ch",
+          "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
         "hauptverantwortliche-r-berufsbildung-pflege-hvbb-unispital-basel-ch",
-        "responsabile-principale-r-formazione-professionale-hvbb-universitatsspital-basel-basel",
-        "hauptverantwortliche-r-berufsbildung-pflege-vbb-unispital-basel-ch"
+        "hauptverantwortliche-r-berufsbildung-pflege-vbb-unispital-basel-ch",
+        "hauptverantwortliche-r-berufsbildung-pflege-hvbb-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-07-03T23:45:57.170Z",
       "salaryMin": 85500,
@@ -1389,12 +1399,12 @@
     },
     {
       "id": "unispital-basel-b04eae5e3978",
-      "slug": "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel",
+      "slug": "specialista-expert-operations-technology-hf-fh-nella-springerpool-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel",
-        "en": "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel",
+        "it": "specialista-expert-operations-technology-hf-fh-nella-springerpool-universitatsspital-basel-basel",
+        "en": "specialist-expert-operations-technology-hf-fh-in-the-springerpool-universitatsspital-basel-basel",
         "de": "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel"
+        "fr": "specialiste-de-la-technique-chirurgicale-en-hf-fh-dans-la-piscine-de-sauteurs-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1439,12 +1449,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch",
-        "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel"
+        "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel",
+        "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch",
-          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel"
+          "fachfrau-fachmann-op-lagerung-hf-fh-im-springerpool-universitatsspital-basel-basel",
+          "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-18T13:20:47.073Z",
@@ -1633,10 +1651,10 @@
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
+        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
+        "en": "medical-device-technologist-medical-device-technologist-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1681,14 +1699,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
         ],
         "fr": [
-          "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
@@ -1781,12 +1803,12 @@
     },
     {
       "id": "unispital-basel-4b27f6a9d3ec",
-      "slug": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+      "slug": "assistente-med-praxis-mpa-ent-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
-        "en": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel",
+        "it": "assistente-med-praxis-mpa-ent-universitatsspital-basel-basel",
+        "en": "med-praxis-assistant-mpa-ent-universitatsspital-basel-basel",
         "de": "med-praxisassistentin-praxisassistent-mpa-hno-unispital-basel-ch",
-        "fr": "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel"
+        "fr": "med-praxisassistantine-praxisassisant-mpa-hno-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1836,7 +1858,8 @@
         "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch",
         "assistant-de-pratique-assistant-de-pratique-mpa-anesthesiologie-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
-        "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel"
+        "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel",
+        "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1846,16 +1869,19 @@
           "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch",
           "assistant-de-pratique-assistant-de-pratique-mpa-anesthesiologie-universitatsspital-basel-basel",
           "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
-          "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel"
+          "assistant-de-pratique-medicale-assistant-de-pratique-medicale-mpa-anesthesiologie-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel"
         ],
         "en": [
-          "med-practice-assistant-practice-assistant-mpa-anesthesiology-universitatsspital-basel-basel"
+          "med-practice-assistant-practice-assistant-mpa-anesthesiology-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel"
         ],
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch"
         ],
         "fr": [
-          "assistant-de-pratique-assistant-de-pratique-mpa-anesthesiologie-universitatsspital-basel-basel"
+          "assistant-de-pratique-assistant-de-pratique-mpa-anesthesiologie-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-hno-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-29T11:54:29.199Z",
@@ -1966,12 +1992,12 @@
     },
     {
       "id": "unispital-basel-953c9e4c8601",
-      "slug": "chefapothekerin-chefapotheker-universitatsspital-basel-basel",
+      "slug": "farmacista-capo-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "chefapothekerin-chefapotheker-universitatsspital-basel-basel",
-        "en": "chefapothekerin-chefapotheker-universitatsspital-basel-basel",
+        "it": "farmacista-capo-universitatsspital-basel-basel",
+        "en": "chief-pharmacist-universitatsspital-basel-basel",
         "de": "chefapothekerin-chefapotheker-unispital-basel-ch",
-        "fr": "chefapothekerin-chefapotheker-universitatsspital-basel-basel"
+        "fr": "pharmacien-en-chef-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2015,11 +2041,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chefapothekerin-chefapotheker-unispital-basel-ch"
+        "chefapothekerin-chefapotheker-unispital-basel-ch",
+        "chefapothekerin-chefapotheker-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefapothekerin-chefapotheker-unispital-basel-ch"
+          "chefapothekerin-chefapotheker-unispital-basel-ch",
+          "chefapothekerin-chefapotheker-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "chefapothekerin-chefapotheker-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "chefapothekerin-chefapotheker-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-03T12:48:51.617Z",
@@ -2129,12 +2163,12 @@
     },
     {
       "id": "unispital-basel-b27b9f358408",
-      "slug": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
+      "slug": "stage-in-amministrazione-clinica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
-        "en": "praktikant-in-klinikadministration-universitatsspital-basel-basel",
+        "it": "stage-in-amministrazione-clinica-universitatsspital-basel-basel",
+        "en": "internship-in-clinical-administration-universitatsspital-basel-basel",
         "de": "praktikant-in-klinikadministration-unispital-basel-ch",
-        "fr": "praktikant-in-klinikadministration-universitatsspital-basel-basel"
+        "fr": "stage-en-administration-clinique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2178,11 +2212,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-klinikadministration-unispital-basel-ch"
+        "praktikant-in-klinikadministration-unispital-basel-ch",
+        "praktikant-in-klinikadministration-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-klinikadministration-unispital-basel-ch"
+          "praktikant-in-klinikadministration-unispital-basel-ch",
+          "praktikant-in-klinikadministration-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "praktikant-in-klinikadministration-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "praktikant-in-klinikadministration-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-11T22:01:10.362Z",
@@ -2202,12 +2244,12 @@
     },
     {
       "id": "unispital-basel-d3b838df37ad",
-      "slug": "betreuungsassistenz-kita-universitatsspital-basel-basel",
+      "slug": "assistenza-sanitaria-kita-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "betreuungsassistenz-kita-universitatsspital-basel-basel",
-        "en": "betreuungsassistenz-kita-universitatsspital-basel-basel",
+        "it": "assistenza-sanitaria-kita-universitatsspital-basel-basel",
+        "en": "care-assistance-kita-universitatsspital-basel-basel",
         "de": "betreuungsassistenz-kita-unispital-basel-ch",
-        "fr": "betreuungsassistenz-kita-universitatsspital-basel-basel"
+        "fr": "aide-aux-soins-kita-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2251,11 +2293,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betreuungsassistenz-kita-unispital-basel-ch"
+        "betreuungsassistenz-kita-unispital-basel-ch",
+        "betreuungsassistenz-kita-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betreuungsassistenz-kita-unispital-basel-ch"
+          "betreuungsassistenz-kita-unispital-basel-ch",
+          "betreuungsassistenz-kita-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "betreuungsassistenz-kita-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "betreuungsassistenz-kita-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-11T22:01:10.362Z",
@@ -2557,12 +2607,12 @@
     },
     {
       "id": "unispital-basel-2677d2178ed0",
-      "slug": "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel",
+      "slug": "assistente-medico-psicosomatica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel",
-        "en": "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel",
+        "it": "assistente-medico-psicosomatica-universitatsspital-basel-basel",
+        "en": "assistant-doctor-psychosomatics-universitatsspital-basel-basel",
         "de": "assistenzarztin-assistenzarzt-psychosomatik-unispital-basel-ch",
-        "fr": "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel"
+        "fr": "assistant-medecin-psychosomatique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2608,19 +2658,25 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-psychosomatik-unispital-basel-ch",
         "assistenzarztin-assistenzarzt-thoraxchirurgie-universitatsspital-basel-basel",
-        "assistenzarztin-assistenzarzt-thoraxchirurgie-unispital-basel-ch"
+        "assistenzarztin-assistenzarzt-thoraxchirurgie-unispital-basel-ch",
+        "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-psychosomatik-unispital-basel-ch",
           "assistenzarztin-assistenzarzt-thoraxchirurgie-universitatsspital-basel-basel",
-          "assistenzarztin-assistenzarzt-thoraxchirurgie-unispital-basel-ch"
+          "assistenzarztin-assistenzarzt-thoraxchirurgie-unispital-basel-ch",
+          "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-thoraxchirurgie-unispital-basel-ch"
         ],
         "fr": [
-          "assistenzarztin-assistenzarzt-thoraxchirurgie-universitatsspital-basel-basel"
+          "assistenzarztin-assistenzarzt-thoraxchirurgie-universitatsspital-basel-basel",
+          "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psychosomatik-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-14T21:30:52.065Z",
@@ -2793,10 +2849,10 @@
       "id": "unispital-basel-c6b7a7b547f5",
       "slug": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
-        "en": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
+        "it": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
+        "en": "deputy-head-of-endoscopy-station-claraspital-usb-location-universitatsspital-basel-basel",
         "de": "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "fr": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+        "fr": "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2843,16 +2899,20 @@
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
         "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
         "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-        "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
+        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
-          "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
@@ -3282,9 +3342,9 @@
     },
     {
       "id": "unispital-basel-193e101e43b2",
-      "slug": "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel",
+      "slug": "gestione-del-sito-amministrativo-ortho-trauma-sito-di-bethesda-spital-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel",
+        "it": "gestione-del-sito-amministrativo-ortho-trauma-sito-di-bethesda-spital-universitatsspital-basel-basel",
         "en": "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel",
         "de": "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-unispital-basel-ch",
         "fr": "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel"
@@ -3331,11 +3391,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-unispital-basel-ch"
+        "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-unispital-basel-ch",
+        "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-unispital-basel-ch"
+          "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-unispital-basel-ch",
+          "administrative-standortleitung-ortho-trauma-standort-bethesda-spital-universitatsspital-basel-basel"
         ]
       },
       "needsRetranslation": true,
@@ -3531,12 +3593,12 @@
     },
     {
       "id": "unispital-basel-7c2269b779af",
-      "slug": "psychologin-psychologe-psychosomatik-unispital-basel-ch",
+      "slug": "psicologo-psicosomatica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "psychologin-psychologe-psychosomatik-unispital-basel-ch",
-        "en": "psychologin-psychologe-psychosomatik-unispital-basel-ch",
+        "it": "psicologo-psicosomatica-universitatsspital-basel-basel",
+        "en": "psychologist-psychosomatics-universitatsspital-basel-basel",
         "de": "psychologin-psychologe-psychosomatik-universitatsspital-basel-basel",
-        "fr": "psychologin-psychologe-psychosomatik-unispital-basel-ch"
+        "fr": "psychologue-psychosomatique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3592,7 +3654,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-psychosomatik-unispital-basel-ch"
+        ],
+        "en": [
+          "psychologin-psychologe-psychosomatik-unispital-basel-ch"
+        ],
+        "fr": [
+          "psychologin-psychologe-psychosomatik-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-psychosomatik-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-7d457c759b45",
@@ -3748,12 +3824,12 @@
     },
     {
       "id": "unispital-basel-4ce4c7672916",
-      "slug": "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel",
+      "slug": "interno-di-ricerca-tirocinante-di-ricerca-psicosomatica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel",
-        "en": "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel",
+        "it": "interno-di-ricerca-tirocinante-di-ricerca-psicosomatica-universitatsspital-basel-basel",
+        "en": "research-intern-research-intern-psychosomatics-universitatsspital-basel-basel",
         "de": "forschungspraktikantin-forschungspraktikant-psychosomatik-unispital-basel-ch",
-        "fr": "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel"
+        "fr": "stage-de-recherche-stagiaire-de-recherche-psychosomatique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3797,11 +3873,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "forschungspraktikantin-forschungspraktikant-psychosomatik-unispital-basel-ch"
+        "forschungspraktikantin-forschungspraktikant-psychosomatik-unispital-basel-ch",
+        "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forschungspraktikantin-forschungspraktikant-psychosomatik-unispital-basel-ch"
+          "forschungspraktikantin-forschungspraktikant-psychosomatik-unispital-basel-ch",
+          "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "forschungspraktikantin-forschungspraktikant-psychosomatik-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-08-28T05:26:28.685Z",
@@ -7757,12 +7841,12 @@
     },
     {
       "id": "unispital-basel-7576e5f30f61",
-      "slug": "teamleitung-patientenadministration-universitatsspital-basel-basel",
+      "slug": "gestione-del-team-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "teamleitung-patientenadministration-universitatsspital-basel-basel",
-        "en": "teamleitung-patientenadministration-universitatsspital-basel-basel",
+        "it": "gestione-del-team-universitatsspital-basel-basel",
+        "en": "team-management-patient-administration-universitatsspital-basel-basel",
         "de": "teamleitung-patientenadministration-unispital-basel-ch",
-        "fr": "teamleitung-patientenadministration-universitatsspital-basel-basel"
+        "fr": "gestion-d-equipe-administration-du-patient-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7806,11 +7890,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-patientenadministration-unispital-basel-ch"
+        "teamleitung-patientenadministration-unispital-basel-ch",
+        "teamleitung-patientenadministration-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-patientenadministration-unispital-basel-ch"
+          "teamleitung-patientenadministration-unispital-basel-ch",
+          "teamleitung-patientenadministration-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "teamleitung-patientenadministration-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "teamleitung-patientenadministration-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-09-19T23:02:19.844Z",
@@ -8312,10 +8404,10 @@
       "id": "unispital-basel-4ea8a41de814",
       "slug": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
+        "it": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
         "en": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "de": "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-        "fr": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+        "fr": "developpeur-systeme-senior-applications-cliniques-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8359,11 +8451,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
+        "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
+        "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
+          "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
+          "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-09-25T14:52:36.208Z",
@@ -8464,12 +8561,12 @@
     },
     {
       "id": "unispital-basel-e4b0341b9237",
-      "slug": "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel",
+      "slug": "professionista-professionista-della-salute-stazione-letto-privato-chirurgico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel",
-        "en": "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel",
+        "it": "professionista-professionista-della-salute-stazione-letto-privato-chirurgico-universitatsspital-basel-basel",
+        "en": "professional-health-professional-surgical-private-bed-station-universitatsspital-basel-basel",
         "de": "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-unispital-basel-ch",
-        "fr": "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel"
+        "fr": "professionnel-professionnel-de-la-sante-station-de-lit-prive-chirurgicale-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8513,11 +8610,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-unispital-basel-ch"
+        "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-unispital-basel-ch",
+        "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-unispital-basel-ch"
+          "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-unispital-basel-ch",
+          "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-chirurgische-privatbettenstation-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-09-25T14:52:36.206Z",
@@ -8616,12 +8721,12 @@
     },
     {
       "id": "unispital-basel-1abd98f91624",
-      "slug": "leitung-klinikadministration-universitatsspital-basel-basel",
+      "slug": "responsabile-dell-amministrazione-clinica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "leitung-klinikadministration-universitatsspital-basel-basel",
-        "en": "leitung-klinikadministration-universitatsspital-basel-basel",
+        "it": "responsabile-dell-amministrazione-clinica-universitatsspital-basel-basel",
+        "en": "head-of-clinical-administration-universitatsspital-basel-basel",
         "de": "leitung-klinikadministration-unispital-basel-ch",
-        "fr": "leitung-klinikadministration-universitatsspital-basel-basel"
+        "fr": "chef-de-l-administration-clinique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8665,11 +8770,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-klinikadministration-unispital-basel-ch"
+        "leitung-klinikadministration-unispital-basel-ch",
+        "leitung-klinikadministration-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-klinikadministration-unispital-basel-ch"
+          "leitung-klinikadministration-unispital-basel-ch",
+          "leitung-klinikadministration-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "leitung-klinikadministration-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "leitung-klinikadministration-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-09-25T14:52:36.203Z",
@@ -9186,12 +9299,12 @@
     },
     {
       "id": "unispital-basel-f37eb31c58cb",
-      "slug": "nutrizionista-bsc-universitatsspital-basel-basel-388467fe56",
+      "slug": "nutrizionista-bsc-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-bsc-universitatsspital-basel-basel",
-        "en": "ernahrungsberater-in-bsc-universitatsspital-basel-basel",
+        "it": "nutrizionista-bsc-universitatsspital-basel-basel",
+        "en": "dietician-for-universitatsspital-basel-basel",
         "de": "ernahrungsberater-in-bsc-unispital-basel-ch",
-        "fr": "ernahrungsberater-in-bsc-universitatsspital-basel-basel"
+        "fr": "nutritionniste-bsc-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9236,12 +9349,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ernahrungsberater-in-bsc-unispital-basel-ch",
-        "ernahrungsberater-in-bsc-unispital-basel-ch-2"
+        "ernahrungsberater-in-bsc-unispital-basel-ch-2",
+        "ernahrungsberater-in-bsc-universitatsspital-basel-basel",
+        "nutrizionista-bsc-universitatsspital-basel-basel-388467fe56"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-unispital-basel-ch",
-          "ernahrungsberater-in-bsc-unispital-basel-ch-2"
+          "ernahrungsberater-in-bsc-unispital-basel-ch-2",
+          "ernahrungsberater-in-bsc-universitatsspital-basel-basel",
+          "nutrizionista-bsc-universitatsspital-basel-basel-388467fe56"
+        ],
+        "en": [
+          "ernahrungsberater-in-bsc-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "ernahrungsberater-in-bsc-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-09-28T21:23:16.233Z",
@@ -9766,12 +9889,12 @@
     },
     {
       "id": "unispital-basel-a51b5692700d",
-      "slug": "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel",
+      "slug": "assistente-medico-mpa-ortopedia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel",
-        "en": "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel",
+        "it": "assistente-medico-mpa-ortopedia-universitatsspital-basel-basel",
+        "en": "medical-practice-assistant-mpa-orthopaedics-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-mpa-orthopadie-unispital-basel-ch",
-        "fr": "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel"
+        "fr": "assistant-en-pratique-medicale-mpa-orthopedie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9815,11 +9938,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "med-praxisassistent-in-mpa-orthopadie-unispital-basel-ch"
+        "med-praxisassistent-in-mpa-orthopadie-unispital-basel-ch",
+        "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-mpa-orthopadie-unispital-basel-ch"
+          "med-praxisassistent-in-mpa-orthopadie-unispital-basel-ch",
+          "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "med-praxisassistent-in-mpa-orthopadie-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-10-05T09:28:51.416Z",

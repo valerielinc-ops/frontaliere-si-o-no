@@ -7346,12 +7346,12 @@
     },
     {
       "id": "tertianum-f9c0d498d1e4",
-      "slug": "apprendista-specialista-in-salute-tertianum-zurich-8092c7e6fe",
+      "slug": "apprendista-specialista-in-salute-tertianum-zurich",
       "slugByLocale": {
-        "it": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
-        "en": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+        "it": "apprendista-specialista-in-salute-tertianum-zurich",
+        "en": "apprentice-healthcare-specialist-tertianum-zurich",
         "de": "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich",
-        "fr": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
+        "fr": "apprenti-specialiste-de-la-sante-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -7396,11 +7396,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich"
+        "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich",
+        "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+        "apprendista-specialista-in-salute-tertianum-zurich-8092c7e6fe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich"
+          "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich",
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+          "apprendista-specialista-in-salute-tertianum-zurich-8092c7e6fe"
+        ],
+        "en": [
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
+        ],
+        "fr": [
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T05:09:10.930Z",
@@ -7688,12 +7698,12 @@
     },
     {
       "id": "tertianum-b2a047d1d3ca",
-      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-zurich-338dfbbc60",
+      "slug": "apprendistato-come-specialista-in-sanita-afc-tertianum-zurich",
       "slugByLocale": {
         "de": "lernende-r-fachfrau-mann-gesundheit-tertianum-zurich",
-        "it": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
-        "en": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
-        "fr": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
+        "it": "apprendistato-come-specialista-in-sanita-afc-tertianum-zurich",
+        "en": "apprenticeship-as-a-specialist-health-professional-efz-tertianum-zurich",
+        "fr": "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -7741,15 +7751,25 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
-          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich-pjl2z4"
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich-pjl2z4",
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-zurich-338dfbbc60"
         ],
         "de": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich"
+        ],
+        "en": [
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
+        ],
+        "fr": [
+          "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
-        "apprendista-fachfrau-mann-gesundheit-tertianum-zurich-pjl2z4"
+        "apprendista-fachfrau-mann-gesundheit-tertianum-zurich-pjl2z4",
+        "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-tertianum-zurich-338dfbbc60"
       ],
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -10649,12 +10669,12 @@
     },
     {
       "id": "tertianum-e13967ebaca0",
-      "slug": "fachfrau-mann-gesundheit-tertianum-berlingen",
+      "slug": "specialista-in-salute-per-la-riabilitazione-geriatrica-con-e-senza-funzione-di-formatore-professionale-tertianum",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-tertianum-berlingen",
-        "en": "fachfrau-mann-gesundheit-tertianum-berlingen",
+        "it": "specialista-in-salute-per-la-riabilitazione-geriatrica-con-e-senza-funzione-di-formatore-professionale-tertianum",
+        "en": "specialist-in-health-for-geriatric-rehabilitation-with-and-without-vocational-trainer-function-tertianum-berlingen",
         "de": "fachfrau-mann-gesundheit-fur-die-geriatrische-rehabilitation-mit-und-ohne-berufsbildner",
-        "fr": "fachfrau-mann-gesundheit-tertianum-berlingen"
+        "fr": "specialiste-en-sante-pour-la-reeducation-geriatrique-avec-et-sans-fonction-de-formateur-professionnel-tertianum"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -10699,11 +10719,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fur-die-geriatrische-rehabilitation-mit-und-ohne-berufsbildner"
+        "fachfrau-mann-gesundheit-fur-die-geriatrische-rehabilitation-mit-und-ohne-berufsbildner",
+        "fachfrau-mann-gesundheit-tertianum-berlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-fur-die-geriatrische-rehabilitation-mit-und-ohne-berufsbildner"
+          "fachfrau-mann-gesundheit-fur-die-geriatrische-rehabilitation-mit-und-ohne-berufsbildner",
+          "fachfrau-mann-gesundheit-tertianum-berlingen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-tertianum-berlingen"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-tertianum-berlingen"
         ]
       },
       "firstSeenAt": "2026-09-29T09:28:48.725Z",

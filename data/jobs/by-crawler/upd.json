@@ -3159,12 +3159,12 @@
     },
     {
       "id": "upd-151eb1d7c3b6",
-      "slug": "oberarztin-oberarzt-forensik-upd-bern-2",
+      "slug": "capoclinica-capoclinica-forense-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-forensik-upd-bern-2",
-        "en": "oberarztin-oberarzt-forensik-upd-bern-2",
+        "it": "capoclinica-capoclinica-forense-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "senior-physician-forensics-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "oberarztin-oberarzt-forensik-upd-bern",
-        "fr": "oberarztin-oberarzt-forensik-upd-bern-2"
+        "fr": "medecin-chef-en-medecine-legale-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -3210,11 +3210,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-forensik-upd-bern"
+        "oberarztin-oberarzt-forensik-upd-bern",
+        "oberarztin-oberarzt-forensik-upd-bern-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-forensik-upd-bern"
+          "oberarztin-oberarzt-forensik-upd-bern",
+          "oberarztin-oberarzt-forensik-upd-bern-2"
+        ],
+        "en": [
+          "oberarztin-oberarzt-forensik-upd-bern-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-forensik-upd-bern-2"
         ]
       },
       "firstSeenAt": "2026-09-29T21:25:33.540Z",

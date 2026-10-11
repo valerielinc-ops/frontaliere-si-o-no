@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rehaklinik-seewis-3893d44b24a8",
-      "slug": "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik",
+      "slug": "psichiatria-psicosomatica-del-medico-senior-a-60-100-kurhaus-seewis-im-prattigau",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik",
-        "it": "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik",
-        "en": "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik",
-        "fr": "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik"
+        "it": "psichiatria-psicosomatica-del-medico-senior-a-60-100-kurhaus-seewis-im-prattigau",
+        "en": "senior-physician-psychiatry-psychosomatics-a-60-100-kurhaus-seewis-im-prattigau",
+        "fr": "medecin-principal-psychiatrie-psychosomatique-a-60-100-kurhaus-seewis-im-prattigau"
       },
       "company": "Kurhaus",
       "companyKey": "rehaklinik-seewis",
@@ -68,16 +68,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-11T09:42:52.847Z"
+      "firstSeenAt": "2026-10-11T09:42:52.847Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik"
+        ],
+        "en": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik"
+        ]
+      },
+      "previousSlugs": [
+        "oberarzt-oberarztin-psychiatrie-psychosomatik-a-60-100-seewis-im-prattigau-rehaklinik"
+      ]
     },
     {
       "id": "rehaklinik-seewis-834973f21de6",
-      "slug": "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch",
+      "slug": "night-watch-sleep-laboratory-epileptology-20-40-kurhaus-tschugg",
       "slugByLocale": {
         "de": "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch",
-        "it": "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch",
+        "it": "night-watch-sleep-laboratory-epileptology-20-40-kurhaus-tschugg",
         "en": "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch",
-        "fr": "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
+        "fr": "laboratoire-de-veille-nocturne-epileptologie-20-40-kurhaus-tschugg"
       },
       "company": "Kurhaus",
       "companyKey": "rehaklinik-seewis",
@@ -136,16 +150,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-11T09:42:52.846Z"
+      "firstSeenAt": "2026-10-11T09:42:52.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
+        ],
+        "fr": [
+          "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nachtwache-schlaflabor-epileptologie-20-40-tschugg-rehaklinik-seewis-ch"
+      ]
     },
     {
       "id": "rehaklinik-seewis-8079a59da204",
-      "slug": "oberarzt-oberarztin-a-mbf-per-orthopala-e-traumatologie-80-100-kurhaus-dussnang",
+      "slug": "medico-caposervizio-medica-caposervizio-a-con-funzione-speciale-per-ortopedia-e-traumatologia-80-100-kurhaus-dussnang",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik",
-        "it": "oberarzt-oberarztin-a-mbf-per-orthopala-e-traumatologie-80-100-kurhaus-dussnang",
-        "en": "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik",
-        "fr": "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik"
+        "it": "medico-caposervizio-medica-caposervizio-a-con-funzione-speciale-per-ortopedia-e-traumatologia-80-100-kurhaus-dussnang",
+        "en": "senior-physician-a-mbf-for-orthopaedics-and-traumatology-80-100-kurhaus-dussnang",
+        "fr": "medecin-principal-a-mbf-pour-l-orthopedie-et-la-traumatologie-80-100-kurhaus-dussnang"
       },
       "company": "Kurhaus",
       "companyKey": "rehaklinik-seewis",
@@ -193,11 +218,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik",
+          "oberarzt-oberarztin-a-mbf-per-orthopala-e-traumatologie-80-100-kurhaus-dussnang"
+        ],
+        "en": [
+          "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik"
+        ],
+        "fr": [
           "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik"
         ]
       },
       "previousSlugs": [
-        "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik"
+        "oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100-dussnang-rehaklinik",
+        "oberarzt-oberarztin-a-mbf-per-orthopala-e-traumatologie-80-100-kurhaus-dussnang"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -216,12 +249,12 @@
     },
     {
       "id": "rehaklinik-seewis-363b145d4896",
-      "slug": "assistenzarzt-assistenzarztin-parkinsonzentrum-e-neurorehabilitation-100-kurhaus-tschugg",
+      "slug": "medico-assistente-medica-assistente-centro-parkinson-e-neuroriabilitazione-100-kurhaus-tschugg",
       "slugByLocale": {
         "de": "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg",
-        "it": "assistenzarzt-assistenzarztin-parkinsonzentrum-e-neurorehabilitation-100-kurhaus-tschugg",
-        "en": "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg",
-        "fr": "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg"
+        "it": "medico-assistente-medica-assistente-centro-parkinson-e-neuroriabilitazione-100-kurhaus-tschugg",
+        "en": "assistant-physician-parkinson-s-center-and-neurorehabilitation-100-kurhaus-tschugg",
+        "fr": "centre-et-neuroreadaptation-du-medecin-adjoint-parkinson-100-kurhaus-tschugg"
       },
       "company": "Kurhaus",
       "companyKey": "rehaklinik-seewis",
@@ -269,11 +302,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg",
+          "assistenzarzt-assistenzarztin-parkinsonzentrum-e-neurorehabilitation-100-kurhaus-tschugg"
+        ],
+        "en": [
+          "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg"
+        ],
+        "fr": [
           "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg"
         ]
       },
       "previousSlugs": [
-        "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg"
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100-tschugg",
+        "assistenzarzt-assistenzarztin-parkinsonzentrum-e-neurorehabilitation-100-kurhaus-tschugg"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -292,12 +333,12 @@
     },
     {
       "id": "rehaklinik-seewis-250cf050995a",
-      "slug": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
+      "slug": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
       "slugByLocale": {
         "de": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
-        "it": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
-        "en": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch",
-        "fr": "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        "it": "psicologo-psicologo-a-80-100-kurhaus-seewis-im-prattigau",
+        "en": "psychologist-psychologist-a-80-100-kurhaus-seewis-im-prattigau",
+        "fr": "psychologue-psychologue-a-80-100-kurhaus-seewis-im-prattigau"
       },
       "company": "Kurhaus",
       "companyKey": "rehaklinik-seewis",
@@ -356,7 +397,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-11T09:42:52.841Z"
+      "firstSeenAt": "2026-10-11T09:42:52.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ],
+        "en": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ],
+        "fr": [
+          "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologe-psychologin-a-80-100-seewis-im-prattigau-rehaklinik-seewis-ch"
+      ]
     }
   ]
 }

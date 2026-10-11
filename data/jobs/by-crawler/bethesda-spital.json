@@ -92,12 +92,12 @@
     },
     {
       "id": "bethesda-spital-baf39e2a8c2a",
-      "slug": "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel",
+      "slug": "tecnica-chirurgica-per-formatore-professionale-nel-carico-di-lavoro-desiderato-80-100-bethesda-spital-basel",
       "slugByLocale": {
-        "it": "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel",
-        "en": "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel",
+        "it": "tecnica-chirurgica-per-formatore-professionale-nel-carico-di-lavoro-desiderato-80-100-bethesda-spital-basel",
+        "en": "vocational-trainer-surgical-technique-in-the-desired-workload-80-100-bethesda-spital-basel",
         "de": "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
-        "fr": "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
+        "fr": "technique-chirurgicale-de-formateur-professionnel-dans-la-charge-de-travail-souhaitee-80-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -147,12 +147,20 @@
           "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel"
         ],
         "it": [
-          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda"
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
+        ],
+        "en": [
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
+        ],
+        "fr": [
+          "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
         ]
       },
       "previousSlugs": [
         "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-basel-basel-stadt-im-bethesda",
-        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel"
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-bethesda-spital-basel",
+        "berufsbildner-in-operationstechnik-im-wunschpensum-80-100-im-bethesda-spital-basel"
       ],
       "firstSeenAt": "2026-07-06T13:06:46.481Z",
       "salaryMin": 88000,
@@ -641,10 +649,10 @@
     },
     {
       "id": "bethesda-spital-dfed80e25b80",
-      "slug": "observice-observice-radiology-80-100-bethesda-spital-basel",
+      "slug": "capoclinica-capoclinica-radiologia-80-100-bethesda-spital-basel",
       "slugByLocale": {
-        "it": "observice-observice-radiology-80-100-bethesda-spital-basel",
-        "en": "observice-observice-radiology-80-100-bethesda-spital-basel",
+        "it": "capoclinica-capoclinica-radiologia-80-100-bethesda-spital-basel",
+        "en": "senior-physician-radiology-80-100-bethesda-spital-basel",
         "de": "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel",
         "fr": "radiologie-observice-observice-80-100-bethesda-spital-basel"
       },
@@ -696,18 +704,21 @@
         "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
         "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
         "observice-observice-radiology-80-100-im-bethesda-spital-basel",
-        "radiologie-observice-observice-80-100-im-bethesda-spital-basel-basel-stadt"
+        "radiologie-observice-observice-80-100-im-bethesda-spital-basel-basel-stadt",
+        "observice-observice-radiology-80-100-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel",
           "observice-observice-radiology-80-100-im-bethesda-spital-basel-basel-stadt",
-          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+          "observice-observice-radiology-80-100-bethesda-spital-basel"
         ],
         "en": [
           "oberarztin-oberarzt-radiologie-80-100-bethesda-spital-basel",
           "observice-observice-radiology-80-100-im-bethesda-spital-basel",
-          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"
+          "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch",
+          "observice-observice-radiology-80-100-bethesda-spital-basel"
         ],
         "de": [
           "oberarztin-oberarzt-radiologie-80-100-basel-basel-stadt-im-bethesda-spital-ch"

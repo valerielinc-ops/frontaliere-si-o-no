@@ -2455,7 +2455,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2504,7 +2504,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2514,7 +2514,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -3210,12 +3210,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-3bddf1ef9953",
-      "slug": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-medico-in-chirurgia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
-        "en": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen",
+        "it": "assistente-medico-in-chirurgia-spitaler-schaffhausen-schaffhausen",
+        "en": "assistant-physician-surgery-spitaler-schaffhausen-schaffhausen",
         "de": "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
+        "fr": "chirurgie-adjointe-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3263,20 +3263,24 @@
         "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
         "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
         "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen",
-        "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen"
+        "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
+        "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-medico-assistente-medico-chirurgia-spitaler-schaffhausen-schaffhausen",
           "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
           "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen",
-          "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen"
+          "assistenzarztin-assistenzarzt-chirurgie-spitaeler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
         ],
         "en": [
-          "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen"
+          "assistant-doctor-assistant-doctor-surgery-spitaler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen"
+          "assistant-medecin-assistant-medecin-chirurgie-spitaler-schaffhausen-schaffhausen",
+          "assistenzarztin-assistenzarzt-chirurgie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-03T23:29:38.967Z",
@@ -3799,12 +3803,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-32dcc0daa843",
-      "slug": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
+      "slug": "amministratore-ammissione-pazienti-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
-        "en": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen",
+        "it": "amministratore-ammissione-pazienti-spitaler-schaffhausen-schaffhausen",
+        "en": "administrator-patient-admission-spitaler-schaffhausen-schaffhausen",
         "de": "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        "fr": "administrateur-admissions-des-patients-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3850,11 +3854,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
+        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
+        "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
+          "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen",
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-05T09:24:50.367Z",
@@ -4035,12 +4047,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-be17f08b1340",
-      "slug": "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen",
+      "slug": "responsabile-di-area-psichiatria-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen",
-        "en": "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen",
+        "it": "responsabile-di-area-psichiatria-spitaler-schaffhausen-schaffhausen",
+        "en": "area-manager-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen"
+        "fr": "responsable-de-secteur-en-psychiatrie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4086,11 +4098,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+        "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen",
+        "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+          "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen",
+          "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "bereichsmanager-in-psychiatrie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-05T21:46:43.840Z",
@@ -4260,9 +4280,9 @@
     },
     {
       "id": "spitaeler-schaffhausen-a2a712d5c72e",
-      "slug": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
         "en": "nursing-assistant-nursing-assistant-srk-spitaler-schaffhausen-schaffhausen",
         "de": "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
         "fr": "assistant-infirmier-assistant-infirmier-srk-spitaler-schaffhausen-schaffhausen"
@@ -4311,12 +4331,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
-        "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen"
+        "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
-          "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen"
+          "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-07T09:42:15.855Z",

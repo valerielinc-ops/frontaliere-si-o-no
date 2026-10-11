@@ -350,12 +350,12 @@
     },
     {
       "id": "tschuggen-f6a67a2f17b2",
-      "slug": "reservation-manager-m-w-d-tschuggen-ch",
+      "slug": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-ascona",
       "slugByLocale": {
-        "it": "reservation-manager-m-w-d-tschuggen-ch",
+        "it": "responsabile-prenotazioni-m-f-d-in-occupazione-annuale-permanente-tschuggen-collection-ascona",
         "en": "reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-ascona",
         "de": "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "fr": "reservation-manager-m-w-d-tschuggen-ch"
+        "fr": "gestionnaire-de-reservation-h-f-d-en-emploi-annuel-permanent-tschuggen-collection-ascona"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -414,7 +414,8 @@
         "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
         "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa",
         "reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
-        "gestionnaire-des-reservations-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa"
+        "gestionnaire-des-reservations-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa",
+        "reservation-manager-m-w-d-tschuggen-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -432,10 +433,14 @@
           "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
           "gestionnaire-adjoint-des-reservations-m-w-d-tschuggen-collection-arosa",
           "reservation-manager-m-f-d-in-permanent-annual-employment-tschuggen-collection-arosa",
-          "gestionnaire-des-reservations-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa"
+          "gestionnaire-des-reservations-m-f-d-en-emploi-annuel-permanent-tschuggen-collection-arosa",
+          "reservation-manager-m-w-d-tschuggen-ch"
         ],
         "de": [
           "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-ytqhky"
+        ],
+        "fr": [
+          "reservation-manager-m-w-d-tschuggen-ch"
         ]
       },
       "needsRetranslation": true,

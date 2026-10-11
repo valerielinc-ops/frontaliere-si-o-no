@@ -1171,12 +1171,12 @@
     },
     {
       "id": "lindt-spruengli-962b1b27ffac",
-      "slug": "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg",
+      "slug": "operatore-trice-di-impianti-per-la-produzione-di-base-lindt-sprungli-kilchberg",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg",
-        "en": "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg",
+        "it": "operatore-trice-di-impianti-per-la-produzione-di-base-lindt-sprungli-kilchberg",
+        "en": "plant-operator-basic-manufacturing-lindt-sprungli-kilchberg",
         "de": "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg",
-        "fr": "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
+        "fr": "operateur-rice-d-installation-en-fabrication-de-base-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1222,11 +1222,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg"
+        "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg",
+        "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg"
+          "anlagenfuhrer-in-grundfabrikation-lindt-spruengli-kilchberg",
+          "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-grundfabrikation-lindt-sprungli-kilchberg"
         ]
       },
       "salaryMin": 83000,
@@ -1331,12 +1339,12 @@
     },
     {
       "id": "lindt-spruengli-828d5e39b5a6",
-      "slug": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
+      "slug": "meccanico-aziendale-lindt-sprungli-kilchberg",
       "slugByLocale": {
-        "it": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
-        "en": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
+        "it": "meccanico-aziendale-lindt-sprungli-kilchberg",
+        "en": "operational-mechanic-lindt-sprungli-kilchberg",
         "de": "betriebsmechaniker-in-lindt-spruengli-kilchberg",
-        "fr": "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        "fr": "mecanicien-ne-d-exploitation-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1382,11 +1390,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebsmechaniker-in-lindt-spruengli-kilchberg"
+        "betriebsmechaniker-in-lindt-spruengli-kilchberg",
+        "betriebsmechaniker-in-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-lindt-spruengli-kilchberg"
+          "betriebsmechaniker-in-lindt-spruengli-kilchberg",
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        ],
+        "fr": [
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
         ]
       },
       "firstSeenAt": "2026-09-19T23:12:42.517Z",

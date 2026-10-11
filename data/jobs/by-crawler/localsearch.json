@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "localsearch-6d1ddda45eca",
-      "slug": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
+      "slug": "consulente-vendite-servizio-sul-campo-localsearch-graubunden-schweiz",
       "slugByLocale": {
-        "it": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
-        "en": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
+        "it": "consulente-vendite-servizio-sul-campo-localsearch-graubunden-schweiz",
+        "en": "sales-consultant-field-service-localsearch-graubunden-schweiz",
         "de": "verkaufsberater-in-aussendienst-localsearch-ch",
-        "fr": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
+        "fr": "conseiller-de-vente-dans-le-service-externe-localsearch-graubunden-schweiz"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -71,11 +71,11 @@
         "consultant-en-ventes-en-service-exterieur-localsearch-zurich",
         "conseiller-commercial-terrain-localsearch-zurich",
         "consulente-di-vendita-servizio-esterno-localsearch-graubunden-schweiz",
-        "verkaufsberater-in-aussendienst-localsearch-ch-d5ysjp"
+        "verkaufsberater-in-aussendienst-localsearch-ch-d5ysjp",
+        "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-di-vendita-in-servizio-straniero-localsearch-zurich",
           "verkaufsberater-in-aussendienst-localsearch-ch-3",
           "verkaufsberater-in-aussendienst-localsearch-zurich",
           "verkaufsberater-aussendienst-localsearch-zurich",
@@ -94,10 +94,17 @@
           "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
           "verkaufsberater-aussendienst-localsearch-ch",
           "verkaufsberater-aussendienst-localsearch-ch-2",
-          "verkaufsberater-in-aussendienst-localsearch-ch-4"
+          "verkaufsberater-in-aussendienst-localsearch-ch-4",
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
         ],
         "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch-d5ysjp"
+        ],
+        "en": [
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
+        ],
+        "fr": [
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
         ]
       },
       "firstSeenAt": "2026-10-09T09:17:42.599Z",
@@ -1785,12 +1792,12 @@
     },
     {
       "id": "localsearch-4fe13b918f05",
-      "slug": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
+      "slug": "consulente-di-vendita-esterno-a-localsearch-baselland-schweiz",
       "slugByLocale": {
-        "it": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
-        "en": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
+        "it": "consulente-di-vendita-esterno-a-localsearch-baselland-schweiz",
+        "en": "field-sales-consultant-localsearch-baselland-schweiz",
         "de": "verkaufsberater-in-aussendienst-localsearch-ch",
-        "fr": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
+        "fr": "conseiller-de-vente-dans-le-service-externe-localsearch-baselland-schweiz"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -1833,12 +1840,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsberater-in-aussendienst-localsearch-ch-2",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-aussendienst-localsearch-ch-2",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-ch",
+          "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
+        ],
+        "en": [
+          "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
+        ],
+        "fr": [
+          "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
         ]
       },
       "firstSeenAt": "2026-10-09T09:17:22.194Z",

@@ -609,7 +609,7 @@
       "slugByLocale": {
         "fr": "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch",
         "it": "allenatore-per-l-efficienza-energetica-nestle-romont",
-        "en": "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont",
+        "en": "energy-efficiency-engineer-trainee-nestle-romont",
         "de": "energieeffizienz-ingenieur-trainee-nestle-romont"
       },
       "company": "Nestlé",
@@ -658,12 +658,12 @@
           "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch"
         ],
         "en": [
-          "energy-efficiency-engineer-trainee-nestle-romont"
+          "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont"
         ]
       },
       "previousSlugs": [
         "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-ch",
-        "energy-efficiency-engineer-trainee-nestle-romont"
+        "stagiaire-ingenieur-e-en-efficacite-energetique-nestle-romont"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -990,8 +990,8 @@
       "slugByLocale": {
         "de": "operationeller-einkaufer-nestle-ch",
         "it": "acquirente-operativo-nestle-basel",
-        "en": "operationeller-einkaufer-nestle-basel",
-        "fr": "operationeller-einkaufer-nestle-basel"
+        "en": "operational-purchaser-nestle-basel",
+        "fr": "acheteur-operationnel-nestle-basel"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1039,16 +1039,15 @@
           "operationeller-einkaufer-nestle-ch"
         ],
         "en": [
-          "operational-purchaser-nestle-basel"
+          "operationeller-einkaufer-nestle-basel"
         ],
         "fr": [
-          "acheteur-operationnel-nestle-basel"
+          "operationeller-einkaufer-nestle-basel"
         ]
       },
       "previousSlugs": [
         "operationeller-einkaufer-nestle-ch",
-        "operational-purchaser-nestle-basel",
-        "acheteur-operationnel-nestle-basel"
+        "operationeller-einkaufer-nestle-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -1222,7 +1221,7 @@
         "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
         "de": "rechtswidrige-handlungen-nestle-vevey",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1265,14 +1264,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-paralegal-nestle-ch",
-        "societe-parajuridique-nestle-vevey"
+        "corporate-paralegal-nestle-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "corporate-paralegal-nestle-ch"
         ],
         "fr": [
-          "societe-parajuridique-nestle-vevey"
+          "corporate-paralegal-nestle-vevey"
         ]
       },
       "firstSeenAt": "2026-08-31T17:20:00.826Z",

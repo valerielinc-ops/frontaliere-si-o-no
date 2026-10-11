@@ -718,7 +718,7 @@
     },
     {
       "title": "Küche, 80%",
-      "slug": "kuche-80-berit-klinik",
+      "slug": "cucina-80-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -755,10 +755,10 @@
         "fr": "Berit Klinik AG (en anglais seulement) Vögelinsegg 5 (en anglais seulement) 9042 Speicher (en anglais seulement) +41 71 335 06 06 (en anglais seulement) info@beritklinik.ch Le groupe Berit Klinik exploite sept sites dans l'est de la Suisse et est un chef de file en médecine, chirurgie spinale et réhabilitation à Speicher et Niederteufen. À Wattwil, un service d'urgence 24/7, une clinique de jour, diverses heures de consultation, la radiologie, un laboratoire et le PSA, une thérapie à court terme pour les patients alcooliques, sont disponibles. À Goldach, la clinique offre des chirurgies nerveuses manuelles et périphériques, des heures de consultation en ophtalmologie et en orthopédie ainsi qu'un petit centre intestinal. Berit Sportclinic est représenté à Speicher, Arbon et Heerbrugg. Depuis 2025, le Berit Sportslab de St. Gallen complète la gamme d'entraînements sportifs. Personne-ressource pour les questions Mme Sandra Egger Chef de la Gastronomie T +41 71 335 06 28 sandra.egger@klinik.ch Demande à Mme Vanessa Grimaldi Chef des Ressources humaines hr@klinik.ch Employé/-dans la cuisine, 80% pour notre emplacement en mémoire.\n\n• Services de lavage\n\n• Nettoyage de la cuisine\n\n• Assistance dans la cuisine froide - mettre en place des légumes, faire des salades, etc.\n\nVotre profil\n\n• Vous avez déjà une expérience professionnelle dans une capacité similaire\n\n• Vous pouvez bien communiquer en allemand\n\n• Vous êtes un établi, motivé, flexible et physiquement résistant\n\nPersonnalité\n\n• Ils ont une apparence bien groomed\n\n• Vous êtes également prêt à travailler le week-end et le soir\n\nNous leur offrons\n\n• Environnement de travail moderne dans un bel emplacement\n\n• Travail indépendant\n\n• Équipe motivée\n\n• 5 semaines de vacances\n\n• Avantages sociaux attrayants"
       },
       "slugByLocale": {
-        "it": "kuche-80-berit-klinik",
-        "en": "kuche-80-berit-klinik",
+        "it": "cucina-80-berit-klinik-speicher",
+        "en": "kitchen-80-berit-klinik-speicher",
         "de": "kuche-80-berit-klinik-speicher",
-        "fr": "kuche-80-berit-klinik"
+        "fr": "cuisine-80-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter__in_k_che_80__34254277e3.pdf"
@@ -778,7 +778,21 @@
           "maxValue": 90400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuche-80-berit-klinik"
+        ],
+        "en": [
+          "kuche-80-berit-klinik"
+        ],
+        "fr": [
+          "kuche-80-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "kuche-80-berit-klinik"
+      ]
     },
     {
       "title": "Physiotherapeut:In Wattwil 50%",

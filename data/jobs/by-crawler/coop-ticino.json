@@ -15256,7 +15256,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-biel",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-biel",
+        "en": "cook-chef-m-f-d-coop-genossenschaft-biel",
         "de": "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-biel"
       },
@@ -15291,7 +15291,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
-          "cook-chef-m-f-d-coop-genossenschaft-biel"
+          "kochin-koch-m-w-d-coop-genossenschaft-biel"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j"
@@ -15300,7 +15300,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-biel-73nf5j",
         "kochin-koch-m-w-d-coop-ristorante-biel",
-        "cook-chef-m-f-d-coop-genossenschaft-biel"
+        "kochin-koch-m-w-d-coop-genossenschaft-biel"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -17627,7 +17627,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-rickenbach",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach",
+        "en": "chef-m-f-d-coop-genossenschaft-rickenbach",
         "de": "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-rickenbach"
       },
@@ -17653,13 +17653,13 @@
           "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6"
         ],
         "en": [
-          "chef-m-f-d-coop-genossenschaft-rickenbach"
+          "kochin-koch-m-w-d-coop-genossenschaft-rickenbach"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-rickenbach",
         "kochin-koch-m-w-d-coop-ristorante-rickenbach-9v7jb6",
-        "chef-m-f-d-coop-genossenschaft-rickenbach"
+        "kochin-koch-m-w-d-coop-genossenschaft-rickenbach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -29151,7 +29151,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-sarnen",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-sarnen",
+        "en": "cook-m-f-d-coop-genossenschaft-sarnen",
         "de": "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-sarnen"
       },
@@ -29178,7 +29178,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
-          "cook-m-f-d-coop-genossenschaft-sarnen"
+          "kochin-koch-m-w-d-coop-genossenschaft-sarnen"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5"
@@ -29187,7 +29187,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-sarnen-q4upx5",
         "kochin-koch-m-w-d-coop-ristorante-sarnen",
-        "cook-m-f-d-coop-genossenschaft-sarnen"
+        "kochin-koch-m-w-d-coop-genossenschaft-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -40483,7 +40483,7 @@
     },
     {
       "id": "company-5cri58",
-      "slug": "rayonleiter-in-nonfood-coop-zurich-5cri58",
+      "slug": "responsabile-di-reparto-nonfood-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Nonfood",
       "location": "Zürich",
@@ -40530,10 +40530,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-nonfood-coop-zurich-5cri58",
-        "en": "rayonleiter-in-nonfood-coop-zurich-5cri58",
+        "it": "responsabile-di-reparto-nonfood-coop-genossenschaft-zurich",
+        "en": "rayon-leader-nonfood-coop-genossenschaft-zurich",
         "de": "rayonleiter-in-nonfood-coop-genossenschaft-zurich",
-        "fr": "rayonleiter-in-nonfood-coop-zurich-5cri58"
+        "fr": "responsable-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
@@ -40551,19 +40551,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-nonfood-coop-zurich"
+          "rayonleiter-in-nonfood-coop-zurich",
+          "rayonleiter-in-nonfood-coop-zurich-5cri58"
         ],
         "en": [
-          "rayon-leader-nonfood-coop-zurich-5cri58"
+          "rayon-leader-nonfood-coop-zurich-5cri58",
+          "rayonleiter-in-nonfood-coop-zurich-5cri58"
         ],
         "fr": [
-          "responsable-de-rayon-dans-les-produits-non-alimentaires-coop-zurich-5cri58"
+          "responsable-de-rayon-dans-les-produits-non-alimentaires-coop-zurich-5cri58",
+          "rayonleiter-in-nonfood-coop-zurich-5cri58"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-nonfood-coop-zurich",
         "rayon-leader-nonfood-coop-zurich-5cri58",
-        "responsable-de-rayon-dans-les-produits-non-alimentaires-coop-zurich-5cri58"
+        "responsable-de-rayon-dans-les-produits-non-alimentaires-coop-zurich-5cri58",
+        "rayonleiter-in-nonfood-coop-zurich-5cri58"
       ],
       "postalCode": "8045",
       "streetAddress": "Friesenbergplatz 3",
@@ -42151,7 +42155,7 @@
     },
     {
       "id": "company-rdvm8e",
-      "slug": "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e",
+      "slug": "prodotti-per-conduttori-rayon-pane-bakery-coop-genossenschaft-rickenbach",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Brot / Backwaren",
       "location": "Rickenbach",
@@ -42198,10 +42202,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e",
-        "en": "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e",
+        "it": "prodotti-per-conduttori-rayon-pane-bakery-coop-genossenschaft-rickenbach",
+        "en": "rayon-manager-bread-baked-goods-coop-genossenschaft-rickenbach",
         "de": "rayonleiter-in-brot-backwaren-coop-genossenschaft-rickenbach",
-        "fr": "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e"
+        "fr": "chef-de-rayon-dans-le-pain-les-produits-de-boulangerie-coop-genossenschaft-rickenbach"
       },
       "addressLocality": "Rickenbach",
       "addressRegion": "TG",
@@ -42219,19 +42223,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "rayonleiter-in-brot-backwaren-coop-rickenbach"
+          "rayonleiter-in-brot-backwaren-coop-rickenbach",
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e"
         ],
         "en": [
-          "rayon-manager-bread-baked-goods-coop-rickenbach-rdvm8e"
+          "rayon-manager-bread-baked-goods-coop-rickenbach-rdvm8e",
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e"
         ],
         "fr": [
-          "chef-de-rayon-dans-le-pain-les-produits-de-boulangerie-coop-rickenbach-rdvm8e"
+          "chef-de-rayon-dans-le-pain-les-produits-de-boulangerie-coop-rickenbach-rdvm8e",
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-rickenbach",
         "rayon-manager-bread-baked-goods-coop-rickenbach-rdvm8e",
-        "chef-de-rayon-dans-le-pain-les-produits-de-boulangerie-coop-rickenbach-rdvm8e"
+        "chef-de-rayon-dans-le-pain-les-produits-de-boulangerie-coop-rickenbach-rdvm8e",
+        "rayonleiter-in-brot-backwaren-coop-rickenbach-rdvm8e"
       ],
       "postalCode": "9532",
       "streetAddress": "Breitestrasse 4",
@@ -43043,7 +43051,7 @@
       "slugByLocale": {
         "it": "charge-e-de-securite-f-m-d-coop-genossenschaft-vufflens-la-ville",
         "en": "security-officer-m-f-d-coop-genossenschaft-vufflens-la-ville",
-        "de": "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville",
+        "de": "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville",
         "fr": "charge-e-de-securite-m-w-d-coop-vufflens-la-ville-nl05z1"
       },
       "requirementsByLocale": {
@@ -43077,14 +43085,14 @@
         ],
         "de": [
           "charge-e-de-securite-f-h-d-coop-genossenschaft-vufflens-la-ville",
-          "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville"
+          "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville"
         ]
       },
       "previousSlugs": [
         "charge-e-de-securite-m-w-d-coop-vufflens-la-ville",
         "charge-e-de-securite-f-h-d-coop-genossenschaft-vufflens-la-ville",
         "charge-e-de-securite-m-w-d-coop-vufflens-la-ville-nl05z1",
-        "sicherheitsbeauftragter-m-w-d-coop-genossenschaft-vufflens-la-ville"
+        "charge-e-de-securite-m-w-d-coop-genossenschaft-vufflens-la-ville"
       ],
       "datePosted": "2026-09-29",
       "postingDateSource": "reported",
@@ -44601,7 +44609,7 @@
     },
     {
       "id": "company-vd8o0v",
-      "slug": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v",
+      "slug": "filler-food-dal-06-00-alle-10-00-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Auffüller:in Food (06:00 bis 10:00 Uhr)",
       "location": "Zürich",
@@ -44638,10 +44646,10 @@
         "fr": "## Remplissage: dans la nourriture (06:00 à 10:00)\n\n**Coop Genossenschaft** — Zurich, ZH, Svizzera\n\n- Ouverture d'emploi: immédiatement ou par accord\n- Spécialité: Vente d'aliments\n- Lieu: Coop, Kalanderplatz 1, 8045 Zurich\n- Pensum: 8 à 20 heures/semaine\n\n## Tâche\nVous vivez pour le commerce de détail et vous efforcez avec votre façon amicale et courtoise d'inspirer nos clients chaque jour à nouveau? Alors vous êtes la bonne personne pour notre équipe.\nIls assurent une image de magasin attrayante et gèrent consciencieusement les marchandises. Leurs tâches principales consistent à déballer les marchandises et à remplir les étagères. Vous respectez également les directives de qualité et de POS (frais/qualité, hygiène, température et dates d'expiration).\n\n## Exigences\n- L'expérience des ventes est bénéfique\n- Bonne connaissance de l'allemand en mots et en écriture\n- Méthodes de travail fraîches et efficaces et sens de l ' ordre\n- La joie de traiter avec les clients et le travail d'équipe\n\n## Ce que nous offrons\n- Réductions: Réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers sur Coop Mobile, Reka Card: Remise sur l'achat, réduction sur Mobility CarSharing, réduction personnelle également pour les partenaires:dans (habitant dans le même ménage), réduction sur l'abonnement GA, réductions sur les événements culturels, réductions sur les activités de loisirs\n- Conditions d'emploi: Caisse de retraite: 2/3 est payé par la Coop, les conditions d'emploi attractives et l'égalité de rémunération certifiée, les primes de fidélité, le régime d'épargne de la Caisse de retraite, le contrat d'emploi total, 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation complémentaire: plus de 600 cours de formation interne, gestion des talents avec des possibilités de développement diverses, formation et offres de formation complémentaire du L-GAV et du Coop\n- Durabilité : Engagement envers les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais sur l'abonnement annuel, participation gratuite à diverses activités de l'entreprise, offres de sports maison\n\n## Votre personne à contacter\nValeria Mazziari Randazzo\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\n**Sede:** Zurich"
       },
       "slugByLocale": {
-        "it": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v",
-        "en": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v",
+        "it": "filler-food-dal-06-00-alle-10-00-coop-genossenschaft-zurich",
+        "en": "food-replenisher-6am-to-10am-coop-genossenschaft-zurich",
         "de": "auffuller-in-food-06-00-bis-10-00-uhr-coop-genossenschaft-zurich",
-        "fr": "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v"
+        "fr": "remplisseur-in-food-06h00-a-10h00-coop-genossenschaft-zurich"
       },
       "requirementsByLocale": {},
       "addressLocality": "Zürich",
@@ -44660,19 +44668,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich"
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich",
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v"
         ],
         "en": [
-          "food-replenisher-6am-to-10am-coop-zurich-vd8o0v"
+          "food-replenisher-6am-to-10am-coop-zurich-vd8o0v",
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v"
         ],
         "fr": [
-          "remplisseur-in-food-06h00-a-10h00-coop-zurich-vd8o0v"
+          "remplisseur-in-food-06h00-a-10h00-coop-zurich-vd8o0v",
+          "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v"
         ]
       },
       "previousSlugs": [
         "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich",
         "food-replenisher-6am-to-10am-coop-zurich-vd8o0v",
-        "remplisseur-in-food-06h00-a-10h00-coop-zurich-vd8o0v"
+        "remplisseur-in-food-06h00-a-10h00-coop-zurich-vd8o0v",
+        "auffuller-in-food-06-00-bis-10-00-uhr-coop-zurich-vd8o0v"
       ],
       "postalCode": "8045",
       "streetAddress": "Kalanderplatz 1",
@@ -60637,7 +60649,7 @@
     },
     {
       "id": "company-6pjfoi",
-      "slug": "polydesigner-in-3d-coop-city-thun-6pjfoi",
+      "slug": "designer-3d-coop-genossenschaft-thun",
       "company": "Coop Genossenschaft",
       "title": "Polydesigner:in 3D",
       "location": "Thun",
@@ -60677,8 +60689,8 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "polydesigner-in-3d-coop-city-thun-6pjfoi",
-        "en": "polydesigner-in-3d-coop-city-thun-6pjfoi",
+        "it": "designer-3d-coop-genossenschaft-thun",
+        "en": "3d-poly-designer-coop-genossenschaft-thun",
         "de": "polydesigner-in-3d-coop-genossenschaft-thun",
         "fr": "polydesigner-in-3d-coop-city-thun-6pjfoi"
       },
@@ -60707,15 +60719,18 @@
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/polydesigner-in-3d/ece69c94-fa8e-438e-ac19-352fa7075f32",
       "previousSlugsByLocale": {
         "it": [
-          "polydesigner-in-3d-coop-city-thun"
+          "polydesigner-in-3d-coop-city-thun",
+          "polydesigner-in-3d-coop-city-thun-6pjfoi"
         ],
         "en": [
-          "3d-poly-designer-coop-city-thun-6pjfoi"
+          "3d-poly-designer-coop-city-thun-6pjfoi",
+          "polydesigner-in-3d-coop-city-thun-6pjfoi"
         ]
       },
       "previousSlugs": [
         "polydesigner-in-3d-coop-city-thun",
-        "3d-poly-designer-coop-city-thun-6pjfoi"
+        "3d-poly-designer-coop-city-thun-6pjfoi",
+        "polydesigner-in-3d-coop-city-thun-6pjfoi"
       ],
       "postalCode": "3600",
       "streetAddress": "Schwäbisgasse 1",
@@ -60815,7 +60830,7 @@
     },
     {
       "id": "company-1x4mhb",
-      "slug": "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal",
+      "slug": "addetto-a-alla-preparazione-degli-ordini-addetto-a-al-confezionamento-e-shop-60-coop-genossenschaft-langenthal",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer: in / Verpacker: in E-Shop, 60%",
       "location": "Langenthal",
@@ -60852,7 +60867,7 @@
         "fr": "## Picker & #160;: dans / Packer & #160;: dans E-Shop, 60 %\n\n**Coopérative Coop** — Langenthal, BE, Svizzera\n\n- Ouverture d'emploi: immédiatement ou par accord\n- Spécialiste: Logistique / Transport\n- Lieu: Coop, Nordstrasse 1, 4900 Langenthal\n- Pensum: 60%\n\n## Tâche\n- Les produits commandés peuvent être choisis de manière fiable et efficace à l'aide d'un terminal de radiotéléphonie ou d'un scanner portatif radiocommandé.\n- Pendant le contrôle, vous faites attention à la quantité, la qualité et les dommages visibles\n- Ensuite, vous emballez les commandes professionnellement et assurez-vous qu'ils sont prêts pour l'expédition complètement et à temps.\n- Le travail d'entreposage général en fait tout autant partie que d'assurer l'ordre et la propreté au travail.\n- En cas de charge de travail élevée, vous pouvez également soutenir avec souplesse d'autres ministères dans les opérations quotidiennes.\n\n## Exigences\n- Idéalement, vous apporterez une expérience pratique dans la logistique, l'entreposage ou la cueillette de commande.\n- La condition physique et la résilience sont importantes parce que les biens sont régulièrement déplacés pendant le travail\n- Une bonne connaissance orale et écrite de l'allemand est nécessaire pour que les instructions de travail et de sécurité puissent être comprises en toute sécurité\n- Une façon fiable, prudente et efficace de travailler vous distingue; Même avec un volume de travail élevé, vous gardez l'aperçu\n- Les conditions préalables sont la disponibilité tous les lundis ainsi que les deux autres jours de semaine convenus et la possibilité de voyager en transports en commun.\n- Réductions: 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du groupe Coop, Reka Card: réduction sur abonnement, réduction sur abonnement GA\n- Conditions d'emploi: Caisse de retraite: 2/3 sont payés par Coop, Conditions d'emploi attractives et salaire égal certifié, 18 semaines de congé de maternité payé et 4 semaines de congé de paternité payé\n- Heures de travail: 5 semaines de congés\n- Formation : plus de 600 cours de formation interne\n- Durabilité: Engagement envers les personnes et les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les employés\n- Santé : Mise à jour de la condition physique : Fr. 200.– Rabais d'abonnement annuel\n\n## Votre personne à contacter\nMichèle du Danemark\nMarketing des ressources humaines\n\n**Tipo:** Temps partiel\nSede: Langenthal"
       },
       "slugByLocale": {
-        "it": "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal",
+        "it": "addetto-a-alla-preparazione-degli-ordini-addetto-a-al-confezionamento-e-shop-60-coop-genossenschaft-langenthal",
         "en": "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal",
         "de": "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
         "fr": "picker-160-dans-packer-160-dans-e-shop-60-coop-genossenschaft-langenthal"
@@ -60875,7 +60890,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
-          "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal"
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal",
+          "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal"
         ],
         "en": [
           "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
@@ -60890,7 +60906,8 @@
         "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-1x4mhb",
         "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal",
         "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal",
-        "order-picker-packer-e-shop-60-coop-langenthal-1x4mhb"
+        "order-picker-packer-e-shop-60-coop-langenthal-1x4mhb",
+        "picker-in-packer-in-e-shop-60-coop-genossenschaft-langenthal"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/kommissionierer-in-verpacker-in-e-shop/809419ae-986d-478b-93b0-c7302bcafef3",
       "postalCode": "4900",
@@ -63760,7 +63777,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-bern-f15ffc",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-bern",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
         "de": "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-bern-f15ffc"
       },
@@ -63814,7 +63831,7 @@
           "chef-chef-m-f-d-coop-genossenschaft-bern",
           "kochin-koch-w-m-d-coop-genossenschaft-bern",
           "chef-m-f-d-coop-genossenschaft-bern",
-          "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm"
+          "kochin-koch-m-w-d-coop-genossenschaft-bern"
         ],
         "de": [
           "kochin-koch-m-w-d-coop-ristorante-bern-3fw4v3"
@@ -63901,7 +63918,7 @@
         "cuire-cuire-f-m-d-coop-genossenschaft-bern-618b8e",
         "kochin-koch-m-w-d-coop-genossenschaft-bern-dw8m6e",
         "cuisinier-cuisiniere-m-w-d-coop-genossenschaft-bern",
-        "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm"
+        "kochin-koch-m-w-d-coop-genossenschaft-bern"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/3297a1b5-7767-4164-8f76-1fdc2a95d463",
       "postalCode": "3011",
@@ -77871,7 +77888,7 @@
       },
       "slugByLocale": {
         "it": "cooker-m-f-d-coop-genossenschaft-balgach",
-        "en": "kochin-koch-m-w-d-coop-genossenschaft-balgach",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-balgach",
         "de": "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "fr": "cuisiniere-h-f-d-coop-genossenschaft-balgach"
       },
@@ -77904,7 +77921,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
-          "chef-chef-m-f-d-coop-genossenschaft-balgach"
+          "kochin-koch-m-w-d-coop-genossenschaft-balgach"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3"
@@ -77913,7 +77930,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen-7ubws3",
         "kochin-koch-m-w-d-coop-ristorante-balgach-sankt-gallen",
-        "chef-chef-m-f-d-coop-genossenschaft-balgach"
+        "kochin-koch-m-w-d-coop-genossenschaft-balgach"
       ],
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/d8125810-f39d-4ed1-9747-912242d93e07",
       "postalCode": "9435",
@@ -82555,7 +82572,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-0572fd",
         "en": "seller-food-coop-genossenschaft-zurich-0572fd",
         "de": "verkaufer-in-food-coop-zurich-6b0mvz",
-        "fr": "vendeur-alimentation-produits-frais-coop-genossenschaft-zurich"
+        "fr": "aliments-pour-vendeurs-coop-genossenschaft-zurich-0572fd"
       },
       "titleByLocale": {
         "it": "Vendita Prodotti alimentari/Fresh",
@@ -82595,11 +82612,11 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "aliments-pour-vendeurs-coop-genossenschaft-zurich-0572fd"
+          "vendeur-alimentation-produits-frais-coop-genossenschaft-zurich"
         ]
       },
       "previousSlugs": [
-        "aliments-pour-vendeurs-coop-genossenschaft-zurich-0572fd"
+        "vendeur-alimentation-produits-frais-coop-genossenschaft-zurich"
       ],
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
@@ -86355,10 +86372,10 @@
       "crawledAt": "2026-10-11T09:31:17.314Z",
       "firstSeenAt": "2026-09-14T16:09:28.881Z",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-ostermundigen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen",
         "en": "seller-food-coop-genossenschaft-ostermundigen",
         "de": "verkaufer-in-food-coop-ostermundigen-bern-1t3miy",
-        "fr": "vendeur-e-dans-l-alimentation-coop-genossenschaft-ostermundigen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
       },
       "titleByLocale": {
         "it": "Addetto/a alle vendite Food",
@@ -86401,16 +86418,14 @@
       "sourceReference": "165962",
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-ostermundigen",
-        "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen",
-        "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
+        "vendeur-e-dans-l-alimentation-coop-genossenschaft-ostermundigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-genossenschaft-ostermundigen",
-          "vendita-prodotti-alimentari-coop-genossenschaft-ostermundigen"
+          "verkaufer-in-food-coop-genossenschaft-ostermundigen"
         ],
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-ostermundigen"
+          "vendeur-e-dans-l-alimentation-coop-genossenschaft-ostermundigen"
         ]
       },
       "salaryMin": 68500,
@@ -86727,7 +86742,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern-aac8c1",
         "en": "seller-food-coop-genossenschaft-bern-aac8c1",
         "de": "verkaufer-in-food-coop-bern-yv68g1",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -86770,12 +86785,12 @@
           "verkaufer-in-food-coop-genossenschaft-bern-yv68g1"
         ],
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
+          "aliments-pour-vendeurs-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-bern-yv68g1",
-        "produits-alimentaires-vendus-coop-genossenschaft-bern-aac8c1"
+        "aliments-pour-vendeurs-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -86815,7 +86830,7 @@
         "it": "vendita-prodotti-alimentari-coop-genossenschaft-bern-139fd5",
         "en": "seller-food-coop-genossenschaft-bern-139fd5",
         "de": "verkaufer-in-food-coop-bern-iikp3y",
-        "fr": "aliments-pour-vendeurs-coop-genossenschaft-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
       },
       "titleByLocale": {
         "it": "Vendita prodotti alimentari",
@@ -86858,12 +86873,12 @@
           "verkaufer-in-food-coop-genossenschaft-bern-iikp3y"
         ],
         "fr": [
-          "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
+          "aliments-pour-vendeurs-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-bern-iikp3y",
-        "produits-alimentaires-vendus-coop-genossenschaft-bern-139fd5"
+        "aliments-pour-vendeurs-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -88443,7 +88458,7 @@
         "it": "risorse-umane-business-partner-m-w-d-coop-bern-ny3n0d",
         "en": "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "de": "personalwesen-business-partner-m-w-d-coop-bern-ny3n0d",
-        "fr": "hr-business-partner-m-w-d-coop-genossenschaft-bern"
+        "fr": "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -88472,7 +88487,7 @@
         "fr": [
           "hr-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
           "hr-business-partner-m-w-d-coop-bern-ny3n0d",
-          "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+          "hr-business-partner-m-w-d-coop-genossenschaft-bern"
         ]
       },
       "previousSlugs": [
@@ -88482,7 +88497,7 @@
         "hr-business-partner-m-w-d-coop-gossau-sankt-gallen",
         "hr-business-partner-m-w-d-coop-bern-ny3n0d",
         "hr-business-partner-m-w-d-coop-bern",
-        "partenaire-d-affaires-rh-h-f-d-coop-genossenschaft-bern"
+        "hr-business-partner-m-w-d-coop-genossenschaft-bern"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/hr-business-partner-w-m-d/b4b030fc-da11-42d8-b312-51d11e28e5bb",
       "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/hr-business-partner-w-m-d/b4b030fc-da11-42d8-b312-51d11e28e5bb",
@@ -131087,9 +131102,9 @@
       "firstSeenAt": "2026-09-26T14:10:57.436Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-coop-gossau-oypaij",
-        "en": "logistics-coop-gossau-sg",
+        "en": "logistician-coop-gossau-68ab42",
         "de": "logistiker-in-coop-gossau-oypaij",
-        "fr": "logistique-coop-gossau-sg"
+        "fr": "logisticien-coop-gossau-68ab42"
       },
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica",
@@ -131120,15 +131135,15 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "logistician-coop-gossau-68ab42"
+          "logistics-coop-gossau-sg"
         ],
         "fr": [
-          "logisticien-coop-gossau-68ab42"
+          "logistique-coop-gossau-sg"
         ]
       },
       "previousSlugs": [
-        "logistician-coop-gossau-68ab42",
-        "logisticien-coop-gossau-68ab42"
+        "logistics-coop-gossau-sg",
+        "logistique-coop-gossau-sg"
       ],
       "datePosted": "2026-08-01",
       "postingDateSource": "reported",

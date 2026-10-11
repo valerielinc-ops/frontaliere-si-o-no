@@ -2845,12 +2845,12 @@
     },
     {
       "id": "weisse-arena-f7612f0c6123",
-      "slug": "restaurantleiter-in-weisse-arena-gruppe-laax",
+      "slug": "responsabile-del-ristorante-a-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "restaurantleiter-in-weisse-arena-gruppe-laax",
-        "en": "restaurantleiter-in-weisse-arena-gruppe-laax",
+        "it": "responsabile-del-ristorante-a-weisse-arena-gruppe-laax",
+        "en": "restaurantmanager-weisse-arena-gruppe-laax",
         "de": "restaurantleiter-in-weisse-arena-ch",
-        "fr": "restaurantleiter-in-weisse-arena-gruppe-laax"
+        "fr": "responsable-derestaurant-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2897,11 +2897,19 @@
       "pensum": "100%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "restaurantleiter-in-weisse-arena-ch"
+        "restaurantleiter-in-weisse-arena-ch",
+        "restaurantleiter-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurantleiter-in-weisse-arena-ch"
+          "restaurantleiter-in-weisse-arena-ch",
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "restaurantleiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "firstSeenAt": "2026-09-29T09:17:57.480Z",

@@ -1112,12 +1112,12 @@
     },
     {
       "id": "paraplegie-b61d233d5985",
-      "slug": "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "addetto-a-all-elaborazione-degli-ordini-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "addetto-a-all-elaborazione-degli-ordini-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "order-processing-clerk-schweizer-paraplegiker-gruppe-nottwil",
         "de": "sachberarbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
-        "fr": "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "responsable-du-traitement-des-commandes-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1168,12 +1168,20 @@
         ],
         "it": [
           "sachberarbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
-          "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+          "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
+          "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
         "sachberarbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
-        "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil"
+        "sachbearbeiter-in-auftragsbearbeitung-paraplegie-nottwil",
+        "sachberarbeiter-in-auftragsbearbeitung-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "firstSeenAt": "2026-09-28T04:55:03.248Z",
       "salaryMin": 69500,
@@ -1192,12 +1200,12 @@
     },
     {
       "id": "paraplegie-f04854bc37fb",
-      "slug": "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "dipl-specialista-di-radiologia-hf-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "dipl-specialista-di-radiologia-hf-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "dipl-radiology-specialist-hf-schweizer-paraplegiker-gruppe-nottwil",
         "de": "dipl-radiologiefachperson-hf-paraplegie-nottwil",
-        "fr": "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "dipl-specialiste-en-radiologie-hf-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1243,11 +1251,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-paraplegie-nottwil"
+        "dipl-radiologiefachperson-hf-paraplegie-nottwil",
+        "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachperson-hf-paraplegie-nottwil"
+          "dipl-radiologiefachperson-hf-paraplegie-nottwil",
+          "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-hf-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-09-28T21:14:00.465Z",
@@ -1444,10 +1460,10 @@
       "id": "paraplegie-855bf0e17ea2",
       "slug": "specialista-in-marketing-e-comunicazione-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "specialista-in-marketing-e-comunicazione-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "marketing-communication-specialist-responsible-schweizer-paraplegiker-gruppe-nottwil",
         "de": "fachverantwortliche-r-marketing-kommunikation-paraplegie-nottwil",
-        "fr": "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "specialiste-marketing-communication-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1493,14 +1509,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachverantwortliche-r-marketing-kommunikation-paraplegie-nottwil",
-        "specialiste-marketing-communication-schweizer-paraplegiker-gruppe-nottwil"
+        "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-marketing-kommunikation-paraplegie-nottwil"
+          "fachverantwortliche-r-marketing-kommunikation-paraplegie-nottwil",
+          "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "fr": [
-          "specialiste-marketing-communication-schweizer-paraplegiker-gruppe-nottwil"
+          "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "fachverantwortliche-r-marketing-kommunikation-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-10-05T09:17:07.861Z",
@@ -1522,10 +1542,10 @@
       "id": "paraplegie-d4ae14745bd2",
       "slug": "assistente-esecutivo-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "assistente-esecutivo-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "executive-assistant-schweizer-paraplegiker-gruppe-nottwil",
         "de": "direktionsassistent-in-paraplegie-nottwil",
-        "fr": "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "assistant-e-de-direction-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1571,14 +1591,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "direktionsassistent-in-paraplegie-nottwil",
-        "executive-assistant-schweizer-paraplegiker-gruppe-nottwil"
+        "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "direktionsassistent-in-paraplegie-nottwil"
+          "direktionsassistent-in-paraplegie-nottwil",
+          "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "en": [
-          "executive-assistant-schweizer-paraplegiker-gruppe-nottwil"
+          "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "direktionsassistent-in-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-10-05T09:17:07.858Z",
@@ -1748,10 +1772,10 @@
       "id": "paraplegie-c21db0acd038",
       "slug": "dipl-expert-expert-cura-dell-anestesia-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "dipl-expert-expert-cura-dell-anestesia-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "dipl-expert-expert-anesthesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-paraplegie-nottwil",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "experte-expert-en-soins-d-anesthesie-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -1797,14 +1821,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-anasthesiepflege-nds-hf-paraplegie-nottwil",
-        "experte-expert-en-soins-d-anesthesie-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-paraplegie-nottwil"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-paraplegie-nottwil",
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "fr": [
-          "experte-expert-en-soins-d-anesthesie-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:14.577Z",

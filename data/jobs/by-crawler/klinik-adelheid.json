@@ -656,12 +656,12 @@
     },
     {
       "id": "klinik-adelheid-0f096666e7f9",
-      "slug": "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri",
+      "slug": "segretario-medico-medico-assistente-di-studio-20-40-klinik-adelheid-unterageri",
       "slugByLocale": {
-        "it": "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri",
-        "en": "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri",
+        "it": "segretario-medico-medico-assistente-di-studio-20-40-klinik-adelheid-unterageri",
+        "en": "medical-secretary-med-practice-assistant-20-40-klinik-adelheid-unterageri",
         "de": "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unteraegeri",
-        "fr": "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri"
+        "fr": "secretaire-medicale-medecine-assistant-de-cabinet-20-a-40-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
       "companyKey": "klinik-adelheid",
@@ -705,11 +705,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unteraegeri"
+        "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unteraegeri",
+        "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unteraegeri"
+          "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unteraegeri",
+          "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri"
+        ],
+        "en": [
+          "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri"
+        ],
+        "fr": [
+          "arztsekretar-in-med-praxisassistent-in-20-40-klinik-adelheid-unterageri"
         ]
       },
       "firstSeenAt": "2026-10-05T09:28:37.716Z",

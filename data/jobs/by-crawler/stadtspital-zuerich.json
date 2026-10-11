@@ -1231,7 +1231,7 @@
         "it": "gestione-dei-processi-stadtspital-zurich-zurich",
         "en": "process-manager-stadtspital-zurich-zurich",
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "gestionnairedeprocessus-stadtspital-zurich"
+        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -1281,7 +1281,7 @@
       "previousSlugs": [
         "prozessmanager-in-stadtspital-zurich",
         "prozessmanager-in-stadtspital-zuerich-51681",
-        "gestionnaire-de-processus-stadtspital-zurich-zurich"
+        "gestionnairedeprocessus-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1292,7 +1292,7 @@
         ],
         "fr": [
           "prozessmanager-in-stadtspital-zurich",
-          "gestionnaire-de-processus-stadtspital-zurich-zurich"
+          "gestionnairedeprocessus-stadtspital-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.497Z",
@@ -2081,12 +2081,12 @@
     },
     {
       "id": "stadtspital-zuerich-21b2a73bdecb",
-      "slug": "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich",
+      "slug": "specialista-icu-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich",
-        "en": "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich",
+        "it": "specialista-icu-stadtspital-zurich-zurich",
+        "en": "specialist-icu-stadtspital-zurich-zurich",
         "de": "fachperson-gesundheit-intensivstation-stadtspital-zuerich-48794",
-        "fr": "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich"
+        "fr": "uci-specialisee-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -2134,11 +2134,19 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "48794",
       "previousSlugs": [
-        "fachperson-gesundheit-intensivstation-stadtspital-zuerich-48794"
+        "fachperson-gesundheit-intensivstation-stadtspital-zuerich-48794",
+        "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-intensivstation-stadtspital-zuerich-48794"
+          "fachperson-gesundheit-intensivstation-stadtspital-zuerich-48794",
+          "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-gesundheit-intensivstation-stadtspital-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-12T13:16:04.744Z",
@@ -4233,7 +4241,7 @@
       "slug": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
       "slugByLocale": {
         "it": "tecnologo-del-dispositivo-medico-tecnologia-del-dispositivo-medico-stadtspital-zurich-zurich",
-        "en": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich",
+        "en": "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich",
         "de": "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
         "fr": "technologue-des-instruments-medicaux-technologie-des-instruments-medicaux-stadtspital-zurich-zurich"
       },
@@ -4285,7 +4293,7 @@
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
         "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zuerich-50203",
-        "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
+        "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4294,7 +4302,7 @@
         ],
         "en": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich",
-          "medical-device-technologist-medical-device-technology-stadtspital-zurich-zurich"
+          "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich"
         ],
         "fr": [
           "medizinproduktetechnologin-medizinproduktetechnologie-stadtspital-zurich-zurich"
@@ -5148,12 +5156,12 @@
     },
     {
       "id": "stadtspital-zuerich-f9c8259ab925",
-      "slug": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
+      "slug": "professionista-della-salute-con-visione-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
-        "en": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305",
+        "it": "professionista-della-salute-con-visione-waid-stadtspital-zurich-zurich",
+        "en": "health-professional-with-waid-vision-stadtspital-zurich-zurich",
         "de": "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich-zurich",
-        "fr": "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
+        "fr": "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5209,13 +5217,14 @@
           "health-professional-with-waid-vision-stadtspital-zurich-zurich",
           "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
           "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich",
-          "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich"
+          "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich",
+          "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
         ],
         "en": [
-          "health-professional-with-waid-vision-stadtspital-zurich-zurich"
+          "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
         ],
         "fr": [
-          "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich"
+          "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
         ]
       },
       "previousSlugs": [
@@ -5223,7 +5232,8 @@
         "health-professional-with-waid-vision-stadtspital-zurich-zurich",
         "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-50558",
         "professionnels-de-la-sante-avec-vision-waid-stadtspital-zurich-zurich",
-        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich"
+        "fachperson-gesundheit-mit-waidsicht-stadtspital-zurich",
+        "fachperson-gesundheit-mit-waidsicht-stadtspital-zuerich-51305"
       ],
       "firstSeenAt": "2026-08-13T10:43:44.167Z",
       "salaryMin": 91500,
@@ -5741,12 +5751,12 @@
     },
     {
       "id": "stadtspital-zuerich-8c2678d2ca55",
-      "slug": "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich",
+      "slug": "responsabile-di-settore-per-assistente-all-approvvigionamento-in-sala-operatoria-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich",
-        "en": "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich",
+        "it": "responsabile-di-settore-per-assistente-all-approvvigionamento-in-sala-operatoria-stadtspital-zurich-zurich",
+        "en": "lead-operating-room-supply-assistant-stadtspital-zurich-zurich",
         "de": "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zuerich-51903",
-        "fr": "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich"
+        "fr": "responsable-specialise-e-assistant-e-d-approvisionnement-au-bloc-operatoire-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5794,11 +5804,19 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51903",
       "previousSlugs": [
-        "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zuerich-51903"
+        "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zuerich-51903",
+        "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zuerich-51903"
+          "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zuerich-51903",
+          "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "fachverantwortliche-r-versorgungsassistent-in-op-stadtspital-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-08T09:37:24.119Z",
@@ -6548,10 +6566,10 @@
     },
     {
       "id": "stadtspital-zuerich-a2b252087bfa",
-      "slug": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich",
+      "slug": "dipl-specialista-in-infermiera-chirurgia-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich",
+        "it": "dipl-specialista-in-infermiera-chirurgia-triemli-stadtspital-zurich-zurich",
+        "en": "dipl-nurse-specialist-surgery-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zuerich-50958",
         "fr": "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich"
       },
@@ -6609,12 +6627,15 @@
           "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zuerich-50958",
           "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zurich-zurich",
           "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zuerich-50950",
-          "dipl-specialista-in-infermiera-chirurgia-triemli-stadtspital-zurich-zurich",
-          "dipl-pflegefachperson-urologie-wirbelsaulenchirurgie-und-belegarzt-innen-stadtspital"
+          "dipl-pflegefachperson-urologie-wirbelsaulenchirurgie-und-belegarzt-innen-stadtspital",
+          "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich"
         ],
         "fr": [
           "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zurich-zurich",
           "dipl-infirmiere-specialiste-chirurgie-triemli-stadtspital-zurich-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -6622,8 +6643,8 @@
         "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zurich-zurich",
         "dipl-pflegefachperson-chirurgie-interdisziplinare-privatstation-stadtspital-zuerich-50950",
         "dipl-infirmiere-specialiste-chirurgie-triemli-stadtspital-zurich-zurich",
-        "dipl-specialista-in-infermiera-chirurgia-triemli-stadtspital-zurich-zurich",
-        "dipl-pflegefachperson-urologie-wirbelsaulenchirurgie-und-belegarzt-innen-stadtspital"
+        "dipl-pflegefachperson-urologie-wirbelsaulenchirurgie-und-belegarzt-innen-stadtspital",
+        "dipl-pflegefachperson-chirurgie-triemli-stadtspital-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-14T22:34:53.375Z",
       "salaryMin": 91500,

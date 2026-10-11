@@ -1278,12 +1278,12 @@
     },
     {
       "id": "gz-dielsdorf-6440dae1c75b",
-      "slug": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+      "slug": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
       "slugByLocale": {
-        "it": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
-        "en": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "it": "applicazione-spontanea-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
+        "en": "spontaneous-application-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf",
         "de": "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
-        "fr": "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        "fr": "demande-spontanee-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1328,11 +1328,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf"
+        "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+        "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf"
+          "spontanbewerbung-gz-dielsdorf-dielsdorf-regensdorf",
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "spontanbewerbung-gesundheitszentrum-dielsdorf-dielsdorf-regensdorf"
         ]
       },
       "salaryMin": 91500,
