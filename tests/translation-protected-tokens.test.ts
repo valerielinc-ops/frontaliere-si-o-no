@@ -607,6 +607,8 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // `writeReserveMs` e' aritmetica sul budget della fase.
     // `semanticCandidateBlocks` divide i candidati in blocchi che stanno nella
     // cache del giudice: funzione pura.
+    // `writeMopupSlice` e' il confine sincrono gia' coperto dal test dedicato;
+    // definirlo all'import non scrive nessun dato.
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
@@ -633,6 +635,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
       'shouldQueueArgosSlot',
+      'writeMopupSlice',
       'writeReserveMs',
     ]);
   });

@@ -54,6 +54,8 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
+import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
 import {
   applyDeclaredBrandRelabel,
   refreshDeclaredBrandSlugs,
@@ -61,7 +63,7 @@ import {
   BRAND_RELABELLED_CRAWLER_KEYS,
 } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
-import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
+import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
@@ -649,6 +651,8 @@ export function normalizeParsedJobsForSlice(jobs) {
     applyUrlBackfilled,
   };
 }
+
+const assemblerDedupIdentity = createAssemblerDedupIdentity();
 
 function assemblerIdentity(job = {}) {
   return buildAssembledJobIdentity(job);
@@ -3322,7 +3326,7 @@ async function assembleJobs() {
   // forever. That is the #5637 failure re-entering through the dedup.
   const { winners: sliceJobs, marksCarried, collapsed } = dedupeByIdentityPreservingMarks(
     allTagged,
-    assemblerIdentity
+    assemblerDedupIdentity
   );
   if (marksCarried > 0) {
     console.log(
@@ -3335,7 +3339,7 @@ async function assembleJobs() {
   // Deduplicate across them: slice jobs take precedence over baseline
   // Publication evidence is independent of slice precedence; a baseline
   // clock must not survive through the later sort/slug collision winner.
-  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerIdentity);
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerDedupIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
@@ -3349,38 +3353,19 @@ async function assembleJobs() {
     return idA.localeCompare(idB);
   });
 
-  // ── Final slug dedup pass ────────────────────────────────────────────
-  // The URL-based identity dedup above handles most duplicates, but
-  // different URLs (or baseline entries from pre-migration data) can map
-  // to the same slug. Since slugs are used as the unique page identifier
-  // by the build system, we must guarantee no duplicate slugs.
-  // Keep the first occurrence (newest postedDate thanks to sort above).
-  // Two records with DIFFERENT identities can still share a slug (37 such
-  // slugs on b10e8eed). Dropping one of them here has the same consequence as
-  // the identity dedup above, so it gets the same per-record treatment: the
-  // discarded copy's `needsRetranslation` is carried onto the kept one instead
-  // of leaving with it.
-  const keptBySlug = new Map();
-  let slugDupeCount = 0;
-  let slugDupeMarksCarried = 0;
-  const deduped = sorted.filter((job) => {
-    const slug = String(job.slug || '').trim();
-    if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
-    const kept = keptBySlug.get(slug);
-    if (kept) {
-      slugDupeCount++;
-      slugDupeMarksCarried += carryForwardMarks(kept, job);
-      return false;
+  // ── Final slug reconciliation ───────────────────────────────────────
+  // Same-identity repeats collapse; distinct postings that share a slug get
+  // a town-specific route instead of disappearing from the published set.
+  const slugDedup = deduplicateAssembledJobsBySlug(sorted);
+  const deduped = slugDedup.jobs;
+  if (slugDedup.duplicates.length > 0) {
+    console.log(`  🧹 Slug dedup: removed ${slugDedup.duplicates.length} confirmed same-identity entries (${deduped.length} remaining)`);
+    if (slugDedup.marksCarried > 0) {
+      console.log(`     ↳ carried ${slugDedup.marksCarried} needsRetranslation mark(s) onto the kept copy`);
     }
-    keptBySlug.set(slug, job);
-    return true;
-  });
-
-  if (slugDupeCount > 0) {
-    console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
-    if (slugDupeMarksCarried > 0) {
-      console.log(`     ↳ carried ${slugDupeMarksCarried} needsRetranslation mark(s) onto the kept copy`);
-    }
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`  🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─
