@@ -27,6 +27,7 @@ const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_
 // `offerwall_fallback`: the paid offer opened because the job-board Offerwall
 // could not load (JobBoard handleRewardedApplicationUnavailable).
 const VALID_VARIANTS = new Set(['control', 'assisted_application', 'offerwall_fallback']);
+const VALID_COPY_VARIANTS = new Set(['control', 'time_saved', 'portal_relief', 'handled_for_you']);
 const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 
@@ -88,6 +89,8 @@ function sha256(value) {
 }
 
 function canonicalCheckoutOrder(order) {
+  // Copy attribution is presentation metadata, not checkout identity. Keeping
+  // it out of this shape lets pre-experiment request keys resume safely.
   return {
     jobId: order.jobId,
     companyId: order.companyId,
@@ -129,6 +132,7 @@ function metadataForOrder(order, userId) {
     companyName: order.companyName,
     jobTitle: order.jobTitle,
     experimentVariant: order.experimentVariant,
+    copyVariant: order.copyVariant || 'control',
     userId,
     locale: order.locale || 'it',
   };
@@ -214,6 +218,7 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     companyName: boundedString(body.companyName, 200),
     jobTitle: boundedString(body.jobTitle, 300),
     experimentVariant: VALID_VARIANTS.has(body.experimentVariant) ? body.experimentVariant : 'control',
+    copyVariant: VALID_COPY_VARIANTS.has(body.copyVariant) ? body.copyVariant : 'control',
   };
   const successUrl = boundedString(body.successUrl, 1000);
   const cancelUrl = boundedString(body.cancelUrl, 1000);

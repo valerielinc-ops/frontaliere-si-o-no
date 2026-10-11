@@ -73,6 +73,15 @@ describe('assisted application checkout client idempotency', () => {
     expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
   });
 
+  it('keeps the request key stable when only the copy arm changes', async () => {
+    const user = { uid: 'user-client-copy', getIdToken: vi.fn(async () => 'good-token') };
+
+    await createAssistedApplicationCheckout({ ...input, copyVariant: 'control' }, user);
+    await createAssistedApplicationCheckout({ ...input, copyVariant: 'time_saved' }, user);
+
+    expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
+  });
+
   it('keeps function and HTTP diagnostics bounded without exposing response text', async () => {
     fetchMock.mockImplementationOnce(async () => ({
       ok: false,

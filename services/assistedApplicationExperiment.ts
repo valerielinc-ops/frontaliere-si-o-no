@@ -10,6 +10,20 @@ export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_
 /** Stable identifiers shared by the SPA funnel and its analytics queries. */
 export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v2';
 export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPERIMENT_VARIANT';
+/**
+ * Copy-only experiment for the paid assisted-application offer. The product
+ * arm, price, CTA, steps and legal copy stay unchanged; only the title and
+ * description use one of these four message angles.
+ */
+export const ASSISTED_APPLICATION_COPY_EXPERIMENT_ID = 'assisted-application-copy-v1';
+export const ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY = 'ASSISTED_APPLICATION_COPY_VARIANT';
+export const ASSISTED_APPLICATION_COPY_VARIANTS = [
+  'control',
+  'time_saved',
+  'portal_relief',
+  'handled_for_you',
+] as const;
+export type AssistedApplicationCopyVariant = (typeof ASSISTED_APPLICATION_COPY_VARIANTS)[number];
 // v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
@@ -200,6 +214,19 @@ export function normalizeAssistedApplicationVariant(value: unknown): AssistedApp
   return value === 'control' || value === 'assisted_application' || value === 'rewarded_ad' ? value : null;
 }
 
+/** Resolve one of the four copy arms with the same sticky, non-PII id. */
+export function resolveAssistedApplicationCopyVariant(distinctId: string): AssistedApplicationCopyVariant {
+  const normalized = String(distinctId || '').trim();
+  if (!normalized) return 'control';
+  return ASSISTED_APPLICATION_COPY_VARIANTS[hashDistinctId(normalized) % ASSISTED_APPLICATION_COPY_VARIANTS.length];
+}
+
+export function normalizeAssistedApplicationCopyVariant(value: unknown): AssistedApplicationCopyVariant | null {
+  return ASSISTED_APPLICATION_COPY_VARIANTS.includes(value as AssistedApplicationCopyVariant)
+    ? value as AssistedApplicationCopyVariant
+    : null;
+}
+
 function createAnonymousDistinctId(): string {
   try {
     if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
@@ -298,10 +325,70 @@ export function useAssistedApplicationVariant(enabled = true): AssistedApplicati
   return { experimentId: ASSISTED_APPLICATION_EXPERIMENT_ID, variant: effectiveVariant, ready: effectiveReady };
 }
 
+export interface AssistedApplicationCopyVariantResult {
+  experimentId: string;
+  variant: AssistedApplicationCopyVariant;
+  ready: boolean;
+}
+
+/**
+ * Resolve the copy arm only after the public Remote Config value is available.
+ * `auto` enables the deterministic 25/25/25/25 split; a named arm is useful
+ * for QA or a controlled rollout. Any missing/invalid value fails closed to
+ * the current copy.
+ */
+export function useAssistedApplicationCopyVariant(enabled = true): AssistedApplicationCopyVariantResult {
+  const [variant, setVariant] = useState<AssistedApplicationCopyVariant>('control');
+  const [ready, setReady] = useState(!enabled);
+  const [assignmentEnabled, setAssignmentEnabled] = useState(enabled);
+
+  useEffect(() => {
+    if (!enabled) {
+      setVariant('control');
+      setReady(true);
+      setAssignmentEnabled(false);
+      return undefined;
+    }
+
+    setVariant('control');
+    setReady(false);
+    setAssignmentEnabled(true);
+
+    let cancelled = false;
+    const assign = async () => {
+      const distinctId = getAssistedApplicationDistinctId();
+      const configured = await getConfigValue(ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY).catch(() => 'control');
+      if (cancelled) return;
+      const normalized = configured.trim().toLowerCase();
+      const forced = normalizeAssistedApplicationCopyVariant(normalized);
+      const resolved = normalized === 'auto'
+        ? resolveAssistedApplicationCopyVariant(distinctId || '')
+        : forced ?? 'control';
+      setVariant(resolved);
+      setReady(true);
+    };
+
+    void assign();
+    return () => {
+      cancelled = true;
+    };
+  }, [enabled]);
+
+  const effectiveVariant = assignmentEnabled === enabled ? variant : 'control';
+  const effectiveReady = assignmentEnabled === enabled ? ready : !enabled;
+
+  return {
+    experimentId: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+    variant: effectiveVariant,
+    ready: effectiveReady,
+  };
+}
+
 export interface AssistedApplicationEventContext {
   variant: AssistedApplicationVariant;
   jobId: string;
   companyId: string;
+  copy_variant?: AssistedApplicationCopyVariant;
   [key: string]: unknown;
 }
 
@@ -325,6 +412,7 @@ export function trackAssistedApplicationEvent(
   if (shouldSuppressAssistedApplicationEvent()) return;
   Analytics.trackExperimentEvent(eventName, {
     ...context,
+    ...(context.copy_variant ? { copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID } : {}),
     experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,
     variant: context.variant,
     job_id: String(context.jobId),

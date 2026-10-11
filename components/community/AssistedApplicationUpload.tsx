@@ -8,7 +8,9 @@ import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPri
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+  normalizeAssistedApplicationCopyVariant,
   trackAssistedApplicationEvent,
+  type AssistedApplicationCopyVariant,
   type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 
@@ -24,6 +26,7 @@ interface AssistedApplicationOrder {
   companyName?: string;
   jobTitle?: string;
   experimentVariant?: AssistedApplicationVariant | 'offerwall_fallback';
+  copyVariant?: AssistedApplicationCopyVariant;
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
   consentVersion?: string | null;
@@ -79,8 +82,10 @@ function variantForOrder(order: AssistedApplicationOrder | null): AssistedApplic
 }
 
 function orderEventContext(order: AssistedApplicationOrder | null) {
+  const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant) || 'control';
   return {
     variant: variantForOrder(order),
+    copy_variant: copyVariant,
     jobId: order?.jobId || 'unknown',
     companyId: order?.companyId || order?.companyName || 'unknown',
   };
@@ -150,9 +155,7 @@ export default function AssistedApplicationUpload({
         if (!paymentCompletionTracked.current) {
           paymentCompletionTracked.current = true;
           trackAssistedApplicationEvent('checkout_completed', {
-            variant: variantForOrder(data),
-            jobId: data.jobId || 'unknown',
-            companyId: data.companyId || data.companyName || 'unknown',
+            ...orderEventContext(data),
             price_eur_cents: Number(data.amountTotal ?? ASSISTED_APPLICATION_PRICE_EUR_CENTS),
           });
         }

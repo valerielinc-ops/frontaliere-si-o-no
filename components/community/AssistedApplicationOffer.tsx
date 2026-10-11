@@ -8,6 +8,7 @@ import { useApplicationOfferBackdropDismiss } from '@/components/community/useAp
 import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   trackAssistedApplicationEvent,
+  type AssistedApplicationCopyVariant,
   type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 
@@ -18,6 +19,8 @@ export interface AssistedApplicationOfferProps {
   jobTitle: string;
   /** `rewarded_ad` when the offer is the fallback of an Offerwall that could not load. */
   variant: AssistedApplicationVariant;
+  /** Copy arm; the safe default is the current message. */
+  copyVariant?: AssistedApplicationCopyVariant;
   onChooseExternal: () => void;
   onChoosePaid: () => void | Promise<void>;
   onClose: () => void;
@@ -42,6 +45,7 @@ export default function AssistedApplicationOffer({
   companyName,
   jobTitle,
   variant,
+  copyVariant = 'control',
   onChooseExternal,
   onChoosePaid,
   onClose,
@@ -53,6 +57,9 @@ export default function AssistedApplicationOffer({
 }: AssistedApplicationOfferProps) {
   const { t } = useTranslation();
   const handleBackdropClick = useApplicationOfferBackdropDismiss(onClose);
+  const copyKey = (part: 'title' | 'body') => copyVariant === 'control'
+    ? `jobBoard.assisted.${part}`
+    : `jobBoard.assisted.copy.${copyVariant}.${part}`;
   // The free and paid buttons sit at the card's bottom, where Google's anchor
   // ad lands: the card stays above it.
   const adClearance = useApplicationOfferAdClearance();
@@ -60,6 +67,7 @@ export default function AssistedApplicationOffer({
   useEffect(() => {
     trackAssistedApplicationEvent('assisted_application_offer_viewed', {
       variant,
+      copy_variant: copyVariant,
       jobId,
       companyId,
       price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -67,7 +75,7 @@ export default function AssistedApplicationOffer({
     });
     // Viewed once per job; the trigger is the one it opened with.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [companyId, jobId, variant]);
+  }, [companyId, copyVariant, jobId, variant]);
 
   useEffect(() => {
     if (embedded) return undefined;
@@ -106,7 +114,7 @@ export default function AssistedApplicationOffer({
             <div className="min-w-0">
               <p className="text-sm font-semibold text-accent">{companyName}</p>
               <h2 id="assisted-application-offer-title" className="mt-1 text-xl font-semibold font-display text-heading">
-                {t('jobBoard.assisted.title')}
+                {t(copyKey('title'))}
               </h2>
               <p className="mt-2 text-sm text-subtle line-clamp-3">{jobTitle}</p>
             </div>
@@ -123,7 +131,7 @@ export default function AssistedApplicationOffer({
           </div>
 
           <p id="assisted-application-offer-description" className="text-sm leading-relaxed text-body">
-            {t('jobBoard.assisted.body')}
+            {t(copyKey('body'))}
           </p>
 
           <ul className="space-y-2.5 text-sm text-body" aria-label={t('jobBoard.assisted.stepsLabel')}>

@@ -38,6 +38,9 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
+ // Copy-only test for the assisted-application offer. The safe default keeps
+ // the current message until Remote Config explicitly enables `auto`.
+ ASSISTED_APPLICATION_COPY_VARIANT: 'control',
  // Candidate answer AI check: disabled locally and until the Remote Config
  // rollout is explicitly activated. The server applies the same fail-closed
  // gate; this value only describes the allowlisted client activation state.

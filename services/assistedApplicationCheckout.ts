@@ -1,4 +1,5 @@
 import { CREATE_ASSISTED_APPLICATION_CHECKOUT_URL } from './functionsBase';
+import type { AssistedApplicationCopyVariant } from './assistedApplicationExperiment';
 
 export interface AssistedApplicationCheckoutInput {
   jobId: string;
@@ -8,6 +9,8 @@ export interface AssistedApplicationCheckoutInput {
   jobTitle: string;
   /** `offerwall_fallback`: paid offer opened because the rewarded Offerwall could not load. */
   experimentVariant: 'control' | 'assisted_application' | 'offerwall_fallback';
+  /** Copy arm shown in the paid offer; persisted for post-payment attribution. */
+  copyVariant?: AssistedApplicationCopyVariant;
   successUrl: string;
   cancelUrl: string;
   requestKey?: string;
@@ -68,6 +71,8 @@ function newRequestKey(): string {
 function canonicalRequestIdentity(input: AssistedApplicationCheckoutInput): string {
   // Job title and redirect URLs are presentation details: locale changes and
   // returning through a different route must not fork an already-paid order.
+  // The copy arm is attribution metadata for the same service, so it must not
+  // fork legacy request keys when Remote Config changes or a visitor returns.
   // Keep the same immutable identity as the server-side checkout ledger.
   return JSON.stringify({
     jobId: input.jobId,
