@@ -1442,6 +1442,18 @@
       "assistant-di-farmacia-afc-coop-vitality-galenica-kriens",
       "pharmacy-assistant-afc-coop-vitality-galenica-kriens"
     ],
+    "previousSlugsByLocale": {
+      "it": [
+        "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
+        "assistant-di-farmacia-afc-coop-vitality-galenica-kriens"
+      ],
+      "en": [
+        "pharmacy-assistant-afc-coop-vitality-galenica-kriens"
+      ],
+      "de": [
+        "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
+      ]
+    },
     "postalCode": "6010",
     "streetAddress": "Schappe Center, Obernauerstrasse 16",
     "salaryMin": 86500,
@@ -1450,19 +1462,7 @@
     "salaryPeriod": "YEAR",
     "dedupArchive": true,
     "sourceIdentity": "url:https://jobs.galenica.com/it/jobs",
-    "firstSeenAt": "2026-04-13T21:44:00.314Z",
-    "previousSlugsByLocale": {
-      "it": [
-        "pharma-assistent-in-efz-coop-vitality-galenica-kriens",
-        "assistant-di-farmacia-afc-coop-vitality-galenica-kriens"
-      ],
-      "de": [
-        "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
-      ],
-      "en": [
-        "pharmacy-assistant-afc-coop-vitality-galenica-kriens"
-      ]
-    }
+    "firstSeenAt": "2026-04-13T21:44:00.314Z"
   },
   {
     "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl-1nc08w",
