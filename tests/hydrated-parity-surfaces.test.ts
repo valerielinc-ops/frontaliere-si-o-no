@@ -69,9 +69,18 @@ describe('the propagation retry window', () => {
     expect(WORKFLOW).toContain('while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]');
     expect(WORKFLOW).toContain('while read -r -u 9 section locale');
     expect(WORKFLOW).toContain('done 9< parity-targets.txt');
-    expect(WORKFLOW).toContain('--section="$section" --locale="$locale" </dev/null 2>&1');
+    expect(WORKFLOW).toContain('run_probe "$section" "$locale" </dev/null 2>&1');
     expect(WORKFLOW).toContain('sleep "$PARITY_RETRY_SLEEP_SECONDS"');
     expect(WORKFLOW).not.toContain('sleep 45');
+  });
+
+  it('exposes an explicit workflow-dispatch fixture for the all-red path', () => {
+    const input = WORKFLOW_DOCUMENT.on.workflow_dispatch.inputs.force_probe_failure;
+    expect(input.type).toBe('boolean');
+    expect(input.default).toBe(false);
+    expect(CHECK_STEP.env.PARITY_FORCE_PROBE_FAILURE).toContain('force_probe_failure');
+    expect(CHECK_STEP.run).toContain('forced parity failure for $1/$2');
+    expect(CHECK_STEP.run).toContain('cat parity-report.txt');
   });
 
   it('bounds the all-red path below the 25-minute job timeout', () => {
@@ -116,6 +125,7 @@ describe('the propagation retry window', () => {
           SECTION_INPUT: 'both',
           PARITY_TEST_CALLS: calls,
           PARITY_TEST_SLEEPS: sleeps,
+          PARITY_FORCE_PROBE_FAILURE: 'false',
           PATH: `${bin}:${process.env.PATH}`,
         },
       });

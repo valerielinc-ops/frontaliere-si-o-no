@@ -41,6 +41,10 @@ on:
         description: 'Open/refresh a GitHub issue when the check fails'
         type: boolean
         default: true
+      force_probe_failure:
+        description: 'Exercise all retry rounds with every probe held failing'
+        type: boolean
+        default: false
 
 concurrency:
   group: hydrated-article-parity
@@ -114,6 +118,7 @@ jobs:
           PARITY_RETRY_SLEEP_SECONDS: '300'
           PARITY_PROBE_TIMEOUT_SECONDS: '20'
           PARITY_PROBE_KILL_AFTER_SECONDS: '2'
+          PARITY_FORCE_PROBE_FAILURE: ${{ github.event.inputs.force_probe_failure || 'false' }}
         run: |
           set -uo pipefail
           if [ "$SECTION_INPUT" = "both" ]; then
@@ -121,6 +126,18 @@ jobs:
           else
             sections="$SECTION_INPUT"
           fi
+
+          run_probe() {
+            if [ "$PARITY_FORCE_PROBE_FAILURE" = "true" ]; then
+              echo "forced parity failure for $1/$2"
+              return 1
+            fi
+            timeout --signal=TERM \
+              --kill-after="${PARITY_PROBE_KILL_AFTER_SECONDS}s" \
+              "${PARITY_PROBE_TIMEOUT_SECONDS}s" \
+              node scripts/ci/check-hydrated-article-parity.mjs \
+              --section="$1" --locale="$2"
+          }
 
           rc=0
           : > parity-report.txt
@@ -141,11 +158,7 @@ jobs:
             while read -r -u 9 section locale; do
               label="${section}/${locale}"
               echo "::group::${label} — attempt ${attempt}/${PARITY_ATTEMPTS}"
-              if ! timeout --signal=TERM \
-                   --kill-after="${PARITY_PROBE_KILL_AFTER_SECONDS}s" \
-                   "${PARITY_PROBE_TIMEOUT_SECONDS}s" \
-                   node scripts/ci/check-hydrated-article-parity.mjs \
-                   --section="$section" --locale="$locale" </dev/null 2>&1 \
+              if ! run_probe "$section" "$locale" </dev/null 2>&1 \
                    | tee "parity-${section}-${locale}.txt"; then
                 echo "$section $locale" >> parity-targets-next.txt
               fi
@@ -170,6 +183,9 @@ jobs:
               echo ''
             } >> parity-report.txt
           done 9< parity-targets.txt
+          if [ "$PARITY_FORCE_PROBE_FAILURE" = "true" ]; then
+            cat parity-report.txt
+          fi
           exit "$rc"
 
       # Stable title (ISSUES.md: dedup a MONTE) — this condition is by
