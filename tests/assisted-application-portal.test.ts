@@ -1138,7 +1138,7 @@ describe('portal runner helpers', () => {
     // The same thanks in more words (an ATS in English, 2026-10-03).
     for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);
     // JOIN says "du"/"tu".
-    for (const text of ['Grazie per esserti candidato!', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
+    for (const text of ['Grazie per esserti candidato!', 'La ringraziamo per la sua candidatura', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
     // A disabled submit (required fields still empty) is not clicked, but the runner can see it.

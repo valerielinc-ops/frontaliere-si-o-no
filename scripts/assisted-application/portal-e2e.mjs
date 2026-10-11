@@ -619,8 +619,9 @@ function fakePortal() {
       return send(page('Application', `<h1>Submit your application</h1>${form('/hchallenge', '<button type="submit">Submit application</button>').replace('<form ', '<form onsubmit="fetch(\'https://api.hcaptcha.com/getcaptcha/e2e-site\', { method: \'POST\' }).catch(() => {}); return false" ')}`));
     }
     // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
+    // Keep generic thank-you copy too: refusal must win when an error page is mixed.
     if (route === 'GET /refused') {
-      return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'La ringraziamo per la sua candidatura. Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
     }
     // Client validation and a JSON error with HTTP 200 were invisible to the old diagnostics.
     if (route === 'GET /diagnostic-refused') {
