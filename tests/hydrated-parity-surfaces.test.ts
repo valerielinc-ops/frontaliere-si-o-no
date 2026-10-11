@@ -20,12 +20,19 @@
 // make the gate model the same union the current runtime uses. Either identity
 // may lead during publication (run 38079614519 caught the reverse direction).
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
+import { parse } from 'yaml';
 import { missingFromClient } from '../scripts/lib/hydratedParity.mjs';
 
 const SRC = readFileSync(resolve(__dirname, '../scripts/ci/check-hydrated-article-parity.mjs'), 'utf8');
 const WORKFLOW = readFileSync(resolve(__dirname, '../.github/workflows/hydrated-article-parity.yml'), 'utf8');
+const WORKFLOW_DOCUMENT = parse(WORKFLOW);
+const CHECK_STEP = WORKFLOW_DOCUMENT.jobs.parity.steps.find(
+  (step: { name?: string }) => step.name === 'Check hydrated article parity',
+);
 
 describe('the surfaces the gate reads', () => {
   it('reads the overlay at the bare url, not only under the rotating key', () => {
@@ -59,10 +66,68 @@ describe('the surfaces the gate reads', () => {
 
 describe('the propagation retry window', () => {
   it('rechecks failed surfaces in global five-minute rounds', () => {
-    expect(WORKFLOW).toContain('while [ -s parity-targets.txt ] && [ "$attempt" -le 3 ]');
+    expect(WORKFLOW).toContain('while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]');
     expect(WORKFLOW).toContain('while read -r section locale');
-    expect(WORKFLOW).toContain('sleep 300');
+    expect(WORKFLOW).toContain('sleep "$PARITY_RETRY_SLEEP_SECONDS"');
     expect(WORKFLOW).not.toContain('sleep 45');
+  });
+
+  it('bounds the all-red path below the 25-minute job timeout', () => {
+    const env = CHECK_STEP.env;
+    const attempts = Number(env.PARITY_ATTEMPTS);
+    const sleepSeconds = Number(env.PARITY_RETRY_SLEEP_SECONDS);
+    const probeSeconds = Number(env.PARITY_PROBE_TIMEOUT_SECONDS);
+    const killGraceSeconds = Number(env.PARITY_PROBE_KILL_AFTER_SECONDS);
+    const allEightTargetsSeconds = (attempts - 1) * sleepSeconds
+      + attempts * 8 * (probeSeconds + killGraceSeconds);
+
+    expect(allEightTargetsSeconds).toBe(1128);
+    expect(allEightTargetsSeconds).toBeLessThanOrEqual(20 * 60);
+    expect(WORKFLOW_DOCUMENT.jobs.parity['timeout-minutes']).toBe(25);
+  });
+
+  it('reports all eight targets after all 24 probes fail', () => {
+    const fixture = mkdtempSync(resolve(tmpdir(), 'hydrated-parity-retry-'));
+    const bin = resolve(fixture, 'bin');
+    const calls = resolve(fixture, 'calls.txt');
+    const sleeps = resolve(fixture, 'sleeps.txt');
+    try {
+      spawnSync('mkdir', ['-p', bin], { encoding: 'utf8' });
+      const executables = {
+        node: `#!/bin/sh\nprintf '%s\\n' "$*" >> "$PARITY_TEST_CALLS"\nprintf 'forced failure %s\\n' "$*"\nexit 1\n`,
+        sleep: `#!/bin/sh\nprintf '%s\\n' "$1" >> "$PARITY_TEST_SLEEPS"\n`,
+        timeout: `#!/bin/sh\nwhile [ "$#" -gt 0 ]; do\n  case "$1" in\n    --signal=*|--kill-after=*) shift ;;\n    *s) shift; break ;;\n    *) break ;;\n  esac\ndone\nexec "$@"\n`,
+      };
+      for (const [name, body] of Object.entries(executables)) {
+        const path = resolve(bin, name);
+        writeFileSync(path, body);
+        chmodSync(path, 0o755);
+      }
+
+      const startedAt = performance.now();
+      const run = spawnSync('bash', ['-c', CHECK_STEP.run], {
+        cwd: fixture,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          ...Object.fromEntries(Object.entries(CHECK_STEP.env).map(([key, value]) => [key, String(value)])),
+          SECTION_INPUT: 'both',
+          PARITY_TEST_CALLS: calls,
+          PARITY_TEST_SLEEPS: sleeps,
+          PATH: `${bin}:${process.env.PATH}`,
+        },
+      });
+      const elapsedMs = performance.now() - startedAt;
+      const report = readFileSync(resolve(fixture, 'parity-report.txt'), 'utf8');
+
+      expect(run.status).toBe(1);
+      expect(readFileSync(calls, 'utf8').trim().split('\n')).toHaveLength(24);
+      expect(readFileSync(sleeps, 'utf8').trim().split('\n')).toEqual(['300', '300']);
+      expect(report.match(/^### (?:frontaliere|svizzera)\/(?:it|en|de|fr)$/gm)).toHaveLength(8);
+      expect(elapsedMs).toBeLessThan(5_000);
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
   });
 });
 
