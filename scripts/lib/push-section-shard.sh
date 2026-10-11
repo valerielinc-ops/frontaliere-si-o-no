@@ -222,6 +222,10 @@ push_section_shard() {
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
   fi
 
+  if [ "$section" = ticino ] && ! ticino_tree_require_worker_layout "$sub"; then
+    return 1
+  fi
+
   # ── Stage subtree + offload (CDN refs) on the STAGED copy ────────────────
   # Hardlink the RAW subtree into <stage_src>/<sub> (offload needs it under a
   # dir literally named "dist"), then run the canonical offload with a FIXED
