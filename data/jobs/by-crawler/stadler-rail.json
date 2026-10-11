@@ -1969,7 +1969,6 @@
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-fertigstellung-stadler-rail-ch",
-          "elettricista-in-completamento-stadler-rail-bussnang",
           "anderungselektriker-in-fertigstellung-stadler-rail-ch"
         ],
         "en": [
@@ -1984,7 +1983,6 @@
       },
       "previousSlugs": [
         "elektriker-in-fertigstellung-stadler-rail-ch",
-        "elettricista-in-completamento-stadler-rail-bussnang",
         "anderungselektriker-in-fertigstellung-stadler-rail-ch"
       ],
       "firstSeenAt": "2026-07-21T11:24:44.736Z",
@@ -4563,10 +4561,8 @@
       "applyUrl": "https://careers.stadlerrail.com/job/Bussnang-Contract-Manager-Procurement-TG-T-9565/1353938155/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
-        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
         "contract-manager-procurement-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
@@ -4594,8 +4590,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "stadler-rail-45ccbad0485f",
@@ -5044,7 +5039,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:22:42.205Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -5057,8 +5051,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "stadler-rail-17769963d701",
@@ -5508,7 +5501,8 @@
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-cbtc-stadler-rail-ch",
-          "system-ingegnere-cbtc-stadler-rail-wallisellen"
+          "system-ingegnere-cbtc-stadler-rail-wallisellen",
+          "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
         ],
         "fr": [
           "system-engineer-cbtc-stadler-rail-ch"
@@ -5516,7 +5510,8 @@
       },
       "previousSlugs": [
         "system-engineer-cbtc-stadler-rail-ch",
-        "system-ingegnere-cbtc-stadler-rail-wallisellen"
+        "system-ingegnere-cbtc-stadler-rail-wallisellen",
+        "system-ingegnere-cbtc-stadler-rail-wallisellen-c74w3g"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

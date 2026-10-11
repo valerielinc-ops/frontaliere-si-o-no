@@ -68693,7 +68693,7 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-winterthur",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-winterthur",
+      "en": "pharmacy-assistant-afc-amavita-galenica-winterthur",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-winterthur",
       "it": "galenica-amavita-assistente-di-farmacia-afc-winterthur"
     }
@@ -68836,7 +68836,7 @@
     "createdAt": "2026-07-01",
     "slugByLocale": {
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+      "en": "pharmacy-assistant-afc-amavita-galenica-zurich",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich",
       "it": "galenica-amavita-assistente-di-farmacia-afc-zurich"
     }
@@ -69001,7 +69001,7 @@
     "createdAt": "2026-07-01",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
+      "en": "pharmacy-assistant-afc-coop-vitality-galenica-basel",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-basel",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-basel"
     }
@@ -69342,7 +69342,7 @@
     "createdAt": "2026-07-03",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-oberwil-bl",
+      "en": "pharmacy-assistant-afc-coop-vitality-galenica-oberwil-bl",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-oberwil-bl",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-oberwil-bl"
     }
@@ -305983,7 +305983,9 @@
   "id|lever.co|18f316bf-a257-4858-b727-65881686fc08": {
     "canonicalSlug": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf",
     "slugByLocale": {
-      "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-geneva-18f316bf"
+      "de": "senior-techniker-fur-autonome-fahrzeuge-wartung-und-technische-betriebsablaufe-der-robotaxi-flotte-tsmg-geneva-18f316bf",
+      "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-geneva-18f316bf",
+      "fr": "technicien-senior-en-vehicules-autonomes-maintenance-de-flotte-robotaxi-et-operations-techniques-tsmg-geneva-18f316bf"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306102,7 +306104,10 @@
   },
   "id|lever.co|62c18ec4-3d91-49d2-83bb-332794063bc2": {
     "canonicalSlug": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "specialista-dei-sistemi-di-guida-autonoma-specialista-sds-diagnostica-e-calibrazione-dei-veicoli-autonomi-tsmg-62c18ec4",
+      "de": "spezialist-fur-autonome-fahrsysteme-sds-spezialist-diagnose-und-kalibrierung-autonomer-fahrzeuge-tsmg-geneva-62c18ec4"
+    },
     "createdAt": "2026-07-11",
     "canton": "GE"
   },
@@ -306194,7 +306199,11 @@
   },
   "id|lever.co|a44805ef-ba91-4b7e-b9b9-b79bd40fb777": {
     "canonicalSlug": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "de": "spezialist-fur-selbst-dranksysteme-sds-spezialist-autonome-fahrzeugdiagnostik-kalibrierung-tsmg-geneva-a44805ef",
+      "it": "specialista-dei-sistemi-di-guida-autonoma-specialista-sds-diagnostica-e-calibrazione-di-veicoli-autonomi-tsmg-a44805ef",
+      "fr": "specialiste-des-systemes-de-conduite-autonome-specialiste-sds-diagnostic-et-calibration-de-vehicules-autonomes-a44805ef"
+    },
     "createdAt": "2026-07-11",
     "canton": "GE"
   },
@@ -349352,7 +349361,8 @@
     "slugByLocale": {
       "it": "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve",
       "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve"
+      "fr": "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-geneve",
+      "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
     },
     "createdAt": "2026-07-17",
     "canton": "GE"
@@ -409749,7 +409759,7 @@
     "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-ilanz",
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-ilanz",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ilanz",
+      "en": "afc-pharmacy-assistant-amavita-galenica-ilanz",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-ilanz",
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-ilanz"
     },
@@ -409793,7 +409803,7 @@
     "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-kussnacht-am-rigi",
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-kussnacht-am-rigi",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kussnacht-am-rigi",
+      "en": "afc-pharmacy-assistant-amavita-galenica-kussnacht-am-rigi",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-kussnacht-am-rigi",
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kussnacht-am-rigi"
     },
@@ -409804,7 +409814,7 @@
     "canonicalSlug": "galenica-amavita-assistente-di-farmacia-afc-le-lignon",
     "slugByLocale": {
       "it": "galenica-amavita-assistente-di-farmacia-afc-le-lignon",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-lignon",
+      "en": "afc-pharmacy-assistant-amavita-galenica-le-lignon",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-le-lignon",
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-lignon"
     },
@@ -409837,7 +409847,7 @@
     "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-haag",
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-haag",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-haag",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-haag",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-haag",
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-haag"
     },
@@ -409848,7 +409858,7 @@
     "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-rickenbach-b-wil",
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-rickenbach-b-wil",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rickenbach-b-wil",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-rickenbach-b",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-rickenbach-b-wil",
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-rickenbach-b-wil"
     },
@@ -409881,7 +409891,7 @@
     "canonicalSlug": "galenica-coop-vitality-assistente-di-farmacia-afc-fontainemelon",
     "slugByLocale": {
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-fontainemelon",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fontainemelon",
+      "en": "afc-pharmacy-assistant-coop-vitality-galenica-fontainemelon",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-fontainemelon",
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fontainemelon"
     },
@@ -795487,7 +795497,8 @@
     "canonicalSlug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
     "slugByLocale": {
       "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
-      "fr": "conseiller-conseiller-en-prevoyance-et-en-finance-h-f-d-personnes-vendant-d-un-autre-moyen-de-revenus-agence-generale"
+      "fr": "conseiller-conseiller-en-prevoyance-et-en-finance-h-f-d-personnes-vendant-d-un-autre-moyen-de-revenus-agence-generale",
+      "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-geneve-340a093282"
     },
     "createdAt": "2026-09-25",
     "canton": "GE"
@@ -795577,7 +795588,9 @@
   "id|swisslife.wd3.myworkdayjobs.com|r08970": {
     "canonicalSlug": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre-3",
     "slugByLocale": {
-      "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+      "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
+      "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale-canton-de-2159f78cc3",
+      "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale"
     },
     "createdAt": "2026-09-25",
     "canton": "FR"
@@ -889768,7 +889781,8 @@
     "slugByLocale": {
       "de": "projektleiter-in-ne5-7-netz-mittelbunden-stadt-zuerich-zurigo-51656",
       "it": "projektleiter-in-ne5-7-netz-mittelbunden-stadt-zurich",
-      "fr": "chef-fe-de-projet-ne5-7-reseau-des-grisons-centraux-stadt-zurich-zurich"
+      "fr": "chef-fe-de-projet-ne5-7-reseau-des-grisons-centraux-stadt-zurich-zurich",
+      "en": "project-manager-ne5-7-network-central-graubunden-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -893446,7 +893460,9 @@
   "id|lever.co|21d94677-d556-4fb3-bd21-90f537f4cfbc": {
     "canonicalSlug": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-21d94677",
     "slugByLocale": {
-      "en": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-21d94677"
+      "en": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-21d94677",
+      "it": "specialista-dei-sistemi-di-guida-autonoma-sds-specialist-diagnostica-e-calibrazione-dei-veicoli-autonomi-tsmg-21d94677",
+      "de": "spezialist-fur-autonome-fahrsysteme-sds-specialist-diagnose-und-kalibrierung-autonomer-fahrzeuge-tsmg-furttal-21d94677"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -893484,7 +893500,9 @@
     "canonicalSlug": "tecnico-veicolo-autonomo-senior-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1",
     "slugByLocale": {
       "it": "tecnico-veicolo-autonomo-senior-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1",
-      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1"
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-c54966f1",
+      "de": "senior-techniker-fur-autonome-fahrzeuge-robotaxi-flottenwartung-und-technische-betriebsablaufe-tsmg-furttal-c54966f1",
+      "fr": "technicien-senior-en-vehicules-autonomes-maintenance-de-flotte-de-robotaxis-et-operations-techniques-tsmg-c54966f1"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -893493,7 +893511,9 @@
     "canonicalSlug": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-furttal-1fc5969c",
     "slugByLocale": {
       "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-furttal-1fc5969c",
-      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-1fc5969c"
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-furttal-1fc5969c",
+      "de": "senior-techniker-fur-autonome-fahrzeuge-wartung-und-technische-betriebsablaufe-der-robotaxi-flotte-tsmg-furttal-1fc5969c",
+      "fr": "technicien-senior-en-vehicules-autonomes-maintenance-de-flotte-de-robotaxis-et-operations-techniques-tsmg-1fc5969c"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -911095,5 +911115,1296 @@
     },
     "createdAt": "2026-10-11",
     "canton": "NE"
+  },
+  "id|stadt-zuerich.ch|1372579857": {
+    "canonicalSlug": "schulsozialarbeiter-in-stadt-zurich-zurich-cf0a22087e",
+    "slugByLocale": {
+      "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688",
+      "it": "schulsozialarbeiter-in-stadt-zurich-zurich-cf0a22087e",
+      "en": "schulsozialarbeiter-in-stadt-zurich-zurich",
+      "fr": "schulsozialarbeiter-in-stadt-zurich-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2761.umantis.com|2776": {
+    "canonicalSlug": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-25ab8c59e8",
+    "slugByLocale": {
+      "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-25ab8c59e8",
+      "en": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp",
+      "de": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp",
+      "fr": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2811": {
+    "canonicalSlug": "psicologo-a-assistente-ipsi-per-l-abilitazione-cantonale-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc3",
+    "slugByLocale": {
+      "it": "psicologo-a-assistente-ipsi-per-l-abilitazione-cantonale-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc3",
+      "en": "psychologist-ipsi-assistant-for-cantonal-empowerment-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "de": "psychologin-ipsi-assistentin-fur-kantonale-ermachtigung-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "fr": "assistant-psychologue-ipsi-pour-l-autonomisation-cantonale-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2812": {
+    "canonicalSlug": "medico-assistente-urologia-100-eoc-ente-ospedaliero-cantonale-lugano",
+    "slugByLocale": {
+      "it": "medico-assistente-urologia-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "en": "medical-assistant-urology-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "de": "urologie-der-medizinischen-assistenz-100-eoc-ente-ospedaliero-cantonale-lugano",
+      "fr": "assistant-medical-urologie-100-eoc-ente-ospedaliero-cantonale-lugano"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2813": {
+    "canonicalSlug": "addetto-a-ai-trasporti-a-ore-eoc-ente-ospedaliero-cantonale-novaggio",
+    "slugByLocale": {
+      "it": "addetto-a-ai-trasporti-a-ore-eoc-ente-ospedaliero-cantonale-novaggio",
+      "en": "associate-ai-trasporti-a-ore-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc5",
+      "de": "mitarbeiter-in-ai-trasporti-a-ore-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc5",
+      "fr": "prepose-e-ai-trasporti-a-ore-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc5"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2814": {
+    "canonicalSlug": "fisioterapista-diplomata-o-100-eoc-ente-ospedaliero-cantonale-novaggio",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomata-o-100-eoc-ente-ospedaliero-cantonale-novaggio",
+      "en": "graduated-physiotherapist-100-eoc-ente-ospedaliero-cantonale-novaggio",
+      "de": "absolvent-physiotherapeut-100-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "physiotherapeute-diplome-100-eoc-ente-ospedaliero-cantonale-novaggio"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2815": {
+    "canonicalSlug": "medico-capoclinica-in-anestesiologia-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc7",
+    "slugByLocale": {
+      "it": "medico-capoclinica-in-anestesiologia-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefqc7",
+      "en": "phd-in-anestesiology-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "de": "phd-in-anestesiologie-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "fr": "doctorat-en-anestesie-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|2816": {
+    "canonicalSlug": "medico-perito-sam-con-specializzazione-in-neurologia-percentuale-lavorativa-da-definire-ma-comunque-minimo-30-40-eoc-ente-ospedaliero-canton-fefqc8",
+    "slugByLocale": {
+      "it": "medico-perito-sam-con-specializzazione-in-neurologia-percentuale-lavorativa-da-definire-ma-comunque-minimo-30-40-eoc-ente-ospedaliero-canton-fefqc8",
+      "en": "doctor-perito-sam-with-specialization-in-neurology-work-percentage-to-be-defined-but-nevertheless-minimum-30-40-eoc-ente",
+      "de": "doktor-perito-sam-mit-spezialisierung-in-neurologie-arbeitsprozentsatz-zu-definieren-aber-dennoch-mindestens-30-40-eoc",
+      "fr": "docteur-perito-sam-avec-specialisation-en-neurologie-pourcentage-de-travail-a-definir-mais-neanmoins-minimum-30-40-eoc"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|946": {
+    "canonicalSlug": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-c54f292ec4",
+    "slugByLocale": {
+      "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-c54f292ec4",
+      "en": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333gy",
+      "de": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333gy",
+      "fr": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333gy"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|959": {
+    "canonicalSlug": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-2aee7196a8",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-2aee7196a8",
+      "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333g0",
+      "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333g0",
+      "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333g0"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|960": {
+    "canonicalSlug": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-b54b46d502",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-b54b46d502",
+      "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fe",
+      "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fe",
+      "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fe"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|961": {
+    "canonicalSlug": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-27de2a7c67",
+    "slugByLocale": {
+      "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-27de2a7c67",
+      "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fd",
+      "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fd",
+      "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333fd"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|964": {
+    "canonicalSlug": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-c8edb8e132",
+    "slugByLocale": {
+      "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-c8edb8e132",
+      "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+      "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+      "fr": "ergotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|965": {
+    "canonicalSlug": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-8edc268f7c",
+    "slugByLocale": {
+      "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-8edc268f7c",
+      "en": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f9",
+      "de": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f9",
+      "fr": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f9"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|recruitingapp-2761.umantis.com|966": {
+    "canonicalSlug": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0deb10dfaf",
+    "slugByLocale": {
+      "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-0deb10dfaf",
+      "en": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f8",
+      "de": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f8",
+      "fr": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-4333f8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "url|https://jobs.zfv.ch/buffet-mitarbeiterin-50-de-j4748.html": {
+    "canonicalSlug": "buffet-collaboratore-trice-50-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "buffet-mitarbeiter-in-50-zfv-unternehmungen-zurich",
+      "it": "buffet-collaboratore-trice-50-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/catering-mitarbeiterin-60-80-de-j4746.html": {
+    "canonicalSlug": "catering-collaboratore-trice-60-80-zfv-unternehmungen-zurich",
+    "slugByLocale": {
+      "de": "catering-mitarbeiter-in-60-80-zfv-unternehmungen-zurich",
+      "it": "catering-collaboratore-trice-60-80-zfv-unternehmungen-zurich"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "url|https://jobs.zfv.ch/koechin-koch-chef-de-partie-de-j4747.html": {
+    "canonicalSlug": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
+    "slugByLocale": {
+      "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|raiffeisen.ch|ee2c0cbf-3ea4-49ab-95eb-9001b7c9358d": {
+    "canonicalSlug": "collaboratore-trice-services-w-m-d-raiffeisen-obergosgen-9df5201a60",
+    "slugByLocale": {
+      "de": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
+      "it": "collaboratore-trice-services-w-m-d-raiffeisen-obergosgen-9df5201a60"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r2472": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-ce9305f76c",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2472",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-ce9305f76c"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r2471": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-eeec4bf4c4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2471",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-eeec4bf4c4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r2470": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-8970727078",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2470",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-8970727078"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SO"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3300": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-1274e83a3a",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3300",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-1274e83a3a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3299": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-a5760fd87f",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3299",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-a5760fd87f"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3294": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-ad22dd22d4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3294",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-ad22dd22d4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3292": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4bfe8686fa",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3292",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4bfe8686fa"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3289": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-8485f958e7",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3289",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-8485f958e7"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3288": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-1bcb367346",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3288",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-1bcb367346"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3285": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-a459f61c15",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3285",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-a459f61c15"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3283": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-e42dad8eb8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3283",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-e42dad8eb8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3282": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-fd9519480f",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3282",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-fd9519480f"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3280": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-2e6b434cc7",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3280",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-2e6b434cc7"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3279": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-bb2deb48aa",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3279",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-bb2deb48aa"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3278": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-33f63279aa",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3278",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-33f63279aa"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3412": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-dbc6e39a65",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3412",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-dbc6e39a65"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3411": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-83b9bd44e2",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3411",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-83b9bd44e2"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3409": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-2bccdb2df5",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3409",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-2bccdb2df5"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3408": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-07df5d3333",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3408",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-07df5d3333"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3407": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-715635fe3b",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3407",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-715635fe3b"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3406": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-eb83385869",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3406",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-eb83385869"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3405": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ca162beeee",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3405",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ca162beeee"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3404": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-40cf6a224d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3404",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-40cf6a224d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3403": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-1556374054",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3403",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-1556374054"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3402": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-34f3148234",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3402",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-34f3148234"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3401": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-d6a63c31c8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3401",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-d6a63c31c8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3400": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-bf836b4b6a",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3400",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-bf836b4b6a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3399": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-b618ee9310",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3399",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-b618ee9310"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3398": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-7ef52a4bfb",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3398",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-7ef52a4bfb"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3397": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-2c4d2d28e6",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3397",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-2c4d2d28e6"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3396": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-3404378b38",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3396",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-3404378b38"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3395": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-616e030f36",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3395",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-616e030f36"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3394": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-293f4f7fb0",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3394",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-293f4f7fb0"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3393": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-1de7cce760",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3393",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-1de7cce760"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3391": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-6ff6245f8e",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3391",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-6ff6245f8e"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3389": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-33fcd410b4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3389",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-33fcd410b4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3388": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7372867b76",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3388",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7372867b76"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3387": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-d69052d6ce",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3387",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-d69052d6ce"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3386": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-eab6f415e5",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3386",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-eab6f415e5"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NW"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3385": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bdc6ab01b4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3385",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bdc6ab01b4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3384": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-461bed75fd",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3384",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-461bed75fd"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3383": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-a052cf0502",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3383",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-a052cf0502"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3382": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bbb704fa01",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3382",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bbb704fa01"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3381": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-ecb9766c88",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3381",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-ecb9766c88"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3380": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-1f02985f1a",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3380",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-1f02985f1a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3379": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-56a2d4d2bf",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3379",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-56a2d4d2bf"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3378": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-e847cc8967",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3378",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-e847cc8967"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3376": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-a5500a44c8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3376",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-a5500a44c8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3375": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-8ef2dd2547",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3375",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-8ef2dd2547"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3374": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-c55b438541",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3374",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-c55b438541"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3373": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-f7ee57f5b4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3373",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-f7ee57f5b4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3372": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ec201ad65e",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3372",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ec201ad65e"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3371": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-09aef6a833",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3371",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-09aef6a833"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3370": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-8a0261116a",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3370",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-8a0261116a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3369": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-56080999e4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3369",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-56080999e4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3368": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-2d2d2cf6f6",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3368",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-2d2d2cf6f6"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3367": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-09fc9cd9d0",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3367",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-09fc9cd9d0"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3366": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-2496b7012e",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3366",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-2496b7012e"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3365": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-07ae1de970",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3365",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-07ae1de970"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3364": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-c2e7c3a3f7",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3364",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-c2e7c3a3f7"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3363": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-f89630a9e1",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3363",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-f89630a9e1"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3362": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-5f957e98f2",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3362",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-5f957e98f2"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3361": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-5954e2187c",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3361",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-5954e2187c"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3360": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4ed5a602ac",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3360",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4ed5a602ac"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3358": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b6d1bc9bde",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3358",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b6d1bc9bde"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3356": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-45c39170ec",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3356",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-45c39170ec"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3355": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7b2e60b98f",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3355",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7b2e60b98f"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3354": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-ebdbf75a07",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3354",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-ebdbf75a07"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3353": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-c25d3cb992",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3353",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-c25d3cb992"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NW"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3352": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-703f610cf4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3352",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-703f610cf4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3351": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-b693a51f6d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3351",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-b693a51f6d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3350": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-fc0422f3d6",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3350",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-fc0422f3d6"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3349": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-91bed6d435",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3349",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-91bed6d435"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3348": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-111201ca46",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3348",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-111201ca46"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3347": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-d18f9367f4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3347",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-d18f9367f4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3346": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-9e7493a8e2",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3346",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-9e7493a8e2"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3345": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-eda2fd6fae",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3345",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-eda2fd6fae"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3343": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-aca9b28ac0",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3343",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-aca9b28ac0"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3342": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-0fedffce5e",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3342",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-0fedffce5e"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3341": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-02e73f6753",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3341",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-02e73f6753"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3340": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-91da23f828",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3340",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-91da23f828"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3339": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-2b210996c2",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3339",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-2b210996c2"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3338": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-64e0503bc6",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3338",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-64e0503bc6"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3337": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-5730f7faa3",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3337",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-5730f7faa3"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3336": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-ef762f8f5d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3336",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-ef762f8f5d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3335": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-6e8337f125",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3335",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-6e8337f125"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3334": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-fdc2c91c69",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3334",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-fdc2c91c69"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3333": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-bab49b105d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3333",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-bab49b105d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "LU"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3332": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-002aca5d53",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3332",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-002aca5d53"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3331": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b68bc4d516",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3331",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b68bc4d516"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3330": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-e52deb01d5",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3330",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-e52deb01d5"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3329": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-0e71a9e9f4",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3329",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-0e71a9e9f4"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "SG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3328": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-90422927b8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3328",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-90422927b8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3327": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-bf011df94c",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3327",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-bf011df94c"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3325": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-adae83d280",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3325",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-adae83d280"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3323": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-5883205e0d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3323",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-5883205e0d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "AG"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3322": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-bcc2e6298d",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3322",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-bcc2e6298d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3321": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-e46d11d8ef",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3321",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-e46d11d8ef"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3320": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-11c6a4add8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3320",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-11c6a4add8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "NW"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3319": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-fb784dbc0a",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3319",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-fb784dbc0a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3318": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-1722d15fc1",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3318",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-1722d15fc1"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3317": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-95fc5b91e8",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3317",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-95fc5b91e8"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3316": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-5368615aa1",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3316",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-5368615aa1"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3315": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-6a1ac8bc82",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3315",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-6a1ac8bc82"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3314": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-f202277dda",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3314",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-f202277dda"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3313": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-39bf4cbbf2",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3313",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-39bf4cbbf2"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r3312": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-b19cfd6cbc",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3312",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-b19cfd6cbc"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BS"
+  },
+  "url|https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-bern-67143-de-de": {
+    "canonicalSlug": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern-2bad55e260",
+    "slugByLocale": {
+      "de": "mitarbeiter-im-verkauf-m-w-d-20-fur-bern-c-and-a-schweiz-ch",
+      "it": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern-2bad55e260"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "url|https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-30-fur-bern-67142-de-de": {
+    "canonicalSlug": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-839ec49839",
+    "slugByLocale": {
+      "de": "mitarbeiter-im-verkauf-m-w-d-30-fur-bern-c-and-a-schweiz-ch",
+      "it": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-839ec49839"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
+  },
+  "id|softgarden.de|66510048": {
+    "canonicalSlug": "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0",
+    "slugByLocale": {
+      "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
+      "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "ZH"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15175": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-03b6a6010d",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15175",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-03b6a6010d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15174": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-aea6f40a6a",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15174",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-aea6f40a6a"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15173": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-ccb03bf425",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15173",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-ccb03bf425"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15172": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ae32c26ae",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15172",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ae32c26ae"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15162": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-dd627ca07d",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15162",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-dd627ca07d"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15161": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-c5177d5a75",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15161",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-c5177d5a75"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15160": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ffe75d38f",
+    "slugByLocale": {
+      "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15160",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ffe75d38f"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15159": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-a5bf223437",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15159",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-a5bf223437"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "id|rituals.wd3.myworkdayjobs.com|r15158": {
+    "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-3d10b2b07c",
+    "slugByLocale": {
+      "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15158",
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-3d10b2b07c"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "TI"
+  },
+  "url|https://apply.refline.ch/514915/2877/pub/1/index.html": {
+    "canonicalSlug": "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur-9dd49feb4b",
+    "slugByLocale": {
+      "de": "juristische-r-mitarbeiter-in-kanton-gr-ch",
+      "it": "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur-9dd49feb4b",
+      "en": "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur",
+      "fr": "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "GR"
+  },
+  "id|bern.ch|de598e7d-ab8a-4b9a-a36f-cbb94f5f7dba": {
+    "canonicalSlug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9",
+    "slugByLocale": {
+      "de": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
+      "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9"
+    },
+    "createdAt": "2026-10-11",
+    "canton": "BE"
   }
 }

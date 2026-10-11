@@ -1627,6 +1627,7 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -1648,6 +1649,7 @@
           "zimmermann-zimmerin-fur-vielseitige-holzkonstruktionen-winterthur-zurich-fachkraft-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T15:25:37.876Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1661,8 +1663,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "8400"
+      }
     },
     {
       "id": "fachkraft-c8ebb3541139",
@@ -2480,6 +2481,7 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "8500",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -2571,8 +2573,8 @@
           "zimmermann-zimmerin-fur-rohbau-und-montage-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
-      "firstSeenAt": "2026-08-27T00:58:37.555Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T00:58:37.555Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2585,8 +2587,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "8500"
+      }
     },
     {
       "id": "fachkraft-a67f7d4af4c6",
@@ -3453,7 +3454,6 @@
           "zimmermann-zimmerin-fur-modernen-holzbau-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:39:53.117Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4187,6 +4187,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "6130",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -4215,6 +4216,7 @@
           "zimmermann-zimmerin-fur-holzbaukonstruktionen-und-fassadenmontage-fachkraft-ch-gmbh-willisau"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:39:53.115Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4228,8 +4230,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "6130"
+      }
     },
     {
       "id": "fachkraft-a6d4050b135d",
@@ -4675,7 +4676,7 @@
           "zimmermann-zimmerin-fur-fenstermontage-und-service-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:34:47.049Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -203211,6 +203212,7 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "6280",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "PART_TIME",
@@ -203238,6 +203240,7 @@
           "zimmermann-zimmerin-fur-abbinden-und-aufrichten-hochdorf-luzern-fachkraft-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T22:24:17.640Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -203251,8 +203254,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "6280"
+      }
     },
     {
       "id": "fachkraft-9b6a1ef0ca48",
@@ -284667,7 +284669,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "montage-elektriker-in-per-luftungs-e-klimatechnik-fachkraft-ch-gmbh-luzern-gh8b2z",
         "assembly-electrician-for-ventilation-and-air-conditioning-technology-fachkraft-ch-gmbh-luzern",
@@ -284758,7 +284759,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/schreiner-in-lenzburg-temporaer-304768/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-innenausbau-und-montage-lenzburg-aargau-fachkraft-ch",
