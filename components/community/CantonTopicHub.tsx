@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { Fragment, Suspense, useEffect, useState, type CSSProperties } from 'react';
+import { lazyRetry } from '@/services/lazyRetry';
 import { useLocale } from '@/services/i18n';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import type { CantonArticleSection } from '@/services/articleSections';
 import {
   cantonArchiveCopy,
@@ -17,6 +19,9 @@ import {
   type CantonTopicHubData,
 } from '@/services/runtimeCantonTopicHubs';
 
+const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
+
 interface HubCopy {
   updated: string;
   keyFacts: string;
@@ -27,6 +32,7 @@ interface HubCopy {
   otherTopics: string;
   loading: string;
   unavailable: string;
+  advertisement: string;
 }
 
 interface LoadedHubData {
@@ -45,6 +51,7 @@ const HUB_COPY: Record<'it' | 'en' | 'de' | 'fr', HubCopy> = {
     otherTopics: 'Altri temi',
     loading: 'Caricamento dati aggiornati…',
     unavailable: 'I dati aggiornati non sono disponibili in questo momento.',
+    advertisement: 'Pubblicità',
   },
   en: {
     updated: 'Updated on',
@@ -56,6 +63,7 @@ const HUB_COPY: Record<'it' | 'en' | 'de' | 'fr', HubCopy> = {
     otherTopics: 'Other topics',
     loading: 'Loading updated data…',
     unavailable: 'Updated data is not available right now.',
+    advertisement: 'Advertisement',
   },
   de: {
     updated: 'Aktualisiert am',
@@ -67,6 +75,7 @@ const HUB_COPY: Record<'it' | 'en' | 'de' | 'fr', HubCopy> = {
     otherTopics: 'Weitere Themen',
     loading: 'Aktualisierte Daten werden geladen…',
     unavailable: 'Aktualisierte Daten sind momentan nicht verfügbar.',
+    advertisement: 'Werbung',
   },
   fr: {
     updated: 'Mis à jour le',
@@ -78,8 +87,43 @@ const HUB_COPY: Record<'it' | 'en' | 'de' | 'fr', HubCopy> = {
     otherTopics: 'Autres thèmes',
     loading: 'Chargement des données mises à jour…',
     unavailable: 'Les données mises à jour ne sont pas disponibles pour le moment.',
+    advertisement: 'Publicité',
   },
 };
+
+type CantonHubAdSlot =
+  | 'JOBDETAIL_TOP_BANNER'
+  | 'ARTICLE_INLINE_MOBILE'
+  | 'ARTICLE_INLINE_MOBILE_2'
+  | 'SSG_END_MULTIPLEX';
+
+function HubAd({
+  slot,
+  label,
+  className,
+}: {
+  slot: CantonHubAdSlot;
+  label: string;
+  className?: string;
+}) {
+  const config = AD_SLOTS[slot];
+  const layout = 'layout' in config ? config.layout : undefined;
+  return (
+    <section className={`cth-ad ${className ?? ''}`.trim()} aria-label={label}>
+      <p className="cth-ad-label">{label}</p>
+      <Suspense fallback={<div className="cth-ad-placeholder" style={{ minHeight: config.placeholderMinHeight }} aria-hidden="true" />}>
+        <AdSenseBanner
+          adSlot={config.slot}
+          adFormat={config.format}
+          adLayout={layout}
+          fullWidthResponsive={config.fullWidthResponsive}
+          placement={`canton-hub-${slot.toLowerCase()}`}
+          className="cth-ad-slot"
+        />
+      </Suspense>
+    </section>
+  );
+}
 
 const LOCALE_TAGS = { it: 'it-IT', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' } as const;
 
@@ -103,7 +147,7 @@ function SourceLine({
 }) {
   if (!name) return null;
   return (
-    <p className="mt-3 text-sm text-subtle">
+    <p className="cth-source-line mt-3 text-sm text-subtle">
       {copy.source}:{' '}
       {url ? <a href={url} rel="noopener" className="text-accent hover:underline">{name}</a> : name}
     </p>
@@ -112,7 +156,7 @@ function SourceLine({
 
 function DataItem({ item, locale }: { item: CantonHubDataItem; locale: keyof typeof HUB_COPY }) {
   return (
-    <li className="min-w-0 rounded-xl border border-edge/70 bg-surface-alt/35 px-3 py-3 text-sm leading-6">
+    <li className="cth-data-item min-w-0 text-sm leading-6">
       <div className="min-w-0 break-words">
         {item.url ? (
           <a href={item.url} className="font-semibold text-accent hover:underline">{item.label}</a>
@@ -130,16 +174,16 @@ function DataItem({ item, locale }: { item: CantonHubDataItem; locale: keyof typ
 function DataBlock({ block, locale, copy }: { block: CantonHubDataBlock; locale: keyof typeof HUB_COPY; copy: HubCopy }) {
   const headingId = `dati-${block.id}`;
   return (
-    <section aria-labelledby={headingId} className="border-t border-edge pt-5 first:border-t-0 first:pt-0">
-      <h2 id={headingId} className="text-xl font-bold font-display text-heading">{block.title}</h2>
-      {block.description ? <p className="mt-2 max-w-4xl text-sm leading-7 text-subtle">{block.description}</p> : null}
+    <section aria-labelledby={headingId} className="cth-section cth-data-block">
+      <div className="cth-section-heading"><h2 id={headingId} className="cth-section-title">{block.title}</h2><span className="cth-section-marker" aria-hidden="true" /></div>
+      {block.description ? <p className="cth-section-intro">{block.description}</p> : null}
       {block.items.length > 0 ? (
-        <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3" aria-label={block.title}>
+        <ul className="cth-data-list" aria-label={block.title}>
           {block.items.map((item, index) => <DataItem key={`${block.id}-${index}`} item={item} locale={locale} />)}
         </ul>
       ) : null}
       {block.updatedAt ? (
-        <p className="mt-3 text-sm text-subtle">
+        <p className="cth-source-line mt-3 text-sm text-subtle">
           {copy.updated}{' '}
           <time dateTime={block.updatedAt}>{formatDate(block.updatedAt, locale)}</time>
         </p>
@@ -167,6 +211,7 @@ function CantonTopicHub({
   const key = `${section}:${topic}:${locale}`;
   const copy = HUB_COPY[locale];
   const data = loaded?.key === key ? loaded.data : null;
+  const [collapsedRails, setCollapsedRails] = useState({ left: false, right: false });
 
   useEffect(() => {
     let cancelled = false;
@@ -205,91 +250,122 @@ function CantonTopicHub({
   const copyTopics = Object.keys(config.topicHubs ?? {}).filter((candidate) => candidate !== topic);
   const archive = cantonArchiveCopy(section, locale);
   const paragraphs = data.intro.split(/\n\s*\n/).map((paragraph) => paragraph.trim()).filter(Boolean);
+  const railStyle: CSSProperties = {
+    ...(collapsedRails.left ? { '--cth-rail-left': '0px' } : {}),
+    ...(collapsedRails.right ? { '--cth-rail-right': '0px' } : {}),
+  } as CSSProperties;
+  const handleRailEmpty = (side: 'left' | 'right') => (allEmpty: boolean) => {
+    setCollapsedRails((current) => current[side] === allEmpty ? current : { ...current, [side]: allEmpty });
+  };
 
   return (
-    <article data-canton-topic-hub={`${section}:${topic}`} className="mx-auto min-w-0 max-w-[1100px] px-4 py-6 sm:px-5 sm:py-8">
-      <nav aria-label={{ it: 'Percorso di navigazione', en: 'Breadcrumb', de: 'Brotkrümelnavigation', fr: 'Fil d’Ariane' }[locale]} className="mb-4 text-sm text-subtle">
-        <a href="/" className="text-accent hover:underline">Home</a>
-        <span aria-hidden="true" className="px-2">/</span>
-        <a href={landingPath} className="text-accent hover:underline">{sectionLabel}</a>
-        <span aria-hidden="true" className="px-2">/</span>
-        <span aria-current="page">{hubLabel}</span>
-      </nav>
+    <div data-canton-topic-hub={`${section}:${topic}`} className="cth-react-rail-grid" style={railStyle}>
+      <aside className="cth-react-rail" aria-label={copy.advertisement}>
+        <Suspense fallback={null}><ArticleRailAdStack side="left" desktopRail onEmptyResolved={handleRailEmpty('left')} /></Suspense>
+      </aside>
 
-      <header className="mb-6">
-        <h1 className="text-3xl font-extrabold leading-tight text-heading sm:text-4xl">{hubLabel}</h1>
-        {paragraphs.map((paragraph, index) => (
-          <p key={`${key}-intro-${index}`} className={`mt-3 max-w-4xl leading-7 ${index === 0 ? 'text-base text-body' : 'text-sm text-subtle'}`}>
-            {paragraph}
-          </p>
-        ))}
-        <p className="mt-4 text-sm text-subtle">
-          {copy.updated}{' '}
-          <time dateTime={data.updatedAt}>{formatDate(data.updatedAt, locale)}</time>
-        </p>
-      </header>
+      <div className="cth-react-center">
+        <article className="cth-page cth-react-page min-w-0">
+          <nav aria-label={{ it: 'Percorso di navigazione', en: 'Breadcrumb', de: 'Brotkrümelnavigation', fr: 'Fil d’Ariane' }[locale]} className="s-AxRVCF">
+            <a href="/" className="s-wfUMYx">Home</a>
+            <span aria-hidden="true"> / </span>
+            <a href={landingPath} className="s-wfUMYx">{sectionLabel}</a>
+            <span aria-hidden="true"> / </span>
+            <span aria-current="page">{hubLabel}</span>
+          </nav>
 
-      {data.keyFacts.length > 0 ? (
-        <section aria-label={copy.keyFacts} className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {data.keyFacts.map((fact, index) => (
-            <div key={`${key}-fact-${index}`} className="rounded-2xl border border-edge bg-surface p-4 shadow-sm">
-              <div className="text-sm text-subtle">{fact.label}</div>
-              <div className="mt-1 text-2xl font-extrabold font-display text-heading">{fact.value}</div>
-              {fact.note ? <div className="mt-1 text-xs leading-5 text-muted">{fact.note}</div> : null}
-              <SourceLine copy={copy} name={fact.sourceName} url={fact.sourceUrl} />
+          <header className="cth-hero cth-hero-hub">
+            <div className="cth-hero-copy">
+              <h1 className="s-e3gkVi">{hubLabel}</h1>
+              {paragraphs.map((paragraph, index) => (
+                <p key={`${key}-intro-${index}`} className={index === 0 ? 's-OPPwy-' : undefined}>{paragraph}</p>
+              ))}
+              <p className="cth-hero-meta"><span>{copy.updated}</span><time dateTime={data.updatedAt}>{formatDate(data.updatedAt, locale)}</time></p>
             </div>
-          ))}
-        </section>
-      ) : null}
+            <aside className="cth-hero-index" aria-label={copy.otherTopics}>
+              <h2>{copy.otherTopics}</h2>
+              <ul>
+                {copyTopics.slice(0, 4).map((candidate) => (
+                  <li key={`${key}-hero-topic-${candidate}`}><a href={cantonTopicHubPath(section, candidate, locale)}>{cantonTopicHubLabel(section, candidate, locale)}<span aria-hidden="true">↗</span></a></li>
+                ))}
+              </ul>
+            </aside>
+          </header>
 
-      <div className="space-y-7">
-        {data.dataBlocks.map((block) => <DataBlock key={block.id} block={block} locale={locale} copy={copy} />)}
+          <HubAd slot="JOBDETAIL_TOP_BANNER" label={copy.advertisement} className="cth-ad-top" />
+
+          {data.keyFacts.length > 0 ? (
+            <section aria-labelledby="hub-facts" className="cth-facts">
+              <div className="cth-section-heading"><h2 id="hub-facts" className="cth-section-title">{copy.keyFacts}</h2></div>
+              <div className="cth-facts-grid">
+                {data.keyFacts.map((fact, index) => (
+                  <div key={`${key}-fact-${index}`} className={`cth-fact${index === 0 ? ' cth-fact-featured' : ''}`}>
+                    <div className="cth-fact-label">{fact.label}</div>
+                    <div className="s-tval">{fact.value}</div>
+                    {fact.note ? <div className="cth-fact-note">{fact.note}</div> : null}
+                    <SourceLine copy={copy} name={fact.sourceName} url={fact.sourceUrl} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          {data.dataBlocks.map((block, index) => (
+            <Fragment key={block.id}>
+              <DataBlock block={block} locale={locale} copy={copy} />
+              {index === 0 ? <HubAd slot="ARTICLE_INLINE_MOBILE" label={copy.advertisement} className="cth-ad-inline cth-ad-inline-one" /> : null}
+            </Fragment>
+          ))}
+
+          {data.dataBlocks.length > 0 ? <HubAd slot="ARTICLE_INLINE_MOBILE_2" label={copy.advertisement} className="cth-ad-inline cth-ad-inline-two" /> : null}
+
+          <section aria-labelledby="hub-articles" className="cth-section cth-curated">
+            <div className="cth-section-heading"><h2 id="hub-articles" className="cth-section-title">{copy.curated}</h2><span className="cth-section-marker" aria-hidden="true" /></div>
+            {data.curatedArticles.length > 0 ? (
+              <ul className="cth-article-list">
+                {data.curatedArticles.map((article, index) => (
+                  <li key={`${key}-article-${index}`}>
+                    <a href={article.url}>
+                      <span className="s-lkdl0F">{article.title}</span>
+                      {article.excerpt ? <span className="s-hNvHD_">{article.excerpt}</span> : null}
+                      {article.date ? <time className="cth-source-line" dateTime={article.date}>{formatDate(article.date, locale)}</time> : null}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : <p className="cth-section-intro">{copy.noCurated}</p>}
+          </section>
+
+          {data.links.length > 0 ? (
+            <section aria-labelledby="hub-tools" className="cth-section cth-tools">
+              <div className="cth-section-heading"><h2 id="hub-tools" className="cth-section-title">{copy.tools}</h2><span className="cth-section-marker" aria-hidden="true" /></div>
+              <ul className="cth-data-list">
+                {data.links.map((link, index) => (
+                  <li key={`${key}-link-${index}`}><span><a href={link.url}>{link.label}</a>{link.description ? <span> — {link.description}</span> : null}</span></li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          <nav aria-label={copy.otherTopics} className="cth-topic-nav">
+            <h2 className="cth-section-title">{copy.otherTopics}</h2>
+            <ul className="cth-topic-list">
+              {copyTopics.map((candidate) => (
+                <li key={candidate}><a href={cantonTopicHubPath(section, candidate, locale)}>{cantonTopicHubLabel(section, candidate, locale)}</a></li>
+              ))}
+              <li><a href={landingPath}>{sectionLabel}</a></li>
+              <li><a href={cantonSectionArchivePath(section, locale)}>{archive.title}</a></li>
+            </ul>
+          </nav>
+
+          <HubAd slot="SSG_END_MULTIPLEX" label={copy.advertisement} className="cth-ad-bottom" />
+        </article>
       </div>
 
-      <section aria-labelledby="hub-articles" className="mt-8 border-t border-edge pt-6">
-        <h2 id="hub-articles" className="text-xl font-bold font-display text-heading">{copy.curated}</h2>
-        {data.curatedArticles.length > 0 ? (
-          <ul className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {data.curatedArticles.map((article, index) => (
-              <li key={`${key}-article-${index}`} className="rounded-xl border border-edge bg-surface p-4 shadow-sm">
-                <a href={article.url} className="font-semibold text-accent hover:underline">{article.title}</a>
-                {article.excerpt ? <p className="mt-2 text-sm leading-6 text-subtle">{article.excerpt}</p> : null}
-                {article.date ? <time className="mt-2 block text-xs text-muted" dateTime={article.date}>{formatDate(article.date, locale)}</time> : null}
-              </li>
-            ))}
-          </ul>
-        ) : <p className="mt-3 text-sm leading-6 text-subtle">{copy.noCurated}</p>}
-      </section>
-
-      {data.links.length > 0 ? (
-        <section aria-labelledby="hub-tools" className="mt-8 border-t border-edge pt-6">
-          <h2 id="hub-tools" className="text-xl font-bold font-display text-heading">{copy.tools}</h2>
-          <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {data.links.map((link, index) => (
-              <li key={`${key}-link-${index}`} className="rounded-xl border border-edge/70 bg-surface-alt/35 px-3 py-3 text-sm leading-6">
-                <a href={link.url} className="font-semibold text-accent hover:underline">{link.label}</a>
-                {link.description ? <span className="text-subtle"> — {link.description}</span> : null}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      <nav aria-label={copy.otherTopics} className="mt-8 border-t border-edge pt-6">
-        <h2 className="text-xl font-bold font-display text-heading">{copy.otherTopics}</h2>
-        <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {copyTopics.map((candidate) => (
-            <li key={candidate}>
-              <a href={cantonTopicHubPath(section, candidate, locale)} className="block rounded-xl border border-edge bg-surface px-3 py-3 text-sm font-semibold text-accent hover:border-accent hover:underline">
-                {cantonTopicHubLabel(section, candidate, locale)}
-              </a>
-            </li>
-          ))}
-          <li><a href={landingPath} className="block rounded-xl border border-edge bg-surface px-3 py-3 text-sm font-semibold text-accent hover:border-accent hover:underline">{sectionLabel}</a></li>
-          <li><a href={cantonSectionArchivePath(section, locale)} className="block rounded-xl border border-edge bg-surface px-3 py-3 text-sm font-semibold text-accent hover:border-accent hover:underline">{archive.title}</a></li>
-        </ul>
-      </nav>
-    </article>
+      <aside className="cth-react-rail" aria-label={copy.advertisement}>
+        <Suspense fallback={null}><ArticleRailAdStack side="right" desktopRail onEmptyResolved={handleRailEmpty('right')} /></Suspense>
+      </aside>
+    </div>
   );
 }
 

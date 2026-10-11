@@ -95,7 +95,11 @@ export interface ArticleContextualLinkRule {
  * The host owns the client id and slot registry; keeping only semantic names
  * here prevents the corpus mirror from importing site-only ad configuration.
  */
-export type StaticAdSlotKey = 'canton-hub-top' | 'canton-hub-end';
+export type StaticAdSlotKey =
+  | 'canton-hub-top'
+  | 'canton-hub-inline-1'
+  | 'canton-hub-inline-2'
+  | 'canton-hub-end';
 
 export interface SiteShellContract {
   // build-plugins/constants.ts
