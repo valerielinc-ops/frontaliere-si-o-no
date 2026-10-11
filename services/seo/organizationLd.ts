@@ -16,7 +16,11 @@
  * Keep `name`/`url`/`logo` in sync with the index.html Organization block.
  */
 
-import { imageObjectLd, SITE_ORGANIZATION_ID } from './imageObjectLd';
+import {
+  canonicalizeSiteOrganizationCreator,
+  imageObjectLd,
+  SITE_ORGANIZATION_ID,
+} from './imageObjectLd';
 
 export const ORGANIZATION_ID = SITE_ORGANIZATION_ID;
 
@@ -171,8 +175,10 @@ export function normalizeOrganizationIdentities<T>(
     cloned[key] = normalizeOrganizationIdentities(nested, options);
   }
   if (isOrganizationRecord(cloned)) {
-    const id = stableOrganizationId(cloned, options);
-    if (id) cloned['@id'] = id;
+    if (!canonicalizeSiteOrganizationCreator(cloned)) {
+      const id = stableOrganizationId(cloned, options);
+      if (id) cloned['@id'] = id;
+    }
   }
   return cloned as T;
 }
@@ -192,6 +198,21 @@ export const EDITORIAL_TEAM_ID = `${SITE}/chi-siamo/#team`;
 /** Stable source identity for the Ticino customs webcam attribution. */
 export const TICINO_CUSTOMS_DEPARTMENT_ID = 'https://www.ti.ch/webcam';
 export const TICINO_CUSTOMS_DEPARTMENT_NAME = 'Dipartimento del territorio – Canton Ticino';
+
+const ORGANIZATION_LD_IDS = [
+  WEBSITE_ID,
+  EDITORIAL_TEAM_ID,
+  TICINO_CUSTOMS_DEPARTMENT_ID,
+] as const;
+
+if (new Set(ORGANIZATION_LD_IDS).size !== ORGANIZATION_LD_IDS.length) {
+  throw new Error('Organization JSON-LD identities must remain distinct');
+}
+
+/** IDs for the site, editorial-team, and customs-attribution graph nodes. */
+export function organizationLdIds(): typeof ORGANIZATION_LD_IDS {
+  return ORGANIZATION_LD_IDS;
+}
 
 /**
  * Profiles that anchor this entity to the same real-world organization

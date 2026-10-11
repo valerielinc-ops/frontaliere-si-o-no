@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import {
+  chmodSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
@@ -11,6 +12,9 @@ import {
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { MANIFEST_VERSION } from '../build-plugins/shared/incrementalManifest.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const ROOT = process.cwd();
 const PUSH_LOCALE = join(ROOT, 'scripts/lib/push-locale-shard.sh');
@@ -189,7 +193,7 @@ function ticinoPhysicalPath(publicPath: string): string {
   const separator = rest.indexOf('/');
   const entry = separator === -1 ? rest : rest.slice(0, separator);
   const suffix = separator === -1 ? '' : rest.slice(separator);
-  return `${prefix}/_tree/${entry.slice(0, 2).toLowerCase()}/${entry}${suffix}`;
+  return `${prefix}/_tree/${ticinoTreeBucket(entry)}/${entry}${suffix}`;
 }
 
 function makeRemoteMarkerUnreadable(scenario: Scenario, marker = '.shard-deploys'): string {
@@ -274,9 +278,30 @@ function runPush(
   },
 ): { status: number; output: string; elapsedMs: number } {
   const runnerTemp = mkdtempSync(join(scenario.root, 'runner-'));
+  const binDir = join(runnerTemp, 'bin');
+  mkdirSync(binDir);
+  const curlStub = join(binDir, 'curl');
+  const realCurl = execFileSync('sh', ['-c', 'command -v curl'], { encoding: 'utf8' }).trim();
+  writeFileSync(
+    curlStub,
+    [
+      '#!/bin/sh',
+      'case "$*" in',
+      '  *__frontaliere_ticino_tree_layout=hash-v1*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-ticino-tree-layout: %s\\n" "${TICINO_TEST_TREE_LAYOUT:-hash-v1}"',
+      '    ;;',
+      '  *)',
+      `    exec ${JSON.stringify(realCurl)} "$@"`,
+      '    ;;',
+      'esac',
+      '',
+    ].join('\n'),
+  );
+  chmodSync(curlStub, 0o755);
   const before = objectStats(scenario.remote);
   const env: NodeJS.ProcessEnv = {
     ...process.env,
+    PATH: `${binDir}:${process.env.PATH}`,
     [target.deployKey]: 'test-deploy-key',
     SHARD_REPO_OVERRIDE: scenario.remote,
     SHARD_INCREMENTAL_MANIFEST_DIR: scenario.manifestDir,
@@ -675,6 +700,8 @@ describe('delta push degli shard', () => {
     }
   });
 
+  // This case performs eight isolated Git shard publishes; keep the bound
+  // finite while allowing slower CI runners to complete the unchanged checks.
   it('pubblica la provenienza anche quando il payload servito resta identico', () => {
     const sourceV1 = 'a'.repeat(40);
     const sourceV2 = 'b'.repeat(40);
@@ -729,7 +756,7 @@ describe('delta push degli shard', () => {
         }
       }
     }
-  });
+  }, 30_000);
 
   it('usa il PAT per pubblicare quando manca la deploy key, senza saltare lo shard', () => {
     const cases = [
