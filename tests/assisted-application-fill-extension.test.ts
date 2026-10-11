@@ -241,7 +241,7 @@ describe('fill extension: JOIN steps', () => {
     expect(page('<div role="status">Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').F.pageState(page('<div>Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').document).kind).toBe('refused');
     const done = page('<h1>Grazie per la tua candidatura!</h1>');
     expect(done.F.pageState(done.document).kind).toBe('confirmed');
-    for (const text of ['Du hast dich erfolgreich auf diese Stelle beworben.', 'Sie haben sich erfolgreich beworben.', 'Deine Bewerbung wurde erfolgreich übermittelt.', 'You have successfully applied for this job.', 'Vous avez postulé avec succès.', 'Ti sei candidato con successo.']) {
+    for (const text of ['Du hast dich erfolgreich auf diese Stelle beworben.', 'Sie haben sich erfolgreich beworben.', 'Deine Bewerbung wurde erfolgreich übermittelt.', 'You have successfully applied for this job.', 'Vous avez postulé avec succès.', 'Ti sei candidato con successo.', 'La ringraziamo per la sua candidatura']) {
       const shown = page(`<p>${text}</p>`);
       expect(shown.F.pageState(shown.document).kind, text).toBe('confirmed');
     }
