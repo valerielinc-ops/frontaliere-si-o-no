@@ -17,7 +17,7 @@
  * a live 87-posting Swiss board would have vanished from the site.
  */
 
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 
 import {
   collectHitachiEnergyListings,
@@ -108,19 +108,18 @@ describe('collectHitachiEnergyListings (issue #12802)', () => {
     };
   }
 
-  const quiet = () => {
+  beforeEach(() => {
     vi.spyOn(console, 'log').mockImplementation(() => {});
     vi.spyOn(console, 'warn').mockImplementation(() => {});
-  };
+  });
+  afterEach(() => vi.restoreAllMocks());
 
   it('walks every page of a healthy board', async () => {
-    quiet();
     const items = await collectHitachiEnergyListings({ fetchPage: board(74) });
     expect(items).toHaveLength(74);
   });
 
   it('retries a later page that comes back empty before totalNumber, then continues', async () => {
-    quiet();
     const live = board(74);
     let degraded = 1;
     const fetchPage = vi.fn((offset: number) => {
@@ -133,7 +132,6 @@ describe('collectHitachiEnergyListings (issue #12802)', () => {
   });
 
   it('throws a retry-exhausted error when the later page stays empty (the 2026-10-11 run)', async () => {
-    quiet();
     const live = board(74);
     const fetchPage = vi.fn((offset: number) => (offset === 0 ? live(0) : Promise.resolve({ items: [] })));
     const run = collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 2 });
@@ -144,27 +142,23 @@ describe('collectHitachiEnergyListings (issue #12802)', () => {
   });
 
   it('treats a page that only repeats seen listings like an empty page', async () => {
-    quiet();
     const live = board(74);
     const fetchPage = (offset: number) => live(offset === PAGE_SIZE ? 0 : offset);
     await expect(collectHitachiEnergyListings({ fetchPage, emptyPageRetries: 1 })).rejects.toThrow(/page 2 returned no new listings/);
   });
 
   it('rethrows a fetch failure after page 1 instead of returning a partial board', async () => {
-    quiet();
     const live = board(74);
     const fetchPage = (offset: number) => (offset === 0 ? live(0) : Promise.reject(new Error('HTTP 503')));
     await expect(collectHitachiEnergyListings({ fetchPage })).rejects.toThrow('HTTP 503');
   });
 
   it('keeps the page-1 fetch failure a soft empty result', async () => {
-    quiet();
     const items = await collectHitachiEnergyListings({ fetchPage: () => Promise.reject(new Error('HTTP 503')) });
     expect(items).toEqual([]);
   });
 
   it('stops without retry on an empty page once totalNumber is reached', async () => {
-    quiet();
     // A source that says `loadMore: true` on its true last page.
     const fetchPage = vi.fn((offset: number) =>
       Promise.resolve(offset === 0 ? payload(PAGE_SIZE, { totalNumber: PAGE_SIZE, loadMore: true }) : { items: [] }),
