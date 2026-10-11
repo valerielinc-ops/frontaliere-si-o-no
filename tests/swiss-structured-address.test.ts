@@ -48,6 +48,14 @@ describe('resolveLocalityAddress (issue 5253)', () => {
     });
   });
 
+  it('uses the official canton-scoped postal directory when the narrow city table lacks a valid locality', () => {
+    expect(resolveLocalityAddress({ city: 'Andeer', canton: 'GR' })).toEqual({
+      addressLocality: 'Andeer',
+      postalCode: '7440',
+      streetAddress: '',
+    });
+  });
+
   it('returns the coherent fallback when it names the same locality or the value is no municipality', () => {
     expect(resolveLocalityAddress({ city: 'Lausanne', canton: 'VD' }).streetAddress).toBe('Place de la Palud 2');
     expect(resolveLocalityAddress({ city: 'Geneva', canton: 'GE' }).addressLocality).toBe('Genève');

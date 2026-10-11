@@ -17,7 +17,6 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
-import { officialPostalCodeForLocation } from './swiss-locality-directory.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -176,15 +175,12 @@ export async function fetchAllRehaklinikSeewisJobs() {
       .replace(/[^a-z0-9]+/g, ' ')
       .trim();
     const fallbackMatchesSource = localityKey(localityAddress.addressLocality) === localityKey(sourceLocality);
-    const officialLocalityPostal = officialPostalCodeForLocation(sourceLocality, canton);
     // Keep required structured address fields without pairing a vacancy with
-    // another locality's canton-capital address. The narrower city table does
-    // not cover every official Swiss locality, so consult the canton-scoped
-    // Swiss Post directory before dropping a source-backed vacancy. A known
-    // but ambiguous locality remains fail-closed.
+    // another locality's canton-capital address. The locality resolver uses
+    // the canton-scoped Swiss Post directory for official postal localities;
+    // a known but ambiguous locality remains fail-closed.
     const resolvedPostalCode = postalCode
-      || officialLocalityPostal.postalCode
-      || (!officialLocalityPostal.known && fallbackMatchesSource ? localityAddress.postalCode : '');
+      || (fallbackMatchesSource ? localityAddress.postalCode : '');
     const resolvedStreetAddress = streetAddress || sourceLocality;
     if (!resolvedPostalCode) continue;
     const descriptionHtml = listing.description || '';
