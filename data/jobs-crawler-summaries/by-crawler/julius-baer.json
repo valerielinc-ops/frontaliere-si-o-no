@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-10T21:14:54.686Z",
+  "generatedAt": "2026-10-11T09:15:09.956Z",
   "total": 57,
   "newCount": 1,
-  "updatedCount": 10,
-  "removedCount": 1,
-  "unchangedCount": 46,
-  "durationMs": 39089,
-  "avgDurationMs": 39089,
+  "updatedCount": 11,
+  "removedCount": 0,
+  "unchangedCount": 45,
+  "durationMs": 38210,
+  "avgDurationMs": 38210,
   "durationHistory": [
-    39089
+    38210
   ],
   "newJobs": [
     {
@@ -346,6 +346,47 @@
       }
     },
     {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer---Infrastructure-Automation-100---f-m-d-_r-18113-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer---Infrastructure-Automation-100---f-m-d-_r-18113-1",
+      "title": "Platform Engineer - Infrastructure Control Plane & Workflow Automation 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "platform-engineer-infrastructure-control-plane-workflow-automation-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-08-12",
+      "postedDate": "2026-08-12",
+      "postingDateSource": "reported",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 16
+      }
+    },
+    {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Front-Arena---Market-Making-Specialist---AMAS-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19317-1",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Front-Arena---Market-Making-Specialist---AMAS-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19317-1",
       "title": "Front Arena AMAS Specialist - Market Making 100% (f/m/d) - (Contract through our external payroll partner, immediate start for 12 months, possible extension)",
@@ -471,50 +512,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Scientist-100---f-m-d-_r-19596",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Scientist-100---f-m-d-_r-19596",
-      "title": "Data Scientist 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "data-scientist-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-09-17",
-      "postedDate": "2026-09-17",
-      "postingDateSource": "reported",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-17T03:45:19.250Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 16
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Quantitative-Analyst---Interest-Rate-Pricing-Models-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31122027--possible-extension-_r-20119-1",
@@ -1754,5 +1752,5 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
