@@ -6077,7 +6077,7 @@
       "title": "Projektleiter (Junior-Projektleiter) Elektroinstallation (w/m/d) 80–100%",
       "titleByLocale": {
         "it": "Progettista (Junior Progettista) Installazioni Elettriche (m/f/d) 80–100%",
-        "en": "Projektleiter (Junior-Projektleiter) Elektroinstallation (w/m/d) 80–100%",
+        "en": "Project Manager (Junior Project Manager) Electrical installation (m/f/d) 80–100 %",
         "de": "Projektleiter (Junior-Projektleiter) Elektroinstallation (w/m/d) 80–100%",
         "fr": "Chef de projet (Chef de projet junior) Installation électrique (h/f/d) 80–100%"
       },
@@ -6172,8 +6172,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "etavis-961808d25822",
@@ -6359,7 +6358,7 @@
       "title": "Application Manager Zeit- und Leistungserfassung (w/m/d) 80-100%",
       "titleByLocale": {
         "it": "Application Manager Registrazione Tempo e Prestazioni (m/f/d) 80-100%",
-        "en": "Application Manager Zeit- und Leistungserfassung (w/m/d) 80-100%",
+        "en": "Application Manager Time and Performance Recording (m/f/d) 80-100 %",
         "de": "Application Manager Zeit- und Leistungserfassung (w/m/d) 80-100%",
         "fr": "Gestionnaire d'Application Suivi du Temps et des Performances (h/f/d) 80-100%"
       },
@@ -6447,7 +6446,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:07:43.628Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",

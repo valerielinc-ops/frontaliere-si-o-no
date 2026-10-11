@@ -1736,10 +1736,10 @@
       "companyDomain": "epfl.ch",
       "title": "Software Engineer: Keystone Project (Machine-Verified LLM Inference)",
       "titleByLocale": {
-        "it": "Software Ingegnere: Keystone Project (Machine-Verified LLM Inference)",
+        "it": "Software Engineer: Keystone Project (Inferenza LLM verificata dalla macchina)",
         "en": "Software Engineer: Keystone Project (Machine-Verified LLM Inference)",
-        "de": "Software Ingenieur: Keystone Project (Machine-Verified LLM Inference)",
-        "fr": "Software Ingénieur: Keystone Project (Machine-Verified LLM Inference)"
+        "de": "Software Engineer: Keystone Project (Maschinenverifizierte LLM-Inferenz)",
+        "fr": "Ingénieur logiciel: Projet Keystone (Inférence LLM contrôlée par machine)"
       },
       "description": "Mission\n\nThe Keystone project, an ARIA-funded collaboration between EPFL and Imperial College London, aims to build a formally-verified ML inference engine, demonstrating that AI can help make verified systems competitive with unverified systems in terms of development effort, features, and performance. Its missions include the design and implementation of verified inference components, the formalization of GPU kernel semantics, the development of AI-assisted proof engineering workflows, and the open-source release of specifications, proofs, and verified artefacts.\n\nWe seek an excellent software engineer to play a central role in turning verified research prototypes into a production-grade, high-performance inference engine. Prior experience with formal verification is welcome but not required: a strong systems engineer with the motivation to learn proof-assistant technology will thrive in this role.\n\nMain duties and responsibilities\n\n•\nBring technical expertise in systems programming and performance engineering to support the project’s research; collaborate with the research teams at EPFL and Imperial College London\n\n•\nDesign, implement, and maintain core components of the verified LLM inference engine, including the runtime and glue code connecting extracted verified code, GPU kernels, and drivers\n\n•\nOrganize and manage the project’s engineering infrastructure: differential testing against reference engines (vLLM, SGLang), continuous integration for code and proofs, and performance benchmarking\n\n•\nDevelop and maintain agentic AI pipelines for specification autoformalization, proof generation, and proof repair\n\n•\nWrite documentation, procedures, and recommendations to ensure reproducibility of the project’s artefacts\n\n•\nDiagnose, prevent, and repair failures and regressions across the software stack\n\n•\nAnalyze the security level and trusted computing base of the components we develop, and contribute to red/blue team exercises within the ARIA programme\n\n•\nContribute to open-source releases and engage with their user communities\n\nProfile\n\n•\nHigher degree in computer science or education deemed equivalent; experience in the field\n\n•\nExcellent technical knowledge of systems programming, and strong programming ability in several of: Python, C/C++, Rust, OCaml, or other functional languages\n\n•\nKnowledge of one or more of the following, with strong motivation to grow in the others:\n\n•\nGPU programming (CUDA, Triton, PTX) or high-performance computing\n\n•\nML inference or serving systems (vLLM, SGLang, PyTorch internals, or similar)\n\n•\nInteractive theorem proving (Rocq, Lean, HOL, Isabelle, or similar) or other formal methods\n\n•\nExperience maintaining development tooling: build systems, continuous integration, and test infrastructure\n\n•\nExperience using LLM-based development tools or building agentic workflows is a plus\n\n•\nMastery of English indispensable (oral and written); French is an asset but not required\n\n•\nSense of priorities, integrity, and autonomy in your work\n\n•\nTeam spirit and aptitude for conducting technical investigations and implementations; excellent ability to communicate with varied audiences, from proof engineers to systems researchers\n\n•\nStrong sense of service and spirit of initiative\n\nWe offer\n\n•\nThe possibility to join a dynamic and stimulating team on a high-profile ARIA-funded project\n\n•\nA multicultural and academic working environment of high quality\n\n•\nOpportunities for continuing education and professional development\n\n•\nExcellent working conditions\n\n•\nGenerous access to frontier AI models and high-performance compute\n\n•\nFunded travel for collaboration between Lausanne and London, and for conferences\n\nInformations\n\nOnly applications submitted through the online platform are considered. You are asked to supply:\n\n•\nA brief cover letter (pdf, up to 2 pages).\n\nAnd in one PDF:\n\n•\nA CV, including links to open-source contributions or representative projects where applicable.\n\n•\nContact details for 3 referees.\n\nFor any further information, please contact: Nate Foster (nate.foster@epfl.ch).\n\nMore information can be found on https://laser.epfl.ch/ .\n\nContract Start Date : 01.12.2026, or to be determined\n\nActivity Rate: 100.00\n\nContract Type: CDD\n\nDuration: 1 year, renewable (project duration permitting)\n\nReference: 2477",
       "descriptionByLocale": {
@@ -1773,7 +1773,6 @@
       "department": "Technique",
       "contractType": "Technique",
       "externalId": "1165508255",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:45:10.949Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -2651,7 +2650,7 @@
       "companyDomain": "epfl.ch",
       "title": "Full-Stack Software Engineer - Circular Construction AI (REON)",
       "titleByLocale": {
-        "it": "Full-Stack Software Ingegnere - Circular Construction AI (REON)",
+        "it": "Ingegnere di software Full-Stack - Costruzione circolare AI (REON)",
         "en": "Full-Stack Software Engineer - Circular Construction AI (REON)",
         "de": "Full-Stack Software Ingenieur - Circular Construction AI (REON)",
         "fr": "Full-Stack Software Ingénieur - Circular Construction AI (REON)"
