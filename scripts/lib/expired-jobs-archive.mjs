@@ -762,9 +762,29 @@ function collapseDuplicateRouteEntriesOnce(entries, { source = 'expired-archive-
  */
 export const MAX_COLLAPSE_PASSES = 8;
 
+/**
+ * Hash an archive without materialising its complete JSON representation.
+ *
+ * The aggregate archive is already larger than V8's maximum string length.
+ * `JSON.stringify(entries)` therefore throws before the first collapse pass,
+ * even with ample heap. Feeding the same array framing and per-entry JSON to
+ * SHA-256 keeps the fixed-point/cycle comparison order-sensitive while
+ * bounding every intermediate string to one archive record.
+ */
+function archiveEntriesSignature(entries) {
+  const hash = createHash('sha256');
+  hash.update('[');
+  for (let index = 0; index < entries.length; index += 1) {
+    if (index > 0) hash.update(',');
+    hash.update(JSON.stringify(entries[index]) ?? 'null');
+  }
+  hash.update(']');
+  return hash.digest('hex');
+}
+
 export function collapseDuplicateRouteEntries(entries, options = {}) {
   let current = entries;
-  let currentSignature = JSON.stringify(current);
+  let currentSignature = archiveEntriesSignature(current);
   const seenSignatures = new Set([currentSignature]);
   let collapsed = 0;
   let slugsTransferred = 0;
@@ -776,7 +796,7 @@ export function collapseDuplicateRouteEntries(entries, options = {}) {
     collapsed += result.collapsed;
     slugsTransferred += result.slugsTransferred;
 
-    const nextSignature = JSON.stringify(result.entries);
+    const nextSignature = archiveEntriesSignature(result.entries);
     if (nextSignature === currentSignature) {
       return {
         ...result,
