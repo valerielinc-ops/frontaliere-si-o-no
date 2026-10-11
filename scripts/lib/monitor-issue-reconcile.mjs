@@ -39,6 +39,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './gh-exec-buffer.mjs';
 import { commentOnGithubIssue, isFailureReportingDisabled } from './github-issue-creator.mjs';
 
 /** Le label con cui un umano o un claim tengono una issue fuori da ogni chiusura automatica. */
@@ -270,7 +271,7 @@ export function ghReconcileIo() {
         execFileSync('gh', [
           'issue', 'close', String(issueNumber), '--reason', 'completed',
           ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-        ], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+        ], { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
       } catch {
         return { number: issueNumber, persisted: false };
       }
@@ -289,7 +290,7 @@ export function ghReconcileIo() {
         execFileSync('gh', [
           'issue', 'edit', String(number), '--remove-label', label,
           ...(process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : []),
-        ], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] });
+        ], { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] });
         return true;
       } catch {
         return false;

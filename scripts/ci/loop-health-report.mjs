@@ -20,6 +20,7 @@ import { realpathSync } from 'node:fs';
  *       GITHUB_REPOSITORY o GH_REPO.
  */
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const argv = process.argv.slice(2);
@@ -1125,7 +1126,7 @@ function main() {
     try {
       // Best-effort: `gh issue create --label` errors if the label doesn't
       // exist yet. `gh label create` errors if it already does — both fine.
-      try { execFileSync('gh', ['label', 'create', LBL_NO_AGE_OUT, '--repo', REPO], { encoding: 'utf8' }); } catch { /* already exists */ }
+      try { execFileSync('gh', ['label', 'create', LBL_NO_AGE_OUT, '--repo', REPO], { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER }); } catch { /* already exists */ }
       const url = gh(['issue', 'create', '--repo', REPO, '--title', TRACKER_TITLE,
         '--label', 'automation',
         '--label', LBL_NO_AGE_OUT,
