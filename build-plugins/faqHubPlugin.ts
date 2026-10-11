@@ -984,7 +984,7 @@ function renderEntryPage(
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="fh-main fh-entry-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const bodyHtml = `<div class="fh-main fh-entry-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
