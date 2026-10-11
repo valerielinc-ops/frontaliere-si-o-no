@@ -1,7 +1,7 @@
 {
   "key": "clinique-cic",
   "label": "Clinique CIC (Saxon & Clarens)",
-  "generatedAt": "2026-10-10T21:15:31.404Z",
+  "generatedAt": "2026-10-11T09:12:49.129Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3939,
-  "avgDurationMs": 3939,
+  "unchangedCount": 0,
+  "durationMs": 4170,
+  "avgDurationMs": 4170,
   "durationHistory": [
-    3939
+    4170
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "clinique-cic-5ea73471cf90",
       "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens",
@@ -38,7 +36,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9c51a18f-a41d-4618-b1fe-a6ad0492d29a/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-10T21:15:15.547Z",
+      "crawledAt": "2026-10-11T09:12:35.305Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -68,5 +66,7 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
