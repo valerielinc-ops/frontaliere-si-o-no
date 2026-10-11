@@ -31,6 +31,14 @@ describe('Chrome Instagram Insights adapter', () => {
     });
   });
 
+  it('keeps English thousands separators numeric', () => {
+    expect(parseInstagramBrowserMetrics(['Views', 'Views', '1,234', 'Interactions', '0'].join('\n'))).toMatchObject({
+      views: 1234,
+      reach: 1234,
+      audienceMetric: 'views',
+    });
+  });
+
   it('recognizes the detail media id and derives deterministic carousel covers', () => {
     expect(parseInstagramMediaId('https://www.instagram.com/insights/media/4004480545324664095/')).toBe('4004480545324664095');
     expect(coverUrlForInstagramGroup({ kind: 'article', day: '2026-10-09' })).toBe(

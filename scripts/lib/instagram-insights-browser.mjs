@@ -47,9 +47,23 @@ function text(value) {
 
 function positiveNumber(value) {
   if (value === null || value === undefined || value === '') return null;
-  const normalised = String(value)
-    .replace(/[.\s](?=\d{3}(?:\D|$))/gu, '')
-    .replace(',', '.');
+  let normalised = String(value).replace(/\s+/gu, '');
+  const comma = normalised.includes(',');
+  const dot = normalised.includes('.');
+  if (comma && dot) {
+    // The last separator is the decimal mark: 1.234,56 (it) or 1,234.56
+    // (en). Remove the other separator as a grouping mark.
+    if (normalised.lastIndexOf(',') > normalised.lastIndexOf('.')) {
+      normalised = normalised.replaceAll('.', '').replace(',', '.');
+    } else {
+      normalised = normalised.replaceAll(',', '');
+    }
+  } else if (comma || dot) {
+    const separator = comma ? ',' : '.';
+    const parts = normalised.split(separator);
+    const grouped = parts.length > 1 && parts.slice(1).every((part) => /^\d{3}$/u.test(part));
+    normalised = grouped ? parts.join('') : normalised.replace(',', '.');
+  }
   const parsed = Number(normalised);
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
 }
