@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-10-11T09:21:32.878Z",
+  "generatedAt": "2026-10-11T21:23:47.373Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4137,
-  "avgDurationMs": 4137,
+  "durationMs": 4819,
+  "avgDurationMs": 4819,
   "durationHistory": [
-    4137
+    4819
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:21:21.316Z",
+      "crawledAt": "2026-10-11T21:23:30.551Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:21:21.315Z",
+      "crawledAt": "2026-10-11T21:23:30.549Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:21:21.314Z",
+      "crawledAt": "2026-10-11T21:23:30.548Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -151,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }
