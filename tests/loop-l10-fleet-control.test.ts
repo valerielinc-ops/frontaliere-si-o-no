@@ -9,6 +9,8 @@ import {
   runL10,
   validateFleetControl,
 } from '../scripts/ci/loop-l10-fleet-control.mjs';
+// @ts-expect-error — the recorder is a dependency-free ESM CI script.
+import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs';
 import {
   buildOutcome,
   AUTONOMY_LEVELS,
@@ -601,5 +603,49 @@ describe('L10 Engineering Learning / Fleet Control', () => {
 
     expect(result.outcome).toMatchObject({ status: 'zero', independent: true, numerator: 0, denominator: 2 });
     expect(result.observation.outcome).toMatchObject({ status: 'zero', independent: true });
+  });
+
+  it('records a measured healthy outcome as a candidate lifecycle without changing observe action', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l10-measured-candidate-'));
+    const registryPath = writeJson(dir, 'registry.json', registry());
+    const quotaPath = writeJsonl(dir, 'quota.jsonl', [quotaRow()]);
+    const healthPath = writeJsonl(dir, 'health.jsonl', [healthRow()]);
+    const reportDir = path.join(dir, 'report');
+    const outcome = buildOutcome({
+      outcomeId: 'verified-l10',
+      status: 'observed',
+      independent: true,
+      sourceRefs: ['test-source'],
+      primaryMetric: 'verified_metric',
+      numerator: 1,
+      denominator: 1,
+      requiredFieldsPresent: ['generatedAt', 'numerator', 'denominator'],
+      missingFields: [],
+      reason: 'independent GitHub run and health join',
+      observedAt: NOW.toISOString(),
+      recordedAt: NOW.toISOString(),
+    });
+    const independentOutcomePath = writeJson(dir, 'independent.json', { outcome });
+
+    const result = await runL10({
+      now: NOW,
+      registryPath,
+      quotaPath,
+      healthPath,
+      independentOutcomePath,
+      reportDir,
+      logger: { log() {} },
+    });
+    const recorded = recordLoopEvidence({ loopId: 'L10', reportDir, registryPath, now: NOW });
+
+    expect(result.verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(result.outcome).toMatchObject({ status: 'observed', independent: true, numerator: 1, denominator: 1 });
+    expect(result.decision).toMatchObject({ decision: 'candidate', actionClass: 'observe' });
+    expect(recorded.summary).toMatchObject({
+      policyCompliant: true,
+      outcomePolicyCompliant: true,
+      outcome: { status: 'observed', independent: true, numerator: 1, denominator: 1 },
+      lifecycleEventTypes: ['candidate', 'owner_assigned'],
+    });
   });
 });
