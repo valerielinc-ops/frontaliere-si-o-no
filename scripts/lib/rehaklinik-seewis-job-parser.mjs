@@ -17,6 +17,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveLocalityAddress } from './swiss-structured-address.mjs';
+import { getCantonPostalFallback } from './canton-postal-fallback.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -180,7 +181,8 @@ export async function fetchAllRehaklinikSeewisJobs() {
     // the canton-scoped Swiss Post directory for official postal localities;
     // a known but ambiguous locality remains fail-closed.
     const resolvedPostalCode = postalCode
-      || (fallbackMatchesSource ? localityAddress.postalCode : '');
+      || (fallbackMatchesSource ? localityAddress.postalCode : '')
+      || getCantonPostalFallback(canton, sourceLocality);
     const resolvedStreetAddress = streetAddress || sourceLocality;
     if (!resolvedPostalCode) continue;
     const descriptionHtml = listing.description || '';

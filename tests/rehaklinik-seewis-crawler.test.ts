@@ -132,6 +132,26 @@ describe('Kurhaus crawler parser', () => {
     });
   });
 
+  it('keeps a valid source-backed locality when the locality resolver only has a canton-capital fallback', async () => {
+    vi.mocked(runSpecInProduction).mockResolvedValueOnce([{
+      title: 'Pflegefachperson',
+      location: 'Seewis Dorf, GR',
+      addressCountry: 'CH',
+      description: '<p>Pflege und Betreuung in der Rehaklinik.</p>',
+      url: 'https://www.vitrea-gesundheit.ch/de/karriere/pflege/seewis-dorf',
+    }]);
+
+    const jobs = await fetchAllRehaklinikSeewisJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      addressLocality: 'Seewis Dorf',
+      addressRegion: 'GR',
+      postalCode: '7212',
+      streetAddress: 'Seewis Dorf',
+    });
+  });
+
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
