@@ -459,6 +459,49 @@ describe('source-detail fidelity checks', () => {
     expect(result.sourceDescriptionLength).toBeGreaterThan(200);
   });
 
+  it('does not attribute stale single-record schema to a visibly different vacancy', async () => {
+    const pageUrl = 'https://giardino.example/talents/en/job-spa-therapist.html';
+    const description = 'Deliver tailored spa treatments and advise hotel guests with care and professionalism. '.repeat(8);
+    const staleDescription = 'Prepare seasonal dishes and coordinate the kitchen brigade. '.repeat(8);
+    const html = `<h1>Spa Therapist (m/f)</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Chef de Partie',
+        url: pageUrl,
+        description: staleDescription,
+        jobLocation: { address: { addressLocality: 'St. Moritz', addressCountry: 'CH' } },
+      })}</script>
+      <main><section class="job-description">${description}</section></main>`;
+
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'giardino',
+      url: pageUrl,
+      job: {
+        url: pageUrl,
+        title: 'Spa Therapist',
+        location: 'Champfèr',
+        sourceLang: 'en',
+        description,
+      },
+    }], 1, {
+      fetchPage: async () => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'giardino.example',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      locationEvidence: 'generic',
+      locationMismatch: false,
+      descriptionMismatch: false,
+      sourceHasStructuredVacancy: true,
+    });
+    expect(result.sourceDescriptionLength).toBeGreaterThan(200);
+  });
+
   it('attributes the usability gate to JSON-LD versus DOM/label evidence', () => {
     const rejectedJsonLd = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',

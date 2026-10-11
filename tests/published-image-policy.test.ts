@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 import {
   IMAGE_CDN_ORIGIN,
@@ -42,7 +43,7 @@ function withPinnedRoot<T>(run: (root: string) => T): T {
 }
 
 describe('published image policy', () => {
-  it('accepts a generated event CDN URL only with its valid registry record', () => {
+  it.skipIf(SKIP_LIVE_DATA)('accepts a generated event CDN URL only with its valid registry record', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });
     const record = registry.assets[0];
@@ -59,7 +60,7 @@ describe('published image policy', () => {
     });
   });
 
-  it('accepts a verified licensed photo record through the same CDN gate', () => {
+  it.skipIf(SKIP_LIVE_DATA)('accepts a verified licensed photo record through the same CDN gate', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
     const policy = loadPublishedImagePolicy({ root: ROOT });
     const record = registry.assets.find((asset) => asset.kind === 'photo');
@@ -165,7 +166,7 @@ describe('published image policy', () => {
     });
   });
 
-  it('keeps the OG-only site-owned exception explicit and narrow', () => {
+  it.skipIf(SKIP_LIVE_DATA)('keeps the OG-only site-owned exception explicit and narrow', () => {
     const policy = loadPublishedImagePolicy({ root: ROOT });
     expect(SITE_OWNED_OG_IMAGE_ALLOWLIST).toContain(`${SITE_ORIGIN}/og-image.png`);
     expect(checkOwnedOgImage(`${SITE_ORIGIN}/og-image.png`)).toMatchObject({

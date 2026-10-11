@@ -33,7 +33,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { computeRanking, computeTrend, computeFunFacts, computeWeekWindow, computeMovers } from './lib/border-wait-ranking.mjs';
 import { buildBorderWaitRankingArticle } from './lib/border-wait-ranking-content.mjs';
-import { registerArticleFiles, checkArticleIdExists, buildBodyFile } from './create-article.mjs';
+import {
+  registerArticleFiles,
+  checkArticleIdExists,
+  buildBodyFile,
+  assertTranslationsPassFactualityGates,
+} from './create-article.mjs';
 import { bumpUpdatedAt, bumpDateModified, bumpSitemapLastmod } from './lib/evergreen-article-refresh.mjs';
 import { isTicinoCrossing } from '../build-plugins/borderWaitData.ts';
 
@@ -101,6 +106,7 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
 
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
 export function refreshBodyFiles(data, repoRoot = REPO_ROOT, log = console.log) {
+  assertTranslationsPassFactualityGates(data);
   for (const locale of LOCALES) {
     const dir = path.join(repoRoot, 'services', 'locales', 'blog-body', locale);
     mkdirSync(dir, { recursive: true });

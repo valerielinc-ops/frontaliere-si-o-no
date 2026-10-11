@@ -14,13 +14,15 @@
 
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
+import { ACTIVE_JOB_IDS_FILE_NAME, JOB_ID_RE } from './assistedApplicationActiveJobIndex.js';
 
-export const JOB_DETAIL_BASE = 'https://cdn.frontaliereticino.ch/data/job-detail';
+export const JOB_DATA_BASE = 'https://cdn.frontaliereticino.ch/data';
+export const JOB_DETAIL_BASE = `${JOB_DATA_BASE}/job-detail`;
+export const JOB_ACTIVE_IDS_URL = `${JOB_DATA_BASE}/${ACTIVE_JOB_IDS_FILE_NAME}`;
 const FETCH_TIMEOUT_MS = 12_000;
 const MAX_POSTING_CHARS = 14_000;
 const MAX_PAGE_BYTES = 1_500_000;
 const MAX_REDIRECTS = 3;
-const JOB_ID_RE = /^[A-Za-z0-9._-]{1,200}$/;
 
 function clean(value, max = 500) {
   return String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);

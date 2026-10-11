@@ -144,7 +144,9 @@ import {
 } from './shared/weeklyEmployersProfiler';
 
 const WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS = {
-  allowNameOnlyOrganizationIds: false,
+  // Stable name-derived @ids distinguish unknown employers without inventing
+  // profile URLs or conflating them with the site's Organization identity.
+  allowNameOnlyOrganizationIds: true,
 } as const;
 
 // ── Canton-aware section helpers (P2.S1) ────────────────────────

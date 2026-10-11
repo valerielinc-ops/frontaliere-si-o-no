@@ -1,9 +1,11 @@
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
 import {
   changedLinesFromPatch,
   dedupeFindingsById,
   findingDeclaredClass,
+  findingIdentityComponents,
   findingSymbol,
   isExplicitNonFunnelDisposition,
   isMalformedReviewBody,
@@ -32,6 +34,26 @@ function finding(text: string) {
 }
 
 describe('identità stabile del finding', () => {
+  it('espone i quattro input normalizzati e ricostruisce l’id', () => {
+    const tick = String.fromCharCode(96);
+    const target = finding(
+      tick + 'z.mjs:L20' + tick + ', ' + tick + 'a.mjs:L4' + tick
+      + ': 🔴 Important: [correctness] ' + tick + 'parseFoo()' + tick
+      + ' must reject ' + tick + 'null' + tick + '.',
+    );
+    const identity = findingIdentityComponents(target);
+    expect(identity.paths).toEqual(['a.mjs', 'z.mjs']);
+    expect(identity.symbol).toBe('parseFoo()');
+    expect(identity.class).toBe('correctness');
+    expect(identity.prose).toContain('must reject');
+    const expected = createHash('sha256')
+      .update([identity.paths.join(String.fromCharCode(31)), identity.symbol, identity.class, identity.prose]
+        .join(String.fromCharCode(0)))
+      .digest('hex')
+      .slice(0, 12);
+    expect(stableFindingId(target)).toBe(expected);
+  });
+
   it('non cambia quando la riga si sposta', () => {
     const a = finding('`scripts/ci/foo.mjs:L12`: 🔴 Important: `parseFoo()` non gestisce il null. Aggiungi la guardia.');
     const b = finding('`scripts/ci/foo.mjs:L87`: 🔴 Important: `parseFoo()` non gestisce il null. Aggiungi la guardia.');
@@ -300,6 +322,7 @@ describe('ledger passato al reviewer', () => {
     expect(ledger).toContain(`\`${stableFindingId(open[0])}\` **open**`);
     expect(ledger).toContain(`\`${stableFindingId(closed[0])}\` **confirmed-fixed**`);
     expect(ledger.match(new RegExp(stableFindingId(open[0]), 'gu')).length).toBe(1);
+    expect(ledger).toContain('identity=' + JSON.stringify(findingIdentityComponents(open[0])));
   });
 
   it('dichiara la prima review quando non c’è storia', () => {

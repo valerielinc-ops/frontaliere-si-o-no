@@ -12,9 +12,15 @@ import {
   ORGANIZATION_SAME_AS,
   ORGANIZATION_FOUNDING_DATE,
   EDITORIAL_TEAM_ID,
+  organizationLdIds,
+  TICINO_CUSTOMS_DEPARTMENT_ID,
+  WEBSITE_ID,
 } from '../services/seo/organizationLd';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
-import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import {
+  normalizeArticleStructuredData,
+  normalizeStructuredData,
+} from '../services/seo/schema-normalizers';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
@@ -167,6 +173,14 @@ function homepageOrganization(): Record<string, unknown> {
 }
 
 describe('the canonical #organization entity', () => {
+  it('keeps the publisher, website, editorial team, and customs identities distinct', () => {
+    const ids = organizationLdIds();
+    expect(ids).toEqual([WEBSITE_ID, EDITORIAL_TEAM_ID, TICINO_CUSTOMS_DEPARTMENT_ID]);
+    expect(ids).toHaveLength(3);
+    expect(new Set(ids).size).toBe(3);
+    expect(new Set([ORGANIZATION_ID, ...ids]).size).toBe(4);
+  });
+
   it('uses the Google-supported Organization type and preserves its editorial specialization', () => {
     expect(ORGANIZATION_LD['@type']).toBe('Organization');
     expect(ORGANIZATION_LD_FULL.additionalType).toBe('https://schema.org/NewsMediaOrganization');
@@ -255,6 +269,47 @@ describe('the canonical #organization entity', () => {
         '@id': ORGANIZATION_ID,
         name: ORGANIZATION_LD.name,
       },
+    });
+  });
+
+  it('canonicalizes the name on a site Organization with a stale hostname name', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: {
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+        name: 'frontaliereticino.ch',
+        url: `${BASE_URL}/`,
+      },
+    });
+    expect(normalized).toMatchObject({
+      creator: {
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+        name: ORGANIZATION_LD.name,
+      },
+    });
+  });
+
+  it('canonicalizes stale site identities in Article author and publisher fields', () => {
+    const staleSiteEntity = {
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: 'frontaliereticino.ch',
+      url: `${BASE_URL}/`,
+    };
+    const normalized = normalizeArticleStructuredData({
+      '@type': 'NewsArticle',
+      datePublished: '2026-10-10',
+      author: staleSiteEntity,
+      publisher: staleSiteEntity,
+    });
+
+    expect(normalized.author).toMatchObject({
+      '@type': 'Organization', '@id': ORGANIZATION_ID, name: ORGANIZATION_LD.name,
+    });
+    expect(normalized.publisher).toMatchObject({
+      '@type': 'Organization', '@id': ORGANIZATION_ID, name: ORGANIZATION_LD.name,
     });
   });
 

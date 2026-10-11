@@ -12,14 +12,15 @@
  *
  * `checkPostingLiveness` is the gate itself, run by the runner before drafting
  * and again right before submitting, and by the functions before a reminder
- * to a candidate (assistedApplicationAutomation.js): our dataset (the
- * published job-detail file is gone when the crawlers stopped seeing the job)
- * and the employer page, fetched with the SSRF guards of the posting fallback.
+ * to a candidate (assistedApplicationAutomation.js): our published active-ID
+ * index no longer contains the job (detail files may be retained for historical
+ * URLs/SEO) and the employer page, fetched with the SSRF guards of the posting fallback.
  * In the functions' sources so that both can run it; the runner imports it
  * through scripts/assisted-application/lib/liveness.mjs and posting-liveness.mjs.
  */
 
-import { JOB_DETAIL_BASE, fetchPublicPage, fetchWorkdayPosting, htmlToText } from './assistedApplicationAiJob.js';
+import { JOB_ACTIVE_IDS_URL, fetchPublicPage, fetchWorkdayPosting, htmlToText } from './assistedApplicationAiJob.js';
+import { JOB_ID_RE, MAX_ACTIVE_JOB_INDEX_BYTES, parseActiveJobIdIndex } from './assistedApplicationActiveJobIndex.js';
 
 function normalizeForMatch(text = '') {
   if (typeof text !== 'string') return '';
@@ -152,7 +153,7 @@ const SAID_CLOSED_CODES = new Set([...HARD_CODES, 'ats_api_gone', 'ats_api_close
 
 /**
  * @param {{result:string, code:string}} page classification of the employer page
- * @param {{datasetGone:boolean}} dataset our own published job-detail file is gone (404)
+ * @param {{datasetGone:boolean}} dataset the published active-ID index omits this job
  */
 export function isHardClosed(page, { datasetGone = false } = {}) {
   if (page?.result === 'expired' && HARD_CODES.has(page.code)) return true;
@@ -187,13 +188,21 @@ const TIMEOUT_MS = 12_000;
 const MAX_HTML = 1_500_000;
 
 async function datasetGone(jobId, fetchImpl) {
-  if (!/^[A-Za-z0-9._-]{1,200}$/.test(String(jobId || ''))) return false;
+  const requestedId = String(jobId || '');
+  if (!JOB_ID_RE.test(requestedId)) return false;
   try {
-    const response = await fetchImpl(`${JOB_DETAIL_BASE}/${encodeURIComponent(jobId)}.json`, {
-      method: 'HEAD',
+    const response = await fetchImpl(JOB_ACTIVE_IDS_URL, {
+      method: 'GET',
+      redirect: 'error',
       signal: AbortSignal.timeout(TIMEOUT_MS),
+      headers: { Accept: 'application/json' },
     });
-    return response.status === 404 || response.status === 410;
+    if (response.status !== 200) return false;
+    const contentLength = Number(response.headers?.get?.('content-length'));
+    if (Number.isFinite(contentLength) && contentLength > MAX_ACTIVE_JOB_INDEX_BYTES) return false;
+    const activeIds = parseActiveJobIdIndex(await response.arrayBuffer());
+    if (!activeIds) return false;
+    return !activeIds.has(requestedId);
   } catch {
     return false;
   }

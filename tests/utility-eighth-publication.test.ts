@@ -55,6 +55,18 @@ for (const kind of ['valid', 'missing', 'invalid', 'future']) {
     const pending = fetchAllRebootMonkeyJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
     expect(jobs).toHaveLength(1); expect(jobs[0]).toMatchObject({ ...unknown, url });
     expect(jobs[0].description).toContain('sorveglianza fisica'); expect(jobs[0].crawledAt).toBeTruthy();
-    expect(transport).toHaveBeenCalledTimes(1);
+    expect(transport).toHaveBeenCalledTimes(2);
   });
 }
+
+it('Reboot Monkey uses the title-matched public JobPosting date', async () => {
+  const url = 'https://www.rebootmonkey.com/en/jobs/technician';
+  const datePosted = publication('valid');
+  const row = { id: 'fixture', title: 'Data Center Technician', city: 'Lugano', country_code: 'CH', description: body, url, created_at: publication('future') };
+  const transport = vi.fn(async (target: string) => target.includes('/api/jobs')
+    ? new Response(JSON.stringify({ total: 1, count: 1, pages: 1, results: [row] }), { status: 200 })
+    : new Response(`<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: row.title, datePosted })}</script>`, { status: 200, headers: { 'content-type': 'text/html' } }));
+  vi.stubGlobal('fetch', transport);
+  const pending = fetchAllRebootMonkeyJobs(); await vi.runAllTimersAsync(); const jobs = await pending;
+  expect(jobs[0]).toMatchObject({ datePosted, postedDate: datePosted!.slice(0, 10), postingDateSource: 'reported' });
+});

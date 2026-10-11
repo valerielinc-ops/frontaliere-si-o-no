@@ -1,8 +1,11 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const HELPER = join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh');
 const PUSH_SCRIPT = join(process.cwd(), 'scripts/lib/push-section-shard.sh');
@@ -13,10 +16,14 @@ describe('Ticino shard tree fan-out', () => {
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
     expect(script).toContain('if [ "$section" = ticino ] && [ "$SHARD_PUSH_MODE" != full ]');
     expect(script).toContain('skipping advisory delta verifier');
+    expect(script).toContain('ticino_tree_require_worker_layout "$sub"');
+    expect(script.indexOf('ticino_tree_require_worker_layout "$sub"')).toBeLessThan(
+      script.indexOf('# ── Stage subtree + offload'),
+    );
     expect(script).toContain('ticino_tree_fanout_stage "$section" "$stage/$sub"');
   });
 
-  it('moves first-level entries into stable buckets and keeps the root index', () => {
+  it('moves first-level entries into shared hash buckets and keeps the root index', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-tree-fanout-'));
     const root = join(temp, 'de', 'jobs-im-tessin');
     try {
@@ -35,12 +42,29 @@ describe('Ticino shard tree fan-out', () => {
       );
 
       expect(readFileSync(join(root, 'index.html'), 'utf8')).toBe('section shell');
-      expect(readFileSync(join(root, '_tree', 'ir', 'Ir-Job-123', 'index.html'), 'utf8')).toBe('job');
-      expect(readFileSync(join(root, '_tree', 'aa', 'aa-company', 'index.html'), 'utf8')).toBe('company');
-      expect(readFileSync(join(root, '_tree', 'zz', 'zz-flat.html'), 'utf8')).toBe('flat');
+      expect(readFileSync(join(root, '_tree', ticinoTreeBucket('Ir-Job-123'), 'Ir-Job-123', 'index.html'), 'utf8')).toBe('job');
+      expect(readFileSync(join(root, '_tree', ticinoTreeBucket('aa-company'), 'aa-company', 'index.html'), 'utf8')).toBe('company');
+      expect(readFileSync(join(root, '_tree', ticinoTreeBucket('zz-flat.html'), 'zz-flat.html'), 'utf8')).toBe('flat');
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }
+  });
+
+  it('spreads adversarial same-prefix slugs far below GitHub’s per-tree limit', () => {
+    const bucketCounts = new Uint32Array(256);
+    const sampleSize = 50_000;
+    for (let index = 0; index < sampleSize; index += 1) {
+      const slug = `AA-job-${String(index).padStart(6, '0')}`;
+      bucketCounts[Number.parseInt(ticinoTreeBucket(slug), 16)] += 1;
+    }
+
+    const maxBucketEntries = Math.max(...bucketCounts);
+    const projectedEntries = Math.ceil((maxBucketEntries * 578_757) / sampleSize);
+    // Git tree records are at most 282 bytes for a filesystem component of
+    // 255 bytes. Project the observed worst bucket onto run 377875's 578,757
+    // files, without materializing that production-sized tree in this test.
+    expect([...bucketCounts].every((count) => count > 0)).toBe(true);
+    expect(projectedEntries * 282).toBeLessThan(50 * 1024 * 1024);
   });
 
   it('leaves non-Ticino section trees untouched', () => {
@@ -64,10 +88,11 @@ describe('Ticino shard tree fan-out', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-tree-unfanout-'));
     const root = join(temp, 'de', 'jobs-im-tessin');
     try {
-      mkdirSync(join(root, '_tree', 'ir', 'Ir-Job-123'), { recursive: true });
+      const bucket = ticinoTreeBucket('Ir-Job-123');
+      mkdirSync(join(root, '_tree', bucket, 'Ir-Job-123'), { recursive: true });
       mkdirSync(join(root, '_tree', '.w'), { recursive: true });
       writeFileSync(join(root, 'index.html'), 'section shell');
-      writeFileSync(join(root, '_tree', 'ir', 'Ir-Job-123', 'index.html'), 'job');
+      writeFileSync(join(root, '_tree', bucket, 'Ir-Job-123', 'index.html'), 'job');
       writeFileSync(join(root, '_tree', '.w', '.well-known'), 'metadata');
 
       execFileSync(
@@ -79,7 +104,45 @@ describe('Ticino shard tree fan-out', () => {
       expect(readFileSync(join(root, 'Ir-Job-123', 'index.html'), 'utf8')).toBe('job');
       expect(readFileSync(join(root, '.well-known'), 'utf8')).toBe('metadata');
       expect(readFileSync(join(root, 'index.html'), 'utf8')).toBe('section shell');
-      expect(() => readFileSync(join(root, '_tree', 'ir', 'Ir-Job-123', 'index.html'))).toThrow();
+      expect(() => readFileSync(join(root, '_tree', bucket, 'Ir-Job-123', 'index.html'))).toThrow();
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed unless the active Worker advertises hash-v1', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-probe-'));
+    const bin = join(temp, 'bin');
+    const fakeCurl = join(bin, 'curl');
+    try {
+      mkdirSync(bin);
+      writeFileSync(fakeCurl, '#!/bin/sh\nprintf "%s\\n" "$TICINO_PROBE_RESPONSE"\nprintf "%s\\n" "$*" > "$TICINO_PROBE_ARGS"\n');
+      chmodSync(fakeCurl, 0o755);
+      const invoke = (response: string) => {
+        try {
+          return execFileSync(
+            'bash',
+            ['-c', 'source "$1" && ticino_tree_require_worker_layout "$2" && echo probe-ok', 'probe-test', HELPER, 'de/jobs-im-tessin'],
+            {
+              encoding: 'utf8',
+              env: {
+                ...process.env,
+                PATH: `${bin}:${process.env.PATH}`,
+                TICINO_PROBE_RESPONSE: response,
+                TICINO_PROBE_ARGS: join(temp, 'curl-args.txt'),
+              },
+            },
+          );
+        } catch (error) {
+          return (error as { status?: number }).status;
+        }
+      };
+
+      expect(invoke('HTTP/2 204\nx-frontaliere-ticino-tree-layout: hash-v1')).toBe('probe-ok\n');
+      expect(readFileSync(join(temp, 'curl-args.txt'), 'utf8')).toContain(
+        'https://frontaliereticino.ch/de/jobs-im-tessin/?__frontaliere_ticino_tree_layout=hash-v1',
+      );
+      expect(invoke('HTTP/2 200\n')).toBe(1);
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }

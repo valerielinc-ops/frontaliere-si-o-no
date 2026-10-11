@@ -11,6 +11,7 @@ import {
 // Relative import (no `@/` alias): this file is in the vite.config plugin
 // graph, where alias VALUE imports fail at config load time.
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
+import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
 import {
  buildCantonShards,
@@ -105,6 +106,19 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
 
  const dataDir = path.resolve(outDir, 'data');
  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+
+ // The job-detail files are retained after a posting leaves the active set
+ // (for historical URLs/SEO), so their existence is not an active-job signal.
+ // Publish a compact exact membership index from this same filtered inventory
+ // for the assisted-application liveness check; do not make it from a crawler
+ // summary or a different build slice.
+ const activeIdIndex = buildActiveJobIdIndex(jobs);
+ fs.writeFileSync(
+  path.resolve(dataDir, ACTIVE_JOB_IDS_FILE_NAME),
+  JSON.stringify(activeIdIndex),
+  'utf-8',
+ );
+
  const cantonShardDir = path.resolve(dataDir, 'jobs-by-canton');
  if (!fs.existsSync(cantonShardDir)) fs.mkdirSync(cantonShardDir, { recursive: true });
  let cantonShardManifest: CantonShardManifest | null = null;
