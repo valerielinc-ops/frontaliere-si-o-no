@@ -24,6 +24,7 @@ import { execFileSync } from 'node:child_process';
 import { listCorpusWideTests } from '../scripts/ci/corpus-wide-tests.mjs';
 import {
   scanLiveDataTests,
+  liveRootsFromRelativeImports,
   diffAgainstInventory,
   stripComments,
   segmentSequenceRegex,
@@ -95,6 +96,66 @@ describe('il rilevatore', () => {
     expect(rx.test("resolve(ROOT, 'packages', 'other', 'articles')")).toBe(false);
   });
 
+  it('risolve import runtime relativi in TSX e MJS, ignorando tipi e chunk UI', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-imports-'));
+    const testsDir = path.join(root, 'tests');
+    fs.mkdirSync(testsDir, { recursive: true });
+    try {
+      fs.writeFileSync(path.join(testsDir, 'relative.test.tsx'), [
+        "import duties from '../data/pharmacy-duties-ticino.json';",
+        "import { type PharmacyType } from '../data/pharmacy-duties-italy.json';",
+        "import '../data/pharmacy-enrichment.json';",
+        "const lazy = import('../data/pharmacy-enrichment-sources.json');",
+        "import '../data/pharmacies-ticino.json';",
+        "import '../services/locales/it-core.ts';",
+      ].join('\n'));
+      fs.writeFileSync(path.join(testsDir, 'relative.test.mjs'), [
+        "const duties = require('../data/pharmacy-duties-italy.json');",
+        "export { default as registry } from '../data/pharmacy-sources-registry.json';",
+      ].join('\n'));
+
+      expect(scanLiveDataTests(root)).toEqual([
+        {
+          file: 'tests/relative.test.mjs',
+          roots: ['data/pharmacy-duties-italy.json', 'data/pharmacy-sources-registry.json'],
+        },
+        {
+          file: 'tests/relative.test.tsx',
+          roots: [
+            'data/pharmacy-duties-ticino.json',
+            'data/pharmacy-enrichment-sources.json',
+            'data/pharmacy-enrichment.json',
+          ],
+        },
+      ]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('trova i nove candidati misurati sugli import live, senza contare i chunk UI', () => {
+    const files = [
+      'tests/exchange-rate-fallback-direction.test.tsx',
+      'tests/pharmacy-directory-country-spa.test.tsx',
+      'tests/pharmacy-duty-week-spa.test.tsx',
+      'tests/pharmacy-italy-duty-seo.test.ts',
+      'tests/pharmacy-seo-runtime.test.ts',
+      'tests/pharmacy-sources-registry.test.ts',
+      'tests/pharmacy-swiss-canton-duty.test.ts',
+      'tests/seo-title-parity-factual.test.ts',
+      'tests/pharmacy-enrichment.test.ts',
+    ];
+    const detected = files.map((file) => ({
+      file,
+      roots: liveRootsFromRelativeImports(fs.readFileSync(file, 'utf8'), file),
+    }));
+    expect(detected.filter((entry) => entry.roots.length)).toEqual(detected);
+    expect(detected).toHaveLength(9);
+    expect(detected.find((entry) => entry.file === 'tests/pharmacy-directory-country-spa.test.tsx')?.roots)
+      .toContain('data/pharmacy-duties-ticino.json');
+    expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
+  });
+
   it('non confonde un URL con un commento di riga', () => {
     expect(stripComments("const u = 'https://example.ch/x';")).toContain('https://example.ch/x');
   });
@@ -127,6 +188,11 @@ describe('il rilevatore', () => {
     expect(LIVE_DATA_ROOTS).toContain('services/locales/');
     expect(LIVE_DATA_ROOTS).toContain('data/jobs.json');
     expect(LIVE_DATA_ROOTS).toContain('data/prospector/');
+    expect(LIVE_DATA_ROOTS).toContain('data/pharmacy-duties-ticino.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/blog-cover-ledger.json');
+    expect(LIVE_DATA_ROOTS).toContain('data/event-image-library.json');
+    expect(LIVE_DATA_ROOTS.some((root) => 'data/pharmacies-ticino.json'.startsWith(root))).toBe(false);
+    expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
     // Una baseline cambia solo quando qualcuno decide di cambiarla: e' dato
     // pinnato, e vietarlo renderebbe il guard rumoroso e quindi ignorato.
     expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
@@ -181,6 +247,32 @@ describe('un test che NON legge dati vivi non puo` stare nell`inventario', () =>
     expect(codeOnlyShape(corpus)).toBeNull();
     const body = "const dir = path.resolve(__dirname, '..', 'services', 'locales', 'blog-body', 'it');";
     expect(codeOnlyShape(body)).toBeNull();
+  });
+
+  it('non classifica come live le slice nominate solo dentro fixture temporanee', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-temp-slices-'));
+    try {
+      const testsDir = path.join(root, 'tests');
+      fs.mkdirSync(testsDir, { recursive: true });
+      fs.writeFileSync(path.join(testsDir, 'merge-history.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SHELL_PATH = path.resolve(ROOT, 'scripts/lib/git-commit-data.sh');",
+        "const SLICE = 'crawler-slices/acme.json';",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gcd-history-fast-path-'));",
+        "const input = fs.readFileSync(path.join(dir, 'base.json'), 'utf8');",
+      ].join('\n'));
+      fs.writeFileSync(path.join(testsDir, 'recover-slice.test.ts'), [
+        "const ROOT = path.resolve(import.meta.dirname, '..');",
+        "const SCRIPT = path.join(ROOT, 'scripts/recover-conflict-marker-slices.mjs');",
+        "const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'recover-slice-slugs-'));",
+        "const sliceDir = path.join(dir, 'data/jobs/by-crawler');",
+        "const slice = fs.readFileSync(path.join(sliceDir, 'acme.json'), 'utf8');",
+      ].join('\n'));
+
+      expect(scanLiveDataTests(root)).toEqual([]);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('riconosce il sorgente del package: packages/articles/engine non e` il corpus', () => {

@@ -24,6 +24,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
 import worker, { SECTION_ROUTES } from '../infra/cloudflare-worker/locale-router.js';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
+import { legacyTicinoTreeBucket, ticinoTreeBucket } from '../infra/cloudflare-worker/ticino-tree-bucket.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const ctx = { waitUntil: () => {} } as unknown as ExecutionContext;
@@ -100,14 +103,16 @@ describe('locale-router Ticino-section shard routing', () => {
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.it);
   });
 
-  it('fans out a Ticino page below its stable physical bucket', async () => {
+  it('fans out a Ticino page below its shared hash bucket', async () => {
     await worker.fetch(
       new Request(`${APEX}/cerca-lavoro-ticino/consulente-vendita/`),
       {},
       ctx,
     );
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.it);
-    expect(lastUpstreamPath).toBe('/cerca-lavoro-ticino/_tree/co/consulente-vendita/');
+    expect(lastUpstreamPath).toBe(
+      `/cerca-lavoro-ticino/_tree/${ticinoTreeBucket('consulente-vendita')}/consulente-vendita/`,
+    );
   });
 
   it('routes the IT Ticino section root to origin-ticino-it', async () => {
@@ -134,10 +139,40 @@ describe('locale-router Ticino-section shard routing', () => {
   it('routes /fr/trouver-emploi-tessin to origin-ticino-fr', async () => {
     await worker.fetch(new Request(`${APEX}/fr/trouver-emploi-tessin/un-emploi/`), {}, ctx);
     expect(lastUpstreamHost).toBe(SECTION_ORIGIN.ticino.fr);
-    expect(lastUpstreamPath).toBe('/fr/trouver-emploi-tessin/_tree/un/un-emploi/');
+    expect(lastUpstreamPath).toBe(
+      `/fr/trouver-emploi-tessin/_tree/${ticinoTreeBucket('un-emploi')}/un-emploi/`,
+    );
   });
 
-  it('retries the canonical path while an old shard rolls out', async () => {
+  it('proves hash-v1 support through a no-store HTTP probe', async () => {
+    const response = await worker.fetch(
+      new Request(`${APEX}/de/jobs-im-tessin/?__frontaliere_ticino_tree_layout=hash-v1`, { method: 'HEAD' }),
+      {},
+      ctx,
+    );
+    expect(response.status).toBe(204);
+    expect(response.headers.get('x-frontaliere-ticino-tree-layout')).toBe('hash-v1');
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(upstreamPathHistory).toEqual([]);
+  });
+
+  it('reads the old first-two-character physical layout during migration', async () => {
+    const slug = 'irgendein-job';
+    const hashed = `/de/jobs-im-tessin/_tree/${ticinoTreeBucket(slug)}/${slug}/`;
+    const legacy = `/de/jobs-im-tessin/_tree/${legacyTicinoTreeBucket(slug)}/${slug}/`;
+    upstreamHandler = (url) => url.pathname === hashed
+      ? new Response(null, { status: 404 })
+      : url.pathname === legacy
+        ? new Response('<html>legacy bucket</html>', { status: 200 })
+        : new Response(null, { status: 404 });
+
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-im-tessin/${slug}/`), {}, ctx);
+    expect(response.status).toBe(200);
+    expect(await response.text()).toContain('legacy bucket');
+    expect(upstreamPathHistory).toEqual([hashed, legacy]);
+  });
+
+  it('retries the canonical path after both physical layouts miss', async () => {
     upstreamHandler = (url) => url.pathname.includes('/_tree/')
       ? new Response(null, { status: 404 })
       : new Response('<html>legacy</html>', { status: 200 });
@@ -149,7 +184,8 @@ describe('locale-router Ticino-section shard routing', () => {
     );
     expect(response.status).toBe(200);
     expect(upstreamPathHistory).toEqual([
-      '/de/jobs-im-tessin/_tree/ir/irgendein-job/',
+      `/de/jobs-im-tessin/_tree/${ticinoTreeBucket('irgendein-job')}/irgendein-job/`,
+      `/de/jobs-im-tessin/_tree/${legacyTicinoTreeBucket('irgendein-job')}/irgendein-job/`,
       '/de/jobs-im-tessin/irgendein-job/',
     ]);
   });

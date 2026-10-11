@@ -436,6 +436,17 @@ const identityText = (value = '') => textOf(value).toLowerCase()
   .replace(/\s+/g, ' ')
   .trim();
 
+/**
+ * Compare a stored/listing title with the visible detail-page heading.
+ * One-letter gender markers are presentation metadata, not vacancy identity.
+ */
+function vacancyTitleIdentity(value = '') {
+  return identityText(value)
+    .split(' ')
+    .filter((token) => token && !['m', 'w', 'f', 'd'].includes(token))
+    .join(' ');
+}
+
 function canonicalIdentityUrl(value = '') {
   try {
     const url = new URL(value);
@@ -456,8 +467,23 @@ function canonicalIdentityUrl(value = '') {
  * @param {string} pageUrl
  * @param {string} renderedTitle
  * @param {string} [recordUrl] inline identity URL from the listing row
+ * @param {string} [recordTitle] title from the listing/stored record
  */
-export function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUrl = '') {
+export function selectDetailStructuredRecords(records, pageUrl, renderedTitle, recordUrl = '', recordTitle = '') {
+  // A source can leave stale schema on an otherwise current detail page.
+  // Giardino's Spa Therapist page, for example, visibly renders that title
+  // while its sole JSON-LD node still describes "Chef de Partie". When the
+  // visible H1 independently confirms the requested record title and no
+  // structured node agrees, the schema is not evidence for this vacancy.
+  // Keep the old behaviour when the H1 is generic/branding: there the
+  // structured title remains the only usable identity signal.
+  const requestedTitleIdentity = vacancyTitleIdentity(recordTitle);
+  const renderedTitleIdentity = vacancyTitleIdentity(renderedTitle);
+  if (requestedTitleIdentity
+    && renderedTitleIdentity === requestedTitleIdentity
+    && !records.some((record) => vacancyTitleIdentity(record.title) === requestedTitleIdentity)) {
+    return [];
+  }
   // A URL-less listing row carries a deterministic `#job-…` fragment. The
   // detail request necessarily fetches the shared source page, so title-based
   // selection would merge every inline JobPosting into every row. Select the
@@ -1201,14 +1227,15 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     pageUrl,
     renderedTitle,
     opts.recordUrl,
+    opts.recordTitle,
   );
-  const ambiguousStructuredSiblings = allStructuredRecords.length > 1 && !structuredRecords.length;
+  const unresolvedStructuredIdentity = allStructuredRecords.length > 0 && !structuredRecords.length;
   const structured = structuredRecords[0] || {};
   // The first H1 can be the employer or brand while the selected JobPosting
   // carries the vacancy title. Prefer the page-scoped structured record and
   // use the rendered heading only when no structured title is available.
   const title = structured.title || renderedTitle || '';
-  const renderedLocation = ambiguousStructuredSiblings ? '' : textOf(
+  const renderedLocation = unresolvedStructuredIdentity ? '' : textOf(
     /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
   );
   const locationCandidates = [];
@@ -1245,13 +1272,13 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // evidence when the shared geography resolver can verify it; street-only or
   // ambiguous labels stay out, so this cannot turn a nearby employer address
   // into a vacancy location.
-  if (!locationCandidates.length && !ambiguousStructuredSiblings) {
+  if (!locationCandidates.length && !unresolvedStructuredIdentity) {
     for (const value of workplaceLabels) {
       const decision = evaluateSourceBackedSwissGeography([{ location: value }]);
       if (decision.geography) locationCandidates.push({ location: value });
     }
   }
-  if (!locationCandidates.length && !ambiguousStructuredSiblings) {
+  if (!locationCandidates.length && !unresolvedStructuredIdentity) {
     for (const candidate of renderedPostalAddressCandidates(html, title)) locationCandidates.push(candidate);
   }
   const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});

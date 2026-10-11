@@ -163,6 +163,7 @@ export function extractBurkhalterDetailFields(html = '', pageUrl = '') {
     || {};
   return {
     description: extractBurkhalterDetailDescription(html),
+    postedDate: String(detail.postedDate || '').trim(),
     addressLocality: String(candidate.addressLocality || candidate.location || '').trim(),
     postalCode: String(candidate.postalCode || '').trim(),
     streetAddress: String(candidate.streetAddress || '').trim(),

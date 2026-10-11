@@ -35,6 +35,7 @@ import { realpathSync } from 'node:fs';
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import ts from 'typescript';
 import { fileURLToPath } from 'node:url';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
 import {
@@ -46,7 +47,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 
 /**
- * Radici che la pipeline riscrive da sola: corpus articoli e output dei crawler.
+ * Radici scritte automaticamente da pipeline, commit bot diretti o PR bot.
  * Non ci sono le baseline (`data/*-baseline.json`), che cambiano solo quando
  * qualcuno decide di cambiarle — quello e' un dato pinnato, non un dato vivo.
  */
@@ -84,7 +85,22 @@ export const LIVE_DATA_ROOTS = Object.freeze([
   'data/health-premiums/',
   'data/job-popularity',
   'data/orphan-enriched-data/',
-  'data/pharmac',
+  // Pharmacy snapshots rewritten by unattended workflows or their bot PRs.
+  // Keep these exact: data/pharmacies-ticino.json is curated and has no live
+  // writer, so the former broad "data/pharmac" prefix misclassified it.
+  'data/pharmacies-ticino-complete.json',
+  'data/pharmacy-duties-ticino.json',
+  'data/pharmacy-duties-italy.json',
+  'data/pharmacy-duties-swiss-cantons.json',
+  'data/pharmacy-sources-registry.json',
+  // These are emitted only by unattended data PRs (not direct main commits).
+  'data/pharmacy-enrichment.json',
+  'data/pharmacy-enrichment-sources.json',
+  // Bot PRs can replace these license/image ledgers without a human choosing
+  // their contents; they are live inputs even though no direct bot commit writes them.
+  'data/blog-cover-ledger.json',
+  'data/event-image-library.json',
+  'data/blog-generated-image-registry.json',
   'data/search-cluster-301-map.json',
   'data/seo-404-compat/',
   'data/slug-registry.json',
@@ -155,6 +171,59 @@ export function stripComments(src = '') {
   return String(src)
     .replace(/\/\*[\s\S]*?\*\//g, ' ')
     .replace(/(^|[^:])\/\/[^\n]*/g, '$1 ');
+}
+
+/**
+ * Resolve runtime relative import specifiers in a test against the checkout.
+ * Static/dynamic imports, export-from and require() are reads too; type-only
+ * imports are erased by TypeScript and do not count.
+ */
+export function liveRootsFromRelativeImports(source, testFile, root = ROOT) {
+  const absoluteTest = path.resolve(root, testFile);
+  const extension = path.extname(testFile).toLowerCase();
+  const scriptKind = extension === '.tsx'
+    ? ts.ScriptKind.TSX
+    : extension === '.mjs'
+      ? ts.ScriptKind.JS
+      : ts.ScriptKind.TS;
+  const sourceFile = ts.createSourceFile(absoluteTest, source, ts.ScriptTarget.Latest, true, scriptKind);
+  const roots = new Set();
+  const visitSpecifier = (specifier) => {
+    if (!specifier.startsWith('.')) return;
+    const target = path.resolve(path.dirname(absoluteTest), specifier.split(/[?#]/u, 1)[0]);
+    const relative = path.relative(root, target).split(path.sep).join('/');
+    if (relative === '..' || relative.startsWith('../') || path.isAbsolute(relative)) return;
+    for (const liveRoot of LIVE_DATA_ROOTS) {
+      if (!relative.startsWith(liveRoot)) continue;
+      if (liveRoot === 'services/locales/'
+        && !/^services\/locales\/(?:blog-meta(?:-[^/]+)?(?:\.ts)?|blog-body\/)/u.test(relative)) continue;
+      roots.add(liveRoot);
+    }
+  };
+  const runtimeImport = (node) => {
+    const clause = node.importClause;
+    if (!clause) return true; // side-effect import
+    if (clause.isTypeOnly) return false;
+    if (clause.name) return true; // default binding
+    if (!clause.namedBindings || ts.isNamespaceImport(clause.namedBindings)) return true;
+    return clause.namedBindings.elements.some((element) => !element.isTypeOnly);
+  };
+  const visit = (node) => {
+    if (ts.isImportDeclaration(node) && node.moduleSpecifier && ts.isStringLiteralLike(node.moduleSpecifier)) {
+      if (runtimeImport(node)) visitSpecifier(node.moduleSpecifier.text);
+    } else if (ts.isExportDeclaration(node) && node.moduleSpecifier && ts.isStringLiteralLike(node.moduleSpecifier)) {
+      if (!node.isTypeOnly) visitSpecifier(node.moduleSpecifier.text);
+    } else if (ts.isCallExpression(node) && node.arguments.length > 0
+      && ts.isStringLiteralLike(node.arguments[0])) {
+      if (node.expression.kind === ts.SyntaxKind.ImportKeyword
+        || (ts.isIdentifier(node.expression) && node.expression.text === 'require')) {
+        visitSpecifier(node.arguments[0].text);
+      }
+    }
+    ts.forEachChild(node, visit);
+  };
+  visit(sourceFile);
+  return [...roots].sort();
 }
 
 /**
@@ -311,6 +380,19 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // senza (#N)), e la PR #10308 del 29-09 ha dovuto ripristinare quelle cifre.
   // Stessa natura di irpef-brackets-2026 sopra: il corpus è il soggetto.
   { file: "tests/article-tax-content-guard.test.ts", roots: ["packages/articles/content/", "services/locales/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  // ─── 2026-10-10 / issue 12335: ten runtime imports the scanner previously
+  // missed. They are held in the live monitor because their top-level imports
+  // make the modules depend on generated files at collection time; case-level
+  // replay/splitting remains tracked by issue 12345 (not inferred from imports).
+  { file: 'tests/exchange-rate-fallback-direction.test.tsx', roots: ['data/exchange-rate-snapshot.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-directory-country-spa.test.tsx', roots: ['data/pharmacy-duties-italy.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-duty-week-spa.test.tsx', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-italy-duty-seo.test.ts', roots: ['data/pharmacy-duties-italy.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-seo-runtime.test.ts', roots: ['data/pharmacies-ticino-complete.json', 'data/pharmacy-duties-ticino.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-sources-registry.test.ts', roots: ['data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-swiss-canton-duty.test.ts', roots: ['data/pharmacy-duties-swiss-cantons.json', 'data/pharmacy-sources-registry.json'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/seo-title-parity-factual.test.ts', roots: ['services/locales/'], since: '2026-10-10', evidence: 'review', runtime: true },
+  { file: 'tests/pharmacy-enrichment.test.ts', roots: ['data/pharmacy-enrichment-sources.json', 'data/pharmacy-enrichment.json'], since: '2026-10-10', evidence: 'review', runtime: true },
 ]);
 
 /**
@@ -328,6 +410,18 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     since: '2026-10-08',
     evidence: 'review',
     reason: 'the article registry paths are created and read only inside a mkdtemp fixture; the checkout read is limited to the ledger writer under test',
+  },
+  {
+    file: 'tests/calculator/calculator-paywall.test.tsx',
+    roots: ['services/locales/'],
+    evidence: 'review',
+    reason: 'the source check reads the translated UI chunk, not the blog-meta or blog-body symlinks that carry the live corpus',
+  },
+  {
+    file: 'tests/run-related-tests-selection.test.ts',
+    roots: ['data/event-image-library.json'],
+    evidence: 'review',
+    reason: 'the matching path is a string in a synthetic selector fixture created under mkdtemp; the test never reads the checkout data file',
   },
   // ─── 2026-09-19: falsi positivi emersi quando la scansione e' diventata
   // ricorsiva. Ognuno nomina una radice viva nel sorgente, e la traccia a
@@ -640,6 +734,9 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // registri riscritti dalla pipeline; le altre prove del file usano una
   // sorgente sintetica e devono restare nel gate delle PR.
   { file: "tests/article-registry-entries.test.ts", roots: ["packages/articles/content/"], since: "2026-10-05", evidence: "review", runtime: true },
+  // Solo i tre controlli che aprono i registri live sono nel monitor; tutte
+  // le prove con dati sintetici restano nel gate bloccante delle PR.
+  { file: "tests/published-image-policy.test.ts", roots: ["data/event-image-library.json"], since: "2026-10-10" },
 ]);
 
 /**
@@ -765,15 +862,31 @@ function listTestFilesRecursive(dir, base, acc = []) {
     const full = path.join(dir, e.name);
     const rel = base ? `${base}/${e.name}` : e.name;
     if (e.isDirectory()) listTestFilesRecursive(full, rel, acc);
-    else if (e.name.endsWith('.test.ts')) acc.push(rel);
+    else if (/\.test\.(?:tsx?|mjs)$/u.test(e.name)) acc.push(rel);
   }
   return acc;
 }
 
+const LIVE_RELATIVE_IMPORT_HINT_RE = /['"]\.{1,2}\/(?:\.\.\/)*(?:data|public|packages\/articles|services\/locales|docs)(?:\/|['"])/u;
+const DEFAULT_SCAN_CACHE = new Map();
+
 export function scanLiveDataTests(root = ROOT) {
+  const absoluteRoot = path.resolve(root);
+  const cacheable = absoluteRoot === ROOT;
+  if (cacheable && DEFAULT_SCAN_CACHE.has(absoluteRoot)) {
+    return DEFAULT_SCAN_CACHE.get(absoluteRoot).map((entry) => ({ ...entry, roots: [...entry.roots] }));
+  }
   const dir = path.join(root, 'tests');
   const registered = new Set(listCorpusWideTests());
   const partial = new Set(LIVE_DATA_PARTIAL_TESTS.map((e) => e.file));
+  // Explicit live-data and transitive-read entries remain checked even when
+  // their source also creates temporary fixtures. The classifier is only a
+  // shortcut for otherwise-unregistered tests whose live-looking paths are
+  // demonstrably rooted beneath mkdtemp.
+  const inventoried = new Set([
+    ...KNOWN_LIVE_DATA_TESTS,
+    ...LIVE_DATA_SCAN_EXEMPTIONS,
+  ].map((entry) => entry.file));
   const out = [];
   const files = listTestFilesRecursive(dir, '');
   for (const f of files.sort()) {
@@ -784,10 +897,19 @@ export function scanLiveDataTests(root = ROOT) {
     let src = '';
     try { src = fs.readFileSync(path.join(dir, f), 'utf8'); } catch { continue; }
     const code = stripComments(src);
-    if (!ROOT_ANCHOR_RE.test(code)) continue;
-    const roots = liveRootsInCode(code);
-    if (roots.length) out.push({ file: rel, roots });
+    // Some tests mention production-relative slice names only as values they
+    // write beneath mkdtemp. A checkout-root anchor elsewhere in the test
+    // (usually the script under test) is not evidence that those fixture paths
+    // are read from the checkout.
+    if (!inventoried.has(rel) && codeOnlyShape(code) === 'temp-fixture') continue;
+    const roots = LIVE_RELATIVE_IMPORT_HINT_RE.test(src)
+      ? liveRootsFromRelativeImports(src, rel, root)
+      : [];
+    if (ROOT_ANCHOR_RE.test(code)) roots.push(...liveRootsInCode(code));
+    const uniqueRoots = [...new Set(roots)].sort();
+    if (uniqueRoots.length) out.push({ file: rel, roots: uniqueRoots });
   }
+  if (cacheable) DEFAULT_SCAN_CACHE.set(absoluteRoot, out.map((entry) => ({ ...entry, roots: [...entry.roots] })));
   return out;
 }
 
@@ -883,6 +1005,13 @@ export function codeOnlyShape(code) {
 
   if (/\bmkdtemp(?:Sync)?\s*\(|\btmpdir\s*\(/.test(code)) {
     const lines = code.split('\n');
+    const tempAliases = [];
+    for (const line of lines) {
+      const m = line.match(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=.*\bmkdtemp(?:Sync)?\s*\(/);
+      if (m) tempAliases.push(m[1]);
+    }
+    if (tempAliases.length === 0) return null;
+    const tempAliasRe = new RegExp(`\\b(?:${tempAliases.map((a) => a.replace(/[$]/g, '\\$&')).join('|')})\\b`);
     // Una costante assegnata dalla root del checkout la porta con se':
     // `const rootDir = resolve(__dirname, '..')` rende `rootDir` un'ancora.
     const aliases = [];
@@ -895,7 +1024,8 @@ export function codeOnlyShape(code) {
       : null;
     const mentionLines = lines.filter((line) => liveRootsInCode(line).length > 0);
     const anchored = mentionLines.some((line) => CHECKOUT_ANCHOR_RE.test(line) || (aliasRe && aliasRe.test(line)));
-    if (mentionLines.length > 0 && !anchored) return 'temp-fixture';
+    const rootedInTemp = mentionLines.length > 0 && mentionLines.every((line) => tempAliasRe.test(line));
+    if (rootedInTemp && !anchored) return 'temp-fixture';
   }
 
   return null;

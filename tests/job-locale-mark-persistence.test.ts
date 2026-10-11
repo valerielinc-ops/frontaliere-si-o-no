@@ -296,10 +296,11 @@ describe('#5645 — collapsing duplicates merges the mark instead of taking one 
     // regression to prevent is someone re-inlining the old
     // `if (!existing || tagged.assembledAt >= existing.assembledAt)` loop,
     // which reads as a perfectly working dedup and silently deletes marks.
-    const source = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
-    expect(source).toContain('dedupeByIdentityPreservingMarks(');
-    expect(source).toContain('carryForwardMarks(');
-    expect(source).not.toMatch(/byIdentity\.set\(identity,\s*tagged\)/);
+    const assemblerSource = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
+    const helperSource = fs.readFileSync(path.resolve(__dirname, '..', 'scripts', 'lib', 'job-mark-persistence.mjs'), 'utf8');
+    expect(assemblerSource).toContain('dedupeByIdentityPreservingMarks(');
+    expect(helperSource).toContain('carryForwardMarks(');
+    expect(assemblerSource).not.toMatch(/byIdentity\.set\(identity,\s*tagged\)/);
   });
 });
 
