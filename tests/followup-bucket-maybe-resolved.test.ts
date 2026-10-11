@@ -16,6 +16,7 @@ import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   bucketAlarmBody,
+  bucketFormatViolations,
   bucketStructuralVeto,
   decideReconcileAction,
   hasLiveReconcileFlag,
@@ -183,6 +184,22 @@ describe('Bucket follow-up illeggibili: maybe-resolved residuo con item open e b
   });
 
   describe('gli edit dei bucket passano da rebuildDailyBody', () => {
+    it('tratta il codice inline nei Target repository come formattazione, ma rifiuta un repository diverso', () => {
+      const issue = dailyIssue(6, [], ['open']);
+      const wrappedBody = issue.body
+        .replace(`- Target repository: ${REPO}`, `- Target repository: \`${REPO}\``)
+        .replace(`- Target repository: ${REPO}`, `- Target repository: \`${REPO}\``);
+
+      expect(bucketStructuralVeto({ title: issue.title, body: wrappedBody })).toBeNull();
+      expect(bucketFormatViolations(issue.title, wrappedBody).filter((entry) => /repository/i.test(entry.why))).toEqual([]);
+
+      const mismatchedBody = wrappedBody.replace(
+        `- State: open\n- Target repository: \`${REPO}\``,
+        '- State: open\n- Target repository: `another/repo`',
+      );
+      expect(bucketStructuralVeto({ title: issue.title, body: mismatchedBody })).toBe('mismatched-target-repository');
+    });
+
     it('il corpo reale di 8705 diventa canonico: titolo, testa e stati, senza perdere item né stati', () => {
       expect(bucketStructuralVeto(bucket8705)).toBe('mismatched-target-repository');
       const result = canonicalDailyBucket({ title: bucket8705.title, body: bucket8705.body });

@@ -67,6 +67,7 @@ import {
   hasUnterminatedMarkdownFence,
   isDailyBucketTitle,
   normalizeAcceptanceToken,
+  normalizeRepositoryFieldValue,
   parseFollowupItems,
   updateFollowupItemState,
   splitFollowupItems,
@@ -906,9 +907,10 @@ export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
   const items = parseFollowupItems(source);
   const headerRepository = dailyBucketTargetRepository(source);
   if (daily) {
-    if (!REPOSITORY_SLUG_RE.test(daily.targetRepository)) {
+    const titleRepository = normalizeRepositoryFieldValue(daily.targetRepository);
+    if (!REPOSITORY_SLUG_RE.test(titleRepository)) {
       push('titolo', title, `il repository nel titolo («${daily.targetRepository}») non e' owner/repo`);
-    } else if (headerRepository && headerRepository.toLowerCase() !== daily.targetRepository.toLowerCase()) {
+    } else if (headerRepository && headerRepository.toLowerCase() !== titleRepository.toLowerCase()) {
       push('titolo', title, `il repository nel titolo non coincide con l'header (${headerRepository})`);
     }
     if (items.length && daily.itemCount !== items.length) {
@@ -940,7 +942,7 @@ export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
       else if (!/^(collecting|sealed)$/i.test(field[2])) push(`riga ${i + 1}`, headLines[i], 'lo `State` di testa deve essere esattamente `collecting` o `sealed`');
     } else if (name === 'daily key' && !/^\d{4}-\d{2}-\d{2}\b/.test(field[2])) {
       push(`riga ${i + 1}`, headLines[i], '`Daily key` senza data YYYY-MM-DD');
-    } else if (name === 'target repository' && !REPOSITORY_SLUG_RE.test(field[2])) {
+    } else if (name === 'target repository' && !REPOSITORY_SLUG_RE.test(normalizeRepositoryFieldValue(field[2]))) {
       push(`riga ${i + 1}`, headLines[i], '`Target repository` non e\' owner/repo');
     }
   }
@@ -954,16 +956,15 @@ export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
       continue;
     }
     const rawLines = String(item.raw || '').split('\n');
-    // Confronto LETTERALE, come `hasDailyBucketRepositoryConsistency`: un valore
-    // fra backtick e' un altro repository per il parser (misurato su #11301).
     const repoIndex = rawLines.findIndex((line) => {
       const field = /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/i.exec(line);
-      return field && headerRepository && field[1].trim().toLowerCase() !== headerRepository.toLowerCase();
+      return field && headerRepository
+        && normalizeRepositoryFieldValue(field[1]).toLowerCase() !== headerRepository.toLowerCase();
     });
     if (repoIndex >= 0) {
       const quoted = /`/.test(rawLines[repoIndex]);
       push(`riga ${headingLine + repoIndex}`, rawLines[repoIndex], quoted
-        ? `\`Target repository\` dell'item fra backtick: il parser lo confronta alla lettera con l'header (${headerRepository})`
+        ? `\`Target repository\` dell'item fra backtick ma diverso dall'header (${headerRepository})`
         : `\`Target repository\` dell'item diverso dall'header (${headerRepository})`);
     }
     if (item.state) continue;
