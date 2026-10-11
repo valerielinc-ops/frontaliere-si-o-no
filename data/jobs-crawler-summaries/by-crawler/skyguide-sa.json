@@ -1,7 +1,7 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-10-10T21:14:15.416Z",
+  "generatedAt": "2026-10-11T09:24:39.259Z",
   "total": 8,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 14968,
-  "avgDurationMs": 14968,
+  "durationMs": 18415,
+  "avgDurationMs": 18415,
   "durationHistory": [
-    14968
+    18415
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:56.114Z",
+      "crawledAt": "2026-10-11T09:24:15.361Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -89,7 +89,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:56.640Z",
+      "crawledAt": "2026-10-11T09:24:15.955Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -129,7 +129,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:57.613Z",
+      "crawledAt": "2026-10-11T09:24:17.127Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -170,7 +170,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:57.954Z",
+      "crawledAt": "2026-10-11T09:24:17.866Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -211,7 +211,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:58.398Z",
+      "crawledAt": "2026-10-11T09:24:18.276Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,7 +254,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:57.136Z",
+      "crawledAt": "2026-10-11T09:24:16.700Z",
       "retranslationAttempts": 0,
       "needsRetranslation": true,
       "_qualityScore": 88,
@@ -296,7 +296,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:58.837Z",
+      "crawledAt": "2026-10-11T09:24:18.993Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,7 +336,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-10T21:13:59.249Z",
+      "crawledAt": "2026-10-11T09:24:19.417Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,5 +346,5 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
