@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-10T11:48:36.020Z",
+  "assembledAt": "2026-10-11T12:01:12.224Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -95206,7 +95206,7 @@
       "venue": "Solothurn",
       "comune": "Solothurn",
       "canton": "SO",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/schweizer-landwirtschaft-die-schweizer-agrarpolitik/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/schweizer-landwirtschaft-die-schweizer-agrarpolitik/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -95214,6 +95214,15 @@
         "lng": 7.5412039
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "2c52462332fa86e19090ef29693c4906517a7a7e910be5a94873f566e8dda489"
     },
     {
@@ -122407,7 +122416,7 @@
       "venue": "Baden",
       "comune": "Baden",
       "canton": "AG",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/konstellationen-premiere/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/konstellationen-premiere/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -122415,7 +122424,16 @@
         "lng": 8.3102615
       },
       "recurring": false,
-      "sourceDescriptionHash": "753afb3412458a2fe46649005f2dc1216d3e64e225c24f54131eae6e7d40c9cd"
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "639d753682290550e9fd116ef70a5e5265fe8c146773438755ba6c3c7c94899e"
     },
     {
       "id": "myswitzerland:1448cda8ca8b42978ae29bb4faed59e0",
@@ -126230,23 +126248,26 @@
       "startDate": "2026-12-01",
       "endDate": "2026-12-01",
       "startTime": "20:00",
-      "category": "Food",
-      "venue": "THE HALL",
+      "category": "Event",
+      "venue": "Dübendorf",
       "comune": "Dübendorf",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/jodok-cello-raclette-dinner-im-jumi-chalet/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/jodok-cello-raclette-dinner-im-jumi-chalet/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Hoffnigstrasse 1",
-        "postalCode": "8600",
-        "locality": "Dübendorf"
-      },
       "geo": {
         "lat": 47.3957944,
         "lng": 8.5979351
       },
       "recurring": false,
+      "performer": {
+        "name": "Raclette-Dinner im Jumi Chalet"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "4712018f80e2550b17d7d7a981d8ba0bfa7368fc1ed256cada20bdcd8532972a"
     },
     {
@@ -158334,10 +158355,10 @@
       "endDate": "2026-12-08",
       "startTime": "18:00",
       "category": "Event",
-      "venue": "Volkshochschule Solothurn",
+      "venue": "Solothurn",
       "comune": "Solothurn",
       "canton": "SO",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/computer-grundlagen-3/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/computer-grundlagen-3/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -158345,6 +158366,15 @@
         "lng": 7.5412039
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "44ef655c1a7baceeac9b46ed66ba22f97090aea281d9023e011a21eca1aaed90"
     },
     {
@@ -158363,7 +158393,7 @@
       "venue": "Solothurn",
       "comune": "Solothurn",
       "canton": "SO",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/der-weg-zum-menschen/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/der-weg-zum-menschen/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -158371,6 +158401,15 @@
         "lng": 7.5412039
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "2a7ce6df75e3f5bd7f8f73235ffe85fba6d01b171b5cda140897d57f4519314e"
     },
     {
@@ -158695,7 +158734,7 @@
       "venue": "Solothurn",
       "comune": "Solothurn",
       "canton": "SO",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/wohnen-im-alter-im-spannungsfeld-vielfaeltiger-herausforderungen-1/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/wohnen-im-alter-im-spannungsfeld-vielfaeltiger-herausforderungen-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -158703,6 +158742,15 @@
         "lng": 7.5412039
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Solothurn"
+      },
       "sourceDescriptionHash": "9f84ac47301f64a62bda8da94e833d36eb410dec2df0cb5e42fc189a77286781"
     },
     {
@@ -179374,10 +179422,10 @@
       "endDate": "2026-10-31",
       "startTime": "20:00",
       "category": "Event",
-      "venue": "Kulturplatz Davos",
+      "venue": "Davos",
       "comune": "Davos",
       "canton": "GR",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/resident-evil/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/resident-evil/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -179385,6 +179433,14 @@
         "lng": 9.8223277
       },
       "recurring": false,
+      "performer": {
+        "name": "German subtitles"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
       "sourceDescriptionHash": "e7c0a2d0cdf67be1e4b64599d81eb6cbd74cd61832bd3ea72cb0d4c69042f66a"
     },
     {
@@ -263104,6 +263160,323 @@
         "name": "Kloten"
       },
       "sourceDescriptionHash": "3c579a8e6b0259509e8b04b65af67e7029e10a25e66f9a133dddbec9b1eb1b77"
+    },
+    {
+      "id": "myswitzerland:1a1aadbbae6640d494cf2391684645e1",
+      "title": "Popcorn - 8",
+      "titleByLocale": {
+        "it": "Popcorn - 8",
+        "en": "Popcorn - 8",
+        "de": "Popcorn - 8",
+        "fr": "Popcorn - 8"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Losanna",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/popcorn-8/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5228305,
+        "lng": 6.6185029
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Losanna"
+      },
+      "sourceDescriptionHash": "dfe25a8985181af483ac0088389bd1760a88fef57ec61e4ecf3c5a802d07bb2c"
+    },
+    {
+      "id": "myswitzerland:1a08cb1ed99f4813b72edfbf76682011",
+      "title": "Buchvorstellung von Laura Decurtins in Ilanz",
+      "titleByLocale": {
+        "it": "Buchvorstellung von Laura Decurtins in Ilanz",
+        "en": "Buchvorstellung von Laura Decurtins in Ilanz",
+        "de": "Buchvorstellung von Laura Decurtins in Ilanz",
+        "fr": "Buchvorstellung von Laura Decurtins in Ilanz"
+      },
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-18",
+      "startTime": "17:30",
+      "category": "Event",
+      "venue": "Ilanz",
+      "comune": "Ilanz/Glion",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/buchvorstellung-von-laura-decurtins-in-ilanz/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7736833,
+        "lng": 9.2036388
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ilanz"
+      },
+      "sourceDescriptionHash": "fbecfb6b096733dd31d64b2581cd17cec351b2e36b92080175064ac4a409001e"
+    },
+    {
+      "id": "myswitzerland:1906b079dd2644dd8450bd41e5f3205d",
+      "title": "Journées des artisans",
+      "titleByLocale": {
+        "it": "Journées des artisans",
+        "en": "Journées des artisans",
+        "de": "Journées des artisans",
+        "fr": "Journées des artisans"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-08",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Estavayer-le-Lac",
+      "comune": "Estavayer",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/journees-des-artisans/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8489953,
+        "lng": 6.8467636
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Estavayer-le-Lac"
+      },
+      "sourceDescriptionHash": "411000364b58cb33d1e8fb75efbd8929b22b5d4d7a549a7dbd5a669a9205ec2a"
+    },
+    {
+      "id": "myswitzerland:18f749f08209446aaf91a4662b78feaf",
+      "title": "Salle de l'Eau-Vive : La Combédie - T'emballe pas ! [EN]",
+      "titleByLocale": {
+        "it": "Salle de l'Eau-Vive : La Combédie - T'emballe pas ! [EN]",
+        "en": "Salle de l'Eau-Vive : La Combédie - T'emballe pas ! [EN]",
+        "de": "Salle de l'Eau-Vive : La Combédie - T'emballe pas ! [DE]",
+        "fr": "Salle de l'Eau-Vive : La Combédie - T'emballe pas !"
+      },
+      "startDate": "2027-01-29",
+      "endDate": "2027-02-07",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Martigny-Croix",
+      "comune": "Martigny",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/salle-de-leauvive-la-combedie-temballe-pas-en/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.0843016,
+        "lng": 7.0548261
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Martigny-Croix"
+      },
+      "sourceDescriptionHash": "760f480bf41c7f9230b9cf010fd09027ebb91a99d0a47ca92630db7d9d1fb5f8"
+    },
+    {
+      "id": "myswitzerland:18c7ae6fa8f04e309ae8fd2ebd8f212c",
+      "title": "Badener Limmat-Lauf 2027",
+      "titleByLocale": {
+        "it": "Badener Limmat-Lauf 2027",
+        "en": "Badener Limmat-Lauf 2027",
+        "de": "Badener Limmat-Lauf 2027",
+        "fr": "Badener Limmat-Lauf 2027"
+      },
+      "startDate": "2027-04-03",
+      "endDate": "2027-04-03",
+      "startTime": "10:00",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/badener-limmat-lauf-2027/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4693863,
+        "lng": 8.3110916
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Baden"
+      },
+      "sourceDescriptionHash": "0fde2c10d72ffe991e58bf284274221f6a8d08336095468b96d8877a8c41756e"
+    },
+    {
+      "id": "myswitzerland:17ea7fb067a1424694fe1a868273a5a6",
+      "title": "Grundkurs Winterschwimmen / Kaltbaden",
+      "titleByLocale": {
+        "it": "Grundkurs Winterschwimmen / Kaltbaden",
+        "en": "Grundkurs Winterschwimmen / Kaltbaden",
+        "de": "Grundkurs Winterschwimmen / Kaltbaden",
+        "fr": "Grundkurs Winterschwimmen / Kaltbaden"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "startTime": "09:30",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/grundkurs-winterschwimmen-kaltbaden-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2046977,
+        "lng": 7.5412039
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Gelassenheit und in einer entspannten Haltung zu erleben"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "f17915368eb1258938202971362dbccd3bd6a1bc280df6545784ba89e5b2bc1a"
+    },
+    {
+      "id": "myswitzerland:17e8e0fbe147444db7f89df7d1c90005",
+      "title": "Iscrizioni mercatino di Natale Roveredo",
+      "titleByLocale": {
+        "it": "Iscrizioni mercatino di Natale Roveredo",
+        "en": "Iscrizioni mercatino di Natale Roveredo",
+        "de": "Iscrizioni mercatino di Natale Roveredo",
+        "fr": "Iscrizioni mercatino di Natale Roveredo"
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Roveredo GR",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/iscrizioni-mercatino-di-natale-roveredo/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2395042252218,
+        "lng": 9.13453429508578
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Roveredo GR"
+      },
+      "italianFrontierComuni": [
+        "Dosso del Liro",
+        "Garzeno"
+      ],
+      "sourceDescriptionHash": "736ff833d71b670eb952f50872d13e84930cbd3c4635b2a9de0da98b611e0abe"
+    },
+    {
+      "id": "myswitzerland:15f6afee851347d98abafe21f09fe0c9",
+      "title": "Adventsbasteln im Begegnungszentrum 90i",
+      "titleByLocale": {
+        "it": "Adventsbasteln im Begegnungszentrum 90i",
+        "en": "Adventsbasteln im Begegnungszentrum 90i",
+        "de": "Adventsbasteln im Begegnungszentrum 90i",
+        "fr": "Adventsbasteln im Begegnungszentrum 90i"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Rümlang",
+      "comune": "Rümlang",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/adventsbasteln-im-begegnungszentrum-90i/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4476419,
+        "lng": 8.5370649
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rümlang"
+      },
+      "sourceDescriptionHash": "1666b080544bffdd1e7a36161b31c830f136cd286df58552de5b72a1cf594a96"
+    },
+    {
+      "id": "myswitzerland:157fded3832e4f7889aab9e013ac7b6e",
+      "title": "WO-Basel-sing-and-play-along 2026: Der Grosse Schlussakkord",
+      "titleByLocale": {
+        "it": "WO-Basel-sing-and-play-along 2026: Der Grosse Schlussakkord",
+        "en": "WO-Basel-sing-and-play-along 2026: Der Grosse Schlussakkord",
+        "de": "WO-Basel-sing-and-play-along 2026: Der Grosse Schlussakkord",
+        "fr": "WO-Basel-sing-and-play-along 2026: Der Grosse Schlussakkord"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "startTime": "19:30",
+      "category": "Event",
+      "venue": "Liestal",
+      "comune": "Liestal",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/wo-basel-sing-and-play-along-2026-der-grosse-schlussakkord-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4847888,
+        "lng": 7.734726
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Liestal"
+      },
+      "sourceDescriptionHash": "12cfe4c8ade185e97c513eb5759f578a18cb35ecffb9c21f5dee6bc8a2962666"
     }
   ]
 }
