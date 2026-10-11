@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-11T11:56:55.623Z",
+  "updatedAt": "2026-10-11T11:58:08.435Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -659555,7 +659555,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:31:27.340Z",
-      "updatedAt": "2026-10-10T11:51:23.735Z",
+      "updatedAt": "2026-10-11T11:58:07.100Z",
       "name": "Pantr GmbH",
       "city": "Zug",
       "zip": "6300",
@@ -728723,12 +728723,12 @@
     },
     "rehaklinik-seewis.ch": {
       "key": "rehaklinik-seewis.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:08:26.108Z",
-      "updatedAt": "2026-10-10T11:51:48.751Z",
+      "updatedAt": "2026-10-11T11:58:08.407Z",
       "name": "Kurhaus",
       "domain": "rehaklinik-seewis.ch",
       "city": "",
@@ -728886,7 +728886,8 @@
         }
       ],
       "promotionPr": "12674",
-      "promotionBranch": "prospector/promote-2026-10-10"
+      "promotionBranch": "prospector/promote-2026-10-10",
+      "promotedAt": "2026-10-11T11:58:08.407Z"
     },
     "rehaklinik-seewis@seewis-dorf": {
       "key": "rehaklinik-seewis@seewis-dorf",
