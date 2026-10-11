@@ -168,15 +168,67 @@ export function parseJobListHtml(html = '') {
  */
 export function extractPsgnDetail(html, pageUrl = '', recordTitle = '') {
   const parts = [];
-  const [posting] = selectDetailStructuredRecords(
+  let sourceAddress = null;
+  const [selectedPosting] = selectDetailStructuredRecords(
     extractJsonLd(html, pageUrl),
     pageUrl,
     recordTitle,
     pageUrl,
     recordTitle,
   );
-  const sourceAddress = posting?.locationCandidates?.[0] || {};
-  if (posting?.description) parts.push(posting.description);
+
+  // Keep the source-specific body formatting, but only for the raw node whose
+  // identity the shared detail selector accepted. Recommendation/stale nodes
+  // on the same page are never eligible geography or prose evidence.
+  for (const m of html.matchAll(
+    /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
+  )) {
+    const raw = m[1].trim();
+    if (!raw.includes('responsibilities') && !raw.includes('qualifications')) continue;
+    try {
+      const data = JSON.parse(raw);
+      const items = Array.isArray(data) ? data : [data];
+      for (const item of items) {
+        if (item && (item.responsibilities || item.qualifications || item.description)) {
+          const rawUrl = String(item.url || item.sameAs || '');
+          let itemUrl = rawUrl;
+          try { if (rawUrl) itemUrl = new URL(rawUrl, pageUrl).toString(); } catch { /* retain raw evidence */ }
+          const identityMatches = selectedPosting && (selectedPosting.urlExplicit
+            ? itemUrl === selectedPosting.url
+            : normalize(item.title || item.name) === normalize(selectedPosting.title));
+          if (!identityMatches) continue;
+
+          const locations = Array.isArray(item.jobLocation) ? item.jobLocation : [item.jobLocation];
+          for (const place of locations.filter(Boolean)) {
+            const addresses = Array.isArray(place.address) ? place.address : [place.address];
+            const address = addresses.find((candidate) => candidate && typeof candidate === 'object');
+            if (address) {
+              sourceAddress = {
+                location: normalizeSpace(decodeEntities(address.addressLocality || '')),
+                postalCode: normalizeSpace(address.postalCode || ''),
+              };
+              break;
+            }
+          }
+          const intro = normalizeSpace(htmlToText(String(item.description || '')));
+          const resp = normalizeSpace(htmlToText(String(item.responsibilities || '')));
+          const qual = normalizeSpace(htmlToText(String(item.qualifications || '')));
+          if (intro) parts.push(intro);
+          if (resp) parts.push(`Aufgaben:\n${resp}`);
+          if (qual) parts.push(`Anforderungen:\n${qual}`);
+          if (parts.length) {
+            return {
+              description: parts.join('\n\n'),
+              location: sourceAddress?.location || '',
+              postalCode: sourceAddress?.postalCode || '',
+            };
+          }
+        }
+      }
+    } catch {
+      // Fall through to section scrape.
+    }
+  }
 
   // Fallback: HTML sections.
   for (const id of ['introduction', 'aufgabeProfil', 'benefits']) {
@@ -189,8 +241,8 @@ export function extractPsgnDetail(html, pageUrl = '', recordTitle = '') {
   }
   return {
     description: parts.join('\n\n'),
-    location: normalizeSpace(decodeEntities(sourceAddress.addressLocality || sourceAddress.location || '')),
-    postalCode: normalizeSpace(sourceAddress.postalCode || ''),
+    location: '',
+    postalCode: '',
   };
 }
 
