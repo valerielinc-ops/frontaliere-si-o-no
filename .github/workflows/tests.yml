@@ -4385,6 +4385,7 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/lib/gh-exec-buffer.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false
