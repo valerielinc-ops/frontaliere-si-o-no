@@ -666,7 +666,7 @@ function importsOf(file, fileSet, assets, assetSet) {
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
     const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
     const literal = segments.join('/');
-    if (segments.length >= 3 || hasDirectoryScan) literals.push(literal);
+    if (segments.length >= 2 || hasDirectoryScan) literals.push(literal);
   }
   for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
