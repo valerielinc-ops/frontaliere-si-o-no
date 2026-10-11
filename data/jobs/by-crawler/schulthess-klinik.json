@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-10-10T21:14:20.473Z",
+  "assembledAt": "2026-10-11T09:13:09.707Z",
   "jobs": [
     {
       "id": "schulthess-klinik-93d8ce3bb1fc",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/48e0236d-d7b2-4e77-8c30-db26b0ddf6b0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.822Z",
+      "crawledAt": "2026-10-11T09:13:03.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/5436004d-b4fd-4783-a9f4-3412327ae7cb",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-10T21:14:15.820Z",
+      "crawledAt": "2026-10-11T09:13:03.398Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -201,7 +201,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/815a04d2-89e2-4018-9b7c-1cc368677341",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.818Z",
+      "crawledAt": "2026-10-11T09:13:03.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/d4e72e6d-3527-417c-a433-f6b297abf3b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.816Z",
+      "crawledAt": "2026-10-11T09:13:03.389Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +370,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/7ca302b9-6563-4230-b545-33faeeb48848",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.814Z",
+      "crawledAt": "2026-10-11T09:13:03.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,6 +417,150 @@
           "@type": "QuantitativeValue",
           "minValue": 91500,
           "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-e39332fa355e",
+      "slug": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
+        "en": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
+        "fr": "senior-cloud-system-ingenieur-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Senior Cloud & System Engineer",
+      "titleByLocale": {
+        "it": "Senior Cloud & System Ingegnere",
+        "en": "Senior Cloud & Systems Engineer",
+        "de": "Senior Cloud & System Ingenieur",
+        "fr": "Senior Cloud & System Ingénieur"
+      },
+      "description": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Concezione e implementazione di tecnologie Microsoft (Azure, M365, Windows Server, Hyper-V, Sicurezza, Rete, Backup, ecc.)\n\n• Operazione, sviluppo e stabilizzazione della nostra infrastruttura on-premises esistente (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsabilità per l'architettura e l'implementazione di complessi progetti infrastrutturali IT\n\n• Sviluppare e implementare risorse Azure: contribuire a costruire e gestire una piattaforma operativa Azure\n\n• Assicurarsi che tutti i progetti siano di alta qualità, nel tempo e nel budget\n\n• Ottimizzazione continua dei nostri processi IT, architetture e automazione\n\n• Condurre presentazioni passo per passo e workshop tecnici\n\n• Collaborazione: stretta collaborazione con lo sviluppo, DevOps, SecOps, gestione delle applicazioni e integrazione di applicazioni e servizi\n\nRequisiti\n• Hai completato un'educazione informatica o un'esperienza professionale equivalente (almeno 5 anni in ingegneria cloud o ingegneria del sistema).\n\n• Idealmente, hai completato un'istruzione superiore in informatica o hai certificazioni rilevanti.\n\n• Porti un know-how tecnico approfondito nelle tecnologie Microsoft e cloud – soprattutto in M365, Azure, Windows Server, tecnologie di rete e sicurezza.\n\n• Hai esperienza con ambienti IT ibridi (ad esempio VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewall) lavorare in modo indipendente, pensare imprenditoriale e come assumersi la responsabilità.\n\n• Sei appassionato di innovazione, automazione e trasformazione digitale.\n\n• Siete sicuri di comunicare in tedesco e inglese, sia verbalmente che per iscritto.\n\nOffriamo:\n• Ore/modelli di lavoro flessibili\n\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Equilibrio di vita / Amica della famiglia\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Conception and implementation of Microsoft technologies (Azure, M365, Windows Server, Hyper-V, Security, Network, Backup, etc.)\n\n• Operation, development and stabilization of our existing on-premises infrastructure (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsibility for the architecture and implementation of complex IT infrastructure projects\n\n• Developing and implementing Azure resources: helping to build and operate an Azure operating platform\n\n• Ensure that all projects are of high quality, on time and on budget\n\n• Continuous optimization of our IT processes, architectures and automations\n\n• Conducting step-by-step presentations and technical workshops\n\n• Collaboration: Close cooperation with development, DevOps, SecOps, application management and integration of applications and services\n\nRequirements\n• You have completed a computer science education or equivalent professional experience (at least 5 years in cloud engineering or system engineering).\n\n• Ideally, you have completed a higher education in computer science or have relevant certifications.\n\n• You bring in-depth technical know-how in Microsoft and cloud technologies – especially in M365, Azure, Windows Server, network technologies and security.\n\n• You have experience with hybrid IT environments (e.g. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewalls) work independently, think entrepreneurially and like to take responsibility.\n\n• You are passionate about innovation, automation and digital transformation.\n\n• You are sure to communicate in German and English, both verbally and in writing.\n\nWe offer:\n• Flexible working hours/models\n\n• 40 hourly week\n\n• Possibility for home office\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Work-Life Balance / Family Friendliness\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Conception et mise en œuvre des technologies Microsoft (Azure, M365, Windows Server, Hyper-V, Sécurité, Réseau, Sauvegarde, etc.)\n\n• Fonctionnement, développement et stabilisation de notre infrastructure existante sur site (Windows Server, VMware, Stockage, Réseau, Sécurité, Sauvegarde)\n\n• Responsabilité de l'architecture et de la mise en œuvre de projets d'infrastructure informatique complexes\n\n• Développement et mise en œuvre des ressources Azure : aider à construire et à exploiter une plateforme d'exploitation Azure\n\n• Veiller à ce que tous les projets soient de haute qualité, dans les délais et sur le budget\n\n• Optimisation continue de nos processus, architectures et automatisations informatiques\n\n• Présentations et ateliers techniques étape par étape\n\n• Collaboration: Coopération étroite avec le développement, DevOps, SecOps, gestion des applications et intégration des applications et des services\n\nExigences\n• Vous avez suivi une formation en informatique ou une expérience professionnelle équivalente (au moins 5 ans en génie du cloud ou en génie système).\n\n• Idéalement, vous avez terminé des études supérieures en informatique ou avez obtenu des certifications pertinentes.\n\n• Vous apportez un savoir-faire technique approfondi dans les technologies Microsoft et Cloud – en particulier dans M365, Azure, Windows Server, les technologies réseau et la sécurité.\n\n• Vous avez de l'expérience avec des environnements informatiques hybrides (p. ex. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, pare-feu) fonctionnent de manière indépendante, réfléchissent de manière entrepreneuriale et aiment prendre des responsabilités.\n\n• Vous êtes passionné par l'innovation, l'automatisation et la transformation numérique.\n\n• Vous êtes sûr de communiquer en allemand et en anglais, à la fois verbalement et par écrit.\n\nNous offrons:\n• Durée/modèles de travail flexibles\n\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-11T09:13:03.368Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1831",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:12:09.926Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-4370604b476f",
+      "slug": "digital-marketing-specialist-schulthess-klinik-zurich",
+      "slugByLocale": {
+        "it": "digital-marketing-specialist-schulthess-klinik-zurich",
+        "en": "digital-marketing-specialist-schulthess-klinik-zurich",
+        "de": "digital-marketing-specialist-schulthess-klinik-zurich",
+        "fr": "digital-marketing-specialist-schulthess-klinik-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Digital Marketing Specialist",
+      "titleByLocale": {
+        "it": "Digital Marketing Specialista",
+        "en": "Digital Marketing Specialist",
+        "de": "Digital Marketing Spezialist",
+        "fr": "Digital Marketing Spécialiste"
+      },
+      "description": "Aufgaben:\n• Du verantwortest die strategische und operative Weiterentwicklung unserer digitalen Kommunikationskanäle und stellst deren zielgruppenorientierte, markenkonforme und wirkungsvolle Ausrichtung sicher.\n\n• Du entwickelst unsere Website kontinuierlich weiter, planst und steuerst Online-Kampagnen sowie SEO-/SEA-Massnahmen und analysierst deren Erfolg anhand relevanter KPIs.\n\n• Du planst, erstellst und versendest Newsletter, pflegst die Versandlisten und betreust unsere Inhouse-Screens. Zudem entwickelst du kanalgerechten Content für unsere digitalen Plattformen sowie die interne Kommunikation.\n\n• Als Sparringspartner unterstützt du die strategische Weiterentwicklung unserer Social-Media-Kanäle, beobachtest Trends und Entwicklungen und bringst Impulse für eine zeitgemässe digitale Kommunikation ein.\n\n• Du berätst interne Anspruchsgruppen in Kommunikationsfragen, arbeitest an bereichsübergreifenden Projekten mit und sorgst für die konsequente Einhaltung unseres Markenauftritts.\n\nAnforderungen:\n• Du verfügst über einen (Fach-)Hochschulabschluss sowie mehrjährige Berufserfahrung in Kommunikation, digitalem Marketing oder Content Management.\n\n• Du bringst fundierte Erfahrung im Management digitaler Kanäle mit und kennst dich mit CMS, SEO/SEA, Web Analytics sowie Newsletter-Marketing aus.\n\n• Du verfügst über Erfahrung im Projektmanagement und hast idealerweise bereits digitale Projekte – beispielsweise einen Website-Relaunch – erfolgreich geplant und umgesetzt.\n\n• Du hast Freude daran, zielgruppengerechten Content zu entwickeln und komplexe Themen verständlich und kreativ aufzubereiten.\n\n• Du arbeitest selbstständig, strukturiert und analytisch, überzeugst mit hoher Eigeninitiative und behältst auch in anspruchsvollen Projekten den Überblick.\n\n• Du kommunizierst stilsicher auf Deutsch und verfügst über gute Englischkenntnisse. Teamgeist, Dienstleistungsorientierung und ein Gespür für digitale Trends und Markenkommunikation runden dein Profil ab.\n\nWir bieten:\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Teamspirit\n\n• Familiärer Umgang\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Sei responsabile dello sviluppo strategico e operativo dei nostri canali di comunicazione digitale e garantisci il loro orientamento orientato al gruppo, conforme al marchio e efficace.\n\n• Svilupperai continuamente il nostro sito web, pianificare e controllare le campagne online, nonché le misure SEO/SEA e analizzare il loro successo in base ai KPI rilevanti.\n\n• Pianifica, crea e invia newsletter, mantieni le liste di spedizione e supervisioni i nostri schermi interni. Potrai anche sviluppare contenuti orientati ai canali per le nostre piattaforme digitali e la comunicazione interna.\n\n• Come partner sparring, supporta lo sviluppo strategico dei nostri canali di social media, osserva tendenze e sviluppi e fornisce impulsi per la comunicazione digitale contemporanea.\n\n• Si consiglia agli stakeholder interni di questioni di comunicazione, di lavorare su progetti cross-divisionali e di garantire una conformità coerente con la nostra presenza del marchio.\n\nRequisiti\n• Hai una laurea (specialista) e diversi anni di esperienza professionale in comunicazione, marketing digitale o gestione dei contenuti.\n\n• Porti un'esperienza approfondita nella gestione dei canali digitali e conosci CMS, SEO/SEA, web analytics e newsletter marketing.\n\n• Hai esperienza nella gestione del progetto e idealmente hai già pianificato e implementato progetti digitali – ad esempio un rilancio del sito web.\n\n• Ti piace sviluppare contenuti orientati al gruppo e preparare argomenti complessi in modo comprensibile e creativo.\n\n• Lavori in modo indipendente, strutturato e analitico, convinci con un alto livello di iniziativa e tieni una panoramica anche in progetti impegnativi.\n\n• Si comunica con stile in tedesco e hanno una buona conoscenza dell'inglese. Spirito di squadra, orientamento di servizio e un senso di tendenze digitali e comunicazione di marca completano il vostro profilo.\n\nOffriamo:\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Equilibrio di vita / Amica della famiglia\n\n• Spirito di squadra\n\n• Gestione della famiglia\n\n• Cibo economico nel ristorante del personale\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• You are responsible for the strategic and operational development of our digital communication channels and ensure their target group-oriented, brand-compliant and effective orientation.\n\n• You will continuously develop our website, plan and control online campaigns as well as SEO/SEA measures and analyze their success based on relevant KPIs.\n\n• You plan, create and send newsletters, maintain the shipping lists and supervise our in-house screens. You will also develop channel-oriented content for our digital platforms as well as internal communication.\n\n• As a sparring partner, you support the strategic development of our social media channels, observe trends and developments and provide impulses for contemporary digital communication.\n\n• You advise internal stakeholders on communication issues, work on cross-divisional projects and ensure consistent compliance with our brand presence.\n\nRequirements\n• You have a (specialist) university degree and several years of professional experience in communication, digital marketing or content management.\n\n• You bring in-depth experience in managing digital channels and are familiar with CMS, SEO/SEA, web analytics and newsletter marketing.\n\n• You have experience in project management and ideally have already successfully planned and implemented digital projects – for example a website relaunch.\n\n• You enjoy developing target-group-oriented content and preparing complex topics in an understandable and creative way.\n\n• You work independently, structured and analytically, convince with a high level of initiative and keep an overview even in challenging projects.\n\n• You communicate stylishly in German and have good knowledge of English. Team spirit, service orientation and a sense of digital trends and brand communication round off your profile.\n\nWe offer:\n• 40 hourly week\n\n• Possibility for home office\n\n• Work-Life Balance / Family Friendliness\n\n• Team spirit\n\n• Family management\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Du verantwortest die strategische und operative Weiterentwicklung unserer digitalen Kommunikationskanäle und stellst deren zielgruppenorientierte, markenkonforme und wirkungsvolle Ausrichtung sicher.\n\n• Du entwickelst unsere Website kontinuierlich weiter, planst und steuerst Online-Kampagnen sowie SEO-/SEA-Massnahmen und analysierst deren Erfolg anhand relevanter KPIs.\n\n• Du planst, erstellst und versendest Newsletter, pflegst die Versandlisten und betreust unsere Inhouse-Screens. Zudem entwickelst du kanalgerechten Content für unsere digitalen Plattformen sowie die interne Kommunikation.\n\n• Als Sparringspartner unterstützt du die strategische Weiterentwicklung unserer Social-Media-Kanäle, beobachtest Trends und Entwicklungen und bringst Impulse für eine zeitgemässe digitale Kommunikation ein.\n\n• Du berätst interne Anspruchsgruppen in Kommunikationsfragen, arbeitest an bereichsübergreifenden Projekten mit und sorgst für die konsequente Einhaltung unseres Markenauftritts.\n\nAnforderungen:\n• Du verfügst über einen (Fach-)Hochschulabschluss sowie mehrjährige Berufserfahrung in Kommunikation, digitalem Marketing oder Content Management.\n\n• Du bringst fundierte Erfahrung im Management digitaler Kanäle mit und kennst dich mit CMS, SEO/SEA, Web Analytics sowie Newsletter-Marketing aus.\n\n• Du verfügst über Erfahrung im Projektmanagement und hast idealerweise bereits digitale Projekte – beispielsweise einen Website-Relaunch – erfolgreich geplant und umgesetzt.\n\n• Du hast Freude daran, zielgruppengerechten Content zu entwickeln und komplexe Themen verständlich und kreativ aufzubereiten.\n\n• Du arbeitest selbstständig, strukturiert und analytisch, überzeugst mit hoher Eigeninitiative und behältst auch in anspruchsvollen Projekten den Überblick.\n\n• Du kommunizierst stilsicher auf Deutsch und verfügst über gute Englischkenntnisse. Teamgeist, Dienstleistungsorientierung und ein Gespür für digitale Trends und Markenkommunikation runden dein Profil ab.\n\nWir bieten:\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Teamspirit\n\n• Familiärer Umgang\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Vous êtes responsable du développement stratégique et opérationnel de nos canaux de communication numérique et assurez leur orientation ciblée, conforme à la marque et efficace.\n\n• Vous développerez en permanence notre site Web, planifierez et contrôlerez les campagnes en ligne ainsi que les mesures SEO/SEA et analyserez leur succès en fonction des KPI pertinents.\n\n• Vous planifiez, créez et envoyez des bulletins, maintenez les listes d'expédition et supervisez nos écrans internes. Vous développerez également des contenus orientés canal pour nos plateformes numériques ainsi que la communication interne.\n\n• En tant que partenaire d'éparpillement, vous soutenez le développement stratégique de nos canaux de médias sociaux, observez les tendances et les développements et fournissez des impulsions pour la communication numérique contemporaine.\n\n• Vous conseillez les intervenants internes sur les questions de communication, travaillez sur des projets interdivisions et assurez le respect de notre présence de marque.\n\nExigences\n• Vous avez un diplôme universitaire (spécialiste) et plusieurs années d'expérience professionnelle en communication, marketing numérique ou gestion de contenu.\n\n• Vous apportez une expérience approfondie dans la gestion des canaux numériques et sont familiers avec CMS, SEO/SEA, Web analytics et le marketing de newsletter.\n\n• Vous avez de l'expérience dans la gestion de projets et idéalement avez déjà planifié et mis en œuvre avec succès des projets numériques – par exemple une relance de site web.\n\n• Vous aimez développer des contenus axés sur des groupes cibles et préparer des sujets complexes de manière compréhensible et créative.\n\n• Vous travaillez de façon indépendante, structurée et analytique, vous convainquez avec un haut niveau d'initiative et gardez un aperçu même dans des projets difficiles.\n\n• Vous communiquez élégamment en allemand et avez une bonne connaissance de l'anglais. L'esprit d'équipe, l'orientation du service et le sens des tendances numériques et de la communication de la marque complètent votre profil.\n\nNous offrons:\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\n• Esprit d'équipe\n\n• Gestion familiale\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/digital-marketing-specialist/096fbbc0-38c2-4114-a248-41c97d67ffd1",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-11T09:13:03.325Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Lengghalde 2",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2112",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-05T21:26:06.285Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -509,151 +653,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "schulthess-klinik-e39332fa355e",
-      "slug": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "senior-cloud-system-ingegnere-schulthess-klinik-zurich",
-        "en": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
-        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
-        "fr": "senior-cloud-system-ingenieur-schulthess-klinik-zurich"
       },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Senior Cloud & System Engineer",
-      "titleByLocale": {
-        "it": "Senior Cloud & System Ingegnere",
-        "en": "Senior Cloud & Systems Engineer",
-        "de": "Senior Cloud & System Ingenieur",
-        "fr": "Senior Cloud & System Ingénieur"
-      },
-      "description": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Concezione e implementazione di tecnologie Microsoft (Azure, M365, Windows Server, Hyper-V, Sicurezza, Rete, Backup, ecc.)\n\n• Operazione, sviluppo e stabilizzazione della nostra infrastruttura on-premises esistente (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsabilità per l'architettura e l'implementazione di complessi progetti infrastrutturali IT\n\n• Sviluppare e implementare risorse Azure: contribuire a costruire e gestire una piattaforma operativa Azure\n\n• Assicurarsi che tutti i progetti siano di alta qualità, nel tempo e nel budget\n\n• Ottimizzazione continua dei nostri processi IT, architetture e automazione\n\n• Condurre presentazioni passo per passo e workshop tecnici\n\n• Collaborazione: stretta collaborazione con lo sviluppo, DevOps, SecOps, gestione delle applicazioni e integrazione di applicazioni e servizi\n\nRequisiti\n• Hai completato un'educazione informatica o un'esperienza professionale equivalente (almeno 5 anni in ingegneria cloud o ingegneria del sistema).\n\n• Idealmente, hai completato un'istruzione superiore in informatica o hai certificazioni rilevanti.\n\n• Porti un know-how tecnico approfondito nelle tecnologie Microsoft e cloud – soprattutto in M365, Azure, Windows Server, tecnologie di rete e sicurezza.\n\n• Hai esperienza con ambienti IT ibridi (ad esempio VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewall) lavorare in modo indipendente, pensare imprenditoriale e come assumersi la responsabilità.\n\n• Sei appassionato di innovazione, automazione e trasformazione digitale.\n\n• Siete sicuri di comunicare in tedesco e inglese, sia verbalmente che per iscritto.\n\nOffriamo:\n• Ore/modelli di lavoro flessibili\n\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Spirito di squadra\n\n• Equilibrio di vita / Amica della famiglia\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Conception and implementation of Microsoft technologies (Azure, M365, Windows Server, Hyper-V, Security, Network, Backup, etc.)\n\n• Operation, development and stabilization of our existing on-premises infrastructure (Windows Server, VMware, Storage, Network, Security, Backup)\n\n• Responsibility for the architecture and implementation of complex IT infrastructure projects\n\n• Developing and implementing Azure resources: helping to build and operate an Azure operating platform\n\n• Ensure that all projects are of high quality, on time and on budget\n\n• Continuous optimization of our IT processes, architectures and automations\n\n• Conducting step-by-step presentations and technical workshops\n\n• Collaboration: Close cooperation with development, DevOps, SecOps, application management and integration of applications and services\n\nRequirements\n• You have completed a computer science education or equivalent professional experience (at least 5 years in cloud engineering or system engineering).\n\n• Ideally, you have completed a higher education in computer science or have relevant certifications.\n\n• You bring in-depth technical know-how in Microsoft and cloud technologies – especially in M365, Azure, Windows Server, network technologies and security.\n\n• You have experience with hybrid IT environments (e.g. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, firewalls) work independently, think entrepreneurially and like to take responsibility.\n\n• You are passionate about innovation, automation and digital transformation.\n\n• You are sure to communicate in German and English, both verbally and in writing.\n\nWe offer:\n• Flexible working hours/models\n\n• 40 hourly week\n\n• Possibility for home office\n\n• Attractive social benefits and numerous benefits\n\n• Team spirit\n\n• Work-Life Balance / Family Friendliness\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Conception et mise en œuvre des technologies Microsoft (Azure, M365, Windows Server, Hyper-V, Sécurité, Réseau, Sauvegarde, etc.)\n\n• Fonctionnement, développement et stabilisation de notre infrastructure existante sur site (Windows Server, VMware, Stockage, Réseau, Sécurité, Sauvegarde)\n\n• Responsabilité de l'architecture et de la mise en œuvre de projets d'infrastructure informatique complexes\n\n• Développement et mise en œuvre des ressources Azure : aider à construire et à exploiter une plateforme d'exploitation Azure\n\n• Veiller à ce que tous les projets soient de haute qualité, dans les délais et sur le budget\n\n• Optimisation continue de nos processus, architectures et automatisations informatiques\n\n• Présentations et ateliers techniques étape par étape\n\n• Collaboration: Coopération étroite avec le développement, DevOps, SecOps, gestion des applications et intégration des applications et des services\n\nExigences\n• Vous avez suivi une formation en informatique ou une expérience professionnelle équivalente (au moins 5 ans en génie du cloud ou en génie système).\n\n• Idéalement, vous avez terminé des études supérieures en informatique ou avez obtenu des certifications pertinentes.\n\n• Vous apportez un savoir-faire technique approfondi dans les technologies Microsoft et Cloud – en particulier dans M365, Azure, Windows Server, les technologies réseau et la sécurité.\n\n• Vous avez de l'expérience avec des environnements informatiques hybrides (p. ex. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, pare-feu) fonctionnent de manière indépendante, réfléchissent de manière entrepreneuriale et aiment prendre des responsabilités.\n\n• Vous êtes passionné par l'innovation, l'automatisation et la transformation numérique.\n\n• Vous êtes sûr de communiquer en allemand et en anglais, à la fois verbalement et par écrit.\n\nNous offrons:\n• Durée/modèles de travail flexibles\n\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.807Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1831",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-        ],
-        "fr": [
-          "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:12:09.926Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "schulthess-klinik-4370604b476f",
-      "slug": "digital-marketing-specialist-schulthess-klinik-zurich",
-      "slugByLocale": {
-        "it": "digital-marketing-specialist-schulthess-klinik-zurich",
-        "en": "digital-marketing-specialist-schulthess-klinik-zurich",
-        "de": "digital-marketing-specialist-schulthess-klinik-zurich",
-        "fr": "digital-marketing-specialist-schulthess-klinik-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Digital Marketing Specialist",
-      "titleByLocale": {
-        "it": "Digital Marketing Specialista",
-        "en": "Digital Marketing Specialist",
-        "de": "Digital Marketing Spezialist",
-        "fr": "Digital Marketing Spécialiste"
-      },
-      "description": "Aufgaben:\n• Du verantwortest die strategische und operative Weiterentwicklung unserer digitalen Kommunikationskanäle und stellst deren zielgruppenorientierte, markenkonforme und wirkungsvolle Ausrichtung sicher.\n\n• Du entwickelst unsere Website kontinuierlich weiter, planst und steuerst Online-Kampagnen sowie SEO-/SEA-Massnahmen und analysierst deren Erfolg anhand relevanter KPIs.\n\n• Du planst, erstellst und versendest Newsletter, pflegst die Versandlisten und betreust unsere Inhouse-Screens. Zudem entwickelst du kanalgerechten Content für unsere digitalen Plattformen sowie die interne Kommunikation.\n\n• Als Sparringspartner unterstützt du die strategische Weiterentwicklung unserer Social-Media-Kanäle, beobachtest Trends und Entwicklungen und bringst Impulse für eine zeitgemässe digitale Kommunikation ein.\n\n• Du berätst interne Anspruchsgruppen in Kommunikationsfragen, arbeitest an bereichsübergreifenden Projekten mit und sorgst für die konsequente Einhaltung unseres Markenauftritts.\n\nAnforderungen:\n• Du verfügst über einen (Fach-)Hochschulabschluss sowie mehrjährige Berufserfahrung in Kommunikation, digitalem Marketing oder Content Management.\n\n• Du bringst fundierte Erfahrung im Management digitaler Kanäle mit und kennst dich mit CMS, SEO/SEA, Web Analytics sowie Newsletter-Marketing aus.\n\n• Du verfügst über Erfahrung im Projektmanagement und hast idealerweise bereits digitale Projekte – beispielsweise einen Website-Relaunch – erfolgreich geplant und umgesetzt.\n\n• Du hast Freude daran, zielgruppengerechten Content zu entwickeln und komplexe Themen verständlich und kreativ aufzubereiten.\n\n• Du arbeitest selbstständig, strukturiert und analytisch, überzeugst mit hoher Eigeninitiative und behältst auch in anspruchsvollen Projekten den Überblick.\n\n• Du kommunizierst stilsicher auf Deutsch und verfügst über gute Englischkenntnisse. Teamgeist, Dienstleistungsorientierung und ein Gespür für digitale Trends und Markenkommunikation runden dein Profil ab.\n\nWir bieten:\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Teamspirit\n\n• Familiärer Umgang\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Sei responsabile dello sviluppo strategico e operativo dei nostri canali di comunicazione digitale e garantisci il loro orientamento orientato al gruppo, conforme al marchio e efficace.\n\n• Svilupperai continuamente il nostro sito web, pianificare e controllare le campagne online, nonché le misure SEO/SEA e analizzare il loro successo in base ai KPI rilevanti.\n\n• Pianifica, crea e invia newsletter, mantieni le liste di spedizione e supervisioni i nostri schermi interni. Potrai anche sviluppare contenuti orientati ai canali per le nostre piattaforme digitali e la comunicazione interna.\n\n• Come partner sparring, supporta lo sviluppo strategico dei nostri canali di social media, osserva tendenze e sviluppi e fornisce impulsi per la comunicazione digitale contemporanea.\n\n• Si consiglia agli stakeholder interni di questioni di comunicazione, di lavorare su progetti cross-divisionali e di garantire una conformità coerente con la nostra presenza del marchio.\n\nRequisiti\n• Hai una laurea (specialista) e diversi anni di esperienza professionale in comunicazione, marketing digitale o gestione dei contenuti.\n\n• Porti un'esperienza approfondita nella gestione dei canali digitali e conosci CMS, SEO/SEA, web analytics e newsletter marketing.\n\n• Hai esperienza nella gestione del progetto e idealmente hai già pianificato e implementato progetti digitali – ad esempio un rilancio del sito web.\n\n• Ti piace sviluppare contenuti orientati al gruppo e preparare argomenti complessi in modo comprensibile e creativo.\n\n• Lavori in modo indipendente, strutturato e analitico, convinci con un alto livello di iniziativa e tieni una panoramica anche in progetti impegnativi.\n\n• Si comunica con stile in tedesco e hanno una buona conoscenza dell'inglese. Spirito di squadra, orientamento di servizio e un senso di tendenze digitali e comunicazione di marca completano il vostro profilo.\n\nOffriamo:\n• 40 settimana oraria\n\n• Possibilità di ufficio\n\n• Equilibrio di vita / Amica della famiglia\n\n• Spirito di squadra\n\n• Gestione della famiglia\n\n• Cibo economico nel ristorante del personale\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• You are responsible for the strategic and operational development of our digital communication channels and ensure their target group-oriented, brand-compliant and effective orientation.\n\n• You will continuously develop our website, plan and control online campaigns as well as SEO/SEA measures and analyze their success based on relevant KPIs.\n\n• You plan, create and send newsletters, maintain the shipping lists and supervise our in-house screens. You will also develop channel-oriented content for our digital platforms as well as internal communication.\n\n• As a sparring partner, you support the strategic development of our social media channels, observe trends and developments and provide impulses for contemporary digital communication.\n\n• You advise internal stakeholders on communication issues, work on cross-divisional projects and ensure consistent compliance with our brand presence.\n\nRequirements\n• You have a (specialist) university degree and several years of professional experience in communication, digital marketing or content management.\n\n• You bring in-depth experience in managing digital channels and are familiar with CMS, SEO/SEA, web analytics and newsletter marketing.\n\n• You have experience in project management and ideally have already successfully planned and implemented digital projects – for example a website relaunch.\n\n• You enjoy developing target-group-oriented content and preparing complex topics in an understandable and creative way.\n\n• You work independently, structured and analytically, convince with a high level of initiative and keep an overview even in challenging projects.\n\n• You communicate stylishly in German and have good knowledge of English. Team spirit, service orientation and a sense of digital trends and brand communication round off your profile.\n\nWe offer:\n• 40 hourly week\n\n• Possibility for home office\n\n• Work-Life Balance / Family Friendliness\n\n• Team spirit\n\n• Family management\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Du verantwortest die strategische und operative Weiterentwicklung unserer digitalen Kommunikationskanäle und stellst deren zielgruppenorientierte, markenkonforme und wirkungsvolle Ausrichtung sicher.\n\n• Du entwickelst unsere Website kontinuierlich weiter, planst und steuerst Online-Kampagnen sowie SEO-/SEA-Massnahmen und analysierst deren Erfolg anhand relevanter KPIs.\n\n• Du planst, erstellst und versendest Newsletter, pflegst die Versandlisten und betreust unsere Inhouse-Screens. Zudem entwickelst du kanalgerechten Content für unsere digitalen Plattformen sowie die interne Kommunikation.\n\n• Als Sparringspartner unterstützt du die strategische Weiterentwicklung unserer Social-Media-Kanäle, beobachtest Trends und Entwicklungen und bringst Impulse für eine zeitgemässe digitale Kommunikation ein.\n\n• Du berätst interne Anspruchsgruppen in Kommunikationsfragen, arbeitest an bereichsübergreifenden Projekten mit und sorgst für die konsequente Einhaltung unseres Markenauftritts.\n\nAnforderungen:\n• Du verfügst über einen (Fach-)Hochschulabschluss sowie mehrjährige Berufserfahrung in Kommunikation, digitalem Marketing oder Content Management.\n\n• Du bringst fundierte Erfahrung im Management digitaler Kanäle mit und kennst dich mit CMS, SEO/SEA, Web Analytics sowie Newsletter-Marketing aus.\n\n• Du verfügst über Erfahrung im Projektmanagement und hast idealerweise bereits digitale Projekte – beispielsweise einen Website-Relaunch – erfolgreich geplant und umgesetzt.\n\n• Du hast Freude daran, zielgruppengerechten Content zu entwickeln und komplexe Themen verständlich und kreativ aufzubereiten.\n\n• Du arbeitest selbstständig, strukturiert und analytisch, überzeugst mit hoher Eigeninitiative und behältst auch in anspruchsvollen Projekten den Überblick.\n\n• Du kommunizierst stilsicher auf Deutsch und verfügst über gute Englischkenntnisse. Teamgeist, Dienstleistungsorientierung und ein Gespür für digitale Trends und Markenkommunikation runden dein Profil ab.\n\nWir bieten:\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Teamspirit\n\n• Familiärer Umgang\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Vous êtes responsable du développement stratégique et opérationnel de nos canaux de communication numérique et assurez leur orientation ciblée, conforme à la marque et efficace.\n\n• Vous développerez en permanence notre site Web, planifierez et contrôlerez les campagnes en ligne ainsi que les mesures SEO/SEA et analyserez leur succès en fonction des KPI pertinents.\n\n• Vous planifiez, créez et envoyez des bulletins, maintenez les listes d'expédition et supervisez nos écrans internes. Vous développerez également des contenus orientés canal pour nos plateformes numériques ainsi que la communication interne.\n\n• En tant que partenaire d'éparpillement, vous soutenez le développement stratégique de nos canaux de médias sociaux, observez les tendances et les développements et fournissez des impulsions pour la communication numérique contemporaine.\n\n• Vous conseillez les intervenants internes sur les questions de communication, travaillez sur des projets interdivisions et assurez le respect de notre présence de marque.\n\nExigences\n• Vous avez un diplôme universitaire (spécialiste) et plusieurs années d'expérience professionnelle en communication, marketing numérique ou gestion de contenu.\n\n• Vous apportez une expérience approfondie dans la gestion des canaux numériques et sont familiers avec CMS, SEO/SEA, Web analytics et le marketing de newsletter.\n\n• Vous avez de l'expérience dans la gestion de projets et idéalement avez déjà planifié et mis en œuvre avec succès des projets numériques – par exemple une relance de site web.\n\n• Vous aimez développer des contenus axés sur des groupes cibles et préparer des sujets complexes de manière compréhensible et créative.\n\n• Vous travaillez de façon indépendante, structurée et analytique, vous convainquez avec un haut niveau d'initiative et gardez un aperçu même dans des projets difficiles.\n\n• Vous communiquez élégamment en allemand et avez une bonne connaissance de l'anglais. L'esprit d'équipe, l'orientation du service et le sens des tendances numériques et de la communication de la marque complètent votre profil.\n\nNous offrons:\n• 40 semaines horaires\n\n• Possibilité de bureau à domicile\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\n• Esprit d'équipe\n\n• Gestion familiale\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/digital-marketing-specialist/096fbbc0-38c2-4114-a248-41c97d67ffd1",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:14:15.785Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Lengghalde 2",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2112",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T21:26:06.285Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
