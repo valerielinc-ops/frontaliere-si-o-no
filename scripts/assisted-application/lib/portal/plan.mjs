@@ -409,6 +409,7 @@ const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|u
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
 const PHONE_CODE_FIELD_RE = /\b(?:phone|telephone|tel(?:ephone)?|telefon|t[ée]l[ée]phone|telefono)\b/i;
+const PHONE_COUNTRY_CODE_LABEL_RE = /\b(?:country|nazione|paese|pays|land)\s+(?:phone\s+)?(?:code|codice|indicativo|vorwahl|prefix|prefisso)\b/i;
 
 export function addressQuestionTopic(text, context = '') {
   const value = String(text || '');
@@ -416,7 +417,14 @@ export function addressQuestionTopic(text, context = '') {
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
-  if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || PHONE_CODE_FIELD_RE.test(surrounding) || NON_RESIDENCE_ADDRESS_RE.test(value)
+  // A field labelled only «Country code» needs its phone sibling context to
+  // distinguish it from residence country. The portal context is often a
+  // flattened list of every sibling label, though, so do not let a phone
+  // label suppress a real residence address in the same personal section.
+  const phoneCodeContext = PHONE_CODE_FIELD_RE.test(surrounding)
+    && PHONE_COUNTRY_CODE_LABEL_RE.test(value)
+    && !RESIDENCE_CONTEXT_RE.test(surrounding);
+  if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding) && !nonResidenceContext);
