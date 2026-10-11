@@ -7,7 +7,7 @@ import {
   partitionHistoricalImportantFindings,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
-import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
+import { findingIdentityComponents, stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
 // Accoppiamento per cardinalità FRA finding sullo stesso path (#9968).
 //
@@ -419,7 +419,9 @@ describe('review gate: file citato senza riga fuori dal diff dopo un LGTM (#1235
       expect(approved.approved).toBe(true);
       expect(approved.reviewCommit).toBe(approvedHead.commit_id);
       expect(log.mock.calls.flat().join('\n'))
-        .toContain(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${ID} path=${TICKER} reason=`);
+        .toContain(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${ID} path=${TICKER} identity=`);
+      expect(log.mock.calls.flat().join('\n'))
+        .toContain('identity=' + JSON.stringify(findingIdentityComponents(importantFindings(opened.body)[0])));
     } finally {
       log.mockRestore();
     }

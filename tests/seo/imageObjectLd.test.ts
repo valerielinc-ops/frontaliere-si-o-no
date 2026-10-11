@@ -113,6 +113,22 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
       .toEqual({ ...creator, '@type': 'Organization' });
   });
 
+  it('canonicalizes a stale name on a site creator and its default credit', () => {
+    const creator = Object.freeze({
+      '@type': 'Organization' as const,
+      '@id': CANONICAL_SITE_ORGANIZATION_ID,
+      name: 'frontaliereticino.ch',
+    });
+    const image = imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator });
+
+    expect(image.creator).toEqual({
+      ...creator,
+      '@type': 'Organization',
+      name: 'Frontaliere Ticino',
+    });
+    expect(image.creditText).toBe('Frontaliere Ticino');
+  });
+
   it('points license + acquireLicensePage to the site terms anchor by default', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
     expect(ld.license).toBe(SITE_LICENSE_PAGE);
