@@ -14,7 +14,7 @@ const providers = [
   { name: 'Barry Callebaut', run: fetchAllBarryCallebautJobs, listing: (raw: string) => `<rss><channel><item><title>Technical Engineer</title><description><![CDATA[${body}]]></description><link>https://jobs.barry-callebaut.com/job/Zurich-Engineer/12345/</link><g:id>12345</g:id><g:location>Zurich, CH, 8005</g:location><pubDate>${raw}</pubDate><g:expiration_date>${past}</g:expiration_date><lastBuildDate>${past}</lastBuildDate></item></channel></rss>`, requests: 1 },
   { name: 'BCV', run: fetchAllBcvJobs, listing: () => `<urlset><url><loc>https://jobs.bcv.ch/job/Lausanne-Engineer/12345/</loc><lastmod>${past}</lastmod></url></urlset>`, requests: 2 },
   { name: 'Belimo', run: fetchAllBelimoJobs, listing: () => '<urlset><url><loc>https://jobsredirect.belimo.com/job/Hinwil-Engineer-8340/9999999/</loc></url></urlset>', requests: 2 },
-  { name: 'Benteler', run: fetchAllBentelerJobs, listing: () => '<table><tr class="data-row"><td><a href="/job/Zug-Engineer/12345/" class="jobTitle-link">Technical Engineer</a><span class="jobLocation">Zug, CH</span></td></tr></table>', requests: 2 },
+  { name: 'Benteler', run: fetchAllBentelerJobs, listing: () => '<div>Results 1 to 1 of 1</div><table><tr class="data-row"><td><a href="/job/Zug-Engineer/12345/" class="jobTitle-link">Technical Engineer</a><span class="jobLocation">Zug, CH</span></td></tr></table>', requests: 2 },
 ];
 
 function detail(raw: string) {

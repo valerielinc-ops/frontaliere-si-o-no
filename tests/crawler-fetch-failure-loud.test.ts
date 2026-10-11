@@ -32,6 +32,24 @@ import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty
 
 const EMPTY_PAGE = '<html><body><p>No open positions</p></body></html>';
 
+function bentelerListingPage({ total = 25, count = 25, multiFirst = false } = {}) {
+  const rows = Array.from({ length: count }, (_, index) => {
+    const marker = index === 0 && multiFirst ? '<small>+1 more…</small>' : '';
+    return '<tr class="data-row"><td><a href="/job/position-' + index
+      + '/" class="jobTitle-link">Position ' + index + '</a></td>'
+      + '<td class="colLocation"><span class="jobLocation">City ' + index
+      + ', BW, DE' + marker + '</span></td></tr>';
+  }).join('');
+  return '<div>Results 1 to ' + count + ' of ' + total + '</div>' + rows;
+}
+
+function bentelerDetailWithCountries(countries) {
+  return countries.map((country, index) => (
+    '<span itemprop="address"><meta itemprop="addressLocality" content="City '
+      + index + '"><meta itemprop="addressCountry" content="' + country + '"></span>'
+  )).join('');
+}
+
 describe('crawler listing fetch failures stay distinct from valid empty responses', () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -123,6 +141,54 @@ describe('crawler listing fetch failures stay distinct from valid empty response
     } finally {
       vi.unstubAllGlobals();
     }
+  });
+});
+
+describe('Benteler source-backed empty evidence', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('stamps zero only after a complete unique foreign listing and every multi-site detail is checked', async () => {
+    fetchHtml
+      .mockResolvedValueOnce(bentelerListingPage({ multiFirst: true }))
+      .mockResolvedValueOnce(bentelerDetailWithCountries(['DE', 'PL']));
+
+    const jobs = await fetchAllBentelerJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs.authoritativeEmptyEvidence).toContain('25 unique postings');
+  });
+
+  it('does not stamp an incomplete listing as an authoritative zero', async () => {
+    fetchHtml.mockResolvedValueOnce(bentelerListingPage({ total: 25, count: 24 }));
+
+    const jobs = await fetchAllBentelerJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not resolve a whitespace-only href to the listing page', async () => {
+    const listingWithBlankHref = bentelerListingPage().replace(
+      'href="/job/position-0/"',
+      'href="   "',
+    );
+    fetchHtml.mockResolvedValueOnce(listingWithBlankHref);
+
+    const jobs = await fetchAllBentelerJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('propagates a multi-location detail fetch failure instead of certifying zero', async () => {
+    fetchHtml
+      .mockResolvedValueOnce(bentelerListingPage({ multiFirst: true }))
+      .mockRejectedValueOnce(new Error('detail network unavailable'));
+
+    await expect(fetchAllBentelerJobs()).rejects.toThrow('detail network unavailable');
   });
 });
 

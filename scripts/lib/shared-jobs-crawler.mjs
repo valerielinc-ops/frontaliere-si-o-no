@@ -4781,7 +4781,14 @@ function extractTitleFromHtml(html) {
 }
 
 function extractH1FromHtml(html = '') {
-  return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1(?=[\s/>])[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
+  const source = stripScriptsAndStyles(html);
+  const headings = [...source.matchAll(/<h1(?=[\s/>])[^>]*>([\s\S]*?)<\/h1>/gi)]
+    .map((match) => normalizeSpace(stripHtml(match[1])))
+    .filter(Boolean);
+  // Some ATS detail pages put a site-wide heading ("Careers") before the
+  // actual position title. Prefer the first specific heading instead of
+  // falling through to an equally generic <title>/og:title.
+  return headings.find((heading) => !isLikelyGenericCareerTitle(heading)) || headings[0] || '';
 }
 
 /**

@@ -54,6 +54,31 @@ describe('central job-board detail URLs', () => {
       canton: 'BE',
     });
   });
+
+  it('uses a specific job H1 after a generic Swiss Timing Careers heading', () => {
+    const html = [
+      '<html><head><title>Careers - Swiss Timing</title>',
+      '<meta property="og:title" content="Careers - Swiss Timing">',
+      '<meta name="description" content="Join our engineering team to develop timing technology for international sports events.">',
+      '</head><body><h1>Careers</h1>',
+      '<h1>Data Scientist (all genders) - On-Site Presence</h1>',
+      '<p>Job description: Build reliable analytics solutions with our technology team.</p>',
+      '<p>Location: Rue de l&#39;Envers 1, 2606 Corgémont, Switzerland.</p>',
+      '</body></html>',
+    ].join('');
+    const result = __testables.toJobFromHtmlFallback(
+      html,
+      detailUrl,
+      'Swiss Timing (Swatch Group)',
+      'Corgémont',
+    );
+
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({
+      title: 'Data Scientist (all genders) - On-Site Presence',
+      url: detailUrl,
+    });
+  });
 });
 
 describe('shared locale normalization', () => {
