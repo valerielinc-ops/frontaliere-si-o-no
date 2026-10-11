@@ -4175,12 +4175,12 @@
     },
     {
       "id": "liebherr-6f8791b5235c",
-      "slug": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
+      "slug": "giovane-talento-analista-aziendale-e-ufficio-di-gestione-dei-progetti-m-f-x-liebherr-bulle",
       "slugByLocale": {
-        "it": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
+        "it": "giovane-talento-analista-aziendale-e-ufficio-di-gestione-dei-progetti-m-f-x-liebherr-bulle",
         "en": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
-        "de": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle",
-        "fr": "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+        "de": "nachwuchstalent-unternehmensanalyst-und-buro-fur-projektmanagement-m-f-x-liebherr-bulle",
+        "fr": "jeune-talent-analyste-d-affaires-et-bureau-de-gestion-de-projets-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -4239,7 +4239,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1630"
+      "postalCode": "1630",
+      "previousSlugsByLocale": {
+        "it": [
+          "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
+          "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "young-talent-business-analyst-project-management-office-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-464913ecbe0f",
@@ -5578,7 +5592,7 @@
       "slugByLocale": {
         "it": "marketing-e-comunicazione-dei-giovani-talenti-m-f-x-liebherr-bulle",
         "en": "young-talent-marketing-communication-m-f-x-liebherr-bulle",
-        "de": "young-talent-marketing-communication-m-f-x-liebherr-bulle",
+        "de": "nachwuchstalent-marketing-und-kommunikation-m-w-x-liebherr-bulle",
         "fr": "young-talent-marketing-communication-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
@@ -5640,6 +5654,9 @@
         ],
         "fr": [
           "young-talent-marketing-communication-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "young-talent-marketing-communication-m-f-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
