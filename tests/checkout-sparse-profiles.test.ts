@@ -53,12 +53,12 @@ const WF_DIR = path.join(process.cwd(), '.github/workflows');
 const workflowFiles = fs.readdirSync(WF_DIR).filter((f) => /\.ya?ml$/.test(f)).sort();
 
 /**
- * L'analisi attraversa 204 workflow e segue la chiusura transitiva degli import:
- * ~6s a freddo. Il default di vitest (5s) lo farebbe fallire come se fosse un
- * difetto invece che per lentezza — lo stesso inganno gia' visto con
- * `packages-articles-confinement.test.ts`.
+ * L'analisi attraversa 204 workflow e segue la chiusura transitiva degli import.
+ * Sul worktree sparse il costo misurato supera il minuto; un timeout esplicito
+ * evita che il limite di Vitest (5s) o il vecchio cap locale interrompa la
+ * verifica prima del risultato.
  */
-const TIMEOUT = 60_000;
+const TIMEOUT = 180_000;
 
 describe('profili di sparse-checkout', () => {
   it('sono coerenti col codice che i job eseguono', () => {

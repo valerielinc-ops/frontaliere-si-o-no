@@ -4713,9 +4713,10 @@ ${staticAnalyticsHtml}
  // loop — each company emits several large (~50 KB) HTML files and the page
  // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
  // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
- // awaitDrainSlot returns instantly when ≤6 batches are in flight and only
- // awaits when above, so it self-regulates the peak with negligible cost.
- await collector.awaitDrainSlot(6);
+ // Keep the same two-batch ceiling used by the phase boundary below. With the
+ // 5k auto-flush threshold this bounds retained company HTML to three batches
+ // (one active map + two flushes), instead of the previous seven.
+ await collector.awaitDrainSlot(2);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
  // indexable hub here: their jobs already surface on the canonical umbrella via
  // the BRAND_UMBRELLAS aggregation above, and the alias URL is owned by the
