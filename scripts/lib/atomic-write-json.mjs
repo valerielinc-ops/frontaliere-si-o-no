@@ -10,8 +10,9 @@ let tmpSeq = 0;
 
 // The assembled jobs and expired-job datasets are large enough that
 // JSON.stringify(array) can hit V8's maximum string length even though every
-// individual entry is safely serializable. Emit top-level arrays one item at
-// a time into the atomic temporary file; objects keep the existing path.
+// individual entry is safely serializable. Large arrays use the incremental
+// path; callers with a smaller but unusually heavy aggregate can opt in too.
+const STREAMING_ARRAY_THRESHOLD = 1024;
 
 function writeTextSync(fd, text) {
   const buffer = Buffer.from(text, 'utf8');
@@ -77,19 +78,22 @@ function writeLargeArraySync(filePath, value, compact) {
  *
  * @param {string} filePath destination path
  * @param {unknown} value JSON-serializable value
- * @param {{compact?: boolean, dedupReferenceJobs?: unknown[] | null, housekeepingProof?: unknown[] | null, expiredGhostProof?: object | null}} [opts]
+ * @param {{compact?: boolean, streamArray?: boolean, dedupReferenceJobs?: unknown[] | null, housekeepingProof?: unknown[] | null, expiredGhostProof?: object | null}} [opts]
  *   `compact` emits minified JSON; `dedupReferenceJobs` is proof supplied only
  *   by the cross-crawler dedup maintenance command; `housekeepingProof` is
  *   definitive URL evidence supplied only by the housekeeping command or a
  *   source-verified crawler shrink; `expiredGhostProof` is the in-memory
  *   reconciliation proof supplied only by the assembler when it removes
- *   expired entries that are still represented by active jobs.
+ *   expired entries that are still represented by active jobs; `streamArray`
+ *   opts a top-level array into item-wise serialization even below the size
+ *   threshold when its entries are unusually large.
  */
 export function writeJsonAtomic(
   filePath,
   value,
   {
     compact = false,
+    streamArray: streamArrayOption = false,
     dedupReferenceJobs = null,
     housekeepingProof = null,
     expiredGhostProof = null,
@@ -110,6 +114,7 @@ export function writeJsonAtomic(
   // custom array-level toJSON remains on the legacy path because it changes
   // the value that JSON.stringify would serialize.
   const streamArray = Array.isArray(value)
+    && (streamArrayOption || value.length >= STREAMING_ARRAY_THRESHOLD)
     && !isCrawlerSlicePath(filePath)
     && typeof value.toJSON !== 'function';
   let content = null;

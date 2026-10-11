@@ -18,6 +18,20 @@ describe('writeJsonAtomic large arrays', () => {
     }
   });
 
+  it('allows an aggregate writer to opt small arrays into streaming', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atomic-opt-in-array-'));
+    const target = path.join(dir, 'expired-jobs.json');
+    const rows = [{ id: 1 }, { id: 2 }];
+
+    try {
+      writeJsonAtomic(target, rows, { streamArray: true });
+      expect(JSON.parse(fs.readFileSync(target, 'utf8'))).toEqual(rows);
+      expect(fs.readFileSync(target, 'utf8')).toBe(`${JSON.stringify(rows, null, 2)}\n`);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('writes compact arrays incrementally without changing their JSON value', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'atomic-large-array-'));
     const target = path.join(dir, 'jobs.json');
