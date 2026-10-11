@@ -71,6 +71,7 @@ import {
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
   EMPLOYER_PROFILE_MID_AD_TARGET_SLUG,
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
   resolveEmployerProfileMidAdVariant,
   type EmployerProfileMidAdVariant,
 } from '../services/employerProfileAdExperiment';
@@ -793,7 +794,9 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       // workflow loads it before `npm run build:ci`; snapshot it at the SSG
       // boundary so every profile in this artifact sees the same arm and a
       // later environment mutation cannot create mixed HTML.
-      const employerProfileMidAdVariant = resolveEmployerProfileMidAdVariant(process.env);
+      const employerProfileMidAdVariant = resolveEmployerProfileMidAdVariant(
+        process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY],
+      );
 
       for (const profile of profiles) {
         const slug = profile.slug;

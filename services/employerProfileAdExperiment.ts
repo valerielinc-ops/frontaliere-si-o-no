@@ -18,17 +18,17 @@ export type EmployerProfileMidAdVariant =
   | typeof EMPLOYER_PROFILE_MID_AD_EOC_VARIANT;
 
 export function resolveEmployerProfileMidAdVariant(
-  env: Readonly<Record<string, string | undefined>> = process.env,
+  rawValue?: string,
 ): EmployerProfileMidAdVariant {
-  return env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY]?.trim().toLowerCase() === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
+  return rawValue?.trim().toLowerCase() === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
     ? EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
     : EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT;
 }
 
 export function shouldRenderEmployerProfileMidAd(
   slug: string,
-  env: Readonly<Record<string, string | undefined>> = process.env,
+  rawValue?: string,
 ): boolean {
-  return resolveEmployerProfileMidAdVariant(env) === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
+  return resolveEmployerProfileMidAdVariant(rawValue) === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
     && slug === EMPLOYER_PROFILE_MID_AD_TARGET_SLUG;
 }
