@@ -12,7 +12,8 @@ describe('canonical utility route families', () => {
   it('keeps complete FAQ hub HTML under its dedicated plugin ownership', () => {
     const source = fs.readFileSync(path.join(root, 'build-plugins/staticPagesPlugin.ts'), 'utf8');
     expect(source).toContain('if (FAQ_HUB_ROUTES.includes(`${normalizedPath}/`)) continue;');
-    expect(source).toContain('if (ogPagesPaths.has(locNormalized) || FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;');
+    expect(source).toContain('if (ogPagesPaths.has(locNormalized)) {');
+    expect(source).toContain('if (FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;');
   });
   it.each([
     ['/about/', '/en/about-us/'],
