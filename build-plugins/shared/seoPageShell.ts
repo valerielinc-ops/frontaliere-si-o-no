@@ -68,6 +68,10 @@ import {
   TICINO_CUSTOMS_DEPARTMENT_NAME,
   stableOrganizationId,
 } from '../../services/seo/organizationLd';
+import {
+  canonicalizeSiteOrganizationCreator,
+  isSiteOrganizationCreator,
+} from '../../services/seo/imageObjectLd';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -172,6 +176,9 @@ export function normalizeStaticJsonLdScripts(
 
       if (normalizeWebPageIdentity(record)) changed = true;
 
+      const isCanonicalSiteOrganization = isSiteOrganizationCreator(record);
+      if (canonicalizeSiteOrganizationCreator(record)) changed = true;
+
       if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
         record['@id'] = WEBSITE_ID;
         changed = true;
@@ -191,7 +198,7 @@ export function normalizeStaticJsonLdScripts(
         }
       }
 
-      if (hasSchemaType(record, 'Organization')) {
+      if (hasSchemaType(record, 'Organization') && !isCanonicalSiteOrganization) {
         const stableId = stableOrganizationId(record, {
           allowNameOnlyFallback: allowNameOnlyOrganizationIds,
         });

@@ -6,8 +6,13 @@ import {
 } from '../../build-plugins/shared/seoPageShell';
 import { inlineScriptJson } from '../../build-plugins/shared/inlineJsonScript';
 import {
+  EDITORIAL_TEAM_ID,
+  ORGANIZATION_ID,
+  ORGANIZATION_LD,
   TICINO_CUSTOMS_DEPARTMENT_ID,
+  TICINO_CUSTOMS_DEPARTMENT_NAME,
   WEBSITE_ID,
+  organizationLdIds,
 } from '../../services/seo/organizationLd';
 
 describe('static SEO JSON-LD identities', () => {
@@ -25,6 +30,73 @@ describe('static SEO JSON-LD identities', () => {
     ]);
 
     expect(JSON.parse(serialized).isPartOf['@id']).toBe(WEBSITE_ID);
+  });
+
+  it('canonicalizes a stale hostname name on the site Organization creator', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'ImageObject',
+        creator: {
+          '@type': 'Organization',
+          '@id': ORGANIZATION_ID,
+          name: 'frontaliereticino.ch',
+          url: 'https://frontaliereticino.ch/',
+        },
+      }),
+    ]);
+
+    expect(JSON.parse(serialized).creator).toMatchObject({
+      '@type': ORGANIZATION_LD['@type'],
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+      url: ORGANIZATION_LD.url,
+    });
+  });
+
+  it('keeps the canonical site id when an Organization has only the site @id', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'Organization',
+        '@id': ORGANIZATION_ID,
+      }),
+    ]);
+
+    expect(JSON.parse(serialized)['@id']).toBe(ORGANIZATION_ID);
+  });
+
+  it('keeps website, editorial-team, and customs identities distinct in static JSON-LD', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'Article',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'Frontaliere Ticino',
+          url: 'https://frontaliereticino.ch/',
+        },
+        author: {
+          '@type': 'Organization',
+          '@id': EDITORIAL_TEAM_ID,
+          name: 'Redazione Frontaliere Ticino',
+        },
+        image: {
+          '@type': 'ImageObject',
+          creator: {
+            '@type': 'Organization',
+            name: TICINO_CUSTOMS_DEPARTMENT_NAME,
+          },
+        },
+      }),
+    ]);
+
+    const graph = JSON.parse(serialized);
+    const consumerIds = [
+      graph.isPartOf['@id'],
+      graph.author['@id'],
+      graph.image.creator['@id'],
+    ];
+    expect(consumerIds).toEqual(organizationLdIds());
+    expect(new Set(consumerIds).size).toBe(3);
+    expect(consumerIds[0]).toBe(WEBSITE_ID);
   });
 
   it('identifies the Ticino customs department used as webcam creator', () => {
@@ -119,6 +191,28 @@ describe('static SEO JSON-LD identities', () => {
     expect(JSON.parse(serialized).image.creator['@id']).toBe(
       'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe-9c3bd3af9176f96b',
     );
+  });
+
+  it('canonicalizes stale site creator names in article-engine JSON-LD', () => {
+    const serialized = inlineScriptJson({
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      image: {
+        '@type': 'ImageObject',
+        creator: {
+          '@type': 'Organization',
+          '@id': ORGANIZATION_ID,
+          name: 'frontaliereticino.ch',
+          url: 'https://frontaliereticino.ch/',
+        },
+      },
+    });
+
+    expect(JSON.parse(serialized).image.creator).toMatchObject({
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+    });
   });
 
   it('completes WebPage identity fields for shell consumers', () => {
