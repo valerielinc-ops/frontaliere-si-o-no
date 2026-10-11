@@ -96,9 +96,9 @@
     {
       "key": "reviewer-finding/fp:scripts-funnel-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-10-04T11:15:12Z",
-      "ref": "#11033, #10476, #10182",
-      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non classificano ogni token o linea per shape, ma validano dominio e contesto e gestiscono unknown, ambigui e non-target."
+      "decidedAt": "2026-10-11T11:29:49Z",
+      "ref": "#12761, #12622, #12137, #11425",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non classificano ogni token, campo o controllo per shape, ma validano dominio e contesto e gestiscono unknown, ambigui e non-target."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
