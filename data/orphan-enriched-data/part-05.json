@@ -1615,14 +1615,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "en": "agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "de": "agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "it": "agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "en": "/en/find-jobs-aargau/agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "de": "/de/jobs-im-aargau/agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag",
+        "it": "/cerca-lavoro-argovia/agent-de-vente-interne-h-f-d-80-100-yellowshark-ag-wohlen-ag"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -7716,16 +7727,13 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "assistent-in-filialleitung-denner-llez8j",
-        "it": "assistent-in-filialleitung-denner-6",
-        "en": "assistent-in-filialleitung-denner-6",
-        "fr": "assistent-in-filialleitung-denner-6"
+        "de": "assistent-in-filialleitung-denner-llez8j"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/assistent-in-filialleitung-denner-6",
-        "en": "/en/find-jobs-zurich/assistent-in-filialleitung-denner-6",
+        "it": "/cerca-lavoro-turgovia/assistent-in-filialleitung-denner-6",
+        "en": "/en/find-jobs-thurgau/assistent-in-filialleitung-denner-6",
         "de": "/de/jobs-im-zug/assistent-in-filialleitung-denner-6",
-        "fr": "/fr/trouver-emploi-zurich/assistent-in-filialleitung-denner-6"
+        "fr": "/fr/trouver-emploi-thurgovie/assistent-in-filialleitung-denner-6"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9856,14 +9864,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "de": "automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "fr": "automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "it": "automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "de": "/de/jobs-im-aargau/automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "fr": "/fr/trouver-emploi-argovie/automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach",
+        "it": "/cerca-lavoro-argovia/automatic-mechanical-engineering-m-f-100-yellowshark-ag-spreitenbach"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -9896,14 +9915,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "de": "automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "it": "automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "fr": "automatic-mechatronics-m-f-80-100-yellowshark-ag-chur"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-graubunden/automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "de": "/de/jobs-im-graubunden/automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "it": "/cerca-lavoro-grigioni/automatic-mechatronics-m-f-80-100-yellowshark-ag-chur",
+        "fr": "/fr/trouver-emploi-grisons/automatic-mechatronics-m-f-80-100-yellowshark-ag-chur"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -11815,6 +11845,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d/"
+      },
+      "queries": [
+        {
+          "query": "job bale",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "job bale",
+      "title": "Business controller pantr gmbh munchenstein 9bb03bc2169d",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "en": "business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "de": "business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "fr": "business-controller-pantr-gmbh-munchenstein-9bb03bc2169d"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "en": "/en/find-jobs-basel/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "de": "/de/jobs-im-basel/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "fr": "/fr/trouver-emploi-bale/business-controller-pantr-gmbh-munchenstein-9bb03bc2169d"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -16254,14 +16341,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "de": "cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "fr": "cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "it": "cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "de": "/de/jobs-im-aargau/cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "fr": "/fr/trouver-emploi-argovie/cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden",
+        "it": "/cerca-lavoro-argovia/cnc-polymechanic-cam-programmer-80-100-m-f-yellowshark-ag-meisterschwanden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -19142,10 +19240,10 @@
         "fr": "consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
-        "en": "/en/find-jobs-ticino/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
-        "de": "/de/jobs-im-tessin/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
-        "fr": "/fr/trouver-emploi-tessin/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus"
+        "it": "/cerca-lavoro-glarona/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
+        "en": "/en/find-jobs-glarus/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
+        "de": "/de/jobs-in-glarus/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus",
+        "fr": "/fr/trouver-emploi-glaris/consulenti-assicurativi-nelle-pmi-dell-agenzia-generale-glarus-axa-svizzera-glarus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21572,10 +21670,10 @@
         "fr": "data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
-        "en": "/en/find-jobs-geneva/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
-        "de": "/de/jobs-in-genf/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
-        "fr": "/fr/trouver-emploi-geneve/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais"
+        "it": "/cerca-lavoro-zugo/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
+        "en": "/en/find-jobs-zug/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
+        "de": "/de/jobs-in-zug/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais",
+        "fr": "/fr/trouver-emploi-zoug/data-center-techniker-switzerland-gais-on-site-reboot-monkey-gais"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21750,10 +21848,10 @@
         "fr": "delivery-in-letters-and-packages-die-schweizerische-post-nanikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
-        "en": "/en/find-jobs-graubunden/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
-        "de": "/de/jobs-in-graubunden/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
-        "fr": "/fr/trouver-emploi-grisons/delivery-in-letters-and-packages-die-schweizerische-post-nanikon"
+        "it": "/cerca-lavoro-soletta/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
+        "en": "/en/find-jobs-solothurn/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
+        "de": "/de/jobs-in-solothurn/delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
+        "fr": "/fr/trouver-emploi-soleure/delivery-in-letters-and-packages-die-schweizerische-post-nanikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22469,10 +22567,10 @@
         "fr": "dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "en": "/en/find-jobs-solothurn/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "it": "/cerca-lavoro-lucerna/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "en": "/en/find-jobs-lucerne/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
         "de": "/de/jobs-im-solothurn/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "fr": "/fr/trouver-emploi-soleure/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        "fr": "/fr/trouver-emploi-lucerne/dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26222,10 +26320,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
+        "de": "galenica-alloga-ag-logistiker-in-efz-burgdorf",
         "en": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
-        "de": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
-        "fr": "employee-in-logistics-afc-alloga-ag-galenica-burgdorf"
+        "fr": "galenica-alloga-ag-logisticien-ne-cfc-burgdorf",
+        "it": "galenica-alloga-ag-impiegato-a-in-logistica-afc-burgdorf"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/employee-in-logistics-afc-alloga-ag-galenica-burgdorf",
@@ -26239,6 +26337,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -26808,6 +26907,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+      "locale": "en",
+      "path": "/en/find-jobs-geneva/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin/",
+      "observedPaths": {
+        "en": "/en/find-jobs-geneva/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin/"
+      },
+      "queries": [
+        {
+          "query": "offre emploi ergothérapeute",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offre emploi ergothérapeute",
+      "title": "Ergotherapeute en cdi hopital de la tour meyrin",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "/en/find-jobs-geneva/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "/de/jobs-im-genf/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin",
+        "fr": "/fr/trouver-emploi-geneve/ergotherapeute-en-cdi-80-hopital-de-la-tour-meyrin"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -28905,10 +29061,10 @@
         "fr": "filialleiter-in-denner-ruschlikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/filialleiter-in-denner-ruschlikon",
-        "en": "/en/find-jobs-zurich/filialleiter-in-denner-ruschlikon",
+        "it": "/cerca-lavoro-zugo/filialleiter-in-denner-ruschlikon",
+        "en": "/en/find-jobs-zug/filialleiter-in-denner-ruschlikon",
         "de": "/de/jobs-im-zurich/filialleiter-in-denner-ruschlikon",
-        "fr": "/fr/trouver-emploi-zurich/filialleiter-in-denner-ruschlikon"
+        "fr": "/fr/trouver-emploi-zoug/filialleiter-in-denner-ruschlikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -34148,14 +34304,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "ground-layer-m-f-yellowshark-ag-schwyz",
+        "fr": "ground-layer-m-f-yellowshark-ag-schwyz",
+        "it": "ground-layer-m-f-yellowshark-ag-schwyz",
+        "de": "ground-layer-m-f-yellowshark-ag-schwyz"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-schwyz/ground-layer-m-f-yellowshark-ag-schwyz",
+        "fr": "/fr/trouver-emploi-schwytz/ground-layer-m-f-yellowshark-ag-schwyz",
+        "it": "/cerca-lavoro-svitto/ground-layer-m-f-yellowshark-ag-schwyz",
+        "de": "/de/jobs-im-schwyz/ground-layer-m-f-yellowshark-ag-schwyz"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -37997,14 +38164,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "de": "installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "fr": "installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "it": "installer-prototype-builder-robotics-m-f-yellowshark-ag-horw"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-lucerne/installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "de": "/de/jobs-im-luzern/installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "fr": "/fr/trouver-emploi-lucerne/installer-prototype-builder-robotics-m-f-yellowshark-ag-horw",
+        "it": "/cerca-lavoro-lucerna/installer-prototype-builder-robotics-m-f-yellowshark-ag-horw"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -42821,14 +42999,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "it": "locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "de": "locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "fr": "locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "it": "/cerca-lavoro-zurigo/locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "de": "/de/jobs-im-zurich/locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten",
+        "fr": "/fr/trouver-emploi-zurich/locking-technology-specialist-safety-technician-m-f-yellowshark-ag-kloten"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -43651,14 +43840,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "de": "maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "fr": "maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "it": "maintenance-specialist-m-f-yellowshark-ag-meisterschwanden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "de": "/de/jobs-im-aargau/maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "fr": "/fr/trouver-emploi-argovie/maintenance-specialist-m-f-yellowshark-ag-meisterschwanden",
+        "it": "/cerca-lavoro-argovia/maintenance-specialist-m-f-yellowshark-ag-meisterschwanden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -48953,14 +49153,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "it": "operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "de": "operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "fr": "operational-mechanic-80-100-m-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/operational-mechanic-80-100-m-f-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/operational-mechanic-80-100-m-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -54697,14 +54908,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "de": "programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "en": "programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "it": "programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "de": "/de/jobs-im-aargau/programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "en": "/en/find-jobs-aargau/programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden",
+        "it": "/cerca-lavoro-argovia/programmeur-cnc-polymecanique-cam-80-100-h-f-yellowshark-ag-meisterschwanden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -58445,6 +58667,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+      "locale": "it",
+      "path": "/cerca-lavoro-ginevra/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ginevra/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva/"
+      },
+      "queries": [
+        {
+          "query": "ubp",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "ubp",
+      "title": "Responsabile senior dei progetti di cassa del coordinamento union bancaire privee geneva",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "en": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "de": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "fr": "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "en": "/en/find-jobs-geneva/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "de": "/de/jobs-im-genf/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva",
+        "fr": "/fr/trouver-emploi-geneve/responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -63937,10 +64216,10 @@
         "fr": "seller-in-cash-registers-services-coop-genossenschaft-pfaffikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon",
-        "en": "/en/find-jobs-bern/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon",
+        "it": "/cerca-lavoro-zurigo/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon",
+        "en": "/en/find-jobs-zurich/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon",
         "de": "/de/jobs-im-zurich/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon",
-        "fr": "/fr/trouver-emploi-berne/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon"
+        "fr": "/fr/trouver-emploi-zurich/seller-in-cash-registers-services-coop-genossenschaft-pfaffikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65605,14 +65884,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-installer-m-f-yellowshark-ag-zurich",
+        "it": "service-installer-m-f-yellowshark-ag-zurich",
+        "de": "service-installer-m-f-yellowshark-ag-zurich",
+        "fr": "service-installer-m-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/service-installer-m-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/service-installer-m-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/service-installer-m-f-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/service-installer-m-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -65732,14 +66022,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "de": "service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "it": "service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "fr": "service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-lucerne/service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "de": "/de/jobs-im-luzern/service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "it": "/cerca-lavoro-lucerna/service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg",
+        "fr": "/fr/trouver-emploi-lucerne/service-technician-heating-gas-oil-m-f-region-central-switzerland-yellowshark-ag-rothenburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -67716,14 +68017,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "it": "specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "de": "specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "en": "specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "it": "/cerca-lavoro-zurigo/specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "de": "/de/jobs-im-zurich/specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon",
+        "en": "/en/find-jobs-zurich/specialiste-en-comptabilite-h-f-80-100-yellowshark-ag-dietlikon"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -70324,10 +70636,10 @@
         "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
-        "de": "/de/jobs-in-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8"
+        "it": "/cerca-lavoro-lucerna/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
+        "en": "/en/find-jobs-lucerne/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
+        "de": "/de/jobs-in-luzern/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8",
+        "fr": "/fr/trouver-emploi-lucerne/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-luzern-6rkpj8"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70379,10 +70691,10 @@
         "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
-        "de": "/de/jobs-in-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp"
+        "it": "/cerca-lavoro-vallese/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
+        "en": "/en/find-jobs-valais/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
+        "de": "/de/jobs-im-wallis/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp",
+        "fr": "/fr/trouver-emploi-valais/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71370,10 +71682,10 @@
         "it": "sviluppatore-senior-in-dwh-e-bi-denner-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
-        "en": "/en/find-jobs-ticino/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
-        "de": "/de/jobs-im-tessin/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
-        "fr": "/fr/trouver-emploi-tessin/sviluppatore-senior-in-dwh-e-bi-denner-zurich"
+        "it": "/cerca-lavoro-zurigo/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
+        "en": "/en/find-jobs-zurich/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
+        "de": "/de/jobs-in-zurich/sviluppatore-senior-in-dwh-e-bi-denner-zurich",
+        "fr": "/fr/trouver-emploi-zurich/sviluppatore-senior-in-dwh-e-bi-denner-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72200,14 +72512,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-buyer-m-f-yellowshark-ag-goldach",
+        "it": "technical-buyer-m-f-yellowshark-ag-goldach",
+        "de": "technical-buyer-m-f-yellowshark-ag-goldach",
+        "fr": "technical-buyer-m-f-yellowshark-ag-goldach"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/technical-buyer-m-f-yellowshark-ag-goldach",
+        "it": "/cerca-lavoro-san-gallo/technical-buyer-m-f-yellowshark-ag-goldach",
+        "de": "/de/jobs-im-st-gallen/technical-buyer-m-f-yellowshark-ag-goldach",
+        "fr": "/fr/trouver-emploi-saint-gall/technical-buyer-m-f-yellowshark-ag-goldach"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -72240,14 +72563,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "de": "technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "fr": "technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "it": "technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-fribourg/technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "de": "/de/jobs-im-freiburg/technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "fr": "/fr/trouver-emploi-fribourg/technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf",
+        "it": "/cerca-lavoro-friburgo/technical-r-developer-mechanics-80-100-m-f-yellowshark-ag-ueberstorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -72455,14 +72789,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "it": "technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "de": "technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "en": "technicien-automatisation-h-f-80-100-yellowshark-ag-horw"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "it": "/cerca-lavoro-lucerna/technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "de": "/de/jobs-im-luzern/technicien-automatisation-h-f-80-100-yellowshark-ag-horw",
+        "en": "/en/find-jobs-lucerne/technicien-automatisation-h-f-80-100-yellowshark-ag-horw"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -72597,14 +72942,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "de": "technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "en": "technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "it": "technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "en": "/en/find-jobs-aargau/technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/technicien-de-maintenance-automatisation-h-f-100-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72856,14 +73212,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "it": "technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "en": "technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "de": "technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "it": "/cerca-lavoro-basilea/technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "en": "/en/find-jobs-basel/technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf",
+        "de": "/de/jobs-im-basel/technicien-entretien-de-machines-automatisees-100-h-f-yellowshark-ag-bubendorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -75563,14 +75930,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "it": "vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "de": "vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "fr": "vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "it": "/cerca-lavoro-zurigo/vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "de": "/de/jobs-im-zurich/vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf",
+        "fr": "/fr/trouver-emploi-zurich/vehicle-locksmith-80-100-m-f-yellowshark-ag-regensdorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -77142,10 +77520,10 @@
         "fr": "vendeur-vendeuse-a-l-heure-denner-liestal"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-a-l-heure-denner-liestal",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-a-l-heure-denner-liestal",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-a-l-heure-denner-liestal",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-a-l-heure-denner-liestal"
+        "it": "/cerca-lavoro-svitto/vendeur-vendeuse-a-l-heure-denner-liestal",
+        "en": "/en/find-jobs-schwyz/vendeur-vendeuse-a-l-heure-denner-liestal",
+        "de": "/de/jobs-in-schwyz/vendeur-vendeuse-a-l-heure-denner-liestal",
+        "fr": "/fr/trouver-emploi-schwytz/vendeur-vendeuse-a-l-heure-denner-liestal"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79320,10 +79698,10 @@
         "fr": "verkaufer-in-denner-3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-3",
-        "en": "/en/find-jobs-thurgau/verkaufer-in-denner-3",
-        "de": "/de/jobs-im-thurgau/verkaufer-in-denner-3",
-        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-3"
+        "it": "/cerca-lavoro-berna/verkaufer-in-denner-3",
+        "en": "/en/find-jobs-bern/verkaufer-in-denner-3",
+        "de": "/de/jobs-in-bern/verkaufer-in-denner-3",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-denner-3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80070,10 +80448,10 @@
         "fr": "verkaufer-in-food-getranke-coop-genossenschaft-horgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
-        "en": "/en/find-jobs-basel/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
-        "de": "/de/jobs-in-basel/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-food-getranke-coop-genossenschaft-horgen"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
+        "en": "/en/find-jobs-zurich/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
+        "de": "/de/jobs-in-zurich/verkaufer-in-food-getranke-coop-genossenschaft-horgen",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-food-getranke-coop-genossenschaft-horgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -83536,10 +83914,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-21"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-21",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-21",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-21",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-21"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-21",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-21",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-21",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-21"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

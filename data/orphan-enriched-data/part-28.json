@@ -1842,10 +1842,10 @@
         "fr": "agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "en": "/en/find-jobs-ticino/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "de": "/de/jobs-im-tessin/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
-        "fr": "/fr/trouver-emploi-tessin/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen"
+        "it": "/cerca-lavoro-nidvaldo/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "/en/find-jobs-nidwalden/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "de": "/de/jobs-in-nidwalden/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "fr": "/fr/trouver-emploi-nidwald/agente-di-ufficio-anteriore-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -2444,10 +2444,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "ausbildung-zur-dipl-pflegefachfrau-hf-zum-dipl-pflegefachmann-hf-puk-zuerich-zurich",
         "it": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich"
+        "en": "training-for-dipl-nurse-hf-dipl-nursing-professional-hf-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "formation-pour-l-infirmiere-diplomee-hf-dipl-soins-infirmiers-professionnels-hf-psychiatrische-universitatsklinik-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
@@ -2455,12 +2455,13 @@
         "de": "/de/jobs-in-zurich/allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "/fr/trouver-emploi-zurich/allenamento-per-dipl-infermiera-hf-dipl-infermieristica-professionale-hf-psychiatrische-universitatsklinik-zurich-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -8073,10 +8074,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "assistenzarztin-assistenzarzt-stationar-puk-zuerich-zurich",
         "it": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich"
+        "en": "assistant-doctor-inpatient-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "medecin-assistant-inpatient-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
@@ -8084,12 +8085,13 @@
         "de": "/de/jobs-in-zurich/assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "/fr/trouver-emploi-zurich/assistente-medico-ambulatorio-psychiatrische-universitatsklinik-zurich-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -9800,14 +9802,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "en": "automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "de": "automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "it": "automatique-hf-fh-h-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/automatique-hf-fh-h-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/automatique-hf-fh-h-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -17212,14 +17225,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "it": "commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "de": "commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "en": "commis-technique-metal-h-f-100-yellowshark-ag-winterthur"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "it": "/cerca-lavoro-zurigo/commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "de": "/de/jobs-im-zurich/commis-technique-metal-h-f-100-yellowshark-ag-winterthur",
+        "en": "/en/find-jobs-zurich/commis-technique-metal-h-f-100-yellowshark-ag-winterthur"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -18264,9 +18288,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "consulente-assicurativo-per-l-agenzia-generale-rapperswil-axa-svizzera-rapperswil",
-        "en": "consulente-assicurativo-per-l-agenzia-generale-rapperswil-axa-svizzera-rapperswil",
-        "de": "consulente-assicurativo-per-l-agenzia-generale-rapperswil-axa-svizzera-rapperswil",
-        "fr": "consulente-assicurativo-per-l-agenzia-generale-rapperswil-axa-svizzera-rapperswil"
+        "en": "insurance-consultant-for-the-general-agency-rapperswil-axa-svizzera-rapperswil",
+        "de": "versicherungsberater-in-fur-die-generalagentur-rapperswil-axa-svizzera-rapperswil",
+        "fr": "consultant-en-assurance-pour-l-agence-generale-rapperswil-axa-svizzera-rapperswil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-san-gallo/consulente-assicurativo-per-l-agenzia-generale-rapperswil-axa-svizzera-rapperswil",
@@ -18280,6 +18304,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -21019,14 +21044,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "couche-au-sol-h-f-yellowshark-ag-zug",
+        "en": "couche-au-sol-h-f-yellowshark-ag-zug",
+        "it": "couche-au-sol-h-f-yellowshark-ag-zug",
+        "de": "couche-au-sol-h-f-yellowshark-ag-zug"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zoug/couche-au-sol-h-f-yellowshark-ag-zug",
+        "en": "/en/find-jobs-zug/couche-au-sol-h-f-yellowshark-ag-zug",
+        "it": "/cerca-lavoro-zugo/couche-au-sol-h-f-yellowshark-ag-zug",
+        "de": "/de/jobs-im-zug/couche-au-sol-h-f-yellowshark-ag-zug"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -21738,10 +21774,10 @@
         "fr": "data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
-        "en": "/en/find-jobs-basel/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
+        "it": "/cerca-lavoro-argovia/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
+        "en": "/en/find-jobs-aargau/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
         "de": "/de/jobs-im-basel/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
-        "fr": "/fr/trouver-emploi-bale/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln"
+        "fr": "/fr/trouver-emploi-argovie/data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23067,14 +23103,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "en": "designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "it": "designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "de": "designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/designer-electrique-automatisation-du-batiment-technologie-de-controle-80-100-h-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -23118,10 +23165,10 @@
         "fr": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
-        "en": "/en/find-jobs-zurich/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
+        "it": "/cerca-lavoro-san-gallo/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
+        "en": "/en/find-jobs-st-gallen/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
         "de": "/de/jobs-im-zurich/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
-        "fr": "/fr/trouver-emploi-zurich/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon"
+        "fr": "/fr/trouver-emploi-saint-gall/detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28224,10 +28271,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "en": "/en/find-jobs-basel/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "it": "/cerca-lavoro-soletta/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
+        "en": "/en/find-jobs-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
         "de": "/de/jobs-im-bern/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "fr": "/fr/trouver-emploi-bale/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
+        "fr": "/fr/trouver-emploi-soleure/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -34020,6 +34067,64 @@
       ]
     },
     {
+      "slug": "infermieri-in-lucerna",
+      "locale": "it",
+      "path": "/cerca-lavoro-lucerna/infermieri-in-lucerna/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-lucerna/infermieri-in-lucerna/"
+      },
+      "queries": [
+        {
+          "query": "cerco lavoro lucerna",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "cerco lavoro lucerna",
+      "title": "Infermieri in",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lucerna",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "infermieri-in-lucerna",
+        "en": "infermieri-in-lucerna",
+        "de": "infermieri-in-lucerna",
+        "fr": "infermieri-in-lucerna"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/infermieri-in-lucerna",
+        "en": "/en/find-jobs-lucerne/infermieri-in-lucerna",
+        "de": "/de/jobs-im-luzern/infermieri-in-lucerna",
+        "fr": "/fr/trouver-emploi-lucerne/infermieri-in-lucerna"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
       "locale": "it",
       "path": "/cerca-lavoro-zurigo/infermieristica-praticante-di-allattamento-kantonsspital-winterthur-ksw-winterthur",
@@ -35216,14 +35321,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "en": "ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "it": "ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "de": "ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "en": "/en/find-jobs-bern/ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "it": "/cerca-lavoro-berna/ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund",
+        "de": "/de/jobs-im-bern/ingenieur-technicien-robotique-automatisation-fh-hf-h-f-yellowshark-ag-orpund"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -35673,10 +35789,10 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "en": "/en/find-jobs-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "de": "/de/jobs-im-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "fr": "/fr/trouver-emploi-argovie/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
+        "it": "/cerca-lavoro-san-gallo/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "en": "/en/find-jobs-st-gallen/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "de": "/de/jobs-in-st-gallen/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "fr": "/fr/trouver-emploi-saint-gall/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
       },
       "sourceUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-fr",
       "googleStatus": "unknown",
@@ -35732,10 +35848,10 @@
         "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "en": "/en/find-jobs-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "de": "/de/jobs-im-aargau/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
-        "fr": "/fr/trouver-emploi-argovie/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
+        "it": "/cerca-lavoro-san-gallo/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "en": "/en/find-jobs-st-gallen/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "de": "/de/jobs-in-st-gallen/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "fr": "/fr/trouver-emploi-saint-gall/insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil"
       },
       "sourceUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-fr",
       "googleStatus": "unknown",
@@ -36206,10 +36322,10 @@
         "fr": "isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "en": "/en/find-jobs-ticino/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "de": "/de/jobs-im-tessin/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "fr": "/fr/trouver-emploi-tessin/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
+        "it": "/cerca-lavoro-zurigo/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "en": "/en/find-jobs-zurich/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "de": "/de/jobs-in-zurich/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "fr": "/fr/trouver-emploi-zurich/isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41760,14 +41876,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "en": "mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "de": "mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "it": "mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "en": "/en/find-jobs-aargau/mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/mecanique-hydraulique-80-100-h-f-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -41964,14 +42091,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "de": "mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "fr": "mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "it": "mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "fr": "/fr/trouver-emploi-argovie/mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/mechanical-engineer-plant-engineering-80-100-m-f-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -47874,10 +48012,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "it": "medico-pediatrico-con-interesse-nel-neurosviluppo-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "en": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "de": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
-        "fr": "pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
+        "de": "padiater-mit-interesse-an-der-neuroentwicklung-f-m-ensemble-hospitalier-de-la-cote-ehc-lavigny",
+        "fr": "medecin-pediatre-avec-interet-pour-le-neurodeveloppement-f-h-ehc-vd-lavigny"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
@@ -47885,12 +48023,13 @@
         "de": "/de/jobs-in-der-waadt/pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny",
         "fr": "/fr/trouver-emploi-vaud/pediatric-doctor-with-interest-in-neurodevelopment-f-h-ensemble-hospitalier-de-la-cote-ehc-lavigny"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://emploi.ehc-vd.ch/fr/nos-offres/medecin-pediatre-avec-interet-pour-le-neurodeveloppement-fh-3532",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -48487,10 +48626,10 @@
         "fr": "assistante-infirmiere-ou-assistante-sanitaire-et-sociale-en-cas-d-urgence-spital-zollikerberg-zollikerberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "en": "/en/find-jobs-ticino/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "de": "/de/jobs-im-tessin/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "fr": "/fr/trouver-emploi-tessin/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg"
+        "it": "/cerca-lavoro-zurigo/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
+        "en": "/en/find-jobs-zurich/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
+        "de": "/de/jobs-in-zurich/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
+        "fr": "/fr/trouver-emploi-zurich/pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56101,10 +56240,10 @@
         "fr": "responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
-        "en": "/en/find-jobs-ticino/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
-        "de": "/de/jobs-im-tessin/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
-        "fr": "/fr/trouver-emploi-tessin/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad"
+        "it": "/cerca-lavoro-berna/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
+        "en": "/en/find-jobs-bern/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
+        "de": "/de/jobs-in-bern/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad",
+        "fr": "/fr/trouver-emploi-berne/responsabile-filiale-clienti-privati-affluent-gstaad-80-100-ubs-gstaad"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56339,10 +56478,10 @@
         "fr": "responsabile-negozio-denner-ilanz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/responsabile-negozio-denner-ilanz",
-        "en": "/en/find-jobs-ticino/responsabile-negozio-denner-ilanz",
-        "de": "/de/jobs-im-tessin/responsabile-negozio-denner-ilanz",
-        "fr": "/fr/trouver-emploi-tessin/responsabile-negozio-denner-ilanz"
+        "it": "/cerca-lavoro-vaud/responsabile-negozio-denner-ilanz",
+        "en": "/en/find-jobs-vaud/responsabile-negozio-denner-ilanz",
+        "de": "/de/jobs-in-der-waadt/responsabile-negozio-denner-ilanz",
+        "fr": "/fr/trouver-emploi-vaud/responsabile-negozio-denner-ilanz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64352,14 +64491,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-m-f-yellowshark-ag-dallikon",
+        "it": "service-technician-m-f-yellowshark-ag-dallikon",
+        "de": "service-technician-m-f-yellowshark-ag-dallikon",
+        "fr": "service-technician-m-f-yellowshark-ag-dallikon"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/service-technician-m-f-yellowshark-ag-dallikon",
+        "it": "/cerca-lavoro-zurigo/service-technician-m-f-yellowshark-ag-dallikon",
+        "de": "/de/jobs-im-zurich/service-technician-m-f-yellowshark-ag-dallikon",
+        "fr": "/fr/trouver-emploi-zurich/service-technician-m-f-yellowshark-ag-dallikon"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -66712,6 +66862,64 @@
       ]
     },
     {
+      "slug": "specialiste-credits-80-100-ubs-zurich",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/specialiste-credits-80-100-ubs-zurich/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-credits-80-100-ubs-zurich/"
+      },
+      "queries": [
+        {
+          "query": "je cherche des offres chez ubs à zurich ou genève avec un taux entre 80 et 100 pour un poste de back office",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "je cherche des offres chez ubs à zurich ou genève avec un taux entre 80 et 100 pour un poste de back office",
+      "title": "Specialiste credits",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "specialiste-credits-80-100-ubs-zurich",
+        "en": "specialiste-credits-80-100-ubs-zurich",
+        "de": "specialiste-credits-80-100-ubs-zurich",
+        "fr": "specialiste-credits-80-100-ubs-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/specialiste-credits-80-100-ubs-zurich",
+        "en": "/en/find-jobs-zurich/specialiste-credits-80-100-ubs-zurich",
+        "de": "/de/jobs-im-zurich/specialiste-credits-80-100-ubs-zurich",
+        "fr": "/fr/trouver-emploi-zurich/specialiste-credits-80-100-ubs-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "specialiste-de-la-paie-sap-100-agie-charmilles-sa-biel-bienne",
       "locale": "de",
       "path": "/de/jobs-im-tessin/specialiste-de-la-paie-sap-100-agie-charmilles-sa-biel-bienne",
@@ -67322,14 +67530,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "en": "specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "it": "specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "de": "specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/specialiste-en-informatique-d-affaires-80-100-h-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72720,14 +72939,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "it": "technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "de": "technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "fr": "technical-buyer-m-f-80-100-yellowshark-ag-sulgen"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-thurgau/technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "it": "/cerca-lavoro-turgovia/technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "de": "/de/jobs-im-thurgau/technical-buyer-m-f-80-100-yellowshark-ag-sulgen",
+        "fr": "/fr/trouver-emploi-thurgovie/technical-buyer-m-f-80-100-yellowshark-ag-sulgen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -73224,14 +73454,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "en": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "de": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "it": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "en": "/en/find-jobs-lucerne/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "de": "/de/jobs-im-luzern/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg",
+        "it": "/cerca-lavoro-lucerna/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-suisse-centrale-yellowshark-ag-rothenburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -77198,10 +77439,10 @@
         "fr": "vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon",
-        "en": "/en/find-jobs-schwyz/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon",
+        "it": "/cerca-lavoro-zurigo/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon",
+        "en": "/en/find-jobs-zurich/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon",
         "de": "/de/jobs-im-luzern/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon",
-        "fr": "/fr/trouver-emploi-schwytz/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon"
+        "fr": "/fr/trouver-emploi-zurich/vendeur-en-caisses-enregistreuses-services-coop-genossenschaft-schenkon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79206,10 +79447,10 @@
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-weggis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-weggis",
-        "en": "/en/find-jobs-zurich/vendita-prodotti-freschi-coop-genossenschaft-weggis",
-        "de": "/de/jobs-in-zurich/vendita-prodotti-freschi-coop-genossenschaft-weggis",
-        "fr": "/fr/trouver-emploi-zurich/vendita-prodotti-freschi-coop-genossenschaft-weggis"
+        "it": "/cerca-lavoro-argovia/vendita-prodotti-freschi-coop-genossenschaft-weggis",
+        "en": "/en/find-jobs-aargau/vendita-prodotti-freschi-coop-genossenschaft-weggis",
+        "de": "/de/jobs-im-aargau/vendita-prodotti-freschi-coop-genossenschaft-weggis",
+        "fr": "/fr/trouver-emploi-argovie/vendita-prodotti-freschi-coop-genossenschaft-weggis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79690,10 +79931,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-grellingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/venditore-in-cassa-servizi-coop-genossenschaft-grellingen",
-        "en": "/en/find-jobs-bern/venditore-in-cassa-servizi-coop-genossenschaft-grellingen",
+        "it": "/cerca-lavoro-zurigo/venditore-in-cassa-servizi-coop-genossenschaft-grellingen",
+        "en": "/en/find-jobs-zurich/venditore-in-cassa-servizi-coop-genossenschaft-grellingen",
         "de": "/de/jobs-im-basel/venditore-in-cassa-servizi-coop-genossenschaft-grellingen",
-        "fr": "/fr/trouver-emploi-berne/venditore-in-cassa-servizi-coop-genossenschaft-grellingen"
+        "fr": "/fr/trouver-emploi-zurich/venditore-in-cassa-servizi-coop-genossenschaft-grellingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80654,6 +80895,64 @@
         "gsc",
         "slug-registry",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "verkaufer-in-denner-winterthur-o0skmk",
+      "locale": "it",
+      "path": "/cerca-lavoro-zugo/verkaufer-in-denner-winterthur-o0skmk",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zugo/verkaufer-in-denner-winterthur-o0skmk"
+      },
+      "queries": [
+        {
+          "query": "denner baar",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "denner baar",
+      "title": "Verkaufer in o0skmk",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Denner",
+      "companyKey": "denner",
+      "location": "Winterthur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "verkaufer-in-denner-winterthur-o0skmk",
+        "en": "verkaufer-in-denner-winterthur-o0skmk",
+        "de": "verkaufer-in-denner-winterthur-o0skmk",
+        "fr": "verkaufer-in-denner-winterthur-o0skmk"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zugo/verkaufer-in-denner-winterthur-o0skmk",
+        "en": "/en/find-jobs-zug/verkaufer-in-denner-winterthur-o0skmk",
+        "de": "/de/jobs-im-zug/verkaufer-in-denner-winterthur-o0skmk",
+        "fr": "/fr/trouver-emploi-zoug/verkaufer-in-denner-winterthur-o0skmk"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {

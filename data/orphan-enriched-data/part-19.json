@@ -498,14 +498,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "en": "acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "it": "acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "de": "acheteur-operationnel-h-f-80-100-yellowshark-ag-cham"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zoug/acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "en": "/en/find-jobs-zug/acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "it": "/cerca-lavoro-zugo/acheteur-operationnel-h-f-80-100-yellowshark-ag-cham",
+        "de": "/de/jobs-im-zug/acheteur-operationnel-h-f-80-100-yellowshark-ag-cham"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -7232,10 +7243,10 @@
         "fr": "assistant-store-manager-denner-ag-monchaltorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/assistant-store-manager-denner-ag-monchaltorf",
-        "en": "/en/find-jobs-zurich/assistant-store-manager-denner-ag-monchaltorf",
-        "de": "/de/jobs-in-zurich/assistant-store-manager-denner-ag-monchaltorf",
-        "fr": "/fr/trouver-emploi-zurich/assistant-store-manager-denner-ag-monchaltorf"
+        "it": "/cerca-lavoro-soletta/assistant-store-manager-denner-ag-monchaltorf",
+        "en": "/en/find-jobs-solothurn/assistant-store-manager-denner-ag-monchaltorf",
+        "de": "/de/jobs-in-solothurn/assistant-store-manager-denner-ag-monchaltorf",
+        "fr": "/fr/trouver-emploi-soleure/assistant-store-manager-denner-ag-monchaltorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -8955,10 +8966,10 @@
         "it": "assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil",
-        "en": "/en/find-jobs-lucerne/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil",
+        "it": "/cerca-lavoro-turgovia/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil",
+        "en": "/en/find-jobs-thurgau/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil",
         "de": "/de/jobs-im-zurich/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil",
-        "fr": "/fr/trouver-emploi-lucerne/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil"
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-vendita-di-prodotti-freschi-pane-coop-genossenschaft-amriswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10381,6 +10392,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen bremgarten",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offene stellen bremgarten",
+      "title": "Automatiker in mit schwerpunkt verdrahtung sta personal ag bremgarten",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "en": "automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "de": "automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "fr": "automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "en": "/en/find-jobs-aargau/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "de": "/de/jobs-im-aargau/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten",
+        "fr": "/fr/trouver-emploi-argovie/automatiker-in-mit-schwerpunkt-verdrahtung-sta-personal-ag-bremgarten"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -17547,14 +17615,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "en": "comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "it": "comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "de": "comptables-financiers-h-f-80-100-yellowshark-ag-sulgen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-thurgovie/comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "en": "/en/find-jobs-thurgau/comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "it": "/cerca-lavoro-turgovia/comptables-financiers-h-f-80-100-yellowshark-ag-sulgen",
+        "de": "/de/jobs-im-thurgau/comptables-financiers-h-f-80-100-yellowshark-ag-sulgen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -18845,14 +18924,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "en": "construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "it": "construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "de": "construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "en": "/en/find-jobs-zurich/construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "it": "/cerca-lavoro-zurigo/construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh",
+        "de": "/de/jobs-im-zurich/construction-de-controleur-automatique-h-f-100-yellowshark-ag-ruti-zh"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -22126,10 +22216,10 @@
         "fr": "data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
-        "en": "/en/find-jobs-ticino/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
-        "de": "/de/jobs-im-tessin/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
-        "fr": "/fr/trouver-emploi-tessin/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen"
+        "it": "/cerca-lavoro-zugo/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "en": "/en/find-jobs-zug/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "de": "/de/jobs-in-zug/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen",
+        "fr": "/fr/trouver-emploi-zoug/data-center-techniker-switzerland-emmen-on-site-reboot-monkey-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24617,10 +24707,10 @@
         "fr": "dipl-infirmiere-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "en": "/en/find-jobs-solothurn/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "de": "/de/jobs-in-solothurn/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "fr": "/fr/trouver-emploi-soleure/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        "it": "/cerca-lavoro-lucerna/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "en": "/en/find-jobs-lucerne/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "de": "/de/jobs-in-luzern/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "fr": "/fr/trouver-emploi-lucerne/dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29234,14 +29324,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "it": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "en": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "de": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "en": "/en/find-jobs-aargau/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -37373,24 +37474,29 @@
           "impressions": 62
         },
         {
+          "query": "rvcs ticino",
+          "clicks": 0,
+          "impressions": 17
+        },
+        {
+          "query": "ingegnere svizzera lavoro",
+          "clicks": 1,
+          "impressions": 14
+        },
+        {
           "query": "lavoro ingegneri svizzera",
           "clicks": 0,
           "impressions": 14
         },
         {
-          "query": "ingegnere svizzera lavoro",
-          "clicks": 1,
-          "impressions": 13
-        },
-        {
-          "query": "rvcs ticino",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
           "query": "disegnatore",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
+        },
+        {
+          "query": "lavorare in svizzera ingegnere",
+          "clicks": 0,
+          "impressions": 10
         },
         {
           "query": "ingegnere svizzera lavoro",
@@ -37401,6 +37507,11 @@
           "query": "svizzera lavoro ingegnere",
           "clicks": 0,
           "impressions": 9
+        },
+        {
+          "query": "lavorare in svizzera ingegnere",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "lavoro ingegneri svizzera",
@@ -37413,22 +37524,12 @@
           "impressions": 8
         },
         {
-          "query": "lavorare in svizzera ingegnere",
-          "clicks": 0,
-          "impressions": 8
-        },
-        {
           "query": "buyer lecco",
           "clicks": 1,
           "impressions": 6
         },
         {
           "query": "svizzera lavoro ingegnere",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "lavorare in svizzera ingegnere",
           "clicks": 0,
           "impressions": 6
         },
@@ -37468,7 +37569,7 @@
           "impressions": 4
         }
       ],
-      "totalImpressions": 301,
+      "totalImpressions": 314,
       "totalClicks": 5,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "Ingegneri",
@@ -41655,10 +41756,10 @@
         "fr": "linea-meccanica-eta-sa-swatch-group-ticino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/linea-meccanica-eta-sa-swatch-group-ticino",
-        "en": "/en/find-jobs-ticino/linea-meccanica-eta-sa-swatch-group-ticino",
-        "de": "/de/jobs-im-tessin/linea-meccanica-eta-sa-swatch-group-ticino",
-        "fr": "/fr/trouver-emploi-tessin/linea-meccanica-eta-sa-swatch-group-ticino"
+        "it": "/cerca-lavoro-vallese/linea-meccanica-eta-sa-swatch-group-ticino",
+        "en": "/en/find-jobs-valais/linea-meccanica-eta-sa-swatch-group-ticino",
+        "de": "/de/jobs-im-wallis/linea-meccanica-eta-sa-swatch-group-ticino",
+        "fr": "/fr/trouver-emploi-valais/linea-meccanica-eta-sa-swatch-group-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -43211,10 +43312,10 @@
         "fr": "manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
-        "en": "/en/find-jobs-bern/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
-        "de": "/de/jobs-in-bern/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
-        "fr": "/fr/trouver-emploi-berne/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection"
+        "it": "/cerca-lavoro-basilea/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
+        "en": "/en/find-jobs-basel/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
+        "de": "/de/jobs-in-basel/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection",
+        "fr": "/fr/trouver-emploi-bale/manor-collaborateur-trice-vente-confection-dames-50-monthey-collaborateurtrice-vente-confection"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -43640,14 +43741,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "en": "mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "it": "mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "de": "mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-soleure/mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "en": "/en/find-jobs-solothurn/mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "it": "/cerca-lavoro-soletta/mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil",
+        "de": "/de/jobs-im-solothurn/mecatronic-construction-de-vehicules-100-h-f-yellowshark-ag-zuchwil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -52134,14 +52246,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "de": "polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "fr": "polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "it": "polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "de": "/de/jobs-im-basel/polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "fr": "/fr/trouver-emploi-bale/polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln",
+        "it": "/cerca-lavoro-basilea/polymechanics-manufacturing-80-100-m-f-yellowshark-ag-pratteln"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -66741,14 +66864,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "de": "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "fr": "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "it": "specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "de": "/de/jobs-im-bern/specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "fr": "/fr/trouver-emploi-berne/specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun",
+        "it": "/cerca-lavoro-berna/specialist-hr-m-w-d-80-100-klinik-schonberg-ag-thun"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -70451,10 +70585,10 @@
         "en": "stv-filialleiter-in-denner-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-luzern",
-        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-luzern",
-        "de": "/de/jobs-in-zurich/stv-filialleiter-in-denner-luzern",
-        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-luzern"
+        "it": "/cerca-lavoro-lucerna/stv-filialleiter-in-denner-luzern",
+        "en": "/en/find-jobs-lucerne/stv-filialleiter-in-denner-luzern",
+        "de": "/de/jobs-in-luzern/stv-filialleiter-in-denner-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/stv-filialleiter-in-denner-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71788,14 +71922,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "de": "team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "it": "team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "fr": "team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "de": "/de/jobs-im-st-gallen/team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "it": "/cerca-lavoro-san-gallo/team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil",
+        "fr": "/fr/trouver-emploi-saint-gall/team-leader-control-technology-automation-100-m-f-yellowshark-ag-flawil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72690,14 +72835,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "en": "technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "it": "technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "de": "technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/technicien-de-service-mecanique-h-f-100-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72731,14 +72887,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "en": "technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "it": "technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "de": "technicien-mecatronique-h-f-yellowshark-ag-buchs-zh"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "en": "/en/find-jobs-zurich/technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "it": "/cerca-lavoro-zurigo/technicien-mecatronique-h-f-yellowshark-ag-buchs-zh",
+        "de": "/de/jobs-im-zurich/technicien-mecatronique-h-f-yellowshark-ag-buchs-zh"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -74972,14 +75139,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "en": "tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "it": "tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "de": "tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "en": "/en/find-jobs-zurich/tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "it": "/cerca-lavoro-zurigo/tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil",
+        "de": "/de/jobs-im-zurich/tournage-cnc-polymecanique-fabrication-80-100-h-f-yellowshark-ag-hinwil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -75931,14 +76109,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "de": "vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "fr": "vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "it": "vehicle-locksmith-m-f-100-yellowshark-ag-langenthal"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "de": "/de/jobs-im-bern/vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "fr": "/fr/trouver-emploi-berne/vehicle-locksmith-m-f-100-yellowshark-ag-langenthal",
+        "it": "/cerca-lavoro-berna/vehicle-locksmith-m-f-100-yellowshark-ag-langenthal"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -76657,10 +76846,10 @@
         "fr": "vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "en": "/en/find-jobs-zurich/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "de": "/de/jobs-in-zurich/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
+        "it": "/cerca-lavoro-sciaffusa/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "en": "/en/find-jobs-schaffhausen/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "de": "/de/jobs-in-schaffhausen/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55",
+        "fr": "/fr/trouver-emploi-schaffhouse/vendeur-dans-le-salaire-horaire-denner-ag-cham-l2bd55"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81049,10 +81238,10 @@
         "fr": "verkaufer-in-denner-5"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/verkaufer-in-denner-5",
-        "en": "/en/find-jobs-lucerne/verkaufer-in-denner-5",
-        "de": "/de/jobs-in-luzern/verkaufer-in-denner-5",
-        "fr": "/fr/trouver-emploi-lucerne/verkaufer-in-denner-5"
+        "it": "/cerca-lavoro-berna/verkaufer-in-denner-5",
+        "en": "/en/find-jobs-bern/verkaufer-in-denner-5",
+        "de": "/de/jobs-in-bern/verkaufer-in-denner-5",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-denner-5"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81633,10 +81822,10 @@
         "fr": "verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg",
-        "en": "/en/find-jobs-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg",
+        "it": "/cerca-lavoro-argovia/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg",
+        "en": "/en/find-jobs-aargau/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg",
         "de": "/de/jobs-im-nidwalden/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg"
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-frischprodukte-coop-genossenschaft-engelberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84637,14 +84826,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "it": "workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "de": "workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "fr": "workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "it": "/cerca-lavoro-zurigo/workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "de": "/de/jobs-im-zurich/workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa",
+        "fr": "/fr/trouver-emploi-zurich/workshop-manager-electronics-m-f-80-100-yellowshark-ag-stafa"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -84747,10 +84947,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-27"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-27",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-27",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-27",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-27"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-27",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-27",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-27",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-27"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84798,10 +84998,10 @@
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-degersheim"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
-        "en": "/en/find-jobs-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
+        "it": "/cerca-lavoro-soletta/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
+        "en": "/en/find-jobs-solothurn/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
         "de": "/de/jobs-im-bern/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim",
-        "fr": "/fr/trouver-emploi-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim"
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-lettere-e-pacchi-die-schweizerische-post-degersheim"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

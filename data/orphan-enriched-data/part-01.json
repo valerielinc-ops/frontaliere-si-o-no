@@ -218,10 +218,10 @@
         "fr": "289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
-        "en": "/en/find-jobs-zurich/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
-        "de": "/de/jobs-in-zurich/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
-        "fr": "/fr/trouver-emploi-zurich/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
+        "it": "/cerca-lavoro-vallese/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
+        "en": "/en/find-jobs-valais/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
+        "de": "/de/jobs-im-wallis/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw",
+        "fr": "/fr/trouver-emploi-valais/289-stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-horw"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -2625,10 +2625,10 @@
         "fr": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
-        "en": "/en/find-jobs-lucerne/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
-        "de": "/de/jobs-in-luzern/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
-        "fr": "/fr/trouver-emploi-lucerne/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon"
+        "it": "/cerca-lavoro-argovia/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
+        "en": "/en/find-jobs-aargau/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
+        "de": "/de/jobs-im-aargau/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon",
+        "fr": "/fr/trouver-emploi-argovie/allrounder-verkauf-m-w-d-20-40-lidl-svizzera-arbon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12175,14 +12175,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "en": "chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "it": "chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "de": "chef-d-equipe-construction-h-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/chef-d-equipe-construction-h-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/chef-d-equipe-construction-h-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -16114,10 +16125,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "consulente-assicurativo-per-il-luganese-axa-svizzera-lugano",
-        "en": "consulente-assicurativo-per-il-luganese-axa-svizzera-lugano",
-        "de": "consulente-assicurativo-per-il-luganese-axa-svizzera-lugano",
-        "fr": "consulente-assicurativo-per-il-luganese-axa-svizzera-lugano"
+        "it": "consulente-assicurativo-per-il-luganese-axa-lugano-3yzl67",
+        "fr": "consulente-assicurativo-per-il-luganese-axa-svizzera-lugano",
+        "en": "insurance-consultant-for-luganese-axa-svizzera-lugano",
+        "de": "versicherungsberater-fur-luganese-axa-svizzera-lugano"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/consulente-assicurativo-per-il-luganese-axa-svizzera-lugano",
@@ -16131,6 +16142,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -17679,14 +17691,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "en": "consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "it": "consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "de": "consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/consultant-principal-pour-la-construction-h-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -22017,10 +22040,10 @@
         "fr": "directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach",
-        "en": "/en/find-jobs-zurich/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach",
+        "it": "/cerca-lavoro-vallese/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach",
+        "en": "/en/find-jobs-valais/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach",
         "de": "/de/jobs-im-zurich/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach",
-        "fr": "/fr/trouver-emploi-zurich/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach"
+        "fr": "/fr/trouver-emploi-valais/directeur-adjoint-de-succursale-f-f-d-80-lidl-svizzera-neftenbach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22072,10 +22095,10 @@
         "fr": "directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
-        "en": "/en/find-jobs-lucerne/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "it": "/cerca-lavoro-vallese/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "en": "/en/find-jobs-valais/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
         "de": "/de/jobs-im-luzern/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
-        "fr": "/fr/trouver-emploi-lucerne/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
+        "fr": "/fr/trouver-emploi-valais/directeur-adjoint-de-succursale-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24724,10 +24747,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
+        "de": "galenica-galexis-ag-logistiker-in-efz-niederbipp",
         "en": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
-        "de": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
-        "fr": "employee-in-logistics-afc-galexis-ag-galenica-niederbipp"
+        "fr": "galenica-galexis-ag-logisticien-ne-cfc-niederbipp",
+        "it": "galenica-galexis-ag-impiegato-a-in-logistica-afc-niederbipp"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/employee-in-logistics-afc-galexis-ag-galenica-niederbipp",
@@ -24741,6 +24764,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -24884,14 +24908,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "de": "engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "fr": "engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "it": "engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "de": "/de/jobs-im-aargau/engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "fr": "/fr/trouver-emploi-argovie/engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil",
+        "it": "/cerca-lavoro-argovia/engineer-of-automated-mechanical-engineering-80-100-m-f-yellowshark-ag-magenwil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -25332,10 +25367,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-basel/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "it": "/cerca-lavoro-soletta/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
         "de": "/de/jobs-im-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-bale/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
+        "fr": "/fr/trouver-emploi-soleure/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26589,14 +26624,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "it": "financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "en": "financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "de": "financement-du-personnel-h-f-80-100-yellowshark-ag-biberist"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-soleure/financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "it": "/cerca-lavoro-soletta/financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "en": "/en/find-jobs-solothurn/financement-du-personnel-h-f-80-100-yellowshark-ag-biberist",
+        "de": "/de/jobs-im-solothurn/financement-du-personnel-h-f-80-100-yellowshark-ag-biberist"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -28154,10 +28200,10 @@
         "fr": "food-salesperson-coop-genossenschaft-bern-6lcjmi"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-salesperson-coop-genossenschaft-bern-6lcjmi",
-        "en": "/en/find-jobs-ticino/food-salesperson-coop-genossenschaft-bern-6lcjmi",
-        "de": "/de/jobs-im-tessin/food-salesperson-coop-genossenschaft-bern-6lcjmi",
-        "fr": "/fr/trouver-emploi-tessin/food-salesperson-coop-genossenschaft-bern-6lcjmi"
+        "it": "/cerca-lavoro-berna/food-salesperson-coop-genossenschaft-bern-6lcjmi",
+        "en": "/en/find-jobs-bern/food-salesperson-coop-genossenschaft-bern-6lcjmi",
+        "de": "/de/jobs-in-bern/food-salesperson-coop-genossenschaft-bern-6lcjmi",
+        "fr": "/fr/trouver-emploi-berne/food-salesperson-coop-genossenschaft-bern-6lcjmi"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28308,14 +28354,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "it": "foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "de": "foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "fr": "foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/foreign-trade-specialist-m-f-80-100-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -30230,14 +30287,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "ground-layer-m-f-yellowshark-ag-zug",
+        "fr": "ground-layer-m-f-yellowshark-ag-zug",
+        "it": "ground-layer-m-f-yellowshark-ag-zug",
+        "de": "ground-layer-m-f-yellowshark-ag-zug"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zug/ground-layer-m-f-yellowshark-ag-zug",
+        "fr": "/fr/trouver-emploi-zoug/ground-layer-m-f-yellowshark-ag-zug",
+        "it": "/cerca-lavoro-zugo/ground-layer-m-f-yellowshark-ag-zug",
+        "de": "/de/jobs-im-zug/ground-layer-m-f-yellowshark-ag-zug"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -33824,14 +33892,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "de": "ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "en": "ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "it": "ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/ingenieur-electronique-h-f-80-100-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -35598,10 +35677,10 @@
         "fr": "istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
-        "en": "/en/find-jobs-ticino/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
-        "de": "/de/jobs-im-tessin/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
-        "fr": "/fr/trouver-emploi-tessin/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7"
+        "it": "/cerca-lavoro-berna/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
+        "en": "/en/find-jobs-bern/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
+        "de": "/de/jobs-in-bern/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7",
+        "fr": "/fr/trouver-emploi-berne/istruttore-di-fitness-f-m-d-activ-fitness-thun-e4dea7"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -38637,7 +38716,7 @@
         {
           "query": "nebenjobs locarno",
           "clicks": 0,
-          "impressions": 35
+          "impressions": 36
         },
         {
           "query": "fahrer locarno",
@@ -38645,14 +38724,14 @@
           "impressions": 14
         },
         {
-          "query": "werkstudentenjob locarno",
+          "query": "locarno",
           "clicks": 0,
           "impressions": 10
         },
         {
-          "query": "locarno",
+          "query": "werkstudentenjob locarno",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "homeoffice jobs locarno",
@@ -38715,7 +38794,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 161,
+      "totalImpressions": 163,
       "totalClicks": 0,
       "topQuery": "jobs locarno",
       "title": "locarno",
@@ -38772,6 +38851,11 @@
           "impressions": 6
         },
         {
+          "query": "locarno",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "jobs locarno",
           "clicks": 0,
           "impressions": 3
@@ -38790,14 +38874,9 @@
           "query": "job locarno",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "locarno",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 47,
+      "totalImpressions": 50,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "locarno",
@@ -39419,7 +39498,7 @@
         {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 117
+          "impressions": 121
         },
         {
           "query": "stellenangebot lugano",
@@ -39434,7 +39513,7 @@
         {
           "query": "taetigkeitsfelder jobs lugano",
           "clicks": 0,
-          "impressions": 32
+          "impressions": 34
         },
         {
           "query": "jobs lugano",
@@ -39444,15 +39523,15 @@
         {
           "query": "handel jobs lugano",
           "clicks": 0,
-          "impressions": 22
-        },
-        {
-          "query": "industriemechaniker jobs lugano",
-          "clicks": 0,
-          "impressions": 20
+          "impressions": 23
         },
         {
           "query": "teamleiter jobs lugano",
+          "clicks": 0,
+          "impressions": 21
+        },
+        {
+          "query": "industriemechaniker jobs lugano",
           "clicks": 0,
           "impressions": 20
         },
@@ -39467,22 +39546,22 @@
           "impressions": 18
         },
         {
+          "query": "materialwirtschaft jobs lugano",
+          "clicks": 0,
+          "impressions": 17
+        },
+        {
           "query": "bäckereifachverkäufer jobs lugano",
           "clicks": 0,
           "impressions": 16
         },
         {
-          "query": "materialwirtschaft jobs lugano",
+          "query": "pta jobs lugano",
           "clicks": 0,
-          "impressions": 15
+          "impressions": 16
         },
         {
           "query": "medizintechniker jobs lugano",
-          "clicks": 0,
-          "impressions": 15
-        },
-        {
-          "query": "pta jobs lugano",
           "clicks": 0,
           "impressions": 15
         },
@@ -39517,7 +39596,7 @@
           "impressions": 13
         }
       ],
-      "totalImpressions": 991,
+      "totalImpressions": 1021,
       "totalClicks": 0,
       "topQuery": "stellen lugano",
       "title": "lugano",
@@ -39564,14 +39643,14 @@
           "impressions": 164
         },
         {
-          "query": "stellenangebot lugano",
-          "clicks": 0,
-          "impressions": 67
-        },
-        {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 66
+          "impressions": 70
+        },
+        {
+          "query": "stellenangebot lugano",
+          "clicks": 0,
+          "impressions": 70
         },
         {
           "query": "jobs lugano",
@@ -39579,13 +39658,13 @@
           "impressions": 51
         },
         {
-          "query": "lugano jobs",
-          "clicks": 1,
-          "impressions": 38
-        },
-        {
           "query": "job offers",
           "clicks": 0,
+          "impressions": 41
+        },
+        {
+          "query": "lugano jobs",
+          "clicks": 1,
           "impressions": 38
         },
         {
@@ -39596,7 +39675,7 @@
         {
           "query": "emploi lugano",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 23
         },
         {
           "query": "i am looking for openings in lugano.",
@@ -39659,7 +39738,7 @@
           "impressions": 7
         }
       ],
-      "totalImpressions": 858,
+      "totalImpressions": 876,
       "totalClicks": 4,
       "topQuery": "full time jobs near me",
       "title": "lugano",
@@ -39703,32 +39782,32 @@
         {
           "query": "je vise un emploi à lugano",
           "clicks": 0,
-          "impressions": 90
+          "impressions": 92
         },
         {
           "query": "recrutement lugano",
           "clicks": 0,
-          "impressions": 62
+          "impressions": 65
         },
         {
           "query": "offre d'emploi tessin",
           "clicks": 0,
-          "impressions": 27
+          "impressions": 30
         },
         {
           "query": "offre d'emploi lugano",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 19
         },
         {
           "query": "agence de recrutement lugano",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "emploi lugano",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "je cherche des offres au tessin",
@@ -39759,6 +39838,11 @@
           "query": "offre emploi",
           "clicks": 0,
           "impressions": 2
+        },
+        {
+          "query": "agence interim tessin",
+          "clicks": 0,
+          "impressions": 1
         },
         {
           "query": "agence pour l emploi lugano",
@@ -39794,14 +39878,9 @@
           "query": "coiffeuse job",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "coiffure job",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 256,
+      "totalImpressions": 271,
       "totalClicks": 0,
       "topQuery": "je vise un emploi à lugano",
       "title": "lugano",
@@ -39845,12 +39924,17 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 31
+          "impressions": 34
         },
         {
           "query": "offerte di lavoro lugano negli ultimi 3 giorni",
           "clicks": 0,
           "impressions": 9
+        },
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 7
         },
         {
           "query": "offerte di lavoro presso città di lugano",
@@ -39863,7 +39947,7 @@
           "impressions": 5
         },
         {
-          "query": "frontalieri",
+          "query": "lavoro lugano",
           "clicks": 0,
           "impressions": 5
         },
@@ -39873,17 +39957,12 @@
           "impressions": 5
         },
         {
-          "query": "lavoro lugano",
+          "query": "offerte di lavoro lugano",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "lavoro lugano da ieri",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "offerte di lavoro lugano",
           "clicks": 0,
           "impressions": 4
         },
@@ -39903,12 +39982,22 @@
           "impressions": 3
         },
         {
+          "query": "concorso logo",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "lavoro a lugano",
           "clicks": 0,
           "impressions": 3
         },
         {
           "query": "lugano lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte lavoro lugano",
           "clicks": 0,
           "impressions": 3
         },
@@ -39923,11 +40012,6 @@
           "impressions": 2
         },
         {
-          "query": "concorso logo",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
           "query": "emploi lugano",
           "clicks": 0,
           "impressions": 2
@@ -39936,14 +40020,9 @@
           "query": "lavora con noi lugano",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "lavori a lugano",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 141,
+      "totalImpressions": 157,
       "totalClicks": 2,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "lugano",
@@ -40170,10 +40249,10 @@
         "it": "macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
-        "en": "/en/find-jobs-basel/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
-        "de": "/de/jobs-in-basel/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
-        "fr": "/fr/trouver-emploi-bale/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen"
+        "it": "/cerca-lavoro-berna/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
+        "en": "/en/find-jobs-bern/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
+        "de": "/de/jobs-in-bern/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
+        "fr": "/fr/trouver-emploi-berne/macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41049,10 +41128,10 @@
         "fr": "manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "en": "/en/find-jobs-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "de": "/de/jobs-in-der-waadt/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
-        "fr": "/fr/trouver-emploi-vaud/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
+        "it": "/cerca-lavoro-ginevra/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "en": "/en/find-jobs-geneva/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "de": "/de/jobs-in-genf/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie",
+        "fr": "/fr/trouver-emploi-geneve/manor-collaborateur-trice-caisse-papeterie-50-lausanne-collaborateurtrice-caisse-papeterie"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52872,16 +52951,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "professional-health-efz-40-80-spitex-glattal-dietlikon",
+        "de": "fachfrau-fachmann-gesundheit-efz-40-80-spitex-ch-dietlikon",
         "en": "professional-health-efz-40-80-spitex-glattal-dietlikon",
-        "de": "professional-health-efz-40-80-spitex-glattal-dietlikon",
-        "fr": "professional-health-efz-40-80-spitex-glattal-dietlikon"
+        "fr": "sante-professionnelle-efz-40-80-spitex-glattal-dietlikon",
+        "it": "fachfrau-fachmann-gesundheit-cfc-40-80-spitex-glattal-dietlikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/professional-health-efz-40-80-spitex-glattal-dietlikon",
-        "en": "/en/find-jobs-ticino/professional-health-efz-40-80-spitex-glattal-dietlikon",
-        "de": "/de/jobs-im-tessin/professional-health-efz-40-80-spitex-glattal-dietlikon",
-        "fr": "/fr/trouver-emploi-tessin/professional-health-efz-40-80-spitex-glattal-dietlikon"
+        "it": "/cerca-lavoro-zurigo/professional-health-efz-40-80-spitex-glattal-dietlikon",
+        "en": "/en/find-jobs-zurich/professional-health-efz-40-80-spitex-glattal-dietlikon",
+        "de": "/de/jobs-in-zurich/professional-health-efz-40-80-spitex-glattal-dietlikon",
+        "fr": "/fr/trouver-emploi-zurich/professional-health-efz-40-80-spitex-glattal-dietlikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52889,6 +52968,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -53313,14 +53393,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "fr": "project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "/cerca-lavoro-san-gallo/project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "fr": "/fr/trouver-emploi-saint-gall/project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "/de/jobs-im-st-gallen/project-designer-plant-construction-m-f-80-100-yellowshark-ag-gossau-sg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -63595,10 +63686,10 @@
         "fr": "seller-in-food-coop-genossenschaft-schaffhausen-28c7d3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
-        "en": "/en/find-jobs-ticino/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
-        "de": "/de/jobs-im-tessin/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
-        "fr": "/fr/trouver-emploi-tessin/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3"
+        "it": "/cerca-lavoro-sciaffusa/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
+        "en": "/en/find-jobs-schaffhausen/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
+        "de": "/de/jobs-in-schaffhausen/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3",
+        "fr": "/fr/trouver-emploi-schaffhouse/seller-in-food-coop-genossenschaft-schaffhausen-28c7d3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67146,14 +67237,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "de": "specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "fr": "specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "it": "specialist-maintenance-80-100-m-f-yellowshark-ag-spiez"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "de": "/de/jobs-im-bern/specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "fr": "/fr/trouver-emploi-berne/specialist-maintenance-80-100-m-f-yellowshark-ag-spiez",
+        "it": "/cerca-lavoro-berna/specialist-maintenance-80-100-m-f-yellowshark-ag-spiez"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -70921,10 +71023,10 @@
         "fr": "stv-filialleiter-in-denner-6"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/stv-filialleiter-in-denner-6",
-        "en": "/en/find-jobs-thurgau/stv-filialleiter-in-denner-6",
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-6",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-6",
         "de": "/de/jobs-im-zug/stv-filialleiter-in-denner-6",
-        "fr": "/fr/trouver-emploi-thurgovie/stv-filialleiter-in-denner-6"
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-6"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72215,10 +72317,10 @@
         "fr": "taches-principales-hirslanden-search-44"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/taches-principales-hirslanden-search-44",
-        "en": "/en/find-jobs-geneva/taches-principales-hirslanden-search-44",
+        "it": "/cerca-lavoro-vaud/taches-principales-hirslanden-search-44",
+        "en": "/en/find-jobs-vaud/taches-principales-hirslanden-search-44",
         "de": "/de/jobs-im-waadt/taches-principales-hirslanden-search-44",
-        "fr": "/fr/trouver-emploi-geneve/taches-principales-hirslanden-search-44"
+        "fr": "/fr/trouver-emploi-vaud/taches-principales-hirslanden-search-44"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72920,14 +73022,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "it": "technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "de": "technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "fr": "technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "it": "/cerca-lavoro-zurigo/technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "de": "/de/jobs-im-zurich/technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil",
+        "fr": "/fr/trouver-emploi-zurich/technical-planner-maintenance-m-f-80-100-yellowshark-ag-volketswil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -76326,9 +76439,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-denner-ibach",
-        "en": "vendeur-denner-ibach",
-        "de": "vendeur-denner-ibach",
+        "it": "venditore-denner-ibach",
+        "en": "shop-assistant-denner-ibach",
+        "de": "verkaufer-in-denner",
         "fr": "vendeur-denner-ibach"
       },
       "localePaths": {
@@ -76343,6 +76456,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -78466,10 +78580,10 @@
         "fr": "venditore-a-prodotti-freschi-coop-genossenschaft-sirnach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
-        "en": "/en/find-jobs-aargau/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
-        "de": "/de/jobs-im-aargau/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
-        "fr": "/fr/trouver-emploi-argovie/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach"
+        "it": "/cerca-lavoro-turgovia/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
+        "en": "/en/find-jobs-thurgau/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
+        "de": "/de/jobs-im-thurgau/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach",
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-a-prodotti-freschi-coop-genossenschaft-sirnach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78898,10 +79012,10 @@
         "fr": "venditore-di-prodotti-freschi-coop-genossenschaft-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
-        "en": "/en/find-jobs-aargau/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
+        "it": "/cerca-lavoro-zurigo/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
+        "en": "/en/find-jobs-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
         "de": "/de/jobs-im-luzern/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur",
-        "fr": "/fr/trouver-emploi-argovie/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur"
+        "fr": "/fr/trouver-emploi-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82961,10 +83075,10 @@
         "fr": "vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur",
-        "en": "/en/find-jobs-vaud/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur",
+        "it": "/cerca-lavoro-vallese/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur",
+        "en": "/en/find-jobs-valais/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur",
         "de": "/de/jobs-im-zurich/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur",
-        "fr": "/fr/trouver-emploi-vaud/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur"
+        "fr": "/fr/trouver-emploi-valais/vice-direttore-di-negozio-vice-direttrice-di-negozio-m-f-d-60-80-lidl-svizzera-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -83016,10 +83130,10 @@
         "fr": "vice-direttoredifiliale-denner-appenzell"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/vice-direttoredifiliale-denner-appenzell",
-        "en": "/en/find-jobs-lucerne/vice-direttoredifiliale-denner-appenzell",
-        "de": "/de/jobs-in-luzern/vice-direttoredifiliale-denner-appenzell",
-        "fr": "/fr/trouver-emploi-lucerne/vice-direttoredifiliale-denner-appenzell"
+        "it": "/cerca-lavoro-ticino/vice-direttoredifiliale-denner-appenzell",
+        "en": "/en/find-jobs-ticino/vice-direttoredifiliale-denner-appenzell",
+        "de": "/de/jobs-im-tessin/vice-direttoredifiliale-denner-appenzell",
+        "fr": "/fr/trouver-emploi-tessin/vice-direttoredifiliale-denner-appenzell"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84023,10 +84137,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-18"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-18",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-18",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-18",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-18"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-18",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-18",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-18",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-18"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

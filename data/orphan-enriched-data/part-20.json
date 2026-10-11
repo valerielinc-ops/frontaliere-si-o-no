@@ -23638,14 +23638,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "it": "engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "fr": "engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "de": "engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-nidwalden/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "it": "/cerca-lavoro-nidvaldo/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "fr": "/fr/trouver-emploi-nidwald/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+        "de": "/de/jobs-im-nidwalden/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -24650,10 +24661,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
-        "en": "/en/find-jobs-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
-        "de": "/de/jobs-im-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
-        "fr": "/fr/trouver-emploi-argovie/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach"
+        "it": "/cerca-lavoro-soletta/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "en": "/en/find-jobs-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "de": "/de/jobs-in-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "fr": "/fr/trouver-emploi-soleure/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25046,6 +25057,74 @@
         "en": "/en/find-jobs-zurich/fachspezialist-in-prozessmanagement-axa-winterthur-z85xmn",
         "de": "/de/jobs-im-zurich/fachspezialist-in-prozessmanagement-axa-winterthur-z85xmn",
         "fr": "/fr/trouver-emploi-zurich/fachspezialist-in-prozessmanagement-axa-winterthur-z85xmn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich/"
+      },
+      "queries": [
+        {
+          "query": "hr jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "hr jobs in den letzten 3 tagen",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs altstetten",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "hr jobs",
+      "title": "Fachspezialist in risorse umane prozesse systemeinfuhrung befristet bis ende 2027 kantonale verwaltung",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "en": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "de": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "fr": "fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "en": "/en/find-jobs-zurich/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "de": "/de/jobs-im-zurich/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich",
+        "fr": "/fr/trouver-emploi-zurich/fachspezialist-in-risorse-umane-prozesse-systemeinfuhrung-befristet-bis-ende-2027-kantonale-verwaltung-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29400,10 +29479,10 @@
         "fr": "isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "en": "/en/find-jobs-ticino/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "de": "/de/jobs-im-tessin/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "fr": "/fr/trouver-emploi-tessin/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland"
+        "it": "/cerca-lavoro-zurigo/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "en": "/en/find-jobs-zurich/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "de": "/de/jobs-in-zurich/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "fr": "/fr/trouver-emploi-zurich/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35363,14 +35442,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "it": "it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "de": "it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "fr": "it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-appenzell/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "it": "/cerca-lavoro-appenzello/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "de": "/de/jobs-im-appenzell/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+        "fr": "/fr/trouver-emploi-appenzell/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -42155,10 +42245,10 @@
         "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-aarberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
-        "en": "/en/find-jobs-bern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
+        "it": "/cerca-lavoro-zugo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
+        "en": "/en/find-jobs-zug/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
         "de": "/de/jobs-im-luzern/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg",
-        "fr": "/fr/trouver-emploi-berne/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg"
+        "fr": "/fr/trouver-emploi-zoug/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-aarberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -45266,10 +45356,10 @@
         "fr": "optician-w-m-d-fielmann-group-bern-i"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/optician-w-m-d-fielmann-group-bern-i",
-        "en": "/en/find-jobs-bern/optician-w-m-d-fielmann-group-bern-i",
-        "de": "/de/jobs-in-bern/optician-w-m-d-fielmann-group-bern-i",
-        "fr": "/fr/trouver-emploi-berne/optician-w-m-d-fielmann-group-bern-i"
+        "it": "/cerca-lavoro-soletta/optician-w-m-d-fielmann-group-bern-i",
+        "en": "/en/find-jobs-solothurn/optician-w-m-d-fielmann-group-bern-i",
+        "de": "/de/jobs-in-solothurn/optician-w-m-d-fielmann-group-bern-i",
+        "fr": "/fr/trouver-emploi-soleure/optician-w-m-d-fielmann-group-bern-i"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -49357,6 +49447,64 @@
         "en": "/en/find-jobs-ticino/prevoyeur-de-commandes-coop-genossenschaft-bern-e4gyy3",
         "de": "/de/jobs-im-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-e4gyy3",
         "fr": "/fr/trouver-emploi-tessin/prevoyeur-de-commandes-coop-genossenschaft-bern-e4gyy3"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/pricing-revenue-specialiste-hotel-lastminute-com-chiasso/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/pricing-revenue-specialiste-hotel-lastminute-com-chiasso/"
+      },
+      "queries": [
+        {
+          "query": "last minute chiasso",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "last minute chiasso",
+      "title": "Pricing revenue specialiste hotel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "en": "pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "de": "pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "fr": "pricing-revenue-specialiste-hotel-lastminute-com-chiasso"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "en": "/en/find-jobs-ticino/pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "de": "/de/jobs-im-tessin/pricing-revenue-specialiste-hotel-lastminute-com-chiasso",
+        "fr": "/fr/trouver-emploi-tessin/pricing-revenue-specialiste-hotel-lastminute-com-chiasso"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56274,19 +56422,19 @@
       },
       "queries": [
         {
+          "query": "ristoranti italiani a zurigo che cercano personale",
+          "clicks": 1,
+          "impressions": 36
+        },
+        {
           "query": "offerte di lavoro ticino ristorazione",
           "clicks": 2,
           "impressions": 35
         },
         {
-          "query": "ristoranti italiani a zurigo che cercano personale",
-          "clicks": 1,
-          "impressions": 35
-        },
-        {
           "query": "offerte di lavoro ristorazione ticino",
           "clicks": 2,
-          "impressions": 28
+          "impressions": 29
         },
         {
           "query": "offerte lavoro ristorazione ticino",
@@ -56311,7 +56459,7 @@
         {
           "query": "lavoro ristorazione ticino",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "frontalieri",
@@ -56374,9 +56522,9 @@
           "impressions": 7
         }
       ],
-      "totalImpressions": 560,
+      "totalImpressions": 573,
       "totalClicks": 16,
-      "topQuery": "offerte di lavoro ticino ristorazione",
+      "topQuery": "ristoranti italiani a zurigo che cercano personale",
       "title": "Ristorazione",
       "titleByLocale": {
         "it": "",
@@ -61281,14 +61429,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "fr": "senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "it": "senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "de": "senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zug/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "fr": "/fr/trouver-emploi-zoug/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "it": "/cerca-lavoro-zugo/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+        "de": "/de/jobs-im-zug/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -65250,14 +65409,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "de": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "en": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "it": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-soleure/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "de": "/de/jobs-im-solothurn/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "en": "/en/find-jobs-solothurn/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+        "it": "/cerca-lavoro-soletta/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -67795,14 +67965,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "en": "supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "it": "supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "de": "supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "en": "/en/find-jobs-basel/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "it": "/cerca-lavoro-basilea/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+        "de": "/de/jobs-im-basel/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -68463,10 +68644,10 @@
         "fr": "taches-principales-hirslanden-search-43"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/taches-principales-hirslanden-search-43",
-        "en": "/en/find-jobs-geneva/taches-principales-hirslanden-search-43",
+        "it": "/cerca-lavoro-vaud/taches-principales-hirslanden-search-43",
+        "en": "/en/find-jobs-vaud/taches-principales-hirslanden-search-43",
         "de": "/de/jobs-im-waadt/taches-principales-hirslanden-search-43",
-        "fr": "/fr/trouver-emploi-geneve/taches-principales-hirslanden-search-43"
+        "fr": "/fr/trouver-emploi-vaud/taches-principales-hirslanden-search-43"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69162,14 +69343,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "fr": "technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "/de/jobs-im-st-gallen/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "fr": "/fr/trouver-emploi-saint-gall/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "/cerca-lavoro-san-gallo/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -69336,10 +69528,10 @@
         "fr": "technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
-        "en": "/en/find-jobs-ticino/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
-        "de": "/de/jobs-im-tessin/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
-        "fr": "/fr/trouver-emploi-tessin/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633"
+        "it": "/cerca-lavoro-lucerna/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
+        "en": "/en/find-jobs-lucerne/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
+        "de": "/de/jobs-in-luzern/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633",
+        "fr": "/fr/trouver-emploi-lucerne/technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76095,10 +76287,10 @@
         "fr": "venditore-in-prodotti-freschi-coop-genossenschaft-kloten"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-in-prodotti-freschi-coop-genossenschaft-kloten",
-        "en": "/en/find-jobs-aargau/venditore-in-prodotti-freschi-coop-genossenschaft-kloten",
+        "it": "/cerca-lavoro-zurigo/venditore-in-prodotti-freschi-coop-genossenschaft-kloten",
+        "en": "/en/find-jobs-zurich/venditore-in-prodotti-freschi-coop-genossenschaft-kloten",
         "de": "/de/jobs-im-st-gallen/venditore-in-prodotti-freschi-coop-genossenschaft-kloten",
-        "fr": "/fr/trouver-emploi-argovie/venditore-in-prodotti-freschi-coop-genossenschaft-kloten"
+        "fr": "/fr/trouver-emploi-zurich/venditore-in-prodotti-freschi-coop-genossenschaft-kloten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

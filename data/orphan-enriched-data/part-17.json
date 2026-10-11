@@ -6641,9 +6641,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "assistant-socio-educatif-f-h-ehc-vd-morges",
-        "en": "assistant-socio-educatif-f-h-ehc-vd-morges",
-        "de": "assistant-socio-educatif-f-h-ehc-vd-morges",
+        "it": "assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "assistant-socio-educatif-f-h-ehc-vd-morges"
       },
       "localePaths": {
@@ -6652,12 +6652,13 @@
         "de": "/de/jobs-in-der-waadt/assistant-socio-educatif-f-h-ehc-vd-morges",
         "fr": "/fr/trouver-emploi-vaud/assistant-socio-educatif-f-h-ehc-vd-morges"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://emploi.ehc-vd.ch/fr/nos-offres/assistant-socio-educatif-fh-3695",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -11283,14 +11284,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "it": "business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "de": "business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "fr": "business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-lucerne/business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/business-informatics-specialist-80-100-m-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -15055,14 +15067,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "en": "comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "it": "comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "de": "comptables-financiers-h-f-yellowshark-ag-dubendorf"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "en": "/en/find-jobs-zurich/comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "it": "/cerca-lavoro-zurigo/comptables-financiers-h-f-yellowshark-ag-dubendorf",
+        "de": "/de/jobs-im-zurich/comptables-financiers-h-f-yellowshark-ag-dubendorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -18673,10 +18696,10 @@
         "fr": "data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "en": "/en/find-jobs-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "de": "/de/jobs-in-der-waadt/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
-        "fr": "/fr/trouver-emploi-vaud/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
+        "it": "/cerca-lavoro-zugo/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "en": "/en/find-jobs-zug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "de": "/de/jobs-in-zug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier",
+        "fr": "/fr/trouver-emploi-zoug/data-center-techniker-switzerland-crissier-on-site-reboot-monkey-crissier"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20601,6 +20624,63 @@
         "en": "/en/find-jobs-ticino/dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza",
         "de": "/de/jobs-im-tessin/dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza",
         "fr": "/fr/trouver-emploi-tessin/dipl-pflegefachfrau-mann-rettungssanitater-in-50-m-w-d-lonza"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+      "locale": "it",
+      "path": "/cerca-lavoro-obvaldo/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-obvaldo/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg/"
+      },
+      "queries": [
+        {
+          "query": "zimmermann",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "zimmermann",
+      "title": "Dipl pflegefachfrau pflegefachmann hf dn1 medipersonal engelberg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-obvaldo/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "en": "/en/find-jobs-obwalden/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "de": "/de/jobs-im-obwalden/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg",
+        "fr": "/fr/trouver-emploi-obwald/dipl-pflegefachfrau-pflegefachmann-hf-dn1-medipersonal-engelberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24049,6 +24129,11 @@
           "impressions": 3
         },
         {
+          "query": "rvcs ticino",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
           "query": "automation engineer",
           "clicks": 1,
           "impressions": 1
@@ -24061,6 +24146,11 @@
         {
           "query": "ich kann kein französisch",
           "clicks": 1,
+          "impressions": 1
+        },
+        {
+          "query": "engineering jobs in switzerland",
+          "clicks": 0,
           "impressions": 1
         },
         {
@@ -24099,27 +24189,17 @@
           "impressions": 1
         },
         {
+          "query": "efg bank ag mobile apps",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "engenharia de producao",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "frontaliere",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "in ticino",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "inglese?",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 61,
+      "totalImpressions": 64,
       "totalClicks": 3,
       "topQuery": "find a job as an electrician in the canton of vaud",
       "title": "Engineers",
@@ -25744,10 +25824,10 @@
         "fr": "filialleiter-in-denner-ilanz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/filialleiter-in-denner-ilanz",
-        "en": "/en/find-jobs-ticino/filialleiter-in-denner-ilanz",
-        "de": "/de/jobs-im-tessin/filialleiter-in-denner-ilanz",
-        "fr": "/fr/trouver-emploi-tessin/filialleiter-in-denner-ilanz"
+        "it": "/cerca-lavoro-vaud/filialleiter-in-denner-ilanz",
+        "en": "/en/find-jobs-vaud/filialleiter-in-denner-ilanz",
+        "de": "/de/jobs-in-der-waadt/filialleiter-in-denner-ilanz",
+        "fr": "/fr/trouver-emploi-vaud/filialleiter-in-denner-ilanz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27637,10 +27717,10 @@
         "fr": "fournisseur-produits-frais-coop-genossenschaft-st-gallen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
-        "en": "/en/find-jobs-aargau/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
-        "de": "/de/jobs-im-aargau/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
-        "fr": "/fr/trouver-emploi-argovie/fournisseur-produits-frais-coop-genossenschaft-st-gallen"
+        "it": "/cerca-lavoro-san-gallo/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
+        "en": "/en/find-jobs-st-gallen/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
+        "de": "/de/jobs-in-st-gallen/fournisseur-produits-frais-coop-genossenschaft-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/fournisseur-produits-frais-coop-genossenschaft-st-gallen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28074,10 +28154,10 @@
         "fr": "front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "/en/find-jobs-ticino/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
-        "de": "/de/jobs-im-tessin/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "/fr/trouver-emploi-tessin/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
+        "it": "/cerca-lavoro-nidvaldo/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+        "en": "/en/find-jobs-nidwalden/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+        "de": "/de/jobs-in-nidwalden/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen",
+        "fr": "/fr/trouver-emploi-nidwald/front-office-agent-100-w-m-i-buergenstock-hotels-obburgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29289,14 +29369,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "it": "gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "de": "gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "en": "gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-soleure/gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "it": "/cerca-lavoro-soletta/gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "de": "/de/jobs-im-solothurn/gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn",
+        "en": "/en/find-jobs-solothurn/gestionnaire-d-applications-erp-h-f-80-100-yellowshark-ag-solothurn"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -29948,6 +30039,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "ground-layer-m-f-yellowshark-ag-schwyz-sz",
+      "locale": "en",
+      "path": "/en/find-jobs-schwyz/ground-layer-m-f-yellowshark-ag-schwyz-sz/",
+      "observedPaths": {
+        "en": "/en/find-jobs-schwyz/ground-layer-m-f-yellowshark-ag-schwyz-sz/"
+      },
+      "queries": [
+        {
+          "query": "korkboden verlegen wil sg",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "korkboden verlegen wil sg",
+      "title": "Ground layer yellowshark ag schwyz sz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "en": "ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "de": "ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "fr": "ground-layer-m-f-yellowshark-ag-schwyz-sz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "en": "/en/find-jobs-schwyz/ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "de": "/de/jobs-im-schwyz/ground-layer-m-f-yellowshark-ag-schwyz-sz",
+        "fr": "/fr/trouver-emploi-schwytz/ground-layer-m-f-yellowshark-ag-schwyz-sz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -46914,10 +47062,10 @@
         "fr": "pflegefachperson-m-w-d-60-80-lups-sursee"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/pflegefachperson-m-w-d-60-80-lups-sursee",
-        "en": "/en/find-jobs-ticino/pflegefachperson-m-w-d-60-80-lups-sursee",
-        "de": "/de/jobs-im-tessin/pflegefachperson-m-w-d-60-80-lups-sursee",
-        "fr": "/fr/trouver-emploi-tessin/pflegefachperson-m-w-d-60-80-lups-sursee"
+        "it": "/cerca-lavoro-lucerna/pflegefachperson-m-w-d-60-80-lups-sursee",
+        "en": "/en/find-jobs-lucerne/pflegefachperson-m-w-d-60-80-lups-sursee",
+        "de": "/de/jobs-in-luzern/pflegefachperson-m-w-d-60-80-lups-sursee",
+        "fr": "/fr/trouver-emploi-lucerne/pflegefachperson-m-w-d-60-80-lups-sursee"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47451,10 +47599,10 @@
         "fr": "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
-        "en": "/en/find-jobs-graubunden/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
-        "de": "/de/jobs-in-graubunden/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
-        "fr": "/fr/trouver-emploi-grisons/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide"
+        "it": "/cerca-lavoro-berna/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
+        "en": "/en/find-jobs-bern/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
+        "de": "/de/jobs-in-bern/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide",
+        "fr": "/fr/trouver-emploi-berne/place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-cfc-denrees-alimentaires-volg-lenzerheide"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -53356,14 +53504,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "de": "responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "it": "responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "en": "responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/responsable-de-la-conception-electrique-automatisation-du-batiment-80-100-h-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -54328,14 +54487,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "fr": "roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "de": "roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "it": "roofing-and-construction-equipment-m-f-yellowshark-ag-liestal"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "fr": "/fr/trouver-emploi-bale/roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "de": "/de/jobs-im-basel/roofing-and-construction-equipment-m-f-yellowshark-ag-liestal",
+        "it": "/cerca-lavoro-basilea/roofing-and-construction-equipment-m-f-yellowshark-ag-liestal"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -56226,10 +56396,10 @@
         "fr": "sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
-        "en": "/en/find-jobs-valais/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
-        "de": "/de/jobs-im-wallis/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
-        "fr": "/fr/trouver-emploi-valais/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau"
+        "it": "/cerca-lavoro-zurigo/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
+        "en": "/en/find-jobs-zurich/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
+        "de": "/de/jobs-in-zurich/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau",
+        "fr": "/fr/trouver-emploi-zurich/sales-consultant-in-electrical-household-and-multimedia-80-100-fust-oftringen-aargau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60079,14 +60249,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "fr": "service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "de": "service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "it": "service-technician-mechanical-m-f-100-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/service-technician-mechanical-m-f-100-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/service-technician-mechanical-m-f-100-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -61921,14 +62102,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "it": "specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "en": "specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "de": "specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "en": "/en/find-jobs-bern/specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/specialiste-de-l-entretien-technicien-d-entretien-h-f-100-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -67258,14 +67450,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "it": "technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "de": "technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "fr": "technical-buyer-m-f-80-100-yellowshark-ag-regensdorf"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "it": "/cerca-lavoro-zurigo/technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "de": "/de/jobs-im-zurich/technical-buyer-m-f-80-100-yellowshark-ag-regensdorf",
+        "fr": "/fr/trouver-emploi-zurich/technical-buyer-m-f-80-100-yellowshark-ag-regensdorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -67460,14 +67663,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "it": "technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "de": "technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "fr": "technician-mechatronics-m-f-yellowshark-ag-buchs-zh"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "it": "/cerca-lavoro-zurigo/technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "de": "/de/jobs-im-zurich/technician-mechatronics-m-f-yellowshark-ag-buchs-zh",
+        "fr": "/fr/trouver-emploi-zurich/technician-mechatronics-m-f-yellowshark-ag-buchs-zh"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -68068,10 +68282,10 @@
         "fr": "technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
-        "en": "/en/find-jobs-ticino/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
-        "de": "/de/jobs-im-tessin/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
-        "fr": "/fr/trouver-emploi-tessin/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne"
+        "it": "/cerca-lavoro-berna/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
+        "en": "/en/find-jobs-bern/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
+        "de": "/de/jobs-in-bern/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne",
+        "fr": "/fr/trouver-emploi-berne/technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71432,10 +71646,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "en": "/en/find-jobs-schwyz/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "de": "/de/jobs-in-schwyz/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
-        "fr": "/fr/trouver-emploi-schwytz/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
+        "it": "/cerca-lavoro-zurigo/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "en": "/en/find-jobs-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "de": "/de/jobs-in-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-neuenegg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73614,10 +73828,10 @@
         "fr": "vendeur-produits-frais-coop-genossenschaft-niederrohrdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "en": "/en/find-jobs-zurich/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "de": "/de/jobs-in-zurich/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
-        "fr": "/fr/trouver-emploi-zurich/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf"
+        "it": "/cerca-lavoro-argovia/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "en": "/en/find-jobs-aargau/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "de": "/de/jobs-im-aargau/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf",
+        "fr": "/fr/trouver-emploi-argovie/vendita-prodotti-freschi-coop-genossenschaft-niederrohrdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74648,10 +74862,10 @@
         "fr": "venditore-in-prodotti-freschi-coop-genossenschaft-winterthur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
-        "en": "/en/find-jobs-aargau/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
+        "it": "/cerca-lavoro-zurigo/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
+        "en": "/en/find-jobs-zurich/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
         "de": "/de/jobs-im-zurich/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur",
-        "fr": "/fr/trouver-emploi-argovie/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur"
+        "fr": "/fr/trouver-emploi-zurich/venditore-in-prodotti-freschi-coop-genossenschaft-winterthur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76343,10 +76557,10 @@
         "fr": "verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
-        "en": "/en/find-jobs-ticino/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
-        "de": "/de/jobs-im-tessin/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp"
+        "it": "/cerca-lavoro-san-gallo/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
+        "en": "/en/find-jobs-st-gallen/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
+        "de": "/de/jobs-in-st-gallen/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp",
+        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-food-coop-genossenschaft-wildhaus-alt-sankt-johann-j1b5rp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76504,10 +76718,10 @@
         "fr": "verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
-        "en": "/en/find-jobs-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
+        "it": "/cerca-lavoro-argovia/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
+        "en": "/en/find-jobs-aargau/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
         "de": "/de/jobs-im-bern/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

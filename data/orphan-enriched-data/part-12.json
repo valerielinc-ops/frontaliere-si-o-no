@@ -616,14 +616,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "it": "acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "de": "acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "en": "acquereur-technique-h-f-80-100-yellowshark-ag-volketswil"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "it": "/cerca-lavoro-zurigo/acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "de": "/de/jobs-im-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-volketswil",
+        "en": "/en/find-jobs-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-volketswil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -7504,10 +7515,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "assistent-in-filialleitung-denner",
-        "it": "assistent-in-filialleitung-denner-5",
-        "en": "assistent-in-filialleitung-denner-5",
-        "fr": "assistent-in-filialleitung-denner-5"
+        "de": "assistent-in-filialleitung-denner"
       },
       "localePaths": {
         "it": "/cerca-lavoro-basilea/assistent-in-filialleitung-denner-5",
@@ -14967,10 +14975,10 @@
         "fr": "cheese-packaging-plant-manager-emmi-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/cheese-packaging-plant-manager-emmi-emmen",
-        "en": "/en/find-jobs-ticino/cheese-packaging-plant-manager-emmi-emmen",
-        "de": "/de/jobs-im-tessin/cheese-packaging-plant-manager-emmi-emmen",
-        "fr": "/fr/trouver-emploi-tessin/cheese-packaging-plant-manager-emmi-emmen"
+        "it": "/cerca-lavoro-lucerna/cheese-packaging-plant-manager-emmi-emmen",
+        "en": "/en/find-jobs-lucerne/cheese-packaging-plant-manager-emmi-emmen",
+        "de": "/de/jobs-in-luzern/cheese-packaging-plant-manager-emmi-emmen",
+        "fr": "/fr/trouver-emploi-lucerne/cheese-packaging-plant-manager-emmi-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -20311,9 +20319,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "consultant-en-assurance-pour-l-agence-principale-de-hinwil-axa-svizzera-hinwil",
-        "en": "consultant-en-assurance-pour-l-agence-principale-de-hinwil-axa-svizzera-hinwil",
-        "de": "consultant-en-assurance-pour-l-agence-principale-de-hinwil-axa-svizzera-hinwil",
+        "it": "consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil",
+        "en": "insurance-consultant-for-the-main-agency-hinwil-axa-svizzera-hinwil",
+        "de": "versicherungsberater-in-fur-die-hauptagentur-hinwil-axa-svizzera-hinwil",
         "fr": "consultant-en-assurance-pour-l-agence-principale-de-hinwil-axa-svizzera-hinwil"
       },
       "localePaths": {
@@ -20328,6 +20336,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -22710,14 +22719,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "fr": "design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "it": "design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "de": "design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "fr": "/fr/trouver-emploi-berne/design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "it": "/cerca-lavoro-berna/design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be",
+        "de": "/de/jobs-im-bern/design-engineer-precision-technology-80-100-m-f-yellowshark-ag-studen-be"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -26775,14 +26795,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "it": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "en": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "de": "entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "it": "/cerca-lavoro-basilea/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "en": "/en/find-jobs-basel/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln",
+        "de": "/de/jobs-im-basel/entretien-mecanique-operationnel-80-100-h-f-yellowshark-ag-pratteln"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -31544,6 +31575,64 @@
       ]
     },
     {
+      "slug": "gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur/"
+      },
+      "queries": [
+        {
+          "query": "gärtner jobs winterthur",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "gärtner jobs winterthur",
+      "title": "Gartner in garten und landschaftsbau fur gartenanlagen und bepflanzungen stellenpartner ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Winterthur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "en": "gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "de": "gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "fr": "gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "en": "/en/find-jobs-zurich/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "de": "/de/jobs-im-zurich/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur",
+        "fr": "/fr/trouver-emploi-zurich/gartner-in-garten-und-landschaftsbau-fur-gartenanlagen-und-bepflanzungen-stellenpartner-ag-winterthur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "gastgewerb-mitarbeiter-in-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os",
       "locale": "en",
       "path": "/en/find-jobs-ticino/gastgewerb-mitarbeiter-in-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os",
@@ -35667,7 +35756,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp",
+        "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano-25ab8c59e8",
         "en": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp",
         "de": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp",
         "fr": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqp"
@@ -35684,6 +35773,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -48706,10 +48796,10 @@
         "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-freienbach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
-        "en": "/en/find-jobs-bern/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
+        "it": "/cerca-lavoro-svitto/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
+        "en": "/en/find-jobs-schwyz/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
         "de": "/de/jobs-im-schwyz/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
-        "fr": "/fr/trouver-emploi-berne/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
+        "fr": "/fr/trouver-emploi-schwytz/mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -48962,10 +49052,10 @@
         "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-8"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
-        "en": "/en/find-jobs-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
+        "it": "/cerca-lavoro-san-gallo/mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
+        "en": "/en/find-jobs-st-gallen/mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
         "de": "/de/jobs-im-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-8",
-        "fr": "/fr/trouver-emploi-zurich/mitarbeiter-verkauf-m-w-d-aldi-suisse-8"
+        "fr": "/fr/trouver-emploi-saint-gall/mitarbeiter-verkauf-m-w-d-aldi-suisse-8"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52693,10 +52783,10 @@
         "fr": "piombo-di-progetto-phys-chem-qc-80-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
-        "en": "/en/find-jobs-aargau/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
-        "de": "/de/jobs-im-aargau/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-argovie/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch"
+        "it": "/cerca-lavoro-basilea/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
+        "en": "/en/find-jobs-basel/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
+        "de": "/de/jobs-in-basel/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-bale/piombo-di-progetto-phys-chem-qc-80-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54955,10 +55045,10 @@
         "fr": "principali-hirslanden-klinik-search-61d2be"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/principali-hirslanden-klinik-search-61d2be",
-        "en": "/en/find-jobs-geneva/principali-hirslanden-klinik-search-61d2be",
-        "de": "/de/jobs-in-genf/principali-hirslanden-klinik-search-61d2be",
-        "fr": "/fr/trouver-emploi-geneve/principali-hirslanden-klinik-search-61d2be"
+        "it": "/cerca-lavoro-vaud/principali-hirslanden-klinik-search-61d2be",
+        "en": "/en/find-jobs-vaud/principali-hirslanden-klinik-search-61d2be",
+        "de": "/de/jobs-in-der-waadt/principali-hirslanden-klinik-search-61d2be",
+        "fr": "/fr/trouver-emploi-vaud/principali-hirslanden-klinik-search-61d2be"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65878,14 +65968,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "it": "service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "de": "service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "fr": "service-technician-electronics-m-f-yellowshark-ag-rumlang"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "it": "/cerca-lavoro-zurigo/service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "de": "/de/jobs-im-zurich/service-technician-electronics-m-f-yellowshark-ag-rumlang",
+        "fr": "/fr/trouver-emploi-zurich/service-technician-electronics-m-f-yellowshark-ag-rumlang"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -65918,14 +66019,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "fr": "service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "it": "service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "de": "service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/service-technician-heat-pumps-m-f-region-greater-bern-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -74768,10 +74880,10 @@
         "fr": "tirocinante-archivista-jaeger-lecoultre-le-sentier"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/tirocinante-archivista-jaeger-lecoultre-le-sentier",
-        "en": "/en/find-jobs-ticino/tirocinante-archivista-jaeger-lecoultre-le-sentier",
-        "de": "/de/jobs-im-tessin/tirocinante-archivista-jaeger-lecoultre-le-sentier",
-        "fr": "/fr/trouver-emploi-tessin/tirocinante-archivista-jaeger-lecoultre-le-sentier"
+        "it": "/cerca-lavoro-ginevra/tirocinante-archivista-jaeger-lecoultre-le-sentier",
+        "en": "/en/find-jobs-geneva/tirocinante-archivista-jaeger-lecoultre-le-sentier",
+        "de": "/de/jobs-in-genf/tirocinante-archivista-jaeger-lecoultre-le-sentier",
+        "fr": "/fr/trouver-emploi-geneve/tirocinante-archivista-jaeger-lecoultre-le-sentier"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -83209,10 +83321,10 @@
         "it": "consulente-vendite-do-it-jumbo-chur-graubunden"
       },
       "localePaths": {
-        "de": "/de/jobs-in-st-gallen/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
-        "it": "/cerca-lavoro-san-gallo/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
-        "en": "/en/find-jobs-st-gallen/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
-        "fr": "/fr/trouver-emploi-saint-gall/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l"
+        "de": "/de/jobs-in-graubunden/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
+        "it": "/cerca-lavoro-grigioni/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
+        "en": "/en/find-jobs-graubunden/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
+        "fr": "/fr/trouver-emploi-grisons/verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -85699,10 +85811,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-22"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-22",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-22",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-22",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-22"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-22",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-22",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-22",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-22"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

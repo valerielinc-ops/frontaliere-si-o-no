@@ -605,14 +605,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "it": "acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "de": "acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "en": "acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg",
+        "en": "/en/find-jobs-aargau/acheteur-techniquement-h-f-80-100-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -5291,10 +5302,10 @@
         "fr": "aspirant-stv-directeur-general-coop-genossenschaft-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-svitto/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-schwyz/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-obvaldo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-obwalden/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-graubunden/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-schwytz/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-obwald/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -5549,14 +5560,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "it": "assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "de": "assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "fr": "assembly-specialist-m-f-100-yellowshark-ag-regensdorf"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "it": "/cerca-lavoro-zurigo/assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "de": "/de/jobs-im-zurich/assembly-specialist-m-f-100-yellowshark-ag-regensdorf",
+        "fr": "/fr/trouver-emploi-zurich/assembly-specialist-m-f-100-yellowshark-ag-regensdorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -5589,14 +5611,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "it": "assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "de": "assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "fr": "assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "it": "/cerca-lavoro-zurigo/assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "de": "/de/jobs-im-zurich/assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen",
+        "fr": "/fr/trouver-emploi-zurich/assembly-technician-vehicle-manufacturer-m-f-80-100-yellowshark-ag-wallisellen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -10745,6 +10778,63 @@
       ]
     },
     {
+      "slug": "berg",
+      "locale": "de",
+      "path": "/de/jobs-im-thurgau/berg/",
+      "observedPaths": {
+        "de": "/de/jobs-im-thurgau/berg/"
+      },
+      "queries": [
+        {
+          "query": "site:frontaliereticino.ch",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "site:frontaliereticino.ch",
+      "title": "Berg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "berg",
+        "en": "berg",
+        "de": "berg",
+        "fr": "berg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/berg",
+        "en": "/en/find-jobs-thurgau/berg",
+        "de": "/de/jobs-im-thurgau/berg",
+        "fr": "/fr/trouver-emploi-thurgovie/berg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "bestandskontrolleur-temporar-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9",
       "locale": "de",
       "path": "/de/jobs-im-tessin/bestandskontrolleur-temporar-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-a228r9/",
@@ -13991,14 +14081,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "en": "chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "it": "chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "de": "chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "en": "/en/find-jobs-zurich/chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "it": "/cerca-lavoro-zurigo/chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach",
+        "de": "/de/jobs-im-zurich/chef-d-equipe-fabrication-electronique-100-h-f-yellowshark-ag-seuzach"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -16777,10 +16878,10 @@
         "fr": "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-        "en": "/en/find-jobs-lucerne/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+        "it": "/cerca-lavoro-berna/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
+        "en": "/en/find-jobs-bern/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
         "de": "/de/jobs-im-st-gallen/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken",
-        "fr": "/fr/trouver-emploi-lucerne/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
+        "fr": "/fr/trouver-emploi-berne/collaboratore-trice-m-w-d-im-vendita-80-new-yorker-interlaken"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17653,10 +17754,10 @@
         "fr": "conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
-        "en": "/en/find-jobs-aargau/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
-        "de": "/de/jobs-im-aargau/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
-        "fr": "/fr/trouver-emploi-argovie/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil"
+        "it": "/cerca-lavoro-zurigo/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
+        "en": "/en/find-jobs-zurich/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
+        "de": "/de/jobs-in-zurich/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil",
+        "fr": "/fr/trouver-emploi-zurich/conseiller-en-assurance-et-prevoyance-m-f-80-100-groupe-mutuel-wil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17708,10 +17809,10 @@
         "fr": "conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-sciaffusa/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach",
-        "en": "/en/find-jobs-schaffhausen/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach",
+        "it": "/cerca-lavoro-lucerna/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach",
+        "en": "/en/find-jobs-lucerne/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach",
         "de": "/de/jobs-im-zurich/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach",
-        "fr": "/fr/trouver-emploi-schaffhouse/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach"
+        "fr": "/fr/trouver-emploi-lucerne/conseiller-en-assurance-pour-l-agence-generale-de-bulach-axa-svizzera-bulach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -27725,7 +27826,7 @@
         {
           "query": "softwareentwicklung jobs lugano",
           "clicks": 0,
-          "impressions": 37
+          "impressions": 38
         },
         {
           "query": "enterprise suche für entwickler",
@@ -27778,7 +27879,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 141,
+      "totalImpressions": 142,
       "totalClicks": 0,
       "topQuery": "softwareentwickler jobs lugano",
       "title": "Entwickler",
@@ -29236,14 +29337,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "it": "financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "fr": "financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "de": "financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "it": "/cerca-lavoro-berna/financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "fr": "/fr/trouver-emploi-berne/financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen",
+        "de": "/de/jobs-im-bern/financial-accounting-specialist-m-f-100-yellowshark-ag-ittigen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -30224,10 +30336,10 @@
         "fr": "food-salesperson-coop-genossenschaft-luzern-bbc8cf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
-        "en": "/en/find-jobs-ticino/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
-        "de": "/de/jobs-im-tessin/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
-        "fr": "/fr/trouver-emploi-tessin/food-salesperson-coop-genossenschaft-luzern-bbc8cf"
+        "it": "/cerca-lavoro-lucerna/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
+        "en": "/en/find-jobs-lucerne/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
+        "de": "/de/jobs-in-luzern/food-salesperson-coop-genossenschaft-luzern-bbc8cf",
+        "fr": "/fr/trouver-emploi-lucerne/food-salesperson-coop-genossenschaft-luzern-bbc8cf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33106,7 +33218,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "hebamme-stgag-ch"
+        "de": "hebamme-stgag-ch",
+        "it": "mutua-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "en": "midwife-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "fr": "une-sage-femme-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "localePaths": {
         "it": "/cerca-lavoro-turgovia/hebamme-stgag-ch",
@@ -35192,14 +35307,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "it": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "en": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "de": "ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "it": "/cerca-lavoro-berna/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "en": "/en/find-jobs-bern/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be",
+        "de": "/de/jobs-im-bern/ingenieur-d-automatisation-technicien-automatisation-fh-hf-80-100-h-f-yellowshark-ag-studen-be"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -36953,6 +37079,64 @@
         "en": "/en/find-jobs-graubunden/junior-talent-for-career-in-sales-genossenschaft-migros-ostschweiz-samedan",
         "de": "/de/jobs-in-graubunden/junior-talent-for-career-in-sales-genossenschaft-migros-ostschweiz-samedan",
         "fr": "/fr/trouver-emploi-grisons/junior-talent-for-career-in-sales-genossenschaft-migros-ostschweiz-samedan"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "kaltetechniker-in-equans-switzerland-kloten",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/kaltetechniker-in-equans-switzerland-kloten/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/kaltetechniker-in-equans-switzerland-kloten/"
+      },
+      "queries": [
+        {
+          "query": "equans kältetechnik",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "equans kältetechnik",
+      "title": "Kaltetechniker in equans switzerland",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Kloten",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "kaltetechniker-in-equans-switzerland-kloten",
+        "en": "kaltetechniker-in-equans-switzerland-kloten",
+        "de": "kaltetechniker-in-equans-switzerland-kloten",
+        "fr": "kaltetechniker-in-equans-switzerland-kloten"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/kaltetechniker-in-equans-switzerland-kloten",
+        "en": "/en/find-jobs-zurich/kaltetechniker-in-equans-switzerland-kloten",
+        "de": "/de/jobs-im-zurich/kaltetechniker-in-equans-switzerland-kloten",
+        "fr": "/fr/trouver-emploi-zurich/kaltetechniker-in-equans-switzerland-kloten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41143,14 +41327,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "fr": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "it": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "de": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -48484,6 +48679,69 @@
       ]
     },
     {
+      "slug": "pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+      "locale": "en",
+      "path": "/en/find-jobs-valais/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion/",
+      "observedPaths": {
+        "en": "/en/find-jobs-valais/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion/"
+      },
+      "queries": [
+        {
+          "query": "galenica emploi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "pharmacien emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "galenica emploi",
+      "title": "Pharmacien pharmacienne galenica",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Galenica AG",
+      "companyKey": "galenica",
+      "location": "Sion",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "en": "pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "de": "pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "fr": "pharmacien-pharmacienne-m-f-d-galenica-galenica-sion"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "en": "/en/find-jobs-valais/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "de": "/de/jobs-im-wallis/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion",
+        "fr": "/fr/trouver-emploi-valais/pharmacien-pharmacienne-m-f-d-galenica-galenica-sion"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "pharmacist-a-spital-emmental-burgdorf",
       "locale": "en",
       "path": "/en/find-jobs-bern/pharmacist-a-spital-emmental-burgdorf/",
@@ -49404,14 +49662,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "it": "polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "fr": "polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "de": "polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "it": "/cerca-lavoro-san-gallo/polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "fr": "/fr/trouver-emploi-saint-gall/polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg",
+        "de": "/de/jobs-im-st-gallen/polymechanic-cnc-milling-manufacturing-technology-80-100-m-f-yellowshark-ag-buchs-sg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -49445,14 +49714,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "fr": "polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "de": "polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "it": "polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "fr": "/fr/trouver-emploi-bale/polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "de": "/de/jobs-im-basel/polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden",
+        "it": "/cerca-lavoro-basilea/polymechanic-cnc-production-m-f-d-80-100-yellowshark-ag-gelterkinden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -62307,10 +62587,10 @@
         "fr": "seller-in-the-hourly-wage-denner-stein-ag"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-the-hourly-wage-denner-stein-ag",
-        "en": "/en/find-jobs-zurich/seller-in-the-hourly-wage-denner-stein-ag",
-        "de": "/de/jobs-in-zurich/seller-in-the-hourly-wage-denner-stein-ag",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-the-hourly-wage-denner-stein-ag"
+        "it": "/cerca-lavoro-argovia/seller-in-the-hourly-wage-denner-stein-ag",
+        "en": "/en/find-jobs-aargau/seller-in-the-hourly-wage-denner-stein-ag",
+        "de": "/de/jobs-im-aargau/seller-in-the-hourly-wage-denner-stein-ag",
+        "fr": "/fr/trouver-emploi-argovie/seller-in-the-hourly-wage-denner-stein-ag"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63761,14 +64041,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "it": "service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "fr": "service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "de": "service-technician-international-electric-100-m-f-yellowshark-ag-biberist"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-solothurn/service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "it": "/cerca-lavoro-soletta/service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "fr": "/fr/trouver-emploi-soleure/service-technician-international-electric-100-m-f-yellowshark-ag-biberist",
+        "de": "/de/jobs-im-solothurn/service-technician-international-electric-100-m-f-yellowshark-ag-biberist"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -63903,6 +64194,64 @@
         "en": "/en/find-jobs-aargau/servicetechniker-in-m-d-schindler-oberentfelden",
         "de": "/de/jobs-im-aargau/servicetechniker-in-m-d-schindler-oberentfelden",
         "fr": "/fr/trouver-emploi-argovie/servicetechniker-in-m-d-schindler-oberentfelden"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich/"
+      },
+      "queries": [
+        {
+          "query": "schule luchswiesen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "schule luchswiesen",
+      "title": "Shp isr primarstufe schule luchswiesen stadt zurich",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "en": "shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "de": "shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "fr": "shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "en": "/en/find-jobs-zurich/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "de": "/de/jobs-im-zurich/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich",
+        "fr": "/fr/trouver-emploi-zurich/shp-isr-primarstufe-schule-luchswiesen-stadt-zurich-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65632,14 +65981,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "en": "specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "it": "specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "de": "specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/specialiste-du-commerce-exterieur-h-f-80-100-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -68976,14 +69336,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "de": "support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "it": "support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "en": "support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-appenzell/support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "de": "/de/jobs-im-appenzell/support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "it": "/cerca-lavoro-appenzello/support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau",
+        "en": "/en/find-jobs-appenzell/support-informatique-ingenieur-systeme-h-f-80-100-yellowshark-ag-herisau"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -69312,7 +69683,7 @@
         {
           "query": "software house ticino",
           "clicks": 0,
-          "impressions": 56
+          "impressions": 57
         },
         {
           "query": "software ticino",
@@ -69322,7 +69693,7 @@
         {
           "query": "sviluppatore ugello",
           "clicks": 0,
-          "impressions": 38
+          "impressions": 40
         },
         {
           "query": "web developer ticino",
@@ -69340,14 +69711,14 @@
           "impressions": 21
         },
         {
-          "query": "trova un consulente software in ticino",
-          "clicks": 0,
+          "query": "software developer ticino",
+          "clicks": 1,
           "impressions": 9
         },
         {
-          "query": "software developer ticino",
-          "clicks": 1,
-          "impressions": 8
+          "query": "trova un consulente software in ticino",
+          "clicks": 0,
+          "impressions": 9
         },
         {
           "query": "sviluppatore ugello",
@@ -69380,6 +69751,11 @@
           "impressions": 4
         },
         {
+          "query": "sviluppatore",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "sviluppatore software",
           "clicks": 0,
           "impressions": 4
@@ -69400,17 +69776,12 @@
           "impressions": 4
         },
         {
-          "query": "sviluppatore",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "sviluppatori",
           "clicks": 0,
           "impressions": 3
         }
       ],
-      "totalImpressions": 339,
+      "totalImpressions": 345,
       "totalClicks": 2,
       "topQuery": "software house ticino",
       "title": "Sviluppatori",
@@ -70511,14 +70882,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "it": "techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "de": "techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "fr": "techn-operational-buyer-m-f-100-yellowshark-ag-root"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-lucerne/techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "it": "/cerca-lavoro-lucerna/techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "de": "/de/jobs-im-luzern/techn-operational-buyer-m-f-100-yellowshark-ag-root",
+        "fr": "/fr/trouver-emploi-lucerne/techn-operational-buyer-m-f-100-yellowshark-ag-root"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -70928,14 +71310,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "en": "technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "de": "technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "it": "technicien-du-batiment-h-f-100-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "en": "/en/find-jobs-basel/technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/technicien-du-batiment-h-f-100-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/technicien-du-batiment-h-f-100-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -73224,14 +73617,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "de": "tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "it": "tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "en": "tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "fr": "tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern"
+      },
+      "localePaths": {
+        "de": "/de/jobs-in-luzern/tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "it": "/cerca-lavoro-lucerna/tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "en": "/en/find-jobs-lucerne/tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/tourism-administration-spezialist-80-m-w-d-luzern-bucherer-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -73814,6 +74218,64 @@
         "en": "/en/find-jobs-ticino/un-architetto-o-un-architetta-all-80-100-a-tempo-indeterminato-citta-di-mendrisio-mendrisio",
         "de": "/de/jobs-im-tessin/un-architetto-o-un-architetta-all-80-100-a-tempo-indeterminato-citta-di-mendrisio-mendrisio",
         "fr": "/fr/trouver-emploi-tessin/un-architetto-o-un-architetta-all-80-100-a-tempo-indeterminato-citta-di-mendrisio-mendrisio"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-vaud/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-vaud/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne/"
+      },
+      "queries": [
+        {
+          "query": "evam job",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "evam job",
+      "title": "Un assistant social en cdd evam",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lausanne",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "en": "un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "de": "un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "fr": "un-e-assistant-e-social-e-en-100-cdd-evam-lausanne"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "en": "/en/find-jobs-vaud/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "de": "/de/jobs-im-waadt/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne",
+        "fr": "/fr/trouver-emploi-vaud/un-e-assistant-e-social-e-en-100-cdd-evam-lausanne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82272,10 +82734,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-12"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-12",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-12",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-12",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-12"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-12",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-12",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-12",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-12"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82359,10 +82821,10 @@
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "en": "/en/find-jobs-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "de": "/de/jobs-im-wallis/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "fr": "/fr/trouver-emploi-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
+        "it": "/cerca-lavoro-soletta/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "en": "/en/find-jobs-solothurn/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "de": "/de/jobs-in-solothurn/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

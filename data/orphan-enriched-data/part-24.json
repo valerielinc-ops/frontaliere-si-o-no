@@ -4307,10 +4307,10 @@
         "fr": "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
-        "en": "/en/find-jobs-ticino/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
-        "de": "/de/jobs-im-tessin/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
-        "fr": "/fr/trouver-emploi-tessin/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne"
+        "it": "/cerca-lavoro-berna/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
+        "en": "/en/find-jobs-bern/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
+        "de": "/de/jobs-in-bern/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne",
+        "fr": "/fr/trouver-emploi-berne/apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -8097,10 +8097,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "assistenzarztin-assistenzarzt-puk-zuerich-zurich",
         "it": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich"
+        "en": "assistant-doctor-assistant-doctor-psychiatrische-universitatsklinik-zurich-zurich",
+        "fr": "assistant-medecin-assistant-medecin-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
@@ -8108,12 +8108,13 @@
         "de": "/de/jobs-im-waadt/assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "/fr/trouver-emploi-zurich/assistente-medico-assistente-medico-psychiatrische-universitatsklinik-zurich-zurich"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/163206/1385/pub/14/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -9717,14 +9718,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "de": "automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "it": "automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "en": "automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "de": "/de/jobs-im-st-gallen/automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "it": "/cerca-lavoro-san-gallo/automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg",
+        "en": "/en/find-jobs-st-gallen/automatique-technicien-electrique-technicien-d-entretien-80-100-h-f-yellowshark-ag-wil-sg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -27163,14 +27175,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "de": "equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "en": "equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "it": "equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "de": "/de/jobs-im-st-gallen/equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "en": "/en/find-jobs-st-gallen/equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen",
+        "it": "/cerca-lavoro-san-gallo/equipement-de-fabrication-automatique-h-f-yellowshark-ag-st-gallen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -29874,10 +29897,10 @@
         "fr": "food-salesperson-coop-genossenschaft-bern-ugpw0w"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-salesperson-coop-genossenschaft-bern-ugpw0w",
-        "en": "/en/find-jobs-ticino/food-salesperson-coop-genossenschaft-bern-ugpw0w",
-        "de": "/de/jobs-im-tessin/food-salesperson-coop-genossenschaft-bern-ugpw0w",
-        "fr": "/fr/trouver-emploi-tessin/food-salesperson-coop-genossenschaft-bern-ugpw0w"
+        "it": "/cerca-lavoro-berna/food-salesperson-coop-genossenschaft-bern-ugpw0w",
+        "en": "/en/find-jobs-bern/food-salesperson-coop-genossenschaft-bern-ugpw0w",
+        "de": "/de/jobs-in-bern/food-salesperson-coop-genossenschaft-bern-ugpw0w",
+        "fr": "/fr/trouver-emploi-berne/food-salesperson-coop-genossenschaft-bern-ugpw0w"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -34779,14 +34802,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "en": "ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "it": "ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "de": "ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/ingenieur-de-developpement-genie-mecanique-robotique-eth-h-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -40828,14 +40862,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "it": "maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "de": "maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "fr": "maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-nidwalden/maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "it": "/cerca-lavoro-nidvaldo/maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "de": "/de/jobs-im-nidwalden/maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans",
+        "fr": "/fr/trouver-emploi-nidwald/maintenance-specialist-process-engineering-m-f-yellowshark-ag-stans"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -41630,10 +41675,10 @@
         "fr": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
-        "en": "/en/find-jobs-solothurn/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
-        "de": "/de/jobs-in-solothurn/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
-        "fr": "/fr/trouver-emploi-soleure/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19"
+        "it": "/cerca-lavoro-vallese/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
+        "en": "/en/find-jobs-valais/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
+        "de": "/de/jobs-im-wallis/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19",
+        "fr": "/fr/trouver-emploi-valais/mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41675,14 +41720,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "de": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "en": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "it": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "en": "/en/find-jobs-basel/mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/mecanicien-operationnel-80-100-h-f-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -43557,10 +43613,10 @@
         "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
-        "en": "/en/find-jobs-basel/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
-        "de": "/de/jobs-in-basel/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
-        "fr": "/fr/trouver-emploi-bale/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen"
+        "it": "/cerca-lavoro-grigioni/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
+        "en": "/en/find-jobs-graubunden/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
+        "de": "/de/jobs-in-graubunden/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
+        "fr": "/fr/trouver-emploi-grisons/metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50127,14 +50183,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "it": "production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "de": "production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "fr": "production-coordinator-80-100-m-f-yellowshark-ag-menziken"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "it": "/cerca-lavoro-argovia/production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "de": "/de/jobs-im-aargau/production-coordinator-80-100-m-f-yellowshark-ag-menziken",
+        "fr": "/fr/trouver-emploi-argovie/production-coordinator-80-100-m-f-yellowshark-ag-menziken"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -50842,23 +50909,24 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
+        "it": "projektingenieur-in-bau-e-responsabile-di-progetto-bau-con-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
+        "de": "projektingenieur-in-bau-und-projektleiter-in-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig-afry-brig",
         "en": "project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
-        "de": "project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
-        "fr": "project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry"
+        "fr": "ingenieur-de-projet-dans-la-construction-et-chef-de-projet-dans-la-construction-avec-un-potentiel-suppleant-directeur-de"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
-        "en": "/en/find-jobs-ticino/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
-        "de": "/de/jobs-im-tessin/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
-        "fr": "/fr/trouver-emploi-tessin/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry"
+        "it": "/cerca-lavoro-vallese/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
+        "en": "/en/find-jobs-valais/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
+        "de": "/de/jobs-im-wallis/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry",
+        "fr": "/fr/trouver-emploi-valais/project-engineer-construction-and-project-manager-construction-with-potential-deputy-branch-manager-80-100-brig-afry"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://afry.com/en/careers/available-jobs/ref10630u-projektingenieurin-bau-und-projektleiterin-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -53447,10 +53515,10 @@
         "fr": "research-engineer-eth-zurich-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/research-engineer-eth-zurich-ch",
-        "en": "/en/find-jobs-ticino/research-engineer-eth-zurich-ch",
-        "de": "/de/jobs-im-tessin/research-engineer-eth-zurich-ch",
-        "fr": "/fr/trouver-emploi-tessin/research-engineer-eth-zurich-ch"
+        "it": "/cerca-lavoro-zurigo/research-engineer-eth-zurich-ch",
+        "en": "/en/find-jobs-zurich/research-engineer-eth-zurich-ch",
+        "de": "/de/jobs-in-zurich/research-engineer-eth-zurich-ch",
+        "fr": "/fr/trouver-emploi-zurich/research-engineer-eth-zurich-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60217,6 +60285,63 @@
       ]
     },
     {
+      "slug": "schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+      "locale": "de",
+      "path": "/de/jobs-in-nidwalden/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans/",
+      "observedPaths": {
+        "de": "/de/jobs-in-nidwalden/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans/"
+      },
+      "queries": [
+        {
+          "query": "schreinerei achermann stans",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "schreinerei achermann stans",
+      "title": "Schreiner in fur innenausbau fachkraft ch gmbh stans",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "en": "schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "de": "schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "fr": "schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-nidvaldo/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "en": "/en/find-jobs-nidwalden/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "de": "/de/jobs-im-nidwalden/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans",
+        "fr": "/fr/trouver-emploi-nidwald/schreiner-in-fur-innenausbau-fachkraft-ch-gmbh-stans"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen",
       "locale": "it",
       "path": "/en/find-jobs-bern/schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen",
@@ -63152,14 +63277,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "it": "service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "de": "service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "fr": "service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden",
+        "fr": "/fr/trouver-emploi-argovie/service-technician-international-mechanical-engineering-80-100-m-f-baden-ag-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -66163,14 +66299,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "en": "specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "it": "specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "de": "specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "en": "/en/find-jobs-zurich/specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "it": "/cerca-lavoro-zurigo/specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen",
+        "de": "/de/jobs-im-zurich/specialiste-de-la-technologie-de-verrouillage-technicien-de-securite-h-f-yellowshark-ag-horgen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -71127,14 +71274,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "en": "techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "it": "techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "de": "techn-acheteur-operationnel-h-f-100-yellowshark-ag-root"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "en": "/en/find-jobs-lucerne/techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "it": "/cerca-lavoro-lucerna/techn-acheteur-operationnel-h-f-100-yellowshark-ag-root",
+        "de": "/de/jobs-im-luzern/techn-acheteur-operationnel-h-f-100-yellowshark-ag-root"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -71462,14 +71620,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "it": "technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "de": "technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "en": "technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "it": "/cerca-lavoro-zurigo/technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "de": "/de/jobs-im-zurich/technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen",
+        "en": "/en/find-jobs-zurich/technicien-de-mise-en-service-h-f-yellowshark-ag-oberengstringen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -71565,14 +71734,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "en": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "it": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "de": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "en": "/en/find-jobs-aargau/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "it": "/cerca-lavoro-argovia/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag",
+        "de": "/de/jobs-im-aargau/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-aargau-yellowshark-ag-wohlen-ag"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -71606,14 +71786,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "de": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "en": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "it": "technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "en": "/en/find-jobs-bern/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/technicien-de-service-chauffage-gaz-et-petrole-h-f-region-berne-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72182,14 +72373,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "en": "technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "de": "technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "it": "technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "en": "/en/find-jobs-bern/technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "de": "/de/jobs-im-bern/technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be",
+        "it": "/cerca-lavoro-berna/technologie-de-precision-de-l-ingenieur-de-conception-80-100-h-f-yellowshark-ag-studen-be"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -76422,9 +76624,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "venditore-denner-ibach",
-        "en": "venditore-denner-ibach",
-        "de": "venditore-denner-ibach",
-        "fr": "venditore-denner-ibach"
+        "en": "shop-assistant-denner-ibach",
+        "de": "verkaufer-in-denner",
+        "fr": "vendeur-denner-ibach"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/venditore-denner-ibach",
@@ -76438,6 +76640,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -77972,10 +78175,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-denner-y3hqpt",
-        "it": "verkaufer-in-denner-biel-bienne",
-        "en": "verkaufer-in-denner-biel-bienne",
-        "fr": "verkaufer-in-denner-biel-bienne"
+        "de": "verkaufer-in-denner-y3hqpt"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-denner-biel-bienne",
@@ -79076,10 +79276,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/verkaufer-in-im-stundenlohn-denner-4",
-        "en": "/en/find-jobs-aargau/verkaufer-in-im-stundenlohn-denner-4",
-        "de": "/de/jobs-im-aargau/verkaufer-in-im-stundenlohn-denner-4",
-        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-im-stundenlohn-denner-4"
+        "it": "/cerca-lavoro-lucerna/verkaufer-in-im-stundenlohn-denner-4",
+        "en": "/en/find-jobs-lucerne/verkaufer-in-im-stundenlohn-denner-4",
+        "de": "/de/jobs-in-luzern/verkaufer-in-im-stundenlohn-denner-4",
+        "fr": "/fr/trouver-emploi-lucerne/verkaufer-in-im-stundenlohn-denner-4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

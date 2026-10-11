@@ -1339,10 +1339,10 @@
         "fr": "addetto-alle-vendite-migrolino-bottmingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/addetto-alle-vendite-migrolino-bottmingen",
-        "en": "/en/find-jobs-graubunden/addetto-alle-vendite-migrolino-bottmingen",
+        "it": "/cerca-lavoro-uri/addetto-alle-vendite-migrolino-bottmingen",
+        "en": "/en/find-jobs-uri/addetto-alle-vendite-migrolino-bottmingen",
         "de": "/de/jobs-im-graubunden/addetto-alle-vendite-migrolino-bottmingen",
-        "fr": "/fr/trouver-emploi-grisons/addetto-alle-vendite-migrolino-bottmingen"
+        "fr": "/fr/trouver-emploi-uri/addetto-alle-vendite-migrolino-bottmingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10808,14 +10808,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "building-technician-m-f-100-yellowshark-ag-basel",
+        "fr": "building-technician-m-f-100-yellowshark-ag-basel",
+        "it": "building-technician-m-f-100-yellowshark-ag-basel",
+        "de": "building-technician-m-f-100-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-basel/building-technician-m-f-100-yellowshark-ag-basel",
+        "fr": "/fr/trouver-emploi-bale/building-technician-m-f-100-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/building-technician-m-f-100-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/building-technician-m-f-100-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -11361,14 +11372,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "it": "buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "de": "buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "fr": "buyer-technically-m-f-80-100-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/buyer-technically-m-f-80-100-yellowshark-ag-lenzburg",
+        "fr": "/fr/trouver-emploi-argovie/buyer-technically-m-f-80-100-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -12065,6 +12087,69 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni/"
+      },
+      "queries": [
+        {
+          "query": "offerte lavoro canton grigioni",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte di lavoro canton grigioni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "offerte lavoro canton grigioni",
+      "title": "Capo squadra business development manager process analytics",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Hamilton Bonaduz AG",
+      "companyKey": "hamilton-bonaduz-ag",
+      "location": "Grigioni",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "en": "capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "de": "capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "fr": "capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "en": "/en/find-jobs-graubunden/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "de": "/de/jobs-im-graubunden/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni",
+        "fr": "/fr/trouver-emploi-grisons/capo-squadra-business-development-manager-process-analytics-100-w-m-d-hamilton-bonaduz-ag-grigioni"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -13817,14 +13902,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "en": "chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "it": "chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "de": "chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-soleure/chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "en": "/en/find-jobs-solothurn/chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "it": "/cerca-lavoro-soletta/chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten",
+        "de": "/de/jobs-im-solothurn/chef-chef-d-equipe-genie-du-reseau-yellowshark-ag-olten"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -17876,9 +17972,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil",
-        "en": "consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil",
-        "de": "consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil",
-        "fr": "consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil"
+        "en": "insurance-consultant-for-the-main-agency-hinwil-axa-svizzera-hinwil",
+        "de": "versicherungsberater-in-fur-die-hauptagentur-hinwil-axa-svizzera-hinwil",
+        "fr": "consultant-en-assurance-pour-l-agence-principale-de-hinwil-axa-svizzera-hinwil"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/consulente-assicurativo-per-l-agenzia-principale-hinwil-axa-svizzera-hinwil",
@@ -17892,6 +17988,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -17931,15 +18028,15 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
-        "en": "consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
-        "de": "consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
-        "fr": "consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen"
+        "en": "insurance-consultant-for-the-main-agency-horgen-axa-svizzera-horgen",
+        "de": "versicherungsberater-in-fur-die-hauptagentur-horgen-axa-svizzera-horgen",
+        "fr": "consultant-en-assurance-pour-l-agence-principale-horgen-axa-svizzera-horgen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
-        "en": "/en/find-jobs-geneva/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
+        "it": "/cerca-lavoro-zurigo/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
+        "en": "/en/find-jobs-zurich/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
         "de": "/de/jobs-im-zurich/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen",
-        "fr": "/fr/trouver-emploi-geneve/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen"
+        "fr": "/fr/trouver-emploi-zurich/consulente-assicurativo-per-l-agenzia-principale-horgen-axa-svizzera-horgen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17947,6 +18044,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -17986,15 +18084,15 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "en": "consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "de": "consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "fr": "consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden"
+        "en": "insurance-consultant-for-the-main-agency-weinfelden-axa-svizzera-weinfelden",
+        "de": "versicherungsberater-in-fur-die-hauptagentur-weinfelden-axa-svizzera-weinfelden",
+        "fr": "consultant-en-assurance-pour-l-agence-principale-weinfelden-axa-svizzera-weinfelden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "en": "/en/find-jobs-geneva/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "de": "/de/jobs-in-genf/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
-        "fr": "/fr/trouver-emploi-geneve/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden"
+        "it": "/cerca-lavoro-turgovia/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
+        "en": "/en/find-jobs-thurgau/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
+        "de": "/de/jobs-im-thurgau/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden",
+        "fr": "/fr/trouver-emploi-thurgovie/consulente-assicurativo-per-l-agenzia-principale-weinfelden-axa-svizzera-weinfelden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18002,6 +18100,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -18082,10 +18181,10 @@
         "fr": "consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
-        "en": "/en/find-jobs-geneva/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
-        "de": "/de/jobs-in-genf/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
-        "fr": "/fr/trouver-emploi-geneve/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen"
+        "it": "/cerca-lavoro-argovia/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
+        "en": "/en/find-jobs-aargau/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
+        "de": "/de/jobs-im-aargau/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen",
+        "fr": "/fr/trouver-emploi-argovie/consulente-assicurativo-per-l-agenzia-principale-wettingen-axa-svizzera-wettingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22809,10 +22908,10 @@
         "fr": "directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg",
-        "en": "/en/find-jobs-st-gallen/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg",
+        "it": "/cerca-lavoro-vallese/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg",
+        "en": "/en/find-jobs-valais/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg",
         "de": "/de/jobs-im-st-gallen/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg",
-        "fr": "/fr/trouver-emploi-saint-gall/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg"
+        "fr": "/fr/trouver-emploi-valais/directeur-adjoint-de-succursale-f-f-d-80-100-brugg-lidl-svizzera-brugg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22864,10 +22963,10 @@
         "fr": "directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
-        "en": "/en/find-jobs-aargau/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
-        "de": "/de/jobs-im-aargau/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
-        "fr": "/fr/trouver-emploi-argovie/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen"
+        "it": "/cerca-lavoro-vallese/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
+        "en": "/en/find-jobs-valais/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
+        "de": "/de/jobs-im-wallis/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen",
+        "fr": "/fr/trouver-emploi-valais/directeur-adjoint-de-succursale-f-f-d-80-100-wettingen-lidl-svizzera-wettingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22909,14 +23008,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "de": "directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "en": "directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "it": "directeur-de-la-construction-h-f-yellowshark-ag-chur"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-grisons/directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "de": "/de/jobs-im-graubunden/directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "en": "/en/find-jobs-graubunden/directeur-de-la-construction-h-f-yellowshark-ag-chur",
+        "it": "/cerca-lavoro-grigioni/directeur-de-la-construction-h-f-yellowshark-ag-chur"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -24288,14 +24398,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "it": "electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "de": "electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "fr": "electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "it": "/cerca-lavoro-zurigo/electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "de": "/de/jobs-im-zurich/electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh",
+        "fr": "/fr/trouver-emploi-zurich/electric-designer-80-100-m-f-yellowshark-ag-wetzikon-zh"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -24619,6 +24740,63 @@
         "en": "/en/find-jobs-ticino/elevator-technician-modernization-and-replacement-plants-m-f-d-otis-sa-reinach",
         "de": "/de/jobs-im-tessin/elevator-technician-modernization-and-replacement-plants-m-f-d-otis-sa-reinach",
         "fr": "/fr/trouver-emploi-tessin/elevator-technician-modernization-and-replacement-plants-m-f-d-otis-sa-reinach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "emmetten",
+      "locale": "de",
+      "path": "/de/jobs-in-nidwalden/emmetten/",
+      "observedPaths": {
+        "de": "/de/jobs-in-nidwalden/emmetten/"
+      },
+      "queries": [
+        {
+          "query": "personaldienstleister nidwalden",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "personaldienstleister nidwalden",
+      "title": "Emmetten",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "emmetten",
+        "en": "emmetten",
+        "de": "emmetten",
+        "fr": "emmetten"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-nidvaldo/emmetten",
+        "en": "/en/find-jobs-nidwalden/emmetten",
+        "de": "/de/jobs-im-nidwalden/emmetten",
+        "fr": "/fr/trouver-emploi-nidwald/emmetten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25644,14 +25822,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "de": "entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "it": "entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "en": "entretien-specialise-80-100-h-f-yellowshark-ag-spiez"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "de": "/de/jobs-im-bern/entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "it": "/cerca-lavoro-berna/entretien-specialise-80-100-h-f-yellowshark-ag-spiez",
+        "en": "/en/find-jobs-bern/entretien-specialise-80-100-h-f-yellowshark-ag-spiez"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -28689,10 +28878,10 @@
         "fr": "food-salesperson-coop-genossenschaft-bern-4lb2b0"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-salesperson-coop-genossenschaft-bern-4lb2b0",
-        "en": "/en/find-jobs-ticino/food-salesperson-coop-genossenschaft-bern-4lb2b0",
-        "de": "/de/jobs-im-tessin/food-salesperson-coop-genossenschaft-bern-4lb2b0",
-        "fr": "/fr/trouver-emploi-tessin/food-salesperson-coop-genossenschaft-bern-4lb2b0"
+        "it": "/cerca-lavoro-berna/food-salesperson-coop-genossenschaft-bern-4lb2b0",
+        "en": "/en/find-jobs-bern/food-salesperson-coop-genossenschaft-bern-4lb2b0",
+        "de": "/de/jobs-in-bern/food-salesperson-coop-genossenschaft-bern-4lb2b0",
+        "fr": "/fr/trouver-emploi-berne/food-salesperson-coop-genossenschaft-bern-4lb2b0"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28744,10 +28933,10 @@
         "fr": "food-salesperson-coop-genossenschaft-bern-ace4ef"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-salesperson-coop-genossenschaft-bern-ace4ef",
-        "en": "/en/find-jobs-ticino/food-salesperson-coop-genossenschaft-bern-ace4ef",
-        "de": "/de/jobs-im-tessin/food-salesperson-coop-genossenschaft-bern-ace4ef",
-        "fr": "/fr/trouver-emploi-tessin/food-salesperson-coop-genossenschaft-bern-ace4ef"
+        "it": "/cerca-lavoro-berna/food-salesperson-coop-genossenschaft-bern-ace4ef",
+        "en": "/en/find-jobs-bern/food-salesperson-coop-genossenschaft-bern-ace4ef",
+        "de": "/de/jobs-in-bern/food-salesperson-coop-genossenschaft-bern-ace4ef",
+        "fr": "/fr/trouver-emploi-berne/food-salesperson-coop-genossenschaft-bern-ace4ef"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47800,8 +47989,8 @@
         },
         {
           "query": "offerte di lavoro osa ticino",
-          "clicks": 6,
-          "impressions": 64
+          "clicks": 8,
+          "impressions": 72
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -47811,7 +48000,12 @@
         {
           "query": "osa offerte di lavoro",
           "clicks": 2,
-          "impressions": 42
+          "impressions": 47
+        },
+        {
+          "query": "offerte di lavoro osa",
+          "clicks": 0,
+          "impressions": 20
         },
         {
           "query": "frontaliere ticino offerte di lavoro",
@@ -47819,19 +48013,14 @@
           "impressions": 20
         },
         {
-          "query": "offerte di lavoro osa",
+          "query": "oss ticino offerte lavoro",
           "clicks": 0,
-          "impressions": 18
+          "impressions": 16
         },
         {
           "query": "offerte lavoro svizzera per italiani",
           "clicks": 0,
           "impressions": 16
-        },
-        {
-          "query": "oss ticino offerte lavoro",
-          "clicks": 0,
-          "impressions": 15
         },
         {
           "query": "lavoro ticino",
@@ -47854,13 +48043,13 @@
           "impressions": 9
         },
         {
-          "query": "oss svizzera offerte lavoro",
-          "clicks": 1,
-          "impressions": 8
-        },
-        {
           "query": "osa ticino lavoro",
           "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "oss svizzera offerte lavoro",
+          "clicks": 1,
           "impressions": 8
         },
         {
@@ -47872,6 +48061,11 @@
           "query": "offerte di lavoro oss svizzera",
           "clicks": 0,
           "impressions": 8
+        },
+        {
+          "query": "operatrice socio assistenziale offerte di lavoro",
+          "clicks": 0,
+          "impressions": 7
         },
         {
           "query": "lavoro canton ticino",
@@ -47887,15 +48081,10 @@
           "query": "offerte di lavoro casa di riposo svizzera",
           "clicks": 0,
           "impressions": 6
-        },
-        {
-          "query": "offerte di lavoro centri diurni ticino",
-          "clicks": 0,
-          "impressions": 6
         }
       ],
-      "totalImpressions": 793,
-      "totalClicks": 24,
+      "totalImpressions": 822,
+      "totalClicks": 26,
       "topQuery": "offerte di lavoro canton ticino per frontalieri",
       "title": "Operatori socio sanitari",
       "titleByLocale": {
@@ -49468,14 +49657,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "it": "personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "fr": "personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "de": "personnel-finance-m-f-80-100-yellowshark-ag-biberist"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-solothurn/personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "it": "/cerca-lavoro-soletta/personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "fr": "/fr/trouver-emploi-soleure/personnel-finance-m-f-80-100-yellowshark-ag-biberist",
+        "de": "/de/jobs-im-solothurn/personnel-finance-m-f-80-100-yellowshark-ag-biberist"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -52774,14 +52974,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "it": "programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "de": "programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "en": "programmeur-automatique-plc-h-f-yellowshark-ag-luzern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-lucerne/programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "it": "/cerca-lavoro-lucerna/programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "de": "/de/jobs-im-luzern/programmeur-automatique-plc-h-f-yellowshark-ag-luzern",
+        "en": "/en/find-jobs-lucerne/programmeur-automatique-plc-h-f-yellowshark-ag-luzern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -60417,10 +60628,10 @@
         "fr": "sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn",
-        "en": "/en/find-jobs-valais/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn",
+        "it": "/cerca-lavoro-zurigo/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn",
+        "en": "/en/find-jobs-zurich/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn",
         "de": "/de/jobs-im-bern/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn",
-        "fr": "/fr/trouver-emploi-valais/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn"
+        "fr": "/fr/trouver-emploi-zurich/sales-consultant-in-electrical-household-multimedia-80-100-fust-grenchen-solothurn"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66679,14 +66890,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "en": "specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "it": "specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "de": "specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "en": "/en/find-jobs-zurich/specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "it": "/cerca-lavoro-zurigo/specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf",
+        "de": "/de/jobs-im-zurich/specialiste-de-l-assemblage-h-f-100-yellowshark-ag-regensdorf"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -66719,14 +66941,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "de": "specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "en": "specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "it": "specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-nidwald/specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "de": "/de/jobs-im-nidwalden/specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "en": "/en/find-jobs-nidwalden/specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans",
+        "it": "/cerca-lavoro-nidvaldo/specialiste-de-la-maintenance-genie-des-procedes-h-f-yellowshark-ag-stans"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -66766,10 +66999,10 @@
         "it": "systemgastronomiefachfrau-mann-cfc-coop-ristorante-basel-vrwgxo"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel",
-        "en": "/en/find-jobs-lucerne/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel",
+        "it": "/cerca-lavoro-zugo/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel",
+        "en": "/en/find-jobs-zug/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel",
         "de": "/de/jobs-im-zurich/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel",
-        "fr": "/fr/trouver-emploi-lucerne/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel"
+        "fr": "/fr/trouver-emploi-zoug/specialiste-de-la-restauration-systeme-efz-coop-ristorante-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71294,14 +71527,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "en": "technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "it": "technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "de": "technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "en": "/en/find-jobs-zurich/technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "it": "/cerca-lavoro-zurigo/technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil",
+        "de": "/de/jobs-im-zurich/technicien-d-entretien-mecanique-h-f-yellowshark-ag-volketswil"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -76289,10 +76533,10 @@
         "fr": "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
-        "en": "/en/find-jobs-zurich/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
+        "it": "/cerca-lavoro-sciaffusa/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
+        "en": "/en/find-jobs-schaffhausen/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
         "de": "/de/jobs-im-solothurn/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
-        "fr": "/fr/trouver-emploi-zurich/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1"
+        "fr": "/fr/trouver-emploi-schaffhouse/vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80360,10 +80604,7 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-denner",
-        "it": "verkaufer-in-denner-luzern",
-        "en": "verkaufer-in-denner-luzern",
-        "fr": "verkaufer-in-denner-luzern"
+        "de": "verkaufer-in-denner"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-denner-luzern",
@@ -82932,10 +83173,10 @@
         "fr": "versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
-        "en": "/en/find-jobs-ticino/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
-        "de": "/de/jobs-im-tessin/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
-        "fr": "/fr/trouver-emploi-tessin/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne"
+        "it": "/cerca-lavoro-vallese/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
+        "en": "/en/find-jobs-valais/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
+        "de": "/de/jobs-im-wallis/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne",
+        "fr": "/fr/trouver-emploi-valais/versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-lausanne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -83543,10 +83784,10 @@
         "fr": "vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
-        "en": "/en/find-jobs-zurich/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
-        "de": "/de/jobs-in-zurich/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
-        "fr": "/fr/trouver-emploi-zurich/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp"
+        "it": "/cerca-lavoro-vallese/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
+        "en": "/en/find-jobs-valais/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
+        "de": "/de/jobs-im-wallis/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
+        "fr": "/fr/trouver-emploi-valais/vice-direttore-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -84407,10 +84648,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-11"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-11",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-11",
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-11",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-11",
         "de": "/de/jobs-im-luzern/zusteller-in-briefe-und-pakete-post-11",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-11"
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-11"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

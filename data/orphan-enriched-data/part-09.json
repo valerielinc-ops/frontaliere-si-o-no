@@ -3980,6 +3980,11 @@
           "impressions": 1
         },
         {
+          "query": "switzerland apprenticeship",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "operia",
           "clicks": 0,
           "impressions": 1
@@ -3990,12 +3995,17 @@
           "impressions": 1
         },
         {
+          "query": "what about ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "بلی",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 5,
+      "totalImpressions": 7,
       "totalClicks": 1,
       "topQuery": "a fribourg",
       "title": "Apprenticeships",
@@ -6581,10 +6591,10 @@
         "fr": "assistant-in-branch-management-denner-bubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/assistant-in-branch-management-denner-bubendorf",
-        "en": "/en/find-jobs-zurich/assistant-in-branch-management-denner-bubendorf",
-        "de": "/de/jobs-in-zurich/assistant-in-branch-management-denner-bubendorf",
-        "fr": "/fr/trouver-emploi-zurich/assistant-in-branch-management-denner-bubendorf"
+        "it": "/cerca-lavoro-turgovia/assistant-in-branch-management-denner-bubendorf",
+        "en": "/en/find-jobs-thurgau/assistant-in-branch-management-denner-bubendorf",
+        "de": "/de/jobs-im-thurgau/assistant-in-branch-management-denner-bubendorf",
+        "fr": "/fr/trouver-emploi-thurgovie/assistant-in-branch-management-denner-bubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10208,7 +10218,7 @@
         {
           "query": "werkstudentenjob bellinzona",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "lehrstellen bellinzona",
@@ -10246,7 +10256,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 126,
+      "totalImpressions": 127,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10293,7 +10303,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 192
+          "impressions": 197
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10391,7 +10401,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 245,
+      "totalImpressions": 250,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10520,12 +10530,22 @@
           "impressions": 16
         },
         {
+          "query": "cerco lavoro a bellinzona",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
           "query": "offerte di lavoro a bellinzona",
           "clicks": 0,
           "impressions": 9
         },
         {
-          "query": "cerco lavoro a bellinzona",
+          "query": "agenzie lavoro bellinzona",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "cerco lavoro bellinzona",
           "clicks": 0,
           "impressions": 8
         },
@@ -10533,16 +10553,6 @@
           "query": "bellinzona lavora con noi",
           "clicks": 0,
           "impressions": 7
-        },
-        {
-          "query": "cerco lavoro bellinzona",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "agenzie lavoro bellinzona",
-          "clicks": 0,
-          "impressions": 6
         },
         {
           "query": "lavori bellinzona",
@@ -10595,7 +10605,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 204,
+      "totalImpressions": 208,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -17465,9 +17475,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-zoug-axa-svizzera-steinhausen",
-        "en": "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-zoug-axa-svizzera-steinhausen",
-        "de": "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-zoug-axa-svizzera-steinhausen",
+        "it": "consulente-previdenziale-per-l-agenzia-generale-previdenza-e-patrimonio-zugo-axa-svizzera-steinhausen",
+        "en": "pension-advisor-for-the-general-agency-for-pensions-assets-zug-axa-svizzera-steinhausen",
+        "de": "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zug-axa-svizzera-steinhausen",
         "fr": "conseiller-en-retraite-pour-l-agence-generale-des-pensions-et-des-actifs-de-zoug-axa-svizzera-steinhausen"
       },
       "localePaths": {
@@ -17482,6 +17492,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -21590,10 +21601,10 @@
         "fr": "deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
-        "en": "/en/find-jobs-ticino/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
-        "de": "/de/jobs-im-tessin/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
-        "fr": "/fr/trouver-emploi-tessin/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
+        "it": "/cerca-lavoro-vallese/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "en": "/en/find-jobs-valais/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "de": "/de/jobs-im-wallis/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon",
+        "fr": "/fr/trouver-emploi-valais/deputy-branch-manager-m-f-d-80-100-ebikon-lidl-svizzera-ebikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -30324,14 +30335,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "it": "gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "en": "gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "de": "gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-bale/gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "it": "/cerca-lavoro-basilea/gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "en": "/en/find-jobs-basel/gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel",
+        "de": "/de/jobs-im-basel/gestionnaire-de-projet-automatisation-des-batiments-h-f-100-yellowshark-ag-basel"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -33720,14 +33742,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "it": "ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "de": "ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "en": "ingenieur-electrique-h-f-80-100-yellowshark-ag-cham"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zoug/ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "it": "/cerca-lavoro-zugo/ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "de": "/de/jobs-im-zug/ingenieur-electrique-h-f-80-100-yellowshark-ag-cham",
+        "en": "/en/find-jobs-zug/ingenieur-electrique-h-f-80-100-yellowshark-ag-cham"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -33922,14 +33955,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "it": "ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "de": "ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "en": "ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/ingenieur-mecanique-eth-h-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -35037,6 +35081,63 @@
       ]
     },
     {
+      "slug": "jenaz",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/jenaz/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/jenaz/"
+      },
+      "queries": [
+        {
+          "query": "lavoro canton grigioni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lavoro canton grigioni",
+      "title": "Jenaz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "jenaz",
+        "en": "jenaz",
+        "de": "jenaz",
+        "fr": "jenaz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/jenaz",
+        "en": "/en/find-jobs-graubunden/jenaz",
+        "de": "/de/jobs-im-graubunden/jenaz",
+        "fr": "/fr/trouver-emploi-grisons/jenaz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "jobs-neuenburg-heute",
       "locale": "de",
       "path": "/de/jobs-in-neuenburg/jobs-neuenburg-heute/",
@@ -35701,14 +35802,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "it": "knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "de": "knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "fr": "knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "it": "/cerca-lavoro-zurigo/knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "de": "/de/jobs-im-zurich/knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren",
+        "fr": "/fr/trouver-emploi-zurich/knx-specialist-building-automation-technician-m-f-80-100-yellowshark-ag-schlieren"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -37228,10 +37340,10 @@
         "fr": "leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
-        "en": "/en/find-jobs-ticino/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
-        "de": "/de/jobs-im-tessin/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
-        "fr": "/fr/trouver-emploi-tessin/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
+        "it": "/cerca-lavoro-san-gallo/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
+        "en": "/en/find-jobs-st-gallen/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
+        "de": "/de/jobs-in-st-gallen/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau",
+        "fr": "/fr/trouver-emploi-saint-gall/leiter-in-projekte-controlling-logistik-genossenschaft-migros-ostschweiz-gossau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -38372,14 +38484,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "it": "management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "fr": "management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "de": "management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/management-of-technical-electrical-projects-m-f-80-100-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -38812,10 +38935,10 @@
         "fr": "manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
-        "en": "/en/find-jobs-ticino/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
-        "de": "/de/jobs-im-tessin/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
-        "fr": "/fr/trouver-emploi-tessin/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion"
+        "it": "/cerca-lavoro-ginevra/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
+        "en": "/en/find-jobs-geneva/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
+        "de": "/de/jobs-in-genf/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion",
+        "fr": "/fr/trouver-emploi-geneve/manor-floor-manager-fashion-und-hardgoods-100-baden-floor-manager-fashion"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39032,10 +39155,10 @@
         "fr": "manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
-        "en": "/en/find-jobs-ticino/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
-        "de": "/de/jobs-im-tessin/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
-        "fr": "/fr/trouver-emploi-tessin/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac"
+        "it": "/cerca-lavoro-friburgo/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
+        "en": "/en/find-jobs-fribourg/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
+        "de": "/de/jobs-in-freiburg/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac",
+        "fr": "/fr/trouver-emploi-fribourg/manutenzione-automazione-tecnica-elsa-group-estavayer-le-lac"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39246,14 +39369,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "it": "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "de": "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "en": "materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zoug/materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "it": "/cerca-lavoro-zugo/materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "de": "/de/jobs-im-zug/materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug",
+        "en": "/en/find-jobs-zug/materiel-de-toiture-et-de-construction-h-f-yellowshark-ag-zug"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -41386,12 +41520,17 @@
           "impressions": 1
         },
         {
+          "query": "sintetica couvet",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "work",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 4,
+      "totalImpressions": 5,
       "totalClicks": 0,
       "topQuery": "jobs mendrisio",
       "title": "mendrisio",
@@ -41438,7 +41577,7 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 41
+          "impressions": 43
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
@@ -41458,7 +41597,7 @@
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 1,
-          "impressions": 9
+          "impressions": 11
         },
         {
           "query": "offerte di lavoro mendrisio svizzera",
@@ -41521,22 +41660,22 @@
           "impressions": 4
         },
         {
+          "query": "offerte lavoro mendrisio chiasso",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
           "query": "cerco lavoro a mendrisio svizzera",
           "clicks": 0,
           "impressions": 3
         },
         {
-          "query": "lavoro mendrisio svizzera",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "lavoro mendrisiotto",
+          "query": "lavoro mendrisio chiasso",
           "clicks": 0,
           "impressions": 3
         }
       ],
-      "totalImpressions": 248,
+      "totalImpressions": 261,
       "totalClicks": 5,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
@@ -42608,10 +42747,10 @@
         "fr": "mitarbeiter-in-vente-30-manor-ag-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/mitarbeiter-in-vente-30-manor-ag-basel",
-        "en": "/en/find-jobs-zurich/mitarbeiter-in-vente-30-manor-ag-basel",
+        "it": "/cerca-lavoro-basilea/mitarbeiter-in-vente-30-manor-ag-basel",
+        "en": "/en/find-jobs-basel/mitarbeiter-in-vente-30-manor-ag-basel",
         "de": "/de/jobs-im-basel/mitarbeiter-in-vente-30-manor-ag-basel",
-        "fr": "/fr/trouver-emploi-zurich/mitarbeiter-in-vente-30-manor-ag-basel"
+        "fr": "/fr/trouver-emploi-bale/mitarbeiter-in-vente-30-manor-ag-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59135,10 +59274,10 @@
         "fr": "senior-entwickler-in-dwh-e-bi-denner-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-entwickler-in-dwh-e-bi-denner-zurich",
-        "en": "/en/find-jobs-ticino/senior-entwickler-in-dwh-e-bi-denner-zurich",
-        "de": "/de/jobs-im-tessin/senior-entwickler-in-dwh-e-bi-denner-zurich",
-        "fr": "/fr/trouver-emploi-tessin/senior-entwickler-in-dwh-e-bi-denner-zurich"
+        "it": "/cerca-lavoro-zurigo/senior-entwickler-in-dwh-e-bi-denner-zurich",
+        "en": "/en/find-jobs-zurich/senior-entwickler-in-dwh-e-bi-denner-zurich",
+        "de": "/de/jobs-in-zurich/senior-entwickler-in-dwh-e-bi-denner-zurich",
+        "fr": "/fr/trouver-emploi-zurich/senior-entwickler-in-dwh-e-bi-denner-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59193,10 +59332,10 @@
         "it": "sviluppatore-senior-in-dwh-e-bi-denner-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-entwickler-in-dwh-und-bi-denner",
-        "en": "/en/find-jobs-ticino/senior-entwickler-in-dwh-und-bi-denner",
-        "de": "/de/jobs-im-tessin/senior-entwickler-in-dwh-und-bi-denner",
-        "fr": "/fr/trouver-emploi-tessin/senior-entwickler-in-dwh-und-bi-denner"
+        "it": "/cerca-lavoro-zurigo/senior-entwickler-in-dwh-und-bi-denner",
+        "en": "/en/find-jobs-zurich/senior-entwickler-in-dwh-und-bi-denner",
+        "de": "/de/jobs-in-zurich/senior-entwickler-in-dwh-und-bi-denner",
+        "fr": "/fr/trouver-emploi-zurich/senior-entwickler-in-dwh-und-bi-denner"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60311,14 +60450,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "it": "service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "de": "service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "fr": "service-technician-mechanical-m-f-100-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/service-technician-mechanical-m-f-100-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/service-technician-mechanical-m-f-100-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -62493,14 +62643,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "en": "specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "it": "specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "de": "specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "en": "/en/find-jobs-aargau/specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "it": "/cerca-lavoro-argovia/specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden",
+        "de": "/de/jobs-im-aargau/specialiste-de-la-maintenance-h-f-yellowshark-ag-meisterschwanden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -62931,14 +63092,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "it": "specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "de": "specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "en": "specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "it": "/cerca-lavoro-zurigo/specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "de": "/de/jobs-im-zurich/specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren",
+        "en": "/en/find-jobs-zurich/specialiste-knx-technicien-d-automatisation-du-batiment-h-f-80-100-yellowshark-ag-schlieren"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -65692,10 +65864,10 @@
         "fr": "stv-filialleiter-in-in-ausbildung-denner"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/stv-filialleiter-in-in-ausbildung-denner",
-        "en": "/en/find-jobs-bern/stv-filialleiter-in-in-ausbildung-denner",
-        "de": "/de/jobs-in-bern/stv-filialleiter-in-in-ausbildung-denner",
-        "fr": "/fr/trouver-emploi-berne/stv-filialleiter-in-in-ausbildung-denner"
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-in-ausbildung-denner",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "de": "/de/jobs-in-zurich/stv-filialleiter-in-in-ausbildung-denner",
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-in-ausbildung-denner"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66172,14 +66344,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "en": "support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "it": "/cerca-lavoro-san-gallo/support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "en": "/en/find-jobs-st-gallen/support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg",
+        "de": "/de/jobs-im-st-gallen/support-de-2eme-niveau-h-f-80-100-yellowshark-ag-gossau-sg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -67094,14 +67277,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "de": "technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "fr": "technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "it": "technical-clerk-m-f-d-100-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "fr": "/fr/trouver-emploi-argovie/technical-clerk-m-f-d-100-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/technical-clerk-m-f-d-100-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -67710,10 +67904,10 @@
         "fr": "technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
-        "en": "/en/find-jobs-ticino/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
-        "de": "/de/jobs-im-tessin/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
-        "fr": "/fr/trouver-emploi-tessin/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac"
+        "it": "/cerca-lavoro-friburgo/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
+        "en": "/en/find-jobs-fribourg/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
+        "de": "/de/jobs-in-freiburg/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac",
+        "fr": "/fr/trouver-emploi-fribourg/technicien-ne-de-maintenance-automation-elsa-group-estavayer-le-lac"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67975,14 +68169,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "it": "technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "de": "technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "en": "technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zoug/technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "it": "/cerca-lavoro-zugo/technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "de": "/de/jobs-im-zug/technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug",
+        "en": "/en/find-jobs-zug/technologie-de-controle-de-l-ingenieur-electrique-senior-automatisation-du-batiment-80-100-h-f-yellowshark-ag-zug"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -73352,10 +73557,10 @@
         "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-andermatt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/venditore-in-cassa-servizi-coop-genossenschaft-andermatt",
-        "en": "/en/find-jobs-bern/venditore-in-cassa-servizi-coop-genossenschaft-andermatt",
+        "it": "/cerca-lavoro-zurigo/venditore-in-cassa-servizi-coop-genossenschaft-andermatt",
+        "en": "/en/find-jobs-zurich/venditore-in-cassa-servizi-coop-genossenschaft-andermatt",
         "de": "/de/jobs-im-zurich/venditore-in-cassa-servizi-coop-genossenschaft-andermatt",
-        "fr": "/fr/trouver-emploi-berne/venditore-in-cassa-servizi-coop-genossenschaft-andermatt"
+        "fr": "/fr/trouver-emploi-zurich/venditore-in-cassa-servizi-coop-genossenschaft-andermatt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75478,10 +75683,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-arth"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-arth",
-        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-arth",
+        "it": "/cerca-lavoro-svitto/verkaufer-in-kassen-services-coop-genossenschaft-arth",
+        "en": "/en/find-jobs-schwyz/verkaufer-in-kassen-services-coop-genossenschaft-arth",
         "de": "/de/jobs-im-bern/verkaufer-in-kassen-services-coop-genossenschaft-arth",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-arth"
+        "fr": "/fr/trouver-emploi-schwytz/verkaufer-in-kassen-services-coop-genossenschaft-arth"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -78538,10 +78743,10 @@
         "fr": "zusteller-in-briefe-und-pakete-post-10"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/zusteller-in-briefe-und-pakete-post-10",
-        "en": "/en/find-jobs-lucerne/zusteller-in-briefe-und-pakete-post-10",
-        "de": "/de/jobs-in-luzern/zusteller-in-briefe-und-pakete-post-10",
-        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-briefe-und-pakete-post-10"
+        "it": "/cerca-lavoro-soletta/zusteller-in-briefe-und-pakete-post-10",
+        "en": "/en/find-jobs-solothurn/zusteller-in-briefe-und-pakete-post-10",
+        "de": "/de/jobs-in-solothurn/zusteller-in-briefe-und-pakete-post-10",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-briefe-und-pakete-post-10"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

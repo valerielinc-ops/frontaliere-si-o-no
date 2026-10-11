@@ -661,14 +661,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "it": "acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "de": "acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "en": "acquereur-technique-h-f-80-100-yellowshark-ag-sulgen"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-thurgovie/acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "it": "/cerca-lavoro-turgovia/acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "de": "/de/jobs-im-thurgau/acquereur-technique-h-f-80-100-yellowshark-ag-sulgen",
+        "en": "/en/find-jobs-thurgau/acquereur-technique-h-f-80-100-yellowshark-ag-sulgen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -1654,14 +1665,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "it": "agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "de": "agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "fr": "agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "it": "/cerca-lavoro-zurigo/agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "de": "/de/jobs-im-zurich/agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon",
+        "fr": "/fr/trouver-emploi-zurich/agricultural-machinery-mechanic-construction-machinery-mechanic-m-f-100-yellowshark-ag-dietikon"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -7365,10 +7387,10 @@
         "fr": "assistant-dans-la-gestion-de-la-succursale-denner-bubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
-        "en": "/en/find-jobs-basel/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
+        "it": "/cerca-lavoro-turgovia/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
+        "en": "/en/find-jobs-thurgau/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
         "de": "/de/jobs-im-basel/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf",
-        "fr": "/fr/trouver-emploi-bale/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf"
+        "fr": "/fr/trouver-emploi-thurgovie/assistant-dans-la-gestion-de-la-succursale-denner-bubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -7491,10 +7513,10 @@
         "fr": "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
-        "en": "/en/find-jobs-graubunden/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
+        "it": "/cerca-lavoro-turgovia/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
+        "en": "/en/find-jobs-thurgau/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
         "de": "/de/jobs-im-graubunden/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf",
-        "fr": "/fr/trouver-emploi-grisons/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
+        "fr": "/fr/trouver-emploi-thurgovie/assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9224,10 +9246,10 @@
         "fr": "assistente-nella-gestione-delle-branche-denner-bubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/assistente-nella-gestione-delle-branche-denner-bubendorf",
-        "en": "/en/find-jobs-basel/assistente-nella-gestione-delle-branche-denner-bubendorf",
-        "de": "/de/jobs-in-basel/assistente-nella-gestione-delle-branche-denner-bubendorf",
-        "fr": "/fr/trouver-emploi-bale/assistente-nella-gestione-delle-branche-denner-bubendorf"
+        "it": "/cerca-lavoro-turgovia/assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "en": "/en/find-jobs-thurgau/assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "de": "/de/jobs-im-thurgau/assistente-nella-gestione-delle-branche-denner-bubendorf",
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-nella-gestione-delle-branche-denner-bubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -9380,10 +9402,10 @@
         "fr": "assistente-nella-gestione-delle-branche-denner-flims-dorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistente-nella-gestione-delle-branche-denner-flims-dorf",
-        "en": "/en/find-jobs-ticino/assistente-nella-gestione-delle-branche-denner-flims-dorf",
-        "de": "/de/jobs-im-tessin/assistente-nella-gestione-delle-branche-denner-flims-dorf",
-        "fr": "/fr/trouver-emploi-tessin/assistente-nella-gestione-delle-branche-denner-flims-dorf"
+        "it": "/cerca-lavoro-turgovia/assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "en": "/en/find-jobs-thurgau/assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "de": "/de/jobs-im-thurgau/assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-nella-gestione-delle-branche-denner-flims-dorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10776,14 +10798,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "fr": "automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "de": "automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "it": "automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-st-gallen/automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "de": "/de/jobs-im-st-gallen/automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen",
+        "it": "/cerca-lavoro-san-gallo/automatic-manufacturing-equipment-m-f-yellowshark-ag-st-gallen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -16159,14 +16192,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "it": "cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "de": "cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "fr": "cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "it": "/cerca-lavoro-argovia/cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "de": "/de/jobs-im-aargau/cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg",
+        "fr": "/fr/trouver-emploi-argovie/cnc-specialist-manufacturing-100-m-f-yellowshark-ag-lenzburg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -17247,14 +17291,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "it": "comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "de": "comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "en": "comptables-financiers-h-f-d-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/comptables-financiers-h-f-d-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/comptables-financiers-h-f-d-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -18558,10 +18613,10 @@
         "fr": "consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
-        "en": "/en/find-jobs-ticino/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
-        "de": "/de/jobs-im-tessin/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
-        "fr": "/fr/trouver-emploi-tessin/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau"
+        "it": "/cerca-lavoro-argovia/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
+        "en": "/en/find-jobs-aargau/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
+        "de": "/de/jobs-im-aargau/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau",
+        "fr": "/fr/trouver-emploi-argovie/consulente-assicurativo-per-l-agenzia-generale-aarau-axa-svizzera-aarau"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18613,10 +18668,10 @@
         "fr": "consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
-        "en": "/en/find-jobs-ticino/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
-        "de": "/de/jobs-im-tessin/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
-        "fr": "/fr/trouver-emploi-tessin/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell"
+        "it": "/cerca-lavoro-appenzello/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
+        "en": "/en/find-jobs-appenzell/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
+        "de": "/de/jobs-in-appenzell/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell",
+        "fr": "/fr/trouver-emploi-appenzell/consulente-assicurativo-per-l-agenzia-principale-appenzell-axa-svizzera-appenzell"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21822,10 +21877,10 @@
         "fr": "data-center-technician-leuk-in-sede-reboot-monkey-leuk"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-neuchatel/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
-        "en": "/en/find-jobs-neuchatel/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
-        "de": "/de/jobs-in-neuenburg/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
-        "fr": "/fr/trouver-emploi-neuchatel/data-center-technician-leuk-in-sede-reboot-monkey-leuk"
+        "it": "/cerca-lavoro-vallese/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
+        "en": "/en/find-jobs-valais/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
+        "de": "/de/jobs-im-wallis/data-center-technician-leuk-in-sede-reboot-monkey-leuk",
+        "fr": "/fr/trouver-emploi-valais/data-center-technician-leuk-in-sede-reboot-monkey-leuk"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21931,10 +21986,10 @@
         "fr": "data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
-        "en": "/en/find-jobs-basel/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
+        "it": "/cerca-lavoro-argovia/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
+        "en": "/en/find-jobs-aargau/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
         "de": "/de/jobs-im-zurich/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
-        "fr": "/fr/trouver-emploi-bale/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon"
+        "fr": "/fr/trouver-emploi-argovie/data-center-technician-schweiz-dietikon-vor-ort-reboot-monkey-dietikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23429,6 +23484,11 @@
           "impressions": 7
         },
         {
+          "query": "app development geneva",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "programmierer aargau",
           "clicks": 0,
           "impressions": 5
@@ -23437,11 +23497,6 @@
           "query": "web developer ticino",
           "clicks": 0,
           "impressions": 5
-        },
-        {
-          "query": "app development geneva",
-          "clicks": 0,
-          "impressions": 4
         },
         {
           "query": "software development geneva",
@@ -23484,6 +23539,16 @@
           "impressions": 1
         },
         {
+          "query": "app developers geneva",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "app developing geneva",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "recruit programmer",
           "clicks": 0,
           "impressions": 1
@@ -23507,19 +23572,9 @@
           "query": "delvitech",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "eficode jobs",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "high tech jobs",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 85,
+      "totalImpressions": 91,
       "totalClicks": 8,
       "topQuery": "hire developers in switzerland",
       "title": "Developers",
@@ -29821,6 +29876,63 @@
       ]
     },
     {
+      "slug": "finanzbeauftragte-r-deza-confederazione-zollikofen",
+      "locale": "de",
+      "path": "/de/jobs-in-bern/finanzbeauftragte-r-deza-confederazione-zollikofen/",
+      "observedPaths": {
+        "de": "/de/jobs-in-bern/finanzbeauftragte-r-deza-confederazione-zollikofen/"
+      },
+      "queries": [
+        {
+          "query": "lena lidzba",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lena lidzba",
+      "title": "Finanzbeauftragte r deza confederazione zollikofen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "en": "finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "de": "finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "fr": "finanzbeauftragte-r-deza-confederazione-zollikofen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "en": "/en/find-jobs-bern/finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "de": "/de/jobs-im-bern/finanzbeauftragte-r-deza-confederazione-zollikofen",
+        "fr": "/fr/trouver-emploi-berne/finanzbeauftragte-r-deza-confederazione-zollikofen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o",
@@ -32125,14 +32237,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "en": "gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "it": "gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "de": "gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-berne/gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "en": "/en/find-jobs-bern/gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/gestion-des-projets-electriques-techniques-h-f-80-100-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -43865,14 +43988,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "it": "maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "de": "maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "fr": "maintenance-specialist-m-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/maintenance-specialist-m-f-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/maintenance-specialist-m-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -44637,14 +44771,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "it": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "de": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "en": "mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich",
+        "en": "/en/find-jobs-zurich/mecanicien-operationnel-80-100-h-f-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -50729,14 +50874,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "de": "polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "fr": "polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "it": "polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "fr": "/fr/trouver-emploi-argovie/polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/polymechanic-cnc-turning-series-production-80-100-m-f-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -52271,10 +52427,10 @@
         "fr": "stage-dans-les-emballages-semi-conducteurs-80-100-f-m-d-hitachi-energy-baden-daettwil-switzerland"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland",
-        "en": "/en/find-jobs-lucerne/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland",
+        "it": "/cerca-lavoro-argovia/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland",
+        "en": "/en/find-jobs-aargau/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland",
         "de": "/de/jobs-im-luzern/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland",
-        "fr": "/fr/trouver-emploi-lucerne/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland"
+        "fr": "/fr/trouver-emploi-argovie/praktikum-in-halbleiterverpackung-80-100-w-m-d-hitachi-energy-baden-daettwil-switzerland"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -64167,14 +64323,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "it": "senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "de": "senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "fr": "senior-it-system-technician-in-80-100-yellowshark-ag-schlieren"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "it": "/cerca-lavoro-zurigo/senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "de": "/de/jobs-im-zurich/senior-it-system-technician-in-80-100-yellowshark-ag-schlieren",
+        "fr": "/fr/trouver-emploi-zurich/senior-it-system-technician-in-80-100-yellowshark-ag-schlieren"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -71226,10 +71393,10 @@
         "fr": "taches-principales-hirslanden-search-2-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/taches-principales-hirslanden-search-2-2",
-        "en": "/en/find-jobs-geneva/taches-principales-hirslanden-search-2-2",
+        "it": "/cerca-lavoro-vaud/taches-principales-hirslanden-search-2-2",
+        "en": "/en/find-jobs-vaud/taches-principales-hirslanden-search-2-2",
         "de": "/de/jobs-im-waadt/taches-principales-hirslanden-search-2-2",
-        "fr": "/fr/trouver-emploi-geneve/taches-principales-hirslanden-search-2-2"
+        "fr": "/fr/trouver-emploi-vaud/taches-principales-hirslanden-search-2-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71609,10 +71776,10 @@
         "fr": "technical-product-manager-qvac-100-remote-tether-ch-3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/technical-product-manager-qvac-100-remote-tether-ch-3",
-        "en": "/en/find-jobs-zurich/technical-product-manager-qvac-100-remote-tether-ch-3",
-        "de": "/de/jobs-in-zurich/technical-product-manager-qvac-100-remote-tether-ch-3",
-        "fr": "/fr/trouver-emploi-zurich/technical-product-manager-qvac-100-remote-tether-ch-3"
+        "it": "/cerca-lavoro-ticino/technical-product-manager-qvac-100-remote-tether-ch-3",
+        "en": "/en/find-jobs-ticino/technical-product-manager-qvac-100-remote-tether-ch-3",
+        "de": "/de/jobs-im-tessin/technical-product-manager-qvac-100-remote-tether-ch-3",
+        "fr": "/fr/trouver-emploi-tessin/technical-product-manager-qvac-100-remote-tether-ch-3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71936,14 +72103,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "en": "technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "it": "technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "de": "technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "en": "/en/find-jobs-zurich/technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "it": "/cerca-lavoro-zurigo/technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur",
+        "de": "/de/jobs-im-zurich/technicien-de-service-international-genie-mecanique-h-f-100-yellowshark-ag-winterthur"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -80384,10 +80562,10 @@
         "fr": "verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
-        "en": "/en/find-jobs-ticino/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
-        "de": "/de/jobs-im-tessin/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
-        "fr": "/fr/trouver-emploi-tessin/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq"
+        "it": "/cerca-lavoro-zurigo/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
+        "en": "/en/find-jobs-zurich/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
+        "de": "/de/jobs-in-zurich/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-pfaffikon-zh-ueg5hq"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -81643,10 +81821,10 @@
         "fr": "vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
-        "en": "/en/find-jobs-zurich/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
-        "de": "/de/jobs-in-zurich/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
-        "fr": "/fr/trouver-emploi-zurich/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden"
+        "it": "/cerca-lavoro-argovia/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
+        "en": "/en/find-jobs-aargau/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
+        "de": "/de/jobs-im-aargau/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden",
+        "fr": "/fr/trouver-emploi-argovie/vice-direttore-di-filiale-m-f-d-80-100-baden-lidl-svizzera-baden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82789,10 +82967,10 @@
         "fr": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
-        "en": "/en/find-jobs-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
-        "de": "/de/jobs-im-wallis/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
-        "fr": "/fr/trouver-emploi-valais/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland"
+        "it": "/cerca-lavoro-soletta/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
+        "en": "/en/find-jobs-solothurn/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
+        "de": "/de/jobs-in-solothurn/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland",
+        "fr": "/fr/trouver-emploi-soleure/zusteller-in-lettere-e-pacchi-die-schweizerische-post-schoftland"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -233,10 +233,10 @@
         "fr": "4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches",
-        "en": "/en/find-jobs-vaud/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches",
+        "it": "/cerca-lavoro-friburgo/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches",
+        "en": "/en/find-jobs-fribourg/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches",
         "de": "/de/jobs-im-waadt/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches",
-        "fr": "/fr/trouver-emploi-vaud/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches"
+        "fr": "/fr/trouver-emploi-fribourg/4x8-team-pianificazione-manutenzione-tecnico-m-f-d-nestle-avenches"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -543,14 +543,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "it": "acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "de": "acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "en": "acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "it": "/cerca-lavoro-zurigo/acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "de": "/de/jobs-im-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg",
+        "en": "/en/find-jobs-zurich/acquereur-technique-h-f-80-100-yellowshark-ag-glattbrugg"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -584,14 +595,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "acquereur-technique-h-f-yellowshark-ag-goldach",
+        "it": "acquereur-technique-h-f-yellowshark-ag-goldach",
+        "en": "acquereur-technique-h-f-yellowshark-ag-goldach",
+        "de": "acquereur-technique-h-f-yellowshark-ag-goldach"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/acquereur-technique-h-f-yellowshark-ag-goldach",
+        "it": "/cerca-lavoro-san-gallo/acquereur-technique-h-f-yellowshark-ag-goldach",
+        "en": "/en/find-jobs-st-gallen/acquereur-technique-h-f-yellowshark-ag-goldach",
+        "de": "/de/jobs-im-st-gallen/acquereur-technique-h-f-yellowshark-ag-goldach"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -3545,10 +3567,10 @@
         "fr": "apprenti-informaticien-operateur-informatique-cfc-usi-lugano"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/apprendista-informatico-a-operatore-informatico-afc-usi-lugano",
-        "en": "/en/find-jobs-ticino/computer-apprentice-computer-operator-afc-usi-lugano",
-        "de": "/de/jobs-im-tessin/auszubildender-informatiker-informatiker-efz-usi-lugano",
-        "fr": "/fr/trouver-emploi-tessin/apprenti-informaticien-operateur-informatique-cfc-usi-lugano"
+        "it": "/cerca-lavoro-vallese/apprendista-informatico-a-operatore-informatico-afc-usi-lugano",
+        "en": "/en/find-jobs-valais/computer-apprentice-computer-operator-afc-usi-lugano",
+        "de": "/de/jobs-im-wallis/auszubildender-informatiker-informatiker-efz-usi-lugano",
+        "fr": "/fr/trouver-emploi-valais/apprenti-informaticien-operateur-informatique-cfc-usi-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -6030,14 +6052,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "fr": "assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "de": "assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "it": "assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-obwalden/assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "fr": "/fr/trouver-emploi-obwald/assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "de": "/de/jobs-im-obwalden/assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen",
+        "it": "/cerca-lavoro-obvaldo/assembly-specialist-robotics-100-m-f-yellowshark-ag-sarnen"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
-        "gsc"
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -14744,10 +14777,10 @@
         "fr": "chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "en": "/en/find-jobs-ticino/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "de": "/de/jobs-im-tessin/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "fr": "/fr/trouver-emploi-tessin/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee"
+        "it": "/cerca-lavoro-berna/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
+        "en": "/en/find-jobs-bern/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
+        "de": "/de/jobs-in-bern/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
+        "fr": "/fr/trouver-emploi-berne/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17728,9 +17761,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "commis-de-support-commercial-pour-l-agence-uster-general-axa-svizzera-uster",
-        "en": "commis-de-support-commercial-pour-l-agence-uster-general-axa-svizzera-uster",
-        "de": "commis-de-support-commercial-pour-l-agence-uster-general-axa-svizzera-uster",
+        "it": "sachbearbeiter-in-verkaufssupport-per-la-agenzia-generale-uster-axa-svizzera-uster",
+        "en": "sales-support-clerk-for-the-uster-general-agency-axa-svizzera-uster",
+        "de": "sachbearbeiter-in-verkaufssupport-fur-die-generalagentur-uster-axa-svizzera-uster",
         "fr": "commis-de-support-commercial-pour-l-agence-uster-general-axa-svizzera-uster"
       },
       "localePaths": {
@@ -17745,6 +17778,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -35464,10 +35498,10 @@
         "fr": "ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
-        "en": "/en/find-jobs-ticino/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
-        "de": "/de/jobs-im-tessin/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
-        "fr": "/fr/trouver-emploi-tessin/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig"
+        "it": "/cerca-lavoro-vallese/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
+        "en": "/en/find-jobs-valais/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
+        "de": "/de/jobs-im-wallis/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig",
+        "fr": "/fr/trouver-emploi-valais/ingenieur-de-projet-et-chef-de-projet-en-construction-avec-potentiel-pour-adjoint-de-directeur-de-succursale-80-100-brig"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -36014,14 +36048,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "installation-de-service-h-f-yellowshark-ag-baden",
+        "de": "installation-de-service-h-f-yellowshark-ag-baden",
+        "it": "installation-de-service-h-f-yellowshark-ag-baden",
+        "en": "installation-de-service-h-f-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/installation-de-service-h-f-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/installation-de-service-h-f-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/installation-de-service-h-f-yellowshark-ag-baden",
+        "en": "/en/find-jobs-aargau/installation-de-service-h-f-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -41831,14 +41876,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "it": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "de": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "fr": "maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-zurich/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "it": "/cerca-lavoro-zurigo/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "de": "/de/jobs-im-zurich/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich",
+        "fr": "/fr/trouver-emploi-zurich/maintenance-specialist-maintenance-technician-m-f-100-yellowshark-ag-zurich"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -44632,10 +44688,10 @@
         "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
-        "en": "/en/find-jobs-basel/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
+        "it": "/cerca-lavoro-zurigo/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
+        "en": "/en/find-jobs-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
         "de": "/de/jobs-im-st-gallen/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon",
-        "fr": "/fr/trouver-emploi-bale/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon"
+        "fr": "/fr/trouver-emploi-zurich/metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-zumikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -50223,6 +50279,118 @@
       ]
     },
     {
+      "slug": "polisseur-service-client-cartier-manufacture-steinen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-schwytz/polisseur-service-client-cartier-manufacture-steinen/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-schwytz/polisseur-service-client-cartier-manufacture-steinen/"
+      },
+      "queries": [
+        {
+          "query": "emploi cartier suisse",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "emploi polisseur suisse",
+          "clicks": 4,
+          "impressions": 6
+        },
+        {
+          "query": "cartier suisse recrutement",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "offre d'emploi cartier suisse",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "cartier emploi suisse",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "cartier suisse emploi",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "cartier emploi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "polisseur suisse",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "cartier career",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cartier carrière",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cartier recrutement",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs steinen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 45,
+      "totalClicks": 4,
+      "topQuery": "emploi cartier suisse",
+      "title": "Polisseur service client cartier manufacture steinen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "polisseur-service-client-cartier-manufacture-steinen",
+        "en": "polisseur-service-client-cartier-manufacture-steinen",
+        "de": "polisseur-service-client-cartier-manufacture-steinen",
+        "fr": "polisseur-service-client-cartier-manufacture-steinen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/polisseur-service-client-cartier-manufacture-steinen",
+        "en": "/en/find-jobs-schwyz/polisseur-service-client-cartier-manufacture-steinen",
+        "de": "/de/jobs-im-schwyz/polisseur-service-client-cartier-manufacture-steinen",
+        "fr": "/fr/trouver-emploi-schwytz/polisseur-service-client-cartier-manufacture-steinen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "polyd-manor-ag-lugano",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/polyd-manor-ag-lugano",
@@ -50304,14 +50472,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "de": "polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "fr": "polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "it": "polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/polymechanics-cnc-milling-machines-80-100-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -65070,14 +65249,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "de": "senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "it": "senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "fr": "senior-it-system-technician-m-f-80-100-yellowshark-ag-bern"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-bern/senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "de": "/de/jobs-im-bern/senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "it": "/cerca-lavoro-berna/senior-it-system-technician-m-f-80-100-yellowshark-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/senior-it-system-technician-m-f-80-100-yellowshark-ag-bern"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -66539,10 +66729,10 @@
         "fr": "software-plc-engineer-r-d-agie-charmilles-biel-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
-        "en": "/en/find-jobs-ticino/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
-        "de": "/de/jobs-im-tessin/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
-        "fr": "/fr/trouver-emploi-tessin/software-plc-engineer-r-d-agie-charmilles-biel-bienne"
+        "it": "/cerca-lavoro-berna/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
+        "en": "/en/find-jobs-bern/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
+        "de": "/de/jobs-in-bern/software-plc-engineer-r-d-agie-charmilles-biel-bienne",
+        "fr": "/fr/trouver-emploi-berne/software-plc-engineer-r-d-agie-charmilles-biel-bienne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69574,14 +69764,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "en": "steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "de": "steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "fr": "steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "it": "steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau"
+      },
+      "localePaths": {
+        "en": "/en/find-jobs-aargau/steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "de": "/de/jobs-im-aargau/steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "fr": "/fr/trouver-emploi-argovie/steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau",
+        "it": "/cerca-lavoro-argovia/steel-construction-designer-m-f-d-80-100-yellowshark-ag-aarau"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -71850,14 +72051,25 @@
       "sector": "",
       "salaryMin": 0,
       "salaryCurrency": "CHF",
-      "slugByLocale": {},
-      "localePaths": {},
+      "slugByLocale": {
+        "fr": "technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "en": "technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "de": "technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "it": "technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden"
+      },
+      "localePaths": {
+        "fr": "/fr/trouver-emploi-argovie/technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "en": "/en/find-jobs-aargau/technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "de": "/de/jobs-im-aargau/technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden",
+        "it": "/cerca-lavoro-argovia/technicien-de-service-mecanique-hydraulik-80-100-yellowshark-ag-baden"
+      },
       "sourceUrl": "",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "all-known-slugs",
         "slug-parsing"
       ]
     },
@@ -72026,6 +72238,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "technicien-methodes-qualite-donze-baume-les-breuleux",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-jura/technicien-methodes-qualite-donze-baume-les-breuleux/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-jura/technicien-methodes-qualite-donze-baume-les-breuleux/"
+      },
+      "queries": [
+        {
+          "query": "donzé baume emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "donzé baume emploi",
+      "title": "Technicien methodes qualite donze baume les breuleux",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "technicien-methodes-qualite-donze-baume-les-breuleux",
+        "en": "technicien-methodes-qualite-donze-baume-les-breuleux",
+        "de": "technicien-methodes-qualite-donze-baume-les-breuleux",
+        "fr": "technicien-methodes-qualite-donze-baume-les-breuleux"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/technicien-methodes-qualite-donze-baume-les-breuleux",
+        "en": "/en/find-jobs-jura/technicien-methodes-qualite-donze-baume-les-breuleux",
+        "de": "/de/jobs-im-jura/technicien-methodes-qualite-donze-baume-les-breuleux",
+        "fr": "/fr/trouver-emploi-jura/technicien-methodes-qualite-donze-baume-les-breuleux"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -78445,10 +78714,10 @@
         "fr": "venditore-in-cassa-servizi-coop-genossenschaft-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/venditore-in-cassa-servizi-coop-genossenschaft-emmen",
-        "en": "/en/find-jobs-bern/venditore-in-cassa-servizi-coop-genossenschaft-emmen",
+        "it": "/cerca-lavoro-lucerna/venditore-in-cassa-servizi-coop-genossenschaft-emmen",
+        "en": "/en/find-jobs-lucerne/venditore-in-cassa-servizi-coop-genossenschaft-emmen",
         "de": "/de/jobs-im-luzern/venditore-in-cassa-servizi-coop-genossenschaft-emmen",
-        "fr": "/fr/trouver-emploi-berne/venditore-in-cassa-servizi-coop-genossenschaft-emmen"
+        "fr": "/fr/trouver-emploi-lucerne/venditore-in-cassa-servizi-coop-genossenschaft-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80070,10 +80339,10 @@
         "fr": "verkaufer-in-food-frischprodukte-coop-genossenschaft-sins"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins",
-        "en": "/en/find-jobs-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins",
+        "it": "/cerca-lavoro-argovia/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins",
+        "en": "/en/find-jobs-aargau/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins",
         "de": "/de/jobs-im-bern/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins",
-        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins"
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-food-frischprodukte-coop-genossenschaft-sins"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
