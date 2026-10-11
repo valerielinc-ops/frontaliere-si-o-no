@@ -111,6 +111,51 @@ const SITEMAPS = ['sitemap-blog.xml', 'sitemap-blog-ch.xml', 'sitemap-articles-a
 const API_COMMIT = 'deadbeefcafe1234567890abcdef1234567890ab';
 const BLOG_CREDITS_PATH = 'data/image-credits-blog.json';
 const GENERATED_SNAPSHOT_PATH = 'data/published-blog-generated-image-evidence.json';
+const validGeneratedCover = () => {
+  const now = Date.now();
+  return {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    kind: 'generated',
+    provider: 'openai-codex',
+    model: 'gpt-image-2.5',
+    executorModel: 'gpt-5.6-luna',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 64,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: new Date(now - 10 * 60_000).toISOString(),
+    verifiedAt: new Date(now - 5 * 60_000).toISOString(),
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    category: 'blog',
+    area: 'Swiss Italian border region',
+    season: 'all seasons',
+    variant: 'pull-api-regression-test',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      is_photograph: false,
+      notes: 'Safe generic illustration for the API pull regression test.',
+    },
+  };
+};
 const FEEDS = [
   'rss.xml',
   'rss-it.xml',
@@ -512,48 +557,7 @@ describe('pull-articles-api: hero-image manifest', () => {
 
 describe('pull-articles-api: generated cover evidence', () => {
   it('stages generated records from the manifest-pinned HTTP blog index', async () => {
-    const generated = {
-      schema: 1,
-      assetId: 'test-generated-cover',
-      kind: 'generated',
-      provider: 'openai-codex',
-      model: 'gpt-image-2.5',
-      executorModel: 'gpt-5.6-luna',
-      promptVersion: 'frontaliereticino.generated-image-policy.v1',
-      promptHash: 'a'.repeat(64),
-      license: 'generated-provider',
-      licenseUrl: 'https://openai.com/policies/terms-of-use/',
-      credit: 'frontaliereticino.ch',
-      sha256: 'b'.repeat(64),
-      bytes: 64,
-      width: 1200,
-      height: 675,
-      format: 'webp',
-      generatedAt: '2026-10-07T10:00:00.000Z',
-      verifiedAt: '2026-10-07T10:05:00.000Z',
-      restrictions: [
-        'illustrative-only',
-        'no-real-recognizable-foreground-person',
-        'no-public-figure-face',
-        'no-logo-brand-or-text',
-        'no-specific-real-event-photojournalism',
-      ],
-      scope: 'article-hero',
-      imageUrl: '/images/blog/test-generated-cover.webp',
-      category: 'blog',
-      area: 'Swiss Italian border region',
-      season: 'all seasons',
-      variant: 'pull-api-regression-test',
-      vision: {
-        ok: true,
-        contains_text: false,
-        contains_logo: false,
-        contains_recognizable_face: false,
-        looks_like_specific_real_event: false,
-        is_photograph: false,
-        notes: 'Safe generic illustration for the API pull regression test.',
-      },
-    };
+    const generated = validGeneratedCover();
     routes = routesWithCredits(JSON.stringify({
       schema: 1,
       section: 'blog',
@@ -570,6 +574,43 @@ describe('pull-articles-api: generated cover evidence', () => {
       commit: API_COMMIT,
       generated: { [generated.imageUrl]: generated },
     });
+  });
+
+  it('accepts schema-valid generated evidence when the publisher omits optional kind', async () => {
+    const generated = validGeneratedCover();
+    Reflect.deleteProperty(generated, 'kind');
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [generated.imageUrl]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('validated 1 generated cover records');
+    expect(JSON.parse(fs.readFileSync(path.join(dir, GENERATED_SNAPSHOT_PATH), 'utf8')).generated)
+      .toEqual({ [generated.imageUrl]: generated });
+  });
+
+  it('still refuses a generated record whose image URL differs from its HTTP map key', async () => {
+    const generated = validGeneratedCover();
+    const wrongKey = '/images/blog/not-the-record.webp';
+    routes = routesWithCredits(JSON.stringify({
+      schema: 1,
+      section: 'blog',
+      commit: API_COMMIT,
+      generated: { [wrongKey]: generated },
+    }));
+    const dir = makeCheckout();
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(1);
+    expect(out).toContain('imageUrl does not match the record key');
+    expect(fs.existsSync(path.join(dir, GENERATED_SNAPSHOT_PATH))).toBe(false);
   });
 
   it('refuses a blog index whose bytes disagree with the pinned manifest before writing artifacts', async () => {

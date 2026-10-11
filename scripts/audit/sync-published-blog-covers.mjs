@@ -17,7 +17,10 @@ import {
   coverKey,
   validateImageCreditRecord,
 } from '../../packages/articles/engine/shared/imageCredits.mjs';
-import { validateGeneratedImageRecord } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import {
+  GENERATED_IMAGE_LICENSE,
+  validateGeneratedImageRecord,
+} from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 const ROOT = process.cwd();
 const LEDGER_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
@@ -182,8 +185,8 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   if (!registryValidation.valid) {
     return { state: 'rejected', reason: `invalid generated registry record: ${registryValidation.errors.join('; ')}` };
   }
-  if (generated.kind !== 'generated' || generated.assetId !== key || generated.imageUrl !== image) {
-    return { state: 'rejected', reason: 'generated record kind, assetId or imageUrl does not match the published cover' };
+  if (generated.license !== GENERATED_IMAGE_LICENSE || generated.assetId !== key || generated.imageUrl !== image) {
+    return { state: 'rejected', reason: 'generated record license, assetId or imageUrl does not match the published cover' };
   }
 
   const recordFile = generatedCreditRecordPath(key);
@@ -200,7 +203,7 @@ function inspectGeneratedEvidence(key, image, recordsByImage, knownBytes = null)
   if (creditRecord.source !== 'generated-provider'
     || creditRecord.cover !== image
     || creditRecord.generated.scope !== 'article-hero'
-    || ['assetId', 'kind', 'provider', 'model', 'promptHash', 'sha256', 'scope', 'imageUrl', 'verifiedAt']
+    || ['assetId', 'license', 'provider', 'model', 'promptHash', 'sha256', 'scope', 'imageUrl', 'verifiedAt']
       .some((field) => creditRecord.generated[field] !== generated[field])) {
     return { state: 'rejected', reason: 'HTTP evidence and generated credit record do not describe the same asset' };
   }

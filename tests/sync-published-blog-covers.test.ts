@@ -204,6 +204,10 @@ describe('sync-published-blog-covers', () => {
   it('records a newly published cover as generated only when the HTTP evidence and bytes agree', () => {
     const root = fixture();
     addGeneratedEvidence(root);
+    const evidencePath = path.join(root, 'data/published-blog-generated-image-evidence.json');
+    const evidence = JSON.parse(fs.readFileSync(evidencePath, 'utf8'));
+    delete evidence.generated[IMAGE].kind;
+    fs.writeFileSync(evidencePath, `${JSON.stringify(evidence, null, 2)}\n`);
     const output = execFileSync(process.execPath, [SCRIPT], {
       cwd: root,
       encoding: 'utf8',

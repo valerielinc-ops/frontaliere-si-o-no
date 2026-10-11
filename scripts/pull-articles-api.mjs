@@ -46,7 +46,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { validateGeneratedImageRecord } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import {
+  GENERATED_IMAGE_LICENSE,
+  validateGeneratedImageRecord,
+} from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
@@ -488,9 +491,14 @@ if (!credits || credits.schema !== 1 || credits.section !== 'blog'
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
   const validation = validateGeneratedImageRecord(record, { scope: 'article-hero' });
-  if (record?.kind !== 'generated' || record?.imageUrl !== imageUrl || !validation.valid) {
+  const generatedLicenseMismatch = record?.license !== GENERATED_IMAGE_LICENSE;
+  const imageUrlMismatch = record?.imageUrl !== imageUrl;
+  if (generatedLicenseMismatch || imageUrlMismatch || !validation.valid) {
+    const contractMismatch = generatedLicenseMismatch
+      ? 'license does not identify generated evidence'
+      : 'imageUrl does not match the record key';
     fail(`${BLOG_CREDITS_ARTIFACT} has invalid generated evidence for ${imageUrl}: `
-      + (validation.errors.join('; ') || 'kind or imageUrl does not match the record key'));
+      + (validation.errors.join('; ') || contractMismatch));
   }
 }
 staged.set(BLOG_GENERATED_EVIDENCE_SNAPSHOT, `${JSON.stringify({
