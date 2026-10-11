@@ -406,10 +406,13 @@ describe.each(SECTIONS)('%s thematic hubs', (section) => {
         expect(html).toContain('cth-facts');
         expect(html).toContain('id="rail-left-root"');
         expect(html).toContain('id="rail-right-root"');
-        expect(html.match(/<ins class="adsbygoogle"/g)).toHaveLength(2);
+        expect(html.match(/<ins class="adsbygoogle"/g)).toHaveLength(4);
         expect(html).toContain('data-ad-slot="3205029282"');
+        expect(html).toContain('data-ad-slot="1982411173"');
+        expect(html).toContain('data-ad-slot="6483829128"');
         expect(html).toContain('data-ad-slot="5196931137"');
         expect(html).toContain('data-ad-format="horizontal" data-full-width-responsive="true"');
+        expect(html).toContain('data-ad-format="fluid" data-ad-layout="in-article"');
         expect(html).toContain('data-ad-format="autorelaxed" data-ad-placement="ssg_end_multiplex"');
         expect(html).toContain(`aria-label="${locale === 'it' ? 'Pubblicità' : locale === 'en' ? 'Advertisement' : locale === 'de' ? 'Werbung' : 'Publicité'}"`);
         const ld = jsonLd(html);

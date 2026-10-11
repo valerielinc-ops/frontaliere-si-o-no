@@ -51,6 +51,14 @@ function hubData(topic: string) {
   };
 }
 
+function hubDataWithBlocks(topic: string) {
+  return {
+    ...hubData(topic),
+    keyFacts: [{ label: 'Indicatore', value: '12 min' }],
+    dataBlocks: [{ id: 'live', title: 'Dati aggiornati', items: [{ label: 'Posto A', value: '12 min' }] }],
+  };
+}
+
 afterEach(() => {
   vi.clearAllMocks();
 });
@@ -76,5 +84,17 @@ describe('CantonTopicHub route handoff', () => {
     await act(async () => { second.resolve(hubData('fisco')); });
     await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Fisco Zurigo'));
     expect(onReady).toHaveBeenLastCalledWith('canton-zh:fisco:it');
+  });
+
+  it('keeps both desktop rails and the four ad pauses after hydration', async () => {
+    loadHub.mockResolvedValue(hubDataWithBlocks('carburanti'));
+
+    const view = render(<CantonTopicHub section="canton-zh" topic="carburanti" />);
+    await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Carburanti Zurigo'));
+
+    expect(view.container.querySelectorAll('.cth-react-rail')).toHaveLength(2);
+    expect(view.container.querySelectorAll('.cth-ad')).toHaveLength(4);
+    expect(view.container.querySelector('.cth-ad-inline-one')).not.toBeNull();
+    expect(view.container.querySelector('.cth-ad-inline-two')).not.toBeNull();
   });
 });

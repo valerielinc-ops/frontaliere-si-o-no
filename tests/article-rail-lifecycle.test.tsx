@@ -37,4 +37,24 @@ describe('rail gutter shares GPT terminal decisions', () => {
     act(() => panels[0].onEmptyChange(false));
     expect(onEmptyResolved).toHaveBeenLastCalledWith(false);
   });
+
+  it('does not reuse empty verdicts when the measured panel set shrinks', () => {
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 1800 });
+    const onEmptyResolved = vi.fn();
+    const { rerender } = render(<ArticleRailAdStack side="left" count={3} onEmptyResolved={onEmptyResolved} />);
+    expect(panels).toHaveLength(3);
+    act(() => {
+      panels[0].onEmptyChange(true);
+      panels[1].onEmptyChange(true);
+      panels[2].onEmptyChange(true);
+    });
+    expect(onEmptyResolved).toHaveBeenLastCalledWith(true);
+
+    onEmptyResolved.mockClear();
+    act(() => rerender(<ArticleRailAdStack side="left" count={1} onEmptyResolved={onEmptyResolved} />));
+    expect(onEmptyResolved).not.toHaveBeenCalled();
+
+    act(() => panels.at(-1)?.onEmptyChange(true));
+    expect(onEmptyResolved).toHaveBeenLastCalledWith(true);
+  });
 });

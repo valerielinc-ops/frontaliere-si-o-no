@@ -699,18 +699,19 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     throw new Error(`hub ${section}/${topic}/${locale}: contenuto insufficiente (${contentWords} parole < ${CANTON_HUB_MIN_CONTENT_WORDS})`);
   }
 
+  const otherTopics = cantonTopicHubLinks(section as ArticleSection, locale).filter((l) => l.topic !== topic);
   const factsHtml = input.keyFacts.length
-    ? `      <section class="s-iQjIAb cth-facts" aria-label="${esc(copy.keyFacts)}">${input.keyFacts.map((f) => {
+    ? `      <section class="s-iQjIAb cth-facts" aria-labelledby="hub-facts"><div class="cth-section-heading"><h2 id="hub-facts" class="s-sXAwQz cth-section-title">${esc(copy.keyFacts)}</h2></div><div class="cth-facts-grid">${input.keyFacts.map((f, index) => {
         const source = f.sourceName
           ? (f.sourceUrl
-            ? `<div class="s-tlbl"><a href="${esc(safeHref(f.sourceUrl, 'keyFacts.sourceUrl'))}" rel="noopener">${esc(f.sourceName)}</a></div>`
-            : `<div class="s-tlbl">${esc(f.sourceName)}</div>`)
+            ? `<div class="s-tlbl cth-fact-source"><a href="${esc(safeHref(f.sourceUrl, 'keyFacts.sourceUrl'))}" rel="noopener">${esc(f.sourceName)}</a></div>`
+            : `<div class="s-tlbl cth-fact-source">${esc(f.sourceName)}</div>`)
           : '';
-        return `<div class="s-tacc cth-fact"><div class="s-tlbl">${esc(f.label)}</div><div class="s-tval">${esc(f.value)}</div>${f.note ? `<div class="s-tlbl">${esc(f.note)}</div>` : ''}${source}</div>`;
-      }).join('')}</section>`
+        return `<div class="s-tacc cth-fact${index === 0 ? ' cth-fact-featured' : ''}"><div class="s-tlbl cth-fact-label">${esc(f.label)}</div><div class="s-tval">${esc(f.value)}</div>${f.note ? `<div class="s-tlbl cth-fact-note">${esc(f.note)}</div>` : ''}${source}</div>`;
+      }).join('')}</div></section>`
     : '';
 
-  const blocksHtml = input.dataBlocks.map((b) => {
+  const blocksHtml = input.dataBlocks.map((b, blockIndex) => {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(b.id)) throw new Error(`dataBlocks: id non valido ${JSON.stringify(b.id)}`);
     const headingId = `dati-${b.id}`;
     const items = b.items.map((it) => {
@@ -723,10 +724,13 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     const snapshot = b.updatedAt
       ? `<p class="s-Sn0UIv">${esc(copy.updated)} <time datetime="${esc(requireDate(b.updatedAt, `dataBlocks.${b.id}.updatedAt`))}">${esc(formatDate(b.updatedAt, locale))}</time></p>`
       : '';
-    return `      <section class="cth-section cth-data-block" aria-labelledby="${headingId}"><h2 id="${headingId}" class="s-sXAwQz cth-section-title">${esc(b.title)}</h2>${b.description ? `<p class="cth-section-intro">${esc(b.description)}</p>` : ''}${items ? `<ul class="s-N93mPe cth-data-list">${items}</ul>` : ''}${snapshot}${sourceLineHtml(locale, b.sourceName, b.sourceUrl, `dataBlocks.${b.id}.sourceUrl`)}</section>`;
+    const block = `      <section class="cth-section cth-data-block" aria-labelledby="${headingId}"><div class="cth-section-heading"><h2 id="${headingId}" class="s-sXAwQz cth-section-title">${esc(b.title)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div>${b.description ? `<p class="cth-section-intro">${esc(b.description)}</p>` : ''}${items ? `<ul class="s-N93mPe cth-data-list">${items}</ul>` : ''}${snapshot}${sourceLineHtml(locale, b.sourceName, b.sourceUrl, `dataBlocks.${b.id}.sourceUrl`)}</section>`;
+    return blockIndex === 0
+      ? `${block}\n${cantonAdHtml('canton-hub-inline-1', copy.advertisement, 'cth-ad-inline cth-ad-inline-one')}`
+      : block;
   }).join('\n');
 
-  const curatedHtml = `      <section class="cth-section cth-curated" aria-labelledby="hub-articles"><h2 id="hub-articles" class="s-sXAwQz cth-section-title">${esc(copy.curated)}</h2>${input.curatedArticles.length
+  const curatedHtml = `      <section class="cth-section cth-curated" aria-labelledby="hub-articles"><div class="cth-section-heading"><h2 id="hub-articles" class="s-sXAwQz cth-section-title">${esc(copy.curated)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div>${input.curatedArticles.length
     ? `<ul class="s-0c2lhY cth-article-list">${input.curatedArticles.map((a) => {
         const date = a.date ? ` <time datetime="${esc(requireDate(a.date, 'curatedArticles.date'))}">${esc(formatDate(a.date, locale))}</time>` : '';
         return `<li><a class="s-6gbS_B" href="${esc(safeHref(a.url, 'curatedArticles.url'))}"><span class="s-lkdl0F">${esc(a.title)}</span>${a.excerpt ? `<span class="s-hNvHD_">${esc(a.excerpt)}</span>` : ''}</a>${date}</li>`;
@@ -734,21 +738,21 @@ export function renderCantonTopicHub(input: CantonTopicHubInput): CantonSectionP
     : `<p class="s-s6RP5r">${esc(copy.noCurated)}</p>`}</section>`;
 
   const toolsHtml = input.links.length
-    ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
+    ? `      <section class="cth-section cth-tools" aria-labelledby="hub-tools"><div class="cth-section-heading"><h2 id="hub-tools" class="s-sXAwQz cth-section-title">${esc(copy.tools)}</h2><span class="cth-section-marker" aria-hidden="true"></span></div><ul class="s-N93mPe cth-data-list">${input.links.map((l) =>
         `<li><a class="s-7DS5hj" href="${esc(safeHref(l.url, 'links.url'))}">${esc(l.label)}</a>${l.description ? ` — ${esc(l.description)}` : ''}</li>`).join('')}</ul></section>`
     : '';
 
-  const otherTopics = cantonTopicHubLinks(section as ArticleSection, locale).filter((l) => l.topic !== topic);
   const navHtml = `      <nav class="s-4nYHgH cth-topic-nav" aria-label="${esc(copy.otherTopics)}"><h2 class="s-sXAwQz cth-section-title">${esc(copy.otherTopics)}</h2><ul class="s-N93mPe cth-topic-list">${otherTopics
     .map((l) => `<li><a class="s-7DS5hj" href="${esc(l.href)}">${esc(l.label)}</a></li>`)
     .join('')}<li><a class="s-7DS5hj" href="${esc(landingPath)}">${esc(sectionLabel)}</a></li><li><a class="s-7DS5hj" href="${esc(cantonSectionArchivePath(section, locale))}">${esc(cantonArchiveCopy(section, locale).title)}</a></li></ul></nav>`;
 
   const mainHtml = [
     breadcrumbNavHtml(locale, [{ name: sectionLabel, href: landingPath }, { name: hubLabel }]),
-    `      <header class="s-S1RSUf cth-hero"><h1 class="s-e3gkVi">${esc(hubLabel)}</h1>${paragraphs.map((p, i) => `<p${i === 0 ? ' class="s-OPPwy-"' : ''}>${esc(p)}</p>`).join('')}<p class="s-Sn0UIv">${esc(copy.updated)} <time datetime="${esc(updatedAt)}">${esc(formatDate(updatedAt, locale))}</time></p></header>`,
+    `      <header class="s-S1RSUf cth-hero cth-hero-hub"><div class="cth-hero-copy"><h1 class="s-e3gkVi">${esc(hubLabel)}</h1>${paragraphs.map((p, i) => `<p${i === 0 ? ' class="s-OPPwy-"' : ''}>${esc(p)}</p>`).join('')}<p class="s-Sn0UIv cth-hero-meta"><span>${esc(copy.updated)}</span><time datetime="${esc(updatedAt)}">${esc(formatDate(updatedAt, locale))}</time></p></div><aside class="cth-hero-index" aria-label="${esc(copy.otherTopics)}"><h2>${esc(copy.otherTopics)}</h2><ul>${otherTopics.slice(0, 4).map((l) => `<li><a href="${esc(l.href)}">${esc(l.label)}<span aria-hidden="true">↗</span></a></li>`).join('')}</ul></aside></header>`,
     cantonAdHtml('canton-hub-top', copy.advertisement, 'cth-ad-top'),
     factsHtml,
     blocksHtml,
+    input.dataBlocks.length > 0 ? cantonAdHtml('canton-hub-inline-2', copy.advertisement, 'cth-ad-inline cth-ad-inline-two') : '',
     curatedHtml,
     toolsHtml,
     navHtml,

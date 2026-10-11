@@ -83,8 +83,15 @@ const swissBlogIndexSlugs: Record<ArticleLocale, string> = {
   fr: SLUG_TABLES.fr.blogCh,
 };
 
+const CANTON_HUB_AD_SLOT: Record<StaticAdSlotKey, Parameters<typeof adSlotHtml>[0]> = {
+  'canton-hub-top': 'JOBDETAIL_TOP_BANNER',
+  'canton-hub-inline-1': 'ARTICLE_INLINE_MOBILE',
+  'canton-hub-inline-2': 'ARTICLE_INLINE_MOBILE_2',
+  'canton-hub-end': 'SSG_END_MULTIPLEX',
+};
+
 const staticAdSlotHtml: NonNullable<SiteShellContract['staticAdSlotHtml']> = (slot: StaticAdSlotKey) =>
-  adSlotHtml(slot === 'canton-hub-top' ? 'JOBDETAIL_TOP_BANNER' : 'SSG_END_MULTIPLEX');
+  adSlotHtml(CANTON_HUB_AD_SLOT[slot]);
 
 const contract: SiteShellContract = {
   baseUrl: BASE_URL,
