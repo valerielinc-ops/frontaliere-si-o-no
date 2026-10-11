@@ -935,6 +935,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Country', 'My Information / Country of birth')).toBe('');
     expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
     expect(questionTopic('Country code', 'My Information / Phone')).toBe('');
+    expect(questionTopic('Country code', 'Phone, Address, CAP, Country')).toBe('');
     const flattenedPersonalContext = 'Dati anagrafici · Telefono fisso / Telefono privato · Telefono mobile / Cellulare * · Indirizzo * · CAP * · Località * · Nazione (di residenza) *';
     expect(questionTopic('Indirizzo', flattenedPersonalContext)).toBe('address_street');
     expect(questionTopic('CAP', flattenedPersonalContext)).toBe('residence_postal_code');

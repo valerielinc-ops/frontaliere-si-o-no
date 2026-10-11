@@ -422,8 +422,7 @@ export function addressQuestionTopic(text, context = '') {
   // flattened list of every sibling label, though, so do not let a phone
   // label suppress a real residence address in the same personal section.
   const phoneCodeContext = PHONE_CODE_FIELD_RE.test(surrounding)
-    && PHONE_COUNTRY_CODE_LABEL_RE.test(value)
-    && !RESIDENCE_CONTEXT_RE.test(surrounding);
+    && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
   if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
