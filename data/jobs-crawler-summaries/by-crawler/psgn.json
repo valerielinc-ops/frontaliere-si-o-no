@@ -1,7 +1,7 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-10-11T09:16:38.316Z",
+  "generatedAt": "2026-10-11T21:16:22.892Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,19 +13,19 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10128,
-  "avgDurationMs": 10128,
+  "unchangedCount": 1,
+  "durationMs": 12077,
+  "avgDurationMs": 12077,
   "durationHistory": [
-    10128
+    12077
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "psgn-92cef58b71fe",
-      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-pfafers",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -36,7 +36,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/260792bf-8558-43c6-ac78-e19c576010ea",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:19.312Z",
+      "crawledAt": "2026-10-11T21:16:03.065Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
     },
     {
       "id": "psgn-b82a78f73fc0",
-      "slug": "dipl-professionista-hf-fh-psychiatrie-st-gallen-wil-sg-c1f9b3",
+      "slug": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -78,7 +78,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/5ae9f13b-ed86-4dff-8e82-c07c8f16d54b",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:18.810Z",
+      "crawledAt": "2026-10-11T21:16:02.401Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
     },
     {
       "id": "psgn-b906b3af55b2",
-      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-pfafers-9923ea8cec",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -120,7 +120,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/2a3d1c87-2675-4c12-b0c3-1bb3a01094ab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:18.246Z",
+      "crawledAt": "2026-10-11T21:16:01.760Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
     },
     {
       "id": "psgn-4936616ccb5c",
-      "slug": "stage-commerciale-psychiatrie-st-gallen-wil-sg-382567",
+      "slug": "stage-commerciale-psychiatrie-st-gallen-pfafers-5f9fc4b125",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -161,7 +161,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/69006ae1-1cea-4d42-84ba-0d77a57cb527",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:17.727Z",
+      "crawledAt": "2026-10-11T21:16:01.097Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
     },
     {
       "id": "psgn-a1673bdd211a",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-44dbe19373",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -202,7 +202,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/6be43b64-4c1e-4351-b9a1-4facd32b5b26",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:17.199Z",
+      "crawledAt": "2026-10-11T21:16:00.465Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -233,7 +233,7 @@
     },
     {
       "id": "psgn-75d6a46746b6",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-b449e6",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-52877b8995",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -244,7 +244,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/a3e131e2-d922-47f0-845f-ea008c414139",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:16.674Z",
+      "crawledAt": "2026-10-11T21:15:59.643Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -275,7 +275,7 @@
     },
     {
       "id": "psgn-bbb9a101c94e",
-      "slug": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-wil-sg",
+      "slug": "senior-medico-senior-medico-mbf-psychiatrie-st-gallen-pfafers",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -286,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/524fbe5a-52f8-4876-a147-56d6d5fc3ad5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:16.142Z",
+      "crawledAt": "2026-10-11T21:15:58.986Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -317,7 +317,7 @@
     },
     {
       "id": "psgn-7aed00f10117",
-      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-wil-sg-8d2d29",
+      "slug": "medico-senior-medico-senior-psychiatrie-st-gallen-pfafers-ea9f2d747b",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -328,7 +328,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/425e8ee9-54b3-4c91-ad0f-d30f5ae6b0b0",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:15.612Z",
+      "crawledAt": "2026-10-11T21:15:58.331Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
     },
     {
       "id": "psgn-fa7a454f5c47",
-      "slug": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-wil-sg",
+      "slug": "formazione-responsabile-formazione-responsabile-hf-fh-psychiatrie-st-gallen-pfafers",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -370,7 +370,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf-fh/9e53d9d0-d9c5-4392-89c3-dffa6fbc7a3f",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:15.046Z",
+      "crawledAt": "2026-10-11T21:15:57.696Z",
       "addressLocality": "Pfäfers",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -398,7 +398,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "psgn-e76c3a262274",
       "slug": "servizio-e-supporto-ai-dipendenti-ict-formazione-e-formazione-professionale-psychiatrie-st-gallen-wil-sg",
@@ -412,7 +415,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-service-support-ict-berufsbildung/cd5b5775-eb4e-4b1f-9a11-a750d1eba416",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:16:14.471Z",
+      "crawledAt": "2026-10-11T21:15:57.016Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -442,7 +445,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }
