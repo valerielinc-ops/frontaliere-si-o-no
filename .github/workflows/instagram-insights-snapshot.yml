@@ -1,11 +1,9 @@
-name: Instagram Insights Snapshot
+name: Instagram Insights Report
 
-# Read-only Meta collection for the creative experiment loop. The collector
-# writes only data/instagram-insights.json; publishing remains owned by
-# instagram-daily-broadcast.yml and the local social robot.
+# Collection is owned by the authenticated Chrome profile on the Mac host.
+# This workflow is deliberately report-only: it never asks for an Instagram
+# token and never competes with the local browser collector for data/.
 on:
-  schedule:
-    - cron: '45 10 * * *'
   workflow_dispatch:
     inputs:
       window_hours:
@@ -13,125 +11,47 @@ on:
         required: false
         default: '72'
         type: string
-      tolerance_hours:
-        description: 'How early a scheduled run may collect the target window'
-        required: false
-        default: '0'
-        type: string
       as_of:
-        description: 'Optional ISO timestamp for a reproducible preview'
+        description: 'Optional ISO timestamp for a reproducible report'
         required: false
         default: ''
         type: string
-      dry_run:
-        description: 'Read and report only; do not commit the snapshot'
-        required: false
-        default: 'true'
-        type: choice
-        options: ['true', 'false']
 
 concurrency:
-  group: instagram-insights-snapshot
+  group: instagram-insights-report
   cancel-in-progress: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  collect:
+  report:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     env:
-      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
       WINDOW_HOURS: ${{ github.event.inputs.window_hours || '72' }}
-      TOLERANCE_HOURS: ${{ github.event.inputs.tolerance_hours || '0' }}
       AS_OF: ${{ github.event.inputs.as_of || '' }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-
-      # The collector uses the same Remote Config bridge as the publisher.
-      # Empty/missing Firebase credentials are deliberately allowed: the next
-      # step then reports a clean credentials-missing skip instead of exposing
-      # a secret or failing an unrelated publishing pipeline.
-      - name: Prepare Firebase credentials
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          set -euo pipefail
-          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
-            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON is absent; Remote Config cannot be loaded."
-            exit 0
-          fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
-
-      - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
-        continue-on-error: true
-
-      - name: Collect Instagram Insights snapshots
-        run: |
-          set -euo pipefail
-          # The normal 72h run also records an early 24h diagnostic. The
-          # snapshot document stores windowHours, so the scorecard never
-          # pools the two windows. A custom dispatch target remains one-shot.
-          windows=("$WINDOW_HOURS")
-          if [ "$WINDOW_HOURS" = "72" ]; then
-            windows=(24 72)
-          fi
-          for window in "${windows[@]}"; do
-            echo "Collecting ${window}h Instagram Insights window"
-            args=("--window-hours=$window" "--tolerance-hours=$TOLERANCE_HOURS")
-            if [ -n "$AS_OF" ]; then args+=("--as-of=$AS_OF"); fi
-            if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-            node scripts/instagram-insights-snapshot.mjs "${args[@]}"
-          done
 
       - name: Print creative scorecard
-        if: always()
         run: |
+          set -euo pipefail
           if [ -f data/instagram-insights.json ]; then
             node scripts/instagram-insights-report.mjs \
               --input data/instagram-insights.json \
-              --ledger data/instagram-posted.json
+              --ledger data/instagram-posted.json \
+              --window-hours="$WINDOW_HOURS"
           else
-            echo "No Instagram Insights snapshot has been written yet."
+            echo "No browser Insights snapshot has been committed yet."
           fi
 
       - name: Print experiment status
-        if: always()
-        run: |
-          status_windows=("$WINDOW_HOURS")
-          if [ "$WINDOW_HOURS" = "72" ]; then
-            status_windows=(24 72)
-          fi
-          for window in "${status_windows[@]}"; do
-            echo "Experiment status (${window}h window)"
-            node scripts/instagram-experiment-status.mjs \
-              --ledger data/instagram-posted.json \
-              --queue data/instagram-queue.json \
-              --insights data/instagram-insights.json \
-              --window-hours="$window"
-          done
-
-      - name: Commit snapshot
-        if: success() && env.DRY_RUN != 'true'
         run: |
           set -euo pipefail
-          if [ ! -f data/instagram-insights.json ]; then
-            echo "No snapshot to commit"; exit 0
-          fi
-          git add data/instagram-insights.json
-          if git diff --cached --quiet; then
-            echo "No snapshot changes"; exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(instagram): record Insights snapshot [skip ci]"
-          bash scripts/lib/git-push-with-retry.sh --max-attempts 20
+          args=(--ledger data/instagram-posted.json --queue data/instagram-queue.json --insights data/instagram-insights.json --window-hours="$WINDOW_HOURS")
+          if [ -n "$AS_OF" ]; then args+=(--as-of "$AS_OF"); fi
+          node scripts/instagram-experiment-status.mjs "${args[@]}"

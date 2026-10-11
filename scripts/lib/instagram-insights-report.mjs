@@ -33,6 +33,7 @@ function objectiveForCreative(creativeId) {
 }
 
 const METRIC_ALIASES = Object.freeze({
+  views: ['views', 'view_count', 'impressions', 'visualizzazioni'],
   reach: ['reach', 'reach_count', 'accounts_reached'],
   shares: ['shares', 'share_count', 'shares_count'],
   saves: ['saves', 'saved', 'save_count', 'saved_count'],
@@ -56,6 +57,7 @@ const CSV_FIELD_ALIASES = Object.freeze({
   engagementLoop: ['engagementloop', 'loop'],
   followUpFormat: ['followupformat', 'followup'],
   reach: ['reach', 'reachcount', 'accountsreached'],
+  views: ['views', 'viewcount', 'impressions', 'visualizzazioni'],
   shares: ['shares', 'sharecount', 'sharescount'],
   saves: ['saves', 'saved', 'savecount', 'savedcount'],
   comments: ['comments', 'commentcount', 'commentscount'],
@@ -346,13 +348,16 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       ledgerMetadata?.followUpFormat,
     );
 
-    const reach = readMetric(raw, 'reach', { required: true });
+    const explicitReach = readMetric(raw, 'reach', { required: true });
+    const views = readMetric(raw, 'views', { required: true });
+    const reach = explicitReach ?? views;
     if (reach === null || reach <= 0) {
-      reject(rejected, index, 'reach must be a positive number');
+      reject(rejected, index, 'reach or views must be a positive number');
       return;
     }
 
     const metrics = {
+      views: views ?? 0,
       shares: readMetric(raw, 'shares'),
       saves: readMetric(raw, 'saves'),
       comments: readMetric(raw, 'comments'),
@@ -387,6 +392,13 @@ export function normalizeInsightRows(input, { ledger = null, windowHours = DEFAU
       followUpFormat,
       windowHours: targetWindowHours,
       reach,
+      reachSource: firstString(
+        raw.reachSource,
+        raw.reach_source,
+        raw.audienceMetric,
+        raw.audience_metric,
+        explicitReach === null ? 'views' : 'reach',
+      ),
       ...metrics,
     });
   });
@@ -431,6 +443,8 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       windowHours: row.windowHours,
       observations: 0,
       kinds: new Set(),
+      reachSource: null,
+      views: 0,
       reach: 0,
       shares: 0,
       saves: 0,
@@ -448,7 +462,9 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     group.attentionMechanic ||= row.attentionMechanic || null;
     group.engagementLoop ||= row.engagementLoop || null;
     group.followUpFormat ||= row.followUpFormat || null;
-    for (const metric of ['reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
+    group.reachSource ||= row.reachSource || null;
+    if (row.reachSource && group.reachSource !== row.reachSource) group.reachSource = 'mixed';
+    for (const metric of ['views', 'reach', 'shares', 'saves', 'comments', 'profileVisits', 'linkClicks']) {
       group[metric] += Number(row[metric]) || 0;
     }
     groups.set(key, group);
@@ -474,7 +490,10 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
       windowHours: group.windowHours,
       observations: group.observations,
       kinds: Array.from(group.kinds).sort(),
+      views: group.views,
       reach: group.reach,
+      audienceMetric: group.reachSource === 'views' ? 'views' : 'reach',
+      reachSource: group.reachSource || 'reach',
       shares: group.shares,
       saves: group.saves,
       comments: group.comments,
@@ -536,8 +555,8 @@ export function aggregateCreativePerformance(rows, { minimumObservations = DEFAU
     exploratoryWinner: exploratoryWinners.length === 1 ? exploratoryWinners[0].creativeId : null,
     methodology: {
       comparisonUnit: 'creativeId + content kind + measurement window',
-      primaryRate: 'primary metric / reach',
-      interactionRate: '(shares + saves + comments) / reach',
+      primaryRate: 'primary metric / audience base (reach or views)',
+      interactionRate: '(shares + saves + comments) / audience base (reach or views)',
       rankingWarning: 'exploratoryRanking is a within-objective guardrail, not a replacement for each treatment primary metric or a cross-objective winner',
     },
   };

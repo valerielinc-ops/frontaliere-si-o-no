@@ -20,6 +20,13 @@ const DEFAULT_MISSING_CREDENTIALS = Object.freeze([
   'INSTAGRAM_ACCESS_TOKEN',
 ]);
 
+/** Browser is the Mac-host default; Graph is retained only as an explicit fallback. */
+export function resolveInstagramInsightsSource(env = process.env) {
+  const configured = firstText(env.SOCIAL_ROBOT_INSIGHTS_SOURCE)?.toLowerCase();
+  if (configured === 'graph' || configured === 'browser' || configured === 'off') return configured;
+  return 'browser';
+}
+
 function isRecord(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
 }
@@ -483,6 +490,7 @@ export function buildExperimentStatus({
     publishedPosts: publishedWithObservations,
     cohorts: serializedCohorts,
     insights: {
+      source: resolveInstagramInsightsSource(),
       sourceRows: rows.length,
       independentObservations: serializedCohorts.reduce((sum, cohort) => sum + cohort.observedPosts, 0),
       acceptedRows,

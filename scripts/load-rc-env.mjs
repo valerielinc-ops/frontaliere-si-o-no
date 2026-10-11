@@ -279,6 +279,9 @@ export const RC_TO_ENV = {
   INSTAGRAM_USERNAME:                  ['INSTAGRAM_USERNAME'],
   INSTAGRAM_BUSINESS_ACCOUNT_ID:       ['INSTAGRAM_BUSINESS_ACCOUNT_ID'],
   SERVER_INSTAGRAM_ACCESS_TOKEN:       ['INSTAGRAM_ACCESS_TOKEN'],
+  // Insights source: browser uses the authenticated Chrome Professional
+  // Dashboard on the Mac host; graph remains an explicit compatibility path.
+  SOCIAL_ROBOT_INSIGHTS_SOURCE:        ['SOCIAL_ROBOT_INSIGHTS_SOURCE'],
 
   // TikTok auto-posting (carousel — scripts/post-to-tiktok.mjs). Account
   // created 2026-08-24. _CLIENT_KEY/_CLIENT_SECRET are the PRODUCTION app;

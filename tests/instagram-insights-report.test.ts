@@ -116,6 +116,25 @@ describe('Instagram Insights creative scorecard', () => {
     });
   });
 
+  it('uses browser Views as the declared audience base when Reach is not visible', () => {
+    const result = normalizeInsightRows([{
+      id: 'browser-media-1',
+      creativeId: 'question-choice',
+      kind: 'article',
+      views: 13,
+      comments: 2,
+    }]);
+
+    expect(result.rejected).toEqual([]);
+    expect(result.rows[0]).toMatchObject({ views: 13, reach: 13, reachSource: 'views' });
+    expect(aggregateCreativePerformance(result.rows, { minimumObservations: 1 }).treatments[0]).toMatchObject({
+      views: 13,
+      audienceMetric: 'views',
+      reachSource: 'views',
+      primaryRate: 2 / 13,
+    });
+  });
+
   it('joins a media id to creative metadata in the posted ledger', () => {
     const result = normalizeInsightRows([
       { id: 'ig-123', reach: 100, shares: 5, saves: 1, comments: 0 },

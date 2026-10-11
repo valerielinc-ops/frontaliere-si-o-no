@@ -550,7 +550,7 @@ describe('runRobot', () => {
     expect(output).toContain('24h');
     expect(output).toContain('48h');
     expect(output).toContain('3 osservazioni');
-    expect(output).toContain('commenti, DM consentiti e Story vengono gestiti');
+    expect(output).toContain('commenti e DM consentiti vengono gestiti dal worker Chrome');
   });
 
   it('does nothing when Remote Config says off', async () => {

@@ -44,7 +44,7 @@ describe('Instagram engagement brief', () => {
       storySlaHours: 48,
       decisionWindowHours: 72,
       minimumComparableObservations: 3,
-      automationMode: 'graph-api',
+      automationMode: 'chrome-browser',
       manualOnly: false,
     });
     expect(brief?.responseAction).toContain('24h');
@@ -80,6 +80,6 @@ describe('Instagram engagement brief', () => {
   it('formats a readable automatic worker brief', () => {
     const output = formatInstagramEngagementBrief(buildInstagramEngagementBrief(creativeEntry()));
     expect(output).toContain('🧭 Instagram engagement — article-2026-10-10 · question-choice · comments');
-    expect(output).toContain('Automatico: commenti, DM consentiti e Story vengono gestiti dal worker Graph API.');
+    expect(output).toContain('Automatico: commenti e DM consentiti vengono gestiti dal worker Chrome; le Stories restano nel fallback Graph esplicito.');
   });
 });

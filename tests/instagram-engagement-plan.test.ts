@@ -18,7 +18,7 @@ describe('Instagram engagement plan', () => {
       hookType: 'forced-choice',
       engagementLoop: 'comment-to-poll',
       followUpFormat: 'story-result',
-      automationMode: 'graph-api',
+      automationMode: 'chrome-browser',
       manualOnly: false,
       responseSlaHours: 24,
       followUpWithinHours: 72,

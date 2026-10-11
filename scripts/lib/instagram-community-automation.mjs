@@ -289,7 +289,7 @@ export function matchLedgerGroupsToMedia(groups, media, { maxDistanceMinutes = 4
   });
 }
 
-function hashAction(...parts) {
+export function hashAction(...parts) {
   return createHash('sha256').update(parts.map((part) => String(part ?? '')).join('\u0000')).digest('hex');
 }
 
@@ -325,7 +325,7 @@ function hasAction(state, key) {
   return state.actions.some((action) => action.key === key && action.status === 'sent');
 }
 
-function recordAction(state, file, { key, kind, at }) {
+export function recordCommunityAction(state, file, { key, kind, at }) {
   if (hasAction(state, key)) return;
   state.actions = [...state.actions.filter((action) => action.key !== key), {
     key,
@@ -336,6 +336,8 @@ function recordAction(state, file, { key, kind, at }) {
   state.updatedAt = new Date(at).toISOString();
   saveCommunityState(file, state);
 }
+
+const recordAction = recordCommunityAction;
 
 function commentReplies(comment) {
   if (Array.isArray(comment?.replies)) return comment.replies;

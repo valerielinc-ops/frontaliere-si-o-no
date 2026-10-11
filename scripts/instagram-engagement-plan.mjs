@@ -134,7 +134,7 @@ export function buildInstagramEngagementPlan({ kind = DEFAULT_KIND, sourceKind =
     replyTemplate: prompts.replyTemplate,
     operatorAction: prompts.operatorAction,
     followUpAction: instagramFollowUpAction(creative.followUpFormat),
-    automationMode: 'graph-api',
+    automationMode: 'chrome-browser',
     manualOnly: false,
     responseSlaHours: 24,
     followUpWithinHours: 72,
@@ -179,7 +179,7 @@ export function run(argv = process.argv.slice(2)) {
     `   Story prompt: ${plan.storyPrompt}`,
     `   Entro 24h: ${plan.operatorAction}`,
     `   Entro 72h: ${plan.followUpAction}`,
-    '   Automatico: il worker Graph API gestisce commenti, DM consentiti e Stories.',
+    '   Automatico: il worker Chrome gestisce commenti e DM consentiti; le Stories restano nel fallback Graph esplicito.',
   ].join('\n'));
   return 0;
 }
