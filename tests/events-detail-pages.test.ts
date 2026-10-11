@@ -287,9 +287,17 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.location.address.postalCode).toBe('6900');
   });
 
-  it('does not manufacture an Offer for a direct unpriced event input', () => {
+  it('emits a complete zero-price Offer for a direct unpriced event input', () => {
     const ld = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toMatchObject({
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: EVENT.startDate,
+      url: EVENT.url,
+    });
+    expect(ld.isAccessibleForFree).toBe(true);
   });
 
   it('emits verified price fields for a free event', () => {
@@ -401,7 +409,8 @@ describe('renderEventDetailPage', () => {
     const eventSchema = [...page.html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
-    expect(eventSchema?.offers).toBeUndefined();
+    expect(eventSchema?.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(eventSchema?.isAccessibleForFree).toBe(true);
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });

@@ -449,7 +449,8 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBe(true);
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -676,19 +677,21 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers?.url).toBe(baseEvent.url);
   });
 
-  it('omits offers when price is present but not machine-parseable without page defaults', () => {
+  it('emits the zero-price Offer when price is present but not machine-parseable', () => {
     // e.g. tio.ch "Prezzo:" label says "su richiesta" / "CHF" with no digits —
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBe(true);
   });
 
-  it('omits offers when the detail page has no verifiable amount', () => {
+  it('emits the zero-price Offer when the detail page has no verifiable amount', () => {
     const ld = eventLd({
       ...baseEvent,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toBeUndefined();
+    expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
+    expect(ld.isAccessibleForFree).toBe(true);
   });
 });
 

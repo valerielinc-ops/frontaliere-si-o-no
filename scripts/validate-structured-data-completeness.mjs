@@ -223,12 +223,14 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // Offers are optional when the source has no verifiable price. When
-  // present, an Offer must contain a numeric price; AggregateOffer uses
-  // lowPrice instead.
+  // Every emitted Event must carry a complete Offer. Verified prices keep
+  // their source amount; unknown prices use the deterministic price: 0
+  // fallback. AggregateOffer uses lowPrice instead of price.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
-  if (schema.offers !== undefined && schema.offers !== null) {
+  if (schema.offers === undefined || schema.offers === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {

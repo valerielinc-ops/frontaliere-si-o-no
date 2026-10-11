@@ -843,9 +843,10 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  // Image, organizer and performer remain required Event fields. Offers are
-  // optional when the source has no verifiable price; when present, an Offer
-  // must contain a numeric price and AggregateOffer must contain lowPrice.
+  // Image, organizer and performer remain required Event fields. Every Event
+  // must also carry a complete Offer: verified prices keep their source
+  // amount, while unknown prices use the deterministic price: 0 fallback.
+  // AggregateOffer uses lowPrice instead of price.
   for (const field of ['image', 'organizer', 'performer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
@@ -868,7 +869,9 @@ function sdValidateEvent(schema, filePath) {
   // an emitted Offer must always contain a numeric amount.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
-  if (schema.offers !== undefined && schema.offers !== null) {
+  if (schema.offers === undefined || schema.offers === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
