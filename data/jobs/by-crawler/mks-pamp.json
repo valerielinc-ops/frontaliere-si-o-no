@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-10-10T21:43:44.063Z",
+  "assembledAt": "2026-10-11T09:37:05.793Z",
   "jobs": [
     {
       "title": "Metal Operations Manager",
@@ -61,7 +61,7 @@
       "firstSeenAt": "2026-10-03T09:31:28.506Z",
       "datePosted": "2026-10-02T15:18:11+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.361Z",
+      "crawledAt": "2026-10-11T09:37:02.376Z",
       "postalCode": "6874",
       "previousSlugsByLocale": {
         "it": [
@@ -137,7 +137,7 @@
       "firstSeenAt": "2026-09-29T21:39:07.108Z",
       "datePosted": "2026-09-29T16:44:49+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.364Z",
+      "crawledAt": "2026-10-11T09:37:02.378Z",
       "postalCode": "6874"
     },
     {
@@ -197,11 +197,15 @@
       },
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
       "salarySource": "estimated",
+      "datePosted": "2026-08-19T12:39:04+02:00",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-10-11T09:37:02.380Z",
+      "postalCode": "6874",
       "previousSlugsByLocale": {
-        "fr": [
+        "it": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
-        "it": [
+        "fr": [
           "precious-metal-control-manager-mks-pamp-castel-san-pietro"
         ],
         "de": [
@@ -213,11 +217,7 @@
       },
       "previousSlugs": [
         "precious-metal-control-manager-mks-pamp-castel-san-pietro"
-      ],
-      "datePosted": "2026-08-19T12:39:04+02:00",
-      "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.369Z",
-      "postalCode": "6874"
+      ]
     },
     {
       "title": "Technical Drawer & Tooling Warehouse Specialist",
@@ -278,7 +278,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-08-11T17:56:17+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.374Z",
+      "crawledAt": "2026-10-11T09:37:02.382Z",
       "postalCode": "6874"
     },
     {
@@ -340,7 +340,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-30T18:17:47+02:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.375Z",
+      "crawledAt": "2026-10-11T09:37:02.384Z",
       "postalCode": "6874"
     },
     {
@@ -435,7 +435,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-01-28T12:40:44+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.376Z"
+      "crawledAt": "2026-10-11T09:37:02.385Z"
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
@@ -535,7 +535,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-28T11:17:43+01:00",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-10T21:43:39.379Z"
+      "crawledAt": "2026-10-11T09:37:02.386Z"
     }
   ]
 }
