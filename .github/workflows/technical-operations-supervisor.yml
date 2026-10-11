@@ -44,6 +44,7 @@ on:
       - 'scripts/ci/loop-l*.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/loop-fleet-*.mjs'
+      - 'scripts/lib/gh-exec-buffer.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/gh-exec-buffer.mjs'
       - 'data/loop-fleet/loop-registry.json'

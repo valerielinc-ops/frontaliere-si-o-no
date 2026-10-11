@@ -2,6 +2,7 @@ import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { typ
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
 import { CITY_FALLBACK_ADDRESSES, resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 import { inferAnyCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
+import { officialPostalCodeForLocation } from './swiss-locality-directory.mjs';
 
 const CANTONS = new Set([
   'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
@@ -138,9 +139,12 @@ export function resolveLocalityAddress({ city = '', canton = '' } = {}) {
     || (municipality && fallbackKey === normalize(municipality))
     || Boolean(CITY_FALLBACK_ADDRESSES[locality.toLowerCase()]);
   if (sameLocality) return fallback;
+  const officialPostal = officialPostalCodeForLocation(municipality || locality, cantonCode);
+  const postalCode = officialPostal.postalCode
+    || (officialPostal.known ? '' : verifiedPostalForCity(municipality || locality));
   return {
     addressLocality: locality,
-    postalCode: verifiedPostalForCity(municipality || locality),
+    postalCode,
     streetAddress: '',
   };
 }

@@ -20,7 +20,7 @@ import { pathToFileURL } from 'node:url';
 
 export const NATIVE_AUTOMERGE_SOURCE_CHECKOUT_DIR = 'native-automerge-main';
 
-// Keep the nine gate helpers together as a named contract. The two Remote
+// Keep the gate helpers together as a named contract. The two Remote
 // Config files, this validator, and the ledger registry are runtime support
 // for that same gate and are included in the complete source list below.
 export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
@@ -32,6 +32,7 @@ export const NATIVE_AUTOMERGE_HELPER_FILES = Object.freeze([
   'scripts/ci/lib/constants.mjs',
   'scripts/ci/lib/pr-review-admission.mjs',
   'scripts/ci/lib/review-input-revision.mjs',
+  'scripts/lib/gh-exec-buffer.mjs',
   'scripts/lib/loop-fleet-contract.mjs',
 ]);
 
@@ -54,7 +55,7 @@ export const NATIVE_AUTOMERGE_SOURCE_FILES = Object.freeze([
  * invariant is defended by `tests/ci-vitest-check-name.test.ts`; naming the
  * loader even in a checkout cone would trip it, so the in-job profile does not
  * fetch it. This is a SUBSET, never a relaxation: it still contains every file
- * the gate can execute or import (the nine helpers are import-closed over this
+ * the gate can execute or import (the helpers are import-closed over this
  * list, and the loader is only ever executed by a workflow step, never
  * imported), and a missing or invalid one still fails the job closed.
  */

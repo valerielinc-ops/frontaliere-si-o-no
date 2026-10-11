@@ -1048,7 +1048,10 @@ export async function runL10({
     sourceSnapshot: observation.sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
-    decision: verdict.ok ? 'observing' : 'candidate',
+    // A measured independent outcome needs a candidate lifecycle record; this
+    // is evidence state, not a defect verdict. Keep the healthy action class
+    // (`observe`) unchanged.
+    decision: (!verdict.ok || measurable) ? 'candidate' : 'observing',
     reason: verdict.reason,
     actionClass,
     rollbackPlan: 'remove runner-local queue/lock plans and reports; never bypass a gate or rewrite a published artifact',

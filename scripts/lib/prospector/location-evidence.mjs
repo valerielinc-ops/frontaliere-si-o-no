@@ -214,7 +214,7 @@ export function isExplicitlyForeign(value, addressCountry = '') {
  *
  * @param {unknown} value
  * @param {unknown} [addressCountry]
- * @returns {{ location: string, canton: string, addressCountry?: string }|null}
+ * @returns {{ location: string, canton: string, addressCountry?: string, postalCode?: string, streetAddress?: string }|null}
  */
 export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const evidence = /** @type {any} */ (value && typeof value === 'object'
@@ -294,8 +294,12 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
       includeBorderProximity: false,
       includeOfficialLocality: hasPostalAddressEvidence,
     }))) return null;
+  const postalCode = String(evidence.postalCode || '').replace(/\s+/g, ' ').trim();
+  const streetAddress = String(evidence.streetAddress || '').replace(/\s+/g, ' ').trim();
   const geography = { location, canton };
   if (country) geography.addressCountry = country;
+  if (postalCode) geography.postalCode = postalCode;
+  if (streetAddress) geography.streetAddress = streetAddress;
   return geography;
 }
 
@@ -309,7 +313,7 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
  *
  * @param {unknown} value source location or structured source evidence
  * @param {{location: string, canton: string, addressCountry?: string}|null} [resolved]
- * @returns {{location: string, canton: string, addressLocality: string, addressRegion: string, addressCountry?: string}|null}
+ * @returns {{location: string, canton: string, addressLocality: string, addressRegion: string, addressCountry?: string, postalCode?: string, streetAddress?: string}|null}
  */
 export function sourceBackedSwissGeographyFields(value, resolved = null) {
   const geography = resolved || resolveSourceBackedSwissGeography(value);
@@ -319,8 +323,10 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
     evidence.addressLocality || String(geography.location || '').split(/[,;/|]/)[0],
   ).replace(/\s+/g, ' ').trim();
   const addressCountry = String(
-    evidence.addressCountry || evidence.country || geography.addressCountry || '',
+    geography.addressCountry || evidence.addressCountry || evidence.country || '',
   ).replace(/\s+/g, ' ').trim();
+  const postalCode = String(geography.postalCode || '').replace(/\s+/g, ' ').trim();
+  const streetAddress = String(geography.streetAddress || '').replace(/\s+/g, ' ').trim();
   return {
     ...geography,
     addressLocality,
@@ -329,6 +335,8 @@ export function sourceBackedSwissGeographyFields(value, resolved = null) {
     // projection prevents at the parser → assembler handoff.
     addressRegion: geography.canton,
     ...(addressCountry ? { addressCountry } : {}),
+    ...(postalCode ? { postalCode } : {}),
+    ...(streetAddress ? { streetAddress } : {}),
   };
 }
 
