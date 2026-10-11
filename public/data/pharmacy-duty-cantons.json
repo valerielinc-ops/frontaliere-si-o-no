@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T03:15:13.498Z",
+  "generatedAt": "2026-10-11T10:00:39.562Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:14:25.890Z",
+      "fetchedAt": "2026-10-11T09:59:51.332Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -111,7 +111,7 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:15:12.300Z",
+      "fetchedAt": "2026-10-11T10:00:38.449Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
@@ -195,7 +195,7 @@
         "JU"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:15:13.498Z",
+      "fetchedAt": "2026-10-11T10:00:39.562Z",
       "sourceUrl": "https://www.jura.ch/fr/Autorites/Administration/CHA/SIC/Urgences/Numeros-d-urgence-Urgence.html",
       "sourceType": "official",
       "duties": [
@@ -216,24 +216,6 @@
           "startsAt": "2026-10-10T06:00:00.000Z",
           "endsAt": "2026-10-17T06:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/cf870cc726e98e945551d2d9bf14db412111d06a31ed96503068c955fe97873e.pdf/planning-mars-2026-fev-2027_V5.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "night",
-          "startsAt": "2026-10-10T16:30:00.000Z",
-          "endsAt": "2026-10-11T06:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
-        },
-        {
-          "pharmacy": "Centre Coop",
-          "city": "Moutier",
-          "coverageName": "Moutier",
-          "dutyType": "weekend",
-          "startsAt": "2026-10-11T08:00:00.000Z",
-          "endsAt": "2026-10-11T10:00:00.000Z",
-          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         },
         {
           "pharmacy": "Centre Coop",
@@ -324,6 +306,15 @@
           "startsAt": "2026-10-17T16:30:00.000Z",
           "endsAt": "2026-10-18T06:00:00.000Z",
           "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
+        },
+        {
+          "pharmacy": "Centre Migros",
+          "city": "Moutier",
+          "coverageName": "Moutier",
+          "dutyType": "weekend",
+          "startsAt": "2026-10-18T08:00:00.000Z",
+          "endsAt": "2026-10-18T10:00:00.000Z",
+          "sourceUrl": "https://www.jura.ch/Htdocs/Files/v/7f1515f9545180504c2d10f45dc07fb2704ad22e31937b789f63868e1c469ca0.pdf/Plan-de-garde-des-pharmacies-de-Moutier-en-2026.pdf?download=1"
         }
       ],
       "unresolvedDuties": 0
@@ -333,7 +324,7 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:15:13.498Z",
+      "fetchedAt": "2026-10-11T10:00:39.562Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
@@ -417,7 +408,7 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:15:13.498Z",
+      "fetchedAt": "2026-10-11T10:00:39.562Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
@@ -501,7 +492,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-11T03:15:13.498Z",
+      "fetchedAt": "2026-10-11T10:00:39.562Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [
@@ -510,26 +501,26 @@
           "city": "Dornach",
           "coverageName": "Dorneck-Thierstein",
           "dutyType": "holiday",
-          "startsAt": "2026-10-11T07:00:00.000Z",
-          "endsAt": "2026-10-11T10:00:00.000Z",
+          "startsAt": "2026-10-18T07:00:00.000Z",
+          "endsAt": "2026-10-18T10:00:00.000Z",
           "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
         },
         {
-          "pharmacy": "Apotheke Coop-Vitality - Grenchen",
-          "city": "Grenchen",
-          "coverageName": "Solothurn",
-          "dutyType": "holiday",
-          "startsAt": "2026-10-11T08:00:00.000Z",
-          "endsAt": "2026-10-11T10:00:00.000Z",
-          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
-        },
-        {
-          "pharmacy": "Apotheke zum Kreuz",
+          "pharmacy": "Central-Apotheke Olten",
           "city": "Olten",
           "coverageName": "Olten",
           "dutyType": "holiday",
-          "startsAt": "2026-10-11T08:00:00.000Z",
-          "endsAt": "2026-10-11T10:00:00.000Z",
+          "startsAt": "2026-10-18T08:00:00.000Z",
+          "endsAt": "2026-10-18T10:00:00.000Z",
+          "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
+        },
+        {
+          "pharmacy": "Medbase Apotheke - Zuchwil",
+          "city": "Zuchwil",
+          "coverageName": "Solothurn",
+          "dutyType": "holiday",
+          "startsAt": "2026-10-18T08:00:00.000Z",
+          "endsAt": "2026-10-18T10:00:00.000Z",
           "sourceUrl": "https://avso.ch/notfalldienst-apotheken/"
         }
       ],
