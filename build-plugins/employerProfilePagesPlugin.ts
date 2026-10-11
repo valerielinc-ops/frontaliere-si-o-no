@@ -47,7 +47,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
-import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
+import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderJobCardListHtml, localizedContract, type JobCardJob } from './shared/jobCardHtml';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
@@ -67,6 +67,14 @@ import { buildCompanyOrganization } from './shared/jobPostingSchema';
 import { resolveEmployerProfilesFlushed, type EmittedEmployerProfile } from './shared/buildSignals';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsenseSlots';
+import {
+  EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
+  EMPLOYER_PROFILE_MID_AD_TARGET_SLUG,
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
+  resolveEmployerProfileMidAdVariant,
+  type EmployerProfileMidAdVariant,
+} from '../services/employerProfileAdExperiment';
 
 export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Locale = (typeof LOCALES)[number];
@@ -570,6 +578,10 @@ ${items}
 interface ProfileRenderOptions {
   /** Keep the indexability probe free of manual ad markup. */
   interleaveInfeedAds?: boolean;
+  /** Add the opt-in EOC mid-page test unit only to an indexable final render. */
+  includeEmployerProfileMidAd?: boolean;
+  /** Build-time Remote Config snapshot captured before the SSG loop starts. */
+  employerProfileMidAdVariant?: EmployerProfileMidAdVariant;
 }
 
 function renderProfileBody(
@@ -619,6 +631,11 @@ function renderProfileBody(
     locale,
     interleaveInfeedAds: options.interleaveInfeedAds,
   });
+  const employerProfileMidAdHtml = options.includeEmployerProfileMidAd
+    && options.employerProfileMidAdVariant === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
+    && profile.slug === EMPLOYER_PROFILE_MID_AD_TARGET_SLUG
+    ? `<section class="max-w-3xl mx-auto px-4 my-6" aria-label="advertisement" data-ad-experiment="${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}" data-ad-variant="${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</section>`
+    : '';
 
   return `<main class="seo-static-content max-w-[820px] mx-auto px-5 pt-6 pb-14 leading-relaxed text-body">
 ${breadcrumbHtml(locale, name)}
@@ -628,6 +645,7 @@ ${breadcrumbHtml(locale, name)}
 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
 ${reportedSalaryNote(locale, salarySummary)}
 </header>
+${employerProfileMidAdHtml}
 ${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
 <section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p><p class="my-2.5 leading-relaxed text-body">${esc(PROFILE_METHOD_NOTE[locale])}</p></section>
 <section class="mb-2">
@@ -772,6 +790,13 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       let profilePages = 0;
       let bridgePages = 0;
       let thinDowngraded = 0;
+      // Remote Config is a build input, not a runtime input. The deploy
+      // workflow loads it before `npm run build:ci`; snapshot it at the SSG
+      // boundary so every profile in this artifact sees the same arm and a
+      // later environment mutation cannot create mixed HTML.
+      const employerProfileMidAdVariant = resolveEmployerProfileMidAdVariant(
+        process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY],
+      );
 
       for (const profile of profiles) {
         const slug = profile.slug;
@@ -830,8 +855,9 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
           // manual slots. Employer profiles keep the page-level multiplex as
-          // their single static unit; the job-list in-feed cadence can make a
-          // long profile fail the audit's content/slot ratio before Auto Ads
+          // their control unit; the opt-in EOC test is added only to the
+          // indexable final render below. The job-list in-feed cadence can make
+          // a long profile fail the audit's content/slot ratio before Auto Ads
           // even run, so it stays disabled on this family.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
@@ -839,7 +865,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
           const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           const renderedBodyHtml = indexable
-            ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: false })
+            ? renderProfileBody(liveProfile, listed, locale, group, {
+                interleaveInfeedAds: false,
+                includeEmployerProfileMidAd: true,
+                employerProfileMidAdVariant,
+              })
             : bodyHtml;
           return { locale, bodyHtml: renderedBodyHtml, indexable };
         });

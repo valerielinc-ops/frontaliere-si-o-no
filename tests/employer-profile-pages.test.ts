@@ -7,6 +7,12 @@ import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsole
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
+import {
+  EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
+  EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
+  EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
+} from '../services/employerProfileAdExperiment';
 import committedDataset from '../data/employer-profiles.json';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
@@ -21,6 +27,7 @@ import { SKIP_LIVE_DATA } from './helpers/live-data';
  */
 
 let root: string;
+let eocTreatmentHtml = '';
 
 function job(i: number) {
   return {
@@ -40,6 +47,16 @@ function job(i: number) {
     salaryMin: 80000 + i * 1000,
     salaryMax: 120000 + i * 1000,
     url: `https://acme.example/job/${i}`,
+  };
+}
+
+function eocJob(i: number) {
+  return {
+    ...job(i),
+    slug: `infermiere-${i}-eoc-ente-ospedaliero-cantonale-lugano`,
+    company: 'EOC – Ente Ospedaliero Cantonale',
+    companyKey: 'eoc-ente-ospedaliero-cantonale',
+    title: `Infermiere EOC ${i}`,
   };
 }
 
@@ -71,6 +88,18 @@ beforeAll(async () => {
           salarySamples: 6,
           trend: { added: 4, removed: 1, net: 3, windowDays: 28 },
         },
+        {
+          slug: 'eoc-ente-ospedaliero-cantonale',
+          name: 'EOC – Ente Ospedaliero Cantonale',
+          companyKey: 'eoc-ente-ospedaliero-cantonale',
+          sector: 'Sanità',
+          activeJobs: 6,
+          cantons: [{ name: 'TI', count: 6 }],
+          cities: [{ name: 'Lugano', count: 6 }],
+          salaryMedianChf: 92000,
+          salarySamples: 6,
+          trend: { added: 3, removed: 1, net: 2, windowDays: 28 },
+        },
       ],
       belowFloor: [
         { slug: 'small-co', name: 'Small Co', activeJobs: 3, sector: 'Altro', canton: 'TI' },
@@ -92,6 +121,7 @@ beforeAll(async () => {
     path.join(root, 'data', 'jobs.json'),
     JSON.stringify([
       ...Array.from({ length: 6 }, (_, i) => job(i + 1)),
+      ...Array.from({ length: 6 }, (_, i) => eocJob(i + 1)),
       // Slugless job: must be skipped by BOTH the card renderer and the
       // ItemList JSON-LD (no JobPosting pointing at the bare homepage).
       { ...job(7), slug: '' },
@@ -101,7 +131,24 @@ beforeAll(async () => {
   const plugin = employerProfilePagesPlugin(root) as unknown as {
     closeBundle: () => Promise<void>;
   };
-  await plugin.closeBundle();
+  const previousMidAdVariant = process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
+  process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_EOC_VARIANT;
+  try {
+    await plugin.closeBundle();
+    eocTreatmentHtml = fs.readFileSync(
+      path.join(root, 'dist', 'aziende/eoc-ente-ospedaliero-cantonale/index.html'),
+      'utf-8',
+    );
+
+    // Re-run the same SSG with the control input. This is the acceptance
+    // boundary for the experiment: changing RC only affects a new build, and
+    // the next artifact must not retain the treatment marker.
+    process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT;
+    await plugin.closeBundle();
+  } finally {
+    if (previousMidAdVariant === undefined) delete process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
+    else process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = previousMidAdVariant;
+  }
 });
 
 afterAll(() => {
@@ -230,6 +277,26 @@ describe('employerProfilePagesPlugin', () => {
     expect(infeedAdCount).toBe(0); // the profile keeps one page-level static unit; Auto Ads remain active
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
+  });
+
+  it('adds the opt-in mid unit only to the EOC treatment profile', () => {
+    const eoc = eocTreatmentHtml;
+    const acme = read('aziende/acme-corp/index.html');
+    expect(eoc).toMatch(new RegExp(`data-ad-experiment=["']?${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}`));
+    expect(eoc).toMatch(new RegExp(`data-ad-variant=["']?${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}`));
+    expect(eoc).toMatch(/data-ad-slot=["']?1982411173/);
+    expect(acme).not.toContain(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+
+    const ad = eoc.indexOf(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+    const follow = eoc.indexOf('data-company-follow-mount');
+    expect(ad).toBeGreaterThan(eoc.indexOf('</header>'));
+    expect(follow).toBeGreaterThan(ad);
+  });
+
+  it('emits no EOC treatment marker when the next build uses control', () => {
+    const eoc = read('aziende/eoc-ente-ospedaliero-cantonale/index.html');
+    expect(eoc).not.toContain(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+    expect(eoc).not.toContain('data-ad-variant="eoc_mid"');
   });
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {

@@ -186,6 +186,21 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
+  it('places the drive-by unit after the station answer and before the trend history', () => {
+    const html = pages['/prezzi-benzina/oggi/'];
+    const attrPosition = (name: string, value: string) => [
+      html.indexOf(`${name}="${value}"`),
+      html.indexOf(`${name}=${value}`),
+    ].find((position) => position >= 0) ?? -1;
+    const top3 = attrPosition('id', 'top3');
+    const driveby = attrPosition('data-ad-slot', '2093992129');
+    const trend7 = attrPosition('id', 'trend7');
+
+    expect(top3).toBeGreaterThanOrEqual(0);
+    expect(driveby).toBeGreaterThan(top3);
+    expect(trend7).toBeGreaterThan(driveby);
+  });
+
   it('keeps history-rich daily pages above the production text/HTML floor', async () => {
     const history = Array.from({ length: 180 }, (_, index) => {
       const date = new Date(today.getTime() - (179 - index) * 86_400_000);

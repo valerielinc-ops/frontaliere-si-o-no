@@ -520,6 +520,25 @@ jobs:
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
 
+      # The employer-profile ad experiment is consumed by the static
+      # generator, so freeze its build input after Remote Config hydration and
+      # before the `npm run build:ci` SSG step below. Unknown/missing values
+      # stay on the safe control arm; changing RC after this build cannot alter
+      # already-emitted HTML and must be followed by another deploy.
+      - name: Freeze employer-profile ad input before SSG
+        shell: bash
+        run: |
+          employer_profile_mid_ad_variant="${EMPLOYER_PROFILE_MID_AD_TEST_VARIANT:-control}"
+          case "$employer_profile_mid_ad_variant" in
+            control|eoc_mid) ;;
+            *)
+              echo "::warning::Unknown EMPLOYER_PROFILE_MID_AD_TEST_VARIANT; using control."
+              employer_profile_mid_ad_variant=control
+              ;;
+          esac
+          echo "EMPLOYER_PROFILE_MID_AD_TEST_VARIANT=$employer_profile_mid_ad_variant" >> "$GITHUB_ENV"
+          echo "Employer-profile ad SSG input: $employer_profile_mid_ad_variant"
+
       # Eventfrog ephemeral pages (owner decision D5, AGB §17): copy the PRIVATE
       # snapshot to the git-ignored .cache/private-events/ for the events page
       # builder. Never an artifact (public-repo artifacts are downloadable) and
