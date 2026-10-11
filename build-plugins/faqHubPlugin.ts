@@ -892,12 +892,20 @@ function renderEntryPage(
 
   const sourcesHtml =
     entry.sources && entry.sources.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><ul class="fh-rll">${entry.sources
+      ? `<section id="fh-sources" class="fh-rls fh-entry-panel fh-entry-sources" aria-labelledby="fh-sources-title"><div class="fh-entry-panel-heading"><h2 id="fh-sources-title" class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><span class="fh-entry-panel-note">${entry.sources.length}</span></div><ul class="fh-rll">${entry.sources
           .map(
             (src) =>
-              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk" rel="nofollow noopener" target="_blank">${esc(
+              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk fh-source-link" rel="nofollow noopener" target="_blank"><span class="fh-source-domain">${esc(
+                (() => {
+                  try {
+                    return new URL(src).hostname.replace(/^www\./, '');
+                  } catch {
+                    return src.replace(/^https?:\/\//, '').split('/')[0];
+                  }
+                })(),
+              )}</span><span class="fh-source-path">${esc(
                 src.replace(/^https?:\/\//, '').replace(/\/$/, ''),
-              )}</a></li>`,
+              )}</span><span class="fh-source-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7m-8 0h8v8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span></a></li>`,
           )
           .join('')}</ul></section>`
       : '';
@@ -905,7 +913,7 @@ function renderEntryPage(
   const related = entry.relatedLinks ?? [];
   const relatedHtml =
     related.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.seeAlsoHeading)}</h2><ul class="fh-rll">${related
+      ? `<section id="fh-related" class="fh-rls fh-entry-panel fh-entry-related" aria-labelledby="fh-related-title"><div class="fh-entry-panel-heading"><h2 id="fh-related-title" class="fh-rlh">${esc(ecopy.seeAlsoHeading)}</h2></div><ul class="fh-rll">${related
           .map(
             (l) =>
               `<li class="fh-rli"><a href="${esc(resolveRelatedHref(l.href, locale))}" class="fh-lnk">${esc(
@@ -925,7 +933,7 @@ function renderEntryPage(
   const siblings = siblingEntries(entry, linkedIds);
   const siblingsHtml =
     siblings.length > 0
-      ? `<section class="fh-rls"><h2 class="fh-rlh">${esc(ecopy.siblingsHeading)}</h2><ul class="fh-rll">${siblings
+      ? `<section id="fh-siblings" class="fh-rls fh-entry-panel fh-entry-siblings" aria-labelledby="fh-siblings-title"><div class="fh-entry-panel-heading"><h2 id="fh-siblings-title" class="fh-rlh">${esc(ecopy.siblingsHeading)}</h2></div><ul class="fh-rll">${siblings
           .map(
             (sib) =>
               `<li class="fh-rli"><a href="${esc(buildFaqEntryPath(locale, sib.id))}" class="fh-lnk">${esc(
@@ -943,25 +951,40 @@ function renderEntryPage(
       <span> / </span>
       <a href="${esc(hubUrl)}" class="fh-lnk">${esc(copy.h1)}</a>
       <span> / </span>
-      <span>${esc(categoryLabel)}</span>
+      <span aria-current="page">${esc(categoryLabel)}</span>
     </nav>
-    <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <header class="fh-hd fh-entry-hd">
+      <div class="fh-entry-meta">
+        <span class="fh-entry-topic">${esc(categoryLabel)}</span>
+        <time class="fh-eyebrow" datetime="${esc(dateStamp)}">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</time>
+      </div>
     </header>
-    ${renderSeoHeroImage(hero)}
-    <section class="fh-q" data-speakable>
-      <h2 class="fh-qt">${esc(ecopy.answerHeading)}</h2>
+    ${renderSeoHeroImage({ ...hero, className: 'fh-entry-cover' })}
+    <section class="fh-q fh-entry-answer" data-speakable aria-labelledby="fh-answer-title">
+      <div class="fh-answer-heading">
+        <span class="fh-answer-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Zm0 3.5v5m0 3.25v.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>
+        </span>
+        <h2 id="fh-answer-title" class="fh-qt">${esc(ecopy.answerHeading)}</h2>
+      </div>
       <p class="fh-qa">${answerHtml}</p>
     </section>
+    <nav class="fh-entry-jump" aria-label="${esc(ecopy.answerHeading)}">
+      ${entry.sources && entry.sources.length > 0 ? `<a href="#fh-sources" class="fh-lnk">${esc(ecopy.sourcesHeading)}</a>` : ''}
+      ${related.length > 0 ? `<a href="#fh-related" class="fh-lnk">${esc(ecopy.seeAlsoHeading)}</a>` : ''}
+      ${siblings.length > 0 ? `<a href="#fh-siblings" class="fh-lnk">${esc(ecopy.siblingsHeading)}</a>` : ''}
+    </nav>
     ${sourcesHtml}
     ${relatedHtml}
     ${siblingsHtml}
-    <p class="fh-disc">${esc(copy.disclaimer)}</p>
-    <p class="fh-back"><a href="${esc(hubUrl)}" class="fh-lnk">${esc(ecopy.backToHub)}</a></p>
+    <footer class="fh-entry-footer">
+      <p class="fh-disc">${esc(copy.disclaimer)}</p>
+      <p class="fh-back"><a href="${esc(hubUrl)}" class="fh-lnk">${esc(ecopy.backToHub)}</a></p>
+    </footer>
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}`;
+  const bodyHtml = `<main class="fh-main fh-entry-main">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
 
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
