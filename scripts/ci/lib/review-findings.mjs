@@ -284,12 +284,22 @@ function citedPaths(finding) {
     .sort();
 }
 
-export function stableFindingId(finding) {
-  const paths = citedPaths(finding);
-  const pathIdentity = paths.length > 0 ? paths.join('\u001f') : primaryPath(finding);
+/** The four normalized inputs consumed by stableFindingId, for diagnostics. */
+export function findingIdentityComponents(finding) {
+  const cited = citedPaths(finding);
+  const fallback = primaryPath(finding);
   const text = String(finding?.text || finding?.line || '');
-  const symbol = findingSymbol(text);
-  const klass = findingDeclaredClass(text);
+  return {
+    paths: cited.length > 0 ? cited : (fallback ? [fallback] : []),
+    symbol: findingSymbol(text),
+    class: findingDeclaredClass(text),
+    prose: normalizeProse(text),
+  };
+}
+
+export function stableFindingId(finding) {
+  const { paths, symbol, class: klass, prose } = findingIdentityComponents(finding);
+  const pathIdentity = paths.join('\u001f');
   // La prosa normalizzata entra SEMPRE nell'id, non solo come ripiego quando
   // manca il simbolo. Con `(path, simbolo, classe)` due rilievi diversi che
   // nominano per primo lo stesso simbolo nello stesso file collidevano, e
@@ -298,7 +308,7 @@ export function stableFindingId(finding) {
   // non contiene il numero di riga (`normalizeProse` toglie gli span in
   // backtick, anchor compreso), quindi l'invarianza al rebase resta.
   return createHash('sha256')
-    .update(`${pathIdentity}\u0000${symbol}\u0000${klass}\u0000${normalizeProse(text)}`)
+    .update(`${pathIdentity}\u0000${symbol}\u0000${klass}\u0000${prose}`)
     .digest('hex')
     .slice(0, 12);
 }
@@ -536,5 +546,5 @@ function firstLine(finding) {
   return String(finding?.line || finding?.text || '')
     .split(/\r?\n/u)[0]
     .trim()
-    .slice(0, 300);
+    .slice(0, 300) + ' — identity=' + JSON.stringify(findingIdentityComponents(finding));
 }
