@@ -123,6 +123,34 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('not-indexable')).toBe(1);
   });
 
+  it('applies owner-rendered quarantine decisions per variant across independent groups', () => {
+    const secondGroup = {
+      it: `${BASE}/articoli-svizzera/secondo/`,
+      en: `${BASE}/en/swiss-articles/second/`,
+      de: `${BASE}/de/schweiz-artikel/zweiter/`,
+      fr: `${BASE}/fr/articles-suisse/deuxieme/`,
+    };
+    const quarantinedOwnerPaths = new Set([
+      '/de/gehalt-berechnen',
+      '/fr/articles-suisse/deuxieme',
+    ]);
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP), source(secondGroup.it, secondGroup)],
+      () => true,
+      (pathNoSlash) => !quarantinedOwnerPaths.has(pathNoSlash),
+    );
+
+    expect(entries.map((entry) => entry.url)).toEqual([
+      secondGroup.de,
+      GROUP.en,
+      secondGroup.en,
+      GROUP.fr,
+    ]);
+    expect(entries.map((entry) => entry.url)).not.toContain(GROUP.de);
+    expect(entries.map((entry) => entry.url)).not.toContain(secondGroup.fr);
+    expect(skipped.get('not-indexable')).toBe(2);
+  });
+
   it('skips a locale URL that already owns a <url> block in a seeded sitemap', () => {
     const sources = [
       source(GROUP.it, GROUP),
