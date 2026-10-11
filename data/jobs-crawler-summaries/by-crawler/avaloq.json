@@ -1,7 +1,7 @@
 {
   "key": "avaloq",
   "label": "Avaloq",
-  "generatedAt": "2026-10-11T09:25:52.540Z",
+  "generatedAt": "2026-10-11T21:25:20.090Z",
   "total": 28,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 13389,
-  "avgDurationMs": 13389,
+  "durationMs": 14411,
+  "avgDurationMs": 14411,
   "durationHistory": [
-    13389
+    14411
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -667,46 +667,6 @@
       }
     },
     {
-      "title": "German speaking Senior Project Manager",
-      "slug": "responsabile-del-progetto-senior-di-lingua-tedesca-avaloq-zurich",
-      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000146749434-german-speaking-senior-project-manager",
-      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000146749434-german-speaking-senior-project-manager?oga=true",
-      "company": "Avaloq",
-      "companyKey": "avaloq",
-      "companyDomain": "avaloq.com",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8001",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "avaloq-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-01T14:59:31.093Z",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "avaloq-ac032315c928",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T23:16:49.624Z",
-      "sourceIdentity": "url:https://www.avaloq.com/careers/job-openings/744000146749434",
-      "datePosted": "2026-09-01T14:59:31.093Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "System Engineer (Database Administrator)",
       "slug": "system-engineer-database-administrator-avaloq-bioggio",
       "url": "https://jobs.smartrecruiters.com/Avaloq1/744000146805769-system-engineer-database-administrator-",
@@ -746,6 +706,46 @@
         "richness": 24,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "title": "German speaking Senior Project Manager",
+      "slug": "responsabile-del-progetto-senior-di-lingua-tedesca-avaloq-zurich",
+      "url": "https://jobs.smartrecruiters.com/Avaloq1/744000146749434-german-speaking-senior-project-manager",
+      "applyUrl": "https://jobs.smartrecruiters.com/Avaloq1/744000146749434-german-speaking-senior-project-manager?oga=true",
+      "company": "Avaloq",
+      "companyKey": "avaloq",
+      "companyDomain": "avaloq.com",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "8001",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "avaloq-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01T14:59:31.093Z",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "avaloq-ac032315c928",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T23:16:49.624Z",
+      "sourceIdentity": "url:https://www.avaloq.com/careers/job-openings/744000146749434",
+      "datePosted": "2026-09-01T14:59:31.093Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1156,5 +1156,5 @@
       }
     }
   ],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }

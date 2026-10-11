@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-10-11T09:25:12.442Z",
+  "generatedAt": "2026-10-11T21:25:40.931Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7809,
-  "avgDurationMs": 7809,
+  "durationMs": 7813,
+  "avgDurationMs": 7813,
   "durationHistory": [
-    7809
+    7813
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:24:59.150Z",
+      "crawledAt": "2026-10-11T21:25:27.388Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanager-service-externe-sion/ro7drhalaoifp78qx52b60twhe2ctbngfz68t0syhkaarf3zdlrpqnsexare5b7t",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:25:00.878Z",
+      "crawledAt": "2026-10-11T21:25:29.032Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:25:00.264Z",
+      "crawledAt": "2026-10-11T21:25:28.460Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:24:59.727Z",
+      "crawledAt": "2026-10-11T21:25:27.941Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,5 +195,5 @@
       }
     }
   ],
-  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
+  "codeCommit": "bddb82de04a8850cca4506b1666a8f9a8013196a"
 }
