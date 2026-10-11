@@ -856,7 +856,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -902,7 +902,9 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -912,7 +914,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -3289,6 +3291,30 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-ksa-ch",
+          "professional-health-kantonsspital-aarau-ksa-aarau-917953",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
+          "professional-health-kantonsspital-aarau-ksa-aarau-b22c58",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-b22c58",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
+          "health-professional-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-mann-gesundheit-ksa-ch",
+          "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-e9833d",
+          "professional-health-kantonsspital-aarau-ksa-aarau-e9833d",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-e9833d",
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti70",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
+          "professional-health-kantonsspital-aarau-ksa-aarau-d76b02",
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
+          "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        ]
+      },
       "previousSlugs": [
         "professional-health-kantonsspital-aarau-ksa-aarau-917953",
         "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
@@ -3316,31 +3342,6 @@
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "professional-health-kantonsspital-aarau-ksa-aarau-917953",
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
-          "professional-health-kantonsspital-aarau-ksa-aarau-b22c58",
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-b22c58",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
-          "health-professional-kantonsspital-aarau-ksa-aarau",
-          "fachfrau-mann-gesundheit-ksa-ch",
-          "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-e9833d",
-          "professional-health-kantonsspital-aarau-ksa-aarau-e9833d",
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-e9833d",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti70",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
-          "professional-health-kantonsspital-aarau-ksa-aarau-d76b02",
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
-          "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:56.488Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3353,7 +3354,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-23T23:38:56.488Z"
     },
     {
       "id": "ksa-45485fa256ef",
