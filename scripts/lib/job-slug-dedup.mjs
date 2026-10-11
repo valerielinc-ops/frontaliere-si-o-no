@@ -53,10 +53,32 @@ function disambiguateActiveSlug(job, { ordinal, collisionAttempt = 0 }) {
   const limit = 140 - suffix.length - 1;
   const prefix = truncateSlugAtWordBoundary(base || 'annuncio', limit).replace(/-+$/g, '');
   const slug = `${prefix || 'annuncio'}-${suffix}`;
+  const previousSlugs = Array.isArray(job?.previousSlugs) ? [...job.previousSlugs] : [];
+  const previousSlugsByLocale = job?.previousSlugsByLocale
+    && typeof job.previousSlugsByLocale === 'object'
+    ? Object.fromEntries(
+      Object.entries(job.previousSlugsByLocale).map(([locale, values]) => [
+        locale,
+        Array.isArray(values) ? [...values] : [],
+      ]),
+    )
+    : {};
+  const originalItalianSlug = text(job?.slugByLocale?.it || job?.slug);
+  const addPreviousSlug = (value) => {
+    if (!value || value === slug) return;
+    if (!previousSlugs.includes(value)) previousSlugs.push(value);
+    const italianHistory = Array.isArray(previousSlugsByLocale.it)
+      ? previousSlugsByLocale.it
+      : (previousSlugsByLocale.it = []);
+    if (!italianHistory.includes(value)) italianHistory.push(value);
+  };
+  addPreviousSlug(originalItalianSlug);
   return {
     ...job,
     slug,
     slugByLocale: { ...(job?.slugByLocale || {}), it: slug },
+    previousSlugs,
+    previousSlugsByLocale,
   };
 }
 

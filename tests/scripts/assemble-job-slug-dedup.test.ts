@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { deduplicateAssembledJobsBySlug } from '../../scripts/lib/assemble-job-slug-dedup.mjs';
+import { deduplicateJobsBySlug } from '../../scripts/lib/job-slug-dedup.mjs';
 
 describe('assembled job slug deduplication', () => {
   it('keeps distinct URLs active, preserves the established route, and carries marks only across confirmed duplicates', () => {
@@ -61,5 +62,19 @@ describe('assembled job slug deduplication', () => {
     expect(result.duplicates).toHaveLength(0);
     expect(result.jobs).toHaveLength(2);
     expect(new Set(result.jobs.map((entry) => entry.slug)).size).toBe(2);
+  });
+
+  it('preserves the displaced Italian slug when distinct postings are disambiguated', () => {
+    const jobs = [
+      { url: 'https://a.example/', slug: 'shared', title: 'A' },
+      { url: 'https://b.example/', slug: 'shared', title: 'B' },
+    ];
+
+    const result = deduplicateJobsBySlug(jobs);
+    const loser = result.jobs[1];
+
+    expect(loser.slug).not.toBe('shared');
+    expect(loser.previousSlugs).toContain('shared');
+    expect(loser.previousSlugsByLocale?.it).toContain('shared');
   });
 });
