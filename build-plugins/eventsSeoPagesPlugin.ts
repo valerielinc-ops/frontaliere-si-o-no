@@ -1552,11 +1552,6 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       validFrom: event.startDate,
       url: canonicalUrl || event.url,
     };
-  const offerAmount = fromPrice
-    ? event.price!.amount
-    : confidentPrice
-      ? (event.price!.isFree ? 0 : event.price!.amount)
-      : 0;
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1589,9 +1584,9 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    // The zero-price fallback is an explicit product contract: unknown prices
-    // are represented as a complete free Offer in JSON-LD.
-    ...(offerAmount === 0 ? { isAccessibleForFree: true } : {}),
+    // Only a confident source field may assert free admission. The
+    // zero-price fallback deliberately carries no free-access claim.
+    ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
     offers: offer,
   };
 }

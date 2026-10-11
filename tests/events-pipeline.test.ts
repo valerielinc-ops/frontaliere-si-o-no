@@ -450,7 +450,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
     expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
-    expect(ld.isAccessibleForFree).toBe(true);
+    expect(ld.isAccessibleForFree).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -682,7 +682,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     // parsePriceText returns amount: null, isFree: false for this bucket.
     const ld = eventLd({ ...baseEvent, price: { amount: null, currency: 'CHF', isFree: false } }, 'it') as Record<string, any>;
     expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
-    expect(ld.isAccessibleForFree).toBe(true);
+    expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
   it('emits the zero-price Offer when the detail page has no verifiable amount', () => {
@@ -691,7 +691,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
     expect(ld.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
-    expect(ld.isAccessibleForFree).toBe(true);
+    expect(ld.isAccessibleForFree).toBeUndefined();
   });
 });
 

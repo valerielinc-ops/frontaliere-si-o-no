@@ -123,7 +123,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
       offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
-      isAccessibleForFree: true,
+      isAccessibleForFree: undefined,
       priceLine: false,
     });
   });
@@ -148,7 +148,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
       offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
-      isAccessibleForFree: true,
+      isAccessibleForFree: undefined,
       priceLine: false,
     });
   });
@@ -158,7 +158,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(mapped?.price).toMatchObject({ amount: 18, priceSource: 'guidle', priceField: 'price-accordion' });
     expect(hasConfidentPrice(mapped?.price)).toBe(false);
     expect(publishedPrice(mapped?.price).offers).toMatchObject({ '@type': 'Offer', price: 0 });
-    expect(publishedPrice(mapped?.price).isAccessibleForFree).toBe(true);
+    expect(publishedPrice(mapped?.price).isAccessibleForFree).toBeUndefined();
   });
 
   it('structured Guidle field wins over its own accordion text', () => {
@@ -180,7 +180,7 @@ describe('Tariffe eventi: un prezzo mostrato come affidabile senza una fonte str
     expect(hasConfidentPrice(price)).toBe(false);
     expect(publishedPrice(price)).toMatchObject({
       offers: expect.objectContaining({ '@type': 'Offer', price: 0 }),
-      isAccessibleForFree: true,
+      isAccessibleForFree: undefined,
       priceLine: false,
     });
   });

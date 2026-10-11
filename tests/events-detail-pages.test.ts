@@ -297,7 +297,7 @@ describe('eventLd source attribution (#3125)', () => {
       validFrom: EVENT.startDate,
       url: EVENT.url,
     });
-    expect(ld.isAccessibleForFree).toBe(true);
+    expect(ld.isAccessibleForFree).toBeUndefined();
   });
 
   it('emits verified price fields for a free event', () => {
@@ -308,6 +308,7 @@ describe('eventLd source attribution (#3125)', () => {
       price: 0,
       priceCurrency: 'CHF',
     });
+    expect(ld.isAccessibleForFree).toBe(true);
     expect(ld.offers.availability).toBe('https://schema.org/InStock');
     expect(ld.offers.validFrom).toBe(EVENT.startDate);
     expect(ld.offers.url).toBe(EVENT.url);
@@ -410,7 +411,7 @@ describe('renderEventDetailPage', () => {
       .map((match) => JSON.parse(match[1]!) as Record<string, unknown>)
       .find((schema) => schema['@type'] === 'Event');
     expect(eventSchema?.offers).toMatchObject({ '@type': 'Offer', price: 0, priceCurrency: 'CHF' });
-    expect(eventSchema?.isAccessibleForFree).toBe(true);
+    expect(eventSchema?.isAccessibleForFree).toBeUndefined();
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
