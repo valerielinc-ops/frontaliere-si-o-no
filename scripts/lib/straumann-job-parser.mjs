@@ -17,7 +17,7 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchPostWidgetWithAntiBotHardening } from './pastahr-widget-client.mjs';
-import { extractJsonLd } from './prospector/extract.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
 import { isExplicitlyForeign } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -229,8 +229,14 @@ async function fetchJobListings() {
  * Phenom listing widget only returns a short `descriptionTeaser`; the SSR
  * detail page carries the authoritative description and geography in JSON-LD.
  */
-export function parseStraumannDetailHtml(html = '', pageUrl = '') {
-  const [posting] = extractJsonLd(html, pageUrl);
+export function parseStraumannDetailHtml(html = '', pageUrl = '', recordTitle = '') {
+  const [posting] = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    recordTitle,
+    pageUrl,
+    recordTitle,
+  );
   if (!posting) {
     return { description: '', location: '', postalCode: '', explicitlyForeign: false };
   }
@@ -245,14 +251,14 @@ export function parseStraumannDetailHtml(html = '', pageUrl = '') {
   };
 }
 
-async function fetchStraumannDetail(url) {
+async function fetchStraumannDetail(url, recordTitle) {
   if (!url || !/^https?:\/\//.test(url)) {
     return { description: '', location: '', postalCode: '', explicitlyForeign: false };
   }
   try {
     const html = await fetchHtml(url, { timeoutMs: 15000 });
     if (!html) return { description: '', location: '', postalCode: '', explicitlyForeign: false };
-    return parseStraumannDetailHtml(html, url);
+    return parseStraumannDetailHtml(html, url, recordTitle);
   } catch { /* network/timeout → caller falls back to the teaser */ }
   return { description: '', location: '', postalCode: '', explicitlyForeign: false };
 }
@@ -285,7 +291,7 @@ export async function fetchAllStraumannJobs() {
     // The Phenom listing only carries a short `descriptionTeaser`; fetch the FULL
     // schema.org JobPosting description from the detail page (verified ~400 words)
     // so jobs aren't thin → boilerplate-padded → boilerplate-guard failures.
-    const detail = await fetchStraumannDetail(publicUrl);
+    const detail = await fetchStraumannDetail(publicUrl, title);
     // The Phenom country facet occasionally leaks a foreign vacancy while
     // labelling its listing row as Swiss. The detail JobPosting is the
     // authoritative record: never turn an explicit Madrid/Spain vacancy into

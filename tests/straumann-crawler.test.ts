@@ -82,6 +82,40 @@ describe('Straumann crawler parser', () => {
         explicitlyForeign: true,
       });
     });
+
+    it('selects the matching Swiss posting when a foreign sibling comes first', () => {
+      const url = 'https://careers.straumann.com/global/en/job/12345/quality-engineer';
+      const title = 'Quality Engineer';
+      const html = `<script type="application/ld+json">${JSON.stringify([
+        {
+          '@type': 'JobPosting',
+          title: 'Recommended Sales Manager',
+          url: 'https://careers.straumann.com/global/en/job/99999/recommended-sales-manager',
+          description: 'Lead the Madrid sales organization.',
+          jobLocation: {
+            '@type': 'Place',
+            address: { '@type': 'PostalAddress', addressLocality: 'Madrid', postalCode: '28001', addressCountry: 'Spain' },
+          },
+        },
+        {
+          '@type': 'JobPosting',
+          title,
+          url,
+          description: 'Maintain quality systems for the Swiss manufacturing organization.',
+          jobLocation: {
+            '@type': 'Place',
+            address: { '@type': 'PostalAddress', addressLocality: 'Basel', postalCode: '4002', addressCountry: 'Switzerland' },
+          },
+        },
+      ])}</script>`;
+
+      expect(parseStraumannDetailHtml(html, url, title)).toMatchObject({
+        description: 'Maintain quality systems for the Swiss manufacturing organization.',
+        location: 'Basel',
+        postalCode: '4002',
+        explicitlyForeign: false,
+      });
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

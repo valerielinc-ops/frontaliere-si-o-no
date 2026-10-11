@@ -37,6 +37,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -165,52 +166,17 @@ export function parseJobListHtml(html = '') {
  * text. Falls back to the `<section id="introduction">` + `<section id="aufgabeProfil">`
  * Prospective accordions when JSON-LD is missing.
  */
-export function extractPsgnDetail(html) {
+export function extractPsgnDetail(html, pageUrl = '', recordTitle = '') {
   const parts = [];
-  let sourceAddress = null;
-
-  // Try JSON-LD first.
-  for (const m of html.matchAll(
-    /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
-  )) {
-    const raw = m[1].trim();
-    if (!raw.includes('responsibilities') && !raw.includes('qualifications')) continue;
-    try {
-      const data = JSON.parse(raw);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item && (item.responsibilities || item.qualifications || item.description)) {
-          const locations = Array.isArray(item.jobLocation) ? item.jobLocation : [item.jobLocation];
-          for (const place of locations.filter(Boolean)) {
-            const addresses = Array.isArray(place.address) ? place.address : [place.address];
-            const address = addresses.find((candidate) => candidate && typeof candidate === 'object');
-            if (address) {
-              sourceAddress = {
-                location: normalizeSpace(decodeEntities(address.addressLocality || '')),
-                postalCode: normalizeSpace(address.postalCode || ''),
-              };
-              break;
-            }
-          }
-          const intro = normalizeSpace(htmlToText(String(item.description || '')));
-          const resp = normalizeSpace(htmlToText(String(item.responsibilities || '')));
-          const qual = normalizeSpace(htmlToText(String(item.qualifications || '')));
-          if (intro) parts.push(intro);
-          if (resp) parts.push(`Aufgaben:\n${resp}`);
-          if (qual) parts.push(`Anforderungen:\n${qual}`);
-          if (parts.length) {
-            return {
-              description: parts.join('\n\n'),
-              location: sourceAddress?.location || '',
-              postalCode: sourceAddress?.postalCode || '',
-            };
-          }
-        }
-      }
-    } catch {
-      // Fall through to section scrape.
-    }
-  }
+  const [posting] = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    recordTitle,
+    pageUrl,
+    recordTitle,
+  );
+  const sourceAddress = posting?.locationCandidates?.[0] || {};
+  if (posting?.description) parts.push(posting.description);
 
   // Fallback: HTML sections.
   for (const id of ['introduction', 'aufgabeProfil', 'benefits']) {
@@ -221,14 +187,18 @@ export function extractPsgnDetail(html) {
       if (txt) parts.push(txt);
     }
   }
-  return { description: parts.join('\n\n'), location: '', postalCode: '' };
+  return {
+    description: parts.join('\n\n'),
+    location: normalizeSpace(decodeEntities(sourceAddress.addressLocality || sourceAddress.location || '')),
+    postalCode: normalizeSpace(sourceAddress.postalCode || ''),
+  };
 }
 
-async function fetchDetail(detailUrl) {
+async function fetchDetail(detailUrl, recordTitle) {
   try {
     const html = await fetchHtml(detailUrl);
     if (!html) return { description: '', location: '', postalCode: '' };
-    return extractPsgnDetail(html);
+    return extractPsgnDetail(html, detailUrl, recordTitle);
   } catch (err) {
     console.warn(`  ⚠️ PSGN detail fetch failed (${detailUrl}): ${err?.message || err}`);
     return { description: '', location: '', postalCode: '' };
@@ -284,7 +254,7 @@ export async function fetchAllPsgnJobs() {
     const r = rows[i];
     if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
-    const detail = await fetchDetail(r.detailHref);
+    const detail = await fetchDetail(r.detailHref, r.title);
     const detailText = detail.description;
     const location = detail.location || r.location;
     const fallback = `${r.title} — ${PSGN_COMPANY_NAME}, ${location}${r.department ? ` (${r.department})` : ''}.`;
