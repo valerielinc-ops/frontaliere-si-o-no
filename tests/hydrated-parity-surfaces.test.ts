@@ -21,7 +21,8 @@
 // may lead during publication (run 38079614519 caught the reverse direction).
 import { describe, it, expect } from 'vitest';
 import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
+import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
@@ -53,6 +54,60 @@ describe('the surfaces the gate reads', () => {
   it('feeds clientIds from both reads, matching the current runtime', () => {
     expect(SRC).toMatch(/for \(const id of overlayIds\.bare\) clientIds\.add\(id\)/);
     expect(SRC).toMatch(/for \(const id of overlayIds\.rotated\) clientIds\.add\(id\)/);
+  });
+
+  it('rejects a rotating-only id whose empty title makes it unusable at runtime', async () => {
+    const server = createServer((request, response) => {
+      response.statusCode = 200;
+      response.setHeader('content-type', 'application/json');
+      const url = new URL(request.url ?? '/', 'http://localhost');
+      if (url.pathname === '/articoli-frontaliere/') {
+        response.setHeader('content-type', 'text/html');
+        response.end('<div class="ssg-article-grid"><a href="/articoli-frontaliere/article-x/" aria-label="x" class="ssg-art-card"><h3>x</h3></a></div>');
+      } else if (url.pathname === '/slugs.json') {
+        response.end(JSON.stringify({ blogReverse: { it: { 'article-x': 'x' } } }));
+      } else if (url.pathname === '/data/blog-index-frontaliere-it.json') {
+        response.end(JSON.stringify({
+          articles: url.searchParams.has('v') ? [{ id: 'x', title: '' }] : [],
+        }));
+      } else {
+        response.setHeader('content-type', 'text/javascript');
+        response.end('export default [];');
+      }
+    });
+
+    await new Promise<void>((resolveListen) => server.listen(0, '127.0.0.1', resolveListen));
+    try {
+      const address = server.address();
+      if (!address || typeof address === 'string') throw new Error('fixture server has no TCP address');
+      const base = `http://127.0.0.1:${address.port}`;
+      const result = await new Promise<{ code: number | null; stdout: string; stderr: string }>((resolveRun) => {
+        const child = spawn(process.execPath, [
+          resolve(__dirname, '../scripts/ci/check-hydrated-article-parity.mjs'),
+          `--base=${base}`,
+          `--cdn=${base}`,
+          `--api=${base}`,
+          '--section=frontaliere',
+          '--locale=it',
+          '--json',
+        ]);
+        let stdout = '';
+        let stderr = '';
+        child.stdout.setEncoding('utf8').on('data', (chunk) => { stdout += chunk; });
+        child.stderr.setEncoding('utf8').on('data', (chunk) => { stderr += chunk; });
+        child.on('close', (code) => resolveRun({ code, stdout, stderr }));
+      });
+      expect(result.stdout, result.stderr).not.toBe('');
+      const report = JSON.parse(result.stdout);
+
+      expect(result.code).toBe(1);
+      expect(report.missing).toEqual(['article-x (id: x)']);
+      expect(result.stderr).toContain('1/1 rendered articles are absent');
+    } finally {
+      await new Promise<void>((resolveClose, rejectClose) => {
+        server.close((error) => error ? rejectClose(error) : resolveClose());
+      });
+    }
   });
 
   it('reads the chunks that carry the overlay mechanism, so a stale client is visible', () => {

@@ -319,7 +319,13 @@ for (const [which, url] of [['bare', OVERLAY_BASE], ['rotated', OVERLAY_ROTATED]
     const r = await getText(url, BROWSER_HEADERS);
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
     for (const a of JSON.parse(r.body)?.articles ?? []) {
-      if (a && typeof a.id === 'string') overlayIds[which].add(a.id);
+      // Match services/articlesOverlay.ts:isUsable exactly. An id in a record
+      // React will discard is not client-held data and must not make parity
+      // pass merely because malformed JSON happened to name the article.
+      if (a && typeof a.id === 'string' && a.id.length > 0
+          && typeof a.title === 'string' && a.title.length > 0) {
+        overlayIds[which].add(a.id);
+      }
     }
   } catch (err) {
     fail(`overlay index unreadable (${url}): ${err.message}`);
