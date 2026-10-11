@@ -1,6 +1,7 @@
 import { lstatSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { GH_EXEC_MAX_BUFFER } from '../scripts/lib/gh-exec-buffer.mjs';
 
 /**
  * Whoever reads `gh` through a synchronous exec declares its buffer.
@@ -13,12 +14,10 @@ import { describe, expect, it } from 'vitest';
  * deploy was requested for hours (issue 12308). The call looked exactly like
  * thirty others already in the tree.
  *
- * So the bare form is closed to new code. The files below are the reads that
- * existed on 2026-10-08, each with its count; none of them is known to be
- * near the limit, and none has been measured either. A new file, one more
- * call, or a file that drops below its number fails the test until this list
- * says so: lower the number when you give a call its `maxBuffer`, and remove
- * the entry at zero. `stdio: 'inherit'` is not a read and is not counted.
+ * Every synchronous `gh` call whose output is captured must now declare the
+ * same 64 MiB ceiling. Keeping the expected census empty makes regressions
+ * fail at the call site instead of accumulating a permanent debt list.
+ * `stdio: 'inherit'` is not a read and is not counted.
  *
  * The test reads the sources from disk and imports none of them: the selector
  * ties it to the diff through `sourceTreeLintTests` in
@@ -28,25 +27,7 @@ const ROOT = path.resolve(__dirname, '..');
 const SCAN_ROOT = 'scripts';
 const GH_EXEC = /\b(?:execFileSync|spawnSync|execSync)\(\s*(['"])gh\1/g;
 
-const KNOWN_UNBUFFERED_READS: Record<string, number> = {
-  'scripts/assemble-jobs-dataset.mjs': 6,
-  'scripts/ci/codex-auth-rotate.mjs': 1,
-  'scripts/ci/decompose-route-check.mjs': 3,
-  'scripts/ci/detect-aggregate.mjs': 1,
-  'scripts/ci/explain-job-verdict.mjs': 1,
-  'scripts/ci/loop-health-report.mjs': 1,
-  'scripts/ci/native-automerge-gate.mjs': 1,
-  'scripts/ci/pr-autorebase.mjs': 1,
-  'scripts/ci/pr-watch-gate.mjs': 1,
-  'scripts/ci/report-synced-article-factuality.mjs': 1,
-  'scripts/ci/technical-operations-audit.mjs': 3,
-  'scripts/cwv-attribution-report.mjs': 1,
-  'scripts/experiments/jobgate-monitor.mjs': 1,
-  'scripts/lib/monitor-issue-reconcile.mjs': 2,
-  'scripts/monitor-sector-coverage.mjs': 2,
-  'scripts/prospect-promote.mjs': 3,
-  'scripts/prune-merged-worktrees.mjs': 1,
-};
+const KNOWN_UNBUFFERED_READS: Record<string, number> = {};
 
 function moduleFiles(directory: string, found: string[] = []) {
   for (const name of readdirSync(directory)) {
@@ -85,6 +66,11 @@ export function unbufferedGhReads(source: string) {
 }
 
 describe('synchronous reads of gh declare their buffer', () => {
+  it('uses one shared bound above the child-process default', () => {
+    expect(GH_EXEC_MAX_BUFFER).toBe(64 * 1024 * 1024);
+    expect(GH_EXEC_MAX_BUFFER).toBeGreaterThan(1024 * 1024);
+  });
+
   it('recognises the bare form and the two forms that are not a risk', () => {
     expect(unbufferedGhReads("execFileSync('gh', args, { encoding: 'utf8' })")).toBe(1);
     expect(unbufferedGhReads('spawnSync("gh", ["api", path])')).toBe(1);

@@ -569,6 +569,13 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'i path sono SORGENTI SINTETICI passati allo scanner (`scanTestSource`) e nomi interrogati sul matcher; il repo sintetico vive in os.tmpdir(). La scansione del repo legge test, moduli e workflow, mai un file sotto data/ (#9743)',
   },
   {
+    file: 'tests/run-related-tests-selection.test.ts',
+    roots: ['data/weather-snapshot.json'],
+    since: '2026-10-10',
+    evidence: 'review',
+    reason: 'data/weather-snapshot.json è creato e letto solo nel repository sintetico restituito da fixture() sotto os.tmpdir(); il test passa quel root al selettore e non legge lo snapshot del checkout',
+  },
+  {
     file: 'tests/merge-open-data-refresh.test.ts',
     roots: ['data/events.json', 'packages/articles/content/', 'services/locales/'],
     reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
@@ -879,6 +886,14 @@ export function scanLiveDataTests(root = ROOT) {
   const dir = path.join(root, 'tests');
   const registered = new Set(listCorpusWideTests());
   const partial = new Set(LIVE_DATA_PARTIAL_TESTS.map((e) => e.file));
+  // Explicit live-data and transitive-read entries remain checked even when
+  // their source also creates temporary fixtures. The classifier is only a
+  // shortcut for otherwise-unregistered tests whose live-looking paths are
+  // demonstrably rooted beneath mkdtemp.
+  const inventoried = new Set([
+    ...KNOWN_LIVE_DATA_TESTS,
+    ...LIVE_DATA_SCAN_EXEMPTIONS,
+  ].map((entry) => entry.file));
   const out = [];
   const files = listTestFilesRecursive(dir, '');
   for (const f of files.sort()) {
@@ -889,6 +904,11 @@ export function scanLiveDataTests(root = ROOT) {
     let src = '';
     try { src = fs.readFileSync(path.join(dir, f), 'utf8'); } catch { continue; }
     const code = stripComments(src);
+    // Some tests mention production-relative slice names only as values they
+    // write beneath mkdtemp. A checkout-root anchor elsewhere in the test
+    // (usually the script under test) is not evidence that those fixture paths
+    // are read from the checkout.
+    if (!inventoried.has(rel) && codeOnlyShape(code) === 'temp-fixture') continue;
     const roots = LIVE_RELATIVE_IMPORT_HINT_RE.test(src)
       ? liveRootsFromRelativeImports(src, rel, root)
       : [];
@@ -992,6 +1012,13 @@ export function codeOnlyShape(code) {
 
   if (/\bmkdtemp(?:Sync)?\s*\(|\btmpdir\s*\(/.test(code)) {
     const lines = code.split('\n');
+    const tempAliases = [];
+    for (const line of lines) {
+      const m = line.match(/\b(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=.*\bmkdtemp(?:Sync)?\s*\(/);
+      if (m) tempAliases.push(m[1]);
+    }
+    if (tempAliases.length === 0) return null;
+    const tempAliasRe = new RegExp(`\\b(?:${tempAliases.map((a) => a.replace(/[$]/g, '\\$&')).join('|')})\\b`);
     // Una costante assegnata dalla root del checkout la porta con se':
     // `const rootDir = resolve(__dirname, '..')` rende `rootDir` un'ancora.
     const aliases = [];
@@ -1004,7 +1031,8 @@ export function codeOnlyShape(code) {
       : null;
     const mentionLines = lines.filter((line) => liveRootsInCode(line).length > 0);
     const anchored = mentionLines.some((line) => CHECKOUT_ANCHOR_RE.test(line) || (aliasRe && aliasRe.test(line)));
-    if (mentionLines.length > 0 && !anchored) return 'temp-fixture';
+    const rootedInTemp = mentionLines.length > 0 && mentionLines.every((line) => tempAliasRe.test(line));
+    if (rootedInTemp && !anchored) return 'temp-fixture';
   }
 
   return null;

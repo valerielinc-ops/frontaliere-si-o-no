@@ -65,6 +65,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  */
 import { createHash, randomBytes } from 'node:crypto';
 import { spawn, spawnSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import fs from 'node:fs';
 import http from 'node:http';
 import os from 'node:os';
@@ -812,6 +813,7 @@ function defaultRunGh(args, { input, token }) {
     const result = spawnSync('gh', args, {
       input,
       encoding: 'utf8',
+      maxBuffer: GH_EXEC_MAX_BUFFER,
       timeout: 60_000,
       env: {
         PATH: process.env.PATH ?? '/usr/bin:/bin',

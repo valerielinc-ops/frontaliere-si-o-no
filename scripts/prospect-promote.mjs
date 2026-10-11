@@ -34,6 +34,7 @@
 import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { pathToFileURL } from 'node:url';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
 import {
@@ -169,7 +170,7 @@ function reconcileOpenPromotions(store) {
     let state = '';
     try {
       state = execFileSync('gh', ['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state'], {
-        cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
+        cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'],
       }).toString().trim();
     } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
     if (state === 'MERGED') {
@@ -293,7 +294,7 @@ function openPromotionPr() {
     const out = execFileSync('gh', [
       'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
       '--json', 'number,createdAt,title,headRefName,author',
-    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
     return findOpenPromotionPr(JSON.parse(out));
   } catch {
     // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
@@ -661,7 +662,7 @@ try {
       'pr', 'create', '--base', 'main', '--head', branch,
       '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
       '--body-file', bodyFile,
-    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
   } catch {
     console.error('::warning::gh pr create non ha risposto; il branch del prospector e\' gia\' pushato, nessun body PR scritto.');
     process.exit(0);

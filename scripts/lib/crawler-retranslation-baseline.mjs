@@ -114,6 +114,17 @@ export function getRetranslationBaseline(crawlerKey) {
   return baselines.get(String(crawlerKey || '').trim()) || null;
 }
 
+/**
+ * Find the previous-run projection for one job without exposing the identity
+ * fallback order to every flag writer. Returns null when the crawler/job was
+ * absent from the recorded baseline, so callers can fail closed.
+ */
+export function getRetranslationBaselineEntry(crawlerKey, job) {
+  const baseline = getRetranslationBaseline(crawlerKey);
+  if (!baseline) return null;
+  return identityKeys(job).map((key) => baseline.get(key)).find(Boolean) || null;
+}
+
 /** Test seam: the registry is process-wide by design. */
 export function _resetRetranslationBaselines() {
   baselines.clear();

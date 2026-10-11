@@ -202,11 +202,10 @@ const CODE_SURFACES = [
  * never requests is the mistake this whole file is about; reading only the
  * rotating key was that mistake, one level up.
  *
- * `clientIds` is therefore built from the BARE read: the conservative set,
- * what every served client is guaranteed to hold. A rotating client can only
- * hold more, so a green verdict here is green for both — and once the bare url
- * is purged on every publish (nanakokyobashi-rgb/frontaliere-articles#34) the
- * two reads agree and the conservative choice costs nothing.
+ * The current client reads BOTH identities and unions them by id. This is
+ * necessary in both directions: the rotating key can escape a stale bare
+ * variant, but a bucket populated just before publication can itself lag the
+ * purged bare URL. Run 38079614519 demonstrated the latter on `de` and `fr`.
  *
  * `--overlay=` overrides the base url; the rotating key is derived from it.
  */
@@ -320,7 +319,13 @@ for (const [which, url] of [['bare', OVERLAY_BASE], ['rotated', OVERLAY_ROTATED]
     const r = await getText(url, BROWSER_HEADERS);
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
     for (const a of JSON.parse(r.body)?.articles ?? []) {
-      if (a && typeof a.id === 'string') overlayIds[which].add(a.id);
+      // Match services/articlesOverlay.ts:isUsable exactly. An id in a record
+      // React will discard is not client-held data and must not make parity
+      // pass merely because malformed JSON happened to name the article.
+      if (a && typeof a.id === 'string' && a.id.length > 0
+          && typeof a.title === 'string' && a.title.length > 0) {
+        overlayIds[which].add(a.id);
+      }
     }
   } catch (err) {
     fail(`overlay index unreadable (${url}): ${err.message}`);
@@ -338,10 +343,11 @@ for (const url of CODE_SURFACES) {
   }
 }
 
-// The conservative set — see OVERLAY_BASE. A client that rotates its key holds
-// a superset of this, so parity proven here is proven for both clients.
+// Match services/articlesOverlay.ts: the current client unions both cache
+// identities, because either one can be the fresher copy during publication.
 const clientIds = new Set(chunkIds);
 for (const id of overlayIds.bare) clientIds.add(id);
+for (const id of overlayIds.rotated) clientIds.add(id);
 report.clientIds = clientIds.size;
 
 /**
@@ -351,6 +357,7 @@ report.clientIds = clientIds.size;
  * either way the publisher's purge did not do what its green step said.
  */
 report.overlayRotationGap = [...overlayIds.rotated].filter((id) => !overlayIds.bare.has(id));
+report.overlayBareGap = [...overlayIds.bare].filter((id) => !overlayIds.rotated.has(id));
 
 /**
  * The verdict, computed BEFORE the diagnosis below.
@@ -480,6 +487,16 @@ if (!AS_JSON) {
     }
     console.log('[hydrated-parity]    Not failing: the rendered set is still whole. It stops being whole as');
     console.log('[hydrated-parity]    soon as one of these ids reaches the hub HTML.');
+  }
+  if (report.overlayBareGap.length > 0) {
+    console.log('');
+    console.log(`[hydrated-parity] ⚠️  the rotating overlay key is stale: ${report.overlayBareGap.length} article(s)`);
+    console.log('[hydrated-parity]    are reachable only at the publisher-purged bare URL. The runtime reads');
+    console.log('[hydrated-parity]    both identities, so hydration still keeps them while this bucket ages out.');
+    for (const id of report.overlayBareGap.slice(0, 10)) console.log(`[hydrated-parity]      - ${id}`);
+    if (report.overlayBareGap.length > 10) {
+      console.log(`[hydrated-parity]      … and ${report.overlayBareGap.length - 10} more`);
+    }
   }
   if (verdict === 'warn') {
     console.log('');

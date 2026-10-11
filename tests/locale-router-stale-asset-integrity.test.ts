@@ -9,6 +9,7 @@
  * does to a tag — the three things the fix consists of.
  */
 import { afterEach, describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -154,6 +155,18 @@ describe('staleAssetIntegrityHandler — what happens to a tag', () => {
 });
 
 describe('the Worker entrypoint applies the filter', () => {
+  it('routes the full canonical apex through the filter without changing specialized route coverage', () => {
+    const wrangler = readFileSync(new URL('../infra/cloudflare-worker/wrangler.toml', import.meta.url), 'utf8');
+    const routePatterns = [...wrangler.matchAll(/pattern\s*=\s*"([^"]+)"/g)].map((match) => match[1]);
+
+    expect(routePatterns).toContain('frontaliereticino.ch/*');
+    expect(routePatterns).toContain('frontaliereticino.ch/en/*');
+    expect(routePatterns).toContain('frontaliereticino.ch/en.html');
+    expect(routePatterns).toContain('frontaliereticino.ch/de.html');
+    expect(routePatterns).toContain('frontaliereticino.ch/fr.html');
+    expect(routePatterns).toContain('frontaliereticino.ch/cerca-lavoro-ticino*');
+  });
+
   it('default.fetch returns the router response through stripStaleAssetIntegrity', async () => {
     (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
     // The retired 5x1000 calculator is answered by the router itself with an
@@ -167,5 +180,45 @@ describe('the Worker entrypoint applies the filter', () => {
     );
     expect(res.status).toBe(410);
     expect(res.headers.get('x-test-rewritten')).toBe('1');
+  });
+
+  it('filters an Italian apex passthrough response after the broad route enters the Worker', async () => {
+    (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async () => html();
+    try {
+      const res = await router.default.fetch(
+        new Request('https://frontaliereticino.ch/'),
+        {},
+        { waitUntil: () => {} },
+      );
+      expect(res.status).toBe(200);
+      expect(res.headers.get('x-test-rewritten')).toBe('1');
+      expect(calls[0]?.selector).toBe('script[integrity], link[integrity]');
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it.each(['en', 'de', 'fr'])('keeps /%s.html query variants on the apex origin', async (locale) => {
+    (globalThis as { HTMLRewriter?: unknown }).HTMLRewriter = FakeRewriter;
+    const originalFetch = globalThis.fetch;
+    let fetchedUrl = '';
+    globalThis.fetch = async (input) => {
+      fetchedUrl = input instanceof Request ? input.url : String(input);
+      return html();
+    };
+    try {
+      const res = await router.default.fetch(
+        new Request(`https://frontaliereticino.ch/${locale}.html?cb=1`),
+        {},
+        { waitUntil: () => {} },
+      );
+      expect(fetchedUrl).toBe(`https://frontaliereticino.ch/${locale}.html?cb=1`);
+      expect(res.status).toBe(200);
+      expect(res.headers.get('x-test-rewritten')).toBe('1');
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 });

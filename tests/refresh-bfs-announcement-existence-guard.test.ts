@@ -25,7 +25,11 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { parse } from 'yaml';
-import { articleIdFromLedgerEntry } from '../scripts/ci/bfs-announcement-article-exists.mjs';
+import {
+  articleIdFromLedgerEntry,
+  articleIdFromPublishedIndex,
+  isCompletePublishedIndex,
+} from '../scripts/ci/bfs-announcement-article-exists.mjs';
 
 const WORKFLOW = new URL('../.github/workflows/refresh-bfs-stats.yml', import.meta.url);
 const PROBE = new URL('../scripts/ci/bfs-announcement-article-exists.mjs', import.meta.url);
@@ -95,6 +99,14 @@ describe('la sonda fallisce APERTA, mai chiusa', () => {
     expect(probeSource).toContain('data/article-source-urls.json');
   });
 
+  it('usa il manifest e l indice API pubblicato come prova dopo l evizione FIFO', () => {
+    expect(probeSource).toContain("import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs'");
+    expect(probeSource).toContain('${ARTICLES_API}/manifest.json');
+    expect(probeSource).toContain('data/blog-index-frontaliere-it-full.json');
+    expect(probeSource).toContain('manifest?.counts?.articles');
+    expect(probeSource).toContain('pathToFileURL(realpathSync(process.argv[1])).href');
+  });
+
   it('chiede il media type raw alla contents API', () => {
     // Senza `Accept: application/vnd.github.raw` la contents API restituisce
     // `encoding: none` con corpo VUOTO sopra 1 MB. Un corpo vuoto si leggerebbe
@@ -143,5 +155,50 @@ describe('articleIdFromLedgerEntry legge entrambe le forme del ledger (#5341 rec
   it('oggetto senza articleId stringa non produce un falso positivo', () => {
     expect(articleIdFromLedgerEntry({ ts: '2026-08-19T20:24:11.490Z' })).toBeUndefined();
     expect(articleIdFromLedgerEntry({ articleId: 42 })).toBeUndefined();
+  });
+});
+
+describe('la prova API distingue un annuncio BFS pubblicato da una semplice menzione', () => {
+  const completeIndex = (articles: Array<Record<string, unknown>>) => ({
+    section: 'frontaliere',
+    locale: 'it',
+    count: articles.length,
+    total: articles.length,
+    articles,
+  });
+
+  it('accetta il trimestre esplicito con BFS e frontalieri nello stesso excerpt', () => {
+    const index = completeIndex([{
+      id: 'frontaliere-ticino-statistica-2026-q2',
+      title: 'Aumento frontalieri: +0,64%',
+      excerpt: "L'Ufficio Federale di Statistica (BFS) rileva un aumento dei frontalieri Ticino nel trimestre 2026-Q2.",
+    }]);
+    expect(articleIdFromPublishedIndex(index, '2026-Q2', 1)).toBe('frontaliere-ticino-statistica-2026-q2');
+  });
+
+  it('accetta il candidato esatto del ledger solo se l articolo e nell indice pubblicato', () => {
+    const index = completeIndex([{ id: 'bfs-q2-article', title: 'Titolo', excerpt: 'Testo' }]);
+    expect(articleIdFromPublishedIndex(index, '2026-Q2', 1, 'bfs-q2-article')).toBe('bfs-q2-article');
+    expect(articleIdFromPublishedIndex(index, '2026-Q2', 1, 'not-published')).toBeUndefined();
+  });
+
+  it('non scambia un altra quarter o una menzione BFS generica per l annuncio', () => {
+    const index = completeIndex([
+      { id: 'wrong-quarter', title: 'BFS frontalieri 2026-Q1', excerpt: 'Dati frontalieri BFS.' },
+      { id: 'no-bfs', title: 'Frontalieri 2026-Q2', excerpt: 'Statistiche del trimestre.' },
+      { id: 'no-frontier', title: 'BFS 2026-Q2', excerpt: 'Ufficio Federale di Statistica.' },
+    ]);
+    expect(articleIdFromPublishedIndex(index, '2026-Q2', 3)).toBeUndefined();
+  });
+
+  it('non sopprime il segnale se manifest e indice non provano una copertura completa', () => {
+    const index = completeIndex([{
+      id: 'frontaliere-ticino-statistica-2026-q2',
+      title: 'Aumento frontalieri',
+      excerpt: 'BFS frontalieri nel trimestre 2026-Q2.',
+    }]);
+    expect(isCompletePublishedIndex(index, 2)).toBe(false);
+    expect(articleIdFromPublishedIndex(index, '2026-Q2', 2)).toBeUndefined();
+    expect(articleIdFromPublishedIndex(index, '2026-Q5', 1)).toBeUndefined();
   });
 });

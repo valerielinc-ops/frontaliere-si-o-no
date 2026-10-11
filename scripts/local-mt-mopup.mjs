@@ -1344,6 +1344,10 @@ async function main() {
   }
 }
 
+export function writeMopupSlice(filePath, data) {
+  writeJson(filePath, data);
+}
+
 async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) {
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
@@ -1822,19 +1826,9 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     }
 
     if (fileChanged) {
-      // Atomic write: temp+rename so a SIGKILL mid-write cannot leave a
-      // truncated slice that causes the subsequent assemble step to hard-fail.
-      // NOTE: this script writes per-crawler slices only — never data/jobs.json
-      // directly. data/jobs.json is written exclusively by assemble-jobs-dataset.mjs.
-      const content = JSON.stringify(data, null, 2) + '\n';
-      const tmp = `${filePath}.${process.pid}.tmp`;
-      try {
-        fs.writeFileSync(tmp, content, 'utf-8');
-        fs.renameSync(tmp, filePath);
-      } catch (err) {
-        try { fs.unlinkSync(tmp); } catch { /* best-effort cleanup */ }
-        throw err;
-      }
+      // Use the shared slice boundary so localization updates cannot bypass
+      // the previous-slug preservation guard.
+      writeMopupSlice(filePath, data);
       filesWritten++;
     }
   }

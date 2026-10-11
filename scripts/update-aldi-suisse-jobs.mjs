@@ -45,6 +45,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceLangOfBody } from './lib/source-locale-slots.mjs';
+import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import {
   inferEmploymentType,
   parseAldiSearchResults,
@@ -220,7 +221,7 @@ export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date()
     workPercentage: workPct,
     currency: 'CHF',
     featured: false,
-    postedDate: timestamp.slice(0, 10),
+    ...sourcePostingDateFields(parsed.datePosted),
     url: listing.url,
     // The TYPO3 detail page is the canonical navigable application handoff;
     // L3 still keeps this distinct from a submitted application event.
@@ -258,7 +259,7 @@ async function fetchAndParseDetailPages(listings) {
       if (r.status !== 'fulfilled' || !r.value) continue;
       const { listing, html } = r.value;
 
-      const parsed = parseAldiDetailPage(html) || {};
+      const parsed = parseAldiDetailPage(html, listing.url) || {};
       const rawTitle = listing.title || parsed.title || '';
       if (!rawTitle || rawTitle.length < 3) continue;
 

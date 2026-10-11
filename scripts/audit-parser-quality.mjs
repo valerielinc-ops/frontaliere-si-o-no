@@ -698,14 +698,15 @@ function withLocationEvidenceCounts(observation, beforeGate, afterGate, includeD
 export function extractSourceLocationObservation(html = '', pageUrl = '', {
   includeDiagnostics = false,
   recordUrl = '',
+  recordTitle = '',
 } = {}) {
   const allStructuredItems = extractJsonLd(html, pageUrl);
   const renderedTitle = plainText(/<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(html)?.[1] || '');
   const structuredItems = recordUrl
-    ? selectDetailStructuredRecords(allStructuredItems, pageUrl, renderedTitle, recordUrl)
+    ? selectDetailStructuredRecords(allStructuredItems, pageUrl, renderedTitle, recordUrl, recordTitle)
     : allStructuredItems;
   const recordIdentityUnresolved = Boolean(recordUrl)
-    && allStructuredItems.length > 1
+    && allStructuredItems.length > 0
     && structuredItems.length === 0;
   const rawStructuredCandidates = structuredItems
     .flatMap((item) => item.locationCandidates || [])
@@ -1836,14 +1837,15 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
     }
     try {
       const recordUrl = item.job?.url || item.url;
-      const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl });
+      const recordTitle = item.job?.title || '';
+      const detail = extractDetail(fetched.body, fetched.url || item.url, { recordUrl, recordTitle });
       detail.headingSublineFields = vacancyHeadingSublineFields(fetched.body, detail.title);
       detail.headingIntroFields = vacancyHeadingIntroFields(fetched.body, detail.title);
       detail.nationwideScopeHeadings = vacancyNationwideScopeHeadings(fetched.body);
       const locationObservation = observeLocation(
         fetched.body,
         fetched.url || item.url,
-        { includeDiagnostics: true, recordUrl },
+        { includeDiagnostics: true, recordUrl, recordTitle },
       );
       if (locationObservation.location) detail.location = locationObservation.location;
       // A document shared by several postings (see sharedSourceDocuments and

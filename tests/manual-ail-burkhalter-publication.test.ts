@@ -49,6 +49,12 @@ for (const issueDate of [undefined, 1700000000, 'invalid']) {
     expect(build({ job: 'Techniker', city: 'Lugano', issueDate }, 'Original source description')).toMatchObject({ ...unknown, description: 'Original source description', crawledAt: expect.any(String) });
   });
 }
+it('Burkhalter carries the detail JobPosting publication date', () => {
+  const date = new Date(Date.now() - 86400000).toISOString();
+  const build = declaration('burkhalter', 'buildJob', { ...common, COMPANY_DOMAIN: 'burkhalter.ch', BASE_URL: 'https://burkhalter.ch', mapCanton: () => 'TI', slugify: () => 'job', safeLocationToken: (v: string) => v, detectLang: () => 'de' });
+  expect(build({ job: 'Techniker', city: 'Lugano' }, { description: 'Original source description', postedDate: date }))
+    .toMatchObject({ datePosted: date, postedDate: date, postingDateSource: 'reported' });
+});
 for (const name of ['ail', 'burkhalter']) {
   for (const reported of [false, true]) {
     it(`${name} actual persistence ${reported ? 'retains reported' : 'clears legacy'}`, () => {

@@ -62,6 +62,7 @@ import { realpathSync } from 'node:fs';
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync, spawnSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 import { readFileSync, writeFileSync } from 'node:fs';
 import {
   VITEST_CHECK_NAME,
@@ -2127,7 +2128,7 @@ export function prContentOnMainVerdict(headSha, { mainRef = 'origin/main', cwd }
  */
 function ghRun(args) {
   try {
-    execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    execFileSync('gh', args, { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] });
     return { ok: true, error: '' };
   } catch (error) {
     const stderr = String(error?.stderr || error?.message || '').trim().split('\n')[0];

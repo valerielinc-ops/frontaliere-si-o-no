@@ -311,6 +311,30 @@ function parseJobs(raw) {
   }
 }
 
+/**
+ * Prove that a large shrink is the deliberate replacement of a slice whose
+ * on-disk bytes contain Git conflict markers. The recovery command validates
+ * the repaired JSON and binds this narrow exception to both exact snapshots;
+ * a generic recovery flag must never be enough to open the byte-floor gate.
+ */
+export function isProvenConflictMarkerRecovery(filePath, previousRaw, nextRaw, proof) {
+  if (!JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
+  if (
+    !proof
+    || typeof proof !== 'object'
+    || Array.isArray(proof)
+    || proof.kind !== 'conflict-marker-recovery'
+    || !proofPathMatches(filePath, proof.path)
+    || proof.sourceDigest !== sha256(previousRaw)
+    || proof.candidateDigest !== sha256(nextRaw)
+  ) return false;
+  const markerLines = String(previousRaw).split('\n')
+    .filter((line) => /^(<<<<<<<|=======|>>>>>>>)/.test(line.replace(/\r$/u, '')));
+  if (markerLines.length < 3) return false;
+  const nextJobs = parseJobs(nextRaw);
+  return Boolean(nextJobs && nextJobs.length > 0 && uniqueIdentities(nextJobs));
+}
+
 function jobIdentity(job) {
   const url = String(job?.url ?? '').trim();
   if (url) return `url:${url}`;
@@ -1435,6 +1459,9 @@ export function assertCrawlerSliceWriteSafe(
   }
   if (isProvenCrossCrawlerDedupPrune(filePath, previousRaw, nextRaw, dedupReferenceJobs)) {
     return { previousBytes, nextBytes, reason: 'proven-cross-crawler-dedup' };
+  }
+  if (isProvenConflictMarkerRecovery(filePath, previousRaw, nextRaw, housekeepingProof)) {
+    return { previousBytes, nextBytes, reason: 'proven-conflict-marker-recovery' };
   }
   if (isProvenGhostExpiredPrune(filePath, previousRaw, nextRaw, expiredGhostProof)) {
     return { previousBytes, nextBytes, reason: 'proven-ghost-expired-prune' };

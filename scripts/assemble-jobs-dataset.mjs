@@ -46,6 +46,7 @@ import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { normalizeAbortKind, normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 import {
@@ -54,6 +55,8 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
+import { createAssemblerDedupIdentity } from './lib/assembler-dedup-identity.mjs';
+import { deduplicateAssembledJobsBySlug } from './lib/assemble-job-slug-dedup.mjs';
 import {
   applyDeclaredBrandRelabel,
   refreshDeclaredBrandSlugs,
@@ -61,7 +64,7 @@ import {
   BRAND_RELABELLED_CRAWLER_KEYS,
 } from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
-import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
+import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
@@ -649,6 +652,8 @@ export function normalizeParsedJobsForSlice(jobs) {
     applyUrlBackfilled,
   };
 }
+
+const assemblerDedupIdentity = createAssemblerDedupIdentity();
 
 function assemblerIdentity(job = {}) {
   return buildAssembledJobIdentity(job);
@@ -2379,7 +2384,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -2399,7 +2404,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs.`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -2443,7 +2448,7 @@ ${jobsTable}
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
@@ -2461,7 +2466,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -2480,7 +2485,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior).`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -2514,7 +2519,7 @@ The write was refused — the prior slice on disk was kept, no data was lost.
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
@@ -3322,7 +3327,7 @@ async function assembleJobs() {
   // forever. That is the #5637 failure re-entering through the dedup.
   const { winners: sliceJobs, marksCarried, collapsed } = dedupeByIdentityPreservingMarks(
     allTagged,
-    assemblerIdentity
+    assemblerDedupIdentity
   );
   if (marksCarried > 0) {
     console.log(
@@ -3335,7 +3340,7 @@ async function assembleJobs() {
   // Deduplicate across them: slice jobs take precedence over baseline
   // Publication evidence is independent of slice precedence; a baseline
   // clock must not survive through the later sort/slug collision winner.
-  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerIdentity);
+  const merged = mergeBaselinePublicationEvidence(baseline, sliceJobs, assemblerDedupIdentity);
 
   // Stable sort: newest postedDate first, then stable by identity string
   const sorted = merged.sort((a, b) => {
@@ -3349,38 +3354,19 @@ async function assembleJobs() {
     return idA.localeCompare(idB);
   });
 
-  // ── Final slug dedup pass ────────────────────────────────────────────
-  // The URL-based identity dedup above handles most duplicates, but
-  // different URLs (or baseline entries from pre-migration data) can map
-  // to the same slug. Since slugs are used as the unique page identifier
-  // by the build system, we must guarantee no duplicate slugs.
-  // Keep the first occurrence (newest postedDate thanks to sort above).
-  // Two records with DIFFERENT identities can still share a slug (37 such
-  // slugs on b10e8eed). Dropping one of them here has the same consequence as
-  // the identity dedup above, so it gets the same per-record treatment: the
-  // discarded copy's `needsRetranslation` is carried onto the kept one instead
-  // of leaving with it.
-  const keptBySlug = new Map();
-  let slugDupeCount = 0;
-  let slugDupeMarksCarried = 0;
-  const deduped = sorted.filter((job) => {
-    const slug = String(job.slug || '').trim();
-    if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
-    const kept = keptBySlug.get(slug);
-    if (kept) {
-      slugDupeCount++;
-      slugDupeMarksCarried += carryForwardMarks(kept, job);
-      return false;
+  // ── Final slug reconciliation ───────────────────────────────────────
+  // Same-identity repeats collapse; distinct postings that share a slug get
+  // a town-specific route instead of disappearing from the published set.
+  const slugDedup = deduplicateAssembledJobsBySlug(sorted);
+  const deduped = slugDedup.jobs;
+  if (slugDedup.duplicates.length > 0) {
+    console.log(`  🧹 Slug dedup: removed ${slugDedup.duplicates.length} confirmed same-identity entries (${deduped.length} remaining)`);
+    if (slugDedup.marksCarried > 0) {
+      console.log(`     ↳ carried ${slugDedup.marksCarried} needsRetranslation mark(s) onto the kept copy`);
     }
-    keptBySlug.set(slug, job);
-    return true;
-  });
-
-  if (slugDupeCount > 0) {
-    console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
-    if (slugDupeMarksCarried > 0) {
-      console.log(`     ↳ carried ${slugDupeMarksCarried} needsRetranslation mark(s) onto the kept copy`);
-    }
+  }
+  if (slugDedup.distinctCollisions.length > 0) {
+    console.log(`  🔀 Kept ${slugDedup.distinctPostingCount} distinct posting(s) with colliding slugs active under Italian town-specific routes.`);
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─
@@ -4617,9 +4603,9 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       console.log(`  🧷 slugByLocale backfill: filled ${slugBackfilled} missing locale entries from canonical slug`);
     }
 
-    writeJson(DATA_JOBS, assembled, { compact: true });
+    writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
     fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
-    writeJson(PUBLIC_JOBS, assembled, { compact: true });
+    writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
     console.log(`✅ data/jobs.json assembled: ${assembled.length} jobs from ${listSliceFiles(JOBS_SLICES_DIR).length} slices`);
 
     // --- PostalCode enrichment (ensures 100% postalCode for JobPosting schema) ---
@@ -4652,8 +4638,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
     }
     if (postalFilled > 0) {
-      writeJson(DATA_JOBS, assembled, { compact: true });
-      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
       console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled}/${assembled.length} jobs`);
     }
 
@@ -4665,8 +4651,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
       job.qualityScore = total;
     }
     if (qsChanged > 0) {
-      writeJson(DATA_JOBS, assembled, { compact: true });
-      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
       console.log(`  📊 Quality score: computed for ${assembled.length} jobs (${qsChanged} changed)`);
     }
 
@@ -4690,12 +4676,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
-          writeJson(DATA_JOBS, assembled, { compact: true });
-          writeJson(PUBLIC_JOBS, assembled, { compact: true });
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
-        writeJson(DATA_EXPIRED, cleanedExpired);
+        writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, cleanedExpired);
+        writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
         console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
         // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
@@ -4723,8 +4709,8 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             const orphanResult = reconcileOrphanSlugs(publishedJobs, orphanSlugs, enrichedData, { dryRun: false });
             if (orphanResult.mergedCount > 0) {
               console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-              writeJson(DATA_JOBS, assembled, { compact: true });
-              writeJson(PUBLIC_JOBS, assembled, { compact: true });
+              writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+              writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
             }
           }
 
@@ -4732,18 +4718,18 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
           const expResult = reconcileExpiredSlugs(publishedJobs, cleanedExpired, { dryRun: false });
           if (expResult.mergedCount > 0) {
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
-            writeJson(DATA_JOBS, assembled, { compact: true });
-            writeJson(PUBLIC_JOBS, assembled, { compact: true });
-            writeJson(DATA_EXPIRED, cleanedExpired);
-            writeJson(PUBLIC_EXPIRED, cleanedExpired);
+            writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+            writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+            writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
+            writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
           }
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
         }
       } else {
-        writeJson(DATA_EXPIRED, expiredJobs);
+        writeJson(DATA_EXPIRED, expiredJobs, { streamArray: true });
         fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, expiredJobs);
+        writeJson(PUBLIC_EXPIRED, expiredJobs, { streamArray: true });
         console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
       }
     }

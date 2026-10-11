@@ -61,6 +61,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 import { SECTION_LEGACY_TI_PATH } from '../build-plugins/shared/cantonSection.ts';
 
@@ -527,7 +528,7 @@ function readPreviousState({ title, marker, isValid }) {
       'gh',
       ['issue', 'list', '--repo', repo, '--state', 'open', '--search', `in:title "${title}"`,
         '--json', 'number,title', '--limit', '20'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'ignore'] },
     );
     const prefix = title.slice(0, 60);
     const match = JSON.parse(listed || '[]').find((i) => String(i.title || '').startsWith(prefix));
@@ -535,7 +536,7 @@ function readPreviousState({ title, marker, isValid }) {
     const viewed = execFileSync(
       'gh',
       ['issue', 'view', String(match.number), '--repo', repo, '--json', 'body,createdAt,comments'],
-      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      { encoding: 'utf8', maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'ignore'] },
     );
     return latestStateEntry(JSON.parse(viewed || '{}'), marker, isValid);
   } catch (e) {

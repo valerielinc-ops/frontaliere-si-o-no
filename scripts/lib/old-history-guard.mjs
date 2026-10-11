@@ -15,6 +15,10 @@ export const OLD_HISTORY_FIRST_CHANGED_COMMIT = 'dab77221540a4e369440f762228be7e
 
 const DEFAULT_BASE_REF = 'refs/remotes/origin/main';
 const FETCH_TIMEOUT_MS = 30_000;
+// Two short `gh compare` reads replace materializing the rewritten commit
+// graph in authenticated data-refresh workflows. If GitHub cannot answer
+// quickly, the existing bounded/fail-closed Git proof remains authoritative.
+const GITHUB_COMPARE_TIMEOUT_MS = 2_250;
 // A shallow refresh may need the complete commit graph to prove that a
 // fetched marker is not hidden beyond the shallow boundary. This fetch stays
 // tree-filtered, but its duration scales with the repository's commit graph;
@@ -26,12 +30,10 @@ export const HISTORY_GRAPH_FETCH_TIMEOUT_MS = 5 * 60_000;
 // without the history graph. A data writer adds a handful; a longer list is not
 // the ordinary case the bounded proof exists for.
 const BOUNDED_PROOF_MAX_ADDED_COMMITS = 2_000;
-// The refresh the bounded proof starts from brings what the branch gained since
-// the checkout: 0.7 to 2.7 seconds measured. A checkout that shares nothing
-// with the branch would be sent its whole history instead, so the budget is
-// short: past it the proof is abandoned and the complete check decides.
-const BOUNDED_PROOF_FETCH_TIMEOUT_MS = 15_000;
-const REMOTE_DESCENT_FETCH_TIMEOUT_MS = BOUNDED_PROOF_FETCH_TIMEOUT_MS;
+// The shallow remote-branch probe usually brings only the branch delta (0.7 to
+// 2.7 seconds measured); if it cannot establish descent quickly, the complete
+// check remains the authority.
+const REMOTE_DESCENT_FETCH_TIMEOUT_MS = 15_000;
 // Commit timestamps can move backwards between machines; widen the shallow
 // window by one day so a clock skew does not hide the old base commit.
 const REMOTE_DESCENT_SINCE_SKEW_SECONDS = 86_400;
@@ -213,15 +215,16 @@ function fetchCommitObject({ cwd, remote, commitRef }) {
   // to resolve an invalid ref.
   if (/^0{40}$/u.test(commitRef)) return false;
   try {
+    const fetchTarget = checkoutFetchTarget({ cwd, remote });
     runGit([
       'fetch',
       '--quiet',
       '--no-tags',
       '--no-write-fetch-head',
       '--filter=tree:0',
-      remote,
+      fetchTarget.remote,
       commitRef,
-    ], { cwd, timeout: FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
+    ], { cwd, timeout: FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'], env: fetchTarget.env });
   } catch (error) {
     const detail = safeGitErrorDetail(error);
     if (isRemoteObjectUnavailable(detail)) return commitExists(commitRef, cwd);
@@ -235,25 +238,34 @@ function remoteHeadRef({ headRef, branch }) {
   return `refs/heads/${match?.[1] || branch}`;
 }
 
-function completeShallowHistory({ cwd, remote, headRef, branch }) {
+function completeShallowHistory({ cwd, remote, headRef, branch, baseRef, markerRef }) {
   try {
-    runGit([
+    const fetchTarget = checkoutFetchTarget({ cwd, remote });
+    const args = [
       'fetch',
       '--quiet',
       '--no-tags',
       '--no-write-fetch-head',
-      '--unshallow',
-      '--filter=tree:0',
-      remote,
-      remoteHeadRef({ headRef, branch }),
-    ], { cwd, timeout: HISTORY_GRAPH_FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
+    ];
+    if (isShallowRepository(cwd)) args.push('--unshallow');
+    args.push('--filter=tree:0', fetchTarget.remote, `+refs/heads/${branch}:${baseRef}`);
+    const requiredHeadRef = remoteHeadRef({ headRef, branch });
+    if (requiredHeadRef !== `refs/heads/${branch}`) args.push(requiredHeadRef);
+    // If the marker is absent, fetch it in the same request as the branch
+    // graph. The old fallback fetched the marker and then the graph in two
+    // filtered requests, repeating commit history and registering the
+    // credential-bearing URL twice.
+    if (markerRef && !commitExists(markerRef, cwd)) args.push(markerRef);
+    runGit(args, { cwd, timeout: HISTORY_GRAPH_FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'], env: fetchTarget.env });
   } catch (error) {
     const detail = safeGitErrorDetail(error);
+    if (markerRef && isRemoteObjectUnavailable(detail) && !commitExists(markerRef, cwd)) return false;
     throw new Error(`Impossibile completare il grafo della storia per verificare il marker: ${detail || 'errore git sconosciuto'}`);
   }
   if (isShallowRepository(cwd)) {
     throw new Error('Il checkout resta shallow dopo il fetch del grafo della storia; controllo non verificabile.');
   }
+  return true;
 }
 
 function markerIsAncestorOfHead({ cwd, markerRef, headRef }) {
@@ -312,14 +324,15 @@ export function refreshOriginBranch({
 } = {}) {
   try {
     withHistoryGuardLock(cwd, () => {
+      const fetchTarget = checkoutFetchTarget({ cwd, remote });
       runGit([
         'fetch',
         '--quiet',
         '--no-tags',
         '--filter=tree:0',
-        remote,
+        fetchTarget.remote,
         `+refs/heads/${branch}:${destinationRef}`,
-      ], { cwd, timeout: FETCH_TIMEOUT_MS });
+      ], { cwd, timeout: FETCH_TIMEOUT_MS, env: fetchTarget.env });
     });
   } catch (error) {
     throw new Error(`Impossibile aggiornare il base ref: ${safeGitErrorDetail(error) || 'errore git sconosciuto'}`);
@@ -398,6 +411,42 @@ function resolveScratchRemote({ cwd, remote }) {
   return resolve(cwd, location);
 }
 
+/**
+ * A filtered fetch by credential-bearing URL asks Git to remember that URL as
+ * a promisor remote. Keep the URL written by Git credential-free and pass its
+ * Basic header ephemerally to the child instead.
+ */
+function checkoutFetchTarget({ cwd, remote }) {
+  const location = resolveScratchRemote({ cwd, remote });
+  let url;
+  try {
+    url = new URL(location);
+  } catch {
+    return { remote, env: process.env };
+  }
+  if (!['http:', 'https:'].includes(url.protocol) || (!url.username && !url.password)) {
+    return { remote, env: process.env };
+  }
+
+  const authorization = `AUTHORIZATION: basic ${Buffer.from(
+    `${decodeURIComponent(url.username)}:${decodeURIComponent(url.password)}`,
+  ).toString('base64')}`;
+  const credentiallessUrl = new URL(url);
+  credentiallessUrl.username = '';
+  credentiallessUrl.password = '';
+  const originKey = `http.${credentiallessUrl.origin}/.extraheader`;
+  const existingHeaders = checkoutHttpExtraHeaders(cwd);
+  const resetHeaders = existingHeaders
+    .filter(({ key }) => key.toLowerCase() === 'http.extraheader'
+      || key.toLowerCase().startsWith(`http.${credentiallessUrl.origin.toLowerCase()}`))
+    .map(({ key }) => ({ key, value: '' }));
+  const env = appendGitConfigEnvironment(process.env, [
+    ...resetHeaders,
+    { key: originKey, value: authorization },
+  ]);
+  return { remote: credentiallessUrl.href, env };
+}
+
 function checkoutHttpExtraHeaders(cwd) {
   try {
     const output = runGit(['-C', cwd, 'config', '--get-regexp', '^http\\..*\\.extraheader$'], {
@@ -410,6 +459,84 @@ function checkoutHttpExtraHeaders(cwd) {
     }).filter(Boolean);
   } catch {
     return [];
+  }
+}
+
+function githubRepositoryForRemote({ cwd, remote }) {
+  const expectedRepository = process.env.GITHUB_REPOSITORY || '';
+  if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/u.test(expectedRepository)) return '';
+
+  const location = resolveScratchRemote({ cwd, remote });
+  let owner;
+  let repository;
+  try {
+    const url = new URL(location);
+    if (!['http:', 'https:'].includes(url.protocol) || url.hostname.toLowerCase() !== 'github.com') return '';
+    const parts = url.pathname.split('/').filter(Boolean);
+    if (parts.length !== 2) return '';
+    [owner, repository] = parts;
+  } catch {
+    const match = /^(?:git@github\.com:|ssh:\/\/git@github\.com\/)([^/]+)\/([^/]+?)(?:\.git)?\/?$/iu.exec(location);
+    if (!match) return '';
+    [, owner, repository] = match;
+  }
+  repository = repository.replace(/\.git$/iu, '');
+  if (!/^[A-Za-z0-9_.-]+$/u.test(owner) || !/^[A-Za-z0-9_.-]+$/u.test(repository)) return '';
+  const actualRepository = `${owner}/${repository}`;
+  return actualRepository.toLowerCase() === expectedRepository.toLowerCase() ? actualRepository : '';
+}
+
+function compareAncestryOnGitHub({ cwd, repository, base, head }) {
+  const env = { ...process.env, GIT_TERMINAL_PROMPT: '0' };
+  if (!env.GH_TOKEN && env.GITHUB_TOKEN) env.GH_TOKEN = env.GITHUB_TOKEN;
+  const result = spawnSync('gh', [
+    'api',
+    `repos/${repository}/compare/${encodeURIComponent(`${base}...${head}`)}`,
+    '--jq',
+    '.status',
+  ], {
+    cwd,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    env,
+    timeout: GITHUB_COMPARE_TIMEOUT_MS,
+    maxBuffer: 64 * 1024,
+  });
+  if (result.error || result.status !== 0) return null;
+  const status = result.stdout.trim();
+  if (status === 'ahead' || status === 'identical') return true;
+  if (status === 'behind' || status === 'diverged') return false;
+  return null;
+}
+
+/**
+ * Use GitHub's commit-compare endpoint only when the authenticated repository
+ * and the requested remote agree. This answers the same ancestry relation as
+ * merge-base without downloading commit objects or writing a promisor remote.
+ */
+function inspectShallowHistoryOnGitHub({ cwd, markerRef, headRef, remote, branch }) {
+  if (!process.env.GH_TOKEN && !process.env.GITHUB_TOKEN) return null;
+  const repository = githubRepositoryForRemote({ cwd, remote });
+  if (!repository) return null;
+  const marker = /^[0-9a-f]{40,64}$/iu.test(markerRef) ? markerRef : resolveCommit(markerRef, cwd);
+  const head = resolveCommit(headRef, cwd);
+  if (!marker || !head || !branch || /[\\\r\n]/u.test(branch)) return null;
+
+  try {
+    const markerInBase = compareAncestryOnGitHub({ cwd, repository, base: marker, head: branch });
+    if (markerInBase === true) return { attempted: true, result: { outcome: 'pass', reason: 'marker-in-base' } };
+    if (markerInBase === null) return { attempted: true, result: null };
+
+    const markerInHead = compareAncestryOnGitHub({ cwd, repository, base: marker, head });
+    if (markerInHead === null) return { attempted: true, result: null };
+    return {
+      attempted: true,
+      result: markerInHead
+        ? { outcome: 'blocked', markerRef, headRef, baseRef: `refs/heads/${branch}` }
+        : { outcome: 'pass', reason: 'marker-not-in-head' },
+    };
+  } catch {
+    return { attempted: true, result: null };
   }
 }
 
@@ -504,29 +631,12 @@ function proveRemoteBranchDescendsFromBase({ cwd, remote, branch, baseRef }) {
   }
 }
 
-// The fallback bounded proof is about the remote branch as it is now, so its
-// base is refreshed first. No `--filter` here, on purpose: this is the fetch a
-// data writer runs next anyway, and an ordinary fetch leaves the checkout the
-// kind of clone `actions/checkout` made, not a treeless one. It also registers
-// no promisor remote: a filtered fetch names that remote after its URL, and the
-// callers that publish data pass a URL that carries their token (issue 12320).
-function refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }) {
-  withHistoryGuardLock(cwd, () => {
-    runGit([
-      'fetch',
-      '--quiet',
-      '--no-tags',
-      '--no-write-fetch-head',
-      remote,
-      `+refs/heads/${branch}:${baseRef}`,
-    ], { cwd, timeout: BOUNDED_PROOF_FETCH_TIMEOUT_MS });
-  });
-}
-
 /**
- * A shallow checkout whose head adds only known commits to the refreshed base
- * is decided here, in one ordinary fetch. Anything this cannot prove, including
- * a fetch that fails or times out, is left to the complete check below.
+ * A shallow checkout is decided without the full graph only when the remote
+ * branch is proven to descend from the old base and the bounded local proof is
+ * closed. Otherwise one combined filtered fetch updates the base, retrieves a
+ * missing marker, and completes the shallow history; no ordinary full-tree
+ * refresh precedes a second copy of the commit graph.
  */
 function decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace }) {
   let remoteDescent;
@@ -548,17 +658,27 @@ function decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, re
   if (remoteDescent.proven) {
     const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
     trace?.push({ step: 'bounded-proof', ...proof });
-    if (proof.proven) return true;
+    if (proof.proven) return { proven: true, baseRefreshed: false };
   }
   try {
-    timed(trace, 'refresh-base', () => refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }));
+    const completed = timed(trace, 'complete-shallow-history', () => withHistoryGuardLock(cwd, () => completeShallowHistory({
+      cwd,
+      remote,
+      headRef,
+      branch,
+      baseRef,
+      markerRef,
+    })));
+    if (completed) {
+      const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
+      trace?.push({ step: 'bounded-proof', ...proof });
+      return { proven: proof.proven, baseRefreshed: true };
+    }
   } catch {
-    trace?.push({ step: 'bounded-proof', proven: false, why: 'base-refresh-failed' });
-    return false;
+    // The full inspector below remains the authority. If the combined fetch
+    // did not establish the graph, its fail-closed check will report that.
   }
-  const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
-  trace?.push({ step: 'bounded-proof', ...proof });
-  return proof.proven;
+  return { proven: false, baseRefreshed: false };
 }
 
 export function checkOldHistory({
@@ -572,13 +692,40 @@ export function checkOldHistory({
   trace,
 } = {}) {
   let result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
-  // Both of these answers are a shallow negative: the marker is not in the
-  // checkout, or it is and no local path leads to it. Before paying for the
-  // marker and for the whole commit graph, try the proof that needs neither.
-  const shallowNegative = result.reason === 'marker-unavailable' || result.reason === 'marker-not-in-head';
-  if (refreshBase && shallowNegative && isShallowRepository(cwd)
-    && decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace })) {
-    return { outcome: 'pass', reason: 'head-adds-no-old-history' };
+  let baseRefreshed = false;
+  // On a shallow CI checkout, a remote force-push can make the local graph
+  // unable to answer either ancestry question. GitHub's compare endpoint can
+  // answer against the current head and base without the 124k-commit fetch;
+  // if it is unavailable or inconclusive, continue through the existing
+  // bounded Git path rather than weakening the guard.
+  if (refreshBase && isShallowRepository(cwd)) {
+    const compareStartedAt = Date.now();
+    const comparison = inspectShallowHistoryOnGitHub({
+      cwd,
+      markerRef,
+      headRef,
+      remote,
+      branch,
+    });
+    if (comparison?.attempted) {
+      const compareTrace = {
+        step: 'github-compare',
+        ms: Date.now() - compareStartedAt,
+        verdict: comparison.result?.reason || comparison.result?.outcome || 'unavailable; using bounded Git proof',
+      };
+      trace?.push(compareTrace);
+      if (comparison.result) return comparison.result;
+    }
+  }
+  // A missing marker can use the bounded proof without fetching that object.
+  // When the marker is local but merge-base says it is unrelated, the shallow
+  // boundary can still hide a parent path: complete the graph before treating
+  // that negative as conclusive.
+  if (refreshBase && result.reason === 'marker-unavailable' && isShallowRepository(cwd)) {
+    const decision = decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace });
+    if (decision.proven) return { outcome: 'pass', reason: 'head-adds-no-old-history' };
+    baseRefreshed = decision.baseRefreshed;
+    result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
   if (result.reason === 'marker-unavailable' && refreshBase) {
     const markerFetched = timed(trace, 'fetch-marker', () => withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef })));
@@ -593,13 +740,21 @@ export function checkOldHistory({
   const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
     && result.reason !== 'marker-in-base';
   if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
-    timed(trace, 'complete-shallow-history', () => withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch })));
+    const completed = timed(trace, 'complete-shallow-history', () => withHistoryGuardLock(cwd, () => completeShallowHistory({
+      cwd,
+      remote,
+      headRef,
+      branch,
+      baseRef,
+      markerRef,
+    })));
+    baseRefreshed = completed || baseRefreshed;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
   const baseNeedsRefresh = result.reason === 'marker-in-base'
     || result.outcome === 'blocked'
     || result.outcome === 'base-unavailable';
-  if (baseNeedsRefresh && refreshBase) {
+  if (baseNeedsRefresh && refreshBase && !baseRefreshed) {
     refreshOriginBranch({ cwd, remote, branch, destinationRef: baseRef });
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
@@ -625,6 +780,7 @@ export function isOldHistoryBlockedError(value) {
 }
 
 const TRACE_STEP_LABELS = {
+  'github-compare': 'confronto remoto GitHub',
   'remote-descends-from-base': 'discendenza del ramo remoto dal base',
   'refresh-base': 'aggiornamento del base',
   'fetch-marker': 'recupero del marker',
@@ -636,6 +792,10 @@ const TRACE_STEP_LABELS = {
 // in its own log.
 export function describeTrace(trace = []) {
   const parts = trace.map((entry) => {
+    if (entry.step === 'github-compare') {
+      const seconds = `${(entry.ms / 1000).toFixed(1)} s`;
+      return `${TRACE_STEP_LABELS[entry.step]}: ${entry.verdict || 'non conclusivo'} dopo ${seconds}`;
+    }
     if (entry.step === 'remote-descends-from-base') {
       const seconds = `${(entry.ms / 1000).toFixed(1)} s`;
       if (entry.proven) return `${TRACE_STEP_LABELS[entry.step]}: ${seconds}`;

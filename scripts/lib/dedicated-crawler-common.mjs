@@ -71,7 +71,12 @@ import { buildStableJobIdentity } from './job-identity.mjs';
 import { createAwaitingAdmissionCheck } from './translation-publication-hold.mjs';
 import { inferCantonFromJobEvidence } from './canton-evidence.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
-import { getRetranslationBaseline, recordRetranslationBaseline } from './crawler-retranslation-baseline.mjs';
+import {
+  getRetranslationBaseline,
+  getRetranslationBaselineEntry,
+  recordRetranslationBaseline,
+  retranslationSourceHash,
+} from './crawler-retranslation-baseline.mjs';
 import { recordPreviousRunSlice } from './crawler-previous-run-slice.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
@@ -2367,6 +2372,25 @@ export function shouldForceLocalizationForJob(job = {}, ctx = {}) {
   return false;
 }
 
+/**
+ * Decide whether SKIP_AI_TRANSLATION must enqueue a job that reached the
+ * localization branch. Complete locale maps are not work by themselves: only
+ * a pre-existing flag or changed/new source keeps them queued. Missing
+ * baseline evidence deliberately fails closed, as do genuinely incomplete
+ * maps, so this never hides new jobs or translation defects.
+ */
+export function shouldMarkSkipAiRetranslation(job, {
+  crawlerKey = job?.companyKey,
+  sourceLang = job?.sourceLang || null,
+  minDescriptionChars = 120,
+} = {}) {
+  if (job?.needsRetranslation === true) return true;
+  if (!hasCompleteLocaleTextCoverage(job, { sourceLang, minDescriptionChars })) return true;
+  const previous = getRetranslationBaselineEntry(crawlerKey, job);
+  if (!previous || previous.flagged) return true;
+  return previous.hash !== retranslationSourceHash(job);
+}
+
 export function isLocalizationAllowedForJob(job = {}, ctx = {}) {
   const { LOCALIZE_ONLY_COMPANY_KEYS, normalizeCompanyKey: nck, normalizeHost: nh, hostOf: ho } = ctx;
   if (!(LOCALIZE_ONLY_COMPANY_KEYS instanceof Set) || LOCALIZE_ONLY_COMPANY_KEYS.size === 0) return true;
@@ -3201,7 +3225,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   if (process.env.SKIP_AI_TRANSLATION === '1') {
     out.titleByLocale = titleByLocale;
     out.descriptionByLocale = currentByLocale;
-    out.needsRetranslation = true;
+    if (shouldMarkSkipAiRetranslation(out, {
+      crawlerKey: crawlerConfig?.crawlerKey || crawlerConfig?.companyKey || out.companyKey,
+      sourceLang: out.sourceLang || sourceLang,
+      minDescriptionChars: localeDescFloor,
+    })) {
+      out.needsRetranslation = true;
+    }
     return out;
   }
 
