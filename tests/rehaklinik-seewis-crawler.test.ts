@@ -112,6 +112,26 @@ describe('Kurhaus crawler parser', () => {
     expect(jobs[0].streetAddress).toBeTruthy();
   });
 
+  it('uses the canton-scoped official postal directory for a valid locality absent from the narrow city table', async () => {
+    vi.mocked(runSpecInProduction).mockResolvedValueOnce([{
+      title: 'Physiotherapeutin',
+      location: 'Andeer, GR',
+      addressCountry: 'CH',
+      description: '<p>Therapie und Betreuung der Patientinnen und Patienten.</p>',
+      url: 'https://www.vitrea-gesundheit.ch/de/karriere/physiotherapie/andeer',
+    }]);
+
+    const jobs = await fetchAllRehaklinikSeewisJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      addressLocality: 'Andeer',
+      addressRegion: 'GR',
+      postalCode: '7440',
+      streetAddress: 'Andeer',
+    });
+  });
+
   // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
