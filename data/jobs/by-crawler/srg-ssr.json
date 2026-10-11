@@ -1,27 +1,27 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-10-11T09:15:17.792Z",
+  "assembledAt": "2026-10-11T21:12:33.077Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
       "slug": "posizione-srg-ssr-cuira-a4f3645a41",
       "slugByLocale": {
-        "rm": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
         "it": "posizione-srg-ssr-cuira-a4f3645a41",
         "en": "job-opening-srg-ssr-cuira",
         "de": "stellenangebot-srg-ssr-cuira",
-        "fr": "offre-d-emploi-srg-ssr-cuira"
+        "fr": "offre-d-emploi-srg-ssr-cuira",
+        "rm": "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
       "title": "Fufragnadi - emprendissadi da prova",
       "titleByLocale": {
-        "rm": "Fufragnadi - emprendissadi da prova",
         "it": "Posizione",
         "en": "Job opening",
         "de": "Stellenangebot",
-        "fr": "Offre d'emploi"
+        "fr": "Offre d'emploi",
+        "rm": "Fufragnadi - emprendissadi da prova"
       },
       "description": "RTR è in'unitad d'interpresa da la SRG SSR e la chasa da medias per la Svizra rumantscha. Di per di procuran passa 160 collavuraturas e collavuraturs en 30 differentas professiuns per infurmaziuns actualas, novitads regiunalas, rapportaziuns da sport e divertiment.\n\n## Tge èn las pussaivladads?\n\nRTR porscha fufragnadis per giuvnas e giuvens che vulan far in emprendissadi mercantil/commerzial u l'emprendissadi d'informatica\n\nIl fufragnadi organisain nus gugent tenor ils termins cunvegnents durant 1 di\n\n## Tge èn nossas spetgas?\n\nTi discurras in idiom rumantsch e sas era scriver rumantsch\nTi has almain terminà l'emprima classa dal stgalim superiur\n\n## Per infurmaziun\n\nRTR porscha mintg'onn ina plazza d'emprendissadi commerziala\nRTR porscha mintga 2 onns ina plazza d'emprendissadi informatica\n\n## Nossa purschida\nTge dovri per cuntanscher cun formats da gronda qualitad ils umans en Svizra? Savida d'experts, entusiassem ed in ambient inspirant sco er animant, en il qual tuts pon sa posiziunar e sa sviluppar vinavant. Per ch'ils megliers possian dar il meglier da sasez dovran els ina patria inspiranta: Bainvegni en il mund da RTR!\n- Far medias: Schurnalissem da qualitad è nossa fatschenta principala e nossa passiun. Nus essan redacziunalmain libers, promovain la creativitad e purschain bler spazi per concepir chaussas novas e d'auta qualitad.\n- Concepir la digitalisaziun: Il schurnalissem da qualitad è tar nus era digital. Perquai sondain nus novas pussaivladads ed experimentain cun novas furmas e novs formats: digital, interactiv e crossmedial. Nus concepin al puls dal temp ed al gnerv dal public.\n- Esser uman: Nus inscuntrain in l'auter a moda colleghiala, lavurain autonom e gidain individualmain a furmar noss clima da lavur. Noss success sa basa era sin las fermezzas persunalas e sin las qualitads professiunalas da tuttas collavuraturas e tuts collavuraturs.\n- Crear senn: Nus cuntanschain e muventain cun noss programs l'entira Svizra. Nus agin cun respect ed a moda independenta; uschia promovain nus la furmaziun da l'opiniun e rinforzain la diversitad. Nus essan loschs da nossa lavur e da nossa contribuziun a la Svizra.",
       "descriptionByLocale": {
@@ -34,7 +34,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-11T09:14:39.985Z",
+      "crawledAt": "2026-10-11T21:12:27.966Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,24 +52,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "requirements": [],
-      "requirementsByLocale": {
-        "rm": []
-      },
+      "requirementsByLocale": {},
       "_srgMeta": {
         "uuid": "b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
         "org": "rtr",
         "orgLabel": "RTR"
       },
+      "previousSlugs": [
+        "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
+        "posizione-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
           "posizione-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "fufragnadi-emprendissadi-da-prova-srg-ssr-cuira",
-        "posizione-srg-ssr-cuira"
-      ],
+      "firstSeenAt": "2026-10-08T21:15:53.636Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -83,12 +82,11 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-08T21:15:53.636Z"
+      "addressRegion": "GR"
     },
     {
       "id": "srg-ssr-4295227a1917",
-      "slug": "posizione-srg-ssr-cuira-e3c3f88d8a",
+      "slug": "posizione-srg-ssr-cuira",
       "slugByLocale": {
         "it": "posizione-srg-ssr-cuira",
         "en": "job-opening-srg-ssr-cuira",
@@ -118,7 +116,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-11T09:14:39.458Z",
+      "crawledAt": "2026-10-11T21:12:27.449Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,11 +143,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praticanta-praticant-srg-ssr-cuira"
+        "praticanta-praticant-srg-ssr-cuira",
+        "posizione-srg-ssr-cuira-e3c3f88d8a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praticanta-praticant-srg-ssr-cuira"
+          "praticanta-praticant-srg-ssr-cuira",
+          "posizione-srg-ssr-cuira-e3c3f88d8a"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -202,7 +202,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:38.882Z",
+      "crawledAt": "2026-10-11T21:12:26.928Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -297,7 +297,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:38.385Z",
+      "crawledAt": "2026-10-11T21:12:26.423Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,7 +397,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:37.847Z",
+      "crawledAt": "2026-10-11T21:12:25.894Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -490,7 +490,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:37.251Z",
+      "crawledAt": "2026-10-11T21:12:25.259Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -585,7 +585,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:36.728Z",
+      "crawledAt": "2026-10-11T21:12:24.739Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -680,7 +680,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:36.212Z",
+      "crawledAt": "2026-10-11T21:12:24.228Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -773,7 +773,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-52-settimane-impiegata-impiegato-di-commercio-o-per-accesso-supsi/2bc061f3-bb09-4558-9388-63711380a1aa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-11T09:14:35.688Z",
+      "crawledAt": "2026-10-11T21:12:23.685Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -861,7 +861,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/003650d2-1ad9-4ad4-85aa-e9c6dd4dfa99",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:35.046Z",
+      "crawledAt": "2026-10-11T21:12:23.037Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -958,7 +958,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/fachspezialist-in-public-affairs/de58e2c4-0538-466a-a2c0-a3eef4373fde",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:34.451Z",
+      "crawledAt": "2026-10-11T21:12:22.419Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1041,7 +1041,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-affaires-publiques-f-h-d/39b75d80-f61a-4051-98f3-1c876d1dd2a5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:33.830Z",
+      "crawledAt": "2026-10-11T21:12:21.785Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1124,7 +1124,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chef-fe-d-antenne-rts-couleur-3/d486de8e-446e-4247-bdbb-7b10376a7750",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:33.217Z",
+      "crawledAt": "2026-10-11T21:12:21.156Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1232,7 +1232,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-11T09:14:32.577Z",
+      "crawledAt": "2026-10-11T21:12:20.536Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1333,7 +1333,7 @@
       "sourceLang": "rm",
       "sourceLangOriginal": "rm",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-11T09:14:31.711Z",
+      "crawledAt": "2026-10-11T21:12:19.628Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1433,7 +1433,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/moderatorin-moderator-arena/3fe096fe-a5ab-4b2d-bd02-ffeb5e319232",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:31.202Z",
+      "crawledAt": "2026-10-11T21:12:19.097Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1527,7 +1527,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensjurist-in-legal-counsel-im-gesellschafts-und-vertragsrecht/d0ac4654-6e4d-4ff2-8f33-ac4c851739af",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:30.644Z",
+      "crawledAt": "2026-10-11T21:12:18.560Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1625,7 +1625,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-d-entreprise-legal-counsel-specialise-e-en-droit-des-societes-et-des-contrats-f-h-d/1a8b4ad5-4f61-4536-84fd-ea89fdef4dd5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:30.124Z",
+      "crawledAt": "2026-10-11T21:12:18.039Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -1711,7 +1711,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/jurist-in-mit-anwaltspatent/c1a435fd-99fa-44fd-bf14-6da029589827",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:29.568Z",
+      "crawledAt": "2026-10-11T21:12:17.507Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1798,7 +1798,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/juriste-titulaire-du-brevet-d-avocat-e/e400fda6-acbd-4989-ac0c-f212974ede9c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:29.034Z",
+      "crawledAt": "2026-10-11T21:12:16.992Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1885,7 +1885,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/giurista-titolare-del-brevetto-di-avvocato-a/fa28bc97-35d7-4ab2-86d8-a17dd0947695",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-11T09:14:28.509Z",
+      "crawledAt": "2026-10-11T21:12:16.473Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1964,7 +1964,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hr-partner-operations/ad0a1791-eee5-4d4f-bae2-85551c9459af",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:27.983Z",
+      "crawledAt": "2026-10-11T21:12:15.931Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2057,7 +2057,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hr-partner-operazioni/ce2e49db-772b-40a5-b17f-1c2c8019b28f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-11T09:14:27.358Z",
+      "crawledAt": "2026-10-11T21:12:15.316Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2143,7 +2143,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hr-partner-in-operationen/8bd46a01-ab48-439f-aca5-bb26bbdf1188",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:26.808Z",
+      "crawledAt": "2026-10-11T21:12:14.801Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2238,7 +2238,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/fotograf-in-mit-videokompetenzen/ba91e0d4-3c91-4433-a6d8-f7081a3d1fee",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:26.309Z",
+      "crawledAt": "2026-10-11T21:12:14.290Z",
       "addressLocality": "Genève 8",
       "addressCountry": "CH",
       "country": "CH",
@@ -2332,7 +2332,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-meta-data/853f1f32-3800-4720-a96c-354dc2e41bf7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:25.785Z",
+      "crawledAt": "2026-10-11T21:12:13.782Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2395,6 +2395,96 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "srg-ssr-564d10f07646",
+      "slug": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+      "slugByLocale": {
+        "de": "data-governance-expert-meta-data-srg-ssr-zurich",
+        "it": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+        "en": "data-governance-expert-meta-data-srg-ssr-zurich-2",
+        "fr": "data-governance-expert-meta-data-srg-ssr-zurich-2"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Data Governance Expert (Meta Data)",
+      "titleByLocale": {
+        "de": "Data Governance Expert (Meta Data)",
+        "en": "Data Governance Expert (Meta Data)",
+        "it": "Data Governance Expert (Meta Data)",
+        "fr": "Data Governance Expert (Meta Data)"
+      },
+      "description": "Können Nutzerinnen und Nutzer bei der SRG auf Anhieb finden, welche Daten es gibt, was sie bedeuten und woher sie stammen? Mit dem Aufbau einer unternehmensweiten Data Governance schaffen wir genau diese Transparenz. Im Team der Leiter:in Data Governance verantworten Sie das Business Glossar und den Datenkatalog der SRG und sorgen so für eine einheitliche, verständliche Datensprache im ganzen Unternehmen.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und erweitern das SRG-weite Business Glossar und standardisieren Datendefinitionen über Domänen hinweg\n\n• Sie definieren Metadata-Standards und koordinieren die Data-Lineage-Dokumentation über Systeme und Domänen hinweg\n\n• Sie agieren als Business Owner des Data-Catalog-Tools: Sie priorisieren den Backlog, fördern die Adoption und verbessern laufend die User Experience\n\n• Sie koordinieren die automatische Metadaten-Erfassung in Zusammenarbeit mit IT und Enterprise Data Architect\n\n• Sie harmonisieren Metadaten über Domänen hinweg in enger Zusammenarbeit mit den Data Stewards\n\n• Sie bringen sich in die Community of Practice Metadata ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung\n\n• Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Auffindbarkeit und Verständlichkeit von Daten bei der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Meta Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Master Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+      "descriptionByLocale": {
+        "de": "Können Nutzerinnen und Nutzer bei der SRG auf Anhieb finden, welche Daten es gibt, was sie bedeuten und woher sie stammen? Mit dem Aufbau einer unternehmensweiten Data Governance schaffen wir genau diese Transparenz. Im Team der Leiter:in Data Governance verantworten Sie das Business Glossar und den Datenkatalog der SRG und sorgen so für eine einheitliche, verständliche Datensprache im ganzen Unternehmen.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und erweitern das SRG-weite Business Glossar und standardisieren Datendefinitionen über Domänen hinweg\n\n• Sie definieren Metadata-Standards und koordinieren die Data-Lineage-Dokumentation über Systeme und Domänen hinweg\n\n• Sie agieren als Business Owner des Data-Catalog-Tools: Sie priorisieren den Backlog, fördern die Adoption und verbessern laufend die User Experience\n\n• Sie koordinieren die automatische Metadaten-Erfassung in Zusammenarbeit mit IT und Enterprise Data Architect\n\n• Sie harmonisieren Metadaten über Domänen hinweg in enger Zusammenarbeit mit den Data Stewards\n\n• Sie bringen sich in die Community of Practice Metadata ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung\n\n• Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Auffindbarkeit und Verständlichkeit von Daten bei der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Meta Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Master Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "it": "Können Nutzerinnen und Nutzer bei der SRG auf Anhieb finden, welche Daten es gibt, was sie bedeuten und woher sie stammen? Mit dem Aufbau einer unternehmensweiten Data Governance schaffen wir genau diese Transparenz. Im Team der Leiter:in Data Governance verantworten Sie das Business Glossar und den Datenkatalog der SRG und sorgen so für eine einheitliche, verständliche Datensprache im ganzen Unternehmen.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und erweitern das SRG-weite Business Glossar und standardisieren Datendefinitionen über Domänen hinweg\n\n• Sie definieren Metadata-Standards und koordinieren die Data-Lineage-Dokumentation über Systeme und Domänen hinweg\n\n• Sie agieren als Business Owner des Data-Catalog-Tools: Sie priorisieren den Backlog, fördern die Adoption und verbessern laufend die User Experience\n\n• Sie koordinieren die automatische Metadaten-Erfassung in Zusammenarbeit mit IT und Enterprise Data Architect\n\n• Sie harmonisieren Metadaten über Domänen hinweg in enger Zusammenarbeit mit den Data Stewards\n\n• Sie bringen sich in die Community of Practice Metadata ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung\n\n• Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Auffindbarkeit und Verständlichkeit von Daten bei der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Meta Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Master Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "en": "Können Nutzerinnen und Nutzer bei der SRG auf Anhieb finden, welche Daten es gibt, was sie bedeuten und woher sie stammen? Mit dem Aufbau einer unternehmensweiten Data Governance schaffen wir genau diese Transparenz. Im Team der Leiter:in Data Governance verantworten Sie das Business Glossar und den Datenkatalog der SRG und sorgen so für eine einheitliche, verständliche Datensprache im ganzen Unternehmen.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und erweitern das SRG-weite Business Glossar und standardisieren Datendefinitionen über Domänen hinweg\n\n• Sie definieren Metadata-Standards und koordinieren die Data-Lineage-Dokumentation über Systeme und Domänen hinweg\n\n• Sie agieren als Business Owner des Data-Catalog-Tools: Sie priorisieren den Backlog, fördern die Adoption und verbessern laufend die User Experience\n\n• Sie koordinieren die automatische Metadaten-Erfassung in Zusammenarbeit mit IT und Enterprise Data Architect\n\n• Sie harmonisieren Metadaten über Domänen hinweg in enger Zusammenarbeit mit den Data Stewards\n\n• Sie bringen sich in die Community of Practice Metadata ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung\n\n• Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Auffindbarkeit und Verständlichkeit von Daten bei der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Meta Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Master Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "fr": "Können Nutzerinnen und Nutzer bei der SRG auf Anhieb finden, welche Daten es gibt, was sie bedeuten und woher sie stammen? Mit dem Aufbau einer unternehmensweiten Data Governance schaffen wir genau diese Transparenz. Im Team der Leiter:in Data Governance verantworten Sie das Business Glossar und den Datenkatalog der SRG und sorgen so für eine einheitliche, verständliche Datensprache im ganzen Unternehmen.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und erweitern das SRG-weite Business Glossar und standardisieren Datendefinitionen über Domänen hinweg\n\n• Sie definieren Metadata-Standards und koordinieren die Data-Lineage-Dokumentation über Systeme und Domänen hinweg\n\n• Sie agieren als Business Owner des Data-Catalog-Tools: Sie priorisieren den Backlog, fördern die Adoption und verbessern laufend die User Experience\n\n• Sie koordinieren die automatische Metadaten-Erfassung in Zusammenarbeit mit IT und Enterprise Data Architect\n\n• Sie harmonisieren Metadaten über Domänen hinweg in enger Zusammenarbeit mit den Data Stewards\n\n• Sie bringen sich in die Community of Practice Metadata ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung\n\n• Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Auffindbarkeit und Verständlichkeit von Daten bei der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Meta Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Master Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-meta-data/e71f8f9b-5cca-4483-a68b-8be0e526c3f8",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-11T21:12:13.144Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Fernsehstrasse 1 - 4",
+      "category": "Media / Giornalismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09",
+      "postedDate": "2026-10-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-meta-data/e71f8f9b-5cca-4483-a68b-8be0e526c3f8",
+      "requirements": [
+        "Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management",
+        "Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung",
+        "Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management",
+        "Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil",
+        "Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten",
+        "Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management",
+          "Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Taxonomie und Klassifikation und deren praktischer Anwendung",
+          "Erfahrung mit Metadata-Management- und Data-Catalog-Tools sowie Grundkenntnisse im Business-Owner-/Backlog-Management",
+          "Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Metadata Management; eine CDMP-Zertifizierung ist von Vorteil",
+          "Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten",
+          "Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "e71f8f9b-5cca-4483-a68b-8be0e526c3f8",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-09T09:15:23.137Z"
+    },
+    {
       "id": "srg-ssr-46c217ccc579",
       "slug": "esperto-a-di-governance-dei-dati-dati-principali-srg-ssr-zurich",
       "slugByLocale": {
@@ -2425,7 +2515,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-master-data/f5482b75-8387-48c6-bd9a-5065078229bc",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-11T09:14:24.556Z",
+      "crawledAt": "2026-10-11T21:12:12.515Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2491,6 +2581,96 @@
       "addressRegion": "ZH"
     },
     {
+      "id": "srg-ssr-87362bcab0e0",
+      "slug": "data-governance-expert-master-data-srg-ssr-zurich-2",
+      "slugByLocale": {
+        "de": "data-governance-expert-master-data-srg-ssr-zurich",
+        "it": "data-governance-expert-master-data-srg-ssr-zurich-2",
+        "en": "data-governance-expert-master-data-srg-ssr-zurich-2",
+        "fr": "data-governance-expert-master-data-srg-ssr-zurich-2"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Data Governance Expert (Master Data)",
+      "titleByLocale": {
+        "de": "Data Governance Expert (Master Data)",
+        "it": "Data Governance Expert (Master Data)",
+        "en": "Data Governance Expert (Master Data)",
+        "fr": "Data Governance Expert (Master Data)"
+      },
+      "description": "Wie stellt die SRG sicher, dass ihre wichtigsten Daten – über alle Regionen, Sprachen und Unternehmenseinheiten hinweg – konsistent, verlässlich und nutzbar sind? Im Rahmen der Transformation bauen wir eine unternehmensweite Data Governance auf, die genau diese Frage beantwortet. Im Team Data Governance verantworten Sie das Thema Stammdaten (Master Data) und tragen massgeblich dazu bei, dass die SRG auf einer einheitlichen, qualitativ hochwertigen Datenbasis arbeitet.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und aktualisieren SRG-weite Master-Data-Standards und -Richtlinien\n\n• Sie definieren und pflegen Business Rules für kritische Stammdatenobjekte\n\n• Sie koordinieren die Cross-Domain-Integration von Stammdaten und sorgen für Konsistenz über Systeme und Domänen hinweg\n\n• Sie überwachen die Master-Data-Qualität, identifizieren Abweichungen und leiten in Zusammenarbeit mit Data Stewards Massnahmen ein\n\n• Sie unterstützen Data Stewards und Fachbereiche mit Ihrer fachlichen Expertise im Umgang mit Master-Data-Tooling\n\n• Sie bringen sich in die Community of Practice Master Data ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung\n\n• Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Datenqualität der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Master Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Meta Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+      "descriptionByLocale": {
+        "de": "Wie stellt die SRG sicher, dass ihre wichtigsten Daten – über alle Regionen, Sprachen und Unternehmenseinheiten hinweg – konsistent, verlässlich und nutzbar sind? Im Rahmen der Transformation bauen wir eine unternehmensweite Data Governance auf, die genau diese Frage beantwortet. Im Team Data Governance verantworten Sie das Thema Stammdaten (Master Data) und tragen massgeblich dazu bei, dass die SRG auf einer einheitlichen, qualitativ hochwertigen Datenbasis arbeitet.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und aktualisieren SRG-weite Master-Data-Standards und -Richtlinien\n\n• Sie definieren und pflegen Business Rules für kritische Stammdatenobjekte\n\n• Sie koordinieren die Cross-Domain-Integration von Stammdaten und sorgen für Konsistenz über Systeme und Domänen hinweg\n\n• Sie überwachen die Master-Data-Qualität, identifizieren Abweichungen und leiten in Zusammenarbeit mit Data Stewards Massnahmen ein\n\n• Sie unterstützen Data Stewards und Fachbereiche mit Ihrer fachlichen Expertise im Umgang mit Master-Data-Tooling\n\n• Sie bringen sich in die Community of Practice Master Data ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung\n\n• Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Datenqualität der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Master Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Meta Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "it": "Wie stellt die SRG sicher, dass ihre wichtigsten Daten – über alle Regionen, Sprachen und Unternehmenseinheiten hinweg – konsistent, verlässlich und nutzbar sind? Im Rahmen der Transformation bauen wir eine unternehmensweite Data Governance auf, die genau diese Frage beantwortet. Im Team Data Governance verantworten Sie das Thema Stammdaten (Master Data) und tragen massgeblich dazu bei, dass die SRG auf einer einheitlichen, qualitativ hochwertigen Datenbasis arbeitet.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und aktualisieren SRG-weite Master-Data-Standards und -Richtlinien\n\n• Sie definieren und pflegen Business Rules für kritische Stammdatenobjekte\n\n• Sie koordinieren die Cross-Domain-Integration von Stammdaten und sorgen für Konsistenz über Systeme und Domänen hinweg\n\n• Sie überwachen die Master-Data-Qualität, identifizieren Abweichungen und leiten in Zusammenarbeit mit Data Stewards Massnahmen ein\n\n• Sie unterstützen Data Stewards und Fachbereiche mit Ihrer fachlichen Expertise im Umgang mit Master-Data-Tooling\n\n• Sie bringen sich in die Community of Practice Master Data ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung\n\n• Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Datenqualität der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Master Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Meta Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "en": "Wie stellt die SRG sicher, dass ihre wichtigsten Daten – über alle Regionen, Sprachen und Unternehmenseinheiten hinweg – konsistent, verlässlich und nutzbar sind? Im Rahmen der Transformation bauen wir eine unternehmensweite Data Governance auf, die genau diese Frage beantwortet. Im Team Data Governance verantworten Sie das Thema Stammdaten (Master Data) und tragen massgeblich dazu bei, dass die SRG auf einer einheitlichen, qualitativ hochwertigen Datenbasis arbeitet.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und aktualisieren SRG-weite Master-Data-Standards und -Richtlinien\n\n• Sie definieren und pflegen Business Rules für kritische Stammdatenobjekte\n\n• Sie koordinieren die Cross-Domain-Integration von Stammdaten und sorgen für Konsistenz über Systeme und Domänen hinweg\n\n• Sie überwachen die Master-Data-Qualität, identifizieren Abweichungen und leiten in Zusammenarbeit mit Data Stewards Massnahmen ein\n\n• Sie unterstützen Data Stewards und Fachbereiche mit Ihrer fachlichen Expertise im Umgang mit Master-Data-Tooling\n\n• Sie bringen sich in die Community of Practice Master Data ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung\n\n• Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Datenqualität der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Master Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Meta Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz.",
+        "fr": "Wie stellt die SRG sicher, dass ihre wichtigsten Daten – über alle Regionen, Sprachen und Unternehmenseinheiten hinweg – konsistent, verlässlich und nutzbar sind? Im Rahmen der Transformation bauen wir eine unternehmensweite Data Governance auf, die genau diese Frage beantwortet. Im Team Data Governance verantworten Sie das Thema Stammdaten (Master Data) und tragen massgeblich dazu bei, dass die SRG auf einer einheitlichen, qualitativ hochwertigen Datenbasis arbeitet.\n\n## Das ist Ihr Beitrag\n\n• Sie entwickeln, pflegen und aktualisieren SRG-weite Master-Data-Standards und -Richtlinien\n\n• Sie definieren und pflegen Business Rules für kritische Stammdatenobjekte\n\n• Sie koordinieren die Cross-Domain-Integration von Stammdaten und sorgen für Konsistenz über Systeme und Domänen hinweg\n\n• Sie überwachen die Master-Data-Qualität, identifizieren Abweichungen und leiten in Zusammenarbeit mit Data Stewards Massnahmen ein\n\n• Sie unterstützen Data Stewards und Fachbereiche mit Ihrer fachlichen Expertise im Umgang mit Master-Data-Tooling\n\n• Sie bringen sich in die Community of Practice Master Data ein und übernehmen bei Bedarf deren operative Moderation\n\n## Damit begeistern Sie uns\n\n• Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management\n\n• Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung\n\n• Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools\n\n• Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil\n\n• Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten\n\n• Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1\n\n## Damit begeistern wir Sie\n\n• Sinnstiftende operative Schlüsselrolle beim Aufbau der unternehmensweiten Data Governance mit direktem Einfluss auf die Datenqualität der SRG\n\n• Enge Zusammenarbeit mit Redaktion, Business, Technologie und Governance in einem interdisziplinären Umfeld\n\n• Aktive Mitgestaltung von Data Governance, Datenqualität und datengetriebener Arbeitsweise innerhalb der SRG\n\n• Raum für Eigenverantwortung, fachliche Wirkung und kontinuierliches Lernen\n\n• Zusammenarbeit mit einem interdisziplinären Team über alle Sprachregionen der Schweiz hinweg\n\n• Hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten\n\nBitte reichen Sie Ihre Bewerbungsunterlagen (Motivationsschreiben und CV) über den Button «Jetzt bewerben» ein. Die Bewerbungsfrist endet am 23. Oktober 2026.\n\nDie Stelle hat ihren Schwerpunkt im Bereich Master Data Management. Je nach Profil und organisatorischen Bedürfnissen besteht die Möglichkeit, ausgewählte Aufgaben im Bereich Meta Data Management zu übernehmen.\n\n## Unser Versprechen\nWas es braucht, um mit hochwertigen Formaten die Menschen in der Schweiz zu erreichen? Expertise, Enthusiasmus und ein inspirierendes sowie anregendes Umfeld, in dem sich alle einbringen und weiterentwickeln können. Damit die Besten das Beste aus sich herausholen, brauchen sie eine inspirierende Heimat: Willkommen in der Welt der SRG!\n- Medien machen: Qualitätsjournalismus ist unser Kerngeschäft und unsere Leidenschaft. Wir sind redaktionell frei, fördern Kreativität und bieten viel Gestaltungsraum für Neues und Hochwertiges.\n- Digitalisierung gestalten: Qualitätsjournalismus ist bei uns auch digital. Deshalb loten wir neue Möglichkeiten aus und experimentieren mit neuen Formen und Formaten: digital, interaktiv und crossmedial. Wir gestalten am Puls der Zeit und am Nerv des Publikums.\n- Mensch sein: Wir begegnen einander kollegial, arbeiten selbstbestimmt und prägen ganz individuell unser Arbeitsklima mit. Unser Erfolg baut ebenso auf den persönlichen Stärken wie auf den fachlichen Qualitäten aller Mitarbeitenden.\n- Sinn schaffen: Wir erreichen und bewegen mit unseren Programmen die ganze Schweiz. Dabei agieren wir respektvoll und unabhängig; so fördern wir die Meinungsbildung und stärken die Vielfalt. Wir sind stolz auf unsere Arbeit und unseren Beitrag an die Schweiz."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-master-data/e68f948d-8297-46a3-bb71-6e626b81b4e1",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-11T21:12:11.857Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "streetAddress": "Fernsehstrasse 1 - 4",
+      "category": "Media / Giornalismo",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-09",
+      "postedDate": "2026-10-09",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/data-governance-expert-master-data/e68f948d-8297-46a3-bb71-6e626b81b4e1",
+      "requirements": [
+        "Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management",
+        "Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung",
+        "Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools",
+        "Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil",
+        "Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten",
+        "Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Hochschulabschluss oder gleichwertige Ausbildung sowie fundierte Erfahrung im Metadata Management",
+          "Gutes Verständnis von Datenarchitekturen, -prozessen und -modellen sowie Business Rules und deren praktischer Anwendung",
+          "Erfahrung in der Etablierung von Standards, Prozessen oder Governance-Strukturen sowie mit Master-Data-Management-Tools",
+          "Kenntnisse der DAMA-DMBOK-Wissensbereiche, insbesondere Reference & Master Data Management; eine CDMP-Zertifizierung ist von Vorteil",
+          "Ausgeprägte Kommunikations- und Moderationskompetenz in interdisziplinären und cross-funktionalen Settings, um Fachbereiche bei der Nutzung, Strukturierung und Qualitätssicherung von Daten beratend zu begleiten",
+          "Sehr gute Sprachkenntnisse auf Niveau C1 in einer Landessprache sowie Deutsch und Französisch mindestens auf Niveau B1, Englisch auf Niveau B1"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "e68f948d-8297-46a3-bb71-6e626b81b4e1",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-09T21:10:31.036Z"
+    },
+    {
       "id": "srg-ssr-ab99da9bdf68",
       "slug": "video-host-srf-news-srg-ssr-zurich",
       "slugByLocale": {
@@ -2521,7 +2701,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/video-host-srf-news/c367b1a1-1ab5-4387-b32d-f0cdd8ee49b4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-11T09:14:23.290Z",
+      "crawledAt": "2026-10-11T21:12:11.213Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2604,7 +2784,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/una-un-addetta-o-alla-sicurezza/7adf1e40-9dd0-47e8-b108-2e7f7946bd54",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-11T09:14:22.661Z",
+      "crawledAt": "2026-10-11T21:12:10.570Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
