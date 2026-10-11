@@ -104,7 +104,7 @@ describe('la sonda fallisce APERTA, mai chiusa', () => {
     expect(probeSource).toContain('${ARTICLES_API}/manifest.json');
     expect(probeSource).toContain('data/blog-index-frontaliere-it-full.json');
     expect(probeSource).toContain('manifest?.counts?.articles');
-    expect(probeSource).toContain('path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)');
+    expect(probeSource).toContain('pathToFileURL(realpathSync(process.argv[1])).href');
   });
 
   it('chiede il media type raw alla contents API', () => {

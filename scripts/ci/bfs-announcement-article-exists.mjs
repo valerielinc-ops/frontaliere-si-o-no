@@ -62,9 +62,8 @@
  *   GITHUB_OUTPUT       optional, Actions step output file.
  */
 
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs, { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { ARTICLES_API_BASE } from '../lib/articles-api-base.mjs';
 
 const CORPUS_REPO = 'nanakokyobashi-rgb/frontaliere-articles';
@@ -246,6 +245,12 @@ async function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  await main();
-}
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) await main();
