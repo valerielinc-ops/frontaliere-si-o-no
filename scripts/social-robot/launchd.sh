@@ -166,13 +166,16 @@ snapshot() {
   fi
   /bin/ln -sfn "$site/node_modules" "$dest/node_modules"
   # launchd runs the copy in the state folder, never the checkout's working
-  # tree. On macOS `mv` follows a symlink when its destination is a directory,
-  # so it would put current.tmp inside the old snapshot instead of replacing
-  # runner/current; -h tells ln to replace the link itself.
+  # tree. Both BSD and GNU `mv` can follow a symlink when its destination is a
+  # directory, and their `ln` no-dereference flags differ. Remove only the
+  # verified link, then create the new one explicitly.
   if ! /usr/bin/cmp -s "$dest/scripts/social-robot/launchd.sh" "$state_dir/launchd.sh"; then
     /bin/cp "$dest/scripts/social-robot/launchd.sh" "$state_dir/launchd.sh.tmp" && /bin/mv -f "$state_dir/launchd.sh.tmp" "$state_dir/launchd.sh"
   fi
-  /bin/ln -shf "$dest" "$runner_root/current"
+  if [ -L "$runner_root/current" ]; then
+    /bin/rm -f "$runner_root/current" || return 1
+  fi
+  /bin/ln -s "$dest" "$runner_root/current" || return 1
   # Keep the current snapshot and the previous one.
   for old in $(/bin/ls -1t "$runner_root" 2>/dev/null | /usr/bin/grep -E '^[0-9a-f]{40}$' | /usr/bin/tail -n +3); do
     /bin/rm -rf "${runner_root:?}/${old:?}"
