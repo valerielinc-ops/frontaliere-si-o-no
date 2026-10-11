@@ -70,7 +70,9 @@ import { JOBLIST_AD_EVERY_N, JOBLIST_AD_MAX_PER_LIST } from '../services/adsense
 import {
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
-  shouldRenderEmployerProfileMidAd,
+  EMPLOYER_PROFILE_MID_AD_TARGET_SLUG,
+  resolveEmployerProfileMidAdVariant,
+  type EmployerProfileMidAdVariant,
 } from '../services/employerProfileAdExperiment';
 
 export const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -577,6 +579,8 @@ interface ProfileRenderOptions {
   interleaveInfeedAds?: boolean;
   /** Add the opt-in EOC mid-page test unit only to an indexable final render. */
   includeEmployerProfileMidAd?: boolean;
+  /** Build-time Remote Config snapshot captured before the SSG loop starts. */
+  employerProfileMidAdVariant?: EmployerProfileMidAdVariant;
 }
 
 function renderProfileBody(
@@ -627,7 +631,8 @@ function renderProfileBody(
     interleaveInfeedAds: options.interleaveInfeedAds,
   });
   const employerProfileMidAdHtml = options.includeEmployerProfileMidAd
-    && shouldRenderEmployerProfileMidAd(profile.slug)
+    && options.employerProfileMidAdVariant === EMPLOYER_PROFILE_MID_AD_EOC_VARIANT
+    && profile.slug === EMPLOYER_PROFILE_MID_AD_TARGET_SLUG
     ? `<section class="max-w-3xl mx-auto px-4 my-6" aria-label="advertisement" data-ad-experiment="${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}" data-ad-variant="${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</section>`
     : '';
 
@@ -784,6 +789,11 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
       let profilePages = 0;
       let bridgePages = 0;
       let thinDowngraded = 0;
+      // Remote Config is a build input, not a runtime input. The deploy
+      // workflow loads it before `npm run build:ci`; snapshot it at the SSG
+      // boundary so every profile in this artifact sees the same arm and a
+      // later environment mutation cannot create mixed HTML.
+      const employerProfileMidAdVariant = resolveEmployerProfileMidAdVariant(process.env);
 
       for (const profile of profiles) {
         const slug = profile.slug;
@@ -855,6 +865,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             ? renderProfileBody(liveProfile, listed, locale, group, {
                 interleaveInfeedAds: false,
                 includeEmployerProfileMidAd: true,
+                employerProfileMidAdVariant,
               })
             : bodyHtml;
           return { locale, bodyHtml: renderedBodyHtml, indexable };

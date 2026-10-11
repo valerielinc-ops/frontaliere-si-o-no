@@ -8,6 +8,7 @@ import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProf
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
 import {
+  EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID,
   EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY,
@@ -26,6 +27,7 @@ import { SKIP_LIVE_DATA } from './helpers/live-data';
  */
 
 let root: string;
+let eocTreatmentHtml = '';
 
 function job(i: number) {
   return {
@@ -132,6 +134,16 @@ beforeAll(async () => {
   const previousMidAdVariant = process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
   process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_EOC_VARIANT;
   try {
+    await plugin.closeBundle();
+    eocTreatmentHtml = fs.readFileSync(
+      path.join(root, 'dist', 'aziende/eoc-ente-ospedaliero-cantonale/index.html'),
+      'utf-8',
+    );
+
+    // Re-run the same SSG with the control input. This is the acceptance
+    // boundary for the experiment: changing RC only affects a new build, and
+    // the next artifact must not retain the treatment marker.
+    process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY] = EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT;
     await plugin.closeBundle();
   } finally {
     if (previousMidAdVariant === undefined) delete process.env[EMPLOYER_PROFILE_MID_AD_TEST_VARIANT_RC_KEY];
@@ -268,7 +280,7 @@ describe('employerProfilePagesPlugin', () => {
   });
 
   it('adds the opt-in mid unit only to the EOC treatment profile', () => {
-    const eoc = read('aziende/eoc-ente-ospedaliero-cantonale/index.html');
+    const eoc = eocTreatmentHtml;
     const acme = read('aziende/acme-corp/index.html');
     expect(eoc).toMatch(new RegExp(`data-ad-experiment=["']?${EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID}`));
     expect(eoc).toMatch(new RegExp(`data-ad-variant=["']?${EMPLOYER_PROFILE_MID_AD_EOC_VARIANT}`));
@@ -279,6 +291,12 @@ describe('employerProfilePagesPlugin', () => {
     const follow = eoc.indexOf('data-company-follow-mount');
     expect(ad).toBeGreaterThan(eoc.indexOf('</header>'));
     expect(follow).toBeGreaterThan(ad);
+  });
+
+  it('emits no EOC treatment marker when the next build uses control', () => {
+    const eoc = read('aziende/eoc-ente-ospedaliero-cantonale/index.html');
+    expect(eoc).not.toContain(EMPLOYER_PROFILE_MID_AD_EXPERIMENT_ID);
+    expect(eoc).not.toContain('data-ad-variant="eoc_mid"');
   });
 
   it('keeps the repeated profile payload bounded while exposing the live total', () => {
