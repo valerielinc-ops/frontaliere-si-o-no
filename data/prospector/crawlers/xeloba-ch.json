@@ -7,16 +7,15 @@
   "seedUrls": [
     "https://xeloba.ch/kandidaten/jobs/"
   ],
-  "detailTemplate": "/jobs/verkauf/*/",
+  "detailTemplate": "/jobs/geschaeftsfuehrung/*/",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 3,
+  "sampleVacancyCount": 2,
   "sampleTitles": [
-    "<span class=\"w-bl KEY ACCOUNT MANAGER REGION OST-/SÜDOSTSCHWEIZ",
-    "<span ARCHITEKTEN- UND OBJEKTBERATER/IN REGION BERN",
-    "<span class=\"w-bl VERKAUFSBERATER/IN REGION ZÜRCHER OBERLAND"
+    "<span class=\"w-blog-post-prev LEITER/IN HUMAN RESOURCES",
+    "<span class=\"w-blog-pos CFO & LEITER/IN SERVICES"
   ],
   "canton": "BE",
   "sourceLang": "de",
-  "learnedAt": "2026-10-01T11:42:05.480Z"
+  "learnedAt": "2026-10-11T11:51:45.209Z"
 }
