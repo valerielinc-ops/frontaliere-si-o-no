@@ -435,6 +435,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         canton: 'LU',
         companyKey: 'fachkraft',
         crawledAt: daysAgo(1),
+        postedDate: daysAgo(2),
+        postingDateSource: 'reported',
       }));
       const card = (index: number) => listingCard(stored[index]);
       const pages: Record<string, string> = {
@@ -553,6 +555,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         location: 'Luzern, Luzern',
         addressLocality: 'Luzern',
         canton: 'LU',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const snapshot = await fetchFachkraftSnapshot({
@@ -828,6 +832,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         addressCountry: 'CH',
         country: 'CH',
         url: 'https://www.fachkraft.ch/stellen/pflegefachfrau-mann-relocated-321/',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const jobs = await fetchAllFachkraftJobs({
@@ -874,6 +880,8 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         addressCountry: 'CH',
         country: 'CH',
         url: 'https://www.fachkraft.ch/stellen/elektroinstallateur-in-format-drift-654/',
+        postedDate: new Date(Date.now() - 2 * 86_400_000).toISOString(),
+        postingDateSource: 'reported',
       }];
 
       const jobs = await fetchAllFachkraftJobs({
@@ -986,7 +994,7 @@ describe('Fachkraft cached publication evidence', () => {
     const fetchImpl = async (target: string) => {
       if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
       if (target === 'https://www.fachkraft.ch/stellen/') return new Response(listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' })), { status: 200 });
-      if (marker === 'unknown' && target === url) return new Response(detailHtml({ title, description: words(60), datePosted: date }), { status: 200 });
+      if (marker !== 'reported' && target === url) return new Response(detailHtml({ title, description: words(60), datePosted: date }), { status: 200 });
       throw new Error('Cached description should not require a detail request');
     };
     const jobs = await fetchAllFachkraftJobs({ ...runtimeOptions, fetchImpl, existingJobs: [{
@@ -996,8 +1004,8 @@ describe('Fachkraft cached publication evidence', () => {
       ...(marker === 'unknown' ? { crawledAt: new Date().toISOString() } : {}),
     }] });
     expect(jobs).toHaveLength(1);
-    expect(jobs[0].postedDate).toBe(marker === 'legacy' ? '' : date);
-    expect(jobs[0].postingDateSource).toBe(marker === 'legacy' ? 'unknown' : 'reported');
-    expect(jobs.fachkraftSnapshot.reused).toBe(marker === 'unknown' ? 0 : 1);
+    expect(jobs[0].postedDate).toBe(date);
+    expect(jobs[0].postingDateSource).toBe('reported');
+    expect(jobs.fachkraftSnapshot.reused).toBe(marker === 'reported' ? 1 : 0);
   });
 });

@@ -291,7 +291,7 @@ function reusableExistingListing(row, existing) {
   if (!existing || normalize(currentSourceText(existing, 'title')) !== normalize(row.title)) return null;
   // An otherwise reusable cached body with unknown/legacy provenance must be
   // refreshed: the source detail may now expose a verified JobPosting date.
-  if (existing.postingDateSource === 'unknown' && existing.crawledAt) return null;
+  if (existing.postingDateSource !== 'reported') return null;
   const description = currentSourceText(existing, 'description');
   if (!isPublishableFachkraftDescription(description)) return null;
   const existingLocation = normalizeSpace(existing.location || existing.addressLocality || '');
