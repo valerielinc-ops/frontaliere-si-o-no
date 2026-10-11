@@ -17,6 +17,8 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { fetchPostWidgetWithAntiBotHardening } from './pastahr-widget-client.mjs';
+import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
+import { isExplicitlyForeign } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -223,30 +225,42 @@ async function fetchJobListings() {
 }
 
 /**
- * Fetch the full schema.org JobPosting description (HTML) from a Straumann
- * detail page. The Phenom listing widget only returns a short `descriptionTeaser`;
- * the SSR detail page carries the full description in a JSON-LD <script>. Returns
- * '' on any failure so the caller falls back to the teaser.
+ * Parse the full schema.org JobPosting from a Straumann detail page. The
+ * Phenom listing widget only returns a short `descriptionTeaser`; the SSR
+ * detail page carries the authoritative description and geography in JSON-LD.
  */
-async function fetchStraumannDetailDescription(url) {
-  if (!url || !/^https?:\/\//.test(url)) return '';
+export function parseStraumannDetailHtml(html = '', pageUrl = '', recordTitle = '') {
+  const [posting] = selectDetailStructuredRecords(
+    extractJsonLd(html, pageUrl),
+    pageUrl,
+    recordTitle,
+    pageUrl,
+    recordTitle,
+  );
+  if (!posting) {
+    return { description: '', location: '', postalCode: '', explicitlyForeign: false };
+  }
+  const candidate = posting.locationCandidates?.[0] || {};
+  const location = normalizeSpace(candidate.addressLocality || candidate.location || posting.location || '');
+  const addressCountry = normalizeSpace(candidate.addressCountry || posting.addressCountry || '');
+  return {
+    description: String(posting.description || ''),
+    location,
+    postalCode: normalizeSpace(candidate.postalCode || ''),
+    explicitlyForeign: isExplicitlyForeign(location, addressCountry),
+  };
+}
+
+async function fetchStraumannDetail(url, recordTitle) {
+  if (!url || !/^https?:\/\//.test(url)) {
+    return { description: '', location: '', postalCode: '', explicitlyForeign: false };
+  }
   try {
     const html = await fetchHtml(url, { timeoutMs: 15000 });
-    if (!html) return '';
-    const blocks = [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => m[1]);
-    for (const block of blocks) {
-      try {
-        const data = JSON.parse(block);
-        const arr = Array.isArray(data) ? data : [data];
-        for (const o of arr) {
-          if (String(o?.['@type'] || '').includes('JobPosting') && o.description) {
-            return String(o.description);
-          }
-        }
-      } catch { /* skip malformed JSON-LD block */ }
-    }
+    if (!html) return { description: '', location: '', postalCode: '', explicitlyForeign: false };
+    return parseStraumannDetailHtml(html, url, recordTitle);
   } catch { /* network/timeout → caller falls back to the teaser */ }
-  return '';
+  return { description: '', location: '', postalCode: '', explicitlyForeign: false };
 }
 
 /**
@@ -273,14 +287,22 @@ export async function fetchAllStraumannJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || listing.city || '') || HQ.city;
-    const canton = inferSwissTargetCanton(location) || HQ.canton;
     const publicUrl = listing.url || CAREER_URL;
     // The Phenom listing only carries a short `descriptionTeaser`; fetch the FULL
     // schema.org JobPosting description from the detail page (verified ~400 words)
     // so jobs aren't thin → boilerplate-padded → boilerplate-guard failures.
-    const detailDescHtml = await fetchStraumannDetailDescription(publicUrl);
-    const descriptionHtml = detailDescHtml || listing.description || '';
+    const detail = await fetchStraumannDetail(publicUrl, title);
+    // The Phenom country facet occasionally leaks a foreign vacancy while
+    // labelling its listing row as Swiss. The detail JobPosting is the
+    // authoritative record: never turn an explicit Madrid/Spain vacancy into
+    // Basel through the employer-HQ fallback.
+    if (detail.explicitlyForeign) {
+      console.warn(`  ⚠️ Skipping foreign detail leaked by the Switzerland facet: ${publicUrl}`);
+      continue;
+    }
+    const location = detail.location || normalizeSpace(listing.location || listing.city || '') || HQ.city;
+    const canton = inferSwissTargetCanton(location) || HQ.canton;
+    const descriptionHtml = detail.description || listing.description || '';
     const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
 
     const sourceLang = detectLang(descriptionText || title, 'en');
@@ -316,7 +338,7 @@ export async function fetchAllStraumannJobs() {
       // ── Recommended fields ──
       addressLocality: location,
       addressRegion: canton,
-      postalCode: /basel/i.test(location) ? HQ.postalCode : undefined,
+      postalCode: detail.postalCode || (/basel/i.test(location) ? HQ.postalCode : undefined),
       addressCountry: 'CH',
       country: 'CH',
       category: listing.category || detectCategory(title),
