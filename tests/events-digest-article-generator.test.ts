@@ -30,6 +30,20 @@ describe('events digest article generator', () => {
     }
   });
 
+  it('rejects translated prompt scaffolding before refreshing any body file', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'digest-gen-reject-'));
+    const contaminated = {
+      ...data,
+      content: {
+        ...data.content,
+        en: { ...data.content.en, body1: 'ARTICLE TITLE: Weekend events in Ticino' },
+      },
+    };
+    expect(() => refreshBodyFiles(contaminated, root, () => {}))
+      .toThrow(/leaked-prompt-scaffolding/i);
+    expect(existsSync(path.join(root, 'services'))).toBe(false);
+  });
+
   it('bumpUpdatedAt inserts updatedAt then updates it in place (idempotent, never duplicates)', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'digest-bump-'));
     mkdirSync(path.join(root, 'data'), { recursive: true });
