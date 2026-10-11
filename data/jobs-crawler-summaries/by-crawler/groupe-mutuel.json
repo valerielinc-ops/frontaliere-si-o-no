@@ -1,16 +1,16 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-10T21:17:20.296Z",
+  "generatedAt": "2026-10-11T09:20:15.435Z",
   "total": 31,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 30,
-  "durationMs": 5236,
-  "avgDurationMs": 5236,
+  "durationMs": 4852,
+  "avgDurationMs": 4852,
   "durationHistory": [
-    5236
+    4852
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -472,11 +472,11 @@
       "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 23,
         "completeness": 19
       }
     },
@@ -1322,5 +1322,5 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }

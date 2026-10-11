@@ -1,7 +1,7 @@
 {
   "key": "kzu",
   "label": "KZU Kompetenzzentrum Pflege und Gesundheit",
-  "generatedAt": "2026-10-10T21:18:35.424Z",
+  "generatedAt": "2026-10-11T09:18:52.774Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 47645,
-  "avgDurationMs": 47645,
+  "durationMs": 25128,
+  "avgDurationMs": 25128,
   "durationHistory": [
-    47645
+    25128
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:24.442Z",
+      "crawledAt": "2026-10-11T09:18:38.209Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2067/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:20.463Z",
+      "crawledAt": "2026-10-11T09:18:34.238Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:14.448Z",
+      "crawledAt": "2026-10-11T09:18:28.219Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:17:55.501Z",
+      "crawledAt": "2026-10-11T09:18:24.242Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:22.475Z",
+      "crawledAt": "2026-10-11T09:18:36.222Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:18.464Z",
+      "crawledAt": "2026-10-11T09:18:32.235Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,7 +292,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2104/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:16.448Z",
+      "crawledAt": "2026-10-11T09:18:30.222Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2090/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-10T21:18:12.471Z",
+      "crawledAt": "2026-10-11T09:18:26.249Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,5 +365,5 @@
       }
     }
   ],
-  "codeCommit": "80296dd04e503047b8cdf95743aeb234f5a67bdc"
+  "codeCommit": "d6f021903a7fbdfbe83c6d35867ff095b31393ea"
 }
