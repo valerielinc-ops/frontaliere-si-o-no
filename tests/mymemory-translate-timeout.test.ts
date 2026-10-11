@@ -90,4 +90,29 @@ describe('MyMemory bounded request deadline', () => {
     expect(json).not.toHaveBeenCalled();
     expect(releaseLock).toHaveBeenCalledOnce();
   });
+
+  it('copies each response chunk before a reader reuses its backing buffer', async () => {
+    const payload = new TextEncoder().encode(JSON.stringify({
+      responseData: { translatedText: 'Rückmeldung', match: 0.9 },
+    }));
+    const pieces = [payload.slice(0, 24), payload.slice(24)];
+    const backingBuffer = new Uint8Array(Math.max(...pieces.map((piece) => piece.length)));
+    let index = 0;
+    const read = vi.fn(async () => {
+      if (index >= pieces.length) return { done: true, value: undefined };
+      const piece = pieces[index++];
+      backingBuffer.fill(0);
+      backingBuffer.set(piece);
+      return { done: false, value: backingBuffer.subarray(0, piece.length) };
+    });
+    const releaseLock = vi.fn();
+    vi.stubGlobal('fetch', vi.fn(async () => ({
+      ok: true,
+      body: { getReader: () => ({ read, releaseLock }) },
+    })));
+
+    await expect(translateWithMyMemory('Frontaliere', 'it', 'de')).resolves.toBe('Rückmeldung');
+    expect(read).toHaveBeenCalledTimes(3);
+    expect(releaseLock).toHaveBeenCalledOnce();
+  });
 });
