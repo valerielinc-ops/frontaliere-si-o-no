@@ -262,20 +262,13 @@ const sourceTreeLintTests = new Map([
   // legge da disco ogni modulo sotto `scripts/` e non ne importa nessuno:
   // deve girare sul diff che aggiunge la chiamata.
   ['tests/gh-exec-buffer-census.test.ts', /^scripts\/.+\.mjs$/],
-  // Registri delle immagini: li riscrivono l'audit ricorrente delle licenze e
-  // le PR di dati delle immagini, senza che una persona ne scelga il
-  // contenuto. `data/` e `public/` sono fuori dal grafo, quindi quelle PR non
-  // sceglievano nessuno dei test che aprono cio' che cambiano: per il diff
-  // della PR 12306 (copertina rigenerata, ledger, registro, crediti) il
-  // selettore sceglieva quattro test, nessuno dei quali legge un registro
-  // delle immagini. Perimetro: i file che ciascun test apre dal checkout.
-  [
-    'tests/published-image-policy.test.ts',
-    /^(?:public\/)?data\/(?:event-image-library|generated-image-registry)\.json$/,
-  ],
+  // Le immagini pubblicate possono cambiare solo nell'albero pubblico senza
+  // che un import leghi il test che ne controlla la generazione. I riferimenti
+  // a `data/` sono invece indicizzati come normali dipendenze asset, sia nei
+  // test sia nei moduli che essi importano.
   [
     'tests/generated-site-images.test.ts',
-    /^(?:data\/generated-image-registry\.json$|public\/images\/(?:authors|places)\/)/,
+    /^public\/images\/(?:authors|places)\//,
   ],
   // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
@@ -417,12 +410,12 @@ const testFixtureRe = /^tests\/.+\.json$/i;
 // string (for example a live-data guard message) expands that one phrase to
 // every workflow asset and turns a one-file workflow diff into hundreds of
 // unrelated tests.
-const assetLiteralRe = /(?<=['"`])(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+const assetLiteralRe = /(?<=['"`])(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 // La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
 // 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
 // `'.github'` vale come il path unito con `/`.
-const segmentedAssetRe = /(['"])\.github\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+const segmentedAssetRe = /(['"])(?:\.github|data)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
 const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
@@ -445,7 +438,13 @@ const rootDocLiteralRe = new RegExp(
   'g',
 );
 const testTreeRe = /^(?:tests|packages\/[^/]+\/tests)\//;
-const isRelatedAsset = (file) => githubAssetRe.test(file) || testFixtureRe.test(file) || rootDocContractSet.has(file);
+// `data/` stays out of the source graph, but tracked data files enter through
+// the related-asset graph so a data-only diff can select its exact readers.
+const dataAssetRe = /^data\/[A-Za-z0-9._/-]+$/;
+const isRelatedAsset = (file) => githubAssetRe.test(file)
+  || testFixtureRe.test(file)
+  || dataAssetRe.test(file)
+  || rootDocContractSet.has(file);
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // A related-test verdict is only meaningful when the generated runtime data
@@ -567,6 +566,10 @@ function trackedAssets() {
     .concat(
       execFileSync('git', ['ls-files', '-z', '--', ...rootDocContracts], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
         .split('\0').filter(Boolean).map(normalize).filter((file) => rootDocContractSet.has(file)),
+    )
+    .concat(
+      execFileSync('git', ['ls-files', '-z', '--', 'data'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+        .split('\0').filter(Boolean).map(normalize).filter((file) => file.startsWith('data/')),
     );
 }
 
@@ -620,7 +623,7 @@ function writeAssembleDecision(selectedTests) {
   }
 }
 
-function importsOf(file, fileSet, assets) {
+function importsOf(file, fileSet, assets, assetSet) {
   let source;
   try {
     source = readFileSync(file, 'utf8');
@@ -663,7 +666,7 @@ function importsOf(file, fileSet, assets) {
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
     const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
     const literal = segments.join('/');
-    if (segments.length >= 3 || hasDirectoryScan) literals.push(literal);
+    if (segments.length >= 2 || hasDirectoryScan) literals.push(literal);
   }
   for (const rawLiteral of literals) {
     // La barra finale va tolta: un riferimento costruito per template —
@@ -671,8 +674,11 @@ function importsOf(file, fileSet, assets) {
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = rawLiteral.replace(/\/+$/, '');
     const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
-    for (const asset of assets) {
-      if (asset === literal || (directoryLiteral && asset.startsWith(`${literal}/`))) deps.add(asset);
+    if (assetSet.has(literal)) deps.add(literal);
+    if (directoryLiteral) {
+      for (const asset of assets) {
+        if (asset.startsWith(`${literal}/`)) deps.add(asset);
+      }
     }
   }
   // I contratti di radice si nominano per esteso: niente directory da
@@ -684,7 +690,7 @@ function importsOf(file, fileSet, assets) {
   // contro i ~20 che lo leggono davvero.
   if (testTreeRe.test(file)) {
     for (const [literal] of code.matchAll(rootDocLiteralRe)) {
-      if (assets.includes(literal)) deps.add(literal);
+      if (assetSet.has(literal)) deps.add(literal);
     }
   }
   const scope = relatedAssetFileScopes.get(file);
@@ -726,7 +732,9 @@ function loadGraph(files, assets) {
   // non erano nel suo `changed-paths.txt`. La versione 10 invalida le entry
   // costruite dal vecchio scanner di asset, che poteva scambiare testo
   // descrittivo per una lettura di directory. La versione 11 conserva wildcard
-  // solo per i file che dimostrano una scansione directory reale.
+  // solo per i file che dimostrano una scansione directory reale. La versione
+  // 12 aggiunge gli asset `data/` e consente agli import di risolvere anche
+  // verso gli asset esclusi dal grafo dei sorgenti.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -735,11 +743,12 @@ function loadGraph(files, assets) {
     previousAssets = cached.assets || null;
     previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 11
+  const reusable = previousVersion === 12
     && previousAssets === assetsDigest
     && currentRevision !== ''
     && previousRevision === currentRevision;
-  const fileSet = new Set(files);
+  const fileSet = new Set([...files, ...assets]);
+  const assetSet = new Set(assets);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
   // to import it. Stale entries are harmless because only existing tests are
@@ -761,11 +770,11 @@ function loadGraph(files, assets) {
     const sig = signature(file);
     graph[file] = reusable && old?.signature === sig
       ? old
-      : { signature: sig, deps: importsOf(file, fileSet, assets) };
+      : { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 11,
+    version: 12,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,
@@ -774,7 +783,8 @@ function loadGraph(files, assets) {
 }
 
 const candidates = [...new Set(changed.filter((file) =>
-  file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
+  file !== 'scripts/ci/run-related-tests.mjs'
+    && (!ignoredRe.test(file) || dataAssetRe.test(file))
     && (sourceRe.test(file) || isRelatedAsset(file))
     && !alwaysExcludedTests.has(file)))];
 const runnerChanged = changed.includes(runnerPath);

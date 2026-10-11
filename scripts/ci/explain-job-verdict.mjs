@@ -37,6 +37,7 @@ import { realpathSync } from 'node:fs';
  */
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from '../lib/gh-exec-buffer.mjs';
 
 import {
   VITEST_CHECK_NAME,
@@ -110,7 +111,7 @@ function currentJobSteps() {
       '--slurp',
       `repos/${repo}/actions/runs/${runId}/attempts/${attempt}/jobs?per_page=100`,
     ],
-    { encoding: 'utf8', timeout: 60_000, stdio: ['ignore', 'pipe', 'inherit'] },
+    { encoding: 'utf8', timeout: 60_000, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'inherit'] },
   );
   const payload = JSON.parse(raw);
   const jobs = (Array.isArray(payload) ? payload : [payload])

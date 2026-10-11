@@ -46,6 +46,7 @@ import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 import { normalizeAbortKind, normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { fileURLToPath } from 'node:url';
 import { Worker } from 'node:worker_threads';
 import {
@@ -2383,7 +2384,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -2403,7 +2404,7 @@ function _createBoilerplateGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs.`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -2447,7 +2448,7 @@ ${jobsTable}
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
@@ -2465,7 +2466,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
     const searchResult = execFileSync(
       'gh',
       ['issue', 'list', '--label', 'parser-broken', '--state', 'open', '--search', crawlerKey, '--json', 'number,title', '--limit', '5'],
-      { encoding: 'utf8', timeout: 15000 },
+      { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
     ).trim();
 
     const existing = JSON.parse(searchResult || '[]');
@@ -2484,7 +2485,7 @@ function _createShrinkGuardIssue(crawlerKey, report) {
           '--body',
           `Updated: ${dateStr} — slice shrunk again: ${report.newCount}/${report.priorCount} jobs (${ratioPercent}% of prior).`,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Updated existing issue #${existingIssue.number}`);
     } else {
@@ -2518,7 +2519,7 @@ The write was refused — the prior slice on disk was kept, no data was lost.
           '--body',
           body,
         ],
-        { encoding: 'utf8', timeout: 15000 },
+        { encoding: 'utf8', timeout: 15000, maxBuffer: GH_EXEC_MAX_BUFFER },
       );
       console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
     }
