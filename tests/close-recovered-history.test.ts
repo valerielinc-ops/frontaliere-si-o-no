@@ -15,6 +15,7 @@ import {
   runHistoryMemoKey,
   RUN_HISTORY_STATUS_FILTERS,
   RECOVERY_REQUIRED_JOBS,
+  assessProvenBranchRecovery,
   dropUnprovenRecoveryRuns,
   hasRequiredRecoveryJobs,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
@@ -95,6 +96,31 @@ describe('close-recovered history reads', () => {
     expect(dropUnprovenRecoveryRuns('Unrelated workflow', unrelated, () => {
       throw new Error('unrelated workflows must not spend a Jobs API read');
     })).toBe(unrelated);
+  });
+
+  it('does not let branch recovery retain a wrapper removed by required-job proof', () => {
+    const workflow = 'Publish to GitHub Pages (deploy + validate)';
+    const wrapper = run(38057823907, '2026-10-06T19:30:00Z', 'success');
+    const evidence = assessProvenBranchRecovery(workflow, [wrapper], () => ({
+      jobs: [
+        { name: 'validate-dist / validate-dist-postbuild', conclusion: 'skipped' },
+        { name: 'validate-live / validate-live', conclusion: 'skipped' },
+      ],
+    }), {
+      issue: { createdAt: '2026-10-06T18:00:00Z' },
+      scope: { branch: null, event: 'pull_request_target' },
+      failureCreatedAt: '2026-10-06T18:30:00Z',
+      now: NOW,
+      windowHours: 8,
+      minGreenStreak: 1,
+    });
+
+    expect(evidence).toMatchObject({
+      recovered: false,
+      run: null,
+      greenStreak: 0,
+      history: [],
+    });
   });
 
   it('builds server-filtered ordinary listings and leaves crawler population untouched', () => {

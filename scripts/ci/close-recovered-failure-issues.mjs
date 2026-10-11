@@ -1510,6 +1510,19 @@ export function dropUnprovenRecoveryRuns(workflowName, runs, readJobs, {
   });
 }
 
+/**
+ * Apply workflow-specific recovery proof before evaluating the stricter branch gate.
+ * The branch selector must never retain a wrapper-level green that the required-job
+ * filter later removes, otherwise its explicit `run` bypasses `decidingRun(history)`.
+ */
+export function assessProvenBranchRecovery(workflowName, runs, readJobs, options = {}) {
+  const provenRuns = dropUnprovenRecoveryRuns(workflowName, runs, readJobs, {
+    now: options.now,
+    windowHours: options.windowHours,
+  });
+  return assessBranchRecovery(provenRuns, options);
+}
+
 // ── Step-verdetto: un rosso VOLUTO non è un guasto (LC-03, issue 9243) ────────────────
 //
 // Alcuni monitor chiudono rossa la run APPOSTA, dopo aver già aperto le issue della loro
@@ -2704,7 +2717,11 @@ function main() {
             branchOptions,
           );
           if (branchHistory.kind === 'ok') {
-            branchEvidence = assessBranchRecovery(branchHistory.runs, {
+            branchEvidence = assessProvenBranchRecovery(it.workflow, branchHistory.runs, (databaseId) => readRunJobs(
+              databaseId,
+              historySource.repo,
+              crawlerRunToken(historySource.repo),
+            ), {
               issue: it,
               scope,
               failureCreatedAt: branchOptions.historyStartAt,
