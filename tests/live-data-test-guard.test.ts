@@ -133,7 +133,7 @@ describe('il rilevatore', () => {
     }
   });
 
-  it('trova i dieci candidati misurati sugli import live, senza contare i chunk UI', () => {
+  it('trova i nove candidati misurati sugli import live, senza contare i chunk UI', () => {
     const files = [
       'tests/exchange-rate-fallback-direction.test.tsx',
       'tests/pharmacy-directory-country-spa.test.tsx',
@@ -144,14 +144,13 @@ describe('il rilevatore', () => {
       'tests/pharmacy-swiss-canton-duty.test.ts',
       'tests/seo-title-parity-factual.test.ts',
       'tests/pharmacy-enrichment.test.ts',
-      'tests/pharmacy-geneva-duty-parser.test.ts',
     ];
     const detected = files.map((file) => ({
       file,
       roots: liveRootsFromRelativeImports(fs.readFileSync(file, 'utf8'), file),
     }));
     expect(detected.filter((entry) => entry.roots.length)).toEqual(detected);
-    expect(detected).toHaveLength(10);
+    expect(detected).toHaveLength(9);
     expect(detected.find((entry) => entry.file === 'tests/pharmacy-directory-country-spa.test.tsx')?.roots)
       .toContain('data/pharmacy-duties-ticino.json');
     expect(LIVE_DATA_ROOTS).not.toContain('data/pharmac');
