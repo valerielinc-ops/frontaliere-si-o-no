@@ -68726,7 +68726,7 @@
     "createdAt": "2026-07-01",
     "slugByLocale": {
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
+      "en": "pharmacy-assistant-efz-amavita-galenica-lausanne",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-lausanne",
       "it": "galenica-amavita-assistente-di-farmacia-afc-lausanne"
     }
@@ -68759,7 +68759,7 @@
     "createdAt": "2026-07-01",
     "slugByLocale": {
       "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
-      "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel",
+      "en": "pharmacy-assistant-efz-amavita-galenica-basel",
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-basel",
       "it": "galenica-amavita-assistente-di-farmacia-afc-basel"
     }
@@ -69012,7 +69012,7 @@
     "createdAt": "2026-07-02",
     "slugByLocale": {
       "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
-      "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+      "en": "pharmacy-assistant-efz-coop-vitality-galenica-zurich",
       "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich",
       "it": "galenica-coop-vitality-assistente-di-farmacia-afc-zurich"
     }
@@ -79141,7 +79141,10 @@
     "canton": "ZH",
     "createdAt": "2026-06-21",
     "slugByLocale": {
-      "de": "zimmermann-efz-m-w-d-80-100-implenia-ch"
+      "de": "zimmermann-efz-m-w-d-80-100-implenia-ch",
+      "it": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
+      "en": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang",
+      "fr": "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
     }
   },
   "id|implenia.com|13090-de_de": {
@@ -79225,7 +79228,9 @@
     "createdAt": "2026-06-21",
     "slugByLocale": {
       "de": "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-      "en": "engineer-holzbau-m-f-d-80-100-implenia-rumlang"
+      "en": "engineer-holzbau-m-f-d-80-100-implenia-rumlang",
+      "it": "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang",
+      "fr": "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
     }
   },
   "id|implenia.com|9854-de_de": {
@@ -158510,7 +158515,9 @@
     "createdAt": "2026-06-20",
     "slugByLocale": {
       "de": "praktikum-in-der-f-e-chemie-uni-eth-fh-6-12-monate-sika-ch",
-      "fr": "stage-en-r-d-chimie-uni-eth-fh-sika-zurich"
+      "fr": "stage-en-r-d-chimie-uni-eth-fh-sika-zurich",
+      "it": "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich",
+      "en": "internship-in-r-d-chemistry-uni-eth-fh-sika-zurich"
     }
   },
   "id|sika.com|81c24661-87f9-44fc-ae04-7298261aa773": {
@@ -305127,7 +305134,10 @@
   "url|https://jobs.zfv.ch/koechin-koch-chef-de-partie-de-j4602.html": {
     "canonicalSlug": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
     "slugByLocale": {
-      "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-qppul2"
+      "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-qppul2",
+      "it": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
+      "en": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2",
+      "fr": "kochin-koch-chef-de-partie-zfv-unternehmungen-zurich-2"
     },
     "createdAt": "2026-07-11",
     "canton": "ZH"
@@ -305985,7 +305995,8 @@
     "slugByLocale": {
       "de": "senior-techniker-fur-autonome-fahrzeuge-wartung-und-technische-betriebsablaufe-der-robotaxi-flotte-tsmg-geneva-18f316bf",
       "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-geneva-18f316bf",
-      "fr": "technicien-senior-en-vehicules-autonomes-maintenance-de-flotte-robotaxi-et-operations-techniques-tsmg-geneva-18f316bf"
+      "fr": "technicien-senior-en-vehicules-autonomes-maintenance-de-flotte-robotaxi-et-operations-techniques-tsmg-geneva-18f316bf",
+      "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306056,7 +306067,8 @@
     "canonicalSlug": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0",
     "slugByLocale": {
       "it": "specialista-del-deposito-operazioni-della-flotta-di-robotaxi-addetto-al-deposito-per-veicoli-autonomi-tsmg-3bf907e0",
-      "fr": "specialiste-du-depot-operations-de-flotte-de-robotaxis-employe-du-depot-de-vehicules-autonomes-tsmg-geneva-3bf907e0"
+      "fr": "specialiste-du-depot-operations-de-flotte-de-robotaxis-employe-du-depot-de-vehicules-autonomes-tsmg-geneva-3bf907e0",
+      "en": "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-geneva-3bf907e0"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306086,7 +306098,8 @@
   "id|lever.co|4e5d6cdd-e727-4ab2-93d1-3a7513879e24": {
     "canonicalSlug": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd",
     "slugByLocale": {
-      "de": "technicien-senior-vehicules-autonomes-robotaxi-flottenwartung-und-technischer-betrieb-tsmg-geneva-4e5d6cdd"
+      "de": "technicien-senior-vehicules-autonomes-robotaxi-flottenwartung-und-technischer-betrieb-tsmg-geneva-4e5d6cdd",
+      "en": "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306106,7 +306119,9 @@
     "canonicalSlug": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4",
     "slugByLocale": {
       "it": "specialista-dei-sistemi-di-guida-autonoma-specialista-sds-diagnostica-e-calibrazione-dei-veicoli-autonomi-tsmg-62c18ec4",
-      "de": "spezialist-fur-autonome-fahrsysteme-sds-spezialist-diagnose-und-kalibrierung-autonomer-fahrzeuge-tsmg-geneva-62c18ec4"
+      "de": "spezialist-fur-autonome-fahrsysteme-sds-spezialist-diagnose-und-kalibrierung-autonomer-fahrzeuge-tsmg-geneva-62c18ec4",
+      "en": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4",
+      "fr": "specialiste-systemes-de-conduite-autonome-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-62c18ec4"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -306202,7 +306217,8 @@
     "slugByLocale": {
       "de": "spezialist-fur-selbst-dranksysteme-sds-spezialist-autonome-fahrzeugdiagnostik-kalibrierung-tsmg-geneva-a44805ef",
       "it": "specialista-dei-sistemi-di-guida-autonoma-specialista-sds-diagnostica-e-calibrazione-di-veicoli-autonomi-tsmg-a44805ef",
-      "fr": "specialiste-des-systemes-de-conduite-autonome-specialiste-sds-diagnostic-et-calibration-de-vehicules-autonomes-a44805ef"
+      "fr": "specialiste-des-systemes-de-conduite-autonome-specialiste-sds-diagnostic-et-calibration-de-vehicules-autonomes-a44805ef",
+      "en": "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-geneva-a44805ef"
     },
     "createdAt": "2026-07-11",
     "canton": "GE"
@@ -307478,7 +307494,9 @@
     "canonicalSlug": "sap-solution-architect-stadt-zurich-zurich",
     "slugByLocale": {
       "de": "sap-solution-architekt-stadt-zuerich-zurigo-49918",
-      "fr": "sap-solution-architecte-stadt-zurich-zurich"
+      "fr": "sap-solution-architecte-stadt-zurich-zurich",
+      "it": "sap-solution-architect-stadt-zurich-zurich",
+      "en": "sap-solution-architect-stadt-zurich-zurich"
     },
     "createdAt": "2026-07-11",
     "canton": "ZH"
@@ -352146,7 +352164,10 @@
   "id|mobiliar.ch|1165038155": {
     "canonicalSlug": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach",
     "slugByLocale": {
-      "de": "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
+      "de": "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch",
+      "it": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach",
+      "en": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach",
+      "fr": "kv-apprendistato-cfc-2027-agenzia-generale-reinach-ag-m-w-d-die-mobiliar-reinach"
     },
     "createdAt": "2026-07-19",
     "canton": "BL"
@@ -365356,7 +365377,9 @@
     "canonicalSlug": "specialist-vendor-home-living-f-m-d-mobel-pfister-ag-affoltern-am-albis",
     "slugByLocale": {
       "de": "fachverkauferin-home-living-w-m-d-pfister-affoltern-am-albis",
-      "fr": "vendeur-specialise-maison-et-vie-f-m-d-mobel-pfister-ag-affoltern-am-albis"
+      "fr": "vendeur-specialise-maison-et-vie-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+      "it": "specialist-vendor-home-living-f-m-d-mobel-pfister-ag-affoltern-am-albis",
+      "en": "specialist-vendor-home-living-f-m-d-mobel-pfister-ag-affoltern-am-albis"
     },
     "createdAt": "2026-07-20",
     "canton": "ZH"
@@ -365596,7 +365619,9 @@
     "canonicalSlug": "polydesigner-3d-learning-mobel-pfister-ag-genf",
     "slugByLocale": {
       "de": "polydesigner-3d-lernen-mobel-pfister-ag-genf",
-      "fr": "polydesigner-3d-apprentissage-pfister-genf"
+      "fr": "polydesigner-3d-apprentissage-pfister-genf",
+      "it": "polydesigner-3d-learning-mobel-pfister-ag-genf",
+      "en": "polydesigner-3d-learning-mobel-pfister-ag-genf"
     },
     "createdAt": "2026-07-20",
     "canton": "GE"
@@ -369038,7 +369063,9 @@
     "canonicalSlug": "competenze-strategia-talent-agility-piombo-80-100-al-development-linking-business-strategy-to-workforce-capabilities",
     "slugByLocale": {
       "en": "skills-strategy-talent-agility-lead-80-100-al-development-linking-business-strategy-to-workforce-capabilities-change-management-track-record-x8fudt",
-      "fr": "strategie-de-competences-et-talent-agilite-plomb-80-100-al-development-linking-business-strategy-to-workforce"
+      "fr": "strategie-de-competences-et-talent-agilite-plomb-80-100-al-development-linking-business-strategy-to-workforce",
+      "it": "competenze-strategia-talent-agility-piombo-80-100-al-development-linking-business-strategy-to-workforce-capabilities",
+      "de": "competenze-strategia-talent-agility-piombo-80-100-al-development-linking-business-strategy-to-workforce-capabilities"
     },
     "createdAt": "2026-07-20",
     "canton": "ZH"
@@ -369789,7 +369816,9 @@
     "canonicalSlug": "senior-compliance-officer-sanzioni-commerciali-ed-economiche-80-100-zurich-insurance-sede-ticino-s",
     "slugByLocale": {
       "en": "senior-compliance-officer-trade-economic-sanctions-80-100-zurich-insurance-sede-ticino-s-at-quai-zurich-campus-h7q75f",
-      "fr": "agent-principal-de-conformite-sanctions-commerciales-et-economiques-80-100-zurich-insurance-sede-ticino-s"
+      "fr": "agent-principal-de-conformite-sanctions-commerciales-et-economiques-80-100-zurich-insurance-sede-ticino-s",
+      "it": "senior-compliance-officer-sanzioni-commerciali-ed-economiche-80-100-zurich-insurance-sede-ticino-s",
+      "de": "senior-compliance-officer-sanzioni-commerciali-ed-economiche-80-100-zurich-insurance-sede-ticino-s"
     },
     "createdAt": "2026-07-20",
     "canton": "ZH"
@@ -372487,7 +372516,10 @@
   "url|https://jobs.senevita.ch/lehrstelle-kochkoechin-efz-de-j4651.html": {
     "canonicalSlug": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
     "slugByLocale": {
-      "de": "lehrstelle-koch-kochin-efz-senevita-ittigen-be"
+      "de": "lehrstelle-koch-kochin-efz-senevita-ittigen-be",
+      "it": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+      "en": "apprendistato-koch-kochin-cfc-senevita-ittigen-be",
+      "fr": "apprendistato-koch-kochin-cfc-senevita-ittigen-be"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -372495,7 +372527,10 @@
   "url|https://jobs.senevita.ch/lehrstelle-fage-efz-2027-de-j5241.html": {
     "canonicalSlug": "apprendistato-fage-cfc-2027-senevita-lenk-be",
     "slugByLocale": {
-      "de": "lehrstelle-fage-efz-2027-senevita-lenk-be"
+      "de": "lehrstelle-fage-efz-2027-senevita-lenk-be",
+      "it": "apprendistato-fage-cfc-2027-senevita-lenk-be",
+      "en": "apprendistato-fage-cfc-2027-senevita-lenk-be",
+      "fr": "apprendistato-fage-cfc-2027-senevita-lenk-be"
     },
     "createdAt": "2026-07-20",
     "canton": "BE"
@@ -375185,7 +375220,9 @@
     "canonicalSlug": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
     "slugByLocale": {
       "de": "equipment-operator-m-f-d-novartis-ch",
-      "fr": "equipment-operateur-m-f-d-novartis-muttenz-with-canteen"
+      "fr": "equipment-operateur-m-f-d-novartis-muttenz-with-canteen",
+      "it": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen",
+      "en": "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
     },
     "createdAt": "2026-07-20",
     "canton": "BL"
@@ -387623,7 +387660,10 @@
   "id|lonza.wd3.myworkdayjobs.com|r76166-1": {
     "canonicalSlug": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch-2",
     "slugByLocale": {
-      "en": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch"
+      "en": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch",
+      "it": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch-2",
+      "de": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch-2",
+      "fr": "manufacturing-specialist-ibex-100-m-f-d-lonza-ch-2"
     },
     "createdAt": "2026-07-22",
     "canton": "VS"
@@ -388177,7 +388217,9 @@
     "canonicalSlug": "senior-global-technology-transfer-lead-80-100-lonza-ch",
     "slugByLocale": {
       "en": "associate-director-technology-transfer-80-100-lonza-ch",
-      "fr": "dirigeant-principal-du-transfert-de-technologie-a-l-echelle-mondiale-80-100-lonza-ch"
+      "fr": "dirigeant-principal-du-transfert-de-technologie-a-l-echelle-mondiale-80-100-lonza-ch",
+      "it": "senior-global-technology-transfer-lead-80-100-lonza-ch",
+      "de": "senior-global-technology-transfer-lead-80-100-lonza-ch"
     },
     "createdAt": "2026-07-22",
     "canton": "AG"
@@ -388467,7 +388509,9 @@
     "canonicalSlug": "manager-produzione-dsp-80-100-m-f-d-lonza-ch",
     "slugByLocale": {
       "en": "manager-manufacturing-dsp-80-100-m-f-d-lonza-ch",
-      "fr": "gestionnaire-fabrication-dsp-80-100-m-f-j-lonza-ch"
+      "fr": "gestionnaire-fabrication-dsp-80-100-m-f-j-lonza-ch",
+      "it": "manager-produzione-dsp-80-100-m-f-d-lonza-ch",
+      "de": "manager-produzione-dsp-80-100-m-f-d-lonza-ch"
     },
     "createdAt": "2026-07-22",
     "canton": "VS"
@@ -389240,7 +389284,10 @@
   "id|lonza.wd3.myworkdayjobs.com|r76167-1": {
     "canonicalSlug": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-2",
     "slugByLocale": {
-      "en": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-kmxvmm"
+      "en": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-kmxvmm",
+      "it": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-2",
+      "de": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-2",
+      "fr": "bioprocess-engineer-in-usp-dsp-bioconjugates-lonza-ch-2"
     },
     "createdAt": "2026-07-22",
     "canton": "VS"
@@ -410749,7 +410796,9 @@
     "canonicalSlug": "intern-internship-care-aarreha-schinznach-schinznach-bad",
     "slugByLocale": {
       "de": "praktikantin-praktikant-pflege-aarreha-schinznach-schinznach-bad",
-      "fr": "soins-aux-stagiaires-aux-stagiaires-aarreha-schinznach-schinznach-bad"
+      "fr": "soins-aux-stagiaires-aux-stagiaires-aarreha-schinznach-schinznach-bad",
+      "it": "intern-internship-care-aarreha-schinznach-schinznach-bad",
+      "en": "intern-internship-care-aarreha-schinznach-schinznach-bad"
     },
     "createdAt": "2026-07-27",
     "canton": "AG"
@@ -454809,7 +454858,9 @@
     "canonicalSlug": "project-manager-80-100-stadt-zurich-zurich",
     "slugByLocale": {
       "de": "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
-      "fr": "gestionnaire-de-projet-80-100-stadt-zurich-zurich"
+      "fr": "gestionnaire-de-projet-80-100-stadt-zurich-zurich",
+      "it": "project-manager-80-100-stadt-zurich-zurich",
+      "en": "project-manager-80-100-stadt-zurich-zurich"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -465393,7 +465444,9 @@
     "canonicalSlug": "senior-fund-manager-shares-global-f-m-d-raiffeisen-zurich",
     "slugByLocale": {
       "de": "senior-fondsmanager-aktien-global-w-m-d-raiffeisen-zurich",
-      "fr": "le-gestionnaire-de-fonds-principal-partage-les-donnees-mondiales-f-m-d-raiffeisen-zurich"
+      "fr": "le-gestionnaire-de-fonds-principal-partage-les-donnees-mondiales-f-m-d-raiffeisen-zurich",
+      "it": "senior-fund-manager-shares-global-f-m-d-raiffeisen-zurich",
+      "en": "senior-fund-manager-shares-global-f-m-d-raiffeisen-zurich"
     },
     "createdAt": "2026-08-05",
     "canton": "ZH"
@@ -515546,7 +515599,9 @@
     "canonicalSlug": "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach",
     "slugByLocale": {
       "de": "kundenbetreuer-inkasso-de-it-w-m-80-100-helsana-dubendorf-stettbach",
-      "fr": "gestionnaire-de-comptes-de-it-w-m-80-100-helsana-dubendorf-stettbach"
+      "fr": "gestionnaire-de-comptes-de-it-w-m-80-100-helsana-dubendorf-stettbach",
+      "it": "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach",
+      "en": "account-manager-de-it-w-m-80-100-helsana-dubendorf-stettbach"
     },
     "createdAt": "2026-08-15",
     "canton": "ZH"
@@ -555283,7 +555338,10 @@
   "url|https://jobs.senevita.ch/leiterin-administration-100--de-j5379.html": {
     "canonicalSlug": "responsabile-administration-100-senevita-zh-dietikon",
     "slugByLocale": {
-      "de": "leiter-in-administration-100-senevita-zh-dietikon"
+      "de": "leiter-in-administration-100-senevita-zh-dietikon",
+      "it": "responsabile-administration-100-senevita-zh-dietikon",
+      "en": "responsabile-administration-100-senevita-zh-dietikon",
+      "fr": "responsabile-administration-100-senevita-zh-dietikon"
     },
     "createdAt": "2026-08-25",
     "canton": "ZH"
@@ -561547,7 +561605,10 @@
   "id|stadt-zuerich.ch|1370368057": {
     "canonicalSlug": "fachspezialist-in-new-grid-solutions-stadt-zuerich-zurigo-51437",
     "slugByLocale": {
-      "de": "fachspezialist-in-new-grid-solutions-stadt-zurich-zurich"
+      "de": "fachspezialist-in-new-grid-solutions-stadt-zurich-zurich",
+      "it": "fachspezialist-in-new-grid-solutions-stadt-zuerich-zurigo-51437",
+      "en": "fachspezialist-in-new-grid-solutions-stadt-zuerich-zurigo-51437",
+      "fr": "fachspezialist-in-new-grid-solutions-stadt-zuerich-zurigo-51437"
     },
     "createdAt": "2026-08-26",
     "canton": "ZH"
@@ -666668,7 +666729,9 @@
     "canonicalSlug": "data-architetto-m-w-d-liebherr-bulle",
     "slugByLocale": {
       "en": "data-architect-m-w-d-liebherr-bulle",
-      "fr": "data-architecte-m-w-d-liebherr-bulle"
+      "fr": "data-architecte-m-w-d-liebherr-bulle",
+      "it": "data-architetto-m-w-d-liebherr-bulle",
+      "de": "data-architetto-m-w-d-liebherr-bulle"
     },
     "createdAt": "2026-09-08",
     "canton": "FR"
@@ -669497,7 +669560,9 @@
     "canonicalSlug": "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon",
     "slugByLocale": {
       "de": "juniorprojektleiter-sanitar-m-w-d-implenia-ch",
-      "fr": "chef-de-projet-junior-sanitaire-h-f-d-implenia-glattpark-opfikon"
+      "fr": "chef-de-projet-junior-sanitaire-h-f-d-implenia-glattpark-opfikon",
+      "it": "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon",
+      "en": "junior-project-manager-sanitary-m-f-d-implenia-glattpark-opfikon"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -669915,7 +669980,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-80-decathlon-train-decathlon-zug",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-zug-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-80-train-de-decathlon-decathlon-zug"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-80-train-de-decathlon-decathlon-zug",
+      "it": "sport-leader-sales-advisor-m-f-d-80-decathlon-train-decathlon-zug",
+      "en": "sport-leader-sales-advisor-m-f-d-80-decathlon-train-decathlon-zug"
     },
     "createdAt": "2026-09-08",
     "canton": "ZG"
@@ -669933,7 +670000,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-temporary-60-hinwil-decathlon-hinwil",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-befristet-60-hinwil-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-60-hinwil-decathlon-hinwil"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-60-hinwil-decathlon-hinwil",
+      "it": "sport-leader-sales-advisor-m-f-d-temporary-60-hinwil-decathlon-hinwil",
+      "en": "sport-leader-sales-advisor-m-f-d-temporary-60-hinwil-decathlon-hinwil"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -670125,7 +670194,9 @@
     "canonicalSlug": "consultant-rental-m-f-cdd-60-conthey-decathlon-conthey",
     "slugByLocale": {
       "de": "consultant-rental-m-w-cdd-60-conthey-decathlon-conthey",
-      "fr": "conseiller-ere-location-h-f-cdd-60-conthey-decathlon-ch"
+      "fr": "conseiller-ere-location-h-f-cdd-60-conthey-decathlon-ch",
+      "it": "consultant-rental-m-f-cdd-60-conthey-decathlon-conthey",
+      "en": "consultant-rental-m-f-cdd-60-conthey-decathlon-conthey"
     },
     "createdAt": "2026-09-08",
     "canton": "VS"
@@ -670275,7 +670346,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-temporary-40-outdoorsport-heimberg-decathlon-heimberg",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-40-outdoorsport-heimberg-decathlon-heimberg"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-40-outdoorsport-heimberg-decathlon-heimberg",
+      "it": "sport-leader-sales-advisor-m-f-d-temporary-40-outdoorsport-heimberg-decathlon-heimberg",
+      "en": "sport-leader-sales-advisor-m-f-d-temporary-40-outdoorsport-heimberg-decathlon-heimberg"
     },
     "createdAt": "2026-09-08",
     "canton": "BE"
@@ -670350,7 +670423,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-100-decathlon-baar-decathlon-baar",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-100-decathlon-baar-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-100-decathlon-baar-decathlon-baar"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-100-decathlon-baar-decathlon-baar",
+      "it": "sport-leader-sales-advisor-m-f-d-100-decathlon-baar-decathlon-baar",
+      "en": "sport-leader-sales-advisor-m-f-d-100-decathlon-baar-decathlon-baar"
     },
     "createdAt": "2026-09-08",
     "canton": "ZG"
@@ -670359,7 +670434,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-60-fitness-running-baar-decathlon-baar",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-60-fitness-running-baar-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-60-fitness-course-baar-decathlon-baar"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-60-fitness-course-baar-decathlon-baar",
+      "it": "sport-leader-sales-advisor-m-f-d-60-fitness-running-baar-decathlon-baar",
+      "en": "sport-leader-sales-advisor-m-f-d-60-fitness-running-baar-decathlon-baar"
     },
     "createdAt": "2026-09-08",
     "canton": "ZG"
@@ -670608,7 +670685,9 @@
     "canonicalSlug": "ingegnere-di-automazione-kantonsspital-graubunden-chur",
     "slugByLocale": {
       "de": "automation-engineer-kantonsspital-graubunden-chur",
-      "fr": "ingenieur-d-automatisation-kantonsspital-graubunden-chur"
+      "fr": "ingenieur-d-automatisation-kantonsspital-graubunden-chur",
+      "it": "ingegnere-di-automazione-kantonsspital-graubunden-chur",
+      "en": "ingegnere-di-automazione-kantonsspital-graubunden-chur"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -672132,7 +672211,9 @@
     "canonicalSlug": "tour-operator-e-20-zfv-unternehmungen-zurich",
     "slugByLocale": {
       "de": "betriebstournant-e-20-zfv-unternehmungen-zurich",
-      "fr": "tour-operateur-e-20-zfv-unternehmungen-zurich"
+      "fr": "tour-operateur-e-20-zfv-unternehmungen-zurich",
+      "it": "tour-operator-e-20-zfv-unternehmungen-zurich",
+      "en": "tour-operator-e-20-zfv-unternehmungen-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -672259,7 +672340,9 @@
     "canonicalSlug": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
     "slugByLocale": {
       "en": "sap-application-business-process-manager-le-tm-buhler-group-uzwil",
-      "fr": "gestionnaire-d-applications-et-de-processus-operationnels-sap-le-tm-buhler-group-uzwil"
+      "fr": "gestionnaire-d-applications-et-de-processus-operationnels-sap-le-tm-buhler-group-uzwil",
+      "it": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
+      "de": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
     },
     "createdAt": "2026-09-08",
     "canton": "SG"
@@ -672605,7 +672688,9 @@
     "canonicalSlug": "chef-in-zfv-unternehmungen-zurich",
     "slugByLocale": {
       "de": "kuchenchef-in-zfv-unternehmungen-zurich",
-      "fr": "chef-zfv-unternehmungen-zurich"
+      "fr": "chef-zfv-unternehmungen-zurich",
+      "it": "chef-in-zfv-unternehmungen-zurich",
+      "en": "chef-in-zfv-unternehmungen-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -673231,7 +673316,9 @@
     "canonicalSlug": "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen",
     "slugByLocale": {
       "de": "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
-      "fr": "agent-de-toxicomanie-agent-de-toxicomanie-h-f-d-kanton-st-gallen-st-gallen"
+      "fr": "agent-de-toxicomanie-agent-de-toxicomanie-h-f-d-kanton-st-gallen-st-gallen",
+      "it": "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen",
+      "en": "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen"
     },
     "createdAt": "2026-09-08",
     "canton": "SG"
@@ -674631,7 +674718,9 @@
     "canonicalSlug": "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen",
     "slugByLocale": {
       "de": "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-      "fr": "fonds-de-pension-consultatif-d-assurance-des-employes-h-f-d-raiffeisen-st-gallen"
+      "fr": "fonds-de-pension-consultatif-d-assurance-des-employes-h-f-d-raiffeisen-st-gallen",
+      "it": "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen",
+      "en": "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen"
     },
     "createdAt": "2026-09-08",
     "canton": "SG"
@@ -676223,7 +676312,10 @@
   "id|vermoegenszentrum.ch|4e1487ac-cee4-472c-a506-0b5ff119d03f": {
     "canonicalSlug": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
     "slugByLocale": {
-      "de": "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch"
+      "de": "professional-process-automation-ai-engineer-financial-services-vz-vermoegenszentrum-ch",
+      "it": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
+      "en": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich",
+      "fr": "professional-process-automation-ai-engineer-financial-services-vz-vermogenszentrum-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -676327,7 +676419,9 @@
     "canonicalSlug": "private-clients-consultant-start-januar-2027-vz-vermogenszentrum-luzern",
     "slugByLocale": {
       "de": "private-clients-consultant-start-januar-2027-vz-vermoegenszentrum-ch",
-      "fr": "consultant-en-clientele-privee-a-compter-de-janvier-2027-vz-vermogenszentrum-luzern-luzern"
+      "fr": "consultant-en-clientele-privee-a-compter-de-janvier-2027-vz-vermogenszentrum-luzern-luzern",
+      "it": "private-clients-consultant-start-januar-2027-vz-vermogenszentrum-luzern",
+      "en": "private-clients-consultant-start-januar-2027-vz-vermogenszentrum-luzern"
     },
     "createdAt": "2026-09-08",
     "canton": "LU"
@@ -679128,7 +679222,9 @@
   "url|https://jobs.smartrecruiters.com/talan/744000144774739-business-analyste-core-banking?oga=true": {
     "canonicalSlug": "business-analyst-core-banking-talan-geneve",
     "slugByLocale": {
-      "fr": "business-analyste-core-banking-talan-geneve-switzerland"
+      "fr": "business-analyste-core-banking-talan-geneve-switzerland",
+      "it": "business-analyst-core-banking-talan-geneve",
+      "de": "business-analyst-core-banking-talan-geneve"
     },
     "createdAt": "2026-09-08",
     "canton": "GE"
@@ -680179,7 +680275,10 @@
   "url|https://apply.refline.ch/792841/11349/pub/1": {
     "canonicalSlug": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zkb-zurich"
+      "de": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zkb-zurich",
+      "it": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "devops-engineer-java-kotlin-zahlungsverkehr-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -682583,7 +682682,9 @@
     "canonicalSlug": "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
     "slugByLocale": {
       "de": "erp-application-specialist-m-w-d-80-100-opfikon-implenia-ch",
-      "fr": "erp-application-specialiste-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
+      "fr": "erp-application-specialiste-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+      "it": "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon",
+      "en": "erp-application-specialista-m-w-d-80-100-opfikon-implenia-glattpark-opfikon"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -687372,7 +687473,9 @@
     "canonicalSlug": "home-living-m-f-d-mobel-pfister-ag-pratteln",
     "slugByLocale": {
       "de": "verkauferin-home-living-w-m-d-pfister-pratteln",
-      "fr": "maison-et-vie-h-f-d-mobel-pfister-ag-pratteln"
+      "fr": "maison-et-vie-h-f-d-mobel-pfister-ag-pratteln",
+      "it": "home-living-m-f-d-mobel-pfister-ag-pratteln",
+      "en": "home-living-m-f-d-mobel-pfister-ag-pratteln"
     },
     "createdAt": "2026-09-09",
     "canton": "BL"
@@ -687425,7 +687528,9 @@
     "canonicalSlug": "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun",
     "slugByLocale": {
       "de": "abteilungsleiterin-mobel-w-m-d-pfister-thun",
-      "fr": "chef-du-departement-mobilier-h-f-d-mobel-pfister-ag-thun"
+      "fr": "chef-du-departement-mobilier-h-f-d-mobel-pfister-ag-thun",
+      "it": "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun",
+      "en": "head-of-department-furniture-m-f-d-mobel-pfister-ag-thun"
     },
     "createdAt": "2026-09-09",
     "canton": "BE"
@@ -697314,7 +697419,9 @@
     "canonicalSlug": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug",
     "slugByLocale": {
       "de": "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-      "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-zug-zug"
+      "en": "trainee-program-independent-asset-advice-vz-vermogenszentrum-zug-zug",
+      "it": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug",
+      "fr": "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
     },
     "createdAt": "2026-09-10",
     "canton": "ZG"
@@ -708230,7 +708337,9 @@
     "canonicalSlug": "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen",
     "slugByLocale": {
       "de": "junior-immobilienbewirtschafter-m-w-d-wallisellen-80-100-implenia-ch",
-      "fr": "directeur-immobilier-h-f-d-wallisellen-80-100-implenia-wallisellen"
+      "fr": "directeur-immobilier-h-f-d-wallisellen-80-100-implenia-wallisellen",
+      "it": "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen",
+      "en": "junior-real-estate-manager-m-f-d-wallisellen-80-100-implenia-wallisellen"
     },
     "createdAt": "2026-09-12",
     "canton": "ZH"
@@ -751676,7 +751785,10 @@
   "id|six-group.com|1437516233": {
     "canonicalSlug": "senior-software-engineer-80-100-six-group-zurich-2",
     "slugByLocale": {
-      "de": "senior-software-engineer-80-100-six-group-zurich-o2vik5"
+      "de": "senior-software-engineer-80-100-six-group-zurich-o2vik5",
+      "it": "senior-software-engineer-80-100-six-group-zurich-2",
+      "en": "senior-software-engineer-80-100-six-group-zurich-2",
+      "fr": "senior-software-engineer-80-100-six-group-zurich-2"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -752098,7 +752210,9 @@
     "canonicalSlug": "test-ingegnere-m-f-x-liebherr-bulle",
     "slugByLocale": {
       "en": "test-engineer-m-f-x-liebherr-bulle",
-      "de": "test-ingenieur-m-f-x-liebherr-bulle"
+      "de": "test-ingenieur-m-f-x-liebherr-bulle",
+      "it": "test-ingegnere-m-f-x-liebherr-bulle",
+      "fr": "test-ingegnere-m-f-x-liebherr-bulle"
     },
     "createdAt": "2026-09-20",
     "canton": "FR"
@@ -753190,7 +753304,9 @@
     "canonicalSlug": "technician-dbo-m-w-d-heineken-ch-denges",
     "slugByLocale": {
       "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges",
-      "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges"
+      "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
+      "en": "technician-dbo-m-w-d-heineken-ch-denges",
+      "de": "technician-dbo-m-w-d-heineken-ch-denges"
     },
     "createdAt": "2026-09-20",
     "canton": "VD"
@@ -757791,7 +757907,10 @@
   "id|sika.com|cb6e612b-ff81-44e4-9192-a70e20d8cd24": {
     "canonicalSlug": "betriebsmechaniker-sika-romanshorn",
     "slugByLocale": {
-      "de": "betriebsmechaniker-sika-ch"
+      "de": "betriebsmechaniker-sika-ch",
+      "it": "betriebsmechaniker-sika-romanshorn",
+      "en": "betriebsmechaniker-sika-romanshorn",
+      "fr": "betriebsmechaniker-sika-romanshorn"
     },
     "createdAt": "2026-09-20",
     "canton": "TG"
@@ -758664,7 +758783,9 @@
     "canonicalSlug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
     "slugByLocale": {
       "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle",
-      "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
+      "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+      "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss",
+      "fr": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-lausanne-swiss"
     },
     "createdAt": "2026-09-20",
     "canton": "VD"
@@ -790675,7 +790796,9 @@
     "canonicalSlug": "construction-manager-building-80-100-f-m-d-ruag-ag-altdorf",
     "slugByLocale": {
       "de": "bau-projektleiterin-hochbau-80-100-w-m-d-ruag-ag-schattdorf",
-      "fr": "directeur-de-la-construction-batiment-80-100-f-m-j-ruag-ag-altdorf"
+      "fr": "directeur-de-la-construction-batiment-80-100-f-m-j-ruag-ag-altdorf",
+      "it": "construction-manager-building-80-100-f-m-d-ruag-ag-altdorf",
+      "en": "construction-manager-building-80-100-f-m-d-ruag-ag-altdorf"
     },
     "createdAt": "2026-09-23",
     "canton": "UR"
@@ -791066,7 +791189,10 @@
   "id|six-group.com|1437212933": {
     "canonicalSlug": "fraud-analyst-100-six-group-zurich",
     "slugByLocale": {
-      "en": "specialist-fraud-monitoring-100-six-group-zurich"
+      "en": "specialist-fraud-monitoring-100-six-group-zurich",
+      "it": "fraud-analyst-100-six-group-zurich",
+      "de": "fraud-analyst-100-six-group-zurich",
+      "fr": "fraud-analyst-100-six-group-zurich"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -792317,7 +792443,9 @@
     "canonicalSlug": "linux-system-engineer-m-f-d-eth-zurich-zurich",
     "slugByLocale": {
       "de": "linux-systemingenieur-in-m-w-d-eth-zurich-ch",
-      "fr": "ingenieur-systeme-linux-h-f-d-eth-zurich-zurich"
+      "fr": "ingenieur-systeme-linux-h-f-d-eth-zurich-zurich",
+      "it": "linux-system-engineer-m-f-d-eth-zurich-zurich",
+      "en": "linux-system-engineer-m-f-d-eth-zurich-zurich"
     },
     "createdAt": "2026-09-25",
     "canton": "ZH"
@@ -795808,7 +795936,9 @@
     "canonicalSlug": "customer-manager-office-60-in-lyss-concordia-lyss",
     "slugByLocale": {
       "de": "kundenberater-in-geschaftsstelle-60-in-lyss-concordia-lyss",
-      "fr": "bureau-du-directeur-client-60-en-lyss-concordia-lyss"
+      "fr": "bureau-du-directeur-client-60-en-lyss-concordia-lyss",
+      "it": "customer-manager-office-60-in-lyss-concordia-lyss",
+      "en": "customer-manager-office-60-in-lyss-concordia-lyss"
     },
     "createdAt": "2026-09-25",
     "canton": "BE"
@@ -799073,7 +799203,9 @@
     "canonicalSlug": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
     "slugByLocale": {
       "de": "teamleiter-in-empfang-stgag-ch",
-      "fr": "reception-du-chef-d-equipe-spital-thurgau-stgag-kantonsspital-frauenfeld"
+      "fr": "reception-du-chef-d-equipe-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "it": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "en": "team-leader-reception-spital-thurgau-stgag-kantonsspital-frauenfeld"
     },
     "createdAt": "2026-09-26",
     "canton": "TG"
@@ -799854,7 +799986,9 @@
     "canonicalSlug": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich",
     "slugByLocale": {
       "en": "input-engineer-document-management-m-f-d-zurcher-kantonalbank-zurich",
-      "de": "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich"
+      "de": "input-engineer-dokumentenmanagement-m-w-d-zkb-zurich",
+      "it": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "input-engineer-dokumentenmanagement-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -800155,7 +800289,10 @@
   "url|https://apply.refline.ch/514915/2859/pub/1/index.html": {
     "canonicalSlug": "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
     "slugByLocale": {
-      "de": "okonom-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+      "de": "okonom-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+      "it": "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "en": "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "fr": "okonom-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
     },
     "createdAt": "2026-09-26",
     "canton": "GR"
@@ -800163,7 +800300,10 @@
   "url|https://apply.refline.ch/514915/2861/pub/1/index.html": {
     "canonicalSlug": "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
     "slugByLocale": {
-      "de": "controller-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch"
+      "de": "controller-in-bestellverfahren-offentlicher-verkehr-kanton-gr-ch",
+      "it": "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "en": "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur",
+      "fr": "controller-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
     },
     "createdAt": "2026-09-26",
     "canton": "GR"
@@ -802138,7 +802278,9 @@
     "canonicalSlug": "sport-leader-sales-advisor-m-f-d-80-decathlon-chur-decathlon-chur",
     "slugByLocale": {
       "de": "sport-leader-verkaufsberater-m-w-d-80-decathlon-chur-decathlon-ch",
-      "fr": "leader-sportif-conseiller-commercial-h-f-d-80-decathlon-chur-decathlon-chur"
+      "fr": "leader-sportif-conseiller-commercial-h-f-d-80-decathlon-chur-decathlon-chur",
+      "it": "sport-leader-sales-advisor-m-f-d-80-decathlon-chur-decathlon-chur",
+      "en": "sport-leader-sales-advisor-m-f-d-80-decathlon-chur-decathlon-chur"
     },
     "createdAt": "2026-09-28",
     "canton": "GR"
@@ -804681,7 +804823,9 @@
     "canonicalSlug": "project-manager-digitalization-healthcare-80-100-zurzach-care-bad-zurzach",
     "slugByLocale": {
       "de": "projektleiter-digitalisierung-gesundheitswesen-80-100-zurzach-care-bad-zurzach",
-      "fr": "gestionnaire-de-projet-digitalisation-sante-80-100-zurzach-care-bad-zurzach"
+      "fr": "gestionnaire-de-projet-digitalisation-sante-80-100-zurzach-care-bad-zurzach",
+      "it": "project-manager-digitalization-healthcare-80-100-zurzach-care-bad-zurzach",
+      "en": "project-manager-digitalization-healthcare-80-100-zurzach-care-bad-zurzach"
     },
     "createdAt": "2026-09-28",
     "canton": "AG"
@@ -806537,7 +806681,10 @@
   "url|https://apply.refline.ch/792841/11392/pub/1": {
     "canonicalSlug": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich"
+      "de": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zkb-zurich",
+      "it": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "senior-business-engineer-digitale-eroffnungsprozesse-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-09-28",
     "canton": "ZH"
@@ -835890,7 +836037,10 @@
   "id|stadt-zuerich.ch|1372354157": {
     "canonicalSlug": "schulsozialarbeiter-in-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659"
+      "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659",
+      "it": "schulsozialarbeiter-in-stadt-zurich-zurich",
+      "en": "schulsozialarbeiter-in-stadt-zurich-zurich",
+      "fr": "schulsozialarbeiter-in-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -836107,7 +836257,10 @@
   "id|stadt-zuerich.ch|1372595557": {
     "canonicalSlug": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zuerich-zurigo-51693"
+      "de": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zuerich-zurigo-51693",
+      "it": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zurich-zurich",
+      "en": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zurich-zurich",
+      "fr": "verkaufsberater-in-thermische-netze-fernwarme-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -836357,7 +836510,10 @@
   "id|stadt-zuerich.ch|1372857957": {
     "canonicalSlug": "co-sl-scherr-80-90-1-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "co-sl-scherr-80-90-1-stadt-zuerich-zurigo-51722"
+      "de": "co-sl-scherr-80-90-1-stadt-zuerich-zurigo-51722",
+      "it": "co-sl-scherr-80-90-1-stadt-zurich-zurich",
+      "en": "co-sl-scherr-80-90-1-stadt-zurich-zurich",
+      "fr": "co-sl-scherr-80-90-1-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -836487,7 +836643,9 @@
     "canonicalSlug": "trainee-green-education-stadt-zurich-zurich",
     "slugByLocale": {
       "de": "praktikant-in-grune-bildung-stadt-zuerich-zurigo-51718",
-      "fr": "education-verte-des-stagiaires-stadt-zurich-zurich"
+      "fr": "education-verte-des-stagiaires-stadt-zurich-zurich",
+      "it": "trainee-green-education-stadt-zurich-zurich",
+      "en": "trainee-green-education-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -836847,7 +837005,10 @@
   "id|stadt-zuerich.ch|1373168157": {
     "canonicalSlug": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760"
+      "de": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zuerich-zurigo-51760",
+      "it": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich",
+      "en": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich",
+      "fr": "sachbearbeiter-in-zusatzleistungen-team-springer-innen-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -836877,7 +837038,10 @@
   "id|stadt-zuerich.ch|1373214857": {
     "canonicalSlug": "direktor-in-finanzverwaltung-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758"
+      "de": "direktor-in-finanzverwaltung-stadt-zuerich-zurigo-51758",
+      "it": "direktor-in-finanzverwaltung-stadt-zurich-zurich",
+      "en": "direktor-in-finanzverwaltung-stadt-zurich-zurich",
+      "fr": "direktor-in-finanzverwaltung-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837104,7 +837268,10 @@
   "id|stadt-zuerich.ch|1373458757": {
     "canonicalSlug": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-51797"
+      "de": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zuerich-zurigo-51797",
+      "it": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
+      "en": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich",
+      "fr": "sachbearbeiter-in-behordenabteilung-kesb-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837156,7 +837323,10 @@
   "id|stadt-zuerich.ch|1373577557": {
     "canonicalSlug": "fachbearbeiter-in-digitalisierung-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "fachbearbeiter-in-digitalisierung-stadt-zuerich-zurigo-51819"
+      "de": "fachbearbeiter-in-digitalisierung-stadt-zuerich-zurigo-51819",
+      "it": "fachbearbeiter-in-digitalisierung-stadt-zurich-zurich",
+      "en": "fachbearbeiter-in-digitalisierung-stadt-zurich-zurich",
+      "fr": "fachbearbeiter-in-digitalisierung-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837186,7 +837356,10 @@
   "id|stadt-zuerich.ch|1373591957": {
     "canonicalSlug": "stellvertretende-n-betriebsleiter-in-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "stellvertretende-n-betriebsleiter-in-stadt-zuerich-zurigo-51824"
+      "de": "stellvertretende-n-betriebsleiter-in-stadt-zuerich-zurigo-51824",
+      "it": "stellvertretende-n-betriebsleiter-in-stadt-zurich-zurich",
+      "en": "stellvertretende-n-betriebsleiter-in-stadt-zurich-zurich",
+      "fr": "stellvertretende-n-betriebsleiter-in-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837293,7 +837466,10 @@
   "id|stadt-zuerich.ch|1373743157": {
     "canonicalSlug": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zuerich-zurigo-51853"
+      "de": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zuerich-zurigo-51853",
+      "it": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zurich-zurich",
+      "en": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zurich-zurich",
+      "fr": "fachspezialist-in-netzinformationssysteme-gis-cad-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837312,7 +837488,10 @@
   "id|stadt-zuerich.ch|1373712657": {
     "canonicalSlug": "schulleitungsassistent-in-regelschule-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "schulleitungsassistent-in-regelschule-stadt-zuerich-zurigo-51848"
+      "de": "schulleitungsassistent-in-regelschule-stadt-zuerich-zurigo-51848",
+      "it": "schulleitungsassistent-in-regelschule-stadt-zurich-zurich",
+      "en": "schulleitungsassistent-in-regelschule-stadt-zurich-zurich",
+      "fr": "schulleitungsassistent-in-regelschule-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837408,7 +837587,10 @@
   "id|stadt-zuerich.ch|1373678757": {
     "canonicalSlug": "oberarzt-in-alterspsychiatrie-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "oberarzt-in-alterspsychiatrie-stadt-zuerich-zurigo-51839"
+      "de": "oberarzt-in-alterspsychiatrie-stadt-zuerich-zurigo-51839",
+      "it": "oberarzt-in-alterspsychiatrie-stadt-zurich-zurich",
+      "en": "oberarzt-in-alterspsychiatrie-stadt-zurich-zurich",
+      "fr": "oberarzt-in-alterspsychiatrie-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837479,7 +837661,10 @@
   "id|stadt-zuerich.ch|1373826157": {
     "canonicalSlug": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zuerich-zurigo"
+      "de": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zuerich-zurigo",
+      "it": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zurich-zurich",
+      "en": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zurich-zurich",
+      "fr": "medizinische-n-praxisassistent-in-efz-standorte-witikon-riesbach-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -837498,7 +837683,10 @@
   "id|stadt-zuerich.ch|1373831857": {
     "canonicalSlug": "wartungsmitarbeiter-in-ticketautomaten-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "wartungsmitarbeiter-in-ticketautomaten-stadt-zuerich-zurigo-51864"
+      "de": "wartungsmitarbeiter-in-ticketautomaten-stadt-zuerich-zurigo-51864",
+      "it": "wartungsmitarbeiter-in-ticketautomaten-stadt-zurich-zurich",
+      "en": "wartungsmitarbeiter-in-ticketautomaten-stadt-zurich-zurich",
+      "fr": "wartungsmitarbeiter-in-ticketautomaten-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -841080,7 +841268,9 @@
     "canonicalSlug": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
     "slugByLocale": {
       "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-      "fr": "gestionnaire-de-proprietes-h-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
+      "fr": "gestionnaire-de-proprietes-h-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+      "it": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+      "en": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -843512,7 +843702,9 @@
     "canonicalSlug": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
     "slugByLocale": {
       "de": "diplated-e-m-w-80-100-leukerbad-clinic-leukerbad",
-      "fr": "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
+      "fr": "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad",
+      "it": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
+      "en": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad"
     },
     "createdAt": "2026-10-04",
     "canton": "VS"
@@ -843693,7 +843885,9 @@
     "canonicalSlug": "collaboratore-trice-administration-spitex-100-senevita-be-muri-b-bern",
     "slugByLocale": {
       "en": "mitarbeiter-in-administration-spitex-100-senevita-be-muri-b",
-      "de": "du-bist-mpa-oder-fage-und-hast-lust-zu-100-in-der-spitex-administration-zu-arbeiten"
+      "de": "du-bist-mpa-oder-fage-und-hast-lust-zu-100-in-der-spitex-administration-zu-arbeiten",
+      "it": "collaboratore-trice-administration-spitex-100-senevita-be-muri-b-bern",
+      "fr": "collaboratore-trice-administration-spitex-100-senevita-be-muri-b-bern"
     },
     "createdAt": "2026-10-04",
     "canton": "BE"
@@ -846258,7 +846452,9 @@
     "canonicalSlug": "customer-manager-uvg-normal-damage-a-80-100-helsana-dubendorf-stettbach-homeoff",
     "slugByLocale": {
       "de": "kundenbetreuerin-uvg-normalschaden-a-80-100-helsana-dubendorf-stettbach",
-      "fr": "client-manager-uvg-dommages-normaux-a-80-100-helsana-dubendorf-stettbach-homeoff"
+      "fr": "client-manager-uvg-dommages-normaux-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "it": "customer-manager-uvg-normal-damage-a-80-100-helsana-dubendorf-stettbach-homeoff",
+      "en": "customer-manager-uvg-normal-damage-a-80-100-helsana-dubendorf-stettbach-homeoff"
     },
     "createdAt": "2026-10-04",
     "canton": "ZH"
@@ -846288,7 +846484,9 @@
   "id|helsana.ch|1437657133": {
     "canonicalSlug": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice",
     "slugByLocale": {
-      "de": "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne"
+      "de": "responsable-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne",
+      "it": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice",
+      "en": "responsible-d-equipe-conseils-de-sante-et-case-management-t-80-100-helsana-lausanne-homeoffice"
     },
     "createdAt": "2026-10-04",
     "canton": "VD"
@@ -849138,7 +849336,9 @@
     "canonicalSlug": "a-pmo-m-f-x-group-manager-80-100-vaudoise-assurances-lausanne",
     "slugByLocale": {
       "de": "ein-pmo-m-w-x-group-manager-80-100-vaudoise-assurances-lausanne",
-      "fr": "un-responsable-une-responsable-de-groupe-pmo-h-f-x-80-100-vaudoise-ch"
+      "fr": "un-responsable-une-responsable-de-groupe-pmo-h-f-x-80-100-vaudoise-ch",
+      "it": "a-pmo-m-f-x-group-manager-80-100-vaudoise-assurances-lausanne",
+      "en": "a-pmo-m-f-x-group-manager-80-100-vaudoise-assurances-lausanne"
     },
     "createdAt": "2026-10-04",
     "canton": "VD"
@@ -852141,7 +852341,10 @@
   "url|https://apply.refline.ch/514915/2867/pub/1/index.html": {
     "canonicalSlug": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-kanton-gr-ch"
+      "de": "sachbearbeiter-in-kanton-gr-ch",
+      "it": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+      "en": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
+      "fr": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
     },
     "createdAt": "2026-10-04",
     "canton": "GR"
@@ -852171,7 +852374,10 @@
   "url|https://apply.refline.ch/514915/2869/pub/1/index.html": {
     "canonicalSlug": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
     "slugByLocale": {
-      "de": "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch"
+      "de": "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch",
+      "it": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
+      "en": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
+      "fr": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur"
     },
     "createdAt": "2026-10-04",
     "canton": "GR"
@@ -863302,7 +863508,10 @@
   "url|https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5": {
     "canonicalSlug": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
     "slugByLocale": {
-      "de": "dipl-pflegefachperson-hf-pdgr-ch"
+      "de": "dipl-pflegefachperson-hf-pdgr-ch",
+      "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+      "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol",
+      "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-samedan-scuol"
     },
     "createdAt": "2026-10-05",
     "canton": "GR"
@@ -864207,7 +864416,10 @@
   "url|https://apply.refline.ch/792841/10967/pub/7": {
     "canonicalSlug": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich"
+      "de": "firmenkundenbetreuer-in-markt-schweiz-zkb-zurich",
+      "it": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+      "en": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich",
+      "fr": "firmenkundenbetreuer-in-markt-schweiz-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-05",
     "canton": "ZH"
@@ -864215,7 +864427,10 @@
   "url|https://apply.refline.ch/792841/10968/pub/7": {
     "canonicalSlug": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich"
+      "de": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zkb-zurich",
+      "it": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+      "en": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich",
+      "fr": "firmenkundenbetreuer-in-bau-immobilien-markt-schweiz-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-05",
     "canton": "ZH"
@@ -864223,7 +864438,10 @@
   "url|https://apply.refline.ch/792841/11407/pub/1": {
     "canonicalSlug": "filialleiter-in-zurcher-kantonalbank-meilen",
     "slugByLocale": {
-      "de": "filialleiter-in-zkb-meilen"
+      "de": "filialleiter-in-zkb-meilen",
+      "it": "filialleiter-in-zurcher-kantonalbank-meilen",
+      "en": "filialleiter-in-zurcher-kantonalbank-meilen",
+      "fr": "filialleiter-in-zurcher-kantonalbank-meilen"
     },
     "createdAt": "2026-10-05",
     "canton": "ZH"
@@ -864253,7 +864471,10 @@
   "url|https://apply.refline.ch/792841/11400/pub/1": {
     "canonicalSlug": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "steuerberater-in-mit-mandatsverantwortung-zkb-zurich"
+      "de": "steuerberater-in-mit-mandatsverantwortung-zkb-zurich",
+      "it": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
+      "en": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich",
+      "fr": "steuerberater-in-mit-mandatsverantwortung-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-05",
     "canton": "ZH"
@@ -866750,7 +866971,10 @@
   "id|lonza.wd3.myworkdayjobs.com|r79964": {
     "canonicalSlug": "anlageingenieur-80-100-m-w-d-lonza-visp",
     "slugByLocale": {
-      "de": "anlageingenieur-80-100-m-w-d-lonza-ch"
+      "de": "anlageingenieur-80-100-m-w-d-lonza-ch",
+      "it": "anlageingenieur-80-100-m-w-d-lonza-visp",
+      "en": "anlageingenieur-80-100-m-w-d-lonza-visp",
+      "fr": "anlageingenieur-80-100-m-w-d-lonza-visp"
     },
     "createdAt": "2026-10-06",
     "canton": "VS"
@@ -869707,7 +869931,10 @@
   "id|stadt-zuerich.ch|1373965457": {
     "canonicalSlug": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zuerich-zurigo-51882"
+      "de": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zuerich-zurigo-51882",
+      "it": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
+      "en": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
+      "fr": "abloser-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -869726,7 +869953,10 @@
   "id|stadt-zuerich.ch|1373977457": {
     "canonicalSlug": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
     "slugByLocale": {
-      "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868"
+      "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
+      "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+      "en": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+      "fr": "gartner-in-garten-e-landschaftsbau-stadt-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -869734,7 +869964,10 @@
   "id|stadt-zuerich.ch|1373927357": {
     "canonicalSlug": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zuerich-zurigo-51878"
+      "de": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zuerich-zurigo-51878",
+      "it": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zurich-zurich",
+      "en": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zurich-zurich",
+      "fr": "konstrukteur-in-verfahrenstechnik-anlagenbau-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -869753,7 +869986,10 @@
   "id|stadt-zuerich.ch|1373967257": {
     "canonicalSlug": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zuerich-zurigo"
+      "de": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zuerich-zurigo",
+      "it": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
+      "en": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich",
+      "fr": "reinigungsmitarbeiter-in-befristete-stellvertretung-schule-doltschi-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -869761,7 +869997,10 @@
   "id|stadt-zuerich.ch|1374016657": {
     "canonicalSlug": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zuerich-zurigo-51885"
+      "de": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zuerich-zurigo-51885",
+      "it": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zurich-zurich",
+      "en": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zurich-zurich",
+      "fr": "sachbearbeiter-in-finanz-rechnungswesen-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -873521,7 +873760,9 @@
     "canonicalSlug": "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau",
     "slugByLocale": {
       "de": "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
-      "fr": "gestionnaire-d-applications-it-80-100-h-f-d-coopers-group-ag-thurgau"
+      "fr": "gestionnaire-d-applications-it-80-100-h-f-d-coopers-group-ag-thurgau",
+      "it": "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau",
+      "en": "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
     },
     "createdAt": "2026-10-06",
     "canton": "TG"
@@ -875772,7 +876013,10 @@
   "url|https://jobs.siemens.com/en_us/externaljobs/jobdetail/521574": {
     "canonicalSlug": "sales-specialist-wincc-scada-80-100-siemens-zuerich",
     "slugByLocale": {
-      "de": "sales-specialist-verkaufsingenieur-scada-industrial-software-80-100-siemens-zuerich"
+      "de": "sales-specialist-verkaufsingenieur-scada-industrial-software-80-100-siemens-zuerich",
+      "it": "sales-specialist-wincc-scada-80-100-siemens-zuerich",
+      "en": "sales-specialist-wincc-scada-80-100-siemens-zuerich",
+      "fr": "sales-specialist-wincc-scada-80-100-siemens-zuerich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -875834,7 +876078,10 @@
   "url|https://apply.refline.ch/792841/11414/pub/2": {
     "canonicalSlug": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich"
+      "de": "projektleiter-strategisches-flachenmanagement-m-w-d-zkb-zurich",
+      "it": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich",
+      "fr": "projektleiter-strategisches-flachenmanagement-m-w-d-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -886499,7 +886746,9 @@
     "canonicalSlug": "field-service-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
     "slugByLocale": {
       "de": "field-service-techniker-80-100-f-m-d-hitachi-energy-zurich",
-      "fr": "field-service-technicien-80-100-f-m-d-hitachi-energy-zurich"
+      "fr": "field-service-technicien-80-100-f-m-d-hitachi-energy-zurich",
+      "it": "field-service-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+      "en": "field-service-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -886741,7 +886990,10 @@
   "id|hitachienergy.com|jid3-216967": {
     "canonicalSlug": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland",
     "slugByLocale": {
-      "en": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland"
+      "en": "global-manufacturing-process-definition-improvement-specialist-professional-hitachi-energy-remote-zurich-switzerland",
+      "it": "global-manufacturing-process-definition-improvement-specialista-professional-hitachi-energy-remote-zurich-f6f5c7775b",
+      "de": "global-manufacturing-process-definition-improvement-spezialist-professional-hitachi-energy-remote-zurich",
+      "fr": "global-manufacturing-process-definition-improvement-specialiste-professional-hitachi-energy-remote-zurich"
     },
     "createdAt": "2026-10-06",
     "canton": "ZH"
@@ -888632,7 +888884,10 @@
   "id|stadt-zuerich.ch|1372278857": {
     "canonicalSlug": "reinigungsmitarbeiter-in-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "reinigungsmitarbeiter-in-stadt-zuerich-zurigo-51652"
+      "de": "reinigungsmitarbeiter-in-stadt-zuerich-zurigo-51652",
+      "it": "reinigungsmitarbeiter-in-stadt-zurich-zurich",
+      "en": "reinigungsmitarbeiter-in-stadt-zurich-zurich",
+      "fr": "reinigungsmitarbeiter-in-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -888640,7 +888895,10 @@
   "id|stadt-zuerich.ch|1374082257": {
     "canonicalSlug": "fachbearbeiter-in-verkehrssteuerung-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "fachbearbeiter-in-verkehrssteuerung-stadt-zuerich-zurigo-51893"
+      "de": "fachbearbeiter-in-verkehrssteuerung-stadt-zuerich-zurigo-51893",
+      "it": "fachbearbeiter-in-verkehrssteuerung-stadt-zurich-zurich",
+      "en": "fachbearbeiter-in-verkehrssteuerung-stadt-zurich-zurich",
+      "fr": "fachbearbeiter-in-verkehrssteuerung-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -888681,7 +888939,10 @@
   "id|stadt-zuerich.ch|1374105557": {
     "canonicalSlug": "hochschulpraktikant-in-kulturforderung-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "hochschulpraktikant-in-kulturforderung-stadt-zuerich-zurigo-51895"
+      "de": "hochschulpraktikant-in-kulturforderung-stadt-zuerich-zurigo-51895",
+      "it": "hochschulpraktikant-in-kulturforderung-stadt-zurich-zurich",
+      "en": "hochschulpraktikant-in-kulturforderung-stadt-zurich-zurich",
+      "fr": "hochschulpraktikant-in-kulturforderung-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -888689,7 +888950,10 @@
   "id|stadt-zuerich.ch|1374126157": {
     "canonicalSlug": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zuerich-zurigo-51897"
+      "de": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zuerich-zurigo-51897",
+      "it": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zurich-zurich",
+      "en": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zurich-zurich",
+      "fr": "sozialarbeiter-in-mit-ganzheitlicher-wirkung-erwachsenenprofil-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -888708,7 +888972,10 @@
   "id|stadt-zuerich.ch|1374073057": {
     "canonicalSlug": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
+      "de": "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891",
+      "it": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
+      "en": "finance-specialist-sap-finance-stadt-zurich-zurich",
+      "fr": "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -889261,7 +889528,10 @@
   "url|https://apply.refline.ch/116352/1262/pub/1/index.html": {
     "canonicalSlug": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-confiserie-sprungli-ag-zurich",
     "slugByLocale": {
-      "de": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-spruengli-zurich"
+      "de": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-spruengli-zurich",
+      "it": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-confiserie-sprungli-ag-zurich",
+      "en": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-confiserie-sprungli-ag-zurich",
+      "fr": "weihnachtsaushilfen-in-diversen-filialen-80-100-raum-zurich-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -889280,7 +889550,10 @@
   "url|https://apply.refline.ch/116352/1265/pub/1/index.html": {
     "canonicalSlug": "verkaufsberater-in-80-100-paradeplatz-confiserie-sprungli-ag-zurich",
     "slugByLocale": {
-      "de": "verkaufsberater-in-80-100-paradeplatz-spruengli-zurich"
+      "de": "verkaufsberater-in-80-100-paradeplatz-spruengli-zurich",
+      "it": "verkaufsberater-in-80-100-paradeplatz-confiserie-sprungli-ag-zurich",
+      "en": "verkaufsberater-in-80-100-paradeplatz-confiserie-sprungli-ag-zurich",
+      "fr": "verkaufsberater-in-80-100-paradeplatz-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -889322,7 +889595,9 @@
     "canonicalSlug": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
     "slugByLocale": {
       "en": "office-buffetemployee-100-parade-ground-confiserie-sprungli-ag-zurich",
-      "de": "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich"
+      "de": "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
+      "it": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
+      "fr": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -889790,7 +890065,10 @@
   "id|stadt-zuerich.ch|1374160157": {
     "canonicalSlug": "jurist-in-im-technologiebereich-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "jurist-in-im-technologiebereich-stadt-zuerich-zurigo-51888"
+      "de": "jurist-in-im-technologiebereich-stadt-zuerich-zurigo-51888",
+      "it": "jurist-in-im-technologiebereich-stadt-zurich-zurich",
+      "en": "jurist-in-im-technologiebereich-stadt-zurich-zurich",
+      "fr": "jurist-in-im-technologiebereich-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -889809,7 +890087,10 @@
   "id|stadt-zuerich.ch|1374178357": {
     "canonicalSlug": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901"
+      "de": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
+      "it": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
+      "en": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
+      "fr": "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -890212,7 +890493,10 @@
   "id|implenia.com|13876-de_de": {
     "canonicalSlug": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
     "slugByLocale": {
-      "de": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch"
+      "de": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-ch",
+      "it": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
+      "en": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon",
+      "fr": "projekleiter-gu-tu-spezialprojekte-w-m-d-implenia-glattpark-opfikon"
     },
     "createdAt": "2026-10-07",
     "canton": "ZH"
@@ -891273,7 +891557,10 @@
   "id|stadt-zuerich.ch|1374225357": {
     "canonicalSlug": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51902"
+      "de": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51902",
+      "it": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
+      "en": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
+      "fr": "sozialarbeiter-in-intake-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -891324,7 +891611,10 @@
   "url|https://apply.refline.ch/116352/1064/pub/84/index.html": {
     "canonicalSlug": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
     "slugByLocale": {
-      "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt"
+      "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
+      "it": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+      "en": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
+      "fr": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
     },
     "createdAt": "2026-10-08",
     "canton": "VS"
@@ -891655,7 +891945,10 @@
   "id|endress.com|1445224633": {
     "canonicalSlug": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2",
     "slugByLocale": {
-      "en": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-azxx0e"
+      "en": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-azxx0e",
+      "it": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2",
+      "de": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2",
+      "fr": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2"
     },
     "createdAt": "2026-10-08",
     "canton": "BL"
@@ -895257,7 +895550,10 @@
   "id|stadt-zuerich.ch|1374275757": {
     "canonicalSlug": "abteilungsleiter-in-objekte-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "abteilungsleiter-in-objekte-stadt-zuerich-zurigo-51899"
+      "de": "abteilungsleiter-in-objekte-stadt-zuerich-zurigo-51899",
+      "it": "abteilungsleiter-in-objekte-stadt-zurich-zurich",
+      "en": "abteilungsleiter-in-objekte-stadt-zurich-zurich",
+      "fr": "abteilungsleiter-in-objekte-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -895861,7 +896157,10 @@
   "url|https://apply.refline.ch/116352/1257/pub/5/index.html": {
     "canonicalSlug": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
     "slugByLocale": {
-      "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
+      "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+      "it": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+      "en": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+      "fr": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -896632,7 +896931,10 @@
   "url|https://apply.refline.ch/792841/11397/pub/2": {
     "canonicalSlug": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
     "slugByLocale": {
-      "de": "kundenberater-in-direktbank-zkb-zurich"
+      "de": "kundenberater-in-direktbank-zkb-zurich",
+      "it": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+      "en": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich",
+      "fr": "kundenberater-in-direktbank-zurcher-kantonalbank-zurich"
     },
     "createdAt": "2026-10-08",
     "canton": "ZH"
@@ -896717,7 +897019,10 @@
   "url|https://apply.refline.ch/514915/2872/pub/1/index.html": {
     "canonicalSlug": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
     "slugByLocale": {
-      "de": "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch"
+      "de": "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
+      "it": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
+      "en": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
+      "fr": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
     },
     "createdAt": "2026-10-08",
     "canton": "GR"
@@ -896736,7 +897041,10 @@
   "url|https://apply.refline.ch/514915/2871/pub/2/index.html": {
     "canonicalSlug": "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis",
     "slugByLocale": {
-      "de": "sekretar-in-schulinspektorat-kanton-gr-ch"
+      "de": "sekretar-in-schulinspektorat-kanton-gr-ch",
+      "it": "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis",
+      "en": "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis",
+      "fr": "sekretar-in-schulinspektorat-kantonale-verwaltung-graubunden-thusis"
     },
     "createdAt": "2026-10-08",
     "canton": "GR"
@@ -896788,7 +897096,10 @@
   "id|helvetia.com|975724af-f643-4251-b29c-e763fe12a4c3": {
     "canonicalSlug": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-2",
     "slugByLocale": {
-      "de": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-szwvjw"
+      "de": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-szwvjw",
+      "it": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-2",
+      "en": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-2",
+      "fr": "werkstudent-w-m-d-kundendatenmanagement-60-helvetia-basel-2"
     },
     "createdAt": "2026-10-08",
     "canton": "BS"
@@ -900921,7 +901232,10 @@
   "id|rituals.wd3.myworkdayjobs.com|r2404": {
     "canonicalSlug": "stockist-h-f-rituals-cosmetics-switzerland-carouge",
     "slugByLocale": {
-      "fr": "stockiste-h-f-rituals-cosmetics-ch"
+      "fr": "stockiste-h-f-rituals-cosmetics-ch",
+      "it": "stockist-h-f-rituals-cosmetics-switzerland-carouge",
+      "en": "stockist-h-f-rituals-cosmetics-switzerland-carouge",
+      "de": "stockist-h-f-rituals-cosmetics-switzerland-carouge"
     },
     "createdAt": "2026-10-08",
     "canton": "GE"
@@ -900930,7 +901244,9 @@
     "canonicalSlug": "stockist-h-f-rituals-cosmetics-switzerland-carouge-71394b",
     "slugByLocale": {
       "en": "stockist-h-f-rituals-cosmetics-switzerland-carouge-9o3c64",
-      "fr": "stockiste-h-f-rituals-cosmetics-ch"
+      "fr": "stockiste-h-f-rituals-cosmetics-ch",
+      "it": "stockist-h-f-rituals-cosmetics-switzerland-carouge-71394b",
+      "de": "stockist-h-f-rituals-cosmetics-switzerland-carouge-71394b"
     },
     "createdAt": "2026-10-08",
     "canton": "GE"
@@ -900939,7 +901255,9 @@
     "canonicalSlug": "stockist-h-f-rituals-cosmetics-switzerland-carouge-21a738",
     "slugByLocale": {
       "de": "stockist-h-f-rituals-cosmetics-switzerland-carouge-9o3c63",
-      "fr": "stockiste-h-f-rituals-cosmetics-ch"
+      "fr": "stockiste-h-f-rituals-cosmetics-ch",
+      "it": "stockist-h-f-rituals-cosmetics-switzerland-carouge-21a738",
+      "en": "stockist-h-f-rituals-cosmetics-switzerland-carouge-21a738"
     },
     "createdAt": "2026-10-08",
     "canton": "GE"
@@ -900947,7 +901265,10 @@
   "id|rituals.wd3.myworkdayjobs.com|r2401": {
     "canonicalSlug": "stockist-h-f-rituals-cosmetics-switzerland-carouge-29392f",
     "slugByLocale": {
-      "fr": "stockiste-h-f-rituals-cosmetics-ch"
+      "fr": "stockiste-h-f-rituals-cosmetics-ch",
+      "it": "stockist-h-f-rituals-cosmetics-switzerland-carouge-29392f",
+      "en": "stockist-h-f-rituals-cosmetics-switzerland-carouge-29392f",
+      "de": "stockist-h-f-rituals-cosmetics-switzerland-carouge-29392f"
     },
     "createdAt": "2026-10-08",
     "canton": "GE"
@@ -901335,7 +901656,9 @@
     "canonicalSlug": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-1f85ff",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch",
-      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schoenbuehl-1f85ff"
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schoenbuehl-1f85ff",
+      "it": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-1f85ff",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-1f85ff"
     },
     "createdAt": "2026-10-08",
     "canton": "BE"
@@ -901355,7 +901678,9 @@
     "canonicalSlug": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-05df7b",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch",
-      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schoenbuehl-05df7b"
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schoenbuehl-05df7b",
+      "it": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-05df7b",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schoenbuehl-05df7b"
     },
     "createdAt": "2026-10-08",
     "canton": "BE"
@@ -903212,7 +903537,9 @@
     "canonicalSlug": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-4f8dc5",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch",
-      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-4f8dc5"
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-4f8dc5",
+      "it": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-4f8dc5",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-4f8dc5"
     },
     "createdAt": "2026-10-08",
     "canton": "BE"
@@ -903221,7 +903548,9 @@
     "canonicalSlug": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-bbca59",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch",
-      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-bbca59"
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-bbca59",
+      "it": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-bbca59",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-bbca59"
     },
     "createdAt": "2026-10-08",
     "canton": "BE"
@@ -903230,7 +903559,9 @@
     "canonicalSlug": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-b5969f",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch",
-      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-b5969f"
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-schonbuhl-b5969f",
+      "it": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-b5969f",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-schonbuhl-b5969f"
     },
     "createdAt": "2026-10-08",
     "canton": "BE"
@@ -903803,7 +904134,10 @@
   "id|stadt-zuerich.ch|1374347557": {
     "canonicalSlug": "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "fallbezogene-r-sachbearbeiter-in-stadt-zuerich-zurigo-51915"
+      "de": "fallbezogene-r-sachbearbeiter-in-stadt-zuerich-zurigo-51915",
+      "it": "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich",
+      "en": "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich",
+      "fr": "fallbezogene-r-sachbearbeiter-in-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -903855,7 +904189,10 @@
   "id|stadt-zuerich.ch|1374333857": {
     "canonicalSlug": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916"
+      "de": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zuerich-zurigo-51916",
+      "it": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
+      "en": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich",
+      "fr": "reinigungsmitarbeiter-in-befristete-schule-allmend-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -904261,7 +904598,10 @@
   "id|bls.ch|45aa358c-d050-4161-8648-20355a29c31a": {
     "canonicalSlug": "eisenbahnmechatroniker-in-bls-ag-oberburg",
     "slugByLocale": {
-      "de": "eisenbahnmechatroniker-in-bls-ch"
+      "de": "eisenbahnmechatroniker-in-bls-ch",
+      "it": "eisenbahnmechatroniker-in-bls-ag-oberburg",
+      "en": "eisenbahnmechatroniker-in-bls-ag-oberburg",
+      "fr": "eisenbahnmechatroniker-in-bls-ag-oberburg"
     },
     "createdAt": "2026-10-09",
     "canton": "BE"
@@ -904374,7 +904714,10 @@
   "url|https://apply.refline.ch/116352/1247/pub/9/index.html": {
     "canonicalSlug": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
     "slugByLocale": {
-      "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich"
+      "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich",
+      "it": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
+      "en": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
+      "fr": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -904820,7 +905163,9 @@
     "canonicalSlug": "senior-project-manager-stadt-bern-bern",
     "slugByLocale": {
       "de": "senior-projektleiter-in-stadt-bern-bern",
-      "fr": "chef-de-projet-principal-stadt-bern-bern"
+      "fr": "chef-de-projet-principal-stadt-bern-bern",
+      "it": "senior-project-manager-stadt-bern-bern",
+      "en": "senior-project-manager-stadt-bern-bern"
     },
     "createdAt": "2026-10-09",
     "canton": "BE"
@@ -905374,7 +905719,10 @@
   "id|lombardodier.wd3.myworkdayjobs.com|r0007568-1": {
     "canonicalSlug": "senior-global-custody-account-manager-80-100-lombard-odier-geneva",
     "slugByLocale": {
-      "fr": "senior-charge-e-de-comptes-global-custody-80-100-lombard-odier-ch"
+      "fr": "senior-charge-e-de-comptes-global-custody-80-100-lombard-odier-ch",
+      "it": "senior-global-custody-account-manager-80-100-lombard-odier-geneva",
+      "en": "senior-global-custody-account-manager-80-100-lombard-odier-geneva",
+      "de": "senior-global-custody-account-manager-80-100-lombard-odier-geneva"
     },
     "createdAt": "2026-10-09",
     "canton": "GE"
@@ -906818,7 +907166,10 @@
   "id|post.ch|74948-de_de": {
     "canonicalSlug": "sachbearbeiter-in-fuhrungsunterstutzung-die-schweizerische-post-kriens",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-fuhrungsunterstutzung-post"
+      "de": "sachbearbeiter-in-fuhrungsunterstutzung-post",
+      "it": "sachbearbeiter-in-fuhrungsunterstutzung-die-schweizerische-post-kriens",
+      "en": "sachbearbeiter-in-fuhrungsunterstutzung-die-schweizerische-post-kriens",
+      "fr": "sachbearbeiter-in-fuhrungsunterstutzung-die-schweizerische-post-kriens"
     },
     "createdAt": "2026-10-09",
     "canton": "LU"
@@ -906836,7 +907187,10 @@
   "id|stadt-zuerich.ch|1374424257": {
     "canonicalSlug": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zuerich-zurigo"
+      "de": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zuerich-zurigo",
+      "it": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zurich-zurich",
+      "en": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zurich-zurich",
+      "fr": "diplomierte-pflegefachperson-hf-fh-pflegewohngruppen-brunnenpark-1-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -906855,7 +907209,10 @@
   "id|stadt-zuerich.ch|1374422257": {
     "canonicalSlug": "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921"
+      "de": "hochschulpraktikant-in-kommunikation-stadt-zuerich-zurigo-51921",
+      "it": "praticante-universitario-a-in-comunicazione-stadt-zurich-zurich",
+      "en": "university-intern-communications-stadt-zurich-zurich",
+      "fr": "hochschulpraktikant-in-kommunikation-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -907236,7 +907593,10 @@
   "url|https://apply.refline.ch/116352/1267/pub/1/index.html": {
     "canonicalSlug": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
     "slugByLocale": {
-      "de": "schnuppertag-detailhandel-berufserkundung-spruengli-zurich"
+      "de": "schnuppertag-detailhandel-berufserkundung-spruengli-zurich",
+      "it": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
+      "en": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich",
+      "fr": "schnuppertag-detailhandel-berufserkundung-confiserie-sprungli-ag-zurich"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -907787,7 +908147,10 @@
   "url|https://apply.refline.ch/792841/11424/pub/1": {
     "canonicalSlug": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
     "slugByLocale": {
-      "de": "kundenberater-in-privatkunden-zkb-meilen"
+      "de": "kundenberater-in-privatkunden-zkb-meilen",
+      "it": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
+      "en": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen",
+      "fr": "kundenberater-in-privatkunden-zurcher-kantonalbank-meilen"
     },
     "createdAt": "2026-10-09",
     "canton": "ZH"
@@ -907817,7 +908180,10 @@
   "id|axa.com|28857": {
     "canonicalSlug": "conseiller-ere-en-prevoyance-a-yverdon-axa-yverdon-les-bains-3yzl3o",
     "slugByLocale": {
-      "fr": "conseiller-ere-en-prevoyance-a-yverdon-axa-svizzera-yverdon-les-bains"
+      "fr": "conseiller-ere-en-prevoyance-a-yverdon-axa-svizzera-yverdon-les-bains",
+      "it": "conseiller-ere-en-prevoyance-a-yverdon-axa-yverdon-les-bains-3yzl3o",
+      "en": "conseiller-ere-en-prevoyance-a-yverdon-axa-yverdon-les-bains-3yzl3o",
+      "de": "conseiller-ere-en-prevoyance-a-yverdon-axa-yverdon-les-bains-3yzl3o"
     },
     "createdAt": "2026-10-09",
     "canton": "VD"
@@ -907913,7 +908279,10 @@
   "id|axa.com|23464": {
     "canonicalSlug": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-lausanne-3ywb81",
     "slugByLocale": {
-      "fr": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-svizzera-lausanne"
+      "fr": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-svizzera-lausanne",
+      "it": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-lausanne-3ywb81",
+      "en": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-lausanne-3ywb81",
+      "de": "conseiller-ere-en-prevoyance-sante-pour-l-agence-generale-de-lausanne-axa-lausanne-3ywb81"
     },
     "createdAt": "2026-10-09",
     "canton": "VD"
@@ -907921,7 +908290,10 @@
   "id|stadt-zuerich.ch|1374453557": {
     "canonicalSlug": "hochschulpraktikum-hr-business-partner-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "hochschulpraktikum-hr-business-partner-stadt-zuerich-zurigo-51926"
+      "de": "hochschulpraktikum-hr-business-partner-stadt-zuerich-zurigo-51926",
+      "it": "hochschulpraktikum-hr-business-partner-stadt-zurich-zurich",
+      "en": "hochschulpraktikum-hr-business-partner-stadt-zurich-zurich",
+      "fr": "hochschulpraktikum-hr-business-partner-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -907940,7 +908312,10 @@
   "id|stadt-zuerich.ch|1374443957": {
     "canonicalSlug": "projektassistenz-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "projektassistenz-stadt-zuerich-zurigo-51925"
+      "de": "projektassistenz-stadt-zuerich-zurigo-51925",
+      "it": "projektassistenz-stadt-zurich-zurich",
+      "en": "projektassistenz-stadt-zurich-zurich",
+      "fr": "projektassistenz-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -907948,7 +908323,10 @@
   "id|stadt-zuerich.ch|1374434557": {
     "canonicalSlug": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zuerich-zurigo-51922"
+      "de": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zuerich-zurigo-51922",
+      "it": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zurich-zurich",
+      "en": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zurich-zurich",
+      "fr": "sachbearbeiter-in-schulpsychologischen-dienst-60-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -908693,7 +909071,10 @@
   "id|stadt-zuerich.ch|1373695757": {
     "canonicalSlug": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
     "slugByLocale": {
-      "de": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zuerich-zurigo-51838"
+      "de": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zuerich-zurigo-51838",
+      "it": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+      "en": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+      "fr": "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich"
     },
     "createdAt": "2026-10-10",
     "canton": "ZH"
@@ -908800,7 +909181,9 @@
     "canonicalSlug": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
     "slugByLocale": {
       "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-      "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers"
+      "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers",
+      "it": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
+      "en": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers"
     },
     "createdAt": "2026-10-10",
     "canton": "BE"
@@ -908808,7 +909191,10 @@
   "id|prospective.ch|8852c051-643a-4651-94ae-c7ed581760d9": {
     "canonicalSlug": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
     "slugByLocale": {
-      "de": "kochin-koch-efz-80-100-sro-langenthal"
+      "de": "kochin-koch-efz-80-100-sro-langenthal",
+      "it": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "en": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
+      "fr": "chef-koch-efz-80-100-sro-ag-spital-region-oberaargau-langenthal"
     },
     "createdAt": "2026-10-10",
     "canton": "BE"
@@ -909773,7 +910159,9 @@
     "canonicalSlug": "controller-m-f-d-ameos-schweiz-brunnen",
     "slugByLocale": {
       "de": "controller-m-w-d-ameos-brunnen",
-      "fr": "controleur-h-f-d-ameos-schweiz-brunnen"
+      "fr": "controleur-h-f-d-ameos-schweiz-brunnen",
+      "it": "controller-m-f-d-ameos-schweiz-brunnen",
+      "en": "controller-m-f-d-ameos-schweiz-brunnen"
     },
     "createdAt": "2026-10-11",
     "canton": "SZ"
@@ -911285,7 +911673,9 @@
     "canonicalSlug": "buffet-collaboratore-trice-50-zfv-unternehmungen-zurich",
     "slugByLocale": {
       "de": "buffet-mitarbeiter-in-50-zfv-unternehmungen-zurich",
-      "it": "buffet-collaboratore-trice-50-zfv-unternehmungen-zurich"
+      "it": "buffet-collaboratore-trice-50-zfv-unternehmungen-zurich",
+      "en": "buffet-associate-50-zfv-unternehmungen-zurich",
+      "fr": "buffet-collaborateur-trice-50-zfv-unternehmungen-zurich"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911294,7 +911684,9 @@
     "canonicalSlug": "catering-collaboratore-trice-60-80-zfv-unternehmungen-zurich",
     "slugByLocale": {
       "de": "catering-mitarbeiter-in-60-80-zfv-unternehmungen-zurich",
-      "it": "catering-collaboratore-trice-60-80-zfv-unternehmungen-zurich"
+      "it": "catering-collaboratore-trice-60-80-zfv-unternehmungen-zurich",
+      "en": "catering-associate-60-80-zfv-unternehmungen-zurich",
+      "fr": "catering-collaborateur-trice-60-80-zfv-unternehmungen-zurich"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911311,7 +911703,9 @@
     "canonicalSlug": "collaboratore-trice-services-w-m-d-raiffeisen-obergosgen-9df5201a60",
     "slugByLocale": {
       "de": "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-      "it": "collaboratore-trice-services-w-m-d-raiffeisen-obergosgen-9df5201a60"
+      "it": "collaboratore-trice-services-w-m-d-raiffeisen-obergosgen-9df5201a60",
+      "en": "employee-services-m-f-d-raiffeisen-obergosgen-d75a09",
+      "fr": "services-aux-employes-h-f-d-raiffeisen-obergosgen-d75a09"
     },
     "createdAt": "2026-10-11",
     "canton": "SO"
@@ -911320,7 +911714,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-ce9305f76c",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2472",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-ce9305f76c"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-ce9305f76c",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-solothurn-r2472",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-solothurn-r2472"
     },
     "createdAt": "2026-10-11",
     "canton": "SO"
@@ -911329,7 +911725,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-eeec4bf4c4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2471",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-eeec4bf4c4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-eeec4bf4c4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-solothurn-r2471",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-solothurn-r2471"
     },
     "createdAt": "2026-10-11",
     "canton": "SO"
@@ -911338,7 +911736,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-8970727078",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r2470",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-8970727078"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-solothurn-8970727078",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-solothurn-r2470",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-solothurn-r2470"
     },
     "createdAt": "2026-10-11",
     "canton": "SO"
@@ -911347,7 +911747,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-1274e83a3a",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3300",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-1274e83a3a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-1274e83a3a",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3300",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3300"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911356,7 +911758,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-a5760fd87f",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3299",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-a5760fd87f"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-a5760fd87f",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3299",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3299"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911365,7 +911769,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-ad22dd22d4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3294",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-ad22dd22d4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-ad22dd22d4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3294",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3294"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911374,7 +911780,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4bfe8686fa",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3292",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4bfe8686fa"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4bfe8686fa",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3292",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3292"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911383,7 +911791,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-8485f958e7",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3289",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-8485f958e7"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-8485f958e7",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3289",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3289"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911392,7 +911802,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-1bcb367346",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3288",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-1bcb367346"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-1bcb367346",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3288",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3288"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911401,7 +911813,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-a459f61c15",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3285",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-a459f61c15"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-a459f61c15",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3285",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3285"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911410,7 +911824,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-e42dad8eb8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3283",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-e42dad8eb8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-e42dad8eb8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3283",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3283"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911419,7 +911835,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-fd9519480f",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3282",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-fd9519480f"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-fd9519480f",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3282",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3282"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911428,7 +911846,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-2e6b434cc7",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3280",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-2e6b434cc7"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-2e6b434cc7",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-grancia-r3280",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-grancia-r3280"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -911437,7 +911857,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-bb2deb48aa",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3279",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-bb2deb48aa"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-bb2deb48aa",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-grancia-r3279",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-grancia-r3279"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -911446,7 +911868,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-33f63279aa",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3278",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-33f63279aa"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-grancia-33f63279aa",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-grancia-r3278",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-grancia-r3278"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -911455,7 +911879,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-dbc6e39a65",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3412",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-dbc6e39a65"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-dbc6e39a65",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3412",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3412"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911464,7 +911890,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-83b9bd44e2",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3411",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-83b9bd44e2"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-83b9bd44e2",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3411",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3411"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911473,7 +911901,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-2bccdb2df5",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3409",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-2bccdb2df5"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-2bccdb2df5",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-chur-r3409",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-chur-r3409"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -911482,7 +911912,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-07df5d3333",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3408",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-07df5d3333"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-07df5d3333",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3408",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3408"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911491,7 +911923,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-715635fe3b",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3407",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-715635fe3b"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-715635fe3b",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-pfaffikon-r3407",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-pfaffikon-r3407"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911500,7 +911934,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-eb83385869",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3406",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-eb83385869"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-eb83385869",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-baden-r3406",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-baden-r3406"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911509,7 +911945,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ca162beeee",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3405",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ca162beeee"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ca162beeee",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3405",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3405"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911518,7 +911956,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-40cf6a224d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3404",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-40cf6a224d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-40cf6a224d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-emmen-r3404",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-emmen-r3404"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911527,7 +911967,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-1556374054",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3403",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-1556374054"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-1556374054",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3403",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3403"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911536,7 +911978,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-34f3148234",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3402",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-34f3148234"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-34f3148234",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3402",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3402"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911545,7 +911989,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-d6a63c31c8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3401",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-d6a63c31c8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-d6a63c31c8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zug-r3401",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zug-r3401"
     },
     "createdAt": "2026-10-11",
     "canton": "ZG"
@@ -911554,7 +912000,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-bf836b4b6a",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3400",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-bf836b4b6a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-bf836b4b6a",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3400",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3400"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911563,7 +912011,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-b618ee9310",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3399",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-b618ee9310"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-b618ee9310",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3399",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3399"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911572,7 +912022,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-7ef52a4bfb",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3398",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-7ef52a4bfb"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-7ef52a4bfb",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3398",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3398"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911581,7 +912033,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-2c4d2d28e6",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3397",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-2c4d2d28e6"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-2c4d2d28e6",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3397",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3397"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911590,7 +912044,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-3404378b38",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3396",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-3404378b38"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-3404378b38",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-spreitenbach-r3396",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-spreitenbach-r3396"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911599,7 +912055,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-616e030f36",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3395",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-616e030f36"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-616e030f36",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-st-gallen-r3395",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-st-gallen-r3395"
     },
     "createdAt": "2026-10-11",
     "canton": "SG"
@@ -911608,7 +912066,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-293f4f7fb0",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3394",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-293f4f7fb0"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-293f4f7fb0",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-wallisellen-r3394",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-wallisellen-r3394"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911617,7 +912077,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-1de7cce760",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3393",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-1de7cce760"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-1de7cce760",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3393",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3393"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911626,7 +912088,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-6ff6245f8e",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3391",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-6ff6245f8e"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-6ff6245f8e",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3391",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3391"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911635,7 +912099,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-33fcd410b4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3389",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-33fcd410b4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-33fcd410b4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-aarau-r3389",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-aarau-r3389"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911644,7 +912110,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7372867b76",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3388",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7372867b76"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7372867b76",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3388",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3388"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911653,7 +912121,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-d69052d6ce",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3387",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-d69052d6ce"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-d69052d6ce",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3387",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3387"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911662,7 +912132,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-eab6f415e5",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3386",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-eab6f415e5"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-eab6f415e5",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-stans-r3386",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-stans-r3386"
     },
     "createdAt": "2026-10-11",
     "canton": "NW"
@@ -911671,7 +912143,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bdc6ab01b4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3385",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bdc6ab01b4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bdc6ab01b4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3385",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3385"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911680,7 +912154,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-461bed75fd",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3384",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-461bed75fd"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-461bed75fd",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3384",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3384"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911689,7 +912165,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-a052cf0502",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3383",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-a052cf0502"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-a052cf0502",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-landquart-r3383",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-landquart-r3383"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -911698,7 +912176,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bbb704fa01",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3382",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bbb704fa01"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-bbb704fa01",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3382",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3382"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911707,7 +912187,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-ecb9766c88",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3381",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-ecb9766c88"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-ecb9766c88",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3381",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3381"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911716,7 +912198,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-1f02985f1a",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3380",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-1f02985f1a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-1f02985f1a",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-thun-r3380",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-thun-r3380"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911725,7 +912209,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-56a2d4d2bf",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3379",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-56a2d4d2bf"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-56a2d4d2bf",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3379",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3379"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911734,7 +912220,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-e847cc8967",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3378",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-e847cc8967"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-e847cc8967",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3378",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3378"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911743,7 +912231,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-a5500a44c8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3376",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-a5500a44c8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-a5500a44c8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-chur-r3376",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-chur-r3376"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -911752,7 +912242,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-8ef2dd2547",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3375",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-8ef2dd2547"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-8ef2dd2547",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3375",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3375"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911761,7 +912253,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-c55b438541",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3374",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-c55b438541"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-c55b438541",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-pfaffikon-r3374",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-pfaffikon-r3374"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911770,7 +912264,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-f7ee57f5b4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3373",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-f7ee57f5b4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-f7ee57f5b4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-baden-r3373",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-baden-r3373"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911779,7 +912275,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ec201ad65e",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3372",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ec201ad65e"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-ec201ad65e",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3372",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3372"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911788,7 +912286,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-09aef6a833",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3371",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-09aef6a833"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-09aef6a833",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-emmen-r3371",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-emmen-r3371"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911797,7 +912297,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-8a0261116a",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3370",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-8a0261116a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-8a0261116a",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3370",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3370"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911806,7 +912308,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-56080999e4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3369",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-56080999e4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-56080999e4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3369",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3369"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911815,7 +912319,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-2d2d2cf6f6",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3368",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-2d2d2cf6f6"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-2d2d2cf6f6",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zug-r3368",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zug-r3368"
     },
     "createdAt": "2026-10-11",
     "canton": "ZG"
@@ -911824,7 +912330,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-09fc9cd9d0",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3367",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-09fc9cd9d0"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-09fc9cd9d0",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3367",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3367"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911833,7 +912341,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-2496b7012e",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3366",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-2496b7012e"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-2496b7012e",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3366",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3366"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -911842,7 +912352,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-07ae1de970",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3365",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-07ae1de970"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-07ae1de970",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3365",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3365"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911851,7 +912363,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-c2e7c3a3f7",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3364",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-c2e7c3a3f7"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-c2e7c3a3f7",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3364",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3364"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911860,7 +912374,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-f89630a9e1",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3363",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-f89630a9e1"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-f89630a9e1",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-spreitenbach-r3363",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-spreitenbach-r3363"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911869,7 +912385,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-5f957e98f2",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3362",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-5f957e98f2"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-5f957e98f2",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-st-gallen-r3362",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-st-gallen-r3362"
     },
     "createdAt": "2026-10-11",
     "canton": "SG"
@@ -911878,7 +912396,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-5954e2187c",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3361",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-5954e2187c"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-5954e2187c",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-wallisellen-r3361",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-wallisellen-r3361"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911887,7 +912407,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4ed5a602ac",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3360",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4ed5a602ac"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-4ed5a602ac",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3360",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3360"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911896,7 +912418,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b6d1bc9bde",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3358",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b6d1bc9bde"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b6d1bc9bde",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3358",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3358"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911905,7 +912429,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-45c39170ec",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3356",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-45c39170ec"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-45c39170ec",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-aarau-r3356",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-aarau-r3356"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -911914,7 +912440,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7b2e60b98f",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3355",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7b2e60b98f"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-7b2e60b98f",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3355",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3355"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -911923,7 +912451,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-ebdbf75a07",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3354",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-ebdbf75a07"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-ebdbf75a07",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3354",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3354"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911932,7 +912462,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-c25d3cb992",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3353",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-c25d3cb992"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-c25d3cb992",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-stans-r3353",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-stans-r3353"
     },
     "createdAt": "2026-10-11",
     "canton": "NW"
@@ -911941,7 +912473,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-703f610cf4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3352",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-703f610cf4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-703f610cf4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3352",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3352"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911950,7 +912484,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-b693a51f6d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3351",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-b693a51f6d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-b693a51f6d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3351",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3351"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911959,7 +912495,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-fc0422f3d6",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3350",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-fc0422f3d6"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-fc0422f3d6",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-landquart-r3350",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-landquart-r3350"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -911968,7 +912506,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-91bed6d435",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3349",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-91bed6d435"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-91bed6d435",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3349",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3349"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -911977,7 +912517,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-111201ca46",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3348",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-111201ca46"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-111201ca46",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3348",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3348"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911986,7 +912528,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-d18f9367f4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3347",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-d18f9367f4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-d18f9367f4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-thun-r3347",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-thun-r3347"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -911995,7 +912539,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-9e7493a8e2",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3346",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-9e7493a8e2"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-9e7493a8e2",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3346",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3346"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912004,7 +912550,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-eda2fd6fae",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3345",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-eda2fd6fae"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-eda2fd6fae",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3345",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3345"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -912013,7 +912561,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-aca9b28ac0",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3343",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-aca9b28ac0"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-chur-aca9b28ac0",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-chur-r3343",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-chur-r3343"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -912022,7 +912572,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-0fedffce5e",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3342",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-0fedffce5e"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-0fedffce5e",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3342",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3342"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912031,7 +912583,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-02e73f6753",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3341",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-02e73f6753"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-pfaffikon-02e73f6753",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-pfaffikon-r3341",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-pfaffikon-r3341"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912040,7 +912594,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-91da23f828",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3340",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-91da23f828"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-baden-91da23f828",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-baden-r3340",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-baden-r3340"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -912049,7 +912605,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-2b210996c2",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3339",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-2b210996c2"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-2b210996c2",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3339",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3339"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -912058,7 +912616,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-64e0503bc6",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3338",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-64e0503bc6"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-emmen-64e0503bc6",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-emmen-r3338",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-emmen-r3338"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -912067,7 +912627,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-5730f7faa3",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3337",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-5730f7faa3"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-5730f7faa3",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3337",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3337"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912076,7 +912638,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-ef762f8f5d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3336",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-ef762f8f5d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-ef762f8f5d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3336",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3336"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -912085,7 +912649,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-6e8337f125",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3335",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-6e8337f125"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zug-6e8337f125",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zug-r3335",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zug-r3335"
     },
     "createdAt": "2026-10-11",
     "canton": "ZG"
@@ -912094,7 +912660,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-fdc2c91c69",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3334",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-fdc2c91c69"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-fdc2c91c69",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3334",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3334"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912103,7 +912671,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-bab49b105d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3333",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-bab49b105d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-luzern-bab49b105d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-luzern-r3333",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-luzern-r3333"
     },
     "createdAt": "2026-10-11",
     "canton": "LU"
@@ -912112,7 +912682,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-002aca5d53",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3332",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-002aca5d53"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-002aca5d53",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3332",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3332"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912121,7 +912693,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b68bc4d516",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3331",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b68bc4d516"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-b68bc4d516",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3331",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3331"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912130,7 +912704,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-e52deb01d5",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3330",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-e52deb01d5"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-spreitenbach-e52deb01d5",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-spreitenbach-r3330",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-spreitenbach-r3330"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -912139,7 +912715,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-0e71a9e9f4",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3329",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-0e71a9e9f4"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-st-gallen-0e71a9e9f4",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-st-gallen-r3329",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-st-gallen-r3329"
     },
     "createdAt": "2026-10-11",
     "canton": "SG"
@@ -912148,7 +912726,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-90422927b8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3328",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-90422927b8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-wallisellen-90422927b8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-wallisellen-r3328",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-wallisellen-r3328"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912157,7 +912737,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-bf011df94c",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3327",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-bf011df94c"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-bf011df94c",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3327",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3327"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912166,7 +912748,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-adae83d280",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3325",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-adae83d280"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zuerich-adae83d280",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zuerich-r3325",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zuerich-r3325"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912175,7 +912759,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-5883205e0d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3323",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-5883205e0d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-aarau-5883205e0d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-aarau-r3323",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-aarau-r3323"
     },
     "createdAt": "2026-10-11",
     "canton": "AG"
@@ -912184,7 +912770,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-bcc2e6298d",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3322",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-bcc2e6298d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-bcc2e6298d",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3322",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3322"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -912193,7 +912781,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-e46d11d8ef",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3321",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-e46d11d8ef"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-e46d11d8ef",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3321",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3321"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912202,7 +912792,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-11c6a4add8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3320",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-11c6a4add8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-stans-11c6a4add8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-stans-r3320",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-stans-r3320"
     },
     "createdAt": "2026-10-11",
     "canton": "NW"
@@ -912211,7 +912803,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-fb784dbc0a",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3319",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-fb784dbc0a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-fb784dbc0a",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3319",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3319"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912220,7 +912814,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-1722d15fc1",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3318",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-1722d15fc1"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-biel-1722d15fc1",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-biel-r3318",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-biel-r3318"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912229,7 +912825,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-95fc5b91e8",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3317",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-95fc5b91e8"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-landquart-95fc5b91e8",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-landquart-r3317",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-landquart-r3317"
     },
     "createdAt": "2026-10-11",
     "canton": "GR"
@@ -912238,7 +912836,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-5368615aa1",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3316",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-5368615aa1"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-winterthur-5368615aa1",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-winterthur-r3316",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-winterthur-r3316"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912247,7 +912847,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-6a1ac8bc82",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3315",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-6a1ac8bc82"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-bern-6a1ac8bc82",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-bern-r3315",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-bern-r3315"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912256,7 +912858,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-f202277dda",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3314",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-f202277dda"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-thun-f202277dda",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-thun-r3314",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-thun-r3314"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912265,7 +912869,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-39bf4cbbf2",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3313",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-39bf4cbbf2"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-zurich-39bf4cbbf2",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-zurich-r3313",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-zurich-r3313"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912274,7 +912880,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-b19cfd6cbc",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r3312",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-b19cfd6cbc"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-basel-b19cfd6cbc",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-basel-r3312",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-basel-r3312"
     },
     "createdAt": "2026-10-11",
     "canton": "BS"
@@ -912283,7 +912891,9 @@
     "canonicalSlug": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern-2bad55e260",
     "slugByLocale": {
       "de": "mitarbeiter-im-verkauf-m-w-d-20-fur-bern-c-and-a-schweiz-ch",
-      "it": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern-2bad55e260"
+      "it": "collaboratore-trice-im-vendita-m-w-d-20-per-bern-c-a-schweiz-bern-2bad55e260",
+      "en": "sales-employee-m-f-d-20-for-bern-c-a-schweiz-bern-ch",
+      "fr": "collaborateur-trice-dans-la-vente-h-f-d-20-pour-berne-c-a-schweiz-bern-ch"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912292,7 +912902,9 @@
     "canonicalSlug": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-839ec49839",
     "slugByLocale": {
       "de": "mitarbeiter-im-verkauf-m-w-d-30-fur-bern-c-and-a-schweiz-ch",
-      "it": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-839ec49839"
+      "it": "collaboratore-trice-im-vendita-m-w-d-30-per-bern-c-a-schweiz-bern-839ec49839",
+      "en": "sales-employee-m-f-d-30-for-bern-c-a-schweiz-bern-ch",
+      "fr": "collaborateur-trice-dans-la-vente-h-f-d-30-pour-berne-c-a-schweiz-bern-ch"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"
@@ -912301,7 +912913,9 @@
     "canonicalSlug": "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0",
     "slugByLocale": {
       "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
-      "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0"
+      "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-w-m-d-laderach-schweiz-ag-zurich-9a9153f0f0",
+      "en": "apprenticeship-in-retail-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
+      "fr": "place-d-apprentissage-dans-le-commerce-de-detail-cfc-2027-h-f-d-laderach-schweiz-ag-zurich"
     },
     "createdAt": "2026-10-11",
     "canton": "ZH"
@@ -912310,7 +912924,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-03b6a6010d",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15175",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-03b6a6010d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-03b6a6010d",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15175",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15175"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912319,7 +912935,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-aea6f40a6a",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15174",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-aea6f40a6a"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-aea6f40a6a",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15174",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15174"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912328,7 +912946,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-ccb03bf425",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15173",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-ccb03bf425"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-ccb03bf425",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15173",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15173"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912337,7 +912957,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ae32c26ae",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15172",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ae32c26ae"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ae32c26ae",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15172",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15172"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912346,7 +912968,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-dd627ca07d",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15162",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-dd627ca07d"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-dd627ca07d",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15162",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15162"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912355,7 +912979,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-c5177d5a75",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15161",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-c5177d5a75"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-c5177d5a75",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15161",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15161"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912364,7 +912990,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ffe75d38f",
     "slugByLocale": {
       "de": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15160",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ffe75d38f"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-9ffe75d38f",
+      "en": "employee-goods-clearance-m-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15160",
+      "fr": "dedouanement-des-marchandises-des-employes-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15160"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912373,7 +913001,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-a5bf223437",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15159",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-a5bf223437"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-a5bf223437",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15159",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15159"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912382,7 +913012,9 @@
     "canonicalSlug": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-3d10b2b07c",
     "slugByLocale": {
       "en": "mitarbeiter-warenverraumung-m-w-d-rituals-cosmetics-ch-r15158",
-      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-3d10b2b07c"
+      "it": "collaboratore-trice-warenverraumung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-3d10b2b07c",
+      "de": "hochste-werbung-m-w-d-rituals-cosmetics-switzerland-morbio-inferiore-r15158",
+      "fr": "employe-de-mise-en-rayon-h-f-d-rituals-cosmetics-switzerland-morbio-inferiore-r15158"
     },
     "createdAt": "2026-10-11",
     "canton": "TI"
@@ -912402,7 +913034,9 @@
     "canonicalSlug": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9",
     "slugByLocale": {
       "de": "lehrstelle-kauffrau-kaufmann-efz-stadt-bern-bern",
-      "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9"
+      "it": "apprendistato-kauffrau-kaufmann-cfc-stadt-bern-bern-08a0216aa9",
+      "en": "apprenticeship-as-a-commercial-employee-efz-stadt-bern-bern",
+      "fr": "place-d-apprentissage-d-employee-employe-de-commerce-cfc-stadt-bern-bern"
     },
     "createdAt": "2026-10-11",
     "canton": "BE"

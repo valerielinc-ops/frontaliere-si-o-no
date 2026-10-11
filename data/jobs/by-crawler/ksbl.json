@@ -83,8 +83,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-3113381bd505",
@@ -190,8 +189,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-f6744a816954",
@@ -264,8 +262,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-c7be511e2713",
@@ -363,8 +360,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-6eba981f7170",
@@ -450,8 +446,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-1f87f6de291d",
@@ -508,15 +503,11 @@
       "previousSlugsByLocale": {
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
         ]
       },
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict"
       ],
       "salaryMin": 88000,
@@ -645,8 +636,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-e0722529a275",
@@ -729,8 +719,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-824c6c56113f",
@@ -809,8 +798,7 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-5692a258e70a",
@@ -917,8 +905,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-f37cd000eb10",
@@ -1016,8 +1003,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-2783d9c24e6f",
@@ -1081,9 +1067,7 @@
         "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-akutgeriatrie-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-h992hy",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-af65216a90",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-h992hy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1094,9 +1078,7 @@
           "dipl-pflegefachfrau-pflegefachmann-intensivpflege-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-endoskopie-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-akutgeriatrie-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-af65216a90",
-          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
+          "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-h992hy"
@@ -1202,8 +1184,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-0625469afb58",
@@ -3187,8 +3168,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3198,8 +3178,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
@@ -3224,8 +3203,7 @@
         }
       },
       "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true
+      "postingDateSource": "unknown"
     },
     {
       "id": "ksbl-e26f60c459c8",
@@ -3282,8 +3260,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-          "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
@@ -3292,9 +3268,6 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
-        "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-d9d0683b62",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
@@ -3545,8 +3518,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-503d21dcfa96",
@@ -3651,8 +3623,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-36d6db495086",
@@ -4245,8 +4216,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-f97a4cc3795d",
@@ -4697,8 +4667,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-fd8a76d938a8",
@@ -4771,8 +4740,7 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-75e37ed851b3",
@@ -4851,8 +4819,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-b34e2127e99d",
@@ -5038,8 +5005,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-0f6326c01625",
@@ -5118,8 +5084,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-973fdbd46646",
@@ -5278,8 +5243,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-2a701beb5ac5",
@@ -5860,8 +5824,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-c03045a8587d",
@@ -6207,8 +6170,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-cd14c6154336",
@@ -6453,8 +6415,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-c463de9c779a",
@@ -6689,8 +6650,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-770d446faba3",
@@ -7330,8 +7290,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-2392e3d33f6e",
@@ -7493,8 +7452,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksbl-2053696e263e",
@@ -7649,8 +7607,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

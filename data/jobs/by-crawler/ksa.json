@@ -170,8 +170,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-1e88d1772ea0",
@@ -275,8 +274,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-e757110d087f",
@@ -775,8 +773,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-a12ffcf3c070",
@@ -859,7 +856,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -906,7 +903,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -916,7 +914,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "nursing-specialist-kantonsspital-aarau-ksa-aarau"
@@ -1338,8 +1336,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-6e5f0bbdaa95",
@@ -2305,8 +2302,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-dc3d5b6a3940",
@@ -2838,15 +2834,11 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
-        "fachfrau-fachmann-gesundheit-ksa-ch",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        "fachfrau-fachmann-gesundheit-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -2871,8 +2863,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-ade538bd57af",
@@ -2946,8 +2937,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-40184956d47c",
@@ -3318,7 +3308,6 @@
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
           "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ]
       },
@@ -3345,8 +3334,6 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
@@ -3605,8 +3592,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-ed9eb4d484f7",
@@ -4751,8 +4737,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-b4257baebfa2",
@@ -5471,8 +5456,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-8a77baaa8428",
@@ -6688,8 +6672,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-ed623fa7465e",
@@ -6919,8 +6902,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-91d6257c78c8",
@@ -7233,8 +7215,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-8b4e41611b2e",
@@ -7395,8 +7376,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-0b6c3dd0024c",
@@ -7860,8 +7840,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-196da50b930d",
@@ -7937,8 +7916,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-b11a9e0071d5",
@@ -8176,8 +8154,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-33a2c08ac082",
