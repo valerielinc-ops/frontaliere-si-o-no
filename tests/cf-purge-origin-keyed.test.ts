@@ -125,6 +125,13 @@ describe('the origin a Worker-routed apex path is keyed on', () => {
     expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/rss.xml'))).toBeNull();
     expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/blog/x/'))).toBeNull();
   });
+
+  it('keeps query variants of the legacy locale HTML aliases on the apex', () => {
+    expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/en.html'))).toBe(
+      'origin-en.frontaliereticino.ch',
+    );
+    expect(shardOriginForApexUrl(new URL('https://frontaliereticino.ch/en.html?cb=1'))).toBeNull();
+  });
 });
 
 describe('apexPurgeBlindSpots flags exactly the purges that change nothing', () => {
@@ -157,6 +164,24 @@ describe('apexPurgeBlindSpots flags exactly the purges that change nothing', () 
   it('is silent for apex passthrough paths, where the apex purge IS the fix', () => {
     expect(
       apexPurgeBlindSpots(['https://frontaliereticino.ch/', 'https://frontaliereticino.ch/blog/x/']),
+    ).toEqual([]);
+  });
+
+  it('flags corpus R2 sitemaps but ignores the apex-passthrough HTML query exception', () => {
+    const urls = [
+      'https://frontaliereticino.ch/sitemap-cantons.xml',
+      'https://frontaliereticino.ch/en.html?cb=1',
+    ];
+    const gaps = apexPurgeBlindSpots(urls);
+    expect(gaps).toHaveLength(1);
+    expect(gaps[0].url).toBe(urls[0]);
+    expect(gaps[0].expectedCorpusFile).toBe('sitemap-cantons.xml');
+
+    expect(
+      apexPurgeBlindSpots([
+        urls[0],
+        'https://cdn.frontaliereticino.ch/edge/sections/_releases/abcdef1/sitemap-cantons.xml',
+      ]),
     ).toEqual([]);
   });
 });
