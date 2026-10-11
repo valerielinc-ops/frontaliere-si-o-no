@@ -773,8 +773,9 @@
    */
   function pageState(doc, { sawForm = false } = {}) {
     const text = textOf(doc.body);
-    if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
+    // An error page may retain generic thank-you copy; refusal is authoritative.
+    if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     const next = nextButton(doc);
     if (VERIFY_RE.test(text) && !collect(doc).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
     const required = collect(doc).filter((entry) => entry.required).length;

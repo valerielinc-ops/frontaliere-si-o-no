@@ -245,6 +245,8 @@ describe('fill extension: JOIN steps', () => {
       const shown = page(`<p>${text}</p>`);
       expect(shown.F.pageState(shown.document).kind, text).toBe('confirmed');
     }
+    const mixed = page('<p>La ringraziamo per la sua candidatura. Non siamo riusciti a inviare la tua candidatura. Riprova.</p>');
+    expect(mixed.F.pageState(mixed.document).kind).toBe('refused');
     // Review of #10980: a page's prose about other applicants is no confirmation.
     const prose = 'Es haben sich erfolgreich auf diese Stelle beworben: 12 Personen.';
     expect(CONFIRM_RE.test(prose)).toBe(false);

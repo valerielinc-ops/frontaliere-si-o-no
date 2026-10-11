@@ -1558,9 +1558,10 @@ async function waitForOutcome(page, captchaEnabled = false) {
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
-    if (CONFIRM_RE.test(text)) return 'confirmed';
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return 'refused';
+    // Refusal takes precedence when an error page retains generic thank-you copy.
+    if (CONFIRM_RE.test(text)) return 'confirmed';
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot?.captcha && captchaEnabled) {
       snapshot = await awaitCaptcha(page, snapshot, { enabled: true, timeoutMs: Math.max(0, deadline - Date.now()) });
