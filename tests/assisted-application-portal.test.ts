@@ -932,11 +932,16 @@ describe('portal runner helpers', () => {
     const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
     expect(questionTopic('Postcode', 'My Information')).toBe('residence_postal_code');
+    expect(questionTopic('Country', 'My Information / Country of birth')).toBe('');
     expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
     expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, country)).toEqual({ value: 'Schweiz', source: 'identity' });
+    expect(candidateAnswerForField({ ...candidate, identity: { ...candidate.identity, address: { street: '', postalCode: '', city: '', country: '' } } }, postcode))
+      .toEqual({ value: '6830', source: 'identity' });
+    expect(candidateAnswerForField({ ...candidate, profile: { ...candidate.profile, address: { ...candidate.profile.address, street: '12 Via Roma' } } }, { ...street, label: 'Street Name' }))
+      .toEqual({ value: 'Via Roma', source: 'identity' });
     const guarded = guardPlan({ actions: [
       { fieldId: repeatEmail.id, action: 'fill', value: candidate.identity.email, document: 'none', source: 'identity', evidence: '' },
       { fieldId: street.id, action: 'fill', value: 'Via Esempio', document: 'none', source: 'identity', evidence: '' },

@@ -398,7 +398,7 @@ const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indiriz
 // «Data di nascita». Only these residence-specific words override that noise
 // when a sibling-label context contains both kinds of information.
 const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+details|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
-const EXPLICIT_RESIDENCE_CONTEXT_RE = new RegExp(`(?:${PERSONAL_ADDRESS_CONTEXT_RE.source}|\\b(?:residen\\w*|domicil\\w*|abitaz\\w*|home\\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\\w*)\\b)`, 'i');
+const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
 const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 // Some ATS forms label the candidate's residence field only «CAP». A bare
@@ -418,7 +418,8 @@ export function addressQuestionTopic(text, context = '') {
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
   if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
-  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding) || PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding);
+  const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
+    || (PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding) && !nonResidenceContext);
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
@@ -628,7 +629,10 @@ export function candidateAnswerForField(candidate, field) {
     // Preserve the full CV address for a combined «Street address» field, but
     // do not send its trailing civic number into a street-name-only control.
     if (!field?.options?.length && topic === 'address_street' && STREET_NAME_ONLY_RE.test(String(field?.label || ''))) {
-      value = String(value || '').replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '').trim();
+      value = String(value || '')
+        .replace(/^\s*[0-9]{1,5}[A-Za-z]?\s*[,.-]?\s+/, '')
+        .replace(/\s+[0-9]{1,5}[A-Za-z]?\s*$/, '')
+        .trim();
     }
     return value ? { value, source: previous ? 'answers' : 'identity' } : null;
   }

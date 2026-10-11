@@ -158,7 +158,12 @@ export function addressQuestionAnswer(candidate, topic) {
   // does not hide an explicit profile value.
   const identity = candidate?.identity || {};
   const profile = candidate?.profile || {};
-  const rawAddress = { ...(profile.address || {}), ...(identity.address || {}) };
+  const rawAddress = { ...(profile.address || {}) };
+  for (const [key, value] of Object.entries(identity.address || {})) {
+    // An enriched identity can be partial: an empty field must not erase the
+    // corresponding explicit value retained in the legacy profile.
+    if (value !== null && value !== undefined && String(value).trim()) rawAddress[key] = value;
+  }
   const address = resolveResidenceAddress(rawAddress, identity.location || profile.location);
   if (topic === 'address' || topic === 'address_street') return address.street;
   if (topic === 'address_house_number') {
