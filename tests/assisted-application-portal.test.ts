@@ -934,6 +934,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Postcode', 'My Information')).toBe('residence_postal_code');
     expect(questionTopic('Country', 'My Information / Country of birth')).toBe('');
     expect(questionTopic('Country Phone Code*', 'My Information')).toBe('');
+    expect(questionTopic('Country code', 'My Information / Phone')).toBe('');
     expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });

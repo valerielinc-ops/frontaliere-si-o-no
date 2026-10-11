@@ -416,7 +416,7 @@ export function addressQuestionTopic(text, context = '') {
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(surrounding);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(surrounding);
   const employmentContext = EMPLOYMENT_CONTEXT_RE.test(surrounding);
-  if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || NON_RESIDENCE_ADDRESS_RE.test(value)
+  if (CONTACT_ADDRESS_RE.test(value) || PHONE_CODE_FIELD_RE.test(value) || PHONE_CODE_FIELD_RE.test(surrounding) || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding) && !nonResidenceContext);
