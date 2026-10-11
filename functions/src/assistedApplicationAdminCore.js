@@ -203,6 +203,7 @@ function serializeOrder(doc, cvUrl) {
     companyName: boundedString(data.companyName, 200),
     jobTitle: boundedString(data.jobTitle, 300),
     experimentVariant: boundedString(data.experimentVariant, 80),
+    copyVariant: boundedString(data.copyVariant, 80) || 'control',
     paymentStatus: boundedString(data.paymentStatus, 40),
     amountTotal: amountFor(data),
     currency: boundedString(data.currency || 'eur', 12).toUpperCase(),

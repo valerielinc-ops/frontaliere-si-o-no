@@ -306,6 +306,13 @@ describe('assisted application JobBoard handoff', () => {
     );
   });
 
+  it('keeps the four-arm copy assignment ready before showing either paid offer', () => {
+    expect(jobBoardSource).toContain('useAssistedApplicationCopyVariant');
+    expect(jobBoardSource).toContain('assistedApplicationCopyVariantReady');
+    expect(jobBoardSource).toContain('copyVariant: assistedApplicationCopyVariant');
+    expect(jobBoardSource).toContain('copyVariant={assistedApplicationCopyVariant}');
+  });
+
   it('keeps checkout auth failures distinct from session failures and records the auth resume', () => {
     const start = jobBoardSource.indexOf('const startAssistedCheckout = ');
     const end = jobBoardSource.indexOf('// A treatment click can happen', start);

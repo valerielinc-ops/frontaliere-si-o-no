@@ -91,6 +91,7 @@ function request(overrides: Record<string, unknown> = {}) {
       companyName: 'ACME SA',
       jobTitle: 'Software Developer',
       experimentVariant: 'assisted_application',
+      copyVariant: 'time_saved',
       successUrl: 'https://frontaliereticino.ch/lavoro/job-42',
       cancelUrl: 'https://frontaliereticino.ch/lavoro/job-42',
       requestKey: 'assisted-request-key-42',
@@ -196,6 +197,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       stripeCheckoutSessionId: 'cs_assisted_1',
       consentVersion: null,
       consentedAt: null,
+      copyVariant: 'time_saved',
     }));
   });
 
@@ -217,7 +219,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       experimentVariant: 'offerwall_fallback',
     }));
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
-      metadata: expect.objectContaining({ locale: 'fr', experimentVariant: 'offerwall_fallback' }),
+      metadata: expect.objectContaining({ locale: 'fr', experimentVariant: 'offerwall_fallback', copyVariant: 'time_saved' }),
     }), expect.anything());
   });
 
@@ -376,6 +378,19 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       body: { ok: false, error: 'assisted_application_request_conflict' },
     });
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps copy attribution out of checkout identity for existing request keys', async () => {
+    const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
+
+    const first = await handleCreateAssistedApplicationCheckout(request());
+    const resumed = await handleCreateAssistedApplicationCheckout(request({
+      body: { ...request().body, copyVariant: 'portal_relief' },
+    }));
+
+    expect(resumed).toEqual(first);
+    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledTimes(1);
+    expect(store.assisted_applications['order-1']).toEqual(expect.objectContaining({ copyVariant: 'time_saved' }));
   });
 
   it('rejects non-HTTPS job and redirect URLs before contacting Stripe', async () => {

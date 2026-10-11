@@ -39,6 +39,7 @@ import {
 import { isAdsConsentMessageOnScreen, onAdsConsentChange, reopenAdsConsentMessage } from '@/services/adsConsent';
 import {
   trackAssistedApplicationEvent,
+  type AssistedApplicationCopyVariant,
 } from '@/services/assistedApplicationExperiment';
 import { useTranslation } from '@/services/i18n';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
@@ -228,6 +229,8 @@ export interface RewardedApplicationOfferProps {
   companyId: string;
   companyName: string;
   jobTitle: string;
+  /** Copy arm used by the paid choice shown before the Offerwall. */
+  copyVariant?: AssistedApplicationCopyVariant;
   /**
    * Opens the employer in a new tab. It may resolve `false` when no new tab
    * took the foreground (a popup the browser blocked): the offer then shows
@@ -301,6 +304,7 @@ export default function RewardedApplicationOffer({
   companyId,
   companyName,
   jobTitle,
+  copyVariant = 'control',
   onContinue,
   onUnavailable,
   onDismiss,
@@ -396,6 +400,7 @@ export default function RewardedApplicationOffer({
     trigger: resumed ? RESUME_TRIGGER : TRIGGER,
     ad_unit: ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
     format: REWARDED_WEB_AD_FORMAT,
+    copy_variant: copyVariant,
     ms_since_click: Math.round(now() - openedAtRef.current),
     ...(info?.requestId ? { request_id: info.requestId } : {}),
   });
@@ -1279,6 +1284,7 @@ export default function RewardedApplicationOffer({
         companyId={companyId}
         companyName={companyName}
         jobTitle={jobTitle}
+        copyVariant={copyVariant}
         variant="rewarded_ad"
         trigger={CHOICE_TRIGGER}
         externalLabel={t('jobBoard.assisted.externalCtaVideo')}

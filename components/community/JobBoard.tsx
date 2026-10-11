@@ -225,8 +225,10 @@ import {
  ASSISTED_APPLICATION_PRICE_EUR_CENTS,
  shouldOfferPaidFallback,
  trackAssistedApplicationEvent,
+ useAssistedApplicationCopyVariant,
  useAssistedApplicationVariant,
  useOfferwallPaidFallback,
+ type AssistedApplicationCopyVariant,
  type AssistedApplicationVariant,
 } from '@/services/assistedApplicationExperiment';
 import { hasTransientUserActivation, watchNewTabOpened } from '@/services/userActivation';
@@ -2383,11 +2385,16 @@ async function upsertJobGateSubscriber(
   : upsertUnifiedEmailSubscriber(db, input);
 }
 
-function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
+function buildAssistedApplicationJobContext(
+ job: JobListing,
+ variant: AssistedApplicationVariant,
+ copyVariant?: AssistedApplicationCopyVariant,
+) {
  return {
   variant,
   jobId: String(job.id),
   companyId: String(job.companyKey || job.company || 'unknown'),
+  ...(copyVariant ? { copy_variant: copyVariant } : {}),
  };
 }
 
@@ -2434,19 +2441,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  } = useAssistedApplicationVariant(
   !alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
  );
+ const {
+  variant: assistedApplicationCopyVariant,
+  ready: assistedApplicationCopyVariantReady,
+ } = useAssistedApplicationCopyVariant(!shouldBypassAssistedApplicationExperiment);
  const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment
   ? 'control'
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
+ const assistedApplicationJobContext = (job: JobListing, variant: AssistedApplicationVariant) => (
+  buildAssistedApplicationJobContext(job, variant, assistedApplicationCopyVariant)
+ );
  // Paid 0,99 € offer as the fallback of an Offerwall that could not load
  // (owner decision 2026-09-29), only on the rewarded job-board surface.
  const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
   alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
  );
- const assistedApplicationVariantReady = shouldBypassAssistedApplicationExperiment
+ const assistedApplicationVariantReady = (shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
-  || configuredAssistedApplicationVariantReady;
+  || configuredAssistedApplicationVariantReady)
+  && (shouldBypassAssistedApplicationExperiment || assistedApplicationCopyVariantReady);
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -7517,6 +7532,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
     experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
+    copyVariant: assistedApplicationCopyVariant,
     successUrl: currentPath,
     cancelUrl: currentPath,
    }, user);
@@ -8077,6 +8093,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName={assistedApplicationJob.company}
     jobTitle={sanitizeJobTitle(assistedApplicationJob.titleByLocale?.[locale] ?? assistedApplicationJob.title)}
     variant={assistedApplicationVariant}
+    copyVariant={assistedApplicationCopyVariant}
     onChooseExternal={handleAssistedExternal}
     onChoosePaid={handleAssistedPaid}
     onClose={() => {
@@ -8098,6 +8115,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
+    copyVariant={assistedApplicationCopyVariant}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => {

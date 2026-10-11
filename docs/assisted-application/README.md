@@ -6,6 +6,7 @@ Questa cartella raccoglie ciò che il codice della candidatura assistita cita ma
 |---|---|
 | [`report-cv-lettera.md`](report-cv-lettera.md) | Lo studio del 2 ottobre 2026: stato del codice, progetti valutati, template, lettera, piano a fasi, stato dell'implementazione. Il codice lo cita come «report-cv-lettera §N». |
 | [`decisioni.md`](decisioni.md) | Le decisioni prese sui punti aperti dello studio e sugli interruttori Remote Config: per ognuna i fatti, la scelta, dove vive nel codice e come si cambia. |
+| [`copy-ab-test.md`](copy-ab-test.md) | Piano del test a quattro varianti per il testo dell'offerta di candidatura assistita. |
 | [`fonti/`](fonti/) | Le fonti delle decisioni del 3 ottobre 2026 (permesso e dati personali, dossier in un PDF, formule della lettera, firma): ogni affermazione con la sua citazione, l'indirizzo e l'esito della verifica indipendente. |
 | [`studio/`](studio/) | I materiali dello studio: convenzioni svizzere (fonti T1/T2/T3), i 40 progetti valutati con le licenze, i quattro confronti approfonditi, le note sul codice di allora. |
 

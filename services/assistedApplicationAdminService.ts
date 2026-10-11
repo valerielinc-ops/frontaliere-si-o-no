@@ -172,6 +172,7 @@ export interface AssistedApplicationAdminOrder {
   companyName: string;
   jobTitle: string;
   experimentVariant: AssistedApplicationVariant | string;
+  copyVariant?: string;
   paymentStatus: string;
   amountTotal: number | null;
   currency: string;

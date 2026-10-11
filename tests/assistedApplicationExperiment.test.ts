@@ -15,6 +15,8 @@ import { getConfigValue } from '@/services/firebase';
 
 import {
   ASSISTED_APPLICATION_EVENT_NAMES,
+  ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+  ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY,
   ASSISTED_APPLICATION_EXPERIMENT_ID,
   ASSISTED_APPLICATION_EXPERIMENT_RC_KEY,
   ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY,
@@ -23,9 +25,12 @@ import {
   shouldOfferPaidFallback,
   useOfferwallPaidFallback,
   normalizeAssistedApplicationVariant,
+  normalizeAssistedApplicationCopyVariant,
+  resolveAssistedApplicationCopyVariant,
   resolveAssistedApplicationVariant,
   shouldSuppressAssistedApplicationEvent,
   trackAssistedApplicationEvent,
+  useAssistedApplicationCopyVariant,
   useAssistedApplicationVariant,
 } from '../services/assistedApplicationExperiment';
 
@@ -33,6 +38,7 @@ const getConfigValueMock = vi.mocked(getConfigValue);
 
 beforeEach(() => {
   vi.clearAllMocks();
+  localStorage.clear();
   getConfigValueMock.mockResolvedValue('auto');
 });
 
@@ -70,6 +76,26 @@ describe('assisted application experiment assignment', () => {
     expect(normalizeAssistedApplicationVariant('treatment')).toBeNull();
     expect(normalizeAssistedApplicationVariant(true)).toBeNull();
   });
+
+  it('assigns the copy test to four sticky arms with an approximately even split', () => {
+    const ids = Array.from({ length: 20_000 }, (_, index) => `copy-test-user-${index}`);
+    const counts = ids.reduce<Record<string, number>>((acc, id) => {
+      const variant = resolveAssistedApplicationCopyVariant(id);
+      acc[variant] = (acc[variant] || 0) + 1;
+      return acc;
+    }, {});
+
+    for (const variant of ['control', 'time_saved', 'portal_relief', 'handled_for_you']) {
+      expect(counts[variant]).toBeGreaterThanOrEqual(4_500);
+      expect(counts[variant]).toBeLessThanOrEqual(5_500);
+    }
+    expect(resolveAssistedApplicationCopyVariant('copy-test-user-42')).toBe(
+      resolveAssistedApplicationCopyVariant('copy-test-user-42'),
+    );
+    expect(resolveAssistedApplicationCopyVariant('')).toBe('control');
+    expect(normalizeAssistedApplicationCopyVariant('portal_relief')).toBe('portal_relief');
+    expect(normalizeAssistedApplicationCopyVariant('unknown')).toBeNull();
+  });
 });
 
 describe('assisted application Remote Config assignment', () => {
@@ -102,6 +128,20 @@ describe('assisted application Remote Config assignment', () => {
     expect(result.current).toMatchObject({ variant: 'control', ready: false });
     await waitFor(() => expect(result.current.ready).toBe(true));
     expect(result.current.variant).not.toBe('rewarded_ad');
+  });
+
+  it('uses Remote Config auto for the four-arm copy split and supports a forced QA arm', async () => {
+    getConfigValueMock.mockResolvedValue('auto');
+    const { result } = renderHook(() => useAssistedApplicationCopyVariant());
+
+    await waitFor(() => expect(result.current.ready).toBe(true));
+    expect(['control', 'time_saved', 'portal_relief', 'handled_for_you']).toContain(result.current.variant);
+    expect(getConfigValueMock).toHaveBeenCalledWith(ASSISTED_APPLICATION_COPY_VARIANT_RC_KEY);
+
+    getConfigValueMock.mockResolvedValue('portal_relief');
+    const forced = renderHook(() => useAssistedApplicationCopyVariant());
+    await waitFor(() => expect(forced.result.current.ready).toBe(true));
+    expect(forced.result.current.variant).toBe('portal_relief');
   });
 });
 
@@ -147,6 +187,21 @@ describe('assisted application funnel events', () => {
       job_id: 'job-42',
       company_id: 'company-acme',
       price_eur_cents: 99,
+    }));
+  });
+
+  it('joins copy-test events to the copy experiment without replacing the funnel arm', () => {
+    trackAssistedApplicationEvent('checkout_started', {
+      variant: 'assisted_application',
+      copy_variant: 'time_saved',
+      jobId: 'job-42',
+      companyId: 'company-acme',
+    });
+
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('checkout_started', expect.objectContaining({
+      experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,
+      copy_experiment_id: ASSISTED_APPLICATION_COPY_EXPERIMENT_ID,
+      copy_variant: 'time_saved',
     }));
   });
 });

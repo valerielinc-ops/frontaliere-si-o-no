@@ -14,6 +14,12 @@ vi.mock('@/services/i18n', () => ({
       'common.close': 'Chiudi',
       'jobBoard.assisted.title': 'Vuoi delegare questa candidatura?',
       'jobBoard.assisted.body': 'Invia il CV e i dati necessari.',
+      'jobBoard.assisted.copy.time_saved.title': 'Risparmia tempo sulla candidatura',
+      'jobBoard.assisted.copy.time_saved.body': 'Inviaci il CV e risparmia tempo.',
+      'jobBoard.assisted.copy.portal_relief.title': 'Preferisci non gestire il portale?',
+      'jobBoard.assisted.copy.portal_relief.body': 'Ci occupiamo del portale quando possibile.',
+      'jobBoard.assisted.copy.handled_for_you.title': 'Vuoi che ce ne occupiamo noi?',
+      'jobBoard.assisted.copy.handled_for_you.body': 'Affidaci questa candidatura.',
       'jobBoard.assisted.stepsLabel': 'Come funziona',
       'jobBoard.assisted.step1': 'Ci invii il CV',
       'jobBoard.assisted.step2': 'Prepariamo la candidatura',
@@ -66,6 +72,23 @@ describe('AssistedApplicationOffer', () => {
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
       'assisted_application_offer_viewed',
       expect.objectContaining({ price_eur_cents: 99, jobId: 'job-42', companyId: 'company-acme' }),
+    );
+  });
+
+  it.each([
+    ['control', 'Vuoi delegare questa candidatura?', 'Invia il CV e i dati necessari.'],
+    ['time_saved', 'Risparmia tempo sulla candidatura', 'Inviaci il CV e risparmia tempo.'],
+    ['portal_relief', 'Preferisci non gestire il portale?', 'Ci occupiamo del portale quando possibile.'],
+    ['handled_for_you', 'Vuoi che ce ne occupiamo noi?', 'Affidaci questa candidatura.'],
+  ] as const)('renders the %s copy arm without changing the offer choices', (copyVariant, title, body) => {
+    renderOffer({ copyVariant });
+
+    expect(screen.getByRole('heading', { name: title })).toBeTruthy();
+    expect(screen.getByText(body)).toBeTruthy();
+    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 0,99 €');
+    expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
+      'assisted_application_offer_viewed',
+      expect.objectContaining({ copy_variant: copyVariant }),
     );
   });
 
@@ -144,6 +167,7 @@ describe('AssistedApplicationOffer', () => {
       .toHaveTextContent('Candidati da solo, gratis con un breve video');
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith('assisted_application_offer_viewed', {
       variant: 'rewarded_ad',
+      copy_variant: 'control',
       jobId: 'job-42',
       companyId: 'company-acme',
       price_eur_cents: 99,
