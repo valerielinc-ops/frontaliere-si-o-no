@@ -223,12 +223,15 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // Offers are optional when the source has no verifiable price. When
-  // present, an Offer must contain a numeric price; AggregateOffer uses
-  // lowPrice instead.
+  // Every emitted Event must carry a complete Offer. Verified prices keep
+  // their source amount; unknown prices use the deterministic price: 0
+  // fallback. Zero does not by itself assert free access. AggregateOffer
+  // uses lowPrice instead of price.
   const offerType = String(schema.offers?.['@type'] || 'Offer').split('/').pop();
   const offerAmountField = offerType === 'AggregateOffer' ? 'lowPrice' : 'price';
-  if (schema.offers !== undefined && schema.offers !== null) {
+  if (schema.offers === undefined || schema.offers === null) {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
@@ -237,8 +240,6 @@ function validateEvent(schema, filePath) {
         errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must be a finite number` });
       } else if (price < 0) {
         errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} must not be negative` });
-      } else if (price === 0 && schema.isAccessibleForFree !== true) {
-        errors.push({ file: filePath, type: 'Event', field: `offers.${offerAmountField}`, message: `Event offers.${offerAmountField} 0 requires isAccessibleForFree=true` });
       }
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });

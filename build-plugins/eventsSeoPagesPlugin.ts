@@ -21,8 +21,8 @@
  *     archive pages remain indexable but omit stale Event rich-result markup
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
  *     and, when available, the rewritten description) — deploy-blocking; image, organizer and performer use
- *     source-backed values or deterministic defaults, while offers are emitted
- *     only when the source provides a confident price signal.
+ *     source-backed values or deterministic defaults, while offers are always
+ *     emitted with a verified amount or the deterministic zero-price fallback.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
@@ -109,8 +109,8 @@ type EventPrice = {
   url?: string;
   evidence?: 'structured-zero' | 'structured-free-access' | 'label-free' | 'numeric' | 'unknown';
   // Provenance (owner decision 2026-10-04): which admitted source and which of
-  // its fields produced the value. hasConfidentPrice() publishes only
-  // structured fields (JSON-LD offers.price / isAccessibleForFree).
+  // its fields produced the value. hasConfidentPrice() decides whether this
+  // source value replaces the deterministic zero-price JSON-LD fallback.
   priceSource?: string;
   priceField?: string;
   // Upper bound of a minimum price («from CHF X», AggregateOffer.highPrice).
@@ -146,7 +146,9 @@ interface SiteEvent {
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
   // fields the original tio-agenda MVP never had. Input slices may omit them;
   // eventLd() completes optional fields with deterministic defaults when a
-  // source slice is partial; the visible UI keeps confidence gates for price.
+  // source slice is partial; the visible UI keeps confidence gates for price,
+  // while JSON-LD always emits the zero-price fallback requested by the SEO
+  // contract.
   description?: string;
   price?: EventPrice;
   organizer?: EventEntity | EventEntity[];
@@ -1486,9 +1488,10 @@ export function zurichOffset(isoDate: string): string {
  * deterministic factual sentence built from event fields; it never falls
  * back to crawler prose. Older and partial slices are completed at
  * detail-page render time with deterministic catalog/venue/image defaults.
- * Offers remain optional when the source has no verifiable price. When a
- * source proves free access, the emitted Offer contains price 0 rather than
- * an incomplete Offer shell.
+ * Offers are always emitted. A verified source amount keeps its original
+ * Offer/AggregateOffer shape; when the source has no verifiable price, the
+ * schema receives a complete deterministic Offer with price 0. The visible
+ * price line still requires a confident source signal.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1541,7 +1544,14 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
       validFrom: event.price?.validFrom || event.startDate,
       url: event.price?.url || canonicalUrl || event.url,
     }
-    : undefined;
+    : {
+      '@type': 'Offer',
+      price: 0,
+      priceCurrency: event.price?.currency || 'CHF',
+      availability: 'https://schema.org/InStock',
+      validFrom: event.startDate,
+      url: canonicalUrl || event.url,
+    };
   return {
     '@context': 'https://schema.org',
     '@type': 'Event',
@@ -1574,9 +1584,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    // Free admission is a price claim too: only a structured source field may assert it.
+    // Only a confident source field may assert free admission. The
+    // zero-price fallback deliberately carries no free-access claim.
     ...(confidentPrice && event.price?.isFree ? { isAccessibleForFree: true } : {}),
-    ...(offer ? { offers: offer } : {}),
+    offers: offer,
   };
 }
 
