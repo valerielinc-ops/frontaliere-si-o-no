@@ -20,6 +20,7 @@ import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { markRetryExhaustedError } from './transient-fetch.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -133,6 +134,96 @@ export function hasMorePages(json, { fetchedCount } = {}) {
   }
 
   return pageLength >= PAGE_SIZE;
+}
+
+/**
+ * Walk the listing pages and return every unique listing.
+ *
+ * Why (issue #12802): on 2026-10-11 page 1 returned 20 jobs, then page 2 came
+ * back with HTTP 200 and no new listing, and the loop read that as the end of
+ * the board. The slice would have gone 70 → 19; only the shrink guard stopped
+ * the write. Every page states `totalNumber`, so a later page that adds
+ * nothing before that total is reached is a degraded response, not the end of
+ * the list. Such a page is fetched again up to `emptyPageRetries` times; if it
+ * stays empty the run throws a retry-exhausted error, which
+ * `exitCrawlerOnError` turns into a named soft exit that keeps the stored
+ * slice. A fetch failure after page 1 also throws. A page-1 fetch failure
+ * still returns `[]` (the caller's "no listings" exit).
+ *
+ * @param {object} options
+ * @param {(offset: number) => Promise<object>} options.fetchPage Fetches one listing payload.
+ * @param {(ms: number) => Promise<void>} [options.sleep]
+ * @param {number} [options.maxPages]
+ * @param {number} [options.emptyPageRetries]
+ * @param {number} [options.retryDelayMs]
+ * @returns {Promise<object[]>}
+ */
+export async function collectHitachiEnergyListings({
+  fetchPage,
+  sleep = async () => {},
+  maxPages = Infinity,
+  emptyPageRetries = 2,
+  retryDelayMs = 3000,
+}) {
+  const allItems = [];
+  const seenIds = new Set();
+  let declaredTotal = 0;
+  const recordDeclaredTotal = (json) => {
+    const pageTotal = Number(json?.totalNumber);
+    if (Number.isFinite(pageTotal) && pageTotal > declaredTotal) declaredTotal = pageTotal;
+  };
+  const unseen = (json) => parseHitachiEnergyListingJson(json).filter((item) => !seenIds.has(item.jobId));
+
+  for (let page = 0; page < maxPages; page++) {
+    const offset = page * PAGE_SIZE;
+    let json;
+    try {
+      json = await fetchPage(offset);
+    } catch (err) {
+      if (page > 0) throw err;
+      // fetch-failure-empty-ok: page 1 only — the caller logs "no listings" and keeps the stored slice; later pages rethrow
+      console.log(`  ⚠️ API page 1 fetch failed: ${err.message}`);
+      break;
+    }
+
+    recordDeclaredTotal(json);
+    let newItems = unseen(json);
+    for (let retry = 1; newItems.length === 0 && allItems.length < declaredTotal; retry++) {
+      const reason = `page ${page + 1} returned no new listings at ${allItems.length} of totalNumber=${declaredTotal}`;
+      if (retry > emptyPageRetries) {
+        throw markRetryExhaustedError(new Error(`Hitachi Energy listing ${reason} after ${emptyPageRetries} retries`));
+      }
+      console.warn(`  🔁 Listing ${reason} — retry ${retry}/${emptyPageRetries}`);
+      await sleep(retryDelayMs * retry);
+      json = await fetchPage(offset);
+      recordDeclaredTotal(json);
+      newItems = unseen(json);
+    }
+    if (newItems.length === 0) break;
+
+    for (const item of newItems) {
+      seenIds.add(item.jobId);
+      allItems.push(item);
+    }
+    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
+
+    // `fetchedCount` lets hasMorePages() fall back to the payload's own
+    // `totalNumber` when `loadMore` is absent — never to the page-length
+    // heuristic that truncated the crawl at a short first page (#4993).
+    if (!hasMorePages(json, { fetchedCount: allItems.length })) break;
+    await sleep(800);
+  }
+
+  if (declaredTotal > 0 && allItems.length < declaredTotal) {
+    // Loud, non-fatal: the source's last page arrived before its own declared
+    // count (e.g. `loadMore: false` early). The shrink guard is still the
+    // thing that refuses a bad write (#4993).
+    console.warn(
+      `  ⚠️ Pagination ended at ${allItems.length} listings but the API declares totalNumber=${declaredTotal} — treating this run as truncated.`,
+    );
+  }
+
+  return allItems;
 }
 
 /**

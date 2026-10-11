@@ -49,7 +49,7 @@ import {
   publishableHitachiEnergyRows,
   isHitachiEnergySwissRelevant,
   inferHitachiEnergyCanton,
-  hasMorePages,
+  collectHitachiEnergyListings,
   PAGE_SIZE,
 } from './lib/hitachi-energy-job-parser.mjs';
 import { exitCrawlerOnError, fetchHtml, fetchJson } from './lib/crawler-template.mjs';
@@ -75,7 +75,7 @@ const LISTING_API = 'https://www.hitachienergy.com/careers/open-jobs/_jcr_conten
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_PAGES = positiveIntFromEnv('HITACHI_MAX_PAGES', 100000); // uncapped — loop breaks on empty items / !hasMorePages
+const MAX_PAGES = positiveIntFromEnv('HITACHI_MAX_PAGES', 100000); // uncapped — collectHitachiEnergyListings stops on the declared last page
 const MAX_DETAIL_PAGES = positiveIntFromEnv('HITACHI_MAX_DETAIL_PAGES', 100000);
 const DETAIL_DELAY_MS = 1200;
 
@@ -173,52 +173,15 @@ function mapEmploymentType(jobType = '', contractType = '') {
 async function fetchAllListings() {
   console.log('🔍 Fetching Hitachi Energy Switzerland jobs via API...');
 
-  const allItems = [];
-  const seenIds = new Set();
-  let lastJson = null;
-
-  for (let page = 0; page < MAX_PAGES; page++) {
-    const offset = page * PAGE_SIZE;
-    const url = `${LISTING_API}?location=Switzerland${offset > 0 ? `&offset=${offset}` : ''}`;
-    console.log(`  📄 Page ${page + 1} (offset=${offset}): ${url}`);
-
-    let json;
-    try {
-      json = await fetchJson(url, { timeoutMs: TIMEOUT_MS });
-    } catch (err) {
-      // fetch-failure-empty-ok: bespoke runner outside runStandardCrawlerPipeline: a throw is an unclassified exit 1, not the template connection-level soft exit
-      console.log(`  ⚠️ API page ${page + 1} fetch failed: ${err.message}`);
-      break;
-    }
-
-    lastJson = json;
-    const items = parseHitachiEnergyListingJson(json);
-    const newItems = items.filter((item) => !seenIds.has(item.jobId));
-    if (newItems.length === 0) break;
-
-    for (const item of newItems) {
-      seenIds.add(item.jobId);
-      allItems.push(item);
-    }
-    console.log(`     Found ${newItems.length} new jobs (total: ${allItems.length})`);
-
-    // `fetchedCount` lets hasMorePages() fall back to the payload's own
-    // `totalNumber` when `loadMore` is absent — never to the page-length
-    // heuristic that truncated the crawl at a short first page (#4993).
-    if (!hasMorePages(json, { fetchedCount: allItems.length })) break;
-    await sleep(800);
-  }
-
-  const declaredTotal = Number(lastJson?.totalNumber);
-  if (Number.isFinite(declaredTotal) && declaredTotal > 0 && allItems.length < declaredTotal) {
-    // Loud, non-fatal: pagination ended before the source's own declared
-    // count. The shrink guard is still the thing that refuses a bad write,
-    // but this makes a truncated crawl legible in the run log instead of
-    // looking like a healthy short board (#4993).
-    console.warn(
-      `  ⚠️ Pagination ended at ${allItems.length} listings but the API declares totalNumber=${declaredTotal} — treating this run as truncated.`,
-    );
-  }
+  const allItems = await collectHitachiEnergyListings({
+    fetchPage: (offset) => {
+      const url = `${LISTING_API}?location=Switzerland${offset > 0 ? `&offset=${offset}` : ''}`;
+      console.log(`  📄 Page ${offset / PAGE_SIZE + 1} (offset=${offset}): ${url}`);
+      return fetchJson(url, { timeoutMs: TIMEOUT_MS, label: `Hitachi Energy listing offset=${offset}` });
+    },
+    sleep,
+    maxPages: MAX_PAGES,
+  });
 
   console.log(`📋 Total Switzerland listings: ${allItems.length}`);
   return allItems;
