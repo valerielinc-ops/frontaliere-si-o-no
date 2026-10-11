@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T10:55:55.786Z",
+  "updatedAt": "2026-10-11T11:14:41.987Z",
   "entries": [
     {
       "date": "2026-08-30",
@@ -94,6 +94,23 @@
           "poolTotal": 734,
           "poolRemaining": 518,
           "poolConsumedPct": 29.4
+        },
+        {
+          "section": "svizzera",
+          "poolTotal": 110,
+          "poolRemaining": 63,
+          "poolConsumedPct": 42.7
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "sections": [
+        {
+          "section": "frontaliere",
+          "poolTotal": 734,
+          "poolRemaining": 520,
+          "poolConsumedPct": 29.2
         },
         {
           "section": "svizzera",
