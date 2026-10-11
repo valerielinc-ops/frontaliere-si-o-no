@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   AGENT_SCHEMA,
   advanceName,
@@ -11,6 +11,7 @@ import {
   completeWithAgent,
   guardAgentStep,
   refusal,
+  runAction,
   withoutSecrets,
 } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import { isoDates, knownAnswer, knownValuesOf, planSystemPrompt } from '../scripts/assisted-application/lib/portal/plan.mjs';
@@ -20,6 +21,48 @@ const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', v
 const turn = (status: string, actions: any[] = [], questions: any[] = []) => ({ status, reason: '', advanceRef: '', actions, questions });
 
 describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
+  it('hands off a non-multipart Workday HTTP 500 even when the selected filename is visible', async () => {
+    let clock = 0;
+    const now = vi.spyOn(Date, 'now').mockImplementation(() => clock);
+    const listeners = new Map<string, Set<(event: any) => void>>();
+    const input: any = {
+      tagName: 'INPUT',
+      type: 'file',
+      files: [],
+      closest: () => null,
+      getAttribute: () => null,
+      matches: () => false,
+    };
+    const locator = {
+      evaluate: async (read: (element: any) => unknown) => read(input),
+      setInputFiles: async (files: string | string[]) => {
+        const selected = Array.isArray(files) ? files : [files];
+        input.files = selected.map((file) => ({ name: file.split('/').at(-1) }));
+        const request = { method: () => 'POST', headers: () => ({ 'content-type': 'application/json' }) };
+        for (const listener of listeners.get('request') || []) listener(request);
+        for (const listener of listeners.get('response') || []) listener({ request: () => request, status: () => 500 });
+        for (const listener of listeners.get('requestfinished') || []) listener(request);
+      },
+    };
+    const page = {
+      locator: (selector: string) => selector === '[role="alert"]:visible' ? { allInnerTexts: async () => [] } : locator,
+      url: () => 'https://acme.wd1.myworkdayjobs.com/apply',
+      on: (event: string, listener: (event: any) => void) => {
+        if (!listeners.has(event)) listeners.set(event, new Set());
+        listeners.get(event)?.add(listener);
+      },
+      off: (event: string, listener: (event: any) => void) => { listeners.get(event)?.delete(listener); },
+      getByText: () => ({ first: () => ({ isVisible: async () => true }) }),
+      waitForTimeout: async (ms: number) => { clock += ms; },
+    };
+    try {
+      const result = await runAction(page as any, act({ action: 'upload', document: 'cv' }), { cv: '/tmp/CV.pdf' });
+      expect(result).toEqual({ ok: false, error: 'upload_not_confirmed' });
+    } finally {
+      now.mockRestore();
+    }
+  });
+
   // Giro di prova 2026-10-01 on JOIN: "Quando sei nato?" is a calendar of day buttons.
   it('never lets the model invent a birth date: the question goes to the candidate, with every move on it', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
