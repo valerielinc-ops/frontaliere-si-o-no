@@ -17,7 +17,11 @@
  * file tests the upstream, pre-publish generator-side guards instead.
  */
 import { describe, expect, it } from 'vitest';
-import { assertNoFabricatedReferences, assertNoFabricatedLaborOfficeCrossLocale } from '../scripts/create-article.mjs';
+import {
+  assertNoFabricatedReferences,
+  assertNoFabricatedLaborOfficeCrossLocale,
+  assertTranslationsPassFactualityGates,
+} from '../scripts/create-article.mjs';
 
 describe('assertNoFabricatedReferences — bare "ufficio federale del lavoro" phrase (gap that shipped 3 articles)', () => {
   it('throws on the bare phrase with no qualifier — the variant that actually slipped through', () => {
@@ -124,5 +128,129 @@ describe('assertNoFabricatedLaborOfficeCrossLocale — catches translations that
   it('does not throw when a locale is absent (e.g. IT-only draft before translation)', () => {
     const data = { content: { it: cleanContent } };
     expect(() => assertNoFabricatedLaborOfficeCrossLocale(data)).not.toThrow();
+  });
+});
+
+describe('assertTranslationsPassFactualityGates — post-translation admission', () => {
+  const italian = {
+    body1: 'I frontalieri che lavorano in Ticino hanno un permesso G.',
+    body2: 'Il regime riguarda i frontalieri residenti in Italia.',
+    body3: 'La domanda si presenta all’autorità cantonale competente.',
+  };
+  const clean = {
+    body1: 'Cross-border commuters working in Ticino need a G permit.',
+    body2: 'The regime concerns cross-border commuters who live in Italy.',
+    body3: 'Applications go to the competent cantonal authority.',
+  };
+
+  it('blocks false-friend translations in EN, DE and FR as quality rejections', () => {
+    const data = {
+      content: {
+        it: italian,
+        en: { ...clean, body1: 'Border guards working in Ticino need a G permit.' },
+        de: { ...clean, body1: 'Grenzwächter, die im Tessin arbeiten, benötigen eine G-Bewilligung.' },
+        fr: { ...clean, body1: 'Les gardes-frontières qui travaillent au Tessin ont besoin d’un permis G.' },
+      },
+    };
+
+    let thrown: any;
+    try {
+      assertTranslationsPassFactualityGates(data);
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(Error);
+    expect(thrown.qualityReject).toBe(true);
+    expect(thrown.message).toMatch(/\[en\]/);
+    expect(thrown.message).toMatch(/\[de\]/);
+    expect(thrown.message).toMatch(/\[fr\]/);
+  });
+
+  it('checks translated titles for false friends before writing', () => {
+    const data = {
+      content: {
+        it: { ...italian, title: 'Frontalieri' },
+        en: { ...clean, title: 'Border guards' },
+        de: { ...clean, title: 'Grenzgänger' },
+        fr: { ...clean, title: 'Frontaliers' },
+      },
+    };
+    let thrown: any;
+    try {
+      assertTranslationsPassFactualityGates(data);
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(Error);
+    expect(thrown.message).toMatch(/translation-false-friend/i);
+    expect(thrown.qualityReject).toBe(true);
+  });
+
+  it('blocks prompt scaffolding introduced in a translated body', () => {
+    const data = {
+      content: {
+        it: italian,
+        en: { ...clean, body2: 'ARTICLE TITLE: Cross-border work in Ticino' },
+        de: clean,
+        fr: clean,
+      },
+    };
+    expect(() => assertTranslationsPassFactualityGates(data)).toThrow(/leaked-prompt-scaffolding/i);
+  });
+
+  it('cannot be disabled by an environment switch', () => {
+    const previous = process.env.ARTICLE_TRANSLATION_GATE;
+    process.env.ARTICLE_TRANSLATION_GATE = '0';
+    try {
+      const data = {
+        content: {
+          it: italian,
+          en: { ...clean, body1: 'Border guards working in Ticino need a G permit.' },
+          de: clean,
+          fr: clean,
+        },
+      };
+      expect(() => assertTranslationsPassFactualityGates(data)).toThrow(/translation-false-friend/i);
+    } finally {
+      if (previous === undefined) delete process.env.ARTICLE_TRANSLATION_GATE;
+      else process.env.ARTICLE_TRANSLATION_GATE = previous;
+    }
+  });
+
+  it('does not silently skip a missing target locale or a clean translation', () => {
+    expect(() => assertTranslationsPassFactualityGates({ content: { it: italian } }))
+      .toThrow(/translation-section-missing/i);
+    expect(() => assertTranslationsPassFactualityGates({
+      content: { it: italian, en: clean, de: clean, fr: clean },
+    })).not.toThrow();
+  });
+
+  it('still runs locale-local gates when the Italian reference is absent', () => {
+    expect(() => assertTranslationsPassFactualityGates({
+      content: {
+        en: { ...clean, body1: 'ARTICLE TITLE: Cross-border work in Ticino' },
+      },
+    })).toThrow(/leaked-prompt-scaffolding/i);
+  });
+
+  it('is wired into both the primary and shared secondary writer paths', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { fileURLToPath } = await import('node:url');
+    const { dirname, resolve } = await import('node:path');
+    const source = readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../scripts/create-article.mjs'), 'utf8');
+    const calls = source.match(/^\s*assertTranslationsPassFactualityGates\(data\);/gm) || [];
+    expect(calls).toHaveLength(2);
+
+    const primaryCall = source.indexOf('assertTranslationsPassFactualityGates(data);');
+    const imageGeneration = source.indexOf('const imagePath = await generateArticleImage(data);');
+    expect(primaryCall).toBeGreaterThan(source.indexOf('sanitizePromptPlaceholders(data);'));
+    expect(primaryCall).toBeLessThan(imageGeneration);
+
+    const secondaryWriter = source.indexOf('export async function registerArticleFiles(');
+    const secondaryBody = source.slice(secondaryWriter, secondaryWriter + 4500);
+    expect(secondaryBody).toContain('sanitizePromptPlaceholders(data);');
+    expect(secondaryBody).toContain('assertTranslationsPassFactualityGates(data);');
+    expect(secondaryBody.indexOf('assertTranslationsPassFactualityGates(data);'))
+      .toBeLessThan(secondaryBody.indexOf('clampSeoDescriptions(data);'));
   });
 });

@@ -103,6 +103,54 @@ describe('collectLocaleVariantEntries — fixtures', () => {
     expect(skipped.get('not-emitted')).toBe(1);
   });
 
+  it('excludes a quarantined cross-shard variant without dropping its indexable siblings', () => {
+    // An EN shard does not have the DE artifact on disk. The render loop still
+    // records the DE noindex decision before BUILD_LOCALE filters writes, so
+    // sitemap eligibility must use that cross-shard signal rather than local
+    // file existence. The page remains emitted; only its <loc> is withheld.
+    const inspectedPaths: string[] = [];
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP)],
+      () => true,
+      (pathNoSlash) => {
+        inspectedPaths.push(pathNoSlash);
+        return pathNoSlash !== '/de/gehalt-berechnen';
+      },
+    );
+
+    expect(inspectedPaths).toContain('/de/gehalt-berechnen');
+    expect(entries.map((entry) => entry.url)).toEqual([GROUP.en, GROUP.fr]);
+    expect(skipped.get('not-indexable')).toBe(1);
+  });
+
+  it('applies owner-rendered quarantine decisions per variant across independent groups', () => {
+    const secondGroup = {
+      it: `${BASE}/articoli-svizzera/secondo/`,
+      en: `${BASE}/en/swiss-articles/second/`,
+      de: `${BASE}/de/schweiz-artikel/zweiter/`,
+      fr: `${BASE}/fr/articles-suisse/deuxieme/`,
+    };
+    const quarantinedOwnerPaths = new Set([
+      '/de/gehalt-berechnen',
+      '/fr/articles-suisse/deuxieme',
+    ]);
+    const { entries, skipped } = collectLocaleVariantEntries(
+      [source(GROUP.it, GROUP), source(secondGroup.it, secondGroup)],
+      () => true,
+      (pathNoSlash) => !quarantinedOwnerPaths.has(pathNoSlash),
+    );
+
+    expect(entries.map((entry) => entry.url)).toEqual([
+      secondGroup.de,
+      GROUP.en,
+      secondGroup.en,
+      GROUP.fr,
+    ]);
+    expect(entries.map((entry) => entry.url)).not.toContain(GROUP.de);
+    expect(entries.map((entry) => entry.url)).not.toContain(secondGroup.fr);
+    expect(skipped.get('not-indexable')).toBe(2);
+  });
+
   it('skips a locale URL that already owns a <url> block in a seeded sitemap', () => {
     const sources = [
       source(GROUP.it, GROUP),

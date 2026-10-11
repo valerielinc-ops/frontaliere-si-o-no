@@ -2476,6 +2476,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  fr: parseBlogBodyLocale('fr'),
  } as const;
 
+ const ownedArticleHasPromptPlaceholder = (
+ urlPath: string,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ ): boolean => {
+ const segments = urlPath.split('/').filter(Boolean);
+ const sectionOffset = locale === 'it' ? 0 : 1;
+ const sectionSlug = segments[sectionOffset] ?? '';
+ const articleSlug = segments[sectionOffset + 1] ?? '';
+ if (!articleSlug) return false;
+ const articleIds = swissSlugs.has(sectionSlug)
+ ? swissArticleIdByLocale
+ : blogSlugs.has(sectionSlug)
+ ? blogArticleIdByLocale
+ : undefined;
+ if (!articleIds) return false;
+ const articleId = articleIds[locale][articleSlug] ?? articleIds.it[articleSlug];
+ const localizedBody = articleId
+ ? blogBodyByLocale[locale][articleId] ?? blogBodyByLocale.it[articleId]
+ : undefined;
+ return hasArticleBodyPromptPlaceholder(localizedBody);
+ };
+
  const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = ''): string => {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
@@ -3363,6 +3385,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // `<loc>` backfill is gated on — see the sitemap-locale-variants emit at the
  // end of this hook.
  const emittedLocaleVariants = new Set<string>();
+ // Render-time noindex decisions for those same variants. This is populated
+ // for every hreflang variant before WriteCollector applies BUILD_LOCALE, so a
+ // quarantined DE/EN/FR page remains excluded from the shared root sitemap on
+ // every shard even when its HTML is physically written by another shard.
+ const noindexLocaleVariants = new Set<string>();
 
  // Only process Italian URLs (no /en/, /de/, /fr/ prefix) to avoid duplicates —
  // locale variants are generated from the hreflang data
@@ -6083,8 +6110,26 @@ ${hrefTags}
 
  const locFile = np.join(distDir, locPath, 'index.html');
  const locNormalized = locPath.replace(/\/+$/, '') || '/';
- // Deterministic skip: if ogPagesPlugin owns this path, don't race on fs.existsSync
- if (ogPagesPaths.has(locNormalized) || FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;
+ // Deterministic skip: if ogPagesPlugin owns this path, don't race on
+ // fs.existsSync. Its rendered robots decision still belongs in the shared
+ // cross-shard ledger BEFORE the ownership skip: these are precisely the
+ // article variants that can carry the protective body-placeholder noindex.
+ // Use the same localized body and shared quality predicate as ogPagesPlugin;
+ // rendering a second full article shell here would undo the owner split and
+ // materially increase closeBundle memory.
+ if (ogPagesPaths.has(locNormalized)) {
+ if (
+ (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')
+ && ownedArticleHasPromptPlaceholder(locNormalized, hl.lang)
+ ) {
+ noindexLocaleVariants.add(locNormalized);
+ }
+ continue;
+ }
+ // FAQ hubs own both their HTML and their reciprocal sitemap entries. Thin
+ // locales are skipped by faqHubPlugin rather than emitted as noindex pages,
+ // so they are deliberately not admitted to this backfill's emit ledger.
+ if (FAQ_HUB_ROUTES.includes(`${locNormalized}/`)) continue;
  // Rendered by this plugin → it needs a <url><loc> of its own (#5110).
  // Recorded BEFORE `_qw`, not after: the WriteCollector drops writes whose
  // locale is outside BUILD_LOCALE on a per-locale shard build, so anything
@@ -6133,6 +6178,9 @@ ${hrefTags}
 
  const locDir = np.join(distDir, locPath);
  let locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs, url.path);
+ if (locPageHtml.includes('<meta name="robots" content="noindex')) {
+ noindexLocaleVariants.add(locNormalized);
+ }
  // Inject route-specific SEO block on home-critical landings to lift the
  // text-to-HTML ratio above the 10 % gate. Each route gets its own block
  // (calculator vs job-board), never the homepage block (off-topic).
@@ -6296,6 +6344,7 @@ ${hrefTags}
    const { entries, skipped: variantSkips } = collectLocaleVariantEntries(
      seededSources,
      (p) => emittedLocaleVariants.has(p) || ogPagesPaths.has(p),
+     (p) => !noindexLocaleVariants.has(p),
    );
    // Stale-shard sweep: a shrinking cohort must not leave a previous build's
    // higher-numbered shard behind for the index sweep to re-list.
